@@ -32,6 +32,11 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
   - The `Amazonka.Auth.runCredentialChain` function allows you to build your own custom credential chains.
 
+- Select parts of `amazonka-core:Amazonka.Data` are now re-exported from `amazonka-core:Amazonka.Core` (and by extension, `amazonka:Amazonka`), instead of the entire module. [\#851](https://github.com/brendanhay/amazonka/pull/851).
+
+  - In particular, serialisation classes and helpers are no longer exported, and service bindings import `Amazonka.Data` directly.
+  - Most library users should see little difference, but the `ToText` and `ToByteString` classes are no longer exported by default.
+
 - Records within the `amazonka-core` and `amazonka` libraries no longer have (inconsistent) leading underscores or prefixes [\#844](https://github.com/brendanhay/amazonka/pull/844). A few other functions were renamed/removed for consistency or to avoid name clashes:
 
   - `Amazonka.Env.envAuthMaybe` -> `Amazonka.authMaybe` (and its re-export from `Amazonka`)

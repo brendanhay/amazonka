@@ -149,7 +149,7 @@ sumData p s i vs = Sum s <$> mk <*> fmap HashMap.keys insts
       Exts.RecDecl
         ()
         (ident ctor)
-        [ Exts.FieldDecl () [ident ("from" <> typeId n)] (tycon "Core.Text")
+        [ Exts.FieldDecl () [ident ("from" <> typeId n)] (tycon "Data.Text")
         ]
 
     -- Sometimes the values share a name with a type, so we prime the

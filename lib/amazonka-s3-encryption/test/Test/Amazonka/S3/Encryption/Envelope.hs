@@ -15,6 +15,7 @@ import Control.Monad.Trans.Resource
 import Crypto.Cipher.AES
 import Crypto.Cipher.Types
 import Crypto.Error
+import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
 import Data.Conduit
 import qualified Data.Conduit.List as CL

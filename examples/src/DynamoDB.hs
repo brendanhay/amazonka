@@ -13,11 +13,13 @@ import Amazonka
 import Amazonka.DynamoDB as DynamoDB
 import Control.Lens
 import Control.Monad.IO.Class
+import Data.ByteString (ByteString)
 import Data.Conduit
 import qualified Data.Conduit.List as CL
 import Data.Generics.Product
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
+import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
 import System.IO
@@ -44,7 +46,7 @@ printTables reg sec hst prt = do
         . configureService dynamo
 
   runResourceT $ do
-    say $ "Listing all tables in region " <> toText reg
+    say $ "Listing all tables in region " <> fromRegion reg
     runConduit $
       paginate env newListTables
         .| CL.concatMap (view (field @"tableNames" . _Just))

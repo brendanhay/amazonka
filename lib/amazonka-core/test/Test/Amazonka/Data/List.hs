@@ -8,9 +8,8 @@
 module Test.Amazonka.Data.List (tests) where
 
 import Amazonka.Core
-import Amazonka.Prelude hiding
-  ( Item,
-  )
+import Amazonka.Data
+import Amazonka.Prelude hiding (Item)
 import Test.Amazonka.Util
 import Test.Tasty
 

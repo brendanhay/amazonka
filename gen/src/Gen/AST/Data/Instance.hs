@@ -40,15 +40,15 @@ instToText = \case
 
 instToQualifiedText :: Inst -> Text
 instToQualifiedText = \case
-  FromJSON {} -> "Core.FromJSON"
-  FromXML {} -> "Core.FromXML"
-  ToJSON {} -> "Core.ToJSON"
-  ToXML {} -> "Core.ToXML"
-  ToElement {} -> "Core.ToElement"
-  ToHeaders {} -> "Core.ToHeaders"
-  ToQuery {} -> "Core.ToQuery"
-  ToPath {} -> "Core.ToPath"
-  ToBody {} -> "Core.ToBody"
+  FromJSON {} -> "Data.FromJSON"
+  FromXML {} -> "Data.FromXML"
+  ToJSON {} -> "Data.ToJSON"
+  ToXML {} -> "Data.ToXML"
+  ToElement {} -> "Data.ToElement"
+  ToHeaders {} -> "Data.ToHeaders"
+  ToQuery {} -> "Data.ToQuery"
+  ToPath {} -> "Data.ToPath"
+  ToBody {} -> "Data.ToBody"
   IsHashable {} -> "Prelude.Hashable"
   IsNFData {} -> "Prelude.NFData"
 

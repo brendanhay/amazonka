@@ -7,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.Amazonka.Util where
 
-import Amazonka.Core hiding (error)
+import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as LBS

@@ -16,6 +16,7 @@ module Amazonka.ELB.Internal
     ) where
 
 import Amazonka.Core
+import Amazonka.Data
 
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing ELB to upload and write access logs.

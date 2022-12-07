@@ -10,7 +10,7 @@
 module Amazonka.S3.Encryption.Envelope where
 
 import qualified Amazonka as AWS
-import Amazonka.Core
+import Amazonka.Data
 import qualified Amazonka.KMS as KMS
 import qualified Amazonka.KMS.Lens as KMS
 import Amazonka.Prelude hiding (length)

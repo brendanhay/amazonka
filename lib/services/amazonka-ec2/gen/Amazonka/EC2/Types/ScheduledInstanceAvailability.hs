@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstanceAvailability where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ScheduledInstanceRecurrence
 import qualified Amazonka.Prelude as Prelude
@@ -49,7 +50,7 @@ data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
     -- types.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The time period for the first schedule to start.
-    firstSlotStartTime :: Prelude.Maybe Core.ISO8601,
+    firstSlotStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The number of available instances.
     availableInstanceCount :: Prelude.Maybe Prelude.Int,
     -- | The schedule recurrence.
@@ -153,7 +154,7 @@ scheduledInstanceAvailability_instanceType = Lens.lens (\ScheduledInstanceAvaila
 
 -- | The time period for the first schedule to start.
 scheduledInstanceAvailability_firstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.UTCTime)
-scheduledInstanceAvailability_firstSlotStartTime = Lens.lens (\ScheduledInstanceAvailability' {firstSlotStartTime} -> firstSlotStartTime) (\s@ScheduledInstanceAvailability' {} a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability) Prelude.. Lens.mapping Core._Time
+scheduledInstanceAvailability_firstSlotStartTime = Lens.lens (\ScheduledInstanceAvailability' {firstSlotStartTime} -> firstSlotStartTime) (\s@ScheduledInstanceAvailability' {} a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability) Prelude.. Lens.mapping Data._Time
 
 -- | The number of available instances.
 scheduledInstanceAvailability_availableInstanceCount :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
@@ -167,22 +168,22 @@ scheduledInstanceAvailability_recurrence = Lens.lens (\ScheduledInstanceAvailabi
 scheduledInstanceAvailability_slotDurationInHours :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
 scheduledInstanceAvailability_slotDurationInHours = Lens.lens (\ScheduledInstanceAvailability' {slotDurationInHours} -> slotDurationInHours) (\s@ScheduledInstanceAvailability' {} a -> s {slotDurationInHours = a} :: ScheduledInstanceAvailability)
 
-instance Core.FromXML ScheduledInstanceAvailability where
+instance Data.FromXML ScheduledInstanceAvailability where
   parseXML x =
     ScheduledInstanceAvailability'
-      Prelude.<$> (x Core..@? "purchaseToken")
-      Prelude.<*> (x Core..@? "minTermDurationInDays")
-      Prelude.<*> (x Core..@? "hourlyPrice")
-      Prelude.<*> (x Core..@? "maxTermDurationInDays")
-      Prelude.<*> (x Core..@? "totalScheduledInstanceHours")
-      Prelude.<*> (x Core..@? "networkPlatform")
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "firstSlotStartTime")
-      Prelude.<*> (x Core..@? "availableInstanceCount")
-      Prelude.<*> (x Core..@? "recurrence")
-      Prelude.<*> (x Core..@? "slotDurationInHours")
+      Prelude.<$> (x Data..@? "purchaseToken")
+      Prelude.<*> (x Data..@? "minTermDurationInDays")
+      Prelude.<*> (x Data..@? "hourlyPrice")
+      Prelude.<*> (x Data..@? "maxTermDurationInDays")
+      Prelude.<*> (x Data..@? "totalScheduledInstanceHours")
+      Prelude.<*> (x Data..@? "networkPlatform")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "firstSlotStartTime")
+      Prelude.<*> (x Data..@? "availableInstanceCount")
+      Prelude.<*> (x Data..@? "recurrence")
+      Prelude.<*> (x Data..@? "slotDurationInHours")
 
 instance
   Prelude.Hashable

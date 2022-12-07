@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MechanicalTurk.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -321,7 +322,7 @@ instance Core.AWSRequest CreateHITWithHITType where
     Response.receiveJSON
       ( \s h x ->
           CreateHITWithHITTypeResponse'
-            Prelude.<$> (x Core..?> "HIT")
+            Prelude.<$> (x Data..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -351,49 +352,49 @@ instance Prelude.NFData CreateHITWithHITType where
       `Prelude.seq` Prelude.rnf hITTypeId
       `Prelude.seq` Prelude.rnf lifetimeInSeconds
 
-instance Core.ToHeaders CreateHITWithHITType where
+instance Data.ToHeaders CreateHITWithHITType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MTurkRequesterServiceV20170117.CreateHITWithHITType" ::
+              Data.=# ( "MTurkRequesterServiceV20170117.CreateHITWithHITType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateHITWithHITType where
+instance Data.ToJSON CreateHITWithHITType where
   toJSON CreateHITWithHITType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HITLayoutParameters" Core..=)
+          [ ("HITLayoutParameters" Data..=)
               Prelude.<$> hITLayoutParameters,
-            ("HITReviewPolicy" Core..=)
+            ("HITReviewPolicy" Data..=)
               Prelude.<$> hITReviewPolicy,
-            ("MaxAssignments" Core..=)
+            ("MaxAssignments" Data..=)
               Prelude.<$> maxAssignments,
-            ("Question" Core..=) Prelude.<$> question,
-            ("UniqueRequestToken" Core..=)
+            ("Question" Data..=) Prelude.<$> question,
+            ("UniqueRequestToken" Data..=)
               Prelude.<$> uniqueRequestToken,
-            ("HITLayoutId" Core..=) Prelude.<$> hITLayoutId,
-            ("AssignmentReviewPolicy" Core..=)
+            ("HITLayoutId" Data..=) Prelude.<$> hITLayoutId,
+            ("AssignmentReviewPolicy" Data..=)
               Prelude.<$> assignmentReviewPolicy,
-            ("RequesterAnnotation" Core..=)
+            ("RequesterAnnotation" Data..=)
               Prelude.<$> requesterAnnotation,
-            Prelude.Just ("HITTypeId" Core..= hITTypeId),
+            Prelude.Just ("HITTypeId" Data..= hITTypeId),
             Prelude.Just
-              ("LifetimeInSeconds" Core..= lifetimeInSeconds)
+              ("LifetimeInSeconds" Data..= lifetimeInSeconds)
           ]
       )
 
-instance Core.ToPath CreateHITWithHITType where
+instance Data.ToPath CreateHITWithHITType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateHITWithHITType where
+instance Data.ToQuery CreateHITWithHITType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateHITWithHITTypeResponse' smart constructor.

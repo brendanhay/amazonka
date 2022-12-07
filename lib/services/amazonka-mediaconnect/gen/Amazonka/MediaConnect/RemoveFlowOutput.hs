@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,8 +103,8 @@ instance Core.AWSRequest RemoveFlowOutput where
     Response.receiveJSON
       ( \s h x ->
           RemoveFlowOutputResponse'
-            Prelude.<$> (x Core..?> "outputArn")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "outputArn")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,27 +118,27 @@ instance Prelude.NFData RemoveFlowOutput where
     Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf outputArn
 
-instance Core.ToHeaders RemoveFlowOutput where
+instance Data.ToHeaders RemoveFlowOutput where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveFlowOutput where
+instance Data.ToPath RemoveFlowOutput where
   toPath RemoveFlowOutput' {..} =
     Prelude.mconcat
       [ "/v1/flows/",
-        Core.toBS flowArn,
+        Data.toBS flowArn,
         "/outputs/",
-        Core.toBS outputArn
+        Data.toBS outputArn
       ]
 
-instance Core.ToQuery RemoveFlowOutput where
+instance Data.ToQuery RemoveFlowOutput where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveFlowOutputResponse' smart constructor.

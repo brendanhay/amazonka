@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsIamRolePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An inline policy that is embedded in the role.
@@ -50,13 +51,13 @@ newAwsIamRolePolicy =
 awsIamRolePolicy_policyName :: Lens.Lens' AwsIamRolePolicy (Prelude.Maybe Prelude.Text)
 awsIamRolePolicy_policyName = Lens.lens (\AwsIamRolePolicy' {policyName} -> policyName) (\s@AwsIamRolePolicy' {} a -> s {policyName = a} :: AwsIamRolePolicy)
 
-instance Core.FromJSON AwsIamRolePolicy where
+instance Data.FromJSON AwsIamRolePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsIamRolePolicy"
       ( \x ->
           AwsIamRolePolicy'
-            Prelude.<$> (x Core..:? "PolicyName")
+            Prelude.<$> (x Data..:? "PolicyName")
       )
 
 instance Prelude.Hashable AwsIamRolePolicy where
@@ -66,9 +67,9 @@ instance Prelude.Hashable AwsIamRolePolicy where
 instance Prelude.NFData AwsIamRolePolicy where
   rnf AwsIamRolePolicy' {..} = Prelude.rnf policyName
 
-instance Core.ToJSON AwsIamRolePolicy where
+instance Data.ToJSON AwsIamRolePolicy where
   toJSON AwsIamRolePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("PolicyName" Core..=) Prelude.<$> policyName]
+          [("PolicyName" Data..=) Prelude.<$> policyName]
       )

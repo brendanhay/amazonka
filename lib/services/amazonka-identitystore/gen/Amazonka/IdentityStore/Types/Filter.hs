@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A query filter used by @ListUsers@ and @ListGroups@. This filter object
@@ -36,7 +37,7 @@ data Filter = Filter'
     attributePath :: Prelude.Text,
     -- | Represents the data for an attribute. Each attribute value is described
     -- as a name-value pair.
-    attributeValue :: Core.Sensitive Prelude.Text
+    attributeValue :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -65,7 +66,7 @@ newFilter pAttributePath_ pAttributeValue_ =
   Filter'
     { attributePath = pAttributePath_,
       attributeValue =
-        Core._Sensitive Lens.# pAttributeValue_
+        Data._Sensitive Lens.# pAttributeValue_
     }
 
 -- | The attribute path that is used to specify which attribute name to
@@ -78,7 +79,7 @@ filter_attributePath = Lens.lens (\Filter' {attributePath} -> attributePath) (\s
 -- | Represents the data for an attribute. Each attribute value is described
 -- as a name-value pair.
 filter_attributeValue :: Lens.Lens' Filter Prelude.Text
-filter_attributeValue = Lens.lens (\Filter' {attributeValue} -> attributeValue) (\s@Filter' {} a -> s {attributeValue = a} :: Filter) Prelude.. Core._Sensitive
+filter_attributeValue = Lens.lens (\Filter' {attributeValue} -> attributeValue) (\s@Filter' {} a -> s {attributeValue = a} :: Filter) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
@@ -90,13 +91,13 @@ instance Prelude.NFData Filter where
     Prelude.rnf attributePath
       `Prelude.seq` Prelude.rnf attributeValue
 
-instance Core.ToJSON Filter where
+instance Data.ToJSON Filter where
   toJSON Filter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AttributePath" Core..= attributePath),
+              ("AttributePath" Data..= attributePath),
             Prelude.Just
-              ("AttributeValue" Core..= attributeValue)
+              ("AttributeValue" Data..= attributeValue)
           ]
       )

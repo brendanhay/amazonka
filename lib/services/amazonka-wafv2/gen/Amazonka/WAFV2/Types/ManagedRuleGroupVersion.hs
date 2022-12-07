@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.ManagedRuleGroupVersion where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a single version of a managed rule group.
@@ -31,7 +32,7 @@ data ManagedRuleGroupVersion = ManagedRuleGroupVersion'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the managed rule group owner updated the rule
     -- group version information.
-    lastUpdateTimestamp :: Prelude.Maybe Core.POSIX
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +63,16 @@ managedRuleGroupVersion_name = Lens.lens (\ManagedRuleGroupVersion' {name} -> na
 -- | The date and time that the managed rule group owner updated the rule
 -- group version information.
 managedRuleGroupVersion_lastUpdateTimestamp :: Lens.Lens' ManagedRuleGroupVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleGroupVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleGroupVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleGroupVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleGroupVersion) Prelude.. Lens.mapping Core._Time
+managedRuleGroupVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleGroupVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleGroupVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleGroupVersion) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ManagedRuleGroupVersion where
+instance Data.FromJSON ManagedRuleGroupVersion where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ManagedRuleGroupVersion"
       ( \x ->
           ManagedRuleGroupVersion'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastUpdateTimestamp")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
       )
 
 instance Prelude.Hashable ManagedRuleGroupVersion where

@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -138,31 +139,31 @@ instance
       `Prelude.seq` Prelude.rnf trackingOptions
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateConfigurationSetTrackingOptions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     UpdateConfigurationSetTrackingOptions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     UpdateConfigurationSetTrackingOptions
   where
   toQuery UpdateConfigurationSetTrackingOptions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "UpdateConfigurationSetTrackingOptions" ::
+          Data.=: ( "UpdateConfigurationSetTrackingOptions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "TrackingOptions" Core.=: trackingOptions
+          Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName" Data.=: configurationSetName,
+        "TrackingOptions" Data.=: trackingOptions
       ]
 
 -- | An empty element returned on a successful request.

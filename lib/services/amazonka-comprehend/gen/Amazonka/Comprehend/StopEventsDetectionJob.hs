@@ -43,6 +43,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest StopEventsDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StopEventsDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
-            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,32 +97,32 @@ instance Prelude.Hashable StopEventsDetectionJob where
 instance Prelude.NFData StopEventsDetectionJob where
   rnf StopEventsDetectionJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders StopEventsDetectionJob where
+instance Data.ToHeaders StopEventsDetectionJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.StopEventsDetectionJob" ::
+              Data.=# ( "Comprehend_20171127.StopEventsDetectionJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopEventsDetectionJob where
+instance Data.ToJSON StopEventsDetectionJob where
   toJSON StopEventsDetectionJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath StopEventsDetectionJob where
+instance Data.ToPath StopEventsDetectionJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopEventsDetectionJob where
+instance Data.ToQuery StopEventsDetectionJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopEventsDetectionJobResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.AudioHlsRenditionSelection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Audio Hls Rendition Selection
@@ -71,13 +72,13 @@ audioHlsRenditionSelection_name = Lens.lens (\AudioHlsRenditionSelection' {name}
 audioHlsRenditionSelection_groupId :: Lens.Lens' AudioHlsRenditionSelection Prelude.Text
 audioHlsRenditionSelection_groupId = Lens.lens (\AudioHlsRenditionSelection' {groupId} -> groupId) (\s@AudioHlsRenditionSelection' {} a -> s {groupId = a} :: AudioHlsRenditionSelection)
 
-instance Core.FromJSON AudioHlsRenditionSelection where
+instance Data.FromJSON AudioHlsRenditionSelection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AudioHlsRenditionSelection"
       ( \x ->
           AudioHlsRenditionSelection'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "groupId")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "groupId")
       )
 
 instance Prelude.Hashable AudioHlsRenditionSelection where
@@ -89,11 +90,11 @@ instance Prelude.NFData AudioHlsRenditionSelection where
   rnf AudioHlsRenditionSelection' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf groupId
 
-instance Core.ToJSON AudioHlsRenditionSelection where
+instance Data.ToJSON AudioHlsRenditionSelection where
   toJSON AudioHlsRenditionSelection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("groupId" Core..= groupId)
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("groupId" Data..= groupId)
           ]
       )

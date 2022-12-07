@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -114,45 +115,45 @@ instance
     Prelude.rnf licenseManagerReportGeneratorArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteLicenseManagerReportGenerator
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.DeleteLicenseManagerReportGenerator" ::
+              Data.=# ( "AWSLicenseManager.DeleteLicenseManagerReportGenerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteLicenseManagerReportGenerator
   where
   toJSON DeleteLicenseManagerReportGenerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "LicenseManagerReportGeneratorArn"
-                  Core..= licenseManagerReportGeneratorArn
+                  Data..= licenseManagerReportGeneratorArn
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteLicenseManagerReportGenerator
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteLicenseManagerReportGenerator
   where
   toQuery = Prelude.const Prelude.mempty

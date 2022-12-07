@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,8 +188,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowExecutionTaskInvocationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "WindowExecutionTaskInvocationIdentities"
+            Prelude.<$> (x Data..?> "NextToken")
+              Prelude.<*> ( x Data..?> "WindowExecutionTaskInvocationIdentities"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -220,48 +221,48 @@ instance
         `Prelude.seq` Prelude.rnf taskId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" ::
+              Data.=# ( "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toJSON
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Core..=) Prelude.<$> nextToken,
-              ("Filters" Core..=) Prelude.<$> filters,
-              ("MaxResults" Core..=) Prelude.<$> maxResults,
+            [ ("NextToken" Data..=) Prelude.<$> nextToken,
+              ("Filters" Data..=) Prelude.<$> filters,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
               Prelude.Just
-                ("WindowExecutionId" Core..= windowExecutionId),
-              Prelude.Just ("TaskId" Core..= taskId)
+                ("WindowExecutionId" Data..= windowExecutionId),
+              Prelude.Just ("TaskId" Data..= taskId)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeMaintenanceWindowExecutionTaskInvocations
   where
   toQuery = Prelude.const Prelude.mempty

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterVpcSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A VPC security group that the cluster belongs to, if the cluster is in a
@@ -64,16 +65,16 @@ awsRedshiftClusterVpcSecurityGroup_vpcSecurityGroupId :: Lens.Lens' AwsRedshiftC
 awsRedshiftClusterVpcSecurityGroup_vpcSecurityGroupId = Lens.lens (\AwsRedshiftClusterVpcSecurityGroup' {vpcSecurityGroupId} -> vpcSecurityGroupId) (\s@AwsRedshiftClusterVpcSecurityGroup' {} a -> s {vpcSecurityGroupId = a} :: AwsRedshiftClusterVpcSecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterVpcSecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterVpcSecurityGroup"
       ( \x ->
           AwsRedshiftClusterVpcSecurityGroup'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "VpcSecurityGroupId")
+            Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "VpcSecurityGroupId")
       )
 
 instance
@@ -95,14 +96,14 @@ instance
       `Prelude.seq` Prelude.rnf vpcSecurityGroupId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterVpcSecurityGroup
   where
   toJSON AwsRedshiftClusterVpcSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("VpcSecurityGroupId" Core..=)
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("VpcSecurityGroupId" Data..=)
               Prelude.<$> vpcSecurityGroupId
           ]
       )

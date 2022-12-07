@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ImageRecycleBinInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newImageRecycleBinInfo' smart constructor.
 data ImageRecycleBinInfo = ImageRecycleBinInfo'
   { -- | The date and time when the AMI entered the Recycle Bin.
-    recycleBinEnterTime :: Prelude.Maybe Core.ISO8601,
+    recycleBinEnterTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the AMI.
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the AMI.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the AMI is to be permanently deleted from the
     -- Recycle Bin.
-    recycleBinExitTime :: Prelude.Maybe Core.ISO8601,
+    recycleBinExitTime :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the AMI.
     imageId :: Prelude.Maybe Prelude.Text
   }
@@ -74,7 +75,7 @@ newImageRecycleBinInfo =
 
 -- | The date and time when the AMI entered the Recycle Bin.
 imageRecycleBinInfo_recycleBinEnterTime :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
-imageRecycleBinInfo_recycleBinEnterTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Core._Time
+imageRecycleBinInfo_recycleBinEnterTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the AMI.
 imageRecycleBinInfo_name :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
@@ -87,20 +88,20 @@ imageRecycleBinInfo_description = Lens.lens (\ImageRecycleBinInfo' {description}
 -- | The date and time when the AMI is to be permanently deleted from the
 -- Recycle Bin.
 imageRecycleBinInfo_recycleBinExitTime :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
-imageRecycleBinInfo_recycleBinExitTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinExitTime} -> recycleBinExitTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinExitTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Core._Time
+imageRecycleBinInfo_recycleBinExitTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinExitTime} -> recycleBinExitTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinExitTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the AMI.
 imageRecycleBinInfo_imageId :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
 imageRecycleBinInfo_imageId = Lens.lens (\ImageRecycleBinInfo' {imageId} -> imageId) (\s@ImageRecycleBinInfo' {} a -> s {imageId = a} :: ImageRecycleBinInfo)
 
-instance Core.FromXML ImageRecycleBinInfo where
+instance Data.FromXML ImageRecycleBinInfo where
   parseXML x =
     ImageRecycleBinInfo'
-      Prelude.<$> (x Core..@? "recycleBinEnterTime")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "recycleBinExitTime")
-      Prelude.<*> (x Core..@? "imageId")
+      Prelude.<$> (x Data..@? "recycleBinEnterTime")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "recycleBinExitTime")
+      Prelude.<*> (x Data..@? "imageId")
 
 instance Prelude.Hashable ImageRecycleBinInfo where
   hashWithSalt _salt ImageRecycleBinInfo' {..} =

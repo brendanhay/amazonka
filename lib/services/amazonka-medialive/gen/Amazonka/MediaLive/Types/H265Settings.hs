@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.H265Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AfdSignaling
 import Amazonka.MediaLive.Types.FixedAfd
 import Amazonka.MediaLive.Types.H265AdaptiveQuantization
@@ -474,41 +475,41 @@ h265Settings_framerateNumerator = Lens.lens (\H265Settings' {framerateNumerator}
 h265Settings_framerateDenominator :: Lens.Lens' H265Settings Prelude.Natural
 h265Settings_framerateDenominator = Lens.lens (\H265Settings' {framerateDenominator} -> framerateDenominator) (\s@H265Settings' {} a -> s {framerateDenominator = a} :: H265Settings)
 
-instance Core.FromJSON H265Settings where
+instance Data.FromJSON H265Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "H265Settings"
       ( \x ->
           H265Settings'
-            Prelude.<$> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "qvbrQualityLevel")
-            Prelude.<*> (x Core..:? "afdSignaling")
-            Prelude.<*> (x Core..:? "bufSize")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sceneChangeDetect")
-            Prelude.<*> (x Core..:? "fixedAfd")
-            Prelude.<*> (x Core..:? "profile")
-            Prelude.<*> (x Core..:? "maxBitrate")
-            Prelude.<*> (x Core..:? "scanType")
-            Prelude.<*> (x Core..:? "colorSpaceSettings")
-            Prelude.<*> (x Core..:? "tier")
-            Prelude.<*> (x Core..:? "flickerAq")
-            Prelude.<*> (x Core..:? "gopClosedCadence")
-            Prelude.<*> (x Core..:? "alternativeTransferFunction")
-            Prelude.<*> (x Core..:? "parDenominator")
-            Prelude.<*> (x Core..:? "timecodeInsertion")
-            Prelude.<*> (x Core..:? "slices")
-            Prelude.<*> (x Core..:? "level")
-            Prelude.<*> (x Core..:? "filterSettings")
-            Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "colorMetadata")
-            Prelude.<*> (x Core..:? "lookAheadRateControl")
-            Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "minIInterval")
-            Prelude.<*> (x Core..:? "gopSize")
-            Prelude.<*> (x Core..: "framerateNumerator")
-            Prelude.<*> (x Core..: "framerateDenominator")
+            Prelude.<$> (x Data..:? "parNumerator")
+            Prelude.<*> (x Data..:? "gopSizeUnits")
+            Prelude.<*> (x Data..:? "qvbrQualityLevel")
+            Prelude.<*> (x Data..:? "afdSignaling")
+            Prelude.<*> (x Data..:? "bufSize")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sceneChangeDetect")
+            Prelude.<*> (x Data..:? "fixedAfd")
+            Prelude.<*> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "scanType")
+            Prelude.<*> (x Data..:? "colorSpaceSettings")
+            Prelude.<*> (x Data..:? "tier")
+            Prelude.<*> (x Data..:? "flickerAq")
+            Prelude.<*> (x Data..:? "gopClosedCadence")
+            Prelude.<*> (x Data..:? "alternativeTransferFunction")
+            Prelude.<*> (x Data..:? "parDenominator")
+            Prelude.<*> (x Data..:? "timecodeInsertion")
+            Prelude.<*> (x Data..:? "slices")
+            Prelude.<*> (x Data..:? "level")
+            Prelude.<*> (x Data..:? "filterSettings")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "colorMetadata")
+            Prelude.<*> (x Data..:? "lookAheadRateControl")
+            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "minIInterval")
+            Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..: "framerateNumerator")
+            Prelude.<*> (x Data..: "framerateDenominator")
       )
 
 instance Prelude.Hashable H265Settings where
@@ -584,53 +585,53 @@ instance Prelude.NFData H265Settings where
       `Prelude.seq` Prelude.rnf
         framerateDenominator
 
-instance Core.ToJSON H265Settings where
+instance Data.ToJSON H265Settings where
   toJSON H265Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("qvbrQualityLevel" Core..=)
+          [ ("parNumerator" Data..=) Prelude.<$> parNumerator,
+            ("gopSizeUnits" Data..=) Prelude.<$> gopSizeUnits,
+            ("qvbrQualityLevel" Data..=)
               Prelude.<$> qvbrQualityLevel,
-            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
-            ("bufSize" Core..=) Prelude.<$> bufSize,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sceneChangeDetect" Core..=)
+            ("afdSignaling" Data..=) Prelude.<$> afdSignaling,
+            ("bufSize" Data..=) Prelude.<$> bufSize,
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sceneChangeDetect" Data..=)
               Prelude.<$> sceneChangeDetect,
-            ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
-            ("profile" Core..=) Prelude.<$> profile,
-            ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
-            ("scanType" Core..=) Prelude.<$> scanType,
-            ("colorSpaceSettings" Core..=)
+            ("fixedAfd" Data..=) Prelude.<$> fixedAfd,
+            ("profile" Data..=) Prelude.<$> profile,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
+            ("scanType" Data..=) Prelude.<$> scanType,
+            ("colorSpaceSettings" Data..=)
               Prelude.<$> colorSpaceSettings,
-            ("tier" Core..=) Prelude.<$> tier,
-            ("flickerAq" Core..=) Prelude.<$> flickerAq,
-            ("gopClosedCadence" Core..=)
+            ("tier" Data..=) Prelude.<$> tier,
+            ("flickerAq" Data..=) Prelude.<$> flickerAq,
+            ("gopClosedCadence" Data..=)
               Prelude.<$> gopClosedCadence,
-            ("alternativeTransferFunction" Core..=)
+            ("alternativeTransferFunction" Data..=)
               Prelude.<$> alternativeTransferFunction,
-            ("parDenominator" Core..=)
+            ("parDenominator" Data..=)
               Prelude.<$> parDenominator,
-            ("timecodeInsertion" Core..=)
+            ("timecodeInsertion" Data..=)
               Prelude.<$> timecodeInsertion,
-            ("slices" Core..=) Prelude.<$> slices,
-            ("level" Core..=) Prelude.<$> level,
-            ("filterSettings" Core..=)
+            ("slices" Data..=) Prelude.<$> slices,
+            ("level" Data..=) Prelude.<$> level,
+            ("filterSettings" Data..=)
               Prelude.<$> filterSettings,
-            ("rateControlMode" Core..=)
+            ("rateControlMode" Data..=)
               Prelude.<$> rateControlMode,
-            ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
-            ("lookAheadRateControl" Core..=)
+            ("colorMetadata" Data..=) Prelude.<$> colorMetadata,
+            ("lookAheadRateControl" Data..=)
               Prelude.<$> lookAheadRateControl,
-            ("adaptiveQuantization" Core..=)
+            ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
-            ("minIInterval" Core..=) Prelude.<$> minIInterval,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
+            ("minIInterval" Data..=) Prelude.<$> minIInterval,
+            ("gopSize" Data..=) Prelude.<$> gopSize,
             Prelude.Just
-              ("framerateNumerator" Core..= framerateNumerator),
+              ("framerateNumerator" Data..= framerateNumerator),
             Prelude.Just
               ( "framerateDenominator"
-                  Core..= framerateDenominator
+                  Data..= framerateDenominator
               )
           ]
       )

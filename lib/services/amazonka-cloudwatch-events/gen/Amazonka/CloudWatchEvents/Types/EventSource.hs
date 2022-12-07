@@ -22,6 +22,7 @@ module Amazonka.CloudWatchEvents.Types.EventSource where
 import Amazonka.CloudWatchEvents.Types.EventSourceState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A partner event source is created by an SaaS partner. If a customer
@@ -35,7 +36,7 @@ data EventSource = EventSource'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event source will expire, if the Amazon Web
     -- Services account doesn\'t create a matching event bus for it.
-    expirationTime :: Prelude.Maybe Core.POSIX,
+    expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the event source.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the event source. If it is ACTIVE, you have already created
@@ -46,7 +47,7 @@ data EventSource = EventSource'
     -- deleted.
     state :: Prelude.Maybe EventSourceState,
     -- | The date and time the event source was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the partner that created the event source.
     createdBy :: Prelude.Maybe Prelude.Text
   }
@@ -96,7 +97,7 @@ eventSource_name = Lens.lens (\EventSource' {name} -> name) (\s@EventSource' {} 
 -- | The date and time that the event source will expire, if the Amazon Web
 -- Services account doesn\'t create a matching event bus for it.
 eventSource_expirationTime :: Lens.Lens' EventSource (Prelude.Maybe Prelude.UTCTime)
-eventSource_expirationTime = Lens.lens (\EventSource' {expirationTime} -> expirationTime) (\s@EventSource' {} a -> s {expirationTime = a} :: EventSource) Prelude.. Lens.mapping Core._Time
+eventSource_expirationTime = Lens.lens (\EventSource' {expirationTime} -> expirationTime) (\s@EventSource' {} a -> s {expirationTime = a} :: EventSource) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the event source.
 eventSource_arn :: Lens.Lens' EventSource (Prelude.Maybe Prelude.Text)
@@ -113,24 +114,24 @@ eventSource_state = Lens.lens (\EventSource' {state} -> state) (\s@EventSource' 
 
 -- | The date and time the event source was created.
 eventSource_creationTime :: Lens.Lens' EventSource (Prelude.Maybe Prelude.UTCTime)
-eventSource_creationTime = Lens.lens (\EventSource' {creationTime} -> creationTime) (\s@EventSource' {} a -> s {creationTime = a} :: EventSource) Prelude.. Lens.mapping Core._Time
+eventSource_creationTime = Lens.lens (\EventSource' {creationTime} -> creationTime) (\s@EventSource' {} a -> s {creationTime = a} :: EventSource) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the partner that created the event source.
 eventSource_createdBy :: Lens.Lens' EventSource (Prelude.Maybe Prelude.Text)
 eventSource_createdBy = Lens.lens (\EventSource' {createdBy} -> createdBy) (\s@EventSource' {} a -> s {createdBy = a} :: EventSource)
 
-instance Core.FromJSON EventSource where
+instance Data.FromJSON EventSource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSource"
       ( \x ->
           EventSource'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable EventSource where

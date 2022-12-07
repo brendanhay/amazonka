@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.QueueQuickConnectConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a queue for a quick connect. The flow must be
@@ -66,14 +67,14 @@ queueQuickConnectConfig_queueId = Lens.lens (\QueueQuickConnectConfig' {queueId}
 queueQuickConnectConfig_contactFlowId :: Lens.Lens' QueueQuickConnectConfig Prelude.Text
 queueQuickConnectConfig_contactFlowId = Lens.lens (\QueueQuickConnectConfig' {contactFlowId} -> contactFlowId) (\s@QueueQuickConnectConfig' {} a -> s {contactFlowId = a} :: QueueQuickConnectConfig)
 
-instance Core.FromJSON QueueQuickConnectConfig where
+instance Data.FromJSON QueueQuickConnectConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "QueueQuickConnectConfig"
       ( \x ->
           QueueQuickConnectConfig'
-            Prelude.<$> (x Core..: "QueueId")
-            Prelude.<*> (x Core..: "ContactFlowId")
+            Prelude.<$> (x Data..: "QueueId")
+            Prelude.<*> (x Data..: "ContactFlowId")
       )
 
 instance Prelude.Hashable QueueQuickConnectConfig where
@@ -86,12 +87,12 @@ instance Prelude.NFData QueueQuickConnectConfig where
     Prelude.rnf queueId
       `Prelude.seq` Prelude.rnf contactFlowId
 
-instance Core.ToJSON QueueQuickConnectConfig where
+instance Data.ToJSON QueueQuickConnectConfig where
   toJSON QueueQuickConnectConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("QueueId" Core..= queueId),
+          [ Prelude.Just ("QueueId" Data..= queueId),
             Prelude.Just
-              ("ContactFlowId" Core..= contactFlowId)
+              ("ContactFlowId" Data..= contactFlowId)
           ]
       )

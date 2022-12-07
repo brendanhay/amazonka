@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.IdentificationHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Identification hints.
@@ -89,17 +90,17 @@ identificationHints_vmWareUuid = Lens.lens (\IdentificationHints' {vmWareUuid} -
 identificationHints_vmPath :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_vmPath = Lens.lens (\IdentificationHints' {vmPath} -> vmPath) (\s@IdentificationHints' {} a -> s {vmPath = a} :: IdentificationHints)
 
-instance Core.FromJSON IdentificationHints where
+instance Data.FromJSON IdentificationHints where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentificationHints"
       ( \x ->
           IdentificationHints'
-            Prelude.<$> (x Core..:? "awsInstanceID")
-            Prelude.<*> (x Core..:? "fqdn")
-            Prelude.<*> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "vmWareUuid")
-            Prelude.<*> (x Core..:? "vmPath")
+            Prelude.<$> (x Data..:? "awsInstanceID")
+            Prelude.<*> (x Data..:? "fqdn")
+            Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "vmWareUuid")
+            Prelude.<*> (x Data..:? "vmPath")
       )
 
 instance Prelude.Hashable IdentificationHints where

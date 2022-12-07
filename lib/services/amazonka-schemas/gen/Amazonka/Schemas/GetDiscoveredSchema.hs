@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetDiscoveredSchema where
     Response.receiveJSON
       ( \s h x ->
           GetDiscoveredSchemaResponse'
-            Prelude.<$> (x Core..?> "Content")
+            Prelude.<$> (x Data..?> "Content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,30 +117,30 @@ instance Prelude.NFData GetDiscoveredSchema where
   rnf GetDiscoveredSchema' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf events
 
-instance Core.ToHeaders GetDiscoveredSchema where
+instance Data.ToHeaders GetDiscoveredSchema where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDiscoveredSchema where
+instance Data.ToJSON GetDiscoveredSchema where
   toJSON GetDiscoveredSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Events" Core..= events)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Events" Data..= events)
           ]
       )
 
-instance Core.ToPath GetDiscoveredSchema where
+instance Data.ToPath GetDiscoveredSchema where
   toPath = Prelude.const "/v1/discover"
 
-instance Core.ToQuery GetDiscoveredSchema where
+instance Data.ToQuery GetDiscoveredSchema where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDiscoveredSchemaResponse' smart constructor.

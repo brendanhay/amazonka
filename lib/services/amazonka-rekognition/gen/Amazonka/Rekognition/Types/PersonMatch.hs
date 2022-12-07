@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.PersonMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.FaceMatch
 import Amazonka.Rekognition.Types.PersonDetail
@@ -82,15 +83,15 @@ personMatch_timestamp = Lens.lens (\PersonMatch' {timestamp} -> timestamp) (\s@P
 personMatch_faceMatches :: Lens.Lens' PersonMatch (Prelude.Maybe [FaceMatch])
 personMatch_faceMatches = Lens.lens (\PersonMatch' {faceMatches} -> faceMatches) (\s@PersonMatch' {} a -> s {faceMatches = a} :: PersonMatch) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON PersonMatch where
+instance Data.FromJSON PersonMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PersonMatch"
       ( \x ->
           PersonMatch'
-            Prelude.<$> (x Core..:? "Person")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "FaceMatches" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Person")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "FaceMatches" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PersonMatch where

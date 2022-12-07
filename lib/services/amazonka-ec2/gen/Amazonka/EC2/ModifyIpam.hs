@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,7 +155,7 @@ instance Core.AWSRequest ModifyIpam where
     Response.receiveXML
       ( \s h x ->
           ModifyIpamResponse'
-            Prelude.<$> (x Core..@? "ipam")
+            Prelude.<$> (x Data..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,30 +175,30 @@ instance Prelude.NFData ModifyIpam where
       `Prelude.seq` Prelude.rnf addOperatingRegions
       `Prelude.seq` Prelude.rnf ipamId
 
-instance Core.ToHeaders ModifyIpam where
+instance Data.ToHeaders ModifyIpam where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyIpam where
+instance Data.ToPath ModifyIpam where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyIpam where
+instance Data.ToQuery ModifyIpam where
   toQuery ModifyIpam' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIpam" :: Prelude.ByteString),
+          Data.=: ("ModifyIpam" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "RemoveOperatingRegion"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "RemoveOperatingRegion"
               Prelude.<$> removeOperatingRegions
           ),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "AddOperatingRegion"
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "AddOperatingRegion"
               Prelude.<$> addOperatingRegions
           ),
-        "IpamId" Core.=: ipamId
+        "IpamId" Data.=: ipamId
       ]
 
 -- | /See:/ 'newModifyIpamResponse' smart constructor.

@@ -39,6 +39,7 @@ where
 import Amazonka.AppConfig.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,25 +93,25 @@ instance Prelude.NFData DeleteExtensionAssociation where
   rnf DeleteExtensionAssociation' {..} =
     Prelude.rnf extensionAssociationId
 
-instance Core.ToHeaders DeleteExtensionAssociation where
+instance Data.ToHeaders DeleteExtensionAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteExtensionAssociation where
+instance Data.ToPath DeleteExtensionAssociation where
   toPath DeleteExtensionAssociation' {..} =
     Prelude.mconcat
       [ "/extensionassociations/",
-        Core.toBS extensionAssociationId
+        Data.toBS extensionAssociationId
       ]
 
-instance Core.ToQuery DeleteExtensionAssociation where
+instance Data.ToQuery DeleteExtensionAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteExtensionAssociationResponse' smart constructor.

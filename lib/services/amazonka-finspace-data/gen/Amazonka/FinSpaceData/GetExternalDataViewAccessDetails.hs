@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FinSpaceData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -110,8 +111,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetExternalDataViewAccessDetailsResponse'
-            Prelude.<$> (x Core..?> "credentials")
-            Prelude.<*> (x Core..?> "s3Location")
+            Prelude.<$> (x Data..?> "credentials")
+            Prelude.<*> (x Data..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,34 +135,34 @@ instance
       `Prelude.seq` Prelude.rnf datasetId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetExternalDataViewAccessDetails
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetExternalDataViewAccessDetails where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetExternalDataViewAccessDetails where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetExternalDataViewAccessDetails where
+instance Data.ToPath GetExternalDataViewAccessDetails where
   toPath GetExternalDataViewAccessDetails' {..} =
     Prelude.mconcat
       [ "/datasets/",
-        Core.toBS datasetId,
+        Data.toBS datasetId,
         "/dataviewsv2/",
-        Core.toBS dataViewId,
+        Data.toBS dataViewId,
         "/external-access-details"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetExternalDataViewAccessDetails
   where
   toQuery = Prelude.const Prelude.mempty

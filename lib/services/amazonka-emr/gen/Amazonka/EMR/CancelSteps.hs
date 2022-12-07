@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -122,7 +123,7 @@ instance Core.AWSRequest CancelSteps where
     Response.receiveJSON
       ( \s h x ->
           CancelStepsResponse'
-            Prelude.<$> ( x Core..?> "CancelStepsInfoList"
+            Prelude.<$> ( x Data..?> "CancelStepsInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,36 +141,36 @@ instance Prelude.NFData CancelSteps where
       `Prelude.seq` Prelude.rnf clusterId
       `Prelude.seq` Prelude.rnf stepIds
 
-instance Core.ToHeaders CancelSteps where
+instance Data.ToHeaders CancelSteps where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.CancelSteps" ::
+              Data.=# ( "ElasticMapReduce.CancelSteps" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelSteps where
+instance Data.ToJSON CancelSteps where
   toJSON CancelSteps' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StepCancellationOption" Core..=)
+          [ ("StepCancellationOption" Data..=)
               Prelude.<$> stepCancellationOption,
-            Prelude.Just ("ClusterId" Core..= clusterId),
-            Prelude.Just ("StepIds" Core..= stepIds)
+            Prelude.Just ("ClusterId" Data..= clusterId),
+            Prelude.Just ("StepIds" Data..= stepIds)
           ]
       )
 
-instance Core.ToPath CancelSteps where
+instance Data.ToPath CancelSteps where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelSteps where
+instance Data.ToQuery CancelSteps where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the CancelSteps operation.

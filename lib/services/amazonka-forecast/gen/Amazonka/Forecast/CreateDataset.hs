@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -343,7 +344,7 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Core..?> "DatasetArn")
+            Prelude.<$> (x Data..?> "DatasetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -367,40 +368,40 @@ instance Prelude.NFData CreateDataset where
       `Prelude.seq` Prelude.rnf datasetType
       `Prelude.seq` Prelude.rnf schema
 
-instance Core.ToHeaders CreateDataset where
+instance Data.ToHeaders CreateDataset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.CreateDataset" ::
+              Data.=# ( "AmazonForecast.CreateDataset" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDataset where
+instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("EncryptionConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("EncryptionConfig" Data..=)
               Prelude.<$> encryptionConfig,
-            ("DataFrequency" Core..=) Prelude.<$> dataFrequency,
-            Prelude.Just ("DatasetName" Core..= datasetName),
-            Prelude.Just ("Domain" Core..= domain),
-            Prelude.Just ("DatasetType" Core..= datasetType),
-            Prelude.Just ("Schema" Core..= schema)
+            ("DataFrequency" Data..=) Prelude.<$> dataFrequency,
+            Prelude.Just ("DatasetName" Data..= datasetName),
+            Prelude.Just ("Domain" Data..= domain),
+            Prelude.Just ("DatasetType" Data..= datasetType),
+            Prelude.Just ("Schema" Data..= schema)
           ]
       )
 
-instance Core.ToPath CreateDataset where
+instance Data.ToPath CreateDataset where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDataset where
+instance Data.ToQuery CreateDataset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.

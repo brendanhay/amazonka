@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -138,9 +139,9 @@ instance Core.AWSRequest ListDevices where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Devices" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListDevices where
@@ -161,30 +162,30 @@ instance Prelude.NFData ListDevices where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deviceAggregatedStatusFilter
 
-instance Core.ToHeaders ListDevices where
+instance Data.ToHeaders ListDevices where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListDevices where
+instance Data.ToPath ListDevices where
   toPath = Prelude.const "/devices"
 
-instance Core.ToQuery ListDevices where
+instance Data.ToQuery ListDevices where
   toQuery ListDevices' {..} =
     Prelude.mconcat
-      [ "NameFilter" Core.=: nameFilter,
-        "SortOrder" Core.=: sortOrder,
-        "NextToken" Core.=: nextToken,
-        "SortBy" Core.=: sortBy,
-        "MaxResults" Core.=: maxResults,
+      [ "NameFilter" Data.=: nameFilter,
+        "SortOrder" Data.=: sortOrder,
+        "NextToken" Data.=: nextToken,
+        "SortBy" Data.=: sortBy,
+        "MaxResults" Data.=: maxResults,
         "DeviceAggregatedStatusFilter"
-          Core.=: deviceAggregatedStatusFilter
+          Data.=: deviceAggregatedStatusFilter
       ]
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.

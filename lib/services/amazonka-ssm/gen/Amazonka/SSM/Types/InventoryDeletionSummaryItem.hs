@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.InventoryDeletionSummaryItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Either a count, remaining count, or a version number in a delete
@@ -72,15 +73,15 @@ inventoryDeletionSummaryItem_count = Lens.lens (\InventoryDeletionSummaryItem' {
 inventoryDeletionSummaryItem_version :: Lens.Lens' InventoryDeletionSummaryItem (Prelude.Maybe Prelude.Text)
 inventoryDeletionSummaryItem_version = Lens.lens (\InventoryDeletionSummaryItem' {version} -> version) (\s@InventoryDeletionSummaryItem' {} a -> s {version = a} :: InventoryDeletionSummaryItem)
 
-instance Core.FromJSON InventoryDeletionSummaryItem where
+instance Data.FromJSON InventoryDeletionSummaryItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InventoryDeletionSummaryItem"
       ( \x ->
           InventoryDeletionSummaryItem'
-            Prelude.<$> (x Core..:? "RemainingCount")
-            Prelude.<*> (x Core..:? "Count")
-            Prelude.<*> (x Core..:? "Version")
+            Prelude.<$> (x Data..:? "RemainingCount")
+            Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Version")
       )
 
 instance

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,35 +127,35 @@ instance Prelude.NFData DeleteServiceAction where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DeleteServiceAction where
+instance Data.ToHeaders DeleteServiceAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
+              Data.=# ( "AWS242ServiceCatalogService.DeleteServiceAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteServiceAction where
+instance Data.ToJSON DeleteServiceAction where
   toJSON DeleteServiceAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DeleteServiceAction where
+instance Data.ToPath DeleteServiceAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteServiceAction where
+instance Data.ToQuery DeleteServiceAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteServiceActionResponse' smart constructor.

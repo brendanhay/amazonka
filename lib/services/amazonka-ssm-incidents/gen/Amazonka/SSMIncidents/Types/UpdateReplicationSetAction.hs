@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.UpdateReplicationSetAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMIncidents.Types.AddRegionAction
 import Amazonka.SSMIncidents.Types.DeleteRegionAction
@@ -80,13 +81,13 @@ instance Prelude.NFData UpdateReplicationSetAction where
     Prelude.rnf deleteRegionAction
       `Prelude.seq` Prelude.rnf addRegionAction
 
-instance Core.ToJSON UpdateReplicationSetAction where
+instance Data.ToJSON UpdateReplicationSetAction where
   toJSON UpdateReplicationSetAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deleteRegionAction" Core..=)
+          [ ("deleteRegionAction" Data..=)
               Prelude.<$> deleteRegionAction,
-            ("addRegionAction" Core..=)
+            ("addRegionAction" Data..=)
               Prelude.<$> addRegionAction
           ]
       )

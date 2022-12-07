@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.StrategyOption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.Strategy
 import Amazonka.MigrationHubStrategy.Types.TargetDestination
 import Amazonka.MigrationHubStrategy.Types.TransformationToolName
@@ -107,14 +108,14 @@ instance Prelude.NFData StrategyOption where
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf isPreferred
 
-instance Core.ToJSON StrategyOption where
+instance Data.ToJSON StrategyOption where
   toJSON StrategyOption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("targetDestination" Core..=)
+          [ ("targetDestination" Data..=)
               Prelude.<$> targetDestination,
-            ("toolName" Core..=) Prelude.<$> toolName,
-            ("strategy" Core..=) Prelude.<$> strategy,
-            ("isPreferred" Core..=) Prelude.<$> isPreferred
+            ("toolName" Data..=) Prelude.<$> toolName,
+            ("strategy" Data..=) Prelude.<$> strategy,
+            ("isPreferred" Data..=) Prelude.<$> isPreferred
           ]
       )

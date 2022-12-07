@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,8 +124,8 @@ instance Core.AWSRequest ListPackagesForDomain where
     Response.receiveJSON
       ( \s h x ->
           ListPackagesForDomainResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DomainPackageDetailsList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,22 +143,22 @@ instance Prelude.NFData ListPackagesForDomain where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders ListPackagesForDomain where
+instance Data.ToHeaders ListPackagesForDomain where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListPackagesForDomain where
+instance Data.ToPath ListPackagesForDomain where
   toPath ListPackagesForDomain' {..} =
     Prelude.mconcat
       [ "/2021-01-01/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/packages"
       ]
 
-instance Core.ToQuery ListPackagesForDomain where
+instance Data.ToQuery ListPackagesForDomain where
   toQuery ListPackagesForDomain' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Container for the response parameters to the @ListPackagesForDomain@

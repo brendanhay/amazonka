@@ -45,6 +45,7 @@ where
 import Amazonka.BackupGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -52,9 +53,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTestHypervisorConfiguration' smart constructor.
 data TestHypervisorConfiguration = TestHypervisorConfiguration'
   { -- | The password for the hypervisor.
-    password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username for the hypervisor.
-    username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the gateway to the hypervisor to test.
     gatewayArn :: Prelude.Text,
     -- | The server host of the hypervisor. This can be either an IP address or a
@@ -96,11 +97,11 @@ newTestHypervisorConfiguration pGatewayArn_ pHost_ =
 
 -- | The password for the hypervisor.
 testHypervisorConfiguration_password :: Lens.Lens' TestHypervisorConfiguration (Prelude.Maybe Prelude.Text)
-testHypervisorConfiguration_password = Lens.lens (\TestHypervisorConfiguration' {password} -> password) (\s@TestHypervisorConfiguration' {} a -> s {password = a} :: TestHypervisorConfiguration) Prelude.. Lens.mapping Core._Sensitive
+testHypervisorConfiguration_password = Lens.lens (\TestHypervisorConfiguration' {password} -> password) (\s@TestHypervisorConfiguration' {} a -> s {password = a} :: TestHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username for the hypervisor.
 testHypervisorConfiguration_username :: Lens.Lens' TestHypervisorConfiguration (Prelude.Maybe Prelude.Text)
-testHypervisorConfiguration_username = Lens.lens (\TestHypervisorConfiguration' {username} -> username) (\s@TestHypervisorConfiguration' {} a -> s {username = a} :: TestHypervisorConfiguration) Prelude.. Lens.mapping Core._Sensitive
+testHypervisorConfiguration_username = Lens.lens (\TestHypervisorConfiguration' {username} -> username) (\s@TestHypervisorConfiguration' {} a -> s {username = a} :: TestHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the gateway to the hypervisor to test.
 testHypervisorConfiguration_gatewayArn :: Lens.Lens' TestHypervisorConfiguration Prelude.Text
@@ -138,36 +139,36 @@ instance Prelude.NFData TestHypervisorConfiguration where
       `Prelude.seq` Prelude.rnf gatewayArn
       `Prelude.seq` Prelude.rnf host
 
-instance Core.ToHeaders TestHypervisorConfiguration where
+instance Data.ToHeaders TestHypervisorConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "BackupOnPremises_v20210101.TestHypervisorConfiguration" ::
+              Data.=# ( "BackupOnPremises_v20210101.TestHypervisorConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TestHypervisorConfiguration where
+instance Data.ToJSON TestHypervisorConfiguration where
   toJSON TestHypervisorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Password" Core..=) Prelude.<$> password,
-            ("Username" Core..=) Prelude.<$> username,
-            Prelude.Just ("GatewayArn" Core..= gatewayArn),
-            Prelude.Just ("Host" Core..= host)
+          [ ("Password" Data..=) Prelude.<$> password,
+            ("Username" Data..=) Prelude.<$> username,
+            Prelude.Just ("GatewayArn" Data..= gatewayArn),
+            Prelude.Just ("Host" Data..= host)
           ]
       )
 
-instance Core.ToPath TestHypervisorConfiguration where
+instance Data.ToPath TestHypervisorConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TestHypervisorConfiguration where
+instance Data.ToQuery TestHypervisorConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTestHypervisorConfigurationResponse' smart constructor.

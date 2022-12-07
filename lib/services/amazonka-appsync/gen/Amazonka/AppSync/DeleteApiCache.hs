@@ -41,6 +41,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,23 +95,23 @@ instance Prelude.Hashable DeleteApiCache where
 instance Prelude.NFData DeleteApiCache where
   rnf DeleteApiCache' {..} = Prelude.rnf apiId
 
-instance Core.ToHeaders DeleteApiCache where
+instance Data.ToHeaders DeleteApiCache where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteApiCache where
+instance Data.ToPath DeleteApiCache where
   toPath DeleteApiCache' {..} =
     Prelude.mconcat
-      ["/v1/apis/", Core.toBS apiId, "/ApiCaches"]
+      ["/v1/apis/", Data.toBS apiId, "/ApiCaches"]
 
-instance Core.ToQuery DeleteApiCache where
+instance Data.ToQuery DeleteApiCache where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteApiCache@ operation.

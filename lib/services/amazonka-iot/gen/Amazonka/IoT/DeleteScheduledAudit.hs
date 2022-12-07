@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,17 +101,17 @@ instance Prelude.NFData DeleteScheduledAudit where
   rnf DeleteScheduledAudit' {..} =
     Prelude.rnf scheduledAuditName
 
-instance Core.ToHeaders DeleteScheduledAudit where
+instance Data.ToHeaders DeleteScheduledAudit where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteScheduledAudit where
+instance Data.ToPath DeleteScheduledAudit where
   toPath DeleteScheduledAudit' {..} =
     Prelude.mconcat
       [ "/audit/scheduledaudits/",
-        Core.toBS scheduledAuditName
+        Data.toBS scheduledAuditName
       ]
 
-instance Core.ToQuery DeleteScheduledAudit where
+instance Data.ToQuery DeleteScheduledAudit where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScheduledAuditResponse' smart constructor.

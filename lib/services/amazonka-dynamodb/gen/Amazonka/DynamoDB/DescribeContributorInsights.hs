@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -102,14 +103,14 @@ instance Core.AWSRequest DescribeContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            Prelude.<$> (x Core..?> "ContributorInsightsStatus")
-            Prelude.<*> (x Core..?> "TableName")
-            Prelude.<*> ( x Core..?> "ContributorInsightsRuleList"
+            Prelude.<$> (x Data..?> "ContributorInsightsStatus")
+            Prelude.<*> (x Data..?> "TableName")
+            Prelude.<*> ( x Data..?> "ContributorInsightsRuleList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "LastUpdateDateTime")
-            Prelude.<*> (x Core..?> "FailureException")
-            Prelude.<*> (x Core..?> "IndexName")
+            Prelude.<*> (x Data..?> "LastUpdateDateTime")
+            Prelude.<*> (x Data..?> "FailureException")
+            Prelude.<*> (x Data..?> "IndexName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,34 +124,34 @@ instance Prelude.NFData DescribeContributorInsights where
     Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf tableName
 
-instance Core.ToHeaders DescribeContributorInsights where
+instance Data.ToHeaders DescribeContributorInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDB_20120810.DescribeContributorInsights" ::
+              Data.=# ( "DynamoDB_20120810.DescribeContributorInsights" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeContributorInsights where
+instance Data.ToJSON DescribeContributorInsights where
   toJSON DescribeContributorInsights' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IndexName" Core..=) Prelude.<$> indexName,
-            Prelude.Just ("TableName" Core..= tableName)
+          [ ("IndexName" Data..=) Prelude.<$> indexName,
+            Prelude.Just ("TableName" Data..= tableName)
           ]
       )
 
-instance Core.ToPath DescribeContributorInsights where
+instance Data.ToPath DescribeContributorInsights where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeContributorInsights where
+instance Data.ToQuery DescribeContributorInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeContributorInsightsResponse' smart constructor.
@@ -162,7 +163,7 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
     -- | List of names of the associated contributor insights rules.
     contributorInsightsRuleList :: Prelude.Maybe [Prelude.Text],
     -- | Timestamp of the last time the status was changed.
-    lastUpdateDateTime :: Prelude.Maybe Core.POSIX,
+    lastUpdateDateTime :: Prelude.Maybe Data.POSIX,
     -- | Returns information about the last failure that was encountered.
     --
     -- The most common exceptions for a FAILED status are:
@@ -256,7 +257,7 @@ describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\De
 
 -- | Timestamp of the last time the status was changed.
 describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.UTCTime)
-describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Core._Time
+describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Returns information about the last failure that was encountered.
 --

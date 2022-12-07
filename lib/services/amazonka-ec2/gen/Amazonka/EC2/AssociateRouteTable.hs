@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -134,8 +135,8 @@ instance Core.AWSRequest AssociateRouteTable where
     Response.receiveXML
       ( \s h x ->
           AssociateRouteTableResponse'
-            Prelude.<$> (x Core..@? "associationState")
-            Prelude.<*> (x Core..@? "associationId")
+            Prelude.<$> (x Data..@? "associationState")
+            Prelude.<*> (x Data..@? "associationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,23 +154,23 @@ instance Prelude.NFData AssociateRouteTable where
       `Prelude.seq` Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders AssociateRouteTable where
+instance Data.ToHeaders AssociateRouteTable where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath AssociateRouteTable where
+instance Data.ToPath AssociateRouteTable where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateRouteTable where
+instance Data.ToQuery AssociateRouteTable where
   toQuery AssociateRouteTable' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("AssociateRouteTable" :: Prelude.ByteString),
+          Data.=: ("AssociateRouteTable" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "SubnetId" Core.=: subnetId,
-        "DryRun" Core.=: dryRun,
-        "GatewayId" Core.=: gatewayId,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "SubnetId" Data.=: subnetId,
+        "DryRun" Data.=: dryRun,
+        "GatewayId" Data.=: gatewayId,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newAssociateRouteTableResponse' smart constructor.

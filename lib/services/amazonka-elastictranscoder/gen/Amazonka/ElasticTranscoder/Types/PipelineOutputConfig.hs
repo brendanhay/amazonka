@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.PipelineOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticTranscoder.Types.Permission
 import qualified Amazonka.Prelude as Prelude
 
@@ -173,15 +174,15 @@ pipelineOutputConfig_permissions = Lens.lens (\PipelineOutputConfig' {permission
 pipelineOutputConfig_storageClass :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe Prelude.Text)
 pipelineOutputConfig_storageClass = Lens.lens (\PipelineOutputConfig' {storageClass} -> storageClass) (\s@PipelineOutputConfig' {} a -> s {storageClass = a} :: PipelineOutputConfig)
 
-instance Core.FromJSON PipelineOutputConfig where
+instance Data.FromJSON PipelineOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PipelineOutputConfig"
       ( \x ->
           PipelineOutputConfig'
-            Prelude.<$> (x Core..:? "Bucket")
-            Prelude.<*> (x Core..:? "Permissions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "StorageClass")
+            Prelude.<$> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StorageClass")
       )
 
 instance Prelude.Hashable PipelineOutputConfig where
@@ -196,12 +197,12 @@ instance Prelude.NFData PipelineOutputConfig where
       `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf storageClass
 
-instance Core.ToJSON PipelineOutputConfig where
+instance Data.ToJSON PipelineOutputConfig where
   toJSON PipelineOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Bucket" Core..=) Prelude.<$> bucket,
-            ("Permissions" Core..=) Prelude.<$> permissions,
-            ("StorageClass" Core..=) Prelude.<$> storageClass
+          [ ("Bucket" Data..=) Prelude.<$> bucket,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("StorageClass" Data..=) Prelude.<$> storageClass
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Trial where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetadataProperties
 import Amazonka.SageMaker.Types.Tag
@@ -43,12 +44,12 @@ data Trial = Trial'
     -- a summary of the component\'s properties is included.
     trialComponentSummaries :: Prelude.Maybe [TrialComponentSimpleSummary],
     -- | Who last modified the trial.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     source :: Prelude.Maybe TrialSource,
     -- | The name of the trial.
     trialName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | Who created the trial.
     createdBy :: Prelude.Maybe UserContext,
@@ -132,7 +133,7 @@ trial_trialComponentSummaries = Lens.lens (\Trial' {trialComponentSummaries} -> 
 
 -- | Who last modified the trial.
 trial_lastModifiedTime :: Lens.Lens' Trial (Prelude.Maybe Prelude.UTCTime)
-trial_lastModifiedTime = Lens.lens (\Trial' {lastModifiedTime} -> lastModifiedTime) (\s@Trial' {} a -> s {lastModifiedTime = a} :: Trial) Prelude.. Lens.mapping Core._Time
+trial_lastModifiedTime = Lens.lens (\Trial' {lastModifiedTime} -> lastModifiedTime) (\s@Trial' {} a -> s {lastModifiedTime = a} :: Trial) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 trial_source :: Lens.Lens' Trial (Prelude.Maybe TrialSource)
@@ -144,7 +145,7 @@ trial_trialName = Lens.lens (\Trial' {trialName} -> trialName) (\s@Trial' {} a -
 
 -- | When the trial was created.
 trial_creationTime :: Lens.Lens' Trial (Prelude.Maybe Prelude.UTCTime)
-trial_creationTime = Lens.lens (\Trial' {creationTime} -> creationTime) (\s@Trial' {} a -> s {creationTime = a} :: Trial) Prelude.. Lens.mapping Core._Time
+trial_creationTime = Lens.lens (\Trial' {creationTime} -> creationTime) (\s@Trial' {} a -> s {creationTime = a} :: Trial) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 trial_lastModifiedBy :: Lens.Lens' Trial (Prelude.Maybe UserContext)
@@ -162,26 +163,26 @@ trial_trialArn = Lens.lens (\Trial' {trialArn} -> trialArn) (\s@Trial' {} a -> s
 trial_experimentName :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
 trial_experimentName = Lens.lens (\Trial' {experimentName} -> experimentName) (\s@Trial' {} a -> s {experimentName = a} :: Trial)
 
-instance Core.FromJSON Trial where
+instance Data.FromJSON Trial where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Trial"
       ( \x ->
           Trial'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MetadataProperties")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> ( x Core..:? "TrialComponentSummaries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MetadataProperties")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> ( x Data..:? "TrialComponentSummaries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "TrialName")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "TrialArn")
-            Prelude.<*> (x Core..:? "ExperimentName")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "TrialName")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "TrialArn")
+            Prelude.<*> (x Data..:? "ExperimentName")
       )
 
 instance Prelude.Hashable Trial where

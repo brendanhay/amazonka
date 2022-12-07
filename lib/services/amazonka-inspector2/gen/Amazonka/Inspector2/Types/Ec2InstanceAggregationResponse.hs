@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Ec2InstanceAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -111,19 +112,19 @@ ec2InstanceAggregationResponse_ami = Lens.lens (\Ec2InstanceAggregationResponse'
 ec2InstanceAggregationResponse_instanceId :: Lens.Lens' Ec2InstanceAggregationResponse Prelude.Text
 ec2InstanceAggregationResponse_instanceId = Lens.lens (\Ec2InstanceAggregationResponse' {instanceId} -> instanceId) (\s@Ec2InstanceAggregationResponse' {} a -> s {instanceId = a} :: Ec2InstanceAggregationResponse)
 
-instance Core.FromJSON Ec2InstanceAggregationResponse where
+instance Data.FromJSON Ec2InstanceAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ec2InstanceAggregationResponse"
       ( \x ->
           Ec2InstanceAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "operatingSystem")
-            Prelude.<*> (x Core..:? "instanceTags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "networkFindings")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "ami")
-            Prelude.<*> (x Core..: "instanceId")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "operatingSystem")
+            Prelude.<*> (x Data..:? "instanceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "networkFindings")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "ami")
+            Prelude.<*> (x Data..: "instanceId")
       )
 
 instance

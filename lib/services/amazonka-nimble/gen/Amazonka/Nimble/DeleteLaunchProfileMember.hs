@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,26 +149,26 @@ instance Prelude.NFData DeleteLaunchProfileMember where
       `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders DeleteLaunchProfileMember where
+instance Data.ToHeaders DeleteLaunchProfileMember where
   toHeaders DeleteLaunchProfileMember' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteLaunchProfileMember where
+instance Data.ToPath DeleteLaunchProfileMember where
   toPath DeleteLaunchProfileMember' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/membership/",
-        Core.toBS principalId
+        Data.toBS principalId
       ]
 
-instance Core.ToQuery DeleteLaunchProfileMember where
+instance Data.ToQuery DeleteLaunchProfileMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteLaunchProfileMemberResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.MemberDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types.DatasourcePackage
 import Amazonka.Detective.Types.DatasourcePackageIngestState
 import Amazonka.Detective.Types.DatasourcePackageUsageInfo
@@ -48,7 +49,7 @@ data MemberDetail = MemberDetail'
     -- | For invited accounts, the date and time that Detective sent the
     -- invitation to the account. The value is an ISO8601 formatted string. For
     -- example, @2021-08-18T16:35:56.284Z@.
-    invitedTime :: Prelude.Maybe Core.POSIX,
+    invitedTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the behavior graph.
     graphArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account identifier of the administrator account
@@ -109,13 +110,13 @@ data MemberDetail = MemberDetail'
     -- | The date and time when the graph utilization percentage was last
     -- updated. The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    percentOfGraphUtilizationUpdatedTime :: Prelude.Maybe Core.POSIX,
+    percentOfGraphUtilizationUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account identifier for the member account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The data and time when the member account data volume was last updated.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    volumeUsageUpdatedTime :: Prelude.Maybe Core.POSIX,
+    volumeUsageUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account identifier of the administrator account
     -- for the behavior graph.
     masterId :: Prelude.Maybe Prelude.Text,
@@ -132,7 +133,7 @@ data MemberDetail = MemberDetail'
     emailAddress :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member account was last updated. The value is
     -- an ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
-    updatedTime :: Prelude.Maybe Core.POSIX,
+    updatedTime :: Prelude.Maybe Data.POSIX,
     -- | The state of a data source package for the behavior graph.
     datasourcePackageIngestStates :: Prelude.Maybe (Prelude.HashMap DatasourcePackage DatasourcePackageIngestState)
   }
@@ -291,7 +292,7 @@ memberDetail_volumeUsageInBytes = Lens.lens (\MemberDetail' {volumeUsageInBytes}
 -- invitation to the account. The value is an ISO8601 formatted string. For
 -- example, @2021-08-18T16:35:56.284Z@.
 memberDetail_invitedTime :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.UTCTime)
-memberDetail_invitedTime = Lens.lens (\MemberDetail' {invitedTime} -> invitedTime) (\s@MemberDetail' {} a -> s {invitedTime = a} :: MemberDetail) Prelude.. Lens.mapping Core._Time
+memberDetail_invitedTime = Lens.lens (\MemberDetail' {invitedTime} -> invitedTime) (\s@MemberDetail' {} a -> s {invitedTime = a} :: MemberDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the behavior graph.
 memberDetail_graphArn :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.Text)
@@ -364,7 +365,7 @@ memberDetail_volumeUsageByDatasourcePackage = Lens.lens (\MemberDetail' {volumeU
 -- updated. The value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
 memberDetail_percentOfGraphUtilizationUpdatedTime :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.UTCTime)
-memberDetail_percentOfGraphUtilizationUpdatedTime = Lens.lens (\MemberDetail' {percentOfGraphUtilizationUpdatedTime} -> percentOfGraphUtilizationUpdatedTime) (\s@MemberDetail' {} a -> s {percentOfGraphUtilizationUpdatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Core._Time
+memberDetail_percentOfGraphUtilizationUpdatedTime = Lens.lens (\MemberDetail' {percentOfGraphUtilizationUpdatedTime} -> percentOfGraphUtilizationUpdatedTime) (\s@MemberDetail' {} a -> s {percentOfGraphUtilizationUpdatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account identifier for the member account.
 memberDetail_accountId :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.Text)
@@ -374,7 +375,7 @@ memberDetail_accountId = Lens.lens (\MemberDetail' {accountId} -> accountId) (\s
 -- The value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
 memberDetail_volumeUsageUpdatedTime :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.UTCTime)
-memberDetail_volumeUsageUpdatedTime = Lens.lens (\MemberDetail' {volumeUsageUpdatedTime} -> volumeUsageUpdatedTime) (\s@MemberDetail' {} a -> s {volumeUsageUpdatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Core._Time
+memberDetail_volumeUsageUpdatedTime = Lens.lens (\MemberDetail' {volumeUsageUpdatedTime} -> volumeUsageUpdatedTime) (\s@MemberDetail' {} a -> s {volumeUsageUpdatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Web Services account identifier of the administrator account
 -- for the behavior graph.
@@ -399,37 +400,37 @@ memberDetail_emailAddress = Lens.lens (\MemberDetail' {emailAddress} -> emailAdd
 -- | The date and time that the member account was last updated. The value is
 -- an ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
 memberDetail_updatedTime :: Lens.Lens' MemberDetail (Prelude.Maybe Prelude.UTCTime)
-memberDetail_updatedTime = Lens.lens (\MemberDetail' {updatedTime} -> updatedTime) (\s@MemberDetail' {} a -> s {updatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Core._Time
+memberDetail_updatedTime = Lens.lens (\MemberDetail' {updatedTime} -> updatedTime) (\s@MemberDetail' {} a -> s {updatedTime = a} :: MemberDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The state of a data source package for the behavior graph.
 memberDetail_datasourcePackageIngestStates :: Lens.Lens' MemberDetail (Prelude.Maybe (Prelude.HashMap DatasourcePackage DatasourcePackageIngestState))
 memberDetail_datasourcePackageIngestStates = Lens.lens (\MemberDetail' {datasourcePackageIngestStates} -> datasourcePackageIngestStates) (\s@MemberDetail' {} a -> s {datasourcePackageIngestStates = a} :: MemberDetail) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON MemberDetail where
+instance Data.FromJSON MemberDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberDetail"
       ( \x ->
           MemberDetail'
-            Prelude.<$> (x Core..:? "PercentOfGraphUtilization")
-            Prelude.<*> (x Core..:? "VolumeUsageInBytes")
-            Prelude.<*> (x Core..:? "InvitedTime")
-            Prelude.<*> (x Core..:? "GraphArn")
-            Prelude.<*> (x Core..:? "AdministratorId")
-            Prelude.<*> (x Core..:? "DisabledReason")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "VolumeUsageByDatasourcePackage"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "PercentOfGraphUtilization")
+            Prelude.<*> (x Data..:? "VolumeUsageInBytes")
+            Prelude.<*> (x Data..:? "InvitedTime")
+            Prelude.<*> (x Data..:? "GraphArn")
+            Prelude.<*> (x Data..:? "AdministratorId")
+            Prelude.<*> (x Data..:? "DisabledReason")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "VolumeUsageByDatasourcePackage"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "PercentOfGraphUtilizationUpdatedTime")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "VolumeUsageUpdatedTime")
-            Prelude.<*> (x Core..:? "MasterId")
-            Prelude.<*> (x Core..:? "InvitationType")
-            Prelude.<*> (x Core..:? "EmailAddress")
-            Prelude.<*> (x Core..:? "UpdatedTime")
-            Prelude.<*> ( x Core..:? "DatasourcePackageIngestStates"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "PercentOfGraphUtilizationUpdatedTime")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "VolumeUsageUpdatedTime")
+            Prelude.<*> (x Data..:? "MasterId")
+            Prelude.<*> (x Data..:? "InvitationType")
+            Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "UpdatedTime")
+            Prelude.<*> ( x Data..:? "DatasourcePackageIngestStates"
+                            Data..!= Prelude.mempty
                         )
       )
 

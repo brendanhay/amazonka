@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -299,12 +300,12 @@ instance Core.AWSRequest ImportSnapshot where
     Response.receiveXML
       ( \s h x ->
           ImportSnapshotResponse'
-            Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "importTaskId")
-            Prelude.<*> (x Core..@? "description")
-            Prelude.<*> (x Core..@? "snapshotTaskDetail")
+            Prelude.<*> (x Data..@? "importTaskId")
+            Prelude.<*> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "snapshotTaskDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -332,31 +333,31 @@ instance Prelude.NFData ImportSnapshot where
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf clientData
 
-instance Core.ToHeaders ImportSnapshot where
+instance Data.ToHeaders ImportSnapshot where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ImportSnapshot where
+instance Data.ToPath ImportSnapshot where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportSnapshot where
+instance Data.ToQuery ImportSnapshot where
   toQuery ImportSnapshot' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ImportSnapshot" :: Prelude.ByteString),
+          Data.=: ("ImportSnapshot" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "RoleName" Core.=: roleName,
-        "ClientToken" Core.=: clientToken,
-        "DiskContainer" Core.=: diskContainer,
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "RoleName" Data.=: roleName,
+        "ClientToken" Data.=: clientToken,
+        "DiskContainer" Data.=: diskContainer,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "ClientData" Core.=: clientData
+        "ClientData" Data.=: clientData
       ]
 
 -- | /See:/ 'newImportSnapshotResponse' smart constructor.

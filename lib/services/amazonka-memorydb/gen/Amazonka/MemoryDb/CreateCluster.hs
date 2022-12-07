@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MemoryDb.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -435,7 +436,7 @@ instance Core.AWSRequest CreateCluster where
     Response.receiveJSON
       ( \s h x ->
           CreateClusterResponse'
-            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<$> (x Data..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -489,62 +490,62 @@ instance Prelude.NFData CreateCluster where
       `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf aCLName
 
-instance Core.ToHeaders CreateCluster where
+instance Data.ToHeaders CreateCluster where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonMemoryDB.CreateCluster" ::
+              Data.=# ( "AmazonMemoryDB.CreateCluster" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateCluster where
+instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Port" Core..=) Prelude.<$> port,
-            ("SubnetGroupName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Port" Data..=) Prelude.<$> port,
+            ("SubnetGroupName" Data..=)
               Prelude.<$> subnetGroupName,
-            ("ParameterGroupName" Core..=)
+            ("ParameterGroupName" Data..=)
               Prelude.<$> parameterGroupName,
-            ("NumReplicasPerShard" Core..=)
+            ("NumReplicasPerShard" Data..=)
               Prelude.<$> numReplicasPerShard,
-            ("SnapshotName" Core..=) Prelude.<$> snapshotName,
-            ("SecurityGroupIds" Core..=)
+            ("SnapshotName" Data..=) Prelude.<$> snapshotName,
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("AutoMinorVersionUpgrade" Core..=)
+            ("AutoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
-            ("TLSEnabled" Core..=) Prelude.<$> tLSEnabled,
-            ("Description" Core..=) Prelude.<$> description,
-            ("SnapshotArns" Core..=) Prelude.<$> snapshotArns,
-            ("MaintenanceWindow" Core..=)
+            ("TLSEnabled" Data..=) Prelude.<$> tLSEnabled,
+            ("Description" Data..=) Prelude.<$> description,
+            ("SnapshotArns" Data..=) Prelude.<$> snapshotArns,
+            ("MaintenanceWindow" Data..=)
               Prelude.<$> maintenanceWindow,
-            ("SnapshotWindow" Core..=)
+            ("SnapshotWindow" Data..=)
               Prelude.<$> snapshotWindow,
-            ("SnapshotRetentionLimit" Core..=)
+            ("SnapshotRetentionLimit" Data..=)
               Prelude.<$> snapshotRetentionLimit,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("NumShards" Core..=) Prelude.<$> numShards,
-            ("DataTiering" Core..=) Prelude.<$> dataTiering,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            Prelude.Just ("ClusterName" Core..= clusterName),
-            Prelude.Just ("NodeType" Core..= nodeType),
-            Prelude.Just ("ACLName" Core..= aCLName)
+            ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("NumShards" Data..=) Prelude.<$> numShards,
+            ("DataTiering" Data..=) Prelude.<$> dataTiering,
+            ("EngineVersion" Data..=) Prelude.<$> engineVersion,
+            Prelude.Just ("ClusterName" Data..= clusterName),
+            Prelude.Just ("NodeType" Data..= nodeType),
+            Prelude.Just ("ACLName" Data..= aCLName)
           ]
       )
 
-instance Core.ToPath CreateCluster where
+instance Data.ToPath CreateCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateCluster where
+instance Data.ToQuery CreateCluster where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateClusterResponse' smart constructor.

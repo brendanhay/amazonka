@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.FileSystemDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types.FileSystemSize
 import Amazonka.EFS.Types.LifeCycleState
 import Amazonka.EFS.Types.PerformanceMode
@@ -76,7 +77,7 @@ data FileSystemDescription = FileSystemDescription'
     fileSystemId :: Prelude.Text,
     -- | The time that the file system was created, in seconds (since
     -- 1970-01-01T00:00:00Z).
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The lifecycle phase of the file system.
     lifeCycleState :: LifeCycleState,
     -- | The current number of mount targets that the file system has. For more
@@ -213,7 +214,7 @@ newFileSystemDescription
         ownerId = pOwnerId_,
         creationToken = pCreationToken_,
         fileSystemId = pFileSystemId_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         lifeCycleState = pLifeCycleState_,
         numberOfMountTargets = pNumberOfMountTargets_,
         sizeInBytes = pSizeInBytes_,
@@ -288,7 +289,7 @@ fileSystemDescription_fileSystemId = Lens.lens (\FileSystemDescription' {fileSys
 -- | The time that the file system was created, in seconds (since
 -- 1970-01-01T00:00:00Z).
 fileSystemDescription_creationTime :: Lens.Lens' FileSystemDescription Prelude.UTCTime
-fileSystemDescription_creationTime = Lens.lens (\FileSystemDescription' {creationTime} -> creationTime) (\s@FileSystemDescription' {} a -> s {creationTime = a} :: FileSystemDescription) Prelude.. Core._Time
+fileSystemDescription_creationTime = Lens.lens (\FileSystemDescription' {creationTime} -> creationTime) (\s@FileSystemDescription' {} a -> s {creationTime = a} :: FileSystemDescription) Prelude.. Data._Time
 
 -- | The lifecycle phase of the file system.
 fileSystemDescription_lifeCycleState :: Lens.Lens' FileSystemDescription LifeCycleState
@@ -321,29 +322,29 @@ fileSystemDescription_performanceMode = Lens.lens (\FileSystemDescription' {perf
 fileSystemDescription_tags :: Lens.Lens' FileSystemDescription [Tag]
 fileSystemDescription_tags = Lens.lens (\FileSystemDescription' {tags} -> tags) (\s@FileSystemDescription' {} a -> s {tags = a} :: FileSystemDescription) Prelude.. Lens.coerced
 
-instance Core.FromJSON FileSystemDescription where
+instance Data.FromJSON FileSystemDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FileSystemDescription"
       ( \x ->
           FileSystemDescription'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ProvisionedThroughputInMibps")
-            Prelude.<*> (x Core..:? "FileSystemArn")
-            Prelude.<*> (x Core..:? "AvailabilityZoneName")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ThroughputMode")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
-            Prelude.<*> (x Core..: "OwnerId")
-            Prelude.<*> (x Core..: "CreationToken")
-            Prelude.<*> (x Core..: "FileSystemId")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "LifeCycleState")
-            Prelude.<*> (x Core..: "NumberOfMountTargets")
-            Prelude.<*> (x Core..: "SizeInBytes")
-            Prelude.<*> (x Core..: "PerformanceMode")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ProvisionedThroughputInMibps")
+            Prelude.<*> (x Data..:? "FileSystemArn")
+            Prelude.<*> (x Data..:? "AvailabilityZoneName")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ThroughputMode")
+            Prelude.<*> (x Data..:? "AvailabilityZoneId")
+            Prelude.<*> (x Data..: "OwnerId")
+            Prelude.<*> (x Data..: "CreationToken")
+            Prelude.<*> (x Data..: "FileSystemId")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "LifeCycleState")
+            Prelude.<*> (x Data..: "NumberOfMountTargets")
+            Prelude.<*> (x Data..: "SizeInBytes")
+            Prelude.<*> (x Data..: "PerformanceMode")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FileSystemDescription where

@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.SourceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A specification for an environment configuration.
@@ -72,9 +73,9 @@ instance Prelude.NFData SourceConfiguration where
     Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf applicationName
 
-instance Core.ToQuery SourceConfiguration where
+instance Data.ToQuery SourceConfiguration where
   toQuery SourceConfiguration' {..} =
     Prelude.mconcat
-      [ "TemplateName" Core.=: templateName,
-        "ApplicationName" Core.=: applicationName
+      [ "TemplateName" Data.=: templateName,
+        "ApplicationName" Data.=: applicationName
       ]

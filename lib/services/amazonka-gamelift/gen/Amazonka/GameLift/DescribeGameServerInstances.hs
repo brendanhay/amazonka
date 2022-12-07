@@ -77,6 +77,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,8 +193,8 @@ instance Core.AWSRequest DescribeGameServerInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeGameServerInstancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "GameServerInstances"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "GameServerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -213,37 +214,37 @@ instance Prelude.NFData DescribeGameServerInstances where
       `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders DescribeGameServerInstances where
+instance Data.ToHeaders DescribeGameServerInstances where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DescribeGameServerInstances" ::
+              Data.=# ( "GameLift.DescribeGameServerInstances" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeGameServerInstances where
+instance Data.ToJSON DescribeGameServerInstances where
   toJSON DescribeGameServerInstances' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("InstanceIds" Core..=) Prelude.<$> instanceIds,
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath DescribeGameServerInstances where
+instance Data.ToPath DescribeGameServerInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeGameServerInstances where
+instance Data.ToQuery DescribeGameServerInstances where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeGameServerInstancesResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfigurationRedirectTo wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The redirect behavior for requests to the website.
@@ -69,16 +70,16 @@ awsS3BucketWebsiteConfigurationRedirectTo_protocol :: Lens.Lens' AwsS3BucketWebs
 awsS3BucketWebsiteConfigurationRedirectTo_protocol = Lens.lens (\AwsS3BucketWebsiteConfigurationRedirectTo' {protocol} -> protocol) (\s@AwsS3BucketWebsiteConfigurationRedirectTo' {} a -> s {protocol = a} :: AwsS3BucketWebsiteConfigurationRedirectTo)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketWebsiteConfigurationRedirectTo
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketWebsiteConfigurationRedirectTo"
       ( \x ->
           AwsS3BucketWebsiteConfigurationRedirectTo'
-            Prelude.<$> (x Core..:? "Hostname")
-              Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Data..:? "Hostname")
+              Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance
@@ -100,13 +101,13 @@ instance
       `Prelude.seq` Prelude.rnf protocol
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketWebsiteConfigurationRedirectTo
   where
   toJSON AwsS3BucketWebsiteConfigurationRedirectTo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Hostname" Core..=) Prelude.<$> hostname,
-            ("Protocol" Core..=) Prelude.<$> protocol
+          [ ("Hostname" Data..=) Prelude.<$> hostname,
+            ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

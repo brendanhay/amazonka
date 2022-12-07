@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Channel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CompressionType
 import Amazonka.SageMaker.Types.DataSource
@@ -214,19 +215,19 @@ channel_channelName = Lens.lens (\Channel' {channelName} -> channelName) (\s@Cha
 channel_dataSource :: Lens.Lens' Channel DataSource
 channel_dataSource = Lens.lens (\Channel' {dataSource} -> dataSource) (\s@Channel' {} a -> s {dataSource = a} :: Channel)
 
-instance Core.FromJSON Channel where
+instance Data.FromJSON Channel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Core..:? "ShuffleConfig")
-            Prelude.<*> (x Core..:? "InputMode")
-            Prelude.<*> (x Core..:? "CompressionType")
-            Prelude.<*> (x Core..:? "RecordWrapperType")
-            Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..: "ChannelName")
-            Prelude.<*> (x Core..: "DataSource")
+            Prelude.<$> (x Data..:? "ShuffleConfig")
+            Prelude.<*> (x Data..:? "InputMode")
+            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "RecordWrapperType")
+            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..: "ChannelName")
+            Prelude.<*> (x Data..: "DataSource")
       )
 
 instance Prelude.Hashable Channel where
@@ -249,18 +250,18 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf dataSource
 
-instance Core.ToJSON Channel where
+instance Data.ToJSON Channel where
   toJSON Channel' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ShuffleConfig" Core..=) Prelude.<$> shuffleConfig,
-            ("InputMode" Core..=) Prelude.<$> inputMode,
-            ("CompressionType" Core..=)
+          [ ("ShuffleConfig" Data..=) Prelude.<$> shuffleConfig,
+            ("InputMode" Data..=) Prelude.<$> inputMode,
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("RecordWrapperType" Core..=)
+            ("RecordWrapperType" Data..=)
               Prelude.<$> recordWrapperType,
-            ("ContentType" Core..=) Prelude.<$> contentType,
-            Prelude.Just ("ChannelName" Core..= channelName),
-            Prelude.Just ("DataSource" Core..= dataSource)
+            ("ContentType" Data..=) Prelude.<$> contentType,
+            Prelude.Just ("ChannelName" Data..= channelName),
+            Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )

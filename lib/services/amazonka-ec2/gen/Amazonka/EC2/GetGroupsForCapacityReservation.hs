@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,10 +169,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetGroupsForCapacityReservationResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "capacityReservationGroupSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "capacityReservationGroupSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -199,28 +200,28 @@ instance
       `Prelude.seq` Prelude.rnf capacityReservationId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetGroupsForCapacityReservation
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetGroupsForCapacityReservation where
+instance Data.ToPath GetGroupsForCapacityReservation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetGroupsForCapacityReservation where
+instance Data.ToQuery GetGroupsForCapacityReservation where
   toQuery GetGroupsForCapacityReservation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetGroupsForCapacityReservation" ::
+          Data.=: ( "GetGroupsForCapacityReservation" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "CapacityReservationId"
-          Core.=: capacityReservationId
+          Data.=: capacityReservationId
       ]
 
 -- | /See:/ 'newGetGroupsForCapacityReservationResponse' smart constructor.

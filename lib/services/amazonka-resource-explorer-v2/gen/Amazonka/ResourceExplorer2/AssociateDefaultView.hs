@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -103,7 +104,7 @@ instance Core.AWSRequest AssociateDefaultView where
     Response.receiveJSON
       ( \s h x ->
           AssociateDefaultViewResponse'
-            Prelude.<$> (x Core..?> "ViewArn")
+            Prelude.<$> (x Data..?> "ViewArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,28 +115,28 @@ instance Prelude.Hashable AssociateDefaultView where
 instance Prelude.NFData AssociateDefaultView where
   rnf AssociateDefaultView' {..} = Prelude.rnf viewArn
 
-instance Core.ToHeaders AssociateDefaultView where
+instance Data.ToHeaders AssociateDefaultView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateDefaultView where
+instance Data.ToJSON AssociateDefaultView where
   toJSON AssociateDefaultView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ViewArn" Core..= viewArn)]
+          [Prelude.Just ("ViewArn" Data..= viewArn)]
       )
 
-instance Core.ToPath AssociateDefaultView where
+instance Data.ToPath AssociateDefaultView where
   toPath = Prelude.const "/AssociateDefaultView"
 
-instance Core.ToQuery AssociateDefaultView where
+instance Data.ToQuery AssociateDefaultView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateDefaultViewResponse' smart constructor.

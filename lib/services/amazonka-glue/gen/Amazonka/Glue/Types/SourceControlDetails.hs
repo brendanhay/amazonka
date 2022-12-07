@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SourceControlDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.SourceControlAuthStrategy
 import Amazonka.Glue.Types.SourceControlProvider
 import qualified Amazonka.Prelude as Prelude
@@ -121,20 +122,20 @@ sourceControlDetails_lastCommitId = Lens.lens (\SourceControlDetails' {lastCommi
 sourceControlDetails_authStrategy :: Lens.Lens' SourceControlDetails (Prelude.Maybe SourceControlAuthStrategy)
 sourceControlDetails_authStrategy = Lens.lens (\SourceControlDetails' {authStrategy} -> authStrategy) (\s@SourceControlDetails' {} a -> s {authStrategy = a} :: SourceControlDetails)
 
-instance Core.FromJSON SourceControlDetails where
+instance Data.FromJSON SourceControlDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceControlDetails"
       ( \x ->
           SourceControlDetails'
-            Prelude.<$> (x Core..:? "Branch")
-            Prelude.<*> (x Core..:? "Folder")
-            Prelude.<*> (x Core..:? "Repository")
-            Prelude.<*> (x Core..:? "AuthToken")
-            Prelude.<*> (x Core..:? "Provider")
-            Prelude.<*> (x Core..:? "Owner")
-            Prelude.<*> (x Core..:? "LastCommitId")
-            Prelude.<*> (x Core..:? "AuthStrategy")
+            Prelude.<$> (x Data..:? "Branch")
+            Prelude.<*> (x Data..:? "Folder")
+            Prelude.<*> (x Data..:? "Repository")
+            Prelude.<*> (x Data..:? "AuthToken")
+            Prelude.<*> (x Data..:? "Provider")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "LastCommitId")
+            Prelude.<*> (x Data..:? "AuthStrategy")
       )
 
 instance Prelude.Hashable SourceControlDetails where
@@ -159,17 +160,17 @@ instance Prelude.NFData SourceControlDetails where
       `Prelude.seq` Prelude.rnf lastCommitId
       `Prelude.seq` Prelude.rnf authStrategy
 
-instance Core.ToJSON SourceControlDetails where
+instance Data.ToJSON SourceControlDetails where
   toJSON SourceControlDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Branch" Core..=) Prelude.<$> branch,
-            ("Folder" Core..=) Prelude.<$> folder,
-            ("Repository" Core..=) Prelude.<$> repository,
-            ("AuthToken" Core..=) Prelude.<$> authToken,
-            ("Provider" Core..=) Prelude.<$> provider,
-            ("Owner" Core..=) Prelude.<$> owner,
-            ("LastCommitId" Core..=) Prelude.<$> lastCommitId,
-            ("AuthStrategy" Core..=) Prelude.<$> authStrategy
+          [ ("Branch" Data..=) Prelude.<$> branch,
+            ("Folder" Data..=) Prelude.<$> folder,
+            ("Repository" Data..=) Prelude.<$> repository,
+            ("AuthToken" Data..=) Prelude.<$> authToken,
+            ("Provider" Data..=) Prelude.<$> provider,
+            ("Owner" Data..=) Prelude.<$> owner,
+            ("LastCommitId" Data..=) Prelude.<$> lastCommitId,
+            ("AuthStrategy" Data..=) Prelude.<$> authStrategy
           ]
       )

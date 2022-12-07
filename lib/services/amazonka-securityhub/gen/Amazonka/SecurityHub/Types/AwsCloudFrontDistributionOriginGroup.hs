@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroupFailover
 
@@ -55,15 +56,15 @@ awsCloudFrontDistributionOriginGroup_failoverCriteria :: Lens.Lens' AwsCloudFron
 awsCloudFrontDistributionOriginGroup_failoverCriteria = Lens.lens (\AwsCloudFrontDistributionOriginGroup' {failoverCriteria} -> failoverCriteria) (\s@AwsCloudFrontDistributionOriginGroup' {} a -> s {failoverCriteria = a} :: AwsCloudFrontDistributionOriginGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCloudFrontDistributionOriginGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCloudFrontDistributionOriginGroup"
       ( \x ->
           AwsCloudFrontDistributionOriginGroup'
-            Prelude.<$> (x Core..:? "FailoverCriteria")
+            Prelude.<$> (x Data..:? "FailoverCriteria")
       )
 
 instance
@@ -83,13 +84,13 @@ instance
     Prelude.rnf failoverCriteria
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCloudFrontDistributionOriginGroup
   where
   toJSON AwsCloudFrontDistributionOriginGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FailoverCriteria" Core..=)
+          [ ("FailoverCriteria" Data..=)
               Prelude.<$> failoverCriteria
           ]
       )

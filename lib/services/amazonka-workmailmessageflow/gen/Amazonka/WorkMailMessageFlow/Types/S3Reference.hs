@@ -21,6 +21,7 @@ module Amazonka.WorkMailMessageFlow.Types.S3Reference where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Amazon S3 object representing the updated message content, in MIME
@@ -96,12 +97,12 @@ instance Prelude.NFData S3Reference where
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON S3Reference where
+instance Data.ToJSON S3Reference where
   toJSON S3Reference' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("objectVersion" Core..=) Prelude.<$> objectVersion,
-            Prelude.Just ("bucket" Core..= bucket),
-            Prelude.Just ("key" Core..= key)
+          [ ("objectVersion" Data..=) Prelude.<$> objectVersion,
+            Prelude.Just ("bucket" Data..= bucket),
+            Prelude.Just ("key" Data..= key)
           ]
       )

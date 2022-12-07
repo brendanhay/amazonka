@@ -22,6 +22,7 @@ module Amazonka.CodeDeploy.Types.S3Location where
 import Amazonka.CodeDeploy.Types.BundleType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in Amazon
@@ -138,17 +139,17 @@ s3Location_eTag = Lens.lens (\S3Location' {eTag} -> eTag) (\s@S3Location' {} a -
 s3Location_version :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_version = Lens.lens (\S3Location' {version} -> version) (\s@S3Location' {} a -> s {version = a} :: S3Location)
 
-instance Core.FromJSON S3Location where
+instance Data.FromJSON S3Location where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "bundleType")
-            Prelude.<*> (x Core..:? "bucket")
-            Prelude.<*> (x Core..:? "eTag")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "bundleType")
+            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<*> (x Data..:? "eTag")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable S3Location where
@@ -167,14 +168,14 @@ instance Prelude.NFData S3Location where
       `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf version
 
-instance Core.ToJSON S3Location where
+instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("bundleType" Core..=) Prelude.<$> bundleType,
-            ("bucket" Core..=) Prelude.<$> bucket,
-            ("eTag" Core..=) Prelude.<$> eTag,
-            ("version" Core..=) Prelude.<$> version
+          [ ("key" Data..=) Prelude.<$> key,
+            ("bundleType" Data..=) Prelude.<$> bundleType,
+            ("bucket" Data..=) Prelude.<$> bucket,
+            ("eTag" Data..=) Prelude.<$> eTag,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

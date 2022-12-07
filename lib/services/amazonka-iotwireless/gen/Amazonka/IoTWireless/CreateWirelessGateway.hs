@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest CreateWirelessGateway where
     Response.receiveJSON
       ( \s h x ->
           CreateWirelessGatewayResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,26 +163,26 @@ instance Prelude.NFData CreateWirelessGateway where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf loRaWAN
 
-instance Core.ToHeaders CreateWirelessGateway where
+instance Data.ToHeaders CreateWirelessGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateWirelessGateway where
+instance Data.ToJSON CreateWirelessGateway where
   toJSON CreateWirelessGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Name" Core..=) Prelude.<$> name,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("LoRaWAN" Core..= loRaWAN)
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("LoRaWAN" Data..= loRaWAN)
           ]
       )
 
-instance Core.ToPath CreateWirelessGateway where
+instance Data.ToPath CreateWirelessGateway where
   toPath = Prelude.const "/wireless-gateways"
 
-instance Core.ToQuery CreateWirelessGateway where
+instance Data.ToQuery CreateWirelessGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWirelessGatewayResponse' smart constructor.

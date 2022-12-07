@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.ListCustomLineItemFlatChargeDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the charge details that are associated with a flat
@@ -57,15 +58,15 @@ listCustomLineItemFlatChargeDetails_chargeValue :: Lens.Lens' ListCustomLineItem
 listCustomLineItemFlatChargeDetails_chargeValue = Lens.lens (\ListCustomLineItemFlatChargeDetails' {chargeValue} -> chargeValue) (\s@ListCustomLineItemFlatChargeDetails' {} a -> s {chargeValue = a} :: ListCustomLineItemFlatChargeDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ListCustomLineItemFlatChargeDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ListCustomLineItemFlatChargeDetails"
       ( \x ->
           ListCustomLineItemFlatChargeDetails'
-            Prelude.<$> (x Core..: "ChargeValue")
+            Prelude.<$> (x Data..: "ChargeValue")
       )
 
 instance

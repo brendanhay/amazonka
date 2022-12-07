@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpsWorks.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -123,7 +124,7 @@ instance Core.AWSRequest DescribeDeployments where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeploymentsResponse'
-            Prelude.<$> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,35 +140,35 @@ instance Prelude.NFData DescribeDeployments where
       `Prelude.seq` Prelude.rnf deploymentIds
       `Prelude.seq` Prelude.rnf appId
 
-instance Core.ToHeaders DescribeDeployments where
+instance Data.ToHeaders DescribeDeployments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OpsWorks_20130218.DescribeDeployments" ::
+              Data.=# ( "OpsWorks_20130218.DescribeDeployments" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDeployments where
+instance Data.ToJSON DescribeDeployments where
   toJSON DescribeDeployments' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Core..=) Prelude.<$> stackId,
-            ("DeploymentIds" Core..=) Prelude.<$> deploymentIds,
-            ("AppId" Core..=) Prelude.<$> appId
+          [ ("StackId" Data..=) Prelude.<$> stackId,
+            ("DeploymentIds" Data..=) Prelude.<$> deploymentIds,
+            ("AppId" Data..=) Prelude.<$> appId
           ]
       )
 
-instance Core.ToPath DescribeDeployments where
+instance Data.ToPath DescribeDeployments where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDeployments where
+instance Data.ToQuery DescribeDeployments where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeDeployments@ request.

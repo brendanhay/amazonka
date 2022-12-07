@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,8 +100,8 @@ instance Core.AWSRequest AssociateTrustStore where
       ( \s h x ->
           AssociateTrustStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "portalArn")
-            Prelude.<*> (x Core..:> "trustStoreArn")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "trustStoreArn")
       )
 
 instance Prelude.Hashable AssociateTrustStore where
@@ -113,29 +114,29 @@ instance Prelude.NFData AssociateTrustStore where
     Prelude.rnf portalArn
       `Prelude.seq` Prelude.rnf trustStoreArn
 
-instance Core.ToHeaders AssociateTrustStore where
+instance Data.ToHeaders AssociateTrustStore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateTrustStore where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AssociateTrustStore where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AssociateTrustStore where
+instance Data.ToPath AssociateTrustStore where
   toPath AssociateTrustStore' {..} =
     Prelude.mconcat
-      ["/portals/", Core.toBS portalArn, "/trustStores"]
+      ["/portals/", Data.toBS portalArn, "/trustStores"]
 
-instance Core.ToQuery AssociateTrustStore where
+instance Data.ToQuery AssociateTrustStore where
   toQuery AssociateTrustStore' {..} =
     Prelude.mconcat
-      ["trustStoreArn" Core.=: trustStoreArn]
+      ["trustStoreArn" Data.=: trustStoreArn]
 
 -- | /See:/ 'newAssociateTrustStoreResponse' smart constructor.
 data AssociateTrustStoreResponse = AssociateTrustStoreResponse'

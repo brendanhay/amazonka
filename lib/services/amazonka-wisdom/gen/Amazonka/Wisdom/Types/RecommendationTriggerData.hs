@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.RecommendationTriggerData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Wisdom.Types.QueryRecommendationTriggerData
 
@@ -51,13 +52,13 @@ newRecommendationTriggerData =
 recommendationTriggerData_query :: Lens.Lens' RecommendationTriggerData (Prelude.Maybe QueryRecommendationTriggerData)
 recommendationTriggerData_query = Lens.lens (\RecommendationTriggerData' {query} -> query) (\s@RecommendationTriggerData' {} a -> s {query = a} :: RecommendationTriggerData)
 
-instance Core.FromJSON RecommendationTriggerData where
+instance Data.FromJSON RecommendationTriggerData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecommendationTriggerData"
       ( \x ->
           RecommendationTriggerData'
-            Prelude.<$> (x Core..:? "query")
+            Prelude.<$> (x Data..:? "query")
       )
 
 instance Prelude.Hashable RecommendationTriggerData where

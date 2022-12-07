@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.ApplicationConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationCodeConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.ApplicationSnapshotConfiguration
 import Amazonka.KinesisAnalyticsV2.Types.EnvironmentProperties
@@ -158,23 +159,23 @@ instance Prelude.NFData ApplicationConfiguration where
       `Prelude.seq` Prelude.rnf vpcConfigurations
       `Prelude.seq` Prelude.rnf environmentProperties
 
-instance Core.ToJSON ApplicationConfiguration where
+instance Data.ToJSON ApplicationConfiguration where
   toJSON ApplicationConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ApplicationSnapshotConfiguration" Core..=)
+          [ ("ApplicationSnapshotConfiguration" Data..=)
               Prelude.<$> applicationSnapshotConfiguration,
-            ("ZeppelinApplicationConfiguration" Core..=)
+            ("ZeppelinApplicationConfiguration" Data..=)
               Prelude.<$> zeppelinApplicationConfiguration,
-            ("FlinkApplicationConfiguration" Core..=)
+            ("FlinkApplicationConfiguration" Data..=)
               Prelude.<$> flinkApplicationConfiguration,
-            ("SqlApplicationConfiguration" Core..=)
+            ("SqlApplicationConfiguration" Data..=)
               Prelude.<$> sqlApplicationConfiguration,
-            ("ApplicationCodeConfiguration" Core..=)
+            ("ApplicationCodeConfiguration" Data..=)
               Prelude.<$> applicationCodeConfiguration,
-            ("VpcConfigurations" Core..=)
+            ("VpcConfigurations" Data..=)
               Prelude.<$> vpcConfigurations,
-            ("EnvironmentProperties" Core..=)
+            ("EnvironmentProperties" Data..=)
               Prelude.<$> environmentProperties
           ]
       )

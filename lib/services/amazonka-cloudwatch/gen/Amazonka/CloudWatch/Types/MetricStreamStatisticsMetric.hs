@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This object contains the information for one metric that is to be
@@ -69,11 +70,11 @@ metricStreamStatisticsMetric_namespace = Lens.lens (\MetricStreamStatisticsMetri
 metricStreamStatisticsMetric_metricName :: Lens.Lens' MetricStreamStatisticsMetric Prelude.Text
 metricStreamStatisticsMetric_metricName = Lens.lens (\MetricStreamStatisticsMetric' {metricName} -> metricName) (\s@MetricStreamStatisticsMetric' {} a -> s {metricName = a} :: MetricStreamStatisticsMetric)
 
-instance Core.FromXML MetricStreamStatisticsMetric where
+instance Data.FromXML MetricStreamStatisticsMetric where
   parseXML x =
     MetricStreamStatisticsMetric'
-      Prelude.<$> (x Core..@ "Namespace")
-      Prelude.<*> (x Core..@ "MetricName")
+      Prelude.<$> (x Data..@ "Namespace")
+      Prelude.<*> (x Data..@ "MetricName")
 
 instance
   Prelude.Hashable
@@ -88,9 +89,9 @@ instance Prelude.NFData MetricStreamStatisticsMetric where
     Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf metricName
 
-instance Core.ToQuery MetricStreamStatisticsMetric where
+instance Data.ToQuery MetricStreamStatisticsMetric where
   toQuery MetricStreamStatisticsMetric' {..} =
     Prelude.mconcat
-      [ "Namespace" Core.=: namespace,
-        "MetricName" Core.=: metricName
+      [ "Namespace" Data.=: namespace,
+        "MetricName" Data.=: metricName
       ]

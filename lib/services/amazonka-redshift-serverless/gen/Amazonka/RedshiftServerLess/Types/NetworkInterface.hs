@@ -21,6 +21,7 @@ module Amazonka.RedshiftServerLess.Types.NetworkInterface where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a network interface in an Amazon Redshift
@@ -80,16 +81,16 @@ networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInte
 networkInterface_privateIpAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_privateIpAddress = Lens.lens (\NetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterface' {} a -> s {privateIpAddress = a} :: NetworkInterface)
 
-instance Core.FromJSON NetworkInterface where
+instance Data.FromJSON NetworkInterface where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "subnetId")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "networkInterfaceId")
-            Prelude.<*> (x Core..:? "privateIpAddress")
+            Prelude.<$> (x Data..:? "subnetId")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "networkInterfaceId")
+            Prelude.<*> (x Data..:? "privateIpAddress")
       )
 
 instance Prelude.Hashable NetworkInterface where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DescribeFleetsInstances where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.InstanceLifecycle
 import Amazonka.EC2.Types.InstanceType
@@ -106,15 +107,15 @@ describeFleetsInstances_instanceType = Lens.lens (\DescribeFleetsInstances' {ins
 describeFleetsInstances_instanceIds :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe [Prelude.Text])
 describeFleetsInstances_instanceIds = Lens.lens (\DescribeFleetsInstances' {instanceIds} -> instanceIds) (\s@DescribeFleetsInstances' {} a -> s {instanceIds = a} :: DescribeFleetsInstances) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML DescribeFleetsInstances where
+instance Data.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Prelude.<$> (x Core..@? "launchTemplateAndOverrides")
-      Prelude.<*> (x Core..@? "lifecycle")
-      Prelude.<*> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> ( x Core..@? "instanceIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> (x Data..@? "launchTemplateAndOverrides")
+      Prelude.<*> (x Data..@? "lifecycle")
+      Prelude.<*> (x Data..@? "platform")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable DescribeFleetsInstances where

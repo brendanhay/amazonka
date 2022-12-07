@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -192,9 +193,9 @@ instance Core.AWSRequest DescribeBundleTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeBundleTasksResponse'
-            Prelude.<$> ( x Core..@? "bundleInstanceTasksSet"
+            Prelude.<$> ( x Data..@? "bundleInstanceTasksSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -211,24 +212,24 @@ instance Prelude.NFData DescribeBundleTasks where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
 
-instance Core.ToHeaders DescribeBundleTasks where
+instance Data.ToHeaders DescribeBundleTasks where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeBundleTasks where
+instance Data.ToPath DescribeBundleTasks where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeBundleTasks where
+instance Data.ToQuery DescribeBundleTasks where
   toQuery DescribeBundleTasks' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeBundleTasks" :: Prelude.ByteString),
+          Data.=: ("DescribeBundleTasks" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "BundleId" Prelude.<$> bundleIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "BundleId" Prelude.<$> bundleIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeBundleTasksResponse' smart constructor.

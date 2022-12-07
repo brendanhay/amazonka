@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.ImportResourceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotImportSpecification
 import Amazonka.LexV2Models.Types.BotLocaleImportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
@@ -76,15 +77,15 @@ importResourceSpecification_botImportSpecification = Lens.lens (\ImportResourceS
 importResourceSpecification_customVocabularyImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe CustomVocabularyImportSpecification)
 importResourceSpecification_customVocabularyImportSpecification = Lens.lens (\ImportResourceSpecification' {customVocabularyImportSpecification} -> customVocabularyImportSpecification) (\s@ImportResourceSpecification' {} a -> s {customVocabularyImportSpecification = a} :: ImportResourceSpecification)
 
-instance Core.FromJSON ImportResourceSpecification where
+instance Data.FromJSON ImportResourceSpecification where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ImportResourceSpecification"
       ( \x ->
           ImportResourceSpecification'
-            Prelude.<$> (x Core..:? "botLocaleImportSpecification")
-            Prelude.<*> (x Core..:? "botImportSpecification")
-            Prelude.<*> (x Core..:? "customVocabularyImportSpecification")
+            Prelude.<$> (x Data..:? "botLocaleImportSpecification")
+            Prelude.<*> (x Data..:? "botImportSpecification")
+            Prelude.<*> (x Data..:? "customVocabularyImportSpecification")
       )
 
 instance Prelude.Hashable ImportResourceSpecification where
@@ -100,15 +101,15 @@ instance Prelude.NFData ImportResourceSpecification where
       `Prelude.seq` Prelude.rnf botImportSpecification
       `Prelude.seq` Prelude.rnf customVocabularyImportSpecification
 
-instance Core.ToJSON ImportResourceSpecification where
+instance Data.ToJSON ImportResourceSpecification where
   toJSON ImportResourceSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("botLocaleImportSpecification" Core..=)
+          [ ("botLocaleImportSpecification" Data..=)
               Prelude.<$> botLocaleImportSpecification,
-            ("botImportSpecification" Core..=)
+            ("botImportSpecification" Data..=)
               Prelude.<$> botImportSpecification,
-            ("customVocabularyImportSpecification" Core..=)
+            ("customVocabularyImportSpecification" Data..=)
               Prelude.<$> customVocabularyImportSpecification
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DataBrew.Types.DatabaseOutput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types.DatabaseOutputMode
 import Amazonka.DataBrew.Types.DatabaseTableOutputOptions
 import qualified Amazonka.Prelude as Prelude
@@ -89,15 +90,15 @@ databaseOutput_glueConnectionName = Lens.lens (\DatabaseOutput' {glueConnectionN
 databaseOutput_databaseOptions :: Lens.Lens' DatabaseOutput DatabaseTableOutputOptions
 databaseOutput_databaseOptions = Lens.lens (\DatabaseOutput' {databaseOptions} -> databaseOptions) (\s@DatabaseOutput' {} a -> s {databaseOptions = a} :: DatabaseOutput)
 
-instance Core.FromJSON DatabaseOutput where
+instance Data.FromJSON DatabaseOutput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseOutput"
       ( \x ->
           DatabaseOutput'
-            Prelude.<$> (x Core..:? "DatabaseOutputMode")
-            Prelude.<*> (x Core..: "GlueConnectionName")
-            Prelude.<*> (x Core..: "DatabaseOptions")
+            Prelude.<$> (x Data..:? "DatabaseOutputMode")
+            Prelude.<*> (x Data..: "GlueConnectionName")
+            Prelude.<*> (x Data..: "DatabaseOptions")
       )
 
 instance Prelude.Hashable DatabaseOutput where
@@ -112,15 +113,15 @@ instance Prelude.NFData DatabaseOutput where
       `Prelude.seq` Prelude.rnf glueConnectionName
       `Prelude.seq` Prelude.rnf databaseOptions
 
-instance Core.ToJSON DatabaseOutput where
+instance Data.ToJSON DatabaseOutput where
   toJSON DatabaseOutput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DatabaseOutputMode" Core..=)
+          [ ("DatabaseOutputMode" Data..=)
               Prelude.<$> databaseOutputMode,
             Prelude.Just
-              ("GlueConnectionName" Core..= glueConnectionName),
+              ("GlueConnectionName" Data..= glueConnectionName),
             Prelude.Just
-              ("DatabaseOptions" Core..= databaseOptions)
+              ("DatabaseOptions" Data..= databaseOptions)
           ]
       )

@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -206,7 +207,7 @@ data CreateAssociation = CreateAssociation'
     -- document version to @default@.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the runtime configuration of the document.
-    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the SSM Command document or Automation runbook that contains
     -- the configuration information for the managed node.
     --
@@ -575,7 +576,7 @@ createAssociation_documentVersion = Lens.lens (\CreateAssociation' {documentVers
 
 -- | The parameters for the runtime configuration of the document.
 createAssociation_parameters :: Lens.Lens' CreateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createAssociation_parameters = Lens.lens (\CreateAssociation' {parameters} -> parameters) (\s@CreateAssociation' {} a -> s {parameters = a} :: CreateAssociation) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the SSM Command document or Automation runbook that contains
 -- the configuration information for the managed node.
@@ -609,7 +610,7 @@ instance Core.AWSRequest CreateAssociation where
     Response.receiveJSON
       ( \s h x ->
           CreateAssociationResponse'
-            Prelude.<$> (x Core..?> "AssociationDescription")
+            Prelude.<$> (x Data..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -659,64 +660,64 @@ instance Prelude.NFData CreateAssociation where
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateAssociation where
+instance Data.ToHeaders CreateAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.CreateAssociation" ::
+              Data.=# ( "AmazonSSM.CreateAssociation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssociation where
+instance Data.ToJSON CreateAssociation where
   toJSON CreateAssociation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AssociationName" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AssociationName" Data..=)
               Prelude.<$> associationName,
-            ("TargetLocations" Core..=)
+            ("TargetLocations" Data..=)
               Prelude.<$> targetLocations,
-            ("AutomationTargetParameterName" Core..=)
+            ("AutomationTargetParameterName" Data..=)
               Prelude.<$> automationTargetParameterName,
-            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
-            ("OutputLocation" Core..=)
+            ("TargetMaps" Data..=) Prelude.<$> targetMaps,
+            ("OutputLocation" Data..=)
               Prelude.<$> outputLocation,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("CalendarNames" Core..=) Prelude.<$> calendarNames,
-            ("ScheduleExpression" Core..=)
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("CalendarNames" Data..=) Prelude.<$> calendarNames,
+            ("ScheduleExpression" Data..=)
               Prelude.<$> scheduleExpression,
-            ("ScheduleOffset" Core..=)
+            ("ScheduleOffset" Data..=)
               Prelude.<$> scheduleOffset,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("AlarmConfiguration" Core..=)
+            ("InstanceId" Data..=) Prelude.<$> instanceId,
+            ("AlarmConfiguration" Data..=)
               Prelude.<$> alarmConfiguration,
-            ("MaxConcurrency" Core..=)
+            ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
-            ("ApplyOnlyAtCronInterval" Core..=)
+            ("ApplyOnlyAtCronInterval" Data..=)
               Prelude.<$> applyOnlyAtCronInterval,
-            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
-            ("ComplianceSeverity" Core..=)
+            ("MaxErrors" Data..=) Prelude.<$> maxErrors,
+            ("ComplianceSeverity" Data..=)
               Prelude.<$> complianceSeverity,
-            ("SyncCompliance" Core..=)
+            ("SyncCompliance" Data..=)
               Prelude.<$> syncCompliance,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
-            Prelude.Just ("Name" Core..= name)
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateAssociation where
+instance Data.ToPath CreateAssociation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAssociation where
+instance Data.ToQuery CreateAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssociationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.HoneyCode.Types.DelimitedTextImportOptions where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HoneyCode.Types.ImportDataCharacterEncoding
 import qualified Amazonka.Prelude as Prelude
 
@@ -93,16 +94,16 @@ delimitedTextImportOptions_dataCharacterEncoding = Lens.lens (\DelimitedTextImpo
 delimitedTextImportOptions_delimiter :: Lens.Lens' DelimitedTextImportOptions Prelude.Text
 delimitedTextImportOptions_delimiter = Lens.lens (\DelimitedTextImportOptions' {delimiter} -> delimiter) (\s@DelimitedTextImportOptions' {} a -> s {delimiter = a} :: DelimitedTextImportOptions)
 
-instance Core.FromJSON DelimitedTextImportOptions where
+instance Data.FromJSON DelimitedTextImportOptions where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DelimitedTextImportOptions"
       ( \x ->
           DelimitedTextImportOptions'
-            Prelude.<$> (x Core..:? "hasHeaderRow")
-            Prelude.<*> (x Core..:? "ignoreEmptyRows")
-            Prelude.<*> (x Core..:? "dataCharacterEncoding")
-            Prelude.<*> (x Core..: "delimiter")
+            Prelude.<$> (x Data..:? "hasHeaderRow")
+            Prelude.<*> (x Data..:? "ignoreEmptyRows")
+            Prelude.<*> (x Data..:? "dataCharacterEncoding")
+            Prelude.<*> (x Data..: "delimiter")
       )
 
 instance Prelude.Hashable DelimitedTextImportOptions where
@@ -119,15 +120,15 @@ instance Prelude.NFData DelimitedTextImportOptions where
       `Prelude.seq` Prelude.rnf dataCharacterEncoding
       `Prelude.seq` Prelude.rnf delimiter
 
-instance Core.ToJSON DelimitedTextImportOptions where
+instance Data.ToJSON DelimitedTextImportOptions where
   toJSON DelimitedTextImportOptions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("hasHeaderRow" Core..=) Prelude.<$> hasHeaderRow,
-            ("ignoreEmptyRows" Core..=)
+          [ ("hasHeaderRow" Data..=) Prelude.<$> hasHeaderRow,
+            ("ignoreEmptyRows" Data..=)
               Prelude.<$> ignoreEmptyRows,
-            ("dataCharacterEncoding" Core..=)
+            ("dataCharacterEncoding" Data..=)
               Prelude.<$> dataCharacterEncoding,
-            Prelude.Just ("delimiter" Core..= delimiter)
+            Prelude.Just ("delimiter" Data..= delimiter)
           ]
       )

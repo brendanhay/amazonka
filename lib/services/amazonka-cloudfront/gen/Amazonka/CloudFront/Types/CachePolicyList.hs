@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.CachePolicyList where
 import Amazonka.CloudFront.Types.CachePolicySummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of cache policies.
@@ -93,15 +94,15 @@ cachePolicyList_maxItems = Lens.lens (\CachePolicyList' {maxItems} -> maxItems) 
 cachePolicyList_quantity :: Lens.Lens' CachePolicyList Prelude.Int
 cachePolicyList_quantity = Lens.lens (\CachePolicyList' {quantity} -> quantity) (\s@CachePolicyList' {} a -> s {quantity = a} :: CachePolicyList)
 
-instance Core.FromXML CachePolicyList where
+instance Data.FromXML CachePolicyList where
   parseXML x =
     CachePolicyList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "CachePolicySummary")
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "CachePolicySummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable CachePolicyList where
   hashWithSalt _salt CachePolicyList' {..} =

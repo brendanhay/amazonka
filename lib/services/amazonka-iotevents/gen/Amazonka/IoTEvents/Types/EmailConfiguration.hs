@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.EmailConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.EmailContent
 import Amazonka.IoTEvents.Types.EmailRecipients
 import qualified Amazonka.Prelude as Prelude
@@ -100,15 +101,15 @@ emailConfiguration_from = Lens.lens (\EmailConfiguration' {from} -> from) (\s@Em
 emailConfiguration_recipients :: Lens.Lens' EmailConfiguration EmailRecipients
 emailConfiguration_recipients = Lens.lens (\EmailConfiguration' {recipients} -> recipients) (\s@EmailConfiguration' {} a -> s {recipients = a} :: EmailConfiguration)
 
-instance Core.FromJSON EmailConfiguration where
+instance Data.FromJSON EmailConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmailConfiguration"
       ( \x ->
           EmailConfiguration'
-            Prelude.<$> (x Core..:? "content")
-            Prelude.<*> (x Core..: "from")
-            Prelude.<*> (x Core..: "recipients")
+            Prelude.<$> (x Data..:? "content")
+            Prelude.<*> (x Data..: "from")
+            Prelude.<*> (x Data..: "recipients")
       )
 
 instance Prelude.Hashable EmailConfiguration where
@@ -123,12 +124,12 @@ instance Prelude.NFData EmailConfiguration where
       `Prelude.seq` Prelude.rnf from
       `Prelude.seq` Prelude.rnf recipients
 
-instance Core.ToJSON EmailConfiguration where
+instance Data.ToJSON EmailConfiguration where
   toJSON EmailConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("content" Core..=) Prelude.<$> content,
-            Prelude.Just ("from" Core..= from),
-            Prelude.Just ("recipients" Core..= recipients)
+          [ ("content" Data..=) Prelude.<$> content,
+            Prelude.Just ("from" Data..= from),
+            Prelude.Just ("recipients" Data..= recipients)
           ]
       )

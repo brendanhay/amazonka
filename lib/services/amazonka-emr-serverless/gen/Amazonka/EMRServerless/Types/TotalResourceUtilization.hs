@@ -21,6 +21,7 @@ module Amazonka.EMRServerless.Types.TotalResourceUtilization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The aggregate vCPU, memory, and storage resources used from the time job
@@ -82,15 +83,15 @@ totalResourceUtilization_memoryGBHour = Lens.lens (\TotalResourceUtilization' {m
 totalResourceUtilization_vCPUHour :: Lens.Lens' TotalResourceUtilization (Prelude.Maybe Prelude.Double)
 totalResourceUtilization_vCPUHour = Lens.lens (\TotalResourceUtilization' {vCPUHour} -> vCPUHour) (\s@TotalResourceUtilization' {} a -> s {vCPUHour = a} :: TotalResourceUtilization)
 
-instance Core.FromJSON TotalResourceUtilization where
+instance Data.FromJSON TotalResourceUtilization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TotalResourceUtilization"
       ( \x ->
           TotalResourceUtilization'
-            Prelude.<$> (x Core..:? "storageGBHour")
-            Prelude.<*> (x Core..:? "memoryGBHour")
-            Prelude.<*> (x Core..:? "vCPUHour")
+            Prelude.<$> (x Data..:? "storageGBHour")
+            Prelude.<*> (x Data..:? "memoryGBHour")
+            Prelude.<*> (x Data..:? "vCPUHour")
       )
 
 instance Prelude.Hashable TotalResourceUtilization where

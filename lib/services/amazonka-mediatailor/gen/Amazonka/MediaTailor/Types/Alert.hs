@@ -21,6 +21,7 @@ module Amazonka.MediaTailor.Types.Alert where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Alert configuration parameters.
@@ -33,7 +34,7 @@ data Alert = Alert'
     -- for the alert.
     alertMessage :: Prelude.Text,
     -- | The timestamp when the alert was last modified.
-    lastModifiedTime :: Core.POSIX,
+    lastModifiedTime :: Data.POSIX,
     -- | The Amazon Resource Names (ARNs) related to this alert.
     relatedResourceArns :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the resource.
@@ -78,7 +79,7 @@ newAlert
       { alertCode = pAlertCode_,
         alertMessage = pAlertMessage_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         relatedResourceArns = Prelude.mempty,
         resourceArn = pResourceArn_
       }
@@ -94,7 +95,7 @@ alert_alertMessage = Lens.lens (\Alert' {alertMessage} -> alertMessage) (\s@Aler
 
 -- | The timestamp when the alert was last modified.
 alert_lastModifiedTime :: Lens.Lens' Alert Prelude.UTCTime
-alert_lastModifiedTime = Lens.lens (\Alert' {lastModifiedTime} -> lastModifiedTime) (\s@Alert' {} a -> s {lastModifiedTime = a} :: Alert) Prelude.. Core._Time
+alert_lastModifiedTime = Lens.lens (\Alert' {lastModifiedTime} -> lastModifiedTime) (\s@Alert' {} a -> s {lastModifiedTime = a} :: Alert) Prelude.. Data._Time
 
 -- | The Amazon Resource Names (ARNs) related to this alert.
 alert_relatedResourceArns :: Lens.Lens' Alert [Prelude.Text]
@@ -104,19 +105,19 @@ alert_relatedResourceArns = Lens.lens (\Alert' {relatedResourceArns} -> relatedR
 alert_resourceArn :: Lens.Lens' Alert Prelude.Text
 alert_resourceArn = Lens.lens (\Alert' {resourceArn} -> resourceArn) (\s@Alert' {} a -> s {resourceArn = a} :: Alert)
 
-instance Core.FromJSON Alert where
+instance Data.FromJSON Alert where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Alert"
       ( \x ->
           Alert'
-            Prelude.<$> (x Core..: "AlertCode")
-            Prelude.<*> (x Core..: "AlertMessage")
-            Prelude.<*> (x Core..: "LastModifiedTime")
-            Prelude.<*> ( x Core..:? "RelatedResourceArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..: "AlertCode")
+            Prelude.<*> (x Data..: "AlertMessage")
+            Prelude.<*> (x Data..: "LastModifiedTime")
+            Prelude.<*> ( x Data..:? "RelatedResourceArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "ResourceArn")
+            Prelude.<*> (x Data..: "ResourceArn")
       )
 
 instance Prelude.Hashable Alert where

@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupRulesActionDetails
 
@@ -88,18 +89,18 @@ awsWafRegionalRuleGroupRulesDetails_action :: Lens.Lens' AwsWafRegionalRuleGroup
 awsWafRegionalRuleGroupRulesDetails_action = Lens.lens (\AwsWafRegionalRuleGroupRulesDetails' {action} -> action) (\s@AwsWafRegionalRuleGroupRulesDetails' {} a -> s {action = a} :: AwsWafRegionalRuleGroupRulesDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsWafRegionalRuleGroupRulesDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsWafRegionalRuleGroupRulesDetails"
       ( \x ->
           AwsWafRegionalRuleGroupRulesDetails'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RuleId")
-            Prelude.<*> (x Core..:? "Priority")
-            Prelude.<*> (x Core..:? "Action")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -125,15 +126,15 @@ instance
       `Prelude.seq` Prelude.rnf action
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsWafRegionalRuleGroupRulesDetails
   where
   toJSON AwsWafRegionalRuleGroupRulesDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Type" Core..=) Prelude.<$> type',
-            ("RuleId" Core..=) Prelude.<$> ruleId,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Action" Core..=) Prelude.<$> action
+          [ ("Type" Data..=) Prelude.<$> type',
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Action" Data..=) Prelude.<$> action
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Evidently.Types.CloudWatchLogsDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the CloudWatch Logs log group where the project
@@ -54,13 +55,13 @@ newCloudWatchLogsDestination =
 cloudWatchLogsDestination_logGroup :: Lens.Lens' CloudWatchLogsDestination (Prelude.Maybe Prelude.Text)
 cloudWatchLogsDestination_logGroup = Lens.lens (\CloudWatchLogsDestination' {logGroup} -> logGroup) (\s@CloudWatchLogsDestination' {} a -> s {logGroup = a} :: CloudWatchLogsDestination)
 
-instance Core.FromJSON CloudWatchLogsDestination where
+instance Data.FromJSON CloudWatchLogsDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CloudWatchLogsDestination"
       ( \x ->
           CloudWatchLogsDestination'
-            Prelude.<$> (x Core..:? "logGroup")
+            Prelude.<$> (x Data..:? "logGroup")
       )
 
 instance Prelude.Hashable CloudWatchLogsDestination where

@@ -47,6 +47,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,12 +55,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateSipMediaApplicationCall' smart constructor.
 data CreateSipMediaApplicationCall = CreateSipMediaApplicationCall'
   { -- | The SIP headers added to an outbound call leg.
-    sipHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Core.Sensitive Prelude.Text)),
+    sipHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
     -- | The phone number that a user calls from. This is a phone number in your
     -- Amazon Chime phone number inventory.
-    fromPhoneNumber :: Core.Sensitive Prelude.Text,
+    fromPhoneNumber :: Data.Sensitive Prelude.Text,
     -- | The phone number that the service should call.
-    toPhoneNumber :: Core.Sensitive Prelude.Text,
+    toPhoneNumber :: Data.Sensitive Prelude.Text,
     -- | The ID of the SIP media application.
     sipMediaApplicationId :: Prelude.Text
   }
@@ -97,9 +98,9 @@ newCreateSipMediaApplicationCall
       { sipHeaders =
           Prelude.Nothing,
         fromPhoneNumber =
-          Core._Sensitive Lens.# pFromPhoneNumber_,
+          Data._Sensitive Lens.# pFromPhoneNumber_,
         toPhoneNumber =
-          Core._Sensitive Lens.# pToPhoneNumber_,
+          Data._Sensitive Lens.# pToPhoneNumber_,
         sipMediaApplicationId =
           pSipMediaApplicationId_
       }
@@ -111,11 +112,11 @@ createSipMediaApplicationCall_sipHeaders = Lens.lens (\CreateSipMediaApplication
 -- | The phone number that a user calls from. This is a phone number in your
 -- Amazon Chime phone number inventory.
 createSipMediaApplicationCall_fromPhoneNumber :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
-createSipMediaApplicationCall_fromPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {fromPhoneNumber} -> fromPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {fromPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Core._Sensitive
+createSipMediaApplicationCall_fromPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {fromPhoneNumber} -> fromPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {fromPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Data._Sensitive
 
 -- | The phone number that the service should call.
 createSipMediaApplicationCall_toPhoneNumber :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
-createSipMediaApplicationCall_toPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {toPhoneNumber} -> toPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {toPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Core._Sensitive
+createSipMediaApplicationCall_toPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {toPhoneNumber} -> toPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {toPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Data._Sensitive
 
 -- | The ID of the SIP media application.
 createSipMediaApplicationCall_sipMediaApplicationId :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
@@ -134,7 +135,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSipMediaApplicationCallResponse'
-            Prelude.<$> (x Core..?> "SipMediaApplicationCall")
+            Prelude.<$> (x Data..?> "SipMediaApplicationCall")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,30 +156,30 @@ instance Prelude.NFData CreateSipMediaApplicationCall where
       `Prelude.seq` Prelude.rnf toPhoneNumber
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
-instance Core.ToHeaders CreateSipMediaApplicationCall where
+instance Data.ToHeaders CreateSipMediaApplicationCall where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateSipMediaApplicationCall where
+instance Data.ToJSON CreateSipMediaApplicationCall where
   toJSON CreateSipMediaApplicationCall' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SipHeaders" Core..=) Prelude.<$> sipHeaders,
+          [ ("SipHeaders" Data..=) Prelude.<$> sipHeaders,
             Prelude.Just
-              ("FromPhoneNumber" Core..= fromPhoneNumber),
+              ("FromPhoneNumber" Data..= fromPhoneNumber),
             Prelude.Just
-              ("ToPhoneNumber" Core..= toPhoneNumber)
+              ("ToPhoneNumber" Data..= toPhoneNumber)
           ]
       )
 
-instance Core.ToPath CreateSipMediaApplicationCall where
+instance Data.ToPath CreateSipMediaApplicationCall where
   toPath CreateSipMediaApplicationCall' {..} =
     Prelude.mconcat
       [ "/sip-media-applications/",
-        Core.toBS sipMediaApplicationId,
+        Data.toBS sipMediaApplicationId,
         "/calls"
       ]
 
-instance Core.ToQuery CreateSipMediaApplicationCall where
+instance Data.ToQuery CreateSipMediaApplicationCall where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSipMediaApplicationCallResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.DashboardSourceTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DataSetReference
 
@@ -77,12 +78,12 @@ instance Prelude.NFData DashboardSourceTemplate where
     Prelude.rnf dataSetReferences
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToJSON DashboardSourceTemplate where
+instance Data.ToJSON DashboardSourceTemplate where
   toJSON DashboardSourceTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("DataSetReferences" Core..= dataSetReferences),
-            Prelude.Just ("Arn" Core..= arn)
+              ("DataSetReferences" Data..= dataSetReferences),
+            Prelude.Just ("Arn" Data..= arn)
           ]
       )

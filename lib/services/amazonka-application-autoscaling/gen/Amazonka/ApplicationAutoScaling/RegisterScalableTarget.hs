@@ -78,6 +78,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -748,42 +749,42 @@ instance Prelude.NFData RegisterScalableTarget where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
 
-instance Core.ToHeaders RegisterScalableTarget where
+instance Data.ToHeaders RegisterScalableTarget where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.RegisterScalableTarget" ::
+              Data.=# ( "AnyScaleFrontendService.RegisterScalableTarget" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterScalableTarget where
+instance Data.ToJSON RegisterScalableTarget where
   toJSON RegisterScalableTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("SuspendedState" Core..=)
+          [ ("RoleARN" Data..=) Prelude.<$> roleARN,
+            ("SuspendedState" Data..=)
               Prelude.<$> suspendedState,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("MinCapacity" Core..=) Prelude.<$> minCapacity,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("MinCapacity" Data..=) Prelude.<$> minCapacity,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("ServiceNamespace" Data..= serviceNamespace),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("ScalableDimension" Core..= scalableDimension)
+              ("ScalableDimension" Data..= scalableDimension)
           ]
       )
 
-instance Core.ToPath RegisterScalableTarget where
+instance Data.ToPath RegisterScalableTarget where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterScalableTarget where
+instance Data.ToQuery RegisterScalableTarget where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterScalableTargetResponse' smart constructor.

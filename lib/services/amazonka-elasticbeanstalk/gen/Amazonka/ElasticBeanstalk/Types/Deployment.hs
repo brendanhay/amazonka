@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.Deployment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an application version deployment.
@@ -33,7 +34,7 @@ data Deployment = Deployment'
     -- | For in-progress deployments, the time that the deployment started.
     --
     -- For completed deployments, the time that the deployment ended.
-    deploymentTime :: Prelude.Maybe Core.ISO8601,
+    deploymentTime :: Prelude.Maybe Data.ISO8601,
     -- | The status of the deployment:
     --
     -- -   @In Progress@ : The deployment is in progress.
@@ -90,7 +91,7 @@ deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId
 --
 -- For completed deployments, the time that the deployment ended.
 deployment_deploymentTime :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
-deployment_deploymentTime = Lens.lens (\Deployment' {deploymentTime} -> deploymentTime) (\s@Deployment' {} a -> s {deploymentTime = a} :: Deployment) Prelude.. Lens.mapping Core._Time
+deployment_deploymentTime = Lens.lens (\Deployment' {deploymentTime} -> deploymentTime) (\s@Deployment' {} a -> s {deploymentTime = a} :: Deployment) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the deployment:
 --
@@ -106,13 +107,13 @@ deployment_status = Lens.lens (\Deployment' {status} -> status) (\s@Deployment' 
 deployment_versionLabel :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_versionLabel = Lens.lens (\Deployment' {versionLabel} -> versionLabel) (\s@Deployment' {} a -> s {versionLabel = a} :: Deployment)
 
-instance Core.FromXML Deployment where
+instance Data.FromXML Deployment where
   parseXML x =
     Deployment'
-      Prelude.<$> (x Core..@? "DeploymentId")
-      Prelude.<*> (x Core..@? "DeploymentTime")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "VersionLabel")
+      Prelude.<$> (x Data..@? "DeploymentId")
+      Prelude.<*> (x Data..@? "DeploymentTime")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "VersionLabel")
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =

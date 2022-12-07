@@ -23,6 +23,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a channel member.
@@ -30,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newChannelMembership' smart constructor.
 data ChannelMembership = ChannelMembership'
   { -- | The time at which a channel membership was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The data of the channel member.
     member :: Prelude.Maybe Identity,
     -- | The membership type set for the channel member.
     type' :: Prelude.Maybe ChannelMembershipType,
     -- | The time at which the channel membership was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ID of the SubChannel that a user belongs to.
     subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the member\'s channel.
@@ -83,7 +84,7 @@ newChannelMembership =
 
 -- | The time at which a channel membership was last updated.
 channelMembership_lastUpdatedTimestamp :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.UTCTime)
-channelMembership_lastUpdatedTimestamp = Lens.lens (\ChannelMembership' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMembership' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMembership) Prelude.. Lens.mapping Core._Time
+channelMembership_lastUpdatedTimestamp = Lens.lens (\ChannelMembership' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMembership' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMembership) Prelude.. Lens.mapping Data._Time
 
 -- | The data of the channel member.
 channelMembership_member :: Lens.Lens' ChannelMembership (Prelude.Maybe Identity)
@@ -95,7 +96,7 @@ channelMembership_type = Lens.lens (\ChannelMembership' {type'} -> type') (\s@Ch
 
 -- | The time at which the channel membership was created.
 channelMembership_createdTimestamp :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.UTCTime)
-channelMembership_createdTimestamp = Lens.lens (\ChannelMembership' {createdTimestamp} -> createdTimestamp) (\s@ChannelMembership' {} a -> s {createdTimestamp = a} :: ChannelMembership) Prelude.. Lens.mapping Core._Time
+channelMembership_createdTimestamp = Lens.lens (\ChannelMembership' {createdTimestamp} -> createdTimestamp) (\s@ChannelMembership' {} a -> s {createdTimestamp = a} :: ChannelMembership) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the SubChannel that a user belongs to.
 channelMembership_subChannelId :: Lens.Lens' ChannelMembership (Prelude.Maybe Prelude.Text)
@@ -109,19 +110,19 @@ channelMembership_channelArn = Lens.lens (\ChannelMembership' {channelArn} -> ch
 channelMembership_invitedBy :: Lens.Lens' ChannelMembership (Prelude.Maybe Identity)
 channelMembership_invitedBy = Lens.lens (\ChannelMembership' {invitedBy} -> invitedBy) (\s@ChannelMembership' {} a -> s {invitedBy = a} :: ChannelMembership)
 
-instance Core.FromJSON ChannelMembership where
+instance Data.FromJSON ChannelMembership where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelMembership"
       ( \x ->
           ChannelMembership'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "Member")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "SubChannelId")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "InvitedBy")
+            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Member")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "SubChannelId")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "InvitedBy")
       )
 
 instance Prelude.Hashable ChannelMembership where

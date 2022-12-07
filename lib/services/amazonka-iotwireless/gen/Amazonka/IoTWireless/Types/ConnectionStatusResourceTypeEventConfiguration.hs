@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.ConnectionStatusResourceTypeEventConfiguration
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusResourceTypeEventConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,15 +60,15 @@ connectionStatusResourceTypeEventConfiguration_loRaWAN :: Lens.Lens' ConnectionS
 connectionStatusResourceTypeEventConfiguration_loRaWAN = Lens.lens (\ConnectionStatusResourceTypeEventConfiguration' {loRaWAN} -> loRaWAN) (\s@ConnectionStatusResourceTypeEventConfiguration' {} a -> s {loRaWAN = a} :: ConnectionStatusResourceTypeEventConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionStatusResourceTypeEventConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionStatusResourceTypeEventConfiguration"
       ( \x ->
           ConnectionStatusResourceTypeEventConfiguration'
-            Prelude.<$> (x Core..:? "LoRaWAN")
+            Prelude.<$> (x Data..:? "LoRaWAN")
       )
 
 instance
@@ -88,12 +89,12 @@ instance
       Prelude.rnf loRaWAN
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ConnectionStatusResourceTypeEventConfiguration
   where
   toJSON
     ConnectionStatusResourceTypeEventConfiguration' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [("LoRaWAN" Core..=) Prelude.<$> loRaWAN]
+            [("LoRaWAN" Data..=) Prelude.<$> loRaWAN]
         )

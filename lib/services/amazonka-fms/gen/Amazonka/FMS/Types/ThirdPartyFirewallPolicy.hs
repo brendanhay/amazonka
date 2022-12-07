@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.ThirdPartyFirewallPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.FirewallDeploymentModel
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newThirdPartyFirewallPolicy =
 thirdPartyFirewallPolicy_firewallDeploymentModel :: Lens.Lens' ThirdPartyFirewallPolicy (Prelude.Maybe FirewallDeploymentModel)
 thirdPartyFirewallPolicy_firewallDeploymentModel = Lens.lens (\ThirdPartyFirewallPolicy' {firewallDeploymentModel} -> firewallDeploymentModel) (\s@ThirdPartyFirewallPolicy' {} a -> s {firewallDeploymentModel = a} :: ThirdPartyFirewallPolicy)
 
-instance Core.FromJSON ThirdPartyFirewallPolicy where
+instance Data.FromJSON ThirdPartyFirewallPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ThirdPartyFirewallPolicy"
       ( \x ->
           ThirdPartyFirewallPolicy'
-            Prelude.<$> (x Core..:? "FirewallDeploymentModel")
+            Prelude.<$> (x Data..:? "FirewallDeploymentModel")
       )
 
 instance Prelude.Hashable ThirdPartyFirewallPolicy where
@@ -72,11 +73,11 @@ instance Prelude.NFData ThirdPartyFirewallPolicy where
   rnf ThirdPartyFirewallPolicy' {..} =
     Prelude.rnf firewallDeploymentModel
 
-instance Core.ToJSON ThirdPartyFirewallPolicy where
+instance Data.ToJSON ThirdPartyFirewallPolicy where
   toJSON ThirdPartyFirewallPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FirewallDeploymentModel" Core..=)
+          [ ("FirewallDeploymentModel" Data..=)
               Prelude.<$> firewallDeploymentModel
           ]
       )

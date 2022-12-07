@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RedshiftServerLess.Types
 import qualified Amazonka.Request as Request
@@ -71,10 +72,10 @@ data CreateNamespace = CreateNamespace'
     defaultIamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The password of the administrator for the first database created in the
     -- namespace.
-    adminUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    adminUserPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The username of the administrator for the first database created in the
     -- namespace.
-    adminUsername :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    adminUsername :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the first database created in the namespace.
     dbName :: Prelude.Maybe Prelude.Text,
     -- | The name of the namespace.
@@ -155,12 +156,12 @@ createNamespace_defaultIamRoleArn = Lens.lens (\CreateNamespace' {defaultIamRole
 -- | The password of the administrator for the first database created in the
 -- namespace.
 createNamespace_adminUserPassword :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
-createNamespace_adminUserPassword = Lens.lens (\CreateNamespace' {adminUserPassword} -> adminUserPassword) (\s@CreateNamespace' {} a -> s {adminUserPassword = a} :: CreateNamespace) Prelude.. Lens.mapping Core._Sensitive
+createNamespace_adminUserPassword = Lens.lens (\CreateNamespace' {adminUserPassword} -> adminUserPassword) (\s@CreateNamespace' {} a -> s {adminUserPassword = a} :: CreateNamespace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The username of the administrator for the first database created in the
 -- namespace.
 createNamespace_adminUsername :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
-createNamespace_adminUsername = Lens.lens (\CreateNamespace' {adminUsername} -> adminUsername) (\s@CreateNamespace' {} a -> s {adminUsername = a} :: CreateNamespace) Prelude.. Lens.mapping Core._Sensitive
+createNamespace_adminUsername = Lens.lens (\CreateNamespace' {adminUsername} -> adminUsername) (\s@CreateNamespace' {} a -> s {adminUsername = a} :: CreateNamespace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the first database created in the namespace.
 createNamespace_dbName :: Lens.Lens' CreateNamespace (Prelude.Maybe Prelude.Text)
@@ -180,7 +181,7 @@ instance Core.AWSRequest CreateNamespace where
     Response.receiveJSON
       ( \s h x ->
           CreateNamespaceResponse'
-            Prelude.<$> (x Core..?> "namespace")
+            Prelude.<$> (x Data..?> "namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,44 +209,44 @@ instance Prelude.NFData CreateNamespace where
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf namespaceName
 
-instance Core.ToHeaders CreateNamespace where
+instance Data.ToHeaders CreateNamespace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "RedshiftServerless.CreateNamespace" ::
+              Data.=# ( "RedshiftServerless.CreateNamespace" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNamespace where
+instance Data.ToJSON CreateNamespace where
   toJSON CreateNamespace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("logExports" Core..=) Prelude.<$> logExports,
-            ("iamRoles" Core..=) Prelude.<$> iamRoles,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("defaultIamRoleArn" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("logExports" Data..=) Prelude.<$> logExports,
+            ("iamRoles" Data..=) Prelude.<$> iamRoles,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("defaultIamRoleArn" Data..=)
               Prelude.<$> defaultIamRoleArn,
-            ("adminUserPassword" Core..=)
+            ("adminUserPassword" Data..=)
               Prelude.<$> adminUserPassword,
-            ("adminUsername" Core..=) Prelude.<$> adminUsername,
-            ("dbName" Core..=) Prelude.<$> dbName,
+            ("adminUsername" Data..=) Prelude.<$> adminUsername,
+            ("dbName" Data..=) Prelude.<$> dbName,
             Prelude.Just
-              ("namespaceName" Core..= namespaceName)
+              ("namespaceName" Data..= namespaceName)
           ]
       )
 
-instance Core.ToPath CreateNamespace where
+instance Data.ToPath CreateNamespace where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateNamespace where
+instance Data.ToQuery CreateNamespace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNamespaceResponse' smart constructor.

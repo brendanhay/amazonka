@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.RenewalSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ReservationAutomaticRenewal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ renewalSettings_automaticRenewal = Lens.lens (\RenewalSettings' {automaticRenewa
 renewalSettings_renewalCount :: Lens.Lens' RenewalSettings (Prelude.Maybe Prelude.Natural)
 renewalSettings_renewalCount = Lens.lens (\RenewalSettings' {renewalCount} -> renewalCount) (\s@RenewalSettings' {} a -> s {renewalCount = a} :: RenewalSettings)
 
-instance Core.FromJSON RenewalSettings where
+instance Data.FromJSON RenewalSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RenewalSettings"
       ( \x ->
           RenewalSettings'
-            Prelude.<$> (x Core..:? "automaticRenewal")
-            Prelude.<*> (x Core..:? "renewalCount")
+            Prelude.<$> (x Data..:? "automaticRenewal")
+            Prelude.<*> (x Data..:? "renewalCount")
       )
 
 instance Prelude.Hashable RenewalSettings where
@@ -83,12 +84,12 @@ instance Prelude.NFData RenewalSettings where
     Prelude.rnf automaticRenewal
       `Prelude.seq` Prelude.rnf renewalCount
 
-instance Core.ToJSON RenewalSettings where
+instance Data.ToJSON RenewalSettings where
   toJSON RenewalSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("automaticRenewal" Core..=)
+          [ ("automaticRenewal" Data..=)
               Prelude.<$> automaticRenewal,
-            ("renewalCount" Core..=) Prelude.<$> renewalCount
+            ("renewalCount" Data..=) Prelude.<$> renewalCount
           ]
       )

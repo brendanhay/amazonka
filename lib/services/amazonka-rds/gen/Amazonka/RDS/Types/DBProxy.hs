@@ -21,6 +21,7 @@ module Amazonka.RDS.Types.DBProxy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.DBProxyStatus
 import Amazonka.RDS.Types.UserAuthConfigInfo
@@ -64,9 +65,9 @@ data DBProxy = DBProxy'
     -- | The EC2 subnet IDs for the proxy.
     vpcSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The date and time when the proxy was last updated.
-    updatedDate :: Prelude.Maybe Core.ISO8601,
+    updatedDate :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the proxy was first created.
-    createdDate :: Prelude.Maybe Core.ISO8601,
+    createdDate :: Prelude.Maybe Data.ISO8601,
     -- | The endpoint that you can use to connect to the DB proxy. You include
     -- the endpoint value in the connection string for a database client
     -- application.
@@ -226,11 +227,11 @@ dbProxy_vpcSubnetIds = Lens.lens (\DBProxy' {vpcSubnetIds} -> vpcSubnetIds) (\s@
 
 -- | The date and time when the proxy was last updated.
 dbProxy_updatedDate :: Lens.Lens' DBProxy (Prelude.Maybe Prelude.UTCTime)
-dbProxy_updatedDate = Lens.lens (\DBProxy' {updatedDate} -> updatedDate) (\s@DBProxy' {} a -> s {updatedDate = a} :: DBProxy) Prelude.. Lens.mapping Core._Time
+dbProxy_updatedDate = Lens.lens (\DBProxy' {updatedDate} -> updatedDate) (\s@DBProxy' {} a -> s {updatedDate = a} :: DBProxy) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the proxy was first created.
 dbProxy_createdDate :: Lens.Lens' DBProxy (Prelude.Maybe Prelude.UTCTime)
-dbProxy_createdDate = Lens.lens (\DBProxy' {createdDate} -> createdDate) (\s@DBProxy' {} a -> s {createdDate = a} :: DBProxy) Prelude.. Lens.mapping Core._Time
+dbProxy_createdDate = Lens.lens (\DBProxy' {createdDate} -> createdDate) (\s@DBProxy' {} a -> s {createdDate = a} :: DBProxy) Prelude.. Lens.mapping Data._Time
 
 -- | The endpoint that you can use to connect to the DB proxy. You include
 -- the endpoint value in the connection string for a database client
@@ -264,31 +265,31 @@ dbProxy_dbProxyName = Lens.lens (\DBProxy' {dbProxyName} -> dbProxyName) (\s@DBP
 dbProxy_idleClientTimeout :: Lens.Lens' DBProxy (Prelude.Maybe Prelude.Int)
 dbProxy_idleClientTimeout = Lens.lens (\DBProxy' {idleClientTimeout} -> idleClientTimeout) (\s@DBProxy' {} a -> s {idleClientTimeout = a} :: DBProxy)
 
-instance Core.FromXML DBProxy where
+instance Data.FromXML DBProxy where
   parseXML x =
     DBProxy'
-      Prelude.<$> (x Core..@? "DBProxyArn")
-      Prelude.<*> ( x Core..@? "VpcSecurityGroupIds"
+      Prelude.<$> (x Data..@? "DBProxyArn")
+      Prelude.<*> ( x Data..@? "VpcSecurityGroupIds"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "EngineFamily")
-      Prelude.<*> (x Core..@? "RoleArn")
-      Prelude.<*> (x Core..@? "RequireTLS")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "DebugLogging")
-      Prelude.<*> ( x Core..@? "VpcSubnetIds" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "EngineFamily")
+      Prelude.<*> (x Data..@? "RoleArn")
+      Prelude.<*> (x Data..@? "RequireTLS")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "DebugLogging")
+      Prelude.<*> ( x Data..@? "VpcSubnetIds" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "UpdatedDate")
-      Prelude.<*> (x Core..@? "CreatedDate")
-      Prelude.<*> (x Core..@? "Endpoint")
-      Prelude.<*> (x Core..@? "VpcId")
-      Prelude.<*> ( x Core..@? "Auth" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<*> (x Data..@? "UpdatedDate")
+      Prelude.<*> (x Data..@? "CreatedDate")
+      Prelude.<*> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> ( x Data..@? "Auth" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "DBProxyName")
-      Prelude.<*> (x Core..@? "IdleClientTimeout")
+      Prelude.<*> (x Data..@? "DBProxyName")
+      Prelude.<*> (x Data..@? "IdleClientTimeout")
 
 instance Prelude.Hashable DBProxy where
   hashWithSalt _salt DBProxy' {..} =

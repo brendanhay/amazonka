@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types
 import qualified Amazonka.Request as Request
@@ -59,7 +60,7 @@ data GetRevision = GetRevision'
     -- @strandId@ and @sequenceNo@.
     --
     -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
-    digestTipAddress :: Prelude.Maybe (Core.Sensitive ValueHolder),
+    digestTipAddress :: Prelude.Maybe (Data.Sensitive ValueHolder),
     -- | The name of the ledger.
     name :: Prelude.Text,
     -- | The block location of the document revision to be verified. An address
@@ -67,7 +68,7 @@ data GetRevision = GetRevision'
     -- @sequenceNo@.
     --
     -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
-    blockAddress :: Core.Sensitive ValueHolder,
+    blockAddress :: Data.Sensitive ValueHolder,
     -- | The UUID (represented in Base62-encoded text) of the document to be
     -- verified.
     documentId :: Prelude.Text
@@ -110,7 +111,7 @@ newGetRevision pName_ pBlockAddress_ pDocumentId_ =
   GetRevision'
     { digestTipAddress = Prelude.Nothing,
       name = pName_,
-      blockAddress = Core._Sensitive Lens.# pBlockAddress_,
+      blockAddress = Data._Sensitive Lens.# pBlockAddress_,
       documentId = pDocumentId_
     }
 
@@ -120,7 +121,7 @@ newGetRevision pName_ pBlockAddress_ pDocumentId_ =
 --
 -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
 getRevision_digestTipAddress :: Lens.Lens' GetRevision (Prelude.Maybe ValueHolder)
-getRevision_digestTipAddress = Lens.lens (\GetRevision' {digestTipAddress} -> digestTipAddress) (\s@GetRevision' {} a -> s {digestTipAddress = a} :: GetRevision) Prelude.. Lens.mapping Core._Sensitive
+getRevision_digestTipAddress = Lens.lens (\GetRevision' {digestTipAddress} -> digestTipAddress) (\s@GetRevision' {} a -> s {digestTipAddress = a} :: GetRevision) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the ledger.
 getRevision_name :: Lens.Lens' GetRevision Prelude.Text
@@ -132,7 +133,7 @@ getRevision_name = Lens.lens (\GetRevision' {name} -> name) (\s@GetRevision' {} 
 --
 -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
 getRevision_blockAddress :: Lens.Lens' GetRevision ValueHolder
-getRevision_blockAddress = Lens.lens (\GetRevision' {blockAddress} -> blockAddress) (\s@GetRevision' {} a -> s {blockAddress = a} :: GetRevision) Prelude.. Core._Sensitive
+getRevision_blockAddress = Lens.lens (\GetRevision' {blockAddress} -> blockAddress) (\s@GetRevision' {} a -> s {blockAddress = a} :: GetRevision) Prelude.. Data._Sensitive
 
 -- | The UUID (represented in Base62-encoded text) of the document to be
 -- verified.
@@ -147,9 +148,9 @@ instance Core.AWSRequest GetRevision where
     Response.receiveJSON
       ( \s h x ->
           GetRevisionResponse'
-            Prelude.<$> (x Core..?> "Proof")
+            Prelude.<$> (x Data..?> "Proof")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Revision")
+            Prelude.<*> (x Data..:> "Revision")
       )
 
 instance Prelude.Hashable GetRevision where
@@ -166,34 +167,34 @@ instance Prelude.NFData GetRevision where
       `Prelude.seq` Prelude.rnf blockAddress
       `Prelude.seq` Prelude.rnf documentId
 
-instance Core.ToHeaders GetRevision where
+instance Data.ToHeaders GetRevision where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRevision where
+instance Data.ToJSON GetRevision where
   toJSON GetRevision' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DigestTipAddress" Core..=)
+          [ ("DigestTipAddress" Data..=)
               Prelude.<$> digestTipAddress,
-            Prelude.Just ("BlockAddress" Core..= blockAddress),
-            Prelude.Just ("DocumentId" Core..= documentId)
+            Prelude.Just ("BlockAddress" Data..= blockAddress),
+            Prelude.Just ("DocumentId" Data..= documentId)
           ]
       )
 
-instance Core.ToPath GetRevision where
+instance Data.ToPath GetRevision where
   toPath GetRevision' {..} =
     Prelude.mconcat
-      ["/ledgers/", Core.toBS name, "/revision"]
+      ["/ledgers/", Data.toBS name, "/revision"]
 
-instance Core.ToQuery GetRevision where
+instance Data.ToQuery GetRevision where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRevisionResponse' smart constructor.
@@ -202,11 +203,11 @@ data GetRevisionResponse = GetRevisionResponse'
     -- request. A proof contains the list of hash values that are required to
     -- recalculate the specified digest using a Merkle tree, starting with the
     -- specified document revision.
-    proof :: Prelude.Maybe (Core.Sensitive ValueHolder),
+    proof :: Prelude.Maybe (Data.Sensitive ValueHolder),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The document revision data object in Amazon Ion format.
-    revision :: Core.Sensitive ValueHolder
+    revision :: Data.Sensitive ValueHolder
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -236,7 +237,7 @@ newGetRevisionResponse pHttpStatus_ pRevision_ =
   GetRevisionResponse'
     { proof = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      revision = Core._Sensitive Lens.# pRevision_
+      revision = Data._Sensitive Lens.# pRevision_
     }
 
 -- | The proof object in Amazon Ion format returned by a @GetRevision@
@@ -244,7 +245,7 @@ newGetRevisionResponse pHttpStatus_ pRevision_ =
 -- recalculate the specified digest using a Merkle tree, starting with the
 -- specified document revision.
 getRevisionResponse_proof :: Lens.Lens' GetRevisionResponse (Prelude.Maybe ValueHolder)
-getRevisionResponse_proof = Lens.lens (\GetRevisionResponse' {proof} -> proof) (\s@GetRevisionResponse' {} a -> s {proof = a} :: GetRevisionResponse) Prelude.. Lens.mapping Core._Sensitive
+getRevisionResponse_proof = Lens.lens (\GetRevisionResponse' {proof} -> proof) (\s@GetRevisionResponse' {} a -> s {proof = a} :: GetRevisionResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 getRevisionResponse_httpStatus :: Lens.Lens' GetRevisionResponse Prelude.Int
@@ -252,7 +253,7 @@ getRevisionResponse_httpStatus = Lens.lens (\GetRevisionResponse' {httpStatus} -
 
 -- | The document revision data object in Amazon Ion format.
 getRevisionResponse_revision :: Lens.Lens' GetRevisionResponse ValueHolder
-getRevisionResponse_revision = Lens.lens (\GetRevisionResponse' {revision} -> revision) (\s@GetRevisionResponse' {} a -> s {revision = a} :: GetRevisionResponse) Prelude.. Core._Sensitive
+getRevisionResponse_revision = Lens.lens (\GetRevisionResponse' {revision} -> revision) (\s@GetRevisionResponse' {} a -> s {revision = a} :: GetRevisionResponse) Prelude.. Data._Sensitive
 
 instance Prelude.NFData GetRevisionResponse where
   rnf GetRevisionResponse' {..} =

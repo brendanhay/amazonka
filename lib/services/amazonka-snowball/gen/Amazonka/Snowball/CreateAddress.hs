@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -86,7 +87,7 @@ instance Core.AWSRequest CreateAddress where
     Response.receiveJSON
       ( \s h x ->
           CreateAddressResponse'
-            Prelude.<$> (x Core..?> "AddressId")
+            Prelude.<$> (x Data..?> "AddressId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -97,32 +98,32 @@ instance Prelude.Hashable CreateAddress where
 instance Prelude.NFData CreateAddress where
   rnf CreateAddress' {..} = Prelude.rnf address
 
-instance Core.ToHeaders CreateAddress where
+instance Data.ToHeaders CreateAddress where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
+              Data.=# ( "AWSIESnowballJobManagementService.CreateAddress" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAddress where
+instance Data.ToJSON CreateAddress where
   toJSON CreateAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Address" Core..= address)]
+          [Prelude.Just ("Address" Data..= address)]
       )
 
-instance Core.ToPath CreateAddress where
+instance Data.ToPath CreateAddress where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAddress where
+instance Data.ToQuery CreateAddress where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAddressResponse' smart constructor.

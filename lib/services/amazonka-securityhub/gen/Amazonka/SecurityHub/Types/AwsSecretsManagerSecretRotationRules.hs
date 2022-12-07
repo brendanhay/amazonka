@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsSecretsManagerSecretRotationRules where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the rotation schedule for the secret.
@@ -54,15 +55,15 @@ awsSecretsManagerSecretRotationRules_automaticallyAfterDays :: Lens.Lens' AwsSec
 awsSecretsManagerSecretRotationRules_automaticallyAfterDays = Lens.lens (\AwsSecretsManagerSecretRotationRules' {automaticallyAfterDays} -> automaticallyAfterDays) (\s@AwsSecretsManagerSecretRotationRules' {} a -> s {automaticallyAfterDays = a} :: AwsSecretsManagerSecretRotationRules)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsSecretsManagerSecretRotationRules
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsSecretsManagerSecretRotationRules"
       ( \x ->
           AwsSecretsManagerSecretRotationRules'
-            Prelude.<$> (x Core..:? "AutomaticallyAfterDays")
+            Prelude.<$> (x Data..:? "AutomaticallyAfterDays")
       )
 
 instance
@@ -82,13 +83,13 @@ instance
     Prelude.rnf automaticallyAfterDays
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsSecretsManagerSecretRotationRules
   where
   toJSON AwsSecretsManagerSecretRotationRules' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutomaticallyAfterDays" Core..=)
+          [ ("AutomaticallyAfterDays" Data..=)
               Prelude.<$> automaticallyAfterDays
           ]
       )

@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -156,10 +157,10 @@ instance Core.AWSRequest UpdateModelVersion where
     Response.receiveJSON
       ( \s h x ->
           UpdateModelVersionResponse'
-            Prelude.<$> (x Core..?> "modelVersionNumber")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "modelType")
-            Prelude.<*> (x Core..?> "modelId")
+            Prelude.<$> (x Data..?> "modelVersionNumber")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "modelType")
+            Prelude.<*> (x Data..?> "modelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,41 +182,41 @@ instance Prelude.NFData UpdateModelVersion where
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf majorVersionNumber
 
-instance Core.ToHeaders UpdateModelVersion where
+instance Data.ToHeaders UpdateModelVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.UpdateModelVersion" ::
+              Data.=# ( "AWSHawksNestServiceFacade.UpdateModelVersion" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateModelVersion where
+instance Data.ToJSON UpdateModelVersion where
   toJSON UpdateModelVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("ingestedEventsDetail" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("ingestedEventsDetail" Data..=)
               Prelude.<$> ingestedEventsDetail,
-            ("externalEventsDetail" Core..=)
+            ("externalEventsDetail" Data..=)
               Prelude.<$> externalEventsDetail,
-            Prelude.Just ("modelId" Core..= modelId),
-            Prelude.Just ("modelType" Core..= modelType),
+            Prelude.Just ("modelId" Data..= modelId),
+            Prelude.Just ("modelType" Data..= modelType),
             Prelude.Just
-              ("majorVersionNumber" Core..= majorVersionNumber)
+              ("majorVersionNumber" Data..= majorVersionNumber)
           ]
       )
 
-instance Core.ToPath UpdateModelVersion where
+instance Data.ToPath UpdateModelVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateModelVersion where
+instance Data.ToQuery UpdateModelVersion where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateModelVersionResponse' smart constructor.

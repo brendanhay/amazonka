@@ -54,6 +54,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,15 +212,15 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
     Response.receiveJSON
       ( \s h x ->
           SearchAssociatedTranscriptsResponse'
-            Prelude.<$> (x Core..?> "nextIndex")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> ( x Core..?> "associatedTranscripts"
+            Prelude.<$> (x Data..?> "nextIndex")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> ( x Data..?> "associatedTranscripts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "totalResults")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "totalResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,43 +246,43 @@ instance Prelude.NFData SearchAssociatedTranscripts where
       `Prelude.seq` Prelude.rnf botRecommendationId
       `Prelude.seq` Prelude.rnf filters
 
-instance Core.ToHeaders SearchAssociatedTranscripts where
+instance Data.ToHeaders SearchAssociatedTranscripts where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchAssociatedTranscripts where
+instance Data.ToJSON SearchAssociatedTranscripts where
   toJSON SearchAssociatedTranscripts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextIndex" Core..=) Prelude.<$> nextIndex,
-            ("searchOrder" Core..=) Prelude.<$> searchOrder,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("filters" Core..= filters)
+          [ ("nextIndex" Data..=) Prelude.<$> nextIndex,
+            ("searchOrder" Data..=) Prelude.<$> searchOrder,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("filters" Data..= filters)
           ]
       )
 
-instance Core.ToPath SearchAssociatedTranscripts where
+instance Data.ToPath SearchAssociatedTranscripts where
   toPath SearchAssociatedTranscripts' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/",
-        Core.toBS botRecommendationId,
+        Data.toBS botRecommendationId,
         "/associatedtranscripts"
       ]
 
-instance Core.ToQuery SearchAssociatedTranscripts where
+instance Data.ToQuery SearchAssociatedTranscripts where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchAssociatedTranscriptsResponse' smart constructor.

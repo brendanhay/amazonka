@@ -42,6 +42,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest DescribeCopyJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeCopyJobResponse'
-            Prelude.<$> (x Core..?> "CopyJob")
+            Prelude.<$> (x Data..?> "CopyJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,23 +95,23 @@ instance Prelude.Hashable DescribeCopyJob where
 instance Prelude.NFData DescribeCopyJob where
   rnf DescribeCopyJob' {..} = Prelude.rnf copyJobId
 
-instance Core.ToHeaders DescribeCopyJob where
+instance Data.ToHeaders DescribeCopyJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeCopyJob where
+instance Data.ToPath DescribeCopyJob where
   toPath DescribeCopyJob' {..} =
     Prelude.mconcat
-      ["/copy-jobs/", Core.toBS copyJobId]
+      ["/copy-jobs/", Data.toBS copyJobId]
 
-instance Core.ToQuery DescribeCopyJob where
+instance Data.ToQuery DescribeCopyJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeCopyJobResponse' smart constructor.

@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,30 +119,30 @@ instance Prelude.NFData DeleteWorkloadShare where
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders DeleteWorkloadShare where
+instance Data.ToHeaders DeleteWorkloadShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteWorkloadShare where
+instance Data.ToPath DeleteWorkloadShare where
   toPath DeleteWorkloadShare' {..} =
     Prelude.mconcat
       [ "/workloads/",
-        Core.toBS workloadId,
+        Data.toBS workloadId,
         "/shares/",
-        Core.toBS shareId
+        Data.toBS shareId
       ]
 
-instance Core.ToQuery DeleteWorkloadShare where
+instance Data.ToQuery DeleteWorkloadShare where
   toQuery DeleteWorkloadShare' {..} =
     Prelude.mconcat
-      ["ClientRequestToken" Core.=: clientRequestToken]
+      ["ClientRequestToken" Data.=: clientRequestToken]
 
 -- | /See:/ 'newDeleteWorkloadShareResponse' smart constructor.
 data DeleteWorkloadShareResponse = DeleteWorkloadShareResponse'

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.OriginAccessControlList where
 import Amazonka.CloudFront.Types.OriginAccessControlSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of CloudFront origin access controls.
@@ -119,18 +120,18 @@ originAccessControlList_isTruncated = Lens.lens (\OriginAccessControlList' {isTr
 originAccessControlList_quantity :: Lens.Lens' OriginAccessControlList Prelude.Int
 originAccessControlList_quantity = Lens.lens (\OriginAccessControlList' {quantity} -> quantity) (\s@OriginAccessControlList' {} a -> s {quantity = a} :: OriginAccessControlList)
 
-instance Core.FromXML OriginAccessControlList where
+instance Data.FromXML OriginAccessControlList where
   parseXML x =
     OriginAccessControlList'
-      Prelude.<$> ( x Core..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "OriginAccessControlSummary")
+                        (Data.parseXMLList "OriginAccessControlSummary")
                   )
-      Prelude.<*> (x Core..@? "NextMarker")
-      Prelude.<*> (x Core..@ "Marker")
-      Prelude.<*> (x Core..@ "MaxItems")
-      Prelude.<*> (x Core..@ "IsTruncated")
-      Prelude.<*> (x Core..@ "Quantity")
+      Prelude.<*> (x Data..@? "NextMarker")
+      Prelude.<*> (x Data..@ "Marker")
+      Prelude.<*> (x Data..@ "MaxItems")
+      Prelude.<*> (x Data..@ "IsTruncated")
+      Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable OriginAccessControlList where
   hashWithSalt _salt OriginAccessControlList' {..} =

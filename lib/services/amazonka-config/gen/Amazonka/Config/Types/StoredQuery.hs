@@ -21,6 +21,7 @@ module Amazonka.Config.Types.StoredQuery where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of a stored query.
@@ -96,17 +97,17 @@ storedQuery_queryArn = Lens.lens (\StoredQuery' {queryArn} -> queryArn) (\s@Stor
 storedQuery_queryName :: Lens.Lens' StoredQuery Prelude.Text
 storedQuery_queryName = Lens.lens (\StoredQuery' {queryName} -> queryName) (\s@StoredQuery' {} a -> s {queryName = a} :: StoredQuery)
 
-instance Core.FromJSON StoredQuery where
+instance Data.FromJSON StoredQuery where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StoredQuery"
       ( \x ->
           StoredQuery'
-            Prelude.<$> (x Core..:? "QueryId")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Expression")
-            Prelude.<*> (x Core..:? "QueryArn")
-            Prelude.<*> (x Core..: "QueryName")
+            Prelude.<$> (x Data..:? "QueryId")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Expression")
+            Prelude.<*> (x Data..:? "QueryArn")
+            Prelude.<*> (x Data..: "QueryName")
       )
 
 instance Prelude.Hashable StoredQuery where
@@ -125,14 +126,14 @@ instance Prelude.NFData StoredQuery where
       `Prelude.seq` Prelude.rnf queryArn
       `Prelude.seq` Prelude.rnf queryName
 
-instance Core.ToJSON StoredQuery where
+instance Data.ToJSON StoredQuery where
   toJSON StoredQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("QueryId" Core..=) Prelude.<$> queryId,
-            ("Description" Core..=) Prelude.<$> description,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("QueryArn" Core..=) Prelude.<$> queryArn,
-            Prelude.Just ("QueryName" Core..= queryName)
+          [ ("QueryId" Data..=) Prelude.<$> queryId,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("QueryArn" Data..=) Prelude.<$> queryArn,
+            Prelude.Just ("QueryName" Data..= queryName)
           ]
       )

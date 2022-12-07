@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.OutputDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.DestinationSchema
 import Amazonka.KinesisAnalyticsV2.Types.KinesisFirehoseOutputDescription
 import Amazonka.KinesisAnalyticsV2.Types.KinesisStreamsOutputDescription
@@ -114,18 +115,18 @@ outputDescription_kinesisFirehoseOutputDescription = Lens.lens (\OutputDescripti
 outputDescription_destinationSchema :: Lens.Lens' OutputDescription (Prelude.Maybe DestinationSchema)
 outputDescription_destinationSchema = Lens.lens (\OutputDescription' {destinationSchema} -> destinationSchema) (\s@OutputDescription' {} a -> s {destinationSchema = a} :: OutputDescription)
 
-instance Core.FromJSON OutputDescription where
+instance Data.FromJSON OutputDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputDescription"
       ( \x ->
           OutputDescription'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OutputId")
-            Prelude.<*> (x Core..:? "KinesisStreamsOutputDescription")
-            Prelude.<*> (x Core..:? "LambdaOutputDescription")
-            Prelude.<*> (x Core..:? "KinesisFirehoseOutputDescription")
-            Prelude.<*> (x Core..:? "DestinationSchema")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OutputId")
+            Prelude.<*> (x Data..:? "KinesisStreamsOutputDescription")
+            Prelude.<*> (x Data..:? "LambdaOutputDescription")
+            Prelude.<*> (x Data..:? "KinesisFirehoseOutputDescription")
+            Prelude.<*> (x Data..:? "DestinationSchema")
       )
 
 instance Prelude.Hashable OutputDescription where

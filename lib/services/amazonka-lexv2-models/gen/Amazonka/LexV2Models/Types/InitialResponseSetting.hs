@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.InitialResponseSetting where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.ConditionalSpecification
 import Amazonka.LexV2Models.Types.DialogCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.DialogState
@@ -82,16 +83,16 @@ initialResponseSetting_nextStep = Lens.lens (\InitialResponseSetting' {nextStep}
 initialResponseSetting_conditional :: Lens.Lens' InitialResponseSetting (Prelude.Maybe ConditionalSpecification)
 initialResponseSetting_conditional = Lens.lens (\InitialResponseSetting' {conditional} -> conditional) (\s@InitialResponseSetting' {} a -> s {conditional = a} :: InitialResponseSetting)
 
-instance Core.FromJSON InitialResponseSetting where
+instance Data.FromJSON InitialResponseSetting where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InitialResponseSetting"
       ( \x ->
           InitialResponseSetting'
-            Prelude.<$> (x Core..:? "initialResponse")
-            Prelude.<*> (x Core..:? "codeHook")
-            Prelude.<*> (x Core..:? "nextStep")
-            Prelude.<*> (x Core..:? "conditional")
+            Prelude.<$> (x Data..:? "initialResponse")
+            Prelude.<*> (x Data..:? "codeHook")
+            Prelude.<*> (x Data..:? "nextStep")
+            Prelude.<*> (x Data..:? "conditional")
       )
 
 instance Prelude.Hashable InitialResponseSetting where
@@ -108,14 +109,14 @@ instance Prelude.NFData InitialResponseSetting where
       `Prelude.seq` Prelude.rnf nextStep
       `Prelude.seq` Prelude.rnf conditional
 
-instance Core.ToJSON InitialResponseSetting where
+instance Data.ToJSON InitialResponseSetting where
   toJSON InitialResponseSetting' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("initialResponse" Core..=)
+          [ ("initialResponse" Data..=)
               Prelude.<$> initialResponse,
-            ("codeHook" Core..=) Prelude.<$> codeHook,
-            ("nextStep" Core..=) Prelude.<$> nextStep,
-            ("conditional" Core..=) Prelude.<$> conditional
+            ("codeHook" Data..=) Prelude.<$> codeHook,
+            ("nextStep" Data..=) Prelude.<$> nextStep,
+            ("conditional" Data..=) Prelude.<$> conditional
           ]
       )

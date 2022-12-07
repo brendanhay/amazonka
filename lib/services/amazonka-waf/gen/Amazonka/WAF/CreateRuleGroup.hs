@@ -69,6 +69,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,8 +162,8 @@ instance Core.AWSRequest CreateRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateRuleGroupResponse'
-            Prelude.<$> (x Core..?> "RuleGroup")
-            Prelude.<*> (x Core..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "RuleGroup")
+            Prelude.<*> (x Data..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,36 +181,36 @@ instance Prelude.NFData CreateRuleGroup where
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf changeToken
 
-instance Core.ToHeaders CreateRuleGroup where
+instance Data.ToHeaders CreateRuleGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.CreateRuleGroup" ::
+              Data.=# ( "AWSWAF_20150824.CreateRuleGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRuleGroup where
+instance Data.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("MetricName" Core..= metricName),
-            Prelude.Just ("ChangeToken" Core..= changeToken)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("MetricName" Data..= metricName),
+            Prelude.Just ("ChangeToken" Data..= changeToken)
           ]
       )
 
-instance Core.ToPath CreateRuleGroup where
+instance Data.ToPath CreateRuleGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateRuleGroup where
+instance Data.ToQuery CreateRuleGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRuleGroupResponse' smart constructor.

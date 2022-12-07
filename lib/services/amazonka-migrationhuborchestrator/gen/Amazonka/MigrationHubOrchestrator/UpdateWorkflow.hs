@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ data UpdateWorkflow = UpdateWorkflow'
     -- | The servers on which a step will be run.
     stepTargets :: Prelude.Maybe [Prelude.Text],
     -- | The input parameters required to update a migration workflow.
-    inputParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
+    inputParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
     -- | The description of the migration workflow.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the migration workflow.
@@ -116,7 +117,7 @@ updateWorkflow_stepTargets = Lens.lens (\UpdateWorkflow' {stepTargets} -> stepTa
 
 -- | The input parameters required to update a migration workflow.
 updateWorkflow_inputParameters :: Lens.Lens' UpdateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text StepInput))
-updateWorkflow_inputParameters = Lens.lens (\UpdateWorkflow' {inputParameters} -> inputParameters) (\s@UpdateWorkflow' {} a -> s {inputParameters = a} :: UpdateWorkflow) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateWorkflow_inputParameters = Lens.lens (\UpdateWorkflow' {inputParameters} -> inputParameters) (\s@UpdateWorkflow' {} a -> s {inputParameters = a} :: UpdateWorkflow) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The description of the migration workflow.
 updateWorkflow_description :: Lens.Lens' UpdateWorkflow (Prelude.Maybe Prelude.Text)
@@ -136,18 +137,18 @@ instance Core.AWSRequest UpdateWorkflow where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkflowResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "stepTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "adsApplicationConfigurationId")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "workflowInputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "stepTargets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "adsApplicationConfigurationId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,35 +168,35 @@ instance Prelude.NFData UpdateWorkflow where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders UpdateWorkflow where
+instance Data.ToHeaders UpdateWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkflow where
+instance Data.ToJSON UpdateWorkflow where
   toJSON UpdateWorkflow' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("stepTargets" Core..=) Prelude.<$> stepTargets,
-            ("inputParameters" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("stepTargets" Data..=) Prelude.<$> stepTargets,
+            ("inputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("description" Core..=) Prelude.<$> description
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath UpdateWorkflow where
+instance Data.ToPath UpdateWorkflow where
   toPath UpdateWorkflow' {..} =
     Prelude.mconcat
-      ["/migrationworkflow/", Core.toBS id]
+      ["/migrationworkflow/", Data.toBS id]
 
-instance Core.ToQuery UpdateWorkflow where
+instance Data.ToQuery UpdateWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkflowResponse' smart constructor.
@@ -219,11 +220,11 @@ data UpdateWorkflowResponse = UpdateWorkflowResponse'
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the migration workflow was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The inputs required to update a migration workflow.
-    workflowInputs :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
+    workflowInputs :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -321,15 +322,15 @@ updateWorkflowResponse_id = Lens.lens (\UpdateWorkflowResponse' {id} -> id) (\s@
 
 -- | The time at which the migration workflow was last modified.
 updateWorkflowResponse_lastModifiedTime :: Lens.Lens' UpdateWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-updateWorkflowResponse_lastModifiedTime = Lens.lens (\UpdateWorkflowResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateWorkflowResponse' {} a -> s {lastModifiedTime = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping Core._Time
+updateWorkflowResponse_lastModifiedTime = Lens.lens (\UpdateWorkflowResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateWorkflowResponse' {} a -> s {lastModifiedTime = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the migration workflow was created.
 updateWorkflowResponse_creationTime :: Lens.Lens' UpdateWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-updateWorkflowResponse_creationTime = Lens.lens (\UpdateWorkflowResponse' {creationTime} -> creationTime) (\s@UpdateWorkflowResponse' {} a -> s {creationTime = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping Core._Time
+updateWorkflowResponse_creationTime = Lens.lens (\UpdateWorkflowResponse' {creationTime} -> creationTime) (\s@UpdateWorkflowResponse' {} a -> s {creationTime = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The inputs required to update a migration workflow.
 updateWorkflowResponse_workflowInputs :: Lens.Lens' UpdateWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text StepInput))
-updateWorkflowResponse_workflowInputs = Lens.lens (\UpdateWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@UpdateWorkflowResponse' {} a -> s {workflowInputs = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateWorkflowResponse_workflowInputs = Lens.lens (\UpdateWorkflowResponse' {workflowInputs} -> workflowInputs) (\s@UpdateWorkflowResponse' {} a -> s {workflowInputs = a} :: UpdateWorkflowResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 updateWorkflowResponse_httpStatus :: Lens.Lens' UpdateWorkflowResponse Prelude.Int

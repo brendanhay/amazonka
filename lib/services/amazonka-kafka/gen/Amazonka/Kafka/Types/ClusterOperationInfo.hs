@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.ClusterOperationInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ClusterOperationStep
 import Amazonka.Kafka.Types.ErrorInfo
 import Amazonka.Kafka.Types.MutableClusterInfo
@@ -37,7 +38,7 @@ data ClusterOperationInfo = ClusterOperationInfo'
     -- | ARN of the cluster operation.
     operationArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the operation finished.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Information about cluster attributes before a cluster is updated.
     sourceClusterInfo :: Prelude.Maybe MutableClusterInfo,
     -- | Information about cluster attributes after a cluster is updated.
@@ -45,7 +46,7 @@ data ClusterOperationInfo = ClusterOperationInfo'
     -- | The ID of the API request that triggered this operation.
     clientRequestId :: Prelude.Maybe Prelude.Text,
     -- | The time that the operation was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | State of the cluster operation.
     operationState :: Prelude.Maybe Prelude.Text,
     -- | Describes the error if the operation fails.
@@ -115,7 +116,7 @@ clusterOperationInfo_operationArn = Lens.lens (\ClusterOperationInfo' {operation
 
 -- | The time at which the operation finished.
 clusterOperationInfo_endTime :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe Prelude.UTCTime)
-clusterOperationInfo_endTime = Lens.lens (\ClusterOperationInfo' {endTime} -> endTime) (\s@ClusterOperationInfo' {} a -> s {endTime = a} :: ClusterOperationInfo) Prelude.. Lens.mapping Core._Time
+clusterOperationInfo_endTime = Lens.lens (\ClusterOperationInfo' {endTime} -> endTime) (\s@ClusterOperationInfo' {} a -> s {endTime = a} :: ClusterOperationInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Information about cluster attributes before a cluster is updated.
 clusterOperationInfo_sourceClusterInfo :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe MutableClusterInfo)
@@ -131,7 +132,7 @@ clusterOperationInfo_clientRequestId = Lens.lens (\ClusterOperationInfo' {client
 
 -- | The time that the operation was created.
 clusterOperationInfo_creationTime :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe Prelude.UTCTime)
-clusterOperationInfo_creationTime = Lens.lens (\ClusterOperationInfo' {creationTime} -> creationTime) (\s@ClusterOperationInfo' {} a -> s {creationTime = a} :: ClusterOperationInfo) Prelude.. Lens.mapping Core._Time
+clusterOperationInfo_creationTime = Lens.lens (\ClusterOperationInfo' {creationTime} -> creationTime) (\s@ClusterOperationInfo' {} a -> s {creationTime = a} :: ClusterOperationInfo) Prelude.. Lens.mapping Data._Time
 
 -- | State of the cluster operation.
 clusterOperationInfo_operationState :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe Prelude.Text)
@@ -145,24 +146,24 @@ clusterOperationInfo_errorInfo = Lens.lens (\ClusterOperationInfo' {errorInfo} -
 clusterOperationInfo_operationSteps :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe [ClusterOperationStep])
 clusterOperationInfo_operationSteps = Lens.lens (\ClusterOperationInfo' {operationSteps} -> operationSteps) (\s@ClusterOperationInfo' {} a -> s {operationSteps = a} :: ClusterOperationInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClusterOperationInfo where
+instance Data.FromJSON ClusterOperationInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClusterOperationInfo"
       ( \x ->
           ClusterOperationInfo'
-            Prelude.<$> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "operationType")
-            Prelude.<*> (x Core..:? "operationArn")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "sourceClusterInfo")
-            Prelude.<*> (x Core..:? "targetClusterInfo")
-            Prelude.<*> (x Core..:? "clientRequestId")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "operationState")
-            Prelude.<*> (x Core..:? "errorInfo")
-            Prelude.<*> ( x Core..:? "operationSteps"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "operationType")
+            Prelude.<*> (x Data..:? "operationArn")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "sourceClusterInfo")
+            Prelude.<*> (x Data..:? "targetClusterInfo")
+            Prelude.<*> (x Data..:? "clientRequestId")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "operationState")
+            Prelude.<*> (x Data..:? "errorInfo")
+            Prelude.<*> ( x Data..:? "operationSteps"
+                            Data..!= Prelude.mempty
                         )
       )
 

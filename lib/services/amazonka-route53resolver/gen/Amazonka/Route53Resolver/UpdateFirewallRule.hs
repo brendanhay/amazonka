@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -265,7 +266,7 @@ instance Core.AWSRequest UpdateFirewallRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallRuleResponse'
-            Prelude.<$> (x Core..?> "FirewallRule")
+            Prelude.<$> (x Data..?> "FirewallRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -293,48 +294,48 @@ instance Prelude.NFData UpdateFirewallRule where
       `Prelude.seq` Prelude.rnf firewallRuleGroupId
       `Prelude.seq` Prelude.rnf firewallDomainListId
 
-instance Core.ToHeaders UpdateFirewallRule where
+instance Data.ToHeaders UpdateFirewallRule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.UpdateFirewallRule" ::
+              Data.=# ( "Route53Resolver.UpdateFirewallRule" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateFirewallRule where
+instance Data.ToJSON UpdateFirewallRule where
   toJSON UpdateFirewallRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("BlockResponse" Core..=) Prelude.<$> blockResponse,
-            ("BlockOverrideTtl" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("BlockResponse" Data..=) Prelude.<$> blockResponse,
+            ("BlockOverrideTtl" Data..=)
               Prelude.<$> blockOverrideTtl,
-            ("BlockOverrideDnsType" Core..=)
+            ("BlockOverrideDnsType" Data..=)
               Prelude.<$> blockOverrideDnsType,
-            ("BlockOverrideDomain" Core..=)
+            ("BlockOverrideDomain" Data..=)
               Prelude.<$> blockOverrideDomain,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Action" Core..=) Prelude.<$> action,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Action" Data..=) Prelude.<$> action,
             Prelude.Just
-              ("FirewallRuleGroupId" Core..= firewallRuleGroupId),
+              ("FirewallRuleGroupId" Data..= firewallRuleGroupId),
             Prelude.Just
               ( "FirewallDomainListId"
-                  Core..= firewallDomainListId
+                  Data..= firewallDomainListId
               )
           ]
       )
 
-instance Core.ToPath UpdateFirewallRule where
+instance Data.ToPath UpdateFirewallRule where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateFirewallRule where
+instance Data.ToQuery UpdateFirewallRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateFirewallRuleResponse' smart constructor.

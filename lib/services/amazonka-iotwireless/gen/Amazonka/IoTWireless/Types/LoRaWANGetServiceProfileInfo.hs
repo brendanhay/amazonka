@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | LoRaWANGetServiceProfileInfo object.
@@ -218,31 +219,31 @@ loRaWANGetServiceProfileInfo_dlBucketSize = Lens.lens (\LoRaWANGetServiceProfile
 loRaWANGetServiceProfileInfo_drMin :: Lens.Lens' LoRaWANGetServiceProfileInfo (Prelude.Maybe Prelude.Natural)
 loRaWANGetServiceProfileInfo_drMin = Lens.lens (\LoRaWANGetServiceProfileInfo' {drMin} -> drMin) (\s@LoRaWANGetServiceProfileInfo' {} a -> s {drMin = a} :: LoRaWANGetServiceProfileInfo)
 
-instance Core.FromJSON LoRaWANGetServiceProfileInfo where
+instance Data.FromJSON LoRaWANGetServiceProfileInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANGetServiceProfileInfo"
       ( \x ->
           LoRaWANGetServiceProfileInfo'
-            Prelude.<$> (x Core..:? "HrAllowed")
-            Prelude.<*> (x Core..:? "TargetPer")
-            Prelude.<*> (x Core..:? "NwkGeoLoc")
-            Prelude.<*> (x Core..:? "DevStatusReqFreq")
-            Prelude.<*> (x Core..:? "PrAllowed")
-            Prelude.<*> (x Core..:? "DlRatePolicy")
-            Prelude.<*> (x Core..:? "AddGwMetadata")
-            Prelude.<*> (x Core..:? "UlRatePolicy")
-            Prelude.<*> (x Core..:? "UlRate")
-            Prelude.<*> (x Core..:? "RaAllowed")
-            Prelude.<*> (x Core..:? "MinGwDiversity")
-            Prelude.<*> (x Core..:? "ReportDevStatusMargin")
-            Prelude.<*> (x Core..:? "ChannelMask")
-            Prelude.<*> (x Core..:? "ReportDevStatusBattery")
-            Prelude.<*> (x Core..:? "UlBucketSize")
-            Prelude.<*> (x Core..:? "DlRate")
-            Prelude.<*> (x Core..:? "DrMax")
-            Prelude.<*> (x Core..:? "DlBucketSize")
-            Prelude.<*> (x Core..:? "DrMin")
+            Prelude.<$> (x Data..:? "HrAllowed")
+            Prelude.<*> (x Data..:? "TargetPer")
+            Prelude.<*> (x Data..:? "NwkGeoLoc")
+            Prelude.<*> (x Data..:? "DevStatusReqFreq")
+            Prelude.<*> (x Data..:? "PrAllowed")
+            Prelude.<*> (x Data..:? "DlRatePolicy")
+            Prelude.<*> (x Data..:? "AddGwMetadata")
+            Prelude.<*> (x Data..:? "UlRatePolicy")
+            Prelude.<*> (x Data..:? "UlRate")
+            Prelude.<*> (x Data..:? "RaAllowed")
+            Prelude.<*> (x Data..:? "MinGwDiversity")
+            Prelude.<*> (x Data..:? "ReportDevStatusMargin")
+            Prelude.<*> (x Data..:? "ChannelMask")
+            Prelude.<*> (x Data..:? "ReportDevStatusBattery")
+            Prelude.<*> (x Data..:? "UlBucketSize")
+            Prelude.<*> (x Data..:? "DlRate")
+            Prelude.<*> (x Data..:? "DrMax")
+            Prelude.<*> (x Data..:? "DlBucketSize")
+            Prelude.<*> (x Data..:? "DrMin")
       )
 
 instance

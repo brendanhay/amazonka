@@ -49,6 +49,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -543,39 +544,39 @@ instance Prelude.NFData DeleteScheduledAction where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
 
-instance Core.ToHeaders DeleteScheduledAction where
+instance Data.ToHeaders DeleteScheduledAction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.DeleteScheduledAction" ::
+              Data.=# ( "AnyScaleFrontendService.DeleteScheduledAction" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteScheduledAction where
+instance Data.ToJSON DeleteScheduledAction where
   toJSON DeleteScheduledAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace),
+              ("ServiceNamespace" Data..= serviceNamespace),
             Prelude.Just
-              ("ScheduledActionName" Core..= scheduledActionName),
-            Prelude.Just ("ResourceId" Core..= resourceId),
+              ("ScheduledActionName" Data..= scheduledActionName),
+            Prelude.Just ("ResourceId" Data..= resourceId),
             Prelude.Just
-              ("ScalableDimension" Core..= scalableDimension)
+              ("ScalableDimension" Data..= scalableDimension)
           ]
       )
 
-instance Core.ToPath DeleteScheduledAction where
+instance Data.ToPath DeleteScheduledAction where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteScheduledAction where
+instance Data.ToQuery DeleteScheduledAction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.

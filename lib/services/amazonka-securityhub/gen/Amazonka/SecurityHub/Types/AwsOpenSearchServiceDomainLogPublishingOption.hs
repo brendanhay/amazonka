@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainLogPublishingOption 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration details for a log publishing option.
@@ -64,16 +65,16 @@ awsOpenSearchServiceDomainLogPublishingOption_cloudWatchLogsLogGroupArn :: Lens.
 awsOpenSearchServiceDomainLogPublishingOption_cloudWatchLogsLogGroupArn = Lens.lens (\AwsOpenSearchServiceDomainLogPublishingOption' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@AwsOpenSearchServiceDomainLogPublishingOption' {} a -> s {cloudWatchLogsLogGroupArn = a} :: AwsOpenSearchServiceDomainLogPublishingOption)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainLogPublishingOption
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainLogPublishingOption"
       ( \x ->
           AwsOpenSearchServiceDomainLogPublishingOption'
-            Prelude.<$> (x Core..:? "Enabled")
-              Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<$> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
       )
 
 instance
@@ -96,15 +97,15 @@ instance
         `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainLogPublishingOption
   where
   toJSON
     AwsOpenSearchServiceDomainLogPublishingOption' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Enabled" Core..=) Prelude.<$> enabled,
-              ("CloudWatchLogsLogGroupArn" Core..=)
+            [ ("Enabled" Data..=) Prelude.<$> enabled,
+              ("CloudWatchLogsLogGroupArn" Data..=)
                 Prelude.<$> cloudWatchLogsLogGroupArn
             ]
         )

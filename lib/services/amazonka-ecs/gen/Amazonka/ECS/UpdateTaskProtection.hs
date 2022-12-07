@@ -75,6 +75,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -179,8 +180,8 @@ instance Core.AWSRequest UpdateTaskProtection where
     Response.receiveJSON
       ( \s h x ->
           UpdateTaskProtectionResponse'
-            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "protectedTasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "protectedTasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,38 +199,38 @@ instance Prelude.NFData UpdateTaskProtection where
       `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf protectionEnabled
 
-instance Core.ToHeaders UpdateTaskProtection where
+instance Data.ToHeaders UpdateTaskProtection where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskProtection" ::
+              Data.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskProtection" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTaskProtection where
+instance Data.ToJSON UpdateTaskProtection where
   toJSON UpdateTaskProtection' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("expiresInMinutes" Core..=)
+          [ ("expiresInMinutes" Data..=)
               Prelude.<$> expiresInMinutes,
-            Prelude.Just ("cluster" Core..= cluster),
-            Prelude.Just ("tasks" Core..= tasks),
+            Prelude.Just ("cluster" Data..= cluster),
+            Prelude.Just ("tasks" Data..= tasks),
             Prelude.Just
-              ("protectionEnabled" Core..= protectionEnabled)
+              ("protectionEnabled" Data..= protectionEnabled)
           ]
       )
 
-instance Core.ToPath UpdateTaskProtection where
+instance Data.ToPath UpdateTaskProtection where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateTaskProtection where
+instance Data.ToQuery UpdateTaskProtection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTaskProtectionResponse' smart constructor.

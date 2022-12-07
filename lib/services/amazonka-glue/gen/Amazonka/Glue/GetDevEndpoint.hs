@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ instance Core.AWSRequest GetDevEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetDevEndpointResponse'
-            Prelude.<$> (x Core..?> "DevEndpoint")
+            Prelude.<$> (x Data..?> "DevEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -99,30 +100,30 @@ instance Prelude.Hashable GetDevEndpoint where
 instance Prelude.NFData GetDevEndpoint where
   rnf GetDevEndpoint' {..} = Prelude.rnf endpointName
 
-instance Core.ToHeaders GetDevEndpoint where
+instance Data.ToHeaders GetDevEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetDevEndpoint" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetDevEndpoint" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDevEndpoint where
+instance Data.ToJSON GetDevEndpoint where
   toJSON GetDevEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EndpointName" Core..= endpointName)]
+          [Prelude.Just ("EndpointName" Data..= endpointName)]
       )
 
-instance Core.ToPath GetDevEndpoint where
+instance Data.ToPath GetDevEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDevEndpoint where
+instance Data.ToQuery GetDevEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDevEndpointResponse' smart constructor.

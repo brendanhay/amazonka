@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.LambdaAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action to invoke a Lambda function.
@@ -52,12 +53,12 @@ newLambdaAction pFunctionArn_ =
 lambdaAction_functionArn :: Lens.Lens' LambdaAction Prelude.Text
 lambdaAction_functionArn = Lens.lens (\LambdaAction' {functionArn} -> functionArn) (\s@LambdaAction' {} a -> s {functionArn = a} :: LambdaAction)
 
-instance Core.FromJSON LambdaAction where
+instance Data.FromJSON LambdaAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaAction"
       ( \x ->
-          LambdaAction' Prelude.<$> (x Core..: "functionArn")
+          LambdaAction' Prelude.<$> (x Data..: "functionArn")
       )
 
 instance Prelude.Hashable LambdaAction where
@@ -67,9 +68,9 @@ instance Prelude.Hashable LambdaAction where
 instance Prelude.NFData LambdaAction where
   rnf LambdaAction' {..} = Prelude.rnf functionArn
 
-instance Core.ToJSON LambdaAction where
+instance Data.ToJSON LambdaAction where
   toJSON LambdaAction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("functionArn" Core..= functionArn)]
+          [Prelude.Just ("functionArn" Data..= functionArn)]
       )

@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,14 +136,14 @@ instance Core.AWSRequest CreateWorkspaceImage where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkspaceImageResponse'
-            Prelude.<$> (x Core..?> "OperatingSystem")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "Created")
-            Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "RequiredTenancy")
-            Prelude.<*> (x Core..?> "OwnerAccountId")
-            Prelude.<*> (x Core..?> "ImageId")
+            Prelude.<$> (x Data..?> "OperatingSystem")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Created")
+            Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "RequiredTenancy")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,36 +161,36 @@ instance Prelude.NFData CreateWorkspaceImage where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders CreateWorkspaceImage where
+instance Data.ToHeaders CreateWorkspaceImage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateWorkspaceImage" ::
+              Data.=# ( "WorkspacesService.CreateWorkspaceImage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspaceImage where
+instance Data.ToJSON CreateWorkspaceImage where
   toJSON CreateWorkspaceImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Description" Core..= description),
-            Prelude.Just ("WorkspaceId" Core..= workspaceId)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Description" Data..= description),
+            Prelude.Just ("WorkspaceId" Data..= workspaceId)
           ]
       )
 
-instance Core.ToPath CreateWorkspaceImage where
+instance Data.ToPath CreateWorkspaceImage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkspaceImage where
+instance Data.ToQuery CreateWorkspaceImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspaceImageResponse' smart constructor.
@@ -199,7 +200,7 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
     -- | The name of the image.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date when the image was created.
-    created :: Prelude.Maybe Core.POSIX,
+    created :: Prelude.Maybe Data.POSIX,
     -- | The availability status of the image.
     state :: Prelude.Maybe WorkspaceImageState,
     -- | The description of the image.
@@ -274,7 +275,7 @@ createWorkspaceImageResponse_name = Lens.lens (\CreateWorkspaceImageResponse' {n
 
 -- | The date when the image was created.
 createWorkspaceImageResponse_created :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.UTCTime)
-createWorkspaceImageResponse_created = Lens.lens (\CreateWorkspaceImageResponse' {created} -> created) (\s@CreateWorkspaceImageResponse' {} a -> s {created = a} :: CreateWorkspaceImageResponse) Prelude.. Lens.mapping Core._Time
+createWorkspaceImageResponse_created = Lens.lens (\CreateWorkspaceImageResponse' {created} -> created) (\s@CreateWorkspaceImageResponse' {} a -> s {created = a} :: CreateWorkspaceImageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The availability status of the image.
 createWorkspaceImageResponse_state :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageState)

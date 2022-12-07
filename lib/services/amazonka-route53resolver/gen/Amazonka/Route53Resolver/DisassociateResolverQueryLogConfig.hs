@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -120,7 +121,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociateResolverQueryLogConfigResponse'
-            Prelude.<$> (x Core..?> "ResolverQueryLogConfigAssociation")
+            Prelude.<$> (x Data..?> "ResolverQueryLogConfigAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,46 +145,46 @@ instance
       `Prelude.seq` Prelude.rnf resourceId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisassociateResolverQueryLogConfig
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.DisassociateResolverQueryLogConfig" ::
+              Data.=# ( "Route53Resolver.DisassociateResolverQueryLogConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DisassociateResolverQueryLogConfig
   where
   toJSON DisassociateResolverQueryLogConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ResolverQueryLogConfigId"
-                  Core..= resolverQueryLogConfigId
+                  Data..= resolverQueryLogConfigId
               ),
-            Prelude.Just ("ResourceId" Core..= resourceId)
+            Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisassociateResolverQueryLogConfig
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisassociateResolverQueryLogConfig
   where
   toQuery = Prelude.const Prelude.mempty

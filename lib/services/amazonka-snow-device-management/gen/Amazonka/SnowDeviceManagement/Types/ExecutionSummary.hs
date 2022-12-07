@@ -21,6 +21,7 @@ module Amazonka.SnowDeviceManagement.Types.ExecutionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SnowDeviceManagement.Types.ExecutionState
 
@@ -80,16 +81,16 @@ executionSummary_executionId = Lens.lens (\ExecutionSummary' {executionId} -> ex
 executionSummary_managedDeviceId :: Lens.Lens' ExecutionSummary (Prelude.Maybe Prelude.Text)
 executionSummary_managedDeviceId = Lens.lens (\ExecutionSummary' {managedDeviceId} -> managedDeviceId) (\s@ExecutionSummary' {} a -> s {managedDeviceId = a} :: ExecutionSummary)
 
-instance Core.FromJSON ExecutionSummary where
+instance Data.FromJSON ExecutionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionSummary"
       ( \x ->
           ExecutionSummary'
-            Prelude.<$> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "executionId")
-            Prelude.<*> (x Core..:? "managedDeviceId")
+            Prelude.<$> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "executionId")
+            Prelude.<*> (x Data..:? "managedDeviceId")
       )
 
 instance Prelude.Hashable ExecutionSummary where

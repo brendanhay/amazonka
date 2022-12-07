@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.BuiltinSlotTypeMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexModels.Types.Locale
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,16 +73,16 @@ builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' 
 builtinSlotTypeMetadata_signature :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe Prelude.Text)
 builtinSlotTypeMetadata_signature = Lens.lens (\BuiltinSlotTypeMetadata' {signature} -> signature) (\s@BuiltinSlotTypeMetadata' {} a -> s {signature = a} :: BuiltinSlotTypeMetadata)
 
-instance Core.FromJSON BuiltinSlotTypeMetadata where
+instance Data.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BuiltinSlotTypeMetadata"
       ( \x ->
           BuiltinSlotTypeMetadata'
-            Prelude.<$> ( x Core..:? "supportedLocales"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "supportedLocales"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "signature")
+            Prelude.<*> (x Data..:? "signature")
       )
 
 instance Prelude.Hashable BuiltinSlotTypeMetadata where

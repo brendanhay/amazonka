@@ -22,6 +22,7 @@ module Amazonka.DLM.Types.EventParameters where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DLM.Types.EventTypeValues
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | __[Event-based policies only]__ Specifies an event that activates an
@@ -112,15 +113,15 @@ eventParameters_snapshotOwner = Lens.lens (\EventParameters' {snapshotOwner} -> 
 eventParameters_descriptionRegex :: Lens.Lens' EventParameters Prelude.Text
 eventParameters_descriptionRegex = Lens.lens (\EventParameters' {descriptionRegex} -> descriptionRegex) (\s@EventParameters' {} a -> s {descriptionRegex = a} :: EventParameters)
 
-instance Core.FromJSON EventParameters where
+instance Data.FromJSON EventParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventParameters"
       ( \x ->
           EventParameters'
-            Prelude.<$> (x Core..: "EventType")
-            Prelude.<*> (x Core..:? "SnapshotOwner" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "DescriptionRegex")
+            Prelude.<$> (x Data..: "EventType")
+            Prelude.<*> (x Data..:? "SnapshotOwner" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "DescriptionRegex")
       )
 
 instance Prelude.Hashable EventParameters where
@@ -135,13 +136,13 @@ instance Prelude.NFData EventParameters where
       `Prelude.seq` Prelude.rnf snapshotOwner
       `Prelude.seq` Prelude.rnf descriptionRegex
 
-instance Core.ToJSON EventParameters where
+instance Data.ToJSON EventParameters where
   toJSON EventParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EventType" Core..= eventType),
-            Prelude.Just ("SnapshotOwner" Core..= snapshotOwner),
+          [ Prelude.Just ("EventType" Data..= eventType),
+            Prelude.Just ("SnapshotOwner" Data..= snapshotOwner),
             Prelude.Just
-              ("DescriptionRegex" Core..= descriptionRegex)
+              ("DescriptionRegex" Data..= descriptionRegex)
           ]
       )

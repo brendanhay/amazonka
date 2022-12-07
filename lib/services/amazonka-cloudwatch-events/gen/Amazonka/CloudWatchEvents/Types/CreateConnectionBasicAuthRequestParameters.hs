@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameter
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Basic authorization parameters to use for the connection.
@@ -90,14 +91,14 @@ instance
       `Prelude.seq` Prelude.rnf password
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateConnectionBasicAuthRequestParameters
   where
   toJSON
     CreateConnectionBasicAuthRequestParameters' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just ("Username" Core..= username),
-              Prelude.Just ("Password" Core..= password)
+            [ Prelude.Just ("Username" Data..= username),
+              Prelude.Just ("Password" Data..= password)
             ]
         )

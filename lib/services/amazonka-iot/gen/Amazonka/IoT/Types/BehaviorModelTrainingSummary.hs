@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.BehaviorModelTrainingSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.ModelStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,11 +36,11 @@ data BehaviorModelTrainingSummary = BehaviorModelTrainingSummary'
     -- | The name of the security profile.
     securityProfileName :: Prelude.Maybe Prelude.Text,
     -- | The date a training model started collecting data.
-    trainingDataCollectionStartDate :: Prelude.Maybe Core.POSIX,
+    trainingDataCollectionStartDate :: Prelude.Maybe Data.POSIX,
     -- | The percentage of datapoints collected.
     datapointsCollectionPercentage :: Prelude.Maybe Prelude.Double,
     -- | The date the model was last refreshed.
-    lastModelRefreshDate :: Prelude.Maybe Core.POSIX
+    lastModelRefreshDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +92,7 @@ behaviorModelTrainingSummary_securityProfileName = Lens.lens (\BehaviorModelTrai
 
 -- | The date a training model started collecting data.
 behaviorModelTrainingSummary_trainingDataCollectionStartDate :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.UTCTime)
-behaviorModelTrainingSummary_trainingDataCollectionStartDate = Lens.lens (\BehaviorModelTrainingSummary' {trainingDataCollectionStartDate} -> trainingDataCollectionStartDate) (\s@BehaviorModelTrainingSummary' {} a -> s {trainingDataCollectionStartDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Core._Time
+behaviorModelTrainingSummary_trainingDataCollectionStartDate = Lens.lens (\BehaviorModelTrainingSummary' {trainingDataCollectionStartDate} -> trainingDataCollectionStartDate) (\s@BehaviorModelTrainingSummary' {} a -> s {trainingDataCollectionStartDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The percentage of datapoints collected.
 behaviorModelTrainingSummary_datapointsCollectionPercentage :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.Double)
@@ -99,20 +100,20 @@ behaviorModelTrainingSummary_datapointsCollectionPercentage = Lens.lens (\Behavi
 
 -- | The date the model was last refreshed.
 behaviorModelTrainingSummary_lastModelRefreshDate :: Lens.Lens' BehaviorModelTrainingSummary (Prelude.Maybe Prelude.UTCTime)
-behaviorModelTrainingSummary_lastModelRefreshDate = Lens.lens (\BehaviorModelTrainingSummary' {lastModelRefreshDate} -> lastModelRefreshDate) (\s@BehaviorModelTrainingSummary' {} a -> s {lastModelRefreshDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Core._Time
+behaviorModelTrainingSummary_lastModelRefreshDate = Lens.lens (\BehaviorModelTrainingSummary' {lastModelRefreshDate} -> lastModelRefreshDate) (\s@BehaviorModelTrainingSummary' {} a -> s {lastModelRefreshDate = a} :: BehaviorModelTrainingSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON BehaviorModelTrainingSummary where
+instance Data.FromJSON BehaviorModelTrainingSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BehaviorModelTrainingSummary"
       ( \x ->
           BehaviorModelTrainingSummary'
-            Prelude.<$> (x Core..:? "modelStatus")
-            Prelude.<*> (x Core..:? "behaviorName")
-            Prelude.<*> (x Core..:? "securityProfileName")
-            Prelude.<*> (x Core..:? "trainingDataCollectionStartDate")
-            Prelude.<*> (x Core..:? "datapointsCollectionPercentage")
-            Prelude.<*> (x Core..:? "lastModelRefreshDate")
+            Prelude.<$> (x Data..:? "modelStatus")
+            Prelude.<*> (x Data..:? "behaviorName")
+            Prelude.<*> (x Data..:? "securityProfileName")
+            Prelude.<*> (x Data..:? "trainingDataCollectionStartDate")
+            Prelude.<*> (x Data..:? "datapointsCollectionPercentage")
+            Prelude.<*> (x Data..:? "lastModelRefreshDate")
       )
 
 instance

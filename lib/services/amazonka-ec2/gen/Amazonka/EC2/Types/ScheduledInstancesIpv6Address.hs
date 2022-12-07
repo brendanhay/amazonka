@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ScheduledInstancesIpv6Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,6 +66,6 @@ instance Prelude.NFData ScheduledInstancesIpv6Address where
   rnf ScheduledInstancesIpv6Address' {..} =
     Prelude.rnf ipv6Address
 
-instance Core.ToQuery ScheduledInstancesIpv6Address where
+instance Data.ToQuery ScheduledInstancesIpv6Address where
   toQuery ScheduledInstancesIpv6Address' {..} =
-    Prelude.mconcat ["Ipv6Address" Core.=: ipv6Address]
+    Prelude.mconcat ["Ipv6Address" Data.=: ipv6Address]

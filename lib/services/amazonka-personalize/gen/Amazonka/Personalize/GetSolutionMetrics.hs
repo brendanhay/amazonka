@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,8 +91,8 @@ instance Core.AWSRequest GetSolutionMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetSolutionMetricsResponse'
-            Prelude.<$> (x Core..?> "metrics" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "solutionVersionArn")
+            Prelude.<$> (x Data..?> "metrics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "solutionVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,34 +104,34 @@ instance Prelude.NFData GetSolutionMetrics where
   rnf GetSolutionMetrics' {..} =
     Prelude.rnf solutionVersionArn
 
-instance Core.ToHeaders GetSolutionMetrics where
+instance Data.ToHeaders GetSolutionMetrics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.GetSolutionMetrics" ::
+              Data.=# ( "AmazonPersonalize.GetSolutionMetrics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSolutionMetrics where
+instance Data.ToJSON GetSolutionMetrics where
   toJSON GetSolutionMetrics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("solutionVersionArn" Core..= solutionVersionArn)
+              ("solutionVersionArn" Data..= solutionVersionArn)
           ]
       )
 
-instance Core.ToPath GetSolutionMetrics where
+instance Data.ToPath GetSolutionMetrics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSolutionMetrics where
+instance Data.ToQuery GetSolutionMetrics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSolutionMetricsResponse' smart constructor.

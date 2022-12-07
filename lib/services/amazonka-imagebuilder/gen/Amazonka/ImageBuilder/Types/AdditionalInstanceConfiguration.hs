@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent
 import qualified Amazonka.Prelude as Prelude
 
@@ -119,16 +120,16 @@ additionalInstanceConfiguration_systemsManagerAgent :: Lens.Lens' AdditionalInst
 additionalInstanceConfiguration_systemsManagerAgent = Lens.lens (\AdditionalInstanceConfiguration' {systemsManagerAgent} -> systemsManagerAgent) (\s@AdditionalInstanceConfiguration' {} a -> s {systemsManagerAgent = a} :: AdditionalInstanceConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AdditionalInstanceConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdditionalInstanceConfiguration"
       ( \x ->
           AdditionalInstanceConfiguration'
-            Prelude.<$> (x Core..:? "userDataOverride")
-            Prelude.<*> (x Core..:? "systemsManagerAgent")
+            Prelude.<$> (x Data..:? "userDataOverride")
+            Prelude.<*> (x Data..:? "systemsManagerAgent")
       )
 
 instance
@@ -149,13 +150,13 @@ instance
     Prelude.rnf userDataOverride
       `Prelude.seq` Prelude.rnf systemsManagerAgent
 
-instance Core.ToJSON AdditionalInstanceConfiguration where
+instance Data.ToJSON AdditionalInstanceConfiguration where
   toJSON AdditionalInstanceConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("userDataOverride" Core..=)
+          [ ("userDataOverride" Data..=)
               Prelude.<$> userDataOverride,
-            ("systemsManagerAgent" Core..=)
+            ("systemsManagerAgent" Data..=)
               Prelude.<$> systemsManagerAgent
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.InAppTemplateRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.InAppMessageContent
 import Amazonka.Pinpoint.Types.Layout
 import qualified Amazonka.Prelude as Prelude
@@ -119,15 +120,15 @@ instance Prelude.NFData InAppTemplateRequest where
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf templateDescription
 
-instance Core.ToJSON InAppTemplateRequest where
+instance Data.ToJSON InAppTemplateRequest where
   toJSON InAppTemplateRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomConfig" Core..=) Prelude.<$> customConfig,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("Layout" Core..=) Prelude.<$> layout,
-            ("Content" Core..=) Prelude.<$> content,
-            ("TemplateDescription" Core..=)
+          [ ("CustomConfig" Data..=) Prelude.<$> customConfig,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("Layout" Data..=) Prelude.<$> layout,
+            ("Content" Data..=) Prelude.<$> content,
+            ("TemplateDescription" Data..=)
               Prelude.<$> templateDescription
           ]
       )

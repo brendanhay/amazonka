@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -288,9 +289,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateElasticsearchDomainConfigResponse'
-            Prelude.<$> (x Core..?> "DryRunResults")
+            Prelude.<$> (x Data..?> "DryRunResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DomainConfig")
+            Prelude.<*> (x Data..:> "DomainConfig")
       )
 
 instance
@@ -339,52 +340,52 @@ instance
       `Prelude.seq` Prelude.rnf domainName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     UpdateElasticsearchDomainConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateElasticsearchDomainConfig where
+instance Data.ToJSON UpdateElasticsearchDomainConfig where
   toJSON UpdateElasticsearchDomainConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NodeToNodeEncryptionOptions" Core..=)
+          [ ("NodeToNodeEncryptionOptions" Data..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
-            ("AdvancedOptions" Core..=)
+            ("AdvancedOptions" Data..=)
               Prelude.<$> advancedOptions,
-            ("ElasticsearchClusterConfig" Core..=)
+            ("ElasticsearchClusterConfig" Data..=)
               Prelude.<$> elasticsearchClusterConfig,
-            ("AdvancedSecurityOptions" Core..=)
+            ("AdvancedSecurityOptions" Data..=)
               Prelude.<$> advancedSecurityOptions,
-            ("CognitoOptions" Core..=)
+            ("CognitoOptions" Data..=)
               Prelude.<$> cognitoOptions,
-            ("EncryptionAtRestOptions" Core..=)
+            ("EncryptionAtRestOptions" Data..=)
               Prelude.<$> encryptionAtRestOptions,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
-            ("AccessPolicies" Core..=)
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
+            ("AccessPolicies" Data..=)
               Prelude.<$> accessPolicies,
-            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
-            ("AutoTuneOptions" Core..=)
+            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
+            ("AutoTuneOptions" Data..=)
               Prelude.<$> autoTuneOptions,
-            ("DomainEndpointOptions" Core..=)
+            ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
-            ("SnapshotOptions" Core..=)
+            ("SnapshotOptions" Data..=)
               Prelude.<$> snapshotOptions,
-            ("LogPublishingOptions" Core..=)
+            ("LogPublishingOptions" Data..=)
               Prelude.<$> logPublishingOptions
           ]
       )
 
-instance Core.ToPath UpdateElasticsearchDomainConfig where
+instance Data.ToPath UpdateElasticsearchDomainConfig where
   toPath UpdateElasticsearchDomainConfig' {..} =
     Prelude.mconcat
       [ "/2015-01-01/es/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/config"
       ]
 
-instance Core.ToQuery UpdateElasticsearchDomainConfig where
+instance Data.ToQuery UpdateElasticsearchDomainConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of an @UpdateElasticsearchDomain@ request. Contains the

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrialComponentParameterValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of a hyperparameter. Only one of @NumberValue@ or
@@ -71,14 +72,14 @@ trialComponentParameterValue_numberValue = Lens.lens (\TrialComponentParameterVa
 trialComponentParameterValue_stringValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Text)
 trialComponentParameterValue_stringValue = Lens.lens (\TrialComponentParameterValue' {stringValue} -> stringValue) (\s@TrialComponentParameterValue' {} a -> s {stringValue = a} :: TrialComponentParameterValue)
 
-instance Core.FromJSON TrialComponentParameterValue where
+instance Data.FromJSON TrialComponentParameterValue where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrialComponentParameterValue"
       ( \x ->
           TrialComponentParameterValue'
-            Prelude.<$> (x Core..:? "NumberValue")
-            Prelude.<*> (x Core..:? "StringValue")
+            Prelude.<$> (x Data..:? "NumberValue")
+            Prelude.<*> (x Data..:? "StringValue")
       )
 
 instance
@@ -94,11 +95,11 @@ instance Prelude.NFData TrialComponentParameterValue where
     Prelude.rnf numberValue
       `Prelude.seq` Prelude.rnf stringValue
 
-instance Core.ToJSON TrialComponentParameterValue where
+instance Data.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NumberValue" Core..=) Prelude.<$> numberValue,
-            ("StringValue" Core..=) Prelude.<$> stringValue
+          [ ("NumberValue" Data..=) Prelude.<$> numberValue,
+            ("StringValue" Data..=) Prelude.<$> stringValue
           ]
       )

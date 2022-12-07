@@ -21,6 +21,7 @@ module Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration of an Auto Scaling group.
@@ -89,16 +90,16 @@ autoScalingGroupConfiguration_maxSize = Lens.lens (\AutoScalingGroupConfiguratio
 autoScalingGroupConfiguration_desiredCapacity :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
 autoScalingGroupConfiguration_desiredCapacity = Lens.lens (\AutoScalingGroupConfiguration' {desiredCapacity} -> desiredCapacity) (\s@AutoScalingGroupConfiguration' {} a -> s {desiredCapacity = a} :: AutoScalingGroupConfiguration)
 
-instance Core.FromJSON AutoScalingGroupConfiguration where
+instance Data.FromJSON AutoScalingGroupConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingGroupConfiguration"
       ( \x ->
           AutoScalingGroupConfiguration'
-            Prelude.<$> (x Core..:? "instanceType")
-            Prelude.<*> (x Core..:? "minSize")
-            Prelude.<*> (x Core..:? "maxSize")
-            Prelude.<*> (x Core..:? "desiredCapacity")
+            Prelude.<$> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "minSize")
+            Prelude.<*> (x Data..:? "maxSize")
+            Prelude.<*> (x Data..:? "desiredCapacity")
       )
 
 instance

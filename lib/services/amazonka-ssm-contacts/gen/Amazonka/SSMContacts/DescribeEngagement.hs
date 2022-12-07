@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -97,17 +98,17 @@ instance Core.AWSRequest DescribeEngagement where
     Response.receiveJSON
       ( \s h x ->
           DescribeEngagementResponse'
-            Prelude.<$> (x Core..?> "PublicContent")
-            Prelude.<*> (x Core..?> "StopTime")
-            Prelude.<*> (x Core..?> "PublicSubject")
-            Prelude.<*> (x Core..?> "IncidentId")
-            Prelude.<*> (x Core..?> "StartTime")
+            Prelude.<$> (x Data..?> "PublicContent")
+            Prelude.<*> (x Data..?> "StopTime")
+            Prelude.<*> (x Data..?> "PublicSubject")
+            Prelude.<*> (x Data..?> "IncidentId")
+            Prelude.<*> (x Data..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ContactArn")
-            Prelude.<*> (x Core..:> "EngagementArn")
-            Prelude.<*> (x Core..:> "Sender")
-            Prelude.<*> (x Core..:> "Subject")
-            Prelude.<*> (x Core..:> "Content")
+            Prelude.<*> (x Data..:> "ContactArn")
+            Prelude.<*> (x Data..:> "EngagementArn")
+            Prelude.<*> (x Data..:> "Sender")
+            Prelude.<*> (x Data..:> "Subject")
+            Prelude.<*> (x Data..:> "Content")
       )
 
 instance Prelude.Hashable DescribeEngagement where
@@ -118,32 +119,32 @@ instance Prelude.NFData DescribeEngagement where
   rnf DescribeEngagement' {..} =
     Prelude.rnf engagementId
 
-instance Core.ToHeaders DescribeEngagement where
+instance Data.ToHeaders DescribeEngagement where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SSMContacts.DescribeEngagement" ::
+              Data.=# ( "SSMContacts.DescribeEngagement" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeEngagement where
+instance Data.ToJSON DescribeEngagement where
   toJSON DescribeEngagement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("EngagementId" Core..= engagementId)]
+          [Prelude.Just ("EngagementId" Data..= engagementId)]
       )
 
-instance Core.ToPath DescribeEngagement where
+instance Data.ToPath DescribeEngagement where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeEngagement where
+instance Data.ToQuery DescribeEngagement where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeEngagementResponse' smart constructor.
@@ -152,14 +153,14 @@ data DescribeEngagementResponse = DescribeEngagementResponse'
     -- this field for engagements to @SMS@.
     publicContent :: Prelude.Maybe Prelude.Text,
     -- | The time that the engagement ended.
-    stopTime :: Prelude.Maybe Core.POSIX,
+    stopTime :: Prelude.Maybe Data.POSIX,
     -- | The insecure subject of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicSubject :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the incident in which the engagement occurred.
     incidentId :: Prelude.Maybe Prelude.Text,
     -- | The time that the engagement started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ARN of the escalation plan or contacts involved in the engagement.
@@ -253,7 +254,7 @@ describeEngagementResponse_publicContent = Lens.lens (\DescribeEngagementRespons
 
 -- | The time that the engagement ended.
 describeEngagementResponse_stopTime :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.UTCTime)
-describeEngagementResponse_stopTime = Lens.lens (\DescribeEngagementResponse' {stopTime} -> stopTime) (\s@DescribeEngagementResponse' {} a -> s {stopTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Core._Time
+describeEngagementResponse_stopTime = Lens.lens (\DescribeEngagementResponse' {stopTime} -> stopTime) (\s@DescribeEngagementResponse' {} a -> s {stopTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The insecure subject of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
@@ -266,7 +267,7 @@ describeEngagementResponse_incidentId = Lens.lens (\DescribeEngagementResponse' 
 
 -- | The time that the engagement started.
 describeEngagementResponse_startTime :: Lens.Lens' DescribeEngagementResponse (Prelude.Maybe Prelude.UTCTime)
-describeEngagementResponse_startTime = Lens.lens (\DescribeEngagementResponse' {startTime} -> startTime) (\s@DescribeEngagementResponse' {} a -> s {startTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Core._Time
+describeEngagementResponse_startTime = Lens.lens (\DescribeEngagementResponse' {startTime} -> startTime) (\s@DescribeEngagementResponse' {} a -> s {startTime = a} :: DescribeEngagementResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeEngagementResponse_httpStatus :: Lens.Lens' DescribeEngagementResponse Prelude.Int

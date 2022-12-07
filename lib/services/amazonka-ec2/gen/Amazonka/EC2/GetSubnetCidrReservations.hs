@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -185,14 +186,14 @@ instance Core.AWSRequest GetSubnetCidrReservations where
     Response.receiveXML
       ( \s h x ->
           GetSubnetCidrReservationsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "subnetIpv4CidrReservationSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "subnetIpv4CidrReservationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "subnetIpv6CidrReservationSet"
+            Prelude.<*> ( x Data..@? "subnetIpv6CidrReservationSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -213,25 +214,25 @@ instance Prelude.NFData GetSubnetCidrReservations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf subnetId
 
-instance Core.ToHeaders GetSubnetCidrReservations where
+instance Data.ToHeaders GetSubnetCidrReservations where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSubnetCidrReservations where
+instance Data.ToPath GetSubnetCidrReservations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSubnetCidrReservations where
+instance Data.ToQuery GetSubnetCidrReservations where
   toQuery GetSubnetCidrReservations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetSubnetCidrReservations" :: Prelude.ByteString),
+          Data.=: ("GetSubnetCidrReservations" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Core.=: dryRun,
-        "MaxResults" Core.=: maxResults,
-        "SubnetId" Core.=: subnetId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
+        "SubnetId" Data.=: subnetId
       ]
 
 -- | /See:/ 'newGetSubnetCidrReservationsResponse' smart constructor.

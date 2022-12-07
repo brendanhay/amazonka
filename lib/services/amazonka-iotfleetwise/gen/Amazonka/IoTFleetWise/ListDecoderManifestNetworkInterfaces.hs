@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -159,8 +160,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDecoderManifestNetworkInterfacesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "networkInterfaces")
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "networkInterfaces")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,44 +186,44 @@ instance
       `Prelude.seq` Prelude.rnf name
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListDecoderManifestNetworkInterfaces
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.ListDecoderManifestNetworkInterfaces" ::
+              Data.=# ( "IoTAutobahnControlPlane.ListDecoderManifestNetworkInterfaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ListDecoderManifestNetworkInterfaces
   where
   toJSON ListDecoderManifestNetworkInterfaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("name" Core..= name)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     ListDecoderManifestNetworkInterfaces
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ListDecoderManifestNetworkInterfaces
   where
   toQuery = Prelude.const Prelude.mempty

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -279,7 +280,7 @@ data CreateServer = CreateServer'
     -- For more information, see
     -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
-    hostKey :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    hostKey :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -767,7 +768,7 @@ createServer_workflowDetails = Lens.lens (\CreateServer' {workflowDetails} -> wo
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 createServer_hostKey :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
-createServer_hostKey = Lens.lens (\CreateServer' {hostKey} -> hostKey) (\s@CreateServer' {} a -> s {hostKey = a} :: CreateServer) Prelude.. Lens.mapping Core._Sensitive
+createServer_hostKey = Lens.lens (\CreateServer' {hostKey} -> hostKey) (\s@CreateServer' {} a -> s {hostKey = a} :: CreateServer) Prelude.. Lens.mapping Data._Sensitive
 
 instance Core.AWSRequest CreateServer where
   type AWSResponse CreateServer = CreateServerResponse
@@ -778,7 +779,7 @@ instance Core.AWSRequest CreateServer where
       ( \s h x ->
           CreateServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ServerId")
+            Prelude.<*> (x Data..:> "ServerId")
       )
 
 instance Prelude.Hashable CreateServer where
@@ -817,55 +818,55 @@ instance Prelude.NFData CreateServer where
       `Prelude.seq` Prelude.rnf workflowDetails
       `Prelude.seq` Prelude.rnf hostKey
 
-instance Core.ToHeaders CreateServer where
+instance Data.ToHeaders CreateServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TransferService.CreateServer" ::
+              Data.=# ( "TransferService.CreateServer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateServer where
+instance Data.ToJSON CreateServer where
   toJSON CreateServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("PreAuthenticationLoginBanner" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("PreAuthenticationLoginBanner" Data..=)
               Prelude.<$> preAuthenticationLoginBanner,
-            ("ProtocolDetails" Core..=)
+            ("ProtocolDetails" Data..=)
               Prelude.<$> protocolDetails,
-            ("IdentityProviderDetails" Core..=)
+            ("IdentityProviderDetails" Data..=)
               Prelude.<$> identityProviderDetails,
-            ("Domain" Core..=) Prelude.<$> domain,
-            ("IdentityProviderType" Core..=)
+            ("Domain" Data..=) Prelude.<$> domain,
+            ("IdentityProviderType" Data..=)
               Prelude.<$> identityProviderType,
-            ("SecurityPolicyName" Core..=)
+            ("SecurityPolicyName" Data..=)
               Prelude.<$> securityPolicyName,
-            ("EndpointDetails" Core..=)
+            ("EndpointDetails" Data..=)
               Prelude.<$> endpointDetails,
-            ("Certificate" Core..=) Prelude.<$> certificate,
-            ("Protocols" Core..=) Prelude.<$> protocols,
-            ("EndpointType" Core..=) Prelude.<$> endpointType,
-            ("LoggingRole" Core..=) Prelude.<$> loggingRole,
-            ("PostAuthenticationLoginBanner" Core..=)
+            ("Certificate" Data..=) Prelude.<$> certificate,
+            ("Protocols" Data..=) Prelude.<$> protocols,
+            ("EndpointType" Data..=) Prelude.<$> endpointType,
+            ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            ("PostAuthenticationLoginBanner" Data..=)
               Prelude.<$> postAuthenticationLoginBanner,
-            ("WorkflowDetails" Core..=)
+            ("WorkflowDetails" Data..=)
               Prelude.<$> workflowDetails,
-            ("HostKey" Core..=) Prelude.<$> hostKey
+            ("HostKey" Data..=) Prelude.<$> hostKey
           ]
       )
 
-instance Core.ToPath CreateServer where
+instance Data.ToPath CreateServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateServer where
+instance Data.ToQuery CreateServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateServerResponse' smart constructor.

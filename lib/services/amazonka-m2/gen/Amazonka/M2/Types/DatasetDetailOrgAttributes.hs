@@ -21,6 +21,7 @@ module Amazonka.M2.Types.DatasetDetailOrgAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.GdgDetailAttributes
 import Amazonka.M2.Types.VsamDetailAttributes
 import qualified Amazonka.Prelude as Prelude
@@ -65,13 +66,13 @@ datasetDetailOrgAttributes_gdg = Lens.lens (\DatasetDetailOrgAttributes' {gdg} -
 datasetDetailOrgAttributes_vsam :: Lens.Lens' DatasetDetailOrgAttributes (Prelude.Maybe VsamDetailAttributes)
 datasetDetailOrgAttributes_vsam = Lens.lens (\DatasetDetailOrgAttributes' {vsam} -> vsam) (\s@DatasetDetailOrgAttributes' {} a -> s {vsam = a} :: DatasetDetailOrgAttributes)
 
-instance Core.FromJSON DatasetDetailOrgAttributes where
+instance Data.FromJSON DatasetDetailOrgAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatasetDetailOrgAttributes"
       ( \x ->
           DatasetDetailOrgAttributes'
-            Prelude.<$> (x Core..:? "gdg") Prelude.<*> (x Core..:? "vsam")
+            Prelude.<$> (x Data..:? "gdg") Prelude.<*> (x Data..:? "vsam")
       )
 
 instance Prelude.Hashable DatasetDetailOrgAttributes where

@@ -69,6 +69,7 @@ where
 import Amazonka.CloudTrail.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,14 +85,14 @@ data StartImport = StartImport'
     -- and log file names to verify the names contain a date between the
     -- specified @StartEventTime@ and @EndEventTime@ before attempting to
     -- import events.
-    endEventTime :: Prelude.Maybe Core.POSIX,
+    endEventTime :: Prelude.Maybe Data.POSIX,
     -- | Use with @EndEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period. When you specify a time range, CloudTrail checks the prefix
     -- and log file names to verify the names contain a date between the
     -- specified @StartEventTime@ and @EndEventTime@ before attempting to
     -- import events.
-    startEventTime :: Prelude.Maybe Core.POSIX,
+    startEventTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the import. Use this parameter when you are retrying an
     -- import.
     importId :: Prelude.Maybe Prelude.Text,
@@ -154,7 +155,7 @@ startImport_importSource = Lens.lens (\StartImport' {importSource} -> importSour
 -- specified @StartEventTime@ and @EndEventTime@ before attempting to
 -- import events.
 startImport_endEventTime :: Lens.Lens' StartImport (Prelude.Maybe Prelude.UTCTime)
-startImport_endEventTime = Lens.lens (\StartImport' {endEventTime} -> endEventTime) (\s@StartImport' {} a -> s {endEventTime = a} :: StartImport) Prelude.. Lens.mapping Core._Time
+startImport_endEventTime = Lens.lens (\StartImport' {endEventTime} -> endEventTime) (\s@StartImport' {} a -> s {endEventTime = a} :: StartImport) Prelude.. Lens.mapping Data._Time
 
 -- | Use with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
@@ -163,7 +164,7 @@ startImport_endEventTime = Lens.lens (\StartImport' {endEventTime} -> endEventTi
 -- specified @StartEventTime@ and @EndEventTime@ before attempting to
 -- import events.
 startImport_startEventTime :: Lens.Lens' StartImport (Prelude.Maybe Prelude.UTCTime)
-startImport_startEventTime = Lens.lens (\StartImport' {startEventTime} -> startEventTime) (\s@StartImport' {} a -> s {startEventTime = a} :: StartImport) Prelude.. Lens.mapping Core._Time
+startImport_startEventTime = Lens.lens (\StartImport' {startEventTime} -> startEventTime) (\s@StartImport' {} a -> s {startEventTime = a} :: StartImport) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the import. Use this parameter when you are retrying an
 -- import.
@@ -183,14 +184,14 @@ instance Core.AWSRequest StartImport where
     Response.receiveJSON
       ( \s h x ->
           StartImportResponse'
-            Prelude.<$> (x Core..?> "ImportSource")
-            Prelude.<*> (x Core..?> "EndEventTime")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "UpdatedTimestamp")
-            Prelude.<*> (x Core..?> "StartEventTime")
-            Prelude.<*> (x Core..?> "ImportId")
-            Prelude.<*> (x Core..?> "ImportStatus")
-            Prelude.<*> (x Core..?> "Destinations")
+            Prelude.<$> (x Data..?> "ImportSource")
+            Prelude.<*> (x Data..?> "EndEventTime")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
+            Prelude.<*> (x Data..?> "StartEventTime")
+            Prelude.<*> (x Data..?> "ImportId")
+            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<*> (x Data..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,38 +211,38 @@ instance Prelude.NFData StartImport where
       `Prelude.seq` Prelude.rnf importId
       `Prelude.seq` Prelude.rnf destinations
 
-instance Core.ToHeaders StartImport where
+instance Data.ToHeaders StartImport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartImport" ::
+              Data.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartImport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartImport where
+instance Data.ToJSON StartImport where
   toJSON StartImport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ImportSource" Core..=) Prelude.<$> importSource,
-            ("EndEventTime" Core..=) Prelude.<$> endEventTime,
-            ("StartEventTime" Core..=)
+          [ ("ImportSource" Data..=) Prelude.<$> importSource,
+            ("EndEventTime" Data..=) Prelude.<$> endEventTime,
+            ("StartEventTime" Data..=)
               Prelude.<$> startEventTime,
-            ("ImportId" Core..=) Prelude.<$> importId,
-            ("Destinations" Core..=) Prelude.<$> destinations
+            ("ImportId" Data..=) Prelude.<$> importId,
+            ("Destinations" Data..=) Prelude.<$> destinations
           ]
       )
 
-instance Core.ToPath StartImport where
+instance Data.ToPath StartImport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartImport where
+instance Data.ToQuery StartImport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartImportResponse' smart constructor.
@@ -251,15 +252,15 @@ data StartImportResponse = StartImportResponse'
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    endEventTime :: Prelude.Maybe Core.POSIX,
+    endEventTime :: Prelude.Maybe Data.POSIX,
     -- | The timestamp for the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of the import\'s last update, if applicable.
-    updatedTimestamp :: Prelude.Maybe Core.POSIX,
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
-    startEventTime :: Prelude.Maybe Core.POSIX,
+    startEventTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | Shows the status of the import after a @StartImport@ request. An import
@@ -330,21 +331,21 @@ startImportResponse_importSource = Lens.lens (\StartImportResponse' {importSourc
 -- imported trail events to only those events logged within a specified
 -- time period.
 startImportResponse_endEventTime :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_endEventTime = Lens.lens (\StartImportResponse' {endEventTime} -> endEventTime) (\s@StartImportResponse' {} a -> s {endEventTime = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_endEventTime = Lens.lens (\StartImportResponse' {endEventTime} -> endEventTime) (\s@StartImportResponse' {} a -> s {endEventTime = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp for the import\'s creation.
 startImportResponse_createdTimestamp :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_createdTimestamp = Lens.lens (\StartImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StartImportResponse' {} a -> s {createdTimestamp = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_createdTimestamp = Lens.lens (\StartImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StartImportResponse' {} a -> s {createdTimestamp = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of the import\'s last update, if applicable.
 startImportResponse_updatedTimestamp :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_updatedTimestamp = Lens.lens (\StartImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StartImportResponse' {} a -> s {updatedTimestamp = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_updatedTimestamp = Lens.lens (\StartImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StartImportResponse' {} a -> s {updatedTimestamp = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 startImportResponse_startEventTime :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_startEventTime = Lens.lens (\StartImportResponse' {startEventTime} -> startEventTime) (\s@StartImportResponse' {} a -> s {startEventTime = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
+startImportResponse_startEventTime = Lens.lens (\StartImportResponse' {startEventTime} -> startEventTime) (\s@StartImportResponse' {} a -> s {startEventTime = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the import.
 startImportResponse_importId :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.Text)

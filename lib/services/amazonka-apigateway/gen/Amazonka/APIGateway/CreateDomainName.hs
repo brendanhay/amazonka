@@ -69,6 +69,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -284,7 +285,7 @@ instance Core.AWSRequest CreateDomainName where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDomainName where
   hashWithSalt _salt CreateDomainName' {..} =
@@ -318,48 +319,48 @@ instance Prelude.NFData CreateDomainName where
       `Prelude.seq` Prelude.rnf securityPolicy
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateDomainName where
+instance Data.ToHeaders CreateDomainName where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateDomainName where
+instance Data.ToJSON CreateDomainName where
   toJSON CreateDomainName' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("mutualTlsAuthentication" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("mutualTlsAuthentication" Data..=)
               Prelude.<$> mutualTlsAuthentication,
-            ("regionalCertificateName" Core..=)
+            ("regionalCertificateName" Data..=)
               Prelude.<$> regionalCertificateName,
-            ("ownershipVerificationCertificateArn" Core..=)
+            ("ownershipVerificationCertificateArn" Data..=)
               Prelude.<$> ownershipVerificationCertificateArn,
-            ("regionalCertificateArn" Core..=)
+            ("regionalCertificateArn" Data..=)
               Prelude.<$> regionalCertificateArn,
-            ("certificateName" Core..=)
+            ("certificateName" Data..=)
               Prelude.<$> certificateName,
-            ("certificateBody" Core..=)
+            ("certificateBody" Data..=)
               Prelude.<$> certificateBody,
-            ("certificateArn" Core..=)
+            ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
-            ("certificatePrivateKey" Core..=)
+            ("certificatePrivateKey" Data..=)
               Prelude.<$> certificatePrivateKey,
-            ("certificateChain" Core..=)
+            ("certificateChain" Data..=)
               Prelude.<$> certificateChain,
-            ("endpointConfiguration" Core..=)
+            ("endpointConfiguration" Data..=)
               Prelude.<$> endpointConfiguration,
-            ("securityPolicy" Core..=)
+            ("securityPolicy" Data..=)
               Prelude.<$> securityPolicy,
-            Prelude.Just ("domainName" Core..= domainName)
+            Prelude.Just ("domainName" Data..= domainName)
           ]
       )
 
-instance Core.ToPath CreateDomainName where
+instance Data.ToPath CreateDomainName where
   toPath = Prelude.const "/domainnames"
 
-instance Core.ToQuery CreateDomainName where
+instance Data.ToQuery CreateDomainName where
   toQuery = Prelude.const Prelude.mempty

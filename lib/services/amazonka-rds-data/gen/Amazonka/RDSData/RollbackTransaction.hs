@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDSData.Types
 import qualified Amazonka.Request as Request
@@ -116,7 +117,7 @@ instance Core.AWSRequest RollbackTransaction where
     Response.receiveJSON
       ( \s h x ->
           RollbackTransactionResponse'
-            Prelude.<$> (x Core..?> "transactionStatus")
+            Prelude.<$> (x Data..?> "transactionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,32 +133,32 @@ instance Prelude.NFData RollbackTransaction where
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf transactionId
 
-instance Core.ToHeaders RollbackTransaction where
+instance Data.ToHeaders RollbackTransaction where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RollbackTransaction where
+instance Data.ToJSON RollbackTransaction where
   toJSON RollbackTransaction' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("resourceArn" Core..= resourceArn),
-            Prelude.Just ("secretArn" Core..= secretArn),
+          [ Prelude.Just ("resourceArn" Data..= resourceArn),
+            Prelude.Just ("secretArn" Data..= secretArn),
             Prelude.Just
-              ("transactionId" Core..= transactionId)
+              ("transactionId" Data..= transactionId)
           ]
       )
 
-instance Core.ToPath RollbackTransaction where
+instance Data.ToPath RollbackTransaction where
   toPath = Prelude.const "/RollbackTransaction"
 
-instance Core.ToQuery RollbackTransaction where
+instance Data.ToQuery RollbackTransaction where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response elements represent the output of a request to perform a

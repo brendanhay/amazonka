@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,10 +130,10 @@ instance Core.AWSRequest BatchGetDocumentStatus where
     Response.receiveJSON
       ( \s h x ->
           BatchGetDocumentStatusResponse'
-            Prelude.<$> ( x Core..?> "DocumentStatusList"
+            Prelude.<$> ( x Data..?> "DocumentStatusList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,35 +147,35 @@ instance Prelude.NFData BatchGetDocumentStatus where
     Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf documentInfoList
 
-instance Core.ToHeaders BatchGetDocumentStatus where
+instance Data.ToHeaders BatchGetDocumentStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.BatchGetDocumentStatus" ::
+              Data.=# ( "AWSKendraFrontendService.BatchGetDocumentStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetDocumentStatus where
+instance Data.ToJSON BatchGetDocumentStatus where
   toJSON BatchGetDocumentStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("IndexId" Core..= indexId),
+          [ Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just
-              ("DocumentInfoList" Core..= documentInfoList)
+              ("DocumentInfoList" Data..= documentInfoList)
           ]
       )
 
-instance Core.ToPath BatchGetDocumentStatus where
+instance Data.ToPath BatchGetDocumentStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchGetDocumentStatus where
+instance Data.ToQuery BatchGetDocumentStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetDocumentStatusResponse' smart constructor.

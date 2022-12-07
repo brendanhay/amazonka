@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,10 +110,10 @@ instance Core.AWSRequest BatchGetDevicePosition where
       ( \s h x ->
           BatchGetDevicePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "DevicePositions"
+            Prelude.<*> ( x Data..?> "DevicePositions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable BatchGetDevicePosition where
@@ -125,33 +126,33 @@ instance Prelude.NFData BatchGetDevicePosition where
     Prelude.rnf deviceIds
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders BatchGetDevicePosition where
+instance Data.ToHeaders BatchGetDevicePosition where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetDevicePosition where
+instance Data.ToJSON BatchGetDevicePosition where
   toJSON BatchGetDevicePosition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DeviceIds" Core..= deviceIds)]
+          [Prelude.Just ("DeviceIds" Data..= deviceIds)]
       )
 
-instance Core.ToPath BatchGetDevicePosition where
+instance Data.ToPath BatchGetDevicePosition where
   toPath BatchGetDevicePosition' {..} =
     Prelude.mconcat
       [ "/tracking/v0/trackers/",
-        Core.toBS trackerName,
+        Data.toBS trackerName,
         "/get-positions"
       ]
 
-instance Core.ToQuery BatchGetDevicePosition where
+instance Data.ToQuery BatchGetDevicePosition where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchGetDevicePositionResponse' smart constructor.

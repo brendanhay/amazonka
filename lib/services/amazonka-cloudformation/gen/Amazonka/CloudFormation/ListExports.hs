@@ -52,6 +52,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -112,9 +113,9 @@ instance Core.AWSRequest ListExports where
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Exports" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "NextToken")
+            Prelude.<*> ( x Data..@? "Exports" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -126,20 +127,20 @@ instance Prelude.Hashable ListExports where
 instance Prelude.NFData ListExports where
   rnf ListExports' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders ListExports where
+instance Data.ToHeaders ListExports where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListExports where
+instance Data.ToPath ListExports where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListExports where
+instance Data.ToQuery ListExports where
   toQuery ListExports' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListExports" :: Prelude.ByteString),
+          Data.=: ("ListExports" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListExportsResponse' smart constructor.

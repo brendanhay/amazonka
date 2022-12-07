@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.Primary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The primary Region of the endpoint.
@@ -55,12 +56,12 @@ newPrimary pHealthCheck_ =
 primary_healthCheck :: Lens.Lens' Primary Prelude.Text
 primary_healthCheck = Lens.lens (\Primary' {healthCheck} -> healthCheck) (\s@Primary' {} a -> s {healthCheck = a} :: Primary)
 
-instance Core.FromJSON Primary where
+instance Data.FromJSON Primary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Primary"
       ( \x ->
-          Primary' Prelude.<$> (x Core..: "HealthCheck")
+          Primary' Prelude.<$> (x Data..: "HealthCheck")
       )
 
 instance Prelude.Hashable Primary where
@@ -70,9 +71,9 @@ instance Prelude.Hashable Primary where
 instance Prelude.NFData Primary where
   rnf Primary' {..} = Prelude.rnf healthCheck
 
-instance Core.ToJSON Primary where
+instance Data.ToJSON Primary where
   toJSON Primary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("HealthCheck" Core..= healthCheck)]
+          [Prelude.Just ("HealthCheck" Data..= healthCheck)]
       )

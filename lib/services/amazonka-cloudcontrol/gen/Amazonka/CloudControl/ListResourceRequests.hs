@@ -52,6 +52,7 @@ where
 import Amazonka.CloudControl.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListResourceRequests where
     Response.receiveJSON
       ( \s h x ->
           ListResourceRequestsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ResourceRequestStatusSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResourceRequestStatusSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -182,36 +183,36 @@ instance Prelude.NFData ListResourceRequests where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf resourceRequestStatusFilter
 
-instance Core.ToHeaders ListResourceRequests where
+instance Data.ToHeaders ListResourceRequests where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CloudApiService.ListResourceRequests" ::
+              Data.=# ( "CloudApiService.ListResourceRequests" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListResourceRequests where
+instance Data.ToJSON ListResourceRequests where
   toJSON ListResourceRequests' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ResourceRequestStatusFilter" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ResourceRequestStatusFilter" Data..=)
               Prelude.<$> resourceRequestStatusFilter
           ]
       )
 
-instance Core.ToPath ListResourceRequests where
+instance Data.ToPath ListResourceRequests where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListResourceRequests where
+instance Data.ToQuery ListResourceRequests where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListResourceRequestsResponse' smart constructor.

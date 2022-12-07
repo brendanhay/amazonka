@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateIamInstanceProfileSpecificationRequest w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -82,10 +83,10 @@ instance
       Prelude.rnf name `Prelude.seq` Prelude.rnf arn
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateIamInstanceProfileSpecificationRequest
   where
   toQuery
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
       Prelude.mconcat
-        ["Name" Core.=: name, "Arn" Core.=: arn]
+        ["Name" Data.=: name, "Arn" Data.=: arn]

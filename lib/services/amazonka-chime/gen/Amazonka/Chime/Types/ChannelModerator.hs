@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.ChannelModerator where
 import Amazonka.Chime.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of a channel moderator.
@@ -31,7 +32,7 @@ data ChannelModerator = ChannelModerator'
   { -- | The moderator\'s data.
     moderator :: Prelude.Maybe Identity,
     -- | The time at which the moderator was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the moderator\'s channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The @AppInstanceUser@ who created the moderator.
@@ -70,7 +71,7 @@ channelModerator_moderator = Lens.lens (\ChannelModerator' {moderator} -> modera
 
 -- | The time at which the moderator was created.
 channelModerator_createdTimestamp :: Lens.Lens' ChannelModerator (Prelude.Maybe Prelude.UTCTime)
-channelModerator_createdTimestamp = Lens.lens (\ChannelModerator' {createdTimestamp} -> createdTimestamp) (\s@ChannelModerator' {} a -> s {createdTimestamp = a} :: ChannelModerator) Prelude.. Lens.mapping Core._Time
+channelModerator_createdTimestamp = Lens.lens (\ChannelModerator' {createdTimestamp} -> createdTimestamp) (\s@ChannelModerator' {} a -> s {createdTimestamp = a} :: ChannelModerator) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the moderator\'s channel.
 channelModerator_channelArn :: Lens.Lens' ChannelModerator (Prelude.Maybe Prelude.Text)
@@ -80,16 +81,16 @@ channelModerator_channelArn = Lens.lens (\ChannelModerator' {channelArn} -> chan
 channelModerator_createdBy :: Lens.Lens' ChannelModerator (Prelude.Maybe Identity)
 channelModerator_createdBy = Lens.lens (\ChannelModerator' {createdBy} -> createdBy) (\s@ChannelModerator' {} a -> s {createdBy = a} :: ChannelModerator)
 
-instance Core.FromJSON ChannelModerator where
+instance Data.FromJSON ChannelModerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChannelModerator"
       ( \x ->
           ChannelModerator'
-            Prelude.<$> (x Core..:? "Moderator")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<$> (x Data..:? "Moderator")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "CreatedBy")
       )
 
 instance Prelude.Hashable ChannelModerator where

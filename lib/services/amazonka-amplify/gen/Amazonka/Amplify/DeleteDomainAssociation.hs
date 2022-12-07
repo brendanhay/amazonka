@@ -43,6 +43,7 @@ where
 import Amazonka.Amplify.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest DeleteDomainAssociation where
       ( \s h x ->
           DeleteDomainAssociationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "domainAssociation")
+            Prelude.<*> (x Data..:> "domainAssociation")
       )
 
 instance Prelude.Hashable DeleteDomainAssociation where
@@ -113,27 +114,27 @@ instance Prelude.NFData DeleteDomainAssociation where
     Prelude.rnf appId
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders DeleteDomainAssociation where
+instance Data.ToHeaders DeleteDomainAssociation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDomainAssociation where
+instance Data.ToPath DeleteDomainAssociation where
   toPath DeleteDomainAssociation' {..} =
     Prelude.mconcat
       [ "/apps/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/domains/",
-        Core.toBS domainName
+        Data.toBS domainName
       ]
 
-instance Core.ToQuery DeleteDomainAssociation where
+instance Data.ToQuery DeleteDomainAssociation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDomainAssociationResponse' smart constructor.

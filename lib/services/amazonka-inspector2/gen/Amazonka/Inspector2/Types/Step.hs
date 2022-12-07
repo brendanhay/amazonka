@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.Step where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the step associated with a finding.
@@ -65,14 +66,14 @@ step_componentId = Lens.lens (\Step' {componentId} -> componentId) (\s@Step' {} 
 step_componentType :: Lens.Lens' Step Prelude.Text
 step_componentType = Lens.lens (\Step' {componentType} -> componentType) (\s@Step' {} a -> s {componentType = a} :: Step)
 
-instance Core.FromJSON Step where
+instance Data.FromJSON Step where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Step"
       ( \x ->
           Step'
-            Prelude.<$> (x Core..: "componentId")
-            Prelude.<*> (x Core..: "componentType")
+            Prelude.<$> (x Data..: "componentId")
+            Prelude.<*> (x Data..: "componentType")
       )
 
 instance Prelude.Hashable Step where

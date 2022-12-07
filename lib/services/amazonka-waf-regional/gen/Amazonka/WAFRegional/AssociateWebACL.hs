@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -147,34 +148,34 @@ instance Prelude.NFData AssociateWebACL where
     Prelude.rnf webACLId
       `Prelude.seq` Prelude.rnf resourceArn
 
-instance Core.ToHeaders AssociateWebACL where
+instance Data.ToHeaders AssociateWebACL where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.AssociateWebACL" ::
+              Data.=# ( "AWSWAF_Regional_20161128.AssociateWebACL" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateWebACL where
+instance Data.ToJSON AssociateWebACL where
   toJSON AssociateWebACL' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("WebACLId" Core..= webACLId),
-            Prelude.Just ("ResourceArn" Core..= resourceArn)
+          [ Prelude.Just ("WebACLId" Data..= webACLId),
+            Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
 
-instance Core.ToPath AssociateWebACL where
+instance Data.ToPath AssociateWebACL where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateWebACL where
+instance Data.ToQuery AssociateWebACL where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateWebACLResponse' smart constructor.

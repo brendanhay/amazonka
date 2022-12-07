@@ -21,6 +21,7 @@ module Amazonka.CodeBuild.Types.ExportedEnvironmentVariable where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an exported environment variable.
@@ -73,13 +74,13 @@ exportedEnvironmentVariable_name = Lens.lens (\ExportedEnvironmentVariable' {nam
 exportedEnvironmentVariable_value :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
 exportedEnvironmentVariable_value = Lens.lens (\ExportedEnvironmentVariable' {value} -> value) (\s@ExportedEnvironmentVariable' {} a -> s {value = a} :: ExportedEnvironmentVariable)
 
-instance Core.FromJSON ExportedEnvironmentVariable where
+instance Data.FromJSON ExportedEnvironmentVariable where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExportedEnvironmentVariable"
       ( \x ->
           ExportedEnvironmentVariable'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable ExportedEnvironmentVariable where

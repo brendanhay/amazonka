@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -203,8 +204,8 @@ instance Core.AWSRequest ListCoreDevices where
     Response.receiveJSON
       ( \s h x ->
           ListCoreDevicesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "coreDevices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "coreDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,19 +223,19 @@ instance Prelude.NFData ListCoreDevices where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf thingGroupArn
 
-instance Core.ToHeaders ListCoreDevices where
+instance Data.ToHeaders ListCoreDevices where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListCoreDevices where
+instance Data.ToPath ListCoreDevices where
   toPath = Prelude.const "/greengrass/v2/coreDevices"
 
-instance Core.ToQuery ListCoreDevices where
+instance Data.ToQuery ListCoreDevices where
   toQuery ListCoreDevices' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "maxResults" Core.=: maxResults,
-        "thingGroupArn" Core.=: thingGroupArn
+      [ "nextToken" Data.=: nextToken,
+        "status" Data.=: status,
+        "maxResults" Data.=: maxResults,
+        "thingGroupArn" Data.=: thingGroupArn
       ]
 
 -- | /See:/ 'newListCoreDevicesResponse' smart constructor.

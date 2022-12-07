@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.ElasticsearchDomainStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput
 import Amazonka.ElasticSearch.Types.ChangeProgressDetails
@@ -358,41 +359,41 @@ elasticsearchDomainStatus_arn = Lens.lens (\ElasticsearchDomainStatus' {arn} -> 
 elasticsearchDomainStatus_elasticsearchClusterConfig :: Lens.Lens' ElasticsearchDomainStatus ElasticsearchClusterConfig
 elasticsearchDomainStatus_elasticsearchClusterConfig = Lens.lens (\ElasticsearchDomainStatus' {elasticsearchClusterConfig} -> elasticsearchClusterConfig) (\s@ElasticsearchDomainStatus' {} a -> s {elasticsearchClusterConfig = a} :: ElasticsearchDomainStatus)
 
-instance Core.FromJSON ElasticsearchDomainStatus where
+instance Data.FromJSON ElasticsearchDomainStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ElasticsearchDomainStatus"
       ( \x ->
           ElasticsearchDomainStatus'
-            Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
-            Prelude.<*> ( x Core..:? "AdvancedOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> ( x Data..:? "AdvancedOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ChangeProgressDetails")
-            Prelude.<*> (x Core..:? "Deleted")
-            Prelude.<*> (x Core..:? "Created")
-            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
-            Prelude.<*> (x Core..:? "UpgradeProcessing")
-            Prelude.<*> (x Core..:? "Processing")
-            Prelude.<*> (x Core..:? "CognitoOptions")
-            Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
-            Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ElasticsearchVersion")
-            Prelude.<*> (x Core..:? "EBSOptions")
-            Prelude.<*> (x Core..:? "AccessPolicies")
-            Prelude.<*> (x Core..:? "VPCOptions")
-            Prelude.<*> (x Core..:? "AutoTuneOptions")
-            Prelude.<*> (x Core..:? "DomainEndpointOptions")
-            Prelude.<*> (x Core..:? "Endpoint")
-            Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
-            Prelude.<*> (x Core..:? "SnapshotOptions")
-            Prelude.<*> ( x Core..:? "LogPublishingOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "ChangeProgressDetails")
+            Prelude.<*> (x Data..:? "Deleted")
+            Prelude.<*> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "AdvancedSecurityOptions")
+            Prelude.<*> (x Data..:? "UpgradeProcessing")
+            Prelude.<*> (x Data..:? "Processing")
+            Prelude.<*> (x Data..:? "CognitoOptions")
+            Prelude.<*> (x Data..:? "EncryptionAtRestOptions")
+            Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ElasticsearchVersion")
+            Prelude.<*> (x Data..:? "EBSOptions")
+            Prelude.<*> (x Data..:? "AccessPolicies")
+            Prelude.<*> (x Data..:? "VPCOptions")
+            Prelude.<*> (x Data..:? "AutoTuneOptions")
+            Prelude.<*> (x Data..:? "DomainEndpointOptions")
+            Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "ServiceSoftwareOptions")
+            Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> ( x Data..:? "LogPublishingOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "DomainId")
-            Prelude.<*> (x Core..: "DomainName")
-            Prelude.<*> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "ElasticsearchClusterConfig")
+            Prelude.<*> (x Data..: "DomainId")
+            Prelude.<*> (x Data..: "DomainName")
+            Prelude.<*> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "ElasticsearchClusterConfig")
       )
 
 instance Prelude.Hashable ElasticsearchDomainStatus where

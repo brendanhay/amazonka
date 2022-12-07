@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
@@ -262,8 +263,8 @@ instance Core.AWSRequest GetResourceShares where
     Response.receiveJSON
       ( \s h x ->
           GetResourceSharesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resourceShares" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "resourceShares" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,39 +290,39 @@ instance Prelude.NFData GetResourceShares where
       `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf resourceOwner
 
-instance Core.ToHeaders GetResourceShares where
+instance Data.ToHeaders GetResourceShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResourceShares where
+instance Data.ToJSON GetResourceShares where
   toJSON GetResourceShares' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceShareStatus" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceShareStatus" Data..=)
               Prelude.<$> resourceShareStatus,
-            ("permissionArn" Core..=) Prelude.<$> permissionArn,
-            ("tagFilters" Core..=) Prelude.<$> tagFilters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("resourceShareArns" Core..=)
+            ("permissionArn" Data..=) Prelude.<$> permissionArn,
+            ("tagFilters" Data..=) Prelude.<$> tagFilters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
             Prelude.Just
-              ("resourceOwner" Core..= resourceOwner)
+              ("resourceOwner" Data..= resourceOwner)
           ]
       )
 
-instance Core.ToPath GetResourceShares where
+instance Data.ToPath GetResourceShares where
   toPath = Prelude.const "/getresourceshares"
 
-instance Core.ToQuery GetResourceShares where
+instance Data.ToQuery GetResourceShares where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourceSharesResponse' smart constructor.

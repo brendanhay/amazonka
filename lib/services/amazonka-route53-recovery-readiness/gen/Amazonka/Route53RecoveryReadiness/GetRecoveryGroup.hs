@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -90,10 +91,10 @@ instance Core.AWSRequest GetRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           GetRecoveryGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "recoveryGroupArn")
-            Prelude.<*> (x Core..?> "recoveryGroupName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "recoveryGroupArn")
+            Prelude.<*> (x Data..?> "recoveryGroupName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,23 +106,23 @@ instance Prelude.NFData GetRecoveryGroup where
   rnf GetRecoveryGroup' {..} =
     Prelude.rnf recoveryGroupName
 
-instance Core.ToHeaders GetRecoveryGroup where
+instance Data.ToHeaders GetRecoveryGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetRecoveryGroup where
+instance Data.ToPath GetRecoveryGroup where
   toPath GetRecoveryGroup' {..} =
     Prelude.mconcat
-      ["/recoverygroups/", Core.toBS recoveryGroupName]
+      ["/recoverygroups/", Data.toBS recoveryGroupName]
 
-instance Core.ToQuery GetRecoveryGroup where
+instance Data.ToQuery GetRecoveryGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetRecoveryGroupResponse' smart constructor.

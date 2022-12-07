@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -163,8 +164,8 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalsForPortfolioResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,37 +183,37 @@ instance Prelude.NFData ListPrincipalsForPortfolio where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders ListPrincipalsForPortfolio where
+instance Data.ToHeaders ListPrincipalsForPortfolio where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPrincipalsForPortfolio where
+instance Data.ToJSON ListPrincipalsForPortfolio where
   toJSON ListPrincipalsForPortfolio' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath ListPrincipalsForPortfolio where
+instance Data.ToPath ListPrincipalsForPortfolio where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPrincipalsForPortfolio where
+instance Data.ToQuery ListPrincipalsForPortfolio where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPrincipalsForPortfolioResponse' smart constructor.

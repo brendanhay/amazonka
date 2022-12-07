@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,8 +95,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteDistributionConfigurationResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "distributionConfigurationArn")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "distributionConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,28 +118,28 @@ instance
     Prelude.rnf distributionConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteDistributionConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteDistributionConfiguration where
+instance Data.ToPath DeleteDistributionConfiguration where
   toPath =
     Prelude.const "/DeleteDistributionConfiguration"
 
-instance Core.ToQuery DeleteDistributionConfiguration where
+instance Data.ToQuery DeleteDistributionConfiguration where
   toQuery DeleteDistributionConfiguration' {..} =
     Prelude.mconcat
       [ "distributionConfigurationArn"
-          Core.=: distributionConfigurationArn
+          Data.=: distributionConfigurationArn
       ]
 
 -- | /See:/ 'newDeleteDistributionConfigurationResponse' smart constructor.

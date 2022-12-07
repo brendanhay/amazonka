@@ -50,6 +50,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -102,14 +103,14 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Prelude.<$> (x Core..?> "WorkflowId")
-            Prelude.<*> (x Core..?> "LastUpdatedAt")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Metrics")
-            Prelude.<*> (x Core..?> "WorkflowType")
-            Prelude.<*> (x Core..?> "StartDate")
-            Prelude.<*> (x Core..?> "Attributes")
-            Prelude.<*> (x Core..?> "ErrorDescription")
+            Prelude.<$> (x Data..?> "WorkflowId")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Metrics")
+            Prelude.<*> (x Data..?> "WorkflowType")
+            Prelude.<*> (x Data..?> "StartDate")
+            Prelude.<*> (x Data..?> "Attributes")
+            Prelude.<*> (x Data..?> "ErrorDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,27 +124,27 @@ instance Prelude.NFData GetWorkflow where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf workflowId
 
-instance Core.ToHeaders GetWorkflow where
+instance Data.ToHeaders GetWorkflow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetWorkflow where
+instance Data.ToPath GetWorkflow where
   toPath GetWorkflow' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/workflows/",
-        Core.toBS workflowId
+        Data.toBS workflowId
       ]
 
-instance Core.ToQuery GetWorkflow where
+instance Data.ToQuery GetWorkflow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
@@ -151,7 +152,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
   { -- | Unique identifier for the workflow.
     workflowId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that represents when workflow execution last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Status of workflow execution.
     status :: Prelude.Maybe Status,
     -- | Workflow specific execution metrics.
@@ -159,7 +160,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
     -- | The type of workflow. The only supported value is APPFLOW_INTEGRATION.
     workflowType :: Prelude.Maybe WorkflowType,
     -- | The timestamp that represents when workflow execution started.
-    startDate :: Prelude.Maybe Core.POSIX,
+    startDate :: Prelude.Maybe Data.POSIX,
     -- | Attributes provided for workflow execution.
     attributes :: Prelude.Maybe WorkflowAttributes,
     -- | Workflow error messages during execution (if any).
@@ -217,7 +218,7 @@ getWorkflowResponse_workflowId = Lens.lens (\GetWorkflowResponse' {workflowId} -
 
 -- | The timestamp that represents when workflow execution last updated.
 getWorkflowResponse_lastUpdatedAt :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastUpdatedAt = Lens.lens (\GetWorkflowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetWorkflowResponse' {} a -> s {lastUpdatedAt = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_lastUpdatedAt = Lens.lens (\GetWorkflowResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetWorkflowResponse' {} a -> s {lastUpdatedAt = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of workflow execution.
 getWorkflowResponse_status :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Status)
@@ -233,7 +234,7 @@ getWorkflowResponse_workflowType = Lens.lens (\GetWorkflowResponse' {workflowTyp
 
 -- | The timestamp that represents when workflow execution started.
 getWorkflowResponse_startDate :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_startDate = Lens.lens (\GetWorkflowResponse' {startDate} -> startDate) (\s@GetWorkflowResponse' {} a -> s {startDate = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Core._Time
+getWorkflowResponse_startDate = Lens.lens (\GetWorkflowResponse' {startDate} -> startDate) (\s@GetWorkflowResponse' {} a -> s {startDate = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Attributes provided for workflow execution.
 getWorkflowResponse_attributes :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe WorkflowAttributes)

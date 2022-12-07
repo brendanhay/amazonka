@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SchemaVersionNumber where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing the schema version information.
@@ -72,11 +73,11 @@ instance Prelude.NFData SchemaVersionNumber where
     Prelude.rnf latestVersion
       `Prelude.seq` Prelude.rnf versionNumber
 
-instance Core.ToJSON SchemaVersionNumber where
+instance Data.ToJSON SchemaVersionNumber where
   toJSON SchemaVersionNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("LatestVersion" Core..=) Prelude.<$> latestVersion,
-            ("VersionNumber" Core..=) Prelude.<$> versionNumber
+          [ ("LatestVersion" Data..=) Prelude.<$> latestVersion,
+            ("VersionNumber" Data..=) Prelude.<$> versionNumber
           ]
       )

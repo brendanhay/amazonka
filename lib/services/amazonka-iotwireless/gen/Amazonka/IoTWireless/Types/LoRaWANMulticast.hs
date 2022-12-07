@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANMulticast where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.DlClass
 import Amazonka.IoTWireless.Types.SupportedRfRegion
 import qualified Amazonka.Prelude as Prelude
@@ -71,11 +72,11 @@ instance Prelude.NFData LoRaWANMulticast where
     Prelude.rnf rfRegion
       `Prelude.seq` Prelude.rnf dlClass
 
-instance Core.ToJSON LoRaWANMulticast where
+instance Data.ToJSON LoRaWANMulticast where
   toJSON LoRaWANMulticast' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RfRegion" Core..=) Prelude.<$> rfRegion,
-            ("DlClass" Core..=) Prelude.<$> dlClass
+          [ ("RfRegion" Data..=) Prelude.<$> rfRegion,
+            ("DlClass" Data..=) Prelude.<$> dlClass
           ]
       )

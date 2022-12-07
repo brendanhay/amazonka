@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.NotifyEmailType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The notify email type.
@@ -72,15 +73,15 @@ notifyEmailType_htmlBody = Lens.lens (\NotifyEmailType' {htmlBody} -> htmlBody) 
 notifyEmailType_subject :: Lens.Lens' NotifyEmailType Prelude.Text
 notifyEmailType_subject = Lens.lens (\NotifyEmailType' {subject} -> subject) (\s@NotifyEmailType' {} a -> s {subject = a} :: NotifyEmailType)
 
-instance Core.FromJSON NotifyEmailType where
+instance Data.FromJSON NotifyEmailType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NotifyEmailType"
       ( \x ->
           NotifyEmailType'
-            Prelude.<$> (x Core..:? "TextBody")
-            Prelude.<*> (x Core..:? "HtmlBody")
-            Prelude.<*> (x Core..: "Subject")
+            Prelude.<$> (x Data..:? "TextBody")
+            Prelude.<*> (x Data..:? "HtmlBody")
+            Prelude.<*> (x Data..: "Subject")
       )
 
 instance Prelude.Hashable NotifyEmailType where
@@ -95,12 +96,12 @@ instance Prelude.NFData NotifyEmailType where
       `Prelude.seq` Prelude.rnf htmlBody
       `Prelude.seq` Prelude.rnf subject
 
-instance Core.ToJSON NotifyEmailType where
+instance Data.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TextBody" Core..=) Prelude.<$> textBody,
-            ("HtmlBody" Core..=) Prelude.<$> htmlBody,
-            Prelude.Just ("Subject" Core..= subject)
+          [ ("TextBody" Data..=) Prelude.<$> textBody,
+            ("HtmlBody" Data..=) Prelude.<$> htmlBody,
+            Prelude.Just ("Subject" Data..= subject)
           ]
       )

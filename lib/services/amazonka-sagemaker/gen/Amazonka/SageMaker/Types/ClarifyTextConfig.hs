@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ClarifyTextConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ClarifyTextGranularity
 import Amazonka.SageMaker.Types.ClarifyTextLanguage
@@ -94,14 +95,14 @@ clarifyTextConfig_language = Lens.lens (\ClarifyTextConfig' {language} -> langua
 clarifyTextConfig_granularity :: Lens.Lens' ClarifyTextConfig ClarifyTextGranularity
 clarifyTextConfig_granularity = Lens.lens (\ClarifyTextConfig' {granularity} -> granularity) (\s@ClarifyTextConfig' {} a -> s {granularity = a} :: ClarifyTextConfig)
 
-instance Core.FromJSON ClarifyTextConfig where
+instance Data.FromJSON ClarifyTextConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClarifyTextConfig"
       ( \x ->
           ClarifyTextConfig'
-            Prelude.<$> (x Core..: "Language")
-            Prelude.<*> (x Core..: "Granularity")
+            Prelude.<$> (x Data..: "Language")
+            Prelude.<*> (x Data..: "Granularity")
       )
 
 instance Prelude.Hashable ClarifyTextConfig where
@@ -114,11 +115,11 @@ instance Prelude.NFData ClarifyTextConfig where
     Prelude.rnf language
       `Prelude.seq` Prelude.rnf granularity
 
-instance Core.ToJSON ClarifyTextConfig where
+instance Data.ToJSON ClarifyTextConfig where
   toJSON ClarifyTextConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Language" Core..= language),
-            Prelude.Just ("Granularity" Core..= granularity)
+          [ Prelude.Just ("Language" Data..= language),
+            Prelude.Just ("Granularity" Data..= granularity)
           ]
       )

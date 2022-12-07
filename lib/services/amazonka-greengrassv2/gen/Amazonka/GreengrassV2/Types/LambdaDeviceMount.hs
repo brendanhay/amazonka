@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaDeviceMount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaFilesystemPermission
 import qualified Amazonka.Prelude as Prelude
 
@@ -104,12 +105,12 @@ instance Prelude.NFData LambdaDeviceMount where
       `Prelude.seq` Prelude.rnf permission
       `Prelude.seq` Prelude.rnf path
 
-instance Core.ToJSON LambdaDeviceMount where
+instance Data.ToJSON LambdaDeviceMount where
   toJSON LambdaDeviceMount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("addGroupOwner" Core..=) Prelude.<$> addGroupOwner,
-            ("permission" Core..=) Prelude.<$> permission,
-            Prelude.Just ("path" Core..= path)
+          [ ("addGroupOwner" Data..=) Prelude.<$> addGroupOwner,
+            ("permission" Data..=) Prelude.<$> permission,
+            Prelude.Just ("path" Data..= path)
           ]
       )

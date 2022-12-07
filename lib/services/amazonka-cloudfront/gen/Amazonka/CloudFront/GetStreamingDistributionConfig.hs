@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -89,8 +90,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetStreamingDistributionConfigResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,20 +112,20 @@ instance
     Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetStreamingDistributionConfig
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetStreamingDistributionConfig where
+instance Data.ToPath GetStreamingDistributionConfig where
   toPath GetStreamingDistributionConfig' {..} =
     Prelude.mconcat
       [ "/2020-05-31/streaming-distribution/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery GetStreamingDistributionConfig where
+instance Data.ToQuery GetStreamingDistributionConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.

@@ -21,6 +21,7 @@ module Amazonka.Transfer.Types.DescribedCertificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.CertificateStatusType
 import Amazonka.Transfer.Types.CertificateType
@@ -36,17 +37,17 @@ data DescribedCertificate = DescribedCertificate'
     -- | Specifies whether this certificate is used for signing or encryption.
     usage :: Prelude.Maybe CertificateUsageType,
     -- | The earliest date that the certificate is valid.
-    notBeforeDate :: Prelude.Maybe Core.POSIX,
+    notBeforeDate :: Prelude.Maybe Data.POSIX,
     -- | If a private key has been specified for the certificate, its type is
     -- @CERTIFICATE_WITH_PRIVATE_KEY@. If there is no private key, the type is
     -- @CERTIFICATE@.
     type' :: Prelude.Maybe CertificateType,
     -- | The final date that the certificate is valid.
-    notAfterDate :: Prelude.Maybe Core.POSIX,
+    notAfterDate :: Prelude.Maybe Data.POSIX,
     -- | The serial number for the certificate.
     serial :: Prelude.Maybe Prelude.Text,
     -- | The file name for the certificate.
-    certificate :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    certificate :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The certificate can be either @ACTIVE@, @PENDING_ROTATION@, or
     -- @INACTIVE@. @PENDING_ROTATION@ means that this certificate will replace
     -- the current certificate when it expires.
@@ -57,11 +58,11 @@ data DescribedCertificate = DescribedCertificate'
     -- identifier for working with profiles and partner profiles.
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes active.
-    activeDate :: Prelude.Maybe Core.POSIX,
+    activeDate :: Prelude.Maybe Data.POSIX,
     -- | The list of certificates that make up the chain for the certificate.
-    certificateChain :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    certificateChain :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An optional date that specifies when the certificate becomes inactive.
-    inactiveDate :: Prelude.Maybe Core.POSIX,
+    inactiveDate :: Prelude.Maybe Data.POSIX,
     -- | The unique Amazon Resource Name (ARN) for the certificate.
     arn :: Prelude.Text
   }
@@ -139,7 +140,7 @@ describedCertificate_usage = Lens.lens (\DescribedCertificate' {usage} -> usage)
 
 -- | The earliest date that the certificate is valid.
 describedCertificate_notBeforeDate :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.UTCTime)
-describedCertificate_notBeforeDate = Lens.lens (\DescribedCertificate' {notBeforeDate} -> notBeforeDate) (\s@DescribedCertificate' {} a -> s {notBeforeDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Time
+describedCertificate_notBeforeDate = Lens.lens (\DescribedCertificate' {notBeforeDate} -> notBeforeDate) (\s@DescribedCertificate' {} a -> s {notBeforeDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | If a private key has been specified for the certificate, its type is
 -- @CERTIFICATE_WITH_PRIVATE_KEY@. If there is no private key, the type is
@@ -149,7 +150,7 @@ describedCertificate_type = Lens.lens (\DescribedCertificate' {type'} -> type') 
 
 -- | The final date that the certificate is valid.
 describedCertificate_notAfterDate :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.UTCTime)
-describedCertificate_notAfterDate = Lens.lens (\DescribedCertificate' {notAfterDate} -> notAfterDate) (\s@DescribedCertificate' {} a -> s {notAfterDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Time
+describedCertificate_notAfterDate = Lens.lens (\DescribedCertificate' {notAfterDate} -> notAfterDate) (\s@DescribedCertificate' {} a -> s {notAfterDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The serial number for the certificate.
 describedCertificate_serial :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.Text)
@@ -157,7 +158,7 @@ describedCertificate_serial = Lens.lens (\DescribedCertificate' {serial} -> seri
 
 -- | The file name for the certificate.
 describedCertificate_certificate :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.Text)
-describedCertificate_certificate = Lens.lens (\DescribedCertificate' {certificate} -> certificate) (\s@DescribedCertificate' {} a -> s {certificate = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Sensitive
+describedCertificate_certificate = Lens.lens (\DescribedCertificate' {certificate} -> certificate) (\s@DescribedCertificate' {} a -> s {certificate = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The certificate can be either @ACTIVE@, @PENDING_ROTATION@, or
 -- @INACTIVE@. @PENDING_ROTATION@ means that this certificate will replace
@@ -176,40 +177,40 @@ describedCertificate_certificateId = Lens.lens (\DescribedCertificate' {certific
 
 -- | An optional date that specifies when the certificate becomes active.
 describedCertificate_activeDate :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.UTCTime)
-describedCertificate_activeDate = Lens.lens (\DescribedCertificate' {activeDate} -> activeDate) (\s@DescribedCertificate' {} a -> s {activeDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Time
+describedCertificate_activeDate = Lens.lens (\DescribedCertificate' {activeDate} -> activeDate) (\s@DescribedCertificate' {} a -> s {activeDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The list of certificates that make up the chain for the certificate.
 describedCertificate_certificateChain :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.Text)
-describedCertificate_certificateChain = Lens.lens (\DescribedCertificate' {certificateChain} -> certificateChain) (\s@DescribedCertificate' {} a -> s {certificateChain = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Sensitive
+describedCertificate_certificateChain = Lens.lens (\DescribedCertificate' {certificateChain} -> certificateChain) (\s@DescribedCertificate' {} a -> s {certificateChain = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | An optional date that specifies when the certificate becomes inactive.
 describedCertificate_inactiveDate :: Lens.Lens' DescribedCertificate (Prelude.Maybe Prelude.UTCTime)
-describedCertificate_inactiveDate = Lens.lens (\DescribedCertificate' {inactiveDate} -> inactiveDate) (\s@DescribedCertificate' {} a -> s {inactiveDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Core._Time
+describedCertificate_inactiveDate = Lens.lens (\DescribedCertificate' {inactiveDate} -> inactiveDate) (\s@DescribedCertificate' {} a -> s {inactiveDate = a} :: DescribedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The unique Amazon Resource Name (ARN) for the certificate.
 describedCertificate_arn :: Lens.Lens' DescribedCertificate Prelude.Text
 describedCertificate_arn = Lens.lens (\DescribedCertificate' {arn} -> arn) (\s@DescribedCertificate' {} a -> s {arn = a} :: DescribedCertificate)
 
-instance Core.FromJSON DescribedCertificate where
+instance Data.FromJSON DescribedCertificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DescribedCertificate"
       ( \x ->
           DescribedCertificate'
-            Prelude.<$> (x Core..:? "Tags")
-            Prelude.<*> (x Core..:? "Usage")
-            Prelude.<*> (x Core..:? "NotBeforeDate")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "NotAfterDate")
-            Prelude.<*> (x Core..:? "Serial")
-            Prelude.<*> (x Core..:? "Certificate")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "CertificateId")
-            Prelude.<*> (x Core..:? "ActiveDate")
-            Prelude.<*> (x Core..:? "CertificateChain")
-            Prelude.<*> (x Core..:? "InactiveDate")
-            Prelude.<*> (x Core..: "Arn")
+            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Usage")
+            Prelude.<*> (x Data..:? "NotBeforeDate")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "NotAfterDate")
+            Prelude.<*> (x Data..:? "Serial")
+            Prelude.<*> (x Data..:? "Certificate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "CertificateId")
+            Prelude.<*> (x Data..:? "ActiveDate")
+            Prelude.<*> (x Data..:? "CertificateChain")
+            Prelude.<*> (x Data..:? "InactiveDate")
+            Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedCertificate where

@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,18 +92,18 @@ instance Prelude.Hashable EnableTopicRule where
 instance Prelude.NFData EnableTopicRule where
   rnf EnableTopicRule' {..} = Prelude.rnf ruleName
 
-instance Core.ToHeaders EnableTopicRule where
+instance Data.ToHeaders EnableTopicRule where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON EnableTopicRule where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EnableTopicRule where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath EnableTopicRule where
+instance Data.ToPath EnableTopicRule where
   toPath EnableTopicRule' {..} =
     Prelude.mconcat
-      ["/rules/", Core.toBS ruleName, "/enable"]
+      ["/rules/", Data.toBS ruleName, "/enable"]
 
-instance Core.ToQuery EnableTopicRule where
+instance Data.ToQuery EnableTopicRule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEnableTopicRuleResponse' smart constructor.

@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,7 +142,7 @@ instance Core.AWSRequest UpdateAccelerator where
     Response.receiveJSON
       ( \s h x ->
           UpdateAcceleratorResponse'
-            Prelude.<$> (x Core..?> "Accelerator")
+            Prelude.<$> (x Data..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,37 +160,37 @@ instance Prelude.NFData UpdateAccelerator where
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf acceleratorArn
 
-instance Core.ToHeaders UpdateAccelerator where
+instance Data.ToHeaders UpdateAccelerator where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.UpdateAccelerator" ::
+              Data.=# ( "GlobalAccelerator_V20180706.UpdateAccelerator" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAccelerator where
+instance Data.ToJSON UpdateAccelerator where
   toJSON UpdateAccelerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Enabled" Core..=) Prelude.<$> enabled,
-            ("IpAddressType" Core..=) Prelude.<$> ipAddressType,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
             Prelude.Just
-              ("AcceleratorArn" Core..= acceleratorArn)
+              ("AcceleratorArn" Data..= acceleratorArn)
           ]
       )
 
-instance Core.ToPath UpdateAccelerator where
+instance Data.ToPath UpdateAccelerator where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateAccelerator where
+instance Data.ToQuery UpdateAccelerator where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAcceleratorResponse' smart constructor.

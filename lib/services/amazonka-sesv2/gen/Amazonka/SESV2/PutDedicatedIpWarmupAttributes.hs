@@ -39,6 +39,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,34 +132,34 @@ instance
       `Prelude.seq` Prelude.rnf warmupPercentage
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutDedicatedIpWarmupAttributes
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutDedicatedIpWarmupAttributes where
+instance Data.ToJSON PutDedicatedIpWarmupAttributes where
   toJSON PutDedicatedIpWarmupAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("WarmupPercentage" Core..= warmupPercentage)
+              ("WarmupPercentage" Data..= warmupPercentage)
           ]
       )
 
-instance Core.ToPath PutDedicatedIpWarmupAttributes where
+instance Data.ToPath PutDedicatedIpWarmupAttributes where
   toPath PutDedicatedIpWarmupAttributes' {..} =
     Prelude.mconcat
-      ["/v2/email/dedicated-ips/", Core.toBS ip, "/warmup"]
+      ["/v2/email/dedicated-ips/", Data.toBS ip, "/warmup"]
 
-instance Core.ToQuery PutDedicatedIpWarmupAttributes where
+instance Data.ToQuery PutDedicatedIpWarmupAttributes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the

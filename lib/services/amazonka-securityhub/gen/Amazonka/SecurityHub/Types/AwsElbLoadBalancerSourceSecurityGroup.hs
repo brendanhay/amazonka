@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElbLoadBalancerSourceSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the security group for the load balancer.
@@ -63,16 +64,16 @@ awsElbLoadBalancerSourceSecurityGroup_groupName :: Lens.Lens' AwsElbLoadBalancer
 awsElbLoadBalancerSourceSecurityGroup_groupName = Lens.lens (\AwsElbLoadBalancerSourceSecurityGroup' {groupName} -> groupName) (\s@AwsElbLoadBalancerSourceSecurityGroup' {} a -> s {groupName = a} :: AwsElbLoadBalancerSourceSecurityGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElbLoadBalancerSourceSecurityGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElbLoadBalancerSourceSecurityGroup"
       ( \x ->
           AwsElbLoadBalancerSourceSecurityGroup'
-            Prelude.<$> (x Core..:? "OwnerAlias")
-            Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<$> (x Data..:? "OwnerAlias")
+            Prelude.<*> (x Data..:? "GroupName")
       )
 
 instance
@@ -94,13 +95,13 @@ instance
       `Prelude.seq` Prelude.rnf groupName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElbLoadBalancerSourceSecurityGroup
   where
   toJSON AwsElbLoadBalancerSourceSecurityGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OwnerAlias" Core..=) Prelude.<$> ownerAlias,
-            ("GroupName" Core..=) Prelude.<$> groupName
+          [ ("OwnerAlias" Data..=) Prelude.<$> ownerAlias,
+            ("GroupName" Data..=) Prelude.<$> groupName
           ]
       )

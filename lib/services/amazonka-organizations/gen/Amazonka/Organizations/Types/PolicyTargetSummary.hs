@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.PolicyTargetSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types.TargetType
 import qualified Amazonka.Prelude as Prelude
 
@@ -144,16 +145,16 @@ policyTargetSummary_targetId = Lens.lens (\PolicyTargetSummary' {targetId} -> ta
 policyTargetSummary_arn :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
 policyTargetSummary_arn = Lens.lens (\PolicyTargetSummary' {arn} -> arn) (\s@PolicyTargetSummary' {} a -> s {arn = a} :: PolicyTargetSummary)
 
-instance Core.FromJSON PolicyTargetSummary where
+instance Data.FromJSON PolicyTargetSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PolicyTargetSummary"
       ( \x ->
           PolicyTargetSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "TargetId")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable PolicyTargetSummary where

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EventsRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.EventsBatch
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable EventsRequest where
 instance Prelude.NFData EventsRequest where
   rnf EventsRequest' {..} = Prelude.rnf batchItem
 
-instance Core.ToJSON EventsRequest where
+instance Data.ToJSON EventsRequest where
   toJSON EventsRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("BatchItem" Core..= batchItem)]
+          [Prelude.Just ("BatchItem" Data..= batchItem)]
       )

@@ -43,6 +43,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -100,7 +101,7 @@ instance Core.AWSRequest GetAssessmentReportUrl where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentReportUrlResponse'
-            Prelude.<$> (x Core..?> "preSignedUrl")
+            Prelude.<$> (x Data..?> "preSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,28 +115,28 @@ instance Prelude.NFData GetAssessmentReportUrl where
     Prelude.rnf assessmentReportId
       `Prelude.seq` Prelude.rnf assessmentId
 
-instance Core.ToHeaders GetAssessmentReportUrl where
+instance Data.ToHeaders GetAssessmentReportUrl where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetAssessmentReportUrl where
+instance Data.ToPath GetAssessmentReportUrl where
   toPath GetAssessmentReportUrl' {..} =
     Prelude.mconcat
       [ "/assessments/",
-        Core.toBS assessmentId,
+        Data.toBS assessmentId,
         "/reports/",
-        Core.toBS assessmentReportId,
+        Data.toBS assessmentReportId,
         "/url"
       ]
 
-instance Core.ToQuery GetAssessmentReportUrl where
+instance Data.ToQuery GetAssessmentReportUrl where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssessmentReportUrlResponse' smart constructor.

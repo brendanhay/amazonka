@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.PackageImportJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.PackageImportJobStatus
 import Amazonka.Panorama.Types.PackageImportJobType
 import qualified Amazonka.Prelude as Prelude
@@ -30,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPackageImportJob' smart constructor.
 data PackageImportJob = PackageImportJob'
   { -- | When the job was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The job\'s ID.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The job\'s status.
     status :: Prelude.Maybe PackageImportJobStatus,
     -- | When the job was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The job\'s status message.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The job\'s type.
@@ -77,7 +78,7 @@ newPackageImportJob =
 
 -- | When the job was created.
 packageImportJob_createdTime :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.UTCTime)
-packageImportJob_createdTime = Lens.lens (\PackageImportJob' {createdTime} -> createdTime) (\s@PackageImportJob' {} a -> s {createdTime = a} :: PackageImportJob) Prelude.. Lens.mapping Core._Time
+packageImportJob_createdTime = Lens.lens (\PackageImportJob' {createdTime} -> createdTime) (\s@PackageImportJob' {} a -> s {createdTime = a} :: PackageImportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The job\'s ID.
 packageImportJob_jobId :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.Text)
@@ -89,7 +90,7 @@ packageImportJob_status = Lens.lens (\PackageImportJob' {status} -> status) (\s@
 
 -- | When the job was updated.
 packageImportJob_lastUpdatedTime :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.UTCTime)
-packageImportJob_lastUpdatedTime = Lens.lens (\PackageImportJob' {lastUpdatedTime} -> lastUpdatedTime) (\s@PackageImportJob' {} a -> s {lastUpdatedTime = a} :: PackageImportJob) Prelude.. Lens.mapping Core._Time
+packageImportJob_lastUpdatedTime = Lens.lens (\PackageImportJob' {lastUpdatedTime} -> lastUpdatedTime) (\s@PackageImportJob' {} a -> s {lastUpdatedTime = a} :: PackageImportJob) Prelude.. Lens.mapping Data._Time
 
 -- | The job\'s status message.
 packageImportJob_statusMessage :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.Text)
@@ -99,18 +100,18 @@ packageImportJob_statusMessage = Lens.lens (\PackageImportJob' {statusMessage} -
 packageImportJob_jobType :: Lens.Lens' PackageImportJob (Prelude.Maybe PackageImportJobType)
 packageImportJob_jobType = Lens.lens (\PackageImportJob' {jobType} -> jobType) (\s@PackageImportJob' {} a -> s {jobType = a} :: PackageImportJob)
 
-instance Core.FromJSON PackageImportJob where
+instance Data.FromJSON PackageImportJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PackageImportJob"
       ( \x ->
           PackageImportJob'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "JobType")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "JobType")
       )
 
 instance Prelude.Hashable PackageImportJob where

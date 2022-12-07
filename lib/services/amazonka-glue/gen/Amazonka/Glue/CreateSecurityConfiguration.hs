@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,8 +106,8 @@ instance Core.AWSRequest CreateSecurityConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityConfigurationResponse'
-            Prelude.<$> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
+            Prelude.<$> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,37 +121,37 @@ instance Prelude.NFData CreateSecurityConfiguration where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf encryptionConfiguration
 
-instance Core.ToHeaders CreateSecurityConfiguration where
+instance Data.ToHeaders CreateSecurityConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSGlue.CreateSecurityConfiguration" ::
+              Data.=# ( "AWSGlue.CreateSecurityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSecurityConfiguration where
+instance Data.ToJSON CreateSecurityConfiguration where
   toJSON CreateSecurityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "EncryptionConfiguration"
-                  Core..= encryptionConfiguration
+                  Data..= encryptionConfiguration
               )
           ]
       )
 
-instance Core.ToPath CreateSecurityConfiguration where
+instance Data.ToPath CreateSecurityConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateSecurityConfiguration where
+instance Data.ToQuery CreateSecurityConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSecurityConfigurationResponse' smart constructor.
@@ -158,7 +159,7 @@ data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
   { -- | The name assigned to the new security configuration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time at which the new security configuration was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,7 +196,7 @@ createSecurityConfigurationResponse_name = Lens.lens (\CreateSecurityConfigurati
 
 -- | The time at which the new security configuration was created.
 createSecurityConfigurationResponse_createdTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createSecurityConfigurationResponse_createdTimestamp = Lens.lens (\CreateSecurityConfigurationResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateSecurityConfigurationResponse' {} a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse) Prelude.. Lens.mapping Core._Time
+createSecurityConfigurationResponse_createdTimestamp = Lens.lens (\CreateSecurityConfigurationResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateSecurityConfigurationResponse' {} a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 createSecurityConfigurationResponse_httpStatus :: Lens.Lens' CreateSecurityConfigurationResponse Prelude.Int

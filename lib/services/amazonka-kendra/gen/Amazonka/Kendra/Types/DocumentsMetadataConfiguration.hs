@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DocumentsMetadataConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Document metadata files that contain information such as the document
@@ -62,13 +63,13 @@ newDocumentsMetadataConfiguration =
 documentsMetadataConfiguration_s3Prefix :: Lens.Lens' DocumentsMetadataConfiguration (Prelude.Maybe Prelude.Text)
 documentsMetadataConfiguration_s3Prefix = Lens.lens (\DocumentsMetadataConfiguration' {s3Prefix} -> s3Prefix) (\s@DocumentsMetadataConfiguration' {} a -> s {s3Prefix = a} :: DocumentsMetadataConfiguration)
 
-instance Core.FromJSON DocumentsMetadataConfiguration where
+instance Data.FromJSON DocumentsMetadataConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentsMetadataConfiguration"
       ( \x ->
           DocumentsMetadataConfiguration'
-            Prelude.<$> (x Core..:? "S3Prefix")
+            Prelude.<$> (x Data..:? "S3Prefix")
       )
 
 instance
@@ -87,9 +88,9 @@ instance
   rnf DocumentsMetadataConfiguration' {..} =
     Prelude.rnf s3Prefix
 
-instance Core.ToJSON DocumentsMetadataConfiguration where
+instance Data.ToJSON DocumentsMetadataConfiguration where
   toJSON DocumentsMetadataConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("S3Prefix" Core..=) Prelude.<$> s3Prefix]
+          [("S3Prefix" Data..=) Prelude.<$> s3Prefix]
       )

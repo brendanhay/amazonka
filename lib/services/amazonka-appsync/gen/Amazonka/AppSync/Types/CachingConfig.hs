@@ -21,6 +21,7 @@ module Amazonka.AppSync.Types.CachingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The caching configuration for a resolver that has caching activated.
@@ -78,14 +79,14 @@ cachingConfig_cachingKeys = Lens.lens (\CachingConfig' {cachingKeys} -> cachingK
 cachingConfig_ttl :: Lens.Lens' CachingConfig Prelude.Integer
 cachingConfig_ttl = Lens.lens (\CachingConfig' {ttl} -> ttl) (\s@CachingConfig' {} a -> s {ttl = a} :: CachingConfig)
 
-instance Core.FromJSON CachingConfig where
+instance Data.FromJSON CachingConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CachingConfig"
       ( \x ->
           CachingConfig'
-            Prelude.<$> (x Core..:? "cachingKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "ttl")
+            Prelude.<$> (x Data..:? "cachingKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "ttl")
       )
 
 instance Prelude.Hashable CachingConfig where
@@ -98,11 +99,11 @@ instance Prelude.NFData CachingConfig where
     Prelude.rnf cachingKeys
       `Prelude.seq` Prelude.rnf ttl
 
-instance Core.ToJSON CachingConfig where
+instance Data.ToJSON CachingConfig where
   toJSON CachingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("cachingKeys" Core..=) Prelude.<$> cachingKeys,
-            Prelude.Just ("ttl" Core..= ttl)
+          [ ("cachingKeys" Data..=) Prelude.<$> cachingKeys,
+            Prelude.Just ("ttl" Data..= ttl)
           ]
       )

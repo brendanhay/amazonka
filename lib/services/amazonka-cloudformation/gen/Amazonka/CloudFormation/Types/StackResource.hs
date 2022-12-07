@@ -24,6 +24,7 @@ import Amazonka.CloudFormation.Types.ResourceStatus
 import Amazonka.CloudFormation.Types.StackResourceDriftInformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The StackResource data type.
@@ -58,7 +59,7 @@ data StackResource = StackResource'
     -- in the CloudFormation User Guide.
     resourceType :: Prelude.Text,
     -- | Time the status was updated.
-    timestamp :: Core.ISO8601,
+    timestamp :: Data.ISO8601,
     -- | Current status of the resource.
     resourceStatus :: ResourceStatus
   }
@@ -127,7 +128,7 @@ newStackResource
         physicalResourceId = Prelude.Nothing,
         logicalResourceId = pLogicalResourceId_,
         resourceType = pResourceType_,
-        timestamp = Core._Time Lens.# pTimestamp_,
+        timestamp = Data._Time Lens.# pTimestamp_,
         resourceStatus = pResourceStatus_
       }
 
@@ -178,26 +179,26 @@ stackResource_resourceType = Lens.lens (\StackResource' {resourceType} -> resour
 
 -- | Time the status was updated.
 stackResource_timestamp :: Lens.Lens' StackResource Prelude.UTCTime
-stackResource_timestamp = Lens.lens (\StackResource' {timestamp} -> timestamp) (\s@StackResource' {} a -> s {timestamp = a} :: StackResource) Prelude.. Core._Time
+stackResource_timestamp = Lens.lens (\StackResource' {timestamp} -> timestamp) (\s@StackResource' {} a -> s {timestamp = a} :: StackResource) Prelude.. Data._Time
 
 -- | Current status of the resource.
 stackResource_resourceStatus :: Lens.Lens' StackResource ResourceStatus
 stackResource_resourceStatus = Lens.lens (\StackResource' {resourceStatus} -> resourceStatus) (\s@StackResource' {} a -> s {resourceStatus = a} :: StackResource)
 
-instance Core.FromXML StackResource where
+instance Data.FromXML StackResource where
   parseXML x =
     StackResource'
-      Prelude.<$> (x Core..@? "StackId")
-      Prelude.<*> (x Core..@? "ResourceStatusReason")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "StackName")
-      Prelude.<*> (x Core..@? "ModuleInfo")
-      Prelude.<*> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
-      Prelude.<*> (x Core..@ "LogicalResourceId")
-      Prelude.<*> (x Core..@ "ResourceType")
-      Prelude.<*> (x Core..@ "Timestamp")
-      Prelude.<*> (x Core..@ "ResourceStatus")
+      Prelude.<$> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "ResourceStatusReason")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "StackName")
+      Prelude.<*> (x Data..@? "ModuleInfo")
+      Prelude.<*> (x Data..@? "DriftInformation")
+      Prelude.<*> (x Data..@? "PhysicalResourceId")
+      Prelude.<*> (x Data..@ "LogicalResourceId")
+      Prelude.<*> (x Data..@ "ResourceType")
+      Prelude.<*> (x Data..@ "Timestamp")
+      Prelude.<*> (x Data..@ "ResourceStatus")
 
 instance Prelude.Hashable StackResource where
   hashWithSalt _salt StackResource' {..} =

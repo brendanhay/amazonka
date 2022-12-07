@@ -22,6 +22,7 @@ module Amazonka.Config.Types.FailedRemediationBatch where
 import Amazonka.Config.Types.RemediationConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | List of each of the failed remediations with specific reasons.
@@ -66,14 +67,14 @@ failedRemediationBatch_failedItems = Lens.lens (\FailedRemediationBatch' {failed
 failedRemediationBatch_failureMessage :: Lens.Lens' FailedRemediationBatch (Prelude.Maybe Prelude.Text)
 failedRemediationBatch_failureMessage = Lens.lens (\FailedRemediationBatch' {failureMessage} -> failureMessage) (\s@FailedRemediationBatch' {} a -> s {failureMessage = a} :: FailedRemediationBatch)
 
-instance Core.FromJSON FailedRemediationBatch where
+instance Data.FromJSON FailedRemediationBatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FailedRemediationBatch"
       ( \x ->
           FailedRemediationBatch'
-            Prelude.<$> (x Core..:? "FailedItems" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FailureMessage")
+            Prelude.<$> (x Data..:? "FailedItems" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FailureMessage")
       )
 
 instance Prelude.Hashable FailedRemediationBatch where

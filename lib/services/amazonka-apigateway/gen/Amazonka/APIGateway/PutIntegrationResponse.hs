@@ -52,6 +52,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -220,7 +221,7 @@ instance Core.AWSRequest PutIntegrationResponse where
     Request.putJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable PutIntegrationResponse where
   hashWithSalt _salt PutIntegrationResponse' {..} =
@@ -244,42 +245,42 @@ instance Prelude.NFData PutIntegrationResponse where
       `Prelude.seq` Prelude.rnf httpMethod
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToHeaders PutIntegrationResponse where
+instance Data.ToHeaders PutIntegrationResponse where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON PutIntegrationResponse where
+instance Data.ToJSON PutIntegrationResponse where
   toJSON PutIntegrationResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("responseParameters" Core..=)
+          [ ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
-            ("responseTemplates" Core..=)
+            ("responseTemplates" Data..=)
               Prelude.<$> responseTemplates,
-            ("selectionPattern" Core..=)
+            ("selectionPattern" Data..=)
               Prelude.<$> selectionPattern,
-            ("contentHandling" Core..=)
+            ("contentHandling" Data..=)
               Prelude.<$> contentHandling
           ]
       )
 
-instance Core.ToPath PutIntegrationResponse where
+instance Data.ToPath PutIntegrationResponse where
   toPath PutIntegrationResponse' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/resources/",
-        Core.toBS resourceId,
+        Data.toBS resourceId,
         "/methods/",
-        Core.toBS httpMethod,
+        Data.toBS httpMethod,
         "/integration/responses/",
-        Core.toBS statusCode
+        Data.toBS statusCode
       ]
 
-instance Core.ToQuery PutIntegrationResponse where
+instance Data.ToQuery PutIntegrationResponse where
   toQuery = Prelude.const Prelude.mempty

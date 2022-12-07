@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -137,8 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListQuerySuggestionsBlockListsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BlockListSummaryItems"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "BlockListSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -165,37 +166,37 @@ instance
       `Prelude.seq` Prelude.rnf indexId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListQuerySuggestionsBlockLists
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.ListQuerySuggestionsBlockLists" ::
+              Data.=# ( "AWSKendraFrontendService.ListQuerySuggestionsBlockLists" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListQuerySuggestionsBlockLists where
+instance Data.ToJSON ListQuerySuggestionsBlockLists where
   toJSON ListQuerySuggestionsBlockLists' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("IndexId" Core..= indexId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
 
-instance Core.ToPath ListQuerySuggestionsBlockLists where
+instance Data.ToPath ListQuerySuggestionsBlockLists where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListQuerySuggestionsBlockLists where
+instance Data.ToQuery ListQuerySuggestionsBlockLists where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListQuerySuggestionsBlockListsResponse' smart constructor.

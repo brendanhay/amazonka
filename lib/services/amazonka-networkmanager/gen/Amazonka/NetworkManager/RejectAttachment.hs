@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -83,7 +84,7 @@ instance Core.AWSRequest RejectAttachment where
     Response.receiveJSON
       ( \s h x ->
           RejectAttachmentResponse'
-            Prelude.<$> (x Core..?> "Attachment")
+            Prelude.<$> (x Data..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,26 +95,26 @@ instance Prelude.Hashable RejectAttachment where
 instance Prelude.NFData RejectAttachment where
   rnf RejectAttachment' {..} = Prelude.rnf attachmentId
 
-instance Core.ToHeaders RejectAttachment where
+instance Data.ToHeaders RejectAttachment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RejectAttachment where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON RejectAttachment where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath RejectAttachment where
+instance Data.ToPath RejectAttachment where
   toPath RejectAttachment' {..} =
     Prelude.mconcat
-      ["/attachments/", Core.toBS attachmentId, "/reject"]
+      ["/attachments/", Data.toBS attachmentId, "/reject"]
 
-instance Core.ToQuery RejectAttachment where
+instance Data.ToQuery RejectAttachment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRejectAttachmentResponse' smart constructor.

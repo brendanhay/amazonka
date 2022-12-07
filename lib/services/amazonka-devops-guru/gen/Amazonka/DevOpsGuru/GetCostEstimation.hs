@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -116,12 +117,12 @@ instance Core.AWSRequest GetCostEstimation where
     Response.receiveJSON
       ( \s h x ->
           GetCostEstimationResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TimeRange")
-            Prelude.<*> (x Core..?> "ResourceCollection")
-            Prelude.<*> (x Core..?> "Costs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "TotalCost")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "TimeRange")
+            Prelude.<*> (x Data..?> "ResourceCollection")
+            Prelude.<*> (x Data..?> "Costs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TotalCost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,23 +133,23 @@ instance Prelude.Hashable GetCostEstimation where
 instance Prelude.NFData GetCostEstimation where
   rnf GetCostEstimation' {..} = Prelude.rnf nextToken
 
-instance Core.ToHeaders GetCostEstimation where
+instance Data.ToHeaders GetCostEstimation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetCostEstimation where
+instance Data.ToPath GetCostEstimation where
   toPath = Prelude.const "/cost-estimation"
 
-instance Core.ToQuery GetCostEstimation where
+instance Data.ToQuery GetCostEstimation where
   toQuery GetCostEstimation' {..} =
-    Prelude.mconcat ["NextToken" Core.=: nextToken]
+    Prelude.mconcat ["NextToken" Data.=: nextToken]
 
 -- | /See:/ 'newGetCostEstimationResponse' smart constructor.
 data GetCostEstimationResponse = GetCostEstimationResponse'

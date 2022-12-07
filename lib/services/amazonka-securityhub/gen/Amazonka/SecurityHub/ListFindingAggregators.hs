@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,10 +128,10 @@ instance Core.AWSRequest ListFindingAggregators where
     Response.receiveJSON
       ( \s h x ->
           ListFindingAggregatorsResponse'
-            Prelude.<$> ( x Core..?> "FindingAggregators"
+            Prelude.<$> ( x Data..?> "FindingAggregators"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,25 +145,25 @@ instance Prelude.NFData ListFindingAggregators where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFindingAggregators where
+instance Data.ToHeaders ListFindingAggregators where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListFindingAggregators where
+instance Data.ToPath ListFindingAggregators where
   toPath = Prelude.const "/findingAggregator/list"
 
-instance Core.ToQuery ListFindingAggregators where
+instance Data.ToQuery ListFindingAggregators where
   toQuery ListFindingAggregators' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults
+      [ "NextToken" Data.=: nextToken,
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListFindingAggregatorsResponse' smart constructor.

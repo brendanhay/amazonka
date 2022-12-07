@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,21 +136,21 @@ instance Core.AWSRequest GetDocument where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentResponse'
-            Prelude.<$> (x Core..?> "Requires")
-            Prelude.<*> (x Core..?> "DocumentType")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "DisplayName")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "VersionName")
-            Prelude.<*> (x Core..?> "StatusInformation")
-            Prelude.<*> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "Content")
-            Prelude.<*> ( x Core..?> "AttachmentsContent"
+            Prelude.<$> (x Data..?> "Requires")
+            Prelude.<*> (x Data..?> "DocumentType")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "VersionName")
+            Prelude.<*> (x Data..?> "StatusInformation")
+            Prelude.<*> (x Data..?> "CreatedDate")
+            Prelude.<*> (x Data..?> "Content")
+            Prelude.<*> ( x Data..?> "AttachmentsContent"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ReviewStatus")
-            Prelude.<*> (x Core..?> "DocumentFormat")
-            Prelude.<*> (x Core..?> "DocumentVersion")
+            Prelude.<*> (x Data..?> "ReviewStatus")
+            Prelude.<*> (x Data..?> "DocumentFormat")
+            Prelude.<*> (x Data..?> "DocumentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,36 +168,36 @@ instance Prelude.NFData GetDocument where
       `Prelude.seq` Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders GetDocument where
+instance Data.ToHeaders GetDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.GetDocument" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.GetDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDocument where
+instance Data.ToJSON GetDocument where
   toJSON GetDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
-            ("DocumentFormat" Core..=)
+          [ ("VersionName" Data..=) Prelude.<$> versionName,
+            ("DocumentFormat" Data..=)
               Prelude.<$> documentFormat,
-            ("DocumentVersion" Core..=)
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath GetDocument where
+instance Data.ToPath GetDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDocument where
+instance Data.ToQuery GetDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDocumentResponse' smart constructor.
@@ -226,7 +227,7 @@ data GetDocumentResponse = GetDocumentResponse'
     -- exist. Verify that the URL of the S3 bucket is correct.\"
     statusInformation :: Prelude.Maybe Prelude.Text,
     -- | The date the SSM document was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The contents of the SSM document.
     content :: Prelude.Maybe Prelude.Text,
     -- | A description of the document attachments, including names, locations,
@@ -369,7 +370,7 @@ getDocumentResponse_statusInformation = Lens.lens (\GetDocumentResponse' {status
 
 -- | The date the SSM document was created.
 getDocumentResponse_createdDate :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.UTCTime)
-getDocumentResponse_createdDate = Lens.lens (\GetDocumentResponse' {createdDate} -> createdDate) (\s@GetDocumentResponse' {} a -> s {createdDate = a} :: GetDocumentResponse) Prelude.. Lens.mapping Core._Time
+getDocumentResponse_createdDate = Lens.lens (\GetDocumentResponse' {createdDate} -> createdDate) (\s@GetDocumentResponse' {} a -> s {createdDate = a} :: GetDocumentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The contents of the SSM document.
 getDocumentResponse_content :: Lens.Lens' GetDocumentResponse (Prelude.Maybe Prelude.Text)

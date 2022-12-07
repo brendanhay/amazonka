@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -153,9 +154,9 @@ instance Core.AWSRequest ListVocabularies where
     Response.receiveJSON
       ( \s h x ->
           ListVocabulariesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Vocabularies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Vocabularies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,36 +174,36 @@ instance Prelude.NFData ListVocabularies where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stateEquals
 
-instance Core.ToHeaders ListVocabularies where
+instance Data.ToHeaders ListVocabularies where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.ListVocabularies" ::
+              Data.=# ( "Transcribe.ListVocabularies" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListVocabularies where
+instance Data.ToJSON ListVocabularies where
   toJSON ListVocabularies' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("StateEquals" Core..=) Prelude.<$> stateEquals
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("StateEquals" Data..=) Prelude.<$> stateEquals
           ]
       )
 
-instance Core.ToPath ListVocabularies where
+instance Data.ToPath ListVocabularies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListVocabularies where
+instance Data.ToQuery ListVocabularies where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListVocabulariesResponse' smart constructor.

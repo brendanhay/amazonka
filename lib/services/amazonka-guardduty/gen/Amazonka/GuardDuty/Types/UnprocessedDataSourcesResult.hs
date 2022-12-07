@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.UnprocessedDataSourcesResult where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.MalwareProtectionConfigurationResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,13 +54,13 @@ newUnprocessedDataSourcesResult =
 unprocessedDataSourcesResult_malwareProtection :: Lens.Lens' UnprocessedDataSourcesResult (Prelude.Maybe MalwareProtectionConfigurationResult)
 unprocessedDataSourcesResult_malwareProtection = Lens.lens (\UnprocessedDataSourcesResult' {malwareProtection} -> malwareProtection) (\s@UnprocessedDataSourcesResult' {} a -> s {malwareProtection = a} :: UnprocessedDataSourcesResult)
 
-instance Core.FromJSON UnprocessedDataSourcesResult where
+instance Data.FromJSON UnprocessedDataSourcesResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnprocessedDataSourcesResult"
       ( \x ->
           UnprocessedDataSourcesResult'
-            Prelude.<$> (x Core..:? "malwareProtection")
+            Prelude.<$> (x Data..:? "malwareProtection")
       )
 
 instance

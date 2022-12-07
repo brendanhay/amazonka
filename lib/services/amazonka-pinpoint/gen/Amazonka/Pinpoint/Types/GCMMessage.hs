@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.GCMMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.Action
 import qualified Amazonka.Prelude as Prelude
 
@@ -414,28 +415,28 @@ instance Prelude.NFData GCMMessage where
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf smallImageIconUrl
 
-instance Core.ToJSON GCMMessage where
+instance Data.ToJSON GCMMessage where
   toJSON GCMMessage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TimeToLive" Core..=) Prelude.<$> timeToLive,
-            ("CollapseKey" Core..=) Prelude.<$> collapseKey,
-            ("IconReference" Core..=) Prelude.<$> iconReference,
-            ("Body" Core..=) Prelude.<$> body,
-            ("ImageUrl" Core..=) Prelude.<$> imageUrl,
-            ("Url" Core..=) Prelude.<$> url,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("SilentPush" Core..=) Prelude.<$> silentPush,
-            ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
-            ("Title" Core..=) Prelude.<$> title,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Action" Core..=) Prelude.<$> action,
-            ("RestrictedPackageName" Core..=)
+          [ ("TimeToLive" Data..=) Prelude.<$> timeToLive,
+            ("CollapseKey" Data..=) Prelude.<$> collapseKey,
+            ("IconReference" Data..=) Prelude.<$> iconReference,
+            ("Body" Data..=) Prelude.<$> body,
+            ("ImageUrl" Data..=) Prelude.<$> imageUrl,
+            ("Url" Data..=) Prelude.<$> url,
+            ("Substitutions" Data..=) Prelude.<$> substitutions,
+            ("RawContent" Data..=) Prelude.<$> rawContent,
+            ("Sound" Data..=) Prelude.<$> sound,
+            ("SilentPush" Data..=) Prelude.<$> silentPush,
+            ("ImageIconUrl" Data..=) Prelude.<$> imageIconUrl,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Priority" Data..=) Prelude.<$> priority,
+            ("Action" Data..=) Prelude.<$> action,
+            ("RestrictedPackageName" Data..=)
               Prelude.<$> restrictedPackageName,
-            ("Data" Core..=) Prelude.<$> data',
-            ("SmallImageIconUrl" Core..=)
+            ("Data" Data..=) Prelude.<$> data',
+            ("SmallImageIconUrl" Data..=)
               Prelude.<$> smallImageIconUrl
           ]
       )

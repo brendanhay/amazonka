@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.EntitySummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.Status
 import qualified Amazonka.Prelude as Prelude
 
@@ -44,9 +45,9 @@ data EntitySummary = EntitySummary'
     -- | The current status of the entity.
     status :: Status,
     -- | The date and time when the entity was created.
-    creationDateTime :: Core.POSIX,
+    creationDateTime :: Data.POSIX,
     -- | The last date and time when the entity was updated.
-    updateDateTime :: Core.POSIX
+    updateDateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,8 +107,8 @@ newEntitySummary
         arn = pArn_,
         status = pStatus_,
         creationDateTime =
-          Core._Time Lens.# pCreationDateTime_,
-        updateDateTime = Core._Time Lens.# pUpdateDateTime_
+          Data._Time Lens.# pCreationDateTime_,
+        updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
 -- | A Boolean value that specifies whether the entity has child entities or
@@ -141,27 +142,27 @@ entitySummary_status = Lens.lens (\EntitySummary' {status} -> status) (\s@Entity
 
 -- | The date and time when the entity was created.
 entitySummary_creationDateTime :: Lens.Lens' EntitySummary Prelude.UTCTime
-entitySummary_creationDateTime = Lens.lens (\EntitySummary' {creationDateTime} -> creationDateTime) (\s@EntitySummary' {} a -> s {creationDateTime = a} :: EntitySummary) Prelude.. Core._Time
+entitySummary_creationDateTime = Lens.lens (\EntitySummary' {creationDateTime} -> creationDateTime) (\s@EntitySummary' {} a -> s {creationDateTime = a} :: EntitySummary) Prelude.. Data._Time
 
 -- | The last date and time when the entity was updated.
 entitySummary_updateDateTime :: Lens.Lens' EntitySummary Prelude.UTCTime
-entitySummary_updateDateTime = Lens.lens (\EntitySummary' {updateDateTime} -> updateDateTime) (\s@EntitySummary' {} a -> s {updateDateTime = a} :: EntitySummary) Prelude.. Core._Time
+entitySummary_updateDateTime = Lens.lens (\EntitySummary' {updateDateTime} -> updateDateTime) (\s@EntitySummary' {} a -> s {updateDateTime = a} :: EntitySummary) Prelude.. Data._Time
 
-instance Core.FromJSON EntitySummary where
+instance Data.FromJSON EntitySummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitySummary"
       ( \x ->
           EntitySummary'
-            Prelude.<$> (x Core..:? "hasChildEntities")
-            Prelude.<*> (x Core..:? "parentEntityId")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "entityId")
-            Prelude.<*> (x Core..: "entityName")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "creationDateTime")
-            Prelude.<*> (x Core..: "updateDateTime")
+            Prelude.<$> (x Data..:? "hasChildEntities")
+            Prelude.<*> (x Data..:? "parentEntityId")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "entityId")
+            Prelude.<*> (x Data..: "entityName")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "creationDateTime")
+            Prelude.<*> (x Data..: "updateDateTime")
       )
 
 instance Prelude.Hashable EntitySummary where

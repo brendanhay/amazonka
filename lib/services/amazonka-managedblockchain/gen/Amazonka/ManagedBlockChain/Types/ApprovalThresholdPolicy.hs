@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.ApprovalThresholdPolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.ThresholdComparator
 import qualified Amazonka.Prelude as Prelude
 
@@ -114,15 +115,15 @@ approvalThresholdPolicy_thresholdPercentage = Lens.lens (\ApprovalThresholdPolic
 approvalThresholdPolicy_thresholdComparator :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe ThresholdComparator)
 approvalThresholdPolicy_thresholdComparator = Lens.lens (\ApprovalThresholdPolicy' {thresholdComparator} -> thresholdComparator) (\s@ApprovalThresholdPolicy' {} a -> s {thresholdComparator = a} :: ApprovalThresholdPolicy)
 
-instance Core.FromJSON ApprovalThresholdPolicy where
+instance Data.FromJSON ApprovalThresholdPolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ApprovalThresholdPolicy"
       ( \x ->
           ApprovalThresholdPolicy'
-            Prelude.<$> (x Core..:? "ProposalDurationInHours")
-            Prelude.<*> (x Core..:? "ThresholdPercentage")
-            Prelude.<*> (x Core..:? "ThresholdComparator")
+            Prelude.<$> (x Data..:? "ProposalDurationInHours")
+            Prelude.<*> (x Data..:? "ThresholdPercentage")
+            Prelude.<*> (x Data..:? "ThresholdComparator")
       )
 
 instance Prelude.Hashable ApprovalThresholdPolicy where
@@ -138,15 +139,15 @@ instance Prelude.NFData ApprovalThresholdPolicy where
       `Prelude.seq` Prelude.rnf thresholdPercentage
       `Prelude.seq` Prelude.rnf thresholdComparator
 
-instance Core.ToJSON ApprovalThresholdPolicy where
+instance Data.ToJSON ApprovalThresholdPolicy where
   toJSON ApprovalThresholdPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ProposalDurationInHours" Core..=)
+          [ ("ProposalDurationInHours" Data..=)
               Prelude.<$> proposalDurationInHours,
-            ("ThresholdPercentage" Core..=)
+            ("ThresholdPercentage" Data..=)
               Prelude.<$> thresholdPercentage,
-            ("ThresholdComparator" Core..=)
+            ("ThresholdComparator" Data..=)
               Prelude.<$> thresholdComparator
           ]
       )

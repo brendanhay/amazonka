@@ -21,6 +21,7 @@ module Amazonka.TimeStreamWrite.Types.RetentionProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retention properties contain the duration for which your time series
@@ -70,14 +71,14 @@ retentionProperties_memoryStoreRetentionPeriodInHours = Lens.lens (\RetentionPro
 retentionProperties_magneticStoreRetentionPeriodInDays :: Lens.Lens' RetentionProperties Prelude.Natural
 retentionProperties_magneticStoreRetentionPeriodInDays = Lens.lens (\RetentionProperties' {magneticStoreRetentionPeriodInDays} -> magneticStoreRetentionPeriodInDays) (\s@RetentionProperties' {} a -> s {magneticStoreRetentionPeriodInDays = a} :: RetentionProperties)
 
-instance Core.FromJSON RetentionProperties where
+instance Data.FromJSON RetentionProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RetentionProperties"
       ( \x ->
           RetentionProperties'
-            Prelude.<$> (x Core..: "MemoryStoreRetentionPeriodInHours")
-            Prelude.<*> (x Core..: "MagneticStoreRetentionPeriodInDays")
+            Prelude.<$> (x Data..: "MemoryStoreRetentionPeriodInHours")
+            Prelude.<*> (x Data..: "MagneticStoreRetentionPeriodInDays")
       )
 
 instance Prelude.Hashable RetentionProperties where
@@ -91,17 +92,17 @@ instance Prelude.NFData RetentionProperties where
     Prelude.rnf memoryStoreRetentionPeriodInHours
       `Prelude.seq` Prelude.rnf magneticStoreRetentionPeriodInDays
 
-instance Core.ToJSON RetentionProperties where
+instance Data.ToJSON RetentionProperties where
   toJSON RetentionProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "MemoryStoreRetentionPeriodInHours"
-                  Core..= memoryStoreRetentionPeriodInHours
+                  Data..= memoryStoreRetentionPeriodInHours
               ),
             Prelude.Just
               ( "MagneticStoreRetentionPeriodInDays"
-                  Core..= magneticStoreRetentionPeriodInDays
+                  Data..= magneticStoreRetentionPeriodInDays
               )
           ]
       )

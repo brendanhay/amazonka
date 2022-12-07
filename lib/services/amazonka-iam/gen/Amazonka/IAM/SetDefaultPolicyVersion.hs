@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -139,21 +140,21 @@ instance Prelude.NFData SetDefaultPolicyVersion where
     Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf versionId
 
-instance Core.ToHeaders SetDefaultPolicyVersion where
+instance Data.ToHeaders SetDefaultPolicyVersion where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath SetDefaultPolicyVersion where
+instance Data.ToPath SetDefaultPolicyVersion where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery SetDefaultPolicyVersion where
+instance Data.ToQuery SetDefaultPolicyVersion where
   toQuery SetDefaultPolicyVersion' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("SetDefaultPolicyVersion" :: Prelude.ByteString),
+          Data.=: ("SetDefaultPolicyVersion" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Core.=: policyArn,
-        "VersionId" Core.=: versionId
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Data.=: policyArn,
+        "VersionId" Data.=: versionId
       ]
 
 -- | /See:/ 'newSetDefaultPolicyVersionResponse' smart constructor.

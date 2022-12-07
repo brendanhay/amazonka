@@ -21,6 +21,7 @@ module Amazonka.Route53.Types.LinkedService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53.Internal
 
@@ -80,11 +81,11 @@ linkedService_description = Lens.lens (\LinkedService' {description} -> descript
 linkedService_servicePrincipal :: Lens.Lens' LinkedService (Prelude.Maybe Prelude.Text)
 linkedService_servicePrincipal = Lens.lens (\LinkedService' {servicePrincipal} -> servicePrincipal) (\s@LinkedService' {} a -> s {servicePrincipal = a} :: LinkedService)
 
-instance Core.FromXML LinkedService where
+instance Data.FromXML LinkedService where
   parseXML x =
     LinkedService'
-      Prelude.<$> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ServicePrincipal")
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "ServicePrincipal")
 
 instance Prelude.Hashable LinkedService where
   hashWithSalt _salt LinkedService' {..} =

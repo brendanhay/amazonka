@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -82,7 +83,7 @@ instance Core.AWSRequest GetSMSSandboxAccountStatus where
       ( \s h x ->
           GetSMSSandboxAccountStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "IsInSandbox")
+            Prelude.<*> (x Data..@ "IsInSandbox")
       )
 
 instance Prelude.Hashable GetSMSSandboxAccountStatus where
@@ -92,20 +93,20 @@ instance Prelude.Hashable GetSMSSandboxAccountStatus where
 instance Prelude.NFData GetSMSSandboxAccountStatus where
   rnf _ = ()
 
-instance Core.ToHeaders GetSMSSandboxAccountStatus where
+instance Data.ToHeaders GetSMSSandboxAccountStatus where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetSMSSandboxAccountStatus where
+instance Data.ToPath GetSMSSandboxAccountStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSMSSandboxAccountStatus where
+instance Data.ToQuery GetSMSSandboxAccountStatus where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetSMSSandboxAccountStatus" :: Prelude.ByteString),
+              Data.=: ("GetSMSSandboxAccountStatus" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2010-03-31" :: Prelude.ByteString)
+              Data.=: ("2010-03-31" :: Prelude.ByteString)
           ]
       )
 

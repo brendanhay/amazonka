@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,7 +143,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketInventoryConfigurationResponse'
-            Prelude.<$> (Core.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,22 +168,22 @@ instance
       `Prelude.seq` Prelude.rnf id
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBucketInventoryConfiguration
   where
   toHeaders GetBucketInventoryConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketInventoryConfiguration where
+instance Data.ToPath GetBucketInventoryConfiguration where
   toPath GetBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
-instance Core.ToQuery GetBucketInventoryConfiguration where
+instance Data.ToQuery GetBucketInventoryConfiguration where
   toQuery GetBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["id" Core.=: id, "inventory"]
+    Prelude.mconcat ["id" Data.=: id, "inventory"]
 
 -- | /See:/ 'newGetBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'

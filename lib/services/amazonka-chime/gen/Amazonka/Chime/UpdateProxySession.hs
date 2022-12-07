@@ -46,6 +46,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest UpdateProxySession where
     Response.receiveJSON
       ( \s h x ->
           UpdateProxySessionResponse'
-            Prelude.<$> (x Core..?> "ProxySession")
+            Prelude.<$> (x Data..?> "ProxySession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,28 +140,28 @@ instance Prelude.NFData UpdateProxySession where
       `Prelude.seq` Prelude.rnf voiceConnectorId
       `Prelude.seq` Prelude.rnf proxySessionId
 
-instance Core.ToHeaders UpdateProxySession where
+instance Data.ToHeaders UpdateProxySession where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateProxySession where
+instance Data.ToJSON UpdateProxySession where
   toJSON UpdateProxySession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpiryMinutes" Core..=) Prelude.<$> expiryMinutes,
-            Prelude.Just ("Capabilities" Core..= capabilities)
+          [ ("ExpiryMinutes" Data..=) Prelude.<$> expiryMinutes,
+            Prelude.Just ("Capabilities" Data..= capabilities)
           ]
       )
 
-instance Core.ToPath UpdateProxySession where
+instance Data.ToPath UpdateProxySession where
   toPath UpdateProxySession' {..} =
     Prelude.mconcat
       [ "/voice-connectors/",
-        Core.toBS voiceConnectorId,
+        Data.toBS voiceConnectorId,
         "/proxy-sessions/",
-        Core.toBS proxySessionId
+        Data.toBS proxySessionId
       ]
 
-instance Core.ToQuery UpdateProxySession where
+instance Data.ToQuery UpdateProxySession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProxySessionResponse' smart constructor.

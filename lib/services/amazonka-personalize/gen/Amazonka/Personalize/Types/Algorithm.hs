@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.Algorithm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types.AlgorithmImage
 import Amazonka.Personalize.Types.DefaultHyperParameterRanges
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data Algorithm = Algorithm'
     -- during hyperparameter optimization (HPO).
     defaultHyperParameterRanges :: Prelude.Maybe DefaultHyperParameterRanges,
     -- | The date and time (in Unix time) that the algorithm was created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the algorithm.
     algorithmArn :: Prelude.Maybe Prelude.Text,
     -- | The training input mode.
@@ -51,7 +52,7 @@ data Algorithm = Algorithm'
     -- | Specifies the default hyperparameters.
     defaultHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time (in Unix time) that the algorithm was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Core.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,7 +122,7 @@ algorithm_defaultHyperParameterRanges = Lens.lens (\Algorithm' {defaultHyperPara
 
 -- | The date and time (in Unix time) that the algorithm was created.
 algorithm_creationDateTime :: Lens.Lens' Algorithm (Prelude.Maybe Prelude.UTCTime)
-algorithm_creationDateTime = Lens.lens (\Algorithm' {creationDateTime} -> creationDateTime) (\s@Algorithm' {} a -> s {creationDateTime = a} :: Algorithm) Prelude.. Lens.mapping Core._Time
+algorithm_creationDateTime = Lens.lens (\Algorithm' {creationDateTime} -> creationDateTime) (\s@Algorithm' {} a -> s {creationDateTime = a} :: Algorithm) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the algorithm.
 algorithm_algorithmArn :: Lens.Lens' Algorithm (Prelude.Maybe Prelude.Text)
@@ -142,28 +143,28 @@ algorithm_defaultHyperParameters = Lens.lens (\Algorithm' {defaultHyperParameter
 
 -- | The date and time (in Unix time) that the algorithm was last updated.
 algorithm_lastUpdatedDateTime :: Lens.Lens' Algorithm (Prelude.Maybe Prelude.UTCTime)
-algorithm_lastUpdatedDateTime = Lens.lens (\Algorithm' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Algorithm' {} a -> s {lastUpdatedDateTime = a} :: Algorithm) Prelude.. Lens.mapping Core._Time
+algorithm_lastUpdatedDateTime = Lens.lens (\Algorithm' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@Algorithm' {} a -> s {lastUpdatedDateTime = a} :: Algorithm) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Algorithm where
+instance Data.FromJSON Algorithm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Algorithm"
       ( \x ->
           Algorithm'
-            Prelude.<$> (x Core..:? "algorithmImage")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "defaultHyperParameterRanges")
-            Prelude.<*> (x Core..:? "creationDateTime")
-            Prelude.<*> (x Core..:? "algorithmArn")
-            Prelude.<*> (x Core..:? "trainingInputMode")
-            Prelude.<*> ( x Core..:? "defaultResourceConfig"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "algorithmImage")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "defaultHyperParameterRanges")
+            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "algorithmArn")
+            Prelude.<*> (x Data..:? "trainingInputMode")
+            Prelude.<*> ( x Data..:? "defaultResourceConfig"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "defaultHyperParameters"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "defaultHyperParameters"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable Algorithm where

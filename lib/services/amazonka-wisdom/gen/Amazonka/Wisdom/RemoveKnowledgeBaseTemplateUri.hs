@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -111,28 +112,28 @@ instance
     Prelude.rnf knowledgeBaseId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     RemoveKnowledgeBaseTemplateUri
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath RemoveKnowledgeBaseTemplateUri where
+instance Data.ToPath RemoveKnowledgeBaseTemplateUri where
   toPath RemoveKnowledgeBaseTemplateUri' {..} =
     Prelude.mconcat
       [ "/knowledgeBases/",
-        Core.toBS knowledgeBaseId,
+        Data.toBS knowledgeBaseId,
         "/templateUri"
       ]
 
-instance Core.ToQuery RemoveKnowledgeBaseTemplateUri where
+instance Data.ToQuery RemoveKnowledgeBaseTemplateUri where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveKnowledgeBaseTemplateUriResponse' smart constructor.

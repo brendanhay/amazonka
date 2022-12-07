@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TrafficPattern where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Phase
 import Amazonka.SageMaker.Types.TrafficType
@@ -63,14 +64,14 @@ trafficPattern_trafficType = Lens.lens (\TrafficPattern' {trafficType} -> traffi
 trafficPattern_phases :: Lens.Lens' TrafficPattern (Prelude.Maybe (Prelude.NonEmpty Phase))
 trafficPattern_phases = Lens.lens (\TrafficPattern' {phases} -> phases) (\s@TrafficPattern' {} a -> s {phases = a} :: TrafficPattern) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON TrafficPattern where
+instance Data.FromJSON TrafficPattern where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrafficPattern"
       ( \x ->
           TrafficPattern'
-            Prelude.<$> (x Core..:? "TrafficType")
-            Prelude.<*> (x Core..:? "Phases")
+            Prelude.<$> (x Data..:? "TrafficType")
+            Prelude.<*> (x Data..:? "Phases")
       )
 
 instance Prelude.Hashable TrafficPattern where
@@ -83,11 +84,11 @@ instance Prelude.NFData TrafficPattern where
     Prelude.rnf trafficType
       `Prelude.seq` Prelude.rnf phases
 
-instance Core.ToJSON TrafficPattern where
+instance Data.ToJSON TrafficPattern where
   toJSON TrafficPattern' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrafficType" Core..=) Prelude.<$> trafficType,
-            ("Phases" Core..=) Prelude.<$> phases
+          [ ("TrafficType" Data..=) Prelude.<$> trafficType,
+            ("Phases" Data..=) Prelude.<$> phases
           ]
       )

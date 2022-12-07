@@ -27,6 +27,7 @@ module Amazonka.MediaLive.Types.DeviceSettingsSyncState
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The status of the action to synchronize the device configuration. If you
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- configuration. SYNCING means that it has not updated its configuration.
 newtype DeviceSettingsSyncState = DeviceSettingsSyncState'
   { fromDeviceSettingsSyncState ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype DeviceSettingsSyncState = DeviceSettingsSyncState'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern DeviceSettingsSyncState_SYNCED :: DeviceSettingsSyncState

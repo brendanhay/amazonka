@@ -21,6 +21,7 @@ module Amazonka.WAF.Types.GeoMatchSetUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAF.Types.ChangeAction
 import Amazonka.WAF.Types.GeoMatchConstraint
@@ -90,12 +91,12 @@ instance Prelude.NFData GeoMatchSetUpdate where
     Prelude.rnf action
       `Prelude.seq` Prelude.rnf geoMatchConstraint
 
-instance Core.ToJSON GeoMatchSetUpdate where
+instance Data.ToJSON GeoMatchSetUpdate where
   toJSON GeoMatchSetUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Core..= action),
+          [ Prelude.Just ("Action" Data..= action),
             Prelude.Just
-              ("GeoMatchConstraint" Core..= geoMatchConstraint)
+              ("GeoMatchConstraint" Data..= geoMatchConstraint)
           ]
       )

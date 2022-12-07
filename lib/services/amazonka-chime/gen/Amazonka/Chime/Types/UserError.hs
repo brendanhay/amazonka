@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.UserError where
 import Amazonka.Chime.Types.ErrorCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of errors returned when errors are encountered during the
@@ -73,15 +74,15 @@ userError_userId = Lens.lens (\UserError' {userId} -> userId) (\s@UserError' {} 
 userError_errorCode :: Lens.Lens' UserError (Prelude.Maybe ErrorCode)
 userError_errorCode = Lens.lens (\UserError' {errorCode} -> errorCode) (\s@UserError' {} a -> s {errorCode = a} :: UserError)
 
-instance Core.FromJSON UserError where
+instance Data.FromJSON UserError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserError"
       ( \x ->
           UserError'
-            Prelude.<$> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "UserId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "UserId")
+            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UserError where

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,9 +131,9 @@ instance Core.AWSRequest GetAssessmentReport where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentReportResponse'
-            Prelude.<$> (x Core..?> "url")
+            Prelude.<$> (x Data..?> "url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable GetAssessmentReport where
@@ -147,37 +148,37 @@ instance Prelude.NFData GetAssessmentReport where
       `Prelude.seq` Prelude.rnf reportFileFormat
       `Prelude.seq` Prelude.rnf reportType
 
-instance Core.ToHeaders GetAssessmentReport where
+instance Data.ToHeaders GetAssessmentReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.GetAssessmentReport" ::
+              Data.=# ( "InspectorService.GetAssessmentReport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetAssessmentReport where
+instance Data.ToJSON GetAssessmentReport where
   toJSON GetAssessmentReport' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("assessmentRunArn" Core..= assessmentRunArn),
+              ("assessmentRunArn" Data..= assessmentRunArn),
             Prelude.Just
-              ("reportFileFormat" Core..= reportFileFormat),
-            Prelude.Just ("reportType" Core..= reportType)
+              ("reportFileFormat" Data..= reportFileFormat),
+            Prelude.Just ("reportType" Data..= reportType)
           ]
       )
 
-instance Core.ToPath GetAssessmentReport where
+instance Data.ToPath GetAssessmentReport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAssessmentReport where
+instance Data.ToQuery GetAssessmentReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetAssessmentReportResponse' smart constructor.

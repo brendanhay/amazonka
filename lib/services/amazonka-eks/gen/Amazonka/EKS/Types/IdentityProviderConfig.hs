@@ -21,6 +21,7 @@ module Amazonka.EKS.Types.IdentityProviderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing an identity provider configuration.
@@ -68,13 +69,13 @@ identityProviderConfig_type = Lens.lens (\IdentityProviderConfig' {type'} -> typ
 identityProviderConfig_name :: Lens.Lens' IdentityProviderConfig Prelude.Text
 identityProviderConfig_name = Lens.lens (\IdentityProviderConfig' {name} -> name) (\s@IdentityProviderConfig' {} a -> s {name = a} :: IdentityProviderConfig)
 
-instance Core.FromJSON IdentityProviderConfig where
+instance Data.FromJSON IdentityProviderConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IdentityProviderConfig"
       ( \x ->
           IdentityProviderConfig'
-            Prelude.<$> (x Core..: "type") Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..: "type") Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable IdentityProviderConfig where
@@ -86,11 +87,11 @@ instance Prelude.NFData IdentityProviderConfig where
   rnf IdentityProviderConfig' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf name
 
-instance Core.ToJSON IdentityProviderConfig where
+instance Data.ToJSON IdentityProviderConfig where
   toJSON IdentityProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("name" Core..= name)
+          [ Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("name" Data..= name)
           ]
       )

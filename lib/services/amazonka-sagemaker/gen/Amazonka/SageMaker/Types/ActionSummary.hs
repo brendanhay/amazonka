@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ActionSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ActionSource
 import Amazonka.SageMaker.Types.ActionStatus
@@ -39,13 +40,13 @@ data ActionSummary = ActionSummary'
     -- | The status of the action.
     status :: Prelude.Maybe ActionStatus,
     -- | When the action was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the action.
     source :: Prelude.Maybe ActionSource,
     -- | The Amazon Resource Name (ARN) of the action.
     actionArn :: Prelude.Maybe Prelude.Text,
     -- | When the action was created.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +98,7 @@ actionSummary_status = Lens.lens (\ActionSummary' {status} -> status) (\s@Action
 
 -- | When the action was last modified.
 actionSummary_lastModifiedTime :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.UTCTime)
-actionSummary_lastModifiedTime = Lens.lens (\ActionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ActionSummary' {} a -> s {lastModifiedTime = a} :: ActionSummary) Prelude.. Lens.mapping Core._Time
+actionSummary_lastModifiedTime = Lens.lens (\ActionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ActionSummary' {} a -> s {lastModifiedTime = a} :: ActionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The source of the action.
 actionSummary_source :: Lens.Lens' ActionSummary (Prelude.Maybe ActionSource)
@@ -109,21 +110,21 @@ actionSummary_actionArn = Lens.lens (\ActionSummary' {actionArn} -> actionArn) (
 
 -- | When the action was created.
 actionSummary_creationTime :: Lens.Lens' ActionSummary (Prelude.Maybe Prelude.UTCTime)
-actionSummary_creationTime = Lens.lens (\ActionSummary' {creationTime} -> creationTime) (\s@ActionSummary' {} a -> s {creationTime = a} :: ActionSummary) Prelude.. Lens.mapping Core._Time
+actionSummary_creationTime = Lens.lens (\ActionSummary' {creationTime} -> creationTime) (\s@ActionSummary' {} a -> s {creationTime = a} :: ActionSummary) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ActionSummary where
+instance Data.FromJSON ActionSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionSummary"
       ( \x ->
           ActionSummary'
-            Prelude.<$> (x Core..:? "ActionName")
-            Prelude.<*> (x Core..:? "ActionType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "Source")
-            Prelude.<*> (x Core..:? "ActionArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "ActionName")
+            Prelude.<*> (x Data..:? "ActionType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "ActionArn")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable ActionSummary where

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
     Response.receiveJSON
       ( \s h x ->
           StartServiceSoftwareUpdateResponse'
-            Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
+            Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,22 +107,22 @@ instance Prelude.NFData StartServiceSoftwareUpdate where
   rnf StartServiceSoftwareUpdate' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders StartServiceSoftwareUpdate where
+instance Data.ToHeaders StartServiceSoftwareUpdate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON StartServiceSoftwareUpdate where
+instance Data.ToJSON StartServiceSoftwareUpdate where
   toJSON StartServiceSoftwareUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath StartServiceSoftwareUpdate where
+instance Data.ToPath StartServiceSoftwareUpdate where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
 
-instance Core.ToQuery StartServiceSoftwareUpdate where
+instance Data.ToQuery StartServiceSoftwareUpdate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @StartServiceSoftwareUpdate@ operation.

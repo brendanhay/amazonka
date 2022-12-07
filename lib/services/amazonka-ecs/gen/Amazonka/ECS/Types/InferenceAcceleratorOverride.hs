@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.InferenceAcceleratorOverride where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on an Elastic Inference accelerator task override. This
@@ -72,14 +73,14 @@ inferenceAcceleratorOverride_deviceName = Lens.lens (\InferenceAcceleratorOverri
 inferenceAcceleratorOverride_deviceType :: Lens.Lens' InferenceAcceleratorOverride (Prelude.Maybe Prelude.Text)
 inferenceAcceleratorOverride_deviceType = Lens.lens (\InferenceAcceleratorOverride' {deviceType} -> deviceType) (\s@InferenceAcceleratorOverride' {} a -> s {deviceType = a} :: InferenceAcceleratorOverride)
 
-instance Core.FromJSON InferenceAcceleratorOverride where
+instance Data.FromJSON InferenceAcceleratorOverride where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InferenceAcceleratorOverride"
       ( \x ->
           InferenceAcceleratorOverride'
-            Prelude.<$> (x Core..:? "deviceName")
-            Prelude.<*> (x Core..:? "deviceType")
+            Prelude.<$> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "deviceType")
       )
 
 instance
@@ -95,11 +96,11 @@ instance Prelude.NFData InferenceAcceleratorOverride where
     Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceType
 
-instance Core.ToJSON InferenceAcceleratorOverride where
+instance Data.ToJSON InferenceAcceleratorOverride where
   toJSON InferenceAcceleratorOverride' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deviceName" Core..=) Prelude.<$> deviceName,
-            ("deviceType" Core..=) Prelude.<$> deviceType
+          [ ("deviceName" Data..=) Prelude.<$> deviceName,
+            ("deviceType" Data..=) Prelude.<$> deviceType
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Inspector2.Types.RepositoryAggregationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types.SeverityCounts
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,16 +85,16 @@ repositoryAggregationResponse_accountId = Lens.lens (\RepositoryAggregationRespo
 repositoryAggregationResponse_repository :: Lens.Lens' RepositoryAggregationResponse Prelude.Text
 repositoryAggregationResponse_repository = Lens.lens (\RepositoryAggregationResponse' {repository} -> repository) (\s@RepositoryAggregationResponse' {} a -> s {repository = a} :: RepositoryAggregationResponse)
 
-instance Core.FromJSON RepositoryAggregationResponse where
+instance Data.FromJSON RepositoryAggregationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryAggregationResponse"
       ( \x ->
           RepositoryAggregationResponse'
-            Prelude.<$> (x Core..:? "severityCounts")
-            Prelude.<*> (x Core..:? "affectedImages")
-            Prelude.<*> (x Core..:? "accountId")
-            Prelude.<*> (x Core..: "repository")
+            Prelude.<$> (x Data..:? "severityCounts")
+            Prelude.<*> (x Data..:? "affectedImages")
+            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<*> (x Data..: "repository")
       )
 
 instance

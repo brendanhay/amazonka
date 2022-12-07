@@ -21,6 +21,7 @@ module Amazonka.MachineLearning.Types.RDSDatabaseCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The database credentials to connect to a database on an RDS DB instance.
@@ -73,11 +74,11 @@ instance Prelude.NFData RDSDatabaseCredentials where
     Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
-instance Core.ToJSON RDSDatabaseCredentials where
+instance Data.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Username" Core..= username),
-            Prelude.Just ("Password" Core..= password)
+          [ Prelude.Just ("Username" Data..= username),
+            Prelude.Just ("Password" Data..= password)
           ]
       )

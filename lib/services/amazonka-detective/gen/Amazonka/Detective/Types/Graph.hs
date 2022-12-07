@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.Graph where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A behavior graph in Detective.
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data Graph = Graph'
   { -- | The date and time that the behavior graph was created. The value is an
     -- ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the behavior graph.
     arn :: Prelude.Maybe Prelude.Text
   }
@@ -58,20 +59,20 @@ newGraph =
 -- | The date and time that the behavior graph was created. The value is an
 -- ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
 graph_createdTime :: Lens.Lens' Graph (Prelude.Maybe Prelude.UTCTime)
-graph_createdTime = Lens.lens (\Graph' {createdTime} -> createdTime) (\s@Graph' {} a -> s {createdTime = a} :: Graph) Prelude.. Lens.mapping Core._Time
+graph_createdTime = Lens.lens (\Graph' {createdTime} -> createdTime) (\s@Graph' {} a -> s {createdTime = a} :: Graph) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the behavior graph.
 graph_arn :: Lens.Lens' Graph (Prelude.Maybe Prelude.Text)
 graph_arn = Lens.lens (\Graph' {arn} -> arn) (\s@Graph' {} a -> s {arn = a} :: Graph)
 
-instance Core.FromJSON Graph where
+instance Data.FromJSON Graph where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Graph"
       ( \x ->
           Graph'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "Arn")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable Graph where

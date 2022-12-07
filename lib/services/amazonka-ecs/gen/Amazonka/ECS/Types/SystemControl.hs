@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.SystemControl where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of namespaced kernel parameters to set in the container. This
@@ -86,14 +87,14 @@ systemControl_namespace = Lens.lens (\SystemControl' {namespace} -> namespace) (
 systemControl_value :: Lens.Lens' SystemControl (Prelude.Maybe Prelude.Text)
 systemControl_value = Lens.lens (\SystemControl' {value} -> value) (\s@SystemControl' {} a -> s {value = a} :: SystemControl)
 
-instance Core.FromJSON SystemControl where
+instance Data.FromJSON SystemControl where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SystemControl"
       ( \x ->
           SystemControl'
-            Prelude.<$> (x Core..:? "namespace")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable SystemControl where
@@ -106,11 +107,11 @@ instance Prelude.NFData SystemControl where
     Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON SystemControl where
+instance Data.ToJSON SystemControl where
   toJSON SystemControl' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("namespace" Core..=) Prelude.<$> namespace,
-            ("value" Core..=) Prelude.<$> value
+          [ ("namespace" Data..=) Prelude.<$> namespace,
+            ("value" Data..=) Prelude.<$> value
           ]
       )

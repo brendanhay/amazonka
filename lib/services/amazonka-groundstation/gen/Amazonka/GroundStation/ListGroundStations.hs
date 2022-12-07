@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GroundStation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,8 +134,8 @@ instance Core.AWSRequest ListGroundStations where
     Response.receiveJSON
       ( \s h x ->
           ListGroundStationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "groundStationList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "groundStationList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,26 +153,26 @@ instance Prelude.NFData ListGroundStations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf satelliteId
 
-instance Core.ToHeaders ListGroundStations where
+instance Data.ToHeaders ListGroundStations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListGroundStations where
+instance Data.ToPath ListGroundStations where
   toPath = Prelude.const "/groundstation"
 
-instance Core.ToQuery ListGroundStations where
+instance Data.ToQuery ListGroundStations where
   toQuery ListGroundStations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "satelliteId" Core.=: satelliteId
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "satelliteId" Data.=: satelliteId
       ]
 
 -- |

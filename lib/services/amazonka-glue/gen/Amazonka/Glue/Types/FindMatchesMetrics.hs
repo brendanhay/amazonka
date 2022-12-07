@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.FindMatchesMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.ColumnImportance
 import Amazonka.Glue.Types.ConfusionMatrix
 import qualified Amazonka.Prelude as Prelude
@@ -193,20 +194,20 @@ findMatchesMetrics_precision = Lens.lens (\FindMatchesMetrics' {precision} -> pr
 findMatchesMetrics_areaUnderPRCurve :: Lens.Lens' FindMatchesMetrics (Prelude.Maybe Prelude.Double)
 findMatchesMetrics_areaUnderPRCurve = Lens.lens (\FindMatchesMetrics' {areaUnderPRCurve} -> areaUnderPRCurve) (\s@FindMatchesMetrics' {} a -> s {areaUnderPRCurve = a} :: FindMatchesMetrics)
 
-instance Core.FromJSON FindMatchesMetrics where
+instance Data.FromJSON FindMatchesMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindMatchesMetrics"
       ( \x ->
           FindMatchesMetrics'
-            Prelude.<$> (x Core..:? "F1")
-            Prelude.<*> ( x Core..:? "ColumnImportances"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "F1")
+            Prelude.<*> ( x Data..:? "ColumnImportances"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Recall")
-            Prelude.<*> (x Core..:? "ConfusionMatrix")
-            Prelude.<*> (x Core..:? "Precision")
-            Prelude.<*> (x Core..:? "AreaUnderPRCurve")
+            Prelude.<*> (x Data..:? "Recall")
+            Prelude.<*> (x Data..:? "ConfusionMatrix")
+            Prelude.<*> (x Data..:? "Precision")
+            Prelude.<*> (x Data..:? "AreaUnderPRCurve")
       )
 
 instance Prelude.Hashable FindMatchesMetrics where

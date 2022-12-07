@@ -21,6 +21,7 @@ module Amazonka.StorageGateway.Types.TapeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a virtual tape.
@@ -32,10 +33,10 @@ data TapeInfo = TapeInfo'
     -- | The status of the tape.
     tapeStatus :: Prelude.Maybe Prelude.Text,
     -- | The date that the tape became subject to tape retention lock.
-    retentionStartDate :: Prelude.Maybe Core.POSIX,
+    retentionStartDate :: Prelude.Maybe Data.POSIX,
     -- | The date that the tape entered the custom tape pool with tape retention
     -- lock enabled.
-    poolEntryDate :: Prelude.Maybe Core.POSIX,
+    poolEntryDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
     -- operation to return a list of gateways for your account and Amazon Web
     -- Services Region.
@@ -107,12 +108,12 @@ tapeInfo_tapeStatus = Lens.lens (\TapeInfo' {tapeStatus} -> tapeStatus) (\s@Tape
 
 -- | The date that the tape became subject to tape retention lock.
 tapeInfo_retentionStartDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
-tapeInfo_retentionStartDate = Lens.lens (\TapeInfo' {retentionStartDate} -> retentionStartDate) (\s@TapeInfo' {} a -> s {retentionStartDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
+tapeInfo_retentionStartDate = Lens.lens (\TapeInfo' {retentionStartDate} -> retentionStartDate) (\s@TapeInfo' {} a -> s {retentionStartDate = a} :: TapeInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The date that the tape entered the custom tape pool with tape retention
 -- lock enabled.
 tapeInfo_poolEntryDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTime)
-tapeInfo_poolEntryDate = Lens.lens (\TapeInfo' {poolEntryDate} -> poolEntryDate) (\s@TapeInfo' {} a -> s {poolEntryDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
+tapeInfo_poolEntryDate = Lens.lens (\TapeInfo' {poolEntryDate} -> poolEntryDate) (\s@TapeInfo' {} a -> s {poolEntryDate = a} :: TapeInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
 -- operation to return a list of gateways for your account and Amazon Web
@@ -136,20 +137,20 @@ tapeInfo_poolId = Lens.lens (\TapeInfo' {poolId} -> poolId) (\s@TapeInfo' {} a -
 tapeInfo_tapeARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_tapeARN = Lens.lens (\TapeInfo' {tapeARN} -> tapeARN) (\s@TapeInfo' {} a -> s {tapeARN = a} :: TapeInfo)
 
-instance Core.FromJSON TapeInfo where
+instance Data.FromJSON TapeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TapeInfo"
       ( \x ->
           TapeInfo'
-            Prelude.<$> (x Core..:? "TapeBarcode")
-            Prelude.<*> (x Core..:? "TapeStatus")
-            Prelude.<*> (x Core..:? "RetentionStartDate")
-            Prelude.<*> (x Core..:? "PoolEntryDate")
-            Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "TapeSizeInBytes")
-            Prelude.<*> (x Core..:? "PoolId")
-            Prelude.<*> (x Core..:? "TapeARN")
+            Prelude.<$> (x Data..:? "TapeBarcode")
+            Prelude.<*> (x Data..:? "TapeStatus")
+            Prelude.<*> (x Data..:? "RetentionStartDate")
+            Prelude.<*> (x Data..:? "PoolEntryDate")
+            Prelude.<*> (x Data..:? "GatewayARN")
+            Prelude.<*> (x Data..:? "TapeSizeInBytes")
+            Prelude.<*> (x Data..:? "PoolId")
+            Prelude.<*> (x Data..:? "TapeARN")
       )
 
 instance Prelude.Hashable TapeInfo where

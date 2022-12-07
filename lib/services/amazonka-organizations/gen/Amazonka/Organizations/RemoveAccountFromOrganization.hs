@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Organizations.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,32 +146,32 @@ instance Prelude.NFData RemoveAccountFromOrganization where
   rnf RemoveAccountFromOrganization' {..} =
     Prelude.rnf accountId
 
-instance Core.ToHeaders RemoveAccountFromOrganization where
+instance Data.ToHeaders RemoveAccountFromOrganization where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
+              Data.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RemoveAccountFromOrganization where
+instance Data.ToJSON RemoveAccountFromOrganization where
   toJSON RemoveAccountFromOrganization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AccountId" Core..= accountId)]
+          [Prelude.Just ("AccountId" Data..= accountId)]
       )
 
-instance Core.ToPath RemoveAccountFromOrganization where
+instance Data.ToPath RemoveAccountFromOrganization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveAccountFromOrganization where
+instance Data.ToQuery RemoveAccountFromOrganization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRemoveAccountFromOrganizationResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.GameLift.Types.LocationAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types.FleetAction
 import Amazonka.GameLift.Types.LocationState
 import Amazonka.GameLift.Types.LocationUpdateStatus
@@ -86,15 +87,15 @@ locationAttributes_stoppedActions = Lens.lens (\LocationAttributes' {stoppedActi
 locationAttributes_locationState :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationState)
 locationAttributes_locationState = Lens.lens (\LocationAttributes' {locationState} -> locationState) (\s@LocationAttributes' {} a -> s {locationState = a} :: LocationAttributes)
 
-instance Core.FromJSON LocationAttributes where
+instance Data.FromJSON LocationAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocationAttributes"
       ( \x ->
           LocationAttributes'
-            Prelude.<$> (x Core..:? "UpdateStatus")
-            Prelude.<*> (x Core..:? "StoppedActions")
-            Prelude.<*> (x Core..:? "LocationState")
+            Prelude.<$> (x Data..:? "UpdateStatus")
+            Prelude.<*> (x Data..:? "StoppedActions")
+            Prelude.<*> (x Data..:? "LocationState")
       )
 
 instance Prelude.Hashable LocationAttributes where

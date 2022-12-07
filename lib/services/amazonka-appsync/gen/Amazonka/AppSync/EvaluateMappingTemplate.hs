@@ -54,6 +54,7 @@ where
 import Amazonka.AppSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -114,9 +115,9 @@ instance Core.AWSRequest EvaluateMappingTemplate where
     Response.receiveJSON
       ( \s h x ->
           EvaluateMappingTemplateResponse'
-            Prelude.<$> (x Core..?> "logs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "evaluationResult")
-            Prelude.<*> (x Core..?> "error")
+            Prelude.<$> (x Data..?> "logs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "evaluationResult")
+            Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,31 +131,31 @@ instance Prelude.NFData EvaluateMappingTemplate where
     Prelude.rnf template
       `Prelude.seq` Prelude.rnf context
 
-instance Core.ToHeaders EvaluateMappingTemplate where
+instance Data.ToHeaders EvaluateMappingTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON EvaluateMappingTemplate where
+instance Data.ToJSON EvaluateMappingTemplate where
   toJSON EvaluateMappingTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("template" Core..= template),
-            Prelude.Just ("context" Core..= context)
+          [ Prelude.Just ("template" Data..= template),
+            Prelude.Just ("context" Data..= context)
           ]
       )
 
-instance Core.ToPath EvaluateMappingTemplate where
+instance Data.ToPath EvaluateMappingTemplate where
   toPath =
     Prelude.const "/v1/dataplane-evaluatetemplate"
 
-instance Core.ToQuery EvaluateMappingTemplate where
+instance Data.ToQuery EvaluateMappingTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newEvaluateMappingTemplateResponse' smart constructor.

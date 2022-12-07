@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.PerformanceInsightsReferenceScalar where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A reference value to compare Performance Insights metrics against to
@@ -55,15 +56,15 @@ performanceInsightsReferenceScalar_value :: Lens.Lens' PerformanceInsightsRefere
 performanceInsightsReferenceScalar_value = Lens.lens (\PerformanceInsightsReferenceScalar' {value} -> value) (\s@PerformanceInsightsReferenceScalar' {} a -> s {value = a} :: PerformanceInsightsReferenceScalar)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     PerformanceInsightsReferenceScalar
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PerformanceInsightsReferenceScalar"
       ( \x ->
           PerformanceInsightsReferenceScalar'
-            Prelude.<$> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Value")
       )
 
 instance

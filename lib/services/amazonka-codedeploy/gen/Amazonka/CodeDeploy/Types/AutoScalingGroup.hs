@@ -21,6 +21,7 @@ module Amazonka.CodeDeploy.Types.AutoScalingGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Auto Scaling group.
@@ -61,13 +62,13 @@ autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoSc
 autoScalingGroup_hook :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_hook = Lens.lens (\AutoScalingGroup' {hook} -> hook) (\s@AutoScalingGroup' {} a -> s {hook = a} :: AutoScalingGroup)
 
-instance Core.FromJSON AutoScalingGroup where
+instance Data.FromJSON AutoScalingGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AutoScalingGroup"
       ( \x ->
           AutoScalingGroup'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "hook")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "hook")
       )
 
 instance Prelude.Hashable AutoScalingGroup where

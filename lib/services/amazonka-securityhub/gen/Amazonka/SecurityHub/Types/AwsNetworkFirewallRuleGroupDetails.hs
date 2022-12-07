@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsNetworkFirewallRuleGroupDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.RuleGroupDetails
 
@@ -114,21 +115,21 @@ awsNetworkFirewallRuleGroupDetails_capacity :: Lens.Lens' AwsNetworkFirewallRule
 awsNetworkFirewallRuleGroupDetails_capacity = Lens.lens (\AwsNetworkFirewallRuleGroupDetails' {capacity} -> capacity) (\s@AwsNetworkFirewallRuleGroupDetails' {} a -> s {capacity = a} :: AwsNetworkFirewallRuleGroupDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsNetworkFirewallRuleGroupDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsNetworkFirewallRuleGroupDetails"
       ( \x ->
           AwsNetworkFirewallRuleGroupDetails'
-            Prelude.<$> (x Core..:? "RuleGroupName")
-            Prelude.<*> (x Core..:? "RuleGroup")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "RuleGroupId")
-            Prelude.<*> (x Core..:? "RuleGroupArn")
-            Prelude.<*> (x Core..:? "Capacity")
+            Prelude.<$> (x Data..:? "RuleGroupName")
+            Prelude.<*> (x Data..:? "RuleGroup")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "RuleGroupId")
+            Prelude.<*> (x Data..:? "RuleGroupArn")
+            Prelude.<*> (x Data..:? "Capacity")
       )
 
 instance
@@ -160,18 +161,18 @@ instance
       `Prelude.seq` Prelude.rnf capacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsNetworkFirewallRuleGroupDetails
   where
   toJSON AwsNetworkFirewallRuleGroupDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Core..=) Prelude.<$> ruleGroupName,
-            ("RuleGroup" Core..=) Prelude.<$> ruleGroup,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Description" Core..=) Prelude.<$> description,
-            ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
-            ("RuleGroupArn" Core..=) Prelude.<$> ruleGroupArn,
-            ("Capacity" Core..=) Prelude.<$> capacity
+          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("RuleGroup" Data..=) Prelude.<$> ruleGroup,
+            ("Type" Data..=) Prelude.<$> type',
+            ("Description" Data..=) Prelude.<$> description,
+            ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
+            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn,
+            ("Capacity" Data..=) Prelude.<$> capacity
           ]
       )

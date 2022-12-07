@@ -46,6 +46,7 @@ where
 import Amazonka.ChimeSDKIdentity.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -54,7 +55,7 @@ import qualified Amazonka.Response as Response
 data ListAppInstanceUsers = ListAppInstanceUsers'
   { -- | The token passed by previous API calls until all requested users are
     -- returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of requests that you want returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the @AppInstance@.
@@ -90,7 +91,7 @@ newListAppInstanceUsers pAppInstanceArn_ =
 -- | The token passed by previous API calls until all requested users are
 -- returned.
 listAppInstanceUsers_nextToken :: Lens.Lens' ListAppInstanceUsers (Prelude.Maybe Prelude.Text)
-listAppInstanceUsers_nextToken = Lens.lens (\ListAppInstanceUsers' {nextToken} -> nextToken) (\s@ListAppInstanceUsers' {} a -> s {nextToken = a} :: ListAppInstanceUsers) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceUsers_nextToken = Lens.lens (\ListAppInstanceUsers' {nextToken} -> nextToken) (\s@ListAppInstanceUsers' {} a -> s {nextToken = a} :: ListAppInstanceUsers) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The maximum number of requests that you want returned.
 listAppInstanceUsers_maxResults :: Lens.Lens' ListAppInstanceUsers (Prelude.Maybe Prelude.Natural)
@@ -110,11 +111,11 @@ instance Core.AWSRequest ListAppInstanceUsers where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstanceUsersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "AppInstanceUsers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "AppInstanceUsers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "AppInstanceArn")
+            Prelude.<*> (x Data..?> "AppInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,25 +131,25 @@ instance Prelude.NFData ListAppInstanceUsers where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appInstanceArn
 
-instance Core.ToHeaders ListAppInstanceUsers where
+instance Data.ToHeaders ListAppInstanceUsers where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAppInstanceUsers where
+instance Data.ToPath ListAppInstanceUsers where
   toPath = Prelude.const "/app-instance-users"
 
-instance Core.ToQuery ListAppInstanceUsers where
+instance Data.ToQuery ListAppInstanceUsers where
   toQuery ListAppInstanceUsers' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults,
-        "app-instance-arn" Core.=: appInstanceArn
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults,
+        "app-instance-arn" Data.=: appInstanceArn
       ]
 
 -- | /See:/ 'newListAppInstanceUsersResponse' smart constructor.
 data ListAppInstanceUsersResponse = ListAppInstanceUsersResponse'
   { -- | The token passed by previous API calls until all requested users are
     -- returned.
-    nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The information for each requested @AppInstanceUser@.
     appInstanceUsers :: Prelude.Maybe [AppInstanceUserSummary],
     -- | The ARN of the @AppInstance@.
@@ -190,7 +191,7 @@ newListAppInstanceUsersResponse pHttpStatus_ =
 -- | The token passed by previous API calls until all requested users are
 -- returned.
 listAppInstanceUsersResponse_nextToken :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe Prelude.Text)
-listAppInstanceUsersResponse_nextToken = Lens.lens (\ListAppInstanceUsersResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUsersResponse' {} a -> s {nextToken = a} :: ListAppInstanceUsersResponse) Prelude.. Lens.mapping Core._Sensitive
+listAppInstanceUsersResponse_nextToken = Lens.lens (\ListAppInstanceUsersResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUsersResponse' {} a -> s {nextToken = a} :: ListAppInstanceUsersResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The information for each requested @AppInstanceUser@.
 listAppInstanceUsersResponse_appInstanceUsers :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe [AppInstanceUserSummary])

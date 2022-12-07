@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,13 +112,13 @@ instance Core.AWSRequest ConfigureLogs where
     Response.receiveJSON
       ( \s h x ->
           ConfigureLogsResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ingressAccessLogs")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ingressAccessLogs")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "egressAccessLogs")
+            Prelude.<*> (x Data..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,34 +134,34 @@ instance Prelude.NFData ConfigureLogs where
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders ConfigureLogs where
+instance Data.ToHeaders ConfigureLogs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ConfigureLogs where
+instance Data.ToJSON ConfigureLogs where
   toJSON ConfigureLogs' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ingressAccessLogs" Core..=)
+          [ ("ingressAccessLogs" Data..=)
               Prelude.<$> ingressAccessLogs,
-            ("egressAccessLogs" Core..=)
+            ("egressAccessLogs" Data..=)
               Prelude.<$> egressAccessLogs
           ]
       )
 
-instance Core.ToPath ConfigureLogs where
+instance Data.ToPath ConfigureLogs where
   toPath ConfigureLogs' {..} =
     Prelude.mconcat
-      ["/channels/", Core.toBS id, "/configure_logs"]
+      ["/channels/", Data.toBS id, "/configure_logs"]
 
-instance Core.ToQuery ConfigureLogs where
+instance Data.ToQuery ConfigureLogs where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newConfigureLogsResponse' smart constructor.

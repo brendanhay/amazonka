@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MachineLearning.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,8 +116,8 @@ instance Core.AWSRequest AddTags where
     Response.receiveJSON
       ( \s h x ->
           AddTagsResponse'
-            Prelude.<$> (x Core..?> "ResourceId")
-            Prelude.<*> (x Core..?> "ResourceType")
+            Prelude.<$> (x Data..?> "ResourceId")
+            Prelude.<*> (x Data..?> "ResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,33 +133,33 @@ instance Prelude.NFData AddTags where
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
 
-instance Core.ToHeaders AddTags where
+instance Data.ToHeaders AddTags where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonML_20141212.AddTags" :: Prelude.ByteString),
+              Data.=# ("AmazonML_20141212.AddTags" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AddTags where
+instance Data.ToJSON AddTags where
   toJSON AddTags' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Tags" Core..= tags),
-            Prelude.Just ("ResourceId" Core..= resourceId),
-            Prelude.Just ("ResourceType" Core..= resourceType)
+          [ Prelude.Just ("Tags" Data..= tags),
+            Prelude.Just ("ResourceId" Data..= resourceId),
+            Prelude.Just ("ResourceType" Data..= resourceType)
           ]
       )
 
-instance Core.ToPath AddTags where
+instance Data.ToPath AddTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AddTags where
+instance Data.ToQuery AddTags where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Amazon ML returns the following elements.

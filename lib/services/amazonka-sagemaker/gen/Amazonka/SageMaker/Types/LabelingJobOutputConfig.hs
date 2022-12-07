@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.LabelingJobOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Output configuration information for a labeling job.
@@ -151,15 +152,15 @@ labelingJobOutputConfig_kmsKeyId = Lens.lens (\LabelingJobOutputConfig' {kmsKeyI
 labelingJobOutputConfig_s3OutputPath :: Lens.Lens' LabelingJobOutputConfig Prelude.Text
 labelingJobOutputConfig_s3OutputPath = Lens.lens (\LabelingJobOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@LabelingJobOutputConfig' {} a -> s {s3OutputPath = a} :: LabelingJobOutputConfig)
 
-instance Core.FromJSON LabelingJobOutputConfig where
+instance Data.FromJSON LabelingJobOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelingJobOutputConfig"
       ( \x ->
           LabelingJobOutputConfig'
-            Prelude.<$> (x Core..:? "SnsTopicArn")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputPath")
+            Prelude.<$> (x Data..:? "SnsTopicArn")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable LabelingJobOutputConfig where
@@ -174,12 +175,12 @@ instance Prelude.NFData LabelingJobOutputConfig where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
-instance Core.ToJSON LabelingJobOutputConfig where
+instance Data.ToJSON LabelingJobOutputConfig where
   toJSON LabelingJobOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
+          [ ("SnsTopicArn" Data..=) Prelude.<$> snsTopicArn,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

@@ -80,6 +80,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -151,34 +152,34 @@ instance Prelude.NFData PutPermissionPolicy where
     Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policy
 
-instance Core.ToHeaders PutPermissionPolicy where
+instance Data.ToHeaders PutPermissionPolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_20150824.PutPermissionPolicy" ::
+              Data.=# ( "AWSWAF_20150824.PutPermissionPolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutPermissionPolicy where
+instance Data.ToJSON PutPermissionPolicy where
   toJSON PutPermissionPolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Core..= resourceArn),
-            Prelude.Just ("Policy" Core..= policy)
+          [ Prelude.Just ("ResourceArn" Data..= resourceArn),
+            Prelude.Just ("Policy" Data..= policy)
           ]
       )
 
-instance Core.ToPath PutPermissionPolicy where
+instance Data.ToPath PutPermissionPolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutPermissionPolicy where
+instance Data.ToQuery PutPermissionPolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutPermissionPolicyResponse' smart constructor.

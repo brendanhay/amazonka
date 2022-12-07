@@ -22,6 +22,7 @@ module Amazonka.AmplifyUiBuilder.Types.MutationActionSetStateParameter where
 import Amazonka.AmplifyUiBuilder.Types.ComponentProperty
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the state configuration when an action modifies a property of
@@ -83,17 +84,17 @@ mutationActionSetStateParameter_set :: Lens.Lens' MutationActionSetStateParamete
 mutationActionSetStateParameter_set = Lens.lens (\MutationActionSetStateParameter' {set} -> set) (\s@MutationActionSetStateParameter' {} a -> s {set = a} :: MutationActionSetStateParameter)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MutationActionSetStateParameter
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MutationActionSetStateParameter"
       ( \x ->
           MutationActionSetStateParameter'
-            Prelude.<$> (x Core..: "componentName")
-            Prelude.<*> (x Core..: "property")
-            Prelude.<*> (x Core..: "set")
+            Prelude.<$> (x Data..: "componentName")
+            Prelude.<*> (x Data..: "property")
+            Prelude.<*> (x Data..: "set")
       )
 
 instance
@@ -116,13 +117,13 @@ instance
       `Prelude.seq` Prelude.rnf property
       `Prelude.seq` Prelude.rnf set
 
-instance Core.ToJSON MutationActionSetStateParameter where
+instance Data.ToJSON MutationActionSetStateParameter where
   toJSON MutationActionSetStateParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("componentName" Core..= componentName),
-            Prelude.Just ("property" Core..= property),
-            Prelude.Just ("set" Core..= set)
+              ("componentName" Data..= componentName),
+            Prelude.Just ("property" Data..= property),
+            Prelude.Just ("set" Data..= set)
           ]
       )

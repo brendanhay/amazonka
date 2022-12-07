@@ -44,6 +44,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComponentConfigurationRecommendationResponse'
-            Prelude.<$> (x Core..?> "ComponentConfiguration")
+            Prelude.<$> (x Data..?> "ComponentConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,46 +144,46 @@ instance
       `Prelude.seq` Prelude.rnf tier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeComponentConfigurationRecommendation
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation" ::
+              Data.=# ( "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribeComponentConfigurationRecommendation
   where
   toJSON
     DescribeComponentConfigurationRecommendation' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
             [ Prelude.Just
-                ("ResourceGroupName" Core..= resourceGroupName),
-              Prelude.Just ("ComponentName" Core..= componentName),
-              Prelude.Just ("Tier" Core..= tier)
+                ("ResourceGroupName" Data..= resourceGroupName),
+              Prelude.Just ("ComponentName" Data..= componentName),
+              Prelude.Just ("Tier" Data..= tier)
             ]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeComponentConfigurationRecommendation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeComponentConfigurationRecommendation
   where
   toQuery = Prelude.const Prelude.mempty

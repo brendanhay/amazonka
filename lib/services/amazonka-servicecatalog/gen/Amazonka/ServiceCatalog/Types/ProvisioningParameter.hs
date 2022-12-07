@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisioningParameter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a parameter used to provision a product.
@@ -70,11 +71,11 @@ instance Prelude.NFData ProvisioningParameter where
   rnf ProvisioningParameter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf value
 
-instance Core.ToJSON ProvisioningParameter where
+instance Data.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

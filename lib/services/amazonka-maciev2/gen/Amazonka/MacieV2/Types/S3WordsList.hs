@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.S3WordsList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an S3 object that lists specific text to
@@ -66,14 +67,14 @@ s3WordsList_bucketName = Lens.lens (\S3WordsList' {bucketName} -> bucketName) (\
 s3WordsList_objectKey :: Lens.Lens' S3WordsList Prelude.Text
 s3WordsList_objectKey = Lens.lens (\S3WordsList' {objectKey} -> objectKey) (\s@S3WordsList' {} a -> s {objectKey = a} :: S3WordsList)
 
-instance Core.FromJSON S3WordsList where
+instance Data.FromJSON S3WordsList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3WordsList"
       ( \x ->
           S3WordsList'
-            Prelude.<$> (x Core..: "bucketName")
-            Prelude.<*> (x Core..: "objectKey")
+            Prelude.<$> (x Data..: "bucketName")
+            Prelude.<*> (x Data..: "objectKey")
       )
 
 instance Prelude.Hashable S3WordsList where
@@ -86,11 +87,11 @@ instance Prelude.NFData S3WordsList where
     Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf objectKey
 
-instance Core.ToJSON S3WordsList where
+instance Data.ToJSON S3WordsList where
   toJSON S3WordsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("bucketName" Core..= bucketName),
-            Prelude.Just ("objectKey" Core..= objectKey)
+          [ Prelude.Just ("bucketName" Data..= bucketName),
+            Prelude.Just ("objectKey" Data..= objectKey)
           ]
       )

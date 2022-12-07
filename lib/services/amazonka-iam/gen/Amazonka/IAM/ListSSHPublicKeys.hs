@@ -58,6 +58,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -194,10 +195,10 @@ instance Core.AWSRequest ListSSHPublicKeys where
       "ListSSHPublicKeysResult"
       ( \s h x ->
           ListSSHPublicKeysResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "SSHPublicKeys" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "SSHPublicKeys" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -214,22 +215,22 @@ instance Prelude.NFData ListSSHPublicKeys where
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf maxItems
 
-instance Core.ToHeaders ListSSHPublicKeys where
+instance Data.ToHeaders ListSSHPublicKeys where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListSSHPublicKeys where
+instance Data.ToPath ListSSHPublicKeys where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListSSHPublicKeys where
+instance Data.ToQuery ListSSHPublicKeys where
   toQuery ListSSHPublicKeys' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListSSHPublicKeys" :: Prelude.ByteString),
+          Data.=: ("ListSSHPublicKeys" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "UserName" Core.=: userName,
-        "MaxItems" Core.=: maxItems
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "UserName" Data.=: userName,
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | Contains the response to a successful ListSSHPublicKeys request.

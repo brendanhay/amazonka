@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Endpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an account-specific API endpoint.
@@ -49,11 +50,11 @@ newEndpoint = Endpoint' {url = Prelude.Nothing}
 endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
 
-instance Core.FromJSON Endpoint where
+instance Data.FromJSON Endpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Endpoint"
-      (\x -> Endpoint' Prelude.<$> (x Core..:? "url"))
+      (\x -> Endpoint' Prelude.<$> (x Data..:? "url"))
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =

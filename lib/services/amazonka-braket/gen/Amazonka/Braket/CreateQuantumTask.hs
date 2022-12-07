@@ -50,6 +50,7 @@ where
 import Amazonka.Braket.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -188,7 +189,7 @@ instance Core.AWSRequest CreateQuantumTask where
       ( \s h x ->
           CreateQuantumTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "quantumTaskArn")
+            Prelude.<*> (x Data..:> "quantumTaskArn")
       )
 
 instance Prelude.Hashable CreateQuantumTask where
@@ -215,40 +216,40 @@ instance Prelude.NFData CreateQuantumTask where
       `Prelude.seq` Prelude.rnf outputS3KeyPrefix
       `Prelude.seq` Prelude.rnf shots
 
-instance Core.ToHeaders CreateQuantumTask where
+instance Data.ToHeaders CreateQuantumTask where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateQuantumTask where
+instance Data.ToJSON CreateQuantumTask where
   toJSON CreateQuantumTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("jobToken" Core..=) Prelude.<$> jobToken,
-            ("deviceParameters" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("jobToken" Data..=) Prelude.<$> jobToken,
+            ("deviceParameters" Data..=)
               Prelude.<$> deviceParameters,
-            Prelude.Just ("action" Core..= action),
-            Prelude.Just ("clientToken" Core..= clientToken),
-            Prelude.Just ("deviceArn" Core..= deviceArn),
+            Prelude.Just ("action" Data..= action),
+            Prelude.Just ("clientToken" Data..= clientToken),
+            Prelude.Just ("deviceArn" Data..= deviceArn),
             Prelude.Just
-              ("outputS3Bucket" Core..= outputS3Bucket),
+              ("outputS3Bucket" Data..= outputS3Bucket),
             Prelude.Just
-              ("outputS3KeyPrefix" Core..= outputS3KeyPrefix),
-            Prelude.Just ("shots" Core..= shots)
+              ("outputS3KeyPrefix" Data..= outputS3KeyPrefix),
+            Prelude.Just ("shots" Data..= shots)
           ]
       )
 
-instance Core.ToPath CreateQuantumTask where
+instance Data.ToPath CreateQuantumTask where
   toPath = Prelude.const "/quantum-task"
 
-instance Core.ToQuery CreateQuantumTask where
+instance Data.ToQuery CreateQuantumTask where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateQuantumTaskResponse' smart constructor.

@@ -22,6 +22,7 @@ module Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy where
 import Amazonka.CloudFront.Types.ReferrerPolicyList
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Determines whether CloudFront includes the @Referrer-Policy@ HTTP
@@ -145,13 +146,13 @@ responseHeadersPolicyReferrerPolicy_referrerPolicy :: Lens.Lens' ResponseHeaders
 responseHeadersPolicyReferrerPolicy_referrerPolicy = Lens.lens (\ResponseHeadersPolicyReferrerPolicy' {referrerPolicy} -> referrerPolicy) (\s@ResponseHeadersPolicyReferrerPolicy' {} a -> s {referrerPolicy = a} :: ResponseHeadersPolicyReferrerPolicy)
 
 instance
-  Core.FromXML
+  Data.FromXML
     ResponseHeadersPolicyReferrerPolicy
   where
   parseXML x =
     ResponseHeadersPolicyReferrerPolicy'
-      Prelude.<$> (x Core..@ "Override")
-      Prelude.<*> (x Core..@ "ReferrerPolicy")
+      Prelude.<$> (x Data..@ "Override")
+      Prelude.<*> (x Data..@ "ReferrerPolicy")
 
 instance
   Prelude.Hashable
@@ -172,11 +173,11 @@ instance
       `Prelude.seq` Prelude.rnf referrerPolicy
 
 instance
-  Core.ToXML
+  Data.ToXML
     ResponseHeadersPolicyReferrerPolicy
   where
   toXML ResponseHeadersPolicyReferrerPolicy' {..} =
     Prelude.mconcat
-      [ "Override" Core.@= override,
-        "ReferrerPolicy" Core.@= referrerPolicy
+      [ "Override" Data.@= override,
+        "ReferrerPolicy" Data.@= referrerPolicy
       ]

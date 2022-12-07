@@ -47,6 +47,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,7 +95,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecordersResponse'
-            Prelude.<$> ( x Core..?> "ConfigurationRecorders"
+            Prelude.<$> ( x Data..?> "ConfigurationRecorders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -118,36 +119,36 @@ instance
     Prelude.rnf configurationRecorderNames
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeConfigurationRecorders
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DescribeConfigurationRecorders" ::
+              Data.=# ( "StarlingDoveService.DescribeConfigurationRecorders" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConfigurationRecorders where
+instance Data.ToJSON DescribeConfigurationRecorders where
   toJSON DescribeConfigurationRecorders' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ConfigurationRecorderNames" Core..=)
+          [ ("ConfigurationRecorderNames" Data..=)
               Prelude.<$> configurationRecorderNames
           ]
       )
 
-instance Core.ToPath DescribeConfigurationRecorders where
+instance Data.ToPath DescribeConfigurationRecorders where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConfigurationRecorders where
+instance Data.ToQuery DescribeConfigurationRecorders where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DescribeConfigurationRecorders action.

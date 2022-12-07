@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.ColumnDefinition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The names and data types of regular columns.
@@ -68,13 +69,13 @@ columnDefinition_name = Lens.lens (\ColumnDefinition' {name} -> name) (\s@Column
 columnDefinition_type :: Lens.Lens' ColumnDefinition Prelude.Text
 columnDefinition_type = Lens.lens (\ColumnDefinition' {type'} -> type') (\s@ColumnDefinition' {} a -> s {type' = a} :: ColumnDefinition)
 
-instance Core.FromJSON ColumnDefinition where
+instance Data.FromJSON ColumnDefinition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ColumnDefinition"
       ( \x ->
           ColumnDefinition'
-            Prelude.<$> (x Core..: "name") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ColumnDefinition where
@@ -86,11 +87,11 @@ instance Prelude.NFData ColumnDefinition where
   rnf ColumnDefinition' {..} =
     Prelude.rnf name `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ColumnDefinition where
+instance Data.ToJSON ColumnDefinition where
   toJSON ColumnDefinition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("name" Data..= name),
+            Prelude.Just ("type" Data..= type')
           ]
       )

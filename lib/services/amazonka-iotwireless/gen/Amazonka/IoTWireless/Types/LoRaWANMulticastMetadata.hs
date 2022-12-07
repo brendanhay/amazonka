@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANMulticastMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata information of the LoRaWAN multicast group.
@@ -56,9 +57,9 @@ instance Prelude.Hashable LoRaWANMulticastMetadata where
 instance Prelude.NFData LoRaWANMulticastMetadata where
   rnf LoRaWANMulticastMetadata' {..} = Prelude.rnf fPort
 
-instance Core.ToJSON LoRaWANMulticastMetadata where
+instance Data.ToJSON LoRaWANMulticastMetadata where
   toJSON LoRaWANMulticastMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("FPort" Core..=) Prelude.<$> fPort]
+          [("FPort" Data..=) Prelude.<$> fPort]
       )

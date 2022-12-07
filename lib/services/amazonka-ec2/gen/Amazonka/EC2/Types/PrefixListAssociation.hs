@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrefixListAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ prefixListAssociation_resourceId = Lens.lens (\PrefixListAssociation' {resourceI
 prefixListAssociation_resourceOwner :: Lens.Lens' PrefixListAssociation (Prelude.Maybe Prelude.Text)
 prefixListAssociation_resourceOwner = Lens.lens (\PrefixListAssociation' {resourceOwner} -> resourceOwner) (\s@PrefixListAssociation' {} a -> s {resourceOwner = a} :: PrefixListAssociation)
 
-instance Core.FromXML PrefixListAssociation where
+instance Data.FromXML PrefixListAssociation where
   parseXML x =
     PrefixListAssociation'
-      Prelude.<$> (x Core..@? "resourceId")
-      Prelude.<*> (x Core..@? "resourceOwner")
+      Prelude.<$> (x Data..@? "resourceId")
+      Prelude.<*> (x Data..@? "resourceOwner")
 
 instance Prelude.Hashable PrefixListAssociation where
   hashWithSalt _salt PrefixListAssociation' {..} =

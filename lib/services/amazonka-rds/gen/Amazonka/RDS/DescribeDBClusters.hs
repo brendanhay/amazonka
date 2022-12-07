@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types
 import qualified Amazonka.Request as Request
@@ -269,9 +270,9 @@ instance Core.AWSRequest DescribeDBClusters where
       "DescribeDBClustersResult"
       ( \s h x ->
           DescribeDBClustersResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> ( x Core..@? "DBClusters" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "DBCluster")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "DBClusters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "DBCluster")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -292,26 +293,26 @@ instance Prelude.NFData DescribeDBClusters where
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf maxRecords
 
-instance Core.ToHeaders DescribeDBClusters where
+instance Data.ToHeaders DescribeDBClusters where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeDBClusters where
+instance Data.ToPath DescribeDBClusters where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDBClusters where
+instance Data.ToQuery DescribeDBClusters where
   toQuery DescribeDBClusters' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeDBClusters" :: Prelude.ByteString),
+          Data.=: ("DescribeDBClusters" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "IncludeShared" Core.=: includeShared,
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "IncludeShared" Data.=: includeShared,
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "MaxRecords" Core.=: maxRecords
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the

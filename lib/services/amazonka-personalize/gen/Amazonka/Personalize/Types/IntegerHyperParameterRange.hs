@@ -21,6 +21,7 @@ module Amazonka.Personalize.Types.IntegerHyperParameterRange where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the name and range of an integer-valued hyperparameter.
@@ -70,15 +71,15 @@ integerHyperParameterRange_minValue = Lens.lens (\IntegerHyperParameterRange' {m
 integerHyperParameterRange_maxValue :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
 integerHyperParameterRange_maxValue = Lens.lens (\IntegerHyperParameterRange' {maxValue} -> maxValue) (\s@IntegerHyperParameterRange' {} a -> s {maxValue = a} :: IntegerHyperParameterRange)
 
-instance Core.FromJSON IntegerHyperParameterRange where
+instance Data.FromJSON IntegerHyperParameterRange where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntegerHyperParameterRange"
       ( \x ->
           IntegerHyperParameterRange'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "minValue")
-            Prelude.<*> (x Core..:? "maxValue")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "maxValue")
       )
 
 instance Prelude.Hashable IntegerHyperParameterRange where
@@ -93,12 +94,12 @@ instance Prelude.NFData IntegerHyperParameterRange where
       `Prelude.seq` Prelude.rnf minValue
       `Prelude.seq` Prelude.rnf maxValue
 
-instance Core.ToJSON IntegerHyperParameterRange where
+instance Data.ToJSON IntegerHyperParameterRange where
   toJSON IntegerHyperParameterRange' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("minValue" Core..=) Prelude.<$> minValue,
-            ("maxValue" Core..=) Prelude.<$> maxValue
+          [ ("name" Data..=) Prelude.<$> name,
+            ("minValue" Data..=) Prelude.<$> minValue,
+            ("maxValue" Data..=) Prelude.<$> maxValue
           ]
       )

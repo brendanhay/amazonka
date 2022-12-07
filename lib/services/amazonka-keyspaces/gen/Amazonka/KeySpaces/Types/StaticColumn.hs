@@ -21,6 +21,7 @@ module Amazonka.KeySpaces.Types.StaticColumn where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The static columns of the table. Static columns store values that are
@@ -52,11 +53,11 @@ newStaticColumn pName_ = StaticColumn' {name = pName_}
 staticColumn_name :: Lens.Lens' StaticColumn Prelude.Text
 staticColumn_name = Lens.lens (\StaticColumn' {name} -> name) (\s@StaticColumn' {} a -> s {name = a} :: StaticColumn)
 
-instance Core.FromJSON StaticColumn where
+instance Data.FromJSON StaticColumn where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StaticColumn"
-      (\x -> StaticColumn' Prelude.<$> (x Core..: "name"))
+      (\x -> StaticColumn' Prelude.<$> (x Data..: "name"))
 
 instance Prelude.Hashable StaticColumn where
   hashWithSalt _salt StaticColumn' {..} =
@@ -65,9 +66,9 @@ instance Prelude.Hashable StaticColumn where
 instance Prelude.NFData StaticColumn where
   rnf StaticColumn' {..} = Prelude.rnf name
 
-instance Core.ToJSON StaticColumn where
+instance Data.ToJSON StaticColumn where
   toJSON StaticColumn' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )

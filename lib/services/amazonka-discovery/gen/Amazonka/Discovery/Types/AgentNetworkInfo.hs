@@ -21,6 +21,7 @@ module Amazonka.Discovery.Types.AgentNetworkInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Network details about the host where the agent\/connector resides.
@@ -61,14 +62,14 @@ agentNetworkInfo_macAddress = Lens.lens (\AgentNetworkInfo' {macAddress} -> macA
 agentNetworkInfo_ipAddress :: Lens.Lens' AgentNetworkInfo (Prelude.Maybe Prelude.Text)
 agentNetworkInfo_ipAddress = Lens.lens (\AgentNetworkInfo' {ipAddress} -> ipAddress) (\s@AgentNetworkInfo' {} a -> s {ipAddress = a} :: AgentNetworkInfo)
 
-instance Core.FromJSON AgentNetworkInfo where
+instance Data.FromJSON AgentNetworkInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AgentNetworkInfo"
       ( \x ->
           AgentNetworkInfo'
-            Prelude.<$> (x Core..:? "macAddress")
-            Prelude.<*> (x Core..:? "ipAddress")
+            Prelude.<$> (x Data..:? "macAddress")
+            Prelude.<*> (x Data..:? "ipAddress")
       )
 
 instance Prelude.Hashable AgentNetworkInfo where

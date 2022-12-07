@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.KMSEncryptionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an encryption key for a destination in Amazon S3.
@@ -61,13 +62,13 @@ newKMSEncryptionConfig pAWSKMSKeyARN_ =
 kmsEncryptionConfig_aWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Prelude.Text
 kmsEncryptionConfig_aWSKMSKeyARN = Lens.lens (\KMSEncryptionConfig' {aWSKMSKeyARN} -> aWSKMSKeyARN) (\s@KMSEncryptionConfig' {} a -> s {aWSKMSKeyARN = a} :: KMSEncryptionConfig)
 
-instance Core.FromJSON KMSEncryptionConfig where
+instance Data.FromJSON KMSEncryptionConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KMSEncryptionConfig"
       ( \x ->
           KMSEncryptionConfig'
-            Prelude.<$> (x Core..: "AWSKMSKeyARN")
+            Prelude.<$> (x Data..: "AWSKMSKeyARN")
       )
 
 instance Prelude.Hashable KMSEncryptionConfig where
@@ -78,9 +79,9 @@ instance Prelude.NFData KMSEncryptionConfig where
   rnf KMSEncryptionConfig' {..} =
     Prelude.rnf aWSKMSKeyARN
 
-instance Core.ToJSON KMSEncryptionConfig where
+instance Data.ToJSON KMSEncryptionConfig where
   toJSON KMSEncryptionConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AWSKMSKeyARN" Core..= aWSKMSKeyARN)]
+          [Prelude.Just ("AWSKMSKeyARN" Data..= aWSKMSKeyARN)]
       )

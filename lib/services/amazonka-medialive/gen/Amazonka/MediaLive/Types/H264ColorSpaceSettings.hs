@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.H264ColorSpaceSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.ColorSpacePassthroughSettings
 import Amazonka.MediaLive.Types.Rec601Settings
 import Amazonka.MediaLive.Types.Rec709Settings
@@ -71,15 +72,15 @@ h264ColorSpaceSettings_rec601Settings = Lens.lens (\H264ColorSpaceSettings' {rec
 h264ColorSpaceSettings_rec709Settings :: Lens.Lens' H264ColorSpaceSettings (Prelude.Maybe Rec709Settings)
 h264ColorSpaceSettings_rec709Settings = Lens.lens (\H264ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H264ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H264ColorSpaceSettings)
 
-instance Core.FromJSON H264ColorSpaceSettings where
+instance Data.FromJSON H264ColorSpaceSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "H264ColorSpaceSettings"
       ( \x ->
           H264ColorSpaceSettings'
-            Prelude.<$> (x Core..:? "colorSpacePassthroughSettings")
-            Prelude.<*> (x Core..:? "rec601Settings")
-            Prelude.<*> (x Core..:? "rec709Settings")
+            Prelude.<$> (x Data..:? "colorSpacePassthroughSettings")
+            Prelude.<*> (x Data..:? "rec601Settings")
+            Prelude.<*> (x Data..:? "rec709Settings")
       )
 
 instance Prelude.Hashable H264ColorSpaceSettings where
@@ -95,15 +96,15 @@ instance Prelude.NFData H264ColorSpaceSettings where
       `Prelude.seq` Prelude.rnf rec601Settings
       `Prelude.seq` Prelude.rnf rec709Settings
 
-instance Core.ToJSON H264ColorSpaceSettings where
+instance Data.ToJSON H264ColorSpaceSettings where
   toJSON H264ColorSpaceSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("colorSpacePassthroughSettings" Core..=)
+          [ ("colorSpacePassthroughSettings" Data..=)
               Prelude.<$> colorSpacePassthroughSettings,
-            ("rec601Settings" Core..=)
+            ("rec601Settings" Data..=)
               Prelude.<$> rec601Settings,
-            ("rec709Settings" Core..=)
+            ("rec709Settings" Data..=)
               Prelude.<$> rec709Settings
           ]
       )

@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,8 +90,8 @@ instance Core.AWSRequest DescribeResourceGroups where
       ( \s h x ->
           DescribeResourceGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "resourceGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resourceGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedItems" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable DescribeResourceGroups where
@@ -101,34 +102,34 @@ instance Prelude.NFData DescribeResourceGroups where
   rnf DescribeResourceGroups' {..} =
     Prelude.rnf resourceGroupArns
 
-instance Core.ToHeaders DescribeResourceGroups where
+instance Data.ToHeaders DescribeResourceGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.DescribeResourceGroups" ::
+              Data.=# ( "InspectorService.DescribeResourceGroups" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResourceGroups where
+instance Data.ToJSON DescribeResourceGroups where
   toJSON DescribeResourceGroups' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("resourceGroupArns" Core..= resourceGroupArns)
+              ("resourceGroupArns" Data..= resourceGroupArns)
           ]
       )
 
-instance Core.ToPath DescribeResourceGroups where
+instance Data.ToPath DescribeResourceGroups where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResourceGroups where
+instance Data.ToQuery DescribeResourceGroups where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourceGroupsResponse' smart constructor.

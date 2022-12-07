@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ReservationPlanSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Commitment
 import Amazonka.MediaConvert.Types.RenewalType
 import qualified Amazonka.Prelude as Prelude
@@ -124,12 +125,12 @@ instance Prelude.NFData ReservationPlanSettings where
       `Prelude.seq` Prelude.rnf reservedSlots
       `Prelude.seq` Prelude.rnf renewalType
 
-instance Core.ToJSON ReservationPlanSettings where
+instance Data.ToJSON ReservationPlanSettings where
   toJSON ReservationPlanSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("commitment" Core..= commitment),
-            Prelude.Just ("reservedSlots" Core..= reservedSlots),
-            Prelude.Just ("renewalType" Core..= renewalType)
+          [ Prelude.Just ("commitment" Data..= commitment),
+            Prelude.Just ("reservedSlots" Data..= reservedSlots),
+            Prelude.Just ("renewalType" Data..= renewalType)
           ]
       )

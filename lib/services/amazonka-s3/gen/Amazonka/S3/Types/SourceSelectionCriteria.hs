@@ -21,6 +21,7 @@ module Amazonka.S3.Types.SourceSelectionCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.ReplicaModifications
@@ -103,11 +104,11 @@ sourceSelectionCriteria_replicaModifications = Lens.lens (\SourceSelectionCriter
 sourceSelectionCriteria_sseKmsEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Prelude.Maybe SseKmsEncryptedObjects)
 sourceSelectionCriteria_sseKmsEncryptedObjects = Lens.lens (\SourceSelectionCriteria' {sseKmsEncryptedObjects} -> sseKmsEncryptedObjects) (\s@SourceSelectionCriteria' {} a -> s {sseKmsEncryptedObjects = a} :: SourceSelectionCriteria)
 
-instance Core.FromXML SourceSelectionCriteria where
+instance Data.FromXML SourceSelectionCriteria where
   parseXML x =
     SourceSelectionCriteria'
-      Prelude.<$> (x Core..@? "ReplicaModifications")
-      Prelude.<*> (x Core..@? "SseKmsEncryptedObjects")
+      Prelude.<$> (x Data..@? "ReplicaModifications")
+      Prelude.<*> (x Data..@? "SseKmsEncryptedObjects")
 
 instance Prelude.Hashable SourceSelectionCriteria where
   hashWithSalt _salt SourceSelectionCriteria' {..} =
@@ -119,10 +120,10 @@ instance Prelude.NFData SourceSelectionCriteria where
     Prelude.rnf replicaModifications
       `Prelude.seq` Prelude.rnf sseKmsEncryptedObjects
 
-instance Core.ToXML SourceSelectionCriteria where
+instance Data.ToXML SourceSelectionCriteria where
   toXML SourceSelectionCriteria' {..} =
     Prelude.mconcat
-      [ "ReplicaModifications" Core.@= replicaModifications,
+      [ "ReplicaModifications" Data.@= replicaModifications,
         "SseKmsEncryptedObjects"
-          Core.@= sseKmsEncryptedObjects
+          Data.@= sseKmsEncryptedObjects
       ]

@@ -49,6 +49,7 @@ where
 import Amazonka.Comprehend.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -177,7 +178,7 @@ instance Core.AWSRequest CreateEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateEndpointResponse'
-            Prelude.<$> (x Core..?> "EndpointArn")
+            Prelude.<$> (x Data..?> "EndpointArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,43 +200,43 @@ instance Prelude.NFData CreateEndpoint where
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf desiredInferenceUnits
 
-instance Core.ToHeaders CreateEndpoint where
+instance Data.ToHeaders CreateEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Comprehend_20171127.CreateEndpoint" ::
+              Data.=# ( "Comprehend_20171127.CreateEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateEndpoint where
+instance Data.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("DataAccessRoleArn" Core..=)
+            ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn,
-            Prelude.Just ("EndpointName" Core..= endpointName),
-            Prelude.Just ("ModelArn" Core..= modelArn),
+            Prelude.Just ("EndpointName" Data..= endpointName),
+            Prelude.Just ("ModelArn" Data..= modelArn),
             Prelude.Just
               ( "DesiredInferenceUnits"
-                  Core..= desiredInferenceUnits
+                  Data..= desiredInferenceUnits
               )
           ]
       )
 
-instance Core.ToPath CreateEndpoint where
+instance Data.ToPath CreateEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateEndpoint where
+instance Data.ToQuery CreateEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateEndpointResponse' smart constructor.

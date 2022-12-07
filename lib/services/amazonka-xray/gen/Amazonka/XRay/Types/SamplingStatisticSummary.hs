@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.SamplingStatisticSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Aggregated request sampling data for a sampling rule across all services
@@ -31,7 +32,7 @@ data SamplingStatisticSummary = SamplingStatisticSummary'
   { -- | The number of requests recorded with borrowed reservoir quota.
     borrowCount :: Prelude.Maybe Prelude.Int,
     -- | The start time of the reporting window.
-    timestamp :: Prelude.Maybe Core.POSIX,
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of requests that matched the rule.
     requestCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the sampling rule.
@@ -76,7 +77,7 @@ samplingStatisticSummary_borrowCount = Lens.lens (\SamplingStatisticSummary' {bo
 
 -- | The start time of the reporting window.
 samplingStatisticSummary_timestamp :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.UTCTime)
-samplingStatisticSummary_timestamp = Lens.lens (\SamplingStatisticSummary' {timestamp} -> timestamp) (\s@SamplingStatisticSummary' {} a -> s {timestamp = a} :: SamplingStatisticSummary) Prelude.. Lens.mapping Core._Time
+samplingStatisticSummary_timestamp = Lens.lens (\SamplingStatisticSummary' {timestamp} -> timestamp) (\s@SamplingStatisticSummary' {} a -> s {timestamp = a} :: SamplingStatisticSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The number of requests that matched the rule.
 samplingStatisticSummary_requestCount :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Int)
@@ -90,17 +91,17 @@ samplingStatisticSummary_ruleName = Lens.lens (\SamplingStatisticSummary' {ruleN
 samplingStatisticSummary_sampledCount :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Int)
 samplingStatisticSummary_sampledCount = Lens.lens (\SamplingStatisticSummary' {sampledCount} -> sampledCount) (\s@SamplingStatisticSummary' {} a -> s {sampledCount = a} :: SamplingStatisticSummary)
 
-instance Core.FromJSON SamplingStatisticSummary where
+instance Data.FromJSON SamplingStatisticSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamplingStatisticSummary"
       ( \x ->
           SamplingStatisticSummary'
-            Prelude.<$> (x Core..:? "BorrowCount")
-            Prelude.<*> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "RequestCount")
-            Prelude.<*> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "SampledCount")
+            Prelude.<$> (x Data..:? "BorrowCount")
+            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "RequestCount")
+            Prelude.<*> (x Data..:? "RuleName")
+            Prelude.<*> (x Data..:? "SampledCount")
       )
 
 instance Prelude.Hashable SamplingStatisticSummary where

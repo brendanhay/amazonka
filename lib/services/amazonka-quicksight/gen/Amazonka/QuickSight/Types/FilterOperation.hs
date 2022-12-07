@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.FilterOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A transform operation that filters rows based on a condition.
@@ -58,13 +59,13 @@ newFilterOperation pConditionExpression_ =
 filterOperation_conditionExpression :: Lens.Lens' FilterOperation Prelude.Text
 filterOperation_conditionExpression = Lens.lens (\FilterOperation' {conditionExpression} -> conditionExpression) (\s@FilterOperation' {} a -> s {conditionExpression = a} :: FilterOperation)
 
-instance Core.FromJSON FilterOperation where
+instance Data.FromJSON FilterOperation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FilterOperation"
       ( \x ->
           FilterOperation'
-            Prelude.<$> (x Core..: "ConditionExpression")
+            Prelude.<$> (x Data..: "ConditionExpression")
       )
 
 instance Prelude.Hashable FilterOperation where
@@ -75,11 +76,11 @@ instance Prelude.NFData FilterOperation where
   rnf FilterOperation' {..} =
     Prelude.rnf conditionExpression
 
-instance Core.ToJSON FilterOperation where
+instance Data.ToJSON FilterOperation where
   toJSON FilterOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConditionExpression" Core..= conditionExpression)
+              ("ConditionExpression" Data..= conditionExpression)
           ]
       )

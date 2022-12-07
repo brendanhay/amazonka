@@ -50,6 +50,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -155,9 +156,9 @@ instance Core.AWSRequest GetApiKeys where
     Response.receiveJSON
       ( \s h x ->
           GetApiKeysResponse'
-            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "position")
+            Prelude.<$> (x Data..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,26 +178,26 @@ instance Prelude.NFData GetApiKeys where
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf includeValues
 
-instance Core.ToHeaders GetApiKeys where
+instance Data.ToHeaders GetApiKeys where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToPath GetApiKeys where
+instance Data.ToPath GetApiKeys where
   toPath = Prelude.const "/apikeys"
 
-instance Core.ToQuery GetApiKeys where
+instance Data.ToQuery GetApiKeys where
   toQuery GetApiKeys' {..} =
     Prelude.mconcat
-      [ "customerId" Core.=: customerId,
-        "limit" Core.=: limit,
-        "name" Core.=: nameQuery,
-        "position" Core.=: position,
-        "includeValues" Core.=: includeValues
+      [ "customerId" Data.=: customerId,
+        "limit" Data.=: limit,
+        "name" Data.=: nameQuery,
+        "position" Data.=: position,
+        "includeValues" Data.=: includeValues
       ]
 
 -- | Represents a collection of API keys as represented by an ApiKeys

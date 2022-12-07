@@ -42,6 +42,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -83,7 +84,7 @@ instance Core.AWSRequest StopSNOMEDCTInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           StopSNOMEDCTInferenceJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,32 +95,32 @@ instance Prelude.Hashable StopSNOMEDCTInferenceJob where
 instance Prelude.NFData StopSNOMEDCTInferenceJob where
   rnf StopSNOMEDCTInferenceJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders StopSNOMEDCTInferenceJob where
+instance Data.ToHeaders StopSNOMEDCTInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StopSNOMEDCTInferenceJob" ::
+              Data.=# ( "ComprehendMedical_20181030.StopSNOMEDCTInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopSNOMEDCTInferenceJob where
+instance Data.ToJSON StopSNOMEDCTInferenceJob where
   toJSON StopSNOMEDCTInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath StopSNOMEDCTInferenceJob where
+instance Data.ToPath StopSNOMEDCTInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopSNOMEDCTInferenceJob where
+instance Data.ToQuery StopSNOMEDCTInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopSNOMEDCTInferenceJobResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.WorkflowTypeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.RegistrationStatus
 import Amazonka.SWF.Types.WorkflowType
@@ -31,7 +32,7 @@ import Amazonka.SWF.Types.WorkflowType
 data WorkflowTypeInfo = WorkflowTypeInfo'
   { -- | If the type is in deprecated state, then it is set to the date when the
     -- type was deprecated.
-    deprecationDate :: Prelude.Maybe Core.POSIX,
+    deprecationDate :: Prelude.Maybe Data.POSIX,
     -- | The description of the type registered through RegisterWorkflowType.
     description :: Prelude.Maybe Prelude.Text,
     -- | The workflow type this information is about.
@@ -39,7 +40,7 @@ data WorkflowTypeInfo = WorkflowTypeInfo'
     -- | The current status of the workflow type.
     status :: RegistrationStatus,
     -- | The date when this type was registered.
-    creationDate :: Core.POSIX
+    creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,13 +80,13 @@ newWorkflowTypeInfo
         description = Prelude.Nothing,
         workflowType = pWorkflowType_,
         status = pStatus_,
-        creationDate = Core._Time Lens.# pCreationDate_
+        creationDate = Data._Time Lens.# pCreationDate_
       }
 
 -- | If the type is in deprecated state, then it is set to the date when the
 -- type was deprecated.
 workflowTypeInfo_deprecationDate :: Lens.Lens' WorkflowTypeInfo (Prelude.Maybe Prelude.UTCTime)
-workflowTypeInfo_deprecationDate = Lens.lens (\WorkflowTypeInfo' {deprecationDate} -> deprecationDate) (\s@WorkflowTypeInfo' {} a -> s {deprecationDate = a} :: WorkflowTypeInfo) Prelude.. Lens.mapping Core._Time
+workflowTypeInfo_deprecationDate = Lens.lens (\WorkflowTypeInfo' {deprecationDate} -> deprecationDate) (\s@WorkflowTypeInfo' {} a -> s {deprecationDate = a} :: WorkflowTypeInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the type registered through RegisterWorkflowType.
 workflowTypeInfo_description :: Lens.Lens' WorkflowTypeInfo (Prelude.Maybe Prelude.Text)
@@ -101,19 +102,19 @@ workflowTypeInfo_status = Lens.lens (\WorkflowTypeInfo' {status} -> status) (\s@
 
 -- | The date when this type was registered.
 workflowTypeInfo_creationDate :: Lens.Lens' WorkflowTypeInfo Prelude.UTCTime
-workflowTypeInfo_creationDate = Lens.lens (\WorkflowTypeInfo' {creationDate} -> creationDate) (\s@WorkflowTypeInfo' {} a -> s {creationDate = a} :: WorkflowTypeInfo) Prelude.. Core._Time
+workflowTypeInfo_creationDate = Lens.lens (\WorkflowTypeInfo' {creationDate} -> creationDate) (\s@WorkflowTypeInfo' {} a -> s {creationDate = a} :: WorkflowTypeInfo) Prelude.. Data._Time
 
-instance Core.FromJSON WorkflowTypeInfo where
+instance Data.FromJSON WorkflowTypeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowTypeInfo"
       ( \x ->
           WorkflowTypeInfo'
-            Prelude.<$> (x Core..:? "deprecationDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "workflowType")
-            Prelude.<*> (x Core..: "status")
-            Prelude.<*> (x Core..: "creationDate")
+            Prelude.<$> (x Data..:? "deprecationDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "creationDate")
       )
 
 instance Prelude.Hashable WorkflowTypeInfo where

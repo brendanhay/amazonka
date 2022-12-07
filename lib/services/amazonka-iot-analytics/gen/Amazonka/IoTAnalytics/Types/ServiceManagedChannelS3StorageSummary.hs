@@ -21,6 +21,7 @@ module Amazonka.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to store channel data in an S3 bucket managed by IoT Analytics.
@@ -41,11 +42,11 @@ newServiceManagedChannelS3StorageSummary =
   ServiceManagedChannelS3StorageSummary'
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ServiceManagedChannelS3StorageSummary
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceManagedChannelS3StorageSummary"
       ( \x ->
           Prelude.pure ServiceManagedChannelS3StorageSummary'

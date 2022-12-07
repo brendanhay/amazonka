@@ -21,6 +21,7 @@ module Amazonka.Kinesis.Types.ChildShard where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types.HashKeyRange
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,15 +76,15 @@ childShard_parentShards = Lens.lens (\ChildShard' {parentShards} -> parentShards
 childShard_hashKeyRange :: Lens.Lens' ChildShard HashKeyRange
 childShard_hashKeyRange = Lens.lens (\ChildShard' {hashKeyRange} -> hashKeyRange) (\s@ChildShard' {} a -> s {hashKeyRange = a} :: ChildShard)
 
-instance Core.FromJSON ChildShard where
+instance Data.FromJSON ChildShard where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ChildShard"
       ( \x ->
           ChildShard'
-            Prelude.<$> (x Core..: "ShardId")
-            Prelude.<*> (x Core..:? "ParentShards" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "HashKeyRange")
+            Prelude.<$> (x Data..: "ShardId")
+            Prelude.<*> (x Data..:? "ParentShards" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "HashKeyRange")
       )
 
 instance Prelude.Hashable ChildShard where

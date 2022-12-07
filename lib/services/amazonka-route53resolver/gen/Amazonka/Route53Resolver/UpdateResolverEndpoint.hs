@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,7 +96,7 @@ instance Core.AWSRequest UpdateResolverEndpoint where
     Response.receiveJSON
       ( \s h x ->
           UpdateResolverEndpointResponse'
-            Prelude.<$> (x Core..?> "ResolverEndpoint")
+            Prelude.<$> (x Data..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,35 +110,35 @@ instance Prelude.NFData UpdateResolverEndpoint where
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf resolverEndpointId
 
-instance Core.ToHeaders UpdateResolverEndpoint where
+instance Data.ToHeaders UpdateResolverEndpoint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53Resolver.UpdateResolverEndpoint" ::
+              Data.=# ( "Route53Resolver.UpdateResolverEndpoint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateResolverEndpoint where
+instance Data.ToJSON UpdateResolverEndpoint where
   toJSON UpdateResolverEndpoint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
-              ("ResolverEndpointId" Core..= resolverEndpointId)
+              ("ResolverEndpointId" Data..= resolverEndpointId)
           ]
       )
 
-instance Core.ToPath UpdateResolverEndpoint where
+instance Data.ToPath UpdateResolverEndpoint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateResolverEndpoint where
+instance Data.ToQuery UpdateResolverEndpoint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateResolverEndpointResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SingularMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Singular.
@@ -39,9 +40,9 @@ newSingularMetadata ::
   SingularMetadata
 newSingularMetadata = SingularMetadata'
 
-instance Core.FromJSON SingularMetadata where
+instance Data.FromJSON SingularMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SingularMetadata"
       (\x -> Prelude.pure SingularMetadata')
 

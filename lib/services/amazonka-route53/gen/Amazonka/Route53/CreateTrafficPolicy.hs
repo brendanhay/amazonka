@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,8 +124,8 @@ instance Core.AWSRequest CreateTrafficPolicy where
       ( \s h x ->
           CreateTrafficPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "TrafficPolicy")
-            Prelude.<*> (h Core..# "Location")
+            Prelude.<*> (x Data..@ "TrafficPolicy")
+            Prelude.<*> (h Data..# "Location")
       )
 
 instance Prelude.Hashable CreateTrafficPolicy where
@@ -139,26 +140,26 @@ instance Prelude.NFData CreateTrafficPolicy where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf document
 
-instance Core.ToElement CreateTrafficPolicy where
+instance Data.ToElement CreateTrafficPolicy where
   toElement =
-    Core.mkElement
+    Data.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateTrafficPolicyRequest"
 
-instance Core.ToHeaders CreateTrafficPolicy where
+instance Data.ToHeaders CreateTrafficPolicy where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTrafficPolicy where
+instance Data.ToPath CreateTrafficPolicy where
   toPath = Prelude.const "/2013-04-01/trafficpolicy"
 
-instance Core.ToQuery CreateTrafficPolicy where
+instance Data.ToQuery CreateTrafficPolicy where
   toQuery = Prelude.const Prelude.mempty
 
-instance Core.ToXML CreateTrafficPolicy where
+instance Data.ToXML CreateTrafficPolicy where
   toXML CreateTrafficPolicy' {..} =
     Prelude.mconcat
-      [ "Comment" Core.@= comment,
-        "Name" Core.@= name,
-        "Document" Core.@= document
+      [ "Comment" Data.@= comment,
+        "Name" Data.@= name,
+        "Document" Data.@= document
       ]
 
 -- | A complex type that contains the response information for the

@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogSchemaChangePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.UpdateCatalogBehavior
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,14 +67,14 @@ catalogSchemaChangePolicy_updateBehavior = Lens.lens (\CatalogSchemaChangePolicy
 catalogSchemaChangePolicy_enableUpdateCatalog :: Lens.Lens' CatalogSchemaChangePolicy (Prelude.Maybe Prelude.Bool)
 catalogSchemaChangePolicy_enableUpdateCatalog = Lens.lens (\CatalogSchemaChangePolicy' {enableUpdateCatalog} -> enableUpdateCatalog) (\s@CatalogSchemaChangePolicy' {} a -> s {enableUpdateCatalog = a} :: CatalogSchemaChangePolicy)
 
-instance Core.FromJSON CatalogSchemaChangePolicy where
+instance Data.FromJSON CatalogSchemaChangePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogSchemaChangePolicy"
       ( \x ->
           CatalogSchemaChangePolicy'
-            Prelude.<$> (x Core..:? "UpdateBehavior")
-            Prelude.<*> (x Core..:? "EnableUpdateCatalog")
+            Prelude.<$> (x Data..:? "UpdateBehavior")
+            Prelude.<*> (x Data..:? "EnableUpdateCatalog")
       )
 
 instance Prelude.Hashable CatalogSchemaChangePolicy where
@@ -86,13 +87,13 @@ instance Prelude.NFData CatalogSchemaChangePolicy where
     Prelude.rnf updateBehavior
       `Prelude.seq` Prelude.rnf enableUpdateCatalog
 
-instance Core.ToJSON CatalogSchemaChangePolicy where
+instance Data.ToJSON CatalogSchemaChangePolicy where
   toJSON CatalogSchemaChangePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateBehavior" Core..=)
+          [ ("UpdateBehavior" Data..=)
               Prelude.<$> updateBehavior,
-            ("EnableUpdateCatalog" Core..=)
+            ("EnableUpdateCatalog" Data..=)
               Prelude.<$> enableUpdateCatalog
           ]
       )

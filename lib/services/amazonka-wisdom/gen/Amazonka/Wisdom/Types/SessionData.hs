@@ -21,6 +21,7 @@ module Amazonka.Wisdom.Types.SessionData where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the session.
@@ -94,17 +95,17 @@ sessionData_sessionArn = Lens.lens (\SessionData' {sessionArn} -> sessionArn) (\
 sessionData_sessionId :: Lens.Lens' SessionData Prelude.Text
 sessionData_sessionId = Lens.lens (\SessionData' {sessionId} -> sessionId) (\s@SessionData' {} a -> s {sessionId = a} :: SessionData)
 
-instance Core.FromJSON SessionData where
+instance Data.FromJSON SessionData where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SessionData"
       ( \x ->
           SessionData'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "sessionArn")
-            Prelude.<*> (x Core..: "sessionId")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "sessionArn")
+            Prelude.<*> (x Data..: "sessionId")
       )
 
 instance Prelude.Hashable SessionData where

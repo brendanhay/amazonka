@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -140,9 +141,9 @@ instance Core.AWSRequest GetConsoleOutput where
     Response.receiveXML
       ( \s h x ->
           GetConsoleOutputResponse'
-            Prelude.<$> (x Core..@? "timestamp")
-            Prelude.<*> (x Core..@? "instanceId")
-            Prelude.<*> (x Core..@? "output")
+            Prelude.<$> (x Data..@? "timestamp")
+            Prelude.<*> (x Data..@? "instanceId")
+            Prelude.<*> (x Data..@? "output")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,28 +159,28 @@ instance Prelude.NFData GetConsoleOutput where
       `Prelude.seq` Prelude.rnf latest
       `Prelude.seq` Prelude.rnf instanceId
 
-instance Core.ToHeaders GetConsoleOutput where
+instance Data.ToHeaders GetConsoleOutput where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetConsoleOutput where
+instance Data.ToPath GetConsoleOutput where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetConsoleOutput where
+instance Data.ToQuery GetConsoleOutput where
   toQuery GetConsoleOutput' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("GetConsoleOutput" :: Prelude.ByteString),
+          Data.=: ("GetConsoleOutput" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Latest" Core.=: latest,
-        "InstanceId" Core.=: instanceId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "Latest" Data.=: latest,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newGetConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
   { -- | The time at which the output was last updated.
-    timestamp :: Prelude.Maybe Core.ISO8601,
+    timestamp :: Prelude.Maybe Data.ISO8601,
     -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The console output, base64-encoded. If you are using a command line
@@ -221,7 +222,7 @@ newGetConsoleOutputResponse pHttpStatus_ =
 
 -- | The time at which the output was last updated.
 getConsoleOutputResponse_timestamp :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.UTCTime)
-getConsoleOutputResponse_timestamp = Lens.lens (\GetConsoleOutputResponse' {timestamp} -> timestamp) (\s@GetConsoleOutputResponse' {} a -> s {timestamp = a} :: GetConsoleOutputResponse) Prelude.. Lens.mapping Core._Time
+getConsoleOutputResponse_timestamp = Lens.lens (\GetConsoleOutputResponse' {timestamp} -> timestamp) (\s@GetConsoleOutputResponse' {} a -> s {timestamp = a} :: GetConsoleOutputResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the instance.
 getConsoleOutputResponse_instanceId :: Lens.Lens' GetConsoleOutputResponse (Prelude.Maybe Prelude.Text)

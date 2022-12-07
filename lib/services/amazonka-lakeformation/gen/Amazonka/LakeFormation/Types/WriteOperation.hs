@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.WriteOperation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types.AddObjectInput
 import Amazonka.LakeFormation.Types.DeleteObjectInput
 import qualified Amazonka.Prelude as Prelude
@@ -73,11 +74,11 @@ instance Prelude.NFData WriteOperation where
     Prelude.rnf deleteObject
       `Prelude.seq` Prelude.rnf addObject
 
-instance Core.ToJSON WriteOperation where
+instance Data.ToJSON WriteOperation where
   toJSON WriteOperation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteObject" Core..=) Prelude.<$> deleteObject,
-            ("AddObject" Core..=) Prelude.<$> addObject
+          [ ("DeleteObject" Data..=) Prelude.<$> deleteObject,
+            ("AddObject" Data..=) Prelude.<$> addObject
           ]
       )

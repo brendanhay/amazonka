@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.App where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An individual Firewall Manager application.
@@ -82,15 +83,15 @@ app_protocol = Lens.lens (\App' {protocol} -> protocol) (\s@App' {} a -> s {prot
 app_port :: Lens.Lens' App Prelude.Natural
 app_port = Lens.lens (\App' {port} -> port) (\s@App' {} a -> s {port = a} :: App)
 
-instance Core.FromJSON App where
+instance Data.FromJSON App where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "App"
       ( \x ->
           App'
-            Prelude.<$> (x Core..: "AppName")
-            Prelude.<*> (x Core..: "Protocol")
-            Prelude.<*> (x Core..: "Port")
+            Prelude.<$> (x Data..: "AppName")
+            Prelude.<*> (x Data..: "Protocol")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable App where
@@ -105,12 +106,12 @@ instance Prelude.NFData App where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf port
 
-instance Core.ToJSON App where
+instance Data.ToJSON App where
   toJSON App' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AppName" Core..= appName),
-            Prelude.Just ("Protocol" Core..= protocol),
-            Prelude.Just ("Port" Core..= port)
+          [ Prelude.Just ("AppName" Data..= appName),
+            Prelude.Just ("Protocol" Data..= protocol),
+            Prelude.Just ("Port" Data..= port)
           ]
       )

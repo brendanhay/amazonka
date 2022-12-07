@@ -21,6 +21,7 @@ module Amazonka.KafkaConnect.Types.ApacheKafkaCluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types.Vpc
 import qualified Amazonka.Prelude as Prelude
 
@@ -81,12 +82,12 @@ instance Prelude.NFData ApacheKafkaCluster where
     Prelude.rnf bootstrapServers
       `Prelude.seq` Prelude.rnf vpc
 
-instance Core.ToJSON ApacheKafkaCluster where
+instance Data.ToJSON ApacheKafkaCluster where
   toJSON ApacheKafkaCluster' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("bootstrapServers" Core..= bootstrapServers),
-            Prelude.Just ("vpc" Core..= vpc)
+              ("bootstrapServers" Data..= bootstrapServers),
+            Prelude.Just ("vpc" Data..= vpc)
           ]
       )

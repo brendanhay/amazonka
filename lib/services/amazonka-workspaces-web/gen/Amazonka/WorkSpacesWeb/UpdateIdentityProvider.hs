@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,11 +124,11 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
     --     -   @MetadataFile@ OR @MetadataURL@
     --
     --     -   @IDPSignout@ (boolean) /optional/
-    identityProviderDetails :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    identityProviderDetails :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The type of the identity provider.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The name of the identity provider.
-    identityProviderName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the identity provider.
     identityProviderArn :: Prelude.Text
   }
@@ -306,7 +307,7 @@ updateIdentityProvider_clientToken = Lens.lens (\UpdateIdentityProvider' {client
 --
 --     -   @IDPSignout@ (boolean) /optional/
 updateIdentityProvider_identityProviderDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_identityProviderDetails = Lens.lens (\UpdateIdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@UpdateIdentityProvider' {} a -> s {identityProviderDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateIdentityProvider_identityProviderDetails = Lens.lens (\UpdateIdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@UpdateIdentityProvider' {} a -> s {identityProviderDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The type of the identity provider.
 updateIdentityProvider_identityProviderType :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe IdentityProviderType)
@@ -314,7 +315,7 @@ updateIdentityProvider_identityProviderType = Lens.lens (\UpdateIdentityProvider
 
 -- | The name of the identity provider.
 updateIdentityProvider_identityProviderName :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe Prelude.Text)
-updateIdentityProvider_identityProviderName = Lens.lens (\UpdateIdentityProvider' {identityProviderName} -> identityProviderName) (\s@UpdateIdentityProvider' {} a -> s {identityProviderName = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Core._Sensitive
+updateIdentityProvider_identityProviderName = Lens.lens (\UpdateIdentityProvider' {identityProviderName} -> identityProviderName) (\s@UpdateIdentityProvider' {} a -> s {identityProviderName = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the identity provider.
 updateIdentityProvider_identityProviderArn :: Lens.Lens' UpdateIdentityProvider Prelude.Text
@@ -331,7 +332,7 @@ instance Core.AWSRequest UpdateIdentityProvider where
       ( \s h x ->
           UpdateIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "identityProvider")
+            Prelude.<*> (x Data..:> "identityProvider")
       )
 
 instance Prelude.Hashable UpdateIdentityProvider where
@@ -350,39 +351,39 @@ instance Prelude.NFData UpdateIdentityProvider where
       `Prelude.seq` Prelude.rnf identityProviderName
       `Prelude.seq` Prelude.rnf identityProviderArn
 
-instance Core.ToHeaders UpdateIdentityProvider where
+instance Data.ToHeaders UpdateIdentityProvider where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateIdentityProvider where
+instance Data.ToJSON UpdateIdentityProvider where
   toJSON UpdateIdentityProvider' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("identityProviderDetails" Core..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("identityProviderDetails" Data..=)
               Prelude.<$> identityProviderDetails,
-            ("identityProviderType" Core..=)
+            ("identityProviderType" Data..=)
               Prelude.<$> identityProviderType,
-            ("identityProviderName" Core..=)
+            ("identityProviderName" Data..=)
               Prelude.<$> identityProviderName
           ]
       )
 
-instance Core.ToPath UpdateIdentityProvider where
+instance Data.ToPath UpdateIdentityProvider where
   toPath UpdateIdentityProvider' {..} =
     Prelude.mconcat
       [ "/identityProviders/",
-        Core.toBS identityProviderArn
+        Data.toBS identityProviderArn
       ]
 
-instance Core.ToQuery UpdateIdentityProvider where
+instance Data.ToQuery UpdateIdentityProvider where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateIdentityProviderResponse' smart constructor.

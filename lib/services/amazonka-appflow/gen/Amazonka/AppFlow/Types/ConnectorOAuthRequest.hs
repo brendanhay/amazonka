@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ConnectorOAuthRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used by select connectors for which the OAuth workflow is supported,
@@ -78,11 +79,11 @@ instance Prelude.NFData ConnectorOAuthRequest where
     Prelude.rnf authCode
       `Prelude.seq` Prelude.rnf redirectUri
 
-instance Core.ToJSON ConnectorOAuthRequest where
+instance Data.ToJSON ConnectorOAuthRequest where
   toJSON ConnectorOAuthRequest' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("authCode" Core..=) Prelude.<$> authCode,
-            ("redirectUri" Core..=) Prelude.<$> redirectUri
+          [ ("authCode" Data..=) Prelude.<$> authCode,
+            ("redirectUri" Data..=) Prelude.<$> redirectUri
           ]
       )

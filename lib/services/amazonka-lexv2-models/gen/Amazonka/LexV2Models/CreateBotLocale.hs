@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -232,15 +233,15 @@ instance Core.AWSRequest CreateBotLocale where
     Response.receiveJSON
       ( \s h x ->
           CreateBotLocaleResponse'
-            Prelude.<$> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeName")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botLocaleStatus")
-            Prelude.<*> (x Core..?> "voiceSettings")
+            Prelude.<$> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "voiceSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,42 +263,42 @@ instance Prelude.NFData CreateBotLocale where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
 
-instance Core.ToHeaders CreateBotLocale where
+instance Data.ToHeaders CreateBotLocale where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateBotLocale where
+instance Data.ToJSON CreateBotLocale where
   toJSON CreateBotLocale' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("voiceSettings" Core..=) Prelude.<$> voiceSettings,
-            Prelude.Just ("localeId" Core..= localeId),
+          [ ("description" Data..=) Prelude.<$> description,
+            ("voiceSettings" Data..=) Prelude.<$> voiceSettings,
+            Prelude.Just ("localeId" Data..= localeId),
             Prelude.Just
               ( "nluIntentConfidenceThreshold"
-                  Core..= nluIntentConfidenceThreshold
+                  Data..= nluIntentConfidenceThreshold
               )
           ]
       )
 
-instance Core.ToPath CreateBotLocale where
+instance Data.ToPath CreateBotLocale where
   toPath CreateBotLocale' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/"
       ]
 
-instance Core.ToQuery CreateBotLocale where
+instance Data.ToQuery CreateBotLocale where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateBotLocaleResponse' smart constructor.
@@ -309,7 +310,7 @@ data CreateBotLocaleResponse = CreateBotLocaleResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp specifying the date and time that the bot locale was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The specified locale name.
     localeName :: Prelude.Maybe Prelude.Text,
     -- | The specified locale identifier.
@@ -411,7 +412,7 @@ createBotLocaleResponse_botVersion = Lens.lens (\CreateBotLocaleResponse' {botVe
 -- | A timestamp specifying the date and time that the bot locale was
 -- created.
 createBotLocaleResponse_creationDateTime :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-createBotLocaleResponse_creationDateTime = Lens.lens (\CreateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotLocaleResponse' {} a -> s {creationDateTime = a} :: CreateBotLocaleResponse) Prelude.. Lens.mapping Core._Time
+createBotLocaleResponse_creationDateTime = Lens.lens (\CreateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotLocaleResponse' {} a -> s {creationDateTime = a} :: CreateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The specified locale name.
 createBotLocaleResponse_localeName :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)

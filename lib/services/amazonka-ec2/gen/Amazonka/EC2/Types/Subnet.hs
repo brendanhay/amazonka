@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Subnet where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PrivateDnsNameOptionsOnLaunch
 import Amazonka.EC2.Types.SubnetIpv6CidrBlockAssociation
@@ -285,35 +286,35 @@ subnet_subnetId = Lens.lens (\Subnet' {subnetId} -> subnetId) (\s@Subnet' {} a -
 subnet_vpcId :: Lens.Lens' Subnet Prelude.Text
 subnet_vpcId = Lens.lens (\Subnet' {vpcId} -> vpcId) (\s@Subnet' {} a -> s {vpcId = a} :: Subnet)
 
-instance Core.FromXML Subnet where
+instance Data.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "outpostArn")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "mapPublicIpOnLaunch")
-      Prelude.<*> (x Core..@? "ipv6Native")
-      Prelude.<*> (x Core..@? "enableLniAtDeviceIndex")
-      Prelude.<*> (x Core..@? "defaultForAz")
-      Prelude.<*> (x Core..@? "customerOwnedIpv4Pool")
-      Prelude.<*> (x Core..@? "mapCustomerOwnedIpOnLaunch")
-      Prelude.<*> ( x Core..@? "ipv6CidrBlockAssociationSet"
+      Prelude.<*> (x Data..@? "outpostArn")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "mapPublicIpOnLaunch")
+      Prelude.<*> (x Data..@? "ipv6Native")
+      Prelude.<*> (x Data..@? "enableLniAtDeviceIndex")
+      Prelude.<*> (x Data..@? "defaultForAz")
+      Prelude.<*> (x Data..@? "customerOwnedIpv4Pool")
+      Prelude.<*> (x Data..@? "mapCustomerOwnedIpOnLaunch")
+      Prelude.<*> ( x Data..@? "ipv6CidrBlockAssociationSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "privateDnsNameOptionsOnLaunch")
-      Prelude.<*> (x Core..@? "subnetArn")
-      Prelude.<*> (x Core..@? "assignIpv6AddressOnCreation")
-      Prelude.<*> (x Core..@? "enableDns64")
-      Prelude.<*> (x Core..@? "availabilityZoneId")
-      Prelude.<*> (x Core..@ "availabilityZone")
-      Prelude.<*> (x Core..@ "availableIpAddressCount")
-      Prelude.<*> (x Core..@ "cidrBlock")
-      Prelude.<*> (x Core..@ "state")
-      Prelude.<*> (x Core..@ "subnetId")
-      Prelude.<*> (x Core..@ "vpcId")
+      Prelude.<*> (x Data..@? "privateDnsNameOptionsOnLaunch")
+      Prelude.<*> (x Data..@? "subnetArn")
+      Prelude.<*> (x Data..@? "assignIpv6AddressOnCreation")
+      Prelude.<*> (x Data..@? "enableDns64")
+      Prelude.<*> (x Data..@? "availabilityZoneId")
+      Prelude.<*> (x Data..@ "availabilityZone")
+      Prelude.<*> (x Data..@ "availableIpAddressCount")
+      Prelude.<*> (x Data..@ "cidrBlock")
+      Prelude.<*> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "subnetId")
+      Prelude.<*> (x Data..@ "vpcId")
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =

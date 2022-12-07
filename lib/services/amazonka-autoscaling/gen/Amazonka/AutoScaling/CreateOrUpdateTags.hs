@@ -46,6 +46,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,20 +92,20 @@ instance Prelude.Hashable CreateOrUpdateTags where
 instance Prelude.NFData CreateOrUpdateTags where
   rnf CreateOrUpdateTags' {..} = Prelude.rnf tags
 
-instance Core.ToHeaders CreateOrUpdateTags where
+instance Data.ToHeaders CreateOrUpdateTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateOrUpdateTags where
+instance Data.ToPath CreateOrUpdateTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateOrUpdateTags where
+instance Data.ToQuery CreateOrUpdateTags where
   toQuery CreateOrUpdateTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateOrUpdateTags" :: Prelude.ByteString),
+          Data.=: ("CreateOrUpdateTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newCreateOrUpdateTagsResponse' smart constructor.

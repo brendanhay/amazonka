@@ -56,6 +56,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -66,7 +67,7 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     notificationsConfiguration :: Prelude.Maybe MeetingNotificationConfiguration,
     -- | Reserved.
-    meetingHostId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Region in which to create the meeting. Default: @us-east-1@ .
     --
     -- Available values: @af-south-1@ , @ap-northeast-1@ , @ap-northeast-2@ ,
@@ -76,12 +77,12 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
     -- @us-west-2@ .
     mediaRegion :: Prelude.Maybe Prelude.Text,
     -- | The external meeting ID.
-    externalMeetingId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    externalMeetingId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The request containing the attendees to create.
     attendees :: Prelude.Maybe (Prelude.NonEmpty CreateAttendeeRequestItem),
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
-    clientRequestToken :: Core.Sensitive Prelude.Text
+    clientRequestToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -126,7 +127,7 @@ newCreateMeetingWithAttendees pClientRequestToken_ =
       externalMeetingId = Prelude.Nothing,
       attendees = Prelude.Nothing,
       clientRequestToken =
-        Core._Sensitive Lens.# pClientRequestToken_
+        Data._Sensitive Lens.# pClientRequestToken_
     }
 
 -- | The tag key-value pairs.
@@ -139,7 +140,7 @@ createMeetingWithAttendees_notificationsConfiguration = Lens.lens (\CreateMeetin
 
 -- | Reserved.
 createMeetingWithAttendees_meetingHostId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
-createMeetingWithAttendees_meetingHostId = Lens.lens (\CreateMeetingWithAttendees' {meetingHostId} -> meetingHostId) (\s@CreateMeetingWithAttendees' {} a -> s {meetingHostId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Core._Sensitive
+createMeetingWithAttendees_meetingHostId = Lens.lens (\CreateMeetingWithAttendees' {meetingHostId} -> meetingHostId) (\s@CreateMeetingWithAttendees' {} a -> s {meetingHostId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Region in which to create the meeting. Default: @us-east-1@ .
 --
@@ -153,7 +154,7 @@ createMeetingWithAttendees_mediaRegion = Lens.lens (\CreateMeetingWithAttendees'
 
 -- | The external meeting ID.
 createMeetingWithAttendees_externalMeetingId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
-createMeetingWithAttendees_externalMeetingId = Lens.lens (\CreateMeetingWithAttendees' {externalMeetingId} -> externalMeetingId) (\s@CreateMeetingWithAttendees' {} a -> s {externalMeetingId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Core._Sensitive
+createMeetingWithAttendees_externalMeetingId = Lens.lens (\CreateMeetingWithAttendees' {externalMeetingId} -> externalMeetingId) (\s@CreateMeetingWithAttendees' {} a -> s {externalMeetingId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The request containing the attendees to create.
 createMeetingWithAttendees_attendees :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe (Prelude.NonEmpty CreateAttendeeRequestItem))
@@ -162,7 +163,7 @@ createMeetingWithAttendees_attendees = Lens.lens (\CreateMeetingWithAttendees' {
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
 createMeetingWithAttendees_clientRequestToken :: Lens.Lens' CreateMeetingWithAttendees Prelude.Text
-createMeetingWithAttendees_clientRequestToken = Lens.lens (\CreateMeetingWithAttendees' {clientRequestToken} -> clientRequestToken) (\s@CreateMeetingWithAttendees' {} a -> s {clientRequestToken = a} :: CreateMeetingWithAttendees) Prelude.. Core._Sensitive
+createMeetingWithAttendees_clientRequestToken = Lens.lens (\CreateMeetingWithAttendees' {clientRequestToken} -> clientRequestToken) (\s@CreateMeetingWithAttendees' {} a -> s {clientRequestToken = a} :: CreateMeetingWithAttendees) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateMeetingWithAttendees where
   type
@@ -174,9 +175,9 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
     Response.receiveJSON
       ( \s h x ->
           CreateMeetingWithAttendeesResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Meeting")
-            Prelude.<*> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Meeting")
+            Prelude.<*> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,30 +201,30 @@ instance Prelude.NFData CreateMeetingWithAttendees where
       `Prelude.seq` Prelude.rnf attendees
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateMeetingWithAttendees where
+instance Data.ToHeaders CreateMeetingWithAttendees where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateMeetingWithAttendees where
+instance Data.ToJSON CreateMeetingWithAttendees where
   toJSON CreateMeetingWithAttendees' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NotificationsConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NotificationsConfiguration" Data..=)
               Prelude.<$> notificationsConfiguration,
-            ("MeetingHostId" Core..=) Prelude.<$> meetingHostId,
-            ("MediaRegion" Core..=) Prelude.<$> mediaRegion,
-            ("ExternalMeetingId" Core..=)
+            ("MeetingHostId" Data..=) Prelude.<$> meetingHostId,
+            ("MediaRegion" Data..=) Prelude.<$> mediaRegion,
+            ("ExternalMeetingId" Data..=)
               Prelude.<$> externalMeetingId,
-            ("Attendees" Core..=) Prelude.<$> attendees,
+            ("Attendees" Data..=) Prelude.<$> attendees,
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateMeetingWithAttendees where
+instance Data.ToPath CreateMeetingWithAttendees where
   toPath = Prelude.const "/meetings"
 
-instance Core.ToQuery CreateMeetingWithAttendees where
+instance Data.ToQuery CreateMeetingWithAttendees where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=create-attendees"])

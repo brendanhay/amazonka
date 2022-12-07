@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.PrivateIpAddressDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains other private IP address information of the EC2 instance.
@@ -62,14 +63,14 @@ privateIpAddressDetails_privateIpAddress = Lens.lens (\PrivateIpAddressDetails' 
 privateIpAddressDetails_privateDnsName :: Lens.Lens' PrivateIpAddressDetails (Prelude.Maybe Prelude.Text)
 privateIpAddressDetails_privateDnsName = Lens.lens (\PrivateIpAddressDetails' {privateDnsName} -> privateDnsName) (\s@PrivateIpAddressDetails' {} a -> s {privateDnsName = a} :: PrivateIpAddressDetails)
 
-instance Core.FromJSON PrivateIpAddressDetails where
+instance Data.FromJSON PrivateIpAddressDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PrivateIpAddressDetails"
       ( \x ->
           PrivateIpAddressDetails'
-            Prelude.<$> (x Core..:? "privateIpAddress")
-            Prelude.<*> (x Core..:? "privateDnsName")
+            Prelude.<$> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "privateDnsName")
       )
 
 instance Prelude.Hashable PrivateIpAddressDetails where

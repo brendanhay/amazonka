@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,7 +132,7 @@ instance Core.AWSRequest CreateSchedule where
       ( \s h x ->
           CreateScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable CreateSchedule where
@@ -148,33 +149,33 @@ instance Prelude.NFData CreateSchedule where
       `Prelude.seq` Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateSchedule where
+instance Data.ToHeaders CreateSchedule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSchedule where
+instance Data.ToJSON CreateSchedule where
   toJSON CreateSchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("JobNames" Core..=) Prelude.<$> jobNames,
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("JobNames" Data..=) Prelude.<$> jobNames,
             Prelude.Just
-              ("CronExpression" Core..= cronExpression),
-            Prelude.Just ("Name" Core..= name)
+              ("CronExpression" Data..= cronExpression),
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateSchedule where
+instance Data.ToPath CreateSchedule where
   toPath = Prelude.const "/schedules"
 
-instance Core.ToQuery CreateSchedule where
+instance Data.ToQuery CreateSchedule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateScheduleResponse' smart constructor.

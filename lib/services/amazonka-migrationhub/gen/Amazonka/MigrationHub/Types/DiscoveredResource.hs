@@ -21,6 +21,7 @@ module Amazonka.MigrationHub.Types.DiscoveredResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object representing the on-premises resource being migrated.
@@ -69,14 +70,14 @@ discoveredResource_description = Lens.lens (\DiscoveredResource' {description} -
 discoveredResource_configurationId :: Lens.Lens' DiscoveredResource Prelude.Text
 discoveredResource_configurationId = Lens.lens (\DiscoveredResource' {configurationId} -> configurationId) (\s@DiscoveredResource' {} a -> s {configurationId = a} :: DiscoveredResource)
 
-instance Core.FromJSON DiscoveredResource where
+instance Data.FromJSON DiscoveredResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DiscoveredResource"
       ( \x ->
           DiscoveredResource'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..: "ConfigurationId")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..: "ConfigurationId")
       )
 
 instance Prelude.Hashable DiscoveredResource where
@@ -89,12 +90,12 @@ instance Prelude.NFData DiscoveredResource where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf configurationId
 
-instance Core.ToJSON DiscoveredResource where
+instance Data.ToJSON DiscoveredResource where
   toJSON DiscoveredResource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("ConfigurationId" Core..= configurationId)
+              ("ConfigurationId" Data..= configurationId)
           ]
       )

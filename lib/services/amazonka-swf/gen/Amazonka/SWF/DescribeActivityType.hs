@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -134,8 +135,8 @@ instance Core.AWSRequest DescribeActivityType where
       ( \s h x ->
           DescribeActivityTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "typeInfo")
-            Prelude.<*> (x Core..:> "configuration")
+            Prelude.<*> (x Data..:> "typeInfo")
+            Prelude.<*> (x Data..:> "configuration")
       )
 
 instance Prelude.Hashable DescribeActivityType where
@@ -148,34 +149,34 @@ instance Prelude.NFData DescribeActivityType where
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf activityType
 
-instance Core.ToHeaders DescribeActivityType where
+instance Data.ToHeaders DescribeActivityType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.DescribeActivityType" ::
+              Data.=# ( "SimpleWorkflowService.DescribeActivityType" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeActivityType where
+instance Data.ToJSON DescribeActivityType where
   toJSON DescribeActivityType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Core..= domain),
-            Prelude.Just ("activityType" Core..= activityType)
+          [ Prelude.Just ("domain" Data..= domain),
+            Prelude.Just ("activityType" Data..= activityType)
           ]
       )
 
-instance Core.ToPath DescribeActivityType where
+instance Data.ToPath DescribeActivityType where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeActivityType where
+instance Data.ToQuery DescribeActivityType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Detailed information about an activity type.

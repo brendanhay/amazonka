@@ -112,6 +112,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,7 +130,7 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- unusable. You must omit this parameter when the @ExpirationModel@
     -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
     -- required.
-    validTo :: Prelude.Maybe Core.POSIX,
+    validTo :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the symmetric encryption KMS key that receives the
     -- imported key material. This must be the same KMS key specified in the
     -- @KeyID@ parameter of the corresponding GetParametersForImport request.
@@ -153,12 +154,12 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- | The import token that you received in the response to a previous
     -- GetParametersForImport request. It must be from the same response that
     -- contained the public key that you used to encrypt the key material.
-    importToken :: Core.Base64,
+    importToken :: Data.Base64,
     -- | The encrypted key material to import. The key material must be encrypted
     -- with the public wrapping key that GetParametersForImport returned, using
     -- the wrapping algorithm that you specified in the same
     -- @GetParametersForImport@ request.
-    encryptedKeyMaterial :: Core.Base64
+    encryptedKeyMaterial :: Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -234,9 +235,9 @@ newImportKeyMaterial
           Prelude.Nothing,
         validTo = Prelude.Nothing,
         keyId = pKeyId_,
-        importToken = Core._Base64 Lens.# pImportToken_,
+        importToken = Data._Base64 Lens.# pImportToken_,
         encryptedKeyMaterial =
-          Core._Base64 Lens.# pEncryptedKeyMaterial_
+          Data._Base64 Lens.# pEncryptedKeyMaterial_
       }
 
 -- | Specifies whether the key material expires. The default is
@@ -252,7 +253,7 @@ importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationMo
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
 importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe Prelude.UTCTime)
-importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Core._Time
+importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the symmetric encryption KMS key that receives the
 -- imported key material. This must be the same KMS key specified in the
@@ -284,7 +285,7 @@ importKeyMaterial_keyId = Lens.lens (\ImportKeyMaterial' {keyId} -> keyId) (\s@I
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importKeyMaterial_importToken :: Lens.Lens' ImportKeyMaterial Prelude.ByteString
-importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> importToken) (\s@ImportKeyMaterial' {} a -> s {importToken = a} :: ImportKeyMaterial) Prelude.. Core._Base64
+importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> importToken) (\s@ImportKeyMaterial' {} a -> s {importToken = a} :: ImportKeyMaterial) Prelude.. Data._Base64
 
 -- | The encrypted key material to import. The key material must be encrypted
 -- with the public wrapping key that GetParametersForImport returned, using
@@ -295,7 +296,7 @@ importKeyMaterial_importToken = Lens.lens (\ImportKeyMaterial' {importToken} -> 
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importKeyMaterial_encryptedKeyMaterial :: Lens.Lens' ImportKeyMaterial Prelude.ByteString
-importKeyMaterial_encryptedKeyMaterial = Lens.lens (\ImportKeyMaterial' {encryptedKeyMaterial} -> encryptedKeyMaterial) (\s@ImportKeyMaterial' {} a -> s {encryptedKeyMaterial = a} :: ImportKeyMaterial) Prelude.. Core._Base64
+importKeyMaterial_encryptedKeyMaterial = Lens.lens (\ImportKeyMaterial' {encryptedKeyMaterial} -> encryptedKeyMaterial) (\s@ImportKeyMaterial' {} a -> s {encryptedKeyMaterial = a} :: ImportKeyMaterial) Prelude.. Data._Base64
 
 instance Core.AWSRequest ImportKeyMaterial where
   type
@@ -326,41 +327,41 @@ instance Prelude.NFData ImportKeyMaterial where
       `Prelude.seq` Prelude.rnf importToken
       `Prelude.seq` Prelude.rnf encryptedKeyMaterial
 
-instance Core.ToHeaders ImportKeyMaterial where
+instance Data.ToHeaders ImportKeyMaterial where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.ImportKeyMaterial" ::
+              Data.=# ( "TrentService.ImportKeyMaterial" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ImportKeyMaterial where
+instance Data.ToJSON ImportKeyMaterial where
   toJSON ImportKeyMaterial' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExpirationModel" Core..=)
+          [ ("ExpirationModel" Data..=)
               Prelude.<$> expirationModel,
-            ("ValidTo" Core..=) Prelude.<$> validTo,
-            Prelude.Just ("KeyId" Core..= keyId),
-            Prelude.Just ("ImportToken" Core..= importToken),
+            ("ValidTo" Data..=) Prelude.<$> validTo,
+            Prelude.Just ("KeyId" Data..= keyId),
+            Prelude.Just ("ImportToken" Data..= importToken),
             Prelude.Just
               ( "EncryptedKeyMaterial"
-                  Core..= encryptedKeyMaterial
+                  Data..= encryptedKeyMaterial
               )
           ]
       )
 
-instance Core.ToPath ImportKeyMaterial where
+instance Data.ToPath ImportKeyMaterial where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ImportKeyMaterial where
+instance Data.ToQuery ImportKeyMaterial where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newImportKeyMaterialResponse' smart constructor.

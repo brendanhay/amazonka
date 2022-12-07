@@ -21,6 +21,7 @@ module Amazonka.IVS.Types.BatchError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error related to a specific channel, specified by its ARN.
@@ -70,15 +71,15 @@ batchError_code = Lens.lens (\BatchError' {code} -> code) (\s@BatchError' {} a -
 batchError_arn :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
 batchError_arn = Lens.lens (\BatchError' {arn} -> arn) (\s@BatchError' {} a -> s {arn = a} :: BatchError)
 
-instance Core.FromJSON BatchError where
+instance Data.FromJSON BatchError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchError"
       ( \x ->
           BatchError'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "arn")
       )
 
 instance Prelude.Hashable BatchError where

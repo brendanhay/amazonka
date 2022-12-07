@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.BucketsAggregationType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.TermsAggregation
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,11 +69,11 @@ instance Prelude.NFData BucketsAggregationType where
   rnf BucketsAggregationType' {..} =
     Prelude.rnf termsAggregation
 
-instance Core.ToJSON BucketsAggregationType where
+instance Data.ToJSON BucketsAggregationType where
   toJSON BucketsAggregationType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("termsAggregation" Core..=)
+          [ ("termsAggregation" Data..=)
               Prelude.<$> termsAggregation
           ]
       )

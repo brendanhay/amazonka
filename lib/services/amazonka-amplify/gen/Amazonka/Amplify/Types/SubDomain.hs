@@ -22,6 +22,7 @@ module Amazonka.Amplify.Types.SubDomain where
 import Amazonka.Amplify.Types.SubDomainSetting
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The subdomain for the domain association.
@@ -80,15 +81,15 @@ subDomain_verified = Lens.lens (\SubDomain' {verified} -> verified) (\s@SubDomai
 subDomain_dnsRecord :: Lens.Lens' SubDomain Prelude.Text
 subDomain_dnsRecord = Lens.lens (\SubDomain' {dnsRecord} -> dnsRecord) (\s@SubDomain' {} a -> s {dnsRecord = a} :: SubDomain)
 
-instance Core.FromJSON SubDomain where
+instance Data.FromJSON SubDomain where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SubDomain"
       ( \x ->
           SubDomain'
-            Prelude.<$> (x Core..: "subDomainSetting")
-            Prelude.<*> (x Core..: "verified")
-            Prelude.<*> (x Core..: "dnsRecord")
+            Prelude.<$> (x Data..: "subDomainSetting")
+            Prelude.<*> (x Data..: "verified")
+            Prelude.<*> (x Data..: "dnsRecord")
       )
 
 instance Prelude.Hashable SubDomain where

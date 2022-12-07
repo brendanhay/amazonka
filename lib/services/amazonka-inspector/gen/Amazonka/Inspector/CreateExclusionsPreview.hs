@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest CreateExclusionsPreview where
       ( \s h x ->
           CreateExclusionsPreviewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "previewToken")
+            Prelude.<*> (x Data..:> "previewToken")
       )
 
 instance Prelude.Hashable CreateExclusionsPreview where
@@ -104,36 +105,36 @@ instance Prelude.NFData CreateExclusionsPreview where
   rnf CreateExclusionsPreview' {..} =
     Prelude.rnf assessmentTemplateArn
 
-instance Core.ToHeaders CreateExclusionsPreview where
+instance Data.ToHeaders CreateExclusionsPreview where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.CreateExclusionsPreview" ::
+              Data.=# ( "InspectorService.CreateExclusionsPreview" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateExclusionsPreview where
+instance Data.ToJSON CreateExclusionsPreview where
   toJSON CreateExclusionsPreview' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "assessmentTemplateArn"
-                  Core..= assessmentTemplateArn
+                  Data..= assessmentTemplateArn
               )
           ]
       )
 
-instance Core.ToPath CreateExclusionsPreview where
+instance Data.ToPath CreateExclusionsPreview where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateExclusionsPreview where
+instance Data.ToQuery CreateExclusionsPreview where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateExclusionsPreviewResponse' smart constructor.

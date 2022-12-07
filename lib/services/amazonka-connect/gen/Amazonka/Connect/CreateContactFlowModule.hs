@@ -48,6 +48,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest CreateContactFlowModule where
     Response.receiveJSON
       ( \s h x ->
           CreateContactFlowModuleResponse'
-            Prelude.<$> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,35 +182,35 @@ instance Prelude.NFData CreateContactFlowModule where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf content
 
-instance Core.ToHeaders CreateContactFlowModule where
+instance Data.ToHeaders CreateContactFlowModule where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateContactFlowModule where
+instance Data.ToJSON CreateContactFlowModule where
   toJSON CreateContactFlowModule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("Description" Core..=) Prelude.<$> description,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Content" Core..= content)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Content" Data..= content)
           ]
       )
 
-instance Core.ToPath CreateContactFlowModule where
+instance Data.ToPath CreateContactFlowModule where
   toPath CreateContactFlowModule' {..} =
     Prelude.mconcat
-      ["/contact-flow-modules/", Core.toBS instanceId]
+      ["/contact-flow-modules/", Data.toBS instanceId]
 
-instance Core.ToQuery CreateContactFlowModule where
+instance Data.ToQuery CreateContactFlowModule where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateContactFlowModuleResponse' smart constructor.

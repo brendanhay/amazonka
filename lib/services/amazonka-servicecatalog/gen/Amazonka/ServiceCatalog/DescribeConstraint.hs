@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -116,9 +117,9 @@ instance Core.AWSRequest DescribeConstraint where
     Response.receiveJSON
       ( \s h x ->
           DescribeConstraintResponse'
-            Prelude.<$> (x Core..?> "ConstraintDetail")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ConstraintParameters")
+            Prelude.<$> (x Data..?> "ConstraintDetail")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,35 +133,35 @@ instance Prelude.NFData DescribeConstraint where
     Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders DescribeConstraint where
+instance Data.ToHeaders DescribeConstraint where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.DescribeConstraint" ::
+              Data.=# ( "AWS242ServiceCatalogService.DescribeConstraint" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeConstraint where
+instance Data.ToJSON DescribeConstraint where
   toJSON DescribeConstraint' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Core..= id)
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath DescribeConstraint where
+instance Data.ToPath DescribeConstraint where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeConstraint where
+instance Data.ToQuery DescribeConstraint where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeConstraintResponse' smart constructor.

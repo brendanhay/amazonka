@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -123,7 +124,7 @@ instance Core.AWSRequest CreateLensShare where
     Response.receiveJSON
       ( \s h x ->
           CreateLensShareResponse'
-            Prelude.<$> (x Core..?> "ShareId")
+            Prelude.<$> (x Data..?> "ShareId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,33 +140,33 @@ instance Prelude.NFData CreateLensShare where
       `Prelude.seq` Prelude.rnf sharedWith
       `Prelude.seq` Prelude.rnf clientRequestToken
 
-instance Core.ToHeaders CreateLensShare where
+instance Data.ToHeaders CreateLensShare where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLensShare where
+instance Data.ToJSON CreateLensShare where
   toJSON CreateLensShare' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SharedWith" Core..= sharedWith),
+          [ Prelude.Just ("SharedWith" Data..= sharedWith),
             Prelude.Just
-              ("ClientRequestToken" Core..= clientRequestToken)
+              ("ClientRequestToken" Data..= clientRequestToken)
           ]
       )
 
-instance Core.ToPath CreateLensShare where
+instance Data.ToPath CreateLensShare where
   toPath CreateLensShare' {..} =
     Prelude.mconcat
-      ["/lenses/", Core.toBS lensAlias, "/shares"]
+      ["/lenses/", Data.toBS lensAlias, "/shares"]
 
-instance Core.ToQuery CreateLensShare where
+instance Data.ToQuery CreateLensShare where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateLensShareResponse' smart constructor.

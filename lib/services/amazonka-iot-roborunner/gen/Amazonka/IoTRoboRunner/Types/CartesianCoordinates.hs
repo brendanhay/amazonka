@@ -21,6 +21,7 @@ module Amazonka.IoTRoboRunner.Types.CartesianCoordinates where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Cartesian coordinates in 3D space relative to the RoboRunner origin.
@@ -74,15 +75,15 @@ cartesianCoordinates_x = Lens.lens (\CartesianCoordinates' {x} -> x) (\s@Cartesi
 cartesianCoordinates_y :: Lens.Lens' CartesianCoordinates Prelude.Double
 cartesianCoordinates_y = Lens.lens (\CartesianCoordinates' {y} -> y) (\s@CartesianCoordinates' {} a -> s {y = a} :: CartesianCoordinates)
 
-instance Core.FromJSON CartesianCoordinates where
+instance Data.FromJSON CartesianCoordinates where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CartesianCoordinates"
       ( \x ->
           CartesianCoordinates'
-            Prelude.<$> (x Core..:? "z")
-            Prelude.<*> (x Core..: "x")
-            Prelude.<*> (x Core..: "y")
+            Prelude.<$> (x Data..:? "z")
+            Prelude.<*> (x Data..: "x")
+            Prelude.<*> (x Data..: "y")
       )
 
 instance Prelude.Hashable CartesianCoordinates where
@@ -97,12 +98,12 @@ instance Prelude.NFData CartesianCoordinates where
       `Prelude.seq` Prelude.rnf x
       `Prelude.seq` Prelude.rnf y
 
-instance Core.ToJSON CartesianCoordinates where
+instance Data.ToJSON CartesianCoordinates where
   toJSON CartesianCoordinates' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("z" Core..=) Prelude.<$> z,
-            Prelude.Just ("x" Core..= x),
-            Prelude.Just ("y" Core..= y)
+          [ ("z" Data..=) Prelude.<$> z,
+            Prelude.Just ("x" Data..= x),
+            Prelude.Just ("y" Data..= y)
           ]
       )

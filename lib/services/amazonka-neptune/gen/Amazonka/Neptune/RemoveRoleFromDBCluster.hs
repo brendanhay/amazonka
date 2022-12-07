@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Neptune.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -131,22 +132,22 @@ instance Prelude.NFData RemoveRoleFromDBCluster where
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders RemoveRoleFromDBCluster where
+instance Data.ToHeaders RemoveRoleFromDBCluster where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveRoleFromDBCluster where
+instance Data.ToPath RemoveRoleFromDBCluster where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveRoleFromDBCluster where
+instance Data.ToQuery RemoveRoleFromDBCluster where
   toQuery RemoveRoleFromDBCluster' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveRoleFromDBCluster" :: Prelude.ByteString),
+          Data.=: ("RemoveRoleFromDBCluster" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "FeatureName" Core.=: featureName,
-        "DBClusterIdentifier" Core.=: dbClusterIdentifier,
-        "RoleArn" Core.=: roleArn
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "FeatureName" Data.=: featureName,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
+        "RoleArn" Data.=: roleArn
       ]
 
 -- | /See:/ 'newRemoveRoleFromDBClusterResponse' smart constructor.

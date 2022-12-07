@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,8 +149,8 @@ instance Core.AWSRequest ListTopicRules where
     Response.receiveJSON
       ( \s h x ->
           ListTopicRulesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,19 +168,19 @@ instance Prelude.NFData ListTopicRules where
       `Prelude.seq` Prelude.rnf topic
       `Prelude.seq` Prelude.rnf ruleDisabled
 
-instance Core.ToHeaders ListTopicRules where
+instance Data.ToHeaders ListTopicRules where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListTopicRules where
+instance Data.ToPath ListTopicRules where
   toPath = Prelude.const "/rules"
 
-instance Core.ToQuery ListTopicRules where
+instance Data.ToQuery ListTopicRules where
   toQuery ListTopicRules' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "topic" Core.=: topic,
-        "ruleDisabled" Core.=: ruleDisabled
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "topic" Data.=: topic,
+        "ruleDisabled" Data.=: ruleDisabled
       ]
 
 -- | The output from the ListTopicRules operation.

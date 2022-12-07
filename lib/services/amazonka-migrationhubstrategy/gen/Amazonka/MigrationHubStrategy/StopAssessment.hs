@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,28 +93,28 @@ instance Prelude.Hashable StopAssessment where
 instance Prelude.NFData StopAssessment where
   rnf StopAssessment' {..} = Prelude.rnf assessmentId
 
-instance Core.ToHeaders StopAssessment where
+instance Data.ToHeaders StopAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopAssessment where
+instance Data.ToJSON StopAssessment where
   toJSON StopAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("assessmentId" Core..= assessmentId)]
+          [Prelude.Just ("assessmentId" Data..= assessmentId)]
       )
 
-instance Core.ToPath StopAssessment where
+instance Data.ToPath StopAssessment where
   toPath = Prelude.const "/stop-assessment"
 
-instance Core.ToQuery StopAssessment where
+instance Data.ToQuery StopAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAssessmentResponse' smart constructor.

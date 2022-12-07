@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kinesis.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,37 +130,37 @@ instance Prelude.NFData IncreaseStreamRetentionPeriod where
     Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf retentionPeriodHours
 
-instance Core.ToHeaders IncreaseStreamRetentionPeriod where
+instance Data.ToHeaders IncreaseStreamRetentionPeriod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Kinesis_20131202.IncreaseStreamRetentionPeriod" ::
+              Data.=# ( "Kinesis_20131202.IncreaseStreamRetentionPeriod" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON IncreaseStreamRetentionPeriod where
+instance Data.ToJSON IncreaseStreamRetentionPeriod where
   toJSON IncreaseStreamRetentionPeriod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
+          [ Prelude.Just ("StreamName" Data..= streamName),
             Prelude.Just
               ( "RetentionPeriodHours"
-                  Core..= retentionPeriodHours
+                  Data..= retentionPeriodHours
               )
           ]
       )
 
-instance Core.ToPath IncreaseStreamRetentionPeriod where
+instance Data.ToPath IncreaseStreamRetentionPeriod where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery IncreaseStreamRetentionPeriod where
+instance Data.ToQuery IncreaseStreamRetentionPeriod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newIncreaseStreamRetentionPeriodResponse' smart constructor.

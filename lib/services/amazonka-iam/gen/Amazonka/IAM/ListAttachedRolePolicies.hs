@@ -60,6 +60,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -235,11 +236,11 @@ instance Core.AWSRequest ListAttachedRolePolicies where
       "ListAttachedRolePoliciesResult"
       ( \s h x ->
           ListAttachedRolePoliciesResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "AttachedPolicies"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -258,23 +259,23 @@ instance Prelude.NFData ListAttachedRolePolicies where
       `Prelude.seq` Prelude.rnf pathPrefix
       `Prelude.seq` Prelude.rnf roleName
 
-instance Core.ToHeaders ListAttachedRolePolicies where
+instance Data.ToHeaders ListAttachedRolePolicies where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListAttachedRolePolicies where
+instance Data.ToPath ListAttachedRolePolicies where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAttachedRolePolicies where
+instance Data.ToQuery ListAttachedRolePolicies where
   toQuery ListAttachedRolePolicies' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ListAttachedRolePolicies" :: Prelude.ByteString),
+          Data.=: ("ListAttachedRolePolicies" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "PathPrefix" Core.=: pathPrefix,
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "PathPrefix" Data.=: pathPrefix,
+        "RoleName" Data.=: roleName
       ]
 
 -- | Contains the response to a successful ListAttachedRolePolicies request.

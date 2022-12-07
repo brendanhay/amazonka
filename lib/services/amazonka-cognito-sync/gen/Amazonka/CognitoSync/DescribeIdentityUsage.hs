@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoSync.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -118,7 +119,7 @@ instance Core.AWSRequest DescribeIdentityUsage where
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityUsageResponse'
-            Prelude.<$> (x Core..?> "IdentityUsage")
+            Prelude.<$> (x Data..?> "IdentityUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,27 +133,27 @@ instance Prelude.NFData DescribeIdentityUsage where
     Prelude.rnf identityPoolId
       `Prelude.seq` Prelude.rnf identityId
 
-instance Core.ToHeaders DescribeIdentityUsage where
+instance Data.ToHeaders DescribeIdentityUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeIdentityUsage where
+instance Data.ToPath DescribeIdentityUsage where
   toPath DescribeIdentityUsage' {..} =
     Prelude.mconcat
       [ "/identitypools/",
-        Core.toBS identityPoolId,
+        Data.toBS identityPoolId,
         "/identities/",
-        Core.toBS identityId
+        Data.toBS identityId
       ]
 
-instance Core.ToQuery DescribeIdentityUsage where
+instance Data.ToQuery DescribeIdentityUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a successful DescribeIdentityUsage request.

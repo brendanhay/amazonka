@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.CmafEncryption where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.CmafEncryptionMethod
 import Amazonka.MediaPackage.Types.SpekeKeyProvider
 import qualified Amazonka.Prelude as Prelude
@@ -91,16 +92,16 @@ cmafEncryption_keyRotationIntervalSeconds = Lens.lens (\CmafEncryption' {keyRota
 cmafEncryption_spekeKeyProvider :: Lens.Lens' CmafEncryption SpekeKeyProvider
 cmafEncryption_spekeKeyProvider = Lens.lens (\CmafEncryption' {spekeKeyProvider} -> spekeKeyProvider) (\s@CmafEncryption' {} a -> s {spekeKeyProvider = a} :: CmafEncryption)
 
-instance Core.FromJSON CmafEncryption where
+instance Data.FromJSON CmafEncryption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CmafEncryption"
       ( \x ->
           CmafEncryption'
-            Prelude.<$> (x Core..:? "constantInitializationVector")
-            Prelude.<*> (x Core..:? "encryptionMethod")
-            Prelude.<*> (x Core..:? "keyRotationIntervalSeconds")
-            Prelude.<*> (x Core..: "spekeKeyProvider")
+            Prelude.<$> (x Data..:? "constantInitializationVector")
+            Prelude.<*> (x Data..:? "encryptionMethod")
+            Prelude.<*> (x Data..:? "keyRotationIntervalSeconds")
+            Prelude.<*> (x Data..: "spekeKeyProvider")
       )
 
 instance Prelude.Hashable CmafEncryption where
@@ -118,17 +119,17 @@ instance Prelude.NFData CmafEncryption where
       `Prelude.seq` Prelude.rnf keyRotationIntervalSeconds
       `Prelude.seq` Prelude.rnf spekeKeyProvider
 
-instance Core.ToJSON CmafEncryption where
+instance Data.ToJSON CmafEncryption where
   toJSON CmafEncryption' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("constantInitializationVector" Core..=)
+          [ ("constantInitializationVector" Data..=)
               Prelude.<$> constantInitializationVector,
-            ("encryptionMethod" Core..=)
+            ("encryptionMethod" Data..=)
               Prelude.<$> encryptionMethod,
-            ("keyRotationIntervalSeconds" Core..=)
+            ("keyRotationIntervalSeconds" Data..=)
               Prelude.<$> keyRotationIntervalSeconds,
             Prelude.Just
-              ("spekeKeyProvider" Core..= spekeKeyProvider)
+              ("spekeKeyProvider" Data..= spekeKeyProvider)
           ]
       )

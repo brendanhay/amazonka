@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -147,11 +148,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateCustomVocabularyItemResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,43 +179,43 @@ instance
       `Prelude.seq` Prelude.rnf customVocabularyItemList
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchCreateCustomVocabularyItem
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchCreateCustomVocabularyItem where
+instance Data.ToJSON BatchCreateCustomVocabularyItem where
   toJSON BatchCreateCustomVocabularyItem' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "customVocabularyItemList"
-                  Core..= customVocabularyItemList
+                  Data..= customVocabularyItemList
               )
           ]
       )
 
-instance Core.ToPath BatchCreateCustomVocabularyItem where
+instance Data.ToPath BatchCreateCustomVocabularyItem where
   toPath BatchCreateCustomVocabularyItem' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/customvocabulary/DEFAULT/batchcreate"
       ]
 
-instance Core.ToQuery BatchCreateCustomVocabularyItem where
+instance Data.ToQuery BatchCreateCustomVocabularyItem where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchCreateCustomVocabularyItemResponse' smart constructor.

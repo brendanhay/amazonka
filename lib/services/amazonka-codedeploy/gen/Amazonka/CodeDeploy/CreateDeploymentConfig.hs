@@ -45,6 +45,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -175,7 +176,7 @@ instance Core.AWSRequest CreateDeploymentConfig where
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentConfigResponse'
-            Prelude.<$> (x Core..?> "deploymentConfigId")
+            Prelude.<$> (x Data..?> "deploymentConfigId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,42 +194,42 @@ instance Prelude.NFData CreateDeploymentConfig where
       `Prelude.seq` Prelude.rnf minimumHealthyHosts
       `Prelude.seq` Prelude.rnf deploymentConfigName
 
-instance Core.ToHeaders CreateDeploymentConfig where
+instance Data.ToHeaders CreateDeploymentConfig where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.CreateDeploymentConfig" ::
+              Data.=# ( "CodeDeploy_20141006.CreateDeploymentConfig" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDeploymentConfig where
+instance Data.ToJSON CreateDeploymentConfig where
   toJSON CreateDeploymentConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("computePlatform" Core..=)
+          [ ("computePlatform" Data..=)
               Prelude.<$> computePlatform,
-            ("trafficRoutingConfig" Core..=)
+            ("trafficRoutingConfig" Data..=)
               Prelude.<$> trafficRoutingConfig,
-            ("minimumHealthyHosts" Core..=)
+            ("minimumHealthyHosts" Data..=)
               Prelude.<$> minimumHealthyHosts,
             Prelude.Just
               ( "deploymentConfigName"
-                  Core..= deploymentConfigName
+                  Data..= deploymentConfigName
               )
           ]
       )
 
-instance Core.ToPath CreateDeploymentConfig where
+instance Data.ToPath CreateDeploymentConfig where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateDeploymentConfig where
+instance Data.ToQuery CreateDeploymentConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @CreateDeploymentConfig@ operation.

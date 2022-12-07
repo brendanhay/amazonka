@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,7 +118,7 @@ instance Core.AWSRequest GetSegments where
       ( \s h x ->
           GetSegmentsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Core.eitherParseJSON x)
+            Prelude.<*> (Data.eitherParseJSON x)
       )
 
 instance Prelude.Hashable GetSegments where
@@ -132,26 +133,26 @@ instance Prelude.NFData GetSegments where
       `Prelude.seq` Prelude.rnf token
       `Prelude.seq` Prelude.rnf applicationId
 
-instance Core.ToHeaders GetSegments where
+instance Data.ToHeaders GetSegments where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSegments where
+instance Data.ToPath GetSegments where
   toPath GetSegments' {..} =
     Prelude.mconcat
-      ["/v1/apps/", Core.toBS applicationId, "/segments"]
+      ["/v1/apps/", Data.toBS applicationId, "/segments"]
 
-instance Core.ToQuery GetSegments where
+instance Data.ToQuery GetSegments where
   toQuery GetSegments' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["page-size" Data.=: pageSize, "token" Data.=: token]
 
 -- | /See:/ 'newGetSegmentsResponse' smart constructor.
 data GetSegmentsResponse = GetSegmentsResponse'

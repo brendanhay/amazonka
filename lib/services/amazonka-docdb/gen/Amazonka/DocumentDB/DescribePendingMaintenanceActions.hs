@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DocumentDB.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -209,11 +210,11 @@ instance
       "DescribePendingMaintenanceActionsResult"
       ( \s h x ->
           DescribePendingMaintenanceActionsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-              Prelude.<*> ( x Core..@? "PendingMaintenanceActions"
+            Prelude.<$> (x Data..@? "Marker")
+              Prelude.<*> ( x Data..@? "PendingMaintenanceActions"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may
-                                ( Core.parseXMLList
+                                ( Data.parseXMLList
                                     "ResourcePendingMaintenanceActions"
                                 )
                           )
@@ -243,35 +244,35 @@ instance
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribePendingMaintenanceActions
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribePendingMaintenanceActions
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribePendingMaintenanceActions
   where
   toQuery DescribePendingMaintenanceActions' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "DescribePendingMaintenanceActions" ::
+          Data.=: ( "DescribePendingMaintenanceActions" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
+          Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
         "Filters"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "ResourceIdentifier" Core.=: resourceIdentifier
+          Data.=: Data.toQuery
+            (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Data.=: maxRecords,
+        "ResourceIdentifier" Data.=: resourceIdentifier
       ]
 
 -- | Represents the output of DescribePendingMaintenanceActions.

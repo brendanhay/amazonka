@@ -48,6 +48,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -81,14 +82,14 @@ data ListFindingsReports = ListFindingsReports'
     -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The name of the profiling group from which to search for analysis data.
     profilingGroupName :: Prelude.Text,
     -- | The start time of the profile to get analysis data about. You must
     -- specify @startTime@ and @endTime@. This is specified using the ISO 8601
     -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
     -- past June 1, 2020 1:15:02 PM UTC.
-    startTime :: Core.POSIX
+    startTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -148,9 +149,9 @@ newListFindingsReports
       { nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         dailyReportsOnly = Prelude.Nothing,
-        endTime = Core._Time Lens.# pEndTime_,
+        endTime = Data._Time Lens.# pEndTime_,
         profilingGroupName = pProfilingGroupName_,
-        startTime = Core._Time Lens.# pStartTime_
+        startTime = Data._Time Lens.# pStartTime_
       }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -185,7 +186,7 @@ listFindingsReports_dailyReportsOnly = Lens.lens (\ListFindingsReports' {dailyRe
 -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
 -- 1, 2020 1:15:02 PM UTC.
 listFindingsReports_endTime :: Lens.Lens' ListFindingsReports Prelude.UTCTime
-listFindingsReports_endTime = Lens.lens (\ListFindingsReports' {endTime} -> endTime) (\s@ListFindingsReports' {} a -> s {endTime = a} :: ListFindingsReports) Prelude.. Core._Time
+listFindingsReports_endTime = Lens.lens (\ListFindingsReports' {endTime} -> endTime) (\s@ListFindingsReports' {} a -> s {endTime = a} :: ListFindingsReports) Prelude.. Data._Time
 
 -- | The name of the profiling group from which to search for analysis data.
 listFindingsReports_profilingGroupName :: Lens.Lens' ListFindingsReports Prelude.Text
@@ -196,7 +197,7 @@ listFindingsReports_profilingGroupName = Lens.lens (\ListFindingsReports' {profi
 -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
 -- past June 1, 2020 1:15:02 PM UTC.
 listFindingsReports_startTime :: Lens.Lens' ListFindingsReports Prelude.UTCTime
-listFindingsReports_startTime = Lens.lens (\ListFindingsReports' {startTime} -> startTime) (\s@ListFindingsReports' {} a -> s {startTime = a} :: ListFindingsReports) Prelude.. Core._Time
+listFindingsReports_startTime = Lens.lens (\ListFindingsReports' {startTime} -> startTime) (\s@ListFindingsReports' {} a -> s {startTime = a} :: ListFindingsReports) Prelude.. Data._Time
 
 instance Core.AWSRequest ListFindingsReports where
   type
@@ -208,9 +209,9 @@ instance Core.AWSRequest ListFindingsReports where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsReportsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "findingsReportSummaries"
+            Prelude.<*> ( x Data..?> "findingsReportSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -233,33 +234,33 @@ instance Prelude.NFData ListFindingsReports where
       `Prelude.seq` Prelude.rnf profilingGroupName
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToHeaders ListFindingsReports where
+instance Data.ToHeaders ListFindingsReports where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListFindingsReports where
+instance Data.ToPath ListFindingsReports where
   toPath ListFindingsReports' {..} =
     Prelude.mconcat
       [ "/internal/profilingGroups/",
-        Core.toBS profilingGroupName,
+        Data.toBS profilingGroupName,
         "/findingsReports"
       ]
 
-instance Core.ToQuery ListFindingsReports where
+instance Data.ToQuery ListFindingsReports where
   toQuery ListFindingsReports' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "dailyReportsOnly" Core.=: dailyReportsOnly,
-        "endTime" Core.=: endTime,
-        "startTime" Core.=: startTime
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "dailyReportsOnly" Data.=: dailyReportsOnly,
+        "endTime" Data.=: endTime,
+        "startTime" Data.=: startTime
       ]
 
 -- | The structure representing the ListFindingsReportsResponse.

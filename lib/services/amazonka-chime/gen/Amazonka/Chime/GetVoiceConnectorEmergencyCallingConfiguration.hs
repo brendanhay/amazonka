@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,7 +93,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetVoiceConnectorEmergencyCallingConfigurationResponse'
-            Prelude.<$> (x Core..?> "EmergencyCallingConfiguration")
+            Prelude.<$> (x Data..?> "EmergencyCallingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -114,25 +115,25 @@ instance
       Prelude.rnf voiceConnectorId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetVoiceConnectorEmergencyCallingConfiguration
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetVoiceConnectorEmergencyCallingConfiguration
   where
   toPath
     GetVoiceConnectorEmergencyCallingConfiguration' {..} =
       Prelude.mconcat
         [ "/voice-connectors/",
-          Core.toBS voiceConnectorId,
+          Data.toBS voiceConnectorId,
           "/emergency-calling-configuration"
         ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetVoiceConnectorEmergencyCallingConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

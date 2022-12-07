@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.AssetCompositeModel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.AssetProperty
 import qualified Amazonka.Prelude as Prelude
 
@@ -97,17 +98,17 @@ assetCompositeModel_type = Lens.lens (\AssetCompositeModel' {type'} -> type') (\
 assetCompositeModel_properties :: Lens.Lens' AssetCompositeModel [AssetProperty]
 assetCompositeModel_properties = Lens.lens (\AssetCompositeModel' {properties} -> properties) (\s@AssetCompositeModel' {} a -> s {properties = a} :: AssetCompositeModel) Prelude.. Lens.coerced
 
-instance Core.FromJSON AssetCompositeModel where
+instance Data.FromJSON AssetCompositeModel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssetCompositeModel"
       ( \x ->
           AssetCompositeModel'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AssetCompositeModel where

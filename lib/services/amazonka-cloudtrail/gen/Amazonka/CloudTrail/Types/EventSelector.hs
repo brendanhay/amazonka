@@ -23,6 +23,7 @@ import Amazonka.CloudTrail.Types.DataResource
 import Amazonka.CloudTrail.Types.ReadWriteType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use event selectors to further specify the management and data event
@@ -199,18 +200,18 @@ eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> data
 eventSelector_readWriteType :: Lens.Lens' EventSelector (Prelude.Maybe ReadWriteType)
 eventSelector_readWriteType = Lens.lens (\EventSelector' {readWriteType} -> readWriteType) (\s@EventSelector' {} a -> s {readWriteType = a} :: EventSelector)
 
-instance Core.FromJSON EventSelector where
+instance Data.FromJSON EventSelector where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventSelector"
       ( \x ->
           EventSelector'
-            Prelude.<$> ( x Core..:? "ExcludeManagementEventSources"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "ExcludeManagementEventSources"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IncludeManagementEvents")
-            Prelude.<*> (x Core..:? "DataResources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ReadWriteType")
+            Prelude.<*> (x Data..:? "IncludeManagementEvents")
+            Prelude.<*> (x Data..:? "DataResources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReadWriteType")
       )
 
 instance Prelude.Hashable EventSelector where
@@ -228,15 +229,15 @@ instance Prelude.NFData EventSelector where
       `Prelude.seq` Prelude.rnf dataResources
       `Prelude.seq` Prelude.rnf readWriteType
 
-instance Core.ToJSON EventSelector where
+instance Data.ToJSON EventSelector where
   toJSON EventSelector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludeManagementEventSources" Core..=)
+          [ ("ExcludeManagementEventSources" Data..=)
               Prelude.<$> excludeManagementEventSources,
-            ("IncludeManagementEvents" Core..=)
+            ("IncludeManagementEvents" Data..=)
               Prelude.<$> includeManagementEvents,
-            ("DataResources" Core..=) Prelude.<$> dataResources,
-            ("ReadWriteType" Core..=) Prelude.<$> readWriteType
+            ("DataResources" Data..=) Prelude.<$> dataResources,
+            ("ReadWriteType" Data..=) Prelude.<$> readWriteType
           ]
       )

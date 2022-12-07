@@ -21,6 +21,7 @@ module Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newAmazonopensearchserviceBufferingHints' smart constructor.
@@ -59,16 +60,16 @@ amazonopensearchserviceBufferingHints_intervalInSeconds :: Lens.Lens' Amazonopen
 amazonopensearchserviceBufferingHints_intervalInSeconds = Lens.lens (\AmazonopensearchserviceBufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@AmazonopensearchserviceBufferingHints' {} a -> s {intervalInSeconds = a} :: AmazonopensearchserviceBufferingHints)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AmazonopensearchserviceBufferingHints
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AmazonopensearchserviceBufferingHints"
       ( \x ->
           AmazonopensearchserviceBufferingHints'
-            Prelude.<$> (x Core..:? "SizeInMBs")
-            Prelude.<*> (x Core..:? "IntervalInSeconds")
+            Prelude.<$> (x Data..:? "SizeInMBs")
+            Prelude.<*> (x Data..:? "IntervalInSeconds")
       )
 
 instance
@@ -90,14 +91,14 @@ instance
       `Prelude.seq` Prelude.rnf intervalInSeconds
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AmazonopensearchserviceBufferingHints
   where
   toJSON AmazonopensearchserviceBufferingHints' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SizeInMBs" Core..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Core..=)
+          [ ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs,
+            ("IntervalInSeconds" Data..=)
               Prelude.<$> intervalInSeconds
           ]
       )

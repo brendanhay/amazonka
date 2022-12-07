@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -202,19 +203,19 @@ instance
       "GetAccountAuthorizationDetailsResult"
       ( \s h x ->
           GetAccountAuthorizationDetailsResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "RoleDetailList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "RoleDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "UserDetailList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "UserDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "GroupDetailList" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<*> ( x Data..@? "GroupDetailList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -240,28 +241,28 @@ instance
       `Prelude.seq` Prelude.rnf filter'
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAccountAuthorizationDetails
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetAccountAuthorizationDetails where
+instance Data.ToPath GetAccountAuthorizationDetails where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetAccountAuthorizationDetails where
+instance Data.ToQuery GetAccountAuthorizationDetails where
   toQuery GetAccountAuthorizationDetails' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "GetAccountAuthorizationDetails" ::
+          Data.=: ( "GetAccountAuthorizationDetails" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
         "Filter"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> filter')
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> filter')
       ]
 
 -- | Contains the response to a successful GetAccountAuthorizationDetails

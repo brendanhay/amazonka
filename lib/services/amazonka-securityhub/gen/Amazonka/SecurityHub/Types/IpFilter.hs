@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.IpFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The IP filter for querying findings.
@@ -49,11 +50,11 @@ newIpFilter = IpFilter' {cidr = Prelude.Nothing}
 ipFilter_cidr :: Lens.Lens' IpFilter (Prelude.Maybe Prelude.Text)
 ipFilter_cidr = Lens.lens (\IpFilter' {cidr} -> cidr) (\s@IpFilter' {} a -> s {cidr = a} :: IpFilter)
 
-instance Core.FromJSON IpFilter where
+instance Data.FromJSON IpFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IpFilter"
-      (\x -> IpFilter' Prelude.<$> (x Core..:? "Cidr"))
+      (\x -> IpFilter' Prelude.<$> (x Data..:? "Cidr"))
 
 instance Prelude.Hashable IpFilter where
   hashWithSalt _salt IpFilter' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable IpFilter where
 instance Prelude.NFData IpFilter where
   rnf IpFilter' {..} = Prelude.rnf cidr
 
-instance Core.ToJSON IpFilter where
+instance Data.ToJSON IpFilter where
   toJSON IpFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Cidr" Core..=) Prelude.<$> cidr]
+          [("Cidr" Data..=) Prelude.<$> cidr]
       )

@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.ProvisionedProductAttribute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.ProvisionedProductStatus
 import Amazonka.ServiceCatalog.Types.Tag
@@ -39,7 +40,7 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     -- and @CFN_STACKSET@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The record identifier of the last successful request performed on this
     -- provisioned product of the following types:
     --
@@ -255,7 +256,7 @@ provisionedProductAttribute_type = Lens.lens (\ProvisionedProductAttribute' {typ
 
 -- | The UTC time stamp of the creation time.
 provisionedProductAttribute_createdTime :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.UTCTime)
-provisionedProductAttribute_createdTime = Lens.lens (\ProvisionedProductAttribute' {createdTime} -> createdTime) (\s@ProvisionedProductAttribute' {} a -> s {createdTime = a} :: ProvisionedProductAttribute) Prelude.. Lens.mapping Core._Time
+provisionedProductAttribute_createdTime = Lens.lens (\ProvisionedProductAttribute' {createdTime} -> createdTime) (\s@ProvisionedProductAttribute' {} a -> s {createdTime = a} :: ProvisionedProductAttribute) Prelude.. Lens.mapping Data._Time
 
 -- | The record identifier of the last successful request performed on this
 -- provisioned product of the following types:
@@ -359,31 +360,31 @@ provisionedProductAttribute_statusMessage = Lens.lens (\ProvisionedProductAttrib
 provisionedProductAttribute_physicalId :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_physicalId = Lens.lens (\ProvisionedProductAttribute' {physicalId} -> physicalId) (\s@ProvisionedProductAttribute' {} a -> s {physicalId = a} :: ProvisionedProductAttribute)
 
-instance Core.FromJSON ProvisionedProductAttribute where
+instance Data.FromJSON ProvisionedProductAttribute where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProvisionedProductAttribute"
       ( \x ->
           ProvisionedProductAttribute'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ProductName")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LastSuccessfulProvisioningRecordId")
-            Prelude.<*> (x Core..:? "LastRecordId")
-            Prelude.<*> (x Core..:? "IdempotencyToken")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "UserArnSession")
-            Prelude.<*> (x Core..:? "ProductId")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "UserArn")
-            Prelude.<*> (x Core..:? "ProvisioningArtifactName")
-            Prelude.<*> (x Core..:? "LastProvisioningRecordId")
-            Prelude.<*> (x Core..:? "ProvisioningArtifactId")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "PhysicalId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ProductName")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "LastSuccessfulProvisioningRecordId")
+            Prelude.<*> (x Data..:? "LastRecordId")
+            Prelude.<*> (x Data..:? "IdempotencyToken")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "UserArnSession")
+            Prelude.<*> (x Data..:? "ProductId")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "UserArn")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactName")
+            Prelude.<*> (x Data..:? "LastProvisioningRecordId")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "PhysicalId")
       )
 
 instance Prelude.Hashable ProvisionedProductAttribute where

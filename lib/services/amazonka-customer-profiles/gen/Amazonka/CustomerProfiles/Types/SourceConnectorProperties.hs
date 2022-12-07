@@ -26,6 +26,7 @@ import Amazonka.CustomerProfiles.Types.S3SourceProperties
 import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
 import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
 import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the information that is required to query a particular Amazon
@@ -121,14 +122,14 @@ instance Prelude.NFData SourceConnectorProperties where
       `Prelude.seq` Prelude.rnf marketo
       `Prelude.seq` Prelude.rnf serviceNow
 
-instance Core.ToJSON SourceConnectorProperties where
+instance Data.ToJSON SourceConnectorProperties where
   toJSON SourceConnectorProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Zendesk" Core..=) Prelude.<$> zendesk,
-            ("S3" Core..=) Prelude.<$> s3,
-            ("Salesforce" Core..=) Prelude.<$> salesforce,
-            ("Marketo" Core..=) Prelude.<$> marketo,
-            ("ServiceNow" Core..=) Prelude.<$> serviceNow
+          [ ("Zendesk" Data..=) Prelude.<$> zendesk,
+            ("S3" Data..=) Prelude.<$> s3,
+            ("Salesforce" Data..=) Prelude.<$> salesforce,
+            ("Marketo" Data..=) Prelude.<$> marketo,
+            ("ServiceNow" Data..=) Prelude.<$> serviceNow
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.RepositoryCredentials where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The repository credentials for private registry authentication.
@@ -76,13 +77,13 @@ newRepositoryCredentials pCredentialsParameter_ =
 repositoryCredentials_credentialsParameter :: Lens.Lens' RepositoryCredentials Prelude.Text
 repositoryCredentials_credentialsParameter = Lens.lens (\RepositoryCredentials' {credentialsParameter} -> credentialsParameter) (\s@RepositoryCredentials' {} a -> s {credentialsParameter = a} :: RepositoryCredentials)
 
-instance Core.FromJSON RepositoryCredentials where
+instance Data.FromJSON RepositoryCredentials where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RepositoryCredentials"
       ( \x ->
           RepositoryCredentials'
-            Prelude.<$> (x Core..: "credentialsParameter")
+            Prelude.<$> (x Data..: "credentialsParameter")
       )
 
 instance Prelude.Hashable RepositoryCredentials where
@@ -93,13 +94,13 @@ instance Prelude.NFData RepositoryCredentials where
   rnf RepositoryCredentials' {..} =
     Prelude.rnf credentialsParameter
 
-instance Core.ToJSON RepositoryCredentials where
+instance Data.ToJSON RepositoryCredentials where
   toJSON RepositoryCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "credentialsParameter"
-                  Core..= credentialsParameter
+                  Data..= credentialsParameter
               )
           ]
       )

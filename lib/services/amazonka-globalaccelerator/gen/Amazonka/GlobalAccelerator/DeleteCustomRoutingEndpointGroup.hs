@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -104,37 +105,37 @@ instance
     Prelude.rnf endpointGroupArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteCustomRoutingEndpointGroup
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup" ::
+              Data.=# ( "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteCustomRoutingEndpointGroup where
+instance Data.ToJSON DeleteCustomRoutingEndpointGroup where
   toJSON DeleteCustomRoutingEndpointGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("EndpointGroupArn" Core..= endpointGroupArn)
+              ("EndpointGroupArn" Data..= endpointGroupArn)
           ]
       )
 
-instance Core.ToPath DeleteCustomRoutingEndpointGroup where
+instance Data.ToPath DeleteCustomRoutingEndpointGroup where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteCustomRoutingEndpointGroup
   where
   toQuery = Prelude.const Prelude.mempty

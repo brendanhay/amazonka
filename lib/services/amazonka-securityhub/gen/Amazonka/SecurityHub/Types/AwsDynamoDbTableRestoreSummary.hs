@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsDynamoDbTableRestoreSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the restore for the table.
@@ -95,16 +96,16 @@ awsDynamoDbTableRestoreSummary_sourceTableArn = Lens.lens (\AwsDynamoDbTableRest
 awsDynamoDbTableRestoreSummary_restoreDateTime :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableRestoreSummary_restoreDateTime = Lens.lens (\AwsDynamoDbTableRestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {restoreDateTime = a} :: AwsDynamoDbTableRestoreSummary)
 
-instance Core.FromJSON AwsDynamoDbTableRestoreSummary where
+instance Data.FromJSON AwsDynamoDbTableRestoreSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsDynamoDbTableRestoreSummary"
       ( \x ->
           AwsDynamoDbTableRestoreSummary'
-            Prelude.<$> (x Core..:? "RestoreInProgress")
-            Prelude.<*> (x Core..:? "SourceBackupArn")
-            Prelude.<*> (x Core..:? "SourceTableArn")
-            Prelude.<*> (x Core..:? "RestoreDateTime")
+            Prelude.<$> (x Data..:? "RestoreInProgress")
+            Prelude.<*> (x Data..:? "SourceBackupArn")
+            Prelude.<*> (x Data..:? "SourceTableArn")
+            Prelude.<*> (x Data..:? "RestoreDateTime")
       )
 
 instance
@@ -129,17 +130,17 @@ instance
       `Prelude.seq` Prelude.rnf sourceTableArn
       `Prelude.seq` Prelude.rnf restoreDateTime
 
-instance Core.ToJSON AwsDynamoDbTableRestoreSummary where
+instance Data.ToJSON AwsDynamoDbTableRestoreSummary where
   toJSON AwsDynamoDbTableRestoreSummary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RestoreInProgress" Core..=)
+          [ ("RestoreInProgress" Data..=)
               Prelude.<$> restoreInProgress,
-            ("SourceBackupArn" Core..=)
+            ("SourceBackupArn" Data..=)
               Prelude.<$> sourceBackupArn,
-            ("SourceTableArn" Core..=)
+            ("SourceTableArn" Data..=)
               Prelude.<$> sourceTableArn,
-            ("RestoreDateTime" Core..=)
+            ("RestoreDateTime" Data..=)
               Prelude.<$> restoreDateTime
           ]
       )

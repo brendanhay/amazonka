@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.DocumentServiceWarning where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A warning returned by the document service when an issue is discovered
@@ -51,13 +52,13 @@ newDocumentServiceWarning =
 documentServiceWarning_message :: Lens.Lens' DocumentServiceWarning (Prelude.Maybe Prelude.Text)
 documentServiceWarning_message = Lens.lens (\DocumentServiceWarning' {message} -> message) (\s@DocumentServiceWarning' {} a -> s {message = a} :: DocumentServiceWarning)
 
-instance Core.FromJSON DocumentServiceWarning where
+instance Data.FromJSON DocumentServiceWarning where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentServiceWarning"
       ( \x ->
           DocumentServiceWarning'
-            Prelude.<$> (x Core..:? "message")
+            Prelude.<$> (x Data..:? "message")
       )
 
 instance Prelude.Hashable DocumentServiceWarning where

@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentRunFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types.AssessmentRunState
 import Amazonka.Inspector.Types.DurationRange
 import Amazonka.Inspector.Types.TimestampRange
@@ -184,20 +185,20 @@ instance Prelude.NFData AssessmentRunFilter where
       `Prelude.seq` Prelude.rnf rulesPackageArns
       `Prelude.seq` Prelude.rnf states
 
-instance Core.ToJSON AssessmentRunFilter where
+instance Data.ToJSON AssessmentRunFilter where
   toJSON AssessmentRunFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("startTimeRange" Core..=)
+          [ ("startTimeRange" Data..=)
               Prelude.<$> startTimeRange,
-            ("stateChangeTimeRange" Core..=)
+            ("stateChangeTimeRange" Data..=)
               Prelude.<$> stateChangeTimeRange,
-            ("completionTimeRange" Core..=)
+            ("completionTimeRange" Data..=)
               Prelude.<$> completionTimeRange,
-            ("durationRange" Core..=) Prelude.<$> durationRange,
-            ("namePattern" Core..=) Prelude.<$> namePattern,
-            ("rulesPackageArns" Core..=)
+            ("durationRange" Data..=) Prelude.<$> durationRange,
+            ("namePattern" Data..=) Prelude.<$> namePattern,
+            ("rulesPackageArns" Data..=)
               Prelude.<$> rulesPackageArns,
-            ("states" Core..=) Prelude.<$> states
+            ("states" Data..=) Prelude.<$> states
           ]
       )

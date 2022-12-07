@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest CreateResourceGroup where
       ( \s h x ->
           CreateResourceGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "resourceGroupArn")
+            Prelude.<*> (x Data..:> "resourceGroupArn")
       )
 
 instance Prelude.Hashable CreateResourceGroup where
@@ -111,34 +112,34 @@ instance Prelude.NFData CreateResourceGroup where
   rnf CreateResourceGroup' {..} =
     Prelude.rnf resourceGroupTags
 
-instance Core.ToHeaders CreateResourceGroup where
+instance Data.ToHeaders CreateResourceGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "InspectorService.CreateResourceGroup" ::
+              Data.=# ( "InspectorService.CreateResourceGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateResourceGroup where
+instance Data.ToJSON CreateResourceGroup where
   toJSON CreateResourceGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("resourceGroupTags" Core..= resourceGroupTags)
+              ("resourceGroupTags" Data..= resourceGroupTags)
           ]
       )
 
-instance Core.ToPath CreateResourceGroup where
+instance Data.ToPath CreateResourceGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateResourceGroup where
+instance Data.ToQuery CreateResourceGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateResourceGroupResponse' smart constructor.

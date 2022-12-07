@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LocalGatewayRoute where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.LocalGatewayRouteState
 import Amazonka.EC2.Types.LocalGatewayRouteType
@@ -140,19 +141,19 @@ localGatewayRoute_localGatewayVirtualInterfaceGroupId = Lens.lens (\LocalGateway
 localGatewayRoute_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
 localGatewayRoute_localGatewayRouteTableArn = Lens.lens (\LocalGatewayRoute' {localGatewayRouteTableArn} -> localGatewayRouteTableArn) (\s@LocalGatewayRoute' {} a -> s {localGatewayRouteTableArn = a} :: LocalGatewayRoute)
 
-instance Core.FromXML LocalGatewayRoute where
+instance Data.FromXML LocalGatewayRoute where
   parseXML x =
     LocalGatewayRoute'
-      Prelude.<$> (x Core..@? "type")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableId")
-      Prelude.<*> (x Core..@? "subnetId")
-      Prelude.<*> (x Core..@? "coipPoolId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "destinationCidrBlock")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
-      Prelude.<*> (x Core..@? "localGatewayRouteTableArn")
+      Prelude.<$> (x Data..@? "type")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "coipPoolId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
 
 instance Prelude.Hashable LocalGatewayRoute where
   hashWithSalt _salt LocalGatewayRoute' {..} =

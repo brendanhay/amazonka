@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.AccessControlRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.AccessControlRuleEffect
 
@@ -41,13 +42,13 @@ data AccessControlRule = AccessControlRule'
     -- | The rule description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date that the rule was created.
-    dateCreated :: Prelude.Maybe Core.POSIX,
+    dateCreated :: Prelude.Maybe Data.POSIX,
     -- | IPv4 CIDR ranges to include in the rule.
     ipRanges :: Prelude.Maybe [Prelude.Text],
     -- | Impersonation role IDs to exclude from the rule.
     notImpersonationRoleIds :: Prelude.Maybe [Prelude.Text],
     -- | The date that the rule was modified.
-    dateModified :: Prelude.Maybe Core.POSIX,
+    dateModified :: Prelude.Maybe Data.POSIX,
     -- | User IDs to include in the rule.
     userIds :: Prelude.Maybe [Prelude.Text],
     -- | Impersonation role IDs to include in the rule.
@@ -141,7 +142,7 @@ accessControlRule_description = Lens.lens (\AccessControlRule' {description} -> 
 
 -- | The date that the rule was created.
 accessControlRule_dateCreated :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
-accessControlRule_dateCreated = Lens.lens (\AccessControlRule' {dateCreated} -> dateCreated) (\s@AccessControlRule' {} a -> s {dateCreated = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
+accessControlRule_dateCreated = Lens.lens (\AccessControlRule' {dateCreated} -> dateCreated) (\s@AccessControlRule' {} a -> s {dateCreated = a} :: AccessControlRule) Prelude.. Lens.mapping Data._Time
 
 -- | IPv4 CIDR ranges to include in the rule.
 accessControlRule_ipRanges :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
@@ -153,7 +154,7 @@ accessControlRule_notImpersonationRoleIds = Lens.lens (\AccessControlRule' {notI
 
 -- | The date that the rule was modified.
 accessControlRule_dateModified :: Lens.Lens' AccessControlRule (Prelude.Maybe Prelude.UTCTime)
-accessControlRule_dateModified = Lens.lens (\AccessControlRule' {dateModified} -> dateModified) (\s@AccessControlRule' {} a -> s {dateModified = a} :: AccessControlRule) Prelude.. Lens.mapping Core._Time
+accessControlRule_dateModified = Lens.lens (\AccessControlRule' {dateModified} -> dateModified) (\s@AccessControlRule' {} a -> s {dateModified = a} :: AccessControlRule) Prelude.. Lens.mapping Data._Time
 
 -- | User IDs to include in the rule.
 accessControlRule_userIds :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
@@ -173,29 +174,29 @@ accessControlRule_notUserIds = Lens.lens (\AccessControlRule' {notUserIds} -> no
 accessControlRule_actions :: Lens.Lens' AccessControlRule (Prelude.Maybe [Prelude.Text])
 accessControlRule_actions = Lens.lens (\AccessControlRule' {actions} -> actions) (\s@AccessControlRule' {} a -> s {actions = a} :: AccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AccessControlRule where
+instance Data.FromJSON AccessControlRule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccessControlRule"
       ( \x ->
           AccessControlRule'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "NotIpRanges" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Effect")
-            Prelude.<*> (x Core..:? "NotActions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DateCreated")
-            Prelude.<*> (x Core..:? "IpRanges" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "NotImpersonationRoleIds"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "NotIpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Effect")
+            Prelude.<*> (x Data..:? "NotActions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<*> (x Data..:? "IpRanges" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "NotImpersonationRoleIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DateModified")
-            Prelude.<*> (x Core..:? "UserIds" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "ImpersonationRoleIds"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "DateModified")
+            Prelude.<*> (x Data..:? "UserIds" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ImpersonationRoleIds"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NotUserIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Actions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NotUserIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Actions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AccessControlRule where

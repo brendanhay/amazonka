@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -126,37 +127,37 @@ instance Prelude.NFData UpdateDocumentMetadata where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf documentReviews
 
-instance Core.ToHeaders UpdateDocumentMetadata where
+instance Data.ToHeaders UpdateDocumentMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateDocumentMetadata" ::
+              Data.=# ( "AmazonSSM.UpdateDocumentMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDocumentMetadata where
+instance Data.ToJSON UpdateDocumentMetadata where
   toJSON UpdateDocumentMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DocumentVersion" Core..=)
+          [ ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Name" Data..= name),
             Prelude.Just
-              ("DocumentReviews" Core..= documentReviews)
+              ("DocumentReviews" Data..= documentReviews)
           ]
       )
 
-instance Core.ToPath UpdateDocumentMetadata where
+instance Data.ToPath UpdateDocumentMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDocumentMetadata where
+instance Data.ToQuery UpdateDocumentMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDocumentMetadataResponse' smart constructor.

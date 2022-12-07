@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EFS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance
       ( \s h x ->
           DescribeMountTargetSecurityGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Core..?> "SecurityGroups"
+              Prelude.<*> ( x Data..?> "SecurityGroups"
                               Core..!@ Prelude.mempty
                           )
       )
@@ -125,24 +126,24 @@ instance
     Prelude.rnf mountTargetId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribeMountTargetSecurityGroups
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribeMountTargetSecurityGroups
   where
   toPath DescribeMountTargetSecurityGroups' {..} =
     Prelude.mconcat
       [ "/2015-02-01/mount-targets/",
-        Core.toBS mountTargetId,
+        Data.toBS mountTargetId,
         "/security-groups"
       ]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribeMountTargetSecurityGroups
   where
   toQuery = Prelude.const Prelude.mempty

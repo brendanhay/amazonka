@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT1ClickDevices.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -107,7 +108,7 @@ instance Core.AWSRequest InvokeDeviceMethod where
     Response.receiveJSON
       ( \s h x ->
           InvokeDeviceMethodResponse'
-            Prelude.<$> (x Core..?> "deviceMethodResponse")
+            Prelude.<$> (x Data..?> "deviceMethodResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,33 +124,33 @@ instance Prelude.NFData InvokeDeviceMethod where
       `Prelude.seq` Prelude.rnf deviceMethod
       `Prelude.seq` Prelude.rnf deviceId
 
-instance Core.ToHeaders InvokeDeviceMethod where
+instance Data.ToHeaders InvokeDeviceMethod where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON InvokeDeviceMethod where
+instance Data.ToJSON InvokeDeviceMethod where
   toJSON InvokeDeviceMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deviceMethodParameters" Core..=)
+          [ ("deviceMethodParameters" Data..=)
               Prelude.<$> deviceMethodParameters,
-            ("deviceMethod" Core..=) Prelude.<$> deviceMethod
+            ("deviceMethod" Data..=) Prelude.<$> deviceMethod
           ]
       )
 
-instance Core.ToPath InvokeDeviceMethod where
+instance Data.ToPath InvokeDeviceMethod where
   toPath InvokeDeviceMethod' {..} =
     Prelude.mconcat
-      ["/devices/", Core.toBS deviceId, "/methods"]
+      ["/devices/", Data.toBS deviceId, "/methods"]
 
-instance Core.ToQuery InvokeDeviceMethod where
+instance Data.ToQuery InvokeDeviceMethod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newInvokeDeviceMethodResponse' smart constructor.

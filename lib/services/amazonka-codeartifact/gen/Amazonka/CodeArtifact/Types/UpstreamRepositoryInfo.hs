@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.UpstreamRepositoryInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an upstream repository.
@@ -53,13 +54,13 @@ newUpstreamRepositoryInfo =
 upstreamRepositoryInfo_repositoryName :: Lens.Lens' UpstreamRepositoryInfo (Prelude.Maybe Prelude.Text)
 upstreamRepositoryInfo_repositoryName = Lens.lens (\UpstreamRepositoryInfo' {repositoryName} -> repositoryName) (\s@UpstreamRepositoryInfo' {} a -> s {repositoryName = a} :: UpstreamRepositoryInfo)
 
-instance Core.FromJSON UpstreamRepositoryInfo where
+instance Data.FromJSON UpstreamRepositoryInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UpstreamRepositoryInfo"
       ( \x ->
           UpstreamRepositoryInfo'
-            Prelude.<$> (x Core..:? "repositoryName")
+            Prelude.<$> (x Data..:? "repositoryName")
       )
 
 instance Prelude.Hashable UpstreamRepositoryInfo where

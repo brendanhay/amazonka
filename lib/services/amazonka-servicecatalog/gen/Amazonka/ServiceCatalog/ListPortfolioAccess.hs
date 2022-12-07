@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -158,8 +159,8 @@ instance Core.AWSRequest ListPortfolioAccess where
     Response.receiveJSON
       ( \s h x ->
           ListPortfolioAccessResponse'
-            Prelude.<$> (x Core..?> "AccountIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Data..?> "AccountIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,39 +180,39 @@ instance Prelude.NFData ListPortfolioAccess where
       `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
-instance Core.ToHeaders ListPortfolioAccess where
+instance Data.ToHeaders ListPortfolioAccess where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListPortfolioAccess" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListPortfolioAccess" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListPortfolioAccess where
+instance Data.ToJSON ListPortfolioAccess where
   toJSON ListPortfolioAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationParentId" Core..=)
+          [ ("OrganizationParentId" Data..=)
               Prelude.<$> organizationParentId,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Core..=)
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Core..= portfolioId)
+            Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )
 
-instance Core.ToPath ListPortfolioAccess where
+instance Data.ToPath ListPortfolioAccess where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListPortfolioAccess where
+instance Data.ToQuery ListPortfolioAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListPortfolioAccessResponse' smart constructor.

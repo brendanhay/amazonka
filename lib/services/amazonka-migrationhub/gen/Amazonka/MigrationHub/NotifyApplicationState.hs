@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHub.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -54,7 +55,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newNotifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
   { -- | The timestamp when the application state changed.
-    updateDateTime :: Prelude.Maybe Core.POSIX,
+    updateDateTime :: Prelude.Maybe Data.POSIX,
     -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
     dryRun :: Prelude.Maybe Prelude.Bool,
@@ -100,7 +101,7 @@ newNotifyApplicationState pApplicationId_ pStatus_ =
 
 -- | The timestamp when the application state changed.
 notifyApplicationState_updateDateTime :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.UTCTime)
-notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Core._Time
+notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Data._Time
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
@@ -143,37 +144,37 @@ instance Prelude.NFData NotifyApplicationState where
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf status
 
-instance Core.ToHeaders NotifyApplicationState where
+instance Data.ToHeaders NotifyApplicationState where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSMigrationHub.NotifyApplicationState" ::
+              Data.=# ( "AWSMigrationHub.NotifyApplicationState" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON NotifyApplicationState where
+instance Data.ToJSON NotifyApplicationState where
   toJSON NotifyApplicationState' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("UpdateDateTime" Core..=)
+          [ ("UpdateDateTime" Data..=)
               Prelude.<$> updateDateTime,
-            ("DryRun" Core..=) Prelude.<$> dryRun,
-            Prelude.Just ("ApplicationId" Core..= applicationId),
-            Prelude.Just ("Status" Core..= status)
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            Prelude.Just ("ApplicationId" Data..= applicationId),
+            Prelude.Just ("Status" Data..= status)
           ]
       )
 
-instance Core.ToPath NotifyApplicationState where
+instance Data.ToPath NotifyApplicationState where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery NotifyApplicationState where
+instance Data.ToQuery NotifyApplicationState where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newNotifyApplicationStateResponse' smart constructor.

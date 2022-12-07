@@ -21,6 +21,7 @@ module Amazonka.MigrationHubOrchestrator.Types.PlatformCommand where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Command to be run on a particular operating system.
@@ -61,14 +62,14 @@ platformCommand_windows = Lens.lens (\PlatformCommand' {windows} -> windows) (\s
 platformCommand_linux :: Lens.Lens' PlatformCommand (Prelude.Maybe Prelude.Text)
 platformCommand_linux = Lens.lens (\PlatformCommand' {linux} -> linux) (\s@PlatformCommand' {} a -> s {linux = a} :: PlatformCommand)
 
-instance Core.FromJSON PlatformCommand where
+instance Data.FromJSON PlatformCommand where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PlatformCommand"
       ( \x ->
           PlatformCommand'
-            Prelude.<$> (x Core..:? "windows")
-            Prelude.<*> (x Core..:? "linux")
+            Prelude.<$> (x Data..:? "windows")
+            Prelude.<*> (x Data..:? "linux")
       )
 
 instance Prelude.Hashable PlatformCommand where
@@ -80,11 +81,11 @@ instance Prelude.NFData PlatformCommand where
   rnf PlatformCommand' {..} =
     Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
 
-instance Core.ToJSON PlatformCommand where
+instance Data.ToJSON PlatformCommand where
   toJSON PlatformCommand' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("windows" Core..=) Prelude.<$> windows,
-            ("linux" Core..=) Prelude.<$> linux
+          [ ("windows" Data..=) Prelude.<$> windows,
+            ("linux" Data..=) Prelude.<$> linux
           ]
       )

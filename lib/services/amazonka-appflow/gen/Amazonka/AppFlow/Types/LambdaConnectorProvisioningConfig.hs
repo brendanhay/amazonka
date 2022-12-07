@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the configuration of the lambda which is
@@ -57,15 +58,15 @@ lambdaConnectorProvisioningConfig_lambdaArn :: Lens.Lens' LambdaConnectorProvisi
 lambdaConnectorProvisioningConfig_lambdaArn = Lens.lens (\LambdaConnectorProvisioningConfig' {lambdaArn} -> lambdaArn) (\s@LambdaConnectorProvisioningConfig' {} a -> s {lambdaArn = a} :: LambdaConnectorProvisioningConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     LambdaConnectorProvisioningConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LambdaConnectorProvisioningConfig"
       ( \x ->
           LambdaConnectorProvisioningConfig'
-            Prelude.<$> (x Core..: "lambdaArn")
+            Prelude.<$> (x Data..: "lambdaArn")
       )
 
 instance
@@ -85,11 +86,11 @@ instance
     Prelude.rnf lambdaArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     LambdaConnectorProvisioningConfig
   where
   toJSON LambdaConnectorProvisioningConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("lambdaArn" Core..= lambdaArn)]
+          [Prelude.Just ("lambdaArn" Data..= lambdaArn)]
       )

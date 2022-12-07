@@ -44,6 +44,7 @@ where
 import Amazonka.AMP.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,7 +120,7 @@ instance Core.AWSRequest CreateLoggingConfiguration where
       ( \s h x ->
           CreateLoggingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance Prelude.Hashable CreateLoggingConfiguration where
@@ -134,32 +135,32 @@ instance Prelude.NFData CreateLoggingConfiguration where
       `Prelude.seq` Prelude.rnf logGroupArn
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders CreateLoggingConfiguration where
+instance Data.ToHeaders CreateLoggingConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateLoggingConfiguration where
+instance Data.ToJSON CreateLoggingConfiguration where
   toJSON CreateLoggingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("logGroupArn" Core..= logGroupArn)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("logGroupArn" Data..= logGroupArn)
           ]
       )
 
-instance Core.ToPath CreateLoggingConfiguration where
+instance Data.ToPath CreateLoggingConfiguration where
   toPath CreateLoggingConfiguration' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId, "/logging"]
+      ["/workspaces/", Data.toBS workspaceId, "/logging"]
 
-instance Core.ToQuery CreateLoggingConfiguration where
+instance Data.ToQuery CreateLoggingConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a CreateLoggingConfiguration operation.

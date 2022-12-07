@@ -50,6 +50,7 @@ where
 import Amazonka.CodePipeline.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,7 +143,7 @@ instance Core.AWSRequest StopPipelineExecution where
     Response.receiveJSON
       ( \s h x ->
           StopPipelineExecutionResponse'
-            Prelude.<$> (x Core..?> "pipelineExecutionId")
+            Prelude.<$> (x Data..?> "pipelineExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,37 +161,37 @@ instance Prelude.NFData StopPipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf pipelineExecutionId
 
-instance Core.ToHeaders StopPipelineExecution where
+instance Data.ToHeaders StopPipelineExecution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodePipeline_20150709.StopPipelineExecution" ::
+              Data.=# ( "CodePipeline_20150709.StopPipelineExecution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopPipelineExecution where
+instance Data.ToJSON StopPipelineExecution where
   toJSON StopPipelineExecution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            ("abandon" Core..=) Prelude.<$> abandon,
-            Prelude.Just ("pipelineName" Core..= pipelineName),
+          [ ("reason" Data..=) Prelude.<$> reason,
+            ("abandon" Data..=) Prelude.<$> abandon,
+            Prelude.Just ("pipelineName" Data..= pipelineName),
             Prelude.Just
-              ("pipelineExecutionId" Core..= pipelineExecutionId)
+              ("pipelineExecutionId" Data..= pipelineExecutionId)
           ]
       )
 
-instance Core.ToPath StopPipelineExecution where
+instance Data.ToPath StopPipelineExecution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopPipelineExecution where
+instance Data.ToQuery StopPipelineExecution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopPipelineExecutionResponse' smart constructor.

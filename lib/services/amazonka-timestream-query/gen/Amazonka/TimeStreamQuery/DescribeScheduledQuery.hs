@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -87,7 +88,7 @@ instance Core.AWSRequest DescribeScheduledQuery where
       ( \s h x ->
           DescribeScheduledQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ScheduledQuery")
+            Prelude.<*> (x Data..:> "ScheduledQuery")
       )
 
 instance Prelude.Hashable DescribeScheduledQuery where
@@ -98,34 +99,34 @@ instance Prelude.NFData DescribeScheduledQuery where
   rnf DescribeScheduledQuery' {..} =
     Prelude.rnf scheduledQueryArn
 
-instance Core.ToHeaders DescribeScheduledQuery where
+instance Data.ToHeaders DescribeScheduledQuery where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.DescribeScheduledQuery" ::
+              Data.=# ( "Timestream_20181101.DescribeScheduledQuery" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScheduledQuery where
+instance Data.ToJSON DescribeScheduledQuery where
   toJSON DescribeScheduledQuery' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ScheduledQueryArn" Core..= scheduledQueryArn)
+              ("ScheduledQueryArn" Data..= scheduledQueryArn)
           ]
       )
 
-instance Core.ToPath DescribeScheduledQuery where
+instance Data.ToPath DescribeScheduledQuery where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScheduledQuery where
+instance Data.ToQuery DescribeScheduledQuery where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScheduledQueryResponse' smart constructor.

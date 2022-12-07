@@ -38,6 +38,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -68,7 +69,7 @@ instance Core.AWSRequest DescribeLoggingOptions where
       ( \s h x ->
           DescribeLoggingOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "loggingOptions")
+            Prelude.<*> (x Data..:> "loggingOptions")
       )
 
 instance Prelude.Hashable DescribeLoggingOptions where
@@ -78,21 +79,21 @@ instance Prelude.Hashable DescribeLoggingOptions where
 instance Prelude.NFData DescribeLoggingOptions where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeLoggingOptions where
+instance Data.ToHeaders DescribeLoggingOptions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeLoggingOptions where
+instance Data.ToPath DescribeLoggingOptions where
   toPath = Prelude.const "/logging"
 
-instance Core.ToQuery DescribeLoggingOptions where
+instance Data.ToQuery DescribeLoggingOptions where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeLoggingOptionsResponse' smart constructor.

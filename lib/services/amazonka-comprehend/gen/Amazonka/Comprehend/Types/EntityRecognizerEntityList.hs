@@ -21,6 +21,7 @@ module Amazonka.Comprehend.Types.EntityRecognizerEntityList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the entity recognizer submitted with an entity recognizer.
@@ -55,13 +56,13 @@ newEntityRecognizerEntityList pS3Uri_ =
 entityRecognizerEntityList_s3Uri :: Lens.Lens' EntityRecognizerEntityList Prelude.Text
 entityRecognizerEntityList_s3Uri = Lens.lens (\EntityRecognizerEntityList' {s3Uri} -> s3Uri) (\s@EntityRecognizerEntityList' {} a -> s {s3Uri = a} :: EntityRecognizerEntityList)
 
-instance Core.FromJSON EntityRecognizerEntityList where
+instance Data.FromJSON EntityRecognizerEntityList where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntityRecognizerEntityList"
       ( \x ->
           EntityRecognizerEntityList'
-            Prelude.<$> (x Core..: "S3Uri")
+            Prelude.<$> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable EntityRecognizerEntityList where
@@ -72,9 +73,9 @@ instance Prelude.NFData EntityRecognizerEntityList where
   rnf EntityRecognizerEntityList' {..} =
     Prelude.rnf s3Uri
 
-instance Core.ToJSON EntityRecognizerEntityList where
+instance Data.ToJSON EntityRecognizerEntityList where
   toJSON EntityRecognizerEntityList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Uri" Core..= s3Uri)]
+          [Prelude.Just ("S3Uri" Data..= s3Uri)]
       )

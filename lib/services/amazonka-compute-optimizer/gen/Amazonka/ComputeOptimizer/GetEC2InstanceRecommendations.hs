@@ -55,6 +55,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -187,11 +188,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEC2InstanceRecommendationsResponse'
-            Prelude.<$> ( x Core..?> "instanceRecommendations"
+            Prelude.<$> ( x Data..?> "instanceRecommendations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,39 +217,39 @@ instance Prelude.NFData GetEC2InstanceRecommendations where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceArns
 
-instance Core.ToHeaders GetEC2InstanceRecommendations where
+instance Data.ToHeaders GetEC2InstanceRecommendations where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetEC2InstanceRecommendations" ::
+              Data.=# ( "ComputeOptimizerService.GetEC2InstanceRecommendations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEC2InstanceRecommendations where
+instance Data.ToJSON GetEC2InstanceRecommendations where
   toJSON GetEC2InstanceRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("recommendationPreferences" Core..=)
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("recommendationPreferences" Data..=)
               Prelude.<$> recommendationPreferences,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("instanceArns" Core..=) Prelude.<$> instanceArns
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("instanceArns" Data..=) Prelude.<$> instanceArns
           ]
       )
 
-instance Core.ToPath GetEC2InstanceRecommendations where
+instance Data.ToPath GetEC2InstanceRecommendations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEC2InstanceRecommendations where
+instance Data.ToQuery GetEC2InstanceRecommendations where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEC2InstanceRecommendationsResponse' smart constructor.

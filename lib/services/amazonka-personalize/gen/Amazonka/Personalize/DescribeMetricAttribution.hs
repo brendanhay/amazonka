@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,7 +87,7 @@ instance Core.AWSRequest DescribeMetricAttribution where
     Response.receiveJSON
       ( \s h x ->
           DescribeMetricAttributionResponse'
-            Prelude.<$> (x Core..?> "metricAttribution")
+            Prelude.<$> (x Data..?> "metricAttribution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,36 +99,36 @@ instance Prelude.NFData DescribeMetricAttribution where
   rnf DescribeMetricAttribution' {..} =
     Prelude.rnf metricAttributionArn
 
-instance Core.ToHeaders DescribeMetricAttribution where
+instance Data.ToHeaders DescribeMetricAttribution where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeMetricAttribution" ::
+              Data.=# ( "AmazonPersonalize.DescribeMetricAttribution" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMetricAttribution where
+instance Data.ToJSON DescribeMetricAttribution where
   toJSON DescribeMetricAttribution' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "metricAttributionArn"
-                  Core..= metricAttributionArn
+                  Data..= metricAttributionArn
               )
           ]
       )
 
-instance Core.ToPath DescribeMetricAttribution where
+instance Data.ToPath DescribeMetricAttribution where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeMetricAttribution where
+instance Data.ToQuery DescribeMetricAttribution where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMetricAttributionResponse' smart constructor.

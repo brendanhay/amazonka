@@ -21,6 +21,7 @@ module Amazonka.SavingsPlans.Types.SavingsPlanRate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SavingsPlans.Types.CurrencyCode
 import Amazonka.SavingsPlans.Types.SavingsPlanProductType
@@ -120,20 +121,20 @@ savingsPlanRate_unit = Lens.lens (\SavingsPlanRate' {unit} -> unit) (\s@SavingsP
 savingsPlanRate_operation :: Lens.Lens' SavingsPlanRate (Prelude.Maybe Prelude.Text)
 savingsPlanRate_operation = Lens.lens (\SavingsPlanRate' {operation} -> operation) (\s@SavingsPlanRate' {} a -> s {operation = a} :: SavingsPlanRate)
 
-instance Core.FromJSON SavingsPlanRate where
+instance Data.FromJSON SavingsPlanRate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SavingsPlanRate"
       ( \x ->
           SavingsPlanRate'
-            Prelude.<$> (x Core..:? "rate")
-            Prelude.<*> (x Core..:? "productType")
-            Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "serviceCode")
-            Prelude.<*> (x Core..:? "usageType")
-            Prelude.<*> (x Core..:? "currency")
-            Prelude.<*> (x Core..:? "unit")
-            Prelude.<*> (x Core..:? "operation")
+            Prelude.<$> (x Data..:? "rate")
+            Prelude.<*> (x Data..:? "productType")
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "serviceCode")
+            Prelude.<*> (x Data..:? "usageType")
+            Prelude.<*> (x Data..:? "currency")
+            Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..:? "operation")
       )
 
 instance Prelude.Hashable SavingsPlanRate where

@@ -43,6 +43,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -124,34 +125,34 @@ instance
       `Prelude.seq` Prelude.rnf signinDelegateGroups
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateSigninDelegateGroupsWithAccount
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateSigninDelegateGroupsWithAccount
   where
   toJSON AssociateSigninDelegateGroupsWithAccount' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "SigninDelegateGroups"
-                  Core..= signinDelegateGroups
+                  Data..= signinDelegateGroups
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateSigninDelegateGroupsWithAccount
   where
   toPath AssociateSigninDelegateGroupsWithAccount' {..} =
-    Prelude.mconcat ["/accounts/", Core.toBS accountId]
+    Prelude.mconcat ["/accounts/", Data.toBS accountId]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateSigninDelegateGroupsWithAccount
   where
   toQuery =

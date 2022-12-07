@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.AssociatedApplication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Object containing details about applications as defined in Application
@@ -62,13 +63,13 @@ associatedApplication_name = Lens.lens (\AssociatedApplication' {name} -> name) 
 associatedApplication_id :: Lens.Lens' AssociatedApplication (Prelude.Maybe Prelude.Text)
 associatedApplication_id = Lens.lens (\AssociatedApplication' {id} -> id) (\s@AssociatedApplication' {} a -> s {id = a} :: AssociatedApplication)
 
-instance Core.FromJSON AssociatedApplication where
+instance Data.FromJSON AssociatedApplication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssociatedApplication"
       ( \x ->
           AssociatedApplication'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable AssociatedApplication where

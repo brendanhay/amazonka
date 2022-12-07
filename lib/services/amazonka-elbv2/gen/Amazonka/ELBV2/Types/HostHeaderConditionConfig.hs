@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.HostHeaderConditionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a host header condition.
@@ -71,11 +72,11 @@ newHostHeaderConditionConfig =
 hostHeaderConditionConfig_values :: Lens.Lens' HostHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
 hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {values} -> values) (\s@HostHeaderConditionConfig' {} a -> s {values = a} :: HostHeaderConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromXML HostHeaderConditionConfig where
+instance Data.FromXML HostHeaderConditionConfig where
   parseXML x =
     HostHeaderConditionConfig'
-      Prelude.<$> ( x Core..@? "Values" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
+      Prelude.<$> ( x Data..@? "Values" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable HostHeaderConditionConfig where
@@ -86,10 +87,10 @@ instance Prelude.NFData HostHeaderConditionConfig where
   rnf HostHeaderConditionConfig' {..} =
     Prelude.rnf values
 
-instance Core.ToQuery HostHeaderConditionConfig where
+instance Data.ToQuery HostHeaderConditionConfig where
   toQuery HostHeaderConditionConfig' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values)
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values)
       ]

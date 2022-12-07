@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,14 +163,14 @@ instance Core.AWSRequest StartBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           StartBotRecommendationResponse'
-            Prelude.<$> (x Core..?> "botVersion")
-            Prelude.<*> (x Core..?> "creationDateTime")
-            Prelude.<*> (x Core..?> "localeId")
-            Prelude.<*> (x Core..?> "encryptionSetting")
-            Prelude.<*> (x Core..?> "botRecommendationId")
-            Prelude.<*> (x Core..?> "botId")
-            Prelude.<*> (x Core..?> "botRecommendationStatus")
-            Prelude.<*> (x Core..?> "transcriptSourceSetting")
+            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<*> (x Data..?> "botRecommendationId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botRecommendationStatus")
+            Prelude.<*> (x Data..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,43 +190,43 @@ instance Prelude.NFData StartBotRecommendation where
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf transcriptSourceSetting
 
-instance Core.ToHeaders StartBotRecommendation where
+instance Data.ToHeaders StartBotRecommendation where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartBotRecommendation where
+instance Data.ToJSON StartBotRecommendation where
   toJSON StartBotRecommendation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionSetting" Core..=)
+          [ ("encryptionSetting" Data..=)
               Prelude.<$> encryptionSetting,
             Prelude.Just
               ( "transcriptSourceSetting"
-                  Core..= transcriptSourceSetting
+                  Data..= transcriptSourceSetting
               )
           ]
       )
 
-instance Core.ToPath StartBotRecommendation where
+instance Data.ToPath StartBotRecommendation where
   toPath StartBotRecommendation' {..} =
     Prelude.mconcat
       [ "/bots/",
-        Core.toBS botId,
+        Data.toBS botId,
         "/botversions/",
-        Core.toBS botVersion,
+        Data.toBS botVersion,
         "/botlocales/",
-        Core.toBS localeId,
+        Data.toBS localeId,
         "/botrecommendations/"
       ]
 
-instance Core.ToQuery StartBotRecommendation where
+instance Data.ToQuery StartBotRecommendation where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartBotRecommendationResponse' smart constructor.
@@ -234,7 +235,7 @@ data StartBotRecommendationResponse = StartBotRecommendationResponse'
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot recommendation was
     -- created.
-    creationDateTime :: Prelude.Maybe Core.POSIX,
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the language and locale of the bot recommendation to
     -- start. The string must match one of the supported locales. For more
     -- information, see
@@ -321,7 +322,7 @@ startBotRecommendationResponse_botVersion = Lens.lens (\StartBotRecommendationRe
 -- | A timestamp of the date and time that the bot recommendation was
 -- created.
 startBotRecommendationResponse_creationDateTime :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-startBotRecommendationResponse_creationDateTime = Lens.lens (\StartBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@StartBotRecommendationResponse' {} a -> s {creationDateTime = a} :: StartBotRecommendationResponse) Prelude.. Lens.mapping Core._Time
+startBotRecommendationResponse_creationDateTime = Lens.lens (\StartBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@StartBotRecommendationResponse' {} a -> s {creationDateTime = a} :: StartBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The identifier of the language and locale of the bot recommendation to
 -- start. The string must match one of the supported locales. For more

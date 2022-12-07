@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.Address where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.DomainType
 import Amazonka.EC2.Types.Tag
@@ -190,25 +191,25 @@ address_associationId = Lens.lens (\Address' {associationId} -> associationId) (
 address_publicIpv4Pool :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_publicIpv4Pool = Lens.lens (\Address' {publicIpv4Pool} -> publicIpv4Pool) (\s@Address' {} a -> s {publicIpv4Pool = a} :: Address)
 
-instance Core.FromXML Address where
+instance Data.FromXML Address where
   parseXML x =
     Address'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "allocationId")
-      Prelude.<*> (x Core..@? "networkBorderGroup")
-      Prelude.<*> (x Core..@? "domain")
-      Prelude.<*> (x Core..@? "networkInterfaceOwnerId")
-      Prelude.<*> (x Core..@? "carrierIp")
-      Prelude.<*> (x Core..@? "customerOwnedIpv4Pool")
-      Prelude.<*> (x Core..@? "publicIp")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "networkInterfaceId")
-      Prelude.<*> (x Core..@? "privateIpAddress")
-      Prelude.<*> (x Core..@? "customerOwnedIp")
-      Prelude.<*> (x Core..@? "associationId")
-      Prelude.<*> (x Core..@? "publicIpv4Pool")
+      Prelude.<*> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "networkBorderGroup")
+      Prelude.<*> (x Data..@? "domain")
+      Prelude.<*> (x Data..@? "networkInterfaceOwnerId")
+      Prelude.<*> (x Data..@? "carrierIp")
+      Prelude.<*> (x Data..@? "customerOwnedIpv4Pool")
+      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "networkInterfaceId")
+      Prelude.<*> (x Data..@? "privateIpAddress")
+      Prelude.<*> (x Data..@? "customerOwnedIp")
+      Prelude.<*> (x Data..@? "associationId")
+      Prelude.<*> (x Data..@? "publicIpv4Pool")
 
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =

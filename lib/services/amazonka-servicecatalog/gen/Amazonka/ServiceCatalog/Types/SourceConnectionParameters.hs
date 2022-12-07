@@ -21,6 +21,7 @@ module Amazonka.ServiceCatalog.Types.SourceConnectionParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalog.Types.CodeStarParameters
 
@@ -54,13 +55,13 @@ newSourceConnectionParameters =
 sourceConnectionParameters_codeStar :: Lens.Lens' SourceConnectionParameters (Prelude.Maybe CodeStarParameters)
 sourceConnectionParameters_codeStar = Lens.lens (\SourceConnectionParameters' {codeStar} -> codeStar) (\s@SourceConnectionParameters' {} a -> s {codeStar = a} :: SourceConnectionParameters)
 
-instance Core.FromJSON SourceConnectionParameters where
+instance Data.FromJSON SourceConnectionParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SourceConnectionParameters"
       ( \x ->
           SourceConnectionParameters'
-            Prelude.<$> (x Core..:? "CodeStar")
+            Prelude.<$> (x Data..:? "CodeStar")
       )
 
 instance Prelude.Hashable SourceConnectionParameters where
@@ -71,9 +72,9 @@ instance Prelude.NFData SourceConnectionParameters where
   rnf SourceConnectionParameters' {..} =
     Prelude.rnf codeStar
 
-instance Core.ToJSON SourceConnectionParameters where
+instance Data.ToJSON SourceConnectionParameters where
   toJSON SourceConnectionParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CodeStar" Core..=) Prelude.<$> codeStar]
+          [("CodeStar" Data..=) Prelude.<$> codeStar]
       )

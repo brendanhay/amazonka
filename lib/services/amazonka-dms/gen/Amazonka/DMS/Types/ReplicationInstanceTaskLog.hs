@@ -21,6 +21,7 @@ module Amazonka.DMS.Types.ReplicationInstanceTaskLog where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains metadata for a replication instance task log.
@@ -71,15 +72,15 @@ replicationInstanceTaskLog_replicationTaskName = Lens.lens (\ReplicationInstance
 replicationInstanceTaskLog_replicationTaskArn :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
 replicationInstanceTaskLog_replicationTaskArn = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskArn = a} :: ReplicationInstanceTaskLog)
 
-instance Core.FromJSON ReplicationInstanceTaskLog where
+instance Data.FromJSON ReplicationInstanceTaskLog where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ReplicationInstanceTaskLog"
       ( \x ->
           ReplicationInstanceTaskLog'
-            Prelude.<$> (x Core..:? "ReplicationInstanceTaskLogSize")
-            Prelude.<*> (x Core..:? "ReplicationTaskName")
-            Prelude.<*> (x Core..:? "ReplicationTaskArn")
+            Prelude.<$> (x Data..:? "ReplicationInstanceTaskLogSize")
+            Prelude.<*> (x Data..:? "ReplicationTaskName")
+            Prelude.<*> (x Data..:? "ReplicationTaskArn")
       )
 
 instance Prelude.Hashable ReplicationInstanceTaskLog where

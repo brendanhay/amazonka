@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -62,12 +63,12 @@ data CreateStreamingImage = CreateStreamingImage'
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A human-readable description of the streaming image.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of an EC2 machine image with which to create this streaming
     -- image.
     ec2ImageId :: Prelude.Text,
     -- | A friendly name for a streaming image resource.
-    name :: Core.Sensitive Prelude.Text,
+    name :: Data.Sensitive Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -114,7 +115,7 @@ newCreateStreamingImage
         clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
         ec2ImageId = pEc2ImageId_,
-        name = Core._Sensitive Lens.# pName_,
+        name = Data._Sensitive Lens.# pName_,
         studioId = pStudioId_
       }
 
@@ -132,7 +133,7 @@ createStreamingImage_clientToken = Lens.lens (\CreateStreamingImage' {clientToke
 
 -- | A human-readable description of the streaming image.
 createStreamingImage_description :: Lens.Lens' CreateStreamingImage (Prelude.Maybe Prelude.Text)
-createStreamingImage_description = Lens.lens (\CreateStreamingImage' {description} -> description) (\s@CreateStreamingImage' {} a -> s {description = a} :: CreateStreamingImage) Prelude.. Lens.mapping Core._Sensitive
+createStreamingImage_description = Lens.lens (\CreateStreamingImage' {description} -> description) (\s@CreateStreamingImage' {} a -> s {description = a} :: CreateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of an EC2 machine image with which to create this streaming
 -- image.
@@ -141,7 +142,7 @@ createStreamingImage_ec2ImageId = Lens.lens (\CreateStreamingImage' {ec2ImageId}
 
 -- | A friendly name for a streaming image resource.
 createStreamingImage_name :: Lens.Lens' CreateStreamingImage Prelude.Text
-createStreamingImage_name = Lens.lens (\CreateStreamingImage' {name} -> name) (\s@CreateStreamingImage' {} a -> s {name = a} :: CreateStreamingImage) Prelude.. Core._Sensitive
+createStreamingImage_name = Lens.lens (\CreateStreamingImage' {name} -> name) (\s@CreateStreamingImage' {} a -> s {name = a} :: CreateStreamingImage) Prelude.. Data._Sensitive
 
 -- | The studio ID.
 createStreamingImage_studioId :: Lens.Lens' CreateStreamingImage Prelude.Text
@@ -157,7 +158,7 @@ instance Core.AWSRequest CreateStreamingImage where
     Response.receiveJSON
       ( \s h x ->
           CreateStreamingImageResponse'
-            Prelude.<$> (x Core..?> "streamingImage")
+            Prelude.<$> (x Data..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,34 +180,34 @@ instance Prelude.NFData CreateStreamingImage where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf studioId
 
-instance Core.ToHeaders CreateStreamingImage where
+instance Data.ToHeaders CreateStreamingImage where
   toHeaders CreateStreamingImage' {..} =
     Prelude.mconcat
-      [ "X-Amz-Client-Token" Core.=# clientToken,
+      [ "X-Amz-Client-Token" Data.=# clientToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToJSON CreateStreamingImage where
+instance Data.ToJSON CreateStreamingImage where
   toJSON CreateStreamingImage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("ec2ImageId" Core..= ec2ImageId),
-            Prelude.Just ("name" Core..= name)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("ec2ImageId" Data..= ec2ImageId),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateStreamingImage where
+instance Data.ToPath CreateStreamingImage where
   toPath CreateStreamingImage' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/streaming-images"
       ]
 
-instance Core.ToQuery CreateStreamingImage where
+instance Data.ToQuery CreateStreamingImage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateStreamingImageResponse' smart constructor.

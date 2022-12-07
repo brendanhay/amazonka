@@ -21,6 +21,7 @@ module Amazonka.SSMSAP.Types.DatabaseSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSMSAP.Types.DatabaseType
 
@@ -92,18 +93,18 @@ databaseSummary_componentId = Lens.lens (\DatabaseSummary' {componentId} -> comp
 databaseSummary_applicationId :: Lens.Lens' DatabaseSummary (Prelude.Maybe Prelude.Text)
 databaseSummary_applicationId = Lens.lens (\DatabaseSummary' {applicationId} -> applicationId) (\s@DatabaseSummary' {} a -> s {applicationId = a} :: DatabaseSummary)
 
-instance Core.FromJSON DatabaseSummary where
+instance Data.FromJSON DatabaseSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DatabaseSummary"
       ( \x ->
           DatabaseSummary'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DatabaseType")
-            Prelude.<*> (x Core..:? "DatabaseId")
-            Prelude.<*> (x Core..:? "ComponentId")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DatabaseType")
+            Prelude.<*> (x Data..:? "DatabaseId")
+            Prelude.<*> (x Data..:? "ComponentId")
+            Prelude.<*> (x Data..:? "ApplicationId")
       )
 
 instance Prelude.Hashable DatabaseSummary where

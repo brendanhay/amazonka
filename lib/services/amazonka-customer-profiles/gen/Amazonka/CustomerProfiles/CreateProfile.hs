@@ -66,6 +66,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -308,7 +309,7 @@ instance Core.AWSRequest CreateProfile where
       ( \s h x ->
           CreateProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ProfileId")
+            Prelude.<*> (x Data..:> "ProfileId")
       )
 
 instance Prelude.Hashable CreateProfile where
@@ -362,60 +363,60 @@ instance Prelude.NFData CreateProfile where
       `Prelude.seq` Prelude.rnf accountNumber
       `Prelude.seq` Prelude.rnf domainName
 
-instance Core.ToHeaders CreateProfile where
+instance Data.ToHeaders CreateProfile where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateProfile where
+instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HomePhoneNumber" Core..=)
+          [ ("HomePhoneNumber" Data..=)
               Prelude.<$> homePhoneNumber,
-            ("MailingAddress" Core..=)
+            ("MailingAddress" Data..=)
               Prelude.<$> mailingAddress,
-            ("ShippingAddress" Core..=)
+            ("ShippingAddress" Data..=)
               Prelude.<$> shippingAddress,
-            ("FirstName" Core..=) Prelude.<$> firstName,
-            ("BusinessPhoneNumber" Core..=)
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("BusinessPhoneNumber" Data..=)
               Prelude.<$> businessPhoneNumber,
-            ("BusinessEmailAddress" Core..=)
+            ("BusinessEmailAddress" Data..=)
               Prelude.<$> businessEmailAddress,
-            ("BusinessName" Core..=) Prelude.<$> businessName,
-            ("PersonalEmailAddress" Core..=)
+            ("BusinessName" Data..=) Prelude.<$> businessName,
+            ("PersonalEmailAddress" Data..=)
               Prelude.<$> personalEmailAddress,
-            ("BillingAddress" Core..=)
+            ("BillingAddress" Data..=)
               Prelude.<$> billingAddress,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("BirthDate" Core..=) Prelude.<$> birthDate,
-            ("Address" Core..=) Prelude.<$> address,
-            ("PartyType" Core..=) Prelude.<$> partyType,
-            ("Gender" Core..=) Prelude.<$> gender,
-            ("MobilePhoneNumber" Core..=)
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("BirthDate" Data..=) Prelude.<$> birthDate,
+            ("Address" Data..=) Prelude.<$> address,
+            ("PartyType" Data..=) Prelude.<$> partyType,
+            ("Gender" Data..=) Prelude.<$> gender,
+            ("MobilePhoneNumber" Data..=)
               Prelude.<$> mobilePhoneNumber,
-            ("MiddleName" Core..=) Prelude.<$> middleName,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("AdditionalInformation" Core..=)
+            ("MiddleName" Data..=) Prelude.<$> middleName,
+            ("Attributes" Data..=) Prelude.<$> attributes,
+            ("PhoneNumber" Data..=) Prelude.<$> phoneNumber,
+            ("AdditionalInformation" Data..=)
               Prelude.<$> additionalInformation,
-            ("EmailAddress" Core..=) Prelude.<$> emailAddress,
-            ("AccountNumber" Core..=) Prelude.<$> accountNumber
+            ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            ("AccountNumber" Data..=) Prelude.<$> accountNumber
           ]
       )
 
-instance Core.ToPath CreateProfile where
+instance Data.ToPath CreateProfile where
   toPath CreateProfile' {..} =
     Prelude.mconcat
-      ["/domains/", Core.toBS domainName, "/profiles"]
+      ["/domains/", Data.toBS domainName, "/profiles"]
 
-instance Core.ToQuery CreateProfile where
+instance Data.ToQuery CreateProfile where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateProfileResponse' smart constructor.

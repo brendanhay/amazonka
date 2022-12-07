@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.InstanceReusePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance reuse policy for a warm pool.
@@ -60,10 +61,10 @@ newInstanceReusePolicy =
 instanceReusePolicy_reuseOnScaleIn :: Lens.Lens' InstanceReusePolicy (Prelude.Maybe Prelude.Bool)
 instanceReusePolicy_reuseOnScaleIn = Lens.lens (\InstanceReusePolicy' {reuseOnScaleIn} -> reuseOnScaleIn) (\s@InstanceReusePolicy' {} a -> s {reuseOnScaleIn = a} :: InstanceReusePolicy)
 
-instance Core.FromXML InstanceReusePolicy where
+instance Data.FromXML InstanceReusePolicy where
   parseXML x =
     InstanceReusePolicy'
-      Prelude.<$> (x Core..@? "ReuseOnScaleIn")
+      Prelude.<$> (x Data..@? "ReuseOnScaleIn")
 
 instance Prelude.Hashable InstanceReusePolicy where
   hashWithSalt _salt InstanceReusePolicy' {..} =
@@ -73,7 +74,7 @@ instance Prelude.NFData InstanceReusePolicy where
   rnf InstanceReusePolicy' {..} =
     Prelude.rnf reuseOnScaleIn
 
-instance Core.ToQuery InstanceReusePolicy where
+instance Data.ToQuery InstanceReusePolicy where
   toQuery InstanceReusePolicy' {..} =
     Prelude.mconcat
-      ["ReuseOnScaleIn" Core.=: reuseOnScaleIn]
+      ["ReuseOnScaleIn" Data.=: reuseOnScaleIn]

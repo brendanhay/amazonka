@@ -22,6 +22,7 @@ module Amazonka.CloudDirectory.Types.BatchGetLinkAttributes where
 import Amazonka.CloudDirectory.Types.TypedLinkSpecifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Retrieves attributes that are associated with a typed link inside a
@@ -77,13 +78,13 @@ instance Prelude.NFData BatchGetLinkAttributes where
     Prelude.rnf typedLinkSpecifier
       `Prelude.seq` Prelude.rnf attributeNames
 
-instance Core.ToJSON BatchGetLinkAttributes where
+instance Data.ToJSON BatchGetLinkAttributes where
   toJSON BatchGetLinkAttributes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+              ("TypedLinkSpecifier" Data..= typedLinkSpecifier),
             Prelude.Just
-              ("AttributeNames" Core..= attributeNames)
+              ("AttributeNames" Data..= attributeNames)
           ]
       )

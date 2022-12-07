@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterStatus
 
@@ -76,19 +77,19 @@ awsRedshiftClusterClusterParameterGroup_parameterApplyStatus :: Lens.Lens' AwsRe
 awsRedshiftClusterClusterParameterGroup_parameterApplyStatus = Lens.lens (\AwsRedshiftClusterClusterParameterGroup' {parameterApplyStatus} -> parameterApplyStatus) (\s@AwsRedshiftClusterClusterParameterGroup' {} a -> s {parameterApplyStatus = a} :: AwsRedshiftClusterClusterParameterGroup)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsRedshiftClusterClusterParameterGroup
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsRedshiftClusterClusterParameterGroup"
       ( \x ->
           AwsRedshiftClusterClusterParameterGroup'
-            Prelude.<$> (x Core..:? "ParameterGroupName")
-            Prelude.<*> ( x Core..:? "ClusterParameterStatusList"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ParameterGroupName")
+            Prelude.<*> ( x Data..:? "ClusterParameterStatusList"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ParameterApplyStatus")
+            Prelude.<*> (x Data..:? "ParameterApplyStatus")
       )
 
 instance
@@ -112,17 +113,17 @@ instance
       `Prelude.seq` Prelude.rnf parameterApplyStatus
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsRedshiftClusterClusterParameterGroup
   where
   toJSON AwsRedshiftClusterClusterParameterGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ParameterGroupName" Core..=)
+          [ ("ParameterGroupName" Data..=)
               Prelude.<$> parameterGroupName,
-            ("ClusterParameterStatusList" Core..=)
+            ("ClusterParameterStatusList" Data..=)
               Prelude.<$> clusterParameterStatusList,
-            ("ParameterApplyStatus" Core..=)
+            ("ParameterApplyStatus" Data..=)
               Prelude.<$> parameterApplyStatus
           ]
       )

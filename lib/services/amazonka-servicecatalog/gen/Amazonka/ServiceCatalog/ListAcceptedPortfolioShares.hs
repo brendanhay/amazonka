@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -193,8 +194,8 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
     Response.receiveJSON
       ( \s h x ->
           ListAcceptedPortfolioSharesResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "PortfolioDetails"
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x Data..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -214,38 +215,38 @@ instance Prelude.NFData ListAcceptedPortfolioShares where
       `Prelude.seq` Prelude.rnf portfolioShareType
       `Prelude.seq` Prelude.rnf acceptLanguage
 
-instance Core.ToHeaders ListAcceptedPortfolioShares where
+instance Data.ToHeaders ListAcceptedPortfolioShares where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" ::
+              Data.=# ( "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListAcceptedPortfolioShares where
+instance Data.ToJSON ListAcceptedPortfolioShares where
   toJSON ListAcceptedPortfolioShares' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PortfolioShareType" Core..=)
+          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PortfolioShareType" Data..=)
               Prelude.<$> portfolioShareType,
-            ("AcceptLanguage" Core..=)
+            ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage
           ]
       )
 
-instance Core.ToPath ListAcceptedPortfolioShares where
+instance Data.ToPath ListAcceptedPortfolioShares where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListAcceptedPortfolioShares where
+instance Data.ToQuery ListAcceptedPortfolioShares where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListAcceptedPortfolioSharesResponse' smart constructor.

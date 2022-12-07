@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsEcsClusterClusterSettingsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates whether to enable CloudWatch Container Insights for the ECS
@@ -64,15 +65,15 @@ awsEcsClusterClusterSettingsDetails_value :: Lens.Lens' AwsEcsClusterClusterSett
 awsEcsClusterClusterSettingsDetails_value = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {value} -> value) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {value = a} :: AwsEcsClusterClusterSettingsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsEcsClusterClusterSettingsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEcsClusterClusterSettingsDetails"
       ( \x ->
           AwsEcsClusterClusterSettingsDetails'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -93,13 +94,13 @@ instance
     Prelude.rnf name `Prelude.seq` Prelude.rnf value
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsEcsClusterClusterSettingsDetails
   where
   toJSON AwsEcsClusterClusterSettingsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Value" Data..=) Prelude.<$> value
           ]
       )

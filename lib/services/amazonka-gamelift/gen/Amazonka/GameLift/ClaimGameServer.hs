@@ -89,6 +89,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -172,7 +173,7 @@ instance Core.AWSRequest ClaimGameServer where
     Response.receiveJSON
       ( \s h x ->
           ClaimGameServerResponse'
-            Prelude.<$> (x Core..?> "GameServer")
+            Prelude.<$> (x Data..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,35 +189,35 @@ instance Prelude.NFData ClaimGameServer where
       `Prelude.seq` Prelude.rnf gameServerId
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders ClaimGameServer where
+instance Data.ToHeaders ClaimGameServer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("GameLift.ClaimGameServer" :: Prelude.ByteString),
+              Data.=# ("GameLift.ClaimGameServer" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ClaimGameServer where
+instance Data.ToJSON ClaimGameServer where
   toJSON ClaimGameServer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("GameServerData" Core..=)
+          [ ("GameServerData" Data..=)
               Prelude.<$> gameServerData,
-            ("GameServerId" Core..=) Prelude.<$> gameServerId,
+            ("GameServerId" Data..=) Prelude.<$> gameServerId,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath ClaimGameServer where
+instance Data.ToPath ClaimGameServer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ClaimGameServer where
+instance Data.ToQuery ClaimGameServer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newClaimGameServerResponse' smart constructor.

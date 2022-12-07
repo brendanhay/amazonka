@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.AdministrativeAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.AdministrativeActionFailureDetails
 import Amazonka.FSx.Types.AdministrativeActionType
 import {-# SOURCE #-} Amazonka.FSx.Types.FileSystem
@@ -39,7 +40,7 @@ data AdministrativeAction = AdministrativeAction'
     -- administrative actions.
     targetFileSystemValues :: Prelude.Maybe FileSystem,
     -- | The time that the administrative action request was received.
-    requestTime :: Prelude.Maybe Core.POSIX,
+    requestTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the status of the administrative action, as follows:
     --
     -- -   @FAILED@ - Amazon FSx failed to process the administrative action
@@ -133,7 +134,7 @@ administrativeAction_targetFileSystemValues = Lens.lens (\AdministrativeAction' 
 
 -- | The time that the administrative action request was received.
 administrativeAction_requestTime :: Lens.Lens' AdministrativeAction (Prelude.Maybe Prelude.UTCTime)
-administrativeAction_requestTime = Lens.lens (\AdministrativeAction' {requestTime} -> requestTime) (\s@AdministrativeAction' {} a -> s {requestTime = a} :: AdministrativeAction) Prelude.. Lens.mapping Core._Time
+administrativeAction_requestTime = Lens.lens (\AdministrativeAction' {requestTime} -> requestTime) (\s@AdministrativeAction' {} a -> s {requestTime = a} :: AdministrativeAction) Prelude.. Lens.mapping Data._Time
 
 -- | Describes the status of the administrative action, as follows:
 --
@@ -176,20 +177,20 @@ administrativeAction_progressPercent = Lens.lens (\AdministrativeAction' {progre
 administrativeAction_administrativeActionType :: Lens.Lens' AdministrativeAction (Prelude.Maybe AdministrativeActionType)
 administrativeAction_administrativeActionType = Lens.lens (\AdministrativeAction' {administrativeActionType} -> administrativeActionType) (\s@AdministrativeAction' {} a -> s {administrativeActionType = a} :: AdministrativeAction)
 
-instance Core.FromJSON AdministrativeAction where
+instance Data.FromJSON AdministrativeAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AdministrativeAction"
       ( \x ->
           AdministrativeAction'
-            Prelude.<$> (x Core..:? "TargetFileSystemValues")
-            Prelude.<*> (x Core..:? "RequestTime")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TargetVolumeValues")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "TargetSnapshotValues")
-            Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "AdministrativeActionType")
+            Prelude.<$> (x Data..:? "TargetFileSystemValues")
+            Prelude.<*> (x Data..:? "RequestTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TargetVolumeValues")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "TargetSnapshotValues")
+            Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..:? "AdministrativeActionType")
       )
 
 instance Prelude.Hashable AdministrativeAction where

@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.Page where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.Range
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,15 +73,15 @@ page_pageNumber = Lens.lens (\Page' {pageNumber} -> pageNumber) (\s@Page' {} a -
 page_lineRange :: Lens.Lens' Page (Prelude.Maybe Range)
 page_lineRange = Lens.lens (\Page' {lineRange} -> lineRange) (\s@Page' {} a -> s {lineRange = a} :: Page)
 
-instance Core.FromJSON Page where
+instance Data.FromJSON Page where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Page"
       ( \x ->
           Page'
-            Prelude.<$> (x Core..:? "offsetRange")
-            Prelude.<*> (x Core..:? "pageNumber")
-            Prelude.<*> (x Core..:? "lineRange")
+            Prelude.<$> (x Data..:? "offsetRange")
+            Prelude.<*> (x Data..:? "pageNumber")
+            Prelude.<*> (x Data..:? "lineRange")
       )
 
 instance Prelude.Hashable Page where

@@ -109,6 +109,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -190,7 +191,7 @@ instance Core.AWSRequest GetKeyRotationStatus where
     Response.receiveJSON
       ( \s h x ->
           GetKeyRotationStatusResponse'
-            Prelude.<$> (x Core..?> "KeyRotationEnabled")
+            Prelude.<$> (x Data..?> "KeyRotationEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,32 +202,32 @@ instance Prelude.Hashable GetKeyRotationStatus where
 instance Prelude.NFData GetKeyRotationStatus where
   rnf GetKeyRotationStatus' {..} = Prelude.rnf keyId
 
-instance Core.ToHeaders GetKeyRotationStatus where
+instance Data.ToHeaders GetKeyRotationStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "TrentService.GetKeyRotationStatus" ::
+              Data.=# ( "TrentService.GetKeyRotationStatus" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetKeyRotationStatus where
+instance Data.ToJSON GetKeyRotationStatus where
   toJSON GetKeyRotationStatus' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Core..= keyId)]
+          [Prelude.Just ("KeyId" Data..= keyId)]
       )
 
-instance Core.ToPath GetKeyRotationStatus where
+instance Data.ToPath GetKeyRotationStatus where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetKeyRotationStatus where
+instance Data.ToQuery GetKeyRotationStatus where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetKeyRotationStatusResponse' smart constructor.

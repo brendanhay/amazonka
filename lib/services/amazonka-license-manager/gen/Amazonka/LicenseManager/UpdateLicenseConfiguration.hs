@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LicenseManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -196,48 +197,48 @@ instance Prelude.NFData UpdateLicenseConfiguration where
       `Prelude.seq` Prelude.rnf disassociateWhenNotFound
       `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
-instance Core.ToHeaders UpdateLicenseConfiguration where
+instance Data.ToHeaders UpdateLicenseConfiguration where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLicenseManager.UpdateLicenseConfiguration" ::
+              Data.=# ( "AWSLicenseManager.UpdateLicenseConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateLicenseConfiguration where
+instance Data.ToJSON UpdateLicenseConfiguration where
   toJSON UpdateLicenseConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ProductInformationList" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ProductInformationList" Data..=)
               Prelude.<$> productInformationList,
-            ("LicenseRules" Core..=) Prelude.<$> licenseRules,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LicenseCount" Core..=) Prelude.<$> licenseCount,
-            ("LicenseCountHardLimit" Core..=)
+            ("LicenseRules" Data..=) Prelude.<$> licenseRules,
+            ("Description" Data..=) Prelude.<$> description,
+            ("LicenseCount" Data..=) Prelude.<$> licenseCount,
+            ("LicenseCountHardLimit" Data..=)
               Prelude.<$> licenseCountHardLimit,
-            ("LicenseConfigurationStatus" Core..=)
+            ("LicenseConfigurationStatus" Data..=)
               Prelude.<$> licenseConfigurationStatus,
-            ("DisassociateWhenNotFound" Core..=)
+            ("DisassociateWhenNotFound" Data..=)
               Prelude.<$> disassociateWhenNotFound,
             Prelude.Just
               ( "LicenseConfigurationArn"
-                  Core..= licenseConfigurationArn
+                  Data..= licenseConfigurationArn
               )
           ]
       )
 
-instance Core.ToPath UpdateLicenseConfiguration where
+instance Data.ToPath UpdateLicenseConfiguration where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateLicenseConfiguration where
+instance Data.ToQuery UpdateLicenseConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateLicenseConfigurationResponse' smart constructor.

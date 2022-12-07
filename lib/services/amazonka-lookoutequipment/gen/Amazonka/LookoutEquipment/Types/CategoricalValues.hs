@@ -21,6 +21,7 @@ module Amazonka.LookoutEquipment.Types.CategoricalValues where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,14 +69,14 @@ categoricalValues_numberOfCategory = Lens.lens (\CategoricalValues' {numberOfCat
 categoricalValues_status :: Lens.Lens' CategoricalValues StatisticalIssueStatus
 categoricalValues_status = Lens.lens (\CategoricalValues' {status} -> status) (\s@CategoricalValues' {} a -> s {status = a} :: CategoricalValues)
 
-instance Core.FromJSON CategoricalValues where
+instance Data.FromJSON CategoricalValues where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CategoricalValues"
       ( \x ->
           CategoricalValues'
-            Prelude.<$> (x Core..:? "NumberOfCategory")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "NumberOfCategory")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable CategoricalValues where

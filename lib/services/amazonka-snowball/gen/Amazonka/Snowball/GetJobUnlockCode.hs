@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,7 +102,7 @@ instance Core.AWSRequest GetJobUnlockCode where
     Response.receiveJSON
       ( \s h x ->
           GetJobUnlockCodeResponse'
-            Prelude.<$> (x Core..?> "UnlockCode")
+            Prelude.<$> (x Data..?> "UnlockCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.Hashable GetJobUnlockCode where
 instance Prelude.NFData GetJobUnlockCode where
   rnf GetJobUnlockCode' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders GetJobUnlockCode where
+instance Data.ToHeaders GetJobUnlockCode where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.GetJobUnlockCode" ::
+              Data.=# ( "AWSIESnowballJobManagementService.GetJobUnlockCode" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetJobUnlockCode where
+instance Data.ToJSON GetJobUnlockCode where
   toJSON GetJobUnlockCode' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Core..= jobId)]
+          [Prelude.Just ("JobId" Data..= jobId)]
       )
 
-instance Core.ToPath GetJobUnlockCode where
+instance Data.ToPath GetJobUnlockCode where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetJobUnlockCode where
+instance Data.ToQuery GetJobUnlockCode where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetJobUnlockCodeResponse' smart constructor.

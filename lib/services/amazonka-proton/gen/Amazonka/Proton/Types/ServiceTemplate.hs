@@ -21,6 +21,7 @@ module Amazonka.Proton.Types.ServiceTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.Provisioning
 
@@ -31,9 +32,9 @@ data ServiceTemplate = ServiceTemplate'
   { -- | The recommended version of the service template.
     recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The service template name as displayed in the developer interface.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the service template.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
     -- the service template. Otherwise, a service pipeline /isn\'t/ included in
     -- the service template.
@@ -44,9 +45,9 @@ data ServiceTemplate = ServiceTemplate'
     -- | The Amazon Resource Name (ARN) of the service template.
     arn :: Prelude.Text,
     -- | The time when the service template was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time when the service template was last modified.
-    lastModifiedAt :: Core.POSIX,
+    lastModifiedAt :: Data.POSIX,
     -- | The name of the service template.
     name :: Prelude.Text
   }
@@ -103,8 +104,8 @@ newServiceTemplate
         pipelineProvisioning = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        lastModifiedAt = Core._Time Lens.# pLastModifiedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
@@ -114,11 +115,11 @@ serviceTemplate_recommendedVersion = Lens.lens (\ServiceTemplate' {recommendedVe
 
 -- | The service template name as displayed in the developer interface.
 serviceTemplate_displayName :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
-serviceTemplate_displayName = Lens.lens (\ServiceTemplate' {displayName} -> displayName) (\s@ServiceTemplate' {} a -> s {displayName = a} :: ServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+serviceTemplate_displayName = Lens.lens (\ServiceTemplate' {displayName} -> displayName) (\s@ServiceTemplate' {} a -> s {displayName = a} :: ServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the service template.
 serviceTemplate_description :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
-serviceTemplate_description = Lens.lens (\ServiceTemplate' {description} -> description) (\s@ServiceTemplate' {} a -> s {description = a} :: ServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
+serviceTemplate_description = Lens.lens (\ServiceTemplate' {description} -> description) (\s@ServiceTemplate' {} a -> s {description = a} :: ServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
 -- the service template. Otherwise, a service pipeline /isn\'t/ included in
@@ -137,31 +138,31 @@ serviceTemplate_arn = Lens.lens (\ServiceTemplate' {arn} -> arn) (\s@ServiceTemp
 
 -- | The time when the service template was created.
 serviceTemplate_createdAt :: Lens.Lens' ServiceTemplate Prelude.UTCTime
-serviceTemplate_createdAt = Lens.lens (\ServiceTemplate' {createdAt} -> createdAt) (\s@ServiceTemplate' {} a -> s {createdAt = a} :: ServiceTemplate) Prelude.. Core._Time
+serviceTemplate_createdAt = Lens.lens (\ServiceTemplate' {createdAt} -> createdAt) (\s@ServiceTemplate' {} a -> s {createdAt = a} :: ServiceTemplate) Prelude.. Data._Time
 
 -- | The time when the service template was last modified.
 serviceTemplate_lastModifiedAt :: Lens.Lens' ServiceTemplate Prelude.UTCTime
-serviceTemplate_lastModifiedAt = Lens.lens (\ServiceTemplate' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceTemplate' {} a -> s {lastModifiedAt = a} :: ServiceTemplate) Prelude.. Core._Time
+serviceTemplate_lastModifiedAt = Lens.lens (\ServiceTemplate' {lastModifiedAt} -> lastModifiedAt) (\s@ServiceTemplate' {} a -> s {lastModifiedAt = a} :: ServiceTemplate) Prelude.. Data._Time
 
 -- | The name of the service template.
 serviceTemplate_name :: Lens.Lens' ServiceTemplate Prelude.Text
 serviceTemplate_name = Lens.lens (\ServiceTemplate' {name} -> name) (\s@ServiceTemplate' {} a -> s {name = a} :: ServiceTemplate)
 
-instance Core.FromJSON ServiceTemplate where
+instance Data.FromJSON ServiceTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ServiceTemplate"
       ( \x ->
           ServiceTemplate'
-            Prelude.<$> (x Core..:? "recommendedVersion")
-            Prelude.<*> (x Core..:? "displayName")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "pipelineProvisioning")
-            Prelude.<*> (x Core..:? "encryptionKey")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "lastModifiedAt")
-            Prelude.<*> (x Core..: "name")
+            Prelude.<$> (x Data..:? "recommendedVersion")
+            Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "pipelineProvisioning")
+            Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "lastModifiedAt")
+            Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable ServiceTemplate where

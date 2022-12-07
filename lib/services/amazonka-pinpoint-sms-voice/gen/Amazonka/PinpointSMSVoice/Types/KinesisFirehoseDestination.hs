@@ -21,6 +21,7 @@ module Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that contains information about an event destination that
@@ -69,14 +70,14 @@ kinesisFirehoseDestination_deliveryStreamArn = Lens.lens (\KinesisFirehoseDestin
 kinesisFirehoseDestination_iamRoleArn :: Lens.Lens' KinesisFirehoseDestination (Prelude.Maybe Prelude.Text)
 kinesisFirehoseDestination_iamRoleArn = Lens.lens (\KinesisFirehoseDestination' {iamRoleArn} -> iamRoleArn) (\s@KinesisFirehoseDestination' {} a -> s {iamRoleArn = a} :: KinesisFirehoseDestination)
 
-instance Core.FromJSON KinesisFirehoseDestination where
+instance Data.FromJSON KinesisFirehoseDestination where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "KinesisFirehoseDestination"
       ( \x ->
           KinesisFirehoseDestination'
-            Prelude.<$> (x Core..:? "DeliveryStreamArn")
-            Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<$> (x Data..:? "DeliveryStreamArn")
+            Prelude.<*> (x Data..:? "IamRoleArn")
       )
 
 instance Prelude.Hashable KinesisFirehoseDestination where
@@ -89,12 +90,12 @@ instance Prelude.NFData KinesisFirehoseDestination where
     Prelude.rnf deliveryStreamArn
       `Prelude.seq` Prelude.rnf iamRoleArn
 
-instance Core.ToJSON KinesisFirehoseDestination where
+instance Data.ToJSON KinesisFirehoseDestination where
   toJSON KinesisFirehoseDestination' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeliveryStreamArn" Core..=)
+          [ ("DeliveryStreamArn" Data..=)
               Prelude.<$> deliveryStreamArn,
-            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn
+            ("IamRoleArn" Data..=) Prelude.<$> iamRoleArn
           ]
       )

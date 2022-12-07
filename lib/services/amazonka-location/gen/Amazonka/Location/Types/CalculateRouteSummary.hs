@@ -21,6 +21,7 @@ module Amazonka.Location.Types.CalculateRouteSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.DistanceUnit
 import qualified Amazonka.Prelude as Prelude
 
@@ -69,7 +70,7 @@ data CalculateRouteSummary = CalculateRouteSummary'
     --
     -- -   The fourth @bbox@ position is the Y coordinate, or latitude of the
     --     upper northeast corner.
-    routeBBox :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
+    routeBBox :: Data.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -146,7 +147,7 @@ newCalculateRouteSummary
         distanceUnit = pDistanceUnit_,
         durationSeconds = pDurationSeconds_,
         routeBBox =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pRouteBBox_
       }
 
@@ -200,19 +201,19 @@ calculateRouteSummary_durationSeconds = Lens.lens (\CalculateRouteSummary' {dura
 -- -   The fourth @bbox@ position is the Y coordinate, or latitude of the
 --     upper northeast corner.
 calculateRouteSummary_routeBBox :: Lens.Lens' CalculateRouteSummary (Prelude.NonEmpty Prelude.Double)
-calculateRouteSummary_routeBBox = Lens.lens (\CalculateRouteSummary' {routeBBox} -> routeBBox) (\s@CalculateRouteSummary' {} a -> s {routeBBox = a} :: CalculateRouteSummary) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+calculateRouteSummary_routeBBox = Lens.lens (\CalculateRouteSummary' {routeBBox} -> routeBBox) (\s@CalculateRouteSummary' {} a -> s {routeBBox = a} :: CalculateRouteSummary) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
-instance Core.FromJSON CalculateRouteSummary where
+instance Data.FromJSON CalculateRouteSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CalculateRouteSummary"
       ( \x ->
           CalculateRouteSummary'
-            Prelude.<$> (x Core..: "DataSource")
-            Prelude.<*> (x Core..: "Distance")
-            Prelude.<*> (x Core..: "DistanceUnit")
-            Prelude.<*> (x Core..: "DurationSeconds")
-            Prelude.<*> (x Core..: "RouteBBox")
+            Prelude.<$> (x Data..: "DataSource")
+            Prelude.<*> (x Data..: "Distance")
+            Prelude.<*> (x Data..: "DistanceUnit")
+            Prelude.<*> (x Data..: "DurationSeconds")
+            Prelude.<*> (x Data..: "RouteBBox")
       )
 
 instance Prelude.Hashable CalculateRouteSummary where

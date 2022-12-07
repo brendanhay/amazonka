@@ -21,6 +21,7 @@ module Amazonka.ELBV2.Types.RedirectActionConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types.RedirectActionStatusCodeEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -142,15 +143,15 @@ redirectActionConfig_protocol = Lens.lens (\RedirectActionConfig' {protocol} -> 
 redirectActionConfig_statusCode :: Lens.Lens' RedirectActionConfig RedirectActionStatusCodeEnum
 redirectActionConfig_statusCode = Lens.lens (\RedirectActionConfig' {statusCode} -> statusCode) (\s@RedirectActionConfig' {} a -> s {statusCode = a} :: RedirectActionConfig)
 
-instance Core.FromXML RedirectActionConfig where
+instance Data.FromXML RedirectActionConfig where
   parseXML x =
     RedirectActionConfig'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "Host")
-      Prelude.<*> (x Core..@? "Path")
-      Prelude.<*> (x Core..@? "Query")
-      Prelude.<*> (x Core..@? "Protocol")
-      Prelude.<*> (x Core..@ "StatusCode")
+      Prelude.<$> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "Host")
+      Prelude.<*> (x Data..@? "Path")
+      Prelude.<*> (x Data..@? "Query")
+      Prelude.<*> (x Data..@? "Protocol")
+      Prelude.<*> (x Data..@ "StatusCode")
 
 instance Prelude.Hashable RedirectActionConfig where
   hashWithSalt _salt RedirectActionConfig' {..} =
@@ -170,13 +171,13 @@ instance Prelude.NFData RedirectActionConfig where
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf statusCode
 
-instance Core.ToQuery RedirectActionConfig where
+instance Data.ToQuery RedirectActionConfig where
   toQuery RedirectActionConfig' {..} =
     Prelude.mconcat
-      [ "Port" Core.=: port,
-        "Host" Core.=: host,
-        "Path" Core.=: path,
-        "Query" Core.=: query,
-        "Protocol" Core.=: protocol,
-        "StatusCode" Core.=: statusCode
+      [ "Port" Data.=: port,
+        "Host" Data.=: host,
+        "Path" Data.=: path,
+        "Query" Data.=: query,
+        "Protocol" Data.=: protocol,
+        "StatusCode" Data.=: statusCode
       ]

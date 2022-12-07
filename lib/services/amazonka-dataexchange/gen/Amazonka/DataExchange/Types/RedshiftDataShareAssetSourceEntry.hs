@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The source of the Amazon Redshift datashare asset.
@@ -56,15 +57,15 @@ redshiftDataShareAssetSourceEntry_dataShareArn :: Lens.Lens' RedshiftDataShareAs
 redshiftDataShareAssetSourceEntry_dataShareArn = Lens.lens (\RedshiftDataShareAssetSourceEntry' {dataShareArn} -> dataShareArn) (\s@RedshiftDataShareAssetSourceEntry' {} a -> s {dataShareArn = a} :: RedshiftDataShareAssetSourceEntry)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     RedshiftDataShareAssetSourceEntry
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftDataShareAssetSourceEntry"
       ( \x ->
           RedshiftDataShareAssetSourceEntry'
-            Prelude.<$> (x Core..: "DataShareArn")
+            Prelude.<$> (x Data..: "DataShareArn")
       )
 
 instance
@@ -84,11 +85,11 @@ instance
     Prelude.rnf dataShareArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     RedshiftDataShareAssetSourceEntry
   where
   toJSON RedshiftDataShareAssetSourceEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DataShareArn" Core..= dataShareArn)]
+          [Prelude.Just ("DataShareArn" Data..= dataShareArn)]
       )

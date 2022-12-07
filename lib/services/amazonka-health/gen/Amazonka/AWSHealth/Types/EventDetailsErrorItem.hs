@@ -21,6 +21,7 @@ module Amazonka.AWSHealth.Types.EventDetailsErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Error information returned when a
@@ -90,15 +91,15 @@ eventDetailsErrorItem_errorMessage = Lens.lens (\EventDetailsErrorItem' {errorMe
 eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
 
-instance Core.FromJSON EventDetailsErrorItem where
+instance Data.FromJSON EventDetailsErrorItem where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EventDetailsErrorItem"
       ( \x ->
           EventDetailsErrorItem'
-            Prelude.<$> (x Core..:? "eventArn")
-            Prelude.<*> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "errorName")
+            Prelude.<$> (x Data..:? "eventArn")
+            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "errorName")
       )
 
 instance Prelude.Hashable EventDetailsErrorItem where

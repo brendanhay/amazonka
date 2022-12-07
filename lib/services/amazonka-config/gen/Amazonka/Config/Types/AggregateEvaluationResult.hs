@@ -23,6 +23,7 @@ import Amazonka.Config.Types.ComplianceType
 import Amazonka.Config.Types.EvaluationResultIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of an Config evaluation for an account ID and region in an
@@ -36,9 +37,9 @@ data AggregateEvaluationResult = AggregateEvaluationResult'
     evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
     -- | The time when the Config rule evaluated the Amazon Web Services
     -- resource.
-    configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
+    configRuleInvokedTime :: Prelude.Maybe Data.POSIX,
     -- | The time when Config recorded the aggregate evaluation result.
-    resultRecordedTime :: Prelude.Maybe Core.POSIX,
+    resultRecordedTime :: Prelude.Maybe Data.POSIX,
     -- | Supplementary information about how the agrregate evaluation determined
     -- the compliance.
     annotation :: Prelude.Maybe Prelude.Text,
@@ -103,11 +104,11 @@ aggregateEvaluationResult_evaluationResultIdentifier = Lens.lens (\AggregateEval
 -- | The time when the Config rule evaluated the Amazon Web Services
 -- resource.
 aggregateEvaluationResult_configRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
-aggregateEvaluationResult_configRuleInvokedTime = Lens.lens (\AggregateEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@AggregateEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
+aggregateEvaluationResult_configRuleInvokedTime = Lens.lens (\AggregateEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@AggregateEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Data._Time
 
 -- | The time when Config recorded the aggregate evaluation result.
 aggregateEvaluationResult_resultRecordedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
-aggregateEvaluationResult_resultRecordedTime = Lens.lens (\AggregateEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@AggregateEvaluationResult' {} a -> s {resultRecordedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
+aggregateEvaluationResult_resultRecordedTime = Lens.lens (\AggregateEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@AggregateEvaluationResult' {} a -> s {resultRecordedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Data._Time
 
 -- | Supplementary information about how the agrregate evaluation determined
 -- the compliance.
@@ -130,19 +131,19 @@ aggregateEvaluationResult_awsRegion = Lens.lens (\AggregateEvaluationResult' {aw
 aggregateEvaluationResult_complianceType :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe ComplianceType)
 aggregateEvaluationResult_complianceType = Lens.lens (\AggregateEvaluationResult' {complianceType} -> complianceType) (\s@AggregateEvaluationResult' {} a -> s {complianceType = a} :: AggregateEvaluationResult)
 
-instance Core.FromJSON AggregateEvaluationResult where
+instance Data.FromJSON AggregateEvaluationResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AggregateEvaluationResult"
       ( \x ->
           AggregateEvaluationResult'
-            Prelude.<$> (x Core..:? "EvaluationResultIdentifier")
-            Prelude.<*> (x Core..:? "ConfigRuleInvokedTime")
-            Prelude.<*> (x Core..:? "ResultRecordedTime")
-            Prelude.<*> (x Core..:? "Annotation")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "AwsRegion")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Data..:? "EvaluationResultIdentifier")
+            Prelude.<*> (x Data..:? "ConfigRuleInvokedTime")
+            Prelude.<*> (x Data..:? "ResultRecordedTime")
+            Prelude.<*> (x Data..:? "Annotation")
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "ComplianceType")
       )
 
 instance Prelude.Hashable AggregateEvaluationResult where

@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.Heterogeneous where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.HeterogeneousTargetDatabaseEngine
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,13 +60,13 @@ newHeterogeneous pTargetDatabaseEngine_ =
 heterogeneous_targetDatabaseEngine :: Lens.Lens' Heterogeneous (Prelude.NonEmpty HeterogeneousTargetDatabaseEngine)
 heterogeneous_targetDatabaseEngine = Lens.lens (\Heterogeneous' {targetDatabaseEngine} -> targetDatabaseEngine) (\s@Heterogeneous' {} a -> s {targetDatabaseEngine = a} :: Heterogeneous) Prelude.. Lens.coerced
 
-instance Core.FromJSON Heterogeneous where
+instance Data.FromJSON Heterogeneous where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Heterogeneous"
       ( \x ->
           Heterogeneous'
-            Prelude.<$> (x Core..: "targetDatabaseEngine")
+            Prelude.<$> (x Data..: "targetDatabaseEngine")
       )
 
 instance Prelude.Hashable Heterogeneous where
@@ -76,13 +77,13 @@ instance Prelude.NFData Heterogeneous where
   rnf Heterogeneous' {..} =
     Prelude.rnf targetDatabaseEngine
 
-instance Core.ToJSON Heterogeneous where
+instance Data.ToJSON Heterogeneous where
   toJSON Heterogeneous' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "targetDatabaseEngine"
-                  Core..= targetDatabaseEngine
+                  Data..= targetDatabaseEngine
               )
           ]
       )

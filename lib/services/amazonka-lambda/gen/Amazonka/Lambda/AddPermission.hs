@@ -71,6 +71,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -323,7 +324,7 @@ instance Core.AWSRequest AddPermission where
     Response.receiveJSON
       ( \s h x ->
           AddPermissionResponse'
-            Prelude.<$> (x Core..?> "Statement")
+            Prelude.<$> (x Data..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -355,39 +356,39 @@ instance Prelude.NFData AddPermission where
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf principal
 
-instance Core.ToHeaders AddPermission where
+instance Data.ToHeaders AddPermission where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AddPermission where
+instance Data.ToJSON AddPermission where
   toJSON AddPermission' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SourceArn" Core..=) Prelude.<$> sourceArn,
-            ("FunctionUrlAuthType" Core..=)
+          [ ("SourceArn" Data..=) Prelude.<$> sourceArn,
+            ("FunctionUrlAuthType" Data..=)
               Prelude.<$> functionUrlAuthType,
-            ("EventSourceToken" Core..=)
+            ("EventSourceToken" Data..=)
               Prelude.<$> eventSourceToken,
-            ("PrincipalOrgID" Core..=)
+            ("PrincipalOrgID" Data..=)
               Prelude.<$> principalOrgID,
-            ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
-            Prelude.Just ("StatementId" Core..= statementId),
-            Prelude.Just ("Action" Core..= action),
-            Prelude.Just ("Principal" Core..= principal)
+            ("RevisionId" Data..=) Prelude.<$> revisionId,
+            ("SourceAccount" Data..=) Prelude.<$> sourceAccount,
+            Prelude.Just ("StatementId" Data..= statementId),
+            Prelude.Just ("Action" Data..= action),
+            Prelude.Just ("Principal" Data..= principal)
           ]
       )
 
-instance Core.ToPath AddPermission where
+instance Data.ToPath AddPermission where
   toPath AddPermission' {..} =
     Prelude.mconcat
       [ "/2015-03-31/functions/",
-        Core.toBS functionName,
+        Data.toBS functionName,
         "/policy"
       ]
 
-instance Core.ToQuery AddPermission where
+instance Data.ToQuery AddPermission where
   toQuery AddPermission' {..} =
-    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+    Prelude.mconcat ["Qualifier" Data.=: qualifier]
 
 -- | /See:/ 'newAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'

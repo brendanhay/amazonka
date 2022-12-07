@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,35 +155,35 @@ instance Prelude.NFData DeleteDocument where
       `Prelude.seq` Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders DeleteDocument where
+instance Data.ToHeaders DeleteDocument where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AmazonSSM.DeleteDocument" :: Prelude.ByteString),
+              Data.=# ("AmazonSSM.DeleteDocument" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteDocument where
+instance Data.ToJSON DeleteDocument where
   toJSON DeleteDocument' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Core..=) Prelude.<$> versionName,
-            ("Force" Core..=) Prelude.<$> force,
-            ("DocumentVersion" Core..=)
+          [ ("VersionName" Data..=) Prelude.<$> versionName,
+            ("Force" Data..=) Prelude.<$> force,
+            ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath DeleteDocument where
+instance Data.ToPath DeleteDocument where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteDocument where
+instance Data.ToQuery DeleteDocument where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteDocumentResponse' smart constructor.

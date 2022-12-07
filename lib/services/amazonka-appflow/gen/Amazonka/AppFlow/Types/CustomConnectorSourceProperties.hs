@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.CustomConnectorSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when the custom connector is being used
@@ -69,18 +70,18 @@ customConnectorSourceProperties_entityName :: Lens.Lens' CustomConnectorSourcePr
 customConnectorSourceProperties_entityName = Lens.lens (\CustomConnectorSourceProperties' {entityName} -> entityName) (\s@CustomConnectorSourceProperties' {} a -> s {entityName = a} :: CustomConnectorSourceProperties)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomConnectorSourceProperties
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomConnectorSourceProperties"
       ( \x ->
           CustomConnectorSourceProperties'
-            Prelude.<$> ( x Core..:? "customProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "customProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "entityName")
+            Prelude.<*> (x Data..: "entityName")
       )
 
 instance
@@ -101,12 +102,12 @@ instance
     Prelude.rnf customProperties
       `Prelude.seq` Prelude.rnf entityName
 
-instance Core.ToJSON CustomConnectorSourceProperties where
+instance Data.ToJSON CustomConnectorSourceProperties where
   toJSON CustomConnectorSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("customProperties" Core..=)
+          [ ("customProperties" Data..=)
               Prelude.<$> customProperties,
-            Prelude.Just ("entityName" Core..= entityName)
+            Prelude.Just ("entityName" Data..= entityName)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.DecisionTaskTimedOutEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SWF.Types.DecisionTaskTimeoutType
 
@@ -100,17 +101,17 @@ decisionTaskTimedOutEventAttributes_startedEventId :: Lens.Lens' DecisionTaskTim
 decisionTaskTimedOutEventAttributes_startedEventId = Lens.lens (\DecisionTaskTimedOutEventAttributes' {startedEventId} -> startedEventId) (\s@DecisionTaskTimedOutEventAttributes' {} a -> s {startedEventId = a} :: DecisionTaskTimedOutEventAttributes)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DecisionTaskTimedOutEventAttributes
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DecisionTaskTimedOutEventAttributes"
       ( \x ->
           DecisionTaskTimedOutEventAttributes'
-            Prelude.<$> (x Core..: "timeoutType")
-            Prelude.<*> (x Core..: "scheduledEventId")
-            Prelude.<*> (x Core..: "startedEventId")
+            Prelude.<$> (x Data..: "timeoutType")
+            Prelude.<*> (x Data..: "scheduledEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance

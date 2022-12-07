@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Project where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProjectStatus
 import Amazonka.SageMaker.Types.ServiceCatalogProvisionedProductDetails
@@ -41,13 +42,13 @@ data Project = Project'
     -- | The ID of the project.
     projectId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp container for when the project was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
     -- | The status of the project.
     projectStatus :: Prelude.Maybe ProjectStatus,
     -- | A timestamp specifying when the project was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The name of the project.
     projectName :: Prelude.Maybe Prelude.Text,
@@ -129,7 +130,7 @@ project_projectId = Lens.lens (\Project' {projectId} -> projectId) (\s@Project' 
 
 -- | A timestamp container for when the project was last modified.
 project_lastModifiedTime :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_lastModifiedTime = Lens.lens (\Project' {lastModifiedTime} -> lastModifiedTime) (\s@Project' {} a -> s {lastModifiedTime = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_lastModifiedTime = Lens.lens (\Project' {lastModifiedTime} -> lastModifiedTime) (\s@Project' {} a -> s {lastModifiedTime = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the project.
 project_projectDescription :: Lens.Lens' Project (Prelude.Maybe Prelude.Text)
@@ -141,7 +142,7 @@ project_projectStatus = Lens.lens (\Project' {projectStatus} -> projectStatus) (
 
 -- | A timestamp specifying when the project was created.
 project_creationTime :: Lens.Lens' Project (Prelude.Maybe Prelude.UTCTime)
-project_creationTime = Lens.lens (\Project' {creationTime} -> creationTime) (\s@Project' {} a -> s {creationTime = a} :: Project) Prelude.. Lens.mapping Core._Time
+project_creationTime = Lens.lens (\Project' {creationTime} -> creationTime) (\s@Project' {} a -> s {creationTime = a} :: Project) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 project_lastModifiedBy :: Lens.Lens' Project (Prelude.Maybe UserContext)
@@ -163,26 +164,26 @@ project_projectArn = Lens.lens (\Project' {projectArn} -> projectArn) (\s@Projec
 project_serviceCatalogProvisioningDetails :: Lens.Lens' Project (Prelude.Maybe ServiceCatalogProvisioningDetails)
 project_serviceCatalogProvisioningDetails = Lens.lens (\Project' {serviceCatalogProvisioningDetails} -> serviceCatalogProvisioningDetails) (\s@Project' {} a -> s {serviceCatalogProvisioningDetails = a} :: Project)
 
-instance Core.FromJSON Project where
+instance Data.FromJSON Project where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Project"
       ( \x ->
           Project'
-            Prelude.<$> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> ( x
-                            Core..:? "ServiceCatalogProvisionedProductDetails"
+                            Data..:? "ServiceCatalogProvisionedProductDetails"
                         )
-            Prelude.<*> (x Core..:? "ProjectId")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ProjectDescription")
-            Prelude.<*> (x Core..:? "ProjectStatus")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "ProjectName")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "ProjectArn")
-            Prelude.<*> (x Core..:? "ServiceCatalogProvisioningDetails")
+            Prelude.<*> (x Data..:? "ProjectId")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "ProjectDescription")
+            Prelude.<*> (x Data..:? "ProjectStatus")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
+            Prelude.<*> (x Data..:? "ProjectName")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "ProjectArn")
+            Prelude.<*> (x Data..:? "ServiceCatalogProvisioningDetails")
       )
 
 instance Prelude.Hashable Project where

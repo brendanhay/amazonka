@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,7 +89,7 @@ data CreateTrust = CreateTrust'
     remoteDomainName :: Prelude.Text,
     -- | The trust password. The must be the same password that was used when
     -- creating the trust relationship on the external domain.
-    trustPassword :: Core.Sensitive Prelude.Text,
+    trustPassword :: Data.Sensitive Prelude.Text,
     -- | The direction of the trust relationship.
     trustDirection :: TrustDirection
   }
@@ -141,7 +142,7 @@ newCreateTrust
         directoryId = pDirectoryId_,
         remoteDomainName = pRemoteDomainName_,
         trustPassword =
-          Core._Sensitive Lens.# pTrustPassword_,
+          Data._Sensitive Lens.# pTrustPassword_,
         trustDirection = pTrustDirection_
       }
 
@@ -171,7 +172,7 @@ createTrust_remoteDomainName = Lens.lens (\CreateTrust' {remoteDomainName} -> re
 -- | The trust password. The must be the same password that was used when
 -- creating the trust relationship on the external domain.
 createTrust_trustPassword :: Lens.Lens' CreateTrust Prelude.Text
-createTrust_trustPassword = Lens.lens (\CreateTrust' {trustPassword} -> trustPassword) (\s@CreateTrust' {} a -> s {trustPassword = a} :: CreateTrust) Prelude.. Core._Sensitive
+createTrust_trustPassword = Lens.lens (\CreateTrust' {trustPassword} -> trustPassword) (\s@CreateTrust' {} a -> s {trustPassword = a} :: CreateTrust) Prelude.. Data._Sensitive
 
 -- | The direction of the trust relationship.
 createTrust_trustDirection :: Lens.Lens' CreateTrust TrustDirection
@@ -185,7 +186,7 @@ instance Core.AWSRequest CreateTrust where
     Response.receiveJSON
       ( \s h x ->
           CreateTrustResponse'
-            Prelude.<$> (x Core..?> "TrustId")
+            Prelude.<$> (x Data..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -209,42 +210,42 @@ instance Prelude.NFData CreateTrust where
       `Prelude.seq` Prelude.rnf trustPassword
       `Prelude.seq` Prelude.rnf trustDirection
 
-instance Core.ToHeaders CreateTrust where
+instance Data.ToHeaders CreateTrust where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.CreateTrust" ::
+              Data.=# ( "DirectoryService_20150416.CreateTrust" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateTrust where
+instance Data.ToJSON CreateTrust where
   toJSON CreateTrust' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TrustType" Core..=) Prelude.<$> trustType,
-            ("SelectiveAuth" Core..=) Prelude.<$> selectiveAuth,
-            ("ConditionalForwarderIpAddrs" Core..=)
+          [ ("TrustType" Data..=) Prelude.<$> trustType,
+            ("SelectiveAuth" Data..=) Prelude.<$> selectiveAuth,
+            ("ConditionalForwarderIpAddrs" Data..=)
               Prelude.<$> conditionalForwarderIpAddrs,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("RemoteDomainName" Core..= remoteDomainName),
-            Prelude.Just ("TrustPassword" Core..= trustPassword),
+              ("RemoteDomainName" Data..= remoteDomainName),
+            Prelude.Just ("TrustPassword" Data..= trustPassword),
             Prelude.Just
-              ("TrustDirection" Core..= trustDirection)
+              ("TrustDirection" Data..= trustDirection)
           ]
       )
 
-instance Core.ToPath CreateTrust where
+instance Data.ToPath CreateTrust where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTrust where
+instance Data.ToQuery CreateTrust where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The result of a CreateTrust request.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LakeFormation.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -158,34 +159,34 @@ instance Prelude.NFData UpdateTableObjects where
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf writeOperations
 
-instance Core.ToHeaders UpdateTableObjects where
+instance Data.ToHeaders UpdateTableObjects where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTableObjects where
+instance Data.ToJSON UpdateTableObjects where
   toJSON UpdateTableObjects' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("TransactionId" Core..=) Prelude.<$> transactionId,
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("TransactionId" Data..=) Prelude.<$> transactionId,
+            Prelude.Just ("DatabaseName" Data..= databaseName),
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just
-              ("WriteOperations" Core..= writeOperations)
+              ("WriteOperations" Data..= writeOperations)
           ]
       )
 
-instance Core.ToPath UpdateTableObjects where
+instance Data.ToPath UpdateTableObjects where
   toPath = Prelude.const "/UpdateTableObjects"
 
-instance Core.ToQuery UpdateTableObjects where
+instance Data.ToQuery UpdateTableObjects where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTableObjectsResponse' smart constructor.

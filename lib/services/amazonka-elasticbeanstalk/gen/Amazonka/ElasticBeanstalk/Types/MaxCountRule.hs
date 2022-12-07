@@ -21,6 +21,7 @@ module Amazonka.ElasticBeanstalk.Types.MaxCountRule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A lifecycle rule that deletes the oldest application version when the
@@ -76,12 +77,12 @@ maxCountRule_deleteSourceFromS3 = Lens.lens (\MaxCountRule' {deleteSourceFromS3}
 maxCountRule_enabled :: Lens.Lens' MaxCountRule Prelude.Bool
 maxCountRule_enabled = Lens.lens (\MaxCountRule' {enabled} -> enabled) (\s@MaxCountRule' {} a -> s {enabled = a} :: MaxCountRule)
 
-instance Core.FromXML MaxCountRule where
+instance Data.FromXML MaxCountRule where
   parseXML x =
     MaxCountRule'
-      Prelude.<$> (x Core..@? "MaxCount")
-      Prelude.<*> (x Core..@? "DeleteSourceFromS3")
-      Prelude.<*> (x Core..@ "Enabled")
+      Prelude.<$> (x Data..@? "MaxCount")
+      Prelude.<*> (x Data..@? "DeleteSourceFromS3")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance Prelude.Hashable MaxCountRule where
   hashWithSalt _salt MaxCountRule' {..} =
@@ -95,10 +96,10 @@ instance Prelude.NFData MaxCountRule where
       `Prelude.seq` Prelude.rnf deleteSourceFromS3
       `Prelude.seq` Prelude.rnf enabled
 
-instance Core.ToQuery MaxCountRule where
+instance Data.ToQuery MaxCountRule where
   toQuery MaxCountRule' {..} =
     Prelude.mconcat
-      [ "MaxCount" Core.=: maxCount,
-        "DeleteSourceFromS3" Core.=: deleteSourceFromS3,
-        "Enabled" Core.=: enabled
+      [ "MaxCount" Data.=: maxCount,
+        "DeleteSourceFromS3" Data.=: deleteSourceFromS3,
+        "Enabled" Data.=: enabled
       ]

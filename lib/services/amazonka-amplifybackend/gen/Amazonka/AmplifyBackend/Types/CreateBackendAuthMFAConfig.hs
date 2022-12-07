@@ -23,6 +23,7 @@ import Amazonka.AmplifyBackend.Types.MFAMode
 import Amazonka.AmplifyBackend.Types.Settings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes whether to apply multi-factor authentication policies for your
@@ -73,14 +74,14 @@ createBackendAuthMFAConfig_settings = Lens.lens (\CreateBackendAuthMFAConfig' {s
 createBackendAuthMFAConfig_mfaMode :: Lens.Lens' CreateBackendAuthMFAConfig MFAMode
 createBackendAuthMFAConfig_mfaMode = Lens.lens (\CreateBackendAuthMFAConfig' {mfaMode} -> mfaMode) (\s@CreateBackendAuthMFAConfig' {} a -> s {mfaMode = a} :: CreateBackendAuthMFAConfig)
 
-instance Core.FromJSON CreateBackendAuthMFAConfig where
+instance Data.FromJSON CreateBackendAuthMFAConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CreateBackendAuthMFAConfig"
       ( \x ->
           CreateBackendAuthMFAConfig'
-            Prelude.<$> (x Core..:? "settings")
-            Prelude.<*> (x Core..: "MFAMode")
+            Prelude.<$> (x Data..:? "settings")
+            Prelude.<*> (x Data..: "MFAMode")
       )
 
 instance Prelude.Hashable CreateBackendAuthMFAConfig where
@@ -93,11 +94,11 @@ instance Prelude.NFData CreateBackendAuthMFAConfig where
     Prelude.rnf settings
       `Prelude.seq` Prelude.rnf mfaMode
 
-instance Core.ToJSON CreateBackendAuthMFAConfig where
+instance Data.ToJSON CreateBackendAuthMFAConfig where
   toJSON CreateBackendAuthMFAConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("settings" Core..=) Prelude.<$> settings,
-            Prelude.Just ("MFAMode" Core..= mfaMode)
+          [ ("settings" Data..=) Prelude.<$> settings,
+            Prelude.Just ("MFAMode" Data..= mfaMode)
           ]
       )

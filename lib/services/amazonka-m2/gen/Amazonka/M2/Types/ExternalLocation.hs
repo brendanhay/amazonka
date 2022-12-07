@@ -21,6 +21,7 @@ module Amazonka.M2.Types.ExternalLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines an external storage location.
@@ -57,9 +58,9 @@ instance Prelude.Hashable ExternalLocation where
 instance Prelude.NFData ExternalLocation where
   rnf ExternalLocation' {..} = Prelude.rnf s3Location
 
-instance Core.ToJSON ExternalLocation where
+instance Data.ToJSON ExternalLocation where
   toJSON ExternalLocation' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("s3Location" Core..=) Prelude.<$> s3Location]
+          [("s3Location" Data..=) Prelude.<$> s3Location]
       )

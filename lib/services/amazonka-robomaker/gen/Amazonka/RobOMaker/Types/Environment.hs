@@ -21,6 +21,7 @@ module Amazonka.RobOMaker.Types.Environment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object that contains the Docker image URI for either your robot or
@@ -50,11 +51,11 @@ newEnvironment = Environment' {uri = Prelude.Nothing}
 environment_uri :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_uri = Lens.lens (\Environment' {uri} -> uri) (\s@Environment' {} a -> s {uri = a} :: Environment)
 
-instance Core.FromJSON Environment where
+instance Data.FromJSON Environment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Environment"
-      (\x -> Environment' Prelude.<$> (x Core..:? "uri"))
+      (\x -> Environment' Prelude.<$> (x Data..:? "uri"))
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
@@ -63,7 +64,7 @@ instance Prelude.Hashable Environment where
 instance Prelude.NFData Environment where
   rnf Environment' {..} = Prelude.rnf uri
 
-instance Core.ToJSON Environment where
+instance Data.ToJSON Environment where
   toJSON Environment' {..} =
-    Core.object
-      (Prelude.catMaybes [("uri" Core..=) Prelude.<$> uri])
+    Data.object
+      (Prelude.catMaybes [("uri" Data..=) Prelude.<$> uri])

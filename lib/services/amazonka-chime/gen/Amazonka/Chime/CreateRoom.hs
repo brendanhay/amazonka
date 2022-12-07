@@ -44,6 +44,7 @@ where
 import Amazonka.Chime.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -51,11 +52,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
   { -- | The idempotency token for the request.
-    clientRequestToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text,
     -- | The room name.
-    name :: Core.Sensitive Prelude.Text
+    name :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -82,12 +83,12 @@ newCreateRoom pAccountId_ pName_ =
   CreateRoom'
     { clientRequestToken = Prelude.Nothing,
       accountId = pAccountId_,
-      name = Core._Sensitive Lens.# pName_
+      name = Data._Sensitive Lens.# pName_
     }
 
 -- | The idempotency token for the request.
 createRoom_clientRequestToken :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
-createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom) Prelude.. Lens.mapping Core._Sensitive
+createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Chime account ID.
 createRoom_accountId :: Lens.Lens' CreateRoom Prelude.Text
@@ -95,7 +96,7 @@ createRoom_accountId = Lens.lens (\CreateRoom' {accountId} -> accountId) (\s@Cre
 
 -- | The room name.
 createRoom_name :: Lens.Lens' CreateRoom Prelude.Text
-createRoom_name = Lens.lens (\CreateRoom' {name} -> name) (\s@CreateRoom' {} a -> s {name = a} :: CreateRoom) Prelude.. Core._Sensitive
+createRoom_name = Lens.lens (\CreateRoom' {name} -> name) (\s@CreateRoom' {} a -> s {name = a} :: CreateRoom) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest CreateRoom where
   type AWSResponse CreateRoom = CreateRoomResponse
@@ -105,7 +106,7 @@ instance Core.AWSRequest CreateRoom where
     Response.receiveJSON
       ( \s h x ->
           CreateRoomResponse'
-            Prelude.<$> (x Core..?> "Room")
+            Prelude.<$> (x Data..?> "Room")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,25 +122,25 @@ instance Prelude.NFData CreateRoom where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders CreateRoom where
+instance Data.ToHeaders CreateRoom where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CreateRoom where
+instance Data.ToJSON CreateRoom where
   toJSON CreateRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            Prelude.Just ("Name" Core..= name)
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath CreateRoom where
+instance Data.ToPath CreateRoom where
   toPath CreateRoom' {..} =
     Prelude.mconcat
-      ["/accounts/", Core.toBS accountId, "/rooms"]
+      ["/accounts/", Data.toBS accountId, "/rooms"]
 
-instance Core.ToQuery CreateRoom where
+instance Data.ToQuery CreateRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRoomResponse' smart constructor.

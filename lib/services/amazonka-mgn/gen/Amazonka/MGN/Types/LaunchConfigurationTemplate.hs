@@ -21,13 +21,14 @@ module Amazonka.MGN.Types.LaunchConfigurationTemplate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.PostLaunchActions
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newLaunchConfigurationTemplate' smart constructor.
 data LaunchConfigurationTemplate = LaunchConfigurationTemplate'
   { -- | Copy Private IP during Launch Configuration.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Copy Private IP during Launch Configuration.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Copy Private IP during Launch Configuration.
@@ -69,7 +70,7 @@ newLaunchConfigurationTemplate
 
 -- | Copy Private IP during Launch Configuration.
 launchConfigurationTemplate_tags :: Lens.Lens' LaunchConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-launchConfigurationTemplate_tags = Lens.lens (\LaunchConfigurationTemplate' {tags} -> tags) (\s@LaunchConfigurationTemplate' {} a -> s {tags = a} :: LaunchConfigurationTemplate) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+launchConfigurationTemplate_tags = Lens.lens (\LaunchConfigurationTemplate' {tags} -> tags) (\s@LaunchConfigurationTemplate' {} a -> s {tags = a} :: LaunchConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Copy Private IP during Launch Configuration.
 launchConfigurationTemplate_arn :: Lens.Lens' LaunchConfigurationTemplate (Prelude.Maybe Prelude.Text)
@@ -83,16 +84,16 @@ launchConfigurationTemplate_postLaunchActions = Lens.lens (\LaunchConfigurationT
 launchConfigurationTemplate_launchConfigurationTemplateID :: Lens.Lens' LaunchConfigurationTemplate Prelude.Text
 launchConfigurationTemplate_launchConfigurationTemplateID = Lens.lens (\LaunchConfigurationTemplate' {launchConfigurationTemplateID} -> launchConfigurationTemplateID) (\s@LaunchConfigurationTemplate' {} a -> s {launchConfigurationTemplateID = a} :: LaunchConfigurationTemplate)
 
-instance Core.FromJSON LaunchConfigurationTemplate where
+instance Data.FromJSON LaunchConfigurationTemplate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LaunchConfigurationTemplate"
       ( \x ->
           LaunchConfigurationTemplate'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "postLaunchActions")
-            Prelude.<*> (x Core..: "launchConfigurationTemplateID")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "postLaunchActions")
+            Prelude.<*> (x Data..: "launchConfigurationTemplateID")
       )
 
 instance Prelude.Hashable LaunchConfigurationTemplate where

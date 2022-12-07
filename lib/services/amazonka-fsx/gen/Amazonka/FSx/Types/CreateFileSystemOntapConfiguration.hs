@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.CreateFileSystemOntapConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.DiskIopsConfiguration
 import Amazonka.FSx.Types.OntapDeploymentType
 import qualified Amazonka.Prelude as Prelude
@@ -40,7 +41,7 @@ data CreateFileSystemOntapConfiguration = CreateFileSystemOntapConfiguration'
     routeTableIds :: Prelude.Maybe [Prelude.Text],
     -- | The ONTAP administrative password for the @fsxadmin@ user with which you
     -- administer your file system using the NetApp ONTAP CLI and REST API.
-    fsxAdminPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | (Multi-AZ only) Specifies the IP address range in which the endpoints to
     -- access your file system will be created. By default, Amazon FSx selects
     -- an unused IP address range for you from the 198.19.* range.
@@ -169,7 +170,7 @@ createFileSystemOntapConfiguration_routeTableIds = Lens.lens (\CreateFileSystemO
 -- | The ONTAP administrative password for the @fsxadmin@ user with which you
 -- administer your file system using the NetApp ONTAP CLI and REST API.
 createFileSystemOntapConfiguration_fsxAdminPassword :: Lens.Lens' CreateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
-createFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\CreateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@CreateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: CreateFileSystemOntapConfiguration) Prelude.. Lens.mapping Core._Sensitive
+createFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\CreateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@CreateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: CreateFileSystemOntapConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | (Multi-AZ only) Specifies the IP address range in which the endpoints to
 -- access your file system will be created. By default, Amazon FSx selects
@@ -249,30 +250,30 @@ instance
       `Prelude.seq` Prelude.rnf throughputCapacity
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateFileSystemOntapConfiguration
   where
   toJSON CreateFileSystemOntapConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Core..=)
+          [ ("WeeklyMaintenanceStartTime" Data..=)
               Prelude.<$> weeklyMaintenanceStartTime,
-            ("AutomaticBackupRetentionDays" Core..=)
+            ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("RouteTableIds" Core..=) Prelude.<$> routeTableIds,
-            ("FsxAdminPassword" Core..=)
+            ("RouteTableIds" Data..=) Prelude.<$> routeTableIds,
+            ("FsxAdminPassword" Data..=)
               Prelude.<$> fsxAdminPassword,
-            ("EndpointIpAddressRange" Core..=)
+            ("EndpointIpAddressRange" Data..=)
               Prelude.<$> endpointIpAddressRange,
-            ("DiskIopsConfiguration" Core..=)
+            ("DiskIopsConfiguration" Data..=)
               Prelude.<$> diskIopsConfiguration,
-            ("DailyAutomaticBackupStartTime" Core..=)
+            ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("PreferredSubnetId" Core..=)
+            ("PreferredSubnetId" Data..=)
               Prelude.<$> preferredSubnetId,
             Prelude.Just
-              ("DeploymentType" Core..= deploymentType),
+              ("DeploymentType" Data..= deploymentType),
             Prelude.Just
-              ("ThroughputCapacity" Core..= throughputCapacity)
+              ("ThroughputCapacity" Data..= throughputCapacity)
           ]
       )

@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.SourceFieldProperties
 import Amazonka.AppFlow.Types.SupportedFieldTypeDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the data model of a connector field. For example, for an
@@ -162,25 +163,25 @@ connectorEntityField_isDeprecated = Lens.lens (\ConnectorEntityField' {isDepreca
 connectorEntityField_identifier :: Lens.Lens' ConnectorEntityField Prelude.Text
 connectorEntityField_identifier = Lens.lens (\ConnectorEntityField' {identifier} -> identifier) (\s@ConnectorEntityField' {} a -> s {identifier = a} :: ConnectorEntityField)
 
-instance Core.FromJSON ConnectorEntityField where
+instance Data.FromJSON ConnectorEntityField where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectorEntityField"
       ( \x ->
           ConnectorEntityField'
-            Prelude.<$> ( x Core..:? "customProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "customProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "parentIdentifier")
-            Prelude.<*> (x Core..:? "label")
-            Prelude.<*> (x Core..:? "defaultValue")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "destinationProperties")
-            Prelude.<*> (x Core..:? "supportedFieldTypeDetails")
-            Prelude.<*> (x Core..:? "isPrimaryKey")
-            Prelude.<*> (x Core..:? "sourceProperties")
-            Prelude.<*> (x Core..:? "isDeprecated")
-            Prelude.<*> (x Core..: "identifier")
+            Prelude.<*> (x Data..:? "parentIdentifier")
+            Prelude.<*> (x Data..:? "label")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "destinationProperties")
+            Prelude.<*> (x Data..:? "supportedFieldTypeDetails")
+            Prelude.<*> (x Data..:? "isPrimaryKey")
+            Prelude.<*> (x Data..:? "sourceProperties")
+            Prelude.<*> (x Data..:? "isDeprecated")
+            Prelude.<*> (x Data..: "identifier")
       )
 
 instance Prelude.Hashable ConnectorEntityField where

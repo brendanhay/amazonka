@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsKinesisStreamStreamEncryptionDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about stream encryption.
@@ -66,16 +67,16 @@ awsKinesisStreamStreamEncryptionDetails_keyId :: Lens.Lens' AwsKinesisStreamStre
 awsKinesisStreamStreamEncryptionDetails_keyId = Lens.lens (\AwsKinesisStreamStreamEncryptionDetails' {keyId} -> keyId) (\s@AwsKinesisStreamStreamEncryptionDetails' {} a -> s {keyId = a} :: AwsKinesisStreamStreamEncryptionDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsKinesisStreamStreamEncryptionDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsKinesisStreamStreamEncryptionDetails"
       ( \x ->
           AwsKinesisStreamStreamEncryptionDetails'
-            Prelude.<$> (x Core..:? "EncryptionType")
-            Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<$> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "KeyId")
       )
 
 instance
@@ -97,14 +98,14 @@ instance
       `Prelude.seq` Prelude.rnf keyId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsKinesisStreamStreamEncryptionDetails
   where
   toJSON AwsKinesisStreamStreamEncryptionDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionType" Core..=)
+          [ ("EncryptionType" Data..=)
               Prelude.<$> encryptionType,
-            ("KeyId" Core..=) Prelude.<$> keyId
+            ("KeyId" Data..=) Prelude.<$> keyId
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.DocumentVersionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentFormat
 import Amazonka.SSM.Types.DocumentStatus
@@ -51,7 +52,7 @@ data DocumentVersionInfo = DocumentVersionInfo'
     -- exist. Verify that the URL of the S3 bucket is correct.\"
     statusInformation :: Prelude.Maybe Prelude.Text,
     -- | The date the document was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The current status of the approval review for the latest version of the
     -- document.
     reviewStatus :: Prelude.Maybe ReviewStatus,
@@ -148,7 +149,7 @@ documentVersionInfo_statusInformation = Lens.lens (\DocumentVersionInfo' {status
 
 -- | The date the document was created.
 documentVersionInfo_createdDate :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.UTCTime)
-documentVersionInfo_createdDate = Lens.lens (\DocumentVersionInfo' {createdDate} -> createdDate) (\s@DocumentVersionInfo' {} a -> s {createdDate = a} :: DocumentVersionInfo) Prelude.. Lens.mapping Core._Time
+documentVersionInfo_createdDate = Lens.lens (\DocumentVersionInfo' {createdDate} -> createdDate) (\s@DocumentVersionInfo' {} a -> s {createdDate = a} :: DocumentVersionInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the approval review for the latest version of the
 -- document.
@@ -163,22 +164,22 @@ documentVersionInfo_documentFormat = Lens.lens (\DocumentVersionInfo' {documentF
 documentVersionInfo_documentVersion :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.Text)
 documentVersionInfo_documentVersion = Lens.lens (\DocumentVersionInfo' {documentVersion} -> documentVersion) (\s@DocumentVersionInfo' {} a -> s {documentVersion = a} :: DocumentVersionInfo)
 
-instance Core.FromJSON DocumentVersionInfo where
+instance Data.FromJSON DocumentVersionInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DocumentVersionInfo"
       ( \x ->
           DocumentVersionInfo'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IsDefaultVersion")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "VersionName")
-            Prelude.<*> (x Core..:? "StatusInformation")
-            Prelude.<*> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "ReviewStatus")
-            Prelude.<*> (x Core..:? "DocumentFormat")
-            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "IsDefaultVersion")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "VersionName")
+            Prelude.<*> (x Data..:? "StatusInformation")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "ReviewStatus")
+            Prelude.<*> (x Data..:? "DocumentFormat")
+            Prelude.<*> (x Data..:? "DocumentVersion")
       )
 
 instance Prelude.Hashable DocumentVersionInfo where

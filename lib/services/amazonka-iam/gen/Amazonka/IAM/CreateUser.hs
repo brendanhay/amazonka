@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -197,7 +198,7 @@ instance Core.AWSRequest CreateUser where
       "CreateUserResult"
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Core..@? "User")
+            Prelude.<$> (x Data..@? "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,25 +216,25 @@ instance Prelude.NFData CreateUser where
       `Prelude.seq` Prelude.rnf permissionsBoundary
       `Prelude.seq` Prelude.rnf userName
 
-instance Core.ToHeaders CreateUser where
+instance Data.ToHeaders CreateUser where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateUser where
+instance Data.ToPath CreateUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateUser where
+instance Data.ToQuery CreateUser where
   toQuery CreateUser' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateUser" :: Prelude.ByteString),
+          Data.=: ("CreateUser" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
         "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
-        "PermissionsBoundary" Core.=: permissionsBoundary,
-        "UserName" Core.=: userName
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Path" Data.=: path,
+        "PermissionsBoundary" Data.=: permissionsBoundary,
+        "UserName" Data.=: userName
       ]
 
 -- | Contains the response to a successful CreateUser request.

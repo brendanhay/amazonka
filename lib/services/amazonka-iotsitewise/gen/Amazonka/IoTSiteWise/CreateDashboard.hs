@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -168,8 +169,8 @@ instance Core.AWSRequest CreateDashboard where
       ( \s h x ->
           CreateDashboardResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "dashboardId")
-            Prelude.<*> (x Core..:> "dashboardArn")
+            Prelude.<*> (x Data..:> "dashboardId")
+            Prelude.<*> (x Data..:> "dashboardArn")
       )
 
 instance Prelude.Hashable CreateDashboard where
@@ -190,36 +191,36 @@ instance Prelude.NFData CreateDashboard where
       `Prelude.seq` Prelude.rnf dashboardName
       `Prelude.seq` Prelude.rnf dashboardDefinition
 
-instance Core.ToHeaders CreateDashboard where
+instance Data.ToHeaders CreateDashboard where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateDashboard where
+instance Data.ToJSON CreateDashboard where
   toJSON CreateDashboard' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("dashboardDescription" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("dashboardDescription" Data..=)
               Prelude.<$> dashboardDescription,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            Prelude.Just ("projectId" Core..= projectId),
-            Prelude.Just ("dashboardName" Core..= dashboardName),
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("projectId" Data..= projectId),
+            Prelude.Just ("dashboardName" Data..= dashboardName),
             Prelude.Just
-              ("dashboardDefinition" Core..= dashboardDefinition)
+              ("dashboardDefinition" Data..= dashboardDefinition)
           ]
       )
 
-instance Core.ToPath CreateDashboard where
+instance Data.ToPath CreateDashboard where
   toPath = Prelude.const "/dashboards"
 
-instance Core.ToQuery CreateDashboard where
+instance Data.ToQuery CreateDashboard where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateDashboardResponse' smart constructor.

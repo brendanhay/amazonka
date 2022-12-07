@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.BlockPublicAccessConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.PortRange
 import qualified Amazonka.Prelude as Prelude
 
@@ -108,16 +109,16 @@ blockPublicAccessConfiguration_permittedPublicSecurityGroupRuleRanges = Lens.len
 blockPublicAccessConfiguration_blockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Prelude.Bool
 blockPublicAccessConfiguration_blockPublicSecurityGroupRules = Lens.lens (\BlockPublicAccessConfiguration' {blockPublicSecurityGroupRules} -> blockPublicSecurityGroupRules) (\s@BlockPublicAccessConfiguration' {} a -> s {blockPublicSecurityGroupRules = a} :: BlockPublicAccessConfiguration)
 
-instance Core.FromJSON BlockPublicAccessConfiguration where
+instance Data.FromJSON BlockPublicAccessConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BlockPublicAccessConfiguration"
       ( \x ->
           BlockPublicAccessConfiguration'
-            Prelude.<$> ( x Core..:? "PermittedPublicSecurityGroupRuleRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "PermittedPublicSecurityGroupRuleRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "BlockPublicSecurityGroupRules")
+            Prelude.<*> (x Data..: "BlockPublicSecurityGroupRules")
       )
 
 instance
@@ -139,15 +140,15 @@ instance
     Prelude.rnf permittedPublicSecurityGroupRuleRanges
       `Prelude.seq` Prelude.rnf blockPublicSecurityGroupRules
 
-instance Core.ToJSON BlockPublicAccessConfiguration where
+instance Data.ToJSON BlockPublicAccessConfiguration where
   toJSON BlockPublicAccessConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PermittedPublicSecurityGroupRuleRanges" Core..=)
+          [ ("PermittedPublicSecurityGroupRuleRanges" Data..=)
               Prelude.<$> permittedPublicSecurityGroupRuleRanges,
             Prelude.Just
               ( "BlockPublicSecurityGroupRules"
-                  Core..= blockPublicSecurityGroupRules
+                  Data..= blockPublicSecurityGroupRules
               )
           ]
       )

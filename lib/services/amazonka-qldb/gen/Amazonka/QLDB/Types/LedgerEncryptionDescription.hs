@@ -21,6 +21,7 @@ module Amazonka.QLDB.Types.LedgerEncryptionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QLDB.Types.EncryptionStatus
 
@@ -40,7 +41,7 @@ data LedgerEncryptionDescription = LedgerEncryptionDescription'
     -- of seconds that have elapsed since 12:00:00 AM January 1, 1970 UTC.)
     --
     -- This parameter is undefined if the KMS key is accessible.
-    inaccessibleKmsKeyDateTime :: Prelude.Maybe Core.POSIX,
+    inaccessibleKmsKeyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the customer managed KMS key that the
     -- ledger uses for encryption at rest. If this parameter is undefined, the
     -- ledger uses an Amazon Web Services owned KMS key for encryption.
@@ -139,7 +140,7 @@ newLedgerEncryptionDescription
 --
 -- This parameter is undefined if the KMS key is accessible.
 ledgerEncryptionDescription_inaccessibleKmsKeyDateTime :: Lens.Lens' LedgerEncryptionDescription (Prelude.Maybe Prelude.UTCTime)
-ledgerEncryptionDescription_inaccessibleKmsKeyDateTime = Lens.lens (\LedgerEncryptionDescription' {inaccessibleKmsKeyDateTime} -> inaccessibleKmsKeyDateTime) (\s@LedgerEncryptionDescription' {} a -> s {inaccessibleKmsKeyDateTime = a} :: LedgerEncryptionDescription) Prelude.. Lens.mapping Core._Time
+ledgerEncryptionDescription_inaccessibleKmsKeyDateTime = Lens.lens (\LedgerEncryptionDescription' {inaccessibleKmsKeyDateTime} -> inaccessibleKmsKeyDateTime) (\s@LedgerEncryptionDescription' {} a -> s {inaccessibleKmsKeyDateTime = a} :: LedgerEncryptionDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the customer managed KMS key that the
 -- ledger uses for encryption at rest. If this parameter is undefined, the
@@ -175,15 +176,15 @@ ledgerEncryptionDescription_kmsKeyArn = Lens.lens (\LedgerEncryptionDescription'
 ledgerEncryptionDescription_encryptionStatus :: Lens.Lens' LedgerEncryptionDescription EncryptionStatus
 ledgerEncryptionDescription_encryptionStatus = Lens.lens (\LedgerEncryptionDescription' {encryptionStatus} -> encryptionStatus) (\s@LedgerEncryptionDescription' {} a -> s {encryptionStatus = a} :: LedgerEncryptionDescription)
 
-instance Core.FromJSON LedgerEncryptionDescription where
+instance Data.FromJSON LedgerEncryptionDescription where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LedgerEncryptionDescription"
       ( \x ->
           LedgerEncryptionDescription'
-            Prelude.<$> (x Core..:? "InaccessibleKmsKeyDateTime")
-            Prelude.<*> (x Core..: "KmsKeyArn")
-            Prelude.<*> (x Core..: "EncryptionStatus")
+            Prelude.<$> (x Data..:? "InaccessibleKmsKeyDateTime")
+            Prelude.<*> (x Data..: "KmsKeyArn")
+            Prelude.<*> (x Data..: "EncryptionStatus")
       )
 
 instance Prelude.Hashable LedgerEncryptionDescription where

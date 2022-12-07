@@ -50,6 +50,7 @@ where
 import Amazonka.Athena.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -168,8 +169,8 @@ instance Core.AWSRequest ListTableMetadata where
     Response.receiveJSON
       ( \s h x ->
           ListTableMetadataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "TableMetadataList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "TableMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -191,37 +192,37 @@ instance Prelude.NFData ListTableMetadata where
       `Prelude.seq` Prelude.rnf catalogName
       `Prelude.seq` Prelude.rnf databaseName
 
-instance Core.ToHeaders ListTableMetadata where
+instance Data.ToHeaders ListTableMetadata where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonAthena.ListTableMetadata" ::
+              Data.=# ( "AmazonAthena.ListTableMetadata" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListTableMetadata where
+instance Data.ToJSON ListTableMetadata where
   toJSON ListTableMetadata' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Expression" Core..=) Prelude.<$> expression,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("CatalogName" Core..= catalogName),
-            Prelude.Just ("DatabaseName" Core..= databaseName)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Expression" Data..=) Prelude.<$> expression,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("CatalogName" Data..= catalogName),
+            Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )
 
-instance Core.ToPath ListTableMetadata where
+instance Data.ToPath ListTableMetadata where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListTableMetadata where
+instance Data.ToQuery ListTableMetadata where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListTableMetadataResponse' smart constructor.

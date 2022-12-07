@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.StepStateChangeReason where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.StepStateChangeReasonCode
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,14 +66,14 @@ stepStateChangeReason_message = Lens.lens (\StepStateChangeReason' {message} -> 
 stepStateChangeReason_code :: Lens.Lens' StepStateChangeReason (Prelude.Maybe StepStateChangeReasonCode)
 stepStateChangeReason_code = Lens.lens (\StepStateChangeReason' {code} -> code) (\s@StepStateChangeReason' {} a -> s {code = a} :: StepStateChangeReason)
 
-instance Core.FromJSON StepStateChangeReason where
+instance Data.FromJSON StepStateChangeReason where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StepStateChangeReason"
       ( \x ->
           StepStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Code")
       )
 
 instance Prelude.Hashable StepStateChangeReason where

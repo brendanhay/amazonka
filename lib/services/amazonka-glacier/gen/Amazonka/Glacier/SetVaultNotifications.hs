@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -167,24 +168,24 @@ instance Prelude.NFData SetVaultNotifications where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders SetVaultNotifications where
+instance Data.ToHeaders SetVaultNotifications where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON SetVaultNotifications where
+instance Data.ToJSON SetVaultNotifications where
   toJSON SetVaultNotifications' {..} =
-    Core.toJSON vaultNotificationConfig
+    Data.toJSON vaultNotificationConfig
 
-instance Core.ToPath SetVaultNotifications where
+instance Data.ToPath SetVaultNotifications where
   toPath SetVaultNotifications' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/notification-configuration"
       ]
 
-instance Core.ToQuery SetVaultNotifications where
+instance Data.ToQuery SetVaultNotifications where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSetVaultNotificationsResponse' smart constructor.

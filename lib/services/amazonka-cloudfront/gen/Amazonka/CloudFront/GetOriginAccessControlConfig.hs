@@ -43,6 +43,7 @@ where
 import Amazonka.CloudFront.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,8 +85,8 @@ instance Core.AWSRequest GetOriginAccessControlConfig where
     Response.receiveXML
       ( \s h x ->
           GetOriginAccessControlConfigResponse'
-            Prelude.<$> (Core.parseXML x)
-            Prelude.<*> (h Core..#? "ETag")
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,18 +101,18 @@ instance Prelude.NFData GetOriginAccessControlConfig where
   rnf GetOriginAccessControlConfig' {..} =
     Prelude.rnf id
 
-instance Core.ToHeaders GetOriginAccessControlConfig where
+instance Data.ToHeaders GetOriginAccessControlConfig where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetOriginAccessControlConfig where
+instance Data.ToPath GetOriginAccessControlConfig where
   toPath GetOriginAccessControlConfig' {..} =
     Prelude.mconcat
       [ "/2020-05-31/origin-access-control/",
-        Core.toBS id,
+        Data.toBS id,
         "/config"
       ]
 
-instance Core.ToQuery GetOriginAccessControlConfig where
+instance Data.ToQuery GetOriginAccessControlConfig where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetOriginAccessControlConfigResponse' smart constructor.

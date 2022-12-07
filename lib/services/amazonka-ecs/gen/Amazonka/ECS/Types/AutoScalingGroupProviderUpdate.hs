@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.AutoScalingGroupProviderUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.ManagedScaling
 import Amazonka.ECS.Types.ManagedTerminationProtection
 import qualified Amazonka.Prelude as Prelude
@@ -137,13 +138,13 @@ instance
     Prelude.rnf managedScaling
       `Prelude.seq` Prelude.rnf managedTerminationProtection
 
-instance Core.ToJSON AutoScalingGroupProviderUpdate where
+instance Data.ToJSON AutoScalingGroupProviderUpdate where
   toJSON AutoScalingGroupProviderUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("managedScaling" Core..=)
+          [ ("managedScaling" Data..=)
               Prelude.<$> managedScaling,
-            ("managedTerminationProtection" Core..=)
+            ("managedTerminationProtection" Data..=)
               Prelude.<$> managedTerminationProtection
           ]
       )

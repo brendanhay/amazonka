@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Types
 import qualified Amazonka.Request as Request
@@ -131,10 +132,10 @@ instance Core.AWSRequest DescribePartners where
       "DescribePartnersResult"
       ( \s h x ->
           DescribePartnersResponse'
-            Prelude.<$> ( x Core..@? "PartnerIntegrationInfoList"
+            Prelude.<$> ( x Data..@? "PartnerIntegrationInfoList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
-                              (Core.parseXMLList "PartnerIntegrationInfo")
+                              (Data.parseXMLList "PartnerIntegrationInfo")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -153,23 +154,23 @@ instance Prelude.NFData DescribePartners where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
-instance Core.ToHeaders DescribePartners where
+instance Data.ToHeaders DescribePartners where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePartners where
+instance Data.ToPath DescribePartners where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePartners where
+instance Data.ToQuery DescribePartners where
   toQuery DescribePartners' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePartners" :: Prelude.ByteString),
+          Data.=: ("DescribePartners" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DatabaseName" Core.=: databaseName,
-        "PartnerName" Core.=: partnerName,
-        "AccountId" Core.=: accountId,
-        "ClusterIdentifier" Core.=: clusterIdentifier
+          Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "DatabaseName" Data.=: databaseName,
+        "PartnerName" Data.=: partnerName,
+        "AccountId" Data.=: accountId,
+        "ClusterIdentifier" Data.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newDescribePartnersResponse' smart constructor.

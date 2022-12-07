@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest RegisterTransitGateway where
     Response.receiveJSON
       ( \s h x ->
           RegisterTransitGatewayResponse'
-            Prelude.<$> (x Core..?> "TransitGatewayRegistration")
+            Prelude.<$> (x Data..?> "TransitGatewayRegistration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,35 +118,35 @@ instance Prelude.NFData RegisterTransitGateway where
     Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf transitGatewayArn
 
-instance Core.ToHeaders RegisterTransitGateway where
+instance Data.ToHeaders RegisterTransitGateway where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterTransitGateway where
+instance Data.ToJSON RegisterTransitGateway where
   toJSON RegisterTransitGateway' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TransitGatewayArn" Core..= transitGatewayArn)
+              ("TransitGatewayArn" Data..= transitGatewayArn)
           ]
       )
 
-instance Core.ToPath RegisterTransitGateway where
+instance Data.ToPath RegisterTransitGateway where
   toPath RegisterTransitGateway' {..} =
     Prelude.mconcat
       [ "/global-networks/",
-        Core.toBS globalNetworkId,
+        Data.toBS globalNetworkId,
         "/transit-gateway-registrations"
       ]
 
-instance Core.ToQuery RegisterTransitGateway where
+instance Data.ToQuery RegisterTransitGateway where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterTransitGatewayResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -87,8 +88,8 @@ instance Core.AWSRequest GetContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           GetContainerRecipeResponse'
-            Prelude.<$> (x Core..?> "requestId")
-            Prelude.<*> (x Core..?> "containerRecipe")
+            Prelude.<$> (x Data..?> "requestId")
+            Prelude.<*> (x Data..?> "containerRecipe")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -100,24 +101,24 @@ instance Prelude.NFData GetContainerRecipe where
   rnf GetContainerRecipe' {..} =
     Prelude.rnf containerRecipeArn
 
-instance Core.ToHeaders GetContainerRecipe where
+instance Data.ToHeaders GetContainerRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetContainerRecipe where
+instance Data.ToPath GetContainerRecipe where
   toPath = Prelude.const "/GetContainerRecipe"
 
-instance Core.ToQuery GetContainerRecipe where
+instance Data.ToQuery GetContainerRecipe where
   toQuery GetContainerRecipe' {..} =
     Prelude.mconcat
-      ["containerRecipeArn" Core.=: containerRecipeArn]
+      ["containerRecipeArn" Data.=: containerRecipeArn]
 
 -- | /See:/ 'newGetContainerRecipeResponse' smart constructor.
 data GetContainerRecipeResponse = GetContainerRecipeResponse'

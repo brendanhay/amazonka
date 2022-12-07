@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -162,7 +163,7 @@ instance Core.AWSRequest CreateSegment where
       ( \s h x ->
           CreateSegmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "segment")
+            Prelude.<*> (x Data..:> "segment")
       )
 
 instance Prelude.Hashable CreateSegment where
@@ -179,32 +180,32 @@ instance Prelude.NFData CreateSegment where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf pattern'
 
-instance Core.ToHeaders CreateSegment where
+instance Data.ToHeaders CreateSegment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateSegment where
+instance Data.ToJSON CreateSegment where
   toJSON CreateSegment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("pattern" Core..= pattern')
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("pattern" Data..= pattern')
           ]
       )
 
-instance Core.ToPath CreateSegment where
+instance Data.ToPath CreateSegment where
   toPath = Prelude.const "/segments"
 
-instance Core.ToQuery CreateSegment where
+instance Data.ToQuery CreateSegment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateSegmentResponse' smart constructor.

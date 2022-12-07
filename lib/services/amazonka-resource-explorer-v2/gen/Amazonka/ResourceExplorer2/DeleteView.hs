@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceExplorer2.Types
@@ -92,7 +93,7 @@ instance Core.AWSRequest DeleteView where
     Response.receiveJSON
       ( \s h x ->
           DeleteViewResponse'
-            Prelude.<$> (x Core..?> "ViewArn")
+            Prelude.<$> (x Data..?> "ViewArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,28 +104,28 @@ instance Prelude.Hashable DeleteView where
 instance Prelude.NFData DeleteView where
   rnf DeleteView' {..} = Prelude.rnf viewArn
 
-instance Core.ToHeaders DeleteView where
+instance Data.ToHeaders DeleteView where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteView where
+instance Data.ToJSON DeleteView where
   toJSON DeleteView' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ViewArn" Core..= viewArn)]
+          [Prelude.Just ("ViewArn" Data..= viewArn)]
       )
 
-instance Core.ToPath DeleteView where
+instance Data.ToPath DeleteView where
   toPath = Prelude.const "/DeleteView"
 
-instance Core.ToQuery DeleteView where
+instance Data.ToQuery DeleteView where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteViewResponse' smart constructor.

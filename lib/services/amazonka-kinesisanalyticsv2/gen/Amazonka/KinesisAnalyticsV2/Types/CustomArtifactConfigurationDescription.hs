@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfigurationDescription 
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ArtifactType
 import Amazonka.KinesisAnalyticsV2.Types.MavenReference
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
@@ -82,17 +83,17 @@ customArtifactConfigurationDescription_s3ContentLocationDescription :: Lens.Lens
 customArtifactConfigurationDescription_s3ContentLocationDescription = Lens.lens (\CustomArtifactConfigurationDescription' {s3ContentLocationDescription} -> s3ContentLocationDescription) (\s@CustomArtifactConfigurationDescription' {} a -> s {s3ContentLocationDescription = a} :: CustomArtifactConfigurationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomArtifactConfigurationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomArtifactConfigurationDescription"
       ( \x ->
           CustomArtifactConfigurationDescription'
-            Prelude.<$> (x Core..:? "ArtifactType")
-            Prelude.<*> (x Core..:? "MavenReferenceDescription")
-            Prelude.<*> (x Core..:? "S3ContentLocationDescription")
+            Prelude.<$> (x Data..:? "ArtifactType")
+            Prelude.<*> (x Data..:? "MavenReferenceDescription")
+            Prelude.<*> (x Data..:? "S3ContentLocationDescription")
       )
 
 instance

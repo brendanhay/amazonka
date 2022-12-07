@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -128,18 +129,18 @@ instance Core.AWSRequest UpdateInputDevice' where
     Response.receiveJSON
       ( \s h x ->
           UpdateInputDeviceResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "type")
-            Prelude.<*> (x Core..?> "deviceSettingsSyncState")
-            Prelude.<*> (x Core..?> "networkSettings")
-            Prelude.<*> (x Core..?> "uhdDeviceSettings")
-            Prelude.<*> (x Core..?> "connectionState")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "hdDeviceSettings")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "deviceUpdateStatus")
-            Prelude.<*> (x Core..?> "macAddress")
-            Prelude.<*> (x Core..?> "serialNumber")
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "type")
+            Prelude.<*> (x Data..?> "deviceSettingsSyncState")
+            Prelude.<*> (x Data..?> "networkSettings")
+            Prelude.<*> (x Data..?> "uhdDeviceSettings")
+            Prelude.<*> (x Data..?> "connectionState")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "hdDeviceSettings")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "deviceUpdateStatus")
+            Prelude.<*> (x Data..?> "macAddress")
+            Prelude.<*> (x Data..?> "serialNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,35 +158,35 @@ instance Prelude.NFData UpdateInputDevice' where
       `Prelude.seq` Prelude.rnf hdDeviceSettings
       `Prelude.seq` Prelude.rnf inputDeviceId
 
-instance Core.ToHeaders UpdateInputDevice' where
+instance Data.ToHeaders UpdateInputDevice' where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateInputDevice' where
+instance Data.ToJSON UpdateInputDevice' where
   toJSON UpdateInputDevice'' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("uhdDeviceSettings" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("uhdDeviceSettings" Data..=)
               Prelude.<$> uhdDeviceSettings,
-            ("hdDeviceSettings" Core..=)
+            ("hdDeviceSettings" Data..=)
               Prelude.<$> hdDeviceSettings
           ]
       )
 
-instance Core.ToPath UpdateInputDevice' where
+instance Data.ToPath UpdateInputDevice' where
   toPath UpdateInputDevice'' {..} =
     Prelude.mconcat
-      ["/prod/inputDevices/", Core.toBS inputDeviceId]
+      ["/prod/inputDevices/", Data.toBS inputDeviceId]
 
-instance Core.ToQuery UpdateInputDevice' where
+instance Data.ToQuery UpdateInputDevice' where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateInputDeviceResponse

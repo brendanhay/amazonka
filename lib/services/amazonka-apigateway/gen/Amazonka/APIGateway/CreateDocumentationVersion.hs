@@ -46,6 +46,7 @@ where
 import Amazonka.APIGateway.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -121,7 +122,7 @@ instance Core.AWSRequest CreateDocumentationVersion where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CreateDocumentationVersion where
   hashWithSalt _salt CreateDocumentationVersion' {..} =
@@ -137,35 +138,35 @@ instance Prelude.NFData CreateDocumentationVersion where
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf documentationVersion
 
-instance Core.ToHeaders CreateDocumentationVersion where
+instance Data.ToHeaders CreateDocumentationVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Accept"
-              Core.=# ("application/json" :: Prelude.ByteString)
+              Data.=# ("application/json" :: Prelude.ByteString)
           ]
       )
 
-instance Core.ToJSON CreateDocumentationVersion where
+instance Data.ToJSON CreateDocumentationVersion where
   toJSON CreateDocumentationVersion' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("stageName" Core..=) Prelude.<$> stageName,
-            ("description" Core..=) Prelude.<$> description,
+          [ ("stageName" Data..=) Prelude.<$> stageName,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "documentationVersion"
-                  Core..= documentationVersion
+                  Data..= documentationVersion
               )
           ]
       )
 
-instance Core.ToPath CreateDocumentationVersion where
+instance Data.ToPath CreateDocumentationVersion where
   toPath CreateDocumentationVersion' {..} =
     Prelude.mconcat
       [ "/restapis/",
-        Core.toBS restApiId,
+        Data.toBS restApiId,
         "/documentation/versions"
       ]
 
-instance Core.ToQuery CreateDocumentationVersion where
+instance Data.ToQuery CreateDocumentationVersion where
   toQuery = Prelude.const Prelude.mempty

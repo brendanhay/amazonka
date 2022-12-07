@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.VariableImpactExplanation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The details of the event variable\'s impact on the prediction score.
@@ -104,15 +105,15 @@ variableImpactExplanation_eventVariableName = Lens.lens (\VariableImpactExplanat
 variableImpactExplanation_relativeImpact :: Lens.Lens' VariableImpactExplanation (Prelude.Maybe Prelude.Text)
 variableImpactExplanation_relativeImpact = Lens.lens (\VariableImpactExplanation' {relativeImpact} -> relativeImpact) (\s@VariableImpactExplanation' {} a -> s {relativeImpact = a} :: VariableImpactExplanation)
 
-instance Core.FromJSON VariableImpactExplanation where
+instance Data.FromJSON VariableImpactExplanation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VariableImpactExplanation"
       ( \x ->
           VariableImpactExplanation'
-            Prelude.<$> (x Core..:? "logOddsImpact")
-            Prelude.<*> (x Core..:? "eventVariableName")
-            Prelude.<*> (x Core..:? "relativeImpact")
+            Prelude.<$> (x Data..:? "logOddsImpact")
+            Prelude.<*> (x Data..:? "eventVariableName")
+            Prelude.<*> (x Data..:? "relativeImpact")
       )
 
 instance Prelude.Hashable VariableImpactExplanation where

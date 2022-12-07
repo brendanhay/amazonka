@@ -23,6 +23,7 @@ import Amazonka.AppStream.Types.PlatformType
 import Amazonka.AppStream.Types.S3Location
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an application in the application catalog.
@@ -32,7 +33,7 @@ data Application = Application'
   { -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time at which the application was created within the app block.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The path to the application executable in the instance.
     launchPath :: Prelude.Maybe Prelude.Text,
     -- | Additional attributes that describe the application.
@@ -128,7 +129,7 @@ application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} 
 
 -- | The time at which the application was created within the app block.
 application_createdTime :: Lens.Lens' Application (Prelude.Maybe Prelude.UTCTime)
-application_createdTime = Lens.lens (\Application' {createdTime} -> createdTime) (\s@Application' {} a -> s {createdTime = a} :: Application) Prelude.. Lens.mapping Core._Time
+application_createdTime = Lens.lens (\Application' {createdTime} -> createdTime) (\s@Application' {} a -> s {createdTime = a} :: Application) Prelude.. Lens.mapping Data._Time
 
 -- | The path to the application executable in the instance.
 application_launchPath :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
@@ -183,29 +184,29 @@ application_launchParameters = Lens.lens (\Application' {launchParameters} -> la
 application_workingDirectory :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_workingDirectory = Lens.lens (\Application' {workingDirectory} -> workingDirectory) (\s@Application' {} a -> s {workingDirectory = a} :: Application)
 
-instance Core.FromJSON Application where
+instance Data.FromJSON Application where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "LaunchPath")
-            Prelude.<*> (x Core..:? "Metadata" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "IconS3Location")
-            Prelude.<*> (x Core..:? "Enabled")
-            Prelude.<*> (x Core..:? "IconURL")
-            Prelude.<*> ( x Core..:? "InstanceFamilies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "LaunchPath")
+            Prelude.<*> (x Data..:? "Metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IconS3Location")
+            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "IconURL")
+            Prelude.<*> ( x Data..:? "InstanceFamilies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Platforms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AppBlockArn")
-            Prelude.<*> (x Core..:? "LaunchParameters")
-            Prelude.<*> (x Core..:? "WorkingDirectory")
+            Prelude.<*> (x Data..:? "Platforms" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AppBlockArn")
+            Prelude.<*> (x Data..:? "LaunchParameters")
+            Prelude.<*> (x Data..:? "WorkingDirectory")
       )
 
 instance Prelude.Hashable Application where

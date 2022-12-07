@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | provides information about the Amazon S3 Public Access Block
@@ -97,18 +98,18 @@ awsS3AccountPublicAccessBlockDetails_blockPublicAcls :: Lens.Lens' AwsS3AccountP
 awsS3AccountPublicAccessBlockDetails_blockPublicAcls = Lens.lens (\AwsS3AccountPublicAccessBlockDetails' {blockPublicAcls} -> blockPublicAcls) (\s@AwsS3AccountPublicAccessBlockDetails' {} a -> s {blockPublicAcls = a} :: AwsS3AccountPublicAccessBlockDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3AccountPublicAccessBlockDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3AccountPublicAccessBlockDetails"
       ( \x ->
           AwsS3AccountPublicAccessBlockDetails'
-            Prelude.<$> (x Core..:? "RestrictPublicBuckets")
-            Prelude.<*> (x Core..:? "IgnorePublicAcls")
-            Prelude.<*> (x Core..:? "BlockPublicPolicy")
-            Prelude.<*> (x Core..:? "BlockPublicAcls")
+            Prelude.<$> (x Data..:? "RestrictPublicBuckets")
+            Prelude.<*> (x Data..:? "IgnorePublicAcls")
+            Prelude.<*> (x Data..:? "BlockPublicPolicy")
+            Prelude.<*> (x Data..:? "BlockPublicAcls")
       )
 
 instance
@@ -134,19 +135,19 @@ instance
       `Prelude.seq` Prelude.rnf blockPublicAcls
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3AccountPublicAccessBlockDetails
   where
   toJSON AwsS3AccountPublicAccessBlockDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RestrictPublicBuckets" Core..=)
+          [ ("RestrictPublicBuckets" Data..=)
               Prelude.<$> restrictPublicBuckets,
-            ("IgnorePublicAcls" Core..=)
+            ("IgnorePublicAcls" Data..=)
               Prelude.<$> ignorePublicAcls,
-            ("BlockPublicPolicy" Core..=)
+            ("BlockPublicPolicy" Data..=)
               Prelude.<$> blockPublicPolicy,
-            ("BlockPublicAcls" Core..=)
+            ("BlockPublicAcls" Data..=)
               Prelude.<$> blockPublicAcls
           ]
       )

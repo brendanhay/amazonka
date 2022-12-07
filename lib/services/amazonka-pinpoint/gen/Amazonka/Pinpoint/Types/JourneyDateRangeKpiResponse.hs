@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneyDateRangeKpiResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.BaseKpiResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -49,10 +50,10 @@ data JourneyDateRangeKpiResponse = JourneyDateRangeKpiResponse'
     journeyId :: Prelude.Text,
     -- | The last date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    endTime :: Core.POSIX,
+    endTime :: Data.POSIX,
     -- | The first date and time of the date range that was used to filter the
     -- query results, in extended ISO 8601 format. The date range is inclusive.
-    startTime :: Core.POSIX,
+    startTime :: Data.POSIX,
     -- | The unique identifier for the application that the metric applies to.
     applicationId :: Prelude.Text
   }
@@ -117,8 +118,8 @@ newJourneyDateRangeKpiResponse
         kpiResult = pKpiResult_,
         kpiName = pKpiName_,
         journeyId = pJourneyId_,
-        endTime = Core._Time Lens.# pEndTime_,
-        startTime = Core._Time Lens.# pStartTime_,
+        endTime = Data._Time Lens.# pEndTime_,
+        startTime = Data._Time Lens.# pStartTime_,
         applicationId = pApplicationId_
       }
 
@@ -150,30 +151,30 @@ journeyDateRangeKpiResponse_journeyId = Lens.lens (\JourneyDateRangeKpiResponse'
 -- | The last date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 journeyDateRangeKpiResponse_endTime :: Lens.Lens' JourneyDateRangeKpiResponse Prelude.UTCTime
-journeyDateRangeKpiResponse_endTime = Lens.lens (\JourneyDateRangeKpiResponse' {endTime} -> endTime) (\s@JourneyDateRangeKpiResponse' {} a -> s {endTime = a} :: JourneyDateRangeKpiResponse) Prelude.. Core._Time
+journeyDateRangeKpiResponse_endTime = Lens.lens (\JourneyDateRangeKpiResponse' {endTime} -> endTime) (\s@JourneyDateRangeKpiResponse' {} a -> s {endTime = a} :: JourneyDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The first date and time of the date range that was used to filter the
 -- query results, in extended ISO 8601 format. The date range is inclusive.
 journeyDateRangeKpiResponse_startTime :: Lens.Lens' JourneyDateRangeKpiResponse Prelude.UTCTime
-journeyDateRangeKpiResponse_startTime = Lens.lens (\JourneyDateRangeKpiResponse' {startTime} -> startTime) (\s@JourneyDateRangeKpiResponse' {} a -> s {startTime = a} :: JourneyDateRangeKpiResponse) Prelude.. Core._Time
+journeyDateRangeKpiResponse_startTime = Lens.lens (\JourneyDateRangeKpiResponse' {startTime} -> startTime) (\s@JourneyDateRangeKpiResponse' {} a -> s {startTime = a} :: JourneyDateRangeKpiResponse) Prelude.. Data._Time
 
 -- | The unique identifier for the application that the metric applies to.
 journeyDateRangeKpiResponse_applicationId :: Lens.Lens' JourneyDateRangeKpiResponse Prelude.Text
 journeyDateRangeKpiResponse_applicationId = Lens.lens (\JourneyDateRangeKpiResponse' {applicationId} -> applicationId) (\s@JourneyDateRangeKpiResponse' {} a -> s {applicationId = a} :: JourneyDateRangeKpiResponse)
 
-instance Core.FromJSON JourneyDateRangeKpiResponse where
+instance Data.FromJSON JourneyDateRangeKpiResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneyDateRangeKpiResponse"
       ( \x ->
           JourneyDateRangeKpiResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..: "KpiResult")
-            Prelude.<*> (x Core..: "KpiName")
-            Prelude.<*> (x Core..: "JourneyId")
-            Prelude.<*> (x Core..: "EndTime")
-            Prelude.<*> (x Core..: "StartTime")
-            Prelude.<*> (x Core..: "ApplicationId")
+            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..: "KpiResult")
+            Prelude.<*> (x Data..: "KpiName")
+            Prelude.<*> (x Data..: "JourneyId")
+            Prelude.<*> (x Data..: "EndTime")
+            Prelude.<*> (x Data..: "StartTime")
+            Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable JourneyDateRangeKpiResponse where

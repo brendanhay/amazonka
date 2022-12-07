@@ -64,6 +64,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,27 +110,27 @@ instance Core.AWSRequest GetMLTransform where
     Response.receiveJSON
       ( \s h x ->
           GetMLTransformResponse'
-            Prelude.<$> (x Core..?> "EvaluationMetrics")
-            Prelude.<*> (x Core..?> "CreatedOn")
-            Prelude.<*> (x Core..?> "Timeout")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastModifiedOn")
-            Prelude.<*> (x Core..?> "NumberOfWorkers")
-            Prelude.<*> (x Core..?> "GlueVersion")
-            Prelude.<*> (x Core..?> "WorkerType")
-            Prelude.<*> ( x Core..?> "InputRecordTables"
+            Prelude.<$> (x Data..?> "EvaluationMetrics")
+            Prelude.<*> (x Data..?> "CreatedOn")
+            Prelude.<*> (x Data..?> "Timeout")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "LastModifiedOn")
+            Prelude.<*> (x Data..?> "NumberOfWorkers")
+            Prelude.<*> (x Data..?> "GlueVersion")
+            Prelude.<*> (x Data..?> "WorkerType")
+            Prelude.<*> ( x Data..?> "InputRecordTables"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "LabelCount")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "MaxRetries")
-            Prelude.<*> (x Core..?> "TransformId")
-            Prelude.<*> (x Core..?> "TransformEncryption")
-            Prelude.<*> (x Core..?> "Schema" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Role")
-            Prelude.<*> (x Core..?> "MaxCapacity")
-            Prelude.<*> (x Core..?> "Parameters")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "LabelCount")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "MaxRetries")
+            Prelude.<*> (x Data..?> "TransformId")
+            Prelude.<*> (x Data..?> "TransformEncryption")
+            Prelude.<*> (x Data..?> "Schema" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Role")
+            Prelude.<*> (x Data..?> "MaxCapacity")
+            Prelude.<*> (x Data..?> "Parameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,30 +141,30 @@ instance Prelude.Hashable GetMLTransform where
 instance Prelude.NFData GetMLTransform where
   rnf GetMLTransform' {..} = Prelude.rnf transformId
 
-instance Core.ToHeaders GetMLTransform where
+instance Data.ToHeaders GetMLTransform where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.GetMLTransform" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.GetMLTransform" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMLTransform where
+instance Data.ToJSON GetMLTransform where
   toJSON GetMLTransform' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("TransformId" Core..= transformId)]
+          [Prelude.Just ("TransformId" Data..= transformId)]
       )
 
-instance Core.ToPath GetMLTransform where
+instance Data.ToPath GetMLTransform where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetMLTransform where
+instance Data.ToQuery GetMLTransform where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMLTransformResponse' smart constructor.
@@ -171,7 +172,7 @@ data GetMLTransformResponse = GetMLTransformResponse'
   { -- | The latest evaluation metrics.
     evaluationMetrics :: Prelude.Maybe EvaluationMetrics,
     -- | The date and time when the transform was created.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    createdOn :: Prelude.Maybe Data.POSIX,
     -- | The timeout for a task run for this transform in minutes. This is the
     -- maximum time that a task run for this transform can consume resources
     -- before it is terminated and enters @TIMEOUT@ status. The default is
@@ -180,7 +181,7 @@ data GetMLTransformResponse = GetMLTransformResponse'
     -- | The unique name given to the transform when it was created.
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the transform was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- this task runs.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
@@ -361,7 +362,7 @@ getMLTransformResponse_evaluationMetrics = Lens.lens (\GetMLTransformResponse' {
 
 -- | The date and time when the transform was created.
 getMLTransformResponse_createdOn :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTransformResponse_createdOn = Lens.lens (\GetMLTransformResponse' {createdOn} -> createdOn) (\s@GetMLTransformResponse' {} a -> s {createdOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Core._Time
+getMLTransformResponse_createdOn = Lens.lens (\GetMLTransformResponse' {createdOn} -> createdOn) (\s@GetMLTransformResponse' {} a -> s {createdOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The timeout for a task run for this transform in minutes. This is the
 -- maximum time that a task run for this transform can consume resources
@@ -376,7 +377,7 @@ getMLTransformResponse_name = Lens.lens (\GetMLTransformResponse' {name} -> name
 
 -- | The date and time when the transform was last modified.
 getMLTransformResponse_lastModifiedOn :: Lens.Lens' GetMLTransformResponse (Prelude.Maybe Prelude.UTCTime)
-getMLTransformResponse_lastModifiedOn = Lens.lens (\GetMLTransformResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetMLTransformResponse' {} a -> s {lastModifiedOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Core._Time
+getMLTransformResponse_lastModifiedOn = Lens.lens (\GetMLTransformResponse' {lastModifiedOn} -> lastModifiedOn) (\s@GetMLTransformResponse' {} a -> s {lastModifiedOn = a} :: GetMLTransformResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of workers of a defined @workerType@ that are allocated when
 -- this task runs.

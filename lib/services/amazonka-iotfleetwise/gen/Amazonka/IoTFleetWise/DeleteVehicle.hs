@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -88,8 +89,8 @@ instance Core.AWSRequest DeleteVehicle where
       ( \s h x ->
           DeleteVehicleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "vehicleName")
-            Prelude.<*> (x Core..:> "arn")
+            Prelude.<*> (x Data..:> "vehicleName")
+            Prelude.<*> (x Data..:> "arn")
       )
 
 instance Prelude.Hashable DeleteVehicle where
@@ -99,32 +100,32 @@ instance Prelude.Hashable DeleteVehicle where
 instance Prelude.NFData DeleteVehicle where
   rnf DeleteVehicle' {..} = Prelude.rnf vehicleName
 
-instance Core.ToHeaders DeleteVehicle where
+instance Data.ToHeaders DeleteVehicle where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "IoTAutobahnControlPlane.DeleteVehicle" ::
+              Data.=# ( "IoTAutobahnControlPlane.DeleteVehicle" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteVehicle where
+instance Data.ToJSON DeleteVehicle where
   toJSON DeleteVehicle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("vehicleName" Core..= vehicleName)]
+          [Prelude.Just ("vehicleName" Data..= vehicleName)]
       )
 
-instance Core.ToPath DeleteVehicle where
+instance Data.ToPath DeleteVehicle where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteVehicle where
+instance Data.ToQuery DeleteVehicle where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteVehicleResponse' smart constructor.

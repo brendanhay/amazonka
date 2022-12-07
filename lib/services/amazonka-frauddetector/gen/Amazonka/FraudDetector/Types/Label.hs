@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.Label where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The label details.
@@ -88,17 +89,17 @@ label_description = Lens.lens (\Label' {description} -> description) (\s@Label' 
 label_lastUpdatedTime :: Lens.Lens' Label (Prelude.Maybe Prelude.Text)
 label_lastUpdatedTime = Lens.lens (\Label' {lastUpdatedTime} -> lastUpdatedTime) (\s@Label' {} a -> s {lastUpdatedTime = a} :: Label)
 
-instance Core.FromJSON Label where
+instance Data.FromJSON Label where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Label"
       ( \x ->
           Label'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "createdTime")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
       )
 
 instance Prelude.Hashable Label where

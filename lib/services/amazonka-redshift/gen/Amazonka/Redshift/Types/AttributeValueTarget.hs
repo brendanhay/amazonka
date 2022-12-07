@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.AttributeValueTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -54,10 +55,10 @@ newAttributeValueTarget =
 attributeValueTarget_attributeValue :: Lens.Lens' AttributeValueTarget (Prelude.Maybe Prelude.Text)
 attributeValueTarget_attributeValue = Lens.lens (\AttributeValueTarget' {attributeValue} -> attributeValue) (\s@AttributeValueTarget' {} a -> s {attributeValue = a} :: AttributeValueTarget)
 
-instance Core.FromXML AttributeValueTarget where
+instance Data.FromXML AttributeValueTarget where
   parseXML x =
     AttributeValueTarget'
-      Prelude.<$> (x Core..@? "AttributeValue")
+      Prelude.<$> (x Data..@? "AttributeValue")
 
 instance Prelude.Hashable AttributeValueTarget where
   hashWithSalt _salt AttributeValueTarget' {..} =

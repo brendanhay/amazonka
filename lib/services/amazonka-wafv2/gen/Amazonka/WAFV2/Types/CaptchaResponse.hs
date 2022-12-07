@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CaptchaResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.FailureReason
 
@@ -81,15 +82,15 @@ captchaResponse_responseCode = Lens.lens (\CaptchaResponse' {responseCode} -> re
 captchaResponse_failureReason :: Lens.Lens' CaptchaResponse (Prelude.Maybe FailureReason)
 captchaResponse_failureReason = Lens.lens (\CaptchaResponse' {failureReason} -> failureReason) (\s@CaptchaResponse' {} a -> s {failureReason = a} :: CaptchaResponse)
 
-instance Core.FromJSON CaptchaResponse where
+instance Data.FromJSON CaptchaResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CaptchaResponse"
       ( \x ->
           CaptchaResponse'
-            Prelude.<$> (x Core..:? "SolveTimestamp")
-            Prelude.<*> (x Core..:? "ResponseCode")
-            Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<$> (x Data..:? "SolveTimestamp")
+            Prelude.<*> (x Data..:? "ResponseCode")
+            Prelude.<*> (x Data..:? "FailureReason")
       )
 
 instance Prelude.Hashable CaptchaResponse where

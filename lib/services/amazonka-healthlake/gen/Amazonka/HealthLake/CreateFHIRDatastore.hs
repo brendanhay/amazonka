@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.HealthLake.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -148,10 +149,10 @@ instance Core.AWSRequest CreateFHIRDatastore where
       ( \s h x ->
           CreateFHIRDatastoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "DatastoreId")
-            Prelude.<*> (x Core..:> "DatastoreArn")
-            Prelude.<*> (x Core..:> "DatastoreStatus")
-            Prelude.<*> (x Core..:> "DatastoreEndpoint")
+            Prelude.<*> (x Data..:> "DatastoreId")
+            Prelude.<*> (x Data..:> "DatastoreArn")
+            Prelude.<*> (x Data..:> "DatastoreStatus")
+            Prelude.<*> (x Data..:> "DatastoreEndpoint")
       )
 
 instance Prelude.Hashable CreateFHIRDatastore where
@@ -172,43 +173,43 @@ instance Prelude.NFData CreateFHIRDatastore where
       `Prelude.seq` Prelude.rnf preloadDataConfig
       `Prelude.seq` Prelude.rnf datastoreTypeVersion
 
-instance Core.ToHeaders CreateFHIRDatastore where
+instance Data.ToHeaders CreateFHIRDatastore where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "HealthLake.CreateFHIRDatastore" ::
+              Data.=# ( "HealthLake.CreateFHIRDatastore" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateFHIRDatastore where
+instance Data.ToJSON CreateFHIRDatastore where
   toJSON CreateFHIRDatastore' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("DatastoreName" Core..=) Prelude.<$> datastoreName,
-            ("SseConfiguration" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("DatastoreName" Data..=) Prelude.<$> datastoreName,
+            ("SseConfiguration" Data..=)
               Prelude.<$> sseConfiguration,
-            ("PreloadDataConfig" Core..=)
+            ("PreloadDataConfig" Data..=)
               Prelude.<$> preloadDataConfig,
             Prelude.Just
               ( "DatastoreTypeVersion"
-                  Core..= datastoreTypeVersion
+                  Data..= datastoreTypeVersion
               )
           ]
       )
 
-instance Core.ToPath CreateFHIRDatastore where
+instance Data.ToPath CreateFHIRDatastore where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateFHIRDatastore where
+instance Data.ToQuery CreateFHIRDatastore where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateFHIRDatastoreResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,7 +93,7 @@ instance Core.AWSRequest GetContainerImages where
     Response.receiveJSON
       ( \s h x ->
           GetContainerImagesResponse'
-            Prelude.<$> ( x Core..?> "containerImages"
+            Prelude.<$> ( x Data..?> "containerImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -105,32 +106,32 @@ instance Prelude.Hashable GetContainerImages where
 instance Prelude.NFData GetContainerImages where
   rnf GetContainerImages' {..} = Prelude.rnf serviceName
 
-instance Core.ToHeaders GetContainerImages where
+instance Data.ToHeaders GetContainerImages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.GetContainerImages" ::
+              Data.=# ( "Lightsail_20161128.GetContainerImages" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetContainerImages where
+instance Data.ToJSON GetContainerImages where
   toJSON GetContainerImages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("serviceName" Core..= serviceName)]
+          [Prelude.Just ("serviceName" Data..= serviceName)]
       )
 
-instance Core.ToPath GetContainerImages where
+instance Data.ToPath GetContainerImages where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetContainerImages where
+instance Data.ToQuery GetContainerImages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetContainerImagesResponse' smart constructor.

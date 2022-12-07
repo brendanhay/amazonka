@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DeviceFarm.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -142,8 +143,8 @@ instance Core.AWSRequest ListNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkProfilesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "networkProfiles"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "networkProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -161,35 +162,35 @@ instance Prelude.NFData ListNetworkProfiles where
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
 
-instance Core.ToHeaders ListNetworkProfiles where
+instance Data.ToHeaders ListNetworkProfiles where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DeviceFarm_20150623.ListNetworkProfiles" ::
+              Data.=# ( "DeviceFarm_20150623.ListNetworkProfiles" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListNetworkProfiles where
+instance Data.ToJSON ListNetworkProfiles where
   toJSON ListNetworkProfiles' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("type" Core..=) Prelude.<$> type',
-            Prelude.Just ("arn" Core..= arn)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("type" Data..=) Prelude.<$> type',
+            Prelude.Just ("arn" Data..= arn)
           ]
       )
 
-instance Core.ToPath ListNetworkProfiles where
+instance Data.ToPath ListNetworkProfiles where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListNetworkProfiles where
+instance Data.ToQuery ListNetworkProfiles where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListNetworkProfilesResponse' smart constructor.

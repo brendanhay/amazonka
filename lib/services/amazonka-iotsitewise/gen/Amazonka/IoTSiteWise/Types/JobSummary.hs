@@ -21,6 +21,7 @@ module Amazonka.IoTSiteWise.Types.JobSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTSiteWise.Types.JobStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -137,15 +138,15 @@ jobSummary_name = Lens.lens (\JobSummary' {name} -> name) (\s@JobSummary' {} a -
 jobSummary_status :: Lens.Lens' JobSummary JobStatus
 jobSummary_status = Lens.lens (\JobSummary' {status} -> status) (\s@JobSummary' {} a -> s {status = a} :: JobSummary)
 
-instance Core.FromJSON JobSummary where
+instance Data.FromJSON JobSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Core..: "id")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "status")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable JobSummary where

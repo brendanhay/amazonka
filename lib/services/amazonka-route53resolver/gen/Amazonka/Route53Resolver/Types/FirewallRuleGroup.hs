@@ -21,6 +21,7 @@ module Amazonka.Route53Resolver.Types.FirewallRuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.FirewallRuleGroupStatus
 import Amazonka.Route53Resolver.Types.ShareStatus
@@ -174,23 +175,23 @@ firewallRuleGroup_creationTime = Lens.lens (\FirewallRuleGroup' {creationTime} -
 firewallRuleGroup_statusMessage :: Lens.Lens' FirewallRuleGroup (Prelude.Maybe Prelude.Text)
 firewallRuleGroup_statusMessage = Lens.lens (\FirewallRuleGroup' {statusMessage} -> statusMessage) (\s@FirewallRuleGroup' {} a -> s {statusMessage = a} :: FirewallRuleGroup)
 
-instance Core.FromJSON FirewallRuleGroup where
+instance Data.FromJSON FirewallRuleGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FirewallRuleGroup"
       ( \x ->
           FirewallRuleGroup'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "OwnerId")
-            Prelude.<*> (x Core..:? "ShareStatus")
-            Prelude.<*> (x Core..:? "ModificationTime")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreatorRequestId")
-            Prelude.<*> (x Core..:? "RuleCount")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ShareStatus")
+            Prelude.<*> (x Data..:? "ModificationTime")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "RuleCount")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable FirewallRuleGroup where

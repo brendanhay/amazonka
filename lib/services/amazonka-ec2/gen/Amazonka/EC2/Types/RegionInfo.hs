@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.RegionInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,12 +75,12 @@ regionInfo_regionName = Lens.lens (\RegionInfo' {regionName} -> regionName) (\s@
 regionInfo_endpoint :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_endpoint = Lens.lens (\RegionInfo' {endpoint} -> endpoint) (\s@RegionInfo' {} a -> s {endpoint = a} :: RegionInfo)
 
-instance Core.FromXML RegionInfo where
+instance Data.FromXML RegionInfo where
   parseXML x =
     RegionInfo'
-      Prelude.<$> (x Core..@? "optInStatus")
-      Prelude.<*> (x Core..@? "regionName")
-      Prelude.<*> (x Core..@? "regionEndpoint")
+      Prelude.<$> (x Data..@? "optInStatus")
+      Prelude.<*> (x Data..@? "regionName")
+      Prelude.<*> (x Data..@? "regionEndpoint")
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =

@@ -21,6 +21,7 @@ module Amazonka.CognitoIdentityProvider.Types.GroupType where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The group type.
@@ -30,9 +31,9 @@ data GroupType = GroupType'
   { -- | The role Amazon Resource Name (ARN) for the group.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date the group was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The date the group was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the group.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | A string containing the description of the group.
@@ -114,11 +115,11 @@ groupType_roleArn = Lens.lens (\GroupType' {roleArn} -> roleArn) (\s@GroupType' 
 
 -- | The date the group was last modified.
 groupType_lastModifiedDate :: Lens.Lens' GroupType (Prelude.Maybe Prelude.UTCTime)
-groupType_lastModifiedDate = Lens.lens (\GroupType' {lastModifiedDate} -> lastModifiedDate) (\s@GroupType' {} a -> s {lastModifiedDate = a} :: GroupType) Prelude.. Lens.mapping Core._Time
+groupType_lastModifiedDate = Lens.lens (\GroupType' {lastModifiedDate} -> lastModifiedDate) (\s@GroupType' {} a -> s {lastModifiedDate = a} :: GroupType) Prelude.. Lens.mapping Data._Time
 
 -- | The date the group was created.
 groupType_creationDate :: Lens.Lens' GroupType (Prelude.Maybe Prelude.UTCTime)
-groupType_creationDate = Lens.lens (\GroupType' {creationDate} -> creationDate) (\s@GroupType' {} a -> s {creationDate = a} :: GroupType) Prelude.. Lens.mapping Core._Time
+groupType_creationDate = Lens.lens (\GroupType' {creationDate} -> creationDate) (\s@GroupType' {} a -> s {creationDate = a} :: GroupType) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the group.
 groupType_groupName :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
@@ -151,19 +152,19 @@ groupType_userPoolId = Lens.lens (\GroupType' {userPoolId} -> userPoolId) (\s@Gr
 groupType_precedence :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Natural)
 groupType_precedence = Lens.lens (\GroupType' {precedence} -> precedence) (\s@GroupType' {} a -> s {precedence = a} :: GroupType)
 
-instance Core.FromJSON GroupType where
+instance Data.FromJSON GroupType where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupType"
       ( \x ->
           GroupType'
-            Prelude.<$> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> (x Core..:? "Precedence")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "UserPoolId")
+            Prelude.<*> (x Data..:? "Precedence")
       )
 
 instance Prelude.Hashable GroupType where

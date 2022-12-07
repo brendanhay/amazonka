@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceFamilyCreditSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.UnlimitedSupportedInstanceFamily
 import qualified Amazonka.Prelude as Prelude
@@ -69,13 +70,13 @@ instanceFamilyCreditSpecification_cpuCredits :: Lens.Lens' InstanceFamilyCreditS
 instanceFamilyCreditSpecification_cpuCredits = Lens.lens (\InstanceFamilyCreditSpecification' {cpuCredits} -> cpuCredits) (\s@InstanceFamilyCreditSpecification' {} a -> s {cpuCredits = a} :: InstanceFamilyCreditSpecification)
 
 instance
-  Core.FromXML
+  Data.FromXML
     InstanceFamilyCreditSpecification
   where
   parseXML x =
     InstanceFamilyCreditSpecification'
-      Prelude.<$> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "cpuCredits")
+      Prelude.<$> (x Data..@? "instanceFamily")
+      Prelude.<*> (x Data..@? "cpuCredits")
 
 instance
   Prelude.Hashable

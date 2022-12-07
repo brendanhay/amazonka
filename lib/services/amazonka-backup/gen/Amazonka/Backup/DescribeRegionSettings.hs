@@ -44,6 +44,7 @@ where
 import Amazonka.Backup.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -72,10 +73,10 @@ instance Core.AWSRequest DescribeRegionSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegionSettingsResponse'
-            Prelude.<$> ( x Core..?> "ResourceTypeManagementPreference"
+            Prelude.<$> ( x Data..?> "ResourceTypeManagementPreference"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ResourceTypeOptInPreference"
+            Prelude.<*> ( x Data..?> "ResourceTypeOptInPreference"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -88,21 +89,21 @@ instance Prelude.Hashable DescribeRegionSettings where
 instance Prelude.NFData DescribeRegionSettings where
   rnf _ = ()
 
-instance Core.ToHeaders DescribeRegionSettings where
+instance Data.ToHeaders DescribeRegionSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRegionSettings where
+instance Data.ToPath DescribeRegionSettings where
   toPath = Prelude.const "/account-settings"
 
-instance Core.ToQuery DescribeRegionSettings where
+instance Data.ToQuery DescribeRegionSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRegionSettingsResponse' smart constructor.

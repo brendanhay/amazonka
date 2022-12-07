@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.DataSourceToIndexFieldMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Maps a column or attribute in the data source to an index field. You
@@ -78,15 +79,15 @@ dataSourceToIndexFieldMapping_dataSourceFieldName = Lens.lens (\DataSourceToInde
 dataSourceToIndexFieldMapping_indexFieldName :: Lens.Lens' DataSourceToIndexFieldMapping Prelude.Text
 dataSourceToIndexFieldMapping_indexFieldName = Lens.lens (\DataSourceToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@DataSourceToIndexFieldMapping' {} a -> s {indexFieldName = a} :: DataSourceToIndexFieldMapping)
 
-instance Core.FromJSON DataSourceToIndexFieldMapping where
+instance Data.FromJSON DataSourceToIndexFieldMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataSourceToIndexFieldMapping"
       ( \x ->
           DataSourceToIndexFieldMapping'
-            Prelude.<$> (x Core..:? "DateFieldFormat")
-            Prelude.<*> (x Core..: "DataSourceFieldName")
-            Prelude.<*> (x Core..: "IndexFieldName")
+            Prelude.<$> (x Data..:? "DateFieldFormat")
+            Prelude.<*> (x Data..: "DataSourceFieldName")
+            Prelude.<*> (x Data..: "IndexFieldName")
       )
 
 instance
@@ -104,15 +105,15 @@ instance Prelude.NFData DataSourceToIndexFieldMapping where
       `Prelude.seq` Prelude.rnf dataSourceFieldName
       `Prelude.seq` Prelude.rnf indexFieldName
 
-instance Core.ToJSON DataSourceToIndexFieldMapping where
+instance Data.ToJSON DataSourceToIndexFieldMapping where
   toJSON DataSourceToIndexFieldMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DateFieldFormat" Core..=)
+          [ ("DateFieldFormat" Data..=)
               Prelude.<$> dateFieldFormat,
             Prelude.Just
-              ("DataSourceFieldName" Core..= dataSourceFieldName),
+              ("DataSourceFieldName" Data..= dataSourceFieldName),
             Prelude.Just
-              ("IndexFieldName" Core..= indexFieldName)
+              ("IndexFieldName" Data..= indexFieldName)
           ]
       )

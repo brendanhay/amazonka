@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.GroupCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a group of results for a query that retrieved aggregated
@@ -65,14 +66,14 @@ groupCount_groupKey = Lens.lens (\GroupCount' {groupKey} -> groupKey) (\s@GroupC
 groupCount_count :: Lens.Lens' GroupCount (Prelude.Maybe Prelude.Integer)
 groupCount_count = Lens.lens (\GroupCount' {count} -> count) (\s@GroupCount' {} a -> s {count = a} :: GroupCount)
 
-instance Core.FromJSON GroupCount where
+instance Data.FromJSON GroupCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupCount"
       ( \x ->
           GroupCount'
-            Prelude.<$> (x Core..:? "groupKey")
-            Prelude.<*> (x Core..:? "count")
+            Prelude.<$> (x Data..:? "groupKey")
+            Prelude.<*> (x Data..:? "count")
       )
 
 instance Prelude.Hashable GroupCount where

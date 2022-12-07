@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.CookieNames
 import Amazonka.CloudFront.Types.OriginRequestPolicyCookieBehavior
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if
@@ -107,13 +108,13 @@ originRequestPolicyCookiesConfig_cookieBehavior :: Lens.Lens' OriginRequestPolic
 originRequestPolicyCookiesConfig_cookieBehavior = Lens.lens (\OriginRequestPolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@OriginRequestPolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: OriginRequestPolicyCookiesConfig)
 
 instance
-  Core.FromXML
+  Data.FromXML
     OriginRequestPolicyCookiesConfig
   where
   parseXML x =
     OriginRequestPolicyCookiesConfig'
-      Prelude.<$> (x Core..@? "Cookies")
-      Prelude.<*> (x Core..@ "CookieBehavior")
+      Prelude.<$> (x Data..@? "Cookies")
+      Prelude.<*> (x Data..@ "CookieBehavior")
 
 instance
   Prelude.Hashable
@@ -133,9 +134,9 @@ instance
     Prelude.rnf cookies
       `Prelude.seq` Prelude.rnf cookieBehavior
 
-instance Core.ToXML OriginRequestPolicyCookiesConfig where
+instance Data.ToXML OriginRequestPolicyCookiesConfig where
   toXML OriginRequestPolicyCookiesConfig' {..} =
     Prelude.mconcat
-      [ "Cookies" Core.@= cookies,
-        "CookieBehavior" Core.@= cookieBehavior
+      [ "Cookies" Data.@= cookies,
+        "CookieBehavior" Data.@= cookieBehavior
       ]

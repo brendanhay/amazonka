@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberFabricConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration properties for Hyperledger Fabric for a member in a
@@ -36,7 +37,7 @@ data MemberFabricConfiguration = MemberFabricConfiguration'
     -- lowercase letter, and one digit. It cannot have a single quotation mark
     -- (‘), a double quotation marks (“), a forward slash(\/), a backward
     -- slash(\\), \@, or a space.
-    adminPassword :: Core.Sensitive Prelude.Text
+    adminPassword :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +70,7 @@ newMemberFabricConfiguration
       { adminUsername =
           pAdminUsername_,
         adminPassword =
-          Core._Sensitive Lens.# pAdminPassword_
+          Data._Sensitive Lens.# pAdminPassword_
       }
 
 -- | The user name for the member\'s initial administrative user.
@@ -83,7 +84,7 @@ memberFabricConfiguration_adminUsername = Lens.lens (\MemberFabricConfiguration'
 -- (‘), a double quotation marks (“), a forward slash(\/), a backward
 -- slash(\\), \@, or a space.
 memberFabricConfiguration_adminPassword :: Lens.Lens' MemberFabricConfiguration Prelude.Text
-memberFabricConfiguration_adminPassword = Lens.lens (\MemberFabricConfiguration' {adminPassword} -> adminPassword) (\s@MemberFabricConfiguration' {} a -> s {adminPassword = a} :: MemberFabricConfiguration) Prelude.. Core._Sensitive
+memberFabricConfiguration_adminPassword = Lens.lens (\MemberFabricConfiguration' {adminPassword} -> adminPassword) (\s@MemberFabricConfiguration' {} a -> s {adminPassword = a} :: MemberFabricConfiguration) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable MemberFabricConfiguration where
   hashWithSalt _salt MemberFabricConfiguration' {..} =
@@ -95,13 +96,13 @@ instance Prelude.NFData MemberFabricConfiguration where
     Prelude.rnf adminUsername
       `Prelude.seq` Prelude.rnf adminPassword
 
-instance Core.ToJSON MemberFabricConfiguration where
+instance Data.ToJSON MemberFabricConfiguration where
   toJSON MemberFabricConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AdminUsername" Core..= adminUsername),
+              ("AdminUsername" Data..= adminUsername),
             Prelude.Just
-              ("AdminPassword" Core..= adminPassword)
+              ("AdminPassword" Data..= adminPassword)
           ]
       )

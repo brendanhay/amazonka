@@ -21,6 +21,7 @@ module Amazonka.SSMIncidents.Types.EmptyChatChannel where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Used to remove the chat channel from an incident record or response
@@ -40,9 +41,9 @@ newEmptyChatChannel ::
   EmptyChatChannel
 newEmptyChatChannel = EmptyChatChannel'
 
-instance Core.FromJSON EmptyChatChannel where
+instance Data.FromJSON EmptyChatChannel where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EmptyChatChannel"
       (\x -> Prelude.pure EmptyChatChannel')
 
@@ -53,5 +54,5 @@ instance Prelude.Hashable EmptyChatChannel where
 instance Prelude.NFData EmptyChatChannel where
   rnf _ = ()
 
-instance Core.ToJSON EmptyChatChannel where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON EmptyChatChannel where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

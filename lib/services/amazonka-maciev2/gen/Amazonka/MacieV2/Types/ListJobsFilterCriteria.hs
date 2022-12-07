@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.ListJobsFilterCriteria where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.ListJobsFilterTerm
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,11 +80,11 @@ instance Prelude.NFData ListJobsFilterCriteria where
     Prelude.rnf excludes
       `Prelude.seq` Prelude.rnf includes
 
-instance Core.ToJSON ListJobsFilterCriteria where
+instance Data.ToJSON ListJobsFilterCriteria where
   toJSON ListJobsFilterCriteria' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("excludes" Core..=) Prelude.<$> excludes,
-            ("includes" Core..=) Prelude.<$> includes
+          [ ("excludes" Data..=) Prelude.<$> excludes,
+            ("includes" Data..=) Prelude.<$> includes
           ]
       )

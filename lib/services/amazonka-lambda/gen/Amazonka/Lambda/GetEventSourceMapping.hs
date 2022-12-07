@@ -65,6 +65,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest GetEventSourceMapping where
     Request.get (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable GetEventSourceMapping where
   hashWithSalt _salt GetEventSourceMapping' {..} =
@@ -114,15 +115,15 @@ instance Prelude.Hashable GetEventSourceMapping where
 instance Prelude.NFData GetEventSourceMapping where
   rnf GetEventSourceMapping' {..} = Prelude.rnf uuid
 
-instance Core.ToHeaders GetEventSourceMapping where
+instance Data.ToHeaders GetEventSourceMapping where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetEventSourceMapping where
+instance Data.ToPath GetEventSourceMapping where
   toPath GetEventSourceMapping' {..} =
     Prelude.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Core.toBS uuid
+        Data.toBS uuid
       ]
 
-instance Core.ToQuery GetEventSourceMapping where
+instance Data.ToQuery GetEventSourceMapping where
   toQuery = Prelude.const Prelude.mempty

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTDeviceAdvisor.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,7 +104,7 @@ instance Core.AWSRequest GetSuiteRunReport where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteRunReportResponse'
-            Prelude.<$> (x Core..?> "qualificationReportDownloadUrl")
+            Prelude.<$> (x Data..?> "qualificationReportDownloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,28 +118,28 @@ instance Prelude.NFData GetSuiteRunReport where
     Prelude.rnf suiteDefinitionId
       `Prelude.seq` Prelude.rnf suiteRunId
 
-instance Core.ToHeaders GetSuiteRunReport where
+instance Data.ToHeaders GetSuiteRunReport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetSuiteRunReport where
+instance Data.ToPath GetSuiteRunReport where
   toPath GetSuiteRunReport' {..} =
     Prelude.mconcat
       [ "/suiteDefinitions/",
-        Core.toBS suiteDefinitionId,
+        Data.toBS suiteDefinitionId,
         "/suiteRuns/",
-        Core.toBS suiteRunId,
+        Data.toBS suiteRunId,
         "/report"
       ]
 
-instance Core.ToQuery GetSuiteRunReport where
+instance Data.ToQuery GetSuiteRunReport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSuiteRunReportResponse' smart constructor.

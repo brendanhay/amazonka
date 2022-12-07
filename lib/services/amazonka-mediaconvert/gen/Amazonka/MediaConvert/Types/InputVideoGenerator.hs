@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.InputVideoGenerator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | When you include Video generator, MediaConvert creates a video input
@@ -61,13 +62,13 @@ newInputVideoGenerator =
 inputVideoGenerator_duration :: Lens.Lens' InputVideoGenerator (Prelude.Maybe Prelude.Natural)
 inputVideoGenerator_duration = Lens.lens (\InputVideoGenerator' {duration} -> duration) (\s@InputVideoGenerator' {} a -> s {duration = a} :: InputVideoGenerator)
 
-instance Core.FromJSON InputVideoGenerator where
+instance Data.FromJSON InputVideoGenerator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputVideoGenerator"
       ( \x ->
           InputVideoGenerator'
-            Prelude.<$> (x Core..:? "duration")
+            Prelude.<$> (x Data..:? "duration")
       )
 
 instance Prelude.Hashable InputVideoGenerator where
@@ -77,9 +78,9 @@ instance Prelude.Hashable InputVideoGenerator where
 instance Prelude.NFData InputVideoGenerator where
   rnf InputVideoGenerator' {..} = Prelude.rnf duration
 
-instance Core.ToJSON InputVideoGenerator where
+instance Data.ToJSON InputVideoGenerator where
   toJSON InputVideoGenerator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("duration" Core..=) Prelude.<$> duration]
+          [("duration" Data..=) Prelude.<$> duration]
       )

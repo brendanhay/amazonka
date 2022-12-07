@@ -47,6 +47,7 @@ where
 import Amazonka.ApplicationInsights.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -154,7 +155,7 @@ instance Core.AWSRequest UpdateApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateApplicationResponse'
-            Prelude.<$> (x Core..?> "ApplicationInfo")
+            Prelude.<$> (x Data..?> "ApplicationInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,44 +177,44 @@ instance Prelude.NFData UpdateApplication where
       `Prelude.seq` Prelude.rnf opsCenterEnabled
       `Prelude.seq` Prelude.rnf resourceGroupName
 
-instance Core.ToHeaders UpdateApplication where
+instance Data.ToHeaders UpdateApplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "EC2WindowsBarleyService.UpdateApplication" ::
+              Data.=# ( "EC2WindowsBarleyService.UpdateApplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateApplication where
+instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AutoConfigEnabled" Core..=)
+          [ ("AutoConfigEnabled" Data..=)
               Prelude.<$> autoConfigEnabled,
-            ("OpsItemSNSTopicArn" Core..=)
+            ("OpsItemSNSTopicArn" Data..=)
               Prelude.<$> opsItemSNSTopicArn,
-            ("CWEMonitorEnabled" Core..=)
+            ("CWEMonitorEnabled" Data..=)
               Prelude.<$> cWEMonitorEnabled,
-            ("RemoveSNSTopic" Core..=)
+            ("RemoveSNSTopic" Data..=)
               Prelude.<$> removeSNSTopic,
-            ("OpsCenterEnabled" Core..=)
+            ("OpsCenterEnabled" Data..=)
               Prelude.<$> opsCenterEnabled,
             Prelude.Just
-              ("ResourceGroupName" Core..= resourceGroupName)
+              ("ResourceGroupName" Data..= resourceGroupName)
           ]
       )
 
-instance Core.ToPath UpdateApplication where
+instance Data.ToPath UpdateApplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateApplication where
+instance Data.ToQuery UpdateApplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.

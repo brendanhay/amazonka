@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest AcceptInboundConnection where
     Response.receiveJSON
       ( \s h x ->
           AcceptInboundConnectionResponse'
-            Prelude.<$> (x Core..?> "Connection")
+            Prelude.<$> (x Data..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,21 +104,21 @@ instance Prelude.NFData AcceptInboundConnection where
   rnf AcceptInboundConnection' {..} =
     Prelude.rnf connectionId
 
-instance Core.ToHeaders AcceptInboundConnection where
+instance Data.ToHeaders AcceptInboundConnection where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AcceptInboundConnection where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AcceptInboundConnection where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath AcceptInboundConnection where
+instance Data.ToPath AcceptInboundConnection where
   toPath AcceptInboundConnection' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/cc/inboundConnection/",
-        Core.toBS connectionId,
+        Data.toBS connectionId,
         "/accept"
       ]
 
-instance Core.ToQuery AcceptInboundConnection where
+instance Data.ToQuery AcceptInboundConnection where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details about the accepted inbound connection.

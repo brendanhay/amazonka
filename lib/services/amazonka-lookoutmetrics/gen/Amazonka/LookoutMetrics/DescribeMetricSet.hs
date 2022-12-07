@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutMetrics.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,22 +102,22 @@ instance Core.AWSRequest DescribeMetricSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeMetricSetResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-            Prelude.<*> (x Core..?> "TimestampColumn")
-            Prelude.<*> (x Core..?> "MetricSetDescription")
-            Prelude.<*> (x Core..?> "AnomalyDetectorArn")
-            Prelude.<*> (x Core..?> "MetricSetName")
-            Prelude.<*> (x Core..?> "Timezone")
-            Prelude.<*> (x Core..?> "Offset")
-            Prelude.<*> (x Core..?> "MetricSource")
-            Prelude.<*> ( x Core..?> "DimensionFilterList"
+            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "TimestampColumn")
+            Prelude.<*> (x Data..?> "MetricSetDescription")
+            Prelude.<*> (x Data..?> "AnomalyDetectorArn")
+            Prelude.<*> (x Data..?> "MetricSetName")
+            Prelude.<*> (x Data..?> "Timezone")
+            Prelude.<*> (x Data..?> "Offset")
+            Prelude.<*> (x Data..?> "MetricSource")
+            Prelude.<*> ( x Data..?> "DimensionFilterList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "DimensionList")
-            Prelude.<*> (x Core..?> "MetricSetArn")
-            Prelude.<*> (x Core..?> "MetricSetFrequency")
-            Prelude.<*> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "MetricList")
+            Prelude.<*> (x Data..?> "DimensionList")
+            Prelude.<*> (x Data..?> "MetricSetArn")
+            Prelude.<*> (x Data..?> "MetricSetFrequency")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "MetricList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,34 +128,34 @@ instance Prelude.Hashable DescribeMetricSet where
 instance Prelude.NFData DescribeMetricSet where
   rnf DescribeMetricSet' {..} = Prelude.rnf metricSetArn
 
-instance Core.ToHeaders DescribeMetricSet where
+instance Data.ToHeaders DescribeMetricSet where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeMetricSet where
+instance Data.ToJSON DescribeMetricSet where
   toJSON DescribeMetricSet' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MetricSetArn" Core..= metricSetArn)]
+          [Prelude.Just ("MetricSetArn" Data..= metricSetArn)]
       )
 
-instance Core.ToPath DescribeMetricSet where
+instance Data.ToPath DescribeMetricSet where
   toPath = Prelude.const "/DescribeMetricSet"
 
-instance Core.ToQuery DescribeMetricSet where
+instance Data.ToQuery DescribeMetricSet where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeMetricSetResponse' smart constructor.
 data DescribeMetricSetResponse = DescribeMetricSetResponse'
   { -- | The time at which the dataset was last modified.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | Contains information about the column used for tracking time in your
     -- source data.
     timestampColumn :: Prelude.Maybe TimestampColumn,
@@ -181,7 +182,7 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
     -- | The interval at which the data will be analyzed for anomalies.
     metricSetFrequency :: Prelude.Maybe Frequency,
     -- | The time at which the dataset was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A list of the metrics defined by the dataset.
     metricList :: Prelude.Maybe (Prelude.NonEmpty Metric),
     -- | The response's http status code.
@@ -255,7 +256,7 @@ newDescribeMetricSetResponse pHttpStatus_ =
 
 -- | The time at which the dataset was last modified.
 describeMetricSetResponse_lastModificationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
-describeMetricSetResponse_lastModificationTime = Lens.lens (\DescribeMetricSetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMetricSetResponse' {} a -> s {lastModificationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Core._Time
+describeMetricSetResponse_lastModificationTime = Lens.lens (\DescribeMetricSetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMetricSetResponse' {} a -> s {lastModificationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Contains information about the column used for tracking time in your
 -- source data.
@@ -306,7 +307,7 @@ describeMetricSetResponse_metricSetFrequency = Lens.lens (\DescribeMetricSetResp
 
 -- | The time at which the dataset was created.
 describeMetricSetResponse_creationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
-describeMetricSetResponse_creationTime = Lens.lens (\DescribeMetricSetResponse' {creationTime} -> creationTime) (\s@DescribeMetricSetResponse' {} a -> s {creationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Core._Time
+describeMetricSetResponse_creationTime = Lens.lens (\DescribeMetricSetResponse' {creationTime} -> creationTime) (\s@DescribeMetricSetResponse' {} a -> s {creationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of the metrics defined by the dataset.
 describeMetricSetResponse_metricList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe (Prelude.NonEmpty Metric))

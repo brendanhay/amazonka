@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -49,7 +50,7 @@ import Amazonka.WorkDocs.Types
 data DeleteComment = DeleteComment'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The ID of the document version.
@@ -95,7 +96,7 @@ newDeleteComment pDocumentId_ pVersionId_ pCommentId_ =
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteComment_authenticationToken :: Lens.Lens' DeleteComment (Prelude.Maybe Prelude.Text)
-deleteComment_authenticationToken = Lens.lens (\DeleteComment' {authenticationToken} -> authenticationToken) (\s@DeleteComment' {} a -> s {authenticationToken = a} :: DeleteComment) Prelude.. Lens.mapping Core._Sensitive
+deleteComment_authenticationToken = Lens.lens (\DeleteComment' {authenticationToken} -> authenticationToken) (\s@DeleteComment' {} a -> s {authenticationToken = a} :: DeleteComment) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the document.
 deleteComment_documentId :: Lens.Lens' DeleteComment Prelude.Text
@@ -132,26 +133,26 @@ instance Prelude.NFData DeleteComment where
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf commentId
 
-instance Core.ToHeaders DeleteComment where
+instance Data.ToHeaders DeleteComment where
   toHeaders DeleteComment' {..} =
     Prelude.mconcat
-      [ "Authentication" Core.=# authenticationToken,
+      [ "Authentication" Data.=# authenticationToken,
         "Content-Type"
-          Core.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Data.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
       ]
 
-instance Core.ToPath DeleteComment where
+instance Data.ToPath DeleteComment where
   toPath DeleteComment' {..} =
     Prelude.mconcat
       [ "/api/v1/documents/",
-        Core.toBS documentId,
+        Data.toBS documentId,
         "/versions/",
-        Core.toBS versionId,
+        Data.toBS versionId,
         "/comment/",
-        Core.toBS commentId
+        Data.toBS commentId
       ]
 
-instance Core.ToQuery DeleteComment where
+instance Data.ToQuery DeleteComment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteCommentResponse' smart constructor.

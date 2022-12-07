@@ -62,6 +62,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,15 +112,15 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribePredictorBacktestExportJobResponse'
-            Prelude.<$> (x Core..?> "LastModificationTime")
-              Prelude.<*> (x Core..?> "Destination")
-              Prelude.<*> (x Core..?> "Message")
-              Prelude.<*> (x Core..?> "Format")
-              Prelude.<*> (x Core..?> "Status")
-              Prelude.<*> (x Core..?> "PredictorArn")
-              Prelude.<*> (x Core..?> "PredictorBacktestExportJobName")
-              Prelude.<*> (x Core..?> "PredictorBacktestExportJobArn")
-              Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Data..?> "LastModificationTime")
+              Prelude.<*> (x Data..?> "Destination")
+              Prelude.<*> (x Data..?> "Message")
+              Prelude.<*> (x Data..?> "Format")
+              Prelude.<*> (x Data..?> "Status")
+              Prelude.<*> (x Data..?> "PredictorArn")
+              Prelude.<*> (x Data..?> "PredictorBacktestExportJobName")
+              Prelude.<*> (x Data..?> "PredictorBacktestExportJobArn")
+              Prelude.<*> (x Data..?> "CreationTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,45 +142,45 @@ instance
     Prelude.rnf predictorBacktestExportJobArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DescribePredictorBacktestExportJob
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonForecast.DescribePredictorBacktestExportJob" ::
+              Data.=# ( "AmazonForecast.DescribePredictorBacktestExportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DescribePredictorBacktestExportJob
   where
   toJSON DescribePredictorBacktestExportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "PredictorBacktestExportJobArn"
-                  Core..= predictorBacktestExportJobArn
+                  Data..= predictorBacktestExportJobArn
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DescribePredictorBacktestExportJob
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DescribePredictorBacktestExportJob
   where
   toQuery = Prelude.const Prelude.mempty
@@ -198,7 +199,7 @@ data DescribePredictorBacktestExportJobResponse = DescribePredictorBacktestExpor
     -- -   @CREATE_STOPPED@ - When the job stopped.
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
-    lastModificationTime :: Prelude.Maybe Core.POSIX,
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     destination :: Prelude.Maybe DataDestination,
     -- | Information about any errors that may have occurred during the backtest
     -- export.
@@ -222,7 +223,7 @@ data DescribePredictorBacktestExportJobResponse = DescribePredictorBacktestExpor
     -- | The Amazon Resource Name (ARN) of the predictor backtest export job.
     predictorBacktestExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | When the predictor backtest export job was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -310,7 +311,7 @@ newDescribePredictorBacktestExportJobResponse
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 describePredictorBacktestExportJobResponse_lastModificationTime :: Lens.Lens' DescribePredictorBacktestExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describePredictorBacktestExportJobResponse_lastModificationTime = Lens.lens (\DescribePredictorBacktestExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribePredictorBacktestExportJobResponse) Prelude.. Lens.mapping Core._Time
+describePredictorBacktestExportJobResponse_lastModificationTime = Lens.lens (\DescribePredictorBacktestExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribePredictorBacktestExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describePredictorBacktestExportJobResponse_destination :: Lens.Lens' DescribePredictorBacktestExportJobResponse (Prelude.Maybe DataDestination)
@@ -351,7 +352,7 @@ describePredictorBacktestExportJobResponse_predictorBacktestExportJobArn = Lens.
 
 -- | When the predictor backtest export job was created.
 describePredictorBacktestExportJobResponse_creationTime :: Lens.Lens' DescribePredictorBacktestExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describePredictorBacktestExportJobResponse_creationTime = Lens.lens (\DescribePredictorBacktestExportJobResponse' {creationTime} -> creationTime) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {creationTime = a} :: DescribePredictorBacktestExportJobResponse) Prelude.. Lens.mapping Core._Time
+describePredictorBacktestExportJobResponse_creationTime = Lens.lens (\DescribePredictorBacktestExportJobResponse' {creationTime} -> creationTime) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {creationTime = a} :: DescribePredictorBacktestExportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describePredictorBacktestExportJobResponse_httpStatus :: Lens.Lens' DescribePredictorBacktestExportJobResponse Prelude.Int

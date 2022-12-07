@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.WebACL where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CaptchaConfig
 import Amazonka.WAFV2.Types.ChallengeConfig
@@ -439,34 +440,34 @@ webACL_defaultAction = Lens.lens (\WebACL' {defaultAction} -> defaultAction) (\s
 webACL_visibilityConfig :: Lens.Lens' WebACL VisibilityConfig
 webACL_visibilityConfig = Lens.lens (\WebACL' {visibilityConfig} -> visibilityConfig) (\s@WebACL' {} a -> s {visibilityConfig = a} :: WebACL)
 
-instance Core.FromJSON WebACL where
+instance Data.FromJSON WebACL where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WebACL"
       ( \x ->
           WebACL'
-            Prelude.<$> (x Core..:? "ManagedByFirewallManager")
-            Prelude.<*> (x Core..:? "TokenDomains")
-            Prelude.<*> (x Core..:? "CaptchaConfig")
-            Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "PreProcessFirewallManagerRuleGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ManagedByFirewallManager")
+            Prelude.<*> (x Data..:? "TokenDomains")
+            Prelude.<*> (x Data..:? "CaptchaConfig")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "PreProcessFirewallManagerRuleGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "LabelNamespace")
-            Prelude.<*> ( x Core..:? "CustomResponseBodies"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> ( x Data..:? "CustomResponseBodies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Capacity")
-            Prelude.<*> (x Core..:? "ChallengeConfig")
-            Prelude.<*> ( x Core..:? "PostProcessFirewallManagerRuleGroups"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Capacity")
+            Prelude.<*> (x Data..:? "ChallengeConfig")
+            Prelude.<*> ( x Data..:? "PostProcessFirewallManagerRuleGroups"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "ARN")
-            Prelude.<*> (x Core..: "DefaultAction")
-            Prelude.<*> (x Core..: "VisibilityConfig")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "ARN")
+            Prelude.<*> (x Data..: "DefaultAction")
+            Prelude.<*> (x Data..: "VisibilityConfig")
       )
 
 instance Prelude.Hashable WebACL where

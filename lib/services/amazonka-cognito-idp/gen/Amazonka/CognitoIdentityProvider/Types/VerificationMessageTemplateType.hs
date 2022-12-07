@@ -22,6 +22,7 @@ module Amazonka.CognitoIdentityProvider.Types.VerificationMessageTemplateType wh
 import Amazonka.CognitoIdentityProvider.Types.DefaultEmailOptionType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The template for verification messages.
@@ -175,20 +176,20 @@ verificationMessageTemplateType_emailMessage :: Lens.Lens' VerificationMessageTe
 verificationMessageTemplateType_emailMessage = Lens.lens (\VerificationMessageTemplateType' {emailMessage} -> emailMessage) (\s@VerificationMessageTemplateType' {} a -> s {emailMessage = a} :: VerificationMessageTemplateType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VerificationMessageTemplateType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VerificationMessageTemplateType"
       ( \x ->
           VerificationMessageTemplateType'
-            Prelude.<$> (x Core..:? "EmailSubject")
-            Prelude.<*> (x Core..:? "SmsMessage")
-            Prelude.<*> (x Core..:? "EmailSubjectByLink")
-            Prelude.<*> (x Core..:? "EmailMessageByLink")
-            Prelude.<*> (x Core..:? "DefaultEmailOption")
-            Prelude.<*> (x Core..:? "EmailMessage")
+            Prelude.<$> (x Data..:? "EmailSubject")
+            Prelude.<*> (x Data..:? "SmsMessage")
+            Prelude.<*> (x Data..:? "EmailSubjectByLink")
+            Prelude.<*> (x Data..:? "EmailMessageByLink")
+            Prelude.<*> (x Data..:? "DefaultEmailOption")
+            Prelude.<*> (x Data..:? "EmailMessage")
       )
 
 instance
@@ -217,18 +218,18 @@ instance
       `Prelude.seq` Prelude.rnf defaultEmailOption
       `Prelude.seq` Prelude.rnf emailMessage
 
-instance Core.ToJSON VerificationMessageTemplateType where
+instance Data.ToJSON VerificationMessageTemplateType where
   toJSON VerificationMessageTemplateType' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("EmailSubject" Core..=) Prelude.<$> emailSubject,
-            ("SmsMessage" Core..=) Prelude.<$> smsMessage,
-            ("EmailSubjectByLink" Core..=)
+          [ ("EmailSubject" Data..=) Prelude.<$> emailSubject,
+            ("SmsMessage" Data..=) Prelude.<$> smsMessage,
+            ("EmailSubjectByLink" Data..=)
               Prelude.<$> emailSubjectByLink,
-            ("EmailMessageByLink" Core..=)
+            ("EmailMessageByLink" Data..=)
               Prelude.<$> emailMessageByLink,
-            ("DefaultEmailOption" Core..=)
+            ("DefaultEmailOption" Data..=)
               Prelude.<$> defaultEmailOption,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage
           ]
       )

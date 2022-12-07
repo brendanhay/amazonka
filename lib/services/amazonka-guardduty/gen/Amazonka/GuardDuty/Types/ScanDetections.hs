@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.ScanDetections where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.HighestSeverityThreatDetails
 import Amazonka.GuardDuty.Types.ScannedItemCount
 import Amazonka.GuardDuty.Types.ThreatDetectedByName
@@ -87,16 +88,16 @@ scanDetections_threatDetectedByName = Lens.lens (\ScanDetections' {threatDetecte
 scanDetections_highestSeverityThreatDetails :: Lens.Lens' ScanDetections (Prelude.Maybe HighestSeverityThreatDetails)
 scanDetections_highestSeverityThreatDetails = Lens.lens (\ScanDetections' {highestSeverityThreatDetails} -> highestSeverityThreatDetails) (\s@ScanDetections' {} a -> s {highestSeverityThreatDetails = a} :: ScanDetections)
 
-instance Core.FromJSON ScanDetections where
+instance Data.FromJSON ScanDetections where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ScanDetections"
       ( \x ->
           ScanDetections'
-            Prelude.<$> (x Core..:? "threatsDetectedItemCount")
-            Prelude.<*> (x Core..:? "scannedItemCount")
-            Prelude.<*> (x Core..:? "threatDetectedByName")
-            Prelude.<*> (x Core..:? "highestSeverityThreatDetails")
+            Prelude.<$> (x Data..:? "threatsDetectedItemCount")
+            Prelude.<*> (x Data..:? "scannedItemCount")
+            Prelude.<*> (x Data..:? "threatDetectedByName")
+            Prelude.<*> (x Data..:? "highestSeverityThreatDetails")
       )
 
 instance Prelude.Hashable ScanDetections where

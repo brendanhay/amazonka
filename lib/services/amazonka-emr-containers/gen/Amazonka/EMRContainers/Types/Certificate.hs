@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The entity representing certificate data generated for managed endpoint.
@@ -61,14 +62,14 @@ certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certif
 certificate_certificateData :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_certificateData = Lens.lens (\Certificate' {certificateData} -> certificateData) (\s@Certificate' {} a -> s {certificateData = a} :: Certificate)
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "certificateData")
+            Prelude.<$> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "certificateData")
       )
 
 instance Prelude.Hashable Certificate where

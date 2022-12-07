@@ -23,6 +23,7 @@ import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.Dimensions
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about a set of real-time metrics.
@@ -63,14 +64,14 @@ currentMetricResult_collections = Lens.lens (\CurrentMetricResult' {collections}
 currentMetricResult_dimensions :: Lens.Lens' CurrentMetricResult (Prelude.Maybe Dimensions)
 currentMetricResult_dimensions = Lens.lens (\CurrentMetricResult' {dimensions} -> dimensions) (\s@CurrentMetricResult' {} a -> s {dimensions = a} :: CurrentMetricResult)
 
-instance Core.FromJSON CurrentMetricResult where
+instance Data.FromJSON CurrentMetricResult where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CurrentMetricResult"
       ( \x ->
           CurrentMetricResult'
-            Prelude.<$> (x Core..:? "Collections" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Dimensions")
+            Prelude.<$> (x Data..:? "Collections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Dimensions")
       )
 
 instance Prelude.Hashable CurrentMetricResult where

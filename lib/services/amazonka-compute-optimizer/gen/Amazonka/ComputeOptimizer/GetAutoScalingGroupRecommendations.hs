@@ -55,6 +55,7 @@ where
 import Amazonka.ComputeOptimizer.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -191,9 +192,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAutoScalingGroupRecommendationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Core..?> "autoScalingGroupRecommendations"
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+              Prelude.<*> ( x Data..?> "autoScalingGroupRecommendations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -226,49 +227,49 @@ instance
       `Prelude.seq` Prelude.rnf autoScalingGroupArns
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetAutoScalingGroupRecommendations
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComputeOptimizerService.GetAutoScalingGroupRecommendations" ::
+              Data.=# ( "ComputeOptimizerService.GetAutoScalingGroupRecommendations" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetAutoScalingGroupRecommendations
   where
   toJSON GetAutoScalingGroupRecommendations' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("accountIds" Core..=) Prelude.<$> accountIds,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("recommendationPreferences" Core..=)
+          [ ("accountIds" Data..=) Prelude.<$> accountIds,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("recommendationPreferences" Data..=)
               Prelude.<$> recommendationPreferences,
-            ("filters" Core..=) Prelude.<$> filters,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("autoScalingGroupArns" Core..=)
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("autoScalingGroupArns" Data..=)
               Prelude.<$> autoScalingGroupArns
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetAutoScalingGroupRecommendations
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetAutoScalingGroupRecommendations
   where
   toQuery = Prelude.const Prelude.mempty

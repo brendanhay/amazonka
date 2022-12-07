@@ -21,6 +21,7 @@ module Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes third-party social federation configurations for allowing your
@@ -70,16 +71,16 @@ backendAuthSocialProviderConfig_clientId :: Lens.Lens' BackendAuthSocialProvider
 backendAuthSocialProviderConfig_clientId = Lens.lens (\BackendAuthSocialProviderConfig' {clientId} -> clientId) (\s@BackendAuthSocialProviderConfig' {} a -> s {clientId = a} :: BackendAuthSocialProviderConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BackendAuthSocialProviderConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BackendAuthSocialProviderConfig"
       ( \x ->
           BackendAuthSocialProviderConfig'
-            Prelude.<$> (x Core..:? "client_secret")
-            Prelude.<*> (x Core..:? "client_id")
+            Prelude.<$> (x Data..:? "client_secret")
+            Prelude.<*> (x Data..:? "client_id")
       )
 
 instance
@@ -100,11 +101,11 @@ instance
     Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf clientId
 
-instance Core.ToJSON BackendAuthSocialProviderConfig where
+instance Data.ToJSON BackendAuthSocialProviderConfig where
   toJSON BackendAuthSocialProviderConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("client_secret" Core..=) Prelude.<$> clientSecret,
-            ("client_id" Core..=) Prelude.<$> clientId
+          [ ("client_secret" Data..=) Prelude.<$> clientSecret,
+            ("client_id" Data..=) Prelude.<$> clientId
           ]
       )

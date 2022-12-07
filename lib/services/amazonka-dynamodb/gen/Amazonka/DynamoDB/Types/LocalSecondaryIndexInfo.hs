@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
@@ -127,15 +128,15 @@ localSecondaryIndexInfo_keySchema = Lens.lens (\LocalSecondaryIndexInfo' {keySch
 localSecondaryIndexInfo_projection :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Projection)
 localSecondaryIndexInfo_projection = Lens.lens (\LocalSecondaryIndexInfo' {projection} -> projection) (\s@LocalSecondaryIndexInfo' {} a -> s {projection = a} :: LocalSecondaryIndexInfo)
 
-instance Core.FromJSON LocalSecondaryIndexInfo where
+instance Data.FromJSON LocalSecondaryIndexInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LocalSecondaryIndexInfo"
       ( \x ->
           LocalSecondaryIndexInfo'
-            Prelude.<$> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance Prelude.Hashable LocalSecondaryIndexInfo where

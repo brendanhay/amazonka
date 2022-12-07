@@ -21,6 +21,7 @@ module Amazonka.CloudFormation.Types.StackSetOperationStatusDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information about the StackSet operation.
@@ -53,10 +54,10 @@ newStackSetOperationStatusDetails =
 stackSetOperationStatusDetails_failedStackInstancesCount :: Lens.Lens' StackSetOperationStatusDetails (Prelude.Maybe Prelude.Natural)
 stackSetOperationStatusDetails_failedStackInstancesCount = Lens.lens (\StackSetOperationStatusDetails' {failedStackInstancesCount} -> failedStackInstancesCount) (\s@StackSetOperationStatusDetails' {} a -> s {failedStackInstancesCount = a} :: StackSetOperationStatusDetails)
 
-instance Core.FromXML StackSetOperationStatusDetails where
+instance Data.FromXML StackSetOperationStatusDetails where
   parseXML x =
     StackSetOperationStatusDetails'
-      Prelude.<$> (x Core..@? "FailedStackInstancesCount")
+      Prelude.<$> (x Data..@? "FailedStackInstancesCount")
 
 instance
   Prelude.Hashable

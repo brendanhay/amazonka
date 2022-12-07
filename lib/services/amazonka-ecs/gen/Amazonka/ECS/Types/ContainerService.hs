@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.ContainerService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.CapacityProviderStrategyItem
 import Amazonka.ECS.Types.Deployment
 import Amazonka.ECS.Types.DeploymentConfiguration
@@ -195,7 +196,7 @@ data ContainerService = ContainerService'
     -- in the /Amazon ECS Developer Guide/.
     serviceArn :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for the time when the service was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -612,53 +613,53 @@ containerService_serviceArn = Lens.lens (\ContainerService' {serviceArn} -> serv
 
 -- | The Unix timestamp for the time when the service was created.
 containerService_createdAt :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.UTCTime)
-containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Core._Time
+containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON ContainerService where
+instance Data.FromJSON ContainerService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerService"
       ( \x ->
           ContainerService'
-            Prelude.<$> (x Core..:? "healthCheckGracePeriodSeconds")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clusterArn")
-            Prelude.<*> (x Core..:? "deploymentConfiguration")
-            Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> ( x Core..:? "serviceRegistries"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "healthCheckGracePeriodSeconds")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "clusterArn")
+            Prelude.<*> (x Data..:? "deploymentConfiguration")
+            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> ( x Data..:? "serviceRegistries"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "schedulingStrategy")
-            Prelude.<*> (x Core..:? "platformFamily")
-            Prelude.<*> ( x Core..:? "placementStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "schedulingStrategy")
+            Prelude.<*> (x Data..:? "platformFamily")
+            Prelude.<*> ( x Data..:? "placementStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "taskDefinition")
-            Prelude.<*> (x Core..:? "networkConfiguration")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "desiredCount")
-            Prelude.<*> (x Core..:? "pendingCount")
-            Prelude.<*> (x Core..:? "enableExecuteCommand")
-            Prelude.<*> ( x Core..:? "capacityProviderStrategy"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "taskDefinition")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "desiredCount")
+            Prelude.<*> (x Data..:? "pendingCount")
+            Prelude.<*> (x Data..:? "enableExecuteCommand")
+            Prelude.<*> ( x Data..:? "capacityProviderStrategy"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "placementConstraints"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "placementConstraints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "taskSets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "propagateTags")
-            Prelude.<*> (x Core..:? "deploymentController")
-            Prelude.<*> (x Core..:? "events" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "loadBalancers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "launchType")
-            Prelude.<*> (x Core..:? "runningCount")
-            Prelude.<*> (x Core..:? "platformVersion")
-            Prelude.<*> (x Core..:? "serviceName")
-            Prelude.<*> (x Core..:? "deployments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "enableECSManagedTags")
-            Prelude.<*> (x Core..:? "createdBy")
-            Prelude.<*> (x Core..:? "serviceArn")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Data..:? "taskSets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "propagateTags")
+            Prelude.<*> (x Data..:? "deploymentController")
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "loadBalancers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "launchType")
+            Prelude.<*> (x Data..:? "runningCount")
+            Prelude.<*> (x Data..:? "platformVersion")
+            Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "deployments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "enableECSManagedTags")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "serviceArn")
+            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable ContainerService where

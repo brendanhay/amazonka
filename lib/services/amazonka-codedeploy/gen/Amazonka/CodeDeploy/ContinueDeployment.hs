@@ -44,6 +44,7 @@ where
 import Amazonka.CodeDeploy.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -115,35 +116,35 @@ instance Prelude.NFData ContinueDeployment where
     Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf deploymentWaitType
 
-instance Core.ToHeaders ContinueDeployment where
+instance Data.ToHeaders ContinueDeployment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeDeploy_20141006.ContinueDeployment" ::
+              Data.=# ( "CodeDeploy_20141006.ContinueDeployment" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ContinueDeployment where
+instance Data.ToJSON ContinueDeployment where
   toJSON ContinueDeployment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("deploymentWaitType" Core..=)
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("deploymentWaitType" Data..=)
               Prelude.<$> deploymentWaitType
           ]
       )
 
-instance Core.ToPath ContinueDeployment where
+instance Data.ToPath ContinueDeployment where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ContinueDeployment where
+instance Data.ToQuery ContinueDeployment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newContinueDeploymentResponse' smart constructor.

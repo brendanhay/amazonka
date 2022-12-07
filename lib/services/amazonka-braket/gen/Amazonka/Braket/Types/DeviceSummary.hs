@@ -23,6 +23,7 @@ import Amazonka.Braket.Types.DeviceStatus
 import Amazonka.Braket.Types.DeviceType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Includes information about the device.
@@ -105,17 +106,17 @@ deviceSummary_deviceType = Lens.lens (\DeviceSummary' {deviceType} -> deviceType
 deviceSummary_providerName :: Lens.Lens' DeviceSummary Prelude.Text
 deviceSummary_providerName = Lens.lens (\DeviceSummary' {providerName} -> providerName) (\s@DeviceSummary' {} a -> s {providerName = a} :: DeviceSummary)
 
-instance Core.FromJSON DeviceSummary where
+instance Data.FromJSON DeviceSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceSummary"
       ( \x ->
           DeviceSummary'
-            Prelude.<$> (x Core..: "deviceArn")
-            Prelude.<*> (x Core..: "deviceName")
-            Prelude.<*> (x Core..: "deviceStatus")
-            Prelude.<*> (x Core..: "deviceType")
-            Prelude.<*> (x Core..: "providerName")
+            Prelude.<$> (x Data..: "deviceArn")
+            Prelude.<*> (x Data..: "deviceName")
+            Prelude.<*> (x Data..: "deviceStatus")
+            Prelude.<*> (x Data..: "deviceType")
+            Prelude.<*> (x Data..: "providerName")
       )
 
 instance Prelude.Hashable DeviceSummary where

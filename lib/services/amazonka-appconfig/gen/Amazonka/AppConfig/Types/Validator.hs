@@ -22,6 +22,7 @@ module Amazonka.AppConfig.Types.Validator where
 import Amazonka.AppConfig.Types.ValidatorType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A validator provides a syntactic or semantic check to ensure the
@@ -37,7 +38,7 @@ data Validator = Validator'
     type' :: ValidatorType,
     -- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an
     -- Lambda function.
-    content :: Core.Sensitive Prelude.Text
+    content :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,7 +63,7 @@ newValidator ::
 newValidator pType_ pContent_ =
   Validator'
     { type' = pType_,
-      content = Core._Sensitive Lens.# pContent_
+      content = Data._Sensitive Lens.# pContent_
     }
 
 -- | AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@
@@ -72,15 +73,15 @@ validator_type = Lens.lens (\Validator' {type'} -> type') (\s@Validator' {} a ->
 -- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an
 -- Lambda function.
 validator_content :: Lens.Lens' Validator Prelude.Text
-validator_content = Lens.lens (\Validator' {content} -> content) (\s@Validator' {} a -> s {content = a} :: Validator) Prelude.. Core._Sensitive
+validator_content = Lens.lens (\Validator' {content} -> content) (\s@Validator' {} a -> s {content = a} :: Validator) Prelude.. Data._Sensitive
 
-instance Core.FromJSON Validator where
+instance Data.FromJSON Validator where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Validator"
       ( \x ->
           Validator'
-            Prelude.<$> (x Core..: "Type") Prelude.<*> (x Core..: "Content")
+            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Content")
       )
 
 instance Prelude.Hashable Validator where
@@ -92,11 +93,11 @@ instance Prelude.NFData Validator where
   rnf Validator' {..} =
     Prelude.rnf type' `Prelude.seq` Prelude.rnf content
 
-instance Core.ToJSON Validator where
+instance Data.ToJSON Validator where
   toJSON Validator' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Core..= type'),
-            Prelude.Just ("Content" Core..= content)
+          [ Prelude.Just ("Type" Data..= type'),
+            Prelude.Just ("Content" Data..= content)
           ]
       )

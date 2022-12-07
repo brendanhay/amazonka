@@ -24,6 +24,7 @@ import Amazonka.AmplifyBackend.Types.OAuthScopesElement
 import Amazonka.AmplifyBackend.Types.SocialProviderSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The OAuth configurations for authenticating users into your Amplify app.
@@ -134,19 +135,19 @@ instance Prelude.NFData UpdateBackendAuthOAuthConfig where
       `Prelude.seq` Prelude.rnf socialProviderSettings
       `Prelude.seq` Prelude.rnf oAuthGrantType
 
-instance Core.ToJSON UpdateBackendAuthOAuthConfig where
+instance Data.ToJSON UpdateBackendAuthOAuthConfig where
   toJSON UpdateBackendAuthOAuthConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("domainPrefix" Core..=) Prelude.<$> domainPrefix,
-            ("redirectSignOutURIs" Core..=)
+          [ ("domainPrefix" Data..=) Prelude.<$> domainPrefix,
+            ("redirectSignOutURIs" Data..=)
               Prelude.<$> redirectSignOutURIs,
-            ("redirectSignInURIs" Core..=)
+            ("redirectSignInURIs" Data..=)
               Prelude.<$> redirectSignInURIs,
-            ("oAuthScopes" Core..=) Prelude.<$> oAuthScopes,
-            ("socialProviderSettings" Core..=)
+            ("oAuthScopes" Data..=) Prelude.<$> oAuthScopes,
+            ("socialProviderSettings" Data..=)
               Prelude.<$> socialProviderSettings,
-            ("oAuthGrantType" Core..=)
+            ("oAuthGrantType" Data..=)
               Prelude.<$> oAuthGrantType
           ]
       )

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -229,38 +230,38 @@ instance Prelude.NFData UpdateProtectionGroup where
       `Prelude.seq` Prelude.rnf aggregation
       `Prelude.seq` Prelude.rnf pattern'
 
-instance Core.ToHeaders UpdateProtectionGroup where
+instance Data.ToHeaders UpdateProtectionGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSShield_20160616.UpdateProtectionGroup" ::
+              Data.=# ( "AWSShield_20160616.UpdateProtectionGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateProtectionGroup where
+instance Data.ToJSON UpdateProtectionGroup where
   toJSON UpdateProtectionGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Members" Core..=) Prelude.<$> members,
+          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+            ("Members" Data..=) Prelude.<$> members,
             Prelude.Just
-              ("ProtectionGroupId" Core..= protectionGroupId),
-            Prelude.Just ("Aggregation" Core..= aggregation),
-            Prelude.Just ("Pattern" Core..= pattern')
+              ("ProtectionGroupId" Data..= protectionGroupId),
+            Prelude.Just ("Aggregation" Data..= aggregation),
+            Prelude.Just ("Pattern" Data..= pattern')
           ]
       )
 
-instance Core.ToPath UpdateProtectionGroup where
+instance Data.ToPath UpdateProtectionGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateProtectionGroup where
+instance Data.ToQuery UpdateProtectionGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateProtectionGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SSM.Types.MaintenanceWindowFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filter used in the request. Supported filter keys depend on the API
@@ -84,11 +85,11 @@ instance Prelude.NFData MaintenanceWindowFilter where
   rnf MaintenanceWindowFilter' {..} =
     Prelude.rnf key `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON MaintenanceWindowFilter where
+instance Data.ToJSON MaintenanceWindowFilter where
   toJSON MaintenanceWindowFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Key" Data..=) Prelude.<$> key,
+            ("Values" Data..=) Prelude.<$> values
           ]
       )

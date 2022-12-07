@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCodeBuildProjectLogsConfigCloudWatchLogsDet
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about CloudWatch Logs for the build project.
@@ -74,17 +75,17 @@ awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_streamName :: Lens.Lens' AwsC
 awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_streamName = Lens.lens (\AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {streamName} -> streamName) (\s@AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {} a -> s {streamName = a} :: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails"
       ( \x ->
           AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'
-            Prelude.<$> (x Core..:? "Status")
-              Prelude.<*> (x Core..:? "GroupName")
-              Prelude.<*> (x Core..:? "StreamName")
+            Prelude.<$> (x Data..:? "Status")
+              Prelude.<*> (x Data..:? "GroupName")
+              Prelude.<*> (x Data..:? "StreamName")
       )
 
 instance
@@ -109,15 +110,15 @@ instance
         `Prelude.seq` Prelude.rnf streamName
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
   where
   toJSON
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Status" Core..=) Prelude.<$> status,
-              ("GroupName" Core..=) Prelude.<$> groupName,
-              ("StreamName" Core..=) Prelude.<$> streamName
+            [ ("Status" Data..=) Prelude.<$> status,
+              ("GroupName" Data..=) Prelude.<$> groupName,
+              ("StreamName" Data..=) Prelude.<$> streamName
             ]
         )

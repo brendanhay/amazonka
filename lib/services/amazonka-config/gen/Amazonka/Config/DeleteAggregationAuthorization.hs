@@ -40,6 +40,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -119,38 +120,38 @@ instance
       `Prelude.seq` Prelude.rnf authorizedAwsRegion
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteAggregationAuthorization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteAggregationAuthorization" ::
+              Data.=# ( "StarlingDoveService.DeleteAggregationAuthorization" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAggregationAuthorization where
+instance Data.ToJSON DeleteAggregationAuthorization where
   toJSON DeleteAggregationAuthorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AuthorizedAccountId" Core..= authorizedAccountId),
+              ("AuthorizedAccountId" Data..= authorizedAccountId),
             Prelude.Just
-              ("AuthorizedAwsRegion" Core..= authorizedAwsRegion)
+              ("AuthorizedAwsRegion" Data..= authorizedAwsRegion)
           ]
       )
 
-instance Core.ToPath DeleteAggregationAuthorization where
+instance Data.ToPath DeleteAggregationAuthorization where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAggregationAuthorization where
+instance Data.ToQuery DeleteAggregationAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAggregationAuthorizationResponse' smart constructor.

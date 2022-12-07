@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.ContainerDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.VolumeMount
 
@@ -125,19 +126,19 @@ containerDetails_imageName = Lens.lens (\ContainerDetails' {imageName} -> imageN
 containerDetails_imageId :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
 containerDetails_imageId = Lens.lens (\ContainerDetails' {imageId} -> imageId) (\s@ContainerDetails' {} a -> s {imageId = a} :: ContainerDetails)
 
-instance Core.FromJSON ContainerDetails where
+instance Data.FromJSON ContainerDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContainerDetails"
       ( \x ->
           ContainerDetails'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "ContainerRuntime")
-            Prelude.<*> (x Core..:? "Privileged")
-            Prelude.<*> (x Core..:? "LaunchedAt")
-            Prelude.<*> (x Core..:? "VolumeMounts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ImageName")
-            Prelude.<*> (x Core..:? "ImageId")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ContainerRuntime")
+            Prelude.<*> (x Data..:? "Privileged")
+            Prelude.<*> (x Data..:? "LaunchedAt")
+            Prelude.<*> (x Data..:? "VolumeMounts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ImageName")
+            Prelude.<*> (x Data..:? "ImageId")
       )
 
 instance Prelude.Hashable ContainerDetails where
@@ -160,17 +161,17 @@ instance Prelude.NFData ContainerDetails where
       `Prelude.seq` Prelude.rnf imageName
       `Prelude.seq` Prelude.rnf imageId
 
-instance Core.ToJSON ContainerDetails where
+instance Data.ToJSON ContainerDetails where
   toJSON ContainerDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("ContainerRuntime" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("ContainerRuntime" Data..=)
               Prelude.<$> containerRuntime,
-            ("Privileged" Core..=) Prelude.<$> privileged,
-            ("LaunchedAt" Core..=) Prelude.<$> launchedAt,
-            ("VolumeMounts" Core..=) Prelude.<$> volumeMounts,
-            ("ImageName" Core..=) Prelude.<$> imageName,
-            ("ImageId" Core..=) Prelude.<$> imageId
+            ("Privileged" Data..=) Prelude.<$> privileged,
+            ("LaunchedAt" Data..=) Prelude.<$> launchedAt,
+            ("VolumeMounts" Data..=) Prelude.<$> volumeMounts,
+            ("ImageName" Data..=) Prelude.<$> imageName,
+            ("ImageId" Data..=) Prelude.<$> imageId
           ]
       )

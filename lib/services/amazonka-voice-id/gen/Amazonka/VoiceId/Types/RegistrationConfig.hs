@@ -21,6 +21,7 @@ module Amazonka.VoiceId.Types.RegistrationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DuplicateRegistrationAction
 
@@ -77,14 +78,14 @@ registrationConfig_duplicateRegistrationAction = Lens.lens (\RegistrationConfig'
 registrationConfig_fraudsterSimilarityThreshold :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Natural)
 registrationConfig_fraudsterSimilarityThreshold = Lens.lens (\RegistrationConfig' {fraudsterSimilarityThreshold} -> fraudsterSimilarityThreshold) (\s@RegistrationConfig' {} a -> s {fraudsterSimilarityThreshold = a} :: RegistrationConfig)
 
-instance Core.FromJSON RegistrationConfig where
+instance Data.FromJSON RegistrationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Core..:? "DuplicateRegistrationAction")
-            Prelude.<*> (x Core..:? "FraudsterSimilarityThreshold")
+            Prelude.<$> (x Data..:? "DuplicateRegistrationAction")
+            Prelude.<*> (x Data..:? "FraudsterSimilarityThreshold")
       )
 
 instance Prelude.Hashable RegistrationConfig where
@@ -98,13 +99,13 @@ instance Prelude.NFData RegistrationConfig where
     Prelude.rnf duplicateRegistrationAction
       `Prelude.seq` Prelude.rnf fraudsterSimilarityThreshold
 
-instance Core.ToJSON RegistrationConfig where
+instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DuplicateRegistrationAction" Core..=)
+          [ ("DuplicateRegistrationAction" Data..=)
               Prelude.<$> duplicateRegistrationAction,
-            ("FraudsterSimilarityThreshold" Core..=)
+            ("FraudsterSimilarityThreshold" Data..=)
               Prelude.<$> fraudsterSimilarityThreshold
           ]
       )

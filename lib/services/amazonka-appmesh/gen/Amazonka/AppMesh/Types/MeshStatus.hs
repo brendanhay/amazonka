@@ -22,6 +22,7 @@ module Amazonka.AppMesh.Types.MeshStatus where
 import Amazonka.AppMesh.Types.MeshStatusCode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents the status of a service mesh.
@@ -50,12 +51,12 @@ newMeshStatus = MeshStatus' {status = Prelude.Nothing}
 meshStatus_status :: Lens.Lens' MeshStatus (Prelude.Maybe MeshStatusCode)
 meshStatus_status = Lens.lens (\MeshStatus' {status} -> status) (\s@MeshStatus' {} a -> s {status = a} :: MeshStatus)
 
-instance Core.FromJSON MeshStatus where
+instance Data.FromJSON MeshStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MeshStatus"
       ( \x ->
-          MeshStatus' Prelude.<$> (x Core..:? "status")
+          MeshStatus' Prelude.<$> (x Data..:? "status")
       )
 
 instance Prelude.Hashable MeshStatus where

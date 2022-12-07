@@ -44,6 +44,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,34 +96,34 @@ instance Prelude.NFData DeleteConformancePack where
   rnf DeleteConformancePack' {..} =
     Prelude.rnf conformancePackName
 
-instance Core.ToHeaders DeleteConformancePack where
+instance Data.ToHeaders DeleteConformancePack where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.DeleteConformancePack" ::
+              Data.=# ( "StarlingDoveService.DeleteConformancePack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteConformancePack where
+instance Data.ToJSON DeleteConformancePack where
   toJSON DeleteConformancePack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ConformancePackName" Core..= conformancePackName)
+              ("ConformancePackName" Data..= conformancePackName)
           ]
       )
 
-instance Core.ToPath DeleteConformancePack where
+instance Data.ToPath DeleteConformancePack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteConformancePack where
+instance Data.ToQuery DeleteConformancePack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteConformancePackResponse' smart constructor.

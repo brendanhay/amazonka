@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.HlsInputSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.HlsScte35SourceType
 import qualified Amazonka.Prelude as Prelude
 
@@ -122,17 +123,17 @@ hlsInputSettings_retries = Lens.lens (\HlsInputSettings' {retries} -> retries) (
 hlsInputSettings_scte35Source :: Lens.Lens' HlsInputSettings (Prelude.Maybe HlsScte35SourceType)
 hlsInputSettings_scte35Source = Lens.lens (\HlsInputSettings' {scte35Source} -> scte35Source) (\s@HlsInputSettings' {} a -> s {scte35Source = a} :: HlsInputSettings)
 
-instance Core.FromJSON HlsInputSettings where
+instance Data.FromJSON HlsInputSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HlsInputSettings"
       ( \x ->
           HlsInputSettings'
-            Prelude.<$> (x Core..:? "bufferSegments")
-            Prelude.<*> (x Core..:? "bandwidth")
-            Prelude.<*> (x Core..:? "retryInterval")
-            Prelude.<*> (x Core..:? "retries")
-            Prelude.<*> (x Core..:? "scte35Source")
+            Prelude.<$> (x Data..:? "bufferSegments")
+            Prelude.<*> (x Data..:? "bandwidth")
+            Prelude.<*> (x Data..:? "retryInterval")
+            Prelude.<*> (x Data..:? "retries")
+            Prelude.<*> (x Data..:? "scte35Source")
       )
 
 instance Prelude.Hashable HlsInputSettings where
@@ -151,15 +152,15 @@ instance Prelude.NFData HlsInputSettings where
       `Prelude.seq` Prelude.rnf retries
       `Prelude.seq` Prelude.rnf scte35Source
 
-instance Core.ToJSON HlsInputSettings where
+instance Data.ToJSON HlsInputSettings where
   toJSON HlsInputSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bufferSegments" Core..=)
+          [ ("bufferSegments" Data..=)
               Prelude.<$> bufferSegments,
-            ("bandwidth" Core..=) Prelude.<$> bandwidth,
-            ("retryInterval" Core..=) Prelude.<$> retryInterval,
-            ("retries" Core..=) Prelude.<$> retries,
-            ("scte35Source" Core..=) Prelude.<$> scte35Source
+            ("bandwidth" Data..=) Prelude.<$> bandwidth,
+            ("retryInterval" Data..=) Prelude.<$> retryInterval,
+            ("retries" Data..=) Prelude.<$> retries,
+            ("scte35Source" Data..=) Prelude.<$> scte35Source
           ]
       )

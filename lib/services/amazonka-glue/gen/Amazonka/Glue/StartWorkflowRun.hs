@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -95,7 +96,7 @@ instance Core.AWSRequest StartWorkflowRun where
     Response.receiveJSON
       ( \s h x ->
           StartWorkflowRunResponse'
-            Prelude.<$> (x Core..?> "RunId")
+            Prelude.<$> (x Data..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,32 +110,32 @@ instance Prelude.NFData StartWorkflowRun where
     Prelude.rnf runProperties
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders StartWorkflowRun where
+instance Data.ToHeaders StartWorkflowRun where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StartWorkflowRun" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StartWorkflowRun" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartWorkflowRun where
+instance Data.ToJSON StartWorkflowRun where
   toJSON StartWorkflowRun' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RunProperties" Core..=) Prelude.<$> runProperties,
-            Prelude.Just ("Name" Core..= name)
+          [ ("RunProperties" Data..=) Prelude.<$> runProperties,
+            Prelude.Just ("Name" Data..= name)
           ]
       )
 
-instance Core.ToPath StartWorkflowRun where
+instance Data.ToPath StartWorkflowRun where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartWorkflowRun where
+instance Data.ToQuery StartWorkflowRun where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartWorkflowRunResponse' smart constructor.

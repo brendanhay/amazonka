@@ -21,6 +21,7 @@ module Amazonka.MacieV2.Types.SimpleScopeTerm where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types.JobComparator
 import Amazonka.MacieV2.Types.ScopeFilterKey
 import qualified Amazonka.Prelude as Prelude
@@ -169,15 +170,15 @@ simpleScopeTerm_comparator = Lens.lens (\SimpleScopeTerm' {comparator} -> compar
 simpleScopeTerm_values :: Lens.Lens' SimpleScopeTerm (Prelude.Maybe [Prelude.Text])
 simpleScopeTerm_values = Lens.lens (\SimpleScopeTerm' {values} -> values) (\s@SimpleScopeTerm' {} a -> s {values = a} :: SimpleScopeTerm) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SimpleScopeTerm where
+instance Data.FromJSON SimpleScopeTerm where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleScopeTerm"
       ( \x ->
           SimpleScopeTerm'
-            Prelude.<$> (x Core..:? "key")
-            Prelude.<*> (x Core..:? "comparator")
-            Prelude.<*> (x Core..:? "values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "comparator")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SimpleScopeTerm where
@@ -192,12 +193,12 @@ instance Prelude.NFData SimpleScopeTerm where
       `Prelude.seq` Prelude.rnf comparator
       `Prelude.seq` Prelude.rnf values
 
-instance Core.ToJSON SimpleScopeTerm where
+instance Data.ToJSON SimpleScopeTerm where
   toJSON SimpleScopeTerm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("comparator" Core..=) Prelude.<$> comparator,
-            ("values" Core..=) Prelude.<$> values
+          [ ("key" Data..=) Prelude.<$> key,
+            ("comparator" Data..=) Prelude.<$> comparator,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

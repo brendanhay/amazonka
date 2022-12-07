@@ -21,6 +21,7 @@ module Amazonka.CostExplorer.Types.RDSInstanceDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the Amazon RDS instances that Amazon Web Services
@@ -135,21 +136,21 @@ rDSInstanceDetails_deploymentOption = Lens.lens (\RDSInstanceDetails' {deploymen
 rDSInstanceDetails_licenseModel :: Lens.Lens' RDSInstanceDetails (Prelude.Maybe Prelude.Text)
 rDSInstanceDetails_licenseModel = Lens.lens (\RDSInstanceDetails' {licenseModel} -> licenseModel) (\s@RDSInstanceDetails' {} a -> s {licenseModel = a} :: RDSInstanceDetails)
 
-instance Core.FromJSON RDSInstanceDetails where
+instance Data.FromJSON RDSInstanceDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RDSInstanceDetails"
       ( \x ->
           RDSInstanceDetails'
-            Prelude.<$> (x Core..:? "DatabaseEngine")
-            Prelude.<*> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "InstanceType")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "Family")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
-            Prelude.<*> (x Core..:? "DatabaseEdition")
-            Prelude.<*> (x Core..:? "DeploymentOption")
-            Prelude.<*> (x Core..:? "LicenseModel")
+            Prelude.<$> (x Data..:? "DatabaseEngine")
+            Prelude.<*> (x Data..:? "SizeFlexEligible")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "CurrentGeneration")
+            Prelude.<*> (x Data..:? "DatabaseEdition")
+            Prelude.<*> (x Data..:? "DeploymentOption")
+            Prelude.<*> (x Data..:? "LicenseModel")
       )
 
 instance Prelude.Hashable RDSInstanceDetails where

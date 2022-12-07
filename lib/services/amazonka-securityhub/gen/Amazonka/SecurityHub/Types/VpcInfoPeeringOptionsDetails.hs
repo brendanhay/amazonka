@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.VpcInfoPeeringOptionsDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the VPC peering connection options for the
@@ -83,18 +84,18 @@ vpcInfoPeeringOptionsDetails_allowEgressFromLocalVpcToRemoteClassicLink = Lens.l
 vpcInfoPeeringOptionsDetails_allowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' VpcInfoPeeringOptionsDetails (Prelude.Maybe Prelude.Bool)
 vpcInfoPeeringOptionsDetails_allowEgressFromLocalClassicLinkToRemoteVpc = Lens.lens (\VpcInfoPeeringOptionsDetails' {allowEgressFromLocalClassicLinkToRemoteVpc} -> allowEgressFromLocalClassicLinkToRemoteVpc) (\s@VpcInfoPeeringOptionsDetails' {} a -> s {allowEgressFromLocalClassicLinkToRemoteVpc = a} :: VpcInfoPeeringOptionsDetails)
 
-instance Core.FromJSON VpcInfoPeeringOptionsDetails where
+instance Data.FromJSON VpcInfoPeeringOptionsDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VpcInfoPeeringOptionsDetails"
       ( \x ->
           VpcInfoPeeringOptionsDetails'
-            Prelude.<$> (x Core..:? "AllowDnsResolutionFromRemoteVpc")
+            Prelude.<$> (x Data..:? "AllowDnsResolutionFromRemoteVpc")
             Prelude.<*> ( x
-                            Core..:? "AllowEgressFromLocalVpcToRemoteClassicLink"
+                            Data..:? "AllowEgressFromLocalVpcToRemoteClassicLink"
                         )
             Prelude.<*> ( x
-                            Core..:? "AllowEgressFromLocalClassicLinkToRemoteVpc"
+                            Data..:? "AllowEgressFromLocalClassicLinkToRemoteVpc"
                         )
       )
 
@@ -116,18 +117,18 @@ instance Prelude.NFData VpcInfoPeeringOptionsDetails where
       `Prelude.seq` Prelude.rnf
         allowEgressFromLocalClassicLinkToRemoteVpc
 
-instance Core.ToJSON VpcInfoPeeringOptionsDetails where
+instance Data.ToJSON VpcInfoPeeringOptionsDetails where
   toJSON VpcInfoPeeringOptionsDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AllowDnsResolutionFromRemoteVpc" Core..=)
+          [ ("AllowDnsResolutionFromRemoteVpc" Data..=)
               Prelude.<$> allowDnsResolutionFromRemoteVpc,
             ( "AllowEgressFromLocalVpcToRemoteClassicLink"
-                Core..=
+                Data..=
             )
               Prelude.<$> allowEgressFromLocalVpcToRemoteClassicLink,
             ( "AllowEgressFromLocalClassicLinkToRemoteVpc"
-                Core..=
+                Data..=
             )
               Prelude.<$> allowEgressFromLocalClassicLinkToRemoteVpc
           ]

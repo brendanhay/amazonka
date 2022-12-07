@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.Disk where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object representing a data storage device on a server.
@@ -61,14 +62,14 @@ disk_bytes = Lens.lens (\Disk' {bytes} -> bytes) (\s@Disk' {} a -> s {bytes = a}
 disk_deviceName :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_deviceName = Lens.lens (\Disk' {deviceName} -> deviceName) (\s@Disk' {} a -> s {deviceName = a} :: Disk)
 
-instance Core.FromJSON Disk where
+instance Data.FromJSON Disk where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Disk"
       ( \x ->
           Disk'
-            Prelude.<$> (x Core..:? "bytes")
-            Prelude.<*> (x Core..:? "deviceName")
+            Prelude.<$> (x Data..:? "bytes")
+            Prelude.<*> (x Data..:? "deviceName")
       )
 
 instance Prelude.Hashable Disk where

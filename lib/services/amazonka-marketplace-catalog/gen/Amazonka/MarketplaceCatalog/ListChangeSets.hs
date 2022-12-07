@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -141,8 +142,8 @@ instance Core.AWSRequest ListChangeSets where
     Response.receiveJSON
       ( \s h x ->
           ListChangeSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ChangeSetSummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ChangeSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,33 +165,33 @@ instance Prelude.NFData ListChangeSets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalog
 
-instance Core.ToHeaders ListChangeSets where
+instance Data.ToHeaders ListChangeSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListChangeSets where
+instance Data.ToJSON ListChangeSets where
   toJSON ListChangeSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FilterList" Core..=) Prelude.<$> filterList,
-            ("Sort" Core..=) Prelude.<$> sort,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Catalog" Core..= catalog)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FilterList" Data..=) Prelude.<$> filterList,
+            ("Sort" Data..=) Prelude.<$> sort,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Catalog" Data..= catalog)
           ]
       )
 
-instance Core.ToPath ListChangeSets where
+instance Data.ToPath ListChangeSets where
   toPath = Prelude.const "/ListChangeSets"
 
-instance Core.ToQuery ListChangeSets where
+instance Data.ToQuery ListChangeSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListChangeSetsResponse' smart constructor.

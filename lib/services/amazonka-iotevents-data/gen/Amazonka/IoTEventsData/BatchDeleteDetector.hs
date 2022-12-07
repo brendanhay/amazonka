@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEventsData.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,7 +92,7 @@ instance Core.AWSRequest BatchDeleteDetector where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteDetectorResponse'
-            Prelude.<$> ( x Core..?> "batchDeleteDetectorErrorEntries"
+            Prelude.<$> ( x Data..?> "batchDeleteDetectorErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,20 +105,20 @@ instance Prelude.Hashable BatchDeleteDetector where
 instance Prelude.NFData BatchDeleteDetector where
   rnf BatchDeleteDetector' {..} = Prelude.rnf detectors
 
-instance Core.ToHeaders BatchDeleteDetector where
+instance Data.ToHeaders BatchDeleteDetector where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON BatchDeleteDetector where
+instance Data.ToJSON BatchDeleteDetector where
   toJSON BatchDeleteDetector' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("detectors" Core..= detectors)]
+          [Prelude.Just ("detectors" Data..= detectors)]
       )
 
-instance Core.ToPath BatchDeleteDetector where
+instance Data.ToPath BatchDeleteDetector where
   toPath = Prelude.const "/detectors/delete"
 
-instance Core.ToQuery BatchDeleteDetector where
+instance Data.ToQuery BatchDeleteDetector where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newBatchDeleteDetectorResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.DnsRecord where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A DNS record uploaded to your DNS provider.
@@ -73,15 +74,15 @@ dnsRecord_hostname = Lens.lens (\DnsRecord' {hostname} -> hostname) (\s@DnsRecor
 dnsRecord_value :: Lens.Lens' DnsRecord (Prelude.Maybe Prelude.Text)
 dnsRecord_value = Lens.lens (\DnsRecord' {value} -> value) (\s@DnsRecord' {} a -> s {value = a} :: DnsRecord)
 
-instance Core.FromJSON DnsRecord where
+instance Data.FromJSON DnsRecord where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsRecord"
       ( \x ->
           DnsRecord'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Hostname")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Hostname")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DnsRecord where

@@ -26,6 +26,7 @@ import Amazonka.CodeBuild.Types.ImagePullCredentialsType
 import Amazonka.CodeBuild.Types.RegistryCredential
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build environment of the build project.
@@ -451,22 +452,22 @@ projectEnvironment_image = Lens.lens (\ProjectEnvironment' {image} -> image) (\s
 projectEnvironment_computeType :: Lens.Lens' ProjectEnvironment ComputeType
 projectEnvironment_computeType = Lens.lens (\ProjectEnvironment' {computeType} -> computeType) (\s@ProjectEnvironment' {} a -> s {computeType = a} :: ProjectEnvironment)
 
-instance Core.FromJSON ProjectEnvironment where
+instance Data.FromJSON ProjectEnvironment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectEnvironment"
       ( \x ->
           ProjectEnvironment'
-            Prelude.<$> (x Core..:? "privilegedMode")
-            Prelude.<*> (x Core..:? "imagePullCredentialsType")
-            Prelude.<*> (x Core..:? "certificate")
-            Prelude.<*> ( x Core..:? "environmentVariables"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "privilegedMode")
+            Prelude.<*> (x Data..:? "imagePullCredentialsType")
+            Prelude.<*> (x Data..:? "certificate")
+            Prelude.<*> ( x Data..:? "environmentVariables"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "registryCredential")
-            Prelude.<*> (x Core..: "type")
-            Prelude.<*> (x Core..: "image")
-            Prelude.<*> (x Core..: "computeType")
+            Prelude.<*> (x Data..:? "registryCredential")
+            Prelude.<*> (x Data..: "type")
+            Prelude.<*> (x Data..: "image")
+            Prelude.<*> (x Data..: "computeType")
       )
 
 instance Prelude.Hashable ProjectEnvironment where
@@ -491,21 +492,21 @@ instance Prelude.NFData ProjectEnvironment where
       `Prelude.seq` Prelude.rnf image
       `Prelude.seq` Prelude.rnf computeType
 
-instance Core.ToJSON ProjectEnvironment where
+instance Data.ToJSON ProjectEnvironment where
   toJSON ProjectEnvironment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("privilegedMode" Core..=)
+          [ ("privilegedMode" Data..=)
               Prelude.<$> privilegedMode,
-            ("imagePullCredentialsType" Core..=)
+            ("imagePullCredentialsType" Data..=)
               Prelude.<$> imagePullCredentialsType,
-            ("certificate" Core..=) Prelude.<$> certificate,
-            ("environmentVariables" Core..=)
+            ("certificate" Data..=) Prelude.<$> certificate,
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("registryCredential" Core..=)
+            ("registryCredential" Data..=)
               Prelude.<$> registryCredential,
-            Prelude.Just ("type" Core..= type'),
-            Prelude.Just ("image" Core..= image),
-            Prelude.Just ("computeType" Core..= computeType)
+            Prelude.Just ("type" Data..= type'),
+            Prelude.Just ("image" Data..= image),
+            Prelude.Just ("computeType" Data..= computeType)
           ]
       )

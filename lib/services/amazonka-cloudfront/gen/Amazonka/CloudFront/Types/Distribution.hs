@@ -25,6 +25,7 @@ import Amazonka.CloudFront.Types.AliasICPRecordal
 import Amazonka.CloudFront.Types.DistributionConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A distribution tells CloudFront where you want content to be delivered
@@ -66,7 +67,7 @@ data Distribution = Distribution'
     -- locations.
     status :: Prelude.Text,
     -- | The date and time when the distribution was last modified.
-    lastModifiedTime :: Core.ISO8601,
+    lastModifiedTime :: Data.ISO8601,
     -- | The number of invalidation batches currently in progress.
     inProgressInvalidationBatches :: Prelude.Int,
     -- | The distribution’s CloudFront domain name. For example:
@@ -158,7 +159,7 @@ newDistribution
         arn = pARN_,
         status = pStatus_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_,
+          Data._Time Lens.# pLastModifiedTime_,
         inProgressInvalidationBatches =
           pInProgressInvalidationBatches_,
         domainName = pDomainName_,
@@ -212,7 +213,7 @@ distribution_status = Lens.lens (\Distribution' {status} -> status) (\s@Distribu
 
 -- | The date and time when the distribution was last modified.
 distribution_lastModifiedTime :: Lens.Lens' Distribution Prelude.UTCTime
-distribution_lastModifiedTime = Lens.lens (\Distribution' {lastModifiedTime} -> lastModifiedTime) (\s@Distribution' {} a -> s {lastModifiedTime = a} :: Distribution) Prelude.. Core._Time
+distribution_lastModifiedTime = Lens.lens (\Distribution' {lastModifiedTime} -> lastModifiedTime) (\s@Distribution' {} a -> s {lastModifiedTime = a} :: Distribution) Prelude.. Data._Time
 
 -- | The number of invalidation batches currently in progress.
 distribution_inProgressInvalidationBatches :: Lens.Lens' Distribution Prelude.Int
@@ -227,22 +228,22 @@ distribution_domainName = Lens.lens (\Distribution' {domainName} -> domainName) 
 distribution_distributionConfig :: Lens.Lens' Distribution DistributionConfig
 distribution_distributionConfig = Lens.lens (\Distribution' {distributionConfig} -> distributionConfig) (\s@Distribution' {} a -> s {distributionConfig = a} :: Distribution)
 
-instance Core.FromXML Distribution where
+instance Data.FromXML Distribution where
   parseXML x =
     Distribution'
-      Prelude.<$> ( x Core..@? "AliasICPRecordals"
+      Prelude.<$> ( x Data..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "AliasICPRecordal")
+                      Prelude.>>= Core.may (Data.parseXMLList "AliasICPRecordal")
                   )
-      Prelude.<*> (x Core..@? "ActiveTrustedKeyGroups")
-      Prelude.<*> (x Core..@? "ActiveTrustedSigners")
-      Prelude.<*> (x Core..@ "Id")
-      Prelude.<*> (x Core..@ "ARN")
-      Prelude.<*> (x Core..@ "Status")
-      Prelude.<*> (x Core..@ "LastModifiedTime")
-      Prelude.<*> (x Core..@ "InProgressInvalidationBatches")
-      Prelude.<*> (x Core..@ "DomainName")
-      Prelude.<*> (x Core..@ "DistributionConfig")
+      Prelude.<*> (x Data..@? "ActiveTrustedKeyGroups")
+      Prelude.<*> (x Data..@? "ActiveTrustedSigners")
+      Prelude.<*> (x Data..@ "Id")
+      Prelude.<*> (x Data..@ "ARN")
+      Prelude.<*> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "LastModifiedTime")
+      Prelude.<*> (x Data..@ "InProgressInvalidationBatches")
+      Prelude.<*> (x Data..@ "DomainName")
+      Prelude.<*> (x Data..@ "DistributionConfig")
 
 instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =

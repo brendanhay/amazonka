@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -129,8 +130,8 @@ instance Core.AWSRequest ListFeatures where
     Response.receiveJSON
       ( \s h x ->
           ListFeaturesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "features" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "features" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,27 +147,27 @@ instance Prelude.NFData ListFeatures where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders ListFeatures where
+instance Data.ToHeaders ListFeatures where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListFeatures where
+instance Data.ToPath ListFeatures where
   toPath ListFeatures' {..} =
     Prelude.mconcat
-      ["/projects/", Core.toBS project, "/features"]
+      ["/projects/", Data.toBS project, "/features"]
 
-instance Core.ToQuery ListFeatures where
+instance Data.ToQuery ListFeatures where
   toQuery ListFeatures' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListFeaturesResponse' smart constructor.

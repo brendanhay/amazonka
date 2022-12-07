@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.NetworkSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A network settings resource that can be associated with a web portal.
@@ -102,19 +103,19 @@ networkSettings_subnetIds = Lens.lens (\NetworkSettings' {subnetIds} -> subnetId
 networkSettings_networkSettingsArn :: Lens.Lens' NetworkSettings Prelude.Text
 networkSettings_networkSettingsArn = Lens.lens (\NetworkSettings' {networkSettingsArn} -> networkSettingsArn) (\s@NetworkSettings' {} a -> s {networkSettingsArn = a} :: NetworkSettings)
 
-instance Core.FromJSON NetworkSettings where
+instance Data.FromJSON NetworkSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkSettings"
       ( \x ->
           NetworkSettings'
-            Prelude.<$> ( x Core..:? "associatedPortalArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "associatedPortalArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "securityGroupIds")
-            Prelude.<*> (x Core..:? "vpcId")
-            Prelude.<*> (x Core..:? "subnetIds")
-            Prelude.<*> (x Core..: "networkSettingsArn")
+            Prelude.<*> (x Data..:? "securityGroupIds")
+            Prelude.<*> (x Data..:? "vpcId")
+            Prelude.<*> (x Data..:? "subnetIds")
+            Prelude.<*> (x Data..: "networkSettingsArn")
       )
 
 instance Prelude.Hashable NetworkSettings where

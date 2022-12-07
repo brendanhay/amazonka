@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -118,9 +119,9 @@ instance Core.AWSRequest ListImagePackages where
     Response.receiveJSON
       ( \s h x ->
           ListImagePackagesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "requestId")
-            Prelude.<*> ( x Core..?> "imagePackageList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
+            Prelude.<*> ( x Data..?> "imagePackageList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,34 +139,34 @@ instance Prelude.NFData ListImagePackages where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf imageBuildVersionArn
 
-instance Core.ToHeaders ListImagePackages where
+instance Data.ToHeaders ListImagePackages where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListImagePackages where
+instance Data.ToJSON ListImagePackages where
   toJSON ListImagePackages' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ( "imageBuildVersionArn"
-                  Core..= imageBuildVersionArn
+                  Data..= imageBuildVersionArn
               )
           ]
       )
 
-instance Core.ToPath ListImagePackages where
+instance Data.ToPath ListImagePackages where
   toPath = Prelude.const "/ListImagePackages"
 
-instance Core.ToQuery ListImagePackages where
+instance Data.ToQuery ListImagePackages where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListImagePackagesResponse' smart constructor.

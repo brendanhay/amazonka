@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CatalogImportStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A structure containing migration status information.
@@ -32,7 +33,7 @@ data CatalogImportStatus = CatalogImportStatus'
     -- | The name of the person who initiated the migration.
     importedBy :: Prelude.Maybe Prelude.Text,
     -- | The time that the migration was started.
-    importTime :: Prelude.Maybe Core.POSIX
+    importTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,17 +70,17 @@ catalogImportStatus_importedBy = Lens.lens (\CatalogImportStatus' {importedBy} -
 
 -- | The time that the migration was started.
 catalogImportStatus_importTime :: Lens.Lens' CatalogImportStatus (Prelude.Maybe Prelude.UTCTime)
-catalogImportStatus_importTime = Lens.lens (\CatalogImportStatus' {importTime} -> importTime) (\s@CatalogImportStatus' {} a -> s {importTime = a} :: CatalogImportStatus) Prelude.. Lens.mapping Core._Time
+catalogImportStatus_importTime = Lens.lens (\CatalogImportStatus' {importTime} -> importTime) (\s@CatalogImportStatus' {} a -> s {importTime = a} :: CatalogImportStatus) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON CatalogImportStatus where
+instance Data.FromJSON CatalogImportStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CatalogImportStatus"
       ( \x ->
           CatalogImportStatus'
-            Prelude.<$> (x Core..:? "ImportCompleted")
-            Prelude.<*> (x Core..:? "ImportedBy")
-            Prelude.<*> (x Core..:? "ImportTime")
+            Prelude.<$> (x Data..:? "ImportCompleted")
+            Prelude.<*> (x Data..:? "ImportedBy")
+            Prelude.<*> (x Data..:? "ImportTime")
       )
 
 instance Prelude.Hashable CatalogImportStatus where

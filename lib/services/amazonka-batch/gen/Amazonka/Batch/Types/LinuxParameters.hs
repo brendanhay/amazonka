@@ -23,6 +23,7 @@ import Amazonka.Batch.Types.Device
 import Amazonka.Batch.Types.Tmpfs
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Linux-specific modifications that are applied to the container, such as
@@ -313,18 +314,18 @@ linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s
 linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
 
-instance Core.FromJSON LinuxParameters where
+instance Data.FromJSON LinuxParameters where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LinuxParameters"
       ( \x ->
           LinuxParameters'
-            Prelude.<$> (x Core..:? "devices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "swappiness")
-            Prelude.<*> (x Core..:? "tmpfs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "initProcessEnabled")
-            Prelude.<*> (x Core..:? "maxSwap")
-            Prelude.<*> (x Core..:? "sharedMemorySize")
+            Prelude.<$> (x Data..:? "devices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "swappiness")
+            Prelude.<*> (x Data..:? "tmpfs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "initProcessEnabled")
+            Prelude.<*> (x Data..:? "maxSwap")
+            Prelude.<*> (x Data..:? "sharedMemorySize")
       )
 
 instance Prelude.Hashable LinuxParameters where
@@ -345,17 +346,17 @@ instance Prelude.NFData LinuxParameters where
       `Prelude.seq` Prelude.rnf maxSwap
       `Prelude.seq` Prelude.rnf sharedMemorySize
 
-instance Core.ToJSON LinuxParameters where
+instance Data.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("devices" Core..=) Prelude.<$> devices,
-            ("swappiness" Core..=) Prelude.<$> swappiness,
-            ("tmpfs" Core..=) Prelude.<$> tmpfs,
-            ("initProcessEnabled" Core..=)
+          [ ("devices" Data..=) Prelude.<$> devices,
+            ("swappiness" Data..=) Prelude.<$> swappiness,
+            ("tmpfs" Data..=) Prelude.<$> tmpfs,
+            ("initProcessEnabled" Data..=)
               Prelude.<$> initProcessEnabled,
-            ("maxSwap" Core..=) Prelude.<$> maxSwap,
-            ("sharedMemorySize" Core..=)
+            ("maxSwap" Data..=) Prelude.<$> maxSwap,
+            ("sharedMemorySize" Data..=)
               Prelude.<$> sharedMemorySize
           ]
       )

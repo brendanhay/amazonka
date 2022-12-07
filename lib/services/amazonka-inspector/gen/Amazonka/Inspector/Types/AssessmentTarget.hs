@@ -21,6 +21,7 @@ module Amazonka.Inspector.Types.AssessmentTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about an Amazon Inspector application. This data
@@ -37,9 +38,9 @@ data AssessmentTarget = AssessmentTarget'
     -- | The name of the Amazon Inspector assessment target.
     name :: Prelude.Text,
     -- | The time at which the assessment target is created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The time at which UpdateAssessmentTarget is called.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,8 +82,8 @@ newAssessmentTarget
           Prelude.Nothing,
         arn = pArn_,
         name = pName_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | The ARN that specifies the resource group that is associated with the
@@ -100,23 +101,23 @@ assessmentTarget_name = Lens.lens (\AssessmentTarget' {name} -> name) (\s@Assess
 
 -- | The time at which the assessment target is created.
 assessmentTarget_createdAt :: Lens.Lens' AssessmentTarget Prelude.UTCTime
-assessmentTarget_createdAt = Lens.lens (\AssessmentTarget' {createdAt} -> createdAt) (\s@AssessmentTarget' {} a -> s {createdAt = a} :: AssessmentTarget) Prelude.. Core._Time
+assessmentTarget_createdAt = Lens.lens (\AssessmentTarget' {createdAt} -> createdAt) (\s@AssessmentTarget' {} a -> s {createdAt = a} :: AssessmentTarget) Prelude.. Data._Time
 
 -- | The time at which UpdateAssessmentTarget is called.
 assessmentTarget_updatedAt :: Lens.Lens' AssessmentTarget Prelude.UTCTime
-assessmentTarget_updatedAt = Lens.lens (\AssessmentTarget' {updatedAt} -> updatedAt) (\s@AssessmentTarget' {} a -> s {updatedAt = a} :: AssessmentTarget) Prelude.. Core._Time
+assessmentTarget_updatedAt = Lens.lens (\AssessmentTarget' {updatedAt} -> updatedAt) (\s@AssessmentTarget' {} a -> s {updatedAt = a} :: AssessmentTarget) Prelude.. Data._Time
 
-instance Core.FromJSON AssessmentTarget where
+instance Data.FromJSON AssessmentTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AssessmentTarget"
       ( \x ->
           AssessmentTarget'
-            Prelude.<$> (x Core..:? "resourceGroupArn")
-            Prelude.<*> (x Core..: "arn")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "createdAt")
-            Prelude.<*> (x Core..: "updatedAt")
+            Prelude.<$> (x Data..:? "resourceGroupArn")
+            Prelude.<*> (x Data..: "arn")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "createdAt")
+            Prelude.<*> (x Data..: "updatedAt")
       )
 
 instance Prelude.Hashable AssessmentTarget where

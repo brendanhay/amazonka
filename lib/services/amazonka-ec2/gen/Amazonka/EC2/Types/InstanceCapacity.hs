@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceCapacity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -78,12 +79,12 @@ instanceCapacity_availableCapacity = Lens.lens (\InstanceCapacity' {availableCap
 instanceCapacity_instanceType :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Text)
 instanceCapacity_instanceType = Lens.lens (\InstanceCapacity' {instanceType} -> instanceType) (\s@InstanceCapacity' {} a -> s {instanceType = a} :: InstanceCapacity)
 
-instance Core.FromXML InstanceCapacity where
+instance Data.FromXML InstanceCapacity where
   parseXML x =
     InstanceCapacity'
-      Prelude.<$> (x Core..@? "totalCapacity")
-      Prelude.<*> (x Core..@? "availableCapacity")
-      Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<$> (x Data..@? "totalCapacity")
+      Prelude.<*> (x Data..@? "availableCapacity")
+      Prelude.<*> (x Data..@? "instanceType")
 
 instance Prelude.Hashable InstanceCapacity where
   hashWithSalt _salt InstanceCapacity' {..} =

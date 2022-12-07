@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -82,8 +83,8 @@ instance Core.AWSRequest StartFlow where
     Response.receiveJSON
       ( \s h x ->
           StartFlowResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "flowArn")
+            Prelude.<$> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -94,26 +95,26 @@ instance Prelude.Hashable StartFlow where
 instance Prelude.NFData StartFlow where
   rnf StartFlow' {..} = Prelude.rnf flowArn
 
-instance Core.ToHeaders StartFlow where
+instance Data.ToHeaders StartFlow where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartFlow where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartFlow where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartFlow where
+instance Data.ToPath StartFlow where
   toPath StartFlow' {..} =
     Prelude.mconcat
-      ["/v1/flows/start/", Core.toBS flowArn]
+      ["/v1/flows/start/", Data.toBS flowArn]
 
-instance Core.ToQuery StartFlow where
+instance Data.ToQuery StartFlow where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartFlowResponse' smart constructor.

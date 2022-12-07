@@ -21,6 +21,7 @@ module Amazonka.DevOpsGuru.Types.Recommendation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedAnomaly
 import Amazonka.DevOpsGuru.Types.RecommendationRelatedEvent
 import qualified Amazonka.Prelude as Prelude
@@ -115,21 +116,21 @@ recommendation_category = Lens.lens (\Recommendation' {category} -> category) (\
 recommendation_relatedEvents :: Lens.Lens' Recommendation (Prelude.Maybe [RecommendationRelatedEvent])
 recommendation_relatedEvents = Lens.lens (\Recommendation' {relatedEvents} -> relatedEvents) (\s@Recommendation' {} a -> s {relatedEvents = a} :: Recommendation) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Recommendation where
+instance Data.FromJSON Recommendation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Link")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> ( x Core..:? "RelatedAnomalies"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Link")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "RelatedAnomalies"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "Category")
-            Prelude.<*> (x Core..:? "RelatedEvents" Core..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "RelatedEvents" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Recommendation where

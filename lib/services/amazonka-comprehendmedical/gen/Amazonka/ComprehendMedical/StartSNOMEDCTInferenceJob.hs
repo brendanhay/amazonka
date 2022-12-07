@@ -50,6 +50,7 @@ where
 import Amazonka.ComprehendMedical.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -171,7 +172,7 @@ instance Core.AWSRequest StartSNOMEDCTInferenceJob where
     Response.receiveJSON
       ( \s h x ->
           StartSNOMEDCTInferenceJobResponse'
-            Prelude.<$> (x Core..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,43 +196,43 @@ instance Prelude.NFData StartSNOMEDCTInferenceJob where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf languageCode
 
-instance Core.ToHeaders StartSNOMEDCTInferenceJob where
+instance Data.ToHeaders StartSNOMEDCTInferenceJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ComprehendMedical_20181030.StartSNOMEDCTInferenceJob" ::
+              Data.=# ( "ComprehendMedical_20181030.StartSNOMEDCTInferenceJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartSNOMEDCTInferenceJob where
+instance Data.ToJSON StartSNOMEDCTInferenceJob where
   toJSON StartSNOMEDCTInferenceJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("JobName" Core..=) Prelude.<$> jobName,
-            ("KMSKey" Core..=) Prelude.<$> kmsKey,
+            ("JobName" Data..=) Prelude.<$> jobName,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
+              ("OutputDataConfig" Data..= outputDataConfig),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn),
-            Prelude.Just ("LanguageCode" Core..= languageCode)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn),
+            Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )
 
-instance Core.ToPath StartSNOMEDCTInferenceJob where
+instance Data.ToPath StartSNOMEDCTInferenceJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartSNOMEDCTInferenceJob where
+instance Data.ToQuery StartSNOMEDCTInferenceJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartSNOMEDCTInferenceJobResponse' smart constructor.

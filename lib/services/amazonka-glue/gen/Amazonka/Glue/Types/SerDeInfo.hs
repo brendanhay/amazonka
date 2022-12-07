@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SerDeInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about a serialization\/deserialization program (SerDe) that
@@ -74,15 +75,15 @@ serDeInfo_serializationLibrary = Lens.lens (\SerDeInfo' {serializationLibrary} -
 serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SerDeInfo where
+instance Data.FromJSON SerDeInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SerDeInfo"
       ( \x ->
           SerDeInfo'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SerializationLibrary")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SerializationLibrary")
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SerDeInfo where
@@ -97,13 +98,13 @@ instance Prelude.NFData SerDeInfo where
       `Prelude.seq` Prelude.rnf serializationLibrary
       `Prelude.seq` Prelude.rnf parameters
 
-instance Core.ToJSON SerDeInfo where
+instance Data.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("SerializationLibrary" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("SerializationLibrary" Data..=)
               Prelude.<$> serializationLibrary,
-            ("Parameters" Core..=) Prelude.<$> parameters
+            ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

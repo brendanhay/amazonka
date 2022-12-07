@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubOrchestrator.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,17 +120,17 @@ instance Core.AWSRequest GetTemplateStep where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateStepResponse'
-            Prelude.<$> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "stepAutomationConfiguration")
-            Prelude.<*> (x Core..?> "stepActionType")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "templateId")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "stepGroupId")
-            Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "creationTime")
-            Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stepAutomationConfiguration")
+            Prelude.<*> (x Data..?> "stepActionType")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "stepGroupId")
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,26 +146,26 @@ instance Prelude.NFData GetTemplateStep where
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf stepGroupId
 
-instance Core.ToHeaders GetTemplateStep where
+instance Data.ToHeaders GetTemplateStep where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetTemplateStep where
+instance Data.ToPath GetTemplateStep where
   toPath GetTemplateStep' {..} =
-    Prelude.mconcat ["/templatestep/", Core.toBS id]
+    Prelude.mconcat ["/templatestep/", Data.toBS id]
 
-instance Core.ToQuery GetTemplateStep where
+instance Data.ToQuery GetTemplateStep where
   toQuery GetTemplateStep' {..} =
     Prelude.mconcat
-      [ "templateId" Core.=: templateId,
-        "stepGroupId" Core.=: stepGroupId
+      [ "templateId" Data.=: templateId,
+        "stepGroupId" Data.=: stepGroupId
       ]
 
 -- | /See:/ 'newGetTemplateStepResponse' smart constructor.

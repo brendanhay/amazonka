@@ -21,6 +21,7 @@ module Amazonka.WorkMail.Types.User where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WorkMail.Types.EntityState
 import Amazonka.WorkMail.Types.UserRole
@@ -42,9 +43,9 @@ data User = User'
     -- | The role of the user.
     userRole :: Prelude.Maybe UserRole,
     -- | The date indicating when the user was enabled for WorkMail use.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    enabledDate :: Prelude.Maybe Data.POSIX,
     -- | The date indicating when the user was disabled from WorkMail use.
-    disabledDate :: Prelude.Maybe Core.POSIX
+    disabledDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,26 +112,26 @@ user_userRole = Lens.lens (\User' {userRole} -> userRole) (\s@User' {} a -> s {u
 
 -- | The date indicating when the user was enabled for WorkMail use.
 user_enabledDate :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_enabledDate = Lens.lens (\User' {enabledDate} -> enabledDate) (\s@User' {} a -> s {enabledDate = a} :: User) Prelude.. Lens.mapping Core._Time
+user_enabledDate = Lens.lens (\User' {enabledDate} -> enabledDate) (\s@User' {} a -> s {enabledDate = a} :: User) Prelude.. Lens.mapping Data._Time
 
 -- | The date indicating when the user was disabled from WorkMail use.
 user_disabledDate :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_disabledDate = Lens.lens (\User' {disabledDate} -> disabledDate) (\s@User' {} a -> s {disabledDate = a} :: User) Prelude.. Lens.mapping Core._Time
+user_disabledDate = Lens.lens (\User' {disabledDate} -> disabledDate) (\s@User' {} a -> s {disabledDate = a} :: User) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON User where
+instance Data.FromJSON User where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
-            Prelude.<*> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "UserRole")
-            Prelude.<*> (x Core..:? "EnabledDate")
-            Prelude.<*> (x Core..:? "DisabledDate")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Email")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "UserRole")
+            Prelude.<*> (x Data..:? "EnabledDate")
+            Prelude.<*> (x Data..:? "DisabledDate")
       )
 
 instance Prelude.Hashable User where

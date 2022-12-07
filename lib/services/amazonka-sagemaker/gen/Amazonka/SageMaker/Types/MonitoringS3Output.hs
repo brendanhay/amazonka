@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.MonitoringS3Output where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ProcessingS3UploadMode
 
@@ -88,15 +89,15 @@ monitoringS3Output_s3Uri = Lens.lens (\MonitoringS3Output' {s3Uri} -> s3Uri) (\s
 monitoringS3Output_localPath :: Lens.Lens' MonitoringS3Output Prelude.Text
 monitoringS3Output_localPath = Lens.lens (\MonitoringS3Output' {localPath} -> localPath) (\s@MonitoringS3Output' {} a -> s {localPath = a} :: MonitoringS3Output)
 
-instance Core.FromJSON MonitoringS3Output where
+instance Data.FromJSON MonitoringS3Output where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MonitoringS3Output"
       ( \x ->
           MonitoringS3Output'
-            Prelude.<$> (x Core..:? "S3UploadMode")
-            Prelude.<*> (x Core..: "S3Uri")
-            Prelude.<*> (x Core..: "LocalPath")
+            Prelude.<$> (x Data..:? "S3UploadMode")
+            Prelude.<*> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "LocalPath")
       )
 
 instance Prelude.Hashable MonitoringS3Output where
@@ -111,12 +112,12 @@ instance Prelude.NFData MonitoringS3Output where
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf localPath
 
-instance Core.ToJSON MonitoringS3Output where
+instance Data.ToJSON MonitoringS3Output where
   toJSON MonitoringS3Output' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3UploadMode" Core..=) Prelude.<$> s3UploadMode,
-            Prelude.Just ("S3Uri" Core..= s3Uri),
-            Prelude.Just ("LocalPath" Core..= localPath)
+          [ ("S3UploadMode" Data..=) Prelude.<$> s3UploadMode,
+            Prelude.Just ("S3Uri" Data..= s3Uri),
+            Prelude.Just ("LocalPath" Data..= localPath)
           ]
       )

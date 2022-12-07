@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.PortMapping where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.TransportProtocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -207,15 +208,15 @@ portMapping_hostPort = Lens.lens (\PortMapping' {hostPort} -> hostPort) (\s@Port
 portMapping_protocol :: Lens.Lens' PortMapping (Prelude.Maybe TransportProtocol)
 portMapping_protocol = Lens.lens (\PortMapping' {protocol} -> protocol) (\s@PortMapping' {} a -> s {protocol = a} :: PortMapping)
 
-instance Core.FromJSON PortMapping where
+instance Data.FromJSON PortMapping where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PortMapping"
       ( \x ->
           PortMapping'
-            Prelude.<$> (x Core..:? "containerPort")
-            Prelude.<*> (x Core..:? "hostPort")
-            Prelude.<*> (x Core..:? "protocol")
+            Prelude.<$> (x Data..:? "containerPort")
+            Prelude.<*> (x Data..:? "hostPort")
+            Prelude.<*> (x Data..:? "protocol")
       )
 
 instance Prelude.Hashable PortMapping where
@@ -230,12 +231,12 @@ instance Prelude.NFData PortMapping where
       `Prelude.seq` Prelude.rnf hostPort
       `Prelude.seq` Prelude.rnf protocol
 
-instance Core.ToJSON PortMapping where
+instance Data.ToJSON PortMapping where
   toJSON PortMapping' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("containerPort" Core..=) Prelude.<$> containerPort,
-            ("hostPort" Core..=) Prelude.<$> hostPort,
-            ("protocol" Core..=) Prelude.<$> protocol
+          [ ("containerPort" Data..=) Prelude.<$> containerPort,
+            ("hostPort" Data..=) Prelude.<$> hostPort,
+            ("protocol" Data..=) Prelude.<$> protocol
           ]
       )

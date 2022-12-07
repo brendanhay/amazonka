@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -142,10 +143,10 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
     Response.receiveJSON
       ( \s h x ->
           UpdateMedicalVocabularyResponse'
-            Prelude.<$> (x Core..?> "VocabularyName")
-            Prelude.<*> (x Core..?> "VocabularyState")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "LanguageCode")
+            Prelude.<$> (x Data..?> "VocabularyName")
+            Prelude.<*> (x Data..?> "VocabularyState")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance Prelude.NFData UpdateMedicalVocabulary where
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf vocabularyFileUri
 
-instance Core.ToHeaders UpdateMedicalVocabulary where
+instance Data.ToHeaders UpdateMedicalVocabulary where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Transcribe.UpdateMedicalVocabulary" ::
+              Data.=# ( "Transcribe.UpdateMedicalVocabulary" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateMedicalVocabulary where
+instance Data.ToJSON UpdateMedicalVocabulary where
   toJSON UpdateMedicalVocabulary' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("VocabularyName" Core..= vocabularyName),
-            Prelude.Just ("LanguageCode" Core..= languageCode),
+              ("VocabularyName" Data..= vocabularyName),
+            Prelude.Just ("LanguageCode" Data..= languageCode),
             Prelude.Just
-              ("VocabularyFileUri" Core..= vocabularyFileUri)
+              ("VocabularyFileUri" Data..= vocabularyFileUri)
           ]
       )
 
-instance Core.ToPath UpdateMedicalVocabulary where
+instance Data.ToPath UpdateMedicalVocabulary where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateMedicalVocabulary where
+instance Data.ToQuery UpdateMedicalVocabulary where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateMedicalVocabularyResponse' smart constructor.
@@ -208,7 +209,7 @@ data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The language code you selected for your medical vocabulary. US English
     -- (@en-US@) is the only language supported with Amazon Transcribe Medical.
     languageCode :: Prelude.Maybe LanguageCode,
@@ -273,7 +274,7 @@ updateMedicalVocabularyResponse_vocabularyState = Lens.lens (\UpdateMedicalVocab
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 updateMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
+updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The language code you selected for your medical vocabulary. US English
 -- (@en-US@) is the only language supported with Amazon Transcribe Medical.

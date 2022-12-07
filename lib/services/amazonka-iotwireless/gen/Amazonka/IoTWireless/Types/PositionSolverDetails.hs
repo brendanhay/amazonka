@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.PositionSolverDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.SemtechGnssDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -54,13 +55,13 @@ newPositionSolverDetails =
 positionSolverDetails_semtechGnss :: Lens.Lens' PositionSolverDetails (Prelude.Maybe SemtechGnssDetail)
 positionSolverDetails_semtechGnss = Lens.lens (\PositionSolverDetails' {semtechGnss} -> semtechGnss) (\s@PositionSolverDetails' {} a -> s {semtechGnss = a} :: PositionSolverDetails)
 
-instance Core.FromJSON PositionSolverDetails where
+instance Data.FromJSON PositionSolverDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PositionSolverDetails"
       ( \x ->
           PositionSolverDetails'
-            Prelude.<$> (x Core..:? "SemtechGnss")
+            Prelude.<$> (x Data..:? "SemtechGnss")
       )
 
 instance Prelude.Hashable PositionSolverDetails where

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,10 +144,10 @@ instance Core.AWSRequest ListCoverageStatistics where
     Response.receiveJSON
       ( \s h x ->
           ListCoverageStatisticsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "countsByGroup")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "countsByGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "totalCounts")
+            Prelude.<*> (x Data..:> "totalCounts")
       )
 
 instance Prelude.Hashable ListCoverageStatistics where
@@ -161,32 +162,32 @@ instance Prelude.NFData ListCoverageStatistics where
       `Prelude.seq` Prelude.rnf groupBy
       `Prelude.seq` Prelude.rnf filterCriteria
 
-instance Core.ToHeaders ListCoverageStatistics where
+instance Data.ToHeaders ListCoverageStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListCoverageStatistics where
+instance Data.ToJSON ListCoverageStatistics where
   toJSON ListCoverageStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("groupBy" Core..=) Prelude.<$> groupBy,
-            ("filterCriteria" Core..=)
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("groupBy" Data..=) Prelude.<$> groupBy,
+            ("filterCriteria" Data..=)
               Prelude.<$> filterCriteria
           ]
       )
 
-instance Core.ToPath ListCoverageStatistics where
+instance Data.ToPath ListCoverageStatistics where
   toPath = Prelude.const "/coverage/statistics/list"
 
-instance Core.ToQuery ListCoverageStatistics where
+instance Data.ToQuery ListCoverageStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListCoverageStatisticsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.KeySchemaElement
 import Amazonka.DynamoDB.Types.Projection
@@ -140,16 +141,16 @@ globalSecondaryIndexInfo_keySchema = Lens.lens (\GlobalSecondaryIndexInfo' {keyS
 globalSecondaryIndexInfo_projection :: Lens.Lens' GlobalSecondaryIndexInfo (Prelude.Maybe Projection)
 globalSecondaryIndexInfo_projection = Lens.lens (\GlobalSecondaryIndexInfo' {projection} -> projection) (\s@GlobalSecondaryIndexInfo' {} a -> s {projection = a} :: GlobalSecondaryIndexInfo)
 
-instance Core.FromJSON GlobalSecondaryIndexInfo where
+instance Data.FromJSON GlobalSecondaryIndexInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GlobalSecondaryIndexInfo"
       ( \x ->
           GlobalSecondaryIndexInfo'
-            Prelude.<$> (x Core..:? "ProvisionedThroughput")
-            Prelude.<*> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "Projection")
+            Prelude.<$> (x Data..:? "ProvisionedThroughput")
+            Prelude.<*> (x Data..:? "IndexName")
+            Prelude.<*> (x Data..:? "KeySchema")
+            Prelude.<*> (x Data..:? "Projection")
       )
 
 instance Prelude.Hashable GlobalSecondaryIndexInfo where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.EnableFastSnapshotRestoreStateErrorItem where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.EnableFastSnapshotRestoreStateError
 import qualified Amazonka.Prelude as Prelude
@@ -66,13 +67,13 @@ enableFastSnapshotRestoreStateErrorItem_error :: Lens.Lens' EnableFastSnapshotRe
 enableFastSnapshotRestoreStateErrorItem_error = Lens.lens (\EnableFastSnapshotRestoreStateErrorItem' {error} -> error) (\s@EnableFastSnapshotRestoreStateErrorItem' {} a -> s {error = a} :: EnableFastSnapshotRestoreStateErrorItem)
 
 instance
-  Core.FromXML
+  Data.FromXML
     EnableFastSnapshotRestoreStateErrorItem
   where
   parseXML x =
     EnableFastSnapshotRestoreStateErrorItem'
-      Prelude.<$> (x Core..@? "availabilityZone")
-        Prelude.<*> (x Core..@? "error")
+      Prelude.<$> (x Data..@? "availabilityZone")
+        Prelude.<*> (x Data..@? "error")
 
 instance
   Prelude.Hashable

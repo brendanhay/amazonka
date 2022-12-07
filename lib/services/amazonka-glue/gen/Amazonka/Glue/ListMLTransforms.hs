@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -132,9 +133,9 @@ instance Core.AWSRequest ListMLTransforms where
     Response.receiveJSON
       ( \s h x ->
           ListMLTransformsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "TransformIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TransformIds" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListMLTransforms where
@@ -153,35 +154,35 @@ instance Prelude.NFData ListMLTransforms where
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListMLTransforms where
+instance Data.ToHeaders ListMLTransforms where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.ListMLTransforms" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.ListMLTransforms" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListMLTransforms where
+instance Data.ToJSON ListMLTransforms where
   toJSON ListMLTransforms' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Sort" Core..=) Prelude.<$> sort,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Sort" Data..=) Prelude.<$> sort,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListMLTransforms where
+instance Data.ToPath ListMLTransforms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListMLTransforms where
+instance Data.ToQuery ListMLTransforms where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListMLTransformsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.Braket.Types.DeviceConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures the quantum processing units (QPUs) or simulator used to
@@ -56,12 +57,12 @@ newDeviceConfig pDevice_ =
 deviceConfig_device :: Lens.Lens' DeviceConfig Prelude.Text
 deviceConfig_device = Lens.lens (\DeviceConfig' {device} -> device) (\s@DeviceConfig' {} a -> s {device = a} :: DeviceConfig)
 
-instance Core.FromJSON DeviceConfig where
+instance Data.FromJSON DeviceConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceConfig"
       ( \x ->
-          DeviceConfig' Prelude.<$> (x Core..: "device")
+          DeviceConfig' Prelude.<$> (x Data..: "device")
       )
 
 instance Prelude.Hashable DeviceConfig where
@@ -71,9 +72,9 @@ instance Prelude.Hashable DeviceConfig where
 instance Prelude.NFData DeviceConfig where
   rnf DeviceConfig' {..} = Prelude.rnf device
 
-instance Core.ToJSON DeviceConfig where
+instance Data.ToJSON DeviceConfig where
   toJSON DeviceConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("device" Core..= device)]
+          [Prelude.Just ("device" Data..= device)]
       )

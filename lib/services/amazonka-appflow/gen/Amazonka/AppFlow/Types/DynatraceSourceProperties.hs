@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.DynatraceSourceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The properties that are applied when Dynatrace is being used as a
@@ -53,13 +54,13 @@ newDynatraceSourceProperties pObject_ =
 dynatraceSourceProperties_object :: Lens.Lens' DynatraceSourceProperties Prelude.Text
 dynatraceSourceProperties_object = Lens.lens (\DynatraceSourceProperties' {object'} -> object') (\s@DynatraceSourceProperties' {} a -> s {object' = a} :: DynatraceSourceProperties)
 
-instance Core.FromJSON DynatraceSourceProperties where
+instance Data.FromJSON DynatraceSourceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynatraceSourceProperties"
       ( \x ->
           DynatraceSourceProperties'
-            Prelude.<$> (x Core..: "object")
+            Prelude.<$> (x Data..: "object")
       )
 
 instance Prelude.Hashable DynatraceSourceProperties where
@@ -70,9 +71,9 @@ instance Prelude.NFData DynatraceSourceProperties where
   rnf DynatraceSourceProperties' {..} =
     Prelude.rnf object'
 
-instance Core.ToJSON DynatraceSourceProperties where
+instance Data.ToJSON DynatraceSourceProperties where
   toJSON DynatraceSourceProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("object" Core..= object')]
+          [Prelude.Just ("object" Data..= object')]
       )

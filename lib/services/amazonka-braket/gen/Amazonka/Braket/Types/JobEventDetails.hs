@@ -22,6 +22,7 @@ module Amazonka.Braket.Types.JobEventDetails where
 import Amazonka.Braket.Types.JobEventType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the type and time events occurred related to the Amazon
@@ -35,7 +36,7 @@ data JobEventDetails = JobEventDetails'
     -- | The type of event that occurred related to the Amazon Braket job.
     eventType :: Prelude.Maybe JobEventType,
     -- | TThe type of event that occurred related to the Amazon Braket job.
-    timeOfEvent :: Prelude.Maybe Core.POSIX
+    timeOfEvent :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,17 +74,17 @@ jobEventDetails_eventType = Lens.lens (\JobEventDetails' {eventType} -> eventTyp
 
 -- | TThe type of event that occurred related to the Amazon Braket job.
 jobEventDetails_timeOfEvent :: Lens.Lens' JobEventDetails (Prelude.Maybe Prelude.UTCTime)
-jobEventDetails_timeOfEvent = Lens.lens (\JobEventDetails' {timeOfEvent} -> timeOfEvent) (\s@JobEventDetails' {} a -> s {timeOfEvent = a} :: JobEventDetails) Prelude.. Lens.mapping Core._Time
+jobEventDetails_timeOfEvent = Lens.lens (\JobEventDetails' {timeOfEvent} -> timeOfEvent) (\s@JobEventDetails' {} a -> s {timeOfEvent = a} :: JobEventDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON JobEventDetails where
+instance Data.FromJSON JobEventDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobEventDetails"
       ( \x ->
           JobEventDetails'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "eventType")
-            Prelude.<*> (x Core..:? "timeOfEvent")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "timeOfEvent")
       )
 
 instance Prelude.Hashable JobEventDetails where

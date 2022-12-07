@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,7 +97,7 @@ instance Core.AWSRequest CancelServiceSoftwareUpdate where
     Response.receiveJSON
       ( \s h x ->
           CancelServiceSoftwareUpdateResponse'
-            Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
+            Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,22 +109,22 @@ instance Prelude.NFData CancelServiceSoftwareUpdate where
   rnf CancelServiceSoftwareUpdate' {..} =
     Prelude.rnf domainName
 
-instance Core.ToHeaders CancelServiceSoftwareUpdate where
+instance Data.ToHeaders CancelServiceSoftwareUpdate where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON CancelServiceSoftwareUpdate where
+instance Data.ToJSON CancelServiceSoftwareUpdate where
   toJSON CancelServiceSoftwareUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Core..= domainName)]
+          [Prelude.Just ("DomainName" Data..= domainName)]
       )
 
-instance Core.ToPath CancelServiceSoftwareUpdate where
+instance Data.ToPath CancelServiceSoftwareUpdate where
   toPath =
     Prelude.const
       "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
 
-instance Core.ToQuery CancelServiceSoftwareUpdate where
+instance Data.ToQuery CancelServiceSoftwareUpdate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Container for the response to a @CancelServiceSoftwareUpdate@ operation.

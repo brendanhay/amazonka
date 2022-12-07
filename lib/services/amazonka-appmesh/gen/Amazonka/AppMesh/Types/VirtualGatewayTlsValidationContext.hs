@@ -23,6 +23,7 @@ import Amazonka.AppMesh.Types.SubjectAlternativeNames
 import Amazonka.AppMesh.Types.VirtualGatewayTlsValidationContextTrust
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that represents a Transport Layer Security (TLS) validation
@@ -77,16 +78,16 @@ virtualGatewayTlsValidationContext_trust :: Lens.Lens' VirtualGatewayTlsValidati
 virtualGatewayTlsValidationContext_trust = Lens.lens (\VirtualGatewayTlsValidationContext' {trust} -> trust) (\s@VirtualGatewayTlsValidationContext' {} a -> s {trust = a} :: VirtualGatewayTlsValidationContext)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     VirtualGatewayTlsValidationContext
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VirtualGatewayTlsValidationContext"
       ( \x ->
           VirtualGatewayTlsValidationContext'
-            Prelude.<$> (x Core..:? "subjectAlternativeNames")
-            Prelude.<*> (x Core..: "trust")
+            Prelude.<$> (x Data..:? "subjectAlternativeNames")
+            Prelude.<*> (x Data..: "trust")
       )
 
 instance
@@ -109,14 +110,14 @@ instance
       `Prelude.seq` Prelude.rnf trust
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     VirtualGatewayTlsValidationContext
   where
   toJSON VirtualGatewayTlsValidationContext' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("subjectAlternativeNames" Core..=)
+          [ ("subjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames,
-            Prelude.Just ("trust" Core..= trust)
+            Prelude.Just ("trust" Data..= trust)
           ]
       )

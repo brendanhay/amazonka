@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -80,7 +81,7 @@ instance Core.AWSRequest GetEula where
     Response.receiveJSON
       ( \s h x ->
           GetEulaResponse'
-            Prelude.<$> (x Core..?> "eula")
+            Prelude.<$> (x Data..?> "eula")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -91,23 +92,23 @@ instance Prelude.Hashable GetEula where
 instance Prelude.NFData GetEula where
   rnf GetEula' {..} = Prelude.rnf eulaId
 
-instance Core.ToHeaders GetEula where
+instance Data.ToHeaders GetEula where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetEula where
+instance Data.ToPath GetEula where
   toPath GetEula' {..} =
     Prelude.mconcat
-      ["/2020-08-01/eulas/", Core.toBS eulaId]
+      ["/2020-08-01/eulas/", Data.toBS eulaId]
 
-instance Core.ToQuery GetEula where
+instance Data.ToQuery GetEula where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEulaResponse' smart constructor.

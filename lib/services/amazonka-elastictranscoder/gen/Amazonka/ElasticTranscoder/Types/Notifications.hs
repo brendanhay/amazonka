@@ -21,6 +21,7 @@ module Amazonka.ElasticTranscoder.Types.Notifications where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to
@@ -95,16 +96,16 @@ notifications_error = Lens.lens (\Notifications' {error} -> error) (\s@Notificat
 notifications_progressing :: Lens.Lens' Notifications (Prelude.Maybe Prelude.Text)
 notifications_progressing = Lens.lens (\Notifications' {progressing} -> progressing) (\s@Notifications' {} a -> s {progressing = a} :: Notifications)
 
-instance Core.FromJSON Notifications where
+instance Data.FromJSON Notifications where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Notifications"
       ( \x ->
           Notifications'
-            Prelude.<$> (x Core..:? "Warning")
-            Prelude.<*> (x Core..:? "Completed")
-            Prelude.<*> (x Core..:? "Error")
-            Prelude.<*> (x Core..:? "Progressing")
+            Prelude.<$> (x Data..:? "Warning")
+            Prelude.<*> (x Data..:? "Completed")
+            Prelude.<*> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "Progressing")
       )
 
 instance Prelude.Hashable Notifications where
@@ -121,13 +122,13 @@ instance Prelude.NFData Notifications where
       `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf progressing
 
-instance Core.ToJSON Notifications where
+instance Data.ToJSON Notifications where
   toJSON Notifications' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Warning" Core..=) Prelude.<$> warning,
-            ("Completed" Core..=) Prelude.<$> completed,
-            ("Error" Core..=) Prelude.<$> error,
-            ("Progressing" Core..=) Prelude.<$> progressing
+          [ ("Warning" Data..=) Prelude.<$> warning,
+            ("Completed" Data..=) Prelude.<$> completed,
+            ("Error" Data..=) Prelude.<$> error,
+            ("Progressing" Data..=) Prelude.<$> progressing
           ]
       )

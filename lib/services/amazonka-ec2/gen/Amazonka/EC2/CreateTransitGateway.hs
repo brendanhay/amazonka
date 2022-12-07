@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,7 +146,7 @@ instance Core.AWSRequest CreateTransitGateway where
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayResponse'
-            Prelude.<$> (x Core..@? "transitGateway")
+            Prelude.<$> (x Data..@? "transitGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,24 +164,24 @@ instance Prelude.NFData CreateTransitGateway where
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf tagSpecifications
 
-instance Core.ToHeaders CreateTransitGateway where
+instance Data.ToHeaders CreateTransitGateway where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath CreateTransitGateway where
+instance Data.ToPath CreateTransitGateway where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateTransitGateway where
+instance Data.ToQuery CreateTransitGateway where
   toQuery CreateTransitGateway' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("CreateTransitGateway" :: Prelude.ByteString),
+          Data.=: ("CreateTransitGateway" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Description" Core.=: description,
-        "DryRun" Core.=: dryRun,
-        "Options" Core.=: options,
-        Core.toQuery
-          ( Core.toQueryList "TagSpecification"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Options" Data.=: options,
+        Data.toQuery
+          ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           )
       ]

@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DevOpsGuru.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -193,11 +194,11 @@ instance Core.AWSRequest SearchOrganizationInsights where
     Response.receiveJSON
       ( \s h x ->
           SearchOrganizationInsightsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ReactiveInsights"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "ProactiveInsights"
+            Prelude.<*> ( x Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -221,36 +222,36 @@ instance Prelude.NFData SearchOrganizationInsights where
       `Prelude.seq` Prelude.rnf startTimeRange
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToHeaders SearchOrganizationInsights where
+instance Data.ToHeaders SearchOrganizationInsights where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON SearchOrganizationInsights where
+instance Data.ToJSON SearchOrganizationInsights where
   toJSON SearchOrganizationInsights' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountIds" Core..= accountIds),
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("AccountIds" Data..= accountIds),
             Prelude.Just
-              ("StartTimeRange" Core..= startTimeRange),
-            Prelude.Just ("Type" Core..= type')
+              ("StartTimeRange" Data..= startTimeRange),
+            Prelude.Just ("Type" Data..= type')
           ]
       )
 
-instance Core.ToPath SearchOrganizationInsights where
+instance Data.ToPath SearchOrganizationInsights where
   toPath =
     Prelude.const "/organization/insights/search"
 
-instance Core.ToQuery SearchOrganizationInsights where
+instance Data.ToQuery SearchOrganizationInsights where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newSearchOrganizationInsightsResponse' smart constructor.

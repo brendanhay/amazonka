@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainServiceSoftwareOptio
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the state of the domain relative to the
@@ -164,22 +165,22 @@ awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion :: Lens.L
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_currentVersion = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {currentVersion} -> currentVersion) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {currentVersion = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'
-            Prelude.<$> (x Core..:? "OptionalDeployment")
-              Prelude.<*> (x Core..:? "NewVersion")
-              Prelude.<*> (x Core..:? "UpdateAvailable")
-              Prelude.<*> (x Core..:? "Cancellable")
-              Prelude.<*> (x Core..:? "UpdateStatus")
-              Prelude.<*> (x Core..:? "AutomatedUpdateDate")
-              Prelude.<*> (x Core..:? "Description")
-              Prelude.<*> (x Core..:? "CurrentVersion")
+            Prelude.<$> (x Data..:? "OptionalDeployment")
+              Prelude.<*> (x Data..:? "NewVersion")
+              Prelude.<*> (x Data..:? "UpdateAvailable")
+              Prelude.<*> (x Data..:? "Cancellable")
+              Prelude.<*> (x Data..:? "UpdateStatus")
+              Prelude.<*> (x Data..:? "AutomatedUpdateDate")
+              Prelude.<*> (x Data..:? "Description")
+              Prelude.<*> (x Data..:? "CurrentVersion")
       )
 
 instance
@@ -214,24 +215,24 @@ instance
         `Prelude.seq` Prelude.rnf currentVersion
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
   where
   toJSON
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("OptionalDeployment" Core..=)
+            [ ("OptionalDeployment" Data..=)
                 Prelude.<$> optionalDeployment,
-              ("NewVersion" Core..=) Prelude.<$> newVersion',
-              ("UpdateAvailable" Core..=)
+              ("NewVersion" Data..=) Prelude.<$> newVersion',
+              ("UpdateAvailable" Data..=)
                 Prelude.<$> updateAvailable,
-              ("Cancellable" Core..=) Prelude.<$> cancellable,
-              ("UpdateStatus" Core..=) Prelude.<$> updateStatus,
-              ("AutomatedUpdateDate" Core..=)
+              ("Cancellable" Data..=) Prelude.<$> cancellable,
+              ("UpdateStatus" Data..=) Prelude.<$> updateStatus,
+              ("AutomatedUpdateDate" Data..=)
                 Prelude.<$> automatedUpdateDate,
-              ("Description" Core..=) Prelude.<$> description,
-              ("CurrentVersion" Core..=)
+              ("Description" Data..=) Prelude.<$> description,
+              ("CurrentVersion" Data..=)
                 Prelude.<$> currentVersion
             ]
         )

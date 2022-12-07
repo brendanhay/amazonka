@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -130,9 +131,9 @@ instance Core.AWSRequest ListScheduledQueries where
     Response.receiveJSON
       ( \s h x ->
           ListScheduledQueriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ScheduledQueries"
+            Prelude.<*> ( x Data..?> "ScheduledQueries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -147,34 +148,34 @@ instance Prelude.NFData ListScheduledQueries where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListScheduledQueries where
+instance Data.ToHeaders ListScheduledQueries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Timestream_20181101.ListScheduledQueries" ::
+              Data.=# ( "Timestream_20181101.ListScheduledQueries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListScheduledQueries where
+instance Data.ToJSON ListScheduledQueries where
   toJSON ListScheduledQueries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListScheduledQueries where
+instance Data.ToPath ListScheduledQueries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListScheduledQueries where
+instance Data.ToQuery ListScheduledQueries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListScheduledQueriesResponse' smart constructor.

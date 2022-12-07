@@ -45,6 +45,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -172,22 +173,22 @@ instance Prelude.NFData StopStackSetOperation where
       `Prelude.seq` Prelude.rnf stackSetName
       `Prelude.seq` Prelude.rnf operationId
 
-instance Core.ToHeaders StopStackSetOperation where
+instance Data.ToHeaders StopStackSetOperation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StopStackSetOperation where
+instance Data.ToPath StopStackSetOperation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopStackSetOperation where
+instance Data.ToQuery StopStackSetOperation where
   toQuery StopStackSetOperation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StopStackSetOperation" :: Prelude.ByteString),
+          Data.=: ("StopStackSetOperation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Core.=: callAs,
-        "StackSetName" Core.=: stackSetName,
-        "OperationId" Core.=: operationId
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "CallAs" Data.=: callAs,
+        "StackSetName" Data.=: stackSetName,
+        "OperationId" Data.=: operationId
       ]
 
 -- | /See:/ 'newStopStackSetOperationResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MarketplaceCatalog.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -145,8 +146,8 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EntitySummaryList"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "EntitySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -170,34 +171,34 @@ instance Prelude.NFData ListEntities where
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf entityType
 
-instance Core.ToHeaders ListEntities where
+instance Data.ToHeaders ListEntities where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListEntities where
+instance Data.ToJSON ListEntities where
   toJSON ListEntities' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FilterList" Core..=) Prelude.<$> filterList,
-            ("Sort" Core..=) Prelude.<$> sort,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("Catalog" Core..= catalog),
-            Prelude.Just ("EntityType" Core..= entityType)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FilterList" Data..=) Prelude.<$> filterList,
+            ("Sort" Data..=) Prelude.<$> sort,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("Catalog" Data..= catalog),
+            Prelude.Just ("EntityType" Data..= entityType)
           ]
       )
 
-instance Core.ToPath ListEntities where
+instance Data.ToPath ListEntities where
   toPath = Prelude.const "/ListEntities"
 
-instance Core.ToQuery ListEntities where
+instance Data.ToQuery ListEntities where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListEntitiesResponse' smart constructor.

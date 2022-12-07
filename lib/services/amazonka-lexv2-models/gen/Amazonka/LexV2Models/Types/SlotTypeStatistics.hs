@@ -21,6 +21,7 @@ module Amazonka.LexV2Models.Types.SlotTypeStatistics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The object that contains the statistical summary of the recommended slot
@@ -57,13 +58,13 @@ newSlotTypeStatistics =
 slotTypeStatistics_discoveredSlotTypeCount :: Lens.Lens' SlotTypeStatistics (Prelude.Maybe Prelude.Int)
 slotTypeStatistics_discoveredSlotTypeCount = Lens.lens (\SlotTypeStatistics' {discoveredSlotTypeCount} -> discoveredSlotTypeCount) (\s@SlotTypeStatistics' {} a -> s {discoveredSlotTypeCount = a} :: SlotTypeStatistics)
 
-instance Core.FromJSON SlotTypeStatistics where
+instance Data.FromJSON SlotTypeStatistics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlotTypeStatistics"
       ( \x ->
           SlotTypeStatistics'
-            Prelude.<$> (x Core..:? "discoveredSlotTypeCount")
+            Prelude.<$> (x Data..:? "discoveredSlotTypeCount")
       )
 
 instance Prelude.Hashable SlotTypeStatistics where

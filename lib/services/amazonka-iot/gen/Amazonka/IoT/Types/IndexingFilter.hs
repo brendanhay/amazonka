@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.IndexingFilter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides additional filters for specific data sources. Named shadow is
@@ -63,14 +64,14 @@ newIndexingFilter =
 indexingFilter_namedShadowNames :: Lens.Lens' IndexingFilter (Prelude.Maybe [Prelude.Text])
 indexingFilter_namedShadowNames = Lens.lens (\IndexingFilter' {namedShadowNames} -> namedShadowNames) (\s@IndexingFilter' {} a -> s {namedShadowNames = a} :: IndexingFilter) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON IndexingFilter where
+instance Data.FromJSON IndexingFilter where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IndexingFilter"
       ( \x ->
           IndexingFilter'
-            Prelude.<$> ( x Core..:? "namedShadowNames"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "namedShadowNames"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -82,11 +83,11 @@ instance Prelude.NFData IndexingFilter where
   rnf IndexingFilter' {..} =
     Prelude.rnf namedShadowNames
 
-instance Core.ToJSON IndexingFilter where
+instance Data.ToJSON IndexingFilter where
   toJSON IndexingFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("namedShadowNames" Core..=)
+          [ ("namedShadowNames" Data..=)
               Prelude.<$> namedShadowNames
           ]
       )

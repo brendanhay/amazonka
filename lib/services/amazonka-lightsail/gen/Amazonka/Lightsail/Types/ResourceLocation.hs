@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.ResourceLocation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.RegionName
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,14 +64,14 @@ resourceLocation_availabilityZone = Lens.lens (\ResourceLocation' {availabilityZ
 resourceLocation_regionName :: Lens.Lens' ResourceLocation (Prelude.Maybe RegionName)
 resourceLocation_regionName = Lens.lens (\ResourceLocation' {regionName} -> regionName) (\s@ResourceLocation' {} a -> s {regionName = a} :: ResourceLocation)
 
-instance Core.FromJSON ResourceLocation where
+instance Data.FromJSON ResourceLocation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceLocation"
       ( \x ->
           ResourceLocation'
-            Prelude.<$> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "regionName")
+            Prelude.<$> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "regionName")
       )
 
 instance Prelude.Hashable ResourceLocation where

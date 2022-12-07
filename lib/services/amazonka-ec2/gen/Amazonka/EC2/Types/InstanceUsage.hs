@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceUsage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -68,11 +69,11 @@ instanceUsage_usedInstanceCount = Lens.lens (\InstanceUsage' {usedInstanceCount}
 instanceUsage_accountId :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Text)
 instanceUsage_accountId = Lens.lens (\InstanceUsage' {accountId} -> accountId) (\s@InstanceUsage' {} a -> s {accountId = a} :: InstanceUsage)
 
-instance Core.FromXML InstanceUsage where
+instance Data.FromXML InstanceUsage where
   parseXML x =
     InstanceUsage'
-      Prelude.<$> (x Core..@? "usedInstanceCount")
-      Prelude.<*> (x Core..@? "accountId")
+      Prelude.<$> (x Data..@? "usedInstanceCount")
+      Prelude.<*> (x Data..@? "accountId")
 
 instance Prelude.Hashable InstanceUsage where
   hashWithSalt _salt InstanceUsage' {..} =

@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.EntitledApplication where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The application associated to an entitlement. Access is controlled based
@@ -56,13 +57,13 @@ newEntitledApplication pApplicationIdentifier_ =
 entitledApplication_applicationIdentifier :: Lens.Lens' EntitledApplication Prelude.Text
 entitledApplication_applicationIdentifier = Lens.lens (\EntitledApplication' {applicationIdentifier} -> applicationIdentifier) (\s@EntitledApplication' {} a -> s {applicationIdentifier = a} :: EntitledApplication)
 
-instance Core.FromJSON EntitledApplication where
+instance Data.FromJSON EntitledApplication where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EntitledApplication"
       ( \x ->
           EntitledApplication'
-            Prelude.<$> (x Core..: "ApplicationIdentifier")
+            Prelude.<$> (x Data..: "ApplicationIdentifier")
       )
 
 instance Prelude.Hashable EntitledApplication where

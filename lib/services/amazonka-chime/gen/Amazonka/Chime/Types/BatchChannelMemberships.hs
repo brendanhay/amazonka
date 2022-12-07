@@ -23,6 +23,7 @@ import Amazonka.Chime.Types.ChannelMembershipType
 import Amazonka.Chime.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The membership information, including member ARNs, the channel ARN, and
@@ -82,16 +83,16 @@ batchChannelMemberships_channelArn = Lens.lens (\BatchChannelMemberships' {chann
 batchChannelMemberships_invitedBy :: Lens.Lens' BatchChannelMemberships (Prelude.Maybe Identity)
 batchChannelMemberships_invitedBy = Lens.lens (\BatchChannelMemberships' {invitedBy} -> invitedBy) (\s@BatchChannelMemberships' {} a -> s {invitedBy = a} :: BatchChannelMemberships)
 
-instance Core.FromJSON BatchChannelMemberships where
+instance Data.FromJSON BatchChannelMemberships where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchChannelMemberships"
       ( \x ->
           BatchChannelMemberships'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "Members" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ChannelArn")
-            Prelude.<*> (x Core..:? "InvitedBy")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Members" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "InvitedBy")
       )
 
 instance Prelude.Hashable BatchChannelMemberships where

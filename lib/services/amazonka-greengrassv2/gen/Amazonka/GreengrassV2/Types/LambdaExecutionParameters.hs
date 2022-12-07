@@ -21,6 +21,7 @@ module Amazonka.GreengrassV2.Types.LambdaExecutionParameters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GreengrassV2.Types.LambdaEventSource
 import Amazonka.GreengrassV2.Types.LambdaInputPayloadEncodingType
 import Amazonka.GreengrassV2.Types.LambdaLinuxProcessParams
@@ -246,27 +247,27 @@ instance Prelude.NFData LambdaExecutionParameters where
       `Prelude.seq` Prelude.rnf pinned
       `Prelude.seq` Prelude.rnf maxInstancesCount
 
-instance Core.ToJSON LambdaExecutionParameters where
+instance Data.ToJSON LambdaExecutionParameters where
   toJSON LambdaExecutionParameters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("statusTimeoutInSeconds" Core..=)
+          [ ("statusTimeoutInSeconds" Data..=)
               Prelude.<$> statusTimeoutInSeconds,
-            ("linuxProcessParams" Core..=)
+            ("linuxProcessParams" Data..=)
               Prelude.<$> linuxProcessParams,
-            ("execArgs" Core..=) Prelude.<$> execArgs,
-            ("maxIdleTimeInSeconds" Core..=)
+            ("execArgs" Data..=) Prelude.<$> execArgs,
+            ("maxIdleTimeInSeconds" Data..=)
               Prelude.<$> maxIdleTimeInSeconds,
-            ("eventSources" Core..=) Prelude.<$> eventSources,
-            ("timeoutInSeconds" Core..=)
+            ("eventSources" Data..=) Prelude.<$> eventSources,
+            ("timeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("inputPayloadEncodingType" Core..=)
+            ("inputPayloadEncodingType" Data..=)
               Prelude.<$> inputPayloadEncodingType,
-            ("environmentVariables" Core..=)
+            ("environmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("maxQueueSize" Core..=) Prelude.<$> maxQueueSize,
-            ("pinned" Core..=) Prelude.<$> pinned,
-            ("maxInstancesCount" Core..=)
+            ("maxQueueSize" Data..=) Prelude.<$> maxQueueSize,
+            ("pinned" Data..=) Prelude.<$> pinned,
+            ("maxInstancesCount" Data..=)
               Prelude.<$> maxInstancesCount
           ]
       )

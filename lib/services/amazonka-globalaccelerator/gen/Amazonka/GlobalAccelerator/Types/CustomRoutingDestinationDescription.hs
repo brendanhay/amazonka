@@ -21,6 +21,7 @@ module Amazonka.GlobalAccelerator.Types.CustomRoutingDestinationDescription wher
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GlobalAccelerator.Types.Protocol
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,17 +85,17 @@ customRoutingDestinationDescription_fromPort :: Lens.Lens' CustomRoutingDestinat
 customRoutingDestinationDescription_fromPort = Lens.lens (\CustomRoutingDestinationDescription' {fromPort} -> fromPort) (\s@CustomRoutingDestinationDescription' {} a -> s {fromPort = a} :: CustomRoutingDestinationDescription)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     CustomRoutingDestinationDescription
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomRoutingDestinationDescription"
       ( \x ->
           CustomRoutingDestinationDescription'
-            Prelude.<$> (x Core..:? "ToPort")
-            Prelude.<*> (x Core..:? "Protocols" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FromPort")
+            Prelude.<$> (x Data..:? "ToPort")
+            Prelude.<*> (x Data..:? "Protocols" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FromPort")
       )
 
 instance

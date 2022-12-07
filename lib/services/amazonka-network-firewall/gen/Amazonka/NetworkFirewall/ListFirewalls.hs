@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -157,8 +158,8 @@ instance Core.AWSRequest ListFirewalls where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Firewalls" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Firewalls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,35 +175,35 @@ instance Prelude.NFData ListFirewalls where
       `Prelude.seq` Prelude.rnf vpcIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListFirewalls where
+instance Data.ToHeaders ListFirewalls where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.ListFirewalls" ::
+              Data.=# ( "NetworkFirewall_20201112.ListFirewalls" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListFirewalls where
+instance Data.ToJSON ListFirewalls where
   toJSON ListFirewalls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("VpcIds" Core..=) Prelude.<$> vpcIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("VpcIds" Data..=) Prelude.<$> vpcIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath ListFirewalls where
+instance Data.ToPath ListFirewalls where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListFirewalls where
+instance Data.ToQuery ListFirewalls where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListFirewallsResponse' smart constructor.

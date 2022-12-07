@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -187,12 +188,12 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
       "ListInstanceProfilesForRoleResult"
       ( \s h x ->
           ListInstanceProfilesForRoleResponse'
-            Prelude.<$> (x Core..@? "Marker")
-            Prelude.<*> (x Core..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> (x Data..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..@? "InstanceProfiles"
+            Prelude.<*> ( x Data..@? "InstanceProfiles"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.parseXMLList "member"
+                            Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
@@ -208,24 +209,24 @@ instance Prelude.NFData ListInstanceProfilesForRole where
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf roleName
 
-instance Core.ToHeaders ListInstanceProfilesForRole where
+instance Data.ToHeaders ListInstanceProfilesForRole where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListInstanceProfilesForRole where
+instance Data.ToPath ListInstanceProfilesForRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListInstanceProfilesForRole where
+instance Data.ToQuery ListInstanceProfilesForRole where
   toQuery ListInstanceProfilesForRole' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ListInstanceProfilesForRole" ::
+          Data.=: ( "ListInstanceProfilesForRole" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "Marker" Core.=: marker,
-        "MaxItems" Core.=: maxItems,
-        "RoleName" Core.=: roleName
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "RoleName" Data.=: roleName
       ]
 
 -- | Contains the response to a successful ListInstanceProfilesForRole

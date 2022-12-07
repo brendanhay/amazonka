@@ -22,6 +22,7 @@ module Amazonka.CloudFormation.Types.BatchDescribeTypeConfigurationsError where
 import Amazonka.CloudFormation.Types.TypeConfigurationIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information concerning an error generated during the setting of
@@ -74,14 +75,14 @@ batchDescribeTypeConfigurationsError_errorCode :: Lens.Lens' BatchDescribeTypeCo
 batchDescribeTypeConfigurationsError_errorCode = Lens.lens (\BatchDescribeTypeConfigurationsError' {errorCode} -> errorCode) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {errorCode = a} :: BatchDescribeTypeConfigurationsError)
 
 instance
-  Core.FromXML
+  Data.FromXML
     BatchDescribeTypeConfigurationsError
   where
   parseXML x =
     BatchDescribeTypeConfigurationsError'
-      Prelude.<$> (x Core..@? "ErrorMessage")
-      Prelude.<*> (x Core..@? "TypeConfigurationIdentifier")
-      Prelude.<*> (x Core..@? "ErrorCode")
+      Prelude.<$> (x Data..@? "ErrorMessage")
+      Prelude.<*> (x Data..@? "TypeConfigurationIdentifier")
+      Prelude.<*> (x Data..@? "ErrorCode")
 
 instance
   Prelude.Hashable

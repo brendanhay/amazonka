@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.OutputResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.Ami
 import Amazonka.ImageBuilder.Types.Container
 import qualified Amazonka.Prelude as Prelude
@@ -66,14 +67,14 @@ outputResources_containers = Lens.lens (\OutputResources' {containers} -> contai
 outputResources_amis :: Lens.Lens' OutputResources (Prelude.Maybe [Ami])
 outputResources_amis = Lens.lens (\OutputResources' {amis} -> amis) (\s@OutputResources' {} a -> s {amis = a} :: OutputResources) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON OutputResources where
+instance Data.FromJSON OutputResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OutputResources"
       ( \x ->
           OutputResources'
-            Prelude.<$> (x Core..:? "containers" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "amis" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "amis" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OutputResources where

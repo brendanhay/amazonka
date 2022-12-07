@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ContinuousParameterRangeSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the possible values for a continuous hyperparameter.
@@ -69,16 +70,16 @@ continuousParameterRangeSpecification_maxValue :: Lens.Lens' ContinuousParameter
 continuousParameterRangeSpecification_maxValue = Lens.lens (\ContinuousParameterRangeSpecification' {maxValue} -> maxValue) (\s@ContinuousParameterRangeSpecification' {} a -> s {maxValue = a} :: ContinuousParameterRangeSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ContinuousParameterRangeSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ContinuousParameterRangeSpecification"
       ( \x ->
           ContinuousParameterRangeSpecification'
-            Prelude.<$> (x Core..: "MinValue")
-            Prelude.<*> (x Core..: "MaxValue")
+            Prelude.<$> (x Data..: "MinValue")
+            Prelude.<*> (x Data..: "MaxValue")
       )
 
 instance
@@ -100,13 +101,13 @@ instance
       `Prelude.seq` Prelude.rnf maxValue
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     ContinuousParameterRangeSpecification
   where
   toJSON ContinuousParameterRangeSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("MinValue" Core..= minValue),
-            Prelude.Just ("MaxValue" Core..= maxValue)
+          [ Prelude.Just ("MinValue" Data..= minValue),
+            Prelude.Just ("MaxValue" Data..= maxValue)
           ]
       )

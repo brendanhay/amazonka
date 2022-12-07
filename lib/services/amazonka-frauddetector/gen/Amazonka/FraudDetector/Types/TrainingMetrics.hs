@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.TrainingMetrics where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.MetricDataPoint
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,16 +73,16 @@ trainingMetrics_metricDataPoints = Lens.lens (\TrainingMetrics' {metricDataPoint
 trainingMetrics_auc :: Lens.Lens' TrainingMetrics (Prelude.Maybe Prelude.Double)
 trainingMetrics_auc = Lens.lens (\TrainingMetrics' {auc} -> auc) (\s@TrainingMetrics' {} a -> s {auc = a} :: TrainingMetrics)
 
-instance Core.FromJSON TrainingMetrics where
+instance Data.FromJSON TrainingMetrics where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TrainingMetrics"
       ( \x ->
           TrainingMetrics'
-            Prelude.<$> ( x Core..:? "metricDataPoints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "metricDataPoints"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "auc")
+            Prelude.<*> (x Data..:? "auc")
       )
 
 instance Prelude.Hashable TrainingMetrics where

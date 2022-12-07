@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.ClosedDays where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ClosedDaysRule
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,17 +90,17 @@ closedDays_push = Lens.lens (\ClosedDays' {push} -> push) (\s@ClosedDays' {} a -
 closedDays_custom :: Lens.Lens' ClosedDays (Prelude.Maybe [ClosedDaysRule])
 closedDays_custom = Lens.lens (\ClosedDays' {custom} -> custom) (\s@ClosedDays' {} a -> s {custom = a} :: ClosedDays) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ClosedDays where
+instance Data.FromJSON ClosedDays where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ClosedDays"
       ( \x ->
           ClosedDays'
-            Prelude.<$> (x Core..:? "SMS" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EMAIL" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VOICE" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PUSH" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CUSTOM" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "SMS" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EMAIL" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VOICE" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PUSH" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CUSTOM" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ClosedDays where
@@ -118,14 +119,14 @@ instance Prelude.NFData ClosedDays where
       `Prelude.seq` Prelude.rnf push
       `Prelude.seq` Prelude.rnf custom
 
-instance Core.ToJSON ClosedDays where
+instance Data.ToJSON ClosedDays where
   toJSON ClosedDays' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SMS" Core..=) Prelude.<$> sms,
-            ("EMAIL" Core..=) Prelude.<$> email,
-            ("VOICE" Core..=) Prelude.<$> voice,
-            ("PUSH" Core..=) Prelude.<$> push,
-            ("CUSTOM" Core..=) Prelude.<$> custom
+          [ ("SMS" Data..=) Prelude.<$> sms,
+            ("EMAIL" Data..=) Prelude.<$> email,
+            ("VOICE" Data..=) Prelude.<$> voice,
+            ("PUSH" Data..=) Prelude.<$> push,
+            ("CUSTOM" Data..=) Prelude.<$> custom
           ]
       )

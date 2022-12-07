@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -137,34 +138,34 @@ instance Prelude.NFData UpdateManagedInstanceRole where
     Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf iamRole
 
-instance Core.ToHeaders UpdateManagedInstanceRole where
+instance Data.ToHeaders UpdateManagedInstanceRole where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonSSM.UpdateManagedInstanceRole" ::
+              Data.=# ( "AmazonSSM.UpdateManagedInstanceRole" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateManagedInstanceRole where
+instance Data.ToJSON UpdateManagedInstanceRole where
   toJSON UpdateManagedInstanceRole' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("IamRole" Core..= iamRole)
+          [ Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("IamRole" Data..= iamRole)
           ]
       )
 
-instance Core.ToPath UpdateManagedInstanceRole where
+instance Data.ToPath UpdateManagedInstanceRole where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateManagedInstanceRole where
+instance Data.ToQuery UpdateManagedInstanceRole where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateManagedInstanceRoleResponse' smart constructor.

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -94,18 +95,18 @@ instance Core.AWSRequest DescribeAlgorithm where
     Response.receiveJSON
       ( \s h x ->
           DescribeAlgorithmResponse'
-            Prelude.<$> (x Core..?> "ValidationSpecification")
-            Prelude.<*> (x Core..?> "CertifyForMarketplace")
-            Prelude.<*> (x Core..?> "InferenceSpecification")
-            Prelude.<*> (x Core..?> "ProductId")
-            Prelude.<*> (x Core..?> "AlgorithmDescription")
+            Prelude.<$> (x Data..?> "ValidationSpecification")
+            Prelude.<*> (x Data..?> "CertifyForMarketplace")
+            Prelude.<*> (x Data..?> "InferenceSpecification")
+            Prelude.<*> (x Data..?> "ProductId")
+            Prelude.<*> (x Data..?> "AlgorithmDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AlgorithmName")
-            Prelude.<*> (x Core..:> "AlgorithmArn")
-            Prelude.<*> (x Core..:> "CreationTime")
-            Prelude.<*> (x Core..:> "TrainingSpecification")
-            Prelude.<*> (x Core..:> "AlgorithmStatus")
-            Prelude.<*> (x Core..:> "AlgorithmStatusDetails")
+            Prelude.<*> (x Data..:> "AlgorithmName")
+            Prelude.<*> (x Data..:> "AlgorithmArn")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "TrainingSpecification")
+            Prelude.<*> (x Data..:> "AlgorithmStatus")
+            Prelude.<*> (x Data..:> "AlgorithmStatusDetails")
       )
 
 instance Prelude.Hashable DescribeAlgorithm where
@@ -116,34 +117,34 @@ instance Prelude.NFData DescribeAlgorithm where
   rnf DescribeAlgorithm' {..} =
     Prelude.rnf algorithmName
 
-instance Core.ToHeaders DescribeAlgorithm where
+instance Data.ToHeaders DescribeAlgorithm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SageMaker.DescribeAlgorithm" ::
+              Data.=# ( "SageMaker.DescribeAlgorithm" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeAlgorithm where
+instance Data.ToJSON DescribeAlgorithm where
   toJSON DescribeAlgorithm' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("AlgorithmName" Core..= algorithmName)
+              ("AlgorithmName" Data..= algorithmName)
           ]
       )
 
-instance Core.ToPath DescribeAlgorithm where
+instance Data.ToPath DescribeAlgorithm where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAlgorithm where
+instance Data.ToQuery DescribeAlgorithm where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeAlgorithmResponse' smart constructor.
@@ -167,7 +168,7 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
     -- | The Amazon Resource Name (ARN) of the algorithm.
     algorithmArn :: Prelude.Text,
     -- | A timestamp specifying when the algorithm was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | Details about training jobs run by this algorithm.
     trainingSpecification :: TrainingSpecification,
     -- | The current status of the algorithm.
@@ -244,7 +245,7 @@ newDescribeAlgorithmResponse
         httpStatus = pHttpStatus_,
         algorithmName = pAlgorithmName_,
         algorithmArn = pAlgorithmArn_,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         trainingSpecification = pTrainingSpecification_,
         algorithmStatus = pAlgorithmStatus_,
         algorithmStatusDetails =
@@ -287,7 +288,7 @@ describeAlgorithmResponse_algorithmArn = Lens.lens (\DescribeAlgorithmResponse' 
 
 -- | A timestamp specifying when the algorithm was created.
 describeAlgorithmResponse_creationTime :: Lens.Lens' DescribeAlgorithmResponse Prelude.UTCTime
-describeAlgorithmResponse_creationTime = Lens.lens (\DescribeAlgorithmResponse' {creationTime} -> creationTime) (\s@DescribeAlgorithmResponse' {} a -> s {creationTime = a} :: DescribeAlgorithmResponse) Prelude.. Core._Time
+describeAlgorithmResponse_creationTime = Lens.lens (\DescribeAlgorithmResponse' {creationTime} -> creationTime) (\s@DescribeAlgorithmResponse' {} a -> s {creationTime = a} :: DescribeAlgorithmResponse) Prelude.. Data._Time
 
 -- | Details about training jobs run by this algorithm.
 describeAlgorithmResponse_trainingSpecification :: Lens.Lens' DescribeAlgorithmResponse TrainingSpecification

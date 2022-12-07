@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.StageContext where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about a stage to a job worker.
@@ -50,12 +51,12 @@ newStageContext =
 stageContext_name :: Lens.Lens' StageContext (Prelude.Maybe Prelude.Text)
 stageContext_name = Lens.lens (\StageContext' {name} -> name) (\s@StageContext' {} a -> s {name = a} :: StageContext)
 
-instance Core.FromJSON StageContext where
+instance Data.FromJSON StageContext where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StageContext"
       ( \x ->
-          StageContext' Prelude.<$> (x Core..:? "name")
+          StageContext' Prelude.<$> (x Data..:? "name")
       )
 
 instance Prelude.Hashable StageContext where

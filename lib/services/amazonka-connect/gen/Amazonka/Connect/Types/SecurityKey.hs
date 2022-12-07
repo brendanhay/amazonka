@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.SecurityKey where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration information of the security key.
@@ -30,7 +31,7 @@ data SecurityKey = SecurityKey'
   { -- | The key of the security key.
     key :: Prelude.Maybe Prelude.Text,
     -- | When the security key was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
     associationId :: Prelude.Maybe Prelude.Text
@@ -66,22 +67,22 @@ securityKey_key = Lens.lens (\SecurityKey' {key} -> key) (\s@SecurityKey' {} a -
 
 -- | When the security key was created.
 securityKey_creationTime :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.UTCTime)
-securityKey_creationTime = Lens.lens (\SecurityKey' {creationTime} -> creationTime) (\s@SecurityKey' {} a -> s {creationTime = a} :: SecurityKey) Prelude.. Lens.mapping Core._Time
+securityKey_creationTime = Lens.lens (\SecurityKey' {creationTime} -> creationTime) (\s@SecurityKey' {} a -> s {creationTime = a} :: SecurityKey) Prelude.. Lens.mapping Data._Time
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
 securityKey_associationId :: Lens.Lens' SecurityKey (Prelude.Maybe Prelude.Text)
 securityKey_associationId = Lens.lens (\SecurityKey' {associationId} -> associationId) (\s@SecurityKey' {} a -> s {associationId = a} :: SecurityKey)
 
-instance Core.FromJSON SecurityKey where
+instance Data.FromJSON SecurityKey where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SecurityKey"
       ( \x ->
           SecurityKey'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "AssociationId")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "AssociationId")
       )
 
 instance Prelude.Hashable SecurityKey where

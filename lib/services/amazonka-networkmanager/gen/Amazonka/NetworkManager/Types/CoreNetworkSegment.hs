@@ -21,6 +21,7 @@ module Amazonka.NetworkManager.Types.CoreNetworkSegment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a core network segment, which are dedicated routes. Only
@@ -71,15 +72,15 @@ coreNetworkSegment_sharedSegments = Lens.lens (\CoreNetworkSegment' {sharedSegme
 coreNetworkSegment_edgeLocations :: Lens.Lens' CoreNetworkSegment (Prelude.Maybe [Prelude.Text])
 coreNetworkSegment_edgeLocations = Lens.lens (\CoreNetworkSegment' {edgeLocations} -> edgeLocations) (\s@CoreNetworkSegment' {} a -> s {edgeLocations = a} :: CoreNetworkSegment) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON CoreNetworkSegment where
+instance Data.FromJSON CoreNetworkSegment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CoreNetworkSegment"
       ( \x ->
           CoreNetworkSegment'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SharedSegments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EdgeLocations" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SharedSegments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EdgeLocations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CoreNetworkSegment where

@@ -78,6 +78,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -551,7 +552,7 @@ instance Core.AWSRequest RegisterInstance where
     Response.receiveJSON
       ( \s h x ->
           RegisterInstanceResponse'
-            Prelude.<$> (x Core..?> "OperationId")
+            Prelude.<$> (x Data..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -569,37 +570,37 @@ instance Prelude.NFData RegisterInstance where
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf attributes
 
-instance Core.ToHeaders RegisterInstance where
+instance Data.ToHeaders RegisterInstance where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Route53AutoNaming_v20170314.RegisterInstance" ::
+              Data.=# ( "Route53AutoNaming_v20170314.RegisterInstance" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterInstance where
+instance Data.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CreatorRequestId" Core..=)
+          [ ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
-            Prelude.Just ("ServiceId" Core..= serviceId),
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("Attributes" Core..= attributes)
+            Prelude.Just ("ServiceId" Data..= serviceId),
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("Attributes" Data..= attributes)
           ]
       )
 
-instance Core.ToPath RegisterInstance where
+instance Data.ToPath RegisterInstance where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterInstance where
+instance Data.ToQuery RegisterInstance where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterInstanceResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -206,9 +207,9 @@ instance Core.AWSRequest UpdateTracker where
       ( \s h x ->
           UpdateTrackerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "TrackerArn")
-            Prelude.<*> (x Core..:> "TrackerName")
-            Prelude.<*> (x Core..:> "UpdateTime")
+            Prelude.<*> (x Data..:> "TrackerArn")
+            Prelude.<*> (x Data..:> "TrackerName")
+            Prelude.<*> (x Data..:> "UpdateTime")
       )
 
 instance Prelude.Hashable UpdateTracker where
@@ -227,36 +228,36 @@ instance Prelude.NFData UpdateTracker where
       `Prelude.seq` Prelude.rnf positionFiltering
       `Prelude.seq` Prelude.rnf trackerName
 
-instance Core.ToHeaders UpdateTracker where
+instance Data.ToHeaders UpdateTracker where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTracker where
+instance Data.ToJSON UpdateTracker where
   toJSON UpdateTracker' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Core..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlanDataSource" Data..=)
               Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
-            ("PositionFiltering" Core..=)
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("PositionFiltering" Data..=)
               Prelude.<$> positionFiltering
           ]
       )
 
-instance Core.ToPath UpdateTracker where
+instance Data.ToPath UpdateTracker where
   toPath UpdateTracker' {..} =
     Prelude.mconcat
-      ["/tracking/v0/trackers/", Core.toBS trackerName]
+      ["/tracking/v0/trackers/", Data.toBS trackerName]
 
-instance Core.ToQuery UpdateTracker where
+instance Data.ToQuery UpdateTracker where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateTrackerResponse' smart constructor.
@@ -274,7 +275,7 @@ data UpdateTrackerResponse = UpdateTrackerResponse'
     -- | The timestamp for when the tracker resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    updateTime :: Core.POSIX
+    updateTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -318,7 +319,7 @@ newUpdateTrackerResponse
       { httpStatus = pHttpStatus_,
         trackerArn = pTrackerArn_,
         trackerName = pTrackerName_,
-        updateTime = Core._Time Lens.# pUpdateTime_
+        updateTime = Data._Time Lens.# pUpdateTime_
       }
 
 -- | The response's http status code.
@@ -341,7 +342,7 @@ updateTrackerResponse_trackerName = Lens.lens (\UpdateTrackerResponse' {trackerN
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 updateTrackerResponse_updateTime :: Lens.Lens' UpdateTrackerResponse Prelude.UTCTime
-updateTrackerResponse_updateTime = Lens.lens (\UpdateTrackerResponse' {updateTime} -> updateTime) (\s@UpdateTrackerResponse' {} a -> s {updateTime = a} :: UpdateTrackerResponse) Prelude.. Core._Time
+updateTrackerResponse_updateTime = Lens.lens (\UpdateTrackerResponse' {updateTime} -> updateTime) (\s@UpdateTrackerResponse' {} a -> s {updateTime = a} :: UpdateTrackerResponse) Prelude.. Data._Time
 
 instance Prelude.NFData UpdateTrackerResponse where
   rnf UpdateTrackerResponse' {..} =

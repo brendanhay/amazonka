@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -263,9 +264,9 @@ instance Core.AWSRequest DescribeAvailabilityZones where
     Response.receiveXML
       ( \s h x ->
           DescribeAvailabilityZonesResponse'
-            Prelude.<$> ( x Core..@? "availabilityZoneInfo"
+            Prelude.<$> ( x Data..@? "availabilityZoneInfo"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -286,27 +287,27 @@ instance Prelude.NFData DescribeAvailabilityZones where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf zoneIds
 
-instance Core.ToHeaders DescribeAvailabilityZones where
+instance Data.ToHeaders DescribeAvailabilityZones where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeAvailabilityZones where
+instance Data.ToPath DescribeAvailabilityZones where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeAvailabilityZones where
+instance Data.ToQuery DescribeAvailabilityZones where
   toQuery DescribeAvailabilityZones' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeAvailabilityZones" :: Prelude.ByteString),
+          Data.=: ("DescribeAvailabilityZones" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          (Core.toQueryList "ZoneName" Prelude.<$> zoneNames),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "AllAvailabilityZones" Core.=: allAvailabilityZones,
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "ZoneId" Prelude.<$> zoneIds)
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          (Data.toQueryList "ZoneName" Prelude.<$> zoneNames),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "AllAvailabilityZones" Data.=: allAvailabilityZones,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "ZoneId" Prelude.<$> zoneIds)
       ]
 
 -- | /See:/ 'newDescribeAvailabilityZonesResponse' smart constructor.

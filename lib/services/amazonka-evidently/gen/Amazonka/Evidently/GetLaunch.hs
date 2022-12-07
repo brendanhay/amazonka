@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,7 +95,7 @@ instance Core.AWSRequest GetLaunch where
     Response.receiveJSON
       ( \s h x ->
           GetLaunchResponse'
-            Prelude.<$> (x Core..?> "launch")
+            Prelude.<$> (x Data..?> "launch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,27 +109,27 @@ instance Prelude.NFData GetLaunch where
     Prelude.rnf launch
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders GetLaunch where
+instance Data.ToHeaders GetLaunch where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLaunch where
+instance Data.ToPath GetLaunch where
   toPath GetLaunch' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/launches/",
-        Core.toBS launch
+        Data.toBS launch
       ]
 
-instance Core.ToQuery GetLaunch where
+instance Data.ToQuery GetLaunch where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetLaunchResponse' smart constructor.

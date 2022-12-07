@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -80,9 +81,9 @@ instance Core.AWSRequest GetCallerIdentity where
       "GetCallerIdentityResult"
       ( \s h x ->
           GetCallerIdentityResponse'
-            Prelude.<$> (x Core..@? "Arn")
-            Prelude.<*> (x Core..@? "Account")
-            Prelude.<*> (x Core..@? "UserId")
+            Prelude.<$> (x Data..@? "Arn")
+            Prelude.<*> (x Data..@? "Account")
+            Prelude.<*> (x Data..@? "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,20 +94,20 @@ instance Prelude.Hashable GetCallerIdentity where
 instance Prelude.NFData GetCallerIdentity where
   rnf _ = ()
 
-instance Core.ToHeaders GetCallerIdentity where
+instance Data.ToHeaders GetCallerIdentity where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath GetCallerIdentity where
+instance Data.ToPath GetCallerIdentity where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCallerIdentity where
+instance Data.ToQuery GetCallerIdentity where
   toQuery =
     Prelude.const
       ( Prelude.mconcat
           [ "Action"
-              Core.=: ("GetCallerIdentity" :: Prelude.ByteString),
+              Data.=: ("GetCallerIdentity" :: Prelude.ByteString),
             "Version"
-              Core.=: ("2011-06-15" :: Prelude.ByteString)
+              Data.=: ("2011-06-15" :: Prelude.ByteString)
           ]
       )
 

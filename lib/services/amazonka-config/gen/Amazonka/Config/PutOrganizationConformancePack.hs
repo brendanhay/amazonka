@@ -79,6 +79,7 @@ where
 import Amazonka.Config.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -219,7 +220,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutOrganizationConformancePackResponse'
-            Prelude.<$> (x Core..?> "OrganizationConformancePackArn")
+            Prelude.<$> (x Data..?> "OrganizationConformancePackArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,48 +253,48 @@ instance
       `Prelude.seq` Prelude.rnf organizationConformancePackName
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     PutOrganizationConformancePack
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "StarlingDoveService.PutOrganizationConformancePack" ::
+              Data.=# ( "StarlingDoveService.PutOrganizationConformancePack" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON PutOrganizationConformancePack where
+instance Data.ToJSON PutOrganizationConformancePack where
   toJSON PutOrganizationConformancePack' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExcludedAccounts" Core..=)
+          [ ("ExcludedAccounts" Data..=)
               Prelude.<$> excludedAccounts,
-            ("TemplateS3Uri" Core..=) Prelude.<$> templateS3Uri,
-            ("ConformancePackInputParameters" Core..=)
+            ("TemplateS3Uri" Data..=) Prelude.<$> templateS3Uri,
+            ("ConformancePackInputParameters" Data..=)
               Prelude.<$> conformancePackInputParameters,
-            ("TemplateBody" Core..=) Prelude.<$> templateBody,
-            ("DeliveryS3Bucket" Core..=)
+            ("TemplateBody" Data..=) Prelude.<$> templateBody,
+            ("DeliveryS3Bucket" Data..=)
               Prelude.<$> deliveryS3Bucket,
-            ("DeliveryS3KeyPrefix" Core..=)
+            ("DeliveryS3KeyPrefix" Data..=)
               Prelude.<$> deliveryS3KeyPrefix,
             Prelude.Just
               ( "OrganizationConformancePackName"
-                  Core..= organizationConformancePackName
+                  Data..= organizationConformancePackName
               )
           ]
       )
 
-instance Core.ToPath PutOrganizationConformancePack where
+instance Data.ToPath PutOrganizationConformancePack where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery PutOrganizationConformancePack where
+instance Data.ToQuery PutOrganizationConformancePack where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newPutOrganizationConformancePackResponse' smart constructor.

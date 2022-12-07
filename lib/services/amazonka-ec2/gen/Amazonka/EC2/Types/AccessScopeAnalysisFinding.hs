@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.AccessScopeAnalysisFinding where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PathComponent
 import qualified Amazonka.Prelude as Prelude
@@ -83,16 +84,16 @@ accessScopeAnalysisFinding_networkInsightsAccessScopeId = Lens.lens (\AccessScop
 accessScopeAnalysisFinding_findingId :: Lens.Lens' AccessScopeAnalysisFinding (Prelude.Maybe Prelude.Text)
 accessScopeAnalysisFinding_findingId = Lens.lens (\AccessScopeAnalysisFinding' {findingId} -> findingId) (\s@AccessScopeAnalysisFinding' {} a -> s {findingId = a} :: AccessScopeAnalysisFinding)
 
-instance Core.FromXML AccessScopeAnalysisFinding where
+instance Data.FromXML AccessScopeAnalysisFinding where
   parseXML x =
     AccessScopeAnalysisFinding'
-      Prelude.<$> ( x Core..@? "findingComponentSet"
+      Prelude.<$> ( x Data..@? "findingComponentSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeAnalysisId")
-      Prelude.<*> (x Core..@? "networkInsightsAccessScopeId")
-      Prelude.<*> (x Core..@? "findingId")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
+      Prelude.<*> (x Data..@? "findingId")
 
 instance Prelude.Hashable AccessScopeAnalysisFinding where
   hashWithSalt _salt AccessScopeAnalysisFinding' {..} =

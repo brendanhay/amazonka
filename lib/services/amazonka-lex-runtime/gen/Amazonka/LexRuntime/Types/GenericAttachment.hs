@@ -21,6 +21,7 @@ module Amazonka.LexRuntime.Types.GenericAttachment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LexRuntime.Types.Button
 import qualified Amazonka.Prelude as Prelude
 
@@ -90,17 +91,17 @@ genericAttachment_title = Lens.lens (\GenericAttachment' {title} -> title) (\s@G
 genericAttachment_attachmentLinkUrl :: Lens.Lens' GenericAttachment (Prelude.Maybe Prelude.Text)
 genericAttachment_attachmentLinkUrl = Lens.lens (\GenericAttachment' {attachmentLinkUrl} -> attachmentLinkUrl) (\s@GenericAttachment' {} a -> s {attachmentLinkUrl = a} :: GenericAttachment)
 
-instance Core.FromJSON GenericAttachment where
+instance Data.FromJSON GenericAttachment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GenericAttachment"
       ( \x ->
           GenericAttachment'
-            Prelude.<$> (x Core..:? "imageUrl")
-            Prelude.<*> (x Core..:? "subTitle")
-            Prelude.<*> (x Core..:? "buttons" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "attachmentLinkUrl")
+            Prelude.<$> (x Data..:? "imageUrl")
+            Prelude.<*> (x Data..:? "subTitle")
+            Prelude.<*> (x Data..:? "buttons" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "attachmentLinkUrl")
       )
 
 instance Prelude.Hashable GenericAttachment where

@@ -41,6 +41,7 @@ where
 import Amazonka.CodeGuruProfiler.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -98,23 +99,23 @@ instance Prelude.NFData DeleteProfilingGroup where
   rnf DeleteProfilingGroup' {..} =
     Prelude.rnf profilingGroupName
 
-instance Core.ToHeaders DeleteProfilingGroup where
+instance Data.ToHeaders DeleteProfilingGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteProfilingGroup where
+instance Data.ToPath DeleteProfilingGroup where
   toPath DeleteProfilingGroup' {..} =
     Prelude.mconcat
-      ["/profilingGroups/", Core.toBS profilingGroupName]
+      ["/profilingGroups/", Data.toBS profilingGroupName]
 
-instance Core.ToQuery DeleteProfilingGroup where
+instance Data.ToQuery DeleteProfilingGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The structure representing the deleteProfilingGroupResponse.

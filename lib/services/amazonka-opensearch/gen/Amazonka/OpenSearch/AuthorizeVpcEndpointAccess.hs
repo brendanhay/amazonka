@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -100,7 +101,7 @@ instance Core.AWSRequest AuthorizeVpcEndpointAccess where
       ( \s h x ->
           AuthorizeVpcEndpointAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AuthorizedPrincipal")
+            Prelude.<*> (x Data..:> "AuthorizedPrincipal")
       )
 
 instance Prelude.Hashable AuthorizeVpcEndpointAccess where
@@ -113,25 +114,25 @@ instance Prelude.NFData AuthorizeVpcEndpointAccess where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf account
 
-instance Core.ToHeaders AuthorizeVpcEndpointAccess where
+instance Data.ToHeaders AuthorizeVpcEndpointAccess where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON AuthorizeVpcEndpointAccess where
+instance Data.ToJSON AuthorizeVpcEndpointAccess where
   toJSON AuthorizeVpcEndpointAccess' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Account" Core..= account)]
+          [Prelude.Just ("Account" Data..= account)]
       )
 
-instance Core.ToPath AuthorizeVpcEndpointAccess where
+instance Data.ToPath AuthorizeVpcEndpointAccess where
   toPath AuthorizeVpcEndpointAccess' {..} =
     Prelude.mconcat
       [ "/2021-01-01/opensearch/domain/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/authorizeVpcEndpointAccess"
       ]
 
-instance Core.ToQuery AuthorizeVpcEndpointAccess where
+instance Data.ToQuery AuthorizeVpcEndpointAccess where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAuthorizeVpcEndpointAccessResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.IAM.Types.ContextEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types.ContextKeyTypeEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -101,14 +102,14 @@ instance Prelude.NFData ContextEntry where
       `Prelude.seq` Prelude.rnf contextKeyType
       `Prelude.seq` Prelude.rnf contextKeyValues
 
-instance Core.ToQuery ContextEntry where
+instance Data.ToQuery ContextEntry where
   toQuery ContextEntry' {..} =
     Prelude.mconcat
-      [ "ContextKeyName" Core.=: contextKeyName,
-        "ContextKeyType" Core.=: contextKeyType,
+      [ "ContextKeyName" Data.=: contextKeyName,
+        "ContextKeyType" Data.=: contextKeyType,
         "ContextKeyValues"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> contextKeyValues
             )
       ]

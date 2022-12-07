@@ -25,6 +25,7 @@ import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a recommendation option for an Amazon EC2 instance.
@@ -486,22 +487,22 @@ instanceRecommendationOption_instanceType = Lens.lens (\InstanceRecommendationOp
 instanceRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe [UtilizationMetric])
 instanceRecommendationOption_projectedUtilizationMetrics = Lens.lens (\InstanceRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@InstanceRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: InstanceRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON InstanceRecommendationOption where
+instance Data.FromJSON InstanceRecommendationOption where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InstanceRecommendationOption"
       ( \x ->
           InstanceRecommendationOption'
-            Prelude.<$> (x Core..:? "performanceRisk")
-            Prelude.<*> (x Core..:? "migrationEffort")
-            Prelude.<*> (x Core..:? "savingsOpportunity")
-            Prelude.<*> ( x Core..:? "platformDifferences"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "performanceRisk")
+            Prelude.<*> (x Data..:? "migrationEffort")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<*> ( x Data..:? "platformDifferences"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "rank")
-            Prelude.<*> (x Core..:? "instanceType")
-            Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "rank")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+                            Data..!= Prelude.mempty
                         )
       )
 

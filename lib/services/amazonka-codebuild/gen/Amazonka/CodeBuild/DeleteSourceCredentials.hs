@@ -43,6 +43,7 @@ where
 import Amazonka.CodeBuild.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -84,7 +85,7 @@ instance Core.AWSRequest DeleteSourceCredentials where
     Response.receiveJSON
       ( \s h x ->
           DeleteSourceCredentialsResponse'
-            Prelude.<$> (x Core..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,32 +96,32 @@ instance Prelude.Hashable DeleteSourceCredentials where
 instance Prelude.NFData DeleteSourceCredentials where
   rnf DeleteSourceCredentials' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteSourceCredentials where
+instance Data.ToHeaders DeleteSourceCredentials where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeBuild_20161006.DeleteSourceCredentials" ::
+              Data.=# ( "CodeBuild_20161006.DeleteSourceCredentials" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteSourceCredentials where
+instance Data.ToJSON DeleteSourceCredentials where
   toJSON DeleteSourceCredentials' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteSourceCredentials where
+instance Data.ToPath DeleteSourceCredentials where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteSourceCredentials where
+instance Data.ToQuery DeleteSourceCredentials where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSourceCredentialsResponse' smart constructor.

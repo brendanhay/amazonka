@@ -21,6 +21,7 @@ module Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElasticSearch.Types.DomainInformation
 import Amazonka.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -93,18 +94,18 @@ inboundCrossClusterSearchConnection_destinationDomainInfo :: Lens.Lens' InboundC
 inboundCrossClusterSearchConnection_destinationDomainInfo = Lens.lens (\InboundCrossClusterSearchConnection' {destinationDomainInfo} -> destinationDomainInfo) (\s@InboundCrossClusterSearchConnection' {} a -> s {destinationDomainInfo = a} :: InboundCrossClusterSearchConnection)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     InboundCrossClusterSearchConnection
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InboundCrossClusterSearchConnection"
       ( \x ->
           InboundCrossClusterSearchConnection'
-            Prelude.<$> (x Core..:? "CrossClusterSearchConnectionId")
-            Prelude.<*> (x Core..:? "SourceDomainInfo")
-            Prelude.<*> (x Core..:? "ConnectionStatus")
-            Prelude.<*> (x Core..:? "DestinationDomainInfo")
+            Prelude.<$> (x Data..:? "CrossClusterSearchConnectionId")
+            Prelude.<*> (x Data..:? "SourceDomainInfo")
+            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "DestinationDomainInfo")
       )
 
 instance

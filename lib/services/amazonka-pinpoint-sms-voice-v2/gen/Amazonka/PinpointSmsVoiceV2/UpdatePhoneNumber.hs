@@ -66,6 +66,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.PinpointSmsVoiceV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -183,21 +184,21 @@ instance Core.AWSRequest UpdatePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           UpdatePhoneNumberResponse'
-            Prelude.<$> (x Core..?> "DeletionProtectionEnabled")
-            Prelude.<*> (x Core..?> "IsoCountryCode")
-            Prelude.<*> (x Core..?> "PhoneNumberArn")
-            Prelude.<*> (x Core..?> "MessageType")
-            Prelude.<*> (x Core..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "NumberCapabilities")
-            Prelude.<*> (x Core..?> "TwoWayEnabled")
-            Prelude.<*> (x Core..?> "OptOutListName")
-            Prelude.<*> (x Core..?> "NumberType")
-            Prelude.<*> (x Core..?> "PhoneNumberId")
-            Prelude.<*> (x Core..?> "TwoWayChannelArn")
-            Prelude.<*> (x Core..?> "PhoneNumber")
-            Prelude.<*> (x Core..?> "MonthlyLeasingPrice")
+            Prelude.<$> (x Data..?> "DeletionProtectionEnabled")
+            Prelude.<*> (x Data..?> "IsoCountryCode")
+            Prelude.<*> (x Data..?> "PhoneNumberArn")
+            Prelude.<*> (x Data..?> "MessageType")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
+            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "NumberCapabilities")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
+            Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "NumberType")
+            Prelude.<*> (x Data..?> "PhoneNumberId")
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "PhoneNumber")
+            Prelude.<*> (x Data..?> "MonthlyLeasingPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,43 +221,43 @@ instance Prelude.NFData UpdatePhoneNumber where
       `Prelude.seq` Prelude.rnf twoWayChannelArn
       `Prelude.seq` Prelude.rnf phoneNumberId
 
-instance Core.ToHeaders UpdatePhoneNumber where
+instance Data.ToHeaders UpdatePhoneNumber where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "PinpointSMSVoiceV2.UpdatePhoneNumber" ::
+              Data.=# ( "PinpointSMSVoiceV2.UpdatePhoneNumber" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdatePhoneNumber where
+instance Data.ToJSON UpdatePhoneNumber where
   toJSON UpdatePhoneNumber' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeletionProtectionEnabled" Core..=)
+          [ ("DeletionProtectionEnabled" Data..=)
               Prelude.<$> deletionProtectionEnabled,
-            ("SelfManagedOptOutsEnabled" Core..=)
+            ("SelfManagedOptOutsEnabled" Data..=)
               Prelude.<$> selfManagedOptOutsEnabled,
-            ("TwoWayEnabled" Core..=) Prelude.<$> twoWayEnabled,
-            ("OptOutListName" Core..=)
+            ("TwoWayEnabled" Data..=) Prelude.<$> twoWayEnabled,
+            ("OptOutListName" Data..=)
               Prelude.<$> optOutListName,
-            ("TwoWayChannelArn" Core..=)
+            ("TwoWayChannelArn" Data..=)
               Prelude.<$> twoWayChannelArn,
             Prelude.Just
-              ("PhoneNumberId" Core..= phoneNumberId)
+              ("PhoneNumberId" Data..= phoneNumberId)
           ]
       )
 
-instance Core.ToPath UpdatePhoneNumber where
+instance Data.ToPath UpdatePhoneNumber where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdatePhoneNumber where
+instance Data.ToQuery UpdatePhoneNumber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdatePhoneNumberResponse' smart constructor.
@@ -276,7 +277,7 @@ data UpdatePhoneNumberResponse = UpdatePhoneNumberResponse'
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time when the phone number was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The current status of the request.
     status :: Prelude.Maybe NumberStatus,
     -- | Specifies if the number could be used for text messages, voice or both.
@@ -396,7 +397,7 @@ updatePhoneNumberResponse_selfManagedOptOutsEnabled = Lens.lens (\UpdatePhoneNum
 -- | The time when the phone number was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 updatePhoneNumberResponse_createdTimestamp :: Lens.Lens' UpdatePhoneNumberResponse (Prelude.Maybe Prelude.UTCTime)
-updatePhoneNumberResponse_createdTimestamp = Lens.lens (\UpdatePhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@UpdatePhoneNumberResponse' {} a -> s {createdTimestamp = a} :: UpdatePhoneNumberResponse) Prelude.. Lens.mapping Core._Time
+updatePhoneNumberResponse_createdTimestamp = Lens.lens (\UpdatePhoneNumberResponse' {createdTimestamp} -> createdTimestamp) (\s@UpdatePhoneNumberResponse' {} a -> s {createdTimestamp = a} :: UpdatePhoneNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the request.
 updatePhoneNumberResponse_status :: Lens.Lens' UpdatePhoneNumberResponse (Prelude.Maybe NumberStatus)

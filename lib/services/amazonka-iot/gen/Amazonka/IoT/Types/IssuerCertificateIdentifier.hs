@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.IssuerCertificateIdentifier where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The certificate issuer indentifier.
@@ -71,15 +72,15 @@ issuerCertificateIdentifier_issuerId = Lens.lens (\IssuerCertificateIdentifier' 
 issuerCertificateIdentifier_issuerCertificateSubject :: Lens.Lens' IssuerCertificateIdentifier (Prelude.Maybe Prelude.Text)
 issuerCertificateIdentifier_issuerCertificateSubject = Lens.lens (\IssuerCertificateIdentifier' {issuerCertificateSubject} -> issuerCertificateSubject) (\s@IssuerCertificateIdentifier' {} a -> s {issuerCertificateSubject = a} :: IssuerCertificateIdentifier)
 
-instance Core.FromJSON IssuerCertificateIdentifier where
+instance Data.FromJSON IssuerCertificateIdentifier where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IssuerCertificateIdentifier"
       ( \x ->
           IssuerCertificateIdentifier'
-            Prelude.<$> (x Core..:? "issuerCertificateSerialNumber")
-            Prelude.<*> (x Core..:? "issuerId")
-            Prelude.<*> (x Core..:? "issuerCertificateSubject")
+            Prelude.<$> (x Data..:? "issuerCertificateSerialNumber")
+            Prelude.<*> (x Data..:? "issuerId")
+            Prelude.<*> (x Data..:? "issuerCertificateSubject")
       )
 
 instance Prelude.Hashable IssuerCertificateIdentifier where
@@ -95,14 +96,14 @@ instance Prelude.NFData IssuerCertificateIdentifier where
       `Prelude.seq` Prelude.rnf issuerId
       `Prelude.seq` Prelude.rnf issuerCertificateSubject
 
-instance Core.ToJSON IssuerCertificateIdentifier where
+instance Data.ToJSON IssuerCertificateIdentifier where
   toJSON IssuerCertificateIdentifier' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("issuerCertificateSerialNumber" Core..=)
+          [ ("issuerCertificateSerialNumber" Data..=)
               Prelude.<$> issuerCertificateSerialNumber,
-            ("issuerId" Core..=) Prelude.<$> issuerId,
-            ("issuerCertificateSubject" Core..=)
+            ("issuerId" Data..=) Prelude.<$> issuerId,
+            ("issuerCertificateSubject" Data..=)
               Prelude.<$> issuerCertificateSubject
           ]
       )

@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.CmfcScte35Esam
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
@@ -35,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- setting SCC XML (sccXml).
 newtype CmfcScte35Esam = CmfcScte35Esam'
   { fromCmfcScte35Esam ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -47,18 +48,18 @@ newtype CmfcScte35Esam = CmfcScte35Esam'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern CmfcScte35Esam_INSERT :: CmfcScte35Esam

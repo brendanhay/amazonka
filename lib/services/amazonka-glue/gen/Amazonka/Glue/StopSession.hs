@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance Core.AWSRequest StopSession where
     Response.receiveJSON
       ( \s h x ->
           StopSessionResponse'
-            Prelude.<$> (x Core..?> "Id")
+            Prelude.<$> (x Data..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -107,32 +108,32 @@ instance Prelude.NFData StopSession where
     Prelude.rnf requestOrigin
       `Prelude.seq` Prelude.rnf id
 
-instance Core.ToHeaders StopSession where
+instance Data.ToHeaders StopSession where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AWSGlue.StopSession" :: Prelude.ByteString),
+              Data.=# ("AWSGlue.StopSession" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopSession where
+instance Data.ToJSON StopSession where
   toJSON StopSession' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("RequestOrigin" Core..=) Prelude.<$> requestOrigin,
-            Prelude.Just ("Id" Core..= id)
+          [ ("RequestOrigin" Data..=) Prelude.<$> requestOrigin,
+            Prelude.Just ("Id" Data..= id)
           ]
       )
 
-instance Core.ToPath StopSession where
+instance Data.ToPath StopSession where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopSession where
+instance Data.ToQuery StopSession where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopSessionResponse' smart constructor.

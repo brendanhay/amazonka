@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.SaaSConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the configuration information to connect to GitHub Enterprise
@@ -79,14 +80,14 @@ saaSConfiguration_organizationName = Lens.lens (\SaaSConfiguration' {organizatio
 saaSConfiguration_hostUrl :: Lens.Lens' SaaSConfiguration Prelude.Text
 saaSConfiguration_hostUrl = Lens.lens (\SaaSConfiguration' {hostUrl} -> hostUrl) (\s@SaaSConfiguration' {} a -> s {hostUrl = a} :: SaaSConfiguration)
 
-instance Core.FromJSON SaaSConfiguration where
+instance Data.FromJSON SaaSConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SaaSConfiguration"
       ( \x ->
           SaaSConfiguration'
-            Prelude.<$> (x Core..: "OrganizationName")
-            Prelude.<*> (x Core..: "HostUrl")
+            Prelude.<$> (x Data..: "OrganizationName")
+            Prelude.<*> (x Data..: "HostUrl")
       )
 
 instance Prelude.Hashable SaaSConfiguration where
@@ -99,12 +100,12 @@ instance Prelude.NFData SaaSConfiguration where
     Prelude.rnf organizationName
       `Prelude.seq` Prelude.rnf hostUrl
 
-instance Core.ToJSON SaaSConfiguration where
+instance Data.ToJSON SaaSConfiguration where
   toJSON SaaSConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("OrganizationName" Core..= organizationName),
-            Prelude.Just ("HostUrl" Core..= hostUrl)
+              ("OrganizationName" Data..= organizationName),
+            Prelude.Just ("HostUrl" Data..= hostUrl)
           ]
       )

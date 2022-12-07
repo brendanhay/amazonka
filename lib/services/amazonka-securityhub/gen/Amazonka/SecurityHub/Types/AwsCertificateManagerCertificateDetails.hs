@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDomainValidationOption
 import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateExtendedKeyUsage
@@ -461,43 +462,43 @@ awsCertificateManagerCertificateDetails_issuedAt :: Lens.Lens' AwsCertificateMan
 awsCertificateManagerCertificateDetails_issuedAt = Lens.lens (\AwsCertificateManagerCertificateDetails' {issuedAt} -> issuedAt) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {issuedAt = a} :: AwsCertificateManagerCertificateDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsCertificateManagerCertificateDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsCertificateManagerCertificateDetails"
       ( \x ->
           AwsCertificateManagerCertificateDetails'
-            Prelude.<$> (x Core..:? "Issuer")
-            Prelude.<*> ( x Core..:? "DomainValidationOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "Issuer")
+            Prelude.<*> ( x Data..:? "DomainValidationOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "Serial")
-            Prelude.<*> (x Core..:? "KeyUsages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RenewalSummary")
-            Prelude.<*> (x Core..:? "KeyAlgorithm")
-            Prelude.<*> ( x Core..:? "ExtendedKeyUsages"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "CertificateAuthorityArn")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "Serial")
+            Prelude.<*> (x Data..:? "KeyUsages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RenewalSummary")
+            Prelude.<*> (x Data..:? "KeyAlgorithm")
+            Prelude.<*> ( x Data..:? "ExtendedKeyUsages"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "InUseBy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Options")
-            Prelude.<*> (x Core..:? "ImportedAt")
-            Prelude.<*> (x Core..:? "NotBefore")
-            Prelude.<*> (x Core..:? "SignatureAlgorithm")
-            Prelude.<*> (x Core..:? "Subject")
-            Prelude.<*> (x Core..:? "NotAfter")
-            Prelude.<*> (x Core..:? "RenewalEligibility")
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> ( x Core..:? "SubjectAlternativeNames"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "InUseBy" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "ImportedAt")
+            Prelude.<*> (x Data..:? "NotBefore")
+            Prelude.<*> (x Data..:? "SignatureAlgorithm")
+            Prelude.<*> (x Data..:? "Subject")
+            Prelude.<*> (x Data..:? "NotAfter")
+            Prelude.<*> (x Data..:? "RenewalEligibility")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> ( x Data..:? "SubjectAlternativeNames"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "IssuedAt")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "IssuedAt")
       )
 
 instance
@@ -562,41 +563,41 @@ instance
       `Prelude.seq` Prelude.rnf issuedAt
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsCertificateManagerCertificateDetails
   where
   toJSON AwsCertificateManagerCertificateDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Issuer" Core..=) Prelude.<$> issuer,
-            ("DomainValidationOptions" Core..=)
+          [ ("Issuer" Data..=) Prelude.<$> issuer,
+            ("DomainValidationOptions" Data..=)
               Prelude.<$> domainValidationOptions,
-            ("Type" Core..=) Prelude.<$> type',
-            ("CertificateAuthorityArn" Core..=)
+            ("Type" Data..=) Prelude.<$> type',
+            ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("DomainName" Core..=) Prelude.<$> domainName,
-            ("Serial" Core..=) Prelude.<$> serial,
-            ("KeyUsages" Core..=) Prelude.<$> keyUsages,
-            ("RenewalSummary" Core..=)
+            ("DomainName" Data..=) Prelude.<$> domainName,
+            ("Serial" Data..=) Prelude.<$> serial,
+            ("KeyUsages" Data..=) Prelude.<$> keyUsages,
+            ("RenewalSummary" Data..=)
               Prelude.<$> renewalSummary,
-            ("KeyAlgorithm" Core..=) Prelude.<$> keyAlgorithm,
-            ("ExtendedKeyUsages" Core..=)
+            ("KeyAlgorithm" Data..=) Prelude.<$> keyAlgorithm,
+            ("ExtendedKeyUsages" Data..=)
               Prelude.<$> extendedKeyUsages,
-            ("InUseBy" Core..=) Prelude.<$> inUseBy,
-            ("Status" Core..=) Prelude.<$> status,
-            ("Options" Core..=) Prelude.<$> options,
-            ("ImportedAt" Core..=) Prelude.<$> importedAt,
-            ("NotBefore" Core..=) Prelude.<$> notBefore,
-            ("SignatureAlgorithm" Core..=)
+            ("InUseBy" Data..=) Prelude.<$> inUseBy,
+            ("Status" Data..=) Prelude.<$> status,
+            ("Options" Data..=) Prelude.<$> options,
+            ("ImportedAt" Data..=) Prelude.<$> importedAt,
+            ("NotBefore" Data..=) Prelude.<$> notBefore,
+            ("SignatureAlgorithm" Data..=)
               Prelude.<$> signatureAlgorithm,
-            ("Subject" Core..=) Prelude.<$> subject,
-            ("NotAfter" Core..=) Prelude.<$> notAfter,
-            ("RenewalEligibility" Core..=)
+            ("Subject" Data..=) Prelude.<$> subject,
+            ("NotAfter" Data..=) Prelude.<$> notAfter,
+            ("RenewalEligibility" Data..=)
               Prelude.<$> renewalEligibility,
-            ("CreatedAt" Core..=) Prelude.<$> createdAt,
-            ("SubjectAlternativeNames" Core..=)
+            ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("SubjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames,
-            ("FailureReason" Core..=) Prelude.<$> failureReason,
-            ("IssuedAt" Core..=) Prelude.<$> issuedAt
+            ("FailureReason" Data..=) Prelude.<$> failureReason,
+            ("IssuedAt" Data..=) Prelude.<$> issuedAt
           ]
       )

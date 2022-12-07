@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.IndexConfigurationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.IndexEdition
 import Amazonka.Kendra.Types.IndexStatus
 import qualified Amazonka.Prelude as Prelude
@@ -39,10 +40,10 @@ data IndexConfigurationSummary = IndexConfigurationSummary'
     -- @DeleteIndex@.
     id :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp when the index was created.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | The Unix timestamp when the index was last updated by the @UpdateIndex@
     -- API.
-    updatedAt :: Core.POSIX,
+    updatedAt :: Data.POSIX,
     -- | The current status of the index. When the status is @ACTIVE@, the index
     -- is ready to search.
     status :: IndexStatus
@@ -89,8 +90,8 @@ newIndexConfigurationSummary
       { name = Prelude.Nothing,
         edition = Prelude.Nothing,
         id = Prelude.Nothing,
-        createdAt = Core._Time Lens.# pCreatedAt_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
+        updatedAt = Data._Time Lens.# pUpdatedAt_,
         status = pStatus_
       }
 
@@ -111,30 +112,30 @@ indexConfigurationSummary_id = Lens.lens (\IndexConfigurationSummary' {id} -> id
 
 -- | The Unix timestamp when the index was created.
 indexConfigurationSummary_createdAt :: Lens.Lens' IndexConfigurationSummary Prelude.UTCTime
-indexConfigurationSummary_createdAt = Lens.lens (\IndexConfigurationSummary' {createdAt} -> createdAt) (\s@IndexConfigurationSummary' {} a -> s {createdAt = a} :: IndexConfigurationSummary) Prelude.. Core._Time
+indexConfigurationSummary_createdAt = Lens.lens (\IndexConfigurationSummary' {createdAt} -> createdAt) (\s@IndexConfigurationSummary' {} a -> s {createdAt = a} :: IndexConfigurationSummary) Prelude.. Data._Time
 
 -- | The Unix timestamp when the index was last updated by the @UpdateIndex@
 -- API.
 indexConfigurationSummary_updatedAt :: Lens.Lens' IndexConfigurationSummary Prelude.UTCTime
-indexConfigurationSummary_updatedAt = Lens.lens (\IndexConfigurationSummary' {updatedAt} -> updatedAt) (\s@IndexConfigurationSummary' {} a -> s {updatedAt = a} :: IndexConfigurationSummary) Prelude.. Core._Time
+indexConfigurationSummary_updatedAt = Lens.lens (\IndexConfigurationSummary' {updatedAt} -> updatedAt) (\s@IndexConfigurationSummary' {} a -> s {updatedAt = a} :: IndexConfigurationSummary) Prelude.. Data._Time
 
 -- | The current status of the index. When the status is @ACTIVE@, the index
 -- is ready to search.
 indexConfigurationSummary_status :: Lens.Lens' IndexConfigurationSummary IndexStatus
 indexConfigurationSummary_status = Lens.lens (\IndexConfigurationSummary' {status} -> status) (\s@IndexConfigurationSummary' {} a -> s {status = a} :: IndexConfigurationSummary)
 
-instance Core.FromJSON IndexConfigurationSummary where
+instance Data.FromJSON IndexConfigurationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IndexConfigurationSummary"
       ( \x ->
           IndexConfigurationSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Edition")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "UpdatedAt")
-            Prelude.<*> (x Core..: "Status")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "UpdatedAt")
+            Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable IndexConfigurationSummary where

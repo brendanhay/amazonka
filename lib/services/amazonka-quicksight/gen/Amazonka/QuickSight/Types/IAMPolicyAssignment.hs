@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.IAMPolicyAssignment where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AssignmentStatus
 
@@ -99,18 +100,18 @@ iAMPolicyAssignment_assignmentId = Lens.lens (\IAMPolicyAssignment' {assignmentI
 iAMPolicyAssignment_assignmentStatus :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe AssignmentStatus)
 iAMPolicyAssignment_assignmentStatus = Lens.lens (\IAMPolicyAssignment' {assignmentStatus} -> assignmentStatus) (\s@IAMPolicyAssignment' {} a -> s {assignmentStatus = a} :: IAMPolicyAssignment)
 
-instance Core.FromJSON IAMPolicyAssignment where
+instance Data.FromJSON IAMPolicyAssignment where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IAMPolicyAssignment"
       ( \x ->
           IAMPolicyAssignment'
-            Prelude.<$> (x Core..:? "AwsAccountId")
-            Prelude.<*> (x Core..:? "Identities" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PolicyArn")
-            Prelude.<*> (x Core..:? "AssignmentName")
-            Prelude.<*> (x Core..:? "AssignmentId")
-            Prelude.<*> (x Core..:? "AssignmentStatus")
+            Prelude.<$> (x Data..:? "AwsAccountId")
+            Prelude.<*> (x Data..:? "Identities" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PolicyArn")
+            Prelude.<*> (x Data..:? "AssignmentName")
+            Prelude.<*> (x Data..:? "AssignmentId")
+            Prelude.<*> (x Data..:? "AssignmentStatus")
       )
 
 instance Prelude.Hashable IAMPolicyAssignment where

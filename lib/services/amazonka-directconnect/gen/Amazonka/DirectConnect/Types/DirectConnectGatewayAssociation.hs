@@ -21,6 +21,7 @@ module Amazonka.DirectConnect.Types.DirectConnectGatewayAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types.AssociatedGateway
 import Amazonka.DirectConnect.Types.DirectConnectGatewayAssociationState
 import Amazonka.DirectConnect.Types.RouteFilterPrefix
@@ -198,26 +199,26 @@ directConnectGatewayAssociation_associationId :: Lens.Lens' DirectConnectGateway
 directConnectGatewayAssociation_associationId = Lens.lens (\DirectConnectGatewayAssociation' {associationId} -> associationId) (\s@DirectConnectGatewayAssociation' {} a -> s {associationId = a} :: DirectConnectGatewayAssociation)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DirectConnectGatewayAssociation
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DirectConnectGatewayAssociation"
       ( \x ->
           DirectConnectGatewayAssociation'
-            Prelude.<$> (x Core..:? "directConnectGatewayOwnerAccount")
-            Prelude.<*> (x Core..:? "directConnectGatewayId")
-            Prelude.<*> (x Core..:? "virtualGatewayRegion")
-            Prelude.<*> (x Core..:? "associationState")
-            Prelude.<*> (x Core..:? "virtualGatewayId")
-            Prelude.<*> (x Core..:? "stateChangeError")
-            Prelude.<*> (x Core..:? "virtualGatewayOwnerAccount")
-            Prelude.<*> (x Core..:? "associatedGateway")
-            Prelude.<*> ( x Core..:? "allowedPrefixesToDirectConnectGateway"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "directConnectGatewayOwnerAccount")
+            Prelude.<*> (x Data..:? "directConnectGatewayId")
+            Prelude.<*> (x Data..:? "virtualGatewayRegion")
+            Prelude.<*> (x Data..:? "associationState")
+            Prelude.<*> (x Data..:? "virtualGatewayId")
+            Prelude.<*> (x Data..:? "stateChangeError")
+            Prelude.<*> (x Data..:? "virtualGatewayOwnerAccount")
+            Prelude.<*> (x Data..:? "associatedGateway")
+            Prelude.<*> ( x Data..:? "allowedPrefixesToDirectConnectGateway"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "associationId")
+            Prelude.<*> (x Data..:? "associationId")
       )
 
 instance

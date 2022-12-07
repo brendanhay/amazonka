@@ -22,6 +22,7 @@ module Amazonka.AlexaBusiness.Types.SkillsStoreSkill where
 import Amazonka.AlexaBusiness.Types.SkillDetails
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed information about an Alexa skill.
@@ -108,21 +109,21 @@ skillsStoreSkill_skillDetails = Lens.lens (\SkillsStoreSkill' {skillDetails} -> 
 skillsStoreSkill_skillId :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe Prelude.Text)
 skillsStoreSkill_skillId = Lens.lens (\SkillsStoreSkill' {skillId} -> skillId) (\s@SkillsStoreSkill' {} a -> s {skillId = a} :: SkillsStoreSkill)
 
-instance Core.FromJSON SkillsStoreSkill where
+instance Data.FromJSON SkillsStoreSkill where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SkillsStoreSkill"
       ( \x ->
           SkillsStoreSkill'
-            Prelude.<$> ( x Core..:? "SampleUtterances"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "SampleUtterances"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ShortDescription")
-            Prelude.<*> (x Core..:? "SkillName")
-            Prelude.<*> (x Core..:? "IconUrl")
-            Prelude.<*> (x Core..:? "SupportsLinking")
-            Prelude.<*> (x Core..:? "SkillDetails")
-            Prelude.<*> (x Core..:? "SkillId")
+            Prelude.<*> (x Data..:? "ShortDescription")
+            Prelude.<*> (x Data..:? "SkillName")
+            Prelude.<*> (x Data..:? "IconUrl")
+            Prelude.<*> (x Data..:? "SupportsLinking")
+            Prelude.<*> (x Data..:? "SkillDetails")
+            Prelude.<*> (x Data..:? "SkillId")
       )
 
 instance Prelude.Hashable SkillsStoreSkill where

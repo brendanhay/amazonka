@@ -46,6 +46,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -93,8 +94,8 @@ instance Core.AWSRequest BatchGetMetricData where
     Response.receiveJSON
       ( \s h x ->
           BatchGetMetricDataResponse'
-            Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -105,28 +106,28 @@ instance Prelude.Hashable BatchGetMetricData where
 instance Prelude.NFData BatchGetMetricData where
   rnf BatchGetMetricData' {..} = Prelude.rnf queries
 
-instance Core.ToHeaders BatchGetMetricData where
+instance Data.ToHeaders BatchGetMetricData where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON BatchGetMetricData where
+instance Data.ToJSON BatchGetMetricData where
   toJSON BatchGetMetricData' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Queries" Core..= queries)]
+          [Prelude.Just ("Queries" Data..= queries)]
       )
 
-instance Core.ToPath BatchGetMetricData where
+instance Data.ToPath BatchGetMetricData where
   toPath = Prelude.const "/v2/email/metrics/batch"
 
-instance Core.ToQuery BatchGetMetricData where
+instance Data.ToQuery BatchGetMetricData where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of processing your metric data batch request

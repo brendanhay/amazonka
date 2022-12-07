@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -211,32 +212,32 @@ instance Prelude.NFData UpdateJob where
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobId
 
-instance Core.ToHeaders UpdateJob where
+instance Data.ToHeaders UpdateJob where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateJob where
+instance Data.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("jobExecutionsRolloutConfig" Core..=)
+          [ ("jobExecutionsRolloutConfig" Data..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("abortConfig" Core..=) Prelude.<$> abortConfig,
-            ("description" Core..=) Prelude.<$> description,
-            ("presignedUrlConfig" Core..=)
+            ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("description" Data..=) Prelude.<$> description,
+            ("presignedUrlConfig" Data..=)
               Prelude.<$> presignedUrlConfig,
-            ("jobExecutionsRetryConfig" Core..=)
+            ("jobExecutionsRetryConfig" Data..=)
               Prelude.<$> jobExecutionsRetryConfig,
-            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig
+            ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig
           ]
       )
 
-instance Core.ToPath UpdateJob where
+instance Data.ToPath UpdateJob where
   toPath UpdateJob' {..} =
-    Prelude.mconcat ["/jobs/", Core.toBS jobId]
+    Prelude.mconcat ["/jobs/", Data.toBS jobId]
 
-instance Core.ToQuery UpdateJob where
+instance Data.ToQuery UpdateJob where
   toQuery UpdateJob' {..} =
-    Prelude.mconcat ["namespaceId" Core.=: namespaceId]
+    Prelude.mconcat ["namespaceId" Data.=: namespaceId]
 
 -- | /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'

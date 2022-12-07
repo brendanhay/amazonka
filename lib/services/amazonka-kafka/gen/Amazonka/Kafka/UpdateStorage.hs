@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -135,8 +136,8 @@ instance Core.AWSRequest UpdateStorage where
     Response.receiveJSON
       ( \s h x ->
           UpdateStorageResponse'
-            Prelude.<$> (x Core..?> "clusterArn")
-            Prelude.<*> (x Core..?> "clusterOperationArn")
+            Prelude.<$> (x Data..?> "clusterArn")
+            Prelude.<*> (x Data..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,36 +157,36 @@ instance Prelude.NFData UpdateStorage where
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf currentVersion
 
-instance Core.ToHeaders UpdateStorage where
+instance Data.ToHeaders UpdateStorage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateStorage where
+instance Data.ToJSON UpdateStorage where
   toJSON UpdateStorage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("storageMode" Core..=) Prelude.<$> storageMode,
-            ("provisionedThroughput" Core..=)
+          [ ("storageMode" Data..=) Prelude.<$> storageMode,
+            ("provisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
-            ("volumeSizeGB" Core..=) Prelude.<$> volumeSizeGB,
+            ("volumeSizeGB" Data..=) Prelude.<$> volumeSizeGB,
             Prelude.Just
-              ("currentVersion" Core..= currentVersion)
+              ("currentVersion" Data..= currentVersion)
           ]
       )
 
-instance Core.ToPath UpdateStorage where
+instance Data.ToPath UpdateStorage where
   toPath UpdateStorage' {..} =
     Prelude.mconcat
-      ["/v1/clusters/", Core.toBS clusterArn, "/storage"]
+      ["/v1/clusters/", Data.toBS clusterArn, "/storage"]
 
-instance Core.ToQuery UpdateStorage where
+instance Data.ToQuery UpdateStorage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateStorageResponse' smart constructor.

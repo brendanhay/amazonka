@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -143,7 +144,7 @@ instance Core.AWSRequest CreateArtifact where
     Response.receiveJSON
       ( \s h x ->
           CreateArtifactResponse'
-            Prelude.<$> (x Core..?> "ArtifactArn")
+            Prelude.<$> (x Data..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,37 +166,37 @@ instance Prelude.NFData CreateArtifact where
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf artifactType
 
-instance Core.ToHeaders CreateArtifact where
+instance Data.ToHeaders CreateArtifact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateArtifact" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateArtifact" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateArtifact where
+instance Data.ToJSON CreateArtifact where
   toJSON CreateArtifact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ArtifactName" Core..=) Prelude.<$> artifactName,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("MetadataProperties" Core..=)
+          [ ("ArtifactName" Data..=) Prelude.<$> artifactName,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
-            ("Properties" Core..=) Prelude.<$> properties,
-            Prelude.Just ("Source" Core..= source),
-            Prelude.Just ("ArtifactType" Core..= artifactType)
+            ("Properties" Data..=) Prelude.<$> properties,
+            Prelude.Just ("Source" Data..= source),
+            Prelude.Just ("ArtifactType" Data..= artifactType)
           ]
       )
 
-instance Core.ToPath CreateArtifact where
+instance Data.ToPath CreateArtifact where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateArtifact where
+instance Data.ToQuery CreateArtifact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateArtifactResponse' smart constructor.

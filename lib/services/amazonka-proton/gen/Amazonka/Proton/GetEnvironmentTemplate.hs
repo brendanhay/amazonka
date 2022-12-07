@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types
 import qualified Amazonka.Request as Request
@@ -87,7 +88,7 @@ instance Core.AWSRequest GetEnvironmentTemplate where
       ( \s h x ->
           GetEnvironmentTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "environmentTemplate")
+            Prelude.<*> (x Data..:> "environmentTemplate")
       )
 
 instance Prelude.Hashable GetEnvironmentTemplate where
@@ -97,32 +98,32 @@ instance Prelude.Hashable GetEnvironmentTemplate where
 instance Prelude.NFData GetEnvironmentTemplate where
   rnf GetEnvironmentTemplate' {..} = Prelude.rnf name
 
-instance Core.ToHeaders GetEnvironmentTemplate where
+instance Data.ToHeaders GetEnvironmentTemplate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AwsProton20200720.GetEnvironmentTemplate" ::
+              Data.=# ( "AwsProton20200720.GetEnvironmentTemplate" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetEnvironmentTemplate where
+instance Data.ToJSON GetEnvironmentTemplate where
   toJSON GetEnvironmentTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("name" Core..= name)]
+          [Prelude.Just ("name" Data..= name)]
       )
 
-instance Core.ToPath GetEnvironmentTemplate where
+instance Data.ToPath GetEnvironmentTemplate where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetEnvironmentTemplate where
+instance Data.ToQuery GetEnvironmentTemplate where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetEnvironmentTemplateResponse' smart constructor.

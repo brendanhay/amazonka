@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -121,33 +122,33 @@ instance
       `Prelude.seq` Prelude.rnf multicastGroupId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     AssociateMulticastGroupWithFuotaTask
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AssociateMulticastGroupWithFuotaTask
   where
   toJSON AssociateMulticastGroupWithFuotaTask' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("MulticastGroupId" Core..= multicastGroupId)
+              ("MulticastGroupId" Data..= multicastGroupId)
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     AssociateMulticastGroupWithFuotaTask
   where
   toPath AssociateMulticastGroupWithFuotaTask' {..} =
     Prelude.mconcat
-      ["/fuota-tasks/", Core.toBS id, "/multicast-group"]
+      ["/fuota-tasks/", Data.toBS id, "/multicast-group"]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     AssociateMulticastGroupWithFuotaTask
   where
   toQuery = Prelude.const Prelude.mempty

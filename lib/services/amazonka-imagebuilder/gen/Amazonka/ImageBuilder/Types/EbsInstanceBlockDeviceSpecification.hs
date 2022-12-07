@@ -21,6 +21,7 @@ module Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ImageBuilder.Types.EbsVolumeType
 import qualified Amazonka.Prelude as Prelude
 
@@ -121,22 +122,22 @@ ebsInstanceBlockDeviceSpecification_iops :: Lens.Lens' EbsInstanceBlockDeviceSpe
 ebsInstanceBlockDeviceSpecification_iops = Lens.lens (\EbsInstanceBlockDeviceSpecification' {iops} -> iops) (\s@EbsInstanceBlockDeviceSpecification' {} a -> s {iops = a} :: EbsInstanceBlockDeviceSpecification)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     EbsInstanceBlockDeviceSpecification
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EbsInstanceBlockDeviceSpecification"
       ( \x ->
           EbsInstanceBlockDeviceSpecification'
-            Prelude.<$> (x Core..:? "deleteOnTermination")
-            Prelude.<*> (x Core..:? "snapshotId")
-            Prelude.<*> (x Core..:? "volumeType")
-            Prelude.<*> (x Core..:? "volumeSize")
-            Prelude.<*> (x Core..:? "encrypted")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "throughput")
-            Prelude.<*> (x Core..:? "iops")
+            Prelude.<$> (x Data..:? "deleteOnTermination")
+            Prelude.<*> (x Data..:? "snapshotId")
+            Prelude.<*> (x Data..:? "volumeType")
+            Prelude.<*> (x Data..:? "volumeSize")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "throughput")
+            Prelude.<*> (x Data..:? "iops")
       )
 
 instance
@@ -170,20 +171,20 @@ instance
       `Prelude.seq` Prelude.rnf iops
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     EbsInstanceBlockDeviceSpecification
   where
   toJSON EbsInstanceBlockDeviceSpecification' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("deleteOnTermination" Core..=)
+          [ ("deleteOnTermination" Data..=)
               Prelude.<$> deleteOnTermination,
-            ("snapshotId" Core..=) Prelude.<$> snapshotId,
-            ("volumeType" Core..=) Prelude.<$> volumeType,
-            ("volumeSize" Core..=) Prelude.<$> volumeSize,
-            ("encrypted" Core..=) Prelude.<$> encrypted,
-            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("throughput" Core..=) Prelude.<$> throughput,
-            ("iops" Core..=) Prelude.<$> iops
+            ("snapshotId" Data..=) Prelude.<$> snapshotId,
+            ("volumeType" Data..=) Prelude.<$> volumeType,
+            ("volumeSize" Data..=) Prelude.<$> volumeSize,
+            ("encrypted" Data..=) Prelude.<$> encrypted,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("throughput" Data..=) Prelude.<$> throughput,
+            ("iops" Data..=) Prelude.<$> iops
           ]
       )

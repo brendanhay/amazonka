@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.FindingProviderSeverity where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.SeverityLabel
 
@@ -62,14 +63,14 @@ findingProviderSeverity_label = Lens.lens (\FindingProviderSeverity' {label} -> 
 findingProviderSeverity_original :: Lens.Lens' FindingProviderSeverity (Prelude.Maybe Prelude.Text)
 findingProviderSeverity_original = Lens.lens (\FindingProviderSeverity' {original} -> original) (\s@FindingProviderSeverity' {} a -> s {original = a} :: FindingProviderSeverity)
 
-instance Core.FromJSON FindingProviderSeverity where
+instance Data.FromJSON FindingProviderSeverity where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "FindingProviderSeverity"
       ( \x ->
           FindingProviderSeverity'
-            Prelude.<$> (x Core..:? "Label")
-            Prelude.<*> (x Core..:? "Original")
+            Prelude.<$> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "Original")
       )
 
 instance Prelude.Hashable FindingProviderSeverity where
@@ -82,11 +83,11 @@ instance Prelude.NFData FindingProviderSeverity where
     Prelude.rnf label
       `Prelude.seq` Prelude.rnf original
 
-instance Core.ToJSON FindingProviderSeverity where
+instance Data.ToJSON FindingProviderSeverity where
   toJSON FindingProviderSeverity' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Label" Core..=) Prelude.<$> label,
-            ("Original" Core..=) Prelude.<$> original
+          [ ("Label" Data..=) Prelude.<$> label,
+            ("Original" Data..=) Prelude.<$> original
           ]
       )

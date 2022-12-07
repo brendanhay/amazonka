@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -139,7 +140,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketAccelerateConfigurationResponse'
-            Prelude.<$> (x Core..@? "Status")
+            Prelude.<$> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,21 +163,21 @@ instance
       `Prelude.seq` Prelude.rnf bucket
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBucketAccelerateConfiguration
   where
   toHeaders GetBucketAccelerateConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner
+          Data.=# expectedBucketOwner
       ]
 
-instance Core.ToPath GetBucketAccelerateConfiguration where
+instance Data.ToPath GetBucketAccelerateConfiguration where
   toPath GetBucketAccelerateConfiguration' {..} =
-    Prelude.mconcat ["/", Core.toBS bucket]
+    Prelude.mconcat ["/", Data.toBS bucket]
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetBucketAccelerateConfiguration
   where
   toQuery =

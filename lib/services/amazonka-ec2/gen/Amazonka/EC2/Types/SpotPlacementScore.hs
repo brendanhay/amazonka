@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SpotPlacementScore where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -83,12 +84,12 @@ spotPlacementScore_region = Lens.lens (\SpotPlacementScore' {region} -> region) 
 spotPlacementScore_availabilityZoneId :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Text)
 spotPlacementScore_availabilityZoneId = Lens.lens (\SpotPlacementScore' {availabilityZoneId} -> availabilityZoneId) (\s@SpotPlacementScore' {} a -> s {availabilityZoneId = a} :: SpotPlacementScore)
 
-instance Core.FromXML SpotPlacementScore where
+instance Data.FromXML SpotPlacementScore where
   parseXML x =
     SpotPlacementScore'
-      Prelude.<$> (x Core..@? "score")
-      Prelude.<*> (x Core..@? "region")
-      Prelude.<*> (x Core..@? "availabilityZoneId")
+      Prelude.<$> (x Data..@? "score")
+      Prelude.<*> (x Data..@? "region")
+      Prelude.<*> (x Data..@? "availabilityZoneId")
 
 instance Prelude.Hashable SpotPlacementScore where
   hashWithSalt _salt SpotPlacementScore' {..} =

@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -95,8 +96,8 @@ instance Core.AWSRequest CreateWorkspaces where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkspacesResponse'
-            Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "PendingRequests"
+            Prelude.<$> (x Data..?> "FailedRequests" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "PendingRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -109,32 +110,32 @@ instance Prelude.Hashable CreateWorkspaces where
 instance Prelude.NFData CreateWorkspaces where
   rnf CreateWorkspaces' {..} = Prelude.rnf workspaces
 
-instance Core.ToHeaders CreateWorkspaces where
+instance Data.ToHeaders CreateWorkspaces where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.CreateWorkspaces" ::
+              Data.=# ( "WorkspacesService.CreateWorkspaces" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateWorkspaces where
+instance Data.ToJSON CreateWorkspaces where
   toJSON CreateWorkspaces' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Workspaces" Core..= workspaces)]
+          [Prelude.Just ("Workspaces" Data..= workspaces)]
       )
 
-instance Core.ToPath CreateWorkspaces where
+instance Data.ToPath CreateWorkspaces where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateWorkspaces where
+instance Data.ToQuery CreateWorkspaces where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateWorkspacesResponse' smart constructor.

@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -120,7 +121,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociateEntitiesToExperienceResponse'
-            Prelude.<$> (x Core..?> "FailedEntityList")
+            Prelude.<$> (x Data..?> "FailedEntityList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,35 +140,35 @@ instance Prelude.NFData AssociateEntitiesToExperience where
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf entityList
 
-instance Core.ToHeaders AssociateEntitiesToExperience where
+instance Data.ToHeaders AssociateEntitiesToExperience where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSKendraFrontendService.AssociateEntitiesToExperience" ::
+              Data.=# ( "AWSKendraFrontendService.AssociateEntitiesToExperience" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON AssociateEntitiesToExperience where
+instance Data.ToJSON AssociateEntitiesToExperience where
   toJSON AssociateEntitiesToExperience' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Core..= id),
-            Prelude.Just ("IndexId" Core..= indexId),
-            Prelude.Just ("EntityList" Core..= entityList)
+          [ Prelude.Just ("Id" Data..= id),
+            Prelude.Just ("IndexId" Data..= indexId),
+            Prelude.Just ("EntityList" Data..= entityList)
           ]
       )
 
-instance Core.ToPath AssociateEntitiesToExperience where
+instance Data.ToPath AssociateEntitiesToExperience where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery AssociateEntitiesToExperience where
+instance Data.ToQuery AssociateEntitiesToExperience where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newAssociateEntitiesToExperienceResponse' smart constructor.

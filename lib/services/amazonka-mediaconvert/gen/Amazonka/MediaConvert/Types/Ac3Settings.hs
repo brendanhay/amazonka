@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.Ac3Settings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.Ac3BitstreamMode
 import Amazonka.MediaConvert.Types.Ac3CodingMode
 import Amazonka.MediaConvert.Types.Ac3DynamicRangeCompressionLine
@@ -261,22 +262,22 @@ ac3Settings_metadataControl = Lens.lens (\Ac3Settings' {metadataControl} -> meta
 ac3Settings_lfeFilter :: Lens.Lens' Ac3Settings (Prelude.Maybe Ac3LfeFilter)
 ac3Settings_lfeFilter = Lens.lens (\Ac3Settings' {lfeFilter} -> lfeFilter) (\s@Ac3Settings' {} a -> s {lfeFilter = a} :: Ac3Settings)
 
-instance Core.FromJSON Ac3Settings where
+instance Data.FromJSON Ac3Settings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Ac3Settings"
       ( \x ->
           Ac3Settings'
-            Prelude.<$> (x Core..:? "bitstreamMode")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionRf")
-            Prelude.<*> (x Core..:? "bitrate")
-            Prelude.<*> (x Core..:? "sampleRate")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionProfile")
-            Prelude.<*> (x Core..:? "dialnorm")
-            Prelude.<*> (x Core..:? "dynamicRangeCompressionLine")
-            Prelude.<*> (x Core..:? "codingMode")
-            Prelude.<*> (x Core..:? "metadataControl")
-            Prelude.<*> (x Core..:? "lfeFilter")
+            Prelude.<$> (x Data..:? "bitstreamMode")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionRf")
+            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionProfile")
+            Prelude.<*> (x Data..:? "dialnorm")
+            Prelude.<*> (x Data..:? "dynamicRangeCompressionLine")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "metadataControl")
+            Prelude.<*> (x Data..:? "lfeFilter")
       )
 
 instance Prelude.Hashable Ac3Settings where
@@ -305,23 +306,23 @@ instance Prelude.NFData Ac3Settings where
       `Prelude.seq` Prelude.rnf metadataControl
       `Prelude.seq` Prelude.rnf lfeFilter
 
-instance Core.ToJSON Ac3Settings where
+instance Data.ToJSON Ac3Settings where
   toJSON Ac3Settings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("bitstreamMode" Core..=) Prelude.<$> bitstreamMode,
-            ("dynamicRangeCompressionRf" Core..=)
+          [ ("bitstreamMode" Data..=) Prelude.<$> bitstreamMode,
+            ("dynamicRangeCompressionRf" Data..=)
               Prelude.<$> dynamicRangeCompressionRf,
-            ("bitrate" Core..=) Prelude.<$> bitrate,
-            ("sampleRate" Core..=) Prelude.<$> sampleRate,
-            ("dynamicRangeCompressionProfile" Core..=)
+            ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("sampleRate" Data..=) Prelude.<$> sampleRate,
+            ("dynamicRangeCompressionProfile" Data..=)
               Prelude.<$> dynamicRangeCompressionProfile,
-            ("dialnorm" Core..=) Prelude.<$> dialnorm,
-            ("dynamicRangeCompressionLine" Core..=)
+            ("dialnorm" Data..=) Prelude.<$> dialnorm,
+            ("dynamicRangeCompressionLine" Data..=)
               Prelude.<$> dynamicRangeCompressionLine,
-            ("codingMode" Core..=) Prelude.<$> codingMode,
-            ("metadataControl" Core..=)
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("metadataControl" Data..=)
               Prelude.<$> metadataControl,
-            ("lfeFilter" Core..=) Prelude.<$> lfeFilter
+            ("lfeFilter" Data..=) Prelude.<$> lfeFilter
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DeleteFileSystemOpenZFSResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,16 +64,16 @@ deleteFileSystemOpenZFSResponse_finalBackupId :: Lens.Lens' DeleteFileSystemOpen
 deleteFileSystemOpenZFSResponse_finalBackupId = Lens.lens (\DeleteFileSystemOpenZFSResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemOpenZFSResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemOpenZFSResponse)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DeleteFileSystemOpenZFSResponse
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeleteFileSystemOpenZFSResponse"
       ( \x ->
           DeleteFileSystemOpenZFSResponse'
-            Prelude.<$> (x Core..:? "FinalBackupTags")
-            Prelude.<*> (x Core..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupTags")
+            Prelude.<*> (x Data..:? "FinalBackupId")
       )
 
 instance

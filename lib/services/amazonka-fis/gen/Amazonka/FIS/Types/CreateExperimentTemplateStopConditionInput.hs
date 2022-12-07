@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a stop condition for an experiment template.
@@ -92,14 +93,14 @@ instance
     Prelude.rnf value `Prelude.seq` Prelude.rnf source
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     CreateExperimentTemplateStopConditionInput
   where
   toJSON
     CreateExperimentTemplateStopConditionInput' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("value" Core..=) Prelude.<$> value,
-              Prelude.Just ("source" Core..= source)
+            [ ("value" Data..=) Prelude.<$> value,
+              Prelude.Just ("source" Data..= source)
             ]
         )

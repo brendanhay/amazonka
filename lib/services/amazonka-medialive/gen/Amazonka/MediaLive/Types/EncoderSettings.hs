@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.EncoderSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.AudioDescription
 import Amazonka.MediaLive.Types.AvailBlanking
 import Amazonka.MediaLive.Types.AvailConfiguration
@@ -166,30 +167,30 @@ encoderSettings_outputGroups = Lens.lens (\EncoderSettings' {outputGroups} -> ou
 encoderSettings_timecodeConfig :: Lens.Lens' EncoderSettings TimecodeConfig
 encoderSettings_timecodeConfig = Lens.lens (\EncoderSettings' {timecodeConfig} -> timecodeConfig) (\s@EncoderSettings' {} a -> s {timecodeConfig = a} :: EncoderSettings)
 
-instance Core.FromJSON EncoderSettings where
+instance Data.FromJSON EncoderSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EncoderSettings"
       ( \x ->
           EncoderSettings'
-            Prelude.<$> (x Core..:? "globalConfiguration")
-            Prelude.<*> (x Core..:? "availBlanking")
-            Prelude.<*> (x Core..:? "featureActivations")
-            Prelude.<*> (x Core..:? "motionGraphicsConfiguration")
-            Prelude.<*> ( x Core..:? "captionDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "globalConfiguration")
+            Prelude.<*> (x Data..:? "availBlanking")
+            Prelude.<*> (x Data..:? "featureActivations")
+            Prelude.<*> (x Data..:? "motionGraphicsConfiguration")
+            Prelude.<*> ( x Data..:? "captionDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "blackoutSlate")
-            Prelude.<*> (x Core..:? "nielsenConfiguration")
-            Prelude.<*> (x Core..:? "availConfiguration")
-            Prelude.<*> ( x Core..:? "videoDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> (x Data..:? "blackoutSlate")
+            Prelude.<*> (x Data..:? "nielsenConfiguration")
+            Prelude.<*> (x Data..:? "availConfiguration")
+            Prelude.<*> ( x Data..:? "videoDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "audioDescriptions"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "audioDescriptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "outputGroups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "timecodeConfig")
+            Prelude.<*> (x Data..:? "outputGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "timecodeConfig")
       )
 
 instance Prelude.Hashable EncoderSettings where
@@ -222,30 +223,30 @@ instance Prelude.NFData EncoderSettings where
       `Prelude.seq` Prelude.rnf outputGroups
       `Prelude.seq` Prelude.rnf timecodeConfig
 
-instance Core.ToJSON EncoderSettings where
+instance Data.ToJSON EncoderSettings where
   toJSON EncoderSettings' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("globalConfiguration" Core..=)
+          [ ("globalConfiguration" Data..=)
               Prelude.<$> globalConfiguration,
-            ("availBlanking" Core..=) Prelude.<$> availBlanking,
-            ("featureActivations" Core..=)
+            ("availBlanking" Data..=) Prelude.<$> availBlanking,
+            ("featureActivations" Data..=)
               Prelude.<$> featureActivations,
-            ("motionGraphicsConfiguration" Core..=)
+            ("motionGraphicsConfiguration" Data..=)
               Prelude.<$> motionGraphicsConfiguration,
-            ("captionDescriptions" Core..=)
+            ("captionDescriptions" Data..=)
               Prelude.<$> captionDescriptions,
-            ("blackoutSlate" Core..=) Prelude.<$> blackoutSlate,
-            ("nielsenConfiguration" Core..=)
+            ("blackoutSlate" Data..=) Prelude.<$> blackoutSlate,
+            ("nielsenConfiguration" Data..=)
               Prelude.<$> nielsenConfiguration,
-            ("availConfiguration" Core..=)
+            ("availConfiguration" Data..=)
               Prelude.<$> availConfiguration,
             Prelude.Just
-              ("videoDescriptions" Core..= videoDescriptions),
+              ("videoDescriptions" Data..= videoDescriptions),
             Prelude.Just
-              ("audioDescriptions" Core..= audioDescriptions),
-            Prelude.Just ("outputGroups" Core..= outputGroups),
+              ("audioDescriptions" Data..= audioDescriptions),
+            Prelude.Just ("outputGroups" Data..= outputGroups),
             Prelude.Just
-              ("timecodeConfig" Core..= timecodeConfig)
+              ("timecodeConfig" Data..= timecodeConfig)
           ]
       )

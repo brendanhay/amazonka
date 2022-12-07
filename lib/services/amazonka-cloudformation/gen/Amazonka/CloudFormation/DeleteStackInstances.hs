@@ -50,6 +50,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -277,7 +278,7 @@ instance Core.AWSRequest DeleteStackInstances where
       "DeleteStackInstancesResult"
       ( \s h x ->
           DeleteStackInstancesResponse'
-            Prelude.<$> (x Core..@? "OperationId")
+            Prelude.<$> (x Data..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -303,29 +304,29 @@ instance Prelude.NFData DeleteStackInstances where
       `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf retainStacks
 
-instance Core.ToHeaders DeleteStackInstances where
+instance Data.ToHeaders DeleteStackInstances where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteStackInstances where
+instance Data.ToPath DeleteStackInstances where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteStackInstances where
+instance Data.ToQuery DeleteStackInstances where
   toQuery DeleteStackInstances' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteStackInstances" :: Prelude.ByteString),
+          Data.=: ("DeleteStackInstances" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationPreferences" Core.=: operationPreferences,
-        "CallAs" Core.=: callAs,
-        "OperationId" Core.=: operationId,
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "OperationPreferences" Data.=: operationPreferences,
+        "CallAs" Data.=: callAs,
+        "OperationId" Data.=: operationId,
         "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "StackSetName" Core.=: stackSetName,
-        "Regions" Core.=: Core.toQueryList "member" regions,
-        "RetainStacks" Core.=: retainStacks
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> accounts),
+        "DeploymentTargets" Data.=: deploymentTargets,
+        "StackSetName" Data.=: stackSetName,
+        "Regions" Data.=: Data.toQueryList "member" regions,
+        "RetainStacks" Data.=: retainStacks
       ]
 
 -- | /See:/ 'newDeleteStackInstancesResponse' smart constructor.

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -76,9 +77,9 @@ instance
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Core..:> "BlockPublicAccessConfiguration")
+              Prelude.<*> (x Data..:> "BlockPublicAccessConfiguration")
               Prelude.<*> ( x
-                              Core..:> "BlockPublicAccessConfigurationMetadata"
+                              Data..:> "BlockPublicAccessConfigurationMetadata"
                           )
       )
 
@@ -96,37 +97,37 @@ instance
   rnf _ = ()
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetBlockPublicAccessConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
+              Data.=# ( "ElasticMapReduce.GetBlockPublicAccessConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     GetBlockPublicAccessConfiguration
   where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance
-  Core.ToPath
+  Data.ToPath
     GetBlockPublicAccessConfiguration
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     GetBlockPublicAccessConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

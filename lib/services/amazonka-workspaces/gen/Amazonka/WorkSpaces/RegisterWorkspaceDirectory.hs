@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -218,40 +219,40 @@ instance Prelude.NFData RegisterWorkspaceDirectory where
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf enableWorkDocs
 
-instance Core.ToHeaders RegisterWorkspaceDirectory where
+instance Data.ToHeaders RegisterWorkspaceDirectory where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "WorkspacesService.RegisterWorkspaceDirectory" ::
+              Data.=# ( "WorkspacesService.RegisterWorkspaceDirectory" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON RegisterWorkspaceDirectory where
+instance Data.ToJSON RegisterWorkspaceDirectory where
   toJSON RegisterWorkspaceDirectory' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("SubnetIds" Core..=) Prelude.<$> subnetIds,
-            ("Tenancy" Core..=) Prelude.<$> tenancy,
-            ("EnableSelfService" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("SubnetIds" Data..=) Prelude.<$> subnetIds,
+            ("Tenancy" Data..=) Prelude.<$> tenancy,
+            ("EnableSelfService" Data..=)
               Prelude.<$> enableSelfService,
-            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
-              ("EnableWorkDocs" Core..= enableWorkDocs)
+              ("EnableWorkDocs" Data..= enableWorkDocs)
           ]
       )
 
-instance Core.ToPath RegisterWorkspaceDirectory where
+instance Data.ToPath RegisterWorkspaceDirectory where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RegisterWorkspaceDirectory where
+instance Data.ToQuery RegisterWorkspaceDirectory where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newRegisterWorkspaceDirectoryResponse' smart constructor.

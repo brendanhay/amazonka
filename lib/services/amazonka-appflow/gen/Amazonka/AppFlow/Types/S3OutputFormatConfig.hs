@@ -24,6 +24,7 @@ import Amazonka.AppFlow.Types.FileType
 import Amazonka.AppFlow.Types.PrefixConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration that determines how Amazon AppFlow should format the
@@ -122,16 +123,16 @@ s3OutputFormatConfig_preserveSourceDataTyping = Lens.lens (\S3OutputFormatConfig
 s3OutputFormatConfig_fileType :: Lens.Lens' S3OutputFormatConfig (Prelude.Maybe FileType)
 s3OutputFormatConfig_fileType = Lens.lens (\S3OutputFormatConfig' {fileType} -> fileType) (\s@S3OutputFormatConfig' {} a -> s {fileType = a} :: S3OutputFormatConfig)
 
-instance Core.FromJSON S3OutputFormatConfig where
+instance Data.FromJSON S3OutputFormatConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "S3OutputFormatConfig"
       ( \x ->
           S3OutputFormatConfig'
-            Prelude.<$> (x Core..:? "prefixConfig")
-            Prelude.<*> (x Core..:? "aggregationConfig")
-            Prelude.<*> (x Core..:? "preserveSourceDataTyping")
-            Prelude.<*> (x Core..:? "fileType")
+            Prelude.<$> (x Data..:? "prefixConfig")
+            Prelude.<*> (x Data..:? "aggregationConfig")
+            Prelude.<*> (x Data..:? "preserveSourceDataTyping")
+            Prelude.<*> (x Data..:? "fileType")
       )
 
 instance Prelude.Hashable S3OutputFormatConfig where
@@ -148,15 +149,15 @@ instance Prelude.NFData S3OutputFormatConfig where
       `Prelude.seq` Prelude.rnf preserveSourceDataTyping
       `Prelude.seq` Prelude.rnf fileType
 
-instance Core.ToJSON S3OutputFormatConfig where
+instance Data.ToJSON S3OutputFormatConfig where
   toJSON S3OutputFormatConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("prefixConfig" Core..=) Prelude.<$> prefixConfig,
-            ("aggregationConfig" Core..=)
+          [ ("prefixConfig" Data..=) Prelude.<$> prefixConfig,
+            ("aggregationConfig" Data..=)
               Prelude.<$> aggregationConfig,
-            ("preserveSourceDataTyping" Core..=)
+            ("preserveSourceDataTyping" Data..=)
               Prelude.<$> preserveSourceDataTyping,
-            ("fileType" Core..=) Prelude.<$> fileType
+            ("fileType" Data..=) Prelude.<$> fileType
           ]
       )

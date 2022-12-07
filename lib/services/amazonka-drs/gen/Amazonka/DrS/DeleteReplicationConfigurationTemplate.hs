@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -111,35 +112,35 @@ instance
     Prelude.rnf replicationConfigurationTemplateID
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteReplicationConfigurationTemplate
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteReplicationConfigurationTemplate
   where
   toJSON DeleteReplicationConfigurationTemplate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "replicationConfigurationTemplateID"
-                  Core..= replicationConfigurationTemplateID
+                  Data..= replicationConfigurationTemplateID
               )
           ]
       )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteReplicationConfigurationTemplate
   where
   toPath =
@@ -147,7 +148,7 @@ instance
       "/DeleteReplicationConfigurationTemplate"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteReplicationConfigurationTemplate
   where
   toQuery = Prelude.const Prelude.mempty

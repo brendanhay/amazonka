@@ -59,6 +59,7 @@ where
 import Amazonka.CloudWatch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -101,21 +102,21 @@ instance Prelude.Hashable DeleteAlarms where
 instance Prelude.NFData DeleteAlarms where
   rnf DeleteAlarms' {..} = Prelude.rnf alarmNames
 
-instance Core.ToHeaders DeleteAlarms where
+instance Data.ToHeaders DeleteAlarms where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DeleteAlarms where
+instance Data.ToPath DeleteAlarms where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteAlarms where
+instance Data.ToQuery DeleteAlarms where
   toQuery DeleteAlarms' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DeleteAlarms" :: Prelude.ByteString),
+          Data.=: ("DeleteAlarms" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-08-01" :: Prelude.ByteString),
+          Data.=: ("2010-08-01" :: Prelude.ByteString),
         "AlarmNames"
-          Core.=: Core.toQueryList "member" alarmNames
+          Data.=: Data.toQueryList "member" alarmNames
       ]
 
 -- | /See:/ 'newDeleteAlarmsResponse' smart constructor.

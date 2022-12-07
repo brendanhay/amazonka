@@ -21,6 +21,7 @@ module Amazonka.CodePipeline.Types.ActionTypeProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about each property specified in the action
@@ -123,18 +124,18 @@ actionTypeProperty_key = Lens.lens (\ActionTypeProperty' {key} -> key) (\s@Actio
 actionTypeProperty_noEcho :: Lens.Lens' ActionTypeProperty Prelude.Bool
 actionTypeProperty_noEcho = Lens.lens (\ActionTypeProperty' {noEcho} -> noEcho) (\s@ActionTypeProperty' {} a -> s {noEcho = a} :: ActionTypeProperty)
 
-instance Core.FromJSON ActionTypeProperty where
+instance Data.FromJSON ActionTypeProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionTypeProperty"
       ( \x ->
           ActionTypeProperty'
-            Prelude.<$> (x Core..:? "queryable")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "optional")
-            Prelude.<*> (x Core..: "key")
-            Prelude.<*> (x Core..: "noEcho")
+            Prelude.<$> (x Data..:? "queryable")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "optional")
+            Prelude.<*> (x Data..: "key")
+            Prelude.<*> (x Data..: "noEcho")
       )
 
 instance Prelude.Hashable ActionTypeProperty where
@@ -155,15 +156,15 @@ instance Prelude.NFData ActionTypeProperty where
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf noEcho
 
-instance Core.ToJSON ActionTypeProperty where
+instance Data.ToJSON ActionTypeProperty where
   toJSON ActionTypeProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("queryable" Core..=) Prelude.<$> queryable,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("optional" Core..= optional),
-            Prelude.Just ("key" Core..= key),
-            Prelude.Just ("noEcho" Core..= noEcho)
+          [ ("queryable" Data..=) Prelude.<$> queryable,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("optional" Data..= optional),
+            Prelude.Just ("key" Data..= key),
+            Prelude.Just ("noEcho" Data..= noEcho)
           ]
       )

@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -164,8 +165,8 @@ instance Core.AWSRequest DescribeDirectories where
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DirectoryDescriptions"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "DirectoryDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -183,35 +184,35 @@ instance Prelude.NFData DescribeDirectories where
       `Prelude.seq` Prelude.rnf directoryIds
       `Prelude.seq` Prelude.rnf limit
 
-instance Core.ToHeaders DescribeDirectories where
+instance Data.ToHeaders DescribeDirectories where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DirectoryService_20150416.DescribeDirectories" ::
+              Data.=# ( "DirectoryService_20150416.DescribeDirectories" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeDirectories where
+instance Data.ToJSON DescribeDirectories where
   toJSON DescribeDirectories' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DirectoryIds" Core..=) Prelude.<$> directoryIds,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 
-instance Core.ToPath DescribeDirectories where
+instance Data.ToPath DescribeDirectories where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeDirectories where
+instance Data.ToQuery DescribeDirectories where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the results of the DescribeDirectories operation.

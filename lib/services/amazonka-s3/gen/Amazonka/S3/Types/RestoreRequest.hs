@@ -21,6 +21,7 @@ module Amazonka.S3.Types.RestoreRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.GlacierJobParameters
@@ -148,14 +149,14 @@ instance Prelude.NFData RestoreRequest where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf tier
 
-instance Core.ToXML RestoreRequest where
+instance Data.ToXML RestoreRequest where
   toXML RestoreRequest' {..} =
     Prelude.mconcat
-      [ "GlacierJobParameters" Core.@= glacierJobParameters,
-        "Type" Core.@= type',
-        "Days" Core.@= days,
-        "OutputLocation" Core.@= outputLocation,
-        "SelectParameters" Core.@= selectParameters,
-        "Description" Core.@= description,
-        "Tier" Core.@= tier
+      [ "GlacierJobParameters" Data.@= glacierJobParameters,
+        "Type" Data.@= type',
+        "Days" Data.@= days,
+        "OutputLocation" Data.@= outputLocation,
+        "SelectParameters" Data.@= selectParameters,
+        "Description" Data.@= description,
+        "Tier" Data.@= tier
       ]

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -96,23 +97,23 @@ instance Prelude.NFData DeleteBrowserSettings where
   rnf DeleteBrowserSettings' {..} =
     Prelude.rnf browserSettingsArn
 
-instance Core.ToHeaders DeleteBrowserSettings where
+instance Data.ToHeaders DeleteBrowserSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteBrowserSettings where
+instance Data.ToPath DeleteBrowserSettings where
   toPath DeleteBrowserSettings' {..} =
     Prelude.mconcat
-      ["/browserSettings/", Core.toBS browserSettingsArn]
+      ["/browserSettings/", Data.toBS browserSettingsArn]
 
-instance Core.ToQuery DeleteBrowserSettings where
+instance Data.ToQuery DeleteBrowserSettings where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteBrowserSettingsResponse' smart constructor.

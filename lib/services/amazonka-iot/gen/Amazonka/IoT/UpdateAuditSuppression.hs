@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -55,7 +56,7 @@ data UpdateAuditSuppression = UpdateAuditSuppression'
     description :: Prelude.Maybe Prelude.Text,
     -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
-    expirationDate :: Prelude.Maybe Core.POSIX,
+    expirationDate :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
     checkName :: Prelude.Text,
@@ -106,7 +107,7 @@ updateAuditSuppression_description = Lens.lens (\UpdateAuditSuppression' {descri
 -- | The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
 updateAuditSuppression_expirationDate :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.UTCTime)
-updateAuditSuppression_expirationDate = Lens.lens (\UpdateAuditSuppression' {expirationDate} -> expirationDate) (\s@UpdateAuditSuppression' {} a -> s {expirationDate = a} :: UpdateAuditSuppression) Prelude.. Lens.mapping Core._Time
+updateAuditSuppression_expirationDate = Lens.lens (\UpdateAuditSuppression' {expirationDate} -> expirationDate) (\s@UpdateAuditSuppression' {} a -> s {expirationDate = a} :: UpdateAuditSuppression) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a suppression should exist indefinitely or not.
 updateAuditSuppression_suppressIndefinitely :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Bool)
@@ -149,28 +150,28 @@ instance Prelude.NFData UpdateAuditSuppression where
       `Prelude.seq` Prelude.rnf checkName
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
-instance Core.ToHeaders UpdateAuditSuppression where
+instance Data.ToHeaders UpdateAuditSuppression where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON UpdateAuditSuppression where
+instance Data.ToJSON UpdateAuditSuppression where
   toJSON UpdateAuditSuppression' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("expirationDate" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("expirationDate" Data..=)
               Prelude.<$> expirationDate,
-            ("suppressIndefinitely" Core..=)
+            ("suppressIndefinitely" Data..=)
               Prelude.<$> suppressIndefinitely,
-            Prelude.Just ("checkName" Core..= checkName),
+            Prelude.Just ("checkName" Data..= checkName),
             Prelude.Just
-              ("resourceIdentifier" Core..= resourceIdentifier)
+              ("resourceIdentifier" Data..= resourceIdentifier)
           ]
       )
 
-instance Core.ToPath UpdateAuditSuppression where
+instance Data.ToPath UpdateAuditSuppression where
   toPath = Prelude.const "/audit/suppressions/update"
 
-instance Core.ToQuery UpdateAuditSuppression where
+instance Data.ToQuery UpdateAuditSuppression where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAuditSuppressionResponse' smart constructor.

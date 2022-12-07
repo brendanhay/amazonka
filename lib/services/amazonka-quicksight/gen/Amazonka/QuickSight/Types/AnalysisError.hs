@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.AnalysisError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AnalysisErrorType
 
@@ -62,14 +63,14 @@ analysisError_message = Lens.lens (\AnalysisError' {message} -> message) (\s@Ana
 analysisError_type :: Lens.Lens' AnalysisError (Prelude.Maybe AnalysisErrorType)
 analysisError_type = Lens.lens (\AnalysisError' {type'} -> type') (\s@AnalysisError' {} a -> s {type' = a} :: AnalysisError)
 
-instance Core.FromJSON AnalysisError where
+instance Data.FromJSON AnalysisError where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnalysisError"
       ( \x ->
           AnalysisError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AnalysisError where

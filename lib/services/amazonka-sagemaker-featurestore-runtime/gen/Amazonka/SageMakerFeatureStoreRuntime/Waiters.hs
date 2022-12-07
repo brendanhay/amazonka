@@ -18,6 +18,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerFeatureStoreRuntime.Lens
 import Amazonka.SageMakerFeatureStoreRuntime.Types

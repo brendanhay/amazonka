@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.SubnetIpv6CidrBlockAssociation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SubnetCidrBlockState
 import qualified Amazonka.Prelude as Prelude
@@ -73,12 +74,12 @@ subnetIpv6CidrBlockAssociation_associationId = Lens.lens (\SubnetIpv6CidrBlockAs
 subnetIpv6CidrBlockAssociation_ipv6CidrBlock :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 subnetIpv6CidrBlockAssociation_ipv6CidrBlock = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlock = a} :: SubnetIpv6CidrBlockAssociation)
 
-instance Core.FromXML SubnetIpv6CidrBlockAssociation where
+instance Data.FromXML SubnetIpv6CidrBlockAssociation where
   parseXML x =
     SubnetIpv6CidrBlockAssociation'
-      Prelude.<$> (x Core..@? "ipv6CidrBlockState")
-      Prelude.<*> (x Core..@? "associationId")
-      Prelude.<*> (x Core..@? "ipv6CidrBlock")
+      Prelude.<$> (x Data..@? "ipv6CidrBlockState")
+      Prelude.<*> (x Data..@? "associationId")
+      Prelude.<*> (x Data..@? "ipv6CidrBlock")
 
 instance
   Prelude.Hashable

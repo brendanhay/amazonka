@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.NodeLogPublishingConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.NodeFabricLogPublishingConfiguration
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,13 +62,13 @@ newNodeLogPublishingConfiguration =
 nodeLogPublishingConfiguration_fabric :: Lens.Lens' NodeLogPublishingConfiguration (Prelude.Maybe NodeFabricLogPublishingConfiguration)
 nodeLogPublishingConfiguration_fabric = Lens.lens (\NodeLogPublishingConfiguration' {fabric} -> fabric) (\s@NodeLogPublishingConfiguration' {} a -> s {fabric = a} :: NodeLogPublishingConfiguration)
 
-instance Core.FromJSON NodeLogPublishingConfiguration where
+instance Data.FromJSON NodeLogPublishingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NodeLogPublishingConfiguration"
       ( \x ->
           NodeLogPublishingConfiguration'
-            Prelude.<$> (x Core..:? "Fabric")
+            Prelude.<$> (x Data..:? "Fabric")
       )
 
 instance
@@ -86,9 +87,9 @@ instance
   rnf NodeLogPublishingConfiguration' {..} =
     Prelude.rnf fabric
 
-instance Core.ToJSON NodeLogPublishingConfiguration where
+instance Data.ToJSON NodeLogPublishingConfiguration where
   toJSON NodeLogPublishingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Fabric" Core..=) Prelude.<$> fabric]
+          [("Fabric" Data..=) Prelude.<$> fabric]
       )

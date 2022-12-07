@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Nimble.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetLaunchProfileInitializationResponse'
-            Prelude.<$> (x Core..?> "launchProfileInitialization")
+            Prelude.<$> (x Data..?> "launchProfileInitialization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,38 +173,38 @@ instance
       `Prelude.seq` Prelude.rnf studioId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     GetLaunchProfileInitialization
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetLaunchProfileInitialization where
+instance Data.ToPath GetLaunchProfileInitialization where
   toPath GetLaunchProfileInitialization' {..} =
     Prelude.mconcat
       [ "/2020-08-01/studios/",
-        Core.toBS studioId,
+        Data.toBS studioId,
         "/launch-profiles/",
-        Core.toBS launchProfileId,
+        Data.toBS launchProfileId,
         "/init"
       ]
 
-instance Core.ToQuery GetLaunchProfileInitialization where
+instance Data.ToQuery GetLaunchProfileInitialization where
   toQuery GetLaunchProfileInitialization' {..} =
     Prelude.mconcat
       [ "launchProfileProtocolVersions"
-          Core.=: Core.toQueryList
+          Data.=: Data.toQueryList
             "member"
             launchProfileProtocolVersions,
-        "launchPurpose" Core.=: launchPurpose,
-        "platform" Core.=: platform
+        "launchPurpose" Data.=: launchPurpose,
+        "platform" Data.=: platform
       ]
 
 -- | /See:/ 'newGetLaunchProfileInitializationResponse' smart constructor.

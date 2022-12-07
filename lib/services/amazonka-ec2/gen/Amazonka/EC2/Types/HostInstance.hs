@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.HostInstance where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,12 +72,12 @@ hostInstance_instanceType = Lens.lens (\HostInstance' {instanceType} -> instance
 hostInstance_instanceId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
 hostInstance_instanceId = Lens.lens (\HostInstance' {instanceId} -> instanceId) (\s@HostInstance' {} a -> s {instanceId = a} :: HostInstance)
 
-instance Core.FromXML HostInstance where
+instance Data.FromXML HostInstance where
   parseXML x =
     HostInstance'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable HostInstance where
   hashWithSalt _salt HostInstance' {..} =

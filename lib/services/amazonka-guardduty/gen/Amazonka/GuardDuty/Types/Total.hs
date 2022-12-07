@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.Total where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the total usage with the corresponding currency unit for that
@@ -62,14 +63,14 @@ total_unit = Lens.lens (\Total' {unit} -> unit) (\s@Total' {} a -> s {unit = a} 
 total_amount :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
 total_amount = Lens.lens (\Total' {amount} -> amount) (\s@Total' {} a -> s {amount = a} :: Total)
 
-instance Core.FromJSON Total where
+instance Data.FromJSON Total where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Total"
       ( \x ->
           Total'
-            Prelude.<$> (x Core..:? "unit")
-            Prelude.<*> (x Core..:? "amount")
+            Prelude.<$> (x Data..:? "unit")
+            Prelude.<*> (x Data..:? "amount")
       )
 
 instance Prelude.Hashable Total where

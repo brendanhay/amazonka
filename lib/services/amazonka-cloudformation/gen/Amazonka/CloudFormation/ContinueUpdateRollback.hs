@@ -58,6 +58,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -317,27 +318,27 @@ instance Prelude.NFData ContinueUpdateRollback where
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf stackName
 
-instance Core.ToHeaders ContinueUpdateRollback where
+instance Data.ToHeaders ContinueUpdateRollback where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ContinueUpdateRollback where
+instance Data.ToPath ContinueUpdateRollback where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ContinueUpdateRollback where
+instance Data.ToQuery ContinueUpdateRollback where
   toQuery ContinueUpdateRollback' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ContinueUpdateRollback" :: Prelude.ByteString),
+          Data.=: ("ContinueUpdateRollback" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "ResourcesToSkip"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> resourcesToSkip
             ),
-        "RoleARN" Core.=: roleARN,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "StackName" Core.=: stackName
+        "RoleARN" Data.=: roleARN,
+        "ClientRequestToken" Data.=: clientRequestToken,
+        "StackName" Data.=: stackName
       ]
 
 -- | The output for a ContinueUpdateRollback operation.

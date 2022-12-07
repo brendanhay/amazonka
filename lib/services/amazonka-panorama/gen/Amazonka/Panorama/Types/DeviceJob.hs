@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.DeviceJob where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.JobType
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDeviceJob' smart constructor.
 data DeviceJob = DeviceJob'
   { -- | When the job was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the target device.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the target device
@@ -71,7 +72,7 @@ newDeviceJob =
 
 -- | When the job was created.
 deviceJob_createdTime :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.UTCTime)
-deviceJob_createdTime = Lens.lens (\DeviceJob' {createdTime} -> createdTime) (\s@DeviceJob' {} a -> s {createdTime = a} :: DeviceJob) Prelude.. Lens.mapping Core._Time
+deviceJob_createdTime = Lens.lens (\DeviceJob' {createdTime} -> createdTime) (\s@DeviceJob' {} a -> s {createdTime = a} :: DeviceJob) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the target device.
 deviceJob_deviceId :: Lens.Lens' DeviceJob (Prelude.Maybe Prelude.Text)
@@ -89,17 +90,17 @@ deviceJob_jobId = Lens.lens (\DeviceJob' {jobId} -> jobId) (\s@DeviceJob' {} a -
 deviceJob_jobType :: Lens.Lens' DeviceJob (Prelude.Maybe JobType)
 deviceJob_jobType = Lens.lens (\DeviceJob' {jobType} -> jobType) (\s@DeviceJob' {} a -> s {jobType = a} :: DeviceJob)
 
-instance Core.FromJSON DeviceJob where
+instance Data.FromJSON DeviceJob where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceJob"
       ( \x ->
           DeviceJob'
-            Prelude.<$> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "JobId")
-            Prelude.<*> (x Core..:? "JobType")
+            Prelude.<$> (x Data..:? "CreatedTime")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "JobType")
       )
 
 instance Prelude.Hashable DeviceJob where

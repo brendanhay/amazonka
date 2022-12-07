@@ -70,6 +70,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IAM.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -154,21 +155,21 @@ instance Prelude.NFData TagSAMLProvider where
     Prelude.rnf sAMLProviderArn
       `Prelude.seq` Prelude.rnf tags
 
-instance Core.ToHeaders TagSAMLProvider where
+instance Data.ToHeaders TagSAMLProvider where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath TagSAMLProvider where
+instance Data.ToPath TagSAMLProvider where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery TagSAMLProvider where
+instance Data.ToQuery TagSAMLProvider where
   toQuery TagSAMLProvider' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("TagSAMLProvider" :: Prelude.ByteString),
+          Data.=: ("TagSAMLProvider" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Core.=: sAMLProviderArn,
-        "Tags" Core.=: Core.toQueryList "member" tags
+          Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "SAMLProviderArn" Data.=: sAMLProviderArn,
+        "Tags" Data.=: Data.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagSAMLProviderResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.S3.Types.OutputSerialization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.CSVOutput
@@ -73,7 +74,7 @@ instance Prelude.NFData OutputSerialization where
   rnf OutputSerialization' {..} =
     Prelude.rnf json `Prelude.seq` Prelude.rnf csv
 
-instance Core.ToXML OutputSerialization where
+instance Data.ToXML OutputSerialization where
   toXML OutputSerialization' {..} =
     Prelude.mconcat
-      ["JSON" Core.@= json, "CSV" Core.@= csv]
+      ["JSON" Data.@= json, "CSV" Data.@= csv]

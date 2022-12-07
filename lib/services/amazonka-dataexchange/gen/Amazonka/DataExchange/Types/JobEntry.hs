@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.JobEntry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.JobError
 import Amazonka.DataExchange.Types.ResponseDetails
 import Amazonka.DataExchange.Types.State
@@ -39,7 +40,7 @@ data JobEntry = JobEntry'
     -- | The ARN for the job.
     arn :: Prelude.Text,
     -- | The date and time that the job was created, in ISO 8601 format.
-    createdAt :: Core.POSIX,
+    createdAt :: Data.POSIX,
     -- | Details of the operation to be performed by the job, such as export
     -- destination details or import source details.
     details :: ResponseDetails,
@@ -50,7 +51,7 @@ data JobEntry = JobEntry'
     -- | The job type.
     type' :: Type,
     -- | The date and time that the job was last updated, in ISO 8601 format.
-    updatedAt :: Core.POSIX
+    updatedAt :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,12 +106,12 @@ newJobEntry
     JobEntry'
       { errors = Prelude.Nothing,
         arn = pArn_,
-        createdAt = Core._Time Lens.# pCreatedAt_,
+        createdAt = Data._Time Lens.# pCreatedAt_,
         details = pDetails_,
         id = pId_,
         state = pState_,
         type' = pType_,
-        updatedAt = Core._Time Lens.# pUpdatedAt_
+        updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
 -- | Errors for jobs.
@@ -123,7 +124,7 @@ jobEntry_arn = Lens.lens (\JobEntry' {arn} -> arn) (\s@JobEntry' {} a -> s {arn 
 
 -- | The date and time that the job was created, in ISO 8601 format.
 jobEntry_createdAt :: Lens.Lens' JobEntry Prelude.UTCTime
-jobEntry_createdAt = Lens.lens (\JobEntry' {createdAt} -> createdAt) (\s@JobEntry' {} a -> s {createdAt = a} :: JobEntry) Prelude.. Core._Time
+jobEntry_createdAt = Lens.lens (\JobEntry' {createdAt} -> createdAt) (\s@JobEntry' {} a -> s {createdAt = a} :: JobEntry) Prelude.. Data._Time
 
 -- | Details of the operation to be performed by the job, such as export
 -- destination details or import source details.
@@ -144,22 +145,22 @@ jobEntry_type = Lens.lens (\JobEntry' {type'} -> type') (\s@JobEntry' {} a -> s 
 
 -- | The date and time that the job was last updated, in ISO 8601 format.
 jobEntry_updatedAt :: Lens.Lens' JobEntry Prelude.UTCTime
-jobEntry_updatedAt = Lens.lens (\JobEntry' {updatedAt} -> updatedAt) (\s@JobEntry' {} a -> s {updatedAt = a} :: JobEntry) Prelude.. Core._Time
+jobEntry_updatedAt = Lens.lens (\JobEntry' {updatedAt} -> updatedAt) (\s@JobEntry' {} a -> s {updatedAt = a} :: JobEntry) Prelude.. Data._Time
 
-instance Core.FromJSON JobEntry where
+instance Data.FromJSON JobEntry where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JobEntry"
       ( \x ->
           JobEntry'
-            Prelude.<$> (x Core..:? "Errors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "Arn")
-            Prelude.<*> (x Core..: "CreatedAt")
-            Prelude.<*> (x Core..: "Details")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "State")
-            Prelude.<*> (x Core..: "Type")
-            Prelude.<*> (x Core..: "UpdatedAt")
+            Prelude.<$> (x Data..:? "Errors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "Arn")
+            Prelude.<*> (x Data..: "CreatedAt")
+            Prelude.<*> (x Data..: "Details")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "State")
+            Prelude.<*> (x Data..: "Type")
+            Prelude.<*> (x Data..: "UpdatedAt")
       )
 
 instance Prelude.Hashable JobEntry where

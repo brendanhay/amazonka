@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.StudioLifecycleConfigDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.StudioLifecycleConfigAppType
 
@@ -36,9 +37,9 @@ data StudioLifecycleConfigDetails = StudioLifecycleConfigDetails'
     studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
     -- | This value is equivalent to CreationTime because Studio Lifecycle
     -- Configurations are immutable.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The creation time of the Studio Lifecycle Configuration.
-    creationTime :: Prelude.Maybe Core.POSIX
+    creationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,23 +89,23 @@ studioLifecycleConfigDetails_studioLifecycleConfigAppType = Lens.lens (\StudioLi
 -- | This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 studioLifecycleConfigDetails_lastModifiedTime :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.UTCTime)
-studioLifecycleConfigDetails_lastModifiedTime = Lens.lens (\StudioLifecycleConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@StudioLifecycleConfigDetails' {} a -> s {lastModifiedTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Core._Time
+studioLifecycleConfigDetails_lastModifiedTime = Lens.lens (\StudioLifecycleConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@StudioLifecycleConfigDetails' {} a -> s {lastModifiedTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The creation time of the Studio Lifecycle Configuration.
 studioLifecycleConfigDetails_creationTime :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.UTCTime)
-studioLifecycleConfigDetails_creationTime = Lens.lens (\StudioLifecycleConfigDetails' {creationTime} -> creationTime) (\s@StudioLifecycleConfigDetails' {} a -> s {creationTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Core._Time
+studioLifecycleConfigDetails_creationTime = Lens.lens (\StudioLifecycleConfigDetails' {creationTime} -> creationTime) (\s@StudioLifecycleConfigDetails' {} a -> s {creationTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON StudioLifecycleConfigDetails where
+instance Data.FromJSON StudioLifecycleConfigDetails where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StudioLifecycleConfigDetails"
       ( \x ->
           StudioLifecycleConfigDetails'
-            Prelude.<$> (x Core..:? "StudioLifecycleConfigName")
-            Prelude.<*> (x Core..:? "StudioLifecycleConfigArn")
-            Prelude.<*> (x Core..:? "StudioLifecycleConfigAppType")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Data..:? "StudioLifecycleConfigName")
+            Prelude.<*> (x Data..:? "StudioLifecycleConfigArn")
+            Prelude.<*> (x Data..:? "StudioLifecycleConfigAppType")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance

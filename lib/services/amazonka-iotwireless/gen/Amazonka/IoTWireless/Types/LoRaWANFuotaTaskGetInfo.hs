@@ -21,6 +21,7 @@ module Amazonka.IoTWireless.Types.LoRaWANFuotaTaskGetInfo where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The LoRaWAN information returned from getting a FUOTA task.
@@ -28,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLoRaWANFuotaTaskGetInfo' smart constructor.
 data LoRaWANFuotaTaskGetInfo = LoRaWANFuotaTaskGetInfo'
   { rfRegion :: Prelude.Maybe Prelude.Text,
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,16 +59,16 @@ loRaWANFuotaTaskGetInfo_rfRegion = Lens.lens (\LoRaWANFuotaTaskGetInfo' {rfRegio
 
 -- | Undocumented member.
 loRaWANFuotaTaskGetInfo_startTime :: Lens.Lens' LoRaWANFuotaTaskGetInfo (Prelude.Maybe Prelude.UTCTime)
-loRaWANFuotaTaskGetInfo_startTime = Lens.lens (\LoRaWANFuotaTaskGetInfo' {startTime} -> startTime) (\s@LoRaWANFuotaTaskGetInfo' {} a -> s {startTime = a} :: LoRaWANFuotaTaskGetInfo) Prelude.. Lens.mapping Core._Time
+loRaWANFuotaTaskGetInfo_startTime = Lens.lens (\LoRaWANFuotaTaskGetInfo' {startTime} -> startTime) (\s@LoRaWANFuotaTaskGetInfo' {} a -> s {startTime = a} :: LoRaWANFuotaTaskGetInfo) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON LoRaWANFuotaTaskGetInfo where
+instance Data.FromJSON LoRaWANFuotaTaskGetInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LoRaWANFuotaTaskGetInfo"
       ( \x ->
           LoRaWANFuotaTaskGetInfo'
-            Prelude.<$> (x Core..:? "RfRegion")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "RfRegion")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable LoRaWANFuotaTaskGetInfo where

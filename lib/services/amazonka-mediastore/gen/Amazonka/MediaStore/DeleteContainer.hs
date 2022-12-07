@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaStore.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -94,34 +95,34 @@ instance Prelude.Hashable DeleteContainer where
 instance Prelude.NFData DeleteContainer where
   rnf DeleteContainer' {..} = Prelude.rnf containerName
 
-instance Core.ToHeaders DeleteContainer where
+instance Data.ToHeaders DeleteContainer where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "MediaStore_20170901.DeleteContainer" ::
+              Data.=# ( "MediaStore_20170901.DeleteContainer" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteContainer where
+instance Data.ToJSON DeleteContainer where
   toJSON DeleteContainer' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ContainerName" Core..= containerName)
+              ("ContainerName" Data..= containerName)
           ]
       )
 
-instance Core.ToPath DeleteContainer where
+instance Data.ToPath DeleteContainer where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteContainer where
+instance Data.ToQuery DeleteContainer where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteContainerResponse' smart constructor.

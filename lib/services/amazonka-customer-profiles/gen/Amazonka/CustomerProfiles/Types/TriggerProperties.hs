@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.TriggerProperties where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration details that control the trigger for a flow.
@@ -62,9 +63,9 @@ instance Prelude.Hashable TriggerProperties where
 instance Prelude.NFData TriggerProperties where
   rnf TriggerProperties' {..} = Prelude.rnf scheduled
 
-instance Core.ToJSON TriggerProperties where
+instance Data.ToJSON TriggerProperties where
   toJSON TriggerProperties' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Scheduled" Core..=) Prelude.<$> scheduled]
+          [("Scheduled" Data..=) Prelude.<$> scheduled]
       )

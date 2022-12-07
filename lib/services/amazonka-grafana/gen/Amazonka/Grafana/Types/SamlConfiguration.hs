@@ -21,6 +21,7 @@ module Amazonka.Grafana.Types.SamlConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types.AssertionAttributes
 import Amazonka.Grafana.Types.IdpMetadata
 import Amazonka.Grafana.Types.RoleValues
@@ -116,19 +117,19 @@ samlConfiguration_assertionAttributes = Lens.lens (\SamlConfiguration' {assertio
 samlConfiguration_idpMetadata :: Lens.Lens' SamlConfiguration IdpMetadata
 samlConfiguration_idpMetadata = Lens.lens (\SamlConfiguration' {idpMetadata} -> idpMetadata) (\s@SamlConfiguration' {} a -> s {idpMetadata = a} :: SamlConfiguration)
 
-instance Core.FromJSON SamlConfiguration where
+instance Data.FromJSON SamlConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SamlConfiguration"
       ( \x ->
           SamlConfiguration'
-            Prelude.<$> (x Core..:? "loginValidityDuration")
-            Prelude.<*> ( x Core..:? "allowedOrganizations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "loginValidityDuration")
+            Prelude.<*> ( x Data..:? "allowedOrganizations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "roleValues")
-            Prelude.<*> (x Core..:? "assertionAttributes")
-            Prelude.<*> (x Core..: "idpMetadata")
+            Prelude.<*> (x Data..:? "roleValues")
+            Prelude.<*> (x Data..:? "assertionAttributes")
+            Prelude.<*> (x Data..: "idpMetadata")
       )
 
 instance Prelude.Hashable SamlConfiguration where
@@ -147,17 +148,17 @@ instance Prelude.NFData SamlConfiguration where
       `Prelude.seq` Prelude.rnf assertionAttributes
       `Prelude.seq` Prelude.rnf idpMetadata
 
-instance Core.ToJSON SamlConfiguration where
+instance Data.ToJSON SamlConfiguration where
   toJSON SamlConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("loginValidityDuration" Core..=)
+          [ ("loginValidityDuration" Data..=)
               Prelude.<$> loginValidityDuration,
-            ("allowedOrganizations" Core..=)
+            ("allowedOrganizations" Data..=)
               Prelude.<$> allowedOrganizations,
-            ("roleValues" Core..=) Prelude.<$> roleValues,
-            ("assertionAttributes" Core..=)
+            ("roleValues" Data..=) Prelude.<$> roleValues,
+            ("assertionAttributes" Data..=)
               Prelude.<$> assertionAttributes,
-            Prelude.Just ("idpMetadata" Core..= idpMetadata)
+            Prelude.Just ("idpMetadata" Data..= idpMetadata)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Route53AutoNaming.Types.DnsProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53AutoNaming.Types.SOA
 
@@ -66,14 +67,14 @@ dnsProperties_hostedZoneId = Lens.lens (\DnsProperties' {hostedZoneId} -> hosted
 dnsProperties_soa :: Lens.Lens' DnsProperties (Prelude.Maybe SOA)
 dnsProperties_soa = Lens.lens (\DnsProperties' {soa} -> soa) (\s@DnsProperties' {} a -> s {soa = a} :: DnsProperties)
 
-instance Core.FromJSON DnsProperties where
+instance Data.FromJSON DnsProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DnsProperties"
       ( \x ->
           DnsProperties'
-            Prelude.<$> (x Core..:? "HostedZoneId")
-            Prelude.<*> (x Core..:? "SOA")
+            Prelude.<$> (x Data..:? "HostedZoneId")
+            Prelude.<*> (x Data..:? "SOA")
       )
 
 instance Prelude.Hashable DnsProperties where

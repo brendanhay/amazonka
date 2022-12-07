@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ManagedPrefixList where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.PrefixListState
 import Amazonka.EC2.Types.Tag
@@ -136,21 +137,21 @@ managedPrefixList_prefixListName = Lens.lens (\ManagedPrefixList' {prefixListNam
 managedPrefixList_version :: Lens.Lens' ManagedPrefixList (Prelude.Maybe Prelude.Integer)
 managedPrefixList_version = Lens.lens (\ManagedPrefixList' {version} -> version) (\s@ManagedPrefixList' {} a -> s {version = a} :: ManagedPrefixList)
 
-instance Core.FromXML ManagedPrefixList where
+instance Data.FromXML ManagedPrefixList where
   parseXML x =
     ManagedPrefixList'
-      Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "addressFamily")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "maxEntries")
-      Prelude.<*> (x Core..@? "prefixListArn")
-      Prelude.<*> (x Core..@? "stateMessage")
-      Prelude.<*> (x Core..@? "prefixListName")
-      Prelude.<*> (x Core..@? "version")
+      Prelude.<*> (x Data..@? "addressFamily")
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "maxEntries")
+      Prelude.<*> (x Data..@? "prefixListArn")
+      Prelude.<*> (x Data..@? "stateMessage")
+      Prelude.<*> (x Data..@? "prefixListName")
+      Prelude.<*> (x Data..@? "version")
 
 instance Prelude.Hashable ManagedPrefixList where
   hashWithSalt _salt ManagedPrefixList' {..} =

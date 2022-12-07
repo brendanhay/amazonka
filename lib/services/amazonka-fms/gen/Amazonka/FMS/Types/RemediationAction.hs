@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.RemediationAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.EC2AssociateRouteTableAction
 import Amazonka.FMS.Types.EC2CopyRouteTableAction
 import Amazonka.FMS.Types.EC2CreateRouteAction
@@ -139,23 +140,23 @@ remediationAction_eC2ReplaceRouteTableAssociationAction = Lens.lens (\Remediatio
 remediationAction_eC2CreateRouteAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2CreateRouteAction)
 remediationAction_eC2CreateRouteAction = Lens.lens (\RemediationAction' {eC2CreateRouteAction} -> eC2CreateRouteAction) (\s@RemediationAction' {} a -> s {eC2CreateRouteAction = a} :: RemediationAction)
 
-instance Core.FromJSON RemediationAction where
+instance Data.FromJSON RemediationAction where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RemediationAction"
       ( \x ->
           RemediationAction'
-            Prelude.<$> (x Core..:? "EC2AssociateRouteTableAction")
-            Prelude.<*> (x Core..:? "EC2DeleteRouteAction")
-            Prelude.<*> (x Core..:? "EC2ReplaceRouteAction")
+            Prelude.<$> (x Data..:? "EC2AssociateRouteTableAction")
+            Prelude.<*> (x Data..:? "EC2DeleteRouteAction")
+            Prelude.<*> (x Data..:? "EC2ReplaceRouteAction")
             Prelude.<*> ( x
-                            Core..:? "FMSPolicyUpdateFirewallCreationConfigAction"
+                            Data..:? "FMSPolicyUpdateFirewallCreationConfigAction"
                         )
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "EC2CreateRouteTableAction")
-            Prelude.<*> (x Core..:? "EC2CopyRouteTableAction")
-            Prelude.<*> (x Core..:? "EC2ReplaceRouteTableAssociationAction")
-            Prelude.<*> (x Core..:? "EC2CreateRouteAction")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "EC2CreateRouteTableAction")
+            Prelude.<*> (x Data..:? "EC2CopyRouteTableAction")
+            Prelude.<*> (x Data..:? "EC2ReplaceRouteTableAssociationAction")
+            Prelude.<*> (x Data..:? "EC2CreateRouteAction")
       )
 
 instance Prelude.Hashable RemediationAction where

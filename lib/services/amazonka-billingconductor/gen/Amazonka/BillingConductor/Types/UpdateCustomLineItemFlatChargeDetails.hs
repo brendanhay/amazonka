@@ -21,6 +21,7 @@ module Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails whe
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A representation of the new charge details that are associated with a
@@ -74,11 +75,11 @@ instance
     Prelude.rnf chargeValue
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     UpdateCustomLineItemFlatChargeDetails
   where
   toJSON UpdateCustomLineItemFlatChargeDetails' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ChargeValue" Core..= chargeValue)]
+          [Prelude.Just ("ChargeValue" Data..= chargeValue)]
       )

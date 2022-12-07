@@ -21,6 +21,7 @@ module Amazonka.Detective.Types.TimestampForCollection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details on when data collection began for a source package.
@@ -30,7 +31,7 @@ data TimestampForCollection = TimestampForCollection'
   { -- | The data and time when data collection began for a source package. The
     -- value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    timestamp :: Prelude.Maybe Core.POSIX
+    timestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,15 +58,15 @@ newTimestampForCollection =
 -- value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
 timestampForCollection_timestamp :: Lens.Lens' TimestampForCollection (Prelude.Maybe Prelude.UTCTime)
-timestampForCollection_timestamp = Lens.lens (\TimestampForCollection' {timestamp} -> timestamp) (\s@TimestampForCollection' {} a -> s {timestamp = a} :: TimestampForCollection) Prelude.. Lens.mapping Core._Time
+timestampForCollection_timestamp = Lens.lens (\TimestampForCollection' {timestamp} -> timestamp) (\s@TimestampForCollection' {} a -> s {timestamp = a} :: TimestampForCollection) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON TimestampForCollection where
+instance Data.FromJSON TimestampForCollection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestampForCollection"
       ( \x ->
           TimestampForCollection'
-            Prelude.<$> (x Core..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable TimestampForCollection where

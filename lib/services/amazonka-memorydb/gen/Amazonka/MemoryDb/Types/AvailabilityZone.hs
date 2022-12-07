@@ -21,6 +21,7 @@ module Amazonka.MemoryDb.Types.AvailabilityZone where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Indicates if the cluster has a Multi-AZ configuration (multiaz) or not
@@ -51,12 +52,12 @@ newAvailabilityZone =
 availabilityZone_name :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@AvailabilityZone' {} a -> s {name = a} :: AvailabilityZone)
 
-instance Core.FromJSON AvailabilityZone where
+instance Data.FromJSON AvailabilityZone where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AvailabilityZone"
       ( \x ->
-          AvailabilityZone' Prelude.<$> (x Core..:? "Name")
+          AvailabilityZone' Prelude.<$> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AvailabilityZone where

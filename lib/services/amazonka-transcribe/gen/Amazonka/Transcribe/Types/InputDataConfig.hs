@@ -21,6 +21,7 @@ module Amazonka.Transcribe.Types.InputDataConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the Amazon S3 location of the training data you want to use to
@@ -134,15 +135,15 @@ inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@Input
 inputDataConfig_dataAccessRoleArn :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_dataAccessRoleArn = Lens.lens (\InputDataConfig' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@InputDataConfig' {} a -> s {dataAccessRoleArn = a} :: InputDataConfig)
 
-instance Core.FromJSON InputDataConfig where
+instance Data.FromJSON InputDataConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..:? "TuningDataS3Uri")
-            Prelude.<*> (x Core..: "S3Uri")
-            Prelude.<*> (x Core..: "DataAccessRoleArn")
+            Prelude.<$> (x Data..:? "TuningDataS3Uri")
+            Prelude.<*> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "DataAccessRoleArn")
       )
 
 instance Prelude.Hashable InputDataConfig where
@@ -157,14 +158,14 @@ instance Prelude.NFData InputDataConfig where
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
 
-instance Core.ToJSON InputDataConfig where
+instance Data.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TuningDataS3Uri" Core..=)
+          [ ("TuningDataS3Uri" Data..=)
               Prelude.<$> tuningDataS3Uri,
-            Prelude.Just ("S3Uri" Core..= s3Uri),
+            Prelude.Just ("S3Uri" Data..= s3Uri),
             Prelude.Just
-              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
+              ("DataAccessRoleArn" Data..= dataAccessRoleArn)
           ]
       )

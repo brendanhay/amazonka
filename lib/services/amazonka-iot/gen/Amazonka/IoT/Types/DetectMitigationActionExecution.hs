@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DetectMitigationActionExecution where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.DetectMitigationActionExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,11 +40,11 @@ data DetectMitigationActionExecution = DetectMitigationActionExecution'
     -- | The unique identifier of the task.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The date a mitigation action was started.
-    executionStartDate :: Prelude.Maybe Core.POSIX,
+    executionStartDate :: Prelude.Maybe Data.POSIX,
     -- | The status of a mitigation action.
     status :: Prelude.Maybe DetectMitigationActionExecutionStatus,
     -- | The date a mitigation action ended.
-    executionEndDate :: Prelude.Maybe Core.POSIX,
+    executionEndDate :: Prelude.Maybe Data.POSIX,
     -- | The error code of a mitigation action.
     errorCode :: Prelude.Maybe Prelude.Text
   }
@@ -112,7 +113,7 @@ detectMitigationActionExecution_taskId = Lens.lens (\DetectMitigationActionExecu
 
 -- | The date a mitigation action was started.
 detectMitigationActionExecution_executionStartDate :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.UTCTime)
-detectMitigationActionExecution_executionStartDate = Lens.lens (\DetectMitigationActionExecution' {executionStartDate} -> executionStartDate) (\s@DetectMitigationActionExecution' {} a -> s {executionStartDate = a} :: DetectMitigationActionExecution) Prelude.. Lens.mapping Core._Time
+detectMitigationActionExecution_executionStartDate = Lens.lens (\DetectMitigationActionExecution' {executionStartDate} -> executionStartDate) (\s@DetectMitigationActionExecution' {} a -> s {executionStartDate = a} :: DetectMitigationActionExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The status of a mitigation action.
 detectMitigationActionExecution_status :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe DetectMitigationActionExecutionStatus)
@@ -120,30 +121,30 @@ detectMitigationActionExecution_status = Lens.lens (\DetectMitigationActionExecu
 
 -- | The date a mitigation action ended.
 detectMitigationActionExecution_executionEndDate :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.UTCTime)
-detectMitigationActionExecution_executionEndDate = Lens.lens (\DetectMitigationActionExecution' {executionEndDate} -> executionEndDate) (\s@DetectMitigationActionExecution' {} a -> s {executionEndDate = a} :: DetectMitigationActionExecution) Prelude.. Lens.mapping Core._Time
+detectMitigationActionExecution_executionEndDate = Lens.lens (\DetectMitigationActionExecution' {executionEndDate} -> executionEndDate) (\s@DetectMitigationActionExecution' {} a -> s {executionEndDate = a} :: DetectMitigationActionExecution) Prelude.. Lens.mapping Data._Time
 
 -- | The error code of a mitigation action.
 detectMitigationActionExecution_errorCode :: Lens.Lens' DetectMitigationActionExecution (Prelude.Maybe Prelude.Text)
 detectMitigationActionExecution_errorCode = Lens.lens (\DetectMitigationActionExecution' {errorCode} -> errorCode) (\s@DetectMitigationActionExecution' {} a -> s {errorCode = a} :: DetectMitigationActionExecution)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DetectMitigationActionExecution
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DetectMitigationActionExecution"
       ( \x ->
           DetectMitigationActionExecution'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "thingName")
-            Prelude.<*> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "executionStartDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "executionEndDate")
-            Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "violationId")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "executionStartDate")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "executionEndDate")
+            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance

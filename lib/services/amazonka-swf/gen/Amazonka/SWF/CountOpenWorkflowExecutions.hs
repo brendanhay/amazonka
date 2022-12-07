@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -198,7 +199,7 @@ instance Core.AWSRequest CountOpenWorkflowExecutions where
     Request.postJSON (overrides defaultService)
   response =
     Response.receiveJSON
-      (\s h x -> Core.eitherParseJSON x)
+      (\s h x -> Data.eitherParseJSON x)
 
 instance Prelude.Hashable CountOpenWorkflowExecutions where
   hashWithSalt _salt CountOpenWorkflowExecutions' {..} =
@@ -216,37 +217,37 @@ instance Prelude.NFData CountOpenWorkflowExecutions where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf startTimeFilter
 
-instance Core.ToHeaders CountOpenWorkflowExecutions where
+instance Data.ToHeaders CountOpenWorkflowExecutions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
+              Data.=# ( "SimpleWorkflowService.CountOpenWorkflowExecutions" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CountOpenWorkflowExecutions where
+instance Data.ToJSON CountOpenWorkflowExecutions where
   toJSON CountOpenWorkflowExecutions' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("typeFilter" Core..=) Prelude.<$> typeFilter,
-            ("executionFilter" Core..=)
+          [ ("typeFilter" Data..=) Prelude.<$> typeFilter,
+            ("executionFilter" Data..=)
               Prelude.<$> executionFilter,
-            ("tagFilter" Core..=) Prelude.<$> tagFilter,
-            Prelude.Just ("domain" Core..= domain),
+            ("tagFilter" Data..=) Prelude.<$> tagFilter,
+            Prelude.Just ("domain" Data..= domain),
             Prelude.Just
-              ("startTimeFilter" Core..= startTimeFilter)
+              ("startTimeFilter" Data..= startTimeFilter)
           ]
       )
 
-instance Core.ToPath CountOpenWorkflowExecutions where
+instance Data.ToPath CountOpenWorkflowExecutions where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CountOpenWorkflowExecutions where
+instance Data.ToQuery CountOpenWorkflowExecutions where
   toQuery = Prelude.const Prelude.mempty

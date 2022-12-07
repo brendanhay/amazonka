@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.GroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.InsightsConfiguration
 
@@ -102,16 +103,16 @@ groupSummary_groupName = Lens.lens (\GroupSummary' {groupName} -> groupName) (\s
 groupSummary_groupARN :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_groupARN = Lens.lens (\GroupSummary' {groupARN} -> groupARN) (\s@GroupSummary' {} a -> s {groupARN = a} :: GroupSummary)
 
-instance Core.FromJSON GroupSummary where
+instance Data.FromJSON GroupSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Core..:? "InsightsConfiguration")
-            Prelude.<*> (x Core..:? "FilterExpression")
-            Prelude.<*> (x Core..:? "GroupName")
-            Prelude.<*> (x Core..:? "GroupARN")
+            Prelude.<$> (x Data..:? "InsightsConfiguration")
+            Prelude.<*> (x Data..:? "FilterExpression")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "GroupARN")
       )
 
 instance Prelude.Hashable GroupSummary where

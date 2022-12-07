@@ -21,6 +21,7 @@ module Amazonka.OpsWorks.Types.Volume where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an instance\'s Amazon EBS volume.
@@ -235,26 +236,26 @@ volume_volumeId = Lens.lens (\Volume' {volumeId} -> volumeId) (\s@Volume' {} a -
 volume_iops :: Lens.Lens' Volume (Prelude.Maybe Prelude.Int)
 volume_iops = Lens.lens (\Volume' {iops} -> iops) (\s@Volume' {} a -> s {iops = a} :: Volume)
 
-instance Core.FromJSON Volume where
+instance Data.FromJSON Volume where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Device")
-            Prelude.<*> (x Core..:? "RaidArrayId")
-            Prelude.<*> (x Core..:? "MountPoint")
-            Prelude.<*> (x Core..:? "Size")
-            Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
-            Prelude.<*> (x Core..:? "Ec2VolumeId")
-            Prelude.<*> (x Core..:? "Region")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "VolumeId")
-            Prelude.<*> (x Core..:? "Iops")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Device")
+            Prelude.<*> (x Data..:? "RaidArrayId")
+            Prelude.<*> (x Data..:? "MountPoint")
+            Prelude.<*> (x Data..:? "Size")
+            Prelude.<*> (x Data..:? "VolumeType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "Ec2VolumeId")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Encrypted")
+            Prelude.<*> (x Data..:? "VolumeId")
+            Prelude.<*> (x Data..:? "Iops")
       )
 
 instance Prelude.Hashable Volume where

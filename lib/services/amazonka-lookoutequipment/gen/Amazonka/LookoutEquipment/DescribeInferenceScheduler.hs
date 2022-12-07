@@ -55,6 +55,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.LookoutEquipment.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,20 +102,20 @@ instance Core.AWSRequest DescribeInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           DescribeInferenceSchedulerResponse'
-            Prelude.<$> (x Core..?> "InferenceSchedulerName")
-            Prelude.<*> (x Core..?> "ServerSideKmsKeyId")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "DataDelayOffsetInMinutes")
-            Prelude.<*> (x Core..?> "DataOutputConfiguration")
-            Prelude.<*> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "ModelArn")
-            Prelude.<*> (x Core..?> "LatestInferenceResult")
-            Prelude.<*> (x Core..?> "ModelName")
-            Prelude.<*> (x Core..?> "DataUploadFrequency")
-            Prelude.<*> (x Core..?> "CreatedAt")
-            Prelude.<*> (x Core..?> "InferenceSchedulerArn")
-            Prelude.<*> (x Core..?> "UpdatedAt")
-            Prelude.<*> (x Core..?> "DataInputConfiguration")
+            Prelude.<$> (x Data..?> "InferenceSchedulerName")
+            Prelude.<*> (x Data..?> "ServerSideKmsKeyId")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "DataDelayOffsetInMinutes")
+            Prelude.<*> (x Data..?> "DataOutputConfiguration")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ModelArn")
+            Prelude.<*> (x Data..?> "LatestInferenceResult")
+            Prelude.<*> (x Data..?> "ModelName")
+            Prelude.<*> (x Data..?> "DataUploadFrequency")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "InferenceSchedulerArn")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> (x Data..?> "DataInputConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,36 +127,36 @@ instance Prelude.NFData DescribeInferenceScheduler where
   rnf DescribeInferenceScheduler' {..} =
     Prelude.rnf inferenceSchedulerName
 
-instance Core.ToHeaders DescribeInferenceScheduler where
+instance Data.ToHeaders DescribeInferenceScheduler where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSLookoutEquipmentFrontendService.DescribeInferenceScheduler" ::
+              Data.=# ( "AWSLookoutEquipmentFrontendService.DescribeInferenceScheduler" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeInferenceScheduler where
+instance Data.ToJSON DescribeInferenceScheduler where
   toJSON DescribeInferenceScheduler' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "InferenceSchedulerName"
-                  Core..= inferenceSchedulerName
+                  Data..= inferenceSchedulerName
               )
           ]
       )
 
-instance Core.ToPath DescribeInferenceScheduler where
+instance Data.ToPath DescribeInferenceScheduler where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeInferenceScheduler where
+instance Data.ToQuery DescribeInferenceScheduler where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeInferenceSchedulerResponse' smart constructor.
@@ -201,13 +202,13 @@ data DescribeInferenceSchedulerResponse = DescribeInferenceSchedulerResponse'
     -- once every 5 minutes.
     dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
     -- | Specifies the time at which the inference scheduler was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the inference scheduler being
     -- described.
     inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time at which the inference scheduler was last updated, if
     -- it was.
-    updatedAt :: Prelude.Maybe Core.POSIX,
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | Specifies configuration information for the input data for the inference
     -- scheduler, including delimiter, format, and dataset location.
     dataInputConfiguration :: Prelude.Maybe InferenceInputConfiguration,
@@ -365,7 +366,7 @@ describeInferenceSchedulerResponse_dataUploadFrequency = Lens.lens (\DescribeInf
 
 -- | Specifies the time at which the inference scheduler was created.
 describeInferenceSchedulerResponse_createdAt :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.UTCTime)
-describeInferenceSchedulerResponse_createdAt = Lens.lens (\DescribeInferenceSchedulerResponse' {createdAt} -> createdAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {createdAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Core._Time
+describeInferenceSchedulerResponse_createdAt = Lens.lens (\DescribeInferenceSchedulerResponse' {createdAt} -> createdAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {createdAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the inference scheduler being
 -- described.
@@ -375,7 +376,7 @@ describeInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\DescribeI
 -- | Specifies the time at which the inference scheduler was last updated, if
 -- it was.
 describeInferenceSchedulerResponse_updatedAt :: Lens.Lens' DescribeInferenceSchedulerResponse (Prelude.Maybe Prelude.UTCTime)
-describeInferenceSchedulerResponse_updatedAt = Lens.lens (\DescribeInferenceSchedulerResponse' {updatedAt} -> updatedAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {updatedAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Core._Time
+describeInferenceSchedulerResponse_updatedAt = Lens.lens (\DescribeInferenceSchedulerResponse' {updatedAt} -> updatedAt) (\s@DescribeInferenceSchedulerResponse' {} a -> s {updatedAt = a} :: DescribeInferenceSchedulerResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies configuration information for the input data for the inference
 -- scheduler, including delimiter, format, and dataset location.

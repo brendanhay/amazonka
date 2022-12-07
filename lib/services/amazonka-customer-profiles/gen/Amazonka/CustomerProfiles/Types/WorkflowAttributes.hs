@@ -22,6 +22,7 @@ module Amazonka.CustomerProfiles.Types.WorkflowAttributes where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Structure to hold workflow attributes.
@@ -54,13 +55,13 @@ newWorkflowAttributes =
 workflowAttributes_appflowIntegration :: Lens.Lens' WorkflowAttributes (Prelude.Maybe AppflowIntegrationWorkflowAttributes)
 workflowAttributes_appflowIntegration = Lens.lens (\WorkflowAttributes' {appflowIntegration} -> appflowIntegration) (\s@WorkflowAttributes' {} a -> s {appflowIntegration = a} :: WorkflowAttributes)
 
-instance Core.FromJSON WorkflowAttributes where
+instance Data.FromJSON WorkflowAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkflowAttributes"
       ( \x ->
           WorkflowAttributes'
-            Prelude.<$> (x Core..:? "AppflowIntegration")
+            Prelude.<$> (x Data..:? "AppflowIntegration")
       )
 
 instance Prelude.Hashable WorkflowAttributes where

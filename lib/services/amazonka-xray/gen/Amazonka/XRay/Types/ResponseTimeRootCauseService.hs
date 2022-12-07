@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ResponseTimeRootCauseService where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ResponseTimeRootCauseEntity
 
@@ -100,18 +101,18 @@ responseTimeRootCauseService_accountId = Lens.lens (\ResponseTimeRootCauseServic
 responseTimeRootCauseService_inferred :: Lens.Lens' ResponseTimeRootCauseService (Prelude.Maybe Prelude.Bool)
 responseTimeRootCauseService_inferred = Lens.lens (\ResponseTimeRootCauseService' {inferred} -> inferred) (\s@ResponseTimeRootCauseService' {} a -> s {inferred = a} :: ResponseTimeRootCauseService)
 
-instance Core.FromJSON ResponseTimeRootCauseService where
+instance Data.FromJSON ResponseTimeRootCauseService where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseTimeRootCauseService"
       ( \x ->
           ResponseTimeRootCauseService'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "EntityPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "Inferred")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "EntityPath" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Inferred")
       )
 
 instance

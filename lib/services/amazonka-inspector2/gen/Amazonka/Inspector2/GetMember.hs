@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Inspector2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -84,7 +85,7 @@ instance Core.AWSRequest GetMember where
     Response.receiveJSON
       ( \s h x ->
           GetMemberResponse'
-            Prelude.<$> (x Core..?> "member")
+            Prelude.<$> (x Data..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,28 +96,28 @@ instance Prelude.Hashable GetMember where
 instance Prelude.NFData GetMember where
   rnf GetMember' {..} = Prelude.rnf accountId
 
-instance Core.ToHeaders GetMember where
+instance Data.ToHeaders GetMember where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetMember where
+instance Data.ToJSON GetMember where
   toJSON GetMember' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("accountId" Core..= accountId)]
+          [Prelude.Just ("accountId" Data..= accountId)]
       )
 
-instance Core.ToPath GetMember where
+instance Data.ToPath GetMember where
   toPath = Prelude.const "/members/get"
 
-instance Core.ToQuery GetMember where
+instance Data.ToQuery GetMember where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetMemberResponse' smart constructor.

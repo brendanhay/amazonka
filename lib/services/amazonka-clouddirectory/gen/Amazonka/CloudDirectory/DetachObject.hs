@@ -45,6 +45,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -117,7 +118,7 @@ instance Core.AWSRequest DetachObject where
     Response.receiveJSON
       ( \s h x ->
           DetachObjectResponse'
-            Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
+            Prelude.<$> (x Data..?> "DetachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,27 +134,27 @@ instance Prelude.NFData DetachObject where
       `Prelude.seq` Prelude.rnf parentReference
       `Prelude.seq` Prelude.rnf linkName
 
-instance Core.ToHeaders DetachObject where
+instance Data.ToHeaders DetachObject where
   toHeaders DetachObject' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON DetachObject where
+instance Data.ToJSON DetachObject where
   toJSON DetachObject' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("ParentReference" Core..= parentReference),
-            Prelude.Just ("LinkName" Core..= linkName)
+              ("ParentReference" Data..= parentReference),
+            Prelude.Just ("LinkName" Data..= linkName)
           ]
       )
 
-instance Core.ToPath DetachObject where
+instance Data.ToPath DetachObject where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/object/detach"
 
-instance Core.ToQuery DetachObject where
+instance Data.ToQuery DetachObject where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachObjectResponse' smart constructor.

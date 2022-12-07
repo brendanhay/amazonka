@@ -21,6 +21,7 @@ module Amazonka.EMRContainers.Types.ParametricConfigurationOverrides where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMRContainers.Types.Configuration
 import Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -67,18 +68,18 @@ parametricConfigurationOverrides_monitoringConfiguration :: Lens.Lens' Parametri
 parametricConfigurationOverrides_monitoringConfiguration = Lens.lens (\ParametricConfigurationOverrides' {monitoringConfiguration} -> monitoringConfiguration) (\s@ParametricConfigurationOverrides' {} a -> s {monitoringConfiguration = a} :: ParametricConfigurationOverrides)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ParametricConfigurationOverrides
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParametricConfigurationOverrides"
       ( \x ->
           ParametricConfigurationOverrides'
-            Prelude.<$> ( x Core..:? "applicationConfiguration"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "applicationConfiguration"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "monitoringConfiguration")
+            Prelude.<*> (x Data..:? "monitoringConfiguration")
       )
 
 instance
@@ -100,13 +101,13 @@ instance
     Prelude.rnf applicationConfiguration
       `Prelude.seq` Prelude.rnf monitoringConfiguration
 
-instance Core.ToJSON ParametricConfigurationOverrides where
+instance Data.ToJSON ParametricConfigurationOverrides where
   toJSON ParametricConfigurationOverrides' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("applicationConfiguration" Core..=)
+          [ ("applicationConfiguration" Data..=)
               Prelude.<$> applicationConfiguration,
-            ("monitoringConfiguration" Core..=)
+            ("monitoringConfiguration" Data..=)
               Prelude.<$> monitoringConfiguration
           ]
       )

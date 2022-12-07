@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.NodeGroupUpdateStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.NodeGroupMemberUpdateStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,15 +64,15 @@ nodeGroupUpdateStatus_nodeGroupMemberUpdateStatus = Lens.lens (\NodeGroupUpdateS
 nodeGroupUpdateStatus_nodeGroupId :: Lens.Lens' NodeGroupUpdateStatus (Prelude.Maybe Prelude.Text)
 nodeGroupUpdateStatus_nodeGroupId = Lens.lens (\NodeGroupUpdateStatus' {nodeGroupId} -> nodeGroupId) (\s@NodeGroupUpdateStatus' {} a -> s {nodeGroupId = a} :: NodeGroupUpdateStatus)
 
-instance Core.FromXML NodeGroupUpdateStatus where
+instance Data.FromXML NodeGroupUpdateStatus where
   parseXML x =
     NodeGroupUpdateStatus'
-      Prelude.<$> ( x Core..@? "NodeGroupMemberUpdateStatus"
+      Prelude.<$> ( x Data..@? "NodeGroupMemberUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
-                        (Core.parseXMLList "NodeGroupMemberUpdateStatus")
+                        (Data.parseXMLList "NodeGroupMemberUpdateStatus")
                   )
-      Prelude.<*> (x Core..@? "NodeGroupId")
+      Prelude.<*> (x Data..@? "NodeGroupId")
 
 instance Prelude.Hashable NodeGroupUpdateStatus where
   hashWithSalt _salt NodeGroupUpdateStatus' {..} =

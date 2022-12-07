@@ -21,6 +21,7 @@ module Amazonka.RBin.Types.UnlockDelay where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RBin.Types.UnlockDelayUnit
 
@@ -75,14 +76,14 @@ unlockDelay_unlockDelayValue = Lens.lens (\UnlockDelay' {unlockDelayValue} -> un
 unlockDelay_unlockDelayUnit :: Lens.Lens' UnlockDelay UnlockDelayUnit
 unlockDelay_unlockDelayUnit = Lens.lens (\UnlockDelay' {unlockDelayUnit} -> unlockDelayUnit) (\s@UnlockDelay' {} a -> s {unlockDelayUnit = a} :: UnlockDelay)
 
-instance Core.FromJSON UnlockDelay where
+instance Data.FromJSON UnlockDelay where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UnlockDelay"
       ( \x ->
           UnlockDelay'
-            Prelude.<$> (x Core..: "UnlockDelayValue")
-            Prelude.<*> (x Core..: "UnlockDelayUnit")
+            Prelude.<$> (x Data..: "UnlockDelayValue")
+            Prelude.<*> (x Data..: "UnlockDelayUnit")
       )
 
 instance Prelude.Hashable UnlockDelay where
@@ -95,13 +96,13 @@ instance Prelude.NFData UnlockDelay where
     Prelude.rnf unlockDelayValue
       `Prelude.seq` Prelude.rnf unlockDelayUnit
 
-instance Core.ToJSON UnlockDelay where
+instance Data.ToJSON UnlockDelay where
   toJSON UnlockDelay' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("UnlockDelayValue" Core..= unlockDelayValue),
+              ("UnlockDelayValue" Data..= unlockDelayValue),
             Prelude.Just
-              ("UnlockDelayUnit" Core..= unlockDelayUnit)
+              ("UnlockDelayUnit" Data..= unlockDelayUnit)
           ]
       )

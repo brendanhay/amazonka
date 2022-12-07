@@ -21,6 +21,7 @@ module Amazonka.SWF.Types.MarkerRecordedEventAttributes where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides the details of the @MarkerRecorded@ event.
@@ -87,15 +88,15 @@ markerRecordedEventAttributes_markerName = Lens.lens (\MarkerRecordedEventAttrib
 markerRecordedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' MarkerRecordedEventAttributes Prelude.Integer
 markerRecordedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\MarkerRecordedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@MarkerRecordedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: MarkerRecordedEventAttributes)
 
-instance Core.FromJSON MarkerRecordedEventAttributes where
+instance Data.FromJSON MarkerRecordedEventAttributes where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MarkerRecordedEventAttributes"
       ( \x ->
           MarkerRecordedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..: "markerName")
-            Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..: "markerName")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance

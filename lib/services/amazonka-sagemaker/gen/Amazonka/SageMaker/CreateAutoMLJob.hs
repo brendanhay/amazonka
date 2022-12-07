@@ -56,6 +56,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -235,7 +236,7 @@ instance Core.AWSRequest CreateAutoMLJob where
       ( \s h x ->
           CreateAutoMLJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "AutoMLJobArn")
+            Prelude.<*> (x Data..:> "AutoMLJobArn")
       )
 
 instance Prelude.Hashable CreateAutoMLJob where
@@ -264,46 +265,46 @@ instance Prelude.NFData CreateAutoMLJob where
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf roleArn
 
-instance Core.ToHeaders CreateAutoMLJob where
+instance Data.ToHeaders CreateAutoMLJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.CreateAutoMLJob" :: Prelude.ByteString),
+              Data.=# ("SageMaker.CreateAutoMLJob" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAutoMLJob where
+instance Data.ToJSON CreateAutoMLJob where
   toJSON CreateAutoMLJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("AutoMLJobConfig" Core..=)
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("AutoMLJobConfig" Data..=)
               Prelude.<$> autoMLJobConfig,
-            ("AutoMLJobObjective" Core..=)
+            ("AutoMLJobObjective" Data..=)
               Prelude.<$> autoMLJobObjective,
-            ("ModelDeployConfig" Core..=)
+            ("ModelDeployConfig" Data..=)
               Prelude.<$> modelDeployConfig,
-            ("ProblemType" Core..=) Prelude.<$> problemType,
-            ("GenerateCandidateDefinitionsOnly" Core..=)
+            ("ProblemType" Data..=) Prelude.<$> problemType,
+            ("GenerateCandidateDefinitionsOnly" Data..=)
               Prelude.<$> generateCandidateDefinitionsOnly,
-            Prelude.Just ("AutoMLJobName" Core..= autoMLJobName),
+            Prelude.Just ("AutoMLJobName" Data..= autoMLJobName),
             Prelude.Just
-              ("InputDataConfig" Core..= inputDataConfig),
+              ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
-              ("OutputDataConfig" Core..= outputDataConfig),
-            Prelude.Just ("RoleArn" Core..= roleArn)
+              ("OutputDataConfig" Data..= outputDataConfig),
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 
-instance Core.ToPath CreateAutoMLJob where
+instance Data.ToPath CreateAutoMLJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CreateAutoMLJob where
+instance Data.ToQuery CreateAutoMLJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAutoMLJobResponse' smart constructor.

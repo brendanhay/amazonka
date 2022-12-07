@@ -21,6 +21,7 @@ module Amazonka.AutoScaling.Types.Filter where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a filter that is used to return a more specific list of
@@ -213,11 +214,11 @@ instance Prelude.NFData Filter where
   rnf Filter' {..} =
     Prelude.rnf values `Prelude.seq` Prelude.rnf name
 
-instance Core.ToQuery Filter where
+instance Data.ToQuery Filter where
   toQuery Filter' {..} =
     Prelude.mconcat
       [ "Values"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> values),
-        "Name" Core.=: name
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> values),
+        "Name" Data.=: name
       ]

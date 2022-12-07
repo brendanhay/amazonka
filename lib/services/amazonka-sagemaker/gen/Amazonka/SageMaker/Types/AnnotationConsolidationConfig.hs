@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.AnnotationConsolidationConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configures how labels are consolidated across human workers and
@@ -1992,13 +1993,13 @@ newAnnotationConsolidationConfig
 annotationConsolidationConfig_annotationConsolidationLambdaArn :: Lens.Lens' AnnotationConsolidationConfig Prelude.Text
 annotationConsolidationConfig_annotationConsolidationLambdaArn = Lens.lens (\AnnotationConsolidationConfig' {annotationConsolidationLambdaArn} -> annotationConsolidationLambdaArn) (\s@AnnotationConsolidationConfig' {} a -> s {annotationConsolidationLambdaArn = a} :: AnnotationConsolidationConfig)
 
-instance Core.FromJSON AnnotationConsolidationConfig where
+instance Data.FromJSON AnnotationConsolidationConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AnnotationConsolidationConfig"
       ( \x ->
           AnnotationConsolidationConfig'
-            Prelude.<$> (x Core..: "AnnotationConsolidationLambdaArn")
+            Prelude.<$> (x Data..: "AnnotationConsolidationLambdaArn")
       )
 
 instance
@@ -2013,13 +2014,13 @@ instance Prelude.NFData AnnotationConsolidationConfig where
   rnf AnnotationConsolidationConfig' {..} =
     Prelude.rnf annotationConsolidationLambdaArn
 
-instance Core.ToJSON AnnotationConsolidationConfig where
+instance Data.ToJSON AnnotationConsolidationConfig where
   toJSON AnnotationConsolidationConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "AnnotationConsolidationLambdaArn"
-                  Core..= annotationConsolidationLambdaArn
+                  Data..= annotationConsolidationLambdaArn
               )
           ]
       )

@@ -23,6 +23,7 @@ import Amazonka.Backup.Types.AdvancedBackupSetting
 import Amazonka.Backup.Types.BackupRuleInput
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an optional backup plan display name and an array of
@@ -101,14 +102,14 @@ instance Prelude.NFData BackupPlanInput where
       `Prelude.seq` Prelude.rnf backupPlanName
       `Prelude.seq` Prelude.rnf rules
 
-instance Core.ToJSON BackupPlanInput where
+instance Data.ToJSON BackupPlanInput where
   toJSON BackupPlanInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AdvancedBackupSettings" Core..=)
+          [ ("AdvancedBackupSettings" Data..=)
               Prelude.<$> advancedBackupSettings,
             Prelude.Just
-              ("BackupPlanName" Core..= backupPlanName),
-            Prelude.Just ("Rules" Core..= rules)
+              ("BackupPlanName" Data..= backupPlanName),
+            Prelude.Just ("Rules" Data..= rules)
           ]
       )

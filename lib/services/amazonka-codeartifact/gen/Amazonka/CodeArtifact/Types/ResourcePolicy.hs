@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.ResourcePolicy where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An CodeArtifact resource policy that contains a resource ARN, document
@@ -71,15 +72,15 @@ resourcePolicy_document = Lens.lens (\ResourcePolicy' {document} -> document) (\
 resourcePolicy_resourceArn :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_resourceArn = Lens.lens (\ResourcePolicy' {resourceArn} -> resourceArn) (\s@ResourcePolicy' {} a -> s {resourceArn = a} :: ResourcePolicy)
 
-instance Core.FromJSON ResourcePolicy where
+instance Data.FromJSON ResourcePolicy where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Core..:? "revision")
-            Prelude.<*> (x Core..:? "document")
-            Prelude.<*> (x Core..:? "resourceArn")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "document")
+            Prelude.<*> (x Data..:? "resourceArn")
       )
 
 instance Prelude.Hashable ResourcePolicy where

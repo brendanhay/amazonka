@@ -21,6 +21,7 @@ module Amazonka.KinesisAnalyticsV2.Types.CustomArtifactConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KinesisAnalyticsV2.Types.ArtifactType
 import Amazonka.KinesisAnalyticsV2.Types.MavenReference
 import Amazonka.KinesisAnalyticsV2.Types.S3ContentLocation
@@ -94,14 +95,14 @@ instance Prelude.NFData CustomArtifactConfiguration where
       `Prelude.seq` Prelude.rnf mavenReference
       `Prelude.seq` Prelude.rnf artifactType
 
-instance Core.ToJSON CustomArtifactConfiguration where
+instance Data.ToJSON CustomArtifactConfiguration where
   toJSON CustomArtifactConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("S3ContentLocation" Core..=)
+          [ ("S3ContentLocation" Data..=)
               Prelude.<$> s3ContentLocation,
-            ("MavenReference" Core..=)
+            ("MavenReference" Data..=)
               Prelude.<$> mavenReference,
-            Prelude.Just ("ArtifactType" Core..= artifactType)
+            Prelude.Just ("ArtifactType" Data..= artifactType)
           ]
       )

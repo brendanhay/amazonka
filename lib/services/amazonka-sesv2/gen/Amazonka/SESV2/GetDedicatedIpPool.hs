@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -85,7 +86,7 @@ instance Core.AWSRequest GetDedicatedIpPool where
     Response.receiveJSON
       ( \s h x ->
           GetDedicatedIpPoolResponse'
-            Prelude.<$> (x Core..?> "DedicatedIpPool")
+            Prelude.<$> (x Data..?> "DedicatedIpPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,23 +97,23 @@ instance Prelude.Hashable GetDedicatedIpPool where
 instance Prelude.NFData GetDedicatedIpPool where
   rnf GetDedicatedIpPool' {..} = Prelude.rnf poolName
 
-instance Core.ToHeaders GetDedicatedIpPool where
+instance Data.ToHeaders GetDedicatedIpPool where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath GetDedicatedIpPool where
+instance Data.ToPath GetDedicatedIpPool where
   toPath GetDedicatedIpPool' {..} =
     Prelude.mconcat
-      ["/v2/email/dedicated-ip-pools/", Core.toBS poolName]
+      ["/v2/email/dedicated-ip-pools/", Data.toBS poolName]
 
-instance Core.ToQuery GetDedicatedIpPool where
+instance Data.ToQuery GetDedicatedIpPool where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The following element is returned by the service.

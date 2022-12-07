@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.EdgeOutputConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EdgePresetDeploymentType
 
@@ -185,16 +186,16 @@ edgeOutputConfig_kmsKeyId = Lens.lens (\EdgeOutputConfig' {kmsKeyId} -> kmsKeyId
 edgeOutputConfig_s3OutputLocation :: Lens.Lens' EdgeOutputConfig Prelude.Text
 edgeOutputConfig_s3OutputLocation = Lens.lens (\EdgeOutputConfig' {s3OutputLocation} -> s3OutputLocation) (\s@EdgeOutputConfig' {} a -> s {s3OutputLocation = a} :: EdgeOutputConfig)
 
-instance Core.FromJSON EdgeOutputConfig where
+instance Data.FromJSON EdgeOutputConfig where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EdgeOutputConfig"
       ( \x ->
           EdgeOutputConfig'
-            Prelude.<$> (x Core..:? "PresetDeploymentType")
-            Prelude.<*> (x Core..:? "PresetDeploymentConfig")
-            Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..: "S3OutputLocation")
+            Prelude.<$> (x Data..:? "PresetDeploymentType")
+            Prelude.<*> (x Data..:? "PresetDeploymentConfig")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..: "S3OutputLocation")
       )
 
 instance Prelude.Hashable EdgeOutputConfig where
@@ -211,16 +212,16 @@ instance Prelude.NFData EdgeOutputConfig where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputLocation
 
-instance Core.ToJSON EdgeOutputConfig where
+instance Data.ToJSON EdgeOutputConfig where
   toJSON EdgeOutputConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PresetDeploymentType" Core..=)
+          [ ("PresetDeploymentType" Data..=)
               Prelude.<$> presetDeploymentType,
-            ("PresetDeploymentConfig" Core..=)
+            ("PresetDeploymentConfig" Data..=)
               Prelude.<$> presetDeploymentConfig,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("S3OutputLocation" Core..= s3OutputLocation)
+              ("S3OutputLocation" Data..= s3OutputLocation)
           ]
       )

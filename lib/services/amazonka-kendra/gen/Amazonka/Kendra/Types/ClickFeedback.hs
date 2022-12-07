@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.ClickFeedback where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gathers information about when a particular result was clicked by a
@@ -32,7 +33,7 @@ data ClickFeedback = ClickFeedback'
   { -- | The unique identifier of the search result that was clicked.
     resultId :: Prelude.Text,
     -- | The Unix timestamp of the date and time that the result was clicked.
-    clickTime :: Core.POSIX
+    clickTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,7 +57,7 @@ newClickFeedback ::
 newClickFeedback pResultId_ pClickTime_ =
   ClickFeedback'
     { resultId = pResultId_,
-      clickTime = Core._Time Lens.# pClickTime_
+      clickTime = Data._Time Lens.# pClickTime_
     }
 
 -- | The unique identifier of the search result that was clicked.
@@ -65,7 +66,7 @@ clickFeedback_resultId = Lens.lens (\ClickFeedback' {resultId} -> resultId) (\s@
 
 -- | The Unix timestamp of the date and time that the result was clicked.
 clickFeedback_clickTime :: Lens.Lens' ClickFeedback Prelude.UTCTime
-clickFeedback_clickTime = Lens.lens (\ClickFeedback' {clickTime} -> clickTime) (\s@ClickFeedback' {} a -> s {clickTime = a} :: ClickFeedback) Prelude.. Core._Time
+clickFeedback_clickTime = Lens.lens (\ClickFeedback' {clickTime} -> clickTime) (\s@ClickFeedback' {} a -> s {clickTime = a} :: ClickFeedback) Prelude.. Data._Time
 
 instance Prelude.Hashable ClickFeedback where
   hashWithSalt _salt ClickFeedback' {..} =
@@ -77,11 +78,11 @@ instance Prelude.NFData ClickFeedback where
     Prelude.rnf resultId
       `Prelude.seq` Prelude.rnf clickTime
 
-instance Core.ToJSON ClickFeedback where
+instance Data.ToJSON ClickFeedback where
   toJSON ClickFeedback' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ResultId" Core..= resultId),
-            Prelude.Just ("ClickTime" Core..= clickTime)
+          [ Prelude.Just ("ResultId" Data..= resultId),
+            Prelude.Just ("ClickTime" Data..= clickTime)
           ]
       )

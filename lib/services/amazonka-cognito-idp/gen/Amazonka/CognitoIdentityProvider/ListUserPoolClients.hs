@@ -47,6 +47,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -144,8 +145,8 @@ instance Core.AWSRequest ListUserPoolClients where
     Response.receiveJSON
       ( \s h x ->
           ListUserPoolClientsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "UserPoolClients"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "UserPoolClients"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,35 +164,35 @@ instance Prelude.NFData ListUserPoolClients where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf userPoolId
 
-instance Core.ToHeaders ListUserPoolClients where
+instance Data.ToHeaders ListUserPoolClients where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.ListUserPoolClients" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.ListUserPoolClients" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListUserPoolClients where
+instance Data.ToJSON ListUserPoolClients where
   toJSON ListUserPoolClients' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
 
-instance Core.ToPath ListUserPoolClients where
+instance Data.ToPath ListUserPoolClients where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListUserPoolClients where
+instance Data.ToQuery ListUserPoolClients where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server that lists user pool clients.

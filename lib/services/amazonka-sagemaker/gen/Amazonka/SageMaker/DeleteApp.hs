@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -131,35 +132,35 @@ instance Prelude.NFData DeleteApp where
       `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf appName
 
-instance Core.ToHeaders DeleteApp where
+instance Data.ToHeaders DeleteApp where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("SageMaker.DeleteApp" :: Prelude.ByteString),
+              Data.=# ("SageMaker.DeleteApp" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteApp where
+instance Data.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Core..= domainId),
+          [ Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
-              ("UserProfileName" Core..= userProfileName),
-            Prelude.Just ("AppType" Core..= appType),
-            Prelude.Just ("AppName" Core..= appName)
+              ("UserProfileName" Data..= userProfileName),
+            Prelude.Just ("AppType" Data..= appType),
+            Prelude.Just ("AppName" Data..= appName)
           ]
       )
 
-instance Core.ToPath DeleteApp where
+instance Data.ToPath DeleteApp where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteApp where
+instance Data.ToQuery DeleteApp where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAppResponse' smart constructor.

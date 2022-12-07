@@ -63,6 +63,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Grafana.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -89,11 +90,11 @@ data UpdateWorkspace = UpdateWorkspace'
     permissionType :: Prelude.Maybe PermissionType,
     -- | The name of an IAM role that already exists to use to access resources
     -- through Organizations.
-    organizationRoleName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    organizationRoleName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies the organizational units that this workspace is allowed to use
     -- data sources from, if this workspace is in an account that is part of an
     -- organization.
-    workspaceOrganizationalUnits :: Prelude.Maybe (Core.Sensitive [Prelude.Text]),
+    workspaceOrganizationalUnits :: Prelude.Maybe (Data.Sensitive [Prelude.Text]),
     -- | The name of the CloudFormation stack set to use to generate IAM roles to
     -- be used for this workspace.
     stackSetName :: Prelude.Maybe Prelude.Text,
@@ -103,7 +104,7 @@ data UpdateWorkspace = UpdateWorkspace'
     -- this field and you specify some Amazon Web Services resources in
     -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
     -- role with the necessary permissions is automatically created.
-    workspaceRoleArn :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceRoleArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specify the Amazon Web Services notification channels that you plan to
     -- use in this workspace. Specifying these data sources here enables Amazon
     -- Managed Grafana to create IAM roles and permissions that allow Amazon
@@ -125,7 +126,7 @@ data UpdateWorkspace = UpdateWorkspace'
     -- return an error.
     removeVpcConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | A new name for the workspace to update.
-    workspaceName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specifies whether the workspace can access Amazon Web Services resources
     -- in this Amazon Web Services account only, or whether it can also access
     -- Amazon Web Services resources in other accounts in the same
@@ -135,7 +136,7 @@ data UpdateWorkspace = UpdateWorkspace'
     accountAccessType :: Prelude.Maybe AccountAccessType,
     -- | A description for the workspace. This is used only to help you identify
     -- this workspace.
-    workspaceDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    workspaceDescription :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the workspace to update.
     workspaceId :: Prelude.Text
   }
@@ -262,13 +263,13 @@ updateWorkspace_permissionType = Lens.lens (\UpdateWorkspace' {permissionType} -
 -- | The name of an IAM role that already exists to use to access resources
 -- through Organizations.
 updateWorkspace_organizationRoleName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_organizationRoleName = Lens.lens (\UpdateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@UpdateWorkspace' {} a -> s {organizationRoleName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+updateWorkspace_organizationRoleName = Lens.lens (\UpdateWorkspace' {organizationRoleName} -> organizationRoleName) (\s@UpdateWorkspace' {} a -> s {organizationRoleName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies the organizational units that this workspace is allowed to use
 -- data sources from, if this workspace is in an account that is part of an
 -- organization.
 updateWorkspace_workspaceOrganizationalUnits :: Lens.Lens' UpdateWorkspace (Prelude.Maybe [Prelude.Text])
-updateWorkspace_workspaceOrganizationalUnits = Lens.lens (\UpdateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@UpdateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: UpdateWorkspace) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+updateWorkspace_workspaceOrganizationalUnits = Lens.lens (\UpdateWorkspace' {workspaceOrganizationalUnits} -> workspaceOrganizationalUnits) (\s@UpdateWorkspace' {} a -> s {workspaceOrganizationalUnits = a} :: UpdateWorkspace) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the CloudFormation stack set to use to generate IAM roles to
 -- be used for this workspace.
@@ -282,7 +283,7 @@ updateWorkspace_stackSetName = Lens.lens (\UpdateWorkspace' {stackSetName} -> st
 -- @workspaceDataSources@ or @workspaceNotificationDestinations@, a new IAM
 -- role with the necessary permissions is automatically created.
 updateWorkspace_workspaceRoleArn :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_workspaceRoleArn = Lens.lens (\UpdateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@UpdateWorkspace' {} a -> s {workspaceRoleArn = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+updateWorkspace_workspaceRoleArn = Lens.lens (\UpdateWorkspace' {workspaceRoleArn} -> workspaceRoleArn) (\s@UpdateWorkspace' {} a -> s {workspaceRoleArn = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specify the Amazon Web Services notification channels that you plan to
 -- use in this workspace. Specifying these data sources here enables Amazon
@@ -312,7 +313,7 @@ updateWorkspace_removeVpcConfiguration = Lens.lens (\UpdateWorkspace' {removeVpc
 
 -- | A new name for the workspace to update.
 updateWorkspace_workspaceName :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_workspaceName = Lens.lens (\UpdateWorkspace' {workspaceName} -> workspaceName) (\s@UpdateWorkspace' {} a -> s {workspaceName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+updateWorkspace_workspaceName = Lens.lens (\UpdateWorkspace' {workspaceName} -> workspaceName) (\s@UpdateWorkspace' {} a -> s {workspaceName = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Specifies whether the workspace can access Amazon Web Services resources
 -- in this Amazon Web Services account only, or whether it can also access
@@ -326,7 +327,7 @@ updateWorkspace_accountAccessType = Lens.lens (\UpdateWorkspace' {accountAccessT
 -- | A description for the workspace. This is used only to help you identify
 -- this workspace.
 updateWorkspace_workspaceDescription :: Lens.Lens' UpdateWorkspace (Prelude.Maybe Prelude.Text)
-updateWorkspace_workspaceDescription = Lens.lens (\UpdateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@UpdateWorkspace' {} a -> s {workspaceDescription = a} :: UpdateWorkspace) Prelude.. Lens.mapping Core._Sensitive
+updateWorkspace_workspaceDescription = Lens.lens (\UpdateWorkspace' {workspaceDescription} -> workspaceDescription) (\s@UpdateWorkspace' {} a -> s {workspaceDescription = a} :: UpdateWorkspace) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the workspace to update.
 updateWorkspace_workspaceId :: Lens.Lens' UpdateWorkspace Prelude.Text
@@ -343,7 +344,7 @@ instance Core.AWSRequest UpdateWorkspace where
       ( \s h x ->
           UpdateWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "workspace")
+            Prelude.<*> (x Data..:> "workspace")
       )
 
 instance Prelude.Hashable UpdateWorkspace where
@@ -378,52 +379,52 @@ instance Prelude.NFData UpdateWorkspace where
       `Prelude.seq` Prelude.rnf workspaceDescription
       `Prelude.seq` Prelude.rnf workspaceId
 
-instance Core.ToHeaders UpdateWorkspace where
+instance Data.ToHeaders UpdateWorkspace where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateWorkspace where
+instance Data.ToJSON UpdateWorkspace where
   toJSON UpdateWorkspace' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Core..=)
+          [ ("vpcConfiguration" Data..=)
               Prelude.<$> vpcConfiguration,
-            ("permissionType" Core..=)
+            ("permissionType" Data..=)
               Prelude.<$> permissionType,
-            ("organizationRoleName" Core..=)
+            ("organizationRoleName" Data..=)
               Prelude.<$> organizationRoleName,
-            ("workspaceOrganizationalUnits" Core..=)
+            ("workspaceOrganizationalUnits" Data..=)
               Prelude.<$> workspaceOrganizationalUnits,
-            ("stackSetName" Core..=) Prelude.<$> stackSetName,
-            ("workspaceRoleArn" Core..=)
+            ("stackSetName" Data..=) Prelude.<$> stackSetName,
+            ("workspaceRoleArn" Data..=)
               Prelude.<$> workspaceRoleArn,
-            ("workspaceNotificationDestinations" Core..=)
+            ("workspaceNotificationDestinations" Data..=)
               Prelude.<$> workspaceNotificationDestinations,
-            ("workspaceDataSources" Core..=)
+            ("workspaceDataSources" Data..=)
               Prelude.<$> workspaceDataSources,
-            ("removeVpcConfiguration" Core..=)
+            ("removeVpcConfiguration" Data..=)
               Prelude.<$> removeVpcConfiguration,
-            ("workspaceName" Core..=) Prelude.<$> workspaceName,
-            ("accountAccessType" Core..=)
+            ("workspaceName" Data..=) Prelude.<$> workspaceName,
+            ("accountAccessType" Data..=)
               Prelude.<$> accountAccessType,
-            ("workspaceDescription" Core..=)
+            ("workspaceDescription" Data..=)
               Prelude.<$> workspaceDescription
           ]
       )
 
-instance Core.ToPath UpdateWorkspace where
+instance Data.ToPath UpdateWorkspace where
   toPath UpdateWorkspace' {..} =
     Prelude.mconcat
-      ["/workspaces/", Core.toBS workspaceId]
+      ["/workspaces/", Data.toBS workspaceId]
 
-instance Core.ToQuery UpdateWorkspace where
+instance Data.ToQuery UpdateWorkspace where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateWorkspaceResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.ECRPublic.Types.RepositoryCatalogDataInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object containing the catalog data for a repository. This data is
@@ -62,7 +63,7 @@ data RepositoryCatalogDataInput = RepositoryCatalogDataInput'
     --
     -- The repository logo is only publicly visible in the Amazon ECR Public
     -- Gallery for verified accounts.
-    logoImageBlob :: Prelude.Maybe Core.Base64,
+    logoImageBlob :: Prelude.Maybe Data.Base64,
     -- | The system architecture that the images in the repository are compatible
     -- with. On the Amazon ECR Public Gallery, the following supported
     -- architectures will appear as badges on the repository and are used as
@@ -198,7 +199,7 @@ repositoryCatalogDataInput_operatingSystems = Lens.lens (\RepositoryCatalogDataI
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 repositoryCatalogDataInput_logoImageBlob :: Lens.Lens' RepositoryCatalogDataInput (Prelude.Maybe Prelude.ByteString)
-repositoryCatalogDataInput_logoImageBlob = Lens.lens (\RepositoryCatalogDataInput' {logoImageBlob} -> logoImageBlob) (\s@RepositoryCatalogDataInput' {} a -> s {logoImageBlob = a} :: RepositoryCatalogDataInput) Prelude.. Lens.mapping Core._Base64
+repositoryCatalogDataInput_logoImageBlob = Lens.lens (\RepositoryCatalogDataInput' {logoImageBlob} -> logoImageBlob) (\s@RepositoryCatalogDataInput' {} a -> s {logoImageBlob = a} :: RepositoryCatalogDataInput) Prelude.. Lens.mapping Data._Base64
 
 -- | The system architecture that the images in the repository are compatible
 -- with. On the Amazon ECR Public Gallery, the following supported
@@ -233,16 +234,16 @@ instance Prelude.NFData RepositoryCatalogDataInput where
       `Prelude.seq` Prelude.rnf logoImageBlob
       `Prelude.seq` Prelude.rnf architectures
 
-instance Core.ToJSON RepositoryCatalogDataInput where
+instance Data.ToJSON RepositoryCatalogDataInput where
   toJSON RepositoryCatalogDataInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("aboutText" Core..=) Prelude.<$> aboutText,
-            ("usageText" Core..=) Prelude.<$> usageText,
-            ("operatingSystems" Core..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("aboutText" Data..=) Prelude.<$> aboutText,
+            ("usageText" Data..=) Prelude.<$> usageText,
+            ("operatingSystems" Data..=)
               Prelude.<$> operatingSystems,
-            ("logoImageBlob" Core..=) Prelude.<$> logoImageBlob,
-            ("architectures" Core..=) Prelude.<$> architectures
+            ("logoImageBlob" Data..=) Prelude.<$> logoImageBlob,
+            ("architectures" Data..=) Prelude.<$> architectures
           ]
       )

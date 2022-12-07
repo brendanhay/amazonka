@@ -21,6 +21,7 @@ module Amazonka.S3.Types.SseKmsEncryptedObjects where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
 import Amazonka.S3.Types.SseKmsEncryptedObjectsStatus
@@ -61,10 +62,10 @@ newSseKmsEncryptedObjects pStatus_ =
 sseKmsEncryptedObjects_status :: Lens.Lens' SseKmsEncryptedObjects SseKmsEncryptedObjectsStatus
 sseKmsEncryptedObjects_status = Lens.lens (\SseKmsEncryptedObjects' {status} -> status) (\s@SseKmsEncryptedObjects' {} a -> s {status = a} :: SseKmsEncryptedObjects)
 
-instance Core.FromXML SseKmsEncryptedObjects where
+instance Data.FromXML SseKmsEncryptedObjects where
   parseXML x =
     SseKmsEncryptedObjects'
-      Prelude.<$> (x Core..@ "Status")
+      Prelude.<$> (x Data..@ "Status")
 
 instance Prelude.Hashable SseKmsEncryptedObjects where
   hashWithSalt _salt SseKmsEncryptedObjects' {..} =
@@ -73,6 +74,6 @@ instance Prelude.Hashable SseKmsEncryptedObjects where
 instance Prelude.NFData SseKmsEncryptedObjects where
   rnf SseKmsEncryptedObjects' {..} = Prelude.rnf status
 
-instance Core.ToXML SseKmsEncryptedObjects where
+instance Data.ToXML SseKmsEncryptedObjects where
   toXML SseKmsEncryptedObjects' {..} =
-    Prelude.mconcat ["Status" Core.@= status]
+    Prelude.mconcat ["Status" Data.@= status]

@@ -21,6 +21,7 @@ module Amazonka.XRay.Types.ResponseTimeRootCause where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.XRay.Types.ResponseTimeRootCauseService
 
@@ -65,14 +66,14 @@ responseTimeRootCause_services = Lens.lens (\ResponseTimeRootCause' {services} -
 responseTimeRootCause_clientImpacting :: Lens.Lens' ResponseTimeRootCause (Prelude.Maybe Prelude.Bool)
 responseTimeRootCause_clientImpacting = Lens.lens (\ResponseTimeRootCause' {clientImpacting} -> clientImpacting) (\s@ResponseTimeRootCause' {} a -> s {clientImpacting = a} :: ResponseTimeRootCause)
 
-instance Core.FromJSON ResponseTimeRootCause where
+instance Data.FromJSON ResponseTimeRootCause where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResponseTimeRootCause"
       ( \x ->
           ResponseTimeRootCause'
-            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Data..:? "Services" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ClientImpacting")
       )
 
 instance Prelude.Hashable ResponseTimeRootCause where

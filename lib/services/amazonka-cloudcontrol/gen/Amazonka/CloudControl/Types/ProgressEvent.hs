@@ -24,6 +24,7 @@ import Amazonka.CloudControl.Types.Operation
 import Amazonka.CloudControl.Types.OperationStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the current status of a resource operation request. For more
@@ -34,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newProgressEvent' smart constructor.
 data ProgressEvent = ProgressEvent'
   { -- | When to next request the status of this resource operation request.
-    retryAfter :: Prelude.Maybe Core.POSIX,
+    retryAfter :: Prelude.Maybe Data.POSIX,
     -- | A JSON string containing the resource model, consisting of each resource
     -- property and its current value.
-    resourceModel :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    resourceModel :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current status of the resource operation request.
     --
     -- -   @PENDING@: The resource operation hasn\'t yet started.
@@ -75,7 +76,7 @@ data ProgressEvent = ProgressEvent'
     -- Development/.
     errorCode :: Prelude.Maybe HandlerErrorCode,
     -- | When the resource operation request was initiated.
-    eventTime :: Prelude.Maybe Core.POSIX,
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | Any message explaining the current status.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The resource operation type.
@@ -155,12 +156,12 @@ newProgressEvent =
 
 -- | When to next request the status of this resource operation request.
 progressEvent_retryAfter :: Lens.Lens' ProgressEvent (Prelude.Maybe Prelude.UTCTime)
-progressEvent_retryAfter = Lens.lens (\ProgressEvent' {retryAfter} -> retryAfter) (\s@ProgressEvent' {} a -> s {retryAfter = a} :: ProgressEvent) Prelude.. Lens.mapping Core._Time
+progressEvent_retryAfter = Lens.lens (\ProgressEvent' {retryAfter} -> retryAfter) (\s@ProgressEvent' {} a -> s {retryAfter = a} :: ProgressEvent) Prelude.. Lens.mapping Data._Time
 
 -- | A JSON string containing the resource model, consisting of each resource
 -- property and its current value.
 progressEvent_resourceModel :: Lens.Lens' ProgressEvent (Prelude.Maybe Prelude.Text)
-progressEvent_resourceModel = Lens.lens (\ProgressEvent' {resourceModel} -> resourceModel) (\s@ProgressEvent' {} a -> s {resourceModel = a} :: ProgressEvent) Prelude.. Lens.mapping Core._Sensitive
+progressEvent_resourceModel = Lens.lens (\ProgressEvent' {resourceModel} -> resourceModel) (\s@ProgressEvent' {} a -> s {resourceModel = a} :: ProgressEvent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current status of the resource operation request.
 --
@@ -210,7 +211,7 @@ progressEvent_errorCode = Lens.lens (\ProgressEvent' {errorCode} -> errorCode) (
 
 -- | When the resource operation request was initiated.
 progressEvent_eventTime :: Lens.Lens' ProgressEvent (Prelude.Maybe Prelude.UTCTime)
-progressEvent_eventTime = Lens.lens (\ProgressEvent' {eventTime} -> eventTime) (\s@ProgressEvent' {} a -> s {eventTime = a} :: ProgressEvent) Prelude.. Lens.mapping Core._Time
+progressEvent_eventTime = Lens.lens (\ProgressEvent' {eventTime} -> eventTime) (\s@ProgressEvent' {} a -> s {eventTime = a} :: ProgressEvent) Prelude.. Lens.mapping Data._Time
 
 -- | Any message explaining the current status.
 progressEvent_statusMessage :: Lens.Lens' ProgressEvent (Prelude.Maybe Prelude.Text)
@@ -220,22 +221,22 @@ progressEvent_statusMessage = Lens.lens (\ProgressEvent' {statusMessage} -> stat
 progressEvent_operation :: Lens.Lens' ProgressEvent (Prelude.Maybe Operation)
 progressEvent_operation = Lens.lens (\ProgressEvent' {operation} -> operation) (\s@ProgressEvent' {} a -> s {operation = a} :: ProgressEvent)
 
-instance Core.FromJSON ProgressEvent where
+instance Data.FromJSON ProgressEvent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProgressEvent"
       ( \x ->
           ProgressEvent'
-            Prelude.<$> (x Core..:? "RetryAfter")
-            Prelude.<*> (x Core..:? "ResourceModel")
-            Prelude.<*> (x Core..:? "OperationStatus")
-            Prelude.<*> (x Core..:? "TypeName")
-            Prelude.<*> (x Core..:? "RequestToken")
-            Prelude.<*> (x Core..:? "Identifier")
-            Prelude.<*> (x Core..:? "ErrorCode")
-            Prelude.<*> (x Core..:? "EventTime")
-            Prelude.<*> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Operation")
+            Prelude.<$> (x Data..:? "RetryAfter")
+            Prelude.<*> (x Data..:? "ResourceModel")
+            Prelude.<*> (x Data..:? "OperationStatus")
+            Prelude.<*> (x Data..:? "TypeName")
+            Prelude.<*> (x Data..:? "RequestToken")
+            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "Operation")
       )
 
 instance Prelude.Hashable ProgressEvent where

@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.TreatmentResource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.CampaignState
 import Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
 import Amazonka.Pinpoint.Types.MessageConfiguration
@@ -143,21 +144,21 @@ treatmentResource_id = Lens.lens (\TreatmentResource' {id} -> id) (\s@TreatmentR
 treatmentResource_sizePercent :: Lens.Lens' TreatmentResource Prelude.Int
 treatmentResource_sizePercent = Lens.lens (\TreatmentResource' {sizePercent} -> sizePercent) (\s@TreatmentResource' {} a -> s {sizePercent = a} :: TreatmentResource)
 
-instance Core.FromJSON TreatmentResource where
+instance Data.FromJSON TreatmentResource where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TreatmentResource"
       ( \x ->
           TreatmentResource'
-            Prelude.<$> (x Core..:? "Schedule")
-            Prelude.<*> (x Core..:? "CustomDeliveryConfiguration")
-            Prelude.<*> (x Core..:? "TreatmentName")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "MessageConfiguration")
-            Prelude.<*> (x Core..:? "TreatmentDescription")
-            Prelude.<*> (x Core..:? "TemplateConfiguration")
-            Prelude.<*> (x Core..: "Id")
-            Prelude.<*> (x Core..: "SizePercent")
+            Prelude.<$> (x Data..:? "Schedule")
+            Prelude.<*> (x Data..:? "CustomDeliveryConfiguration")
+            Prelude.<*> (x Data..:? "TreatmentName")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "MessageConfiguration")
+            Prelude.<*> (x Data..:? "TreatmentDescription")
+            Prelude.<*> (x Data..:? "TemplateConfiguration")
+            Prelude.<*> (x Data..: "Id")
+            Prelude.<*> (x Data..: "SizePercent")
       )
 
 instance Prelude.Hashable TreatmentResource where

@@ -21,6 +21,7 @@ module Amazonka.CloudSearchDomains.Types.SuggestionMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An autocomplete suggestion that matches the query string specified in a
@@ -74,15 +75,15 @@ suggestionMatch_score = Lens.lens (\SuggestionMatch' {score} -> score) (\s@Sugge
 suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
 suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
 
-instance Core.FromJSON SuggestionMatch where
+instance Data.FromJSON SuggestionMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SuggestionMatch"
       ( \x ->
           SuggestionMatch'
-            Prelude.<$> (x Core..:? "suggestion")
-            Prelude.<*> (x Core..:? "score")
-            Prelude.<*> (x Core..:? "id")
+            Prelude.<$> (x Data..:? "suggestion")
+            Prelude.<*> (x Data..:? "score")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable SuggestionMatch where

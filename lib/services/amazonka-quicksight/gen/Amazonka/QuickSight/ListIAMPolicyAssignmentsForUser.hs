@@ -49,6 +49,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -143,11 +144,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsForUserResponse'
-            Prelude.<$> ( x Core..?> "ActiveAssignments"
+            Prelude.<$> ( x Data..?> "ActiveAssignments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RequestId")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,36 +177,36 @@ instance
       `Prelude.seq` Prelude.rnf namespace
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ListIAMPolicyAssignmentsForUser
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListIAMPolicyAssignmentsForUser where
+instance Data.ToPath ListIAMPolicyAssignmentsForUser where
   toPath ListIAMPolicyAssignmentsForUser' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/namespaces/",
-        Core.toBS namespace,
+        Data.toBS namespace,
         "/users/",
-        Core.toBS userName,
+        Data.toBS userName,
         "/iam-policy-assignments"
       ]
 
-instance Core.ToQuery ListIAMPolicyAssignmentsForUser where
+instance Data.ToQuery ListIAMPolicyAssignmentsForUser where
   toQuery ListIAMPolicyAssignmentsForUser' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+      [ "next-token" Data.=: nextToken,
+        "max-results" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListIAMPolicyAssignmentsForUserResponse' smart constructor.

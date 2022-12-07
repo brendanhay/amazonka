@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptionsLogC
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The log configuration.
@@ -64,16 +65,16 @@ awsElasticsearchDomainLogPublishingOptionsLogConfig_cloudWatchLogsLogGroupArn ::
 awsElasticsearchDomainLogPublishingOptionsLogConfig_cloudWatchLogsLogGroupArn = Lens.lens (\AwsElasticsearchDomainLogPublishingOptionsLogConfig' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@AwsElasticsearchDomainLogPublishingOptionsLogConfig' {} a -> s {cloudWatchLogsLogGroupArn = a} :: AwsElasticsearchDomainLogPublishingOptionsLogConfig)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsElasticsearchDomainLogPublishingOptionsLogConfig
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsElasticsearchDomainLogPublishingOptionsLogConfig"
       ( \x ->
           AwsElasticsearchDomainLogPublishingOptionsLogConfig'
-            Prelude.<$> (x Core..:? "Enabled")
-              Prelude.<*> (x Core..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<$> (x Data..:? "Enabled")
+              Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
       )
 
 instance
@@ -96,15 +97,15 @@ instance
         `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsElasticsearchDomainLogPublishingOptionsLogConfig
   where
   toJSON
     AwsElasticsearchDomainLogPublishingOptionsLogConfig' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [ ("Enabled" Core..=) Prelude.<$> enabled,
-              ("CloudWatchLogsLogGroupArn" Core..=)
+            [ ("Enabled" Data..=) Prelude.<$> enabled,
+              ("CloudWatchLogsLogGroupArn" Data..=)
                 Prelude.<$> cloudWatchLogsLogGroupArn
             ]
         )

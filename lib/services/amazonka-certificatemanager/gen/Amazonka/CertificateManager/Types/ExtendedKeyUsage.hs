@@ -22,6 +22,7 @@ module Amazonka.CertificateManager.Types.ExtendedKeyUsage where
 import Amazonka.CertificateManager.Types.ExtendedKeyUsageName
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Extended Key Usage X.509 v3 extension defines one or more purposes
@@ -124,13 +125,13 @@ extendedKeyUsage_name = Lens.lens (\ExtendedKeyUsage' {name} -> name) (\s@Extend
 extendedKeyUsage_oid :: Lens.Lens' ExtendedKeyUsage (Prelude.Maybe Prelude.Text)
 extendedKeyUsage_oid = Lens.lens (\ExtendedKeyUsage' {oid} -> oid) (\s@ExtendedKeyUsage' {} a -> s {oid = a} :: ExtendedKeyUsage)
 
-instance Core.FromJSON ExtendedKeyUsage where
+instance Data.FromJSON ExtendedKeyUsage where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExtendedKeyUsage"
       ( \x ->
           ExtendedKeyUsage'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "OID")
+            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "OID")
       )
 
 instance Prelude.Hashable ExtendedKeyUsage where

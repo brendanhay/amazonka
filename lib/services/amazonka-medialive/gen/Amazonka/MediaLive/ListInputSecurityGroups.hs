@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -119,10 +120,10 @@ instance Core.AWSRequest ListInputSecurityGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            Prelude.<$> ( x Core..?> "inputSecurityGroups"
+            Prelude.<$> ( x Data..?> "inputSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,25 +137,25 @@ instance Prelude.NFData ListInputSecurityGroups where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders ListInputSecurityGroups where
+instance Data.ToHeaders ListInputSecurityGroups where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListInputSecurityGroups where
+instance Data.ToPath ListInputSecurityGroups where
   toPath = Prelude.const "/prod/inputSecurityGroups"
 
-instance Core.ToQuery ListInputSecurityGroups where
+instance Data.ToQuery ListInputSecurityGroups where
   toQuery ListInputSecurityGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | Placeholder documentation for ListInputSecurityGroupsResponse

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -90,7 +91,7 @@ instance Core.AWSRequest DescribeResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<$> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -102,32 +103,32 @@ instance Prelude.NFData DescribeResourcePolicy where
   rnf DescribeResourcePolicy' {..} =
     Prelude.rnf resourceArn
 
-instance Core.ToHeaders DescribeResourcePolicy where
+instance Data.ToHeaders DescribeResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "NetworkFirewall_20201112.DescribeResourcePolicy" ::
+              Data.=# ( "NetworkFirewall_20201112.DescribeResourcePolicy" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeResourcePolicy where
+instance Data.ToJSON DescribeResourcePolicy where
   toJSON DescribeResourcePolicy' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ResourceArn" Core..= resourceArn)]
+          [Prelude.Just ("ResourceArn" Data..= resourceArn)]
       )
 
-instance Core.ToPath DescribeResourcePolicy where
+instance Data.ToPath DescribeResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeResourcePolicy where
+instance Data.ToQuery DescribeResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourcePolicyResponse' smart constructor.

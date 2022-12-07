@@ -50,6 +50,7 @@ where
 import Amazonka.Account.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -185,33 +186,33 @@ instance Prelude.NFData DeleteAlternateContact where
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf alternateContactType
 
-instance Core.ToHeaders DeleteAlternateContact where
+instance Data.ToHeaders DeleteAlternateContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteAlternateContact where
+instance Data.ToJSON DeleteAlternateContact where
   toJSON DeleteAlternateContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
               ( "AlternateContactType"
-                  Core..= alternateContactType
+                  Data..= alternateContactType
               )
           ]
       )
 
-instance Core.ToPath DeleteAlternateContact where
+instance Data.ToPath DeleteAlternateContact where
   toPath = Prelude.const "/deleteAlternateContact"
 
-instance Core.ToQuery DeleteAlternateContact where
+instance Data.ToQuery DeleteAlternateContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteAlternateContactResponse' smart constructor.

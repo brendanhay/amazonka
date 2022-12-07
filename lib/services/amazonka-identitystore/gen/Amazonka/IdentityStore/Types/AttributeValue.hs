@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.AttributeValue where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The value of the attribute. This is a @Document@ type. This type is not
@@ -47,5 +48,5 @@ instance Prelude.Hashable AttributeValue where
 instance Prelude.NFData AttributeValue where
   rnf _ = ()
 
-instance Core.ToJSON AttributeValue where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON AttributeValue where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)

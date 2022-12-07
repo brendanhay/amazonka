@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -91,32 +92,32 @@ instance Prelude.Hashable StopAppReplication where
 instance Prelude.NFData StopAppReplication where
   rnf StopAppReplication' {..} = Prelude.rnf appId
 
-instance Core.ToHeaders StopAppReplication where
+instance Data.ToHeaders StopAppReplication where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
+              Data.=# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StopAppReplication where
+instance Data.ToJSON StopAppReplication where
   toJSON StopAppReplication' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("appId" Core..=) Prelude.<$> appId]
+          [("appId" Data..=) Prelude.<$> appId]
       )
 
-instance Core.ToPath StopAppReplication where
+instance Data.ToPath StopAppReplication where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StopAppReplication where
+instance Data.ToQuery StopAppReplication where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStopAppReplicationResponse' smart constructor.

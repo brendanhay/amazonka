@@ -21,6 +21,7 @@ module Amazonka.DrS.Types.RecoveryInstanceProperties where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.CPU
 import Amazonka.DrS.Types.IdentificationHints
 import Amazonka.DrS.Types.NetworkInterface
@@ -111,20 +112,20 @@ recoveryInstanceProperties_lastUpdatedDateTime = Lens.lens (\RecoveryInstancePro
 recoveryInstanceProperties_networkInterfaces :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe [NetworkInterface])
 recoveryInstanceProperties_networkInterfaces = Lens.lens (\RecoveryInstanceProperties' {networkInterfaces} -> networkInterfaces) (\s@RecoveryInstanceProperties' {} a -> s {networkInterfaces = a} :: RecoveryInstanceProperties) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON RecoveryInstanceProperties where
+instance Data.FromJSON RecoveryInstanceProperties where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RecoveryInstanceProperties"
       ( \x ->
           RecoveryInstanceProperties'
-            Prelude.<$> (x Core..:? "os")
-            Prelude.<*> (x Core..:? "cpus" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ramBytes")
-            Prelude.<*> (x Core..:? "disks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "identificationHints")
-            Prelude.<*> (x Core..:? "lastUpdatedDateTime")
-            Prelude.<*> ( x Core..:? "networkInterfaces"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "os")
+            Prelude.<*> (x Data..:? "cpus" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ramBytes")
+            Prelude.<*> (x Data..:? "disks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "identificationHints")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> ( x Data..:? "networkInterfaces"
+                            Data..!= Prelude.mempty
                         )
       )
 

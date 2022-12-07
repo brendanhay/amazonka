@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.Branch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A group of signals that are defined in a hierarchical structure.
@@ -66,14 +67,14 @@ branch_description = Lens.lens (\Branch' {description} -> description) (\s@Branc
 branch_fullyQualifiedName :: Lens.Lens' Branch Prelude.Text
 branch_fullyQualifiedName = Lens.lens (\Branch' {fullyQualifiedName} -> fullyQualifiedName) (\s@Branch' {} a -> s {fullyQualifiedName = a} :: Branch)
 
-instance Core.FromJSON Branch where
+instance Data.FromJSON Branch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Branch"
       ( \x ->
           Branch'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..: "fullyQualifiedName")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..: "fullyQualifiedName")
       )
 
 instance Prelude.Hashable Branch where
@@ -86,12 +87,12 @@ instance Prelude.NFData Branch where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf fullyQualifiedName
 
-instance Core.ToJSON Branch where
+instance Data.ToJSON Branch where
   toJSON Branch' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             Prelude.Just
-              ("fullyQualifiedName" Core..= fullyQualifiedName)
+              ("fullyQualifiedName" Data..= fullyQualifiedName)
           ]
       )

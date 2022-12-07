@@ -22,6 +22,7 @@ module Amazonka.Config.Types.OrganizationResourceDetailedStatusFilters where
 import Amazonka.Config.Types.OrganizationResourceDetailedStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Status filter object to filter results based on specific member account
@@ -191,13 +192,13 @@ instance
       `Prelude.seq` Prelude.rnf accountId
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     OrganizationResourceDetailedStatusFilters
   where
   toJSON OrganizationResourceDetailedStatusFilters' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("AccountId" Core..=) Prelude.<$> accountId
+          [ ("Status" Data..=) Prelude.<$> status,
+            ("AccountId" Data..=) Prelude.<$> accountId
           ]
       )

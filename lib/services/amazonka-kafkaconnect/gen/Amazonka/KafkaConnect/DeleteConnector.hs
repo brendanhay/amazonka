@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.KafkaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -96,8 +97,8 @@ instance Core.AWSRequest DeleteConnector where
     Response.receiveJSON
       ( \s h x ->
           DeleteConnectorResponse'
-            Prelude.<$> (x Core..?> "connectorArn")
-            Prelude.<*> (x Core..?> "connectorState")
+            Prelude.<$> (x Data..?> "connectorArn")
+            Prelude.<*> (x Data..?> "connectorState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -111,26 +112,26 @@ instance Prelude.NFData DeleteConnector where
     Prelude.rnf currentVersion
       `Prelude.seq` Prelude.rnf connectorArn
 
-instance Core.ToHeaders DeleteConnector where
+instance Data.ToHeaders DeleteConnector where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteConnector where
+instance Data.ToPath DeleteConnector where
   toPath DeleteConnector' {..} =
     Prelude.mconcat
-      ["/v1/connectors/", Core.toBS connectorArn]
+      ["/v1/connectors/", Data.toBS connectorArn]
 
-instance Core.ToQuery DeleteConnector where
+instance Data.ToQuery DeleteConnector where
   toQuery DeleteConnector' {..} =
     Prelude.mconcat
-      ["currentVersion" Core.=: currentVersion]
+      ["currentVersion" Data.=: currentVersion]
 
 -- | /See:/ 'newDeleteConnectorResponse' smart constructor.
 data DeleteConnectorResponse = DeleteConnectorResponse'

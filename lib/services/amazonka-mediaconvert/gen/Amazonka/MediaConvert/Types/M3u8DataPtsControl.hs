@@ -27,6 +27,7 @@ module Amazonka.MediaConvert.Types.M3u8DataPtsControl
 where
 
 import qualified Amazonka.Core as Core
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data
@@ -36,7 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 -- all PTS values.
 newtype M3u8DataPtsControl = M3u8DataPtsControl'
   { fromM3u8DataPtsControl ::
-      Core.Text
+      Data.Text
   }
   deriving stock
     ( Prelude.Show,
@@ -48,18 +49,18 @@ newtype M3u8DataPtsControl = M3u8DataPtsControl'
   deriving newtype
     ( Prelude.Hashable,
       Prelude.NFData,
-      Core.FromText,
-      Core.ToText,
-      Core.ToByteString,
-      Core.ToLog,
-      Core.ToHeader,
-      Core.ToQuery,
-      Core.FromJSON,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.ToJSONKey,
-      Core.FromXML,
-      Core.ToXML
+      Data.FromText,
+      Data.ToText,
+      Data.ToByteString,
+      Data.ToLog,
+      Data.ToHeader,
+      Data.ToQuery,
+      Data.FromJSON,
+      Data.FromJSONKey,
+      Data.ToJSON,
+      Data.ToJSONKey,
+      Data.FromXML,
+      Data.ToXML
     )
 
 pattern M3u8DataPtsControl_ALIGN_TO_VIDEO :: M3u8DataPtsControl

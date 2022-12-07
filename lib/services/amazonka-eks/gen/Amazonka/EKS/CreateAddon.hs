@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EKS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -265,7 +266,7 @@ instance Core.AWSRequest CreateAddon where
     Response.receiveJSON
       ( \s h x ->
           CreateAddonResponse'
-            Prelude.<$> (x Core..?> "addon")
+            Prelude.<$> (x Data..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -289,39 +290,39 @@ instance Prelude.NFData CreateAddon where
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
-instance Core.ToHeaders CreateAddon where
+instance Data.ToHeaders CreateAddon where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAddon where
+instance Data.ToJSON CreateAddon where
   toJSON CreateAddon' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientRequestToken" Core..=)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("addonVersion" Core..=) Prelude.<$> addonVersion,
-            ("serviceAccountRoleArn" Core..=)
+            ("addonVersion" Data..=) Prelude.<$> addonVersion,
+            ("serviceAccountRoleArn" Data..=)
               Prelude.<$> serviceAccountRoleArn,
-            ("resolveConflicts" Core..=)
+            ("resolveConflicts" Data..=)
               Prelude.<$> resolveConflicts,
-            Prelude.Just ("addonName" Core..= addonName)
+            Prelude.Just ("addonName" Data..= addonName)
           ]
       )
 
-instance Core.ToPath CreateAddon where
+instance Data.ToPath CreateAddon where
   toPath CreateAddon' {..} =
     Prelude.mconcat
-      ["/clusters/", Core.toBS clusterName, "/addons"]
+      ["/clusters/", Data.toBS clusterName, "/addons"]
 
-instance Core.ToQuery CreateAddon where
+instance Data.ToQuery CreateAddon where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAddonResponse' smart constructor.

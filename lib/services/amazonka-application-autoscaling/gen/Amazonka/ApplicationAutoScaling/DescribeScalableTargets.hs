@@ -51,6 +51,7 @@ where
 import Amazonka.ApplicationAutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -576,8 +577,8 @@ instance Core.AWSRequest DescribeScalableTargets where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalableTargetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ScalableTargets"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ScalableTargets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -599,39 +600,39 @@ instance Prelude.NFData DescribeScalableTargets where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceNamespace
 
-instance Core.ToHeaders DescribeScalableTargets where
+instance Data.ToHeaders DescribeScalableTargets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AnyScaleFrontendService.DescribeScalableTargets" ::
+              Data.=# ( "AnyScaleFrontendService.DescribeScalableTargets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeScalableTargets where
+instance Data.ToJSON DescribeScalableTargets where
   toJSON DescribeScalableTargets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ScalableDimension" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("ResourceIds" Core..=) Prelude.<$> resourceIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ResourceIds" Data..=) Prelude.<$> resourceIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("ServiceNamespace" Core..= serviceNamespace)
+              ("ServiceNamespace" Data..= serviceNamespace)
           ]
       )
 
-instance Core.ToPath DescribeScalableTargets where
+instance Data.ToPath DescribeScalableTargets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeScalableTargets where
+instance Data.ToQuery DescribeScalableTargets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeScalableTargetsResponse' smart constructor.

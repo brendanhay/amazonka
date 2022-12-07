@@ -64,6 +64,7 @@ where
 import Amazonka.AutoScaling.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -199,7 +200,7 @@ instance Core.AWSRequest StartInstanceRefresh where
       "StartInstanceRefreshResult"
       ( \s h x ->
           StartInstanceRefreshResponse'
-            Prelude.<$> (x Core..@? "InstanceRefreshId")
+            Prelude.<$> (x Data..@? "InstanceRefreshId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,23 +218,23 @@ instance Prelude.NFData StartInstanceRefresh where
       `Prelude.seq` Prelude.rnf desiredConfiguration
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
-instance Core.ToHeaders StartInstanceRefresh where
+instance Data.ToHeaders StartInstanceRefresh where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath StartInstanceRefresh where
+instance Data.ToPath StartInstanceRefresh where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartInstanceRefresh where
+instance Data.ToQuery StartInstanceRefresh where
   toQuery StartInstanceRefresh' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("StartInstanceRefresh" :: Prelude.ByteString),
+          Data.=: ("StartInstanceRefresh" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "Preferences" Core.=: preferences,
-        "Strategy" Core.=: strategy,
-        "DesiredConfiguration" Core.=: desiredConfiguration,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+          Data.=: ("2011-01-01" :: Prelude.ByteString),
+        "Preferences" Data.=: preferences,
+        "Strategy" Data.=: strategy,
+        "DesiredConfiguration" Data.=: desiredConfiguration,
+        "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newStartInstanceRefreshResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.Authorization where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | CDN Authorization credentials
@@ -76,14 +77,14 @@ authorization_secretsRoleArn = Lens.lens (\Authorization' {secretsRoleArn} -> se
 authorization_cdnIdentifierSecret :: Lens.Lens' Authorization Prelude.Text
 authorization_cdnIdentifierSecret = Lens.lens (\Authorization' {cdnIdentifierSecret} -> cdnIdentifierSecret) (\s@Authorization' {} a -> s {cdnIdentifierSecret = a} :: Authorization)
 
-instance Core.FromJSON Authorization where
+instance Data.FromJSON Authorization where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Authorization"
       ( \x ->
           Authorization'
-            Prelude.<$> (x Core..: "secretsRoleArn")
-            Prelude.<*> (x Core..: "cdnIdentifierSecret")
+            Prelude.<$> (x Data..: "secretsRoleArn")
+            Prelude.<*> (x Data..: "cdnIdentifierSecret")
       )
 
 instance Prelude.Hashable Authorization where
@@ -96,13 +97,13 @@ instance Prelude.NFData Authorization where
     Prelude.rnf secretsRoleArn
       `Prelude.seq` Prelude.rnf cdnIdentifierSecret
 
-instance Core.ToJSON Authorization where
+instance Data.ToJSON Authorization where
   toJSON Authorization' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("secretsRoleArn" Core..= secretsRoleArn),
+              ("secretsRoleArn" Data..= secretsRoleArn),
             Prelude.Just
-              ("cdnIdentifierSecret" Core..= cdnIdentifierSecret)
+              ("cdnIdentifierSecret" Data..= cdnIdentifierSecret)
           ]
       )

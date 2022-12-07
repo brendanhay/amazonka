@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
 import Amazonka.DynamoDB.Types.WriteRequest
@@ -79,14 +80,14 @@ instance Prelude.NFData AutoScalingPolicyUpdate where
     Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf targetTrackingScalingPolicyConfiguration
 
-instance Core.ToJSON AutoScalingPolicyUpdate where
+instance Data.ToJSON AutoScalingPolicyUpdate where
   toJSON AutoScalingPolicyUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Core..=) Prelude.<$> policyName,
+          [ ("PolicyName" Data..=) Prelude.<$> policyName,
             Prelude.Just
               ( "TargetTrackingScalingPolicyConfiguration"
-                  Core..= targetTrackingScalingPolicyConfiguration
+                  Data..= targetTrackingScalingPolicyConfiguration
               )
           ]
       )

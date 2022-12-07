@@ -49,6 +49,7 @@ where
 import Amazonka.CertificateManagerPCA.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,7 +107,7 @@ instance Core.AWSRequest GetCertificateAuthorityCsr where
     Response.receiveJSON
       ( \s h x ->
           GetCertificateAuthorityCsrResponse'
-            Prelude.<$> (x Core..?> "Csr")
+            Prelude.<$> (x Data..?> "Csr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,36 +120,36 @@ instance Prelude.NFData GetCertificateAuthorityCsr where
   rnf GetCertificateAuthorityCsr' {..} =
     Prelude.rnf certificateAuthorityArn
 
-instance Core.ToHeaders GetCertificateAuthorityCsr where
+instance Data.ToHeaders GetCertificateAuthorityCsr where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ACMPrivateCA.GetCertificateAuthorityCsr" ::
+              Data.=# ( "ACMPrivateCA.GetCertificateAuthorityCsr" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetCertificateAuthorityCsr where
+instance Data.ToJSON GetCertificateAuthorityCsr where
   toJSON GetCertificateAuthorityCsr' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "CertificateAuthorityArn"
-                  Core..= certificateAuthorityArn
+                  Data..= certificateAuthorityArn
               )
           ]
       )
 
-instance Core.ToPath GetCertificateAuthorityCsr where
+instance Data.ToPath GetCertificateAuthorityCsr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetCertificateAuthorityCsr where
+instance Data.ToQuery GetCertificateAuthorityCsr where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetCertificateAuthorityCsrResponse' smart constructor.

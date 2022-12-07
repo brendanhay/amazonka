@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.CompareFacesMatch where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.ComparedFace
 
@@ -69,14 +70,14 @@ compareFacesMatch_similarity = Lens.lens (\CompareFacesMatch' {similarity} -> si
 compareFacesMatch_face :: Lens.Lens' CompareFacesMatch (Prelude.Maybe ComparedFace)
 compareFacesMatch_face = Lens.lens (\CompareFacesMatch' {face} -> face) (\s@CompareFacesMatch' {} a -> s {face = a} :: CompareFacesMatch)
 
-instance Core.FromJSON CompareFacesMatch where
+instance Data.FromJSON CompareFacesMatch where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CompareFacesMatch"
       ( \x ->
           CompareFacesMatch'
-            Prelude.<$> (x Core..:? "Similarity")
-            Prelude.<*> (x Core..:? "Face")
+            Prelude.<$> (x Data..:? "Similarity")
+            Prelude.<*> (x Data..:? "Face")
       )
 
 instance Prelude.Hashable CompareFacesMatch where

@@ -21,6 +21,7 @@ module Amazonka.Rum.Types.AppMonitorConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rum.Types.Telemetry
 
@@ -250,21 +251,21 @@ appMonitorConfiguration_excludedPages = Lens.lens (\AppMonitorConfiguration' {ex
 appMonitorConfiguration_telemetries :: Lens.Lens' AppMonitorConfiguration (Prelude.Maybe [Telemetry])
 appMonitorConfiguration_telemetries = Lens.lens (\AppMonitorConfiguration' {telemetries} -> telemetries) (\s@AppMonitorConfiguration' {} a -> s {telemetries = a} :: AppMonitorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON AppMonitorConfiguration where
+instance Data.FromJSON AppMonitorConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AppMonitorConfiguration"
       ( \x ->
           AppMonitorConfiguration'
-            Prelude.<$> (x Core..:? "FavoritePages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "GuestRoleArn")
-            Prelude.<*> (x Core..:? "SessionSampleRate")
-            Prelude.<*> (x Core..:? "EnableXRay")
-            Prelude.<*> (x Core..:? "IdentityPoolId")
-            Prelude.<*> (x Core..:? "AllowCookies")
-            Prelude.<*> (x Core..:? "IncludedPages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExcludedPages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Telemetries" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "FavoritePages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GuestRoleArn")
+            Prelude.<*> (x Data..:? "SessionSampleRate")
+            Prelude.<*> (x Data..:? "EnableXRay")
+            Prelude.<*> (x Data..:? "IdentityPoolId")
+            Prelude.<*> (x Data..:? "AllowCookies")
+            Prelude.<*> (x Data..:? "IncludedPages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExcludedPages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Telemetries" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AppMonitorConfiguration where
@@ -291,20 +292,20 @@ instance Prelude.NFData AppMonitorConfiguration where
       `Prelude.seq` Prelude.rnf excludedPages
       `Prelude.seq` Prelude.rnf telemetries
 
-instance Core.ToJSON AppMonitorConfiguration where
+instance Data.ToJSON AppMonitorConfiguration where
   toJSON AppMonitorConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("FavoritePages" Core..=) Prelude.<$> favoritePages,
-            ("GuestRoleArn" Core..=) Prelude.<$> guestRoleArn,
-            ("SessionSampleRate" Core..=)
+          [ ("FavoritePages" Data..=) Prelude.<$> favoritePages,
+            ("GuestRoleArn" Data..=) Prelude.<$> guestRoleArn,
+            ("SessionSampleRate" Data..=)
               Prelude.<$> sessionSampleRate,
-            ("EnableXRay" Core..=) Prelude.<$> enableXRay,
-            ("IdentityPoolId" Core..=)
+            ("EnableXRay" Data..=) Prelude.<$> enableXRay,
+            ("IdentityPoolId" Data..=)
               Prelude.<$> identityPoolId,
-            ("AllowCookies" Core..=) Prelude.<$> allowCookies,
-            ("IncludedPages" Core..=) Prelude.<$> includedPages,
-            ("ExcludedPages" Core..=) Prelude.<$> excludedPages,
-            ("Telemetries" Core..=) Prelude.<$> telemetries
+            ("AllowCookies" Data..=) Prelude.<$> allowCookies,
+            ("IncludedPages" Data..=) Prelude.<$> includedPages,
+            ("ExcludedPages" Data..=) Prelude.<$> excludedPages,
+            ("Telemetries" Data..=) Prelude.<$> telemetries
           ]
       )

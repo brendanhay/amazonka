@@ -21,6 +21,7 @@ module Amazonka.SecurityHub.Types.AwsS3BucketBucketVersioningConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the versioning state of an S3 bucket.
@@ -72,16 +73,16 @@ awsS3BucketBucketVersioningConfiguration_status :: Lens.Lens' AwsS3BucketBucketV
 awsS3BucketBucketVersioningConfiguration_status = Lens.lens (\AwsS3BucketBucketVersioningConfiguration' {status} -> status) (\s@AwsS3BucketBucketVersioningConfiguration' {} a -> s {status = a} :: AwsS3BucketBucketVersioningConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AwsS3BucketBucketVersioningConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsS3BucketBucketVersioningConfiguration"
       ( \x ->
           AwsS3BucketBucketVersioningConfiguration'
-            Prelude.<$> (x Core..:? "IsMfaDeleteEnabled")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Data..:? "IsMfaDeleteEnabled")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -103,14 +104,14 @@ instance
       `Prelude.seq` Prelude.rnf status
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     AwsS3BucketBucketVersioningConfiguration
   where
   toJSON AwsS3BucketBucketVersioningConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("IsMfaDeleteEnabled" Core..=)
+          [ ("IsMfaDeleteEnabled" Data..=)
               Prelude.<$> isMfaDeleteEnabled,
-            ("Status" Core..=) Prelude.<$> status
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

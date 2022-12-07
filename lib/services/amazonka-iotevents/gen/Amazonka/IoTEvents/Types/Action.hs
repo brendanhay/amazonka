@@ -21,6 +21,7 @@ module Amazonka.IoTEvents.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTEvents.Types.ClearTimerAction
 import Amazonka.IoTEvents.Types.DynamoDBAction
 import Amazonka.IoTEvents.Types.DynamoDBv2Action
@@ -239,25 +240,25 @@ action_sns = Lens.lens (\Action' {sns} -> sns) (\s@Action' {} a -> s {sns = a} :
 action_iotTopicPublish :: Lens.Lens' Action (Prelude.Maybe IotTopicPublishAction)
 action_iotTopicPublish = Lens.lens (\Action' {iotTopicPublish} -> iotTopicPublish) (\s@Action' {} a -> s {iotTopicPublish = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "setTimer")
-            Prelude.<*> (x Core..:? "firehose")
-            Prelude.<*> (x Core..:? "resetTimer")
-            Prelude.<*> (x Core..:? "dynamoDBv2")
-            Prelude.<*> (x Core..:? "dynamoDB")
-            Prelude.<*> (x Core..:? "clearTimer")
-            Prelude.<*> (x Core..:? "lambda")
-            Prelude.<*> (x Core..:? "iotEvents")
-            Prelude.<*> (x Core..:? "sqs")
-            Prelude.<*> (x Core..:? "iotSiteWise")
-            Prelude.<*> (x Core..:? "setVariable")
-            Prelude.<*> (x Core..:? "sns")
-            Prelude.<*> (x Core..:? "iotTopicPublish")
+            Prelude.<$> (x Data..:? "setTimer")
+            Prelude.<*> (x Data..:? "firehose")
+            Prelude.<*> (x Data..:? "resetTimer")
+            Prelude.<*> (x Data..:? "dynamoDBv2")
+            Prelude.<*> (x Data..:? "dynamoDB")
+            Prelude.<*> (x Data..:? "clearTimer")
+            Prelude.<*> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "iotEvents")
+            Prelude.<*> (x Data..:? "sqs")
+            Prelude.<*> (x Data..:? "iotSiteWise")
+            Prelude.<*> (x Data..:? "setVariable")
+            Prelude.<*> (x Data..:? "sns")
+            Prelude.<*> (x Data..:? "iotTopicPublish")
       )
 
 instance Prelude.Hashable Action where
@@ -292,23 +293,23 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf sns
       `Prelude.seq` Prelude.rnf iotTopicPublish
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("setTimer" Core..=) Prelude.<$> setTimer,
-            ("firehose" Core..=) Prelude.<$> firehose,
-            ("resetTimer" Core..=) Prelude.<$> resetTimer,
-            ("dynamoDBv2" Core..=) Prelude.<$> dynamoDBv2,
-            ("dynamoDB" Core..=) Prelude.<$> dynamoDB,
-            ("clearTimer" Core..=) Prelude.<$> clearTimer,
-            ("lambda" Core..=) Prelude.<$> lambda,
-            ("iotEvents" Core..=) Prelude.<$> iotEvents,
-            ("sqs" Core..=) Prelude.<$> sqs,
-            ("iotSiteWise" Core..=) Prelude.<$> iotSiteWise,
-            ("setVariable" Core..=) Prelude.<$> setVariable,
-            ("sns" Core..=) Prelude.<$> sns,
-            ("iotTopicPublish" Core..=)
+          [ ("setTimer" Data..=) Prelude.<$> setTimer,
+            ("firehose" Data..=) Prelude.<$> firehose,
+            ("resetTimer" Data..=) Prelude.<$> resetTimer,
+            ("dynamoDBv2" Data..=) Prelude.<$> dynamoDBv2,
+            ("dynamoDB" Data..=) Prelude.<$> dynamoDB,
+            ("clearTimer" Data..=) Prelude.<$> clearTimer,
+            ("lambda" Data..=) Prelude.<$> lambda,
+            ("iotEvents" Data..=) Prelude.<$> iotEvents,
+            ("sqs" Data..=) Prelude.<$> sqs,
+            ("iotSiteWise" Data..=) Prelude.<$> iotSiteWise,
+            ("setVariable" Data..=) Prelude.<$> setVariable,
+            ("sns" Data..=) Prelude.<$> sns,
+            ("iotTopicPublish" Data..=)
               Prelude.<$> iotTopicPublish
           ]
       )

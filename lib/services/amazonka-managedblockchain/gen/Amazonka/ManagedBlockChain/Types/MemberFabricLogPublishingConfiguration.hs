@@ -21,6 +21,7 @@ module Amazonka.ManagedBlockChain.Types.MemberFabricLogPublishingConfiguration w
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ManagedBlockChain.Types.LogConfigurations
 import qualified Amazonka.Prelude as Prelude
 
@@ -65,15 +66,15 @@ memberFabricLogPublishingConfiguration_caLogs :: Lens.Lens' MemberFabricLogPubli
 memberFabricLogPublishingConfiguration_caLogs = Lens.lens (\MemberFabricLogPublishingConfiguration' {caLogs} -> caLogs) (\s@MemberFabricLogPublishingConfiguration' {} a -> s {caLogs = a} :: MemberFabricLogPublishingConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MemberFabricLogPublishingConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberFabricLogPublishingConfiguration"
       ( \x ->
           MemberFabricLogPublishingConfiguration'
-            Prelude.<$> (x Core..:? "CaLogs")
+            Prelude.<$> (x Data..:? "CaLogs")
       )
 
 instance
@@ -93,11 +94,11 @@ instance
     Prelude.rnf caLogs
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     MemberFabricLogPublishingConfiguration
   where
   toJSON MemberFabricLogPublishingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("CaLogs" Core..=) Prelude.<$> caLogs]
+          [("CaLogs" Data..=) Prelude.<$> caLogs]
       )

@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.InvisibleFieldInfo where
 import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A field that is invisible to an agent.
@@ -51,12 +52,12 @@ newInvisibleFieldInfo =
 invisibleFieldInfo_id :: Lens.Lens' InvisibleFieldInfo (Prelude.Maybe TaskTemplateFieldIdentifier)
 invisibleFieldInfo_id = Lens.lens (\InvisibleFieldInfo' {id} -> id) (\s@InvisibleFieldInfo' {} a -> s {id = a} :: InvisibleFieldInfo)
 
-instance Core.FromJSON InvisibleFieldInfo where
+instance Data.FromJSON InvisibleFieldInfo where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "InvisibleFieldInfo"
       ( \x ->
-          InvisibleFieldInfo' Prelude.<$> (x Core..:? "Id")
+          InvisibleFieldInfo' Prelude.<$> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable InvisibleFieldInfo where
@@ -66,7 +67,7 @@ instance Prelude.Hashable InvisibleFieldInfo where
 instance Prelude.NFData InvisibleFieldInfo where
   rnf InvisibleFieldInfo' {..} = Prelude.rnf id
 
-instance Core.ToJSON InvisibleFieldInfo where
+instance Data.ToJSON InvisibleFieldInfo where
   toJSON InvisibleFieldInfo' {..} =
-    Core.object
-      (Prelude.catMaybes [("Id" Core..=) Prelude.<$> id])
+    Data.object
+      (Prelude.catMaybes [("Id" Data..=) Prelude.<$> id])

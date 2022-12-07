@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectConnect.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -93,7 +94,7 @@ instance
       ( \s h x ->
           DeleteDirectConnectGatewayAssociationProposalResponse'
             Prelude.<$> ( x
-                            Core..?> "directConnectGatewayAssociationProposal"
+                            Data..?> "directConnectGatewayAssociationProposal"
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -116,42 +117,42 @@ instance
       Prelude.rnf proposalId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteDirectConnectGatewayAssociationProposal
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "OvertureService.DeleteDirectConnectGatewayAssociationProposal" ::
+              Data.=# ( "OvertureService.DeleteDirectConnectGatewayAssociationProposal" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
 instance
-  Core.ToJSON
+  Data.ToJSON
     DeleteDirectConnectGatewayAssociationProposal
   where
   toJSON
     DeleteDirectConnectGatewayAssociationProposal' {..} =
-      Core.object
+      Data.object
         ( Prelude.catMaybes
-            [Prelude.Just ("proposalId" Core..= proposalId)]
+            [Prelude.Just ("proposalId" Data..= proposalId)]
         )
 
 instance
-  Core.ToPath
+  Data.ToPath
     DeleteDirectConnectGatewayAssociationProposal
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteDirectConnectGatewayAssociationProposal
   where
   toQuery = Prelude.const Prelude.mempty

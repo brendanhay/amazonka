@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -683,7 +684,7 @@ instance Core.AWSRequest ModifyReplicationGroup where
       "ModifyReplicationGroupResult"
       ( \s h x ->
           ModifyReplicationGroupResponse'
-            Prelude.<$> (x Core..@? "ReplicationGroup")
+            Prelude.<$> (x Data..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -755,74 +756,74 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf
         replicationGroupId
 
-instance Core.ToHeaders ModifyReplicationGroup where
+instance Data.ToHeaders ModifyReplicationGroup where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyReplicationGroup where
+instance Data.ToPath ModifyReplicationGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyReplicationGroup where
+instance Data.ToQuery ModifyReplicationGroup where
   toQuery ModifyReplicationGroup' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyReplicationGroup" :: Prelude.ByteString),
+          Data.=: ("ModifyReplicationGroup" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-02-02" :: Prelude.ByteString),
+          Data.=: ("2015-02-02" :: Prelude.ByteString),
         "NotificationTopicStatus"
-          Core.=: notificationTopicStatus,
-        "RemoveUserGroups" Core.=: removeUserGroups,
+          Data.=: notificationTopicStatus,
+        "RemoveUserGroups" Data.=: removeUserGroups,
         "SecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SecurityGroupId"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SecurityGroupId"
                 Prelude.<$> securityGroupIds
             ),
         "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Core.=: applyImmediately,
+          Data.=: autoMinorVersionUpgrade,
+        "ApplyImmediately" Data.=: applyImmediately,
         "UserGroupIdsToAdd"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> userGroupIdsToAdd
             ),
-        "AuthToken" Core.=: authToken,
+        "AuthToken" Data.=: authToken,
         "SnapshottingClusterId"
-          Core.=: snapshottingClusterId,
+          Data.=: snapshottingClusterId,
         "LogDeliveryConfigurations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "LogDeliveryConfigurationRequest"
                 Prelude.<$> logDeliveryConfigurations
             ),
-        "IpDiscovery" Core.=: ipDiscovery,
-        "CacheNodeType" Core.=: cacheNodeType,
+        "IpDiscovery" Data.=: ipDiscovery,
+        "CacheNodeType" Data.=: cacheNodeType,
         "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
-        "NotificationTopicArn" Core.=: notificationTopicArn,
-        "SnapshotWindow" Core.=: snapshotWindow,
+          Data.=: cacheParameterGroupName,
+        "NotificationTopicArn" Data.=: notificationTopicArn,
+        "SnapshotWindow" Data.=: snapshotWindow,
         "SnapshotRetentionLimit"
-          Core.=: snapshotRetentionLimit,
+          Data.=: snapshotRetentionLimit,
         "ReplicationGroupDescription"
-          Core.=: replicationGroupDescription,
+          Data.=: replicationGroupDescription,
         "AuthTokenUpdateStrategy"
-          Core.=: authTokenUpdateStrategy,
+          Data.=: authTokenUpdateStrategy,
         "CacheSecurityGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "CacheSecurityGroupName"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
         "AutomaticFailoverEnabled"
-          Core.=: automaticFailoverEnabled,
+          Data.=: automaticFailoverEnabled,
         "UserGroupIdsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
                 Prelude.<$> userGroupIdsToRemove
             ),
         "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "NodeGroupId" Core.=: nodeGroupId,
-        "PrimaryClusterId" Core.=: primaryClusterId,
-        "MultiAZEnabled" Core.=: multiAZEnabled,
-        "EngineVersion" Core.=: engineVersion,
-        "ReplicationGroupId" Core.=: replicationGroupId
+          Data.=: preferredMaintenanceWindow,
+        "NodeGroupId" Data.=: nodeGroupId,
+        "PrimaryClusterId" Data.=: primaryClusterId,
+        "MultiAZEnabled" Data.=: multiAZEnabled,
+        "EngineVersion" Data.=: engineVersion,
+        "ReplicationGroupId" Data.=: replicationGroupId
       ]
 
 -- | /See:/ 'newModifyReplicationGroupResponse' smart constructor.

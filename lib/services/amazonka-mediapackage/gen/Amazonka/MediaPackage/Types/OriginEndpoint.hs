@@ -21,6 +21,7 @@ module Amazonka.MediaPackage.Types.OriginEndpoint where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaPackage.Types.Authorization
 import Amazonka.MediaPackage.Types.CmafPackage
 import Amazonka.MediaPackage.Types.DashPackage
@@ -214,28 +215,28 @@ originEndpoint_hlsPackage = Lens.lens (\OriginEndpoint' {hlsPackage} -> hlsPacka
 originEndpoint_origination :: Lens.Lens' OriginEndpoint (Prelude.Maybe Origination)
 originEndpoint_origination = Lens.lens (\OriginEndpoint' {origination} -> origination) (\s@OriginEndpoint' {} a -> s {origination = a} :: OriginEndpoint)
 
-instance Core.FromJSON OriginEndpoint where
+instance Data.FromJSON OriginEndpoint where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OriginEndpoint"
       ( \x ->
           OriginEndpoint'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "timeDelaySeconds")
-            Prelude.<*> (x Core..:? "startoverWindowSeconds")
-            Prelude.<*> (x Core..:? "mssPackage")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "whitelist" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "url")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "manifestName")
-            Prelude.<*> (x Core..:? "channelId")
-            Prelude.<*> (x Core..:? "authorization")
-            Prelude.<*> (x Core..:? "dashPackage")
-            Prelude.<*> (x Core..:? "cmafPackage")
-            Prelude.<*> (x Core..:? "hlsPackage")
-            Prelude.<*> (x Core..:? "origination")
+            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timeDelaySeconds")
+            Prelude.<*> (x Data..:? "startoverWindowSeconds")
+            Prelude.<*> (x Data..:? "mssPackage")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "whitelist" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "manifestName")
+            Prelude.<*> (x Data..:? "channelId")
+            Prelude.<*> (x Data..:? "authorization")
+            Prelude.<*> (x Data..:? "dashPackage")
+            Prelude.<*> (x Data..:? "cmafPackage")
+            Prelude.<*> (x Data..:? "hlsPackage")
+            Prelude.<*> (x Data..:? "origination")
       )
 
 instance Prelude.Hashable OriginEndpoint where

@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -73,8 +74,8 @@ instance Core.AWSRequest GetSnowballUsage where
     Response.receiveJSON
       ( \s h x ->
           GetSnowballUsageResponse'
-            Prelude.<$> (x Core..?> "SnowballsInUse")
-            Prelude.<*> (x Core..?> "SnowballLimit")
+            Prelude.<$> (x Data..?> "SnowballsInUse")
+            Prelude.<*> (x Data..?> "SnowballLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -85,28 +86,28 @@ instance Prelude.Hashable GetSnowballUsage where
 instance Prelude.NFData GetSnowballUsage where
   rnf _ = ()
 
-instance Core.ToHeaders GetSnowballUsage where
+instance Data.ToHeaders GetSnowballUsage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSIESnowballJobManagementService.GetSnowballUsage" ::
+              Data.=# ( "AWSIESnowballJobManagementService.GetSnowballUsage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetSnowballUsage where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON GetSnowballUsage where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath GetSnowballUsage where
+instance Data.ToPath GetSnowballUsage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetSnowballUsage where
+instance Data.ToQuery GetSnowballUsage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetSnowballUsageResponse' smart constructor.

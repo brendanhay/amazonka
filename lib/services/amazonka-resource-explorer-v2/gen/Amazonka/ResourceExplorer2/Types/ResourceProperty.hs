@@ -21,6 +21,7 @@ module Amazonka.ResourceExplorer2.Types.ResourceProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceExplorer2.Types.Document
 
@@ -32,7 +33,7 @@ data ResourceProperty = ResourceProperty'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the information about this resource property was
     -- last updated.
-    lastReportedAt :: Prelude.Maybe Core.POSIX,
+    lastReportedAt :: Prelude.Maybe Data.POSIX,
     -- | Details about this property. The content of this field is a JSON object
     -- that varies based on the resource type.
     data' :: Prelude.Maybe Document
@@ -70,22 +71,22 @@ resourceProperty_name = Lens.lens (\ResourceProperty' {name} -> name) (\s@Resour
 -- | The date and time that the information about this resource property was
 -- last updated.
 resourceProperty_lastReportedAt :: Lens.Lens' ResourceProperty (Prelude.Maybe Prelude.UTCTime)
-resourceProperty_lastReportedAt = Lens.lens (\ResourceProperty' {lastReportedAt} -> lastReportedAt) (\s@ResourceProperty' {} a -> s {lastReportedAt = a} :: ResourceProperty) Prelude.. Lens.mapping Core._Time
+resourceProperty_lastReportedAt = Lens.lens (\ResourceProperty' {lastReportedAt} -> lastReportedAt) (\s@ResourceProperty' {} a -> s {lastReportedAt = a} :: ResourceProperty) Prelude.. Lens.mapping Data._Time
 
 -- | Details about this property. The content of this field is a JSON object
 -- that varies based on the resource type.
 resourceProperty_data :: Lens.Lens' ResourceProperty (Prelude.Maybe Document)
 resourceProperty_data = Lens.lens (\ResourceProperty' {data'} -> data') (\s@ResourceProperty' {} a -> s {data' = a} :: ResourceProperty)
 
-instance Core.FromJSON ResourceProperty where
+instance Data.FromJSON ResourceProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ResourceProperty"
       ( \x ->
           ResourceProperty'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastReportedAt")
-            Prelude.<*> (x Core..:? "Data")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "LastReportedAt")
+            Prelude.<*> (x Data..:? "Data")
       )
 
 instance Prelude.Hashable ResourceProperty where

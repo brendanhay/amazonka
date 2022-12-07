@@ -46,6 +46,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListConnections where
     Response.receiveJSON
       ( \s h x ->
           ListConnectionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "ConnectionSummaryList"
+            Prelude.<*> ( x Data..?> "ConnectionSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -154,34 +155,34 @@ instance Prelude.NFData ListConnections where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf connectionName
 
-instance Core.ToHeaders ListConnections where
+instance Data.ToHeaders ListConnections where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ("AppRunner.ListConnections" :: Prelude.ByteString),
+              Data.=# ("AppRunner.ListConnections" :: Prelude.ByteString),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListConnections where
+instance Data.ToJSON ListConnections where
   toJSON ListConnections' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ConnectionName" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ConnectionName" Data..=)
               Prelude.<$> connectionName
           ]
       )
 
-instance Core.ToPath ListConnections where
+instance Data.ToPath ListConnections where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListConnections where
+instance Data.ToQuery ListConnections where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListConnectionsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.SimpleScalingPolicyConfiguration where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.AdjustmentType
 import qualified Amazonka.Prelude as Prelude
 
@@ -139,17 +140,17 @@ simpleScalingPolicyConfiguration_scalingAdjustment :: Lens.Lens' SimpleScalingPo
 simpleScalingPolicyConfiguration_scalingAdjustment = Lens.lens (\SimpleScalingPolicyConfiguration' {scalingAdjustment} -> scalingAdjustment) (\s@SimpleScalingPolicyConfiguration' {} a -> s {scalingAdjustment = a} :: SimpleScalingPolicyConfiguration)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     SimpleScalingPolicyConfiguration
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SimpleScalingPolicyConfiguration"
       ( \x ->
           SimpleScalingPolicyConfiguration'
-            Prelude.<$> (x Core..:? "CoolDown")
-            Prelude.<*> (x Core..:? "AdjustmentType")
-            Prelude.<*> (x Core..: "ScalingAdjustment")
+            Prelude.<$> (x Data..:? "CoolDown")
+            Prelude.<*> (x Data..:? "AdjustmentType")
+            Prelude.<*> (x Data..: "ScalingAdjustment")
       )
 
 instance
@@ -172,14 +173,14 @@ instance
       `Prelude.seq` Prelude.rnf adjustmentType
       `Prelude.seq` Prelude.rnf scalingAdjustment
 
-instance Core.ToJSON SimpleScalingPolicyConfiguration where
+instance Data.ToJSON SimpleScalingPolicyConfiguration where
   toJSON SimpleScalingPolicyConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CoolDown" Core..=) Prelude.<$> coolDown,
-            ("AdjustmentType" Core..=)
+          [ ("CoolDown" Data..=) Prelude.<$> coolDown,
+            ("AdjustmentType" Data..=)
               Prelude.<$> adjustmentType,
             Prelude.Just
-              ("ScalingAdjustment" Core..= scalingAdjustment)
+              ("ScalingAdjustment" Data..= scalingAdjustment)
           ]
       )

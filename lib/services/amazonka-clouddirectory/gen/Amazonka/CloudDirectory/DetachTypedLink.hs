@@ -41,6 +41,7 @@ where
 import Amazonka.CloudDirectory.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,26 +110,26 @@ instance Prelude.NFData DetachTypedLink where
     Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf typedLinkSpecifier
 
-instance Core.ToHeaders DetachTypedLink where
+instance Data.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =
     Prelude.mconcat
-      ["x-amz-data-partition" Core.=# directoryArn]
+      ["x-amz-data-partition" Data.=# directoryArn]
 
-instance Core.ToJSON DetachTypedLink where
+instance Data.ToJSON DetachTypedLink where
   toJSON DetachTypedLink' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("TypedLinkSpecifier" Core..= typedLinkSpecifier)
+              ("TypedLinkSpecifier" Data..= typedLinkSpecifier)
           ]
       )
 
-instance Core.ToPath DetachTypedLink where
+instance Data.ToPath DetachTypedLink where
   toPath =
     Prelude.const
       "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
-instance Core.ToQuery DetachTypedLink where
+instance Data.ToQuery DetachTypedLink where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDetachTypedLinkResponse' smart constructor.

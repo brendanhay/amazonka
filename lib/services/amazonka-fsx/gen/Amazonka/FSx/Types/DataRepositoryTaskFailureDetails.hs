@@ -21,6 +21,7 @@ module Amazonka.FSx.Types.DataRepositoryTaskFailureDetails where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about why a data repository task failed. Only
@@ -54,15 +55,15 @@ dataRepositoryTaskFailureDetails_message :: Lens.Lens' DataRepositoryTaskFailure
 dataRepositoryTaskFailureDetails_message = Lens.lens (\DataRepositoryTaskFailureDetails' {message} -> message) (\s@DataRepositoryTaskFailureDetails' {} a -> s {message = a} :: DataRepositoryTaskFailureDetails)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     DataRepositoryTaskFailureDetails
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DataRepositoryTaskFailureDetails"
       ( \x ->
           DataRepositoryTaskFailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Data..:? "Message")
       )
 
 instance

@@ -54,6 +54,7 @@ where
 import Amazonka.AlexaBusiness.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -106,11 +107,11 @@ instance Core.AWSRequest ResolveRoom where
     Response.receiveJSON
       ( \s h x ->
           ResolveRoomResponse'
-            Prelude.<$> (x Core..?> "RoomArn")
-            Prelude.<*> ( x Core..?> "RoomSkillParameters"
+            Prelude.<$> (x Data..?> "RoomArn")
+            Prelude.<*> ( x Data..?> "RoomSkillParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "RoomName")
+            Prelude.<*> (x Data..?> "RoomName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,34 +125,34 @@ instance Prelude.NFData ResolveRoom where
     Prelude.rnf userId
       `Prelude.seq` Prelude.rnf skillId
 
-instance Core.ToHeaders ResolveRoom where
+instance Data.ToHeaders ResolveRoom where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AlexaForBusiness.ResolveRoom" ::
+              Data.=# ( "AlexaForBusiness.ResolveRoom" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ResolveRoom where
+instance Data.ToJSON ResolveRoom where
   toJSON ResolveRoom' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("UserId" Core..= userId),
-            Prelude.Just ("SkillId" Core..= skillId)
+          [ Prelude.Just ("UserId" Data..= userId),
+            Prelude.Just ("SkillId" Data..= skillId)
           ]
       )
 
-instance Core.ToPath ResolveRoom where
+instance Data.ToPath ResolveRoom where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ResolveRoom where
+instance Data.ToQuery ResolveRoom where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newResolveRoomResponse' smart constructor.

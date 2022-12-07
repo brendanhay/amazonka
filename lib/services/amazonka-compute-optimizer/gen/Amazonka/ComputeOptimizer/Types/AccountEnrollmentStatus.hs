@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.AccountEnrollmentStatus where
 import Amazonka.ComputeOptimizer.Types.Status
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the enrollment status of an organization\'s member accounts in
@@ -31,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data AccountEnrollmentStatus = AccountEnrollmentStatus'
   { -- | The Unix epoch timestamp, in seconds, of when the account enrollment
     -- status was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The reason for the account enrollment status.
     --
     -- For example, an account might show a status of @Pending@ because member
@@ -79,7 +80,7 @@ newAccountEnrollmentStatus =
 -- | The Unix epoch timestamp, in seconds, of when the account enrollment
 -- status was last updated.
 accountEnrollmentStatus_lastUpdatedTimestamp :: Lens.Lens' AccountEnrollmentStatus (Prelude.Maybe Prelude.UTCTime)
-accountEnrollmentStatus_lastUpdatedTimestamp = Lens.lens (\AccountEnrollmentStatus' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AccountEnrollmentStatus' {} a -> s {lastUpdatedTimestamp = a} :: AccountEnrollmentStatus) Prelude.. Lens.mapping Core._Time
+accountEnrollmentStatus_lastUpdatedTimestamp = Lens.lens (\AccountEnrollmentStatus' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AccountEnrollmentStatus' {} a -> s {lastUpdatedTimestamp = a} :: AccountEnrollmentStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The reason for the account enrollment status.
 --
@@ -97,16 +98,16 @@ accountEnrollmentStatus_status = Lens.lens (\AccountEnrollmentStatus' {status} -
 accountEnrollmentStatus_accountId :: Lens.Lens' AccountEnrollmentStatus (Prelude.Maybe Prelude.Text)
 accountEnrollmentStatus_accountId = Lens.lens (\AccountEnrollmentStatus' {accountId} -> accountId) (\s@AccountEnrollmentStatus' {} a -> s {accountId = a} :: AccountEnrollmentStatus)
 
-instance Core.FromJSON AccountEnrollmentStatus where
+instance Data.FromJSON AccountEnrollmentStatus where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AccountEnrollmentStatus"
       ( \x ->
           AccountEnrollmentStatus'
-            Prelude.<$> (x Core..:? "lastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "statusReason")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "accountId")
+            Prelude.<$> (x Data..:? "lastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable AccountEnrollmentStatus where

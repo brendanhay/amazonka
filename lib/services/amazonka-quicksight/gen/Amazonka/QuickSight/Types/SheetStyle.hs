@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.SheetStyle where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.TileLayoutStyle
 import Amazonka.QuickSight.Types.TileStyle
@@ -63,14 +64,14 @@ sheetStyle_tile = Lens.lens (\SheetStyle' {tile} -> tile) (\s@SheetStyle' {} a -
 sheetStyle_tileLayout :: Lens.Lens' SheetStyle (Prelude.Maybe TileLayoutStyle)
 sheetStyle_tileLayout = Lens.lens (\SheetStyle' {tileLayout} -> tileLayout) (\s@SheetStyle' {} a -> s {tileLayout = a} :: SheetStyle)
 
-instance Core.FromJSON SheetStyle where
+instance Data.FromJSON SheetStyle where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SheetStyle"
       ( \x ->
           SheetStyle'
-            Prelude.<$> (x Core..:? "Tile")
-            Prelude.<*> (x Core..:? "TileLayout")
+            Prelude.<$> (x Data..:? "Tile")
+            Prelude.<*> (x Data..:? "TileLayout")
       )
 
 instance Prelude.Hashable SheetStyle where
@@ -83,11 +84,11 @@ instance Prelude.NFData SheetStyle where
     Prelude.rnf tile
       `Prelude.seq` Prelude.rnf tileLayout
 
-instance Core.ToJSON SheetStyle where
+instance Data.ToJSON SheetStyle where
   toJSON SheetStyle' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tile" Core..=) Prelude.<$> tile,
-            ("TileLayout" Core..=) Prelude.<$> tileLayout
+          [ ("Tile" Data..=) Prelude.<$> tile,
+            ("TileLayout" Data..=) Prelude.<$> tileLayout
           ]
       )

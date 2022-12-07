@@ -21,6 +21,7 @@ module Amazonka.DynamoDB.Types.ReplicaSettingsUpdate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
@@ -138,20 +139,20 @@ instance Prelude.NFData ReplicaSettingsUpdate where
       `Prelude.seq` Prelude.rnf replicaTableClass
       `Prelude.seq` Prelude.rnf regionName
 
-instance Core.ToJSON ReplicaSettingsUpdate where
+instance Data.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ ( "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
-                Core..=
+                Data..=
             )
               Prelude.<$> replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
-            ("ReplicaGlobalSecondaryIndexSettingsUpdate" Core..=)
+            ("ReplicaGlobalSecondaryIndexSettingsUpdate" Data..=)
               Prelude.<$> replicaGlobalSecondaryIndexSettingsUpdate,
-            ("ReplicaProvisionedReadCapacityUnits" Core..=)
+            ("ReplicaProvisionedReadCapacityUnits" Data..=)
               Prelude.<$> replicaProvisionedReadCapacityUnits,
-            ("ReplicaTableClass" Core..=)
+            ("ReplicaTableClass" Data..=)
               Prelude.<$> replicaTableClass,
-            Prelude.Just ("RegionName" Core..= regionName)
+            Prelude.Just ("RegionName" Data..= regionName)
           ]
       )

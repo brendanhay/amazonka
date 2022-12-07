@@ -48,6 +48,7 @@ where
 import Amazonka.AuditManager.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -161,7 +162,7 @@ instance Core.AWSRequest CreateAssessment where
     Response.receiveJSON
       ( \s h x ->
           CreateAssessmentResponse'
-            Prelude.<$> (x Core..?> "assessment")
+            Prelude.<$> (x Data..?> "assessment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,38 +186,38 @@ instance Prelude.NFData CreateAssessment where
       `Prelude.seq` Prelude.rnf roles
       `Prelude.seq` Prelude.rnf frameworkId
 
-instance Core.ToHeaders CreateAssessment where
+instance Data.ToHeaders CreateAssessment where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateAssessment where
+instance Data.ToJSON CreateAssessment where
   toJSON CreateAssessment' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("name" Core..= name),
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "assessmentReportsDestination"
-                  Core..= assessmentReportsDestination
+                  Data..= assessmentReportsDestination
               ),
-            Prelude.Just ("scope" Core..= scope),
-            Prelude.Just ("roles" Core..= roles),
-            Prelude.Just ("frameworkId" Core..= frameworkId)
+            Prelude.Just ("scope" Data..= scope),
+            Prelude.Just ("roles" Data..= roles),
+            Prelude.Just ("frameworkId" Data..= frameworkId)
           ]
       )
 
-instance Core.ToPath CreateAssessment where
+instance Data.ToPath CreateAssessment where
   toPath = Prelude.const "/assessments"
 
-instance Core.ToQuery CreateAssessment where
+instance Data.ToQuery CreateAssessment where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateAssessmentResponse' smart constructor.

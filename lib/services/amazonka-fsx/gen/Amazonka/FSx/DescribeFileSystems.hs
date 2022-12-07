@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FSx.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -177,8 +178,8 @@ instance Core.AWSRequest DescribeFileSystems where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "FileSystems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,35 +195,35 @@ instance Prelude.NFData DescribeFileSystems where
       `Prelude.seq` Prelude.rnf fileSystemIds
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribeFileSystems where
+instance Data.ToHeaders DescribeFileSystems where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSSimbaAPIService_v20180301.DescribeFileSystems" ::
+              Data.=# ( "AWSSimbaAPIService_v20180301.DescribeFileSystems" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeFileSystems where
+instance Data.ToJSON DescribeFileSystems where
   toJSON DescribeFileSystems' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FileSystemIds" Core..=) Prelude.<$> fileSystemIds,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("FileSystemIds" Data..=) Prelude.<$> fileSystemIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )
 
-instance Core.ToPath DescribeFileSystems where
+instance Data.ToPath DescribeFileSystems where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeFileSystems where
+instance Data.ToQuery DescribeFileSystems where
   toQuery = Prelude.const Prelude.mempty
 
 -- | The response object for @DescribeFileSystems@ operation.

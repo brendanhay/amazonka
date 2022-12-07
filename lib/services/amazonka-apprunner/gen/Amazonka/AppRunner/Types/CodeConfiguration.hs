@@ -23,6 +23,7 @@ import Amazonka.AppRunner.Types.CodeConfigurationValues
 import Amazonka.AppRunner.Types.ConfigurationSource
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the configuration that App Runner uses to build and run an App
@@ -103,14 +104,14 @@ codeConfiguration_codeConfigurationValues = Lens.lens (\CodeConfiguration' {code
 codeConfiguration_configurationSource :: Lens.Lens' CodeConfiguration ConfigurationSource
 codeConfiguration_configurationSource = Lens.lens (\CodeConfiguration' {configurationSource} -> configurationSource) (\s@CodeConfiguration' {} a -> s {configurationSource = a} :: CodeConfiguration)
 
-instance Core.FromJSON CodeConfiguration where
+instance Data.FromJSON CodeConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CodeConfiguration"
       ( \x ->
           CodeConfiguration'
-            Prelude.<$> (x Core..:? "CodeConfigurationValues")
-            Prelude.<*> (x Core..: "ConfigurationSource")
+            Prelude.<$> (x Data..:? "CodeConfigurationValues")
+            Prelude.<*> (x Data..: "ConfigurationSource")
       )
 
 instance Prelude.Hashable CodeConfiguration where
@@ -124,13 +125,13 @@ instance Prelude.NFData CodeConfiguration where
     Prelude.rnf codeConfigurationValues
       `Prelude.seq` Prelude.rnf configurationSource
 
-instance Core.ToJSON CodeConfiguration where
+instance Data.ToJSON CodeConfiguration where
   toJSON CodeConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CodeConfigurationValues" Core..=)
+          [ ("CodeConfigurationValues" Data..=)
               Prelude.<$> codeConfigurationValues,
             Prelude.Just
-              ("ConfigurationSource" Core..= configurationSource)
+              ("ConfigurationSource" Data..= configurationSource)
           ]
       )

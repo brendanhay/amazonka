@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -86,8 +87,8 @@ instance Core.AWSRequest DescribeTags where
       "DescribeTagsResult"
       ( \s h x ->
           DescribeTagsResponse'
-            Prelude.<$> ( x Core..@? "TagDescriptions" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "TagDescriptions" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -99,21 +100,21 @@ instance Prelude.Hashable DescribeTags where
 instance Prelude.NFData DescribeTags where
   rnf DescribeTags' {..} = Prelude.rnf resourceArns
 
-instance Core.ToHeaders DescribeTags where
+instance Data.ToHeaders DescribeTags where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribeTags where
+instance Data.ToPath DescribeTags where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTags where
+instance Data.ToQuery DescribeTags where
   toQuery DescribeTags' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribeTags" :: Prelude.ByteString),
+          Data.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
         "ResourceArns"
-          Core.=: Core.toQueryList "member" resourceArns
+          Data.=: Data.toQueryList "member" resourceArns
       ]
 
 -- | /See:/ 'newDescribeTagsResponse' smart constructor.

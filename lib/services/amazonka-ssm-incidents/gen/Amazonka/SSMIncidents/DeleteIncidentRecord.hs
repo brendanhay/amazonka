@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -92,28 +93,28 @@ instance Prelude.Hashable DeleteIncidentRecord where
 instance Prelude.NFData DeleteIncidentRecord where
   rnf DeleteIncidentRecord' {..} = Prelude.rnf arn
 
-instance Core.ToHeaders DeleteIncidentRecord where
+instance Data.ToHeaders DeleteIncidentRecord where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteIncidentRecord where
+instance Data.ToJSON DeleteIncidentRecord where
   toJSON DeleteIncidentRecord' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("arn" Core..= arn)]
+          [Prelude.Just ("arn" Data..= arn)]
       )
 
-instance Core.ToPath DeleteIncidentRecord where
+instance Data.ToPath DeleteIncidentRecord where
   toPath = Prelude.const "/deleteIncidentRecord"
 
-instance Core.ToQuery DeleteIncidentRecord where
+instance Data.ToQuery DeleteIncidentRecord where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteIncidentRecordResponse' smart constructor.

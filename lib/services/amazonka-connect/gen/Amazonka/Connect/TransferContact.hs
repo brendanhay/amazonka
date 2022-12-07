@@ -66,6 +66,7 @@ where
 import Amazonka.Connect.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -173,8 +174,8 @@ instance Core.AWSRequest TransferContact where
     Response.receiveJSON
       ( \s h x ->
           TransferContactResponse'
-            Prelude.<$> (x Core..?> "ContactId")
-            Prelude.<*> (x Core..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactId")
+            Prelude.<*> (x Data..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,35 +197,35 @@ instance Prelude.NFData TransferContact where
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf contactFlowId
 
-instance Core.ToHeaders TransferContact where
+instance Data.ToHeaders TransferContact where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON TransferContact where
+instance Data.ToJSON TransferContact where
   toJSON TransferContact' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
-            ("QueueId" Core..=) Prelude.<$> queueId,
-            ("UserId" Core..=) Prelude.<$> userId,
-            Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactId" Core..= contactId),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("QueueId" Data..=) Prelude.<$> queueId,
+            ("UserId" Data..=) Prelude.<$> userId,
+            Prelude.Just ("InstanceId" Data..= instanceId),
+            Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just
-              ("ContactFlowId" Core..= contactFlowId)
+              ("ContactFlowId" Data..= contactFlowId)
           ]
       )
 
-instance Core.ToPath TransferContact where
+instance Data.ToPath TransferContact where
   toPath = Prelude.const "/contact/transfer"
 
-instance Core.ToQuery TransferContact where
+instance Data.ToQuery TransferContact where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newTransferContactResponse' smart constructor.

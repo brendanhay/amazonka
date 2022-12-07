@@ -21,6 +21,7 @@ module Amazonka.Lightsail.Types.CacheBehavior where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.BehaviorEnum
 import qualified Amazonka.Prelude as Prelude
 
@@ -100,12 +101,12 @@ newCacheBehavior =
 cacheBehavior_behavior :: Lens.Lens' CacheBehavior (Prelude.Maybe BehaviorEnum)
 cacheBehavior_behavior = Lens.lens (\CacheBehavior' {behavior} -> behavior) (\s@CacheBehavior' {} a -> s {behavior = a} :: CacheBehavior)
 
-instance Core.FromJSON CacheBehavior where
+instance Data.FromJSON CacheBehavior where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CacheBehavior"
       ( \x ->
-          CacheBehavior' Prelude.<$> (x Core..:? "behavior")
+          CacheBehavior' Prelude.<$> (x Data..:? "behavior")
       )
 
 instance Prelude.Hashable CacheBehavior where
@@ -115,9 +116,9 @@ instance Prelude.Hashable CacheBehavior where
 instance Prelude.NFData CacheBehavior where
   rnf CacheBehavior' {..} = Prelude.rnf behavior
 
-instance Core.ToJSON CacheBehavior where
+instance Data.ToJSON CacheBehavior where
   toJSON CacheBehavior' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("behavior" Core..=) Prelude.<$> behavior]
+          [("behavior" Data..=) Prelude.<$> behavior]
       )

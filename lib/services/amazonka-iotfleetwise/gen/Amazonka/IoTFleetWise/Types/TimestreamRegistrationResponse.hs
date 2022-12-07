@@ -21,6 +21,7 @@ module Amazonka.IoTFleetWise.Types.TimestreamRegistrationResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoTFleetWise.Types.RegistrationStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -116,18 +117,18 @@ timestreamRegistrationResponse_timestreamTableName = Lens.lens (\TimestreamRegis
 timestreamRegistrationResponse_registrationStatus :: Lens.Lens' TimestreamRegistrationResponse RegistrationStatus
 timestreamRegistrationResponse_registrationStatus = Lens.lens (\TimestreamRegistrationResponse' {registrationStatus} -> registrationStatus) (\s@TimestreamRegistrationResponse' {} a -> s {registrationStatus = a} :: TimestreamRegistrationResponse)
 
-instance Core.FromJSON TimestreamRegistrationResponse where
+instance Data.FromJSON TimestreamRegistrationResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TimestreamRegistrationResponse"
       ( \x ->
           TimestreamRegistrationResponse'
-            Prelude.<$> (x Core..:? "errorMessage")
-            Prelude.<*> (x Core..:? "timestreamTableArn")
-            Prelude.<*> (x Core..:? "timestreamDatabaseArn")
-            Prelude.<*> (x Core..: "timestreamDatabaseName")
-            Prelude.<*> (x Core..: "timestreamTableName")
-            Prelude.<*> (x Core..: "registrationStatus")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "timestreamTableArn")
+            Prelude.<*> (x Data..:? "timestreamDatabaseArn")
+            Prelude.<*> (x Data..: "timestreamDatabaseName")
+            Prelude.<*> (x Data..: "timestreamTableName")
+            Prelude.<*> (x Data..: "registrationStatus")
       )
 
 instance

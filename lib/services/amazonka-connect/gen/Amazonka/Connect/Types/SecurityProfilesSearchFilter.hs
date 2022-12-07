@@ -22,6 +22,7 @@ module Amazonka.Connect.Types.SecurityProfilesSearchFilter where
 import Amazonka.Connect.Types.ControlPlaneTagFilter
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters to be applied to search results.
@@ -64,9 +65,9 @@ instance Prelude.NFData SecurityProfilesSearchFilter where
   rnf SecurityProfilesSearchFilter' {..} =
     Prelude.rnf tagFilter
 
-instance Core.ToJSON SecurityProfilesSearchFilter where
+instance Data.ToJSON SecurityProfilesSearchFilter where
   toJSON SecurityProfilesSearchFilter' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TagFilter" Core..=) Prelude.<$> tagFilter]
+          [("TagFilter" Data..=) Prelude.<$> tagFilter]
       )

@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.SlackMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The connector metadata specific to Slack.
@@ -50,13 +51,13 @@ newSlackMetadata =
 slackMetadata_oAuthScopes :: Lens.Lens' SlackMetadata (Prelude.Maybe [Prelude.Text])
 slackMetadata_oAuthScopes = Lens.lens (\SlackMetadata' {oAuthScopes} -> oAuthScopes) (\s@SlackMetadata' {} a -> s {oAuthScopes = a} :: SlackMetadata) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON SlackMetadata where
+instance Data.FromJSON SlackMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SlackMetadata"
       ( \x ->
           SlackMetadata'
-            Prelude.<$> (x Core..:? "oAuthScopes" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "oAuthScopes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SlackMetadata where

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PrefixListId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -74,11 +75,11 @@ prefixListId_prefixListId = Lens.lens (\PrefixListId' {prefixListId} -> prefixLi
 prefixListId_description :: Lens.Lens' PrefixListId (Prelude.Maybe Prelude.Text)
 prefixListId_description = Lens.lens (\PrefixListId' {description} -> description) (\s@PrefixListId' {} a -> s {description = a} :: PrefixListId)
 
-instance Core.FromXML PrefixListId where
+instance Data.FromXML PrefixListId where
   parseXML x =
     PrefixListId'
-      Prelude.<$> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "description")
+      Prelude.<$> (x Data..@? "prefixListId")
+      Prelude.<*> (x Data..@? "description")
 
 instance Prelude.Hashable PrefixListId where
   hashWithSalt _salt PrefixListId' {..} =
@@ -90,9 +91,9 @@ instance Prelude.NFData PrefixListId where
     Prelude.rnf prefixListId
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToQuery PrefixListId where
+instance Data.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =
     Prelude.mconcat
-      [ "PrefixListId" Core.=: prefixListId,
-        "Description" Core.=: description
+      [ "PrefixListId" Data.=: prefixListId,
+        "Description" Data.=: description
       ]

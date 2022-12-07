@@ -21,6 +21,7 @@ module Amazonka.FMS.Types.AwsEc2InstanceViolation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types.AwsEc2NetworkInterfaceViolation
 import qualified Amazonka.Prelude as Prelude
 
@@ -66,16 +67,16 @@ awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2Ins
 awsEc2InstanceViolation_violationTarget :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe Prelude.Text)
 awsEc2InstanceViolation_violationTarget = Lens.lens (\AwsEc2InstanceViolation' {violationTarget} -> violationTarget) (\s@AwsEc2InstanceViolation' {} a -> s {violationTarget = a} :: AwsEc2InstanceViolation)
 
-instance Core.FromJSON AwsEc2InstanceViolation where
+instance Data.FromJSON AwsEc2InstanceViolation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsEc2InstanceViolation"
       ( \x ->
           AwsEc2InstanceViolation'
-            Prelude.<$> ( x Core..:? "AwsEc2NetworkInterfaceViolations"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "AwsEc2NetworkInterfaceViolations"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ViolationTarget")
+            Prelude.<*> (x Data..:? "ViolationTarget")
       )
 
 instance Prelude.Hashable AwsEc2InstanceViolation where

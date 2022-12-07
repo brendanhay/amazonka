@@ -21,6 +21,7 @@ module Amazonka.Route53RecoveryControlConfig.Types.Cluster where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint
 import Amazonka.Route53RecoveryControlConfig.Types.Status
@@ -98,17 +99,17 @@ cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s
 cluster_clusterEndpoints :: Lens.Lens' Cluster (Prelude.Maybe [ClusterEndpoint])
 cluster_clusterEndpoints = Lens.lens (\Cluster' {clusterEndpoints} -> clusterEndpoints) (\s@Cluster' {} a -> s {clusterEndpoints = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON Cluster where
+instance Data.FromJSON Cluster where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Core..:? "ClusterArn")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> ( x Core..:? "ClusterEndpoints"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "ClusterArn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> ( x Data..:? "ClusterEndpoints"
+                            Data..!= Prelude.mempty
                         )
       )
 

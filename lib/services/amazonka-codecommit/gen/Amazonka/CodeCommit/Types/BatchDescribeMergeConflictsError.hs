@@ -21,6 +21,7 @@ module Amazonka.CodeCommit.Types.BatchDescribeMergeConflictsError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about errors in a BatchDescribeMergeConflicts
@@ -82,17 +83,17 @@ batchDescribeMergeConflictsError_message :: Lens.Lens' BatchDescribeMergeConflic
 batchDescribeMergeConflictsError_message = Lens.lens (\BatchDescribeMergeConflictsError' {message} -> message) (\s@BatchDescribeMergeConflictsError' {} a -> s {message = a} :: BatchDescribeMergeConflictsError)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     BatchDescribeMergeConflictsError
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "BatchDescribeMergeConflictsError"
       ( \x ->
           BatchDescribeMergeConflictsError'
-            Prelude.<$> (x Core..: "filePath")
-            Prelude.<*> (x Core..: "exceptionName")
-            Prelude.<*> (x Core..: "message")
+            Prelude.<$> (x Data..: "filePath")
+            Prelude.<*> (x Data..: "exceptionName")
+            Prelude.<*> (x Data..: "message")
       )
 
 instance

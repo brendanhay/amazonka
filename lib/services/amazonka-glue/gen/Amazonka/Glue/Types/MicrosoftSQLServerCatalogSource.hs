@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.MicrosoftSQLServerCatalogSource where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies a Microsoft SQL server data source in the Glue Data Catalog.
@@ -80,17 +81,17 @@ microsoftSQLServerCatalogSource_table :: Lens.Lens' MicrosoftSQLServerCatalogSou
 microsoftSQLServerCatalogSource_table = Lens.lens (\MicrosoftSQLServerCatalogSource' {table} -> table) (\s@MicrosoftSQLServerCatalogSource' {} a -> s {table = a} :: MicrosoftSQLServerCatalogSource)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     MicrosoftSQLServerCatalogSource
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MicrosoftSQLServerCatalogSource"
       ( \x ->
           MicrosoftSQLServerCatalogSource'
-            Prelude.<$> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Database")
-            Prelude.<*> (x Core..: "Table")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Database")
+            Prelude.<*> (x Data..: "Table")
       )
 
 instance
@@ -113,12 +114,12 @@ instance
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
 
-instance Core.ToJSON MicrosoftSQLServerCatalogSource where
+instance Data.ToJSON MicrosoftSQLServerCatalogSource where
   toJSON MicrosoftSQLServerCatalogSource' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Database" Core..= database),
-            Prelude.Just ("Table" Core..= table)
+          [ Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Database" Data..= database),
+            Prelude.Just ("Table" Data..= table)
           ]
       )

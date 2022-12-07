@@ -18,6 +18,7 @@ module Amazonka.Rekognition.Waiters where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.DescribeProjectVersions
 import Amazonka.Rekognition.Lens
@@ -43,7 +44,7 @@ newProjectVersionTrainingCompleted =
                 )
                 Prelude.. projectVersionDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "TRAINING_FAILED"
@@ -56,7 +57,7 @@ newProjectVersionTrainingCompleted =
                 )
                 Prelude.. projectVersionDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }
@@ -80,7 +81,7 @@ newProjectVersionRunning =
                 )
                 Prelude.. projectVersionDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
             "FAILED"
@@ -93,7 +94,7 @@ newProjectVersionRunning =
                 )
                 Prelude.. projectVersionDescription_status
                 Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

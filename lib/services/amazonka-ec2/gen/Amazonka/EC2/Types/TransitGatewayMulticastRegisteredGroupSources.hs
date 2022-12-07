@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.TransitGatewayMulticastRegisteredGroupSources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -79,17 +80,17 @@ transitGatewayMulticastRegisteredGroupSources_transitGatewayMulticastDomainId ::
 transitGatewayMulticastRegisteredGroupSources_transitGatewayMulticastDomainId = Lens.lens (\TransitGatewayMulticastRegisteredGroupSources' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@TransitGatewayMulticastRegisteredGroupSources' {} a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastRegisteredGroupSources)
 
 instance
-  Core.FromXML
+  Data.FromXML
     TransitGatewayMulticastRegisteredGroupSources
   where
   parseXML x =
     TransitGatewayMulticastRegisteredGroupSources'
-      Prelude.<$> (x Core..@? "groupIpAddress")
-        Prelude.<*> ( x Core..@? "registeredNetworkInterfaceIds"
+      Prelude.<$> (x Data..@? "groupIpAddress")
+        Prelude.<*> ( x Data..@? "registeredNetworkInterfaceIds"
                         Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Core.parseXMLList "item")
+                        Prelude.>>= Core.may (Data.parseXMLList "item")
                     )
-        Prelude.<*> (x Core..@? "transitGatewayMulticastDomainId")
+        Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
 
 instance
   Prelude.Hashable

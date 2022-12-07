@@ -51,6 +51,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Outposts.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -117,8 +118,8 @@ instance Core.AWSRequest UpdateSiteAddress where
     Response.receiveJSON
       ( \s h x ->
           UpdateSiteAddressResponse'
-            Prelude.<$> (x Core..?> "AddressType")
-            Prelude.<*> (x Core..?> "Address")
+            Prelude.<$> (x Data..?> "AddressType")
+            Prelude.<*> (x Data..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,32 +135,32 @@ instance Prelude.NFData UpdateSiteAddress where
       `Prelude.seq` Prelude.rnf addressType
       `Prelude.seq` Prelude.rnf address
 
-instance Core.ToHeaders UpdateSiteAddress where
+instance Data.ToHeaders UpdateSiteAddress where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateSiteAddress where
+instance Data.ToJSON UpdateSiteAddress where
   toJSON UpdateSiteAddress' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AddressType" Core..= addressType),
-            Prelude.Just ("Address" Core..= address)
+          [ Prelude.Just ("AddressType" Data..= addressType),
+            Prelude.Just ("Address" Data..= address)
           ]
       )
 
-instance Core.ToPath UpdateSiteAddress where
+instance Data.ToPath UpdateSiteAddress where
   toPath UpdateSiteAddress' {..} =
     Prelude.mconcat
-      ["/sites/", Core.toBS siteId, "/address"]
+      ["/sites/", Data.toBS siteId, "/address"]
 
-instance Core.ToQuery UpdateSiteAddress where
+instance Data.ToQuery UpdateSiteAddress where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSiteAddressResponse' smart constructor.

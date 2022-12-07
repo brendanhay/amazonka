@@ -22,6 +22,7 @@ module Amazonka.AccessAnalyzer.Types.InlineArchiveRule where
 import Amazonka.AccessAnalyzer.Types.Criterion
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An criterion statement in an archive rule. Each archive rule may have
@@ -75,11 +76,11 @@ instance Prelude.NFData InlineArchiveRule where
     Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf filter'
 
-instance Core.ToJSON InlineArchiveRule where
+instance Data.ToJSON InlineArchiveRule where
   toJSON InlineArchiveRule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ruleName" Core..= ruleName),
-            Prelude.Just ("filter" Core..= filter')
+          [ Prelude.Just ("ruleName" Data..= ruleName),
+            Prelude.Just ("filter" Data..= filter')
           ]
       )

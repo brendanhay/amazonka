@@ -23,6 +23,7 @@ import Amazonka.CloudFront.Types.OriginRequestPolicy
 import Amazonka.CloudFront.Types.OriginRequestPolicyType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains an origin request policy.
@@ -72,11 +73,11 @@ originRequestPolicySummary_type = Lens.lens (\OriginRequestPolicySummary' {type'
 originRequestPolicySummary_originRequestPolicy :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicy
 originRequestPolicySummary_originRequestPolicy = Lens.lens (\OriginRequestPolicySummary' {originRequestPolicy} -> originRequestPolicy) (\s@OriginRequestPolicySummary' {} a -> s {originRequestPolicy = a} :: OriginRequestPolicySummary)
 
-instance Core.FromXML OriginRequestPolicySummary where
+instance Data.FromXML OriginRequestPolicySummary where
   parseXML x =
     OriginRequestPolicySummary'
-      Prelude.<$> (x Core..@ "Type")
-      Prelude.<*> (x Core..@ "OriginRequestPolicy")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "OriginRequestPolicy")
 
 instance Prelude.Hashable OriginRequestPolicySummary where
   hashWithSalt _salt OriginRequestPolicySummary' {..} =

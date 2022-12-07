@@ -21,6 +21,7 @@ module Amazonka.Lambda.Types.TracingConfig where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lambda.Types.TracingMode
 import qualified Amazonka.Prelude as Prelude
 
@@ -61,9 +62,9 @@ instance Prelude.Hashable TracingConfig where
 instance Prelude.NFData TracingConfig where
   rnf TracingConfig' {..} = Prelude.rnf mode
 
-instance Core.ToJSON TracingConfig where
+instance Data.ToJSON TracingConfig where
   toJSON TracingConfig' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("Mode" Core..=) Prelude.<$> mode]
+          [("Mode" Data..=) Prelude.<$> mode]
       )

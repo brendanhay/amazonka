@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.CustomResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.CustomHTTPHeader
 
@@ -138,15 +139,15 @@ customResponse_responseHeaders = Lens.lens (\CustomResponse' {responseHeaders} -
 customResponse_responseCode :: Lens.Lens' CustomResponse Prelude.Natural
 customResponse_responseCode = Lens.lens (\CustomResponse' {responseCode} -> responseCode) (\s@CustomResponse' {} a -> s {responseCode = a} :: CustomResponse)
 
-instance Core.FromJSON CustomResponse where
+instance Data.FromJSON CustomResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "CustomResponse"
       ( \x ->
           CustomResponse'
-            Prelude.<$> (x Core..:? "CustomResponseBodyKey")
-            Prelude.<*> (x Core..:? "ResponseHeaders")
-            Prelude.<*> (x Core..: "ResponseCode")
+            Prelude.<$> (x Data..:? "CustomResponseBodyKey")
+            Prelude.<*> (x Data..:? "ResponseHeaders")
+            Prelude.<*> (x Data..: "ResponseCode")
       )
 
 instance Prelude.Hashable CustomResponse where
@@ -161,14 +162,14 @@ instance Prelude.NFData CustomResponse where
       `Prelude.seq` Prelude.rnf responseHeaders
       `Prelude.seq` Prelude.rnf responseCode
 
-instance Core.ToJSON CustomResponse where
+instance Data.ToJSON CustomResponse where
   toJSON CustomResponse' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CustomResponseBodyKey" Core..=)
+          [ ("CustomResponseBodyKey" Data..=)
               Prelude.<$> customResponseBodyKey,
-            ("ResponseHeaders" Core..=)
+            ("ResponseHeaders" Data..=)
               Prelude.<$> responseHeaders,
-            Prelude.Just ("ResponseCode" Core..= responseCode)
+            Prelude.Just ("ResponseCode" Data..= responseCode)
           ]
       )

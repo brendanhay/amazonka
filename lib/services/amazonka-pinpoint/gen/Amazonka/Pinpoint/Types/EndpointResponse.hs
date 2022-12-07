@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.EndpointResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Pinpoint.Types.ChannelType
 import Amazonka.Pinpoint.Types.EndpointDemographic
 import Amazonka.Pinpoint.Types.EndpointLocation
@@ -291,27 +292,27 @@ endpointResponse_endpointStatus = Lens.lens (\EndpointResponse' {endpointStatus}
 endpointResponse_channelType :: Lens.Lens' EndpointResponse (Prelude.Maybe ChannelType)
 endpointResponse_channelType = Lens.lens (\EndpointResponse' {channelType} -> channelType) (\s@EndpointResponse' {} a -> s {channelType = a} :: EndpointResponse)
 
-instance Core.FromJSON EndpointResponse where
+instance Data.FromJSON EndpointResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EndpointResponse"
       ( \x ->
           EndpointResponse'
-            Prelude.<$> (x Core..:? "Demographic")
-            Prelude.<*> (x Core..:? "CohortId")
-            Prelude.<*> (x Core..:? "User")
-            Prelude.<*> (x Core..:? "RequestId")
-            Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "OptOut")
-            Prelude.<*> (x Core..:? "Address")
-            Prelude.<*> (x Core..:? "EffectiveDate")
-            Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ApplicationId")
-            Prelude.<*> (x Core..:? "EndpointStatus")
-            Prelude.<*> (x Core..:? "ChannelType")
+            Prelude.<$> (x Data..:? "Demographic")
+            Prelude.<*> (x Data..:? "CohortId")
+            Prelude.<*> (x Data..:? "User")
+            Prelude.<*> (x Data..:? "RequestId")
+            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Location")
+            Prelude.<*> (x Data..:? "OptOut")
+            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "EffectiveDate")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "EndpointStatus")
+            Prelude.<*> (x Data..:? "ChannelType")
       )
 
 instance Prelude.Hashable EndpointResponse where

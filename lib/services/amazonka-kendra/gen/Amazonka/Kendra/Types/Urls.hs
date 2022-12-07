@@ -21,6 +21,7 @@ module Amazonka.Kendra.Types.Urls where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.SeedUrlConfiguration
 import Amazonka.Kendra.Types.SiteMapsConfiguration
 import qualified Amazonka.Prelude as Prelude
@@ -104,14 +105,14 @@ urls_seedUrlConfiguration = Lens.lens (\Urls' {seedUrlConfiguration} -> seedUrlC
 urls_siteMapsConfiguration :: Lens.Lens' Urls (Prelude.Maybe SiteMapsConfiguration)
 urls_siteMapsConfiguration = Lens.lens (\Urls' {siteMapsConfiguration} -> siteMapsConfiguration) (\s@Urls' {} a -> s {siteMapsConfiguration = a} :: Urls)
 
-instance Core.FromJSON Urls where
+instance Data.FromJSON Urls where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Urls"
       ( \x ->
           Urls'
-            Prelude.<$> (x Core..:? "SeedUrlConfiguration")
-            Prelude.<*> (x Core..:? "SiteMapsConfiguration")
+            Prelude.<$> (x Data..:? "SeedUrlConfiguration")
+            Prelude.<*> (x Data..:? "SiteMapsConfiguration")
       )
 
 instance Prelude.Hashable Urls where
@@ -124,13 +125,13 @@ instance Prelude.NFData Urls where
     Prelude.rnf seedUrlConfiguration
       `Prelude.seq` Prelude.rnf siteMapsConfiguration
 
-instance Core.ToJSON Urls where
+instance Data.ToJSON Urls where
   toJSON Urls' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("SeedUrlConfiguration" Core..=)
+          [ ("SeedUrlConfiguration" Data..=)
               Prelude.<$> seedUrlConfiguration,
-            ("SiteMapsConfiguration" Core..=)
+            ("SiteMapsConfiguration" Data..=)
               Prelude.<$> siteMapsConfiguration
           ]
       )

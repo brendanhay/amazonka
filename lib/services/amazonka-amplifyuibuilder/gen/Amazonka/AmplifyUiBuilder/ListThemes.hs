@@ -49,6 +49,7 @@ where
 import Amazonka.AmplifyUiBuilder.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -135,9 +136,9 @@ instance Core.AWSRequest ListThemes where
     Response.receiveJSON
       ( \s h x ->
           ListThemesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "entities" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListThemes where
@@ -154,32 +155,32 @@ instance Prelude.NFData ListThemes where
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
-instance Core.ToHeaders ListThemes where
+instance Data.ToHeaders ListThemes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath ListThemes where
+instance Data.ToPath ListThemes where
   toPath ListThemes' {..} =
     Prelude.mconcat
       [ "/app/",
-        Core.toBS appId,
+        Data.toBS appId,
         "/environment/",
-        Core.toBS environmentName,
+        Data.toBS environmentName,
         "/themes"
       ]
 
-instance Core.ToQuery ListThemes where
+instance Data.ToQuery ListThemes where
   toQuery ListThemes' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newListThemesResponse' smart constructor.

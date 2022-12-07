@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,13 +52,13 @@ newAction =
 action_exportRevisionToS3 :: Lens.Lens' Action (Prelude.Maybe AutoExportRevisionToS3RequestDetails)
 action_exportRevisionToS3 = Lens.lens (\Action' {exportRevisionToS3} -> exportRevisionToS3) (\s@Action' {} a -> s {exportRevisionToS3 = a} :: Action)
 
-instance Core.FromJSON Action where
+instance Data.FromJSON Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "ExportRevisionToS3")
+            Prelude.<$> (x Data..:? "ExportRevisionToS3")
       )
 
 instance Prelude.Hashable Action where
@@ -67,11 +68,11 @@ instance Prelude.Hashable Action where
 instance Prelude.NFData Action where
   rnf Action' {..} = Prelude.rnf exportRevisionToS3
 
-instance Core.ToJSON Action where
+instance Data.ToJSON Action where
   toJSON Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("ExportRevisionToS3" Core..=)
+          [ ("ExportRevisionToS3" Data..=)
               Prelude.<$> exportRevisionToS3
           ]
       )

@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,32 +102,32 @@ instance Prelude.Hashable CancelBatchImportJob where
 instance Prelude.NFData CancelBatchImportJob where
   rnf CancelBatchImportJob' {..} = Prelude.rnf jobId
 
-instance Core.ToHeaders CancelBatchImportJob where
+instance Data.ToHeaders CancelBatchImportJob where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSHawksNestServiceFacade.CancelBatchImportJob" ::
+              Data.=# ( "AWSHawksNestServiceFacade.CancelBatchImportJob" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CancelBatchImportJob where
+instance Data.ToJSON CancelBatchImportJob where
   toJSON CancelBatchImportJob' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("jobId" Core..= jobId)]
+          [Prelude.Just ("jobId" Data..= jobId)]
       )
 
-instance Core.ToPath CancelBatchImportJob where
+instance Data.ToPath CancelBatchImportJob where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery CancelBatchImportJob where
+instance Data.ToQuery CancelBatchImportJob where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCancelBatchImportJobResponse' smart constructor.

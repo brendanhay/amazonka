@@ -21,6 +21,7 @@ module Amazonka.CloudWatchLogs.Types.LogGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a log group.
@@ -111,19 +112,19 @@ logGroup_creationTime = Lens.lens (\LogGroup' {creationTime} -> creationTime) (\
 logGroup_logGroupName :: Lens.Lens' LogGroup (Prelude.Maybe Prelude.Text)
 logGroup_logGroupName = Lens.lens (\LogGroup' {logGroupName} -> logGroupName) (\s@LogGroup' {} a -> s {logGroupName = a} :: LogGroup)
 
-instance Core.FromJSON LogGroup where
+instance Data.FromJSON LogGroup where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LogGroup"
       ( \x ->
           LogGroup'
-            Prelude.<$> (x Core..:? "storedBytes")
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "retentionInDays")
-            Prelude.<*> (x Core..:? "kmsKeyId")
-            Prelude.<*> (x Core..:? "metricFilterCount")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "logGroupName")
+            Prelude.<$> (x Data..:? "storedBytes")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "retentionInDays")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "metricFilterCount")
+            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "logGroupName")
       )
 
 instance Prelude.Hashable LogGroup where

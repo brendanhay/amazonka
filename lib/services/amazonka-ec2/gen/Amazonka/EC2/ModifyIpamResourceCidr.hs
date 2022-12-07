@@ -57,6 +57,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -184,7 +185,7 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
     Response.receiveXML
       ( \s h x ->
           ModifyIpamResourceCidrResponse'
-            Prelude.<$> (x Core..@? "ipamResourceCidr")
+            Prelude.<$> (x Data..@? "ipamResourceCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,27 +209,27 @@ instance Prelude.NFData ModifyIpamResourceCidr where
       `Prelude.seq` Prelude.rnf currentIpamScopeId
       `Prelude.seq` Prelude.rnf monitored
 
-instance Core.ToHeaders ModifyIpamResourceCidr where
+instance Data.ToHeaders ModifyIpamResourceCidr where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ModifyIpamResourceCidr where
+instance Data.ToPath ModifyIpamResourceCidr where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ModifyIpamResourceCidr where
+instance Data.ToQuery ModifyIpamResourceCidr where
   toQuery ModifyIpamResourceCidr' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("ModifyIpamResourceCidr" :: Prelude.ByteString),
+          Data.=: ("ModifyIpamResourceCidr" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DestinationIpamScopeId"
-          Core.=: destinationIpamScopeId,
-        "DryRun" Core.=: dryRun,
-        "ResourceId" Core.=: resourceId,
-        "ResourceCidr" Core.=: resourceCidr,
-        "ResourceRegion" Core.=: resourceRegion,
-        "CurrentIpamScopeId" Core.=: currentIpamScopeId,
-        "Monitored" Core.=: monitored
+          Data.=: destinationIpamScopeId,
+        "DryRun" Data.=: dryRun,
+        "ResourceId" Data.=: resourceId,
+        "ResourceCidr" Data.=: resourceCidr,
+        "ResourceRegion" Data.=: resourceRegion,
+        "CurrentIpamScopeId" Data.=: currentIpamScopeId,
+        "Monitored" Data.=: monitored
       ]
 
 -- | /See:/ 'newModifyIpamResourceCidrResponse' smart constructor.

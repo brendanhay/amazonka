@@ -25,6 +25,7 @@ import Amazonka.CodeBuild.Types.ArtifactsType
 import Amazonka.CodeBuild.Types.BucketOwnerAccess
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the build output artifacts for the build project.
@@ -442,22 +443,22 @@ projectArtifacts_namespaceType = Lens.lens (\ProjectArtifacts' {namespaceType} -
 projectArtifacts_type :: Lens.Lens' ProjectArtifacts ArtifactsType
 projectArtifacts_type = Lens.lens (\ProjectArtifacts' {type'} -> type') (\s@ProjectArtifacts' {} a -> s {type' = a} :: ProjectArtifacts)
 
-instance Core.FromJSON ProjectArtifacts where
+instance Data.FromJSON ProjectArtifacts where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ProjectArtifacts"
       ( \x ->
           ProjectArtifacts'
-            Prelude.<$> (x Core..:? "encryptionDisabled")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "path")
-            Prelude.<*> (x Core..:? "artifactIdentifier")
-            Prelude.<*> (x Core..:? "packaging")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "overrideArtifactName")
-            Prelude.<*> (x Core..:? "bucketOwnerAccess")
-            Prelude.<*> (x Core..:? "namespaceType")
-            Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..:? "encryptionDisabled")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "artifactIdentifier")
+            Prelude.<*> (x Data..:? "packaging")
+            Prelude.<*> (x Data..:? "location")
+            Prelude.<*> (x Data..:? "overrideArtifactName")
+            Prelude.<*> (x Data..:? "bucketOwnerAccess")
+            Prelude.<*> (x Data..:? "namespaceType")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ProjectArtifacts where
@@ -486,23 +487,23 @@ instance Prelude.NFData ProjectArtifacts where
       `Prelude.seq` Prelude.rnf namespaceType
       `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON ProjectArtifacts where
+instance Data.ToJSON ProjectArtifacts where
   toJSON ProjectArtifacts' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("encryptionDisabled" Core..=)
+          [ ("encryptionDisabled" Data..=)
               Prelude.<$> encryptionDisabled,
-            ("name" Core..=) Prelude.<$> name,
-            ("path" Core..=) Prelude.<$> path,
-            ("artifactIdentifier" Core..=)
+            ("name" Data..=) Prelude.<$> name,
+            ("path" Data..=) Prelude.<$> path,
+            ("artifactIdentifier" Data..=)
               Prelude.<$> artifactIdentifier,
-            ("packaging" Core..=) Prelude.<$> packaging,
-            ("location" Core..=) Prelude.<$> location,
-            ("overrideArtifactName" Core..=)
+            ("packaging" Data..=) Prelude.<$> packaging,
+            ("location" Data..=) Prelude.<$> location,
+            ("overrideArtifactName" Data..=)
               Prelude.<$> overrideArtifactName,
-            ("bucketOwnerAccess" Core..=)
+            ("bucketOwnerAccess" Data..=)
               Prelude.<$> bucketOwnerAccess,
-            ("namespaceType" Core..=) Prelude.<$> namespaceType,
-            Prelude.Just ("type" Core..= type')
+            ("namespaceType" Data..=) Prelude.<$> namespaceType,
+            Prelude.Just ("type" Data..= type')
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.DirectoryService.Types.Certificate where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DirectoryService.Types.CertificateState
 import Amazonka.DirectoryService.Types.CertificateType
 import Amazonka.DirectoryService.Types.ClientCertAuthSettings
@@ -35,7 +36,7 @@ data Certificate = Certificate'
     -- @ClientLDAPS@.
     type' :: Prelude.Maybe CertificateType,
     -- | The date and time that the certificate was registered.
-    registeredDateTime :: Prelude.Maybe Core.POSIX,
+    registeredDateTime :: Prelude.Maybe Data.POSIX,
     -- | The state of the certificate.
     state :: Prelude.Maybe CertificateState,
     -- | The identifier of the certificate.
@@ -48,7 +49,7 @@ data Certificate = Certificate'
     -- authentication settings.
     clientCertAuthSettings :: Prelude.Maybe ClientCertAuthSettings,
     -- | The date and time when the certificate will expire.
-    expiryDateTime :: Prelude.Maybe Core.POSIX
+    expiryDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +101,7 @@ certificate_type = Lens.lens (\Certificate' {type'} -> type') (\s@Certificate' {
 
 -- | The date and time that the certificate was registered.
 certificate_registeredDateTime :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_registeredDateTime = Lens.lens (\Certificate' {registeredDateTime} -> registeredDateTime) (\s@Certificate' {} a -> s {registeredDateTime = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_registeredDateTime = Lens.lens (\Certificate' {registeredDateTime} -> registeredDateTime) (\s@Certificate' {} a -> s {registeredDateTime = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the certificate.
 certificate_state :: Lens.Lens' Certificate (Prelude.Maybe CertificateState)
@@ -125,22 +126,22 @@ certificate_clientCertAuthSettings = Lens.lens (\Certificate' {clientCertAuthSet
 
 -- | The date and time when the certificate will expire.
 certificate_expiryDateTime :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_expiryDateTime = Lens.lens (\Certificate' {expiryDateTime} -> expiryDateTime) (\s@Certificate' {} a -> s {expiryDateTime = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+certificate_expiryDateTime = Lens.lens (\Certificate' {expiryDateTime} -> expiryDateTime) (\s@Certificate' {} a -> s {expiryDateTime = a} :: Certificate) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON Certificate where
+instance Data.FromJSON Certificate where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "RegisteredDateTime")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "CertificateId")
-            Prelude.<*> (x Core..:? "CommonName")
-            Prelude.<*> (x Core..:? "StateReason")
-            Prelude.<*> (x Core..:? "ClientCertAuthSettings")
-            Prelude.<*> (x Core..:? "ExpiryDateTime")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "RegisteredDateTime")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "CertificateId")
+            Prelude.<*> (x Data..:? "CommonName")
+            Prelude.<*> (x Data..:? "StateReason")
+            Prelude.<*> (x Data..:? "ClientCertAuthSettings")
+            Prelude.<*> (x Data..:? "ExpiryDateTime")
       )
 
 instance Prelude.Hashable Certificate where

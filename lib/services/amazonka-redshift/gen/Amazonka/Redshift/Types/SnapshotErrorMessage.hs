@@ -21,6 +21,7 @@ module Amazonka.Redshift.Types.SnapshotErrorMessage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
@@ -81,13 +82,13 @@ snapshotErrorMessage_snapshotClusterIdentifier = Lens.lens (\SnapshotErrorMessag
 snapshotErrorMessage_failureReason :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
 snapshotErrorMessage_failureReason = Lens.lens (\SnapshotErrorMessage' {failureReason} -> failureReason) (\s@SnapshotErrorMessage' {} a -> s {failureReason = a} :: SnapshotErrorMessage)
 
-instance Core.FromXML SnapshotErrorMessage where
+instance Data.FromXML SnapshotErrorMessage where
   parseXML x =
     SnapshotErrorMessage'
-      Prelude.<$> (x Core..@? "FailureCode")
-      Prelude.<*> (x Core..@? "SnapshotIdentifier")
-      Prelude.<*> (x Core..@? "SnapshotClusterIdentifier")
-      Prelude.<*> (x Core..@? "FailureReason")
+      Prelude.<$> (x Data..@? "FailureCode")
+      Prelude.<*> (x Data..@? "SnapshotIdentifier")
+      Prelude.<*> (x Data..@? "SnapshotClusterIdentifier")
+      Prelude.<*> (x Data..@? "FailureReason")
 
 instance Prelude.Hashable SnapshotErrorMessage where
   hashWithSalt _salt SnapshotErrorMessage' {..} =

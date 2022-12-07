@@ -21,6 +21,7 @@ module Amazonka.WAFV2.Types.LabelMatchStatement where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.LabelMatchScope
 
@@ -118,13 +119,13 @@ labelMatchStatement_scope = Lens.lens (\LabelMatchStatement' {scope} -> scope) (
 labelMatchStatement_key :: Lens.Lens' LabelMatchStatement Prelude.Text
 labelMatchStatement_key = Lens.lens (\LabelMatchStatement' {key} -> key) (\s@LabelMatchStatement' {} a -> s {key = a} :: LabelMatchStatement)
 
-instance Core.FromJSON LabelMatchStatement where
+instance Data.FromJSON LabelMatchStatement where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelMatchStatement"
       ( \x ->
           LabelMatchStatement'
-            Prelude.<$> (x Core..: "Scope") Prelude.<*> (x Core..: "Key")
+            Prelude.<$> (x Data..: "Scope") Prelude.<*> (x Data..: "Key")
       )
 
 instance Prelude.Hashable LabelMatchStatement where
@@ -136,11 +137,11 @@ instance Prelude.NFData LabelMatchStatement where
   rnf LabelMatchStatement' {..} =
     Prelude.rnf scope `Prelude.seq` Prelude.rnf key
 
-instance Core.ToJSON LabelMatchStatement where
+instance Data.ToJSON LabelMatchStatement where
   toJSON LabelMatchStatement' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Scope" Core..= scope),
-            Prelude.Just ("Key" Core..= key)
+          [ Prelude.Just ("Scope" Data..= scope),
+            Prelude.Just ("Key" Data..= key)
           ]
       )

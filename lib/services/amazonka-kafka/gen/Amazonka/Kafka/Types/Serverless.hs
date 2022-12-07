@@ -21,6 +21,7 @@ module Amazonka.Kafka.Types.Serverless where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ServerlessClientAuthentication
 import Amazonka.Kafka.Types.VpcConfig
 import qualified Amazonka.Prelude as Prelude
@@ -63,14 +64,14 @@ serverless_clientAuthentication = Lens.lens (\Serverless' {clientAuthentication}
 serverless_vpcConfigs :: Lens.Lens' Serverless [VpcConfig]
 serverless_vpcConfigs = Lens.lens (\Serverless' {vpcConfigs} -> vpcConfigs) (\s@Serverless' {} a -> s {vpcConfigs = a} :: Serverless) Prelude.. Lens.coerced
 
-instance Core.FromJSON Serverless where
+instance Data.FromJSON Serverless where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Serverless"
       ( \x ->
           Serverless'
-            Prelude.<$> (x Core..:? "clientAuthentication")
-            Prelude.<*> (x Core..:? "vpcConfigs" Core..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "clientAuthentication")
+            Prelude.<*> (x Data..:? "vpcConfigs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Serverless where

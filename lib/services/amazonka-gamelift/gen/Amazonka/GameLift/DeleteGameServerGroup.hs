@@ -79,6 +79,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.GameLift.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -169,7 +170,7 @@ instance Core.AWSRequest DeleteGameServerGroup where
     Response.receiveJSON
       ( \s h x ->
           DeleteGameServerGroupResponse'
-            Prelude.<$> (x Core..?> "GameServerGroup")
+            Prelude.<$> (x Data..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,35 +184,35 @@ instance Prelude.NFData DeleteGameServerGroup where
     Prelude.rnf deleteOption
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
-instance Core.ToHeaders DeleteGameServerGroup where
+instance Data.ToHeaders DeleteGameServerGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "GameLift.DeleteGameServerGroup" ::
+              Data.=# ( "GameLift.DeleteGameServerGroup" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteGameServerGroup where
+instance Data.ToJSON DeleteGameServerGroup where
   toJSON DeleteGameServerGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOption" Core..=) Prelude.<$> deleteOption,
+          [ ("DeleteOption" Data..=) Prelude.<$> deleteOption,
             Prelude.Just
-              ("GameServerGroupName" Core..= gameServerGroupName)
+              ("GameServerGroupName" Data..= gameServerGroupName)
           ]
       )
 
-instance Core.ToPath DeleteGameServerGroup where
+instance Data.ToPath DeleteGameServerGroup where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteGameServerGroup where
+instance Data.ToQuery DeleteGameServerGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteGameServerGroupResponse' smart constructor.

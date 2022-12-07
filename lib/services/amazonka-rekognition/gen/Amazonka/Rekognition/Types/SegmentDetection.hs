@@ -21,6 +21,7 @@ module Amazonka.Rekognition.Types.SegmentDetection where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.SegmentType
 import Amazonka.Rekognition.Types.ShotSegment
@@ -193,24 +194,24 @@ segmentDetection_durationMillis = Lens.lens (\SegmentDetection' {durationMillis}
 segmentDetection_endFrameNumber :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Natural)
 segmentDetection_endFrameNumber = Lens.lens (\SegmentDetection' {endFrameNumber} -> endFrameNumber) (\s@SegmentDetection' {} a -> s {endFrameNumber = a} :: SegmentDetection)
 
-instance Core.FromJSON SegmentDetection where
+instance Data.FromJSON SegmentDetection where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SegmentDetection"
       ( \x ->
           SegmentDetection'
-            Prelude.<$> (x Core..:? "StartTimecodeSMPTE")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "StartTimestampMillis")
-            Prelude.<*> (x Core..:? "DurationSMPTE")
-            Prelude.<*> (x Core..:? "StartFrameNumber")
-            Prelude.<*> (x Core..:? "ShotSegment")
-            Prelude.<*> (x Core..:? "TechnicalCueSegment")
-            Prelude.<*> (x Core..:? "EndTimestampMillis")
-            Prelude.<*> (x Core..:? "EndTimecodeSMPTE")
-            Prelude.<*> (x Core..:? "DurationFrames")
-            Prelude.<*> (x Core..:? "DurationMillis")
-            Prelude.<*> (x Core..:? "EndFrameNumber")
+            Prelude.<$> (x Data..:? "StartTimecodeSMPTE")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "StartTimestampMillis")
+            Prelude.<*> (x Data..:? "DurationSMPTE")
+            Prelude.<*> (x Data..:? "StartFrameNumber")
+            Prelude.<*> (x Data..:? "ShotSegment")
+            Prelude.<*> (x Data..:? "TechnicalCueSegment")
+            Prelude.<*> (x Data..:? "EndTimestampMillis")
+            Prelude.<*> (x Data..:? "EndTimecodeSMPTE")
+            Prelude.<*> (x Data..:? "DurationFrames")
+            Prelude.<*> (x Data..:? "DurationMillis")
+            Prelude.<*> (x Data..:? "EndFrameNumber")
       )
 
 instance Prelude.Hashable SegmentDetection where

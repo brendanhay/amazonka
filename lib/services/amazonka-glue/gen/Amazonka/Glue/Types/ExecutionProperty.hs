@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ExecutionProperty where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An execution property of a job.
@@ -59,13 +60,13 @@ newExecutionProperty =
 executionProperty_maxConcurrentRuns :: Lens.Lens' ExecutionProperty (Prelude.Maybe Prelude.Int)
 executionProperty_maxConcurrentRuns = Lens.lens (\ExecutionProperty' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@ExecutionProperty' {} a -> s {maxConcurrentRuns = a} :: ExecutionProperty)
 
-instance Core.FromJSON ExecutionProperty where
+instance Data.FromJSON ExecutionProperty where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ExecutionProperty"
       ( \x ->
           ExecutionProperty'
-            Prelude.<$> (x Core..:? "MaxConcurrentRuns")
+            Prelude.<$> (x Data..:? "MaxConcurrentRuns")
       )
 
 instance Prelude.Hashable ExecutionProperty where
@@ -76,11 +77,11 @@ instance Prelude.NFData ExecutionProperty where
   rnf ExecutionProperty' {..} =
     Prelude.rnf maxConcurrentRuns
 
-instance Core.ToJSON ExecutionProperty where
+instance Data.ToJSON ExecutionProperty where
   toJSON ExecutionProperty' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("MaxConcurrentRuns" Core..=)
+          [ ("MaxConcurrentRuns" Data..=)
               Prelude.<$> maxConcurrentRuns
           ]
       )

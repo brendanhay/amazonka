@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DataBrew.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -92,17 +93,17 @@ instance Core.AWSRequest DescribeRuleset where
     Response.receiveJSON
       ( \s h x ->
           DescribeRulesetResponse'
-            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "LastModifiedDate")
-            Prelude.<*> (x Core..?> "Rules")
-            Prelude.<*> (x Core..?> "TargetArn")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "CreateDate")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "ResourceArn")
-            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "Rules")
+            Prelude.<*> (x Data..?> "TargetArn")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "CreateDate")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Name")
+            Prelude.<*> (x Data..:> "Name")
       )
 
 instance Prelude.Hashable DescribeRuleset where
@@ -112,22 +113,22 @@ instance Prelude.Hashable DescribeRuleset where
 instance Prelude.NFData DescribeRuleset where
   rnf DescribeRuleset' {..} = Prelude.rnf name
 
-instance Core.ToHeaders DescribeRuleset where
+instance Data.ToHeaders DescribeRuleset where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DescribeRuleset where
+instance Data.ToPath DescribeRuleset where
   toPath DescribeRuleset' {..} =
-    Prelude.mconcat ["/rulesets/", Core.toBS name]
+    Prelude.mconcat ["/rulesets/", Data.toBS name]
 
-instance Core.ToQuery DescribeRuleset where
+instance Data.ToQuery DescribeRuleset where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRulesetResponse' smart constructor.
@@ -135,7 +136,7 @@ data DescribeRulesetResponse = DescribeRulesetResponse'
   { -- | Metadata tags that have been applied to the ruleset.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The modification date and time of the ruleset.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | A list of rules that are defined with the ruleset. A rule includes one
     -- or more checks to be validated on a DataBrew dataset.
     rules :: Prelude.Maybe (Prelude.NonEmpty Rule),
@@ -145,7 +146,7 @@ data DescribeRulesetResponse = DescribeRulesetResponse'
     -- | The description of the ruleset.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the ruleset was created.
-    createDate :: Prelude.Maybe Core.POSIX,
+    createDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who last modified the
     -- ruleset.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
@@ -219,7 +220,7 @@ describeRulesetResponse_tags = Lens.lens (\DescribeRulesetResponse' {tags} -> ta
 
 -- | The modification date and time of the ruleset.
 describeRulesetResponse_lastModifiedDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
-describeRulesetResponse_lastModifiedDate = Lens.lens (\DescribeRulesetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRulesetResponse' {} a -> s {lastModifiedDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Core._Time
+describeRulesetResponse_lastModifiedDate = Lens.lens (\DescribeRulesetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRulesetResponse' {} a -> s {lastModifiedDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | A list of rules that are defined with the ruleset. A rule includes one
 -- or more checks to be validated on a DataBrew dataset.
@@ -237,7 +238,7 @@ describeRulesetResponse_description = Lens.lens (\DescribeRulesetResponse' {desc
 
 -- | The date and time that the ruleset was created.
 describeRulesetResponse_createDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
-describeRulesetResponse_createDate = Lens.lens (\DescribeRulesetResponse' {createDate} -> createDate) (\s@DescribeRulesetResponse' {} a -> s {createDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Core._Time
+describeRulesetResponse_createDate = Lens.lens (\DescribeRulesetResponse' {createDate} -> createDate) (\s@DescribeRulesetResponse' {} a -> s {createDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who last modified the
 -- ruleset.

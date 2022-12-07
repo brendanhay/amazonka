@@ -21,6 +21,7 @@ module Amazonka.MigrationHubReFactorSpaces.Types.UrlEndpointInput where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration for the URL endpoint type.
@@ -90,14 +91,14 @@ urlEndpointInput_healthUrl = Lens.lens (\UrlEndpointInput' {healthUrl} -> health
 urlEndpointInput_url :: Lens.Lens' UrlEndpointInput Prelude.Text
 urlEndpointInput_url = Lens.lens (\UrlEndpointInput' {url} -> url) (\s@UrlEndpointInput' {} a -> s {url = a} :: UrlEndpointInput)
 
-instance Core.FromJSON UrlEndpointInput where
+instance Data.FromJSON UrlEndpointInput where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UrlEndpointInput"
       ( \x ->
           UrlEndpointInput'
-            Prelude.<$> (x Core..:? "HealthUrl")
-            Prelude.<*> (x Core..: "Url")
+            Prelude.<$> (x Data..:? "HealthUrl")
+            Prelude.<*> (x Data..: "Url")
       )
 
 instance Prelude.Hashable UrlEndpointInput where
@@ -109,11 +110,11 @@ instance Prelude.NFData UrlEndpointInput where
   rnf UrlEndpointInput' {..} =
     Prelude.rnf healthUrl `Prelude.seq` Prelude.rnf url
 
-instance Core.ToJSON UrlEndpointInput where
+instance Data.ToJSON UrlEndpointInput where
   toJSON UrlEndpointInput' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("HealthUrl" Core..=) Prelude.<$> healthUrl,
-            Prelude.Just ("Url" Core..= url)
+          [ ("HealthUrl" Data..=) Prelude.<$> healthUrl,
+            Prelude.Just ("Url" Data..= url)
           ]
       )

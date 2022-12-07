@@ -21,6 +21,7 @@ module Amazonka.Location.Types.DevicePosition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PositionalAccuracy
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,17 +34,17 @@ data DevicePosition = DevicePosition'
     -- | The accuracy of the device position.
     accuracy :: Prelude.Maybe PositionalAccuracy,
     -- | The properties associated with the position.
-    positionProperties :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    positionProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The last known device position.
-    position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double),
+    position :: Data.Sensitive (Prelude.NonEmpty Prelude.Double),
     -- | The timestamp for when the tracker resource received the device position
     -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    receivedTime :: Core.POSIX,
+    receivedTime :: Data.POSIX,
     -- | The timestamp at which the device\'s position was determined. Uses
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
-    sampleTime :: Core.POSIX
+    sampleTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -87,10 +88,10 @@ newDevicePosition
         accuracy = Prelude.Nothing,
         positionProperties = Prelude.Nothing,
         position =
-          Core._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_,
-        receivedTime = Core._Time Lens.# pReceivedTime_,
-        sampleTime = Core._Time Lens.# pSampleTime_
+        receivedTime = Data._Time Lens.# pReceivedTime_,
+        sampleTime = Data._Time Lens.# pSampleTime_
       }
 
 -- | The device whose position you retrieved.
@@ -103,38 +104,38 @@ devicePosition_accuracy = Lens.lens (\DevicePosition' {accuracy} -> accuracy) (\
 
 -- | The properties associated with the position.
 devicePosition_positionProperties :: Lens.Lens' DevicePosition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-devicePosition_positionProperties = Lens.lens (\DevicePosition' {positionProperties} -> positionProperties) (\s@DevicePosition' {} a -> s {positionProperties = a} :: DevicePosition) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+devicePosition_positionProperties = Lens.lens (\DevicePosition' {positionProperties} -> positionProperties) (\s@DevicePosition' {} a -> s {positionProperties = a} :: DevicePosition) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The last known device position.
 devicePosition_position :: Lens.Lens' DevicePosition (Prelude.NonEmpty Prelude.Double)
-devicePosition_position = Lens.lens (\DevicePosition' {position} -> position) (\s@DevicePosition' {} a -> s {position = a} :: DevicePosition) Prelude.. Core._Sensitive Prelude.. Lens.coerced
+devicePosition_position = Lens.lens (\DevicePosition' {position} -> position) (\s@DevicePosition' {} a -> s {position = a} :: DevicePosition) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
 -- | The timestamp for when the tracker resource received the device position
 -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 devicePosition_receivedTime :: Lens.Lens' DevicePosition Prelude.UTCTime
-devicePosition_receivedTime = Lens.lens (\DevicePosition' {receivedTime} -> receivedTime) (\s@DevicePosition' {} a -> s {receivedTime = a} :: DevicePosition) Prelude.. Core._Time
+devicePosition_receivedTime = Lens.lens (\DevicePosition' {receivedTime} -> receivedTime) (\s@DevicePosition' {} a -> s {receivedTime = a} :: DevicePosition) Prelude.. Data._Time
 
 -- | The timestamp at which the device\'s position was determined. Uses
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 devicePosition_sampleTime :: Lens.Lens' DevicePosition Prelude.UTCTime
-devicePosition_sampleTime = Lens.lens (\DevicePosition' {sampleTime} -> sampleTime) (\s@DevicePosition' {} a -> s {sampleTime = a} :: DevicePosition) Prelude.. Core._Time
+devicePosition_sampleTime = Lens.lens (\DevicePosition' {sampleTime} -> sampleTime) (\s@DevicePosition' {} a -> s {sampleTime = a} :: DevicePosition) Prelude.. Data._Time
 
-instance Core.FromJSON DevicePosition where
+instance Data.FromJSON DevicePosition where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DevicePosition"
       ( \x ->
           DevicePosition'
-            Prelude.<$> (x Core..:? "DeviceId")
-            Prelude.<*> (x Core..:? "Accuracy")
-            Prelude.<*> ( x Core..:? "PositionProperties"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "Accuracy")
+            Prelude.<*> ( x Data..:? "PositionProperties"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Position")
-            Prelude.<*> (x Core..: "ReceivedTime")
-            Prelude.<*> (x Core..: "SampleTime")
+            Prelude.<*> (x Data..: "Position")
+            Prelude.<*> (x Data..: "ReceivedTime")
+            Prelude.<*> (x Data..: "SampleTime")
       )
 
 instance Prelude.Hashable DevicePosition where

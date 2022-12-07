@@ -21,6 +21,7 @@ module Amazonka.GuardDuty.Types.VolumeDetail where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains EBS volume details.
@@ -106,19 +107,19 @@ volumeDetail_encryptionType = Lens.lens (\VolumeDetail' {encryptionType} -> encr
 volumeDetail_volumeSizeInGB :: Lens.Lens' VolumeDetail (Prelude.Maybe Prelude.Int)
 volumeDetail_volumeSizeInGB = Lens.lens (\VolumeDetail' {volumeSizeInGB} -> volumeSizeInGB) (\s@VolumeDetail' {} a -> s {volumeSizeInGB = a} :: VolumeDetail)
 
-instance Core.FromJSON VolumeDetail where
+instance Data.FromJSON VolumeDetail where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VolumeDetail"
       ( \x ->
           VolumeDetail'
-            Prelude.<$> (x Core..:? "snapshotArn")
-            Prelude.<*> (x Core..:? "deviceName")
-            Prelude.<*> (x Core..:? "volumeArn")
-            Prelude.<*> (x Core..:? "volumeType")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
-            Prelude.<*> (x Core..:? "encryptionType")
-            Prelude.<*> (x Core..:? "volumeSizeInGB")
+            Prelude.<$> (x Data..:? "snapshotArn")
+            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "volumeArn")
+            Prelude.<*> (x Data..:? "volumeType")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
+            Prelude.<*> (x Data..:? "encryptionType")
+            Prelude.<*> (x Data..:? "volumeSizeInGB")
       )
 
 instance Prelude.Hashable VolumeDetail where

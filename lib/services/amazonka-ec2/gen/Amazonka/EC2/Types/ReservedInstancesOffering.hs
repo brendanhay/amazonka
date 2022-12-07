@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.ReservedInstancesOffering where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.CurrencyCodeValues
 import Amazonka.EC2.Types.InstanceType
@@ -216,30 +217,30 @@ reservedInstancesOffering_reservedInstancesOfferingId = Lens.lens (\ReservedInst
 reservedInstancesOffering_usagePrice :: Lens.Lens' ReservedInstancesOffering (Prelude.Maybe Prelude.Double)
 reservedInstancesOffering_usagePrice = Lens.lens (\ReservedInstancesOffering' {usagePrice} -> usagePrice) (\s@ReservedInstancesOffering' {} a -> s {usagePrice = a} :: ReservedInstancesOffering)
 
-instance Core.FromXML ReservedInstancesOffering where
+instance Data.FromXML ReservedInstancesOffering where
   parseXML x =
     ReservedInstancesOffering'
-      Prelude.<$> (x Core..@? "offeringClass")
-      Prelude.<*> ( x Core..@? "recurringCharges"
+      Prelude.<$> (x Data..@? "offeringClass")
+      Prelude.<*> ( x Data..@? "recurringCharges"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "instanceTenancy")
-      Prelude.<*> (x Core..@? "offeringType")
-      Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "currencyCode")
-      Prelude.<*> (x Core..@? "marketplace")
-      Prelude.<*> (x Core..@? "scope")
-      Prelude.<*> (x Core..@? "productDescription")
-      Prelude.<*> ( x Core..@? "pricingDetailsSet"
+      Prelude.<*> (x Data..@? "instanceTenancy")
+      Prelude.<*> (x Data..@? "offeringType")
+      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "duration")
+      Prelude.<*> (x Data..@? "currencyCode")
+      Prelude.<*> (x Data..@? "marketplace")
+      Prelude.<*> (x Data..@? "scope")
+      Prelude.<*> (x Data..@? "productDescription")
+      Prelude.<*> ( x Data..@? "pricingDetailsSet"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "fixedPrice")
-      Prelude.<*> (x Core..@? "reservedInstancesOfferingId")
-      Prelude.<*> (x Core..@? "usagePrice")
+      Prelude.<*> (x Data..@? "fixedPrice")
+      Prelude.<*> (x Data..@? "reservedInstancesOfferingId")
+      Prelude.<*> (x Data..@? "usagePrice")
 
 instance Prelude.Hashable ReservedInstancesOffering where
   hashWithSalt _salt ReservedInstancesOffering' {..} =

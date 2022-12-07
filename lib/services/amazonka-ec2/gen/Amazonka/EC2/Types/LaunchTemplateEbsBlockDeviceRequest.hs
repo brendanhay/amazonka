@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateEbsBlockDeviceRequest where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VolumeType
 import qualified Amazonka.Prelude as Prelude
@@ -266,17 +267,17 @@ instance
       `Prelude.seq` Prelude.rnf iops
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     LaunchTemplateEbsBlockDeviceRequest
   where
   toQuery LaunchTemplateEbsBlockDeviceRequest' {..} =
     Prelude.mconcat
-      [ "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
-        "VolumeSize" Core.=: volumeSize,
-        "Encrypted" Core.=: encrypted,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "Throughput" Core.=: throughput,
-        "Iops" Core.=: iops
+      [ "DeleteOnTermination" Data.=: deleteOnTermination,
+        "SnapshotId" Data.=: snapshotId,
+        "VolumeType" Data.=: volumeType,
+        "VolumeSize" Data.=: volumeSize,
+        "Encrypted" Data.=: encrypted,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "Throughput" Data.=: throughput,
+        "Iops" Data.=: iops
       ]

@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -143,7 +144,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyTrafficMirrorFilterNetworkServicesResponse'
-            Prelude.<$> (x Core..@? "trafficMirrorFilter")
+            Prelude.<$> (x Data..@? "trafficMirrorFilter")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,40 +171,40 @@ instance
       `Prelude.seq` Prelude.rnf trafficMirrorFilterId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     ModifyTrafficMirrorFilterNetworkServices
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     ModifyTrafficMirrorFilterNetworkServices
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     ModifyTrafficMirrorFilterNetworkServices
   where
   toQuery ModifyTrafficMirrorFilterNetworkServices' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "ModifyTrafficMirrorFilterNetworkServices" ::
+          Data.=: ( "ModifyTrafficMirrorFilterNetworkServices" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        Core.toQuery
-          ( Core.toQueryList "RemoveNetworkService"
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        Data.toQuery
+          ( Data.toQueryList "RemoveNetworkService"
               Prelude.<$> removeNetworkServices
           ),
-        "DryRun" Core.=: dryRun,
-        Core.toQuery
-          ( Core.toQueryList "AddNetworkService"
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          ( Data.toQueryList "AddNetworkService"
               Prelude.<$> addNetworkServices
           ),
         "TrafficMirrorFilterId"
-          Core.=: trafficMirrorFilterId
+          Data.=: trafficMirrorFilterId
       ]
 
 -- | /See:/ 'newModifyTrafficMirrorFilterNetworkServicesResponse' smart constructor.

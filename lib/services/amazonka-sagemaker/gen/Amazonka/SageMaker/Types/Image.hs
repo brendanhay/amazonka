@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.Image where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ImageStatus
 
@@ -38,7 +39,7 @@ data Image = Image'
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | When the image was created.
-    creationTime :: Core.POSIX,
+    creationTime :: Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the image.
     imageArn :: Prelude.Text,
     -- | The name of the image.
@@ -46,7 +47,7 @@ data Image = Image'
     -- | The status of the image.
     imageStatus :: ImageStatus,
     -- | When the image was last modified.
-    lastModifiedTime :: Core.POSIX
+    lastModifiedTime :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,12 +97,12 @@ newImage
       { displayName = Prelude.Nothing,
         description = Prelude.Nothing,
         failureReason = Prelude.Nothing,
-        creationTime = Core._Time Lens.# pCreationTime_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
         imageName = pImageName_,
         imageStatus = pImageStatus_,
         lastModifiedTime =
-          Core._Time Lens.# pLastModifiedTime_
+          Data._Time Lens.# pLastModifiedTime_
       }
 
 -- | The name of the image as displayed.
@@ -119,7 +120,7 @@ image_failureReason = Lens.lens (\Image' {failureReason} -> failureReason) (\s@I
 
 -- | When the image was created.
 image_creationTime :: Lens.Lens' Image Prelude.UTCTime
-image_creationTime = Lens.lens (\Image' {creationTime} -> creationTime) (\s@Image' {} a -> s {creationTime = a} :: Image) Prelude.. Core._Time
+image_creationTime = Lens.lens (\Image' {creationTime} -> creationTime) (\s@Image' {} a -> s {creationTime = a} :: Image) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) of the image.
 image_imageArn :: Lens.Lens' Image Prelude.Text
@@ -135,22 +136,22 @@ image_imageStatus = Lens.lens (\Image' {imageStatus} -> imageStatus) (\s@Image' 
 
 -- | When the image was last modified.
 image_lastModifiedTime :: Lens.Lens' Image Prelude.UTCTime
-image_lastModifiedTime = Lens.lens (\Image' {lastModifiedTime} -> lastModifiedTime) (\s@Image' {} a -> s {lastModifiedTime = a} :: Image) Prelude.. Core._Time
+image_lastModifiedTime = Lens.lens (\Image' {lastModifiedTime} -> lastModifiedTime) (\s@Image' {} a -> s {lastModifiedTime = a} :: Image) Prelude.. Data._Time
 
-instance Core.FromJSON Image where
+instance Data.FromJSON Image where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Core..:? "DisplayName")
-            Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..: "CreationTime")
-            Prelude.<*> (x Core..: "ImageArn")
-            Prelude.<*> (x Core..: "ImageName")
-            Prelude.<*> (x Core..: "ImageStatus")
-            Prelude.<*> (x Core..: "LastModifiedTime")
+            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..: "CreationTime")
+            Prelude.<*> (x Data..: "ImageArn")
+            Prelude.<*> (x Data..: "ImageName")
+            Prelude.<*> (x Data..: "ImageStatus")
+            Prelude.<*> (x Data..: "LastModifiedTime")
       )
 
 instance Prelude.Hashable Image where

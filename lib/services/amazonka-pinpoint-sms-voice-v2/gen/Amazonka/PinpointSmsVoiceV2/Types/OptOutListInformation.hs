@@ -21,6 +21,7 @@ module Amazonka.PinpointSmsVoiceV2.Types.OptOutListInformation where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The information for all OptOutList in an Amazon Web Services account.
@@ -33,7 +34,7 @@ data OptOutListInformation = OptOutListInformation'
     optOutListName :: Prelude.Text,
     -- | The time when the OutOutList was created, in
     -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Core.POSIX
+    createdTimestamp :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,7 +69,7 @@ newOptOutListInformation
           pOptOutListArn_,
         optOutListName = pOptOutListName_,
         createdTimestamp =
-          Core._Time Lens.# pCreatedTimestamp_
+          Data._Time Lens.# pCreatedTimestamp_
       }
 
 -- | The Amazon Resource Name (ARN) of the OptOutList.
@@ -82,17 +83,17 @@ optOutListInformation_optOutListName = Lens.lens (\OptOutListInformation' {optOu
 -- | The time when the OutOutList was created, in
 -- <https://www.epochconverter.com/ UNIX epoch time> format.
 optOutListInformation_createdTimestamp :: Lens.Lens' OptOutListInformation Prelude.UTCTime
-optOutListInformation_createdTimestamp = Lens.lens (\OptOutListInformation' {createdTimestamp} -> createdTimestamp) (\s@OptOutListInformation' {} a -> s {createdTimestamp = a} :: OptOutListInformation) Prelude.. Core._Time
+optOutListInformation_createdTimestamp = Lens.lens (\OptOutListInformation' {createdTimestamp} -> createdTimestamp) (\s@OptOutListInformation' {} a -> s {createdTimestamp = a} :: OptOutListInformation) Prelude.. Data._Time
 
-instance Core.FromJSON OptOutListInformation where
+instance Data.FromJSON OptOutListInformation where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "OptOutListInformation"
       ( \x ->
           OptOutListInformation'
-            Prelude.<$> (x Core..: "OptOutListArn")
-            Prelude.<*> (x Core..: "OptOutListName")
-            Prelude.<*> (x Core..: "CreatedTimestamp")
+            Prelude.<$> (x Data..: "OptOutListArn")
+            Prelude.<*> (x Data..: "OptOutListName")
+            Prelude.<*> (x Data..: "CreatedTimestamp")
       )
 
 instance Prelude.Hashable OptOutListInformation where

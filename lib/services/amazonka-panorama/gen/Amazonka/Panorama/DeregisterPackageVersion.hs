@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -152,34 +153,34 @@ instance Prelude.NFData DeregisterPackageVersion where
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
 
-instance Core.ToHeaders DeregisterPackageVersion where
+instance Data.ToHeaders DeregisterPackageVersion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeregisterPackageVersion where
+instance Data.ToPath DeregisterPackageVersion where
   toPath DeregisterPackageVersion' {..} =
     Prelude.mconcat
       [ "/packages/",
-        Core.toBS packageId,
+        Data.toBS packageId,
         "/versions/",
-        Core.toBS packageVersion,
+        Data.toBS packageVersion,
         "/patch/",
-        Core.toBS patchVersion
+        Data.toBS patchVersion
       ]
 
-instance Core.ToQuery DeregisterPackageVersion where
+instance Data.ToQuery DeregisterPackageVersion where
   toQuery DeregisterPackageVersion' {..} =
     Prelude.mconcat
       [ "UpdatedLatestPatchVersion"
-          Core.=: updatedLatestPatchVersion,
-        "OwnerAccount" Core.=: ownerAccount
+          Data.=: updatedLatestPatchVersion,
+        "OwnerAccount" Data.=: ownerAccount
       ]
 
 -- | /See:/ 'newDeregisterPackageVersionResponse' smart constructor.

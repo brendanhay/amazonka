@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.DynamoDBv2Action where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.PutItemInput
 import qualified Amazonka.Prelude as Prelude
 
@@ -87,14 +88,14 @@ dynamoDBv2Action_roleArn = Lens.lens (\DynamoDBv2Action' {roleArn} -> roleArn) (
 dynamoDBv2Action_putItem :: Lens.Lens' DynamoDBv2Action PutItemInput
 dynamoDBv2Action_putItem = Lens.lens (\DynamoDBv2Action' {putItem} -> putItem) (\s@DynamoDBv2Action' {} a -> s {putItem = a} :: DynamoDBv2Action)
 
-instance Core.FromJSON DynamoDBv2Action where
+instance Data.FromJSON DynamoDBv2Action where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DynamoDBv2Action"
       ( \x ->
           DynamoDBv2Action'
-            Prelude.<$> (x Core..: "roleArn")
-            Prelude.<*> (x Core..: "putItem")
+            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<*> (x Data..: "putItem")
       )
 
 instance Prelude.Hashable DynamoDBv2Action where
@@ -107,11 +108,11 @@ instance Prelude.NFData DynamoDBv2Action where
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf putItem
 
-instance Core.ToJSON DynamoDBv2Action where
+instance Data.ToJSON DynamoDBv2Action where
   toJSON DynamoDBv2Action' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Core..= roleArn),
-            Prelude.Just ("putItem" Core..= putItem)
+          [ Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("putItem" Data..= putItem)
           ]
       )

@@ -74,6 +74,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -217,9 +218,9 @@ instance Core.AWSRequest ListActivityTypes where
     Response.receiveJSON
       ( \s h x ->
           ListActivityTypesResponse'
-            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..?> "typeInfos" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "typeInfos" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable ListActivityTypes where
@@ -240,40 +241,40 @@ instance Prelude.NFData ListActivityTypes where
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf registrationStatus
 
-instance Core.ToHeaders ListActivityTypes where
+instance Data.ToHeaders ListActivityTypes where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "SimpleWorkflowService.ListActivityTypes" ::
+              Data.=# ( "SimpleWorkflowService.ListActivityTypes" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListActivityTypes where
+instance Data.ToJSON ListActivityTypes where
   toJSON ListActivityTypes' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("maximumPageSize" Core..=)
+          [ ("name" Data..=) Prelude.<$> name,
+            ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
-            ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
-            Prelude.Just ("domain" Core..= domain),
+            ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            Prelude.Just ("domain" Data..= domain),
             Prelude.Just
-              ("registrationStatus" Core..= registrationStatus)
+              ("registrationStatus" Data..= registrationStatus)
           ]
       )
 
-instance Core.ToPath ListActivityTypes where
+instance Data.ToPath ListActivityTypes where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListActivityTypes where
+instance Data.ToQuery ListActivityTypes where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Contains a paginated list of activity type information structures.

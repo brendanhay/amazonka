@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "streams" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "streams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,18 +145,18 @@ instance Prelude.NFData ListStreams where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ascendingOrder
 
-instance Core.ToHeaders ListStreams where
+instance Data.ToHeaders ListStreams where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath ListStreams where
+instance Data.ToPath ListStreams where
   toPath = Prelude.const "/streams"
 
-instance Core.ToQuery ListStreams where
+instance Data.ToQuery ListStreams where
   toQuery ListStreams' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "isAscendingOrder" Core.=: ascendingOrder
+      [ "nextToken" Data.=: nextToken,
+        "maxResults" Data.=: maxResults,
+        "isAscendingOrder" Data.=: ascendingOrder
       ]
 
 -- | /See:/ 'newListStreamsResponse' smart constructor.

@@ -53,6 +53,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.DynamoDBStreams.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -115,8 +116,8 @@ instance Core.AWSRequest GetRecords where
     Response.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Prelude.<$> (x Core..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextShardIterator")
+            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextShardIterator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,35 +131,35 @@ instance Prelude.NFData GetRecords where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf shardIterator
 
-instance Core.ToHeaders GetRecords where
+instance Data.ToHeaders GetRecords where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "DynamoDBStreams_20120810.GetRecords" ::
+              Data.=# ( "DynamoDBStreams_20120810.GetRecords" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetRecords where
+instance Data.ToJSON GetRecords where
   toJSON GetRecords' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
-              ("ShardIterator" Core..= shardIterator)
+              ("ShardIterator" Data..= shardIterator)
           ]
       )
 
-instance Core.ToPath GetRecords where
+instance Data.ToPath GetRecords where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetRecords where
+instance Data.ToQuery GetRecords where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @GetRecords@ operation.

@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,7 +134,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           DisableTransitGatewayRouteTablePropagationResponse'
-            Prelude.<$> (x Core..@? "propagation")
+            Prelude.<$> (x Data..@? "propagation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,37 +162,37 @@ instance
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DisableTransitGatewayRouteTablePropagation
   where
   toHeaders = Prelude.const Prelude.mempty
 
 instance
-  Core.ToPath
+  Data.ToPath
     DisableTransitGatewayRouteTablePropagation
   where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DisableTransitGatewayRouteTablePropagation
   where
   toQuery
     DisableTransitGatewayRouteTablePropagation' {..} =
       Prelude.mconcat
         [ "Action"
-            Core.=: ( "DisableTransitGatewayRouteTablePropagation" ::
+            Data.=: ( "DisableTransitGatewayRouteTablePropagation" ::
                         Prelude.ByteString
                     ),
           "Version"
-            Core.=: ("2016-11-15" :: Prelude.ByteString),
+            Data.=: ("2016-11-15" :: Prelude.ByteString),
           "TransitGatewayAttachmentId"
-            Core.=: transitGatewayAttachmentId,
-          "DryRun" Core.=: dryRun,
+            Data.=: transitGatewayAttachmentId,
+          "DryRun" Data.=: dryRun,
           "TransitGatewayRouteTableAnnouncementId"
-            Core.=: transitGatewayRouteTableAnnouncementId,
+            Data.=: transitGatewayRouteTableAnnouncementId,
           "TransitGatewayRouteTableId"
-            Core.=: transitGatewayRouteTableId
+            Data.=: transitGatewayRouteTableId
         ]
 
 -- | /See:/ 'newDisableTransitGatewayRouteTablePropagationResponse' smart constructor.

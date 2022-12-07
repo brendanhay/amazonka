@@ -21,6 +21,7 @@ module Amazonka.IotTwinMaker.Types.PropertyValueHistory where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IotTwinMaker.Types.EntityPropertyReference
 import Amazonka.IotTwinMaker.Types.PropertyValue
 import qualified Amazonka.Prelude as Prelude
@@ -68,14 +69,14 @@ propertyValueHistory_values = Lens.lens (\PropertyValueHistory' {values} -> valu
 propertyValueHistory_entityPropertyReference :: Lens.Lens' PropertyValueHistory EntityPropertyReference
 propertyValueHistory_entityPropertyReference = Lens.lens (\PropertyValueHistory' {entityPropertyReference} -> entityPropertyReference) (\s@PropertyValueHistory' {} a -> s {entityPropertyReference = a} :: PropertyValueHistory)
 
-instance Core.FromJSON PropertyValueHistory where
+instance Data.FromJSON PropertyValueHistory where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "PropertyValueHistory"
       ( \x ->
           PropertyValueHistory'
-            Prelude.<$> (x Core..:? "values" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..: "entityPropertyReference")
+            Prelude.<$> (x Data..:? "values" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "entityPropertyReference")
       )
 
 instance Prelude.Hashable PropertyValueHistory where

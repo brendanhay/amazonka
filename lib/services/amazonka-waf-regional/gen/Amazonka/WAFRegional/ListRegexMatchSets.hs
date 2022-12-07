@@ -52,6 +52,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -127,8 +128,8 @@ instance Core.AWSRequest ListRegexMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListRegexMatchSetsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "RegexMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "RegexMatchSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,34 +143,34 @@ instance Prelude.NFData ListRegexMatchSets where
     Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextMarker
 
-instance Core.ToHeaders ListRegexMatchSets where
+instance Data.ToHeaders ListRegexMatchSets where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSWAF_Regional_20161128.ListRegexMatchSets" ::
+              Data.=# ( "AWSWAF_Regional_20161128.ListRegexMatchSets" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON ListRegexMatchSets where
+instance Data.ToJSON ListRegexMatchSets where
   toJSON ListRegexMatchSets' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("NextMarker" Core..=) Prelude.<$> nextMarker
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextMarker" Data..=) Prelude.<$> nextMarker
           ]
       )
 
-instance Core.ToPath ListRegexMatchSets where
+instance Data.ToPath ListRegexMatchSets where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery ListRegexMatchSets where
+instance Data.ToQuery ListRegexMatchSets where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newListRegexMatchSetsResponse' smart constructor.

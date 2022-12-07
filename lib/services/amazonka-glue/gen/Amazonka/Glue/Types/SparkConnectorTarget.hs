@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.SparkConnectorTarget where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.GlueSchema
 import qualified Amazonka.Prelude as Prelude
 
@@ -126,21 +127,21 @@ sparkConnectorTarget_connectorName = Lens.lens (\SparkConnectorTarget' {connecto
 sparkConnectorTarget_connectionType :: Lens.Lens' SparkConnectorTarget Prelude.Text
 sparkConnectorTarget_connectionType = Lens.lens (\SparkConnectorTarget' {connectionType} -> connectionType) (\s@SparkConnectorTarget' {} a -> s {connectionType = a} :: SparkConnectorTarget)
 
-instance Core.FromJSON SparkConnectorTarget where
+instance Data.FromJSON SparkConnectorTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "SparkConnectorTarget"
       ( \x ->
           SparkConnectorTarget'
-            Prelude.<$> (x Core..:? "OutputSchemas" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "AdditionalOptions"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "AdditionalOptions"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..: "Name")
-            Prelude.<*> (x Core..: "Inputs")
-            Prelude.<*> (x Core..: "ConnectionName")
-            Prelude.<*> (x Core..: "ConnectorName")
-            Prelude.<*> (x Core..: "ConnectionType")
+            Prelude.<*> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Inputs")
+            Prelude.<*> (x Data..: "ConnectionName")
+            Prelude.<*> (x Data..: "ConnectorName")
+            Prelude.<*> (x Data..: "ConnectionType")
       )
 
 instance Prelude.Hashable SparkConnectorTarget where
@@ -163,19 +164,19 @@ instance Prelude.NFData SparkConnectorTarget where
       `Prelude.seq` Prelude.rnf connectorName
       `Prelude.seq` Prelude.rnf connectionType
 
-instance Core.ToJSON SparkConnectorTarget where
+instance Data.ToJSON SparkConnectorTarget where
   toJSON SparkConnectorTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Core..=) Prelude.<$> outputSchemas,
-            ("AdditionalOptions" Core..=)
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("Inputs" Core..= inputs),
+            Prelude.Just ("Name" Data..= name),
+            Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just
-              ("ConnectionName" Core..= connectionName),
-            Prelude.Just ("ConnectorName" Core..= connectorName),
+              ("ConnectionName" Data..= connectionName),
+            Prelude.Just ("ConnectorName" Data..= connectorName),
             Prelude.Just
-              ("ConnectionType" Core..= connectionType)
+              ("ConnectionType" Data..= connectionType)
           ]
       )

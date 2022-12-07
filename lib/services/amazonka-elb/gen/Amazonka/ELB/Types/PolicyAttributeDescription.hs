@@ -21,6 +21,7 @@ module Amazonka.ELB.Types.PolicyAttributeDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELB.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -63,11 +64,11 @@ policyAttributeDescription_attributeValue = Lens.lens (\PolicyAttributeDescripti
 policyAttributeDescription_attributeName :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
 policyAttributeDescription_attributeName = Lens.lens (\PolicyAttributeDescription' {attributeName} -> attributeName) (\s@PolicyAttributeDescription' {} a -> s {attributeName = a} :: PolicyAttributeDescription)
 
-instance Core.FromXML PolicyAttributeDescription where
+instance Data.FromXML PolicyAttributeDescription where
   parseXML x =
     PolicyAttributeDescription'
-      Prelude.<$> (x Core..@? "AttributeValue")
-      Prelude.<*> (x Core..@? "AttributeName")
+      Prelude.<$> (x Data..@? "AttributeValue")
+      Prelude.<*> (x Data..@? "AttributeName")
 
 instance Prelude.Hashable PolicyAttributeDescription where
   hashWithSalt _salt PolicyAttributeDescription' {..} =

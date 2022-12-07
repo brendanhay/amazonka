@@ -44,6 +44,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Detective.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -103,28 +104,28 @@ instance Prelude.NFData DisassociateMembership where
   rnf DisassociateMembership' {..} =
     Prelude.rnf graphArn
 
-instance Core.ToHeaders DisassociateMembership where
+instance Data.ToHeaders DisassociateMembership where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DisassociateMembership where
+instance Data.ToJSON DisassociateMembership where
   toJSON DisassociateMembership' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("GraphArn" Core..= graphArn)]
+          [Prelude.Just ("GraphArn" Data..= graphArn)]
       )
 
-instance Core.ToPath DisassociateMembership where
+instance Data.ToPath DisassociateMembership where
   toPath = Prelude.const "/membership/removal"
 
-instance Core.ToQuery DisassociateMembership where
+instance Data.ToQuery DisassociateMembership where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDisassociateMembershipResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.ParameterRanges where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CategoricalParameterRange
 import Amazonka.SageMaker.Types.ContinuousParameterRange
@@ -94,20 +95,20 @@ parameterRanges_integerParameterRanges = Lens.lens (\ParameterRanges' {integerPa
 parameterRanges_continuousParameterRanges :: Lens.Lens' ParameterRanges (Prelude.Maybe [ContinuousParameterRange])
 parameterRanges_continuousParameterRanges = Lens.lens (\ParameterRanges' {continuousParameterRanges} -> continuousParameterRanges) (\s@ParameterRanges' {} a -> s {continuousParameterRanges = a} :: ParameterRanges) Prelude.. Lens.mapping Lens.coerced
 
-instance Core.FromJSON ParameterRanges where
+instance Data.FromJSON ParameterRanges where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ParameterRanges"
       ( \x ->
           ParameterRanges'
-            Prelude.<$> ( x Core..:? "CategoricalParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "CategoricalParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "IntegerParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "IntegerParameterRanges"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ContinuousParameterRanges"
-                            Core..!= Prelude.mempty
+            Prelude.<*> ( x Data..:? "ContinuousParameterRanges"
+                            Data..!= Prelude.mempty
                         )
       )
 
@@ -124,15 +125,15 @@ instance Prelude.NFData ParameterRanges where
       `Prelude.seq` Prelude.rnf integerParameterRanges
       `Prelude.seq` Prelude.rnf continuousParameterRanges
 
-instance Core.ToJSON ParameterRanges where
+instance Data.ToJSON ParameterRanges where
   toJSON ParameterRanges' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("CategoricalParameterRanges" Core..=)
+          [ ("CategoricalParameterRanges" Data..=)
               Prelude.<$> categoricalParameterRanges,
-            ("IntegerParameterRanges" Core..=)
+            ("IntegerParameterRanges" Data..=)
               Prelude.<$> integerParameterRanges,
-            ("ContinuousParameterRanges" Core..=)
+            ("ContinuousParameterRanges" Data..=)
               Prelude.<$> continuousParameterRanges
           ]
       )

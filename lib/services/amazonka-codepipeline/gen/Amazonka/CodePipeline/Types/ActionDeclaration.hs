@@ -24,6 +24,7 @@ import Amazonka.CodePipeline.Types.InputArtifact
 import Amazonka.CodePipeline.Types.OutputArtifact
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about an action declaration.
@@ -191,23 +192,23 @@ actionDeclaration_name = Lens.lens (\ActionDeclaration' {name} -> name) (\s@Acti
 actionDeclaration_actionTypeId :: Lens.Lens' ActionDeclaration ActionTypeId
 actionDeclaration_actionTypeId = Lens.lens (\ActionDeclaration' {actionTypeId} -> actionTypeId) (\s@ActionDeclaration' {} a -> s {actionTypeId = a} :: ActionDeclaration)
 
-instance Core.FromJSON ActionDeclaration where
+instance Data.FromJSON ActionDeclaration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ActionDeclaration"
       ( \x ->
           ActionDeclaration'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "runOrder")
-            Prelude.<*> (x Core..:? "configuration" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "outputArtifacts"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "runOrder")
+            Prelude.<*> (x Data..:? "configuration" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "outputArtifacts"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "inputArtifacts" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "namespace")
-            Prelude.<*> (x Core..: "name")
-            Prelude.<*> (x Core..: "actionTypeId")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..: "name")
+            Prelude.<*> (x Data..: "actionTypeId")
       )
 
 instance Prelude.Hashable ActionDeclaration where
@@ -234,20 +235,20 @@ instance Prelude.NFData ActionDeclaration where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf actionTypeId
 
-instance Core.ToJSON ActionDeclaration where
+instance Data.ToJSON ActionDeclaration where
   toJSON ActionDeclaration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("runOrder" Core..=) Prelude.<$> runOrder,
-            ("configuration" Core..=) Prelude.<$> configuration,
-            ("outputArtifacts" Core..=)
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("runOrder" Data..=) Prelude.<$> runOrder,
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("outputArtifacts" Data..=)
               Prelude.<$> outputArtifacts,
-            ("region" Core..=) Prelude.<$> region,
-            ("inputArtifacts" Core..=)
+            ("region" Data..=) Prelude.<$> region,
+            ("inputArtifacts" Data..=)
               Prelude.<$> inputArtifacts,
-            ("namespace" Core..=) Prelude.<$> namespace,
-            Prelude.Just ("name" Core..= name),
-            Prelude.Just ("actionTypeId" Core..= actionTypeId)
+            ("namespace" Data..=) Prelude.<$> namespace,
+            Prelude.Just ("name" Data..= name),
+            Prelude.Just ("actionTypeId" Data..= actionTypeId)
           ]
       )

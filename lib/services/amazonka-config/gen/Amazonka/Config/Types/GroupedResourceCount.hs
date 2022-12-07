@@ -21,6 +21,7 @@ module Amazonka.Config.Types.GroupedResourceCount where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The count of resources that are grouped by the group name.
@@ -68,14 +69,14 @@ groupedResourceCount_groupName = Lens.lens (\GroupedResourceCount' {groupName} -
 groupedResourceCount_resourceCount :: Lens.Lens' GroupedResourceCount Prelude.Integer
 groupedResourceCount_resourceCount = Lens.lens (\GroupedResourceCount' {resourceCount} -> resourceCount) (\s@GroupedResourceCount' {} a -> s {resourceCount = a} :: GroupedResourceCount)
 
-instance Core.FromJSON GroupedResourceCount where
+instance Data.FromJSON GroupedResourceCount where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "GroupedResourceCount"
       ( \x ->
           GroupedResourceCount'
-            Prelude.<$> (x Core..: "GroupName")
-            Prelude.<*> (x Core..: "ResourceCount")
+            Prelude.<$> (x Data..: "GroupName")
+            Prelude.<*> (x Data..: "ResourceCount")
       )
 
 instance Prelude.Hashable GroupedResourceCount where

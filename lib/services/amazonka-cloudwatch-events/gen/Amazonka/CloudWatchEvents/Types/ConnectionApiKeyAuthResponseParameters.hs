@@ -21,6 +21,7 @@ module Amazonka.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters wh
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the authorization parameters for the connection if API Key is
@@ -58,15 +59,15 @@ connectionApiKeyAuthResponseParameters_apiKeyName :: Lens.Lens' ConnectionApiKey
 connectionApiKeyAuthResponseParameters_apiKeyName = Lens.lens (\ConnectionApiKeyAuthResponseParameters' {apiKeyName} -> apiKeyName) (\s@ConnectionApiKeyAuthResponseParameters' {} a -> s {apiKeyName = a} :: ConnectionApiKeyAuthResponseParameters)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ConnectionApiKeyAuthResponseParameters
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ConnectionApiKeyAuthResponseParameters"
       ( \x ->
           ConnectionApiKeyAuthResponseParameters'
-            Prelude.<$> (x Core..:? "ApiKeyName")
+            Prelude.<$> (x Data..:? "ApiKeyName")
       )
 
 instance

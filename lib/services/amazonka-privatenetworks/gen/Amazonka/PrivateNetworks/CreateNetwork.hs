@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.PrivateNetworks.Types
 import qualified Amazonka.Request as Request
@@ -53,7 +54,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateNetwork' smart constructor.
 data CreateNetwork = CreateNetwork'
   { -- | The tags to apply to the network.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
@@ -98,7 +99,7 @@ newCreateNetwork pNetworkName_ =
 
 -- | The tags to apply to the network.
 createNetwork_tags :: Lens.Lens' CreateNetwork (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwork' {} a -> s {tags = a} :: CreateNetwork) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwork' {} a -> s {tags = a} :: CreateNetwork) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -125,9 +126,9 @@ instance Core.AWSRequest CreateNetwork where
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "network")
+            Prelude.<*> (x Data..:> "network")
       )
 
 instance Prelude.Hashable CreateNetwork where
@@ -144,38 +145,38 @@ instance Prelude.NFData CreateNetwork where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkName
 
-instance Core.ToHeaders CreateNetwork where
+instance Data.ToHeaders CreateNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateNetwork where
+instance Data.ToJSON CreateNetwork where
   toJSON CreateNetwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
-            ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("networkName" Core..= networkName)
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("networkName" Data..= networkName)
           ]
       )
 
-instance Core.ToPath CreateNetwork where
+instance Data.ToPath CreateNetwork where
   toPath = Prelude.const "/v1/networks"
 
-instance Core.ToQuery CreateNetwork where
+instance Data.ToQuery CreateNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateNetworkResponse' smart constructor.
 data CreateNetworkResponse = CreateNetworkResponse'
   { -- | The network tags.
-    tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Information about the network.
@@ -211,7 +212,7 @@ newCreateNetworkResponse pHttpStatus_ pNetwork_ =
 
 -- | The network tags.
 createNetworkResponse_tags :: Lens.Lens' CreateNetworkResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNetworkResponse_tags = Lens.lens (\CreateNetworkResponse' {tags} -> tags) (\s@CreateNetworkResponse' {} a -> s {tags = a} :: CreateNetworkResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+createNetworkResponse_tags = Lens.lens (\CreateNetworkResponse' {tags} -> tags) (\s@CreateNetworkResponse' {} a -> s {tags = a} :: CreateNetworkResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 createNetworkResponse_httpStatus :: Lens.Lens' CreateNetworkResponse Prelude.Int

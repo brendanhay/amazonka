@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -175,10 +176,10 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
     Response.receiveXML
       ( \s h x ->
           DescribePublicIpv4PoolsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "publicIpv4PoolSet"
+            Prelude.<$> (x Data..@? "nextToken")
+            Prelude.<*> ( x Data..@? "publicIpv4PoolSet"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -197,25 +198,25 @@ instance Prelude.NFData DescribePublicIpv4Pools where
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
 
-instance Core.ToHeaders DescribePublicIpv4Pools where
+instance Data.ToHeaders DescribePublicIpv4Pools where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DescribePublicIpv4Pools where
+instance Data.ToPath DescribePublicIpv4Pools where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribePublicIpv4Pools where
+instance Data.ToQuery DescribePublicIpv4Pools where
   toQuery DescribePublicIpv4Pools' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DescribePublicIpv4Pools" :: Prelude.ByteString),
+          Data.=: ("DescribePublicIpv4Pools" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        Core.toQuery
-          (Core.toQueryList "PoolId" Prelude.<$> poolIds),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxResults" Core.=: maxResults
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "PoolId" Prelude.<$> poolIds),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults
       ]
 
 -- | /See:/ 'newDescribePublicIpv4PoolsResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.WorkforceVpcConfigResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A VpcConfig object that specifies the VPC that you want your workforce
@@ -97,16 +98,16 @@ workforceVpcConfigResponse_securityGroupIds = Lens.lens (\WorkforceVpcConfigResp
 workforceVpcConfigResponse_subnets :: Lens.Lens' WorkforceVpcConfigResponse (Prelude.NonEmpty Prelude.Text)
 workforceVpcConfigResponse_subnets = Lens.lens (\WorkforceVpcConfigResponse' {subnets} -> subnets) (\s@WorkforceVpcConfigResponse' {} a -> s {subnets = a} :: WorkforceVpcConfigResponse) Prelude.. Lens.coerced
 
-instance Core.FromJSON WorkforceVpcConfigResponse where
+instance Data.FromJSON WorkforceVpcConfigResponse where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "WorkforceVpcConfigResponse"
       ( \x ->
           WorkforceVpcConfigResponse'
-            Prelude.<$> (x Core..:? "VpcEndpointId")
-            Prelude.<*> (x Core..: "VpcId")
-            Prelude.<*> (x Core..: "SecurityGroupIds")
-            Prelude.<*> (x Core..: "Subnets")
+            Prelude.<$> (x Data..:? "VpcEndpointId")
+            Prelude.<*> (x Data..: "VpcId")
+            Prelude.<*> (x Data..: "SecurityGroupIds")
+            Prelude.<*> (x Data..: "Subnets")
       )
 
 instance Prelude.Hashable WorkforceVpcConfigResponse where

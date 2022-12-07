@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.MultiplexProgram where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
 import Amazonka.MediaLive.Types.MultiplexProgramPipelineDetail
 import Amazonka.MediaLive.Types.MultiplexProgramSettings
@@ -103,19 +104,19 @@ multiplexProgram_multiplexProgramSettings = Lens.lens (\MultiplexProgram' {multi
 multiplexProgram_channelId :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
 multiplexProgram_channelId = Lens.lens (\MultiplexProgram' {channelId} -> channelId) (\s@MultiplexProgram' {} a -> s {channelId = a} :: MultiplexProgram)
 
-instance Core.FromJSON MultiplexProgram where
+instance Data.FromJSON MultiplexProgram where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MultiplexProgram"
       ( \x ->
           MultiplexProgram'
-            Prelude.<$> (x Core..:? "programName")
-            Prelude.<*> (x Core..:? "packetIdentifiersMap")
-            Prelude.<*> ( x Core..:? "pipelineDetails"
-                            Core..!= Prelude.mempty
+            Prelude.<$> (x Data..:? "programName")
+            Prelude.<*> (x Data..:? "packetIdentifiersMap")
+            Prelude.<*> ( x Data..:? "pipelineDetails"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "multiplexProgramSettings")
-            Prelude.<*> (x Core..:? "channelId")
+            Prelude.<*> (x Data..:? "multiplexProgramSettings")
+            Prelude.<*> (x Data..:? "channelId")
       )
 
 instance Prelude.Hashable MultiplexProgram where

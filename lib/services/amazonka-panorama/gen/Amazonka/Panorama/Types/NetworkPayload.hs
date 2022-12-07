@@ -21,6 +21,7 @@ module Amazonka.Panorama.Types.NetworkPayload where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Panorama.Types.EthernetPayload
 import Amazonka.Panorama.Types.NtpPayload
 import qualified Amazonka.Prelude as Prelude
@@ -72,15 +73,15 @@ networkPayload_ntp = Lens.lens (\NetworkPayload' {ntp} -> ntp) (\s@NetworkPayloa
 networkPayload_ethernet1 :: Lens.Lens' NetworkPayload (Prelude.Maybe EthernetPayload)
 networkPayload_ethernet1 = Lens.lens (\NetworkPayload' {ethernet1} -> ethernet1) (\s@NetworkPayload' {} a -> s {ethernet1 = a} :: NetworkPayload)
 
-instance Core.FromJSON NetworkPayload where
+instance Data.FromJSON NetworkPayload where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "NetworkPayload"
       ( \x ->
           NetworkPayload'
-            Prelude.<$> (x Core..:? "Ethernet0")
-            Prelude.<*> (x Core..:? "Ntp")
-            Prelude.<*> (x Core..:? "Ethernet1")
+            Prelude.<$> (x Data..:? "Ethernet0")
+            Prelude.<*> (x Data..:? "Ntp")
+            Prelude.<*> (x Data..:? "Ethernet1")
       )
 
 instance Prelude.Hashable NetworkPayload where
@@ -95,12 +96,12 @@ instance Prelude.NFData NetworkPayload where
       `Prelude.seq` Prelude.rnf ntp
       `Prelude.seq` Prelude.rnf ethernet1
 
-instance Core.ToJSON NetworkPayload where
+instance Data.ToJSON NetworkPayload where
   toJSON NetworkPayload' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Ethernet0" Core..=) Prelude.<$> ethernet0,
-            ("Ntp" Core..=) Prelude.<$> ntp,
-            ("Ethernet1" Core..=) Prelude.<$> ethernet1
+          [ ("Ethernet0" Data..=) Prelude.<$> ethernet0,
+            ("Ntp" Data..=) Prelude.<$> ntp,
+            ("Ethernet1" Data..=) Prelude.<$> ethernet1
           ]
       )

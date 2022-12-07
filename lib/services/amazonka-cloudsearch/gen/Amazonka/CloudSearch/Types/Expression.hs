@@ -21,6 +21,7 @@ module Amazonka.CloudSearch.Types.Expression where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A named expression that can be evaluated at search time. Can be used to
@@ -65,11 +66,11 @@ expression_expressionName = Lens.lens (\Expression' {expressionName} -> expressi
 expression_expressionValue :: Lens.Lens' Expression Prelude.Text
 expression_expressionValue = Lens.lens (\Expression' {expressionValue} -> expressionValue) (\s@Expression' {} a -> s {expressionValue = a} :: Expression)
 
-instance Core.FromXML Expression where
+instance Data.FromXML Expression where
   parseXML x =
     Expression'
-      Prelude.<$> (x Core..@ "ExpressionName")
-      Prelude.<*> (x Core..@ "ExpressionValue")
+      Prelude.<$> (x Data..@ "ExpressionName")
+      Prelude.<*> (x Data..@ "ExpressionValue")
 
 instance Prelude.Hashable Expression where
   hashWithSalt _salt Expression' {..} =
@@ -81,9 +82,9 @@ instance Prelude.NFData Expression where
     Prelude.rnf expressionName
       `Prelude.seq` Prelude.rnf expressionValue
 
-instance Core.ToQuery Expression where
+instance Data.ToQuery Expression where
   toQuery Expression' {..} =
     Prelude.mconcat
-      [ "ExpressionName" Core.=: expressionName,
-        "ExpressionValue" Core.=: expressionValue
+      [ "ExpressionName" Data.=: expressionName,
+        "ExpressionValue" Data.=: expressionValue
       ]

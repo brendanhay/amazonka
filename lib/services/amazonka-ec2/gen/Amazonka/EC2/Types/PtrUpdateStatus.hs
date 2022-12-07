@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.PtrUpdateStatus where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -71,12 +72,12 @@ ptrUpdateStatus_reason = Lens.lens (\PtrUpdateStatus' {reason} -> reason) (\s@Pt
 ptrUpdateStatus_value :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
 ptrUpdateStatus_value = Lens.lens (\PtrUpdateStatus' {value} -> value) (\s@PtrUpdateStatus' {} a -> s {value = a} :: PtrUpdateStatus)
 
-instance Core.FromXML PtrUpdateStatus where
+instance Data.FromXML PtrUpdateStatus where
   parseXML x =
     PtrUpdateStatus'
-      Prelude.<$> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "reason")
-      Prelude.<*> (x Core..@? "value")
+      Prelude.<$> (x Data..@? "status")
+      Prelude.<*> (x Data..@? "reason")
+      Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable PtrUpdateStatus where
   hashWithSalt _salt PtrUpdateStatus' {..} =

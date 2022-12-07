@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Glacier.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -133,27 +134,27 @@ instance Prelude.NFData RemoveTagsFromVault where
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf vaultName
 
-instance Core.ToHeaders RemoveTagsFromVault where
+instance Data.ToHeaders RemoveTagsFromVault where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToJSON RemoveTagsFromVault where
+instance Data.ToJSON RemoveTagsFromVault where
   toJSON RemoveTagsFromVault' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("TagKeys" Core..=) Prelude.<$> tagKeys]
+          [("TagKeys" Data..=) Prelude.<$> tagKeys]
       )
 
-instance Core.ToPath RemoveTagsFromVault where
+instance Data.ToPath RemoveTagsFromVault where
   toPath RemoveTagsFromVault' {..} =
     Prelude.mconcat
       [ "/",
-        Core.toBS accountId,
+        Data.toBS accountId,
         "/vaults/",
-        Core.toBS vaultName,
+        Data.toBS vaultName,
         "/tags"
       ]
 
-instance Core.ToQuery RemoveTagsFromVault where
+instance Data.ToQuery RemoveTagsFromVault where
   toQuery =
     Prelude.const
       (Prelude.mconcat ["operation=remove"])

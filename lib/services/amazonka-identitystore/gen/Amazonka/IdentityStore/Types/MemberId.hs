@@ -21,6 +21,7 @@ module Amazonka.IdentityStore.Types.MemberId where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object containing the identifier of a group member.
@@ -49,11 +50,11 @@ newMemberId = MemberId' {userId = Prelude.Nothing}
 memberId_userId :: Lens.Lens' MemberId (Prelude.Maybe Prelude.Text)
 memberId_userId = Lens.lens (\MemberId' {userId} -> userId) (\s@MemberId' {} a -> s {userId = a} :: MemberId)
 
-instance Core.FromJSON MemberId where
+instance Data.FromJSON MemberId where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "MemberId"
-      (\x -> MemberId' Prelude.<$> (x Core..:? "UserId"))
+      (\x -> MemberId' Prelude.<$> (x Data..:? "UserId"))
 
 instance Prelude.Hashable MemberId where
   hashWithSalt _salt MemberId' {..} =
@@ -62,9 +63,9 @@ instance Prelude.Hashable MemberId where
 instance Prelude.NFData MemberId where
   rnf MemberId' {..} = Prelude.rnf userId
 
-instance Core.ToJSON MemberId where
+instance Data.ToJSON MemberId where
   toJSON MemberId' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [("UserId" Core..=) Prelude.<$> userId]
+          [("UserId" Data..=) Prelude.<$> userId]
       )

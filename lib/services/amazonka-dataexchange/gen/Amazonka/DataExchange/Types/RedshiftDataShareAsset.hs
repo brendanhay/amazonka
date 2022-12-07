@@ -21,6 +21,7 @@ module Amazonka.DataExchange.Types.RedshiftDataShareAsset where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Redshift datashare asset.
@@ -52,13 +53,13 @@ newRedshiftDataShareAsset pArn_ =
 redshiftDataShareAsset_arn :: Lens.Lens' RedshiftDataShareAsset Prelude.Text
 redshiftDataShareAsset_arn = Lens.lens (\RedshiftDataShareAsset' {arn} -> arn) (\s@RedshiftDataShareAsset' {} a -> s {arn = a} :: RedshiftDataShareAsset)
 
-instance Core.FromJSON RedshiftDataShareAsset where
+instance Data.FromJSON RedshiftDataShareAsset where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RedshiftDataShareAsset"
       ( \x ->
           RedshiftDataShareAsset'
-            Prelude.<$> (x Core..: "Arn")
+            Prelude.<$> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable RedshiftDataShareAsset where

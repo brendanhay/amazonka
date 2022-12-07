@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.EnvironmentFile where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.EnvironmentFileType
 import qualified Amazonka.Prelude as Prelude
 
@@ -88,13 +89,13 @@ environmentFile_value = Lens.lens (\EnvironmentFile' {value} -> value) (\s@Envir
 environmentFile_type :: Lens.Lens' EnvironmentFile EnvironmentFileType
 environmentFile_type = Lens.lens (\EnvironmentFile' {type'} -> type') (\s@EnvironmentFile' {} a -> s {type' = a} :: EnvironmentFile)
 
-instance Core.FromJSON EnvironmentFile where
+instance Data.FromJSON EnvironmentFile where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "EnvironmentFile"
       ( \x ->
           EnvironmentFile'
-            Prelude.<$> (x Core..: "value") Prelude.<*> (x Core..: "type")
+            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EnvironmentFile where
@@ -106,11 +107,11 @@ instance Prelude.NFData EnvironmentFile where
   rnf EnvironmentFile' {..} =
     Prelude.rnf value `Prelude.seq` Prelude.rnf type'
 
-instance Core.ToJSON EnvironmentFile where
+instance Data.ToJSON EnvironmentFile where
   toJSON EnvironmentFile' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("value" Core..= value),
-            Prelude.Just ("type" Core..= type')
+          [ Prelude.Just ("value" Data..= value),
+            Prelude.Just ("type" Data..= type')
           ]
       )

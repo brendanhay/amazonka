@@ -23,6 +23,7 @@ import Amazonka.ConnectCases.Types.CommentContent
 import Amazonka.ConnectCases.Types.ContactContent
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents the content of a particular type of related item.
@@ -63,14 +64,14 @@ relatedItemContent_contact = Lens.lens (\RelatedItemContent' {contact} -> contac
 relatedItemContent_comment :: Lens.Lens' RelatedItemContent (Prelude.Maybe CommentContent)
 relatedItemContent_comment = Lens.lens (\RelatedItemContent' {comment} -> comment) (\s@RelatedItemContent' {} a -> s {comment = a} :: RelatedItemContent)
 
-instance Core.FromJSON RelatedItemContent where
+instance Data.FromJSON RelatedItemContent where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "RelatedItemContent"
       ( \x ->
           RelatedItemContent'
-            Prelude.<$> (x Core..:? "contact")
-            Prelude.<*> (x Core..:? "comment")
+            Prelude.<$> (x Data..:? "contact")
+            Prelude.<*> (x Data..:? "comment")
       )
 
 instance Prelude.Hashable RelatedItemContent where

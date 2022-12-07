@@ -48,6 +48,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -109,10 +110,10 @@ instance Core.AWSRequest CreateRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateRecoveryGroupResponse'
-            Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "recoveryGroupArn")
-            Prelude.<*> (x Core..?> "recoveryGroupName")
-            Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "recoveryGroupArn")
+            Prelude.<*> (x Data..?> "recoveryGroupName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,32 +129,32 @@ instance Prelude.NFData CreateRecoveryGroup where
       `Prelude.seq` Prelude.rnf cells
       `Prelude.seq` Prelude.rnf recoveryGroupName
 
-instance Core.ToHeaders CreateRecoveryGroup where
+instance Data.ToHeaders CreateRecoveryGroup where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateRecoveryGroup where
+instance Data.ToJSON CreateRecoveryGroup where
   toJSON CreateRecoveryGroup' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("cells" Core..=) Prelude.<$> cells,
+          [ ("tags" Data..=) Prelude.<$> tags,
+            ("cells" Data..=) Prelude.<$> cells,
             Prelude.Just
-              ("recoveryGroupName" Core..= recoveryGroupName)
+              ("recoveryGroupName" Data..= recoveryGroupName)
           ]
       )
 
-instance Core.ToPath CreateRecoveryGroup where
+instance Data.ToPath CreateRecoveryGroup where
   toPath = Prelude.const "/recoverygroups"
 
-instance Core.ToQuery CreateRecoveryGroup where
+instance Data.ToQuery CreateRecoveryGroup where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateRecoveryGroupResponse' smart constructor.

@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.DeploymentStage where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeviceSelectionConfig
 import Amazonka.SageMaker.Types.EdgeDeploymentConfig
@@ -91,16 +92,16 @@ instance Prelude.NFData DeploymentStage where
       `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf deviceSelectionConfig
 
-instance Core.ToJSON DeploymentStage where
+instance Data.ToJSON DeploymentStage where
   toJSON DeploymentStage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DeploymentConfig" Core..=)
+          [ ("DeploymentConfig" Data..=)
               Prelude.<$> deploymentConfig,
-            Prelude.Just ("StageName" Core..= stageName),
+            Prelude.Just ("StageName" Data..= stageName),
             Prelude.Just
               ( "DeviceSelectionConfig"
-                  Core..= deviceSelectionConfig
+                  Data..= deviceSelectionConfig
               )
           ]
       )

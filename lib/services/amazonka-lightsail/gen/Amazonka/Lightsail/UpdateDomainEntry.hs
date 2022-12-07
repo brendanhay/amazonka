@@ -47,6 +47,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -105,7 +106,7 @@ instance Core.AWSRequest UpdateDomainEntry where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainEntryResponse'
-            Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,34 +120,34 @@ instance Prelude.NFData UpdateDomainEntry where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf domainEntry
 
-instance Core.ToHeaders UpdateDomainEntry where
+instance Data.ToHeaders UpdateDomainEntry where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Lightsail_20161128.UpdateDomainEntry" ::
+              Data.=# ( "Lightsail_20161128.UpdateDomainEntry" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateDomainEntry where
+instance Data.ToJSON UpdateDomainEntry where
   toJSON UpdateDomainEntry' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("domainName" Core..= domainName),
-            Prelude.Just ("domainEntry" Core..= domainEntry)
+          [ Prelude.Just ("domainName" Data..= domainName),
+            Prelude.Just ("domainEntry" Data..= domainEntry)
           ]
       )
 
-instance Core.ToPath UpdateDomainEntry where
+instance Data.ToPath UpdateDomainEntry where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery UpdateDomainEntry where
+instance Data.ToQuery UpdateDomainEntry where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateDomainEntryResponse' smart constructor.

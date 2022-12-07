@@ -21,6 +21,7 @@ module Amazonka.IoT1ClickDevices.Types.DeviceMethod where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeviceMethod' smart constructor.
@@ -59,14 +60,14 @@ deviceMethod_methodName = Lens.lens (\DeviceMethod' {methodName} -> methodName) 
 deviceMethod_deviceType :: Lens.Lens' DeviceMethod (Prelude.Maybe Prelude.Text)
 deviceMethod_deviceType = Lens.lens (\DeviceMethod' {deviceType} -> deviceType) (\s@DeviceMethod' {} a -> s {deviceType = a} :: DeviceMethod)
 
-instance Core.FromJSON DeviceMethod where
+instance Data.FromJSON DeviceMethod where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "DeviceMethod"
       ( \x ->
           DeviceMethod'
-            Prelude.<$> (x Core..:? "methodName")
-            Prelude.<*> (x Core..:? "deviceType")
+            Prelude.<$> (x Data..:? "methodName")
+            Prelude.<*> (x Data..:? "deviceType")
       )
 
 instance Prelude.Hashable DeviceMethod where
@@ -79,11 +80,11 @@ instance Prelude.NFData DeviceMethod where
     Prelude.rnf methodName
       `Prelude.seq` Prelude.rnf deviceType
 
-instance Core.ToJSON DeviceMethod where
+instance Data.ToJSON DeviceMethod where
   toJSON DeviceMethod' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("methodName" Core..=) Prelude.<$> methodName,
-            ("deviceType" Core..=) Prelude.<$> deviceType
+          [ ("methodName" Data..=) Prelude.<$> methodName,
+            ("deviceType" Data..=) Prelude.<$> deviceType
           ]
       )

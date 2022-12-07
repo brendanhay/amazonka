@@ -72,6 +72,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import Amazonka.ResourceGroupsTagging.Types
@@ -491,8 +492,8 @@ instance Core.AWSRequest GetResources where
     Response.receiveJSON
       ( \s h x ->
           GetResourcesResponse'
-            Prelude.<$> (x Core..?> "PaginationToken")
-            Prelude.<*> ( x Core..?> "ResourceTagMappingList"
+            Prelude.<$> (x Data..?> "PaginationToken")
+            Prelude.<*> ( x Data..?> "ResourceTagMappingList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -520,46 +521,46 @@ instance Prelude.NFData GetResources where
       `Prelude.seq` Prelude.rnf resourcesPerPage
       `Prelude.seq` Prelude.rnf resourceTypeFilters
 
-instance Core.ToHeaders GetResources where
+instance Data.ToHeaders GetResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "ResourceGroupsTaggingAPI_20170126.GetResources" ::
+              Data.=# ( "ResourceGroupsTaggingAPI_20170126.GetResources" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetResources where
+instance Data.ToJSON GetResources where
   toJSON GetResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Core..=)
+          [ ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("TagsPerPage" Core..=) Prelude.<$> tagsPerPage,
-            ("ResourceARNList" Core..=)
+            ("TagsPerPage" Data..=) Prelude.<$> tagsPerPage,
+            ("ResourceARNList" Data..=)
               Prelude.<$> resourceARNList,
-            ("IncludeComplianceDetails" Core..=)
+            ("IncludeComplianceDetails" Data..=)
               Prelude.<$> includeComplianceDetails,
-            ("TagFilters" Core..=) Prelude.<$> tagFilters,
-            ("ExcludeCompliantResources" Core..=)
+            ("TagFilters" Data..=) Prelude.<$> tagFilters,
+            ("ExcludeCompliantResources" Data..=)
               Prelude.<$> excludeCompliantResources,
-            ("ResourcesPerPage" Core..=)
+            ("ResourcesPerPage" Data..=)
               Prelude.<$> resourcesPerPage,
-            ("ResourceTypeFilters" Core..=)
+            ("ResourceTypeFilters" Data..=)
               Prelude.<$> resourceTypeFilters
           ]
       )
 
-instance Core.ToPath GetResources where
+instance Data.ToPath GetResources where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetResources where
+instance Data.ToQuery GetResources where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetResourcesResponse' smart constructor.

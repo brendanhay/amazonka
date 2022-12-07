@@ -23,6 +23,7 @@ import Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
 import Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a target tracking configuration to use with AWS Auto Scaling.
@@ -204,19 +205,19 @@ targetTrackingConfiguration_predefinedScalingMetricSpecification = Lens.lens (\T
 targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Core.FromJSON TargetTrackingConfiguration where
+instance Data.FromJSON TargetTrackingConfiguration where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "TargetTrackingConfiguration"
       ( \x ->
           TargetTrackingConfiguration'
-            Prelude.<$> (x Core..:? "DisableScaleIn")
-            Prelude.<*> (x Core..:? "CustomizedScalingMetricSpecification")
-            Prelude.<*> (x Core..:? "EstimatedInstanceWarmup")
-            Prelude.<*> (x Core..:? "ScaleInCooldown")
-            Prelude.<*> (x Core..:? "ScaleOutCooldown")
-            Prelude.<*> (x Core..:? "PredefinedScalingMetricSpecification")
-            Prelude.<*> (x Core..: "TargetValue")
+            Prelude.<$> (x Data..:? "DisableScaleIn")
+            Prelude.<*> (x Data..:? "CustomizedScalingMetricSpecification")
+            Prelude.<*> (x Data..:? "EstimatedInstanceWarmup")
+            Prelude.<*> (x Data..:? "ScaleInCooldown")
+            Prelude.<*> (x Data..:? "ScaleOutCooldown")
+            Prelude.<*> (x Data..:? "PredefinedScalingMetricSpecification")
+            Prelude.<*> (x Data..: "TargetValue")
       )
 
 instance Prelude.Hashable TargetTrackingConfiguration where
@@ -239,22 +240,22 @@ instance Prelude.NFData TargetTrackingConfiguration where
       `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
       `Prelude.seq` Prelude.rnf targetValue
 
-instance Core.ToJSON TargetTrackingConfiguration where
+instance Data.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("DisableScaleIn" Core..=)
+          [ ("DisableScaleIn" Data..=)
               Prelude.<$> disableScaleIn,
-            ("CustomizedScalingMetricSpecification" Core..=)
+            ("CustomizedScalingMetricSpecification" Data..=)
               Prelude.<$> customizedScalingMetricSpecification,
-            ("EstimatedInstanceWarmup" Core..=)
+            ("EstimatedInstanceWarmup" Data..=)
               Prelude.<$> estimatedInstanceWarmup,
-            ("ScaleInCooldown" Core..=)
+            ("ScaleInCooldown" Data..=)
               Prelude.<$> scaleInCooldown,
-            ("ScaleOutCooldown" Core..=)
+            ("ScaleOutCooldown" Data..=)
               Prelude.<$> scaleOutCooldown,
-            ("PredefinedScalingMetricSpecification" Core..=)
+            ("PredefinedScalingMetricSpecification" Data..=)
               Prelude.<$> predefinedScalingMetricSpecification,
-            Prelude.Just ("TargetValue" Core..= targetValue)
+            Prelude.Just ("TargetValue" Data..= targetValue)
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.LabelSchema where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
 import qualified Amazonka.Prelude as Prelude
 
@@ -89,14 +90,14 @@ labelSchema_labelMapper = Lens.lens (\LabelSchema' {labelMapper} -> labelMapper)
 labelSchema_unlabeledEventsTreatment :: Lens.Lens' LabelSchema (Prelude.Maybe UnlabeledEventsTreatment)
 labelSchema_unlabeledEventsTreatment = Lens.lens (\LabelSchema' {unlabeledEventsTreatment} -> unlabeledEventsTreatment) (\s@LabelSchema' {} a -> s {unlabeledEventsTreatment = a} :: LabelSchema)
 
-instance Core.FromJSON LabelSchema where
+instance Data.FromJSON LabelSchema where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "LabelSchema"
       ( \x ->
           LabelSchema'
-            Prelude.<$> (x Core..:? "labelMapper" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "unlabeledEventsTreatment")
+            Prelude.<$> (x Data..:? "labelMapper" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "unlabeledEventsTreatment")
       )
 
 instance Prelude.Hashable LabelSchema where
@@ -109,12 +110,12 @@ instance Prelude.NFData LabelSchema where
     Prelude.rnf labelMapper
       `Prelude.seq` Prelude.rnf unlabeledEventsTreatment
 
-instance Core.ToJSON LabelSchema where
+instance Data.ToJSON LabelSchema where
   toJSON LabelSchema' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("labelMapper" Core..=) Prelude.<$> labelMapper,
-            ("unlabeledEventsTreatment" Core..=)
+          [ ("labelMapper" Data..=) Prelude.<$> labelMapper,
+            ("unlabeledEventsTreatment" Data..=)
               Prelude.<$> unlabeledEventsTreatment
           ]
       )

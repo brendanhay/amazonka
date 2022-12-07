@@ -40,6 +40,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -130,22 +131,22 @@ instance Prelude.NFData DisableVgwRoutePropagation where
       `Prelude.seq` Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf routeTableId
 
-instance Core.ToHeaders DisableVgwRoutePropagation where
+instance Data.ToHeaders DisableVgwRoutePropagation where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DisableVgwRoutePropagation where
+instance Data.ToPath DisableVgwRoutePropagation where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DisableVgwRoutePropagation where
+instance Data.ToQuery DisableVgwRoutePropagation where
   toQuery DisableVgwRoutePropagation' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DisableVgwRoutePropagation" :: Prelude.ByteString),
+          Data.=: ("DisableVgwRoutePropagation" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "GatewayId" Core.=: gatewayId,
-        "RouteTableId" Core.=: routeTableId
+          Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "GatewayId" Data.=: gatewayId,
+        "RouteTableId" Data.=: routeTableId
       ]
 
 -- | /See:/ 'newDisableVgwRoutePropagationResponse' smart constructor.

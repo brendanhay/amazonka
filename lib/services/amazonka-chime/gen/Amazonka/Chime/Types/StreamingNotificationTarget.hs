@@ -22,6 +22,7 @@ module Amazonka.Chime.Types.StreamingNotificationTarget where
 import Amazonka.Chime.Types.NotificationTarget
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The targeted recipient for a streaming configuration notification.
@@ -56,13 +57,13 @@ newStreamingNotificationTarget pNotificationTarget_ =
 streamingNotificationTarget_notificationTarget :: Lens.Lens' StreamingNotificationTarget NotificationTarget
 streamingNotificationTarget_notificationTarget = Lens.lens (\StreamingNotificationTarget' {notificationTarget} -> notificationTarget) (\s@StreamingNotificationTarget' {} a -> s {notificationTarget = a} :: StreamingNotificationTarget)
 
-instance Core.FromJSON StreamingNotificationTarget where
+instance Data.FromJSON StreamingNotificationTarget where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "StreamingNotificationTarget"
       ( \x ->
           StreamingNotificationTarget'
-            Prelude.<$> (x Core..: "NotificationTarget")
+            Prelude.<$> (x Data..: "NotificationTarget")
       )
 
 instance Prelude.Hashable StreamingNotificationTarget where
@@ -73,11 +74,11 @@ instance Prelude.NFData StreamingNotificationTarget where
   rnf StreamingNotificationTarget' {..} =
     Prelude.rnf notificationTarget
 
-instance Core.ToJSON StreamingNotificationTarget where
+instance Data.ToJSON StreamingNotificationTarget where
   toJSON StreamingNotificationTarget' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("NotificationTarget" Core..= notificationTarget)
+              ("NotificationTarget" Data..= notificationTarget)
           ]
       )

@@ -22,6 +22,7 @@ module Amazonka.Config.Types.ComplianceSummaryByResourceType where
 import Amazonka.Config.Types.ComplianceSummary
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The number of Amazon Web Services resources of a specific type that are
@@ -68,16 +69,16 @@ complianceSummaryByResourceType_complianceSummary :: Lens.Lens' ComplianceSummar
 complianceSummaryByResourceType_complianceSummary = Lens.lens (\ComplianceSummaryByResourceType' {complianceSummary} -> complianceSummary) (\s@ComplianceSummaryByResourceType' {} a -> s {complianceSummary = a} :: ComplianceSummaryByResourceType)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     ComplianceSummaryByResourceType
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "ComplianceSummaryByResourceType"
       ( \x ->
           ComplianceSummaryByResourceType'
-            Prelude.<$> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "ComplianceSummary")
+            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ComplianceSummary")
       )
 
 instance

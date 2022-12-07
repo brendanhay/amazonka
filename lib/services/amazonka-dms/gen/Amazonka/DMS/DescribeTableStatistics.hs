@@ -54,6 +54,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -190,11 +191,11 @@ instance Core.AWSRequest DescribeTableStatistics where
     Response.receiveJSON
       ( \s h x ->
           DescribeTableStatisticsResponse'
-            Prelude.<$> (x Core..?> "Marker")
-            Prelude.<*> ( x Core..?> "TableStatistics"
+            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> ( x Data..?> "TableStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ReplicationTaskArn")
+            Prelude.<*> (x Data..?> "ReplicationTaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,37 +213,37 @@ instance Prelude.NFData DescribeTableStatistics where
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf replicationTaskArn
 
-instance Core.ToHeaders DescribeTableStatistics where
+instance Data.ToHeaders DescribeTableStatistics where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonDMSv20160101.DescribeTableStatistics" ::
+              Data.=# ( "AmazonDMSv20160101.DescribeTableStatistics" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeTableStatistics where
+instance Data.ToJSON DescribeTableStatistics where
   toJSON DescribeTableStatistics' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+          [ ("Marker" Data..=) Prelude.<$> marker,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxRecords" Data..=) Prelude.<$> maxRecords,
             Prelude.Just
-              ("ReplicationTaskArn" Core..= replicationTaskArn)
+              ("ReplicationTaskArn" Data..= replicationTaskArn)
           ]
       )
 
-instance Core.ToPath DescribeTableStatistics where
+instance Data.ToPath DescribeTableStatistics where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeTableStatistics where
+instance Data.ToQuery DescribeTableStatistics where
   toQuery = Prelude.const Prelude.mempty
 
 -- |

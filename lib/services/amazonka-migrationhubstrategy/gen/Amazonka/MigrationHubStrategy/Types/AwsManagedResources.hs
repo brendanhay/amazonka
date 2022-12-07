@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.AwsManagedResources where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AwsManagedTargetDestination
 import qualified Amazonka.Prelude as Prelude
 
@@ -57,13 +58,13 @@ newAwsManagedResources pTargetDestination_ =
 awsManagedResources_targetDestination :: Lens.Lens' AwsManagedResources (Prelude.NonEmpty AwsManagedTargetDestination)
 awsManagedResources_targetDestination = Lens.lens (\AwsManagedResources' {targetDestination} -> targetDestination) (\s@AwsManagedResources' {} a -> s {targetDestination = a} :: AwsManagedResources) Prelude.. Lens.coerced
 
-instance Core.FromJSON AwsManagedResources where
+instance Data.FromJSON AwsManagedResources where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AwsManagedResources"
       ( \x ->
           AwsManagedResources'
-            Prelude.<$> (x Core..: "targetDestination")
+            Prelude.<$> (x Data..: "targetDestination")
       )
 
 instance Prelude.Hashable AwsManagedResources where
@@ -74,11 +75,11 @@ instance Prelude.NFData AwsManagedResources where
   rnf AwsManagedResources' {..} =
     Prelude.rnf targetDestination
 
-instance Core.ToJSON AwsManagedResources where
+instance Data.ToJSON AwsManagedResources where
   toJSON AwsManagedResources' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
-              ("targetDestination" Core..= targetDestination)
+              ("targetDestination" Data..= targetDestination)
           ]
       )

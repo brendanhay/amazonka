@@ -37,6 +37,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.FMS.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -91,32 +92,32 @@ instance Prelude.Hashable DeleteProtocolsList where
 instance Prelude.NFData DeleteProtocolsList where
   rnf DeleteProtocolsList' {..} = Prelude.rnf listId
 
-instance Core.ToHeaders DeleteProtocolsList where
+instance Data.ToHeaders DeleteProtocolsList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSFMS_20180101.DeleteProtocolsList" ::
+              Data.=# ( "AWSFMS_20180101.DeleteProtocolsList" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteProtocolsList where
+instance Data.ToJSON DeleteProtocolsList where
   toJSON DeleteProtocolsList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("ListId" Core..= listId)]
+          [Prelude.Just ("ListId" Data..= listId)]
       )
 
-instance Core.ToPath DeleteProtocolsList where
+instance Data.ToPath DeleteProtocolsList where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DeleteProtocolsList where
+instance Data.ToQuery DeleteProtocolsList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProtocolsListResponse' smart constructor.

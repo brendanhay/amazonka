@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ELBV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -113,22 +114,22 @@ instance Prelude.NFData RemoveListenerCertificates where
     Prelude.rnf listenerArn
       `Prelude.seq` Prelude.rnf certificates
 
-instance Core.ToHeaders RemoveListenerCertificates where
+instance Data.ToHeaders RemoveListenerCertificates where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath RemoveListenerCertificates where
+instance Data.ToPath RemoveListenerCertificates where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery RemoveListenerCertificates where
+instance Data.ToQuery RemoveListenerCertificates where
   toQuery RemoveListenerCertificates' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("RemoveListenerCertificates" :: Prelude.ByteString),
+          Data.=: ("RemoveListenerCertificates" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Core.=: listenerArn,
+          Data.=: ("2015-12-01" :: Prelude.ByteString),
+        "ListenerArn" Data.=: listenerArn,
         "Certificates"
-          Core.=: Core.toQueryList "member" certificates
+          Data.=: Data.toQueryList "member" certificates
       ]
 
 -- | /See:/ 'newRemoveListenerCertificatesResponse' smart constructor.

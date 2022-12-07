@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.UnprocessedUpdateAction where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Update action that has failed to be processed for the corresponding
@@ -93,14 +94,14 @@ unprocessedUpdateAction_replicationGroupId = Lens.lens (\UnprocessedUpdateAction
 unprocessedUpdateAction_errorType :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
 unprocessedUpdateAction_errorType = Lens.lens (\UnprocessedUpdateAction' {errorType} -> errorType) (\s@UnprocessedUpdateAction' {} a -> s {errorType = a} :: UnprocessedUpdateAction)
 
-instance Core.FromXML UnprocessedUpdateAction where
+instance Data.FromXML UnprocessedUpdateAction where
   parseXML x =
     UnprocessedUpdateAction'
-      Prelude.<$> (x Core..@? "ErrorMessage")
-      Prelude.<*> (x Core..@? "CacheClusterId")
-      Prelude.<*> (x Core..@? "ServiceUpdateName")
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> (x Core..@? "ErrorType")
+      Prelude.<$> (x Data..@? "ErrorMessage")
+      Prelude.<*> (x Data..@? "CacheClusterId")
+      Prelude.<*> (x Data..@? "ServiceUpdateName")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> (x Data..@? "ErrorType")
 
 instance Prelude.Hashable UnprocessedUpdateAction where
   hashWithSalt _salt UnprocessedUpdateAction' {..} =

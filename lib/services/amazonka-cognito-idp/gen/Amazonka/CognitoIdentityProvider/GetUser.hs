@@ -46,6 +46,7 @@ where
 import Amazonka.CognitoIdentityProvider.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -56,7 +57,7 @@ import qualified Amazonka.Response as Response
 data GetUser = GetUser'
   { -- | A non-expired access token for the user whose information you want to
     -- query.
-    accessToken :: Core.Sensitive Prelude.Text
+    accessToken :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -77,13 +78,13 @@ newGetUser ::
 newGetUser pAccessToken_ =
   GetUser'
     { accessToken =
-        Core._Sensitive Lens.# pAccessToken_
+        Data._Sensitive Lens.# pAccessToken_
     }
 
 -- | A non-expired access token for the user whose information you want to
 -- query.
 getUser_accessToken :: Lens.Lens' GetUser Prelude.Text
-getUser_accessToken = Lens.lens (\GetUser' {accessToken} -> accessToken) (\s@GetUser' {} a -> s {accessToken = a} :: GetUser) Prelude.. Core._Sensitive
+getUser_accessToken = Lens.lens (\GetUser' {accessToken} -> accessToken) (\s@GetUser' {} a -> s {accessToken = a} :: GetUser) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest GetUser where
   type AWSResponse GetUser = GetUserResponse
@@ -93,14 +94,14 @@ instance Core.AWSRequest GetUser where
     Response.receiveJSON
       ( \s h x ->
           GetUserResponse'
-            Prelude.<$> ( x Core..?> "UserMFASettingList"
+            Prelude.<$> ( x Data..?> "UserMFASettingList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "PreferredMfaSetting")
-            Prelude.<*> (x Core..?> "MFAOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PreferredMfaSetting")
+            Prelude.<*> (x Data..?> "MFAOptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Username")
-            Prelude.<*> ( x Core..?> "UserAttributes"
+            Prelude.<*> (x Data..:> "Username")
+            Prelude.<*> ( x Data..?> "UserAttributes"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -112,32 +113,32 @@ instance Prelude.Hashable GetUser where
 instance Prelude.NFData GetUser where
   rnf GetUser' {..} = Prelude.rnf accessToken
 
-instance Core.ToHeaders GetUser where
+instance Data.ToHeaders GetUser where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSCognitoIdentityProviderService.GetUser" ::
+              Data.=# ( "AWSCognitoIdentityProviderService.GetUser" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetUser where
+instance Data.ToJSON GetUser where
   toJSON GetUser' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("AccessToken" Core..= accessToken)]
+          [Prelude.Just ("AccessToken" Data..= accessToken)]
       )
 
-instance Core.ToPath GetUser where
+instance Data.ToPath GetUser where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetUser where
+instance Data.ToQuery GetUser where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server from the request to get
@@ -160,7 +161,7 @@ data GetUserResponse = GetUserResponse'
     httpStatus :: Prelude.Int,
     -- | The user name of the user you want to retrieve from the get user
     -- request.
-    username :: Core.Sensitive Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
@@ -210,7 +211,7 @@ newGetUserResponse pHttpStatus_ pUsername_ =
       preferredMfaSetting = Prelude.Nothing,
       mfaOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      username = Core._Sensitive Lens.# pUsername_,
+      username = Data._Sensitive Lens.# pUsername_,
       userAttributes = Prelude.mempty
     }
 
@@ -238,7 +239,7 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 -- | The user name of the user you want to retrieve from the get user
 -- request.
 getUserResponse_username :: Lens.Lens' GetUserResponse Prelude.Text
-getUserResponse_username = Lens.lens (\GetUserResponse' {username} -> username) (\s@GetUserResponse' {} a -> s {username = a} :: GetUserResponse) Prelude.. Core._Sensitive
+getUserResponse_username = Lens.lens (\GetUserResponse' {username} -> username) (\s@GetUserResponse' {} a -> s {username = a} :: GetUserResponse) Prelude.. Data._Sensitive
 
 -- | An array of name-value pairs representing user attributes.
 --

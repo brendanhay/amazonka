@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.AuditMitigationActionExecutionMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.IoT.Types.AuditMitigationActionsExecutionStatus
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,7 +40,7 @@ data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMeta
     status :: Prelude.Maybe AuditMitigationActionsExecutionStatus,
     -- | The date and time when the task was completed or canceled. Blank if the
     -- task is still running.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the mitigation action being applied by the
     -- task.
     actionId :: Prelude.Maybe Prelude.Text,
@@ -47,7 +48,7 @@ data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMeta
     -- occurred.
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the task was started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the findings to which the task and associated
     -- mitigation action are applied.
     findingId :: Prelude.Maybe Prelude.Text
@@ -118,7 +119,7 @@ auditMitigationActionExecutionMetadata_status = Lens.lens (\AuditMitigationActio
 -- | The date and time when the task was completed or canceled. Blank if the
 -- task is still running.
 auditMitigationActionExecutionMetadata_endTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionExecutionMetadata_endTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {endTime} -> endTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {endTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Core._Time
+auditMitigationActionExecutionMetadata_endTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {endTime} -> endTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {endTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the mitigation action being applied by the
 -- task.
@@ -132,7 +133,7 @@ auditMitigationActionExecutionMetadata_errorCode = Lens.lens (\AuditMitigationAc
 
 -- | The date and time when the task was started.
 auditMitigationActionExecutionMetadata_startTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionExecutionMetadata_startTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {startTime} -> startTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {startTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Core._Time
+auditMitigationActionExecutionMetadata_startTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {startTime} -> startTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {startTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the findings to which the task and associated
 -- mitigation action are applied.
@@ -140,23 +141,23 @@ auditMitigationActionExecutionMetadata_findingId :: Lens.Lens' AuditMitigationAc
 auditMitigationActionExecutionMetadata_findingId = Lens.lens (\AuditMitigationActionExecutionMetadata' {findingId} -> findingId) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {findingId = a} :: AuditMitigationActionExecutionMetadata)
 
 instance
-  Core.FromJSON
+  Data.FromJSON
     AuditMitigationActionExecutionMetadata
   where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "AuditMitigationActionExecutionMetadata"
       ( \x ->
           AuditMitigationActionExecutionMetadata'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "actionName")
-            Prelude.<*> (x Core..:? "taskId")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "actionId")
-            Prelude.<*> (x Core..:? "errorCode")
-            Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "findingId")
+            Prelude.<$> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "actionName")
+            Prelude.<*> (x Data..:? "taskId")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "actionId")
+            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "findingId")
       )
 
 instance

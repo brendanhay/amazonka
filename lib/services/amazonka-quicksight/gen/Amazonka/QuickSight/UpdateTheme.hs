@@ -50,6 +50,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types
 import qualified Amazonka.Request as Request
@@ -159,11 +160,11 @@ instance Core.AWSRequest UpdateTheme where
     Response.receiveJSON
       ( \s h x ->
           UpdateThemeResponse'
-            Prelude.<$> (x Core..?> "CreationStatus")
-            Prelude.<*> (x Core..?> "RequestId")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "VersionArn")
-            Prelude.<*> (x Core..?> "ThemeId")
+            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "VersionArn")
+            Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,39 +186,39 @@ instance Prelude.NFData UpdateTheme where
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf baseThemeId
 
-instance Core.ToHeaders UpdateTheme where
+instance Data.ToHeaders UpdateTheme where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateTheme where
+instance Data.ToJSON UpdateTheme where
   toJSON UpdateTheme' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Configuration" Core..=) Prelude.<$> configuration,
-            ("VersionDescription" Core..=)
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Configuration" Data..=) Prelude.<$> configuration,
+            ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
-            Prelude.Just ("BaseThemeId" Core..= baseThemeId)
+            Prelude.Just ("BaseThemeId" Data..= baseThemeId)
           ]
       )
 
-instance Core.ToPath UpdateTheme where
+instance Data.ToPath UpdateTheme where
   toPath UpdateTheme' {..} =
     Prelude.mconcat
       [ "/accounts/",
-        Core.toBS awsAccountId,
+        Data.toBS awsAccountId,
         "/themes/",
-        Core.toBS themeId
+        Data.toBS themeId
       ]
 
-instance Core.ToQuery UpdateTheme where
+instance Data.ToQuery UpdateTheme where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateThemeResponse' smart constructor.

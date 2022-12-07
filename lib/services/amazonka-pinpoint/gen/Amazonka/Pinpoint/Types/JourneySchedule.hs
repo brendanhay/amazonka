@@ -21,6 +21,7 @@ module Amazonka.Pinpoint.Types.JourneySchedule where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the schedule settings for a journey.
@@ -37,10 +38,10 @@ data JourneySchedule = JourneySchedule'
     timezone :: Prelude.Maybe Prelude.Text,
     -- | The scheduled time, in ISO 8601 format, when the journey ended or will
     -- end.
-    endTime :: Prelude.Maybe Core.POSIX,
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The scheduled time, in ISO 8601 format, when the journey began or will
     -- begin.
-    startTime :: Prelude.Maybe Core.POSIX
+    startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,22 +88,22 @@ journeySchedule_timezone = Lens.lens (\JourneySchedule' {timezone} -> timezone) 
 -- | The scheduled time, in ISO 8601 format, when the journey ended or will
 -- end.
 journeySchedule_endTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
-journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
+journeySchedule_endTime = Lens.lens (\JourneySchedule' {endTime} -> endTime) (\s@JourneySchedule' {} a -> s {endTime = a} :: JourneySchedule) Prelude.. Lens.mapping Data._Time
 
 -- | The scheduled time, in ISO 8601 format, when the journey began or will
 -- begin.
 journeySchedule_startTime :: Lens.Lens' JourneySchedule (Prelude.Maybe Prelude.UTCTime)
-journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Prelude.. Lens.mapping Core._Time
+journeySchedule_startTime = Lens.lens (\JourneySchedule' {startTime} -> startTime) (\s@JourneySchedule' {} a -> s {startTime = a} :: JourneySchedule) Prelude.. Lens.mapping Data._Time
 
-instance Core.FromJSON JourneySchedule where
+instance Data.FromJSON JourneySchedule where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "JourneySchedule"
       ( \x ->
           JourneySchedule'
-            Prelude.<$> (x Core..:? "Timezone")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<$> (x Data..:? "Timezone")
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable JourneySchedule where
@@ -117,12 +118,12 @@ instance Prelude.NFData JourneySchedule where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
 
-instance Core.ToJSON JourneySchedule where
+instance Data.ToJSON JourneySchedule where
   toJSON JourneySchedule' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Timezone" Core..=) Prelude.<$> timezone,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("StartTime" Core..=) Prelude.<$> startTime
+          [ ("Timezone" Data..=) Prelude.<$> timezone,
+            ("EndTime" Data..=) Prelude.<$> endTime,
+            ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.HoursOfOperationSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains summary information about hours of operation for a contact
@@ -71,15 +72,15 @@ hoursOfOperationSummary_arn = Lens.lens (\HoursOfOperationSummary' {arn} -> arn)
 hoursOfOperationSummary_id :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
 hoursOfOperationSummary_id = Lens.lens (\HoursOfOperationSummary' {id} -> id) (\s@HoursOfOperationSummary' {} a -> s {id = a} :: HoursOfOperationSummary)
 
-instance Core.FromJSON HoursOfOperationSummary where
+instance Data.FromJSON HoursOfOperationSummary where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "HoursOfOperationSummary"
       ( \x ->
           HoursOfOperationSummary'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable HoursOfOperationSummary where

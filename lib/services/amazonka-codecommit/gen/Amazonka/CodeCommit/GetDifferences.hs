@@ -53,6 +53,7 @@ where
 import Amazonka.CodeCommit.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -214,8 +215,8 @@ instance Core.AWSRequest GetDifferences where
     Response.receiveJSON
       ( \s h x ->
           GetDifferencesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "differences" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "differences" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,44 +240,44 @@ instance Prelude.NFData GetDifferences where
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf afterCommitSpecifier
 
-instance Core.ToHeaders GetDifferences where
+instance Data.ToHeaders GetDifferences where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "CodeCommit_20150413.GetDifferences" ::
+              Data.=# ( "CodeCommit_20150413.GetDifferences" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetDifferences where
+instance Data.ToJSON GetDifferences where
   toJSON GetDifferences' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("afterPath" Core..=) Prelude.<$> afterPath,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("beforePath" Core..=) Prelude.<$> beforePath,
-            ("beforeCommitSpecifier" Core..=)
+          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("afterPath" Data..=) Prelude.<$> afterPath,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("beforePath" Data..=) Prelude.<$> beforePath,
+            ("beforeCommitSpecifier" Data..=)
               Prelude.<$> beforeCommitSpecifier,
             Prelude.Just
-              ("repositoryName" Core..= repositoryName),
+              ("repositoryName" Data..= repositoryName),
             Prelude.Just
               ( "afterCommitSpecifier"
-                  Core..= afterCommitSpecifier
+                  Data..= afterCommitSpecifier
               )
           ]
       )
 
-instance Core.ToPath GetDifferences where
+instance Data.ToPath GetDifferences where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetDifferences where
+instance Data.ToQuery GetDifferences where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetDifferencesResponse' smart constructor.

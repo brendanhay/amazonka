@@ -45,6 +45,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MacieV2.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -150,8 +151,8 @@ instance Core.AWSRequest UpdateAllowList where
     Response.receiveJSON
       ( \s h x ->
           UpdateAllowListResponse'
-            Prelude.<$> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,32 +170,32 @@ instance Prelude.NFData UpdateAllowList where
       `Prelude.seq` Prelude.rnf criteria
       `Prelude.seq` Prelude.rnf name
 
-instance Core.ToHeaders UpdateAllowList where
+instance Data.ToHeaders UpdateAllowList where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON UpdateAllowList where
+instance Data.ToJSON UpdateAllowList where
   toJSON UpdateAllowList' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            Prelude.Just ("criteria" Core..= criteria),
-            Prelude.Just ("name" Core..= name)
+          [ ("description" Data..=) Prelude.<$> description,
+            Prelude.Just ("criteria" Data..= criteria),
+            Prelude.Just ("name" Data..= name)
           ]
       )
 
-instance Core.ToPath UpdateAllowList where
+instance Data.ToPath UpdateAllowList where
   toPath UpdateAllowList' {..} =
-    Prelude.mconcat ["/allow-lists/", Core.toBS id]
+    Prelude.mconcat ["/allow-lists/", Data.toBS id]
 
-instance Core.ToQuery UpdateAllowList where
+instance Data.ToQuery UpdateAllowList where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateAllowListResponse' smart constructor.

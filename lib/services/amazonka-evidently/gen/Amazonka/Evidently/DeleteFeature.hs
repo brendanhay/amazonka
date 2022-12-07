@@ -41,6 +41,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Evidently.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -109,27 +110,27 @@ instance Prelude.NFData DeleteFeature where
     Prelude.rnf feature
       `Prelude.seq` Prelude.rnf project
 
-instance Core.ToHeaders DeleteFeature where
+instance Data.ToHeaders DeleteFeature where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteFeature where
+instance Data.ToPath DeleteFeature where
   toPath DeleteFeature' {..} =
     Prelude.mconcat
       [ "/projects/",
-        Core.toBS project,
+        Data.toBS project,
         "/features/",
-        Core.toBS feature
+        Data.toBS feature
       ]
 
-instance Core.ToQuery DeleteFeature where
+instance Data.ToQuery DeleteFeature where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteFeatureResponse' smart constructor.

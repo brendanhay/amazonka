@@ -51,6 +51,7 @@ where
 import Amazonka.CloudWatchLogs.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -145,8 +146,8 @@ instance Core.AWSRequest DescribeQueries where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueriesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "queries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "queries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,36 +165,36 @@ instance Prelude.NFData DescribeQueries where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf logGroupName
 
-instance Core.ToHeaders DescribeQueries where
+instance Data.ToHeaders DescribeQueries where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "Logs_20140328.DescribeQueries" ::
+              Data.=# ( "Logs_20140328.DescribeQueries" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeQueries where
+instance Data.ToJSON DescribeQueries where
   toJSON DescribeQueries' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("status" Core..=) Prelude.<$> status,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("logGroupName" Core..=) Prelude.<$> logGroupName
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("logGroupName" Data..=) Prelude.<$> logGroupName
           ]
       )
 
-instance Core.ToPath DescribeQueries where
+instance Data.ToPath DescribeQueries where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeQueries where
+instance Data.ToQuery DescribeQueries where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeQueriesResponse' smart constructor.

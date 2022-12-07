@@ -21,6 +21,7 @@ module Amazonka.Connect.Types.TagCondition where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A leaf node condition which can be used to specify a tag condition, for
@@ -72,11 +73,11 @@ instance Prelude.NFData TagCondition where
     Prelude.rnf tagValue
       `Prelude.seq` Prelude.rnf tagKey
 
-instance Core.ToJSON TagCondition where
+instance Data.ToJSON TagCondition where
   toJSON TagCondition' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("TagValue" Core..=) Prelude.<$> tagValue,
-            ("TagKey" Core..=) Prelude.<$> tagKey
+          [ ("TagValue" Data..=) Prelude.<$> tagValue,
+            ("TagKey" Data..=) Prelude.<$> tagKey
           ]
       )

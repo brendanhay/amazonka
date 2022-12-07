@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.CacheSecurityGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.EC2SecurityGroup
 import qualified Amazonka.Prelude as Prelude
 
@@ -98,17 +99,17 @@ cacheSecurityGroup_eC2SecurityGroups = Lens.lens (\CacheSecurityGroup' {eC2Secur
 cacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' CacheSecurityGroup (Prelude.Maybe Prelude.Text)
 cacheSecurityGroup_cacheSecurityGroupName = Lens.lens (\CacheSecurityGroup' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@CacheSecurityGroup' {} a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroup)
 
-instance Core.FromXML CacheSecurityGroup where
+instance Data.FromXML CacheSecurityGroup where
   parseXML x =
     CacheSecurityGroup'
-      Prelude.<$> (x Core..@? "OwnerId")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> ( x Core..@? "EC2SecurityGroups"
+      Prelude.<$> (x Data..@? "OwnerId")
+      Prelude.<*> (x Data..@? "ARN")
+      Prelude.<*> (x Data..@? "Description")
+      Prelude.<*> ( x Data..@? "EC2SecurityGroups"
                       Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "EC2SecurityGroup")
+                      Prelude.>>= Core.may (Data.parseXMLList "EC2SecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "CacheSecurityGroupName")
+      Prelude.<*> (x Data..@? "CacheSecurityGroupName")
 
 instance Prelude.Hashable CacheSecurityGroup where
   hashWithSalt _salt CacheSecurityGroup' {..} =

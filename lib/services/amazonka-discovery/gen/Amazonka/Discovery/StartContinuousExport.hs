@@ -43,6 +43,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Discovery.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -72,13 +73,13 @@ instance Core.AWSRequest StartContinuousExport where
     Response.receiveJSON
       ( \s h x ->
           StartContinuousExportResponse'
-            Prelude.<$> (x Core..?> "s3Bucket")
-            Prelude.<*> ( x Core..?> "schemaStorageConfig"
+            Prelude.<$> (x Data..?> "s3Bucket")
+            Prelude.<*> ( x Data..?> "schemaStorageConfig"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "dataSource")
-            Prelude.<*> (x Core..?> "exportId")
-            Prelude.<*> (x Core..?> "startTime")
+            Prelude.<*> (x Data..?> "dataSource")
+            Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -89,28 +90,28 @@ instance Prelude.Hashable StartContinuousExport where
 instance Prelude.NFData StartContinuousExport where
   rnf _ = ()
 
-instance Core.ToHeaders StartContinuousExport where
+instance Data.ToHeaders StartContinuousExport where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSPoseidonService_V2015_11_01.StartContinuousExport" ::
+              Data.=# ( "AWSPoseidonService_V2015_11_01.StartContinuousExport" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON StartContinuousExport where
-  toJSON = Prelude.const (Core.Object Prelude.mempty)
+instance Data.ToJSON StartContinuousExport where
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
-instance Core.ToPath StartContinuousExport where
+instance Data.ToPath StartContinuousExport where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery StartContinuousExport where
+instance Data.ToQuery StartContinuousExport where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newStartContinuousExportResponse' smart constructor.
@@ -129,7 +130,7 @@ data StartContinuousExportResponse = StartContinuousExportResponse'
     -- | The unique ID assigned to this export.
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp representing when the continuous export was started.
-    startTime :: Prelude.Maybe Core.POSIX,
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,7 +198,7 @@ startContinuousExportResponse_exportId = Lens.lens (\StartContinuousExportRespon
 
 -- | The timestamp representing when the continuous export was started.
 startContinuousExportResponse_startTime :: Lens.Lens' StartContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Core._Time
+startContinuousExportResponse_startTime = Lens.lens (\StartContinuousExportResponse' {startTime} -> startTime) (\s@StartContinuousExportResponse' {} a -> s {startTime = a} :: StartContinuousExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 startContinuousExportResponse_httpStatus :: Lens.Lens' StartContinuousExportResponse Prelude.Int

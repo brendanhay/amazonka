@@ -85,6 +85,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CostExplorer.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -504,10 +505,10 @@ instance Core.AWSRequest GetReservationCoverage where
     Response.receiveJSON
       ( \s h x ->
           GetReservationCoverageResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
-            Prelude.<*> (x Core..?> "Total")
+            Prelude.<$> (x Data..?> "NextPageToken")
+            Prelude.<*> (x Data..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "CoveragesByTime"
+            Prelude.<*> ( x Data..?> "CoveragesByTime"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -534,40 +535,40 @@ instance Prelude.NFData GetReservationCoverage where
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf timePeriod
 
-instance Core.ToHeaders GetReservationCoverage where
+instance Data.ToHeaders GetReservationCoverage where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AWSInsightsIndexService.GetReservationCoverage" ::
+              Data.=# ( "AWSInsightsIndexService.GetReservationCoverage" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON GetReservationCoverage where
+instance Data.ToJSON GetReservationCoverage where
   toJSON GetReservationCoverage' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("Granularity" Core..=) Prelude.<$> granularity,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
-            ("Metrics" Core..=) Prelude.<$> metrics,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("Filter" Core..=) Prelude.<$> filter',
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            Prelude.Just ("TimePeriod" Core..= timePeriod)
+          [ ("NextPageToken" Data..=) Prelude.<$> nextPageToken,
+            ("Granularity" Data..=) Prelude.<$> granularity,
+            ("GroupBy" Data..=) Prelude.<$> groupBy,
+            ("Metrics" Data..=) Prelude.<$> metrics,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )
 
-instance Core.ToPath GetReservationCoverage where
+instance Data.ToPath GetReservationCoverage where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery GetReservationCoverage where
+instance Data.ToQuery GetReservationCoverage where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newGetReservationCoverageResponse' smart constructor.

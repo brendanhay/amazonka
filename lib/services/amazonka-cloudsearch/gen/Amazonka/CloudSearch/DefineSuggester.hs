@@ -49,6 +49,7 @@ where
 import Amazonka.CloudSearch.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -107,7 +108,7 @@ instance Core.AWSRequest DefineSuggester where
       ( \s h x ->
           DefineSuggesterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..@ "Suggester")
+            Prelude.<*> (x Data..@ "Suggester")
       )
 
 instance Prelude.Hashable DefineSuggester where
@@ -120,21 +121,21 @@ instance Prelude.NFData DefineSuggester where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf suggester
 
-instance Core.ToHeaders DefineSuggester where
+instance Data.ToHeaders DefineSuggester where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath DefineSuggester where
+instance Data.ToPath DefineSuggester where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DefineSuggester where
+instance Data.ToQuery DefineSuggester where
   toQuery DefineSuggester' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ("DefineSuggester" :: Prelude.ByteString),
+          Data.=: ("DefineSuggester" :: Prelude.ByteString),
         "Version"
-          Core.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Core.=: domainName,
-        "Suggester" Core.=: suggester
+          Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Data.=: domainName,
+        "Suggester" Data.=: suggester
       ]
 
 -- | The result of a @DefineSuggester@ request. Contains the status of the

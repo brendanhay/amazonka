@@ -44,6 +44,7 @@ where
 import Amazonka.AppRunner.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -108,7 +109,7 @@ instance
       ( \s h x ->
           DeleteObservabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "ObservabilityConfiguration")
+            Prelude.<*> (x Data..:> "ObservabilityConfiguration")
       )
 
 instance
@@ -129,39 +130,39 @@ instance
     Prelude.rnf observabilityConfigurationArn
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     DeleteObservabilityConfiguration
   where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AppRunner.DeleteObservabilityConfiguration" ::
+              Data.=# ( "AppRunner.DeleteObservabilityConfiguration" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.0" ::
+              Data.=# ( "application/x-amz-json-1.0" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DeleteObservabilityConfiguration where
+instance Data.ToJSON DeleteObservabilityConfiguration where
   toJSON DeleteObservabilityConfiguration' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
           [ Prelude.Just
               ( "ObservabilityConfigurationArn"
-                  Core..= observabilityConfigurationArn
+                  Data..= observabilityConfigurationArn
               )
           ]
       )
 
-instance Core.ToPath DeleteObservabilityConfiguration where
+instance Data.ToPath DeleteObservabilityConfiguration where
   toPath = Prelude.const "/"
 
 instance
-  Core.ToQuery
+  Data.ToQuery
     DeleteObservabilityConfiguration
   where
   toQuery = Prelude.const Prelude.mempty

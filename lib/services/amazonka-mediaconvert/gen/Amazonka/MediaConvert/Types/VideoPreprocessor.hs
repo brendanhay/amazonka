@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.VideoPreprocessor where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.MediaConvert.Types.ColorCorrector
 import Amazonka.MediaConvert.Types.Deinterlacer
 import Amazonka.MediaConvert.Types.DolbyVision
@@ -161,20 +162,20 @@ videoPreprocessor_deinterlacer = Lens.lens (\VideoPreprocessor' {deinterlacer} -
 videoPreprocessor_noiseReducer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe NoiseReducer)
 videoPreprocessor_noiseReducer = Lens.lens (\VideoPreprocessor' {noiseReducer} -> noiseReducer) (\s@VideoPreprocessor' {} a -> s {noiseReducer = a} :: VideoPreprocessor)
 
-instance Core.FromJSON VideoPreprocessor where
+instance Data.FromJSON VideoPreprocessor where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "VideoPreprocessor"
       ( \x ->
           VideoPreprocessor'
-            Prelude.<$> (x Core..:? "dolbyVision")
-            Prelude.<*> (x Core..:? "partnerWatermarking")
-            Prelude.<*> (x Core..:? "colorCorrector")
-            Prelude.<*> (x Core..:? "timecodeBurnin")
-            Prelude.<*> (x Core..:? "hdr10Plus")
-            Prelude.<*> (x Core..:? "imageInserter")
-            Prelude.<*> (x Core..:? "deinterlacer")
-            Prelude.<*> (x Core..:? "noiseReducer")
+            Prelude.<$> (x Data..:? "dolbyVision")
+            Prelude.<*> (x Data..:? "partnerWatermarking")
+            Prelude.<*> (x Data..:? "colorCorrector")
+            Prelude.<*> (x Data..:? "timecodeBurnin")
+            Prelude.<*> (x Data..:? "hdr10Plus")
+            Prelude.<*> (x Data..:? "imageInserter")
+            Prelude.<*> (x Data..:? "deinterlacer")
+            Prelude.<*> (x Data..:? "noiseReducer")
       )
 
 instance Prelude.Hashable VideoPreprocessor where
@@ -199,20 +200,20 @@ instance Prelude.NFData VideoPreprocessor where
       `Prelude.seq` Prelude.rnf deinterlacer
       `Prelude.seq` Prelude.rnf noiseReducer
 
-instance Core.ToJSON VideoPreprocessor where
+instance Data.ToJSON VideoPreprocessor where
   toJSON VideoPreprocessor' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("dolbyVision" Core..=) Prelude.<$> dolbyVision,
-            ("partnerWatermarking" Core..=)
+          [ ("dolbyVision" Data..=) Prelude.<$> dolbyVision,
+            ("partnerWatermarking" Data..=)
               Prelude.<$> partnerWatermarking,
-            ("colorCorrector" Core..=)
+            ("colorCorrector" Data..=)
               Prelude.<$> colorCorrector,
-            ("timecodeBurnin" Core..=)
+            ("timecodeBurnin" Data..=)
               Prelude.<$> timecodeBurnin,
-            ("hdr10Plus" Core..=) Prelude.<$> hdr10Plus,
-            ("imageInserter" Core..=) Prelude.<$> imageInserter,
-            ("deinterlacer" Core..=) Prelude.<$> deinterlacer,
-            ("noiseReducer" Core..=) Prelude.<$> noiseReducer
+            ("hdr10Plus" Data..=) Prelude.<$> hdr10Plus,
+            ("imageInserter" Data..=) Prelude.<$> imageInserter,
+            ("deinterlacer" Data..=) Prelude.<$> deinterlacer,
+            ("noiseReducer" Data..=) Prelude.<$> noiseReducer
           ]
       )

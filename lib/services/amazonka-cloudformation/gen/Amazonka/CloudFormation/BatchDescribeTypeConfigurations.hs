@@ -49,6 +49,7 @@ where
 import Amazonka.CloudFormation.Types
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -99,16 +100,16 @@ instance
       "BatchDescribeTypeConfigurationsResult"
       ( \s h x ->
           BatchDescribeTypeConfigurationsResponse'
-            Prelude.<$> ( x Core..@? "Errors" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "UnprocessedTypeConfigurations"
+            Prelude.<*> ( x Data..@? "UnprocessedTypeConfigurations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Core..@? "TypeConfigurations"
+            Prelude.<*> ( x Data..@? "TypeConfigurations"
                             Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -131,25 +132,25 @@ instance
     Prelude.rnf typeConfigurationIdentifiers
 
 instance
-  Core.ToHeaders
+  Data.ToHeaders
     BatchDescribeTypeConfigurations
   where
   toHeaders = Prelude.const Prelude.mempty
 
-instance Core.ToPath BatchDescribeTypeConfigurations where
+instance Data.ToPath BatchDescribeTypeConfigurations where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery BatchDescribeTypeConfigurations where
+instance Data.ToQuery BatchDescribeTypeConfigurations where
   toQuery BatchDescribeTypeConfigurations' {..} =
     Prelude.mconcat
       [ "Action"
-          Core.=: ( "BatchDescribeTypeConfigurations" ::
+          Data.=: ( "BatchDescribeTypeConfigurations" ::
                       Prelude.ByteString
                   ),
         "Version"
-          Core.=: ("2010-05-15" :: Prelude.ByteString),
+          Data.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeConfigurationIdentifiers"
-          Core.=: Core.toQueryList
+          Data.=: Data.toQueryList
             "member"
             typeConfigurationIdentifiers
       ]

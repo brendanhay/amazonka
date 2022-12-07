@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.DisableFastSnapshotRestoreStateError where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
@@ -64,13 +65,13 @@ disableFastSnapshotRestoreStateError_code :: Lens.Lens' DisableFastSnapshotResto
 disableFastSnapshotRestoreStateError_code = Lens.lens (\DisableFastSnapshotRestoreStateError' {code} -> code) (\s@DisableFastSnapshotRestoreStateError' {} a -> s {code = a} :: DisableFastSnapshotRestoreStateError)
 
 instance
-  Core.FromXML
+  Data.FromXML
     DisableFastSnapshotRestoreStateError
   where
   parseXML x =
     DisableFastSnapshotRestoreStateError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Data..@? "message")
+      Prelude.<*> (x Data..@? "code")
 
 instance
   Prelude.Hashable

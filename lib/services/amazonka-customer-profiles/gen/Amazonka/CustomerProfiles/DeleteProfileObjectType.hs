@@ -47,6 +47,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.CustomerProfiles.Types
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
@@ -104,7 +105,7 @@ instance Core.AWSRequest DeleteProfileObjectType where
       ( \s h x ->
           DeleteProfileObjectTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Core..:> "Message")
+            Prelude.<*> (x Data..:> "Message")
       )
 
 instance Prelude.Hashable DeleteProfileObjectType where
@@ -117,27 +118,27 @@ instance Prelude.NFData DeleteProfileObjectType where
     Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf objectTypeName
 
-instance Core.ToHeaders DeleteProfileObjectType where
+instance Data.ToHeaders DeleteProfileObjectType where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToPath DeleteProfileObjectType where
+instance Data.ToPath DeleteProfileObjectType where
   toPath DeleteProfileObjectType' {..} =
     Prelude.mconcat
       [ "/domains/",
-        Core.toBS domainName,
+        Data.toBS domainName,
         "/object-types/",
-        Core.toBS objectTypeName
+        Data.toBS objectTypeName
       ]
 
-instance Core.ToQuery DeleteProfileObjectType where
+instance Data.ToQuery DeleteProfileObjectType where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteProfileObjectTypeResponse' smart constructor.

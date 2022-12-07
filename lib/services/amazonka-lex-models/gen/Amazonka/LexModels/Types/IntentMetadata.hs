@@ -21,6 +21,7 @@ module Amazonka.LexModels.Types.IntentMetadata where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about an intent.
@@ -31,11 +32,11 @@ data IntentMetadata = IntentMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date that the intent was updated. When you create an intent, the
     -- creation date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the intent.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date that the intent was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version of the intent.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -77,7 +78,7 @@ intentMetadata_name = Lens.lens (\IntentMetadata' {name} -> name) (\s@IntentMeta
 -- | The date that the intent was updated. When you create an intent, the
 -- creation date and last updated date are the same.
 intentMetadata_lastUpdatedDate :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.UTCTime)
-intentMetadata_lastUpdatedDate = Lens.lens (\IntentMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@IntentMetadata' {} a -> s {lastUpdatedDate = a} :: IntentMetadata) Prelude.. Lens.mapping Core._Time
+intentMetadata_lastUpdatedDate = Lens.lens (\IntentMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@IntentMetadata' {} a -> s {lastUpdatedDate = a} :: IntentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | A description of the intent.
 intentMetadata_description :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
@@ -85,23 +86,23 @@ intentMetadata_description = Lens.lens (\IntentMetadata' {description} -> descri
 
 -- | The date that the intent was created.
 intentMetadata_createdDate :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.UTCTime)
-intentMetadata_createdDate = Lens.lens (\IntentMetadata' {createdDate} -> createdDate) (\s@IntentMetadata' {} a -> s {createdDate = a} :: IntentMetadata) Prelude.. Lens.mapping Core._Time
+intentMetadata_createdDate = Lens.lens (\IntentMetadata' {createdDate} -> createdDate) (\s@IntentMetadata' {} a -> s {createdDate = a} :: IntentMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The version of the intent.
 intentMetadata_version :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
 intentMetadata_version = Lens.lens (\IntentMetadata' {version} -> version) (\s@IntentMetadata' {} a -> s {version = a} :: IntentMetadata)
 
-instance Core.FromJSON IntentMetadata where
+instance Data.FromJSON IntentMetadata where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "IntentMetadata"
       ( \x ->
           IntentMetadata'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "lastUpdatedDate")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "createdDate")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable IntentMetadata where

@@ -42,6 +42,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.NetworkManager.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -99,7 +100,7 @@ instance Core.AWSRequest CreateGlobalNetwork where
     Response.receiveJSON
       ( \s h x ->
           CreateGlobalNetworkResponse'
-            Prelude.<$> (x Core..?> "GlobalNetwork")
+            Prelude.<$> (x Data..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,30 +114,30 @@ instance Prelude.NFData CreateGlobalNetwork where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
 
-instance Core.ToHeaders CreateGlobalNetwork where
+instance Data.ToHeaders CreateGlobalNetwork where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON CreateGlobalNetwork where
+instance Data.ToJSON CreateGlobalNetwork where
   toJSON CreateGlobalNetwork' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 
-instance Core.ToPath CreateGlobalNetwork where
+instance Data.ToPath CreateGlobalNetwork where
   toPath = Prelude.const "/global-networks"
 
-instance Core.ToQuery CreateGlobalNetwork where
+instance Data.ToQuery CreateGlobalNetwork where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateGlobalNetworkResponse' smart constructor.

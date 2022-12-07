@@ -21,6 +21,7 @@ module Amazonka.WorkSpacesWeb.Types.UserAccessLoggingSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A user access logging settings resource that can be associated with a
@@ -79,17 +80,17 @@ userAccessLoggingSettings_kinesisStreamArn = Lens.lens (\UserAccessLoggingSettin
 userAccessLoggingSettings_userAccessLoggingSettingsArn :: Lens.Lens' UserAccessLoggingSettings Prelude.Text
 userAccessLoggingSettings_userAccessLoggingSettingsArn = Lens.lens (\UserAccessLoggingSettings' {userAccessLoggingSettingsArn} -> userAccessLoggingSettingsArn) (\s@UserAccessLoggingSettings' {} a -> s {userAccessLoggingSettingsArn = a} :: UserAccessLoggingSettings)
 
-instance Core.FromJSON UserAccessLoggingSettings where
+instance Data.FromJSON UserAccessLoggingSettings where
   parseJSON =
-    Core.withObject
+    Data.withObject
       "UserAccessLoggingSettings"
       ( \x ->
           UserAccessLoggingSettings'
-            Prelude.<$> ( x Core..:? "associatedPortalArns"
-                            Core..!= Prelude.mempty
+            Prelude.<$> ( x Data..:? "associatedPortalArns"
+                            Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "kinesisStreamArn")
-            Prelude.<*> (x Core..: "userAccessLoggingSettingsArn")
+            Prelude.<*> (x Data..:? "kinesisStreamArn")
+            Prelude.<*> (x Data..: "userAccessLoggingSettingsArn")
       )
 
 instance Prelude.Hashable UserAccessLoggingSettings where

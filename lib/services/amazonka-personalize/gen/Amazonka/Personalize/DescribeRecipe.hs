@@ -59,6 +59,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
 import Amazonka.Personalize.Types
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
@@ -101,7 +102,7 @@ instance Core.AWSRequest DescribeRecipe where
     Response.receiveJSON
       ( \s h x ->
           DescribeRecipeResponse'
-            Prelude.<$> (x Core..?> "recipe")
+            Prelude.<$> (x Data..?> "recipe")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,32 +113,32 @@ instance Prelude.Hashable DescribeRecipe where
 instance Prelude.NFData DescribeRecipe where
   rnf DescribeRecipe' {..} = Prelude.rnf recipeArn
 
-instance Core.ToHeaders DescribeRecipe where
+instance Data.ToHeaders DescribeRecipe where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Core.=# ( "AmazonPersonalize.DescribeRecipe" ::
+              Data.=# ( "AmazonPersonalize.DescribeRecipe" ::
                           Prelude.ByteString
                       ),
             "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
+              Data.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
           ]
       )
 
-instance Core.ToJSON DescribeRecipe where
+instance Data.ToJSON DescribeRecipe where
   toJSON DescribeRecipe' {..} =
-    Core.object
+    Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("recipeArn" Core..= recipeArn)]
+          [Prelude.Just ("recipeArn" Data..= recipeArn)]
       )
 
-instance Core.ToPath DescribeRecipe where
+instance Data.ToPath DescribeRecipe where
   toPath = Prelude.const "/"
 
-instance Core.ToQuery DescribeRecipe where
+instance Data.ToQuery DescribeRecipe where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeRecipeResponse' smart constructor.

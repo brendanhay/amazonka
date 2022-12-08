@@ -669,7 +669,7 @@ requestUnsigned Request {service = Service {..}, ..} r =
 -- | Specify how a request can be de/serialised.
 class AWSRequest a where
   -- | The successful, expected response associated with a request.
-  type AWSResponse a :: *
+  type AWSResponse a :: Type
 
   request ::
     -- | Overrides applied to the default 'Service'.

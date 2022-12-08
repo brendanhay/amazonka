@@ -200,7 +200,6 @@ configureService s = overrideService f
 globalTimeout :: Seconds -> Env' withAuth -> Env' withAuth
 globalTimeout n = overrideService $ \s -> s {Service.timeout = Just n}
 
-
 -- | Disable any retry logic for an 'Env', so that any requests will
 -- at most be sent once.
 once :: Env' withAuth -> Env' withAuth

@@ -46,7 +46,7 @@ getFileSize path = liftIO (IO.withBinaryFile path IO.ReadMode IO.hFileSize)
 -- @newtype@ for show/orhpan instance purposes.
 newtype ResponseBody = ResponseBody
   {body :: ConduitM () ByteString (ResourceT IO) ()}
-  deriving stock Generic
+  deriving stock (Generic)
 
 instance Show ResponseBody where
   show = const "ResponseBody { ConduitM () ByteString (ResourceT IO) () }"

@@ -123,7 +123,7 @@ parseFormattedTime = do
     <|> parse (format (Proxy @BasicTime))
     <|> parse (format (Proxy @AWSTime))
     -- Deprecated ISO8601 format exhibited in the AWS-supplied examples.
-    <|> parse (iso8601DateFormat (Just "%X%Q%Z"))
+    <|> parse "%FT%X%Q%Z"
     -- Exhaustive Failure
     <|> fail ("Failure parsing Time from value: " ++ show s)
 

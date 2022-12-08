@@ -49,7 +49,7 @@ rawPath = Raw . strip . BS8.split sep . toPath
 data Encoding = NoEncoding | Percent
   deriving stock (Eq, Show)
 
-data Path :: Encoding -> * where
+data Path :: Encoding -> Type where
   Raw :: [ByteString] -> Path 'NoEncoding
   Encoded :: [ByteString] -> Path 'Percent
 

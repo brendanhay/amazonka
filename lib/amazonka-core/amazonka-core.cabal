@@ -156,7 +156,6 @@ test-suite tests
     , data-ordlist
     , http-conduit
     , http-types
-    , lens
     , QuickCheck
     , quickcheck-unicode
     , tasty

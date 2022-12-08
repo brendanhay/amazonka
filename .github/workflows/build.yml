@@ -23,7 +23,8 @@ jobs:
         include:
           - { os: ubuntu-latest, ghc: 884  }
           - { os: ubuntu-latest, ghc: 8107 }
-          - { os: macos-latest,  ghc: 8107 }
+          - { os: ubuntu-latest, ghc: 902 }
+          - { os: macos-latest,  ghc: 902 }
 
     runs-on: ${{ matrix.os }}
 
@@ -39,7 +40,7 @@ jobs:
           nix_path: nixpkgs=./nix/nixpkgs.nix
           extra_nix_config: |
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
-            extra-substituters = https://hydra.iohk.io
+            extra-substituters = https://cache.iog.io
 
       - uses: cachix/cachix-action@v10
         with:

@@ -2,12 +2,12 @@ load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
 
 string_flag(
     name = "version",
-    build_setting_default = "8107",
+    build_setting_default = "902",
     values = [
         "884",
         "8107",
-        "901",
-        "921",
+        "902",
+        "925",
     ],
 )
 
@@ -26,16 +26,16 @@ config_setting(
 )
 
 config_setting(
-    name = "901",
+    name = "902",
     flag_values = {
-        ":version": "901",
+        ":version": "902",
     },
 )
 
 config_setting(
-    name = "921",
+    name = "925",
     flag_values = {
-        ":version": "921",
+        ":version": "925",
     },
 )
 
@@ -44,8 +44,8 @@ toolchain(
     toolchain = select({
         "//tools/ghc:884": "@ghc884_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
         "//tools/ghc:8107": "@ghc8107_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
-        "//tools/ghc:901": "@ghc901_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
-        "//tools/ghc:921": "@ghc921_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
+        "//tools/ghc:902": "@ghc902_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
+        "//tools/ghc:925": "@ghc925_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
     }),
     toolchain_type = "@rules_haskell//haskell:toolchain",
 )

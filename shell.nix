@@ -1,4 +1,4 @@
-{ system ? builtins.currentSystem, ghcVersion ? "8107" }:
+{ system ? builtins.currentSystem, ghcVersion ? "902" }:
 
 let
 
@@ -36,6 +36,7 @@ in pkgs.mkShell {
     pkgs.curl
     pkgs.ormolu
     pkgs.nixfmt
+    pkgs.niv
     pkgs.shfmt
     pkgs.shellcheck
     pkgs.parallel

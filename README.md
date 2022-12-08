@@ -67,7 +67,7 @@ This repository is organised into the following directory structure:
 
 ## Supported Platforms and GHC Versions
 
-GHC versions `8.8.4` and `8.10.7` are officially supported and tested on NixOS, Ubuntu, and macOS. GHC `8.6.5` may also work, but is not tested by our continuous integration pipeline.
+GHC versions `8.8.4`, `8.10.7`, and `9.0.2` are officially supported and tested on NixOS, Ubuntu, and macOS. GHC `8.6.5` may also work, but is not tested by our continuous integration pipeline.
 
 ## Getting Started
 

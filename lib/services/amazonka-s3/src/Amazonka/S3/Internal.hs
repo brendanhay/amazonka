@@ -9,15 +9,13 @@
 
 -- |
 -- Module      : Amazonka.S3.Internal
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 module Amazonka.S3.Internal
-  ( Region (..),
-
-    -- * BucketName
+  ( -- * BucketName
     BucketName (..),
     _BucketName,
 
@@ -32,14 +30,15 @@ module Amazonka.S3.Internal
     -- * Bucket Location
     LocationConstraint (..),
     _LocationConstraint,
+    Region (..),
 
     -- * Object Key
     Delimiter,
     ObjectKey (..),
     _ObjectKey,
-    keyPrefix,
-    keyName,
-    keyComponents,
+    objectKey_keyPrefix,
+    objectKey_keyName,
+    objectKey_keyComponents,
 
     -- * Website Endpoints
     getWebsiteEndpoint,
@@ -47,7 +46,14 @@ module Amazonka.S3.Internal
 where
 
 import Amazonka.Core
-import Amazonka.Core.Lens.Internal (IndexedTraversal', iso, prism, traversed, _1, _2)
+import Amazonka.Core.Lens.Internal
+  ( IndexedTraversal',
+    coerced,
+    prism,
+    traversed,
+    _1,
+    _2,
+  )
 import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Text as Text
@@ -70,8 +76,9 @@ newtype BucketName = BucketName {fromBucketName :: Text}
       FromJSON
     )
 
+{-# INLINE _BucketName #-}
 _BucketName :: Iso' BucketName Text
-_BucketName = iso fromBucketName BucketName
+_BucketName = coerced
 
 instance Hashable BucketName
 
@@ -96,8 +103,9 @@ newtype ETag = ETag {fromETag :: ByteString}
       ToLog
     )
 
+{-# INLINE _ETag #-}
 _ETag :: Iso' ETag ByteString
-_ETag = iso fromETag ETag
+_ETag = coerced
 
 instance Hashable ETag
 
@@ -121,7 +129,7 @@ newtype ObjectVersionId = ObjectVersionId {fromObjectVersionId :: Text}
     )
 
 _ObjectVersionId :: Iso' ObjectVersionId Text
-_ObjectVersionId = iso fromObjectVersionId ObjectVersionId
+_ObjectVersionId = coerced
 
 instance Hashable ObjectVersionId
 
@@ -139,8 +147,9 @@ newtype LocationConstraint = LocationConstraint {constraintRegion :: Region}
       ToLog
     )
 
+{-# INLINE _LocationConstraint #-}
 _LocationConstraint :: Iso' LocationConstraint Region
-_LocationConstraint = iso constraintRegion LocationConstraint
+_LocationConstraint = coerced
 
 instance Hashable LocationConstraint
 
@@ -189,10 +198,10 @@ instance NFData ObjectKey
 type Delimiter = Char
 
 _ObjectKey :: Iso' ObjectKey Text
-_ObjectKey = iso (\(ObjectKey k) -> k) ObjectKey
+_ObjectKey = coerced
 {-# INLINE _ObjectKey #-}
 
--- FIXME: Note about laws for combining keyPrefix/keyName.
+-- FIXME: Note about laws for combining objectKey_keyPrefix/objectKey_keyName.
 
 -- | Traverse the prefix of an object key.
 --
@@ -200,50 +209,49 @@ _ObjectKey = iso (\(ObjectKey k) -> k) ObjectKey
 -- A leading prefix in the presence of a name, and no other delimiters is
 -- interpreted as a blank prefix.
 --
--- >>> "/home/jsmith/base.wiki" ^? keyPrefix '/'
+-- >>> "/home/jsmith/base.wiki" ^? objectKey_keyPrefix '/'
 -- Just "/home/jsmith"
 --
--- >>> "/home/jsmith/" ^? keyPrefix '/'
+-- >>> "/home/jsmith/" ^? objectKey_keyPrefix '/'
 -- Just "/home/jsmith"
 --
--- >>> "/home" ^? keyPrefix '/'
+-- >>> "/home" ^? objectKey_keyPrefix '/'
 -- Nothing
 --
--- >>> "/" ^? keyPrefix '/'
+-- >>> "/" ^? objectKey_keyPrefix '/'
 -- Nothing
-keyPrefix :: Delimiter -> Traversal' ObjectKey Text
-keyPrefix c = _ObjectKeySnoc True c . _1
-{-# INLINE keyPrefix #-}
+objectKey_keyPrefix :: Delimiter -> Traversal' ObjectKey Text
+objectKey_keyPrefix c = _ObjectKeySnoc True c . _1
+{-# INLINE objectKey_keyPrefix #-}
 
 -- | Traverse the name of an object key.
-
----
+--
 -- The name is classified as last path component based on the given delimiter.
 -- A trailing delimiter is interpreted as a blank name.
 --
--- >>> "/home/jsmith/base.wiki" ^? keyName '/'
+-- >>> "/home/jsmith/base.wiki" ^? objectKey_keyName '/'
 -- Just "base.wiki"
 --
--- >>> "/home/jsmith/" ^? keyName '/'
+-- >>> "/home/jsmith/" ^? objectKey_keyName '/'
 -- Just ""
 --
--- >>> "/home" ^? keyName '/'
+-- >>> "/home" ^? objectKey_keyName '/'
 -- Just "home"
 --
--- >>> "/" ^? keyName '/'
+-- >>> "/" ^? objectKey_keyName '/'
 -- Just ""
 --
-keyName :: Delimiter -> Traversal' ObjectKey Text
-keyName c = _ObjectKeySnoc False c . _2
-{-# INLINE keyName #-}
+objectKey_keyName :: Delimiter -> Traversal' ObjectKey Text
+objectKey_keyName c = _ObjectKeySnoc False c . _2
+{-# INLINE objectKey_keyName #-}
 
 -- | Traverse the path components of an object key using the specified delimiter.
-keyComponents :: Delimiter -> IndexedTraversal' Int ObjectKey Text
-keyComponents !c f (ObjectKey k) = cat <$> traversed f split
+objectKey_keyComponents :: Delimiter -> IndexedTraversal' Int ObjectKey Text
+objectKey_keyComponents !c f (ObjectKey k) = cat <$> traversed f split
   where
     split = Text.split (== c) k
     cat = ObjectKey . Text.intercalate (Text.singleton c)
-{-# INLINE keyComponents #-}
+{-# INLINE objectKey_keyComponents #-}
 
 -- | Modelled on the '_Snoc' type class from "Control.Lens.Cons".
 _ObjectKeySnoc :: Bool -> Delimiter -> Prism' ObjectKey (Text, Text)

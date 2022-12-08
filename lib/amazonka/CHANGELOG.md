@@ -96,6 +96,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-ec2`, `amazonka-route53`, `amazonka-s3`: Provide handwritten `Iso'`s and `Lens'`s for manually-written types, that match the new generator's conventions
+[\#859](https://github.com/brendanhay/amazonka/pull/859)
 - `amazonka-redshift`: Deprecate `getAccountId` as Redshift uses service-principal credentials to deliver logs to S3. Also provide `getCloudTrailAccountId`
 [\#858](https://github.com/brendanhay/amazonka/pull/858)
 - `amazonka-route53`: Return Hosted Zone ID for S3 websites in all regions

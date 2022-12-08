@@ -1,27 +1,28 @@
-{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE OverloadedStrings          #-}
-
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
 -- Module      : Amazonka.Route53.Internal
--- Copyright   : (c) 2013-2021 Brendan Hay
+-- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Amazonka.Route53.Internal
-    ( Region     (..)
-    , ResourceId (..)
+  ( Region (..),
+    ResourceId (..),
+    _ResourceId,
 
-      -- * Website Endpoints
-    , getHostedZoneId
-    ) where
+    -- * Website Endpoints
+    getHostedZoneId,
+  )
+where
 
 import Amazonka.Core
+import Amazonka.Core.Lens.Internal (coerced)
 import Amazonka.Data
 import Amazonka.Prelude
 import qualified Data.Text as Text
@@ -32,28 +33,33 @@ import qualified Data.Text as Text
 -- @/hostedzone/ABC123@, but expects unprefixed identifiers as inputs, such as
 -- @ABC123@, the 'FromXML' instance will strip this prefix take care to ensure
 -- the correct input format is observed and @decodeXML . encodeXML == id@ holds.
-newtype ResourceId = ResourceId { fromResourceId :: Text }
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , Generic
-        , IsString
-        , FromText
-        , ToText
-        , ToByteString
-        , ToXML
-        , ToQuery
-        , ToLog
-        )
+newtype ResourceId = ResourceId {fromResourceId :: Text}
+  deriving
+    ( Eq,
+      Ord,
+      Read,
+      Show,
+      Generic,
+      IsString,
+      FromText,
+      ToText,
+      ToByteString,
+      ToXML,
+      ToQuery,
+      ToLog
+    )
+
+{-# INLINE _ResourceId #-}
+_ResourceId :: Iso' ResourceId Text
+_ResourceId = coerced
 
 instance Hashable ResourceId
-instance NFData   ResourceId
+
+instance NFData ResourceId
 
 -- | Handles prefixed Route53 resource identifiers.
 instance FromXML ResourceId where
-    parseXML = fmap (ResourceId . Text.takeWhileEnd (/= '/')) . parseXML
+  parseXML = fmap (ResourceId . Text.takeWhileEnd (/= '/')) . parseXML
 
 -- | Get the hosted zone identifier for an S3 website endpoint.
 --

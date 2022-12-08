@@ -126,31 +126,36 @@ module Amazonka.Types
 
     -- * Regions
     Region
-      ( NorthVirginia,
-        Ohio,
+      ( Ohio,
+        NorthVirginia,
         NorthCalifornia,
         Oregon,
-        GovCloudWest,
-        GovCloudEast,
+        CapeTown,
+        HongKong,
+        Hyderabad,
+        Jakarta,
+        Mumbai,
+        Osaka,
+        Seoul,
+        Singapore,
+        Sydney,
+        Tokyo,
         Montreal,
-        SaoPaulo,
         Frankfurt,
         Ireland,
         London,
         Milan,
         Paris,
+        Spain,
         Stockholm,
+        Zurich,
         Bahrain,
-        CapeTown,
+        UAE,
+        SaoPaulo,
+        GovCloudEast,
+        GovCloudWest,
         Beijing,
         Ningxia,
-        HongKong,
-        Tokyo,
-        Seoul,
-        Osaka,
-        Singapore,
-        Sydney,
-        Mumbai,
         ..
       ),
 
@@ -856,13 +861,16 @@ newtype Region = Region' {fromRegion :: Text}
 _Region :: Iso' Region Text
 _Region = Lens.coerced
 
--- North America
+-- Patterns for Regions - keep in sync with
+-- https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints
 
-pattern NorthVirginia :: Region
-pattern NorthVirginia = Region' "us-east-1"
+-- United States
 
 pattern Ohio :: Region
 pattern Ohio = Region' "us-east-2"
+
+pattern NorthVirginia :: Region
+pattern NorthVirginia = Region' "us-east-1"
 
 pattern NorthCalifornia :: Region
 pattern NorthCalifornia = Region' "us-west-1"
@@ -870,19 +878,44 @@ pattern NorthCalifornia = Region' "us-west-1"
 pattern Oregon :: Region
 pattern Oregon = Region' "us-west-2"
 
-pattern GovCloudWest :: Region
-pattern GovCloudWest = Region' "us-gov-west-1"
+-- Africa
 
-pattern GovCloudEast :: Region
-pattern GovCloudEast = Region' "us-gov-east-1"
+pattern CapeTown :: Region
+pattern CapeTown = Region' "af-south-1"
+
+-- Asia Pacific
+
+pattern HongKong :: Region
+pattern HongKong = Region' "ap-east-1"
+
+pattern Hyderabad :: Region
+pattern Hyderabad = Region' "ap-south-2"
+
+pattern Jakarta :: Region
+pattern Jakarta = Region' "ap-southeast-3"
+
+pattern Mumbai :: Region
+pattern Mumbai = Region' "ap-south-1"
+
+pattern Osaka :: Region
+pattern Osaka = Region' "ap-northeast-3"
+
+pattern Seoul :: Region
+pattern Seoul = Region' "ap-northeast-2"
+
+pattern Singapore :: Region
+pattern Singapore = Region' "ap-southeast-1"
+
+pattern Sydney :: Region
+pattern Sydney = Region' "ap-southeast-2"
+
+pattern Tokyo :: Region
+pattern Tokyo = Region' "ap-northeast-1"
+
+-- Canada
 
 pattern Montreal :: Region
 pattern Montreal = Region' "ca-central-1"
-
--- South America
-
-pattern SaoPaulo :: Region
-pattern SaoPaulo = Region' "sa-east-1"
 
 -- Europe
 
@@ -901,20 +934,37 @@ pattern Milan = Region' "eu-south-1"
 pattern Paris :: Region
 pattern Paris = Region' "eu-west-3"
 
+pattern Spain :: Region
+pattern Spain = Region' "eu-south-2"
+
 pattern Stockholm :: Region
 pattern Stockholm = Region' "eu-north-1"
+
+pattern Zurich :: Region
+pattern Zurich = Region' "eu-central-2"
 
 -- Middle East
 
 pattern Bahrain :: Region
 pattern Bahrain = Region' "me-south-1"
 
--- Africa
+pattern UAE :: Region
+pattern UAE = Region' "me-central-1"
 
-pattern CapeTown :: Region
-pattern CapeTown = Region' "af-south-1"
+-- South America
 
--- Asia Pacific
+pattern SaoPaulo :: Region
+pattern SaoPaulo = Region' "sa-east-1"
+
+-- GovCloud
+
+pattern GovCloudEast :: Region
+pattern GovCloudEast = Region' "us-gov-east-1"
+
+pattern GovCloudWest :: Region
+pattern GovCloudWest = Region' "us-gov-west-1"
+
+-- China
 
 pattern Beijing :: Region
 pattern Beijing = Region' "cn-north-1"
@@ -922,53 +972,37 @@ pattern Beijing = Region' "cn-north-1"
 pattern Ningxia :: Region
 pattern Ningxia = Region' "cn-northwest-1"
 
-pattern HongKong :: Region
-pattern HongKong = Region' "ap-east-1"
-
-pattern Tokyo :: Region
-pattern Tokyo = Region' "ap-northeast-1"
-
-pattern Seoul :: Region
-pattern Seoul = Region' "ap-northeast-2"
-
-pattern Osaka :: Region
-pattern Osaka = Region' "ap-northeast-3"
-
-pattern Singapore :: Region
-pattern Singapore = Region' "ap-southeast-1"
-
-pattern Sydney :: Region
-pattern Sydney = Region' "ap-southeast-2"
-
-pattern Mumbai :: Region
-pattern Mumbai = Region' "ap-south-1"
-
 {-# COMPLETE
-  NorthVirginia,
   Ohio,
+  NorthVirginia,
   NorthCalifornia,
   Oregon,
-  GovCloudWest,
-  GovCloudEast,
+  CapeTown,
+  HongKong,
+  Hyderabad,
+  Jakarta,
+  Mumbai,
+  Osaka,
+  Seoul,
+  Singapore,
+  Sydney,
+  Tokyo,
   Montreal,
-  SaoPaulo,
   Frankfurt,
   Ireland,
   London,
   Milan,
   Paris,
+  Spain,
   Stockholm,
+  Zurich,
   Bahrain,
-  CapeTown,
+  UAE,
+  SaoPaulo,
+  GovCloudEast,
+  GovCloudWest,
   Beijing,
   Ningxia,
-  HongKong,
-  Tokyo,
-  Seoul,
-  Osaka,
-  Singapore,
-  Sydney,
-  Mumbai,
   Region'
   #-}
 

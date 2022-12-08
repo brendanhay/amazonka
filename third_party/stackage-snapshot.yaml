@@ -1,0 +1,5 @@
+resolver: lts-19.33
+packages:
+  - attoparsec-0.14.2 # Avoid named internal library that breaks tooling
+  - ede-0.3.2.0 # Required by generator
+  - hashable-1.4.1.0 # Better ghc-bignum bounds

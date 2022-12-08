@@ -313,6 +313,7 @@ stack_snapshot(
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
     },
+    local_snapshot = "//:third_party/stackage-snapshot.yaml",
     # The keep comments per package line prevents `bazel run //:gazelle-update-repos`
     # from pruning packages that are used by hand-written `haskell_library` rules,
     # such as ./gen and ./docs.
@@ -335,16 +336,14 @@ stack_snapshot(
         "deriving-compat",  # keep
         "directory",
         "directory-tree",  # keep
-        "ede",
-        "ede-0.3.2.0",  # keep
+        "ede",  # keep
         "errors",  # keep
         "exceptions",
         "filepath",  # keep
         "free",  # keep
         "generic-lens",
         "groom",
-        "hashable",
-        "hashable-1.3.4.1",  # keep
+        "hashable",  # keep
         "haskell-src-exts",  # keep
         "http-client",
         "http-conduit",
@@ -386,7 +385,6 @@ stack_snapshot(
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
-    snapshot = "lts-18.23",
     stack_snapshot_json = "//:third_party/stackage-snapshot.json",
     tools = [
         "@nixpkgs_alex//:bin/alex",

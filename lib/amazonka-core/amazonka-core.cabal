@@ -115,7 +115,6 @@ library
     , http-types            >=0.12
     , lens                  >=4.14
     , memory                >=0.6
-    , mtl                   >=2.2      && <2.4
     , regex-posix           >=0.96
     , resourcet             >=1.1
     , scientific            >=0.3

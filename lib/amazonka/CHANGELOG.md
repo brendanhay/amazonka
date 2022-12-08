@@ -96,6 +96,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-route53`: Return Hosted Zone ID for S3 websites in all regions
+[\#858](https://github.com/brendanhay/amazonka/pull/858)
 - `amazonka-s3`: Correctly return dotted S3 website hostnames in those regions
 [\#858](https://github.com/brendanhay/amazonka/pull/858)
 - `amazonka-core`: Add regions: `Hyderabad` (`ap-south-2`), `Jakarta` (`ap-southeast-3`), `Spain` (`eu-south-2`), `Zurich` (`eu-central-2`), and `UAE` (`me-central-1`)

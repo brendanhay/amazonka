@@ -27,8 +27,8 @@ module Amazonka.WorkSpacesWeb.ListUserAccessLoggingSettings
     newListUserAccessLoggingSettings,
 
     -- * Request Lenses
-    listUserAccessLoggingSettings_nextToken,
     listUserAccessLoggingSettings_maxResults,
+    listUserAccessLoggingSettings_nextToken,
 
     -- * Destructuring the Response
     ListUserAccessLoggingSettingsResponse (..),
@@ -51,11 +51,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListUserAccessLoggingSettings' smart constructor.
 data ListUserAccessLoggingSettings = ListUserAccessLoggingSettings'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,27 +67,27 @@ data ListUserAccessLoggingSettings = ListUserAccessLoggingSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUserAccessLoggingSettings_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listUserAccessLoggingSettings_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listUserAccessLoggingSettings_maxResults' - The maximum number of results to be included in the next page.
 newListUserAccessLoggingSettings ::
   ListUserAccessLoggingSettings
 newListUserAccessLoggingSettings =
   ListUserAccessLoggingSettings'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be included in the next page.
+listUserAccessLoggingSettings_maxResults :: Lens.Lens' ListUserAccessLoggingSettings (Prelude.Maybe Prelude.Natural)
+listUserAccessLoggingSettings_maxResults = Lens.lens (\ListUserAccessLoggingSettings' {maxResults} -> maxResults) (\s@ListUserAccessLoggingSettings' {} a -> s {maxResults = a} :: ListUserAccessLoggingSettings)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listUserAccessLoggingSettings_nextToken :: Lens.Lens' ListUserAccessLoggingSettings (Prelude.Maybe Prelude.Text)
 listUserAccessLoggingSettings_nextToken = Lens.lens (\ListUserAccessLoggingSettings' {nextToken} -> nextToken) (\s@ListUserAccessLoggingSettings' {} a -> s {nextToken = a} :: ListUserAccessLoggingSettings)
-
--- | The maximum number of results to be included in the next page.
-listUserAccessLoggingSettings_maxResults :: Lens.Lens' ListUserAccessLoggingSettings (Prelude.Maybe Prelude.Natural)
-listUserAccessLoggingSettings_maxResults = Lens.lens (\ListUserAccessLoggingSettings' {maxResults} -> maxResults) (\s@ListUserAccessLoggingSettings' {} a -> s {maxResults = a} :: ListUserAccessLoggingSettings)
 
 instance
   Core.AWSRequest
@@ -114,13 +114,13 @@ instance
     ListUserAccessLoggingSettings
   where
   hashWithSalt _salt ListUserAccessLoggingSettings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListUserAccessLoggingSettings where
   rnf ListUserAccessLoggingSettings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUserAccessLoggingSettings where
   toHeaders =
@@ -139,8 +139,8 @@ instance Data.ToPath ListUserAccessLoggingSettings where
 instance Data.ToQuery ListUserAccessLoggingSettings where
   toQuery ListUserAccessLoggingSettings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListUserAccessLoggingSettingsResponse' smart constructor.

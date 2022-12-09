@@ -27,16 +27,16 @@ module Amazonka.WorkSpacesWeb.ListNetworkSettings
     newListNetworkSettings,
 
     -- * Request Lenses
-    listNetworkSettings_nextToken,
     listNetworkSettings_maxResults,
+    listNetworkSettings_nextToken,
 
     -- * Destructuring the Response
     ListNetworkSettingsResponse (..),
     newListNetworkSettingsResponse,
 
     -- * Response Lenses
-    listNetworkSettingsResponse_nextToken,
     listNetworkSettingsResponse_networkSettings,
+    listNetworkSettingsResponse_nextToken,
     listNetworkSettingsResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListNetworkSettings' smart constructor.
 data ListNetworkSettings = ListNetworkSettings'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListNetworkSettings = ListNetworkSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listNetworkSettings_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listNetworkSettings_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listNetworkSettings_maxResults' - The maximum number of results to be included in the next page.
 newListNetworkSettings ::
   ListNetworkSettings
 newListNetworkSettings =
   ListNetworkSettings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be included in the next page.
+listNetworkSettings_maxResults :: Lens.Lens' ListNetworkSettings (Prelude.Maybe Prelude.Natural)
+listNetworkSettings_maxResults = Lens.lens (\ListNetworkSettings' {maxResults} -> maxResults) (\s@ListNetworkSettings' {} a -> s {maxResults = a} :: ListNetworkSettings)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listNetworkSettings_nextToken :: Lens.Lens' ListNetworkSettings (Prelude.Maybe Prelude.Text)
 listNetworkSettings_nextToken = Lens.lens (\ListNetworkSettings' {nextToken} -> nextToken) (\s@ListNetworkSettings' {} a -> s {nextToken = a} :: ListNetworkSettings)
-
--- | The maximum number of results to be included in the next page.
-listNetworkSettings_maxResults :: Lens.Lens' ListNetworkSettings (Prelude.Maybe Prelude.Natural)
-listNetworkSettings_maxResults = Lens.lens (\ListNetworkSettings' {maxResults} -> maxResults) (\s@ListNetworkSettings' {} a -> s {maxResults = a} :: ListNetworkSettings)
 
 instance Core.AWSRequest ListNetworkSettings where
   type
@@ -98,22 +98,22 @@ instance Core.AWSRequest ListNetworkSettings where
     Response.receiveJSON
       ( \s h x ->
           ListNetworkSettingsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "networkSettings"
+            Prelude.<$> ( x Data..?> "networkSettings"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListNetworkSettings where
   hashWithSalt _salt ListNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNetworkSettings where
   rnf ListNetworkSettings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNetworkSettings where
   toHeaders =
@@ -132,17 +132,17 @@ instance Data.ToPath ListNetworkSettings where
 instance Data.ToQuery ListNetworkSettings where
   toQuery ListNetworkSettings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListNetworkSettingsResponse' smart constructor.
 data ListNetworkSettingsResponse = ListNetworkSettingsResponse'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The network settings.
+    networkSettings :: Prelude.Maybe [NetworkSettingsSummary],
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The network settings.
-    networkSettings :: Prelude.Maybe [NetworkSettingsSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,10 +156,10 @@ data ListNetworkSettingsResponse = ListNetworkSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkSettings', 'listNetworkSettingsResponse_networkSettings' - The network settings.
+--
 -- 'nextToken', 'listNetworkSettingsResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'networkSettings', 'listNetworkSettingsResponse_networkSettings' - The network settings.
 --
 -- 'httpStatus', 'listNetworkSettingsResponse_httpStatus' - The response's http status code.
 newListNetworkSettingsResponse ::
@@ -168,20 +168,20 @@ newListNetworkSettingsResponse ::
   ListNetworkSettingsResponse
 newListNetworkSettingsResponse pHttpStatus_ =
   ListNetworkSettingsResponse'
-    { nextToken =
+    { networkSettings =
         Prelude.Nothing,
-      networkSettings = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The network settings.
+listNetworkSettingsResponse_networkSettings :: Lens.Lens' ListNetworkSettingsResponse (Prelude.Maybe [NetworkSettingsSummary])
+listNetworkSettingsResponse_networkSettings = Lens.lens (\ListNetworkSettingsResponse' {networkSettings} -> networkSettings) (\s@ListNetworkSettingsResponse' {} a -> s {networkSettings = a} :: ListNetworkSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listNetworkSettingsResponse_nextToken :: Lens.Lens' ListNetworkSettingsResponse (Prelude.Maybe Prelude.Text)
 listNetworkSettingsResponse_nextToken = Lens.lens (\ListNetworkSettingsResponse' {nextToken} -> nextToken) (\s@ListNetworkSettingsResponse' {} a -> s {nextToken = a} :: ListNetworkSettingsResponse)
-
--- | The network settings.
-listNetworkSettingsResponse_networkSettings :: Lens.Lens' ListNetworkSettingsResponse (Prelude.Maybe [NetworkSettingsSummary])
-listNetworkSettingsResponse_networkSettings = Lens.lens (\ListNetworkSettingsResponse' {networkSettings} -> networkSettings) (\s@ListNetworkSettingsResponse' {} a -> s {networkSettings = a} :: ListNetworkSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listNetworkSettingsResponse_httpStatus :: Lens.Lens' ListNetworkSettingsResponse Prelude.Int
@@ -189,6 +189,6 @@ listNetworkSettingsResponse_httpStatus = Lens.lens (\ListNetworkSettingsResponse
 
 instance Prelude.NFData ListNetworkSettingsResponse where
   rnf ListNetworkSettingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkSettings
+    Prelude.rnf networkSettings
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

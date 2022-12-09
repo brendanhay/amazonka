@@ -31,26 +31,26 @@ import Amazonka.WorkSpacesWeb.Types.EnabledType
 --
 -- /See:/ 'newUserSettings' smart constructor.
 data UserSettings = UserSettings'
-  { -- | Specifies whether the user can print to the local device.
-    printAllowed :: Prelude.Maybe EnabledType,
-    -- | A list of web portal ARNs that this user settings is associated with.
+  { -- | A list of web portal ARNs that this user settings is associated with.
     associatedPortalArns :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether the user can copy text from the streaming session to
+    -- the local device.
+    copyAllowed :: Prelude.Maybe EnabledType,
+    -- | The amount of time that a streaming session remains active after users
+    -- disconnect.
+    disconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether the user can download files from the streaming session
+    -- to the local device.
+    downloadAllowed :: Prelude.Maybe EnabledType,
     -- | The amount of time that users can be idle (inactive) before they are
     -- disconnected from their streaming session and the disconnect timeout
     -- interval begins.
     idleDisconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time that a streaming session remains active after users
-    -- disconnect.
-    disconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether the user can copy text from the streaming session to
-    -- the local device.
-    copyAllowed :: Prelude.Maybe EnabledType,
-    -- | Specifies whether the user can download files from the streaming session
-    -- to the local device.
-    downloadAllowed :: Prelude.Maybe EnabledType,
     -- | Specifies whether the user can paste text from the local device to the
     -- streaming session.
     pasteAllowed :: Prelude.Maybe EnabledType,
+    -- | Specifies whether the user can print to the local device.
+    printAllowed :: Prelude.Maybe EnabledType,
     -- | Specifies whether the user can upload files from the local device to the
     -- streaming session.
     uploadAllowed :: Prelude.Maybe EnabledType,
@@ -67,25 +67,25 @@ data UserSettings = UserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'printAllowed', 'userSettings_printAllowed' - Specifies whether the user can print to the local device.
---
 -- 'associatedPortalArns', 'userSettings_associatedPortalArns' - A list of web portal ARNs that this user settings is associated with.
+--
+-- 'copyAllowed', 'userSettings_copyAllowed' - Specifies whether the user can copy text from the streaming session to
+-- the local device.
+--
+-- 'disconnectTimeoutInMinutes', 'userSettings_disconnectTimeoutInMinutes' - The amount of time that a streaming session remains active after users
+-- disconnect.
+--
+-- 'downloadAllowed', 'userSettings_downloadAllowed' - Specifies whether the user can download files from the streaming session
+-- to the local device.
 --
 -- 'idleDisconnectTimeoutInMinutes', 'userSettings_idleDisconnectTimeoutInMinutes' - The amount of time that users can be idle (inactive) before they are
 -- disconnected from their streaming session and the disconnect timeout
 -- interval begins.
 --
--- 'disconnectTimeoutInMinutes', 'userSettings_disconnectTimeoutInMinutes' - The amount of time that a streaming session remains active after users
--- disconnect.
---
--- 'copyAllowed', 'userSettings_copyAllowed' - Specifies whether the user can copy text from the streaming session to
--- the local device.
---
--- 'downloadAllowed', 'userSettings_downloadAllowed' - Specifies whether the user can download files from the streaming session
--- to the local device.
---
 -- 'pasteAllowed', 'userSettings_pasteAllowed' - Specifies whether the user can paste text from the local device to the
 -- streaming session.
+--
+-- 'printAllowed', 'userSettings_printAllowed' - Specifies whether the user can print to the local device.
 --
 -- 'uploadAllowed', 'userSettings_uploadAllowed' - Specifies whether the user can upload files from the local device to the
 -- streaming session.
@@ -97,24 +97,36 @@ newUserSettings ::
   UserSettings
 newUserSettings pUserSettingsArn_ =
   UserSettings'
-    { printAllowed = Prelude.Nothing,
-      associatedPortalArns = Prelude.Nothing,
-      idleDisconnectTimeoutInMinutes = Prelude.Nothing,
-      disconnectTimeoutInMinutes = Prelude.Nothing,
+    { associatedPortalArns =
+        Prelude.Nothing,
       copyAllowed = Prelude.Nothing,
+      disconnectTimeoutInMinutes = Prelude.Nothing,
       downloadAllowed = Prelude.Nothing,
+      idleDisconnectTimeoutInMinutes = Prelude.Nothing,
       pasteAllowed = Prelude.Nothing,
+      printAllowed = Prelude.Nothing,
       uploadAllowed = Prelude.Nothing,
       userSettingsArn = pUserSettingsArn_
     }
 
--- | Specifies whether the user can print to the local device.
-userSettings_printAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
-userSettings_printAllowed = Lens.lens (\UserSettings' {printAllowed} -> printAllowed) (\s@UserSettings' {} a -> s {printAllowed = a} :: UserSettings)
-
 -- | A list of web portal ARNs that this user settings is associated with.
 userSettings_associatedPortalArns :: Lens.Lens' UserSettings (Prelude.Maybe [Prelude.Text])
 userSettings_associatedPortalArns = Lens.lens (\UserSettings' {associatedPortalArns} -> associatedPortalArns) (\s@UserSettings' {} a -> s {associatedPortalArns = a} :: UserSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether the user can copy text from the streaming session to
+-- the local device.
+userSettings_copyAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
+userSettings_copyAllowed = Lens.lens (\UserSettings' {copyAllowed} -> copyAllowed) (\s@UserSettings' {} a -> s {copyAllowed = a} :: UserSettings)
+
+-- | The amount of time that a streaming session remains active after users
+-- disconnect.
+userSettings_disconnectTimeoutInMinutes :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Natural)
+userSettings_disconnectTimeoutInMinutes = Lens.lens (\UserSettings' {disconnectTimeoutInMinutes} -> disconnectTimeoutInMinutes) (\s@UserSettings' {} a -> s {disconnectTimeoutInMinutes = a} :: UserSettings)
+
+-- | Specifies whether the user can download files from the streaming session
+-- to the local device.
+userSettings_downloadAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
+userSettings_downloadAllowed = Lens.lens (\UserSettings' {downloadAllowed} -> downloadAllowed) (\s@UserSettings' {} a -> s {downloadAllowed = a} :: UserSettings)
 
 -- | The amount of time that users can be idle (inactive) before they are
 -- disconnected from their streaming session and the disconnect timeout
@@ -122,25 +134,14 @@ userSettings_associatedPortalArns = Lens.lens (\UserSettings' {associatedPortalA
 userSettings_idleDisconnectTimeoutInMinutes :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Natural)
 userSettings_idleDisconnectTimeoutInMinutes = Lens.lens (\UserSettings' {idleDisconnectTimeoutInMinutes} -> idleDisconnectTimeoutInMinutes) (\s@UserSettings' {} a -> s {idleDisconnectTimeoutInMinutes = a} :: UserSettings)
 
--- | The amount of time that a streaming session remains active after users
--- disconnect.
-userSettings_disconnectTimeoutInMinutes :: Lens.Lens' UserSettings (Prelude.Maybe Prelude.Natural)
-userSettings_disconnectTimeoutInMinutes = Lens.lens (\UserSettings' {disconnectTimeoutInMinutes} -> disconnectTimeoutInMinutes) (\s@UserSettings' {} a -> s {disconnectTimeoutInMinutes = a} :: UserSettings)
-
--- | Specifies whether the user can copy text from the streaming session to
--- the local device.
-userSettings_copyAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
-userSettings_copyAllowed = Lens.lens (\UserSettings' {copyAllowed} -> copyAllowed) (\s@UserSettings' {} a -> s {copyAllowed = a} :: UserSettings)
-
--- | Specifies whether the user can download files from the streaming session
--- to the local device.
-userSettings_downloadAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
-userSettings_downloadAllowed = Lens.lens (\UserSettings' {downloadAllowed} -> downloadAllowed) (\s@UserSettings' {} a -> s {downloadAllowed = a} :: UserSettings)
-
 -- | Specifies whether the user can paste text from the local device to the
 -- streaming session.
 userSettings_pasteAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
 userSettings_pasteAllowed = Lens.lens (\UserSettings' {pasteAllowed} -> pasteAllowed) (\s@UserSettings' {} a -> s {pasteAllowed = a} :: UserSettings)
+
+-- | Specifies whether the user can print to the local device.
+userSettings_printAllowed :: Lens.Lens' UserSettings (Prelude.Maybe EnabledType)
+userSettings_printAllowed = Lens.lens (\UserSettings' {printAllowed} -> printAllowed) (\s@UserSettings' {} a -> s {printAllowed = a} :: UserSettings)
 
 -- | Specifies whether the user can upload files from the local device to the
 -- streaming session.
@@ -157,39 +158,39 @@ instance Data.FromJSON UserSettings where
       "UserSettings"
       ( \x ->
           UserSettings'
-            Prelude.<$> (x Data..:? "printAllowed")
-            Prelude.<*> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "idleDisconnectTimeoutInMinutes")
-            Prelude.<*> (x Data..:? "disconnectTimeoutInMinutes")
             Prelude.<*> (x Data..:? "copyAllowed")
+            Prelude.<*> (x Data..:? "disconnectTimeoutInMinutes")
             Prelude.<*> (x Data..:? "downloadAllowed")
+            Prelude.<*> (x Data..:? "idleDisconnectTimeoutInMinutes")
             Prelude.<*> (x Data..:? "pasteAllowed")
+            Prelude.<*> (x Data..:? "printAllowed")
             Prelude.<*> (x Data..:? "uploadAllowed")
             Prelude.<*> (x Data..: "userSettingsArn")
       )
 
 instance Prelude.Hashable UserSettings where
   hashWithSalt _salt UserSettings' {..} =
-    _salt `Prelude.hashWithSalt` printAllowed
-      `Prelude.hashWithSalt` associatedPortalArns
-      `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes
-      `Prelude.hashWithSalt` disconnectTimeoutInMinutes
+    _salt `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` copyAllowed
+      `Prelude.hashWithSalt` disconnectTimeoutInMinutes
       `Prelude.hashWithSalt` downloadAllowed
+      `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes
       `Prelude.hashWithSalt` pasteAllowed
+      `Prelude.hashWithSalt` printAllowed
       `Prelude.hashWithSalt` uploadAllowed
       `Prelude.hashWithSalt` userSettingsArn
 
 instance Prelude.NFData UserSettings where
   rnf UserSettings' {..} =
-    Prelude.rnf printAllowed
-      `Prelude.seq` Prelude.rnf associatedPortalArns
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
+    Prelude.rnf associatedPortalArns
       `Prelude.seq` Prelude.rnf copyAllowed
+      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
       `Prelude.seq` Prelude.rnf downloadAllowed
+      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
       `Prelude.seq` Prelude.rnf pasteAllowed
+      `Prelude.seq` Prelude.rnf printAllowed
       `Prelude.seq` Prelude.rnf uploadAllowed
       `Prelude.seq` Prelude.rnf userSettingsArn

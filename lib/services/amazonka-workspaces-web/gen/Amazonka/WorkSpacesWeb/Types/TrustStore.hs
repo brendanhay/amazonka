@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrustStore' smart constructor.
 data TrustStore = TrustStore'
-  { -- | The ARN of the trust store.
-    trustStoreArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of web portal ARNs that this trust store is associated with.
-    associatedPortalArns :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of web portal ARNs that this trust store is associated with.
+    associatedPortalArns :: Prelude.Maybe [Prelude.Text],
+    -- | The ARN of the trust store.
+    trustStoreArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,24 @@ data TrustStore = TrustStore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trustStoreArn', 'trustStore_trustStoreArn' - The ARN of the trust store.
---
 -- 'associatedPortalArns', 'trustStore_associatedPortalArns' - A list of web portal ARNs that this trust store is associated with.
+--
+-- 'trustStoreArn', 'trustStore_trustStoreArn' - The ARN of the trust store.
 newTrustStore ::
   TrustStore
 newTrustStore =
   TrustStore'
-    { trustStoreArn = Prelude.Nothing,
-      associatedPortalArns = Prelude.Nothing
+    { associatedPortalArns = Prelude.Nothing,
+      trustStoreArn = Prelude.Nothing
     }
-
--- | The ARN of the trust store.
-trustStore_trustStoreArn :: Lens.Lens' TrustStore (Prelude.Maybe Prelude.Text)
-trustStore_trustStoreArn = Lens.lens (\TrustStore' {trustStoreArn} -> trustStoreArn) (\s@TrustStore' {} a -> s {trustStoreArn = a} :: TrustStore)
 
 -- | A list of web portal ARNs that this trust store is associated with.
 trustStore_associatedPortalArns :: Lens.Lens' TrustStore (Prelude.Maybe [Prelude.Text])
 trustStore_associatedPortalArns = Lens.lens (\TrustStore' {associatedPortalArns} -> associatedPortalArns) (\s@TrustStore' {} a -> s {associatedPortalArns = a} :: TrustStore) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the trust store.
+trustStore_trustStoreArn :: Lens.Lens' TrustStore (Prelude.Maybe Prelude.Text)
+trustStore_trustStoreArn = Lens.lens (\TrustStore' {trustStoreArn} -> trustStoreArn) (\s@TrustStore' {} a -> s {trustStoreArn = a} :: TrustStore)
 
 instance Data.FromJSON TrustStore where
   parseJSON =
@@ -74,18 +74,18 @@ instance Data.FromJSON TrustStore where
       "TrustStore"
       ( \x ->
           TrustStore'
-            Prelude.<$> (x Data..:? "trustStoreArn")
-            Prelude.<*> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "trustStoreArn")
       )
 
 instance Prelude.Hashable TrustStore where
   hashWithSalt _salt TrustStore' {..} =
-    _salt `Prelude.hashWithSalt` trustStoreArn
-      `Prelude.hashWithSalt` associatedPortalArns
+    _salt `Prelude.hashWithSalt` associatedPortalArns
+      `Prelude.hashWithSalt` trustStoreArn
 
 instance Prelude.NFData TrustStore where
   rnf TrustStore' {..} =
-    Prelude.rnf trustStoreArn
-      `Prelude.seq` Prelude.rnf associatedPortalArns
+    Prelude.rnf associatedPortalArns
+      `Prelude.seq` Prelude.rnf trustStoreArn

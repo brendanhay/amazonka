@@ -19,12 +19,12 @@ module Amazonka.WorkSpacesWeb.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
+    _TooManyTagsException,
     _ValidationException,
 
     -- * BrowserType
@@ -57,84 +57,84 @@ module Amazonka.WorkSpacesWeb.Types
     -- * Certificate
     Certificate (..),
     newCertificate,
+    certificate_body,
     certificate_issuer,
     certificate_notValidAfter,
-    certificate_thumbprint,
-    certificate_body,
     certificate_notValidBefore,
     certificate_subject,
+    certificate_thumbprint,
 
     -- * CertificateSummary
     CertificateSummary (..),
     newCertificateSummary,
     certificateSummary_issuer,
     certificateSummary_notValidAfter,
-    certificateSummary_thumbprint,
     certificateSummary_notValidBefore,
     certificateSummary_subject,
+    certificateSummary_thumbprint,
 
     -- * IdentityProvider
     IdentityProvider (..),
     newIdentityProvider,
     identityProvider_identityProviderDetails,
-    identityProvider_identityProviderType,
     identityProvider_identityProviderName,
+    identityProvider_identityProviderType,
     identityProvider_identityProviderArn,
 
     -- * IdentityProviderSummary
     IdentityProviderSummary (..),
     newIdentityProviderSummary,
-    identityProviderSummary_identityProviderType,
-    identityProviderSummary_identityProviderName,
     identityProviderSummary_identityProviderArn,
+    identityProviderSummary_identityProviderName,
+    identityProviderSummary_identityProviderType,
 
     -- * NetworkSettings
     NetworkSettings (..),
     newNetworkSettings,
     networkSettings_associatedPortalArns,
     networkSettings_securityGroupIds,
-    networkSettings_vpcId,
     networkSettings_subnetIds,
+    networkSettings_vpcId,
     networkSettings_networkSettingsArn,
 
     -- * NetworkSettingsSummary
     NetworkSettingsSummary (..),
     newNetworkSettingsSummary,
-    networkSettingsSummary_vpcId,
     networkSettingsSummary_networkSettingsArn,
+    networkSettingsSummary_vpcId,
 
     -- * Portal
     Portal (..),
     newPortal,
-    portal_trustStoreArn,
-    portal_portalArn,
-    portal_displayName,
-    portal_statusReason,
-    portal_creationDate,
-    portal_portalEndpoint,
-    portal_userAccessLoggingSettingsArn,
     portal_browserSettingsArn,
-    portal_userSettingsArn,
-    portal_portalStatus,
     portal_browserType,
+    portal_creationDate,
+    portal_displayName,
     portal_networkSettingsArn,
+    portal_portalArn,
+    portal_portalEndpoint,
+    portal_portalStatus,
     portal_rendererType,
+    portal_statusReason,
+    portal_trustStoreArn,
+    portal_userAccessLoggingSettingsArn,
+    portal_userSettingsArn,
 
     -- * PortalSummary
     PortalSummary (..),
     newPortalSummary,
-    portalSummary_trustStoreArn,
-    portalSummary_portalArn,
-    portalSummary_displayName,
-    portalSummary_creationDate,
-    portalSummary_portalEndpoint,
-    portalSummary_userAccessLoggingSettingsArn,
     portalSummary_browserSettingsArn,
-    portalSummary_userSettingsArn,
-    portalSummary_portalStatus,
     portalSummary_browserType,
+    portalSummary_creationDate,
+    portalSummary_displayName,
     portalSummary_networkSettingsArn,
+    portalSummary_portalArn,
+    portalSummary_portalEndpoint,
+    portalSummary_portalStatus,
     portalSummary_rendererType,
+    portalSummary_trustStoreArn,
+    portalSummary_userAccessLoggingSettingsArn,
+    portalSummary_userSettingsArn,
 
     -- * Tag
     Tag (..),
@@ -145,8 +145,8 @@ module Amazonka.WorkSpacesWeb.Types
     -- * TrustStore
     TrustStore (..),
     newTrustStore,
-    trustStore_trustStoreArn,
     trustStore_associatedPortalArns,
+    trustStore_trustStoreArn,
 
     -- * TrustStoreSummary
     TrustStoreSummary (..),
@@ -169,27 +169,27 @@ module Amazonka.WorkSpacesWeb.Types
     -- * UserSettings
     UserSettings (..),
     newUserSettings,
-    userSettings_printAllowed,
     userSettings_associatedPortalArns,
-    userSettings_idleDisconnectTimeoutInMinutes,
-    userSettings_disconnectTimeoutInMinutes,
     userSettings_copyAllowed,
+    userSettings_disconnectTimeoutInMinutes,
     userSettings_downloadAllowed,
+    userSettings_idleDisconnectTimeoutInMinutes,
     userSettings_pasteAllowed,
+    userSettings_printAllowed,
     userSettings_uploadAllowed,
     userSettings_userSettingsArn,
 
     -- * UserSettingsSummary
     UserSettingsSummary (..),
     newUserSettingsSummary,
-    userSettingsSummary_printAllowed,
-    userSettingsSummary_idleDisconnectTimeoutInMinutes,
-    userSettingsSummary_disconnectTimeoutInMinutes,
     userSettingsSummary_copyAllowed,
-    userSettingsSummary_userSettingsArn,
+    userSettingsSummary_disconnectTimeoutInMinutes,
     userSettingsSummary_downloadAllowed,
+    userSettingsSummary_idleDisconnectTimeoutInMinutes,
     userSettingsSummary_pasteAllowed,
+    userSettingsSummary_printAllowed,
     userSettingsSummary_uploadAllowed,
+    userSettingsSummary_userSettingsArn,
   )
 where
 
@@ -245,28 +245,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -274,13 +268,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -288,6 +286,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access is denied.
@@ -298,6 +298,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | There is a conflict.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | There is an internal server error.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -305,22 +313,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | There are too many tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-    Prelude.. Core.hasStatus 400
-
--- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The resource cannot be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -330,13 +322,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | There is a conflict.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The service quota has been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | There is a throttling error.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -345,6 +337,14 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
+
+-- | There are too many tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400
 
 -- | There is a validation error.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

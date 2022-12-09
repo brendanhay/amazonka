@@ -50,10 +50,10 @@ module Amazonka.WorkSpacesWeb.Lens
     associateUserSettingsResponse_userSettingsArn,
 
     -- ** CreateBrowserSettings
-    createBrowserSettings_tags,
+    createBrowserSettings_additionalEncryptionContext,
     createBrowserSettings_clientToken,
     createBrowserSettings_customerManagedKey,
-    createBrowserSettings_additionalEncryptionContext,
+    createBrowserSettings_tags,
     createBrowserSettings_browserPolicy,
     createBrowserSettingsResponse_httpStatus,
     createBrowserSettingsResponse_browserSettingsArn,
@@ -68,8 +68,8 @@ module Amazonka.WorkSpacesWeb.Lens
     createIdentityProviderResponse_identityProviderArn,
 
     -- ** CreateNetworkSettings
-    createNetworkSettings_tags,
     createNetworkSettings_clientToken,
+    createNetworkSettings_tags,
     createNetworkSettings_securityGroupIds,
     createNetworkSettings_subnetIds,
     createNetworkSettings_vpcId,
@@ -77,34 +77,34 @@ module Amazonka.WorkSpacesWeb.Lens
     createNetworkSettingsResponse_networkSettingsArn,
 
     -- ** CreatePortal
-    createPortal_tags,
+    createPortal_additionalEncryptionContext,
     createPortal_clientToken,
     createPortal_customerManagedKey,
     createPortal_displayName,
-    createPortal_additionalEncryptionContext,
+    createPortal_tags,
     createPortalResponse_httpStatus,
     createPortalResponse_portalArn,
     createPortalResponse_portalEndpoint,
 
     -- ** CreateTrustStore
-    createTrustStore_tags,
     createTrustStore_clientToken,
+    createTrustStore_tags,
     createTrustStore_certificateList,
     createTrustStoreResponse_httpStatus,
     createTrustStoreResponse_trustStoreArn,
 
     -- ** CreateUserAccessLoggingSettings
-    createUserAccessLoggingSettings_tags,
     createUserAccessLoggingSettings_clientToken,
+    createUserAccessLoggingSettings_tags,
     createUserAccessLoggingSettings_kinesisStreamArn,
     createUserAccessLoggingSettingsResponse_httpStatus,
     createUserAccessLoggingSettingsResponse_userAccessLoggingSettingsArn,
 
     -- ** CreateUserSettings
-    createUserSettings_tags,
-    createUserSettings_idleDisconnectTimeoutInMinutes,
-    createUserSettings_disconnectTimeoutInMinutes,
     createUserSettings_clientToken,
+    createUserSettings_disconnectTimeoutInMinutes,
+    createUserSettings_idleDisconnectTimeoutInMinutes,
+    createUserSettings_tags,
     createUserSettings_copyAllowed,
     createUserSettings_downloadAllowed,
     createUserSettings_pasteAllowed,
@@ -195,8 +195,8 @@ module Amazonka.WorkSpacesWeb.Lens
     -- ** GetTrustStoreCertificate
     getTrustStoreCertificate_thumbprint,
     getTrustStoreCertificate_trustStoreArn,
-    getTrustStoreCertificateResponse_trustStoreArn,
     getTrustStoreCertificateResponse_certificate,
+    getTrustStoreCertificateResponse_trustStoreArn,
     getTrustStoreCertificateResponse_httpStatus,
 
     -- ** GetUserAccessLoggingSettings
@@ -210,30 +210,30 @@ module Amazonka.WorkSpacesWeb.Lens
     getUserSettingsResponse_httpStatus,
 
     -- ** ListBrowserSettings
-    listBrowserSettings_nextToken,
     listBrowserSettings_maxResults,
-    listBrowserSettingsResponse_nextToken,
+    listBrowserSettings_nextToken,
     listBrowserSettingsResponse_browserSettings,
+    listBrowserSettingsResponse_nextToken,
     listBrowserSettingsResponse_httpStatus,
 
     -- ** ListIdentityProviders
-    listIdentityProviders_nextToken,
     listIdentityProviders_maxResults,
+    listIdentityProviders_nextToken,
     listIdentityProviders_portalArn,
-    listIdentityProvidersResponse_nextToken,
     listIdentityProvidersResponse_identityProviders,
+    listIdentityProvidersResponse_nextToken,
     listIdentityProvidersResponse_httpStatus,
 
     -- ** ListNetworkSettings
-    listNetworkSettings_nextToken,
     listNetworkSettings_maxResults,
-    listNetworkSettingsResponse_nextToken,
+    listNetworkSettings_nextToken,
     listNetworkSettingsResponse_networkSettings,
+    listNetworkSettingsResponse_nextToken,
     listNetworkSettingsResponse_httpStatus,
 
     -- ** ListPortals
-    listPortals_nextToken,
     listPortals_maxResults,
+    listPortals_nextToken,
     listPortalsResponse_nextToken,
     listPortalsResponse_portals,
     listPortalsResponse_httpStatus,
@@ -244,31 +244,31 @@ module Amazonka.WorkSpacesWeb.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTrustStoreCertificates
-    listTrustStoreCertificates_nextToken,
     listTrustStoreCertificates_maxResults,
+    listTrustStoreCertificates_nextToken,
     listTrustStoreCertificates_trustStoreArn,
-    listTrustStoreCertificatesResponse_trustStoreArn,
-    listTrustStoreCertificatesResponse_nextToken,
     listTrustStoreCertificatesResponse_certificateList,
+    listTrustStoreCertificatesResponse_nextToken,
+    listTrustStoreCertificatesResponse_trustStoreArn,
     listTrustStoreCertificatesResponse_httpStatus,
 
     -- ** ListTrustStores
-    listTrustStores_nextToken,
     listTrustStores_maxResults,
+    listTrustStores_nextToken,
     listTrustStoresResponse_nextToken,
     listTrustStoresResponse_trustStores,
     listTrustStoresResponse_httpStatus,
 
     -- ** ListUserAccessLoggingSettings
-    listUserAccessLoggingSettings_nextToken,
     listUserAccessLoggingSettings_maxResults,
+    listUserAccessLoggingSettings_nextToken,
     listUserAccessLoggingSettingsResponse_nextToken,
     listUserAccessLoggingSettingsResponse_userAccessLoggingSettings,
     listUserAccessLoggingSettingsResponse_httpStatus,
 
     -- ** ListUserSettings
-    listUserSettings_nextToken,
     listUserSettings_maxResults,
+    listUserSettings_nextToken,
     listUserSettingsResponse_nextToken,
     listUserSettingsResponse_userSettings,
     listUserSettingsResponse_httpStatus,
@@ -285,8 +285,8 @@ module Amazonka.WorkSpacesWeb.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateBrowserSettings
-    updateBrowserSettings_clientToken,
     updateBrowserSettings_browserPolicy,
+    updateBrowserSettings_clientToken,
     updateBrowserSettings_browserSettingsArn,
     updateBrowserSettingsResponse_httpStatus,
     updateBrowserSettingsResponse_browserSettings,
@@ -294,8 +294,8 @@ module Amazonka.WorkSpacesWeb.Lens
     -- ** UpdateIdentityProvider
     updateIdentityProvider_clientToken,
     updateIdentityProvider_identityProviderDetails,
-    updateIdentityProvider_identityProviderType,
     updateIdentityProvider_identityProviderName,
+    updateIdentityProvider_identityProviderType,
     updateIdentityProvider_identityProviderArn,
     updateIdentityProviderResponse_httpStatus,
     updateIdentityProviderResponse_identityProvider,
@@ -303,8 +303,8 @@ module Amazonka.WorkSpacesWeb.Lens
     -- ** UpdateNetworkSettings
     updateNetworkSettings_clientToken,
     updateNetworkSettings_securityGroupIds,
-    updateNetworkSettings_vpcId,
     updateNetworkSettings_subnetIds,
+    updateNetworkSettings_vpcId,
     updateNetworkSettings_networkSettingsArn,
     updateNetworkSettingsResponse_httpStatus,
     updateNetworkSettingsResponse_networkSettings,
@@ -317,8 +317,8 @@ module Amazonka.WorkSpacesWeb.Lens
 
     -- ** UpdateTrustStore
     updateTrustStore_certificatesToAdd,
-    updateTrustStore_clientToken,
     updateTrustStore_certificatesToDelete,
+    updateTrustStore_clientToken,
     updateTrustStore_trustStoreArn,
     updateTrustStoreResponse_httpStatus,
     updateTrustStoreResponse_trustStoreArn,
@@ -331,13 +331,13 @@ module Amazonka.WorkSpacesWeb.Lens
     updateUserAccessLoggingSettingsResponse_userAccessLoggingSettings,
 
     -- ** UpdateUserSettings
-    updateUserSettings_printAllowed,
-    updateUserSettings_idleDisconnectTimeoutInMinutes,
-    updateUserSettings_disconnectTimeoutInMinutes,
     updateUserSettings_clientToken,
     updateUserSettings_copyAllowed,
+    updateUserSettings_disconnectTimeoutInMinutes,
     updateUserSettings_downloadAllowed,
+    updateUserSettings_idleDisconnectTimeoutInMinutes,
     updateUserSettings_pasteAllowed,
+    updateUserSettings_printAllowed,
     updateUserSettings_uploadAllowed,
     updateUserSettings_userSettingsArn,
     updateUserSettingsResponse_httpStatus,
@@ -354,78 +354,78 @@ module Amazonka.WorkSpacesWeb.Lens
     browserSettingsSummary_browserSettingsArn,
 
     -- ** Certificate
+    certificate_body,
     certificate_issuer,
     certificate_notValidAfter,
-    certificate_thumbprint,
-    certificate_body,
     certificate_notValidBefore,
     certificate_subject,
+    certificate_thumbprint,
 
     -- ** CertificateSummary
     certificateSummary_issuer,
     certificateSummary_notValidAfter,
-    certificateSummary_thumbprint,
     certificateSummary_notValidBefore,
     certificateSummary_subject,
+    certificateSummary_thumbprint,
 
     -- ** IdentityProvider
     identityProvider_identityProviderDetails,
-    identityProvider_identityProviderType,
     identityProvider_identityProviderName,
+    identityProvider_identityProviderType,
     identityProvider_identityProviderArn,
 
     -- ** IdentityProviderSummary
-    identityProviderSummary_identityProviderType,
-    identityProviderSummary_identityProviderName,
     identityProviderSummary_identityProviderArn,
+    identityProviderSummary_identityProviderName,
+    identityProviderSummary_identityProviderType,
 
     -- ** NetworkSettings
     networkSettings_associatedPortalArns,
     networkSettings_securityGroupIds,
-    networkSettings_vpcId,
     networkSettings_subnetIds,
+    networkSettings_vpcId,
     networkSettings_networkSettingsArn,
 
     -- ** NetworkSettingsSummary
-    networkSettingsSummary_vpcId,
     networkSettingsSummary_networkSettingsArn,
+    networkSettingsSummary_vpcId,
 
     -- ** Portal
-    portal_trustStoreArn,
-    portal_portalArn,
-    portal_displayName,
-    portal_statusReason,
-    portal_creationDate,
-    portal_portalEndpoint,
-    portal_userAccessLoggingSettingsArn,
     portal_browserSettingsArn,
-    portal_userSettingsArn,
-    portal_portalStatus,
     portal_browserType,
+    portal_creationDate,
+    portal_displayName,
     portal_networkSettingsArn,
+    portal_portalArn,
+    portal_portalEndpoint,
+    portal_portalStatus,
     portal_rendererType,
+    portal_statusReason,
+    portal_trustStoreArn,
+    portal_userAccessLoggingSettingsArn,
+    portal_userSettingsArn,
 
     -- ** PortalSummary
-    portalSummary_trustStoreArn,
-    portalSummary_portalArn,
-    portalSummary_displayName,
-    portalSummary_creationDate,
-    portalSummary_portalEndpoint,
-    portalSummary_userAccessLoggingSettingsArn,
     portalSummary_browserSettingsArn,
-    portalSummary_userSettingsArn,
-    portalSummary_portalStatus,
     portalSummary_browserType,
+    portalSummary_creationDate,
+    portalSummary_displayName,
     portalSummary_networkSettingsArn,
+    portalSummary_portalArn,
+    portalSummary_portalEndpoint,
+    portalSummary_portalStatus,
     portalSummary_rendererType,
+    portalSummary_trustStoreArn,
+    portalSummary_userAccessLoggingSettingsArn,
+    portalSummary_userSettingsArn,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TrustStore
-    trustStore_trustStoreArn,
     trustStore_associatedPortalArns,
+    trustStore_trustStoreArn,
 
     -- ** TrustStoreSummary
     trustStoreSummary_trustStoreArn,
@@ -440,25 +440,25 @@ module Amazonka.WorkSpacesWeb.Lens
     userAccessLoggingSettingsSummary_userAccessLoggingSettingsArn,
 
     -- ** UserSettings
-    userSettings_printAllowed,
     userSettings_associatedPortalArns,
-    userSettings_idleDisconnectTimeoutInMinutes,
-    userSettings_disconnectTimeoutInMinutes,
     userSettings_copyAllowed,
+    userSettings_disconnectTimeoutInMinutes,
     userSettings_downloadAllowed,
+    userSettings_idleDisconnectTimeoutInMinutes,
     userSettings_pasteAllowed,
+    userSettings_printAllowed,
     userSettings_uploadAllowed,
     userSettings_userSettingsArn,
 
     -- ** UserSettingsSummary
-    userSettingsSummary_printAllowed,
-    userSettingsSummary_idleDisconnectTimeoutInMinutes,
-    userSettingsSummary_disconnectTimeoutInMinutes,
     userSettingsSummary_copyAllowed,
-    userSettingsSummary_userSettingsArn,
+    userSettingsSummary_disconnectTimeoutInMinutes,
     userSettingsSummary_downloadAllowed,
+    userSettingsSummary_idleDisconnectTimeoutInMinutes,
     userSettingsSummary_pasteAllowed,
+    userSettingsSummary_printAllowed,
     userSettingsSummary_uploadAllowed,
+    userSettingsSummary_userSettingsArn,
   )
 where
 

@@ -27,11 +27,11 @@ module Amazonka.WorkSpacesWeb.CreatePortal
     newCreatePortal,
 
     -- * Request Lenses
-    createPortal_tags,
+    createPortal_additionalEncryptionContext,
     createPortal_clientToken,
     createPortal_customerManagedKey,
     createPortal_displayName,
-    createPortal_additionalEncryptionContext,
+    createPortal_tags,
 
     -- * Destructuring the Response
     CreatePortalResponse (..),
@@ -54,8 +54,8 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newCreatePortal' smart constructor.
 data CreatePortal = CreatePortal'
-  { -- | The tags to add to the web portal. A tag is a key-value pair.
-    tags :: Prelude.Maybe [Data.Sensitive Tag],
+  { -- | The additional encryption context of the portal.
+    additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -70,8 +70,8 @@ data CreatePortal = CreatePortal'
     -- | The name of the web portal. This is not visible to users who log into
     -- the web portal.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The additional encryption context of the portal.
-    additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The tags to add to the web portal. A tag is a key-value pair.
+    tags :: Prelude.Maybe [Data.Sensitive Tag]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,7 +83,7 @@ data CreatePortal = CreatePortal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPortal_tags' - The tags to add to the web portal. A tag is a key-value pair.
+-- 'additionalEncryptionContext', 'createPortal_additionalEncryptionContext' - The additional encryption context of the portal.
 --
 -- 'clientToken', 'createPortal_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -99,21 +99,22 @@ data CreatePortal = CreatePortal'
 -- 'displayName', 'createPortal_displayName' - The name of the web portal. This is not visible to users who log into
 -- the web portal.
 --
--- 'additionalEncryptionContext', 'createPortal_additionalEncryptionContext' - The additional encryption context of the portal.
+-- 'tags', 'createPortal_tags' - The tags to add to the web portal. A tag is a key-value pair.
 newCreatePortal ::
   CreatePortal
 newCreatePortal =
   CreatePortal'
-    { tags = Prelude.Nothing,
+    { additionalEncryptionContext =
+        Prelude.Nothing,
       clientToken = Prelude.Nothing,
       customerManagedKey = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      additionalEncryptionContext = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The tags to add to the web portal. A tag is a key-value pair.
-createPortal_tags :: Lens.Lens' CreatePortal (Prelude.Maybe [Tag])
-createPortal_tags = Lens.lens (\CreatePortal' {tags} -> tags) (\s@CreatePortal' {} a -> s {tags = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
+-- | The additional encryption context of the portal.
+createPortal_additionalEncryptionContext :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPortal_additionalEncryptionContext = Lens.lens (\CreatePortal' {additionalEncryptionContext} -> additionalEncryptionContext) (\s@CreatePortal' {} a -> s {additionalEncryptionContext = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -135,9 +136,9 @@ createPortal_customerManagedKey = Lens.lens (\CreatePortal' {customerManagedKey}
 createPortal_displayName :: Lens.Lens' CreatePortal (Prelude.Maybe Prelude.Text)
 createPortal_displayName = Lens.lens (\CreatePortal' {displayName} -> displayName) (\s@CreatePortal' {} a -> s {displayName = a} :: CreatePortal) Prelude.. Lens.mapping Data._Sensitive
 
--- | The additional encryption context of the portal.
-createPortal_additionalEncryptionContext :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPortal_additionalEncryptionContext = Lens.lens (\CreatePortal' {additionalEncryptionContext} -> additionalEncryptionContext) (\s@CreatePortal' {} a -> s {additionalEncryptionContext = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
+-- | The tags to add to the web portal. A tag is a key-value pair.
+createPortal_tags :: Lens.Lens' CreatePortal (Prelude.Maybe [Tag])
+createPortal_tags = Lens.lens (\CreatePortal' {tags} -> tags) (\s@CreatePortal' {} a -> s {tags = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreatePortal where
   type AWSResponse CreatePortal = CreatePortalResponse
@@ -154,19 +155,20 @@ instance Core.AWSRequest CreatePortal where
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` additionalEncryptionContext
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` customerManagedKey
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` additionalEncryptionContext
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreatePortal where
   rnf CreatePortal' {..} =
-    Prelude.rnf tags
+    Prelude.rnf additionalEncryptionContext
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf customerManagedKey
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf additionalEncryptionContext
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreatePortal where
   toHeaders =
@@ -183,13 +185,13 @@ instance Data.ToJSON CreatePortal where
   toJSON CreatePortal' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("additionalEncryptionContext" Data..=)
+              Prelude.<$> additionalEncryptionContext,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("customerManagedKey" Data..=)
               Prelude.<$> customerManagedKey,
             ("displayName" Data..=) Prelude.<$> displayName,
-            ("additionalEncryptionContext" Data..=)
-              Prelude.<$> additionalEncryptionContext
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

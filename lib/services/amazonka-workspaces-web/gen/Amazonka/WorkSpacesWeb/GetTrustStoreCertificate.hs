@@ -35,8 +35,8 @@ module Amazonka.WorkSpacesWeb.GetTrustStoreCertificate
     newGetTrustStoreCertificateResponse,
 
     -- * Response Lenses
-    getTrustStoreCertificateResponse_trustStoreArn,
     getTrustStoreCertificateResponse_certificate,
+    getTrustStoreCertificateResponse_trustStoreArn,
     getTrustStoreCertificateResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest GetTrustStoreCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetTrustStoreCertificateResponse'
-            Prelude.<$> (x Data..?> "trustStoreArn")
-            Prelude.<*> (x Data..?> "certificate")
+            Prelude.<$> (x Data..?> "certificate")
+            Prelude.<*> (x Data..?> "trustStoreArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,10 +142,10 @@ instance Data.ToQuery GetTrustStoreCertificate where
 
 -- | /See:/ 'newGetTrustStoreCertificateResponse' smart constructor.
 data GetTrustStoreCertificateResponse = GetTrustStoreCertificateResponse'
-  { -- | The ARN of the trust store certificate.
-    trustStoreArn :: Prelude.Maybe Prelude.Text,
-    -- | The certificate of the trust store certificate.
+  { -- | The certificate of the trust store certificate.
     certificate :: Prelude.Maybe Certificate,
+    -- | The ARN of the trust store certificate.
+    trustStoreArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,9 +159,9 @@ data GetTrustStoreCertificateResponse = GetTrustStoreCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trustStoreArn', 'getTrustStoreCertificateResponse_trustStoreArn' - The ARN of the trust store certificate.
---
 -- 'certificate', 'getTrustStoreCertificateResponse_certificate' - The certificate of the trust store certificate.
+--
+-- 'trustStoreArn', 'getTrustStoreCertificateResponse_trustStoreArn' - The ARN of the trust store certificate.
 --
 -- 'httpStatus', 'getTrustStoreCertificateResponse_httpStatus' - The response's http status code.
 newGetTrustStoreCertificateResponse ::
@@ -170,19 +170,19 @@ newGetTrustStoreCertificateResponse ::
   GetTrustStoreCertificateResponse
 newGetTrustStoreCertificateResponse pHttpStatus_ =
   GetTrustStoreCertificateResponse'
-    { trustStoreArn =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      trustStoreArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the trust store certificate.
-getTrustStoreCertificateResponse_trustStoreArn :: Lens.Lens' GetTrustStoreCertificateResponse (Prelude.Maybe Prelude.Text)
-getTrustStoreCertificateResponse_trustStoreArn = Lens.lens (\GetTrustStoreCertificateResponse' {trustStoreArn} -> trustStoreArn) (\s@GetTrustStoreCertificateResponse' {} a -> s {trustStoreArn = a} :: GetTrustStoreCertificateResponse)
 
 -- | The certificate of the trust store certificate.
 getTrustStoreCertificateResponse_certificate :: Lens.Lens' GetTrustStoreCertificateResponse (Prelude.Maybe Certificate)
 getTrustStoreCertificateResponse_certificate = Lens.lens (\GetTrustStoreCertificateResponse' {certificate} -> certificate) (\s@GetTrustStoreCertificateResponse' {} a -> s {certificate = a} :: GetTrustStoreCertificateResponse)
+
+-- | The ARN of the trust store certificate.
+getTrustStoreCertificateResponse_trustStoreArn :: Lens.Lens' GetTrustStoreCertificateResponse (Prelude.Maybe Prelude.Text)
+getTrustStoreCertificateResponse_trustStoreArn = Lens.lens (\GetTrustStoreCertificateResponse' {trustStoreArn} -> trustStoreArn) (\s@GetTrustStoreCertificateResponse' {} a -> s {trustStoreArn = a} :: GetTrustStoreCertificateResponse)
 
 -- | The response's http status code.
 getTrustStoreCertificateResponse_httpStatus :: Lens.Lens' GetTrustStoreCertificateResponse Prelude.Int
@@ -193,6 +193,6 @@ instance
     GetTrustStoreCertificateResponse
   where
   rnf GetTrustStoreCertificateResponse' {..} =
-    Prelude.rnf trustStoreArn
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf trustStoreArn
       `Prelude.seq` Prelude.rnf httpStatus

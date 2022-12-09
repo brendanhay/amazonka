@@ -27,8 +27,8 @@ module Amazonka.WorkSpacesWeb.ListTrustStoreCertificates
     newListTrustStoreCertificates,
 
     -- * Request Lenses
-    listTrustStoreCertificates_nextToken,
     listTrustStoreCertificates_maxResults,
+    listTrustStoreCertificates_nextToken,
     listTrustStoreCertificates_trustStoreArn,
 
     -- * Destructuring the Response
@@ -36,9 +36,9 @@ module Amazonka.WorkSpacesWeb.ListTrustStoreCertificates
     newListTrustStoreCertificatesResponse,
 
     -- * Response Lenses
-    listTrustStoreCertificatesResponse_trustStoreArn,
-    listTrustStoreCertificatesResponse_nextToken,
     listTrustStoreCertificatesResponse_certificateList,
+    listTrustStoreCertificatesResponse_nextToken,
+    listTrustStoreCertificatesResponse_trustStoreArn,
     listTrustStoreCertificatesResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListTrustStoreCertificates' smart constructor.
 data ListTrustStoreCertificates = ListTrustStoreCertificates'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the trust store
     trustStoreArn :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data ListTrustStoreCertificates = ListTrustStoreCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTrustStoreCertificates_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listTrustStoreCertificates_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listTrustStoreCertificates_maxResults' - The maximum number of results to be included in the next page.
 --
 -- 'trustStoreArn', 'listTrustStoreCertificates_trustStoreArn' - The ARN of the trust store
 newListTrustStoreCertificates ::
@@ -83,20 +83,20 @@ newListTrustStoreCertificates ::
   ListTrustStoreCertificates
 newListTrustStoreCertificates pTrustStoreArn_ =
   ListTrustStoreCertificates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       trustStoreArn = pTrustStoreArn_
     }
+
+-- | The maximum number of results to be included in the next page.
+listTrustStoreCertificates_maxResults :: Lens.Lens' ListTrustStoreCertificates (Prelude.Maybe Prelude.Natural)
+listTrustStoreCertificates_maxResults = Lens.lens (\ListTrustStoreCertificates' {maxResults} -> maxResults) (\s@ListTrustStoreCertificates' {} a -> s {maxResults = a} :: ListTrustStoreCertificates)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listTrustStoreCertificates_nextToken :: Lens.Lens' ListTrustStoreCertificates (Prelude.Maybe Prelude.Text)
 listTrustStoreCertificates_nextToken = Lens.lens (\ListTrustStoreCertificates' {nextToken} -> nextToken) (\s@ListTrustStoreCertificates' {} a -> s {nextToken = a} :: ListTrustStoreCertificates)
-
--- | The maximum number of results to be included in the next page.
-listTrustStoreCertificates_maxResults :: Lens.Lens' ListTrustStoreCertificates (Prelude.Maybe Prelude.Natural)
-listTrustStoreCertificates_maxResults = Lens.lens (\ListTrustStoreCertificates' {maxResults} -> maxResults) (\s@ListTrustStoreCertificates' {} a -> s {maxResults = a} :: ListTrustStoreCertificates)
 
 -- | The ARN of the trust store
 listTrustStoreCertificates_trustStoreArn :: Lens.Lens' ListTrustStoreCertificates Prelude.Text
@@ -112,24 +112,24 @@ instance Core.AWSRequest ListTrustStoreCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListTrustStoreCertificatesResponse'
-            Prelude.<$> (x Data..?> "trustStoreArn")
-            Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "certificateList"
+            Prelude.<$> ( x Data..?> "certificateList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "trustStoreArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTrustStoreCertificates where
   hashWithSalt _salt ListTrustStoreCertificates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` trustStoreArn
 
 instance Prelude.NFData ListTrustStoreCertificates where
   rnf ListTrustStoreCertificates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf trustStoreArn
 
 instance Data.ToHeaders ListTrustStoreCertificates where
@@ -154,19 +154,19 @@ instance Data.ToPath ListTrustStoreCertificates where
 instance Data.ToQuery ListTrustStoreCertificates where
   toQuery ListTrustStoreCertificates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTrustStoreCertificatesResponse' smart constructor.
 data ListTrustStoreCertificatesResponse = ListTrustStoreCertificatesResponse'
-  { -- | The ARN of the trust store.
-    trustStoreArn :: Prelude.Maybe Prelude.Text,
+  { -- | The certificate list.
+    certificateList :: Prelude.Maybe [CertificateSummary],
     -- | The pagination token used to retrieve the next page of results for this
     -- operation.>
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The certificate list.
-    certificateList :: Prelude.Maybe [CertificateSummary],
+    -- | The ARN of the trust store.
+    trustStoreArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,12 +180,12 @@ data ListTrustStoreCertificatesResponse = ListTrustStoreCertificatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trustStoreArn', 'listTrustStoreCertificatesResponse_trustStoreArn' - The ARN of the trust store.
+-- 'certificateList', 'listTrustStoreCertificatesResponse_certificateList' - The certificate list.
 --
 -- 'nextToken', 'listTrustStoreCertificatesResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.>
 --
--- 'certificateList', 'listTrustStoreCertificatesResponse_certificateList' - The certificate list.
+-- 'trustStoreArn', 'listTrustStoreCertificatesResponse_trustStoreArn' - The ARN of the trust store.
 --
 -- 'httpStatus', 'listTrustStoreCertificatesResponse_httpStatus' - The response's http status code.
 newListTrustStoreCertificatesResponse ::
@@ -194,25 +194,25 @@ newListTrustStoreCertificatesResponse ::
   ListTrustStoreCertificatesResponse
 newListTrustStoreCertificatesResponse pHttpStatus_ =
   ListTrustStoreCertificatesResponse'
-    { trustStoreArn =
+    { certificateList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      certificateList = Prelude.Nothing,
+      trustStoreArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the trust store.
-listTrustStoreCertificatesResponse_trustStoreArn :: Lens.Lens' ListTrustStoreCertificatesResponse (Prelude.Maybe Prelude.Text)
-listTrustStoreCertificatesResponse_trustStoreArn = Lens.lens (\ListTrustStoreCertificatesResponse' {trustStoreArn} -> trustStoreArn) (\s@ListTrustStoreCertificatesResponse' {} a -> s {trustStoreArn = a} :: ListTrustStoreCertificatesResponse)
+-- | The certificate list.
+listTrustStoreCertificatesResponse_certificateList :: Lens.Lens' ListTrustStoreCertificatesResponse (Prelude.Maybe [CertificateSummary])
+listTrustStoreCertificatesResponse_certificateList = Lens.lens (\ListTrustStoreCertificatesResponse' {certificateList} -> certificateList) (\s@ListTrustStoreCertificatesResponse' {} a -> s {certificateList = a} :: ListTrustStoreCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.>
 listTrustStoreCertificatesResponse_nextToken :: Lens.Lens' ListTrustStoreCertificatesResponse (Prelude.Maybe Prelude.Text)
 listTrustStoreCertificatesResponse_nextToken = Lens.lens (\ListTrustStoreCertificatesResponse' {nextToken} -> nextToken) (\s@ListTrustStoreCertificatesResponse' {} a -> s {nextToken = a} :: ListTrustStoreCertificatesResponse)
 
--- | The certificate list.
-listTrustStoreCertificatesResponse_certificateList :: Lens.Lens' ListTrustStoreCertificatesResponse (Prelude.Maybe [CertificateSummary])
-listTrustStoreCertificatesResponse_certificateList = Lens.lens (\ListTrustStoreCertificatesResponse' {certificateList} -> certificateList) (\s@ListTrustStoreCertificatesResponse' {} a -> s {certificateList = a} :: ListTrustStoreCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the trust store.
+listTrustStoreCertificatesResponse_trustStoreArn :: Lens.Lens' ListTrustStoreCertificatesResponse (Prelude.Maybe Prelude.Text)
+listTrustStoreCertificatesResponse_trustStoreArn = Lens.lens (\ListTrustStoreCertificatesResponse' {trustStoreArn} -> trustStoreArn) (\s@ListTrustStoreCertificatesResponse' {} a -> s {trustStoreArn = a} :: ListTrustStoreCertificatesResponse)
 
 -- | The response's http status code.
 listTrustStoreCertificatesResponse_httpStatus :: Lens.Lens' ListTrustStoreCertificatesResponse Prelude.Int
@@ -223,7 +223,7 @@ instance
     ListTrustStoreCertificatesResponse
   where
   rnf ListTrustStoreCertificatesResponse' {..} =
-    Prelude.rnf trustStoreArn
+    Prelude.rnf certificateList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf certificateList
+      `Prelude.seq` Prelude.rnf trustStoreArn
       `Prelude.seq` Prelude.rnf httpStatus

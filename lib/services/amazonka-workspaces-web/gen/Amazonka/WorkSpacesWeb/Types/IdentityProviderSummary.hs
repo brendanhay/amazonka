@@ -29,12 +29,12 @@ import Amazonka.WorkSpacesWeb.Types.IdentityProviderType
 --
 -- /See:/ 'newIdentityProviderSummary' smart constructor.
 data IdentityProviderSummary = IdentityProviderSummary'
-  { -- | The identity provider type.
-    identityProviderType :: Prelude.Maybe IdentityProviderType,
+  { -- | The ARN of the identity provider.
+    identityProviderArn :: Prelude.Maybe Prelude.Text,
     -- | The identity provider name.
     identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN of the identity provider.
-    identityProviderArn :: Prelude.Maybe Prelude.Text
+    -- | The identity provider type.
+    identityProviderType :: Prelude.Maybe IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data IdentityProviderSummary = IdentityProviderSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityProviderType', 'identityProviderSummary_identityProviderType' - The identity provider type.
+-- 'identityProviderArn', 'identityProviderSummary_identityProviderArn' - The ARN of the identity provider.
 --
 -- 'identityProviderName', 'identityProviderSummary_identityProviderName' - The identity provider name.
 --
--- 'identityProviderArn', 'identityProviderSummary_identityProviderArn' - The ARN of the identity provider.
+-- 'identityProviderType', 'identityProviderSummary_identityProviderType' - The identity provider type.
 newIdentityProviderSummary ::
   IdentityProviderSummary
 newIdentityProviderSummary =
   IdentityProviderSummary'
-    { identityProviderType =
+    { identityProviderArn =
         Prelude.Nothing,
       identityProviderName = Prelude.Nothing,
-      identityProviderArn = Prelude.Nothing
+      identityProviderType = Prelude.Nothing
     }
 
--- | The identity provider type.
-identityProviderSummary_identityProviderType :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe IdentityProviderType)
-identityProviderSummary_identityProviderType = Lens.lens (\IdentityProviderSummary' {identityProviderType} -> identityProviderType) (\s@IdentityProviderSummary' {} a -> s {identityProviderType = a} :: IdentityProviderSummary)
+-- | The ARN of the identity provider.
+identityProviderSummary_identityProviderArn :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe Prelude.Text)
+identityProviderSummary_identityProviderArn = Lens.lens (\IdentityProviderSummary' {identityProviderArn} -> identityProviderArn) (\s@IdentityProviderSummary' {} a -> s {identityProviderArn = a} :: IdentityProviderSummary)
 
 -- | The identity provider name.
 identityProviderSummary_identityProviderName :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe Prelude.Text)
 identityProviderSummary_identityProviderName = Lens.lens (\IdentityProviderSummary' {identityProviderName} -> identityProviderName) (\s@IdentityProviderSummary' {} a -> s {identityProviderName = a} :: IdentityProviderSummary) Prelude.. Lens.mapping Data._Sensitive
 
--- | The ARN of the identity provider.
-identityProviderSummary_identityProviderArn :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe Prelude.Text)
-identityProviderSummary_identityProviderArn = Lens.lens (\IdentityProviderSummary' {identityProviderArn} -> identityProviderArn) (\s@IdentityProviderSummary' {} a -> s {identityProviderArn = a} :: IdentityProviderSummary)
+-- | The identity provider type.
+identityProviderSummary_identityProviderType :: Lens.Lens' IdentityProviderSummary (Prelude.Maybe IdentityProviderType)
+identityProviderSummary_identityProviderType = Lens.lens (\IdentityProviderSummary' {identityProviderType} -> identityProviderType) (\s@IdentityProviderSummary' {} a -> s {identityProviderType = a} :: IdentityProviderSummary)
 
 instance Data.FromJSON IdentityProviderSummary where
   parseJSON =
@@ -79,19 +79,19 @@ instance Data.FromJSON IdentityProviderSummary where
       "IdentityProviderSummary"
       ( \x ->
           IdentityProviderSummary'
-            Prelude.<$> (x Data..:? "identityProviderType")
+            Prelude.<$> (x Data..:? "identityProviderArn")
             Prelude.<*> (x Data..:? "identityProviderName")
-            Prelude.<*> (x Data..:? "identityProviderArn")
+            Prelude.<*> (x Data..:? "identityProviderType")
       )
 
 instance Prelude.Hashable IdentityProviderSummary where
   hashWithSalt _salt IdentityProviderSummary' {..} =
-    _salt `Prelude.hashWithSalt` identityProviderType
+    _salt `Prelude.hashWithSalt` identityProviderArn
       `Prelude.hashWithSalt` identityProviderName
-      `Prelude.hashWithSalt` identityProviderArn
+      `Prelude.hashWithSalt` identityProviderType
 
 instance Prelude.NFData IdentityProviderSummary where
   rnf IdentityProviderSummary' {..} =
-    Prelude.rnf identityProviderType
+    Prelude.rnf identityProviderArn
       `Prelude.seq` Prelude.rnf identityProviderName
-      `Prelude.seq` Prelude.rnf identityProviderArn
+      `Prelude.seq` Prelude.rnf identityProviderType

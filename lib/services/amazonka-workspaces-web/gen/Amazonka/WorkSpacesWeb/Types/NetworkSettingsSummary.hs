@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkSettingsSummary' smart constructor.
 data NetworkSettingsSummary = NetworkSettingsSummary'
-  { -- | The VPC ID of the network settings.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the network settings.
-    networkSettingsArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the network settings.
+    networkSettingsArn :: Prelude.Maybe Prelude.Text,
+    -- | The VPC ID of the network settings.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data NetworkSettingsSummary = NetworkSettingsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcId', 'networkSettingsSummary_vpcId' - The VPC ID of the network settings.
---
 -- 'networkSettingsArn', 'networkSettingsSummary_networkSettingsArn' - The ARN of the network settings.
+--
+-- 'vpcId', 'networkSettingsSummary_vpcId' - The VPC ID of the network settings.
 newNetworkSettingsSummary ::
   NetworkSettingsSummary
 newNetworkSettingsSummary =
   NetworkSettingsSummary'
-    { vpcId = Prelude.Nothing,
-      networkSettingsArn = Prelude.Nothing
+    { networkSettingsArn =
+        Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
-
--- | The VPC ID of the network settings.
-networkSettingsSummary_vpcId :: Lens.Lens' NetworkSettingsSummary (Prelude.Maybe Prelude.Text)
-networkSettingsSummary_vpcId = Lens.lens (\NetworkSettingsSummary' {vpcId} -> vpcId) (\s@NetworkSettingsSummary' {} a -> s {vpcId = a} :: NetworkSettingsSummary)
 
 -- | The ARN of the network settings.
 networkSettingsSummary_networkSettingsArn :: Lens.Lens' NetworkSettingsSummary (Prelude.Maybe Prelude.Text)
 networkSettingsSummary_networkSettingsArn = Lens.lens (\NetworkSettingsSummary' {networkSettingsArn} -> networkSettingsArn) (\s@NetworkSettingsSummary' {} a -> s {networkSettingsArn = a} :: NetworkSettingsSummary)
+
+-- | The VPC ID of the network settings.
+networkSettingsSummary_vpcId :: Lens.Lens' NetworkSettingsSummary (Prelude.Maybe Prelude.Text)
+networkSettingsSummary_vpcId = Lens.lens (\NetworkSettingsSummary' {vpcId} -> vpcId) (\s@NetworkSettingsSummary' {} a -> s {vpcId = a} :: NetworkSettingsSummary)
 
 instance Data.FromJSON NetworkSettingsSummary where
   parseJSON =
@@ -68,16 +69,16 @@ instance Data.FromJSON NetworkSettingsSummary where
       "NetworkSettingsSummary"
       ( \x ->
           NetworkSettingsSummary'
-            Prelude.<$> (x Data..:? "vpcId")
-            Prelude.<*> (x Data..:? "networkSettingsArn")
+            Prelude.<$> (x Data..:? "networkSettingsArn")
+            Prelude.<*> (x Data..:? "vpcId")
       )
 
 instance Prelude.Hashable NetworkSettingsSummary where
   hashWithSalt _salt NetworkSettingsSummary' {..} =
-    _salt `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` networkSettingsArn
+    _salt `Prelude.hashWithSalt` networkSettingsArn
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData NetworkSettingsSummary where
   rnf NetworkSettingsSummary' {..} =
-    Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf networkSettingsArn
+    Prelude.rnf networkSettingsArn
+      `Prelude.seq` Prelude.rnf vpcId

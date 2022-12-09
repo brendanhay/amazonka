@@ -32,12 +32,12 @@ data CertificateSummary = CertificateSummary'
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The certificate is not valid after this date.
     notValidAfter :: Prelude.Maybe Data.POSIX,
-    -- | A hexadecimal identifier for the certificate.
-    thumbprint :: Prelude.Maybe Prelude.Text,
     -- | The certificate is not valid before this date.
     notValidBefore :: Prelude.Maybe Data.POSIX,
     -- | The entity the certificate belongs to.
-    subject :: Prelude.Maybe Prelude.Text
+    subject :: Prelude.Maybe Prelude.Text,
+    -- | A hexadecimal identifier for the certificate.
+    thumbprint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,20 +53,20 @@ data CertificateSummary = CertificateSummary'
 --
 -- 'notValidAfter', 'certificateSummary_notValidAfter' - The certificate is not valid after this date.
 --
--- 'thumbprint', 'certificateSummary_thumbprint' - A hexadecimal identifier for the certificate.
---
 -- 'notValidBefore', 'certificateSummary_notValidBefore' - The certificate is not valid before this date.
 --
 -- 'subject', 'certificateSummary_subject' - The entity the certificate belongs to.
+--
+-- 'thumbprint', 'certificateSummary_thumbprint' - A hexadecimal identifier for the certificate.
 newCertificateSummary ::
   CertificateSummary
 newCertificateSummary =
   CertificateSummary'
     { issuer = Prelude.Nothing,
       notValidAfter = Prelude.Nothing,
-      thumbprint = Prelude.Nothing,
       notValidBefore = Prelude.Nothing,
-      subject = Prelude.Nothing
+      subject = Prelude.Nothing,
+      thumbprint = Prelude.Nothing
     }
 
 -- | The entity that issued the certificate.
@@ -77,10 +77,6 @@ certificateSummary_issuer = Lens.lens (\CertificateSummary' {issuer} -> issuer) 
 certificateSummary_notValidAfter :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
 certificateSummary_notValidAfter = Lens.lens (\CertificateSummary' {notValidAfter} -> notValidAfter) (\s@CertificateSummary' {} a -> s {notValidAfter = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
 
--- | A hexadecimal identifier for the certificate.
-certificateSummary_thumbprint :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
-certificateSummary_thumbprint = Lens.lens (\CertificateSummary' {thumbprint} -> thumbprint) (\s@CertificateSummary' {} a -> s {thumbprint = a} :: CertificateSummary)
-
 -- | The certificate is not valid before this date.
 certificateSummary_notValidBefore :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.UTCTime)
 certificateSummary_notValidBefore = Lens.lens (\CertificateSummary' {notValidBefore} -> notValidBefore) (\s@CertificateSummary' {} a -> s {notValidBefore = a} :: CertificateSummary) Prelude.. Lens.mapping Data._Time
@@ -88,6 +84,10 @@ certificateSummary_notValidBefore = Lens.lens (\CertificateSummary' {notValidBef
 -- | The entity the certificate belongs to.
 certificateSummary_subject :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
 certificateSummary_subject = Lens.lens (\CertificateSummary' {subject} -> subject) (\s@CertificateSummary' {} a -> s {subject = a} :: CertificateSummary)
+
+-- | A hexadecimal identifier for the certificate.
+certificateSummary_thumbprint :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_thumbprint = Lens.lens (\CertificateSummary' {thumbprint} -> thumbprint) (\s@CertificateSummary' {} a -> s {thumbprint = a} :: CertificateSummary)
 
 instance Data.FromJSON CertificateSummary where
   parseJSON =
@@ -97,23 +97,23 @@ instance Data.FromJSON CertificateSummary where
           CertificateSummary'
             Prelude.<$> (x Data..:? "issuer")
             Prelude.<*> (x Data..:? "notValidAfter")
-            Prelude.<*> (x Data..:? "thumbprint")
             Prelude.<*> (x Data..:? "notValidBefore")
             Prelude.<*> (x Data..:? "subject")
+            Prelude.<*> (x Data..:? "thumbprint")
       )
 
 instance Prelude.Hashable CertificateSummary where
   hashWithSalt _salt CertificateSummary' {..} =
     _salt `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` notValidAfter
-      `Prelude.hashWithSalt` thumbprint
       `Prelude.hashWithSalt` notValidBefore
       `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` thumbprint
 
 instance Prelude.NFData CertificateSummary where
   rnf CertificateSummary' {..} =
     Prelude.rnf issuer
       `Prelude.seq` Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf thumbprint
       `Prelude.seq` Prelude.rnf notValidBefore
       `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf thumbprint

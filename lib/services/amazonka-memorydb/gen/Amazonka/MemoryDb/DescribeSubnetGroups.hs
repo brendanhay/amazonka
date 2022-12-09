@@ -28,9 +28,9 @@ module Amazonka.MemoryDb.DescribeSubnetGroups
     newDescribeSubnetGroups,
 
     -- * Request Lenses
-    describeSubnetGroups_subnetGroupName,
-    describeSubnetGroups_nextToken,
     describeSubnetGroups_maxResults,
+    describeSubnetGroups_nextToken,
+    describeSubnetGroups_subnetGroupName,
 
     -- * Destructuring the Response
     DescribeSubnetGroupsResponse (..),
@@ -53,18 +53,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSubnetGroups' smart constructor.
 data DescribeSubnetGroups = DescribeSubnetGroups'
-  { -- | The name of the subnet group to return details for.
-    subnetGroupName :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxResults value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified MaxResults value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    -- | The name of the subnet group to return details for.
+    subnetGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,7 +76,9 @@ data DescribeSubnetGroups = DescribeSubnetGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetGroupName', 'describeSubnetGroups_subnetGroupName' - The name of the subnet group to return details for.
+-- 'maxResults', 'describeSubnetGroups_maxResults' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
 --
 -- 'nextToken', 'describeSubnetGroups_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -84,22 +86,21 @@ data DescribeSubnetGroups = DescribeSubnetGroups'
 -- for each page. Make the call again using the returned token to retrieve
 -- the next page. Keep all other arguments unchanged.
 --
--- 'maxResults', 'describeSubnetGroups_maxResults' - The maximum number of records to include in the response. If more
--- records exist than the specified MaxResults value, a token is included
--- in the response so that the remaining results can be retrieved.
+-- 'subnetGroupName', 'describeSubnetGroups_subnetGroupName' - The name of the subnet group to return details for.
 newDescribeSubnetGroups ::
   DescribeSubnetGroups
 newDescribeSubnetGroups =
   DescribeSubnetGroups'
-    { subnetGroupName =
-        Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      subnetGroupName = Prelude.Nothing
     }
 
--- | The name of the subnet group to return details for.
-describeSubnetGroups_subnetGroupName :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Text)
-describeSubnetGroups_subnetGroupName = Lens.lens (\DescribeSubnetGroups' {subnetGroupName} -> subnetGroupName) (\s@DescribeSubnetGroups' {} a -> s {subnetGroupName = a} :: DescribeSubnetGroups)
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
+describeSubnetGroups_maxResults :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Int)
+describeSubnetGroups_maxResults = Lens.lens (\DescribeSubnetGroups' {maxResults} -> maxResults) (\s@DescribeSubnetGroups' {} a -> s {maxResults = a} :: DescribeSubnetGroups)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -109,11 +110,9 @@ describeSubnetGroups_subnetGroupName = Lens.lens (\DescribeSubnetGroups' {subnet
 describeSubnetGroups_nextToken :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Text)
 describeSubnetGroups_nextToken = Lens.lens (\DescribeSubnetGroups' {nextToken} -> nextToken) (\s@DescribeSubnetGroups' {} a -> s {nextToken = a} :: DescribeSubnetGroups)
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified MaxResults value, a token is included
--- in the response so that the remaining results can be retrieved.
-describeSubnetGroups_maxResults :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Int)
-describeSubnetGroups_maxResults = Lens.lens (\DescribeSubnetGroups' {maxResults} -> maxResults) (\s@DescribeSubnetGroups' {} a -> s {maxResults = a} :: DescribeSubnetGroups)
+-- | The name of the subnet group to return details for.
+describeSubnetGroups_subnetGroupName :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Text)
+describeSubnetGroups_subnetGroupName = Lens.lens (\DescribeSubnetGroups' {subnetGroupName} -> subnetGroupName) (\s@DescribeSubnetGroups' {} a -> s {subnetGroupName = a} :: DescribeSubnetGroups)
 
 instance Core.AWSRequest DescribeSubnetGroups where
   type
@@ -132,15 +131,15 @@ instance Core.AWSRequest DescribeSubnetGroups where
 
 instance Prelude.Hashable DescribeSubnetGroups where
   hashWithSalt _salt DescribeSubnetGroups' {..} =
-    _salt `Prelude.hashWithSalt` subnetGroupName
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` subnetGroupName
 
 instance Prelude.NFData DescribeSubnetGroups where
   rnf DescribeSubnetGroups' {..} =
-    Prelude.rnf subnetGroupName
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf subnetGroupName
 
 instance Data.ToHeaders DescribeSubnetGroups where
   toHeaders =
@@ -161,10 +160,10 @@ instance Data.ToJSON DescribeSubnetGroups where
   toJSON DescribeSubnetGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SubnetGroupName" Data..=)
-              Prelude.<$> subnetGroupName,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("SubnetGroupName" Data..=)
+              Prelude.<$> subnetGroupName
           ]
       )
 

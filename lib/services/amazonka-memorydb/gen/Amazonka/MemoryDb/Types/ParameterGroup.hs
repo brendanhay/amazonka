@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
-  { -- | The name of the parameter group
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the parameter group
+  { -- | The Amazon Resource Name (ARN) of the parameter group
     arn :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameter group
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter group family that this parameter group is
     -- compatible with.
-    family :: Prelude.Maybe Prelude.Text
+    family :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter group
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,23 @@ data ParameterGroup = ParameterGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'parameterGroup_name' - The name of the parameter group
---
 -- 'arn', 'parameterGroup_arn' - The Amazon Resource Name (ARN) of the parameter group
 --
 -- 'description', 'parameterGroup_description' - A description of the parameter group
 --
 -- 'family', 'parameterGroup_family' - The name of the parameter group family that this parameter group is
 -- compatible with.
+--
+-- 'name', 'parameterGroup_name' - The name of the parameter group
 newParameterGroup ::
   ParameterGroup
 newParameterGroup =
   ParameterGroup'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      family = Prelude.Nothing
+      family = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the parameter group
-parameterGroup_name :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
-parameterGroup_name = Lens.lens (\ParameterGroup' {name} -> name) (\s@ParameterGroup' {} a -> s {name = a} :: ParameterGroup)
 
 -- | The Amazon Resource Name (ARN) of the parameter group
 parameterGroup_arn :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
@@ -85,28 +81,32 @@ parameterGroup_description = Lens.lens (\ParameterGroup' {description} -> descri
 parameterGroup_family :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
 parameterGroup_family = Lens.lens (\ParameterGroup' {family} -> family) (\s@ParameterGroup' {} a -> s {family = a} :: ParameterGroup)
 
+-- | The name of the parameter group
+parameterGroup_name :: Lens.Lens' ParameterGroup (Prelude.Maybe Prelude.Text)
+parameterGroup_name = Lens.lens (\ParameterGroup' {name} -> name) (\s@ParameterGroup' {} a -> s {name = a} :: ParameterGroup)
+
 instance Data.FromJSON ParameterGroup where
   parseJSON =
     Data.withObject
       "ParameterGroup"
       ( \x ->
           ParameterGroup'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Family")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ParameterGroup where
   hashWithSalt _salt ParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ParameterGroup where
   rnf ParameterGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf name

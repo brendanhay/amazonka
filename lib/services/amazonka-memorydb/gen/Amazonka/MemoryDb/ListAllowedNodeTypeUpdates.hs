@@ -37,8 +37,8 @@ module Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
     newListAllowedNodeTypeUpdatesResponse,
 
     -- * Response Lenses
-    listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes,
     listAllowedNodeTypeUpdatesResponse_scaleDownNodeTypes,
+    listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes,
     listAllowedNodeTypeUpdatesResponse_httpStatus,
   )
 where
@@ -97,10 +97,10 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
     Response.receiveJSON
       ( \s h x ->
           ListAllowedNodeTypeUpdatesResponse'
-            Prelude.<$> ( x Data..?> "ScaleUpNodeTypes"
+            Prelude.<$> ( x Data..?> "ScaleDownNodeTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ScaleDownNodeTypes"
+            Prelude.<*> ( x Data..?> "ScaleUpNodeTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,10 +144,10 @@ instance Data.ToQuery ListAllowedNodeTypeUpdates where
 
 -- | /See:/ 'newListAllowedNodeTypeUpdatesResponse' smart constructor.
 data ListAllowedNodeTypeUpdatesResponse = ListAllowedNodeTypeUpdatesResponse'
-  { -- | A list node types which you can use to scale up your cluster.
-    scaleUpNodeTypes :: Prelude.Maybe [Prelude.Text],
-    -- | A list node types which you can use to scale down your cluster.
+  { -- | A list node types which you can use to scale down your cluster.
     scaleDownNodeTypes :: Prelude.Maybe [Prelude.Text],
+    -- | A list node types which you can use to scale up your cluster.
+    scaleUpNodeTypes :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +161,9 @@ data ListAllowedNodeTypeUpdatesResponse = ListAllowedNodeTypeUpdatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scaleUpNodeTypes', 'listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes' - A list node types which you can use to scale up your cluster.
---
 -- 'scaleDownNodeTypes', 'listAllowedNodeTypeUpdatesResponse_scaleDownNodeTypes' - A list node types which you can use to scale down your cluster.
+--
+-- 'scaleUpNodeTypes', 'listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes' - A list node types which you can use to scale up your cluster.
 --
 -- 'httpStatus', 'listAllowedNodeTypeUpdatesResponse_httpStatus' - The response's http status code.
 newListAllowedNodeTypeUpdatesResponse ::
@@ -172,19 +172,19 @@ newListAllowedNodeTypeUpdatesResponse ::
   ListAllowedNodeTypeUpdatesResponse
 newListAllowedNodeTypeUpdatesResponse pHttpStatus_ =
   ListAllowedNodeTypeUpdatesResponse'
-    { scaleUpNodeTypes =
+    { scaleDownNodeTypes =
         Prelude.Nothing,
-      scaleDownNodeTypes = Prelude.Nothing,
+      scaleUpNodeTypes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list node types which you can use to scale up your cluster.
-listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes :: Lens.Lens' ListAllowedNodeTypeUpdatesResponse (Prelude.Maybe [Prelude.Text])
-listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes = Lens.lens (\ListAllowedNodeTypeUpdatesResponse' {scaleUpNodeTypes} -> scaleUpNodeTypes) (\s@ListAllowedNodeTypeUpdatesResponse' {} a -> s {scaleUpNodeTypes = a} :: ListAllowedNodeTypeUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list node types which you can use to scale down your cluster.
 listAllowedNodeTypeUpdatesResponse_scaleDownNodeTypes :: Lens.Lens' ListAllowedNodeTypeUpdatesResponse (Prelude.Maybe [Prelude.Text])
 listAllowedNodeTypeUpdatesResponse_scaleDownNodeTypes = Lens.lens (\ListAllowedNodeTypeUpdatesResponse' {scaleDownNodeTypes} -> scaleDownNodeTypes) (\s@ListAllowedNodeTypeUpdatesResponse' {} a -> s {scaleDownNodeTypes = a} :: ListAllowedNodeTypeUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list node types which you can use to scale up your cluster.
+listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes :: Lens.Lens' ListAllowedNodeTypeUpdatesResponse (Prelude.Maybe [Prelude.Text])
+listAllowedNodeTypeUpdatesResponse_scaleUpNodeTypes = Lens.lens (\ListAllowedNodeTypeUpdatesResponse' {scaleUpNodeTypes} -> scaleUpNodeTypes) (\s@ListAllowedNodeTypeUpdatesResponse' {} a -> s {scaleUpNodeTypes = a} :: ListAllowedNodeTypeUpdatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAllowedNodeTypeUpdatesResponse_httpStatus :: Lens.Lens' ListAllowedNodeTypeUpdatesResponse Prelude.Int
@@ -195,6 +195,6 @@ instance
     ListAllowedNodeTypeUpdatesResponse
   where
   rnf ListAllowedNodeTypeUpdatesResponse' {..} =
-    Prelude.rnf scaleUpNodeTypes
-      `Prelude.seq` Prelude.rnf scaleDownNodeTypes
+    Prelude.rnf scaleDownNodeTypes
+      `Prelude.seq` Prelude.rnf scaleUpNodeTypes
       `Prelude.seq` Prelude.rnf httpStatus

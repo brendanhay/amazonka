@@ -27,10 +27,10 @@ module Amazonka.MemoryDb.DescribeUsers
     newDescribeUsers,
 
     -- * Request Lenses
-    describeUsers_nextToken,
-    describeUsers_userName,
     describeUsers_filters,
     describeUsers_maxResults,
+    describeUsers_nextToken,
+    describeUsers_userName,
 
     -- * Destructuring the Response
     DescribeUsersResponse (..),
@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | An optional argument to pass in case the total number of records exceeds
+  { -- | Filter to determine the list of users to return.
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxResults value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An optional argument to pass in case the total number of records exceeds
     -- the value of MaxResults. If nextToken is returned, there are more
     -- results available. The value of nextToken is a unique pagination token
     -- for each page. Make the call again using the returned token to retrieve
     -- the next page. Keep all other arguments unchanged.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the user
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | Filter to determine the list of users to return.
-    filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified MaxResults value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Int
+    userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +78,12 @@ data DescribeUsers = DescribeUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeUsers_filters' - Filter to determine the list of users to return.
+--
+-- 'maxResults', 'describeUsers_maxResults' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
 -- 'nextToken', 'describeUsers_nextToken' - An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
 -- results available. The value of nextToken is a unique pagination token
@@ -85,21 +91,25 @@ data DescribeUsers = DescribeUsers'
 -- the next page. Keep all other arguments unchanged.
 --
 -- 'userName', 'describeUsers_userName' - The name of the user
---
--- 'filters', 'describeUsers_filters' - Filter to determine the list of users to return.
---
--- 'maxResults', 'describeUsers_maxResults' - The maximum number of records to include in the response. If more
--- records exist than the specified MaxResults value, a token is included
--- in the response so that the remaining results can be retrieved.
 newDescribeUsers ::
   DescribeUsers
 newDescribeUsers =
   DescribeUsers'
-    { nextToken = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      userName = Prelude.Nothing
     }
+
+-- | Filter to determine the list of users to return.
+describeUsers_filters :: Lens.Lens' DescribeUsers (Prelude.Maybe [Filter])
+describeUsers_filters = Lens.lens (\DescribeUsers' {filters} -> filters) (\s@DescribeUsers' {} a -> s {filters = a} :: DescribeUsers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxResults value, a token is included
+-- in the response so that the remaining results can be retrieved.
+describeUsers_maxResults :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
+describeUsers_maxResults = Lens.lens (\DescribeUsers' {maxResults} -> maxResults) (\s@DescribeUsers' {} a -> s {maxResults = a} :: DescribeUsers)
 
 -- | An optional argument to pass in case the total number of records exceeds
 -- the value of MaxResults. If nextToken is returned, there are more
@@ -112,16 +122,6 @@ describeUsers_nextToken = Lens.lens (\DescribeUsers' {nextToken} -> nextToken) (
 -- | The name of the user
 describeUsers_userName :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_userName = Lens.lens (\DescribeUsers' {userName} -> userName) (\s@DescribeUsers' {} a -> s {userName = a} :: DescribeUsers)
-
--- | Filter to determine the list of users to return.
-describeUsers_filters :: Lens.Lens' DescribeUsers (Prelude.Maybe [Filter])
-describeUsers_filters = Lens.lens (\DescribeUsers' {filters} -> filters) (\s@DescribeUsers' {} a -> s {filters = a} :: DescribeUsers) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified MaxResults value, a token is included
--- in the response so that the remaining results can be retrieved.
-describeUsers_maxResults :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
-describeUsers_maxResults = Lens.lens (\DescribeUsers' {maxResults} -> maxResults) (\s@DescribeUsers' {} a -> s {maxResults = a} :: DescribeUsers)
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -140,17 +140,17 @@ instance Core.AWSRequest DescribeUsers where
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData DescribeUsers where
   rnf DescribeUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userName
 
 instance Data.ToHeaders DescribeUsers where
   toHeaders =
@@ -171,10 +171,10 @@ instance Data.ToJSON DescribeUsers where
   toJSON DescribeUsers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("UserName" Data..=) Prelude.<$> userName,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("UserName" Data..=) Prelude.<$> userName
           ]
       )
 

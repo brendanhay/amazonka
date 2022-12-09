@@ -25,152 +25,152 @@ module Amazonka.MemoryDb
     -- * Errors
     -- $errors
 
-    -- ** NodeQuotaForClusterExceededFault
-    _NodeQuotaForClusterExceededFault,
-
-    -- ** ClusterQuotaForCustomerExceededFault
-    _ClusterQuotaForCustomerExceededFault,
-
-    -- ** SubnetQuotaExceededFault
-    _SubnetQuotaExceededFault,
-
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** ServiceUpdateNotFoundFault
-    _ServiceUpdateNotFoundFault,
-
-    -- ** UserNotFoundFault
-    _UserNotFoundFault,
+    -- ** ACLAlreadyExistsFault
+    _ACLAlreadyExistsFault,
 
     -- ** ACLNotFoundFault
     _ACLNotFoundFault,
 
-    -- ** ShardNotFoundFault
-    _ShardNotFoundFault,
-
-    -- ** ClusterNotFoundFault
-    _ClusterNotFoundFault,
-
-    -- ** InvalidSnapshotStateFault
-    _InvalidSnapshotStateFault,
-
-    -- ** NoOperationFault
-    _NoOperationFault,
-
-    -- ** UserAlreadyExistsFault
-    _UserAlreadyExistsFault,
-
-    -- ** TagNotFoundFault
-    _TagNotFoundFault,
-
-    -- ** SubnetGroupInUseFault
-    _SubnetGroupInUseFault,
-
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
-
-    -- ** ACLAlreadyExistsFault
-    _ACLAlreadyExistsFault,
-
-    -- ** DefaultUserRequired
-    _DefaultUserRequired,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** ParameterGroupAlreadyExistsFault
-    _ParameterGroupAlreadyExistsFault,
-
-    -- ** ServiceLinkedRoleNotFoundFault
-    _ServiceLinkedRoleNotFoundFault,
-
-    -- ** ShardsPerClusterQuotaExceededFault
-    _ShardsPerClusterQuotaExceededFault,
-
-    -- ** InvalidParameterGroupStateFault
-    _InvalidParameterGroupStateFault,
-
-    -- ** UserQuotaExceededFault
-    _UserQuotaExceededFault,
-
-    -- ** DuplicateUserNameFault
-    _DuplicateUserNameFault,
-
-    -- ** ParameterGroupNotFoundFault
-    _ParameterGroupNotFoundFault,
-
-    -- ** InvalidACLStateFault
-    _InvalidACLStateFault,
-
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
-
-    -- ** InvalidARNFault
-    _InvalidARNFault,
-
-    -- ** SnapshotAlreadyExistsFault
-    _SnapshotAlreadyExistsFault,
-
-    -- ** InvalidNodeStateFault
-    _InvalidNodeStateFault,
-
-    -- ** TestFailoverNotAvailableFault
-    _TestFailoverNotAvailableFault,
-
-    -- ** NodeQuotaForCustomerExceededFault
-    _NodeQuotaForCustomerExceededFault,
-
-    -- ** SubnetGroupNotFoundFault
-    _SubnetGroupNotFoundFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** SubnetInUse
-    _SubnetInUse,
-
-    -- ** InvalidUserStateFault
-    _InvalidUserStateFault,
-
-    -- ** SnapshotNotFoundFault
-    _SnapshotNotFoundFault,
-
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
-
-    -- ** InvalidKMSKeyFault
-    _InvalidKMSKeyFault,
-
-    -- ** SubnetGroupAlreadyExistsFault
-    _SubnetGroupAlreadyExistsFault,
-
-    -- ** ParameterGroupQuotaExceededFault
-    _ParameterGroupQuotaExceededFault,
-
-    -- ** InsufficientClusterCapacityFault
-    _InsufficientClusterCapacityFault,
-
     -- ** ACLQuotaExceededFault
     _ACLQuotaExceededFault,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** InvalidCredentialsException
-    _InvalidCredentialsException,
-
-    -- ** SubnetNotAllowedFault
-    _SubnetNotAllowedFault,
 
     -- ** APICallRateForCustomerExceededFault
     _APICallRateForCustomerExceededFault,
 
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** DefaultUserRequired
+    _DefaultUserRequired,
+
+    -- ** DuplicateUserNameFault
+    _DuplicateUserNameFault,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** InvalidACLStateFault
+    _InvalidACLStateFault,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** InvalidCredentialsException
+    _InvalidCredentialsException,
+
+    -- ** InvalidKMSKeyFault
+    _InvalidKMSKeyFault,
+
+    -- ** InvalidNodeStateFault
+    _InvalidNodeStateFault,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** InvalidParameterGroupStateFault
+    _InvalidParameterGroupStateFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidSnapshotStateFault
+    _InvalidSnapshotStateFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidUserStateFault
+    _InvalidUserStateFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** NoOperationFault
+    _NoOperationFault,
+
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** ParameterGroupAlreadyExistsFault
+    _ParameterGroupAlreadyExistsFault,
+
+    -- ** ParameterGroupNotFoundFault
+    _ParameterGroupNotFoundFault,
+
+    -- ** ParameterGroupQuotaExceededFault
+    _ParameterGroupQuotaExceededFault,
+
+    -- ** ServiceLinkedRoleNotFoundFault
+    _ServiceLinkedRoleNotFoundFault,
+
+    -- ** ServiceUpdateNotFoundFault
+    _ServiceUpdateNotFoundFault,
+
+    -- ** ShardNotFoundFault
+    _ShardNotFoundFault,
+
+    -- ** ShardsPerClusterQuotaExceededFault
+    _ShardsPerClusterQuotaExceededFault,
+
+    -- ** SnapshotAlreadyExistsFault
+    _SnapshotAlreadyExistsFault,
+
+    -- ** SnapshotNotFoundFault
+    _SnapshotNotFoundFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** SubnetGroupAlreadyExistsFault
+    _SubnetGroupAlreadyExistsFault,
+
+    -- ** SubnetGroupInUseFault
+    _SubnetGroupInUseFault,
+
+    -- ** SubnetGroupNotFoundFault
+    _SubnetGroupNotFoundFault,
+
     -- ** SubnetGroupQuotaExceededFault
     _SubnetGroupQuotaExceededFault,
+
+    -- ** SubnetInUse
+    _SubnetInUse,
+
+    -- ** SubnetNotAllowedFault
+    _SubnetNotAllowedFault,
+
+    -- ** SubnetQuotaExceededFault
+    _SubnetQuotaExceededFault,
+
+    -- ** TagNotFoundFault
+    _TagNotFoundFault,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** TestFailoverNotAvailableFault
+    _TestFailoverNotAvailableFault,
+
+    -- ** UserAlreadyExistsFault
+    _UserAlreadyExistsFault,
+
+    -- ** UserNotFoundFault
+    _UserNotFoundFault,
+
+    -- ** UserQuotaExceededFault
+    _UserQuotaExceededFault,
 
     -- * Waiters
     -- $waiters

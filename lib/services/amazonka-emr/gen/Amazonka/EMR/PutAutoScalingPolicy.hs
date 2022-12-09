@@ -39,9 +39,9 @@ module Amazonka.EMR.PutAutoScalingPolicy
     newPutAutoScalingPolicyResponse,
 
     -- * Response Lenses
+    putAutoScalingPolicyResponse_autoScalingPolicy,
     putAutoScalingPolicyResponse_clusterArn,
     putAutoScalingPolicyResponse_clusterId,
-    putAutoScalingPolicyResponse_autoScalingPolicy,
     putAutoScalingPolicyResponse_instanceGroupId,
     putAutoScalingPolicyResponse_httpStatus,
   )
@@ -125,9 +125,9 @@ instance Core.AWSRequest PutAutoScalingPolicy where
     Response.receiveJSON
       ( \s h x ->
           PutAutoScalingPolicyResponse'
-            Prelude.<$> (x Data..?> "ClusterArn")
+            Prelude.<$> (x Data..?> "AutoScalingPolicy")
+            Prelude.<*> (x Data..?> "ClusterArn")
             Prelude.<*> (x Data..?> "ClusterId")
-            Prelude.<*> (x Data..?> "AutoScalingPolicy")
             Prelude.<*> (x Data..?> "InstanceGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,13 +179,13 @@ instance Data.ToQuery PutAutoScalingPolicy where
 
 -- | /See:/ 'newPutAutoScalingPolicyResponse' smart constructor.
 data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
-  { -- | The Amazon Resource Name (ARN) of the cluster.
+  { -- | The automatic scaling policy definition.
+    autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
+    -- | The Amazon Resource Name (ARN) of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ID of a cluster. The instance group to which the automatic
     -- scaling policy is applied is within this cluster.
     clusterId :: Prelude.Maybe Prelude.Text,
-    -- | The automatic scaling policy definition.
-    autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
     -- | Specifies the ID of the instance group to which the scaling policy is
     -- applied.
     instanceGroupId :: Prelude.Maybe Prelude.Text,
@@ -202,12 +202,12 @@ data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoScalingPolicy', 'putAutoScalingPolicyResponse_autoScalingPolicy' - The automatic scaling policy definition.
+--
 -- 'clusterArn', 'putAutoScalingPolicyResponse_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 --
 -- 'clusterId', 'putAutoScalingPolicyResponse_clusterId' - Specifies the ID of a cluster. The instance group to which the automatic
 -- scaling policy is applied is within this cluster.
---
--- 'autoScalingPolicy', 'putAutoScalingPolicyResponse_autoScalingPolicy' - The automatic scaling policy definition.
 --
 -- 'instanceGroupId', 'putAutoScalingPolicyResponse_instanceGroupId' - Specifies the ID of the instance group to which the scaling policy is
 -- applied.
@@ -219,13 +219,17 @@ newPutAutoScalingPolicyResponse ::
   PutAutoScalingPolicyResponse
 newPutAutoScalingPolicyResponse pHttpStatus_ =
   PutAutoScalingPolicyResponse'
-    { clusterArn =
+    { autoScalingPolicy =
         Prelude.Nothing,
+      clusterArn = Prelude.Nothing,
       clusterId = Prelude.Nothing,
-      autoScalingPolicy = Prelude.Nothing,
       instanceGroupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The automatic scaling policy definition.
+putAutoScalingPolicyResponse_autoScalingPolicy :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe AutoScalingPolicyDescription)
+putAutoScalingPolicyResponse_autoScalingPolicy = Lens.lens (\PutAutoScalingPolicyResponse' {autoScalingPolicy} -> autoScalingPolicy) (\s@PutAutoScalingPolicyResponse' {} a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the cluster.
 putAutoScalingPolicyResponse_clusterArn :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe Prelude.Text)
@@ -235,10 +239,6 @@ putAutoScalingPolicyResponse_clusterArn = Lens.lens (\PutAutoScalingPolicyRespon
 -- scaling policy is applied is within this cluster.
 putAutoScalingPolicyResponse_clusterId :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe Prelude.Text)
 putAutoScalingPolicyResponse_clusterId = Lens.lens (\PutAutoScalingPolicyResponse' {clusterId} -> clusterId) (\s@PutAutoScalingPolicyResponse' {} a -> s {clusterId = a} :: PutAutoScalingPolicyResponse)
-
--- | The automatic scaling policy definition.
-putAutoScalingPolicyResponse_autoScalingPolicy :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe AutoScalingPolicyDescription)
-putAutoScalingPolicyResponse_autoScalingPolicy = Lens.lens (\PutAutoScalingPolicyResponse' {autoScalingPolicy} -> autoScalingPolicy) (\s@PutAutoScalingPolicyResponse' {} a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicyResponse)
 
 -- | Specifies the ID of the instance group to which the scaling policy is
 -- applied.
@@ -251,8 +251,8 @@ putAutoScalingPolicyResponse_httpStatus = Lens.lens (\PutAutoScalingPolicyRespon
 
 instance Prelude.NFData PutAutoScalingPolicyResponse where
   rnf PutAutoScalingPolicyResponse' {..} =
-    Prelude.rnf clusterArn
+    Prelude.rnf autoScalingPolicy
+      `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf clusterId
-      `Prelude.seq` Prelude.rnf autoScalingPolicy
       `Prelude.seq` Prelude.rnf instanceGroupId
       `Prelude.seq` Prelude.rnf httpStatus

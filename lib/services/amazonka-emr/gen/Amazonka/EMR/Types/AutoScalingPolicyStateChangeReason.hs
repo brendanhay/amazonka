@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingPolicyStateChangeReason' smart constructor.
 data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
-  { -- | A friendly, more verbose message that accompanies an automatic scaling
-    -- policy state change.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The code indicating the reason for the change in status.@USER_REQUEST@
+  { -- | The code indicating the reason for the change in status.@USER_REQUEST@
     -- indicates that the scaling policy status was changed by a user.
     -- @PROVISION_FAILURE@ indicates that the status change was because the
     -- policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
-    code :: Prelude.Maybe AutoScalingPolicyStateChangeReasonCode
+    code :: Prelude.Maybe AutoScalingPolicyStateChangeReasonCode,
+    -- | A friendly, more verbose message that accompanies an automatic scaling
+    -- policy state change.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'autoScalingPolicyStateChangeReason_message' - A friendly, more verbose message that accompanies an automatic scaling
--- policy state change.
---
 -- 'code', 'autoScalingPolicyStateChangeReason_code' - The code indicating the reason for the change in status.@USER_REQUEST@
 -- indicates that the scaling policy status was changed by a user.
 -- @PROVISION_FAILURE@ indicates that the status change was because the
 -- policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
+--
+-- 'message', 'autoScalingPolicyStateChangeReason_message' - A friendly, more verbose message that accompanies an automatic scaling
+-- policy state change.
 newAutoScalingPolicyStateChangeReason ::
   AutoScalingPolicyStateChangeReason
 newAutoScalingPolicyStateChangeReason =
   AutoScalingPolicyStateChangeReason'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | A friendly, more verbose message that accompanies an automatic scaling
--- policy state change.
-autoScalingPolicyStateChangeReason_message :: Lens.Lens' AutoScalingPolicyStateChangeReason (Prelude.Maybe Prelude.Text)
-autoScalingPolicyStateChangeReason_message = Lens.lens (\AutoScalingPolicyStateChangeReason' {message} -> message) (\s@AutoScalingPolicyStateChangeReason' {} a -> s {message = a} :: AutoScalingPolicyStateChangeReason)
 
 -- | The code indicating the reason for the change in status.@USER_REQUEST@
 -- indicates that the scaling policy status was changed by a user.
@@ -75,6 +70,11 @@ autoScalingPolicyStateChangeReason_message = Lens.lens (\AutoScalingPolicyStateC
 -- policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
 autoScalingPolicyStateChangeReason_code :: Lens.Lens' AutoScalingPolicyStateChangeReason (Prelude.Maybe AutoScalingPolicyStateChangeReasonCode)
 autoScalingPolicyStateChangeReason_code = Lens.lens (\AutoScalingPolicyStateChangeReason' {code} -> code) (\s@AutoScalingPolicyStateChangeReason' {} a -> s {code = a} :: AutoScalingPolicyStateChangeReason)
+
+-- | A friendly, more verbose message that accompanies an automatic scaling
+-- policy state change.
+autoScalingPolicyStateChangeReason_message :: Lens.Lens' AutoScalingPolicyStateChangeReason (Prelude.Maybe Prelude.Text)
+autoScalingPolicyStateChangeReason_message = Lens.lens (\AutoScalingPolicyStateChangeReason' {message} -> message) (\s@AutoScalingPolicyStateChangeReason' {} a -> s {message = a} :: AutoScalingPolicyStateChangeReason)
 
 instance
   Data.FromJSON
@@ -85,8 +85,8 @@ instance
       "AutoScalingPolicyStateChangeReason"
       ( \x ->
           AutoScalingPolicyStateChangeReason'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance
@@ -96,12 +96,12 @@ instance
   hashWithSalt
     _salt
     AutoScalingPolicyStateChangeReason' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     AutoScalingPolicyStateChangeReason
   where
   rnf AutoScalingPolicyStateChangeReason' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

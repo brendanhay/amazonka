@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
-  { -- | Custom policy for requesting termination protection or termination of
-    -- specific instances when shrinking an instance group.
-    instanceResizePolicy :: Prelude.Maybe InstanceResizePolicy,
-    -- | The desired timeout for decommissioning an instance. Overrides the
+  { -- | The desired timeout for decommissioning an instance. Overrides the
     -- default YARN decommissioning timeout.
-    decommissionTimeout :: Prelude.Maybe Prelude.Int
+    decommissionTimeout :: Prelude.Maybe Prelude.Int,
+    -- | Custom policy for requesting termination protection or termination of
+    -- specific instances when shrinking an instance group.
+    instanceResizePolicy :: Prelude.Maybe InstanceResizePolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data ShrinkPolicy = ShrinkPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceResizePolicy', 'shrinkPolicy_instanceResizePolicy' - Custom policy for requesting termination protection or termination of
--- specific instances when shrinking an instance group.
---
 -- 'decommissionTimeout', 'shrinkPolicy_decommissionTimeout' - The desired timeout for decommissioning an instance. Overrides the
 -- default YARN decommissioning timeout.
+--
+-- 'instanceResizePolicy', 'shrinkPolicy_instanceResizePolicy' - Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
 newShrinkPolicy ::
   ShrinkPolicy
 newShrinkPolicy =
   ShrinkPolicy'
-    { instanceResizePolicy =
+    { decommissionTimeout =
         Prelude.Nothing,
-      decommissionTimeout = Prelude.Nothing
+      instanceResizePolicy = Prelude.Nothing
     }
-
--- | Custom policy for requesting termination protection or termination of
--- specific instances when shrinking an instance group.
-shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Prelude.Maybe InstanceResizePolicy)
-shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePolicy} -> instanceResizePolicy) (\s@ShrinkPolicy' {} a -> s {instanceResizePolicy = a} :: ShrinkPolicy)
 
 -- | The desired timeout for decommissioning an instance. Overrides the
 -- default YARN decommissioning timeout.
 shrinkPolicy_decommissionTimeout :: Lens.Lens' ShrinkPolicy (Prelude.Maybe Prelude.Int)
 shrinkPolicy_decommissionTimeout = Lens.lens (\ShrinkPolicy' {decommissionTimeout} -> decommissionTimeout) (\s@ShrinkPolicy' {} a -> s {decommissionTimeout = a} :: ShrinkPolicy)
+
+-- | Custom policy for requesting termination protection or termination of
+-- specific instances when shrinking an instance group.
+shrinkPolicy_instanceResizePolicy :: Lens.Lens' ShrinkPolicy (Prelude.Maybe InstanceResizePolicy)
+shrinkPolicy_instanceResizePolicy = Lens.lens (\ShrinkPolicy' {instanceResizePolicy} -> instanceResizePolicy) (\s@ShrinkPolicy' {} a -> s {instanceResizePolicy = a} :: ShrinkPolicy)
 
 instance Data.FromJSON ShrinkPolicy where
   parseJSON =
@@ -77,27 +77,27 @@ instance Data.FromJSON ShrinkPolicy where
       "ShrinkPolicy"
       ( \x ->
           ShrinkPolicy'
-            Prelude.<$> (x Data..:? "InstanceResizePolicy")
-            Prelude.<*> (x Data..:? "DecommissionTimeout")
+            Prelude.<$> (x Data..:? "DecommissionTimeout")
+            Prelude.<*> (x Data..:? "InstanceResizePolicy")
       )
 
 instance Prelude.Hashable ShrinkPolicy where
   hashWithSalt _salt ShrinkPolicy' {..} =
-    _salt `Prelude.hashWithSalt` instanceResizePolicy
-      `Prelude.hashWithSalt` decommissionTimeout
+    _salt `Prelude.hashWithSalt` decommissionTimeout
+      `Prelude.hashWithSalt` instanceResizePolicy
 
 instance Prelude.NFData ShrinkPolicy where
   rnf ShrinkPolicy' {..} =
-    Prelude.rnf instanceResizePolicy
-      `Prelude.seq` Prelude.rnf decommissionTimeout
+    Prelude.rnf decommissionTimeout
+      `Prelude.seq` Prelude.rnf instanceResizePolicy
 
 instance Data.ToJSON ShrinkPolicy where
   toJSON ShrinkPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InstanceResizePolicy" Data..=)
-              Prelude.<$> instanceResizePolicy,
-            ("DecommissionTimeout" Data..=)
-              Prelude.<$> decommissionTimeout
+          [ ("DecommissionTimeout" Data..=)
+              Prelude.<$> decommissionTimeout,
+            ("InstanceResizePolicy" Data..=)
+              Prelude.<$> instanceResizePolicy
           ]
       )

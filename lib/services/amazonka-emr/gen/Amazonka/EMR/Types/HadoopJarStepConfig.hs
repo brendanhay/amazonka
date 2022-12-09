@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHadoopJarStepConfig' smart constructor.
 data HadoopJarStepConfig = HadoopJarStepConfig'
-  { -- | The name of the main class in the specified Java file. If not specified,
+  { -- | A list of command line arguments passed to the JAR file\'s main function
+    -- when executed.
+    args :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the main class in the specified Java file. If not specified,
     -- the JAR file should specify a Main-Class in its manifest file.
     mainClass :: Prelude.Maybe Prelude.Text,
     -- | A list of Java properties that are set when the step runs. You can use
     -- these properties to pass key-value pairs to your main function.
     properties :: Prelude.Maybe [KeyValue],
-    -- | A list of command line arguments passed to the JAR file\'s main function
-    -- when executed.
-    args :: Prelude.Maybe [Prelude.Text],
     -- | A path to a JAR file run during the step.
     jar :: Prelude.Text
   }
@@ -53,14 +53,14 @@ data HadoopJarStepConfig = HadoopJarStepConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'args', 'hadoopJarStepConfig_args' - A list of command line arguments passed to the JAR file\'s main function
+-- when executed.
+--
 -- 'mainClass', 'hadoopJarStepConfig_mainClass' - The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a Main-Class in its manifest file.
 --
 -- 'properties', 'hadoopJarStepConfig_properties' - A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key-value pairs to your main function.
---
--- 'args', 'hadoopJarStepConfig_args' - A list of command line arguments passed to the JAR file\'s main function
--- when executed.
 --
 -- 'jar', 'hadoopJarStepConfig_jar' - A path to a JAR file run during the step.
 newHadoopJarStepConfig ::
@@ -69,11 +69,16 @@ newHadoopJarStepConfig ::
   HadoopJarStepConfig
 newHadoopJarStepConfig pJar_ =
   HadoopJarStepConfig'
-    { mainClass = Prelude.Nothing,
+    { args = Prelude.Nothing,
+      mainClass = Prelude.Nothing,
       properties = Prelude.Nothing,
-      args = Prelude.Nothing,
       jar = pJar_
     }
+
+-- | A list of command line arguments passed to the JAR file\'s main function
+-- when executed.
+hadoopJarStepConfig_args :: Lens.Lens' HadoopJarStepConfig (Prelude.Maybe [Prelude.Text])
+hadoopJarStepConfig_args = Lens.lens (\HadoopJarStepConfig' {args} -> args) (\s@HadoopJarStepConfig' {} a -> s {args = a} :: HadoopJarStepConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a Main-Class in its manifest file.
@@ -85,36 +90,31 @@ hadoopJarStepConfig_mainClass = Lens.lens (\HadoopJarStepConfig' {mainClass} -> 
 hadoopJarStepConfig_properties :: Lens.Lens' HadoopJarStepConfig (Prelude.Maybe [KeyValue])
 hadoopJarStepConfig_properties = Lens.lens (\HadoopJarStepConfig' {properties} -> properties) (\s@HadoopJarStepConfig' {} a -> s {properties = a} :: HadoopJarStepConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of command line arguments passed to the JAR file\'s main function
--- when executed.
-hadoopJarStepConfig_args :: Lens.Lens' HadoopJarStepConfig (Prelude.Maybe [Prelude.Text])
-hadoopJarStepConfig_args = Lens.lens (\HadoopJarStepConfig' {args} -> args) (\s@HadoopJarStepConfig' {} a -> s {args = a} :: HadoopJarStepConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | A path to a JAR file run during the step.
 hadoopJarStepConfig_jar :: Lens.Lens' HadoopJarStepConfig Prelude.Text
 hadoopJarStepConfig_jar = Lens.lens (\HadoopJarStepConfig' {jar} -> jar) (\s@HadoopJarStepConfig' {} a -> s {jar = a} :: HadoopJarStepConfig)
 
 instance Prelude.Hashable HadoopJarStepConfig where
   hashWithSalt _salt HadoopJarStepConfig' {..} =
-    _salt `Prelude.hashWithSalt` mainClass
+    _salt `Prelude.hashWithSalt` args
+      `Prelude.hashWithSalt` mainClass
       `Prelude.hashWithSalt` properties
-      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` jar
 
 instance Prelude.NFData HadoopJarStepConfig where
   rnf HadoopJarStepConfig' {..} =
-    Prelude.rnf mainClass
+    Prelude.rnf args
+      `Prelude.seq` Prelude.rnf mainClass
       `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf args
       `Prelude.seq` Prelude.rnf jar
 
 instance Data.ToJSON HadoopJarStepConfig where
   toJSON HadoopJarStepConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MainClass" Data..=) Prelude.<$> mainClass,
+          [ ("Args" Data..=) Prelude.<$> args,
+            ("MainClass" Data..=) Prelude.<$> mainClass,
             ("Properties" Data..=) Prelude.<$> properties,
-            ("Args" Data..=) Prelude.<$> args,
             Prelude.Just ("Jar" Data..= jar)
           ]
       )

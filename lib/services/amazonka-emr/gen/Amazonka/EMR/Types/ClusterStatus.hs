@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
-  { -- | The reason for the cluster status change.
+  { -- | The current state of the cluster.
+    state :: Prelude.Maybe ClusterState,
+    -- | The reason for the cluster status change.
     stateChangeReason :: Prelude.Maybe ClusterStateChangeReason,
     -- | A timeline that represents the status of a cluster over the lifetime of
     -- the cluster.
-    timeline :: Prelude.Maybe ClusterTimeline,
-    -- | The current state of the cluster.
-    state :: Prelude.Maybe ClusterState
+    timeline :: Prelude.Maybe ClusterTimeline
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,20 +49,24 @@ data ClusterStatus = ClusterStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'clusterStatus_state' - The current state of the cluster.
+--
 -- 'stateChangeReason', 'clusterStatus_stateChangeReason' - The reason for the cluster status change.
 --
 -- 'timeline', 'clusterStatus_timeline' - A timeline that represents the status of a cluster over the lifetime of
 -- the cluster.
---
--- 'state', 'clusterStatus_state' - The current state of the cluster.
 newClusterStatus ::
   ClusterStatus
 newClusterStatus =
   ClusterStatus'
-    { stateChangeReason = Prelude.Nothing,
-      timeline = Prelude.Nothing,
-      state = Prelude.Nothing
+    { state = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
+      timeline = Prelude.Nothing
     }
+
+-- | The current state of the cluster.
+clusterStatus_state :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterState)
+clusterStatus_state = Lens.lens (\ClusterStatus' {state} -> state) (\s@ClusterStatus' {} a -> s {state = a} :: ClusterStatus)
 
 -- | The reason for the cluster status change.
 clusterStatus_stateChangeReason :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterStateChangeReason)
@@ -73,29 +77,25 @@ clusterStatus_stateChangeReason = Lens.lens (\ClusterStatus' {stateChangeReason}
 clusterStatus_timeline :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterTimeline)
 clusterStatus_timeline = Lens.lens (\ClusterStatus' {timeline} -> timeline) (\s@ClusterStatus' {} a -> s {timeline = a} :: ClusterStatus)
 
--- | The current state of the cluster.
-clusterStatus_state :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterState)
-clusterStatus_state = Lens.lens (\ClusterStatus' {state} -> state) (\s@ClusterStatus' {} a -> s {state = a} :: ClusterStatus)
-
 instance Data.FromJSON ClusterStatus where
   parseJSON =
     Data.withObject
       "ClusterStatus"
       ( \x ->
           ClusterStatus'
-            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "StateChangeReason")
             Prelude.<*> (x Data..:? "Timeline")
-            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ClusterStatus where
   hashWithSalt _salt ClusterStatus' {..} =
-    _salt `Prelude.hashWithSalt` stateChangeReason
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
-      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ClusterStatus where
   rnf ClusterStatus' {..} =
-    Prelude.rnf stateChangeReason
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateChangeReason
       `Prelude.seq` Prelude.rnf timeline
-      `Prelude.seq` Prelude.rnf state

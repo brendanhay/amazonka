@@ -27,10 +27,10 @@ module Amazonka.EMR.CreateStudio
     newCreateStudio,
 
     -- * Request Lenses
-    createStudio_tags,
-    createStudio_idpRelayStateParameterName,
-    createStudio_idpAuthUrl,
     createStudio_description,
+    createStudio_idpAuthUrl,
+    createStudio_idpRelayStateParameterName,
+    createStudio_tags,
     createStudio_userRole,
     createStudio_name,
     createStudio_authMode,
@@ -62,25 +62,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
-  { -- | A list of tags to associate with the Amazon EMR Studio. Tags are
-    -- user-defined key-value pairs that consist of a required key string with
-    -- a maximum of 128 characters, and an optional value string with a maximum
-    -- of 256 characters.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name that your identity provider (IdP) uses for its @RelayState@
-    -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
-    -- value when you use IAM authentication and want to let federated users
-    -- log in to a Studio using the Studio URL. The @RelayState@ parameter
-    -- differs by IdP.
-    idpRelayStateParameterName :: Prelude.Maybe Prelude.Text,
+  { -- | A detailed description of the Amazon EMR Studio.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The authentication endpoint of your identity provider (IdP). Specify
     -- this value when you use IAM authentication and want to let federated
     -- users log in to a Studio with the Studio URL and credentials from your
     -- IdP. Amazon EMR Studio redirects users to this endpoint to enter
     -- credentials.
     idpAuthUrl :: Prelude.Maybe Prelude.Text,
-    -- | A detailed description of the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The name that your identity provider (IdP) uses for its @RelayState@
+    -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+    -- value when you use IAM authentication and want to let federated users
+    -- log in to a Studio using the Studio URL. The @RelayState@ parameter
+    -- differs by IdP.
+    idpRelayStateParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to associate with the Amazon EMR Studio. Tags are
+    -- user-defined key-value pairs that consist of a required key string with
+    -- a maximum of 128 characters, and an optional value string with a maximum
+    -- of 256 characters.
+    tags :: Prelude.Maybe [Tag],
     -- | The IAM user role that users and groups assume when logged in to an
     -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
     -- Services SSO authentication. The permissions attached to the @UserRole@
@@ -126,16 +126,7 @@ data CreateStudio = CreateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStudio_tags' - A list of tags to associate with the Amazon EMR Studio. Tags are
--- user-defined key-value pairs that consist of a required key string with
--- a maximum of 128 characters, and an optional value string with a maximum
--- of 256 characters.
---
--- 'idpRelayStateParameterName', 'createStudio_idpRelayStateParameterName' - The name that your identity provider (IdP) uses for its @RelayState@
--- parameter. For example, @RelayState@ or @TargetSource@. Specify this
--- value when you use IAM authentication and want to let federated users
--- log in to a Studio using the Studio URL. The @RelayState@ parameter
--- differs by IdP.
+-- 'description', 'createStudio_description' - A detailed description of the Amazon EMR Studio.
 --
 -- 'idpAuthUrl', 'createStudio_idpAuthUrl' - The authentication endpoint of your identity provider (IdP). Specify
 -- this value when you use IAM authentication and want to let federated
@@ -143,7 +134,16 @@ data CreateStudio = CreateStudio'
 -- IdP. Amazon EMR Studio redirects users to this endpoint to enter
 -- credentials.
 --
--- 'description', 'createStudio_description' - A detailed description of the Amazon EMR Studio.
+-- 'idpRelayStateParameterName', 'createStudio_idpRelayStateParameterName' - The name that your identity provider (IdP) uses for its @RelayState@
+-- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+-- value when you use IAM authentication and want to let federated users
+-- log in to a Studio using the Studio URL. The @RelayState@ parameter
+-- differs by IdP.
+--
+-- 'tags', 'createStudio_tags' - A list of tags to associate with the Amazon EMR Studio. Tags are
+-- user-defined key-value pairs that consist of a required key string with
+-- a maximum of 128 characters, and an optional value string with a maximum
+-- of 256 characters.
 --
 -- 'userRole', 'createStudio_userRole' - The IAM user role that users and groups assume when logged in to an
 -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
@@ -203,10 +203,10 @@ newCreateStudio
   pEngineSecurityGroupId_
   pDefaultS3Location_ =
     CreateStudio'
-      { tags = Prelude.Nothing,
-        idpRelayStateParameterName = Prelude.Nothing,
+      { description = Prelude.Nothing,
         idpAuthUrl = Prelude.Nothing,
-        description = Prelude.Nothing,
+        idpRelayStateParameterName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         userRole = Prelude.Nothing,
         name = pName_,
         authMode = pAuthMode_,
@@ -219,20 +219,9 @@ newCreateStudio
         defaultS3Location = pDefaultS3Location_
       }
 
--- | A list of tags to associate with the Amazon EMR Studio. Tags are
--- user-defined key-value pairs that consist of a required key string with
--- a maximum of 128 characters, and an optional value string with a maximum
--- of 256 characters.
-createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
-createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
-
--- | The name that your identity provider (IdP) uses for its @RelayState@
--- parameter. For example, @RelayState@ or @TargetSource@. Specify this
--- value when you use IAM authentication and want to let federated users
--- log in to a Studio using the Studio URL. The @RelayState@ parameter
--- differs by IdP.
-createStudio_idpRelayStateParameterName :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
-createStudio_idpRelayStateParameterName = Lens.lens (\CreateStudio' {idpRelayStateParameterName} -> idpRelayStateParameterName) (\s@CreateStudio' {} a -> s {idpRelayStateParameterName = a} :: CreateStudio)
+-- | A detailed description of the Amazon EMR Studio.
+createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_description = Lens.lens (\CreateStudio' {description} -> description) (\s@CreateStudio' {} a -> s {description = a} :: CreateStudio)
 
 -- | The authentication endpoint of your identity provider (IdP). Specify
 -- this value when you use IAM authentication and want to let federated
@@ -242,9 +231,20 @@ createStudio_idpRelayStateParameterName = Lens.lens (\CreateStudio' {idpRelaySta
 createStudio_idpAuthUrl :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
 createStudio_idpAuthUrl = Lens.lens (\CreateStudio' {idpAuthUrl} -> idpAuthUrl) (\s@CreateStudio' {} a -> s {idpAuthUrl = a} :: CreateStudio)
 
--- | A detailed description of the Amazon EMR Studio.
-createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
-createStudio_description = Lens.lens (\CreateStudio' {description} -> description) (\s@CreateStudio' {} a -> s {description = a} :: CreateStudio)
+-- | The name that your identity provider (IdP) uses for its @RelayState@
+-- parameter. For example, @RelayState@ or @TargetSource@. Specify this
+-- value when you use IAM authentication and want to let federated users
+-- log in to a Studio using the Studio URL. The @RelayState@ parameter
+-- differs by IdP.
+createStudio_idpRelayStateParameterName :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_idpRelayStateParameterName = Lens.lens (\CreateStudio' {idpRelayStateParameterName} -> idpRelayStateParameterName) (\s@CreateStudio' {} a -> s {idpRelayStateParameterName = a} :: CreateStudio)
+
+-- | A list of tags to associate with the Amazon EMR Studio. Tags are
+-- user-defined key-value pairs that consist of a required key string with
+-- a maximum of 128 characters, and an optional value string with a maximum
+-- of 256 characters.
+createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
+createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IAM user role that users and groups assume when logged in to an
 -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
@@ -313,10 +313,10 @@ instance Core.AWSRequest CreateStudio where
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` idpRelayStateParameterName
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` idpAuthUrl
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` idpRelayStateParameterName
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userRole
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` authMode
@@ -329,10 +329,10 @@ instance Prelude.Hashable CreateStudio where
 
 instance Prelude.NFData CreateStudio where
   rnf CreateStudio' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf idpAuthUrl
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf idpRelayStateParameterName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userRole
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf authMode
@@ -362,11 +362,11 @@ instance Data.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("IdpAuthUrl" Data..=) Prelude.<$> idpAuthUrl,
             ("IdpRelayStateParameterName" Data..=)
               Prelude.<$> idpRelayStateParameterName,
-            ("IdpAuthUrl" Data..=) Prelude.<$> idpAuthUrl,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("UserRole" Data..=) Prelude.<$> userRole,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("AuthMode" Data..= authMode),

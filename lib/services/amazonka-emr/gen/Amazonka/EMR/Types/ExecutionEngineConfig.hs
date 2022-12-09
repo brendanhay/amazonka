@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionEngineConfig' smart constructor.
 data ExecutionEngineConfig = ExecutionEngineConfig'
-  { -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
-    type' :: Prelude.Maybe ExecutionEngineType,
-    -- | An optional unique ID of an EC2 security group to associate with the
+  { -- | An optional unique ID of an EC2 security group to associate with the
     -- master instance of the EMR cluster for this notebook execution. For more
     -- information see
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
     -- in the /EMR Management Guide/.
     masterInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
+    type' :: Prelude.Maybe ExecutionEngineType,
     -- | The unique identifier of the execution engine. For an EMR cluster, this
     -- is the cluster ID.
     id :: Prelude.Text
@@ -52,13 +52,13 @@ data ExecutionEngineConfig = ExecutionEngineConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'executionEngineConfig_type' - The type of execution engine. A value of @EMR@ specifies an EMR cluster.
---
 -- 'masterInstanceSecurityGroupId', 'executionEngineConfig_masterInstanceSecurityGroupId' - An optional unique ID of an EC2 security group to associate with the
 -- master instance of the EMR cluster for this notebook execution. For more
 -- information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
 -- in the /EMR Management Guide/.
+--
+-- 'type'', 'executionEngineConfig_type' - The type of execution engine. A value of @EMR@ specifies an EMR cluster.
 --
 -- 'id', 'executionEngineConfig_id' - The unique identifier of the execution engine. For an EMR cluster, this
 -- is the cluster ID.
@@ -68,14 +68,11 @@ newExecutionEngineConfig ::
   ExecutionEngineConfig
 newExecutionEngineConfig pId_ =
   ExecutionEngineConfig'
-    { type' = Prelude.Nothing,
-      masterInstanceSecurityGroupId = Prelude.Nothing,
+    { masterInstanceSecurityGroupId =
+        Prelude.Nothing,
+      type' = Prelude.Nothing,
       id = pId_
     }
-
--- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
-executionEngineConfig_type :: Lens.Lens' ExecutionEngineConfig (Prelude.Maybe ExecutionEngineType)
-executionEngineConfig_type = Lens.lens (\ExecutionEngineConfig' {type'} -> type') (\s@ExecutionEngineConfig' {} a -> s {type' = a} :: ExecutionEngineConfig)
 
 -- | An optional unique ID of an EC2 security group to associate with the
 -- master instance of the EMR cluster for this notebook execution. For more
@@ -84,6 +81,10 @@ executionEngineConfig_type = Lens.lens (\ExecutionEngineConfig' {type'} -> type'
 -- in the /EMR Management Guide/.
 executionEngineConfig_masterInstanceSecurityGroupId :: Lens.Lens' ExecutionEngineConfig (Prelude.Maybe Prelude.Text)
 executionEngineConfig_masterInstanceSecurityGroupId = Lens.lens (\ExecutionEngineConfig' {masterInstanceSecurityGroupId} -> masterInstanceSecurityGroupId) (\s@ExecutionEngineConfig' {} a -> s {masterInstanceSecurityGroupId = a} :: ExecutionEngineConfig)
+
+-- | The type of execution engine. A value of @EMR@ specifies an EMR cluster.
+executionEngineConfig_type :: Lens.Lens' ExecutionEngineConfig (Prelude.Maybe ExecutionEngineType)
+executionEngineConfig_type = Lens.lens (\ExecutionEngineConfig' {type'} -> type') (\s@ExecutionEngineConfig' {} a -> s {type' = a} :: ExecutionEngineConfig)
 
 -- | The unique identifier of the execution engine. For an EMR cluster, this
 -- is the cluster ID.
@@ -96,30 +97,31 @@ instance Data.FromJSON ExecutionEngineConfig where
       "ExecutionEngineConfig"
       ( \x ->
           ExecutionEngineConfig'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "MasterInstanceSecurityGroupId")
+            Prelude.<$> (x Data..:? "MasterInstanceSecurityGroupId")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable ExecutionEngineConfig where
   hashWithSalt _salt ExecutionEngineConfig' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
       `Prelude.hashWithSalt` masterInstanceSecurityGroupId
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ExecutionEngineConfig where
   rnf ExecutionEngineConfig' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf masterInstanceSecurityGroupId
+    Prelude.rnf masterInstanceSecurityGroupId
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToJSON ExecutionEngineConfig where
   toJSON ExecutionEngineConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("MasterInstanceSecurityGroupId" Data..=)
+          [ ("MasterInstanceSecurityGroupId" Data..=)
               Prelude.<$> masterInstanceSecurityGroupId,
+            ("Type" Data..=) Prelude.<$> type',
             Prelude.Just ("Id" Data..= id)
           ]
       )

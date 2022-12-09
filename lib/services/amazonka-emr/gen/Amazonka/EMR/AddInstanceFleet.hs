@@ -39,8 +39,8 @@ module Amazonka.EMR.AddInstanceFleet
 
     -- * Response Lenses
     addInstanceFleetResponse_clusterArn,
-    addInstanceFleetResponse_instanceFleetId,
     addInstanceFleetResponse_clusterId,
+    addInstanceFleetResponse_instanceFleetId,
     addInstanceFleetResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest AddInstanceFleet where
       ( \s h x ->
           AddInstanceFleetResponse'
             Prelude.<$> (x Data..?> "ClusterArn")
-            Prelude.<*> (x Data..?> "InstanceFleetId")
             Prelude.<*> (x Data..?> "ClusterId")
+            Prelude.<*> (x Data..?> "InstanceFleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,10 +154,10 @@ instance Data.ToQuery AddInstanceFleet where
 data AddInstanceFleetResponse = AddInstanceFleetResponse'
   { -- | The Amazon Resource Name of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the instance fleet.
-    instanceFleetId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the cluster.
     clusterId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the instance fleet.
+    instanceFleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data AddInstanceFleetResponse = AddInstanceFleetResponse'
 --
 -- 'clusterArn', 'addInstanceFleetResponse_clusterArn' - The Amazon Resource Name of the cluster.
 --
--- 'instanceFleetId', 'addInstanceFleetResponse_instanceFleetId' - The unique identifier of the instance fleet.
---
 -- 'clusterId', 'addInstanceFleetResponse_clusterId' - The unique identifier of the cluster.
+--
+-- 'instanceFleetId', 'addInstanceFleetResponse_instanceFleetId' - The unique identifier of the instance fleet.
 --
 -- 'httpStatus', 'addInstanceFleetResponse_httpStatus' - The response's http status code.
 newAddInstanceFleetResponse ::
@@ -186,8 +186,8 @@ newAddInstanceFleetResponse pHttpStatus_ =
   AddInstanceFleetResponse'
     { clusterArn =
         Prelude.Nothing,
-      instanceFleetId = Prelude.Nothing,
       clusterId = Prelude.Nothing,
+      instanceFleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -195,13 +195,13 @@ newAddInstanceFleetResponse pHttpStatus_ =
 addInstanceFleetResponse_clusterArn :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
 addInstanceFleetResponse_clusterArn = Lens.lens (\AddInstanceFleetResponse' {clusterArn} -> clusterArn) (\s@AddInstanceFleetResponse' {} a -> s {clusterArn = a} :: AddInstanceFleetResponse)
 
--- | The unique identifier of the instance fleet.
-addInstanceFleetResponse_instanceFleetId :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
-addInstanceFleetResponse_instanceFleetId = Lens.lens (\AddInstanceFleetResponse' {instanceFleetId} -> instanceFleetId) (\s@AddInstanceFleetResponse' {} a -> s {instanceFleetId = a} :: AddInstanceFleetResponse)
-
 -- | The unique identifier of the cluster.
 addInstanceFleetResponse_clusterId :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
 addInstanceFleetResponse_clusterId = Lens.lens (\AddInstanceFleetResponse' {clusterId} -> clusterId) (\s@AddInstanceFleetResponse' {} a -> s {clusterId = a} :: AddInstanceFleetResponse)
+
+-- | The unique identifier of the instance fleet.
+addInstanceFleetResponse_instanceFleetId :: Lens.Lens' AddInstanceFleetResponse (Prelude.Maybe Prelude.Text)
+addInstanceFleetResponse_instanceFleetId = Lens.lens (\AddInstanceFleetResponse' {instanceFleetId} -> instanceFleetId) (\s@AddInstanceFleetResponse' {} a -> s {instanceFleetId = a} :: AddInstanceFleetResponse)
 
 -- | The response's http status code.
 addInstanceFleetResponse_httpStatus :: Lens.Lens' AddInstanceFleetResponse Prelude.Int
@@ -210,6 +210,6 @@ addInstanceFleetResponse_httpStatus = Lens.lens (\AddInstanceFleetResponse' {htt
 instance Prelude.NFData AddInstanceFleetResponse where
   rnf AddInstanceFleetResponse' {..} =
     Prelude.rnf clusterArn
-      `Prelude.seq` Prelude.rnf instanceFleetId
       `Prelude.seq` Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf instanceFleetId
       `Prelude.seq` Prelude.rnf httpStatus

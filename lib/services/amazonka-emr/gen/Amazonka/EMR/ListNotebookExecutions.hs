@@ -33,11 +33,11 @@ module Amazonka.EMR.ListNotebookExecutions
     newListNotebookExecutions,
 
     -- * Request Lenses
-    listNotebookExecutions_marker,
-    listNotebookExecutions_from,
-    listNotebookExecutions_to,
-    listNotebookExecutions_status,
     listNotebookExecutions_editorId,
+    listNotebookExecutions_from,
+    listNotebookExecutions_marker,
+    listNotebookExecutions_status,
+    listNotebookExecutions_to,
 
     -- * Destructuring the Response
     ListNotebookExecutionsResponse (..),
@@ -60,16 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNotebookExecutions' smart constructor.
 data ListNotebookExecutions = ListNotebookExecutions'
-  { -- | The pagination token, returned by a previous @ListNotebookExecutions@
-    -- call, that indicates the start of the list for this
-    -- @ListNotebookExecutions@ call.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | The unique ID of the editor associated with the notebook execution.
+    editorId :: Prelude.Maybe Prelude.Text,
     -- | The beginning of time range filter for listing notebook executions. The
     -- default is the timestamp of 30 days ago.
     from :: Prelude.Maybe Data.POSIX,
-    -- | The end of time range filter for listing notebook executions. The
-    -- default is the current timestamp.
-    to :: Prelude.Maybe Data.POSIX,
+    -- | The pagination token, returned by a previous @ListNotebookExecutions@
+    -- call, that indicates the start of the list for this
+    -- @ListNotebookExecutions@ call.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The status filter for listing notebook executions.
     --
     -- -   @START_PENDING@ indicates that the cluster has received the
@@ -99,8 +98,9 @@ data ListNotebookExecutions = ListNotebookExecutions'
     -- -   @STOPPED@ indicates that the execution stopped because of a
     --     @StopNotebookExecution@ request.
     status :: Prelude.Maybe NotebookExecutionStatus,
-    -- | The unique ID of the editor associated with the notebook execution.
-    editorId :: Prelude.Maybe Prelude.Text
+    -- | The end of time range filter for listing notebook executions. The
+    -- default is the current timestamp.
+    to :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,15 +112,14 @@ data ListNotebookExecutions = ListNotebookExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listNotebookExecutions_marker' - The pagination token, returned by a previous @ListNotebookExecutions@
--- call, that indicates the start of the list for this
--- @ListNotebookExecutions@ call.
+-- 'editorId', 'listNotebookExecutions_editorId' - The unique ID of the editor associated with the notebook execution.
 --
 -- 'from', 'listNotebookExecutions_from' - The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
 --
--- 'to', 'listNotebookExecutions_to' - The end of time range filter for listing notebook executions. The
--- default is the current timestamp.
+-- 'marker', 'listNotebookExecutions_marker' - The pagination token, returned by a previous @ListNotebookExecutions@
+-- call, that indicates the start of the list for this
+-- @ListNotebookExecutions@ call.
 --
 -- 'status', 'listNotebookExecutions_status' - The status filter for listing notebook executions.
 --
@@ -151,33 +150,33 @@ data ListNotebookExecutions = ListNotebookExecutions'
 -- -   @STOPPED@ indicates that the execution stopped because of a
 --     @StopNotebookExecution@ request.
 --
--- 'editorId', 'listNotebookExecutions_editorId' - The unique ID of the editor associated with the notebook execution.
+-- 'to', 'listNotebookExecutions_to' - The end of time range filter for listing notebook executions. The
+-- default is the current timestamp.
 newListNotebookExecutions ::
   ListNotebookExecutions
 newListNotebookExecutions =
   ListNotebookExecutions'
-    { marker = Prelude.Nothing,
+    { editorId = Prelude.Nothing,
       from = Prelude.Nothing,
-      to = Prelude.Nothing,
+      marker = Prelude.Nothing,
       status = Prelude.Nothing,
-      editorId = Prelude.Nothing
+      to = Prelude.Nothing
     }
 
--- | The pagination token, returned by a previous @ListNotebookExecutions@
--- call, that indicates the start of the list for this
--- @ListNotebookExecutions@ call.
-listNotebookExecutions_marker :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
-listNotebookExecutions_marker = Lens.lens (\ListNotebookExecutions' {marker} -> marker) (\s@ListNotebookExecutions' {} a -> s {marker = a} :: ListNotebookExecutions)
+-- | The unique ID of the editor associated with the notebook execution.
+listNotebookExecutions_editorId :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
+listNotebookExecutions_editorId = Lens.lens (\ListNotebookExecutions' {editorId} -> editorId) (\s@ListNotebookExecutions' {} a -> s {editorId = a} :: ListNotebookExecutions)
 
 -- | The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
 listNotebookExecutions_from :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
 listNotebookExecutions_from = Lens.lens (\ListNotebookExecutions' {from} -> from) (\s@ListNotebookExecutions' {} a -> s {from = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Data._Time
 
--- | The end of time range filter for listing notebook executions. The
--- default is the current timestamp.
-listNotebookExecutions_to :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
-listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Data._Time
+-- | The pagination token, returned by a previous @ListNotebookExecutions@
+-- call, that indicates the start of the list for this
+-- @ListNotebookExecutions@ call.
+listNotebookExecutions_marker :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
+listNotebookExecutions_marker = Lens.lens (\ListNotebookExecutions' {marker} -> marker) (\s@ListNotebookExecutions' {} a -> s {marker = a} :: ListNotebookExecutions)
 
 -- | The status filter for listing notebook executions.
 --
@@ -210,9 +209,10 @@ listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@
 listNotebookExecutions_status :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe NotebookExecutionStatus)
 listNotebookExecutions_status = Lens.lens (\ListNotebookExecutions' {status} -> status) (\s@ListNotebookExecutions' {} a -> s {status = a} :: ListNotebookExecutions)
 
--- | The unique ID of the editor associated with the notebook execution.
-listNotebookExecutions_editorId :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
-listNotebookExecutions_editorId = Lens.lens (\ListNotebookExecutions' {editorId} -> editorId) (\s@ListNotebookExecutions' {} a -> s {editorId = a} :: ListNotebookExecutions)
+-- | The end of time range filter for listing notebook executions. The
+-- default is the current timestamp.
+listNotebookExecutions_to :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.UTCTime)
+listNotebookExecutions_to = Lens.lens (\ListNotebookExecutions' {to} -> to) (\s@ListNotebookExecutions' {} a -> s {to = a} :: ListNotebookExecutions) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListNotebookExecutions where
   page rq rs
@@ -255,19 +255,19 @@ instance Core.AWSRequest ListNotebookExecutions where
 
 instance Prelude.Hashable ListNotebookExecutions where
   hashWithSalt _salt ListNotebookExecutions' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` editorId
       `Prelude.hashWithSalt` from
-      `Prelude.hashWithSalt` to
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` to
 
 instance Prelude.NFData ListNotebookExecutions where
   rnf ListNotebookExecutions' {..} =
-    Prelude.rnf marker
+    Prelude.rnf editorId
       `Prelude.seq` Prelude.rnf from
-      `Prelude.seq` Prelude.rnf to
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf to
 
 instance Data.ToHeaders ListNotebookExecutions where
   toHeaders =
@@ -288,11 +288,11 @@ instance Data.ToJSON ListNotebookExecutions where
   toJSON ListNotebookExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
+          [ ("EditorId" Data..=) Prelude.<$> editorId,
             ("From" Data..=) Prelude.<$> from,
-            ("To" Data..=) Prelude.<$> to,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("Status" Data..=) Prelude.<$> status,
-            ("EditorId" Data..=) Prelude.<$> editorId
+            ("To" Data..=) Prelude.<$> to
           ]
       )
 

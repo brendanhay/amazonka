@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceFleetTimeline = InstanceFleetTimeline'
   { -- | The time and date the instance fleet was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The time and date the instance fleet was ready to run jobs.
-    readyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The time and date the instance fleet terminated.
-    endDateTime :: Prelude.Maybe Data.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The time and date the instance fleet was ready to run jobs.
+    readyDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,30 @@ data InstanceFleetTimeline = InstanceFleetTimeline'
 --
 -- 'creationDateTime', 'instanceFleetTimeline_creationDateTime' - The time and date the instance fleet was created.
 --
--- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.
---
 -- 'endDateTime', 'instanceFleetTimeline_endDateTime' - The time and date the instance fleet terminated.
+--
+-- 'readyDateTime', 'instanceFleetTimeline_readyDateTime' - The time and date the instance fleet was ready to run jobs.
 newInstanceFleetTimeline ::
   InstanceFleetTimeline
 newInstanceFleetTimeline =
   InstanceFleetTimeline'
     { creationDateTime =
         Prelude.Nothing,
-      readyDateTime = Prelude.Nothing,
-      endDateTime = Prelude.Nothing
+      endDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing
     }
 
 -- | The time and date the instance fleet was created.
 instanceFleetTimeline_creationDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceFleetTimeline_creationDateTime = Lens.lens (\InstanceFleetTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceFleetTimeline' {} a -> s {creationDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Data._Time
 
--- | The time and date the instance fleet was ready to run jobs.
-instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Data._Time
-
 -- | The time and date the instance fleet terminated.
 instanceFleetTimeline_endDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceFleetTimeline_endDateTime = Lens.lens (\InstanceFleetTimeline' {endDateTime} -> endDateTime) (\s@InstanceFleetTimeline' {} a -> s {endDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Data._Time
+
+-- | The time and date the instance fleet was ready to run jobs.
+instanceFleetTimeline_readyDateTime :: Lens.Lens' InstanceFleetTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceFleetTimeline_readyDateTime = Lens.lens (\InstanceFleetTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceFleetTimeline' {} a -> s {readyDateTime = a} :: InstanceFleetTimeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON InstanceFleetTimeline where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON InstanceFleetTimeline where
       ( \x ->
           InstanceFleetTimeline'
             Prelude.<$> (x Data..:? "CreationDateTime")
-            Prelude.<*> (x Data..:? "ReadyDateTime")
             Prelude.<*> (x Data..:? "EndDateTime")
+            Prelude.<*> (x Data..:? "ReadyDateTime")
       )
 
 instance Prelude.Hashable InstanceFleetTimeline where
   hashWithSalt _salt InstanceFleetTimeline' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` readyDateTime
 
 instance Prelude.NFData InstanceFleetTimeline where
   rnf InstanceFleetTimeline' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime

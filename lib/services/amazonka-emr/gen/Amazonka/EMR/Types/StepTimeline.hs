@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data StepTimeline = StepTimeline'
   { -- | The date and time when the cluster step was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The date and time when the cluster step execution started.
-    startDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the cluster step execution completed or failed.
-    endDateTime :: Prelude.Maybe Data.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time when the cluster step execution started.
+    startDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data StepTimeline = StepTimeline'
 --
 -- 'creationDateTime', 'stepTimeline_creationDateTime' - The date and time when the cluster step was created.
 --
--- 'startDateTime', 'stepTimeline_startDateTime' - The date and time when the cluster step execution started.
---
 -- 'endDateTime', 'stepTimeline_endDateTime' - The date and time when the cluster step execution completed or failed.
+--
+-- 'startDateTime', 'stepTimeline_startDateTime' - The date and time when the cluster step execution started.
 newStepTimeline ::
   StepTimeline
 newStepTimeline =
   StepTimeline'
     { creationDateTime = Prelude.Nothing,
-      startDateTime = Prelude.Nothing,
-      endDateTime = Prelude.Nothing
+      endDateTime = Prelude.Nothing,
+      startDateTime = Prelude.Nothing
     }
 
 -- | The date and time when the cluster step was created.
 stepTimeline_creationDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
 stepTimeline_creationDateTime = Lens.lens (\StepTimeline' {creationDateTime} -> creationDateTime) (\s@StepTimeline' {} a -> s {creationDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Data._Time
 
--- | The date and time when the cluster step execution started.
-stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
-stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Data._Time
-
 -- | The date and time when the cluster step execution completed or failed.
 stepTimeline_endDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
 stepTimeline_endDateTime = Lens.lens (\StepTimeline' {endDateTime} -> endDateTime) (\s@StepTimeline' {} a -> s {endDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time when the cluster step execution started.
+stepTimeline_startDateTime :: Lens.Lens' StepTimeline (Prelude.Maybe Prelude.UTCTime)
+stepTimeline_startDateTime = Lens.lens (\StepTimeline' {startDateTime} -> startDateTime) (\s@StepTimeline' {} a -> s {startDateTime = a} :: StepTimeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON StepTimeline where
   parseJSON =
@@ -78,18 +78,18 @@ instance Data.FromJSON StepTimeline where
       ( \x ->
           StepTimeline'
             Prelude.<$> (x Data..:? "CreationDateTime")
-            Prelude.<*> (x Data..:? "StartDateTime")
             Prelude.<*> (x Data..:? "EndDateTime")
+            Prelude.<*> (x Data..:? "StartDateTime")
       )
 
 instance Prelude.Hashable StepTimeline where
   hashWithSalt _salt StepTimeline' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` startDateTime
       `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` startDateTime
 
 instance Prelude.NFData StepTimeline where
   rnf StepTimeline' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf startDateTime
       `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf startDateTime

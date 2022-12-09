@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStepStatus' smart constructor.
 data StepStatus = StepStatus'
-  { -- | The reason for the step execution status change.
-    stateChangeReason :: Prelude.Maybe StepStateChangeReason,
-    -- | The timeline of the cluster step status over time.
-    timeline :: Prelude.Maybe StepTimeline,
+  { -- | The details for the step failure including reason, message, and log file
+    -- path where the root cause was identified.
+    failureDetails :: Prelude.Maybe FailureDetails,
     -- | The execution state of the cluster step.
     state :: Prelude.Maybe StepState,
-    -- | The details for the step failure including reason, message, and log file
-    -- path where the root cause was identified.
-    failureDetails :: Prelude.Maybe FailureDetails
+    -- | The reason for the step execution status change.
+    stateChangeReason :: Prelude.Maybe StepStateChangeReason,
+    -- | The timeline of the cluster step status over time.
+    timeline :: Prelude.Maybe StepTimeline
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,23 +52,32 @@ data StepStatus = StepStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stateChangeReason', 'stepStatus_stateChangeReason' - The reason for the step execution status change.
---
--- 'timeline', 'stepStatus_timeline' - The timeline of the cluster step status over time.
+-- 'failureDetails', 'stepStatus_failureDetails' - The details for the step failure including reason, message, and log file
+-- path where the root cause was identified.
 --
 -- 'state', 'stepStatus_state' - The execution state of the cluster step.
 --
--- 'failureDetails', 'stepStatus_failureDetails' - The details for the step failure including reason, message, and log file
--- path where the root cause was identified.
+-- 'stateChangeReason', 'stepStatus_stateChangeReason' - The reason for the step execution status change.
+--
+-- 'timeline', 'stepStatus_timeline' - The timeline of the cluster step status over time.
 newStepStatus ::
   StepStatus
 newStepStatus =
   StepStatus'
-    { stateChangeReason = Prelude.Nothing,
-      timeline = Prelude.Nothing,
+    { failureDetails = Prelude.Nothing,
       state = Prelude.Nothing,
-      failureDetails = Prelude.Nothing
+      stateChangeReason = Prelude.Nothing,
+      timeline = Prelude.Nothing
     }
+
+-- | The details for the step failure including reason, message, and log file
+-- path where the root cause was identified.
+stepStatus_failureDetails :: Lens.Lens' StepStatus (Prelude.Maybe FailureDetails)
+stepStatus_failureDetails = Lens.lens (\StepStatus' {failureDetails} -> failureDetails) (\s@StepStatus' {} a -> s {failureDetails = a} :: StepStatus)
+
+-- | The execution state of the cluster step.
+stepStatus_state :: Lens.Lens' StepStatus (Prelude.Maybe StepState)
+stepStatus_state = Lens.lens (\StepStatus' {state} -> state) (\s@StepStatus' {} a -> s {state = a} :: StepStatus)
 
 -- | The reason for the step execution status change.
 stepStatus_stateChangeReason :: Lens.Lens' StepStatus (Prelude.Maybe StepStateChangeReason)
@@ -78,37 +87,28 @@ stepStatus_stateChangeReason = Lens.lens (\StepStatus' {stateChangeReason} -> st
 stepStatus_timeline :: Lens.Lens' StepStatus (Prelude.Maybe StepTimeline)
 stepStatus_timeline = Lens.lens (\StepStatus' {timeline} -> timeline) (\s@StepStatus' {} a -> s {timeline = a} :: StepStatus)
 
--- | The execution state of the cluster step.
-stepStatus_state :: Lens.Lens' StepStatus (Prelude.Maybe StepState)
-stepStatus_state = Lens.lens (\StepStatus' {state} -> state) (\s@StepStatus' {} a -> s {state = a} :: StepStatus)
-
--- | The details for the step failure including reason, message, and log file
--- path where the root cause was identified.
-stepStatus_failureDetails :: Lens.Lens' StepStatus (Prelude.Maybe FailureDetails)
-stepStatus_failureDetails = Lens.lens (\StepStatus' {failureDetails} -> failureDetails) (\s@StepStatus' {} a -> s {failureDetails = a} :: StepStatus)
-
 instance Data.FromJSON StepStatus where
   parseJSON =
     Data.withObject
       "StepStatus"
       ( \x ->
           StepStatus'
-            Prelude.<$> (x Data..:? "StateChangeReason")
-            Prelude.<*> (x Data..:? "Timeline")
+            Prelude.<$> (x Data..:? "FailureDetails")
             Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "StateChangeReason")
+            Prelude.<*> (x Data..:? "Timeline")
       )
 
 instance Prelude.Hashable StepStatus where
   hashWithSalt _salt StepStatus' {..} =
-    _salt `Prelude.hashWithSalt` stateChangeReason
-      `Prelude.hashWithSalt` timeline
+    _salt `Prelude.hashWithSalt` failureDetails
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` stateChangeReason
+      `Prelude.hashWithSalt` timeline
 
 instance Prelude.NFData StepStatus where
   rnf StepStatus' {..} =
-    Prelude.rnf stateChangeReason
-      `Prelude.seq` Prelude.rnf timeline
+    Prelude.rnf failureDetails
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf stateChangeReason
+      `Prelude.seq` Prelude.rnf timeline

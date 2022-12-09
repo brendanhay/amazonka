@@ -28,9 +28,9 @@ module Amazonka.EMR.ListReleaseLabels
     newListReleaseLabels,
 
     -- * Request Lenses
-    listReleaseLabels_nextToken,
     listReleaseLabels_filters,
     listReleaseLabels_maxResults,
+    listReleaseLabels_nextToken,
 
     -- * Destructuring the Response
     ListReleaseLabelsResponse (..),
@@ -53,21 +53,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReleaseLabels' smart constructor.
 data ListReleaseLabels = ListReleaseLabels'
-  { -- | Specifies the next page of results. If @NextToken@ is not specified,
+  { -- | Filters the results of the request. @Prefix@ specifies the prefix of
+    -- release labels to return. @Application@ specifies the application
+    -- (with\/without version) of release labels to return.
+    filters :: Prelude.Maybe ReleaseLabelFilter,
+    -- | Defines the maximum number of release labels to return in a single
+    -- response. The default is @100@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the next page of results. If @NextToken@ is not specified,
     -- which is usually the case for the first request of ListReleaseLabels,
     -- the first page of results are determined by other filtering parameters
     -- or by the latest version. The @ListReleaseLabels@ request fails if the
     -- identity (Amazon Web Services account ID) and all filtering parameters
     -- are different from the original request, or if the @NextToken@ is
     -- expired or tampered with.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results of the request. @Prefix@ specifies the prefix of
-    -- release labels to return. @Application@ specifies the application
-    -- (with\/without version) of release labels to return.
-    filters :: Prelude.Maybe ReleaseLabelFilter,
-    -- | Defines the maximum number of release labels to return in a single
-    -- response. The default is @100@.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,13 @@ data ListReleaseLabels = ListReleaseLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listReleaseLabels_filters' - Filters the results of the request. @Prefix@ specifies the prefix of
+-- release labels to return. @Application@ specifies the application
+-- (with\/without version) of release labels to return.
+--
+-- 'maxResults', 'listReleaseLabels_maxResults' - Defines the maximum number of release labels to return in a single
+-- response. The default is @100@.
+--
 -- 'nextToken', 'listReleaseLabels_nextToken' - Specifies the next page of results. If @NextToken@ is not specified,
 -- which is usually the case for the first request of ListReleaseLabels,
 -- the first page of results are determined by other filtering parameters
@@ -86,31 +93,14 @@ data ListReleaseLabels = ListReleaseLabels'
 -- identity (Amazon Web Services account ID) and all filtering parameters
 -- are different from the original request, or if the @NextToken@ is
 -- expired or tampered with.
---
--- 'filters', 'listReleaseLabels_filters' - Filters the results of the request. @Prefix@ specifies the prefix of
--- release labels to return. @Application@ specifies the application
--- (with\/without version) of release labels to return.
---
--- 'maxResults', 'listReleaseLabels_maxResults' - Defines the maximum number of release labels to return in a single
--- response. The default is @100@.
 newListReleaseLabels ::
   ListReleaseLabels
 newListReleaseLabels =
   ListReleaseLabels'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Specifies the next page of results. If @NextToken@ is not specified,
--- which is usually the case for the first request of ListReleaseLabels,
--- the first page of results are determined by other filtering parameters
--- or by the latest version. The @ListReleaseLabels@ request fails if the
--- identity (Amazon Web Services account ID) and all filtering parameters
--- are different from the original request, or if the @NextToken@ is
--- expired or tampered with.
-listReleaseLabels_nextToken :: Lens.Lens' ListReleaseLabels (Prelude.Maybe Prelude.Text)
-listReleaseLabels_nextToken = Lens.lens (\ListReleaseLabels' {nextToken} -> nextToken) (\s@ListReleaseLabels' {} a -> s {nextToken = a} :: ListReleaseLabels)
 
 -- | Filters the results of the request. @Prefix@ specifies the prefix of
 -- release labels to return. @Application@ specifies the application
@@ -122,6 +112,16 @@ listReleaseLabels_filters = Lens.lens (\ListReleaseLabels' {filters} -> filters)
 -- response. The default is @100@.
 listReleaseLabels_maxResults :: Lens.Lens' ListReleaseLabels (Prelude.Maybe Prelude.Natural)
 listReleaseLabels_maxResults = Lens.lens (\ListReleaseLabels' {maxResults} -> maxResults) (\s@ListReleaseLabels' {} a -> s {maxResults = a} :: ListReleaseLabels)
+
+-- | Specifies the next page of results. If @NextToken@ is not specified,
+-- which is usually the case for the first request of ListReleaseLabels,
+-- the first page of results are determined by other filtering parameters
+-- or by the latest version. The @ListReleaseLabels@ request fails if the
+-- identity (Amazon Web Services account ID) and all filtering parameters
+-- are different from the original request, or if the @NextToken@ is
+-- expired or tampered with.
+listReleaseLabels_nextToken :: Lens.Lens' ListReleaseLabels (Prelude.Maybe Prelude.Text)
+listReleaseLabels_nextToken = Lens.lens (\ListReleaseLabels' {nextToken} -> nextToken) (\s@ListReleaseLabels' {} a -> s {nextToken = a} :: ListReleaseLabels)
 
 instance Core.AWSRequest ListReleaseLabels where
   type
@@ -140,15 +140,15 @@ instance Core.AWSRequest ListReleaseLabels where
 
 instance Prelude.Hashable ListReleaseLabels where
   hashWithSalt _salt ListReleaseLabels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReleaseLabels where
   rnf ListReleaseLabels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReleaseLabels where
   toHeaders =
@@ -169,9 +169,9 @@ instance Data.ToJSON ListReleaseLabels where
   toJSON ListReleaseLabels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

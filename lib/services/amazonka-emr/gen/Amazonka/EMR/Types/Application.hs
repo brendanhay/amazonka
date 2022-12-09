@@ -39,14 +39,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplication' smart constructor.
 data Application = Application'
-  { -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | This option is for advanced users only. This is meta information about
+  { -- | This option is for advanced users only. This is meta information about
     -- third-party applications that third-party vendors use for testing
     -- purposes.
     additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Arguments for Amazon EMR to pass to the application.
     args :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the application.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the application.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -60,28 +60,24 @@ data Application = Application'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'application_name' - The name of the application.
---
 -- 'additionalInfo', 'application_additionalInfo' - This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
 --
 -- 'args', 'application_args' - Arguments for Amazon EMR to pass to the application.
 --
+-- 'name', 'application_name' - The name of the application.
+--
 -- 'version', 'application_version' - The version of the application.
 newApplication ::
   Application
 newApplication =
   Application'
-    { name = Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
+    { additionalInfo = Prelude.Nothing,
       args = Prelude.Nothing,
+      name = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the application.
-application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
@@ -93,6 +89,10 @@ application_additionalInfo = Lens.lens (\Application' {additionalInfo} -> additi
 application_args :: Lens.Lens' Application (Prelude.Maybe [Prelude.Text])
 application_args = Lens.lens (\Application' {args} -> args) (\s@Application' {} a -> s {args = a} :: Application) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the application.
+application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
+
 -- | The version of the application.
 application_version :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
 application_version = Lens.lens (\Application' {version} -> version) (\s@Application' {} a -> s {version = a} :: Application)
@@ -103,34 +103,34 @@ instance Data.FromJSON Application where
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "AdditionalInfo" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AdditionalInfo" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Args" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` additionalInfo
+    _salt `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` args
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf additionalInfo
+    Prelude.rnf additionalInfo
       `Prelude.seq` Prelude.rnf args
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON Application where
   toJSON Application' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("AdditionalInfo" Data..=)
+          [ ("AdditionalInfo" Data..=)
               Prelude.<$> additionalInfo,
             ("Args" Data..=) Prelude.<$> args,
+            ("Name" Data..=) Prelude.<$> name,
             ("Version" Data..=) Prelude.<$> version
           ]
       )

@@ -37,8 +37,8 @@ module Amazonka.EMR.ListInstanceGroups
     newListInstanceGroupsResponse,
 
     -- * Response Lenses
-    listInstanceGroupsResponse_marker,
     listInstanceGroupsResponse_instanceGroups,
+    listInstanceGroupsResponse_marker,
     listInstanceGroupsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest ListInstanceGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceGroupsResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> (x Data..?> "InstanceGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "InstanceGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance Data.ToQuery ListInstanceGroups where
 --
 -- /See:/ 'newListInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The list of instance groups for the cluster and given filters.
+  { -- | The list of instance groups for the cluster and given filters.
     instanceGroups :: Prelude.Maybe [InstanceGroup],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listInstanceGroupsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'instanceGroups', 'listInstanceGroupsResponse_instanceGroups' - The list of instance groups for the cluster and given filters.
+--
+-- 'marker', 'listInstanceGroupsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'httpStatus', 'listInstanceGroupsResponse_httpStatus' - The response's http status code.
 newListInstanceGroupsResponse ::
@@ -200,19 +200,19 @@ newListInstanceGroupsResponse ::
   ListInstanceGroupsResponse
 newListInstanceGroupsResponse pHttpStatus_ =
   ListInstanceGroupsResponse'
-    { marker =
+    { instanceGroups =
         Prelude.Nothing,
-      instanceGroups = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
-listInstanceGroupsResponse_marker :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
-listInstanceGroupsResponse_marker = Lens.lens (\ListInstanceGroupsResponse' {marker} -> marker) (\s@ListInstanceGroupsResponse' {} a -> s {marker = a} :: ListInstanceGroupsResponse)
 
 -- | The list of instance groups for the cluster and given filters.
 listInstanceGroupsResponse_instanceGroups :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe [InstanceGroup])
 listInstanceGroupsResponse_instanceGroups = Lens.lens (\ListInstanceGroupsResponse' {instanceGroups} -> instanceGroups) (\s@ListInstanceGroupsResponse' {} a -> s {instanceGroups = a} :: ListInstanceGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listInstanceGroupsResponse_marker :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
+listInstanceGroupsResponse_marker = Lens.lens (\ListInstanceGroupsResponse' {marker} -> marker) (\s@ListInstanceGroupsResponse' {} a -> s {marker = a} :: ListInstanceGroupsResponse)
 
 -- | The response's http status code.
 listInstanceGroupsResponse_httpStatus :: Lens.Lens' ListInstanceGroupsResponse Prelude.Int
@@ -220,6 +220,6 @@ listInstanceGroupsResponse_httpStatus = Lens.lens (\ListInstanceGroupsResponse' 
 
 instance Prelude.NFData ListInstanceGroupsResponse where
   rnf ListInstanceGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf instanceGroups
+    Prelude.rnf instanceGroups
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

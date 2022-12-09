@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ClusterTimeline = ClusterTimeline'
   { -- | The creation date and time of the cluster.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The date and time when the cluster was ready to run steps.
-    readyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the cluster was terminated.
-    endDateTime :: Prelude.Maybe Data.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time when the cluster was ready to run steps.
+    readyDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data ClusterTimeline = ClusterTimeline'
 --
 -- 'creationDateTime', 'clusterTimeline_creationDateTime' - The creation date and time of the cluster.
 --
--- 'readyDateTime', 'clusterTimeline_readyDateTime' - The date and time when the cluster was ready to run steps.
---
 -- 'endDateTime', 'clusterTimeline_endDateTime' - The date and time when the cluster was terminated.
+--
+-- 'readyDateTime', 'clusterTimeline_readyDateTime' - The date and time when the cluster was ready to run steps.
 newClusterTimeline ::
   ClusterTimeline
 newClusterTimeline =
   ClusterTimeline'
     { creationDateTime =
         Prelude.Nothing,
-      readyDateTime = Prelude.Nothing,
-      endDateTime = Prelude.Nothing
+      endDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing
     }
 
 -- | The creation date and time of the cluster.
 clusterTimeline_creationDateTime :: Lens.Lens' ClusterTimeline (Prelude.Maybe Prelude.UTCTime)
 clusterTimeline_creationDateTime = Lens.lens (\ClusterTimeline' {creationDateTime} -> creationDateTime) (\s@ClusterTimeline' {} a -> s {creationDateTime = a} :: ClusterTimeline) Prelude.. Lens.mapping Data._Time
 
--- | The date and time when the cluster was ready to run steps.
-clusterTimeline_readyDateTime :: Lens.Lens' ClusterTimeline (Prelude.Maybe Prelude.UTCTime)
-clusterTimeline_readyDateTime = Lens.lens (\ClusterTimeline' {readyDateTime} -> readyDateTime) (\s@ClusterTimeline' {} a -> s {readyDateTime = a} :: ClusterTimeline) Prelude.. Lens.mapping Data._Time
-
 -- | The date and time when the cluster was terminated.
 clusterTimeline_endDateTime :: Lens.Lens' ClusterTimeline (Prelude.Maybe Prelude.UTCTime)
 clusterTimeline_endDateTime = Lens.lens (\ClusterTimeline' {endDateTime} -> endDateTime) (\s@ClusterTimeline' {} a -> s {endDateTime = a} :: ClusterTimeline) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time when the cluster was ready to run steps.
+clusterTimeline_readyDateTime :: Lens.Lens' ClusterTimeline (Prelude.Maybe Prelude.UTCTime)
+clusterTimeline_readyDateTime = Lens.lens (\ClusterTimeline' {readyDateTime} -> readyDateTime) (\s@ClusterTimeline' {} a -> s {readyDateTime = a} :: ClusterTimeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ClusterTimeline where
   parseJSON =
@@ -79,18 +79,18 @@ instance Data.FromJSON ClusterTimeline where
       ( \x ->
           ClusterTimeline'
             Prelude.<$> (x Data..:? "CreationDateTime")
-            Prelude.<*> (x Data..:? "ReadyDateTime")
             Prelude.<*> (x Data..:? "EndDateTime")
+            Prelude.<*> (x Data..:? "ReadyDateTime")
       )
 
 instance Prelude.Hashable ClusterTimeline where
   hashWithSalt _salt ClusterTimeline' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` readyDateTime
 
 instance Prelude.NFData ClusterTimeline where
   rnf ClusterTimeline' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime

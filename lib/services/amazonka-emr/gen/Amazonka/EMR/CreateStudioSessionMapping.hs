@@ -32,8 +32,8 @@ module Amazonka.EMR.CreateStudioSessionMapping
     newCreateStudioSessionMapping,
 
     -- * Request Lenses
-    createStudioSessionMapping_identityName,
     createStudioSessionMapping_identityId,
+    createStudioSessionMapping_identityName,
     createStudioSessionMapping_studioId,
     createStudioSessionMapping_identityType,
     createStudioSessionMapping_sessionPolicyArn,
@@ -54,14 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStudioSessionMapping' smart constructor.
 data CreateStudioSessionMapping = CreateStudioSessionMapping'
-  { -- | The name of the user or group. For more information, see
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
-    -- and
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
-    -- @IdentityName@ or @IdentityId@ must be specified, but not both.
-    identityName :: Prelude.Maybe Prelude.Text,
-    -- | The globally unique identifier (GUID) of the user or group from the
+  { -- | The globally unique identifier (GUID) of the user or group from the
     -- Amazon Web Services SSO Identity Store. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
     -- and
@@ -69,6 +62,13 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
     -- @IdentityName@ or @IdentityId@ must be specified, but not both.
     identityId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the user or group. For more information, see
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+    -- and
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
+    -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+    -- @IdentityName@ or @IdentityId@ must be specified, but not both.
+    identityName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EMR Studio to which the user or group will be
     -- mapped.
     studioId :: Prelude.Text,
@@ -92,18 +92,18 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityName', 'createStudioSessionMapping_identityName' - The name of the user or group. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified, but not both.
---
 -- 'identityId', 'createStudioSessionMapping_identityId' - The globally unique identifier (GUID) of the user or group from the
 -- Amazon Web Services SSO Identity Store. For more information, see
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
+--
+-- 'identityName', 'createStudioSessionMapping_identityName' - The name of the user or group. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /Amazon Web Services SSO Identity Store API Reference/. Either
 -- @IdentityName@ or @IdentityId@ must be specified, but not both.
 --
@@ -131,22 +131,13 @@ newCreateStudioSessionMapping
   pIdentityType_
   pSessionPolicyArn_ =
     CreateStudioSessionMapping'
-      { identityName =
+      { identityId =
           Prelude.Nothing,
-        identityId = Prelude.Nothing,
+        identityName = Prelude.Nothing,
         studioId = pStudioId_,
         identityType = pIdentityType_,
         sessionPolicyArn = pSessionPolicyArn_
       }
-
--- | The name of the user or group. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/. Either
--- @IdentityName@ or @IdentityId@ must be specified, but not both.
-createStudioSessionMapping_identityName :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
-createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping' {identityName} -> identityName) (\s@CreateStudioSessionMapping' {} a -> s {identityName = a} :: CreateStudioSessionMapping)
 
 -- | The globally unique identifier (GUID) of the user or group from the
 -- Amazon Web Services SSO Identity Store. For more information, see
@@ -157,6 +148,15 @@ createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping
 -- @IdentityName@ or @IdentityId@ must be specified, but not both.
 createStudioSessionMapping_identityId :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
 createStudioSessionMapping_identityId = Lens.lens (\CreateStudioSessionMapping' {identityId} -> identityId) (\s@CreateStudioSessionMapping' {} a -> s {identityId = a} :: CreateStudioSessionMapping)
+
+-- | The name of the user or group. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
+-- in the /Amazon Web Services SSO Identity Store API Reference/. Either
+-- @IdentityName@ or @IdentityId@ must be specified, but not both.
+createStudioSessionMapping_identityName :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
+createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping' {identityName} -> identityName) (\s@CreateStudioSessionMapping' {} a -> s {identityName = a} :: CreateStudioSessionMapping)
 
 -- | The ID of the Amazon EMR Studio to which the user or group will be
 -- mapped.
@@ -188,16 +188,16 @@ instance Core.AWSRequest CreateStudioSessionMapping where
 
 instance Prelude.Hashable CreateStudioSessionMapping where
   hashWithSalt _salt CreateStudioSessionMapping' {..} =
-    _salt `Prelude.hashWithSalt` identityName
-      `Prelude.hashWithSalt` identityId
+    _salt `Prelude.hashWithSalt` identityId
+      `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` sessionPolicyArn
 
 instance Prelude.NFData CreateStudioSessionMapping where
   rnf CreateStudioSessionMapping' {..} =
-    Prelude.rnf identityName
-      `Prelude.seq` Prelude.rnf identityId
+    Prelude.rnf identityId
+      `Prelude.seq` Prelude.rnf identityName
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf identityType
       `Prelude.seq` Prelude.rnf sessionPolicyArn
@@ -221,8 +221,8 @@ instance Data.ToJSON CreateStudioSessionMapping where
   toJSON CreateStudioSessionMapping' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IdentityName" Data..=) Prelude.<$> identityName,
-            ("IdentityId" Data..=) Prelude.<$> identityId,
+          [ ("IdentityId" Data..=) Prelude.<$> identityId,
+            ("IdentityName" Data..=) Prelude.<$> identityName,
             Prelude.Just ("StudioId" Data..= studioId),
             Prelude.Just ("IdentityType" Data..= identityType),
             Prelude.Just

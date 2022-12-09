@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
-  { -- | The throughput, in mebibyte per second (MiB\/s). This optional parameter
-    -- can be a number from 125 - 1000 and is valid only for gp3 volumes.
-    throughput :: Prelude.Maybe Prelude.Natural,
-    -- | The number of I\/O operations per second (IOPS) that the volume
+  { -- | The number of I\/O operations per second (IOPS) that the volume
     -- supports.
     iops :: Prelude.Maybe Prelude.Int,
+    -- | The throughput, in mebibyte per second (MiB\/s). This optional parameter
+    -- can be a number from 125 - 1000 and is valid only for gp3 volumes.
+    throughput :: Prelude.Maybe Prelude.Natural,
     -- | The volume type. Volume types supported are gp2, io1, and standard.
     volumeType :: Prelude.Text,
     -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024.
@@ -52,11 +52,11 @@ data VolumeSpecification = VolumeSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throughput', 'volumeSpecification_throughput' - The throughput, in mebibyte per second (MiB\/s). This optional parameter
--- can be a number from 125 - 1000 and is valid only for gp3 volumes.
---
 -- 'iops', 'volumeSpecification_iops' - The number of I\/O operations per second (IOPS) that the volume
 -- supports.
+--
+-- 'throughput', 'volumeSpecification_throughput' - The throughput, in mebibyte per second (MiB\/s). This optional parameter
+-- can be a number from 125 - 1000 and is valid only for gp3 volumes.
 --
 -- 'volumeType', 'volumeSpecification_volumeType' - The volume type. Volume types supported are gp2, io1, and standard.
 --
@@ -70,21 +70,21 @@ newVolumeSpecification ::
   VolumeSpecification
 newVolumeSpecification pVolumeType_ pSizeInGB_ =
   VolumeSpecification'
-    { throughput = Prelude.Nothing,
-      iops = Prelude.Nothing,
+    { iops = Prelude.Nothing,
+      throughput = Prelude.Nothing,
       volumeType = pVolumeType_,
       sizeInGB = pSizeInGB_
     }
-
--- | The throughput, in mebibyte per second (MiB\/s). This optional parameter
--- can be a number from 125 - 1000 and is valid only for gp3 volumes.
-volumeSpecification_throughput :: Lens.Lens' VolumeSpecification (Prelude.Maybe Prelude.Natural)
-volumeSpecification_throughput = Lens.lens (\VolumeSpecification' {throughput} -> throughput) (\s@VolumeSpecification' {} a -> s {throughput = a} :: VolumeSpecification)
 
 -- | The number of I\/O operations per second (IOPS) that the volume
 -- supports.
 volumeSpecification_iops :: Lens.Lens' VolumeSpecification (Prelude.Maybe Prelude.Int)
 volumeSpecification_iops = Lens.lens (\VolumeSpecification' {iops} -> iops) (\s@VolumeSpecification' {} a -> s {iops = a} :: VolumeSpecification)
+
+-- | The throughput, in mebibyte per second (MiB\/s). This optional parameter
+-- can be a number from 125 - 1000 and is valid only for gp3 volumes.
+volumeSpecification_throughput :: Lens.Lens' VolumeSpecification (Prelude.Maybe Prelude.Natural)
+volumeSpecification_throughput = Lens.lens (\VolumeSpecification' {throughput} -> throughput) (\s@VolumeSpecification' {} a -> s {throughput = a} :: VolumeSpecification)
 
 -- | The volume type. Volume types supported are gp2, io1, and standard.
 volumeSpecification_volumeType :: Lens.Lens' VolumeSpecification Prelude.Text
@@ -101,23 +101,23 @@ instance Data.FromJSON VolumeSpecification where
       "VolumeSpecification"
       ( \x ->
           VolumeSpecification'
-            Prelude.<$> (x Data..:? "Throughput")
-            Prelude.<*> (x Data..:? "Iops")
+            Prelude.<$> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "Throughput")
             Prelude.<*> (x Data..: "VolumeType")
             Prelude.<*> (x Data..: "SizeInGB")
       )
 
 instance Prelude.Hashable VolumeSpecification where
   hashWithSalt _salt VolumeSpecification' {..} =
-    _salt `Prelude.hashWithSalt` throughput
-      `Prelude.hashWithSalt` iops
+    _salt `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` sizeInGB
 
 instance Prelude.NFData VolumeSpecification where
   rnf VolumeSpecification' {..} =
-    Prelude.rnf throughput
-      `Prelude.seq` Prelude.rnf iops
+    Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf throughput
       `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf sizeInGB
 
@@ -125,8 +125,8 @@ instance Data.ToJSON VolumeSpecification where
   toJSON VolumeSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Throughput" Data..=) Prelude.<$> throughput,
-            ("Iops" Data..=) Prelude.<$> iops,
+          [ ("Iops" Data..=) Prelude.<$> iops,
+            ("Throughput" Data..=) Prelude.<$> throughput,
             Prelude.Just ("VolumeType" Data..= volumeType),
             Prelude.Just ("SizeInGB" Data..= sizeInGB)
           ]

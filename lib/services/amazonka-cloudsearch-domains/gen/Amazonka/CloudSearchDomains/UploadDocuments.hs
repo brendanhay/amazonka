@@ -61,9 +61,9 @@ module Amazonka.CloudSearchDomains.UploadDocuments
 
     -- * Response Lenses
     uploadDocumentsResponse_adds,
+    uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_status,
     uploadDocumentsResponse_warnings,
-    uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_httpStatus,
   )
 where
@@ -141,9 +141,9 @@ instance Core.AWSRequest UploadDocuments where
       ( \s h x ->
           UploadDocumentsResponse'
             Prelude.<$> (x Data..?> "adds")
+            Prelude.<*> (x Data..?> "deletes")
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,13 +168,13 @@ instance Data.ToQuery UploadDocuments where
 data UploadDocumentsResponse = UploadDocumentsResponse'
   { -- | The number of documents that were added to the search domain.
     adds :: Prelude.Maybe Prelude.Integer,
+    -- | The number of documents that were deleted from the search domain.
+    deletes :: Prelude.Maybe Prelude.Integer,
     -- | The status of an @UploadDocumentsRequest@.
     status :: Prelude.Maybe Prelude.Text,
     -- | Any warnings returned by the document service about the documents being
     -- uploaded.
     warnings :: Prelude.Maybe [DocumentServiceWarning],
-    -- | The number of documents that were deleted from the search domain.
-    deletes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,12 +190,12 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
 --
 -- 'adds', 'uploadDocumentsResponse_adds' - The number of documents that were added to the search domain.
 --
+-- 'deletes', 'uploadDocumentsResponse_deletes' - The number of documents that were deleted from the search domain.
+--
 -- 'status', 'uploadDocumentsResponse_status' - The status of an @UploadDocumentsRequest@.
 --
 -- 'warnings', 'uploadDocumentsResponse_warnings' - Any warnings returned by the document service about the documents being
 -- uploaded.
---
--- 'deletes', 'uploadDocumentsResponse_deletes' - The number of documents that were deleted from the search domain.
 --
 -- 'httpStatus', 'uploadDocumentsResponse_httpStatus' - The response's http status code.
 newUploadDocumentsResponse ::
@@ -205,15 +205,19 @@ newUploadDocumentsResponse ::
 newUploadDocumentsResponse pHttpStatus_ =
   UploadDocumentsResponse'
     { adds = Prelude.Nothing,
+      deletes = Prelude.Nothing,
       status = Prelude.Nothing,
       warnings = Prelude.Nothing,
-      deletes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of documents that were added to the search domain.
 uploadDocumentsResponse_adds :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
 uploadDocumentsResponse_adds = Lens.lens (\UploadDocumentsResponse' {adds} -> adds) (\s@UploadDocumentsResponse' {} a -> s {adds = a} :: UploadDocumentsResponse)
+
+-- | The number of documents that were deleted from the search domain.
+uploadDocumentsResponse_deletes :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
+uploadDocumentsResponse_deletes = Lens.lens (\UploadDocumentsResponse' {deletes} -> deletes) (\s@UploadDocumentsResponse' {} a -> s {deletes = a} :: UploadDocumentsResponse)
 
 -- | The status of an @UploadDocumentsRequest@.
 uploadDocumentsResponse_status :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Text)
@@ -224,10 +228,6 @@ uploadDocumentsResponse_status = Lens.lens (\UploadDocumentsResponse' {status} -
 uploadDocumentsResponse_warnings :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe [DocumentServiceWarning])
 uploadDocumentsResponse_warnings = Lens.lens (\UploadDocumentsResponse' {warnings} -> warnings) (\s@UploadDocumentsResponse' {} a -> s {warnings = a} :: UploadDocumentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of documents that were deleted from the search domain.
-uploadDocumentsResponse_deletes :: Lens.Lens' UploadDocumentsResponse (Prelude.Maybe Prelude.Integer)
-uploadDocumentsResponse_deletes = Lens.lens (\UploadDocumentsResponse' {deletes} -> deletes) (\s@UploadDocumentsResponse' {} a -> s {deletes = a} :: UploadDocumentsResponse)
-
 -- | The response's http status code.
 uploadDocumentsResponse_httpStatus :: Lens.Lens' UploadDocumentsResponse Prelude.Int
 uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpStatus} -> httpStatus) (\s@UploadDocumentsResponse' {} a -> s {httpStatus = a} :: UploadDocumentsResponse)
@@ -235,7 +235,7 @@ uploadDocumentsResponse_httpStatus = Lens.lens (\UploadDocumentsResponse' {httpS
 instance Prelude.NFData UploadDocumentsResponse where
   rnf UploadDocumentsResponse' {..} =
     Prelude.rnf adds
+      `Prelude.seq` Prelude.rnf deletes
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf warnings
-      `Prelude.seq` Prelude.rnf deletes
       `Prelude.seq` Prelude.rnf httpStatus

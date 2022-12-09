@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchStatus' smart constructor.
 data SearchStatus = SearchStatus'
-  { -- | How long it took to process the request, in milliseconds.
-    timems :: Prelude.Maybe Prelude.Integer,
-    -- | The encrypted resource ID for the request.
-    rid :: Prelude.Maybe Prelude.Text
+  { -- | The encrypted resource ID for the request.
+    rid :: Prelude.Maybe Prelude.Text,
+    -- | How long it took to process the request, in milliseconds.
+    timems :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data SearchStatus = SearchStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timems', 'searchStatus_timems' - How long it took to process the request, in milliseconds.
---
 -- 'rid', 'searchStatus_rid' - The encrypted resource ID for the request.
+--
+-- 'timems', 'searchStatus_timems' - How long it took to process the request, in milliseconds.
 newSearchStatus ::
   SearchStatus
 newSearchStatus =
   SearchStatus'
-    { timems = Prelude.Nothing,
-      rid = Prelude.Nothing
+    { rid = Prelude.Nothing,
+      timems = Prelude.Nothing
     }
-
--- | How long it took to process the request, in milliseconds.
-searchStatus_timems :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Integer)
-searchStatus_timems = Lens.lens (\SearchStatus' {timems} -> timems) (\s@SearchStatus' {} a -> s {timems = a} :: SearchStatus)
 
 -- | The encrypted resource ID for the request.
 searchStatus_rid :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Text)
 searchStatus_rid = Lens.lens (\SearchStatus' {rid} -> rid) (\s@SearchStatus' {} a -> s {rid = a} :: SearchStatus)
+
+-- | How long it took to process the request, in milliseconds.
+searchStatus_timems :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Integer)
+searchStatus_timems = Lens.lens (\SearchStatus' {timems} -> timems) (\s@SearchStatus' {} a -> s {timems = a} :: SearchStatus)
 
 instance Data.FromJSON SearchStatus where
   parseJSON =
@@ -69,14 +69,14 @@ instance Data.FromJSON SearchStatus where
       "SearchStatus"
       ( \x ->
           SearchStatus'
-            Prelude.<$> (x Data..:? "timems") Prelude.<*> (x Data..:? "rid")
+            Prelude.<$> (x Data..:? "rid") Prelude.<*> (x Data..:? "timems")
       )
 
 instance Prelude.Hashable SearchStatus where
   hashWithSalt _salt SearchStatus' {..} =
-    _salt `Prelude.hashWithSalt` timems
-      `Prelude.hashWithSalt` rid
+    _salt `Prelude.hashWithSalt` rid
+      `Prelude.hashWithSalt` timems
 
 instance Prelude.NFData SearchStatus where
   rnf SearchStatus' {..} =
-    Prelude.rnf timems `Prelude.seq` Prelude.rnf rid
+    Prelude.rnf rid `Prelude.seq` Prelude.rnf timems

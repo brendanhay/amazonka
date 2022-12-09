@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHits' smart constructor.
 data Hits = Hits'
-  { -- | The index of the first matching document.
-    start :: Prelude.Maybe Prelude.Integer,
-    -- | A document that matches the search request.
-    hit :: Prelude.Maybe [Hit],
-    -- | A cursor that can be used to retrieve the next set of matching documents
+  { -- | A cursor that can be used to retrieve the next set of matching documents
     -- when you want to page through a large result set.
     cursor :: Prelude.Maybe Prelude.Text,
     -- | The total number of documents that match the search request.
-    found :: Prelude.Maybe Prelude.Integer
+    found :: Prelude.Maybe Prelude.Integer,
+    -- | A document that matches the search request.
+    hit :: Prelude.Maybe [Hit],
+    -- | The index of the first matching document.
+    start :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,23 @@ data Hits = Hits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'hits_start' - The index of the first matching document.
---
--- 'hit', 'hits_hit' - A document that matches the search request.
---
 -- 'cursor', 'hits_cursor' - A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
 --
 -- 'found', 'hits_found' - The total number of documents that match the search request.
+--
+-- 'hit', 'hits_hit' - A document that matches the search request.
+--
+-- 'start', 'hits_start' - The index of the first matching document.
 newHits ::
   Hits
 newHits =
   Hits'
-    { start = Prelude.Nothing,
+    { cursor = Prelude.Nothing,
+      found = Prelude.Nothing,
       hit = Prelude.Nothing,
-      cursor = Prelude.Nothing,
-      found = Prelude.Nothing
+      start = Prelude.Nothing
     }
-
--- | The index of the first matching document.
-hits_start :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
-hits_start = Lens.lens (\Hits' {start} -> start) (\s@Hits' {} a -> s {start = a} :: Hits)
-
--- | A document that matches the search request.
-hits_hit :: Lens.Lens' Hits (Prelude.Maybe [Hit])
-hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Prelude.. Lens.mapping Lens.coerced
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
@@ -84,28 +76,36 @@ hits_cursor = Lens.lens (\Hits' {cursor} -> cursor) (\s@Hits' {} a -> s {cursor 
 hits_found :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
 hits_found = Lens.lens (\Hits' {found} -> found) (\s@Hits' {} a -> s {found = a} :: Hits)
 
+-- | A document that matches the search request.
+hits_hit :: Lens.Lens' Hits (Prelude.Maybe [Hit])
+hits_hit = Lens.lens (\Hits' {hit} -> hit) (\s@Hits' {} a -> s {hit = a} :: Hits) Prelude.. Lens.mapping Lens.coerced
+
+-- | The index of the first matching document.
+hits_start :: Lens.Lens' Hits (Prelude.Maybe Prelude.Integer)
+hits_start = Lens.lens (\Hits' {start} -> start) (\s@Hits' {} a -> s {start = a} :: Hits)
+
 instance Data.FromJSON Hits where
   parseJSON =
     Data.withObject
       "Hits"
       ( \x ->
           Hits'
-            Prelude.<$> (x Data..:? "start")
-            Prelude.<*> (x Data..:? "hit" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "cursor")
+            Prelude.<$> (x Data..:? "cursor")
             Prelude.<*> (x Data..:? "found")
+            Prelude.<*> (x Data..:? "hit" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "start")
       )
 
 instance Prelude.Hashable Hits where
   hashWithSalt _salt Hits' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` hit
-      `Prelude.hashWithSalt` cursor
+    _salt `Prelude.hashWithSalt` cursor
       `Prelude.hashWithSalt` found
+      `Prelude.hashWithSalt` hit
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData Hits where
   rnf Hits' {..} =
-    Prelude.rnf start
-      `Prelude.seq` Prelude.rnf hit
-      `Prelude.seq` Prelude.rnf cursor
+    Prelude.rnf cursor
       `Prelude.seq` Prelude.rnf found
+      `Prelude.seq` Prelude.rnf hit
+      `Prelude.seq` Prelude.rnf start

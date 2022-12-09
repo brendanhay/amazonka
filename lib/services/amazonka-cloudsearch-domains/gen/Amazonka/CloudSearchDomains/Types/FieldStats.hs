@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldStats' smart constructor.
 data FieldStats = FieldStats'
-  { -- | The number of documents that do not contain a value in the specified
-    -- field in the result set.
-    missing :: Prelude.Maybe Prelude.Integer,
+  { -- | The number of documents that contain a value in the specified field in
+    -- the result set.
+    count :: Prelude.Maybe Prelude.Integer,
     -- | The maximum value found in the specified field in the result set.
     --
     -- If the field is numeric (@int@, @int-array@, @double@, or
@@ -40,26 +40,6 @@ data FieldStats = FieldStats'
     -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
     -- yyyy-mm-ddTHH:mm:ss.SSSZ.
     max :: Prelude.Maybe Prelude.Text,
-    -- | The sum of all field values in the result set squared.
-    sumOfSquares :: Prelude.Maybe Prelude.Double,
-    -- | The number of documents that contain a value in the specified field in
-    -- the result set.
-    count :: Prelude.Maybe Prelude.Integer,
-    -- | The minimum value found in the specified field in the result set.
-    --
-    -- If the field is numeric (@int@, @int-array@, @double@, or
-    -- @double-array@), @min@ is the string representation of a
-    -- double-precision 64-bit floating point value. If the field is @date@ or
-    -- @date-array@, @min@ is the string representation of a date with the
-    -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
-    -- yyyy-mm-ddTHH:mm:ss.SSSZ.
-    min :: Prelude.Maybe Prelude.Text,
-    -- | The standard deviation of the values in the specified field in the
-    -- result set.
-    stddev :: Prelude.Maybe Prelude.Double,
-    -- | The sum of the field values across the documents in the result set.
-    -- @null@ for date fields.
-    sum :: Prelude.Maybe Prelude.Double,
     -- | The average of the values found in the specified field in the result
     -- set.
     --
@@ -69,7 +49,27 @@ data FieldStats = FieldStats'
     -- @date-array@, @mean@ is the string representation of a date with the
     -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
     -- yyyy-mm-ddTHH:mm:ss.SSSZ.
-    mean :: Prelude.Maybe Prelude.Text
+    mean :: Prelude.Maybe Prelude.Text,
+    -- | The minimum value found in the specified field in the result set.
+    --
+    -- If the field is numeric (@int@, @int-array@, @double@, or
+    -- @double-array@), @min@ is the string representation of a
+    -- double-precision 64-bit floating point value. If the field is @date@ or
+    -- @date-array@, @min@ is the string representation of a date with the
+    -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+    -- yyyy-mm-ddTHH:mm:ss.SSSZ.
+    min :: Prelude.Maybe Prelude.Text,
+    -- | The number of documents that do not contain a value in the specified
+    -- field in the result set.
+    missing :: Prelude.Maybe Prelude.Integer,
+    -- | The standard deviation of the values in the specified field in the
+    -- result set.
+    stddev :: Prelude.Maybe Prelude.Double,
+    -- | The sum of the field values across the documents in the result set.
+    -- @null@ for date fields.
+    sum :: Prelude.Maybe Prelude.Double,
+    -- | The sum of all field values in the result set squared.
+    sumOfSquares :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,8 +81,8 @@ data FieldStats = FieldStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'missing', 'fieldStats_missing' - The number of documents that do not contain a value in the specified
--- field in the result set.
+-- 'count', 'fieldStats_count' - The number of documents that contain a value in the specified field in
+-- the result set.
 --
 -- 'max', 'fieldStats_max' - The maximum value found in the specified field in the result set.
 --
@@ -93,10 +93,15 @@ data FieldStats = FieldStats'
 -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- 'sumOfSquares', 'fieldStats_sumOfSquares' - The sum of all field values in the result set squared.
+-- 'mean', 'fieldStats_mean' - The average of the values found in the specified field in the result
+-- set.
 --
--- 'count', 'fieldStats_count' - The number of documents that contain a value in the specified field in
--- the result set.
+-- If the field is numeric (@int@, @int-array@, @double@, or
+-- @double-array@), @mean@ is the string representation of a
+-- double-precision 64-bit floating point value. If the field is @date@ or
+-- @date-array@, @mean@ is the string representation of a date with the
+-- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+-- yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
 -- 'min', 'fieldStats_min' - The minimum value found in the specified field in the result set.
 --
@@ -107,39 +112,34 @@ data FieldStats = FieldStats'
 -- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
+-- 'missing', 'fieldStats_missing' - The number of documents that do not contain a value in the specified
+-- field in the result set.
+--
 -- 'stddev', 'fieldStats_stddev' - The standard deviation of the values in the specified field in the
 -- result set.
 --
 -- 'sum', 'fieldStats_sum' - The sum of the field values across the documents in the result set.
 -- @null@ for date fields.
 --
--- 'mean', 'fieldStats_mean' - The average of the values found in the specified field in the result
--- set.
---
--- If the field is numeric (@int@, @int-array@, @double@, or
--- @double-array@), @mean@ is the string representation of a
--- double-precision 64-bit floating point value. If the field is @date@ or
--- @date-array@, @mean@ is the string representation of a date with the
--- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
--- yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- 'sumOfSquares', 'fieldStats_sumOfSquares' - The sum of all field values in the result set squared.
 newFieldStats ::
   FieldStats
 newFieldStats =
   FieldStats'
-    { missing = Prelude.Nothing,
+    { count = Prelude.Nothing,
       max = Prelude.Nothing,
-      sumOfSquares = Prelude.Nothing,
-      count = Prelude.Nothing,
+      mean = Prelude.Nothing,
       min = Prelude.Nothing,
+      missing = Prelude.Nothing,
       stddev = Prelude.Nothing,
       sum = Prelude.Nothing,
-      mean = Prelude.Nothing
+      sumOfSquares = Prelude.Nothing
     }
 
--- | The number of documents that do not contain a value in the specified
--- field in the result set.
-fieldStats_missing :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Integer)
-fieldStats_missing = Lens.lens (\FieldStats' {missing} -> missing) (\s@FieldStats' {} a -> s {missing = a} :: FieldStats)
+-- | The number of documents that contain a value in the specified field in
+-- the result set.
+fieldStats_count :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Integer)
+fieldStats_count = Lens.lens (\FieldStats' {count} -> count) (\s@FieldStats' {} a -> s {count = a} :: FieldStats)
 
 -- | The maximum value found in the specified field in the result set.
 --
@@ -151,36 +151,6 @@ fieldStats_missing = Lens.lens (\FieldStats' {missing} -> missing) (\s@FieldStat
 -- yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_max :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
 fieldStats_max = Lens.lens (\FieldStats' {max} -> max) (\s@FieldStats' {} a -> s {max = a} :: FieldStats)
-
--- | The sum of all field values in the result set squared.
-fieldStats_sumOfSquares :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
-fieldStats_sumOfSquares = Lens.lens (\FieldStats' {sumOfSquares} -> sumOfSquares) (\s@FieldStats' {} a -> s {sumOfSquares = a} :: FieldStats)
-
--- | The number of documents that contain a value in the specified field in
--- the result set.
-fieldStats_count :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Integer)
-fieldStats_count = Lens.lens (\FieldStats' {count} -> count) (\s@FieldStats' {} a -> s {count = a} :: FieldStats)
-
--- | The minimum value found in the specified field in the result set.
---
--- If the field is numeric (@int@, @int-array@, @double@, or
--- @double-array@), @min@ is the string representation of a
--- double-precision 64-bit floating point value. If the field is @date@ or
--- @date-array@, @min@ is the string representation of a date with the
--- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
--- yyyy-mm-ddTHH:mm:ss.SSSZ.
-fieldStats_min :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
-fieldStats_min = Lens.lens (\FieldStats' {min} -> min) (\s@FieldStats' {} a -> s {min = a} :: FieldStats)
-
--- | The standard deviation of the values in the specified field in the
--- result set.
-fieldStats_stddev :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
-fieldStats_stddev = Lens.lens (\FieldStats' {stddev} -> stddev) (\s@FieldStats' {} a -> s {stddev = a} :: FieldStats)
-
--- | The sum of the field values across the documents in the result set.
--- @null@ for date fields.
-fieldStats_sum :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
-fieldStats_sum = Lens.lens (\FieldStats' {sum} -> sum) (\s@FieldStats' {} a -> s {sum = a} :: FieldStats)
 
 -- | The average of the values found in the specified field in the result
 -- set.
@@ -194,40 +164,70 @@ fieldStats_sum = Lens.lens (\FieldStats' {sum} -> sum) (\s@FieldStats' {} a -> s
 fieldStats_mean :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
 fieldStats_mean = Lens.lens (\FieldStats' {mean} -> mean) (\s@FieldStats' {} a -> s {mean = a} :: FieldStats)
 
+-- | The minimum value found in the specified field in the result set.
+--
+-- If the field is numeric (@int@, @int-array@, @double@, or
+-- @double-array@), @min@ is the string representation of a
+-- double-precision 64-bit floating point value. If the field is @date@ or
+-- @date-array@, @min@ is the string representation of a date with the
+-- format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>:
+-- yyyy-mm-ddTHH:mm:ss.SSSZ.
+fieldStats_min :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Text)
+fieldStats_min = Lens.lens (\FieldStats' {min} -> min) (\s@FieldStats' {} a -> s {min = a} :: FieldStats)
+
+-- | The number of documents that do not contain a value in the specified
+-- field in the result set.
+fieldStats_missing :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Integer)
+fieldStats_missing = Lens.lens (\FieldStats' {missing} -> missing) (\s@FieldStats' {} a -> s {missing = a} :: FieldStats)
+
+-- | The standard deviation of the values in the specified field in the
+-- result set.
+fieldStats_stddev :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
+fieldStats_stddev = Lens.lens (\FieldStats' {stddev} -> stddev) (\s@FieldStats' {} a -> s {stddev = a} :: FieldStats)
+
+-- | The sum of the field values across the documents in the result set.
+-- @null@ for date fields.
+fieldStats_sum :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
+fieldStats_sum = Lens.lens (\FieldStats' {sum} -> sum) (\s@FieldStats' {} a -> s {sum = a} :: FieldStats)
+
+-- | The sum of all field values in the result set squared.
+fieldStats_sumOfSquares :: Lens.Lens' FieldStats (Prelude.Maybe Prelude.Double)
+fieldStats_sumOfSquares = Lens.lens (\FieldStats' {sumOfSquares} -> sumOfSquares) (\s@FieldStats' {} a -> s {sumOfSquares = a} :: FieldStats)
+
 instance Data.FromJSON FieldStats where
   parseJSON =
     Data.withObject
       "FieldStats"
       ( \x ->
           FieldStats'
-            Prelude.<$> (x Data..:? "missing")
+            Prelude.<$> (x Data..:? "count")
             Prelude.<*> (x Data..:? "max")
-            Prelude.<*> (x Data..:? "sumOfSquares")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "mean")
             Prelude.<*> (x Data..:? "min")
+            Prelude.<*> (x Data..:? "missing")
             Prelude.<*> (x Data..:? "stddev")
             Prelude.<*> (x Data..:? "sum")
-            Prelude.<*> (x Data..:? "mean")
+            Prelude.<*> (x Data..:? "sumOfSquares")
       )
 
 instance Prelude.Hashable FieldStats where
   hashWithSalt _salt FieldStats' {..} =
-    _salt `Prelude.hashWithSalt` missing
+    _salt `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` max
-      `Prelude.hashWithSalt` sumOfSquares
-      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` mean
       `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` missing
       `Prelude.hashWithSalt` stddev
       `Prelude.hashWithSalt` sum
-      `Prelude.hashWithSalt` mean
+      `Prelude.hashWithSalt` sumOfSquares
 
 instance Prelude.NFData FieldStats where
   rnf FieldStats' {..} =
-    Prelude.rnf missing
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf sumOfSquares
-      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf mean
       `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf missing
       `Prelude.seq` Prelude.rnf stddev
       `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf mean
+      `Prelude.seq` Prelude.rnf sumOfSquares

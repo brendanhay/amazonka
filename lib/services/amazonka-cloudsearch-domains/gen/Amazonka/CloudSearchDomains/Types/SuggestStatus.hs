@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
-  { -- | How long it took to process the request, in milliseconds.
-    timems :: Prelude.Maybe Prelude.Integer,
-    -- | The encrypted resource ID for the request.
-    rid :: Prelude.Maybe Prelude.Text
+  { -- | The encrypted resource ID for the request.
+    rid :: Prelude.Maybe Prelude.Text,
+    -- | How long it took to process the request, in milliseconds.
+    timems :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data SuggestStatus = SuggestStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timems', 'suggestStatus_timems' - How long it took to process the request, in milliseconds.
---
 -- 'rid', 'suggestStatus_rid' - The encrypted resource ID for the request.
+--
+-- 'timems', 'suggestStatus_timems' - How long it took to process the request, in milliseconds.
 newSuggestStatus ::
   SuggestStatus
 newSuggestStatus =
   SuggestStatus'
-    { timems = Prelude.Nothing,
-      rid = Prelude.Nothing
+    { rid = Prelude.Nothing,
+      timems = Prelude.Nothing
     }
-
--- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Integer)
-suggestStatus_timems = Lens.lens (\SuggestStatus' {timems} -> timems) (\s@SuggestStatus' {} a -> s {timems = a} :: SuggestStatus)
 
 -- | The encrypted resource ID for the request.
 suggestStatus_rid :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Text)
 suggestStatus_rid = Lens.lens (\SuggestStatus' {rid} -> rid) (\s@SuggestStatus' {} a -> s {rid = a} :: SuggestStatus)
+
+-- | How long it took to process the request, in milliseconds.
+suggestStatus_timems :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Integer)
+suggestStatus_timems = Lens.lens (\SuggestStatus' {timems} -> timems) (\s@SuggestStatus' {} a -> s {timems = a} :: SuggestStatus)
 
 instance Data.FromJSON SuggestStatus where
   parseJSON =
@@ -69,14 +69,14 @@ instance Data.FromJSON SuggestStatus where
       "SuggestStatus"
       ( \x ->
           SuggestStatus'
-            Prelude.<$> (x Data..:? "timems") Prelude.<*> (x Data..:? "rid")
+            Prelude.<$> (x Data..:? "rid") Prelude.<*> (x Data..:? "timems")
       )
 
 instance Prelude.Hashable SuggestStatus where
   hashWithSalt _salt SuggestStatus' {..} =
-    _salt `Prelude.hashWithSalt` timems
-      `Prelude.hashWithSalt` rid
+    _salt `Prelude.hashWithSalt` rid
+      `Prelude.hashWithSalt` timems
 
 instance Prelude.NFData SuggestStatus where
   rnf SuggestStatus' {..} =
-    Prelude.rnf timems `Prelude.seq` Prelude.rnf rid
+    Prelude.rnf rid `Prelude.seq` Prelude.rnf timems

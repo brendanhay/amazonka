@@ -39,17 +39,17 @@ module Amazonka.IoTDeviceAdvisor.GetSuiteRun
     newGetSuiteRunResponse,
 
     -- * Response Lenses
-    getSuiteRunResponse_tags,
+    getSuiteRunResponse_endTime,
     getSuiteRunResponse_errorReason,
+    getSuiteRunResponse_startTime,
+    getSuiteRunResponse_status,
+    getSuiteRunResponse_suiteDefinitionId,
+    getSuiteRunResponse_suiteDefinitionVersion,
     getSuiteRunResponse_suiteRunArn,
     getSuiteRunResponse_suiteRunConfiguration,
-    getSuiteRunResponse_status,
-    getSuiteRunResponse_endTime,
-    getSuiteRunResponse_suiteDefinitionVersion,
-    getSuiteRunResponse_testResult,
-    getSuiteRunResponse_suiteDefinitionId,
-    getSuiteRunResponse_startTime,
     getSuiteRunResponse_suiteRunId,
+    getSuiteRunResponse_tags,
+    getSuiteRunResponse_testResult,
     getSuiteRunResponse_httpStatus,
   )
 where
@@ -111,17 +111,17 @@ instance Core.AWSRequest GetSuiteRun where
     Response.receiveJSON
       ( \s h x ->
           GetSuiteRunResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "endTime")
             Prelude.<*> (x Data..?> "errorReason")
+            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "suiteDefinitionId")
+            Prelude.<*> (x Data..?> "suiteDefinitionVersion")
             Prelude.<*> (x Data..?> "suiteRunArn")
             Prelude.<*> (x Data..?> "suiteRunConfiguration")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "endTime")
-            Prelude.<*> (x Data..?> "suiteDefinitionVersion")
-            Prelude.<*> (x Data..?> "testResult")
-            Prelude.<*> (x Data..?> "suiteDefinitionId")
-            Prelude.<*> (x Data..?> "startTime")
             Prelude.<*> (x Data..?> "suiteRunId")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "testResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,28 +160,28 @@ instance Data.ToQuery GetSuiteRun where
 
 -- | /See:/ 'newGetSuiteRunResponse' smart constructor.
 data GetSuiteRunResponse = GetSuiteRunResponse'
-  { -- | The tags attached to the suite run.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Date (in Unix epoch time) when the test suite run ended.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | Error reason for any test suite run failure.
     errorReason :: Prelude.Maybe Prelude.Text,
+    -- | Date (in Unix epoch time) when the test suite run started.
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | Status for the test suite run.
+    status :: Prelude.Maybe SuiteRunStatus,
+    -- | Suite definition ID for the test suite run.
+    suiteDefinitionId :: Prelude.Maybe Prelude.Text,
+    -- | Suite definition version for the test suite run.
+    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the suite run.
     suiteRunArn :: Prelude.Maybe Prelude.Text,
     -- | Suite run configuration for the test suite run.
     suiteRunConfiguration :: Prelude.Maybe SuiteRunConfiguration,
-    -- | Status for the test suite run.
-    status :: Prelude.Maybe SuiteRunStatus,
-    -- | Date (in Unix epoch time) when the test suite run ended.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | Suite definition version for the test suite run.
-    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Test results for the test suite run.
-    testResult :: Prelude.Maybe TestResult,
-    -- | Suite definition ID for the test suite run.
-    suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Date (in Unix epoch time) when the test suite run started.
-    startTime :: Prelude.Maybe Data.POSIX,
     -- | Suite run ID for the test suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
+    -- | The tags attached to the suite run.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Test results for the test suite run.
+    testResult :: Prelude.Maybe TestResult,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,27 +195,27 @@ data GetSuiteRunResponse = GetSuiteRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getSuiteRunResponse_tags' - The tags attached to the suite run.
+-- 'endTime', 'getSuiteRunResponse_endTime' - Date (in Unix epoch time) when the test suite run ended.
 --
 -- 'errorReason', 'getSuiteRunResponse_errorReason' - Error reason for any test suite run failure.
+--
+-- 'startTime', 'getSuiteRunResponse_startTime' - Date (in Unix epoch time) when the test suite run started.
+--
+-- 'status', 'getSuiteRunResponse_status' - Status for the test suite run.
+--
+-- 'suiteDefinitionId', 'getSuiteRunResponse_suiteDefinitionId' - Suite definition ID for the test suite run.
+--
+-- 'suiteDefinitionVersion', 'getSuiteRunResponse_suiteDefinitionVersion' - Suite definition version for the test suite run.
 --
 -- 'suiteRunArn', 'getSuiteRunResponse_suiteRunArn' - The ARN of the suite run.
 --
 -- 'suiteRunConfiguration', 'getSuiteRunResponse_suiteRunConfiguration' - Suite run configuration for the test suite run.
 --
--- 'status', 'getSuiteRunResponse_status' - Status for the test suite run.
+-- 'suiteRunId', 'getSuiteRunResponse_suiteRunId' - Suite run ID for the test suite run.
 --
--- 'endTime', 'getSuiteRunResponse_endTime' - Date (in Unix epoch time) when the test suite run ended.
---
--- 'suiteDefinitionVersion', 'getSuiteRunResponse_suiteDefinitionVersion' - Suite definition version for the test suite run.
+-- 'tags', 'getSuiteRunResponse_tags' - The tags attached to the suite run.
 --
 -- 'testResult', 'getSuiteRunResponse_testResult' - Test results for the test suite run.
---
--- 'suiteDefinitionId', 'getSuiteRunResponse_suiteDefinitionId' - Suite definition ID for the test suite run.
---
--- 'startTime', 'getSuiteRunResponse_startTime' - Date (in Unix epoch time) when the test suite run started.
---
--- 'suiteRunId', 'getSuiteRunResponse_suiteRunId' - Suite run ID for the test suite run.
 --
 -- 'httpStatus', 'getSuiteRunResponse_httpStatus' - The response's http status code.
 newGetSuiteRunResponse ::
@@ -224,27 +224,43 @@ newGetSuiteRunResponse ::
   GetSuiteRunResponse
 newGetSuiteRunResponse pHttpStatus_ =
   GetSuiteRunResponse'
-    { tags = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       errorReason = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      suiteDefinitionId = Prelude.Nothing,
+      suiteDefinitionVersion = Prelude.Nothing,
       suiteRunArn = Prelude.Nothing,
       suiteRunConfiguration = Prelude.Nothing,
-      status = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      suiteDefinitionVersion = Prelude.Nothing,
-      testResult = Prelude.Nothing,
-      suiteDefinitionId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       suiteRunId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      testResult = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The tags attached to the suite run.
-getSuiteRunResponse_tags :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSuiteRunResponse_tags = Lens.lens (\GetSuiteRunResponse' {tags} -> tags) (\s@GetSuiteRunResponse' {} a -> s {tags = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Date (in Unix epoch time) when the test suite run ended.
+getSuiteRunResponse_endTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
+getSuiteRunResponse_endTime = Lens.lens (\GetSuiteRunResponse' {endTime} -> endTime) (\s@GetSuiteRunResponse' {} a -> s {endTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Error reason for any test suite run failure.
 getSuiteRunResponse_errorReason :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
 getSuiteRunResponse_errorReason = Lens.lens (\GetSuiteRunResponse' {errorReason} -> errorReason) (\s@GetSuiteRunResponse' {} a -> s {errorReason = a} :: GetSuiteRunResponse)
+
+-- | Date (in Unix epoch time) when the test suite run started.
+getSuiteRunResponse_startTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
+getSuiteRunResponse_startTime = Lens.lens (\GetSuiteRunResponse' {startTime} -> startTime) (\s@GetSuiteRunResponse' {} a -> s {startTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Status for the test suite run.
+getSuiteRunResponse_status :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe SuiteRunStatus)
+getSuiteRunResponse_status = Lens.lens (\GetSuiteRunResponse' {status} -> status) (\s@GetSuiteRunResponse' {} a -> s {status = a} :: GetSuiteRunResponse)
+
+-- | Suite definition ID for the test suite run.
+getSuiteRunResponse_suiteDefinitionId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
+getSuiteRunResponse_suiteDefinitionId = Lens.lens (\GetSuiteRunResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteRunResponse' {} a -> s {suiteDefinitionId = a} :: GetSuiteRunResponse)
+
+-- | Suite definition version for the test suite run.
+getSuiteRunResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
+getSuiteRunResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteRunResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteRunResponse' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteRunResponse)
 
 -- | The ARN of the suite run.
 getSuiteRunResponse_suiteRunArn :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
@@ -254,33 +270,17 @@ getSuiteRunResponse_suiteRunArn = Lens.lens (\GetSuiteRunResponse' {suiteRunArn}
 getSuiteRunResponse_suiteRunConfiguration :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe SuiteRunConfiguration)
 getSuiteRunResponse_suiteRunConfiguration = Lens.lens (\GetSuiteRunResponse' {suiteRunConfiguration} -> suiteRunConfiguration) (\s@GetSuiteRunResponse' {} a -> s {suiteRunConfiguration = a} :: GetSuiteRunResponse)
 
--- | Status for the test suite run.
-getSuiteRunResponse_status :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe SuiteRunStatus)
-getSuiteRunResponse_status = Lens.lens (\GetSuiteRunResponse' {status} -> status) (\s@GetSuiteRunResponse' {} a -> s {status = a} :: GetSuiteRunResponse)
+-- | Suite run ID for the test suite run.
+getSuiteRunResponse_suiteRunId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
+getSuiteRunResponse_suiteRunId = Lens.lens (\GetSuiteRunResponse' {suiteRunId} -> suiteRunId) (\s@GetSuiteRunResponse' {} a -> s {suiteRunId = a} :: GetSuiteRunResponse)
 
--- | Date (in Unix epoch time) when the test suite run ended.
-getSuiteRunResponse_endTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteRunResponse_endTime = Lens.lens (\GetSuiteRunResponse' {endTime} -> endTime) (\s@GetSuiteRunResponse' {} a -> s {endTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
-
--- | Suite definition version for the test suite run.
-getSuiteRunResponse_suiteDefinitionVersion :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
-getSuiteRunResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteRunResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@GetSuiteRunResponse' {} a -> s {suiteDefinitionVersion = a} :: GetSuiteRunResponse)
+-- | The tags attached to the suite run.
+getSuiteRunResponse_tags :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSuiteRunResponse_tags = Lens.lens (\GetSuiteRunResponse' {tags} -> tags) (\s@GetSuiteRunResponse' {} a -> s {tags = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Test results for the test suite run.
 getSuiteRunResponse_testResult :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe TestResult)
 getSuiteRunResponse_testResult = Lens.lens (\GetSuiteRunResponse' {testResult} -> testResult) (\s@GetSuiteRunResponse' {} a -> s {testResult = a} :: GetSuiteRunResponse)
-
--- | Suite definition ID for the test suite run.
-getSuiteRunResponse_suiteDefinitionId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
-getSuiteRunResponse_suiteDefinitionId = Lens.lens (\GetSuiteRunResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteRunResponse' {} a -> s {suiteDefinitionId = a} :: GetSuiteRunResponse)
-
--- | Date (in Unix epoch time) when the test suite run started.
-getSuiteRunResponse_startTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
-getSuiteRunResponse_startTime = Lens.lens (\GetSuiteRunResponse' {startTime} -> startTime) (\s@GetSuiteRunResponse' {} a -> s {startTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Data._Time
-
--- | Suite run ID for the test suite run.
-getSuiteRunResponse_suiteRunId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
-getSuiteRunResponse_suiteRunId = Lens.lens (\GetSuiteRunResponse' {suiteRunId} -> suiteRunId) (\s@GetSuiteRunResponse' {} a -> s {suiteRunId = a} :: GetSuiteRunResponse)
 
 -- | The response's http status code.
 getSuiteRunResponse_httpStatus :: Lens.Lens' GetSuiteRunResponse Prelude.Int
@@ -288,15 +288,15 @@ getSuiteRunResponse_httpStatus = Lens.lens (\GetSuiteRunResponse' {httpStatus} -
 
 instance Prelude.NFData GetSuiteRunResponse where
   rnf GetSuiteRunResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf errorReason
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
       `Prelude.seq` Prelude.rnf suiteRunArn
       `Prelude.seq` Prelude.rnf suiteRunConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
-      `Prelude.seq` Prelude.rnf testResult
-      `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf suiteRunId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf testResult
       `Prelude.seq` Prelude.rnf httpStatus

@@ -15,12 +15,12 @@ module Amazonka.IoTDeviceAdvisor.Lens
   ( -- * Operations
 
     -- ** CreateSuiteDefinition
-    createSuiteDefinition_tags,
     createSuiteDefinition_suiteDefinitionConfiguration,
-    createSuiteDefinitionResponse_suiteDefinitionName,
+    createSuiteDefinition_tags,
+    createSuiteDefinitionResponse_createdAt,
     createSuiteDefinitionResponse_suiteDefinitionArn,
     createSuiteDefinitionResponse_suiteDefinitionId,
-    createSuiteDefinitionResponse_createdAt,
+    createSuiteDefinitionResponse_suiteDefinitionName,
     createSuiteDefinitionResponse_httpStatus,
 
     -- ** DeleteSuiteDefinition
@@ -28,38 +28,38 @@ module Amazonka.IoTDeviceAdvisor.Lens
     deleteSuiteDefinitionResponse_httpStatus,
 
     -- ** GetEndpoint
-    getEndpoint_thingArn,
     getEndpoint_certificateArn,
+    getEndpoint_thingArn,
     getEndpointResponse_endpoint,
     getEndpointResponse_httpStatus,
 
     -- ** GetSuiteDefinition
     getSuiteDefinition_suiteDefinitionVersion,
     getSuiteDefinition_suiteDefinitionId,
-    getSuiteDefinitionResponse_tags,
-    getSuiteDefinitionResponse_latestVersion,
-    getSuiteDefinitionResponse_suiteDefinitionConfiguration,
-    getSuiteDefinitionResponse_suiteDefinitionArn,
-    getSuiteDefinitionResponse_suiteDefinitionVersion,
-    getSuiteDefinitionResponse_suiteDefinitionId,
     getSuiteDefinitionResponse_createdAt,
     getSuiteDefinitionResponse_lastModifiedAt,
+    getSuiteDefinitionResponse_latestVersion,
+    getSuiteDefinitionResponse_suiteDefinitionArn,
+    getSuiteDefinitionResponse_suiteDefinitionConfiguration,
+    getSuiteDefinitionResponse_suiteDefinitionId,
+    getSuiteDefinitionResponse_suiteDefinitionVersion,
+    getSuiteDefinitionResponse_tags,
     getSuiteDefinitionResponse_httpStatus,
 
     -- ** GetSuiteRun
     getSuiteRun_suiteDefinitionId,
     getSuiteRun_suiteRunId,
-    getSuiteRunResponse_tags,
+    getSuiteRunResponse_endTime,
     getSuiteRunResponse_errorReason,
+    getSuiteRunResponse_startTime,
+    getSuiteRunResponse_status,
+    getSuiteRunResponse_suiteDefinitionId,
+    getSuiteRunResponse_suiteDefinitionVersion,
     getSuiteRunResponse_suiteRunArn,
     getSuiteRunResponse_suiteRunConfiguration,
-    getSuiteRunResponse_status,
-    getSuiteRunResponse_endTime,
-    getSuiteRunResponse_suiteDefinitionVersion,
-    getSuiteRunResponse_testResult,
-    getSuiteRunResponse_suiteDefinitionId,
-    getSuiteRunResponse_startTime,
     getSuiteRunResponse_suiteRunId,
+    getSuiteRunResponse_tags,
+    getSuiteRunResponse_testResult,
     getSuiteRunResponse_httpStatus,
 
     -- ** GetSuiteRunReport
@@ -69,19 +69,19 @@ module Amazonka.IoTDeviceAdvisor.Lens
     getSuiteRunReportResponse_httpStatus,
 
     -- ** ListSuiteDefinitions
-    listSuiteDefinitions_nextToken,
     listSuiteDefinitions_maxResults,
-    listSuiteDefinitionsResponse_suiteDefinitionInformationList,
+    listSuiteDefinitions_nextToken,
     listSuiteDefinitionsResponse_nextToken,
+    listSuiteDefinitionsResponse_suiteDefinitionInformationList,
     listSuiteDefinitionsResponse_httpStatus,
 
     -- ** ListSuiteRuns
-    listSuiteRuns_nextToken,
     listSuiteRuns_maxResults,
-    listSuiteRuns_suiteDefinitionVersion,
+    listSuiteRuns_nextToken,
     listSuiteRuns_suiteDefinitionId,
-    listSuiteRunsResponse_suiteRunsList,
+    listSuiteRuns_suiteDefinitionVersion,
     listSuiteRunsResponse_nextToken,
+    listSuiteRunsResponse_suiteRunsList,
     listSuiteRunsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -90,12 +90,12 @@ module Amazonka.IoTDeviceAdvisor.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** StartSuiteRun
-    startSuiteRun_tags,
-    startSuiteRun_suiteRunConfiguration,
     startSuiteRun_suiteDefinitionVersion,
+    startSuiteRun_suiteRunConfiguration,
+    startSuiteRun_tags,
     startSuiteRun_suiteDefinitionId,
-    startSuiteRunResponse_suiteRunArn,
     startSuiteRunResponse_createdAt,
+    startSuiteRunResponse_suiteRunArn,
     startSuiteRunResponse_suiteRunId,
     startSuiteRunResponse_httpStatus,
 
@@ -117,78 +117,78 @@ module Amazonka.IoTDeviceAdvisor.Lens
     -- ** UpdateSuiteDefinition
     updateSuiteDefinition_suiteDefinitionConfiguration,
     updateSuiteDefinition_suiteDefinitionId,
-    updateSuiteDefinitionResponse_lastUpdatedAt,
-    updateSuiteDefinitionResponse_suiteDefinitionName,
-    updateSuiteDefinitionResponse_suiteDefinitionArn,
-    updateSuiteDefinitionResponse_suiteDefinitionVersion,
-    updateSuiteDefinitionResponse_suiteDefinitionId,
     updateSuiteDefinitionResponse_createdAt,
+    updateSuiteDefinitionResponse_lastUpdatedAt,
+    updateSuiteDefinitionResponse_suiteDefinitionArn,
+    updateSuiteDefinitionResponse_suiteDefinitionId,
+    updateSuiteDefinitionResponse_suiteDefinitionName,
+    updateSuiteDefinitionResponse_suiteDefinitionVersion,
     updateSuiteDefinitionResponse_httpStatus,
 
     -- * Types
 
     -- ** DeviceUnderTest
-    deviceUnderTest_thingArn,
     deviceUnderTest_certificateArn,
+    deviceUnderTest_thingArn,
 
     -- ** GroupResult
-    groupResult_tests,
-    groupResult_groupName,
     groupResult_groupId,
+    groupResult_groupName,
+    groupResult_tests,
 
     -- ** SuiteDefinitionConfiguration
-    suiteDefinitionConfiguration_rootGroup,
-    suiteDefinitionConfiguration_devices,
-    suiteDefinitionConfiguration_suiteDefinitionName,
-    suiteDefinitionConfiguration_intendedForQualification,
-    suiteDefinitionConfiguration_protocol,
-    suiteDefinitionConfiguration_isLongDurationTest,
     suiteDefinitionConfiguration_devicePermissionRoleArn,
+    suiteDefinitionConfiguration_devices,
+    suiteDefinitionConfiguration_intendedForQualification,
+    suiteDefinitionConfiguration_isLongDurationTest,
+    suiteDefinitionConfiguration_protocol,
+    suiteDefinitionConfiguration_rootGroup,
+    suiteDefinitionConfiguration_suiteDefinitionName,
 
     -- ** SuiteDefinitionInformation
-    suiteDefinitionInformation_suiteDefinitionName,
+    suiteDefinitionInformation_createdAt,
     suiteDefinitionInformation_defaultDevices,
     suiteDefinitionInformation_intendedForQualification,
+    suiteDefinitionInformation_isLongDurationTest,
     suiteDefinitionInformation_protocol,
     suiteDefinitionInformation_suiteDefinitionId,
-    suiteDefinitionInformation_isLongDurationTest,
-    suiteDefinitionInformation_createdAt,
+    suiteDefinitionInformation_suiteDefinitionName,
 
     -- ** SuiteRunConfiguration
-    suiteRunConfiguration_selectedTestList,
-    suiteRunConfiguration_primaryDevice,
     suiteRunConfiguration_parallelRun,
+    suiteRunConfiguration_primaryDevice,
+    suiteRunConfiguration_selectedTestList,
 
     -- ** SuiteRunInformation
-    suiteRunInformation_failed,
-    suiteRunInformation_endAt,
-    suiteRunInformation_status,
-    suiteRunInformation_suiteDefinitionName,
-    suiteRunInformation_startedAt,
-    suiteRunInformation_suiteDefinitionVersion,
-    suiteRunInformation_passed,
-    suiteRunInformation_suiteDefinitionId,
     suiteRunInformation_createdAt,
+    suiteRunInformation_endAt,
+    suiteRunInformation_failed,
+    suiteRunInformation_passed,
+    suiteRunInformation_startedAt,
+    suiteRunInformation_status,
+    suiteRunInformation_suiteDefinitionId,
+    suiteRunInformation_suiteDefinitionName,
+    suiteRunInformation_suiteDefinitionVersion,
     suiteRunInformation_suiteRunId,
 
     -- ** TestCaseRun
-    testCaseRun_testCaseDefinitionId,
-    testCaseRun_logUrl,
-    testCaseRun_status,
     testCaseRun_endTime,
     testCaseRun_failure,
-    testCaseRun_testCaseDefinitionName,
-    testCaseRun_warnings,
-    testCaseRun_testCaseRunId,
+    testCaseRun_logUrl,
     testCaseRun_startTime,
+    testCaseRun_status,
+    testCaseRun_testCaseDefinitionId,
+    testCaseRun_testCaseDefinitionName,
+    testCaseRun_testCaseRunId,
     testCaseRun_testScenarios,
+    testCaseRun_warnings,
 
     -- ** TestCaseScenario
-    testCaseScenario_status,
-    testCaseScenario_testCaseScenarioType,
     testCaseScenario_failure,
+    testCaseScenario_status,
     testCaseScenario_systemMessage,
     testCaseScenario_testCaseScenarioId,
+    testCaseScenario_testCaseScenarioType,
 
     -- ** TestResult
     testResult_groups,

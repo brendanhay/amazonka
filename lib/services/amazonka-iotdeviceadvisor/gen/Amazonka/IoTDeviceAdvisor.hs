@@ -30,14 +30,14 @@ module Amazonka.IoTDeviceAdvisor
     -- * Errors
     -- $errors
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ValidationException
     _ValidationException,

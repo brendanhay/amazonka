@@ -31,16 +31,16 @@ module Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
     newListSuiteDefinitions,
 
     -- * Request Lenses
-    listSuiteDefinitions_nextToken,
     listSuiteDefinitions_maxResults,
+    listSuiteDefinitions_nextToken,
 
     -- * Destructuring the Response
     ListSuiteDefinitionsResponse (..),
     newListSuiteDefinitionsResponse,
 
     -- * Response Lenses
-    listSuiteDefinitionsResponse_suiteDefinitionInformationList,
     listSuiteDefinitionsResponse_nextToken,
+    listSuiteDefinitionsResponse_suiteDefinitionInformationList,
     listSuiteDefinitionsResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSuiteDefinitions' smart constructor.
 data ListSuiteDefinitions = ListSuiteDefinitions'
-  { -- | A token used to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at once.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return at once.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,24 +70,24 @@ data ListSuiteDefinitions = ListSuiteDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSuiteDefinitions_nextToken' - A token used to get the next set of results.
---
 -- 'maxResults', 'listSuiteDefinitions_maxResults' - The maximum number of results to return at once.
+--
+-- 'nextToken', 'listSuiteDefinitions_nextToken' - A token used to get the next set of results.
 newListSuiteDefinitions ::
   ListSuiteDefinitions
 newListSuiteDefinitions =
   ListSuiteDefinitions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token used to get the next set of results.
-listSuiteDefinitions_nextToken :: Lens.Lens' ListSuiteDefinitions (Prelude.Maybe Prelude.Text)
-listSuiteDefinitions_nextToken = Lens.lens (\ListSuiteDefinitions' {nextToken} -> nextToken) (\s@ListSuiteDefinitions' {} a -> s {nextToken = a} :: ListSuiteDefinitions)
 
 -- | The maximum number of results to return at once.
 listSuiteDefinitions_maxResults :: Lens.Lens' ListSuiteDefinitions (Prelude.Maybe Prelude.Natural)
 listSuiteDefinitions_maxResults = Lens.lens (\ListSuiteDefinitions' {maxResults} -> maxResults) (\s@ListSuiteDefinitions' {} a -> s {maxResults = a} :: ListSuiteDefinitions)
+
+-- | A token used to get the next set of results.
+listSuiteDefinitions_nextToken :: Lens.Lens' ListSuiteDefinitions (Prelude.Maybe Prelude.Text)
+listSuiteDefinitions_nextToken = Lens.lens (\ListSuiteDefinitions' {nextToken} -> nextToken) (\s@ListSuiteDefinitions' {} a -> s {nextToken = a} :: ListSuiteDefinitions)
 
 instance Core.AWSRequest ListSuiteDefinitions where
   type
@@ -99,22 +99,22 @@ instance Core.AWSRequest ListSuiteDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListSuiteDefinitionsResponse'
-            Prelude.<$> ( x Data..?> "suiteDefinitionInformationList"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "suiteDefinitionInformationList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSuiteDefinitions where
   hashWithSalt _salt ListSuiteDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSuiteDefinitions where
   rnf ListSuiteDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSuiteDefinitions where
   toHeaders =
@@ -133,17 +133,17 @@ instance Data.ToPath ListSuiteDefinitions where
 instance Data.ToQuery ListSuiteDefinitions where
   toQuery ListSuiteDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSuiteDefinitionsResponse' smart constructor.
 data ListSuiteDefinitionsResponse = ListSuiteDefinitionsResponse'
-  { -- | An array of objects that provide summaries of information about the
+  { -- | A token used to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that provide summaries of information about the
     -- suite definitions in the list.
     suiteDefinitionInformationList :: Prelude.Maybe [SuiteDefinitionInformation],
-    -- | A token used to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,10 +157,10 @@ data ListSuiteDefinitionsResponse = ListSuiteDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listSuiteDefinitionsResponse_nextToken' - A token used to get the next set of results.
+--
 -- 'suiteDefinitionInformationList', 'listSuiteDefinitionsResponse_suiteDefinitionInformationList' - An array of objects that provide summaries of information about the
 -- suite definitions in the list.
---
--- 'nextToken', 'listSuiteDefinitionsResponse_nextToken' - A token used to get the next set of results.
 --
 -- 'httpStatus', 'listSuiteDefinitionsResponse_httpStatus' - The response's http status code.
 newListSuiteDefinitionsResponse ::
@@ -169,20 +169,21 @@ newListSuiteDefinitionsResponse ::
   ListSuiteDefinitionsResponse
 newListSuiteDefinitionsResponse pHttpStatus_ =
   ListSuiteDefinitionsResponse'
-    { suiteDefinitionInformationList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      suiteDefinitionInformationList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A token used to get the next set of results.
+listSuiteDefinitionsResponse_nextToken :: Lens.Lens' ListSuiteDefinitionsResponse (Prelude.Maybe Prelude.Text)
+listSuiteDefinitionsResponse_nextToken = Lens.lens (\ListSuiteDefinitionsResponse' {nextToken} -> nextToken) (\s@ListSuiteDefinitionsResponse' {} a -> s {nextToken = a} :: ListSuiteDefinitionsResponse)
 
 -- | An array of objects that provide summaries of information about the
 -- suite definitions in the list.
 listSuiteDefinitionsResponse_suiteDefinitionInformationList :: Lens.Lens' ListSuiteDefinitionsResponse (Prelude.Maybe [SuiteDefinitionInformation])
 listSuiteDefinitionsResponse_suiteDefinitionInformationList = Lens.lens (\ListSuiteDefinitionsResponse' {suiteDefinitionInformationList} -> suiteDefinitionInformationList) (\s@ListSuiteDefinitionsResponse' {} a -> s {suiteDefinitionInformationList = a} :: ListSuiteDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A token used to get the next set of results.
-listSuiteDefinitionsResponse_nextToken :: Lens.Lens' ListSuiteDefinitionsResponse (Prelude.Maybe Prelude.Text)
-listSuiteDefinitionsResponse_nextToken = Lens.lens (\ListSuiteDefinitionsResponse' {nextToken} -> nextToken) (\s@ListSuiteDefinitionsResponse' {} a -> s {nextToken = a} :: ListSuiteDefinitionsResponse)
 
 -- | The response's http status code.
 listSuiteDefinitionsResponse_httpStatus :: Lens.Lens' ListSuiteDefinitionsResponse Prelude.Int
@@ -190,6 +191,6 @@ listSuiteDefinitionsResponse_httpStatus = Lens.lens (\ListSuiteDefinitionsRespon
 
 instance Prelude.NFData ListSuiteDefinitionsResponse where
   rnf ListSuiteDefinitionsResponse' {..} =
-    Prelude.rnf suiteDefinitionInformationList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf suiteDefinitionInformationList
       `Prelude.seq` Prelude.rnf httpStatus

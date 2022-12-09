@@ -31,9 +31,9 @@ module Amazonka.IoTDeviceAdvisor.StartSuiteRun
     newStartSuiteRun,
 
     -- * Request Lenses
-    startSuiteRun_tags,
-    startSuiteRun_suiteRunConfiguration,
     startSuiteRun_suiteDefinitionVersion,
+    startSuiteRun_suiteRunConfiguration,
+    startSuiteRun_tags,
     startSuiteRun_suiteDefinitionId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.IoTDeviceAdvisor.StartSuiteRun
     newStartSuiteRunResponse,
 
     -- * Response Lenses
-    startSuiteRunResponse_suiteRunArn,
     startSuiteRunResponse_createdAt,
+    startSuiteRunResponse_suiteRunArn,
     startSuiteRunResponse_suiteRunId,
     startSuiteRunResponse_httpStatus,
   )
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartSuiteRun' smart constructor.
 data StartSuiteRun = StartSuiteRun'
-  { -- | The tags to be attached to the suite run.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Suite definition version of the test suite.
+    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Suite run configuration.
     suiteRunConfiguration :: Prelude.Maybe SuiteRunConfiguration,
-    -- | Suite definition version of the test suite.
-    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be attached to the suite run.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Suite definition ID of the test suite.
     suiteDefinitionId :: Prelude.Text
   }
@@ -77,11 +77,11 @@ data StartSuiteRun = StartSuiteRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startSuiteRun_tags' - The tags to be attached to the suite run.
+-- 'suiteDefinitionVersion', 'startSuiteRun_suiteDefinitionVersion' - Suite definition version of the test suite.
 --
 -- 'suiteRunConfiguration', 'startSuiteRun_suiteRunConfiguration' - Suite run configuration.
 --
--- 'suiteDefinitionVersion', 'startSuiteRun_suiteDefinitionVersion' - Suite definition version of the test suite.
+-- 'tags', 'startSuiteRun_tags' - The tags to be attached to the suite run.
 --
 -- 'suiteDefinitionId', 'startSuiteRun_suiteDefinitionId' - Suite definition ID of the test suite.
 newStartSuiteRun ::
@@ -90,23 +90,24 @@ newStartSuiteRun ::
   StartSuiteRun
 newStartSuiteRun pSuiteDefinitionId_ =
   StartSuiteRun'
-    { tags = Prelude.Nothing,
+    { suiteDefinitionVersion =
+        Prelude.Nothing,
       suiteRunConfiguration = Prelude.Nothing,
-      suiteDefinitionVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       suiteDefinitionId = pSuiteDefinitionId_
     }
 
--- | The tags to be attached to the suite run.
-startSuiteRun_tags :: Lens.Lens' StartSuiteRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startSuiteRun_tags = Lens.lens (\StartSuiteRun' {tags} -> tags) (\s@StartSuiteRun' {} a -> s {tags = a} :: StartSuiteRun) Prelude.. Lens.mapping Lens.coerced
+-- | Suite definition version of the test suite.
+startSuiteRun_suiteDefinitionVersion :: Lens.Lens' StartSuiteRun (Prelude.Maybe Prelude.Text)
+startSuiteRun_suiteDefinitionVersion = Lens.lens (\StartSuiteRun' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@StartSuiteRun' {} a -> s {suiteDefinitionVersion = a} :: StartSuiteRun)
 
 -- | Suite run configuration.
 startSuiteRun_suiteRunConfiguration :: Lens.Lens' StartSuiteRun (Prelude.Maybe SuiteRunConfiguration)
 startSuiteRun_suiteRunConfiguration = Lens.lens (\StartSuiteRun' {suiteRunConfiguration} -> suiteRunConfiguration) (\s@StartSuiteRun' {} a -> s {suiteRunConfiguration = a} :: StartSuiteRun)
 
--- | Suite definition version of the test suite.
-startSuiteRun_suiteDefinitionVersion :: Lens.Lens' StartSuiteRun (Prelude.Maybe Prelude.Text)
-startSuiteRun_suiteDefinitionVersion = Lens.lens (\StartSuiteRun' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@StartSuiteRun' {} a -> s {suiteDefinitionVersion = a} :: StartSuiteRun)
+-- | The tags to be attached to the suite run.
+startSuiteRun_tags :: Lens.Lens' StartSuiteRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startSuiteRun_tags = Lens.lens (\StartSuiteRun' {tags} -> tags) (\s@StartSuiteRun' {} a -> s {tags = a} :: StartSuiteRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | Suite definition ID of the test suite.
 startSuiteRun_suiteDefinitionId :: Lens.Lens' StartSuiteRun Prelude.Text
@@ -122,24 +123,24 @@ instance Core.AWSRequest StartSuiteRun where
     Response.receiveJSON
       ( \s h x ->
           StartSuiteRunResponse'
-            Prelude.<$> (x Data..?> "suiteRunArn")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<$> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "suiteRunArn")
             Prelude.<*> (x Data..?> "suiteRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartSuiteRun where
   hashWithSalt _salt StartSuiteRun' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` suiteDefinitionVersion
       `Prelude.hashWithSalt` suiteRunConfiguration
-      `Prelude.hashWithSalt` suiteDefinitionVersion
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` suiteDefinitionId
 
 instance Prelude.NFData StartSuiteRun where
   rnf StartSuiteRun' {..} =
-    Prelude.rnf tags
+    Prelude.rnf suiteDefinitionVersion
       `Prelude.seq` Prelude.rnf suiteRunConfiguration
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf suiteDefinitionId
 
 instance Data.ToHeaders StartSuiteRun where
@@ -157,11 +158,11 @@ instance Data.ToJSON StartSuiteRun where
   toJSON StartSuiteRun' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("suiteDefinitionVersion" Data..=)
+              Prelude.<$> suiteDefinitionVersion,
             ("suiteRunConfiguration" Data..=)
               Prelude.<$> suiteRunConfiguration,
-            ("suiteDefinitionVersion" Data..=)
-              Prelude.<$> suiteDefinitionVersion
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 
@@ -178,10 +179,10 @@ instance Data.ToQuery StartSuiteRun where
 
 -- | /See:/ 'newStartSuiteRunResponse' smart constructor.
 data StartSuiteRunResponse = StartSuiteRunResponse'
-  { -- | Amazon Resource Name (ARN) of the started suite run.
-    suiteRunArn :: Prelude.Maybe Prelude.Text,
-    -- | Starts a Device Advisor test suite run based on suite create time.
+  { -- | Starts a Device Advisor test suite run based on suite create time.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Amazon Resource Name (ARN) of the started suite run.
+    suiteRunArn :: Prelude.Maybe Prelude.Text,
     -- | Suite Run ID of the started suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -197,9 +198,9 @@ data StartSuiteRunResponse = StartSuiteRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteRunArn', 'startSuiteRunResponse_suiteRunArn' - Amazon Resource Name (ARN) of the started suite run.
---
 -- 'createdAt', 'startSuiteRunResponse_createdAt' - Starts a Device Advisor test suite run based on suite create time.
+--
+-- 'suiteRunArn', 'startSuiteRunResponse_suiteRunArn' - Amazon Resource Name (ARN) of the started suite run.
 --
 -- 'suiteRunId', 'startSuiteRunResponse_suiteRunId' - Suite Run ID of the started suite run.
 --
@@ -210,20 +211,19 @@ newStartSuiteRunResponse ::
   StartSuiteRunResponse
 newStartSuiteRunResponse pHttpStatus_ =
   StartSuiteRunResponse'
-    { suiteRunArn =
-        Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      suiteRunArn = Prelude.Nothing,
       suiteRunId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Amazon Resource Name (ARN) of the started suite run.
-startSuiteRunResponse_suiteRunArn :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)
-startSuiteRunResponse_suiteRunArn = Lens.lens (\StartSuiteRunResponse' {suiteRunArn} -> suiteRunArn) (\s@StartSuiteRunResponse' {} a -> s {suiteRunArn = a} :: StartSuiteRunResponse)
-
 -- | Starts a Device Advisor test suite run based on suite create time.
 startSuiteRunResponse_createdAt :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
 startSuiteRunResponse_createdAt = Lens.lens (\StartSuiteRunResponse' {createdAt} -> createdAt) (\s@StartSuiteRunResponse' {} a -> s {createdAt = a} :: StartSuiteRunResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Amazon Resource Name (ARN) of the started suite run.
+startSuiteRunResponse_suiteRunArn :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)
+startSuiteRunResponse_suiteRunArn = Lens.lens (\StartSuiteRunResponse' {suiteRunArn} -> suiteRunArn) (\s@StartSuiteRunResponse' {} a -> s {suiteRunArn = a} :: StartSuiteRunResponse)
 
 -- | Suite Run ID of the started suite run.
 startSuiteRunResponse_suiteRunId :: Lens.Lens' StartSuiteRunResponse (Prelude.Maybe Prelude.Text)
@@ -235,7 +235,7 @@ startSuiteRunResponse_httpStatus = Lens.lens (\StartSuiteRunResponse' {httpStatu
 
 instance Prelude.NFData StartSuiteRunResponse where
   rnf StartSuiteRunResponse' {..} =
-    Prelude.rnf suiteRunArn
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf suiteRunArn
       `Prelude.seq` Prelude.rnf suiteRunId
       `Prelude.seq` Prelude.rnf httpStatus

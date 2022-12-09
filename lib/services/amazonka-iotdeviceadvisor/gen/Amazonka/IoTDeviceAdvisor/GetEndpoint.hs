@@ -27,8 +27,8 @@ module Amazonka.IoTDeviceAdvisor.GetEndpoint
     newGetEndpoint,
 
     -- * Request Lenses
-    getEndpoint_thingArn,
     getEndpoint_certificateArn,
+    getEndpoint_thingArn,
 
     -- * Destructuring the Response
     GetEndpointResponse (..),
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-  { -- | The thing ARN of the device. This is an optional parameter.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The certificate ARN of the device. This is an optional parameter.
-    certificateArn :: Prelude.Maybe Prelude.Text
+  { -- | The certificate ARN of the device. This is an optional parameter.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The thing ARN of the device. This is an optional parameter.
+    thingArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,24 +65,24 @@ data GetEndpoint = GetEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'getEndpoint_thingArn' - The thing ARN of the device. This is an optional parameter.
---
 -- 'certificateArn', 'getEndpoint_certificateArn' - The certificate ARN of the device. This is an optional parameter.
+--
+-- 'thingArn', 'getEndpoint_thingArn' - The thing ARN of the device. This is an optional parameter.
 newGetEndpoint ::
   GetEndpoint
 newGetEndpoint =
   GetEndpoint'
-    { thingArn = Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+    { certificateArn = Prelude.Nothing,
+      thingArn = Prelude.Nothing
     }
-
--- | The thing ARN of the device. This is an optional parameter.
-getEndpoint_thingArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
-getEndpoint_thingArn = Lens.lens (\GetEndpoint' {thingArn} -> thingArn) (\s@GetEndpoint' {} a -> s {thingArn = a} :: GetEndpoint)
 
 -- | The certificate ARN of the device. This is an optional parameter.
 getEndpoint_certificateArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
 getEndpoint_certificateArn = Lens.lens (\GetEndpoint' {certificateArn} -> certificateArn) (\s@GetEndpoint' {} a -> s {certificateArn = a} :: GetEndpoint)
+
+-- | The thing ARN of the device. This is an optional parameter.
+getEndpoint_thingArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
+getEndpoint_thingArn = Lens.lens (\GetEndpoint' {thingArn} -> thingArn) (\s@GetEndpoint' {} a -> s {thingArn = a} :: GetEndpoint)
 
 instance Core.AWSRequest GetEndpoint where
   type AWSResponse GetEndpoint = GetEndpointResponse
@@ -98,13 +98,13 @@ instance Core.AWSRequest GetEndpoint where
 
 instance Prelude.Hashable GetEndpoint where
   hashWithSalt _salt GetEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` thingArn
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData GetEndpoint where
   rnf GetEndpoint' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf thingArn
 
 instance Data.ToHeaders GetEndpoint where
   toHeaders =
@@ -123,8 +123,8 @@ instance Data.ToPath GetEndpoint where
 instance Data.ToQuery GetEndpoint where
   toQuery GetEndpoint' {..} =
     Prelude.mconcat
-      [ "thingArn" Data.=: thingArn,
-        "certificateArn" Data.=: certificateArn
+      [ "certificateArn" Data.=: certificateArn,
+        "thingArn" Data.=: thingArn
       ]
 
 -- | /See:/ 'newGetEndpointResponse' smart constructor.

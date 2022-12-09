@@ -30,11 +30,11 @@ module Amazonka.Route53Resolver.ListResolverQueryLogConfigAssociations
     newListResolverQueryLogConfigAssociations,
 
     -- * Request Lenses
-    listResolverQueryLogConfigAssociations_sortOrder,
-    listResolverQueryLogConfigAssociations_nextToken,
     listResolverQueryLogConfigAssociations_filters,
-    listResolverQueryLogConfigAssociations_sortBy,
     listResolverQueryLogConfigAssociations_maxResults,
+    listResolverQueryLogConfigAssociations_nextToken,
+    listResolverQueryLogConfigAssociations_sortBy,
+    listResolverQueryLogConfigAssociations_sortOrder,
 
     -- * Destructuring the Response
     ListResolverQueryLogConfigAssociationsResponse (..),
@@ -42,9 +42,9 @@ module Amazonka.Route53Resolver.ListResolverQueryLogConfigAssociations
 
     -- * Response Lenses
     listResolverQueryLogConfigAssociationsResponse_nextToken,
-    listResolverQueryLogConfigAssociationsResponse_totalFilteredCount,
     listResolverQueryLogConfigAssociationsResponse_resolverQueryLogConfigAssociations,
     listResolverQueryLogConfigAssociationsResponse_totalCount,
+    listResolverQueryLogConfigAssociationsResponse_totalFilteredCount,
     listResolverQueryLogConfigAssociationsResponse_httpStatus,
   )
 where
@@ -59,14 +59,19 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverQueryLogConfigAssociations' smart constructor.
 data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociations'
-  { -- | If you specified a value for @SortBy@, the order that you want query
-    -- logging associations to be listed in, @ASCENDING@ or @DESCENDING@.
+  { -- | An optional specification to return a subset of query logging
+    -- associations.
     --
     -- If you submit a second or subsequent
     -- @ListResolverQueryLogConfigAssociations@ request and specify the
-    -- @NextToken@ parameter, you must use the same value for @SortOrder@, if
+    -- @NextToken@ parameter, you must use the same values for @Filters@, if
     -- any, as in the previous request.
-    sortOrder :: Prelude.Maybe SortOrder,
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of query logging associations that you want to return
+    -- in the response to a @ListResolverQueryLogConfigAssociations@ request.
+    -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+    -- 100 query logging associations.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | For the first @ListResolverQueryLogConfigAssociations@ request, omit
     -- this value.
     --
@@ -76,14 +81,6 @@ data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociat
     -- of associations. In the next request, specify the value of @NextToken@
     -- from the previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional specification to return a subset of query logging
-    -- associations.
-    --
-    -- If you submit a second or subsequent
-    -- @ListResolverQueryLogConfigAssociations@ request and specify the
-    -- @NextToken@ parameter, you must use the same values for @Filters@, if
-    -- any, as in the previous request.
-    filters :: Prelude.Maybe [Filter],
     -- | The element that you want Resolver to sort query logging associations
     -- by.
     --
@@ -135,11 +132,14 @@ data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociat
     --
     --         -   Permissions don\'t allow sending logs to the destination.
     sortBy :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of query logging associations that you want to return
-    -- in the response to a @ListResolverQueryLogConfigAssociations@ request.
-    -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
-    -- 100 query logging associations.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | If you specified a value for @SortBy@, the order that you want query
+    -- logging associations to be listed in, @ASCENDING@ or @DESCENDING@.
+    --
+    -- If you submit a second or subsequent
+    -- @ListResolverQueryLogConfigAssociations@ request and specify the
+    -- @NextToken@ parameter, you must use the same value for @SortOrder@, if
+    -- any, as in the previous request.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -151,13 +151,18 @@ data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listResolverQueryLogConfigAssociations_sortOrder' - If you specified a value for @SortBy@, the order that you want query
--- logging associations to be listed in, @ASCENDING@ or @DESCENDING@.
+-- 'filters', 'listResolverQueryLogConfigAssociations_filters' - An optional specification to return a subset of query logging
+-- associations.
 --
 -- If you submit a second or subsequent
 -- @ListResolverQueryLogConfigAssociations@ request and specify the
--- @NextToken@ parameter, you must use the same value for @SortOrder@, if
+-- @NextToken@ parameter, you must use the same values for @Filters@, if
 -- any, as in the previous request.
+--
+-- 'maxResults', 'listResolverQueryLogConfigAssociations_maxResults' - The maximum number of query logging associations that you want to return
+-- in the response to a @ListResolverQueryLogConfigAssociations@ request.
+-- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+-- 100 query logging associations.
 --
 -- 'nextToken', 'listResolverQueryLogConfigAssociations_nextToken' - For the first @ListResolverQueryLogConfigAssociations@ request, omit
 -- this value.
@@ -167,14 +172,6 @@ data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociat
 -- @ListResolverQueryLogConfigAssociations@ request to get the next group
 -- of associations. In the next request, specify the value of @NextToken@
 -- from the previous response.
---
--- 'filters', 'listResolverQueryLogConfigAssociations_filters' - An optional specification to return a subset of query logging
--- associations.
---
--- If you submit a second or subsequent
--- @ListResolverQueryLogConfigAssociations@ request and specify the
--- @NextToken@ parameter, you must use the same values for @Filters@, if
--- any, as in the previous request.
 --
 -- 'sortBy', 'listResolverQueryLogConfigAssociations_sortBy' - The element that you want Resolver to sort query logging associations
 -- by.
@@ -227,31 +224,41 @@ data ListResolverQueryLogConfigAssociations = ListResolverQueryLogConfigAssociat
 --
 --         -   Permissions don\'t allow sending logs to the destination.
 --
--- 'maxResults', 'listResolverQueryLogConfigAssociations_maxResults' - The maximum number of query logging associations that you want to return
--- in the response to a @ListResolverQueryLogConfigAssociations@ request.
--- If you don\'t specify a value for @MaxResults@, Resolver returns up to
--- 100 query logging associations.
-newListResolverQueryLogConfigAssociations ::
-  ListResolverQueryLogConfigAssociations
-newListResolverQueryLogConfigAssociations =
-  ListResolverQueryLogConfigAssociations'
-    { sortOrder =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | If you specified a value for @SortBy@, the order that you want query
+-- 'sortOrder', 'listResolverQueryLogConfigAssociations_sortOrder' - If you specified a value for @SortBy@, the order that you want query
 -- logging associations to be listed in, @ASCENDING@ or @DESCENDING@.
 --
 -- If you submit a second or subsequent
 -- @ListResolverQueryLogConfigAssociations@ request and specify the
 -- @NextToken@ parameter, you must use the same value for @SortOrder@, if
 -- any, as in the previous request.
-listResolverQueryLogConfigAssociations_sortOrder :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe SortOrder)
-listResolverQueryLogConfigAssociations_sortOrder = Lens.lens (\ListResolverQueryLogConfigAssociations' {sortOrder} -> sortOrder) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {sortOrder = a} :: ListResolverQueryLogConfigAssociations)
+newListResolverQueryLogConfigAssociations ::
+  ListResolverQueryLogConfigAssociations
+newListResolverQueryLogConfigAssociations =
+  ListResolverQueryLogConfigAssociations'
+    { filters =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
+
+-- | An optional specification to return a subset of query logging
+-- associations.
+--
+-- If you submit a second or subsequent
+-- @ListResolverQueryLogConfigAssociations@ request and specify the
+-- @NextToken@ parameter, you must use the same values for @Filters@, if
+-- any, as in the previous request.
+listResolverQueryLogConfigAssociations_filters :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe [Filter])
+listResolverQueryLogConfigAssociations_filters = Lens.lens (\ListResolverQueryLogConfigAssociations' {filters} -> filters) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {filters = a} :: ListResolverQueryLogConfigAssociations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of query logging associations that you want to return
+-- in the response to a @ListResolverQueryLogConfigAssociations@ request.
+-- If you don\'t specify a value for @MaxResults@, Resolver returns up to
+-- 100 query logging associations.
+listResolverQueryLogConfigAssociations_maxResults :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe Prelude.Natural)
+listResolverQueryLogConfigAssociations_maxResults = Lens.lens (\ListResolverQueryLogConfigAssociations' {maxResults} -> maxResults) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {maxResults = a} :: ListResolverQueryLogConfigAssociations)
 
 -- | For the first @ListResolverQueryLogConfigAssociations@ request, omit
 -- this value.
@@ -263,16 +270,6 @@ listResolverQueryLogConfigAssociations_sortOrder = Lens.lens (\ListResolverQuery
 -- from the previous response.
 listResolverQueryLogConfigAssociations_nextToken :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe Prelude.Text)
 listResolverQueryLogConfigAssociations_nextToken = Lens.lens (\ListResolverQueryLogConfigAssociations' {nextToken} -> nextToken) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {nextToken = a} :: ListResolverQueryLogConfigAssociations)
-
--- | An optional specification to return a subset of query logging
--- associations.
---
--- If you submit a second or subsequent
--- @ListResolverQueryLogConfigAssociations@ request and specify the
--- @NextToken@ parameter, you must use the same values for @Filters@, if
--- any, as in the previous request.
-listResolverQueryLogConfigAssociations_filters :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe [Filter])
-listResolverQueryLogConfigAssociations_filters = Lens.lens (\ListResolverQueryLogConfigAssociations' {filters} -> filters) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {filters = a} :: ListResolverQueryLogConfigAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The element that you want Resolver to sort query logging associations
 -- by.
@@ -327,12 +324,15 @@ listResolverQueryLogConfigAssociations_filters = Lens.lens (\ListResolverQueryLo
 listResolverQueryLogConfigAssociations_sortBy :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe Prelude.Text)
 listResolverQueryLogConfigAssociations_sortBy = Lens.lens (\ListResolverQueryLogConfigAssociations' {sortBy} -> sortBy) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {sortBy = a} :: ListResolverQueryLogConfigAssociations)
 
--- | The maximum number of query logging associations that you want to return
--- in the response to a @ListResolverQueryLogConfigAssociations@ request.
--- If you don\'t specify a value for @MaxResults@, Resolver returns up to
--- 100 query logging associations.
-listResolverQueryLogConfigAssociations_maxResults :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe Prelude.Natural)
-listResolverQueryLogConfigAssociations_maxResults = Lens.lens (\ListResolverQueryLogConfigAssociations' {maxResults} -> maxResults) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {maxResults = a} :: ListResolverQueryLogConfigAssociations)
+-- | If you specified a value for @SortBy@, the order that you want query
+-- logging associations to be listed in, @ASCENDING@ or @DESCENDING@.
+--
+-- If you submit a second or subsequent
+-- @ListResolverQueryLogConfigAssociations@ request and specify the
+-- @NextToken@ parameter, you must use the same value for @SortOrder@, if
+-- any, as in the previous request.
+listResolverQueryLogConfigAssociations_sortOrder :: Lens.Lens' ListResolverQueryLogConfigAssociations (Prelude.Maybe SortOrder)
+listResolverQueryLogConfigAssociations_sortOrder = Lens.lens (\ListResolverQueryLogConfigAssociations' {sortOrder} -> sortOrder) (\s@ListResolverQueryLogConfigAssociations' {} a -> s {sortOrder = a} :: ListResolverQueryLogConfigAssociations)
 
 instance
   Core.AWSPager
@@ -374,11 +374,11 @@ instance
       ( \s h x ->
           ListResolverQueryLogConfigAssociationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "TotalFilteredCount")
               Prelude.<*> ( x Data..?> "ResolverQueryLogConfigAssociations"
                               Core..!@ Prelude.mempty
                           )
               Prelude.<*> (x Data..?> "TotalCount")
+              Prelude.<*> (x Data..?> "TotalFilteredCount")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -389,22 +389,22 @@ instance
   hashWithSalt
     _salt
     ListResolverQueryLogConfigAssociations' {..} =
-      _salt `Prelude.hashWithSalt` sortOrder
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` sortBy
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` sortOrder
 
 instance
   Prelude.NFData
     ListResolverQueryLogConfigAssociations
   where
   rnf ListResolverQueryLogConfigAssociations' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -431,11 +431,11 @@ instance
   toJSON ListResolverQueryLogConfigAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
             ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 
@@ -458,12 +458,6 @@ data ListResolverQueryLogConfigAssociationsResponse = ListResolverQueryLogConfig
     -- the next group of associations. In the next request, specify the value
     -- of @NextToken@ from the previous response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of query logging associations that were created by the
-    -- current account in the specified Region and that match the filters that
-    -- were specified in the @ListResolverQueryLogConfigAssociations@ request.
-    -- For the total number of associations that were created by the current
-    -- account in the specified Region, see @TotalCount@.
-    totalFilteredCount :: Prelude.Maybe Prelude.Int,
     -- | A list that contains one @ResolverQueryLogConfigAssociations@ element
     -- for each query logging association that matches the values that you
     -- specified for @Filter@.
@@ -474,6 +468,12 @@ data ListResolverQueryLogConfigAssociationsResponse = ListResolverQueryLogConfig
     -- @ListResolverQueryLogConfigAssociations@ response, depending on the
     -- values that you specify in the request.
     totalCount :: Prelude.Maybe Prelude.Int,
+    -- | The total number of query logging associations that were created by the
+    -- current account in the specified Region and that match the filters that
+    -- were specified in the @ListResolverQueryLogConfigAssociations@ request.
+    -- For the total number of associations that were created by the current
+    -- account in the specified Region, see @TotalCount@.
+    totalFilteredCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -492,12 +492,6 @@ data ListResolverQueryLogConfigAssociationsResponse = ListResolverQueryLogConfig
 -- the next group of associations. In the next request, specify the value
 -- of @NextToken@ from the previous response.
 --
--- 'totalFilteredCount', 'listResolverQueryLogConfigAssociationsResponse_totalFilteredCount' - The total number of query logging associations that were created by the
--- current account in the specified Region and that match the filters that
--- were specified in the @ListResolverQueryLogConfigAssociations@ request.
--- For the total number of associations that were created by the current
--- account in the specified Region, see @TotalCount@.
---
 -- 'resolverQueryLogConfigAssociations', 'listResolverQueryLogConfigAssociationsResponse_resolverQueryLogConfigAssociations' - A list that contains one @ResolverQueryLogConfigAssociations@ element
 -- for each query logging association that matches the values that you
 -- specified for @Filter@.
@@ -507,6 +501,12 @@ data ListResolverQueryLogConfigAssociationsResponse = ListResolverQueryLogConfig
 -- number of associations that are returned in a
 -- @ListResolverQueryLogConfigAssociations@ response, depending on the
 -- values that you specify in the request.
+--
+-- 'totalFilteredCount', 'listResolverQueryLogConfigAssociationsResponse_totalFilteredCount' - The total number of query logging associations that were created by the
+-- current account in the specified Region and that match the filters that
+-- were specified in the @ListResolverQueryLogConfigAssociations@ request.
+-- For the total number of associations that were created by the current
+-- account in the specified Region, see @TotalCount@.
 --
 -- 'httpStatus', 'listResolverQueryLogConfigAssociationsResponse_httpStatus' - The response's http status code.
 newListResolverQueryLogConfigAssociationsResponse ::
@@ -518,11 +518,11 @@ newListResolverQueryLogConfigAssociationsResponse
     ListResolverQueryLogConfigAssociationsResponse'
       { nextToken =
           Prelude.Nothing,
-        totalFilteredCount =
-          Prelude.Nothing,
         resolverQueryLogConfigAssociations =
           Prelude.Nothing,
         totalCount =
+          Prelude.Nothing,
+        totalFilteredCount =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -533,14 +533,6 @@ newListResolverQueryLogConfigAssociationsResponse
 -- of @NextToken@ from the previous response.
 listResolverQueryLogConfigAssociationsResponse_nextToken :: Lens.Lens' ListResolverQueryLogConfigAssociationsResponse (Prelude.Maybe Prelude.Text)
 listResolverQueryLogConfigAssociationsResponse_nextToken = Lens.lens (\ListResolverQueryLogConfigAssociationsResponse' {nextToken} -> nextToken) (\s@ListResolverQueryLogConfigAssociationsResponse' {} a -> s {nextToken = a} :: ListResolverQueryLogConfigAssociationsResponse)
-
--- | The total number of query logging associations that were created by the
--- current account in the specified Region and that match the filters that
--- were specified in the @ListResolverQueryLogConfigAssociations@ request.
--- For the total number of associations that were created by the current
--- account in the specified Region, see @TotalCount@.
-listResolverQueryLogConfigAssociationsResponse_totalFilteredCount :: Lens.Lens' ListResolverQueryLogConfigAssociationsResponse (Prelude.Maybe Prelude.Int)
-listResolverQueryLogConfigAssociationsResponse_totalFilteredCount = Lens.lens (\ListResolverQueryLogConfigAssociationsResponse' {totalFilteredCount} -> totalFilteredCount) (\s@ListResolverQueryLogConfigAssociationsResponse' {} a -> s {totalFilteredCount = a} :: ListResolverQueryLogConfigAssociationsResponse)
 
 -- | A list that contains one @ResolverQueryLogConfigAssociations@ element
 -- for each query logging association that matches the values that you
@@ -556,6 +548,14 @@ listResolverQueryLogConfigAssociationsResponse_resolverQueryLogConfigAssociation
 listResolverQueryLogConfigAssociationsResponse_totalCount :: Lens.Lens' ListResolverQueryLogConfigAssociationsResponse (Prelude.Maybe Prelude.Int)
 listResolverQueryLogConfigAssociationsResponse_totalCount = Lens.lens (\ListResolverQueryLogConfigAssociationsResponse' {totalCount} -> totalCount) (\s@ListResolverQueryLogConfigAssociationsResponse' {} a -> s {totalCount = a} :: ListResolverQueryLogConfigAssociationsResponse)
 
+-- | The total number of query logging associations that were created by the
+-- current account in the specified Region and that match the filters that
+-- were specified in the @ListResolverQueryLogConfigAssociations@ request.
+-- For the total number of associations that were created by the current
+-- account in the specified Region, see @TotalCount@.
+listResolverQueryLogConfigAssociationsResponse_totalFilteredCount :: Lens.Lens' ListResolverQueryLogConfigAssociationsResponse (Prelude.Maybe Prelude.Int)
+listResolverQueryLogConfigAssociationsResponse_totalFilteredCount = Lens.lens (\ListResolverQueryLogConfigAssociationsResponse' {totalFilteredCount} -> totalFilteredCount) (\s@ListResolverQueryLogConfigAssociationsResponse' {} a -> s {totalFilteredCount = a} :: ListResolverQueryLogConfigAssociationsResponse)
+
 -- | The response's http status code.
 listResolverQueryLogConfigAssociationsResponse_httpStatus :: Lens.Lens' ListResolverQueryLogConfigAssociationsResponse Prelude.Int
 listResolverQueryLogConfigAssociationsResponse_httpStatus = Lens.lens (\ListResolverQueryLogConfigAssociationsResponse' {httpStatus} -> httpStatus) (\s@ListResolverQueryLogConfigAssociationsResponse' {} a -> s {httpStatus = a} :: ListResolverQueryLogConfigAssociationsResponse)
@@ -567,7 +567,7 @@ instance
   rnf
     ListResolverQueryLogConfigAssociationsResponse' {..} =
       Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf totalFilteredCount
         `Prelude.seq` Prelude.rnf resolverQueryLogConfigAssociations
         `Prelude.seq` Prelude.rnf totalCount
+        `Prelude.seq` Prelude.rnf totalFilteredCount
         `Prelude.seq` Prelude.rnf httpStatus

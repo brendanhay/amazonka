@@ -30,10 +30,10 @@ module Amazonka.Route53Resolver.CreateResolverRule
     newCreateResolverRule,
 
     -- * Request Lenses
-    createResolverRule_tags,
     createResolverRule_name,
-    createResolverRule_targetIps,
     createResolverRule_resolverEndpointId,
+    createResolverRule_tags,
+    createResolverRule_targetIps,
     createResolverRule_creatorRequestId,
     createResolverRule_ruleType,
     createResolverRule_domainName,
@@ -58,21 +58,21 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newCreateResolverRule' smart constructor.
 data CreateResolverRule = CreateResolverRule'
-  { -- | A list of the tag keys and values that you want to associate with the
-    -- endpoint.
-    tags :: Prelude.Maybe [Tag],
-    -- | A friendly name that lets you easily find a rule in the Resolver
+  { -- | A friendly name that lets you easily find a rule in the Resolver
     -- dashboard in the Route 53 console.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the outbound Resolver endpoint that you want to use to route
+    -- DNS queries to the IP addresses that you specify in @TargetIps@.
+    resolverEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | A list of the tag keys and values that you want to associate with the
+    -- endpoint.
+    tags :: Prelude.Maybe [Tag],
     -- | The IPs that you want Resolver to forward DNS queries to. You can
     -- specify only IPv4 addresses. Separate IP addresses with a space.
     --
     -- @TargetIps@ is available only when the value of @Rule type@ is
     -- @FORWARD@.
     targetIps :: Prelude.Maybe (Prelude.NonEmpty TargetAddress),
-    -- | The ID of the outbound Resolver endpoint that you want to use to route
-    -- DNS queries to the IP addresses that you specify in @TargetIps@.
-    resolverEndpointId :: Prelude.Maybe Prelude.Text,
     -- | A unique string that identifies the request and that allows failed
     -- requests to be retried without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
@@ -110,20 +110,20 @@ data CreateResolverRule = CreateResolverRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResolverRule_tags' - A list of the tag keys and values that you want to associate with the
--- endpoint.
---
 -- 'name', 'createResolverRule_name' - A friendly name that lets you easily find a rule in the Resolver
 -- dashboard in the Route 53 console.
+--
+-- 'resolverEndpointId', 'createResolverRule_resolverEndpointId' - The ID of the outbound Resolver endpoint that you want to use to route
+-- DNS queries to the IP addresses that you specify in @TargetIps@.
+--
+-- 'tags', 'createResolverRule_tags' - A list of the tag keys and values that you want to associate with the
+-- endpoint.
 --
 -- 'targetIps', 'createResolverRule_targetIps' - The IPs that you want Resolver to forward DNS queries to. You can
 -- specify only IPv4 addresses. Separate IP addresses with a space.
 --
 -- @TargetIps@ is available only when the value of @Rule type@ is
 -- @FORWARD@.
---
--- 'resolverEndpointId', 'createResolverRule_resolverEndpointId' - The ID of the outbound Resolver endpoint that you want to use to route
--- DNS queries to the IP addresses that you specify in @TargetIps@.
 --
 -- 'creatorRequestId', 'createResolverRule_creatorRequestId' - A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -163,24 +163,29 @@ newCreateResolverRule
   pRuleType_
   pDomainName_ =
     CreateResolverRule'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
-        targetIps = Prelude.Nothing,
+      { name = Prelude.Nothing,
         resolverEndpointId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        targetIps = Prelude.Nothing,
         creatorRequestId = pCreatorRequestId_,
         ruleType = pRuleType_,
         domainName = pDomainName_
       }
 
--- | A list of the tag keys and values that you want to associate with the
--- endpoint.
-createResolverRule_tags :: Lens.Lens' CreateResolverRule (Prelude.Maybe [Tag])
-createResolverRule_tags = Lens.lens (\CreateResolverRule' {tags} -> tags) (\s@CreateResolverRule' {} a -> s {tags = a} :: CreateResolverRule) Prelude.. Lens.mapping Lens.coerced
-
 -- | A friendly name that lets you easily find a rule in the Resolver
 -- dashboard in the Route 53 console.
 createResolverRule_name :: Lens.Lens' CreateResolverRule (Prelude.Maybe Prelude.Text)
 createResolverRule_name = Lens.lens (\CreateResolverRule' {name} -> name) (\s@CreateResolverRule' {} a -> s {name = a} :: CreateResolverRule)
+
+-- | The ID of the outbound Resolver endpoint that you want to use to route
+-- DNS queries to the IP addresses that you specify in @TargetIps@.
+createResolverRule_resolverEndpointId :: Lens.Lens' CreateResolverRule (Prelude.Maybe Prelude.Text)
+createResolverRule_resolverEndpointId = Lens.lens (\CreateResolverRule' {resolverEndpointId} -> resolverEndpointId) (\s@CreateResolverRule' {} a -> s {resolverEndpointId = a} :: CreateResolverRule)
+
+-- | A list of the tag keys and values that you want to associate with the
+-- endpoint.
+createResolverRule_tags :: Lens.Lens' CreateResolverRule (Prelude.Maybe [Tag])
+createResolverRule_tags = Lens.lens (\CreateResolverRule' {tags} -> tags) (\s@CreateResolverRule' {} a -> s {tags = a} :: CreateResolverRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IPs that you want Resolver to forward DNS queries to. You can
 -- specify only IPv4 addresses. Separate IP addresses with a space.
@@ -189,11 +194,6 @@ createResolverRule_name = Lens.lens (\CreateResolverRule' {name} -> name) (\s@Cr
 -- @FORWARD@.
 createResolverRule_targetIps :: Lens.Lens' CreateResolverRule (Prelude.Maybe (Prelude.NonEmpty TargetAddress))
 createResolverRule_targetIps = Lens.lens (\CreateResolverRule' {targetIps} -> targetIps) (\s@CreateResolverRule' {} a -> s {targetIps = a} :: CreateResolverRule) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the outbound Resolver endpoint that you want to use to route
--- DNS queries to the IP addresses that you specify in @TargetIps@.
-createResolverRule_resolverEndpointId :: Lens.Lens' CreateResolverRule (Prelude.Maybe Prelude.Text)
-createResolverRule_resolverEndpointId = Lens.lens (\CreateResolverRule' {resolverEndpointId} -> resolverEndpointId) (\s@CreateResolverRule' {} a -> s {resolverEndpointId = a} :: CreateResolverRule)
 
 -- | A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -243,20 +243,20 @@ instance Core.AWSRequest CreateResolverRule where
 
 instance Prelude.Hashable CreateResolverRule where
   hashWithSalt _salt CreateResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targetIps
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverEndpointId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetIps
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` ruleType
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CreateResolverRule where
   rnf CreateResolverRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetIps
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetIps
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf ruleType
       `Prelude.seq` Prelude.rnf domainName
@@ -280,11 +280,11 @@ instance Data.ToJSON CreateResolverRule where
   toJSON CreateResolverRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
-            ("TargetIps" Data..=) Prelude.<$> targetIps,
+          [ ("Name" Data..=) Prelude.<$> name,
             ("ResolverEndpointId" Data..=)
               Prelude.<$> resolverEndpointId,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("TargetIps" Data..=) Prelude.<$> targetIps,
             Prelude.Just
               ("CreatorRequestId" Data..= creatorRequestId),
             Prelude.Just ("RuleType" Data..= ruleType),

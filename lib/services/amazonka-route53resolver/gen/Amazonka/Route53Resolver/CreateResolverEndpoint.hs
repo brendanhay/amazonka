@@ -34,8 +34,8 @@ module Amazonka.Route53Resolver.CreateResolverEndpoint
     newCreateResolverEndpoint,
 
     -- * Request Lenses
-    createResolverEndpoint_tags,
     createResolverEndpoint_name,
+    createResolverEndpoint_tags,
     createResolverEndpoint_creatorRequestId,
     createResolverEndpoint_securityGroupIds,
     createResolverEndpoint_direction,
@@ -61,12 +61,12 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newCreateResolverEndpoint' smart constructor.
 data CreateResolverEndpoint = CreateResolverEndpoint'
-  { -- | A list of the tag keys and values that you want to associate with the
-    -- endpoint.
-    tags :: Prelude.Maybe [Tag],
-    -- | A friendly name that lets you easily find a configuration in the
+  { -- | A friendly name that lets you easily find a configuration in the
     -- Resolver dashboard in the Route 53 console.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of the tag keys and values that you want to associate with the
+    -- endpoint.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique string that identifies the request and that allows failed
     -- requests to be retried without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
@@ -103,11 +103,11 @@ data CreateResolverEndpoint = CreateResolverEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResolverEndpoint_tags' - A list of the tag keys and values that you want to associate with the
--- endpoint.
---
 -- 'name', 'createResolverEndpoint_name' - A friendly name that lets you easily find a configuration in the
 -- Resolver dashboard in the Route 53 console.
+--
+-- 'tags', 'createResolverEndpoint_tags' - A list of the tag keys and values that you want to associate with the
+-- endpoint.
 --
 -- 'creatorRequestId', 'createResolverEndpoint_creatorRequestId' - A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -146,23 +146,23 @@ newCreateResolverEndpoint
   pDirection_
   pIpAddresses_ =
     CreateResolverEndpoint'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
+      { name = Prelude.Nothing,
+        tags = Prelude.Nothing,
         creatorRequestId = pCreatorRequestId_,
         securityGroupIds = Prelude.mempty,
         direction = pDirection_,
         ipAddresses = Lens.coerced Lens.# pIpAddresses_
       }
 
--- | A list of the tag keys and values that you want to associate with the
--- endpoint.
-createResolverEndpoint_tags :: Lens.Lens' CreateResolverEndpoint (Prelude.Maybe [Tag])
-createResolverEndpoint_tags = Lens.lens (\CreateResolverEndpoint' {tags} -> tags) (\s@CreateResolverEndpoint' {} a -> s {tags = a} :: CreateResolverEndpoint) Prelude.. Lens.mapping Lens.coerced
-
 -- | A friendly name that lets you easily find a configuration in the
 -- Resolver dashboard in the Route 53 console.
 createResolverEndpoint_name :: Lens.Lens' CreateResolverEndpoint (Prelude.Maybe Prelude.Text)
 createResolverEndpoint_name = Lens.lens (\CreateResolverEndpoint' {name} -> name) (\s@CreateResolverEndpoint' {} a -> s {name = a} :: CreateResolverEndpoint)
+
+-- | A list of the tag keys and values that you want to associate with the
+-- endpoint.
+createResolverEndpoint_tags :: Lens.Lens' CreateResolverEndpoint (Prelude.Maybe [Tag])
+createResolverEndpoint_tags = Lens.lens (\CreateResolverEndpoint' {tags} -> tags) (\s@CreateResolverEndpoint' {} a -> s {tags = a} :: CreateResolverEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -213,8 +213,8 @@ instance Core.AWSRequest CreateResolverEndpoint where
 
 instance Prelude.Hashable CreateResolverEndpoint where
   hashWithSalt _salt CreateResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` direction
@@ -222,8 +222,8 @@ instance Prelude.Hashable CreateResolverEndpoint where
 
 instance Prelude.NFData CreateResolverEndpoint where
   rnf CreateResolverEndpoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf direction
@@ -248,8 +248,8 @@ instance Data.ToJSON CreateResolverEndpoint where
   toJSON CreateResolverEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("CreatorRequestId" Data..= creatorRequestId),
             Prelude.Just

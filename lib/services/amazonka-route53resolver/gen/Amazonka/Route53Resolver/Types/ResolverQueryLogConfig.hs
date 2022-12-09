@@ -37,7 +37,25 @@ import Amazonka.Route53Resolver.Types.ShareStatus
 --
 -- /See:/ 'newResolverQueryLogConfig' smart constructor.
 data ResolverQueryLogConfig = ResolverQueryLogConfig'
-  { -- | The name of the query logging configuration.
+  { -- | The ARN for the query logging configuration.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The number of VPCs that are associated with the query logging
+    -- configuration.
+    associationCount :: Prelude.Maybe Prelude.Int,
+    -- | The date and time that the query logging configuration was created, in
+    -- Unix time format and Coordinated Universal Time (UTC).
+    creationTime :: Prelude.Maybe Prelude.Text,
+    -- | A unique string that identifies the request that created the query
+    -- logging configuration. The @CreatorRequestId@ allows failed requests to
+    -- be retried without the risk of running the operation twice.
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the resource that you want Resolver to send query logs: an
+    -- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
+    -- Firehose delivery stream.
+    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the query logging configuration.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the query logging configuration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID for the account that created the
     -- query logging configuration.
@@ -47,11 +65,6 @@ data ResolverQueryLogConfig = ResolverQueryLogConfig'
     -- account by another Amazon Web Services account. Sharing is configured
     -- through Resource Access Manager (RAM).
     shareStatus :: Prelude.Maybe ShareStatus,
-    -- | The ARN for the query logging configuration.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The number of VPCs that are associated with the query logging
-    -- configuration.
-    associationCount :: Prelude.Maybe Prelude.Int,
     -- | The status of the specified query logging configuration. Valid values
     -- include the following:
     --
@@ -70,20 +83,7 @@ data ResolverQueryLogConfig = ResolverQueryLogConfig'
     --         deleted.
     --
     --     -   Permissions don\'t allow sending logs to the destination.
-    status :: Prelude.Maybe ResolverQueryLogConfigStatus,
-    -- | The ID for the query logging configuration.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies the request that created the query
-    -- logging configuration. The @CreatorRequestId@ allows failed requests to
-    -- be retried without the risk of running the operation twice.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the query logging configuration was created, in
-    -- Unix time format and Coordinated Universal Time (UTC).
-    creationTime :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the resource that you want Resolver to send query logs: an
-    -- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
-    -- Firehose delivery stream.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe ResolverQueryLogConfigStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,24 @@ data ResolverQueryLogConfig = ResolverQueryLogConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'resolverQueryLogConfig_arn' - The ARN for the query logging configuration.
+--
+-- 'associationCount', 'resolverQueryLogConfig_associationCount' - The number of VPCs that are associated with the query logging
+-- configuration.
+--
+-- 'creationTime', 'resolverQueryLogConfig_creationTime' - The date and time that the query logging configuration was created, in
+-- Unix time format and Coordinated Universal Time (UTC).
+--
+-- 'creatorRequestId', 'resolverQueryLogConfig_creatorRequestId' - A unique string that identifies the request that created the query
+-- logging configuration. The @CreatorRequestId@ allows failed requests to
+-- be retried without the risk of running the operation twice.
+--
+-- 'destinationArn', 'resolverQueryLogConfig_destinationArn' - The ARN of the resource that you want Resolver to send query logs: an
+-- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
+-- Firehose delivery stream.
+--
+-- 'id', 'resolverQueryLogConfig_id' - The ID for the query logging configuration.
+--
 -- 'name', 'resolverQueryLogConfig_name' - The name of the query logging configuration.
 --
 -- 'ownerId', 'resolverQueryLogConfig_ownerId' - The Amazon Web Services account ID for the account that created the
@@ -104,11 +122,6 @@ data ResolverQueryLogConfig = ResolverQueryLogConfig'
 -- other Amazon Web Services accounts, or was shared with the current
 -- account by another Amazon Web Services account. Sharing is configured
 -- through Resource Access Manager (RAM).
---
--- 'arn', 'resolverQueryLogConfig_arn' - The ARN for the query logging configuration.
---
--- 'associationCount', 'resolverQueryLogConfig_associationCount' - The number of VPCs that are associated with the query logging
--- configuration.
 --
 -- 'status', 'resolverQueryLogConfig_status' - The status of the specified query logging configuration. Valid values
 -- include the following:
@@ -128,34 +141,51 @@ data ResolverQueryLogConfig = ResolverQueryLogConfig'
 --         deleted.
 --
 --     -   Permissions don\'t allow sending logs to the destination.
---
--- 'id', 'resolverQueryLogConfig_id' - The ID for the query logging configuration.
---
--- 'creatorRequestId', 'resolverQueryLogConfig_creatorRequestId' - A unique string that identifies the request that created the query
--- logging configuration. The @CreatorRequestId@ allows failed requests to
--- be retried without the risk of running the operation twice.
---
--- 'creationTime', 'resolverQueryLogConfig_creationTime' - The date and time that the query logging configuration was created, in
--- Unix time format and Coordinated Universal Time (UTC).
---
--- 'destinationArn', 'resolverQueryLogConfig_destinationArn' - The ARN of the resource that you want Resolver to send query logs: an
--- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
--- Firehose delivery stream.
 newResolverQueryLogConfig ::
   ResolverQueryLogConfig
 newResolverQueryLogConfig =
   ResolverQueryLogConfig'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      associationCount = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing,
+      destinationArn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       shareStatus = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      associationCount = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creatorRequestId = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The ARN for the query logging configuration.
+resolverQueryLogConfig_arn :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfig_arn = Lens.lens (\ResolverQueryLogConfig' {arn} -> arn) (\s@ResolverQueryLogConfig' {} a -> s {arn = a} :: ResolverQueryLogConfig)
+
+-- | The number of VPCs that are associated with the query logging
+-- configuration.
+resolverQueryLogConfig_associationCount :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Int)
+resolverQueryLogConfig_associationCount = Lens.lens (\ResolverQueryLogConfig' {associationCount} -> associationCount) (\s@ResolverQueryLogConfig' {} a -> s {associationCount = a} :: ResolverQueryLogConfig)
+
+-- | The date and time that the query logging configuration was created, in
+-- Unix time format and Coordinated Universal Time (UTC).
+resolverQueryLogConfig_creationTime :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfig_creationTime = Lens.lens (\ResolverQueryLogConfig' {creationTime} -> creationTime) (\s@ResolverQueryLogConfig' {} a -> s {creationTime = a} :: ResolverQueryLogConfig)
+
+-- | A unique string that identifies the request that created the query
+-- logging configuration. The @CreatorRequestId@ allows failed requests to
+-- be retried without the risk of running the operation twice.
+resolverQueryLogConfig_creatorRequestId :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfig_creatorRequestId = Lens.lens (\ResolverQueryLogConfig' {creatorRequestId} -> creatorRequestId) (\s@ResolverQueryLogConfig' {} a -> s {creatorRequestId = a} :: ResolverQueryLogConfig)
+
+-- | The ARN of the resource that you want Resolver to send query logs: an
+-- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
+-- Firehose delivery stream.
+resolverQueryLogConfig_destinationArn :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfig_destinationArn = Lens.lens (\ResolverQueryLogConfig' {destinationArn} -> destinationArn) (\s@ResolverQueryLogConfig' {} a -> s {destinationArn = a} :: ResolverQueryLogConfig)
+
+-- | The ID for the query logging configuration.
+resolverQueryLogConfig_id :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
+resolverQueryLogConfig_id = Lens.lens (\ResolverQueryLogConfig' {id} -> id) (\s@ResolverQueryLogConfig' {} a -> s {id = a} :: ResolverQueryLogConfig)
 
 -- | The name of the query logging configuration.
 resolverQueryLogConfig_name :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
@@ -172,15 +202,6 @@ resolverQueryLogConfig_ownerId = Lens.lens (\ResolverQueryLogConfig' {ownerId} -
 -- through Resource Access Manager (RAM).
 resolverQueryLogConfig_shareStatus :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe ShareStatus)
 resolverQueryLogConfig_shareStatus = Lens.lens (\ResolverQueryLogConfig' {shareStatus} -> shareStatus) (\s@ResolverQueryLogConfig' {} a -> s {shareStatus = a} :: ResolverQueryLogConfig)
-
--- | The ARN for the query logging configuration.
-resolverQueryLogConfig_arn :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfig_arn = Lens.lens (\ResolverQueryLogConfig' {arn} -> arn) (\s@ResolverQueryLogConfig' {} a -> s {arn = a} :: ResolverQueryLogConfig)
-
--- | The number of VPCs that are associated with the query logging
--- configuration.
-resolverQueryLogConfig_associationCount :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Int)
-resolverQueryLogConfig_associationCount = Lens.lens (\ResolverQueryLogConfig' {associationCount} -> associationCount) (\s@ResolverQueryLogConfig' {} a -> s {associationCount = a} :: ResolverQueryLogConfig)
 
 -- | The status of the specified query logging configuration. Valid values
 -- include the following:
@@ -203,67 +224,46 @@ resolverQueryLogConfig_associationCount = Lens.lens (\ResolverQueryLogConfig' {a
 resolverQueryLogConfig_status :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe ResolverQueryLogConfigStatus)
 resolverQueryLogConfig_status = Lens.lens (\ResolverQueryLogConfig' {status} -> status) (\s@ResolverQueryLogConfig' {} a -> s {status = a} :: ResolverQueryLogConfig)
 
--- | The ID for the query logging configuration.
-resolverQueryLogConfig_id :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfig_id = Lens.lens (\ResolverQueryLogConfig' {id} -> id) (\s@ResolverQueryLogConfig' {} a -> s {id = a} :: ResolverQueryLogConfig)
-
--- | A unique string that identifies the request that created the query
--- logging configuration. The @CreatorRequestId@ allows failed requests to
--- be retried without the risk of running the operation twice.
-resolverQueryLogConfig_creatorRequestId :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfig_creatorRequestId = Lens.lens (\ResolverQueryLogConfig' {creatorRequestId} -> creatorRequestId) (\s@ResolverQueryLogConfig' {} a -> s {creatorRequestId = a} :: ResolverQueryLogConfig)
-
--- | The date and time that the query logging configuration was created, in
--- Unix time format and Coordinated Universal Time (UTC).
-resolverQueryLogConfig_creationTime :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfig_creationTime = Lens.lens (\ResolverQueryLogConfig' {creationTime} -> creationTime) (\s@ResolverQueryLogConfig' {} a -> s {creationTime = a} :: ResolverQueryLogConfig)
-
--- | The ARN of the resource that you want Resolver to send query logs: an
--- Amazon S3 bucket, a CloudWatch Logs log group, or a Kinesis Data
--- Firehose delivery stream.
-resolverQueryLogConfig_destinationArn :: Lens.Lens' ResolverQueryLogConfig (Prelude.Maybe Prelude.Text)
-resolverQueryLogConfig_destinationArn = Lens.lens (\ResolverQueryLogConfig' {destinationArn} -> destinationArn) (\s@ResolverQueryLogConfig' {} a -> s {destinationArn = a} :: ResolverQueryLogConfig)
-
 instance Data.FromJSON ResolverQueryLogConfig where
   parseJSON =
     Data.withObject
       "ResolverQueryLogConfig"
       ( \x ->
           ResolverQueryLogConfig'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AssociationCount")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "CreatorRequestId")
+            Prelude.<*> (x Data..:? "DestinationArn")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "OwnerId")
             Prelude.<*> (x Data..:? "ShareStatus")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "AssociationCount")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "CreatorRequestId")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable ResolverQueryLogConfig where
   hashWithSalt _salt ResolverQueryLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` associationCount
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` shareStatus
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` associationCount
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` creatorRequestId
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` destinationArn
 
 instance Prelude.NFData ResolverQueryLogConfig where
   rnf ResolverQueryLogConfig' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf associationCount
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf shareStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf associationCount
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destinationArn

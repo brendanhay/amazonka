@@ -28,8 +28,8 @@ module Amazonka.Route53Resolver.UpdateFirewallRuleGroupAssociation
     newUpdateFirewallRuleGroupAssociation,
 
     -- * Request Lenses
-    updateFirewallRuleGroupAssociation_name,
     updateFirewallRuleGroupAssociation_mutationProtection,
+    updateFirewallRuleGroupAssociation_name,
     updateFirewallRuleGroupAssociation_priority,
     updateFirewallRuleGroupAssociation_firewallRuleGroupAssociationId,
 
@@ -53,12 +53,12 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newUpdateFirewallRuleGroupAssociation' smart constructor.
 data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
-  { -- | The name of the rule group association.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If enabled, this setting disallows modification or removal of the
+  { -- | If enabled, this setting disallows modification or removal of the
     -- association, to help prevent against accidentally altering DNS firewall
     -- protections.
     mutationProtection :: Prelude.Maybe MutationProtectionStatus,
+    -- | The name of the rule group association.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The setting that determines the processing order of the rule group among
     -- the rule groups that you associate with the specified VPC. DNS Firewall
     -- filters VPC traffic starting from the rule group with the lowest numeric
@@ -83,11 +83,11 @@ data UpdateFirewallRuleGroupAssociation = UpdateFirewallRuleGroupAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateFirewallRuleGroupAssociation_name' - The name of the rule group association.
---
 -- 'mutationProtection', 'updateFirewallRuleGroupAssociation_mutationProtection' - If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
 -- protections.
+--
+-- 'name', 'updateFirewallRuleGroupAssociation_name' - The name of the rule group association.
 --
 -- 'priority', 'updateFirewallRuleGroupAssociation_priority' - The setting that determines the processing order of the rule group among
 -- the rule groups that you associate with the specified VPC. DNS Firewall
@@ -108,23 +108,23 @@ newUpdateFirewallRuleGroupAssociation ::
 newUpdateFirewallRuleGroupAssociation
   pFirewallRuleGroupAssociationId_ =
     UpdateFirewallRuleGroupAssociation'
-      { name =
+      { mutationProtection =
           Prelude.Nothing,
-        mutationProtection = Prelude.Nothing,
+        name = Prelude.Nothing,
         priority = Prelude.Nothing,
         firewallRuleGroupAssociationId =
           pFirewallRuleGroupAssociationId_
       }
-
--- | The name of the rule group association.
-updateFirewallRuleGroupAssociation_name :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe Prelude.Text)
-updateFirewallRuleGroupAssociation_name = Lens.lens (\UpdateFirewallRuleGroupAssociation' {name} -> name) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {name = a} :: UpdateFirewallRuleGroupAssociation)
 
 -- | If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
 -- protections.
 updateFirewallRuleGroupAssociation_mutationProtection :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe MutationProtectionStatus)
 updateFirewallRuleGroupAssociation_mutationProtection = Lens.lens (\UpdateFirewallRuleGroupAssociation' {mutationProtection} -> mutationProtection) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {mutationProtection = a} :: UpdateFirewallRuleGroupAssociation)
+
+-- | The name of the rule group association.
+updateFirewallRuleGroupAssociation_name :: Lens.Lens' UpdateFirewallRuleGroupAssociation (Prelude.Maybe Prelude.Text)
+updateFirewallRuleGroupAssociation_name = Lens.lens (\UpdateFirewallRuleGroupAssociation' {name} -> name) (\s@UpdateFirewallRuleGroupAssociation' {} a -> s {name = a} :: UpdateFirewallRuleGroupAssociation)
 
 -- | The setting that determines the processing order of the rule group among
 -- the rule groups that you associate with the specified VPC. DNS Firewall
@@ -167,8 +167,8 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallRuleGroupAssociation' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` mutationProtection
+      _salt `Prelude.hashWithSalt` mutationProtection
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` firewallRuleGroupAssociationId
 
@@ -177,8 +177,8 @@ instance
     UpdateFirewallRuleGroupAssociation
   where
   rnf UpdateFirewallRuleGroupAssociation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf mutationProtection
+    Prelude.rnf mutationProtection
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf firewallRuleGroupAssociationId
 
@@ -207,9 +207,9 @@ instance
   toJSON UpdateFirewallRuleGroupAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("MutationProtection" Data..=)
+          [ ("MutationProtection" Data..=)
               Prelude.<$> mutationProtection,
+            ("Name" Data..=) Prelude.<$> name,
             ("Priority" Data..=) Prelude.<$> priority,
             Prelude.Just
               ( "FirewallRuleGroupAssociationId"

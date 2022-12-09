@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpAddressUpdate' smart constructor.
 data IpAddressUpdate = IpAddressUpdate'
-  { -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
+  { -- | The new IP address.
+    ip :: Prelude.Maybe Prelude.Text,
+    -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
     -- the IP address that you want to remove. To get this ID, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
     ipId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet that includes the IP address that you want to
     -- update. To get this ID, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The new IP address.
-    ip :: Prelude.Maybe Prelude.Text
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,8 @@ data IpAddressUpdate = IpAddressUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ip', 'ipAddressUpdate_ip' - The new IP address.
+--
 -- 'ipId', 'ipAddressUpdate_ipId' - /Only when removing an IP address from a Resolver endpoint/: The ID of
 -- the IP address that you want to remove. To get this ID, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
@@ -58,16 +60,18 @@ data IpAddressUpdate = IpAddressUpdate'
 -- 'subnetId', 'ipAddressUpdate_subnetId' - The ID of the subnet that includes the IP address that you want to
 -- update. To get this ID, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
---
--- 'ip', 'ipAddressUpdate_ip' - The new IP address.
 newIpAddressUpdate ::
   IpAddressUpdate
 newIpAddressUpdate =
   IpAddressUpdate'
-    { ipId = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      ip = Prelude.Nothing
+    { ip = Prelude.Nothing,
+      ipId = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
+
+-- | The new IP address.
+ipAddressUpdate_ip :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
+ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdate' {} a -> s {ip = a} :: IpAddressUpdate)
 
 -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
 -- the IP address that you want to remove. To get this ID, use
@@ -81,28 +85,24 @@ ipAddressUpdate_ipId = Lens.lens (\IpAddressUpdate' {ipId} -> ipId) (\s@IpAddres
 ipAddressUpdate_subnetId :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
 ipAddressUpdate_subnetId = Lens.lens (\IpAddressUpdate' {subnetId} -> subnetId) (\s@IpAddressUpdate' {} a -> s {subnetId = a} :: IpAddressUpdate)
 
--- | The new IP address.
-ipAddressUpdate_ip :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
-ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdate' {} a -> s {ip = a} :: IpAddressUpdate)
-
 instance Prelude.Hashable IpAddressUpdate where
   hashWithSalt _salt IpAddressUpdate' {..} =
-    _salt `Prelude.hashWithSalt` ipId
+    _salt `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` ipId
       `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` ip
 
 instance Prelude.NFData IpAddressUpdate where
   rnf IpAddressUpdate' {..} =
-    Prelude.rnf ipId
+    Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf ipId
       `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf ip
 
 instance Data.ToJSON IpAddressUpdate where
   toJSON IpAddressUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IpId" Data..=) Prelude.<$> ipId,
-            ("SubnetId" Data..=) Prelude.<$> subnetId,
-            ("Ip" Data..=) Prelude.<$> ip
+          [ ("Ip" Data..=) Prelude.<$> ip,
+            ("IpId" Data..=) Prelude.<$> ipId,
+            ("SubnetId" Data..=) Prelude.<$> subnetId
           ]
       )

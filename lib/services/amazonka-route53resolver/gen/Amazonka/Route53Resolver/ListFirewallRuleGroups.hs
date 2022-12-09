@@ -33,8 +33,8 @@ module Amazonka.Route53Resolver.ListFirewallRuleGroups
     newListFirewallRuleGroups,
 
     -- * Request Lenses
-    listFirewallRuleGroups_nextToken,
     listFirewallRuleGroups_maxResults,
+    listFirewallRuleGroups_nextToken,
 
     -- * Destructuring the Response
     ListFirewallRuleGroupsResponse (..),
@@ -57,22 +57,22 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListFirewallRuleGroups' smart constructor.
 data ListFirewallRuleGroups = ListFirewallRuleGroups'
-  { -- | For the first call to this list request, omit this value.
-    --
-    -- When you request a list of objects, Resolver returns at most the number
-    -- of objects specified in @MaxResults@. If more objects are available for
-    -- retrieval, Resolver returns a @NextToken@ value in the response. To
-    -- retrieve the next batch of objects, use the token that was returned for
-    -- the prior request in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects that you want Resolver to return for this
+  { -- | The maximum number of objects that you want Resolver to return for this
     -- request. If more objects are available, in the response, Resolver
     -- provides a @NextToken@ value that you can use in a subsequent call to
     -- get the next batch of objects.
     --
     -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
     -- 100 objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first call to this list request, omit this value.
+    --
+    -- When you request a list of objects, Resolver returns at most the number
+    -- of objects specified in @MaxResults@. If more objects are available for
+    -- retrieval, Resolver returns a @NextToken@ value in the response. To
+    -- retrieve the next batch of objects, use the token that was returned for
+    -- the prior request in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,14 +84,6 @@ data ListFirewallRuleGroups = ListFirewallRuleGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFirewallRuleGroups_nextToken' - For the first call to this list request, omit this value.
---
--- When you request a list of objects, Resolver returns at most the number
--- of objects specified in @MaxResults@. If more objects are available for
--- retrieval, Resolver returns a @NextToken@ value in the response. To
--- retrieve the next batch of objects, use the token that was returned for
--- the prior request in your next request.
---
 -- 'maxResults', 'listFirewallRuleGroups_maxResults' - The maximum number of objects that you want Resolver to return for this
 -- request. If more objects are available, in the response, Resolver
 -- provides a @NextToken@ value that you can use in a subsequent call to
@@ -99,24 +91,22 @@ data ListFirewallRuleGroups = ListFirewallRuleGroups'
 --
 -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
 -- 100 objects.
-newListFirewallRuleGroups ::
-  ListFirewallRuleGroups
-newListFirewallRuleGroups =
-  ListFirewallRuleGroups'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | For the first call to this list request, omit this value.
+--
+-- 'nextToken', 'listFirewallRuleGroups_nextToken' - For the first call to this list request, omit this value.
 --
 -- When you request a list of objects, Resolver returns at most the number
 -- of objects specified in @MaxResults@. If more objects are available for
 -- retrieval, Resolver returns a @NextToken@ value in the response. To
 -- retrieve the next batch of objects, use the token that was returned for
 -- the prior request in your next request.
-listFirewallRuleGroups_nextToken :: Lens.Lens' ListFirewallRuleGroups (Prelude.Maybe Prelude.Text)
-listFirewallRuleGroups_nextToken = Lens.lens (\ListFirewallRuleGroups' {nextToken} -> nextToken) (\s@ListFirewallRuleGroups' {} a -> s {nextToken = a} :: ListFirewallRuleGroups)
+newListFirewallRuleGroups ::
+  ListFirewallRuleGroups
+newListFirewallRuleGroups =
+  ListFirewallRuleGroups'
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The maximum number of objects that you want Resolver to return for this
 -- request. If more objects are available, in the response, Resolver
@@ -127,6 +117,16 @@ listFirewallRuleGroups_nextToken = Lens.lens (\ListFirewallRuleGroups' {nextToke
 -- 100 objects.
 listFirewallRuleGroups_maxResults :: Lens.Lens' ListFirewallRuleGroups (Prelude.Maybe Prelude.Natural)
 listFirewallRuleGroups_maxResults = Lens.lens (\ListFirewallRuleGroups' {maxResults} -> maxResults) (\s@ListFirewallRuleGroups' {} a -> s {maxResults = a} :: ListFirewallRuleGroups)
+
+-- | For the first call to this list request, omit this value.
+--
+-- When you request a list of objects, Resolver returns at most the number
+-- of objects specified in @MaxResults@. If more objects are available for
+-- retrieval, Resolver returns a @NextToken@ value in the response. To
+-- retrieve the next batch of objects, use the token that was returned for
+-- the prior request in your next request.
+listFirewallRuleGroups_nextToken :: Lens.Lens' ListFirewallRuleGroups (Prelude.Maybe Prelude.Text)
+listFirewallRuleGroups_nextToken = Lens.lens (\ListFirewallRuleGroups' {nextToken} -> nextToken) (\s@ListFirewallRuleGroups' {} a -> s {nextToken = a} :: ListFirewallRuleGroups)
 
 instance Core.AWSPager ListFirewallRuleGroups where
   page rq rs
@@ -169,13 +169,13 @@ instance Core.AWSRequest ListFirewallRuleGroups where
 
 instance Prelude.Hashable ListFirewallRuleGroups where
   hashWithSalt _salt ListFirewallRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFirewallRuleGroups where
   rnf ListFirewallRuleGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFirewallRuleGroups where
   toHeaders =
@@ -196,8 +196,8 @@ instance Data.ToJSON ListFirewallRuleGroups where
   toJSON ListFirewallRuleGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

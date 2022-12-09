@@ -30,8 +30,8 @@ module Amazonka.Nimble.UpdateStudio
     newUpdateStudio,
 
     -- * Request Lenses
-    updateStudio_clientToken,
     updateStudio_adminRoleArn,
+    updateStudio_clientToken,
     updateStudio_displayName,
     updateStudio_userRoleArn,
     updateStudio_studioId,
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateStudio' smart constructor.
 data UpdateStudio = UpdateStudio'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | The IAM role that Studio Admins will assume when logging in to the
+    -- Nimble Studio portal.
+    adminRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that Studio Admins will assume when logging in to the
-    -- Nimble Studio portal.
-    adminRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the studio.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role that Studio Users will assume when logging in to the Nimble
@@ -82,13 +82,13 @@ data UpdateStudio = UpdateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adminRoleArn', 'updateStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
+-- Nimble Studio portal.
+--
 -- 'clientToken', 'updateStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
---
--- 'adminRoleArn', 'updateStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
--- Nimble Studio portal.
 --
 -- 'displayName', 'updateStudio_displayName' - A friendly name for the studio.
 --
@@ -102,12 +102,17 @@ newUpdateStudio ::
   UpdateStudio
 newUpdateStudio pStudioId_ =
   UpdateStudio'
-    { clientToken = Prelude.Nothing,
-      adminRoleArn = Prelude.Nothing,
+    { adminRoleArn = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       displayName = Prelude.Nothing,
       userRoleArn = Prelude.Nothing,
       studioId = pStudioId_
     }
+
+-- | The IAM role that Studio Admins will assume when logging in to the
+-- Nimble Studio portal.
+updateStudio_adminRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRoleArn) (\s@UpdateStudio' {} a -> s {adminRoleArn = a} :: UpdateStudio)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -115,11 +120,6 @@ newUpdateStudio pStudioId_ =
 -- to ensure idempotency.
 updateStudio_clientToken :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_clientToken = Lens.lens (\UpdateStudio' {clientToken} -> clientToken) (\s@UpdateStudio' {} a -> s {clientToken = a} :: UpdateStudio)
-
--- | The IAM role that Studio Admins will assume when logging in to the
--- Nimble Studio portal.
-updateStudio_adminRoleArn :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRoleArn) (\s@UpdateStudio' {} a -> s {adminRoleArn = a} :: UpdateStudio)
 
 -- | A friendly name for the studio.
 updateStudio_displayName :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
@@ -148,16 +148,16 @@ instance Core.AWSRequest UpdateStudio where
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` adminRoleArn
+    _salt `Prelude.hashWithSalt` adminRoleArn
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` userRoleArn
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateStudio where
   rnf UpdateStudio' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf adminRoleArn
+    Prelude.rnf adminRoleArn
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf userRoleArn
       `Prelude.seq` Prelude.rnf studioId

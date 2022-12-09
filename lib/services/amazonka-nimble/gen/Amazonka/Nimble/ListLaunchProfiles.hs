@@ -29,9 +29,9 @@ module Amazonka.Nimble.ListLaunchProfiles
     newListLaunchProfiles,
 
     -- * Request Lenses
-    listLaunchProfiles_principalId,
-    listLaunchProfiles_nextToken,
     listLaunchProfiles_maxResults,
+    listLaunchProfiles_nextToken,
+    listLaunchProfiles_principalId,
     listLaunchProfiles_states,
     listLaunchProfiles_studioId,
 
@@ -40,8 +40,8 @@ module Amazonka.Nimble.ListLaunchProfiles
     newListLaunchProfilesResponse,
 
     -- * Response Lenses
-    listLaunchProfilesResponse_nextToken,
     listLaunchProfilesResponse_launchProfiles,
+    listLaunchProfilesResponse_nextToken,
     listLaunchProfilesResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLaunchProfiles' smart constructor.
 data ListLaunchProfiles = ListLaunchProfiles'
-  { -- | The principal ID. This currently supports a IAM Identity Center UserId.
-    principalId :: Prelude.Maybe Prelude.Text,
+  { -- | The max number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The max number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The principal ID. This currently supports a IAM Identity Center UserId.
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | Filter this request to launch profiles in any of the given states.
     states :: Prelude.Maybe [LaunchProfileState],
     -- | The studio ID.
@@ -77,11 +77,11 @@ data ListLaunchProfiles = ListLaunchProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
+-- 'maxResults', 'listLaunchProfiles_maxResults' - The max number of results to return in the response.
 --
 -- 'nextToken', 'listLaunchProfiles_nextToken' - The token to request the next page of results.
 --
--- 'maxResults', 'listLaunchProfiles_maxResults' - The max number of results to return in the response.
+-- 'principalId', 'listLaunchProfiles_principalId' - The principal ID. This currently supports a IAM Identity Center UserId.
 --
 -- 'states', 'listLaunchProfiles_states' - Filter this request to launch profiles in any of the given states.
 --
@@ -92,24 +92,24 @@ newListLaunchProfiles ::
   ListLaunchProfiles
 newListLaunchProfiles pStudioId_ =
   ListLaunchProfiles'
-    { principalId = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      principalId = Prelude.Nothing,
       states = Prelude.Nothing,
       studioId = pStudioId_
     }
 
--- | The principal ID. This currently supports a IAM Identity Center UserId.
-listLaunchProfiles_principalId :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
-listLaunchProfiles_principalId = Lens.lens (\ListLaunchProfiles' {principalId} -> principalId) (\s@ListLaunchProfiles' {} a -> s {principalId = a} :: ListLaunchProfiles)
+-- | The max number of results to return in the response.
+listLaunchProfiles_maxResults :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Natural)
+listLaunchProfiles_maxResults = Lens.lens (\ListLaunchProfiles' {maxResults} -> maxResults) (\s@ListLaunchProfiles' {} a -> s {maxResults = a} :: ListLaunchProfiles)
 
 -- | The token to request the next page of results.
 listLaunchProfiles_nextToken :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
 listLaunchProfiles_nextToken = Lens.lens (\ListLaunchProfiles' {nextToken} -> nextToken) (\s@ListLaunchProfiles' {} a -> s {nextToken = a} :: ListLaunchProfiles)
 
--- | The max number of results to return in the response.
-listLaunchProfiles_maxResults :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Natural)
-listLaunchProfiles_maxResults = Lens.lens (\ListLaunchProfiles' {maxResults} -> maxResults) (\s@ListLaunchProfiles' {} a -> s {maxResults = a} :: ListLaunchProfiles)
+-- | The principal ID. This currently supports a IAM Identity Center UserId.
+listLaunchProfiles_principalId :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe Prelude.Text)
+listLaunchProfiles_principalId = Lens.lens (\ListLaunchProfiles' {principalId} -> principalId) (\s@ListLaunchProfiles' {} a -> s {principalId = a} :: ListLaunchProfiles)
 
 -- | Filter this request to launch profiles in any of the given states.
 listLaunchProfiles_states :: Lens.Lens' ListLaunchProfiles (Prelude.Maybe [LaunchProfileState])
@@ -151,24 +151,24 @@ instance Core.AWSRequest ListLaunchProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchProfilesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "launchProfiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "launchProfiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLaunchProfiles where
   hashWithSalt _salt ListLaunchProfiles' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListLaunchProfiles where
   rnf ListLaunchProfiles' {..} =
-    Prelude.rnf principalId
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf studioId
 
@@ -194,9 +194,9 @@ instance Data.ToPath ListLaunchProfiles where
 instance Data.ToQuery ListLaunchProfiles where
   toQuery ListLaunchProfiles' {..} =
     Prelude.mconcat
-      [ "principalId" Data.=: principalId,
+      [ "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+        "principalId" Data.=: principalId,
         "states"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> states)
@@ -204,11 +204,11 @@ instance Data.ToQuery ListLaunchProfiles where
 
 -- | /See:/ 'newListLaunchProfilesResponse' smart constructor.
 data ListLaunchProfilesResponse = ListLaunchProfilesResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | A collection of launch profiles.
+    launchProfiles :: Prelude.Maybe [LaunchProfile],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of launch profiles.
-    launchProfiles :: Prelude.Maybe [LaunchProfile],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,10 +222,10 @@ data ListLaunchProfilesResponse = ListLaunchProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchProfiles', 'listLaunchProfilesResponse_launchProfiles' - A collection of launch profiles.
+--
 -- 'nextToken', 'listLaunchProfilesResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'launchProfiles', 'listLaunchProfilesResponse_launchProfiles' - A collection of launch profiles.
 --
 -- 'httpStatus', 'listLaunchProfilesResponse_httpStatus' - The response's http status code.
 newListLaunchProfilesResponse ::
@@ -234,20 +234,20 @@ newListLaunchProfilesResponse ::
   ListLaunchProfilesResponse
 newListLaunchProfilesResponse pHttpStatus_ =
   ListLaunchProfilesResponse'
-    { nextToken =
+    { launchProfiles =
         Prelude.Nothing,
-      launchProfiles = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of launch profiles.
+listLaunchProfilesResponse_launchProfiles :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe [LaunchProfile])
+listLaunchProfilesResponse_launchProfiles = Lens.lens (\ListLaunchProfilesResponse' {launchProfiles} -> launchProfiles) (\s@ListLaunchProfilesResponse' {} a -> s {launchProfiles = a} :: ListLaunchProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listLaunchProfilesResponse_nextToken :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe Prelude.Text)
 listLaunchProfilesResponse_nextToken = Lens.lens (\ListLaunchProfilesResponse' {nextToken} -> nextToken) (\s@ListLaunchProfilesResponse' {} a -> s {nextToken = a} :: ListLaunchProfilesResponse)
-
--- | A collection of launch profiles.
-listLaunchProfilesResponse_launchProfiles :: Lens.Lens' ListLaunchProfilesResponse (Prelude.Maybe [LaunchProfile])
-listLaunchProfilesResponse_launchProfiles = Lens.lens (\ListLaunchProfilesResponse' {launchProfiles} -> launchProfiles) (\s@ListLaunchProfilesResponse' {} a -> s {launchProfiles = a} :: ListLaunchProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLaunchProfilesResponse_httpStatus :: Lens.Lens' ListLaunchProfilesResponse Prelude.Int
@@ -255,6 +255,6 @@ listLaunchProfilesResponse_httpStatus = Lens.lens (\ListLaunchProfilesResponse' 
 
 instance Prelude.NFData ListLaunchProfilesResponse where
   rnf ListLaunchProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf launchProfiles
+    Prelude.rnf launchProfiles
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

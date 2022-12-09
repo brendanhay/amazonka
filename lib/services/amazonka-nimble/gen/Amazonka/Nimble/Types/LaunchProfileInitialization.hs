@@ -35,25 +35,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchProfileInitialization' smart constructor.
 data LaunchProfileInitialization = LaunchProfileInitialization'
-  { -- | The launch profile ID.
+  { -- | A LaunchProfileInitializationActiveDirectory resource.
+    activeDirectory :: Prelude.Maybe LaunchProfileInitializationActiveDirectory,
+    -- | The EC2 security groups that control access to the studio component.
+    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The launch profile ID.
     launchProfileId :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the protocol that is used by the launch profile.
+    -- The only valid version is \"2021-03-31\".
+    launchProfileProtocolVersion :: Prelude.Maybe Prelude.Text,
+    -- | The launch purpose.
+    launchPurpose :: Prelude.Maybe Prelude.Text,
     -- | The name for the launch profile.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The platform of the launch platform, either WINDOWS or LINUX.
     platform :: Prelude.Maybe LaunchProfilePlatform,
-    -- | The user initializtion scripts.
-    userInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript],
-    -- | A LaunchProfileInitializationActiveDirectory resource.
-    activeDirectory :: Prelude.Maybe LaunchProfileInitializationActiveDirectory,
-    -- | The launch purpose.
-    launchPurpose :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the protocol that is used by the launch profile.
-    -- The only valid version is \"2021-03-31\".
-    launchProfileProtocolVersion :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 security groups that control access to the studio component.
-    ec2SecurityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The system initializtion scripts.
-    systemInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript]
+    systemInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript],
+    -- | The user initializtion scripts.
+    userInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -65,43 +65,60 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'activeDirectory', 'launchProfileInitialization_activeDirectory' - A LaunchProfileInitializationActiveDirectory resource.
+--
+-- 'ec2SecurityGroupIds', 'launchProfileInitialization_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
+--
 -- 'launchProfileId', 'launchProfileInitialization_launchProfileId' - The launch profile ID.
+--
+-- 'launchProfileProtocolVersion', 'launchProfileInitialization_launchProfileProtocolVersion' - The version number of the protocol that is used by the launch profile.
+-- The only valid version is \"2021-03-31\".
+--
+-- 'launchPurpose', 'launchProfileInitialization_launchPurpose' - The launch purpose.
 --
 -- 'name', 'launchProfileInitialization_name' - The name for the launch profile.
 --
 -- 'platform', 'launchProfileInitialization_platform' - The platform of the launch platform, either WINDOWS or LINUX.
 --
--- 'userInitializationScripts', 'launchProfileInitialization_userInitializationScripts' - The user initializtion scripts.
---
--- 'activeDirectory', 'launchProfileInitialization_activeDirectory' - A LaunchProfileInitializationActiveDirectory resource.
---
--- 'launchPurpose', 'launchProfileInitialization_launchPurpose' - The launch purpose.
---
--- 'launchProfileProtocolVersion', 'launchProfileInitialization_launchProfileProtocolVersion' - The version number of the protocol that is used by the launch profile.
--- The only valid version is \"2021-03-31\".
---
--- 'ec2SecurityGroupIds', 'launchProfileInitialization_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
---
 -- 'systemInitializationScripts', 'launchProfileInitialization_systemInitializationScripts' - The system initializtion scripts.
+--
+-- 'userInitializationScripts', 'launchProfileInitialization_userInitializationScripts' - The user initializtion scripts.
 newLaunchProfileInitialization ::
   LaunchProfileInitialization
 newLaunchProfileInitialization =
   LaunchProfileInitialization'
-    { launchProfileId =
+    { activeDirectory =
         Prelude.Nothing,
+      ec2SecurityGroupIds = Prelude.Nothing,
+      launchProfileId = Prelude.Nothing,
+      launchProfileProtocolVersion = Prelude.Nothing,
+      launchPurpose = Prelude.Nothing,
       name = Prelude.Nothing,
       platform = Prelude.Nothing,
-      userInitializationScripts = Prelude.Nothing,
-      activeDirectory = Prelude.Nothing,
-      launchPurpose = Prelude.Nothing,
-      launchProfileProtocolVersion = Prelude.Nothing,
-      ec2SecurityGroupIds = Prelude.Nothing,
-      systemInitializationScripts = Prelude.Nothing
+      systemInitializationScripts = Prelude.Nothing,
+      userInitializationScripts = Prelude.Nothing
     }
+
+-- | A LaunchProfileInitializationActiveDirectory resource.
+launchProfileInitialization_activeDirectory :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfileInitializationActiveDirectory)
+launchProfileInitialization_activeDirectory = Lens.lens (\LaunchProfileInitialization' {activeDirectory} -> activeDirectory) (\s@LaunchProfileInitialization' {} a -> s {activeDirectory = a} :: LaunchProfileInitialization)
+
+-- | The EC2 security groups that control access to the studio component.
+launchProfileInitialization_ec2SecurityGroupIds :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+launchProfileInitialization_ec2SecurityGroupIds = Lens.lens (\LaunchProfileInitialization' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@LaunchProfileInitialization' {} a -> s {ec2SecurityGroupIds = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
 
 -- | The launch profile ID.
 launchProfileInitialization_launchProfileId :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
 launchProfileInitialization_launchProfileId = Lens.lens (\LaunchProfileInitialization' {launchProfileId} -> launchProfileId) (\s@LaunchProfileInitialization' {} a -> s {launchProfileId = a} :: LaunchProfileInitialization)
+
+-- | The version number of the protocol that is used by the launch profile.
+-- The only valid version is \"2021-03-31\".
+launchProfileInitialization_launchProfileProtocolVersion :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
+launchProfileInitialization_launchProfileProtocolVersion = Lens.lens (\LaunchProfileInitialization' {launchProfileProtocolVersion} -> launchProfileProtocolVersion) (\s@LaunchProfileInitialization' {} a -> s {launchProfileProtocolVersion = a} :: LaunchProfileInitialization)
+
+-- | The launch purpose.
+launchProfileInitialization_launchPurpose :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
+launchProfileInitialization_launchPurpose = Lens.lens (\LaunchProfileInitialization' {launchPurpose} -> launchPurpose) (\s@LaunchProfileInitialization' {} a -> s {launchPurpose = a} :: LaunchProfileInitialization)
 
 -- | The name for the launch profile.
 launchProfileInitialization_name :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
@@ -111,30 +128,13 @@ launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {nam
 launchProfileInitialization_platform :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfilePlatform)
 launchProfileInitialization_platform = Lens.lens (\LaunchProfileInitialization' {platform} -> platform) (\s@LaunchProfileInitialization' {} a -> s {platform = a} :: LaunchProfileInitialization)
 
--- | The user initializtion scripts.
-launchProfileInitialization_userInitializationScripts :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe [LaunchProfileInitializationScript])
-launchProfileInitialization_userInitializationScripts = Lens.lens (\LaunchProfileInitialization' {userInitializationScripts} -> userInitializationScripts) (\s@LaunchProfileInitialization' {} a -> s {userInitializationScripts = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
-
--- | A LaunchProfileInitializationActiveDirectory resource.
-launchProfileInitialization_activeDirectory :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfileInitializationActiveDirectory)
-launchProfileInitialization_activeDirectory = Lens.lens (\LaunchProfileInitialization' {activeDirectory} -> activeDirectory) (\s@LaunchProfileInitialization' {} a -> s {activeDirectory = a} :: LaunchProfileInitialization)
-
--- | The launch purpose.
-launchProfileInitialization_launchPurpose :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
-launchProfileInitialization_launchPurpose = Lens.lens (\LaunchProfileInitialization' {launchPurpose} -> launchPurpose) (\s@LaunchProfileInitialization' {} a -> s {launchPurpose = a} :: LaunchProfileInitialization)
-
--- | The version number of the protocol that is used by the launch profile.
--- The only valid version is \"2021-03-31\".
-launchProfileInitialization_launchProfileProtocolVersion :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
-launchProfileInitialization_launchProfileProtocolVersion = Lens.lens (\LaunchProfileInitialization' {launchProfileProtocolVersion} -> launchProfileProtocolVersion) (\s@LaunchProfileInitialization' {} a -> s {launchProfileProtocolVersion = a} :: LaunchProfileInitialization)
-
--- | The EC2 security groups that control access to the studio component.
-launchProfileInitialization_ec2SecurityGroupIds :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-launchProfileInitialization_ec2SecurityGroupIds = Lens.lens (\LaunchProfileInitialization' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@LaunchProfileInitialization' {} a -> s {ec2SecurityGroupIds = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
-
 -- | The system initializtion scripts.
 launchProfileInitialization_systemInitializationScripts :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe [LaunchProfileInitializationScript])
 launchProfileInitialization_systemInitializationScripts = Lens.lens (\LaunchProfileInitialization' {systemInitializationScripts} -> systemInitializationScripts) (\s@LaunchProfileInitialization' {} a -> s {systemInitializationScripts = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user initializtion scripts.
+launchProfileInitialization_userInitializationScripts :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe [LaunchProfileInitializationScript])
+launchProfileInitialization_userInitializationScripts = Lens.lens (\LaunchProfileInitialization' {userInitializationScripts} -> userInitializationScripts) (\s@LaunchProfileInitialization' {} a -> s {userInitializationScripts = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON LaunchProfileInitialization where
   parseJSON =
@@ -142,41 +142,41 @@ instance Data.FromJSON LaunchProfileInitialization where
       "LaunchProfileInitialization"
       ( \x ->
           LaunchProfileInitialization'
-            Prelude.<$> (x Data..:? "launchProfileId")
+            Prelude.<$> (x Data..:? "activeDirectory")
+            Prelude.<*> (x Data..:? "ec2SecurityGroupIds")
+            Prelude.<*> (x Data..:? "launchProfileId")
+            Prelude.<*> (x Data..:? "launchProfileProtocolVersion")
+            Prelude.<*> (x Data..:? "launchPurpose")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "platform")
-            Prelude.<*> ( x Data..:? "userInitializationScripts"
+            Prelude.<*> ( x Data..:? "systemInitializationScripts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "activeDirectory")
-            Prelude.<*> (x Data..:? "launchPurpose")
-            Prelude.<*> (x Data..:? "launchProfileProtocolVersion")
-            Prelude.<*> (x Data..:? "ec2SecurityGroupIds")
-            Prelude.<*> ( x Data..:? "systemInitializationScripts"
+            Prelude.<*> ( x Data..:? "userInitializationScripts"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LaunchProfileInitialization where
   hashWithSalt _salt LaunchProfileInitialization' {..} =
-    _salt `Prelude.hashWithSalt` launchProfileId
+    _salt `Prelude.hashWithSalt` activeDirectory
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` launchProfileProtocolVersion
+      `Prelude.hashWithSalt` launchPurpose
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` userInitializationScripts
-      `Prelude.hashWithSalt` activeDirectory
-      `Prelude.hashWithSalt` launchPurpose
-      `Prelude.hashWithSalt` launchProfileProtocolVersion
-      `Prelude.hashWithSalt` ec2SecurityGroupIds
       `Prelude.hashWithSalt` systemInitializationScripts
+      `Prelude.hashWithSalt` userInitializationScripts
 
 instance Prelude.NFData LaunchProfileInitialization where
   rnf LaunchProfileInitialization' {..} =
-    Prelude.rnf launchProfileId
+    Prelude.rnf activeDirectory
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf launchProfileProtocolVersion
+      `Prelude.seq` Prelude.rnf launchPurpose
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf userInitializationScripts
-      `Prelude.seq` Prelude.rnf activeDirectory
-      `Prelude.seq` Prelude.rnf launchPurpose
-      `Prelude.seq` Prelude.rnf launchProfileProtocolVersion
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
       `Prelude.seq` Prelude.rnf systemInitializationScripts
+      `Prelude.seq` Prelude.rnf userInitializationScripts

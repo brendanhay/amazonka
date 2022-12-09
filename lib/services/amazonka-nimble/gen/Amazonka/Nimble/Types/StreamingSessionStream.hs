@@ -33,24 +33,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamingSessionStream' smart constructor.
 data StreamingSessionStream = StreamingSessionStream'
-  { -- | The current state.
-    state :: Prelude.Maybe StreamingSessionStreamState,
-    -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | The URL to connect to this stream using the DCV client.
-    url :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The Unix epoch timestamp in seconds for when the resource expires.
-    expiresAt :: Prelude.Maybe Data.POSIX,
-    -- | The streaming session stream status code.
-    statusCode :: Prelude.Maybe StreamingSessionStreamStatusCode,
+  { -- | The Unix epoch timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The user ID of the user that created the streaming session stream.
     createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The Unix epoch timestamp in seconds for when the resource expires.
+    expiresAt :: Prelude.Maybe Data.POSIX,
     -- | The user ID of the user that owns the streaming session. The user that
     -- owns the session will be logging into the session and interacting with
     -- the virtual workstation.
     ownedBy :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The current state.
+    state :: Prelude.Maybe StreamingSessionStreamState,
+    -- | The streaming session stream status code.
+    statusCode :: Prelude.Maybe StreamingSessionStreamStatusCode,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | The URL to connect to this stream using the DCV client.
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,40 +62,63 @@ data StreamingSessionStream = StreamingSessionStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'streamingSessionStream_state' - The current state.
---
--- 'streamId', 'streamingSessionStream_streamId' - The stream ID.
---
--- 'url', 'streamingSessionStream_url' - The URL to connect to this stream using the DCV client.
---
--- 'expiresAt', 'streamingSessionStream_expiresAt' - The Unix epoch timestamp in seconds for when the resource expires.
---
--- 'statusCode', 'streamingSessionStream_statusCode' - The streaming session stream status code.
+-- 'createdAt', 'streamingSessionStream_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
 --
 -- 'createdBy', 'streamingSessionStream_createdBy' - The user ID of the user that created the streaming session stream.
+--
+-- 'expiresAt', 'streamingSessionStream_expiresAt' - The Unix epoch timestamp in seconds for when the resource expires.
 --
 -- 'ownedBy', 'streamingSessionStream_ownedBy' - The user ID of the user that owns the streaming session. The user that
 -- owns the session will be logging into the session and interacting with
 -- the virtual workstation.
 --
--- 'createdAt', 'streamingSessionStream_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'state', 'streamingSessionStream_state' - The current state.
+--
+-- 'statusCode', 'streamingSessionStream_statusCode' - The streaming session stream status code.
+--
+-- 'streamId', 'streamingSessionStream_streamId' - The stream ID.
+--
+-- 'url', 'streamingSessionStream_url' - The URL to connect to this stream using the DCV client.
 newStreamingSessionStream ::
   StreamingSessionStream
 newStreamingSessionStream =
   StreamingSessionStream'
-    { state = Prelude.Nothing,
-      streamId = Prelude.Nothing,
-      url = Prelude.Nothing,
-      expiresAt = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
+    { createdAt =
+        Prelude.Nothing,
       createdBy = Prelude.Nothing,
+      expiresAt = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      state = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      streamId = Prelude.Nothing,
+      url = Prelude.Nothing
     }
+
+-- | The Unix epoch timestamp in seconds for when the resource was created.
+streamingSessionStream_createdAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
+streamingSessionStream_createdAt = Lens.lens (\StreamingSessionStream' {createdAt} -> createdAt) (\s@StreamingSessionStream' {} a -> s {createdAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
+
+-- | The user ID of the user that created the streaming session stream.
+streamingSessionStream_createdBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
+streamingSessionStream_createdBy = Lens.lens (\StreamingSessionStream' {createdBy} -> createdBy) (\s@StreamingSessionStream' {} a -> s {createdBy = a} :: StreamingSessionStream)
+
+-- | The Unix epoch timestamp in seconds for when the resource expires.
+streamingSessionStream_expiresAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
+streamingSessionStream_expiresAt = Lens.lens (\StreamingSessionStream' {expiresAt} -> expiresAt) (\s@StreamingSessionStream' {} a -> s {expiresAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
+
+-- | The user ID of the user that owns the streaming session. The user that
+-- owns the session will be logging into the session and interacting with
+-- the virtual workstation.
+streamingSessionStream_ownedBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
+streamingSessionStream_ownedBy = Lens.lens (\StreamingSessionStream' {ownedBy} -> ownedBy) (\s@StreamingSessionStream' {} a -> s {ownedBy = a} :: StreamingSessionStream)
 
 -- | The current state.
 streamingSessionStream_state :: Lens.Lens' StreamingSessionStream (Prelude.Maybe StreamingSessionStreamState)
 streamingSessionStream_state = Lens.lens (\StreamingSessionStream' {state} -> state) (\s@StreamingSessionStream' {} a -> s {state = a} :: StreamingSessionStream)
+
+-- | The streaming session stream status code.
+streamingSessionStream_statusCode :: Lens.Lens' StreamingSessionStream (Prelude.Maybe StreamingSessionStreamStatusCode)
+streamingSessionStream_statusCode = Lens.lens (\StreamingSessionStream' {statusCode} -> statusCode) (\s@StreamingSessionStream' {} a -> s {statusCode = a} :: StreamingSessionStream)
 
 -- | The stream ID.
 streamingSessionStream_streamId :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
@@ -105,62 +128,40 @@ streamingSessionStream_streamId = Lens.lens (\StreamingSessionStream' {streamId}
 streamingSessionStream_url :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
 streamingSessionStream_url = Lens.lens (\StreamingSessionStream' {url} -> url) (\s@StreamingSessionStream' {} a -> s {url = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Sensitive
 
--- | The Unix epoch timestamp in seconds for when the resource expires.
-streamingSessionStream_expiresAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
-streamingSessionStream_expiresAt = Lens.lens (\StreamingSessionStream' {expiresAt} -> expiresAt) (\s@StreamingSessionStream' {} a -> s {expiresAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
-
--- | The streaming session stream status code.
-streamingSessionStream_statusCode :: Lens.Lens' StreamingSessionStream (Prelude.Maybe StreamingSessionStreamStatusCode)
-streamingSessionStream_statusCode = Lens.lens (\StreamingSessionStream' {statusCode} -> statusCode) (\s@StreamingSessionStream' {} a -> s {statusCode = a} :: StreamingSessionStream)
-
--- | The user ID of the user that created the streaming session stream.
-streamingSessionStream_createdBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
-streamingSessionStream_createdBy = Lens.lens (\StreamingSessionStream' {createdBy} -> createdBy) (\s@StreamingSessionStream' {} a -> s {createdBy = a} :: StreamingSessionStream)
-
--- | The user ID of the user that owns the streaming session. The user that
--- owns the session will be logging into the session and interacting with
--- the virtual workstation.
-streamingSessionStream_ownedBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
-streamingSessionStream_ownedBy = Lens.lens (\StreamingSessionStream' {ownedBy} -> ownedBy) (\s@StreamingSessionStream' {} a -> s {ownedBy = a} :: StreamingSessionStream)
-
--- | The Unix epoch timestamp in seconds for when the resource was created.
-streamingSessionStream_createdAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
-streamingSessionStream_createdAt = Lens.lens (\StreamingSessionStream' {createdAt} -> createdAt) (\s@StreamingSessionStream' {} a -> s {createdAt = a} :: StreamingSessionStream) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON StreamingSessionStream where
   parseJSON =
     Data.withObject
       "StreamingSessionStream"
       ( \x ->
           StreamingSessionStream'
-            Prelude.<$> (x Data..:? "state")
+            Prelude.<$> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "expiresAt")
+            Prelude.<*> (x Data..:? "ownedBy")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "statusCode")
             Prelude.<*> (x Data..:? "streamId")
             Prelude.<*> (x Data..:? "url")
-            Prelude.<*> (x Data..:? "expiresAt")
-            Prelude.<*> (x Data..:? "statusCode")
-            Prelude.<*> (x Data..:? "createdBy")
-            Prelude.<*> (x Data..:? "ownedBy")
-            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable StreamingSessionStream where
   hashWithSalt _salt StreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` expiresAt
+      `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` expiresAt
-      `Prelude.hashWithSalt` statusCode
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` ownedBy
-      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData StreamingSessionStream where
   rnf StreamingSessionStream' {..} =
-    Prelude.rnf state
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf expiresAt
+      `Prelude.seq` Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf expiresAt
-      `Prelude.seq` Prelude.rnf statusCode
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf ownedBy
-      `Prelude.seq` Prelude.rnf createdAt

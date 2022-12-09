@@ -29,10 +29,10 @@ module Amazonka.Nimble.ListStudioComponents
     newListStudioComponents,
 
     -- * Request Lenses
-    listStudioComponents_nextToken,
-    listStudioComponents_types,
     listStudioComponents_maxResults,
+    listStudioComponents_nextToken,
     listStudioComponents_states,
+    listStudioComponents_types,
     listStudioComponents_studioId,
 
     -- * Destructuring the Response
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudioComponents' smart constructor.
 data ListStudioComponents = ListStudioComponents'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the request to studio components that are of one of the given
-    -- types.
-    types :: Prelude.Maybe [StudioComponentType],
-    -- | The max number of results to return in the response.
+  { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the request to studio components that are in one of the given
     -- states.
     states :: Prelude.Maybe [StudioComponentState],
+    -- | Filters the request to studio components that are of one of the given
+    -- types.
+    types :: Prelude.Maybe [StudioComponentType],
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -79,15 +79,15 @@ data ListStudioComponents = ListStudioComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudioComponents_nextToken' - The token to request the next page of results.
---
--- 'types', 'listStudioComponents_types' - Filters the request to studio components that are of one of the given
--- types.
---
 -- 'maxResults', 'listStudioComponents_maxResults' - The max number of results to return in the response.
+--
+-- 'nextToken', 'listStudioComponents_nextToken' - The token to request the next page of results.
 --
 -- 'states', 'listStudioComponents_states' - Filters the request to studio components that are in one of the given
 -- states.
+--
+-- 'types', 'listStudioComponents_types' - Filters the request to studio components that are of one of the given
+-- types.
 --
 -- 'studioId', 'listStudioComponents_studioId' - The studio ID.
 newListStudioComponents ::
@@ -96,30 +96,30 @@ newListStudioComponents ::
   ListStudioComponents
 newListStudioComponents pStudioId_ =
   ListStudioComponents'
-    { nextToken = Prelude.Nothing,
-      types = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       states = Prelude.Nothing,
+      types = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | The token to request the next page of results.
-listStudioComponents_nextToken :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Text)
-listStudioComponents_nextToken = Lens.lens (\ListStudioComponents' {nextToken} -> nextToken) (\s@ListStudioComponents' {} a -> s {nextToken = a} :: ListStudioComponents)
-
--- | Filters the request to studio components that are of one of the given
--- types.
-listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [StudioComponentType])
-listStudioComponents_types = Lens.lens (\ListStudioComponents' {types} -> types) (\s@ListStudioComponents' {} a -> s {types = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The max number of results to return in the response.
 listStudioComponents_maxResults :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Natural)
 listStudioComponents_maxResults = Lens.lens (\ListStudioComponents' {maxResults} -> maxResults) (\s@ListStudioComponents' {} a -> s {maxResults = a} :: ListStudioComponents)
 
+-- | The token to request the next page of results.
+listStudioComponents_nextToken :: Lens.Lens' ListStudioComponents (Prelude.Maybe Prelude.Text)
+listStudioComponents_nextToken = Lens.lens (\ListStudioComponents' {nextToken} -> nextToken) (\s@ListStudioComponents' {} a -> s {nextToken = a} :: ListStudioComponents)
+
 -- | Filters the request to studio components that are in one of the given
 -- states.
 listStudioComponents_states :: Lens.Lens' ListStudioComponents (Prelude.Maybe [StudioComponentState])
 listStudioComponents_states = Lens.lens (\ListStudioComponents' {states} -> states) (\s@ListStudioComponents' {} a -> s {states = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters the request to studio components that are of one of the given
+-- types.
+listStudioComponents_types :: Lens.Lens' ListStudioComponents (Prelude.Maybe [StudioComponentType])
+listStudioComponents_types = Lens.lens (\ListStudioComponents' {types} -> types) (\s@ListStudioComponents' {} a -> s {types = a} :: ListStudioComponents) Prelude.. Lens.mapping Lens.coerced
 
 -- | The studio ID.
 listStudioComponents_studioId :: Lens.Lens' ListStudioComponents Prelude.Text
@@ -166,18 +166,18 @@ instance Core.AWSRequest ListStudioComponents where
 
 instance Prelude.Hashable ListStudioComponents where
   hashWithSalt _salt ListStudioComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` types
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` types
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListStudioComponents where
   rnf ListStudioComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf types
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf states
+      `Prelude.seq` Prelude.rnf types
       `Prelude.seq` Prelude.rnf studioId
 
 instance Data.ToHeaders ListStudioComponents where
@@ -202,14 +202,14 @@ instance Data.ToPath ListStudioComponents where
 instance Data.ToQuery ListStudioComponents where
   toQuery ListStudioComponents' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "types"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> types),
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "states"
           Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> states)
+            (Data.toQueryList "member" Prelude.<$> states),
+        "types"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> types)
       ]
 
 -- | /See:/ 'newListStudioComponentsResponse' smart constructor.

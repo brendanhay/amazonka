@@ -29,10 +29,10 @@ module Amazonka.Nimble.ListStreamingSessions
     newListStreamingSessions,
 
     -- * Request Lenses
-    listStreamingSessions_nextToken,
-    listStreamingSessions_sessionIds,
     listStreamingSessions_createdBy,
+    listStreamingSessions_nextToken,
     listStreamingSessions_ownedBy,
+    listStreamingSessions_sessionIds,
     listStreamingSessions_studioId,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamingSessions' smart constructor.
 data ListStreamingSessions = ListStreamingSessions'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the request to only the provided session IDs.
-    sessionIds :: Prelude.Maybe Prelude.Text,
-    -- | Filters the request to streaming sessions created by the given user.
+  { -- | Filters the request to streaming sessions created by the given user.
     createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the request to streaming session owned by the given user
     ownedBy :: Prelude.Maybe Prelude.Text,
+    -- | Filters the request to only the provided session IDs.
+    sessionIds :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListStreamingSessions = ListStreamingSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreamingSessions_nextToken' - The token to request the next page of results.
---
--- 'sessionIds', 'listStreamingSessions_sessionIds' - Filters the request to only the provided session IDs.
---
 -- 'createdBy', 'listStreamingSessions_createdBy' - Filters the request to streaming sessions created by the given user.
 --
+-- 'nextToken', 'listStreamingSessions_nextToken' - The token to request the next page of results.
+--
 -- 'ownedBy', 'listStreamingSessions_ownedBy' - Filters the request to streaming session owned by the given user
+--
+-- 'sessionIds', 'listStreamingSessions_sessionIds' - Filters the request to only the provided session IDs.
 --
 -- 'studioId', 'listStreamingSessions_studioId' - The studio ID.
 newListStreamingSessions ::
@@ -92,28 +92,28 @@ newListStreamingSessions ::
   ListStreamingSessions
 newListStreamingSessions pStudioId_ =
   ListStreamingSessions'
-    { nextToken = Prelude.Nothing,
-      sessionIds = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+    { createdBy = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
+      sessionIds = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | The token to request the next page of results.
-listStreamingSessions_nextToken :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
-listStreamingSessions_nextToken = Lens.lens (\ListStreamingSessions' {nextToken} -> nextToken) (\s@ListStreamingSessions' {} a -> s {nextToken = a} :: ListStreamingSessions)
-
--- | Filters the request to only the provided session IDs.
-listStreamingSessions_sessionIds :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
-listStreamingSessions_sessionIds = Lens.lens (\ListStreamingSessions' {sessionIds} -> sessionIds) (\s@ListStreamingSessions' {} a -> s {sessionIds = a} :: ListStreamingSessions)
 
 -- | Filters the request to streaming sessions created by the given user.
 listStreamingSessions_createdBy :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_createdBy = Lens.lens (\ListStreamingSessions' {createdBy} -> createdBy) (\s@ListStreamingSessions' {} a -> s {createdBy = a} :: ListStreamingSessions)
 
+-- | The token to request the next page of results.
+listStreamingSessions_nextToken :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
+listStreamingSessions_nextToken = Lens.lens (\ListStreamingSessions' {nextToken} -> nextToken) (\s@ListStreamingSessions' {} a -> s {nextToken = a} :: ListStreamingSessions)
+
 -- | Filters the request to streaming session owned by the given user
 listStreamingSessions_ownedBy :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_ownedBy = Lens.lens (\ListStreamingSessions' {ownedBy} -> ownedBy) (\s@ListStreamingSessions' {} a -> s {ownedBy = a} :: ListStreamingSessions)
+
+-- | Filters the request to only the provided session IDs.
+listStreamingSessions_sessionIds :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
+listStreamingSessions_sessionIds = Lens.lens (\ListStreamingSessions' {sessionIds} -> sessionIds) (\s@ListStreamingSessions' {} a -> s {sessionIds = a} :: ListStreamingSessions)
 
 -- | The studio ID.
 listStreamingSessions_studioId :: Lens.Lens' ListStreamingSessions Prelude.Text
@@ -158,18 +158,18 @@ instance Core.AWSRequest ListStreamingSessions where
 
 instance Prelude.Hashable ListStreamingSessions where
   hashWithSalt _salt ListStreamingSessions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sessionIds
-      `Prelude.hashWithSalt` createdBy
+    _salt `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` sessionIds
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListStreamingSessions where
   rnf ListStreamingSessions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sessionIds
-      `Prelude.seq` Prelude.rnf createdBy
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf sessionIds
       `Prelude.seq` Prelude.rnf studioId
 
 instance Data.ToHeaders ListStreamingSessions where
@@ -194,10 +194,10 @@ instance Data.ToPath ListStreamingSessions where
 instance Data.ToQuery ListStreamingSessions where
   toQuery ListStreamingSessions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "sessionIds" Data.=: sessionIds,
-        "createdBy" Data.=: createdBy,
-        "ownedBy" Data.=: ownedBy
+      [ "createdBy" Data.=: createdBy,
+        "nextToken" Data.=: nextToken,
+        "ownedBy" Data.=: ownedBy,
+        "sessionIds" Data.=: sessionIds
       ]
 
 -- | /See:/ 'newListStreamingSessionsResponse' smart constructor.

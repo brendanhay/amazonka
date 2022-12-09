@@ -31,8 +31,8 @@ module Amazonka.Nimble.ListStudioMembers
     newListStudioMembers,
 
     -- * Request Lenses
-    listStudioMembers_nextToken,
     listStudioMembers_maxResults,
+    listStudioMembers_nextToken,
     listStudioMembers_studioId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Nimble.ListStudioMembers
     newListStudioMembersResponse,
 
     -- * Response Lenses
-    listStudioMembersResponse_nextToken,
     listStudioMembersResponse_members,
+    listStudioMembersResponse_nextToken,
     listStudioMembersResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStudioMembers' smart constructor.
 data ListStudioMembers = ListStudioMembers'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The max number of results to return in the response.
+  { -- | The max number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data ListStudioMembers = ListStudioMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudioMembers_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listStudioMembers_maxResults' - The max number of results to return in the response.
+--
+-- 'nextToken', 'listStudioMembers_nextToken' - The token to request the next page of results.
 --
 -- 'studioId', 'listStudioMembers_studioId' - The studio ID.
 newListStudioMembers ::
@@ -84,18 +84,18 @@ newListStudioMembers ::
   ListStudioMembers
 newListStudioMembers pStudioId_ =
   ListStudioMembers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | The token to request the next page of results.
-listStudioMembers_nextToken :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Text)
-listStudioMembers_nextToken = Lens.lens (\ListStudioMembers' {nextToken} -> nextToken) (\s@ListStudioMembers' {} a -> s {nextToken = a} :: ListStudioMembers)
 
 -- | The max number of results to return in the response.
 listStudioMembers_maxResults :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Natural)
 listStudioMembers_maxResults = Lens.lens (\ListStudioMembers' {maxResults} -> maxResults) (\s@ListStudioMembers' {} a -> s {maxResults = a} :: ListStudioMembers)
+
+-- | The token to request the next page of results.
+listStudioMembers_nextToken :: Lens.Lens' ListStudioMembers (Prelude.Maybe Prelude.Text)
+listStudioMembers_nextToken = Lens.lens (\ListStudioMembers' {nextToken} -> nextToken) (\s@ListStudioMembers' {} a -> s {nextToken = a} :: ListStudioMembers)
 
 -- | The studio ID.
 listStudioMembers_studioId :: Lens.Lens' ListStudioMembers Prelude.Text
@@ -133,21 +133,21 @@ instance Core.AWSRequest ListStudioMembers where
     Response.receiveJSON
       ( \s h x ->
           ListStudioMembersResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "members" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "members" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListStudioMembers where
   hashWithSalt _salt ListStudioMembers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData ListStudioMembers where
   rnf ListStudioMembers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf studioId
 
 instance Data.ToHeaders ListStudioMembers where
@@ -172,17 +172,17 @@ instance Data.ToPath ListStudioMembers where
 instance Data.ToQuery ListStudioMembers where
   toQuery ListStudioMembers' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListStudioMembersResponse' smart constructor.
 data ListStudioMembersResponse = ListStudioMembersResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | A list of admin members.
+    members :: Prelude.Maybe [StudioMembership],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of admin members.
-    members :: Prelude.Maybe [StudioMembership],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,10 +196,10 @@ data ListStudioMembersResponse = ListStudioMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'members', 'listStudioMembersResponse_members' - A list of admin members.
+--
 -- 'nextToken', 'listStudioMembersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'members', 'listStudioMembersResponse_members' - A list of admin members.
 --
 -- 'httpStatus', 'listStudioMembersResponse_httpStatus' - The response's http status code.
 newListStudioMembersResponse ::
@@ -208,20 +208,20 @@ newListStudioMembersResponse ::
   ListStudioMembersResponse
 newListStudioMembersResponse pHttpStatus_ =
   ListStudioMembersResponse'
-    { nextToken =
+    { members =
         Prelude.Nothing,
-      members = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of admin members.
+listStudioMembersResponse_members :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe [StudioMembership])
+listStudioMembersResponse_members = Lens.lens (\ListStudioMembersResponse' {members} -> members) (\s@ListStudioMembersResponse' {} a -> s {members = a} :: ListStudioMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listStudioMembersResponse_nextToken :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe Prelude.Text)
 listStudioMembersResponse_nextToken = Lens.lens (\ListStudioMembersResponse' {nextToken} -> nextToken) (\s@ListStudioMembersResponse' {} a -> s {nextToken = a} :: ListStudioMembersResponse)
-
--- | A list of admin members.
-listStudioMembersResponse_members :: Lens.Lens' ListStudioMembersResponse (Prelude.Maybe [StudioMembership])
-listStudioMembersResponse_members = Lens.lens (\ListStudioMembersResponse' {members} -> members) (\s@ListStudioMembersResponse' {} a -> s {members = a} :: ListStudioMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStudioMembersResponse_httpStatus :: Lens.Lens' ListStudioMembersResponse Prelude.Int
@@ -229,6 +229,6 @@ listStudioMembersResponse_httpStatus = Lens.lens (\ListStudioMembersResponse' {h
 
 instance Prelude.NFData ListStudioMembersResponse where
   rnf ListStudioMembersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

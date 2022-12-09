@@ -31,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamConfiguration' smart constructor.
 data StreamConfiguration = StreamConfiguration'
-  { -- | Integer that determines if you can start and stop your sessions and how
+  { -- | The length of time, in minutes, that a streaming session can be active
+    -- before it is stopped or terminated. After this point, Nimble Studio
+    -- automatically terminates or stops the session. The default length of
+    -- time is 690 minutes, and the maximum length of time is 30 days.
+    maxSessionLengthInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Integer that determines if you can start and stop your sessions and how
     -- long a session can stay in the STOPPED state. The default value is 0.
     -- The maximum value is 5760.
     --
@@ -47,11 +52,6 @@ data StreamConfiguration = StreamConfiguration'
     -- @maxSessionLengthInMinutes@ value, the session will automatically be
     -- stopped (instead of terminated).
     maxStoppedSessionLengthInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The length of time, in minutes, that a streaming session can be active
-    -- before it is stopped or terminated. After this point, Nimble Studio
-    -- automatically terminates or stops the session. The default length of
-    -- time is 690 minutes, and the maximum length of time is 30 days.
-    maxSessionLengthInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | (Optional) The upload storage for a streaming session.
     sessionStorage :: Prelude.Maybe StreamConfigurationSessionStorage,
     -- | Enable or disable the use of the system clipboard to copy and paste
@@ -74,6 +74,11 @@ data StreamConfiguration = StreamConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxSessionLengthInMinutes', 'streamConfiguration_maxSessionLengthInMinutes' - The length of time, in minutes, that a streaming session can be active
+-- before it is stopped or terminated. After this point, Nimble Studio
+-- automatically terminates or stops the session. The default length of
+-- time is 690 minutes, and the maximum length of time is 30 days.
+--
 -- 'maxStoppedSessionLengthInMinutes', 'streamConfiguration_maxStoppedSessionLengthInMinutes' - Integer that determines if you can start and stop your sessions and how
 -- long a session can stay in the STOPPED state. The default value is 0.
 -- The maximum value is 5760.
@@ -89,11 +94,6 @@ data StreamConfiguration = StreamConfiguration'
 -- If the time that a session stays in the READY state exceeds the
 -- @maxSessionLengthInMinutes@ value, the session will automatically be
 -- stopped (instead of terminated).
---
--- 'maxSessionLengthInMinutes', 'streamConfiguration_maxSessionLengthInMinutes' - The length of time, in minutes, that a streaming session can be active
--- before it is stopped or terminated. After this point, Nimble Studio
--- automatically terminates or stops the session. The default length of
--- time is 690 minutes, and the maximum length of time is 30 days.
 --
 -- 'sessionStorage', 'streamConfiguration_sessionStorage' - (Optional) The upload storage for a streaming session.
 --
@@ -118,9 +118,9 @@ newStreamConfiguration
   pEc2InstanceTypes_
   pStreamingImageIds_ =
     StreamConfiguration'
-      { maxStoppedSessionLengthInMinutes =
+      { maxSessionLengthInMinutes =
           Prelude.Nothing,
-        maxSessionLengthInMinutes = Prelude.Nothing,
+        maxStoppedSessionLengthInMinutes = Prelude.Nothing,
         sessionStorage = Prelude.Nothing,
         clipboardMode = pClipboardMode_,
         ec2InstanceTypes =
@@ -128,6 +128,13 @@ newStreamConfiguration
         streamingImageIds =
           Lens.coerced Lens.# pStreamingImageIds_
       }
+
+-- | The length of time, in minutes, that a streaming session can be active
+-- before it is stopped or terminated. After this point, Nimble Studio
+-- automatically terminates or stops the session. The default length of
+-- time is 690 minutes, and the maximum length of time is 30 days.
+streamConfiguration_maxSessionLengthInMinutes :: Lens.Lens' StreamConfiguration (Prelude.Maybe Prelude.Natural)
+streamConfiguration_maxSessionLengthInMinutes = Lens.lens (\StreamConfiguration' {maxSessionLengthInMinutes} -> maxSessionLengthInMinutes) (\s@StreamConfiguration' {} a -> s {maxSessionLengthInMinutes = a} :: StreamConfiguration)
 
 -- | Integer that determines if you can start and stop your sessions and how
 -- long a session can stay in the STOPPED state. The default value is 0.
@@ -146,13 +153,6 @@ newStreamConfiguration
 -- stopped (instead of terminated).
 streamConfiguration_maxStoppedSessionLengthInMinutes :: Lens.Lens' StreamConfiguration (Prelude.Maybe Prelude.Natural)
 streamConfiguration_maxStoppedSessionLengthInMinutes = Lens.lens (\StreamConfiguration' {maxStoppedSessionLengthInMinutes} -> maxStoppedSessionLengthInMinutes) (\s@StreamConfiguration' {} a -> s {maxStoppedSessionLengthInMinutes = a} :: StreamConfiguration)
-
--- | The length of time, in minutes, that a streaming session can be active
--- before it is stopped or terminated. After this point, Nimble Studio
--- automatically terminates or stops the session. The default length of
--- time is 690 minutes, and the maximum length of time is 30 days.
-streamConfiguration_maxSessionLengthInMinutes :: Lens.Lens' StreamConfiguration (Prelude.Maybe Prelude.Natural)
-streamConfiguration_maxSessionLengthInMinutes = Lens.lens (\StreamConfiguration' {maxSessionLengthInMinutes} -> maxSessionLengthInMinutes) (\s@StreamConfiguration' {} a -> s {maxSessionLengthInMinutes = a} :: StreamConfiguration)
 
 -- | (Optional) The upload storage for a streaming session.
 streamConfiguration_sessionStorage :: Lens.Lens' StreamConfiguration (Prelude.Maybe StreamConfigurationSessionStorage)
@@ -179,8 +179,8 @@ instance Data.FromJSON StreamConfiguration where
       "StreamConfiguration"
       ( \x ->
           StreamConfiguration'
-            Prelude.<$> (x Data..:? "maxStoppedSessionLengthInMinutes")
-            Prelude.<*> (x Data..:? "maxSessionLengthInMinutes")
+            Prelude.<$> (x Data..:? "maxSessionLengthInMinutes")
+            Prelude.<*> (x Data..:? "maxStoppedSessionLengthInMinutes")
             Prelude.<*> (x Data..:? "sessionStorage")
             Prelude.<*> (x Data..: "clipboardMode")
             Prelude.<*> (x Data..: "ec2InstanceTypes")
@@ -190,8 +190,8 @@ instance Data.FromJSON StreamConfiguration where
 instance Prelude.Hashable StreamConfiguration where
   hashWithSalt _salt StreamConfiguration' {..} =
     _salt
-      `Prelude.hashWithSalt` maxStoppedSessionLengthInMinutes
       `Prelude.hashWithSalt` maxSessionLengthInMinutes
+      `Prelude.hashWithSalt` maxStoppedSessionLengthInMinutes
       `Prelude.hashWithSalt` sessionStorage
       `Prelude.hashWithSalt` clipboardMode
       `Prelude.hashWithSalt` ec2InstanceTypes
@@ -199,8 +199,8 @@ instance Prelude.Hashable StreamConfiguration where
 
 instance Prelude.NFData StreamConfiguration where
   rnf StreamConfiguration' {..} =
-    Prelude.rnf maxStoppedSessionLengthInMinutes
-      `Prelude.seq` Prelude.rnf maxSessionLengthInMinutes
+    Prelude.rnf maxSessionLengthInMinutes
+      `Prelude.seq` Prelude.rnf maxStoppedSessionLengthInMinutes
       `Prelude.seq` Prelude.rnf sessionStorage
       `Prelude.seq` Prelude.rnf clipboardMode
       `Prelude.seq` Prelude.rnf ec2InstanceTypes

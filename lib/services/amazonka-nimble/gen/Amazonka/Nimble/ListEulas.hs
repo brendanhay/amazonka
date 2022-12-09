@@ -29,8 +29,8 @@ module Amazonka.Nimble.ListEulas
     newListEulas,
 
     -- * Request Lenses
-    listEulas_nextToken,
     listEulas_eulaIds,
+    listEulas_nextToken,
 
     -- * Destructuring the Response
     ListEulasResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEulas' smart constructor.
 data ListEulas = ListEulas'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of EULA IDs that should be returned
-    eulaIds :: Prelude.Maybe [Prelude.Text]
+  { -- | The list of EULA IDs that should be returned
+    eulaIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListEulas = ListEulas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEulas_nextToken' - The token to request the next page of results.
---
 -- 'eulaIds', 'listEulas_eulaIds' - The list of EULA IDs that should be returned
+--
+-- 'nextToken', 'listEulas_nextToken' - The token to request the next page of results.
 newListEulas ::
   ListEulas
 newListEulas =
   ListEulas'
-    { nextToken = Prelude.Nothing,
-      eulaIds = Prelude.Nothing
+    { eulaIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-listEulas_nextToken :: Lens.Lens' ListEulas (Prelude.Maybe Prelude.Text)
-listEulas_nextToken = Lens.lens (\ListEulas' {nextToken} -> nextToken) (\s@ListEulas' {} a -> s {nextToken = a} :: ListEulas)
 
 -- | The list of EULA IDs that should be returned
 listEulas_eulaIds :: Lens.Lens' ListEulas (Prelude.Maybe [Prelude.Text])
 listEulas_eulaIds = Lens.lens (\ListEulas' {eulaIds} -> eulaIds) (\s@ListEulas' {} a -> s {eulaIds = a} :: ListEulas) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next page of results.
+listEulas_nextToken :: Lens.Lens' ListEulas (Prelude.Maybe Prelude.Text)
+listEulas_nextToken = Lens.lens (\ListEulas' {nextToken} -> nextToken) (\s@ListEulas' {} a -> s {nextToken = a} :: ListEulas)
 
 instance Core.AWSPager ListEulas where
   page rq rs
@@ -121,13 +121,13 @@ instance Core.AWSRequest ListEulas where
 
 instance Prelude.Hashable ListEulas where
   hashWithSalt _salt ListEulas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` eulaIds
+    _salt `Prelude.hashWithSalt` eulaIds
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEulas where
   rnf ListEulas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eulaIds
+    Prelude.rnf eulaIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEulas where
   toHeaders =
@@ -146,10 +146,10 @@ instance Data.ToPath ListEulas where
 instance Data.ToQuery ListEulas where
   toQuery ListEulas' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "eulaIds"
+      [ "eulaIds"
           Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> eulaIds)
+            (Data.toQueryList "member" Prelude.<$> eulaIds),
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEulasResponse' smart constructor.

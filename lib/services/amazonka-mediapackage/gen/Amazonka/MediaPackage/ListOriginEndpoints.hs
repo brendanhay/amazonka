@@ -29,9 +29,9 @@ module Amazonka.MediaPackage.ListOriginEndpoints
     newListOriginEndpoints,
 
     -- * Request Lenses
-    listOriginEndpoints_nextToken,
-    listOriginEndpoints_maxResults,
     listOriginEndpoints_channelId,
+    listOriginEndpoints_maxResults,
+    listOriginEndpoints_nextToken,
 
     -- * Destructuring the Response
     ListOriginEndpointsResponse (..),
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOriginEndpoints' smart constructor.
 data ListOriginEndpoints = ListOriginEndpoints'
-  { -- | A token used to resume pagination from the end of a previous request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | When specified, the request will return only OriginEndpoints associated
+    -- with the given Channel ID.
+    channelId :: Prelude.Maybe Prelude.Text,
     -- | The upper bound on the number of records to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | When specified, the request will return only OriginEndpoints associated
-    -- with the given Channel ID.
-    channelId :: Prelude.Maybe Prelude.Text
+    -- | A token used to resume pagination from the end of a previous request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,33 +72,33 @@ data ListOriginEndpoints = ListOriginEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOriginEndpoints_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'channelId', 'listOriginEndpoints_channelId' - When specified, the request will return only OriginEndpoints associated
+-- with the given Channel ID.
 --
 -- 'maxResults', 'listOriginEndpoints_maxResults' - The upper bound on the number of records to return.
 --
--- 'channelId', 'listOriginEndpoints_channelId' - When specified, the request will return only OriginEndpoints associated
--- with the given Channel ID.
+-- 'nextToken', 'listOriginEndpoints_nextToken' - A token used to resume pagination from the end of a previous request.
 newListOriginEndpoints ::
   ListOriginEndpoints
 newListOriginEndpoints =
   ListOriginEndpoints'
-    { nextToken = Prelude.Nothing,
+    { channelId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      channelId = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A token used to resume pagination from the end of a previous request.
-listOriginEndpoints_nextToken :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Text)
-listOriginEndpoints_nextToken = Lens.lens (\ListOriginEndpoints' {nextToken} -> nextToken) (\s@ListOriginEndpoints' {} a -> s {nextToken = a} :: ListOriginEndpoints)
-
--- | The upper bound on the number of records to return.
-listOriginEndpoints_maxResults :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Natural)
-listOriginEndpoints_maxResults = Lens.lens (\ListOriginEndpoints' {maxResults} -> maxResults) (\s@ListOriginEndpoints' {} a -> s {maxResults = a} :: ListOriginEndpoints)
 
 -- | When specified, the request will return only OriginEndpoints associated
 -- with the given Channel ID.
 listOriginEndpoints_channelId :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Text)
 listOriginEndpoints_channelId = Lens.lens (\ListOriginEndpoints' {channelId} -> channelId) (\s@ListOriginEndpoints' {} a -> s {channelId = a} :: ListOriginEndpoints)
+
+-- | The upper bound on the number of records to return.
+listOriginEndpoints_maxResults :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Natural)
+listOriginEndpoints_maxResults = Lens.lens (\ListOriginEndpoints' {maxResults} -> maxResults) (\s@ListOriginEndpoints' {} a -> s {maxResults = a} :: ListOriginEndpoints)
+
+-- | A token used to resume pagination from the end of a previous request.
+listOriginEndpoints_nextToken :: Lens.Lens' ListOriginEndpoints (Prelude.Maybe Prelude.Text)
+listOriginEndpoints_nextToken = Lens.lens (\ListOriginEndpoints' {nextToken} -> nextToken) (\s@ListOriginEndpoints' {} a -> s {nextToken = a} :: ListOriginEndpoints)
 
 instance Core.AWSPager ListOriginEndpoints where
   page rq rs
@@ -141,15 +141,15 @@ instance Core.AWSRequest ListOriginEndpoints where
 
 instance Prelude.Hashable ListOriginEndpoints where
   hashWithSalt _salt ListOriginEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOriginEndpoints where
   rnf ListOriginEndpoints' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOriginEndpoints where
   toHeaders =
@@ -168,9 +168,9 @@ instance Data.ToPath ListOriginEndpoints where
 instance Data.ToQuery ListOriginEndpoints where
   toQuery ListOriginEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "channelId" Data.=: channelId,
         "maxResults" Data.=: maxResults,
-        "channelId" Data.=: channelId
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListOriginEndpointsResponse' smart constructor.

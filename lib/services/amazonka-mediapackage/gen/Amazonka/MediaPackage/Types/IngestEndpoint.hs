@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIngestEndpoint' smart constructor.
 data IngestEndpoint = IngestEndpoint'
-  { -- | The system generated password for ingest authentication.
+  { -- | The system generated unique identifier for the IngestEndpoint
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The system generated password for ingest authentication.
     password :: Prelude.Maybe Prelude.Text,
-    -- | The system generated username for ingest authentication.
-    username :: Prelude.Maybe Prelude.Text,
     -- | The ingest URL to which the source stream should be sent.
     url :: Prelude.Maybe Prelude.Text,
-    -- | The system generated unique identifier for the IngestEndpoint
-    id :: Prelude.Maybe Prelude.Text
+    -- | The system generated username for ingest authentication.
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data IngestEndpoint = IngestEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'password', 'ingestEndpoint_password' - The system generated password for ingest authentication.
+-- 'id', 'ingestEndpoint_id' - The system generated unique identifier for the IngestEndpoint
 --
--- 'username', 'ingestEndpoint_username' - The system generated username for ingest authentication.
+-- 'password', 'ingestEndpoint_password' - The system generated password for ingest authentication.
 --
 -- 'url', 'ingestEndpoint_url' - The ingest URL to which the source stream should be sent.
 --
--- 'id', 'ingestEndpoint_id' - The system generated unique identifier for the IngestEndpoint
+-- 'username', 'ingestEndpoint_username' - The system generated username for ingest authentication.
 newIngestEndpoint ::
   IngestEndpoint
 newIngestEndpoint =
   IngestEndpoint'
-    { password = Prelude.Nothing,
-      username = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      password = Prelude.Nothing,
       url = Prelude.Nothing,
-      id = Prelude.Nothing
+      username = Prelude.Nothing
     }
+
+-- | The system generated unique identifier for the IngestEndpoint
+ingestEndpoint_id :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
+ingestEndpoint_id = Lens.lens (\IngestEndpoint' {id} -> id) (\s@IngestEndpoint' {} a -> s {id = a} :: IngestEndpoint)
 
 -- | The system generated password for ingest authentication.
 ingestEndpoint_password :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_password = Lens.lens (\IngestEndpoint' {password} -> password) (\s@IngestEndpoint' {} a -> s {password = a} :: IngestEndpoint)
 
--- | The system generated username for ingest authentication.
-ingestEndpoint_username :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
-ingestEndpoint_username = Lens.lens (\IngestEndpoint' {username} -> username) (\s@IngestEndpoint' {} a -> s {username = a} :: IngestEndpoint)
-
 -- | The ingest URL to which the source stream should be sent.
 ingestEndpoint_url :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
 ingestEndpoint_url = Lens.lens (\IngestEndpoint' {url} -> url) (\s@IngestEndpoint' {} a -> s {url = a} :: IngestEndpoint)
 
--- | The system generated unique identifier for the IngestEndpoint
-ingestEndpoint_id :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
-ingestEndpoint_id = Lens.lens (\IngestEndpoint' {id} -> id) (\s@IngestEndpoint' {} a -> s {id = a} :: IngestEndpoint)
+-- | The system generated username for ingest authentication.
+ingestEndpoint_username :: Lens.Lens' IngestEndpoint (Prelude.Maybe Prelude.Text)
+ingestEndpoint_username = Lens.lens (\IngestEndpoint' {username} -> username) (\s@IngestEndpoint' {} a -> s {username = a} :: IngestEndpoint)
 
 instance Data.FromJSON IngestEndpoint where
   parseJSON =
@@ -86,22 +86,22 @@ instance Data.FromJSON IngestEndpoint where
       "IngestEndpoint"
       ( \x ->
           IngestEndpoint'
-            Prelude.<$> (x Data..:? "password")
-            Prelude.<*> (x Data..:? "username")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "password")
             Prelude.<*> (x Data..:? "url")
-            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "username")
       )
 
 instance Prelude.Hashable IngestEndpoint where
   hashWithSalt _salt IngestEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` password
-      `Prelude.hashWithSalt` username
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData IngestEndpoint where
   rnf IngestEndpoint' {..} =
-    Prelude.rnf password
-      `Prelude.seq` Prelude.rnf username
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf username

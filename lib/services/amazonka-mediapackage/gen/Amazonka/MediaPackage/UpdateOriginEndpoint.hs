@@ -27,17 +27,17 @@ module Amazonka.MediaPackage.UpdateOriginEndpoint
     newUpdateOriginEndpoint,
 
     -- * Request Lenses
-    updateOriginEndpoint_timeDelaySeconds,
-    updateOriginEndpoint_startoverWindowSeconds,
-    updateOriginEndpoint_mssPackage,
-    updateOriginEndpoint_whitelist,
-    updateOriginEndpoint_description,
-    updateOriginEndpoint_manifestName,
     updateOriginEndpoint_authorization,
-    updateOriginEndpoint_dashPackage,
     updateOriginEndpoint_cmafPackage,
+    updateOriginEndpoint_dashPackage,
+    updateOriginEndpoint_description,
     updateOriginEndpoint_hlsPackage,
+    updateOriginEndpoint_manifestName,
+    updateOriginEndpoint_mssPackage,
     updateOriginEndpoint_origination,
+    updateOriginEndpoint_startoverWindowSeconds,
+    updateOriginEndpoint_timeDelaySeconds,
+    updateOriginEndpoint_whitelist,
     updateOriginEndpoint_id,
 
     -- * Destructuring the Response
@@ -45,22 +45,22 @@ module Amazonka.MediaPackage.UpdateOriginEndpoint
     newUpdateOriginEndpointResponse,
 
     -- * Response Lenses
+    updateOriginEndpointResponse_arn,
+    updateOriginEndpointResponse_authorization,
+    updateOriginEndpointResponse_channelId,
+    updateOriginEndpointResponse_cmafPackage,
+    updateOriginEndpointResponse_dashPackage,
+    updateOriginEndpointResponse_description,
+    updateOriginEndpointResponse_hlsPackage,
+    updateOriginEndpointResponse_id,
+    updateOriginEndpointResponse_manifestName,
+    updateOriginEndpointResponse_mssPackage,
+    updateOriginEndpointResponse_origination,
+    updateOriginEndpointResponse_startoverWindowSeconds,
     updateOriginEndpointResponse_tags,
     updateOriginEndpointResponse_timeDelaySeconds,
-    updateOriginEndpointResponse_startoverWindowSeconds,
-    updateOriginEndpointResponse_mssPackage,
-    updateOriginEndpointResponse_arn,
-    updateOriginEndpointResponse_whitelist,
     updateOriginEndpointResponse_url,
-    updateOriginEndpointResponse_id,
-    updateOriginEndpointResponse_description,
-    updateOriginEndpointResponse_manifestName,
-    updateOriginEndpointResponse_channelId,
-    updateOriginEndpointResponse_authorization,
-    updateOriginEndpointResponse_dashPackage,
-    updateOriginEndpointResponse_cmafPackage,
-    updateOriginEndpointResponse_hlsPackage,
-    updateOriginEndpointResponse_origination,
+    updateOriginEndpointResponse_whitelist,
     updateOriginEndpointResponse_httpStatus,
   )
 where
@@ -77,32 +77,32 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateOriginEndpoint' smart constructor.
 data UpdateOriginEndpoint = UpdateOriginEndpoint'
-  { -- | Amount of delay (in seconds) to enforce on the playback of live content.
-    -- If not specified, there will be no time delay in effect for the
-    -- OriginEndpoint.
-    timeDelaySeconds :: Prelude.Maybe Prelude.Int,
-    -- | Maximum duration (in seconds) of content to retain for startover
-    -- playback. If not specified, startover playback will be disabled for the
-    -- OriginEndpoint.
-    startoverWindowSeconds :: Prelude.Maybe Prelude.Int,
-    mssPackage :: Prelude.Maybe MssPackage,
-    -- | A list of source IP CIDR blocks that will be allowed to access the
-    -- OriginEndpoint.
-    whitelist :: Prelude.Maybe [Prelude.Text],
+  { authorization :: Prelude.Maybe Authorization,
+    cmafPackage :: Prelude.Maybe CmafPackageCreateOrUpdateParameters,
+    dashPackage :: Prelude.Maybe DashPackage,
     -- | A short text description of the OriginEndpoint.
     description :: Prelude.Maybe Prelude.Text,
+    hlsPackage :: Prelude.Maybe HlsPackage,
     -- | A short string that will be appended to the end of the Endpoint URL.
     manifestName :: Prelude.Maybe Prelude.Text,
-    authorization :: Prelude.Maybe Authorization,
-    dashPackage :: Prelude.Maybe DashPackage,
-    cmafPackage :: Prelude.Maybe CmafPackageCreateOrUpdateParameters,
-    hlsPackage :: Prelude.Maybe HlsPackage,
+    mssPackage :: Prelude.Maybe MssPackage,
     -- | Control whether origination of video is allowed for this OriginEndpoint.
     -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
     -- other form of access control. If set to DENY, the OriginEndpoint may not
     -- be requested. This can be helpful for Live to VOD harvesting, or for
     -- temporarily disabling origination
     origination :: Prelude.Maybe Origination,
+    -- | Maximum duration (in seconds) of content to retain for startover
+    -- playback. If not specified, startover playback will be disabled for the
+    -- OriginEndpoint.
+    startoverWindowSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Amount of delay (in seconds) to enforce on the playback of live content.
+    -- If not specified, there will be no time delay in effect for the
+    -- OriginEndpoint.
+    timeDelaySeconds :: Prelude.Maybe Prelude.Int,
+    -- | A list of source IP CIDR blocks that will be allowed to access the
+    -- OriginEndpoint.
+    whitelist :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the OriginEndpoint to update.
     id :: Prelude.Text
   }
@@ -116,36 +116,36 @@ data UpdateOriginEndpoint = UpdateOriginEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeDelaySeconds', 'updateOriginEndpoint_timeDelaySeconds' - Amount of delay (in seconds) to enforce on the playback of live content.
--- If not specified, there will be no time delay in effect for the
--- OriginEndpoint.
---
--- 'startoverWindowSeconds', 'updateOriginEndpoint_startoverWindowSeconds' - Maximum duration (in seconds) of content to retain for startover
--- playback. If not specified, startover playback will be disabled for the
--- OriginEndpoint.
---
--- 'mssPackage', 'updateOriginEndpoint_mssPackage' - Undocumented member.
---
--- 'whitelist', 'updateOriginEndpoint_whitelist' - A list of source IP CIDR blocks that will be allowed to access the
--- OriginEndpoint.
---
--- 'description', 'updateOriginEndpoint_description' - A short text description of the OriginEndpoint.
---
--- 'manifestName', 'updateOriginEndpoint_manifestName' - A short string that will be appended to the end of the Endpoint URL.
---
 -- 'authorization', 'updateOriginEndpoint_authorization' - Undocumented member.
---
--- 'dashPackage', 'updateOriginEndpoint_dashPackage' - Undocumented member.
 --
 -- 'cmafPackage', 'updateOriginEndpoint_cmafPackage' - Undocumented member.
 --
+-- 'dashPackage', 'updateOriginEndpoint_dashPackage' - Undocumented member.
+--
+-- 'description', 'updateOriginEndpoint_description' - A short text description of the OriginEndpoint.
+--
 -- 'hlsPackage', 'updateOriginEndpoint_hlsPackage' - Undocumented member.
+--
+-- 'manifestName', 'updateOriginEndpoint_manifestName' - A short string that will be appended to the end of the Endpoint URL.
+--
+-- 'mssPackage', 'updateOriginEndpoint_mssPackage' - Undocumented member.
 --
 -- 'origination', 'updateOriginEndpoint_origination' - Control whether origination of video is allowed for this OriginEndpoint.
 -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
 -- other form of access control. If set to DENY, the OriginEndpoint may not
 -- be requested. This can be helpful for Live to VOD harvesting, or for
 -- temporarily disabling origination
+--
+-- 'startoverWindowSeconds', 'updateOriginEndpoint_startoverWindowSeconds' - Maximum duration (in seconds) of content to retain for startover
+-- playback. If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
+--
+-- 'timeDelaySeconds', 'updateOriginEndpoint_timeDelaySeconds' - Amount of delay (in seconds) to enforce on the playback of live content.
+-- If not specified, there will be no time delay in effect for the
+-- OriginEndpoint.
+--
+-- 'whitelist', 'updateOriginEndpoint_whitelist' - A list of source IP CIDR blocks that will be allowed to access the
+-- OriginEndpoint.
 --
 -- 'id', 'updateOriginEndpoint_id' - The ID of the OriginEndpoint to update.
 newUpdateOriginEndpoint ::
@@ -154,65 +154,48 @@ newUpdateOriginEndpoint ::
   UpdateOriginEndpoint
 newUpdateOriginEndpoint pId_ =
   UpdateOriginEndpoint'
-    { timeDelaySeconds =
+    { authorization =
         Prelude.Nothing,
-      startoverWindowSeconds = Prelude.Nothing,
-      mssPackage = Prelude.Nothing,
-      whitelist = Prelude.Nothing,
-      description = Prelude.Nothing,
-      manifestName = Prelude.Nothing,
-      authorization = Prelude.Nothing,
-      dashPackage = Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      dashPackage = Prelude.Nothing,
+      description = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
+      manifestName = Prelude.Nothing,
+      mssPackage = Prelude.Nothing,
       origination = Prelude.Nothing,
+      startoverWindowSeconds = Prelude.Nothing,
+      timeDelaySeconds = Prelude.Nothing,
+      whitelist = Prelude.Nothing,
       id = pId_
     }
-
--- | Amount of delay (in seconds) to enforce on the playback of live content.
--- If not specified, there will be no time delay in effect for the
--- OriginEndpoint.
-updateOriginEndpoint_timeDelaySeconds :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Int)
-updateOriginEndpoint_timeDelaySeconds = Lens.lens (\UpdateOriginEndpoint' {timeDelaySeconds} -> timeDelaySeconds) (\s@UpdateOriginEndpoint' {} a -> s {timeDelaySeconds = a} :: UpdateOriginEndpoint)
-
--- | Maximum duration (in seconds) of content to retain for startover
--- playback. If not specified, startover playback will be disabled for the
--- OriginEndpoint.
-updateOriginEndpoint_startoverWindowSeconds :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Int)
-updateOriginEndpoint_startoverWindowSeconds = Lens.lens (\UpdateOriginEndpoint' {startoverWindowSeconds} -> startoverWindowSeconds) (\s@UpdateOriginEndpoint' {} a -> s {startoverWindowSeconds = a} :: UpdateOriginEndpoint)
-
--- | Undocumented member.
-updateOriginEndpoint_mssPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe MssPackage)
-updateOriginEndpoint_mssPackage = Lens.lens (\UpdateOriginEndpoint' {mssPackage} -> mssPackage) (\s@UpdateOriginEndpoint' {} a -> s {mssPackage = a} :: UpdateOriginEndpoint)
-
--- | A list of source IP CIDR blocks that will be allowed to access the
--- OriginEndpoint.
-updateOriginEndpoint_whitelist :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe [Prelude.Text])
-updateOriginEndpoint_whitelist = Lens.lens (\UpdateOriginEndpoint' {whitelist} -> whitelist) (\s@UpdateOriginEndpoint' {} a -> s {whitelist = a} :: UpdateOriginEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | A short text description of the OriginEndpoint.
-updateOriginEndpoint_description :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Text)
-updateOriginEndpoint_description = Lens.lens (\UpdateOriginEndpoint' {description} -> description) (\s@UpdateOriginEndpoint' {} a -> s {description = a} :: UpdateOriginEndpoint)
-
--- | A short string that will be appended to the end of the Endpoint URL.
-updateOriginEndpoint_manifestName :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Text)
-updateOriginEndpoint_manifestName = Lens.lens (\UpdateOriginEndpoint' {manifestName} -> manifestName) (\s@UpdateOriginEndpoint' {} a -> s {manifestName = a} :: UpdateOriginEndpoint)
 
 -- | Undocumented member.
 updateOriginEndpoint_authorization :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Authorization)
 updateOriginEndpoint_authorization = Lens.lens (\UpdateOriginEndpoint' {authorization} -> authorization) (\s@UpdateOriginEndpoint' {} a -> s {authorization = a} :: UpdateOriginEndpoint)
 
 -- | Undocumented member.
-updateOriginEndpoint_dashPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe DashPackage)
-updateOriginEndpoint_dashPackage = Lens.lens (\UpdateOriginEndpoint' {dashPackage} -> dashPackage) (\s@UpdateOriginEndpoint' {} a -> s {dashPackage = a} :: UpdateOriginEndpoint)
-
--- | Undocumented member.
 updateOriginEndpoint_cmafPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe CmafPackageCreateOrUpdateParameters)
 updateOriginEndpoint_cmafPackage = Lens.lens (\UpdateOriginEndpoint' {cmafPackage} -> cmafPackage) (\s@UpdateOriginEndpoint' {} a -> s {cmafPackage = a} :: UpdateOriginEndpoint)
 
 -- | Undocumented member.
+updateOriginEndpoint_dashPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe DashPackage)
+updateOriginEndpoint_dashPackage = Lens.lens (\UpdateOriginEndpoint' {dashPackage} -> dashPackage) (\s@UpdateOriginEndpoint' {} a -> s {dashPackage = a} :: UpdateOriginEndpoint)
+
+-- | A short text description of the OriginEndpoint.
+updateOriginEndpoint_description :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Text)
+updateOriginEndpoint_description = Lens.lens (\UpdateOriginEndpoint' {description} -> description) (\s@UpdateOriginEndpoint' {} a -> s {description = a} :: UpdateOriginEndpoint)
+
+-- | Undocumented member.
 updateOriginEndpoint_hlsPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe HlsPackage)
 updateOriginEndpoint_hlsPackage = Lens.lens (\UpdateOriginEndpoint' {hlsPackage} -> hlsPackage) (\s@UpdateOriginEndpoint' {} a -> s {hlsPackage = a} :: UpdateOriginEndpoint)
+
+-- | A short string that will be appended to the end of the Endpoint URL.
+updateOriginEndpoint_manifestName :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Text)
+updateOriginEndpoint_manifestName = Lens.lens (\UpdateOriginEndpoint' {manifestName} -> manifestName) (\s@UpdateOriginEndpoint' {} a -> s {manifestName = a} :: UpdateOriginEndpoint)
+
+-- | Undocumented member.
+updateOriginEndpoint_mssPackage :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe MssPackage)
+updateOriginEndpoint_mssPackage = Lens.lens (\UpdateOriginEndpoint' {mssPackage} -> mssPackage) (\s@UpdateOriginEndpoint' {} a -> s {mssPackage = a} :: UpdateOriginEndpoint)
 
 -- | Control whether origination of video is allowed for this OriginEndpoint.
 -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
@@ -221,6 +204,23 @@ updateOriginEndpoint_hlsPackage = Lens.lens (\UpdateOriginEndpoint' {hlsPackage}
 -- temporarily disabling origination
 updateOriginEndpoint_origination :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Origination)
 updateOriginEndpoint_origination = Lens.lens (\UpdateOriginEndpoint' {origination} -> origination) (\s@UpdateOriginEndpoint' {} a -> s {origination = a} :: UpdateOriginEndpoint)
+
+-- | Maximum duration (in seconds) of content to retain for startover
+-- playback. If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
+updateOriginEndpoint_startoverWindowSeconds :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Int)
+updateOriginEndpoint_startoverWindowSeconds = Lens.lens (\UpdateOriginEndpoint' {startoverWindowSeconds} -> startoverWindowSeconds) (\s@UpdateOriginEndpoint' {} a -> s {startoverWindowSeconds = a} :: UpdateOriginEndpoint)
+
+-- | Amount of delay (in seconds) to enforce on the playback of live content.
+-- If not specified, there will be no time delay in effect for the
+-- OriginEndpoint.
+updateOriginEndpoint_timeDelaySeconds :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe Prelude.Int)
+updateOriginEndpoint_timeDelaySeconds = Lens.lens (\UpdateOriginEndpoint' {timeDelaySeconds} -> timeDelaySeconds) (\s@UpdateOriginEndpoint' {} a -> s {timeDelaySeconds = a} :: UpdateOriginEndpoint)
+
+-- | A list of source IP CIDR blocks that will be allowed to access the
+-- OriginEndpoint.
+updateOriginEndpoint_whitelist :: Lens.Lens' UpdateOriginEndpoint (Prelude.Maybe [Prelude.Text])
+updateOriginEndpoint_whitelist = Lens.lens (\UpdateOriginEndpoint' {whitelist} -> whitelist) (\s@UpdateOriginEndpoint' {} a -> s {whitelist = a} :: UpdateOriginEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the OriginEndpoint to update.
 updateOriginEndpoint_id :: Lens.Lens' UpdateOriginEndpoint Prelude.Text
@@ -236,53 +236,53 @@ instance Core.AWSRequest UpdateOriginEndpoint where
     Response.receiveJSON
       ( \s h x ->
           UpdateOriginEndpointResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "timeDelaySeconds")
-            Prelude.<*> (x Data..?> "startoverWindowSeconds")
-            Prelude.<*> (x Data..?> "mssPackage")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "whitelist" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "url")
-            Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "manifestName")
-            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
-            Prelude.<*> (x Data..?> "dashPackage")
+            Prelude.<*> (x Data..?> "channelId")
             Prelude.<*> (x Data..?> "cmafPackage")
+            Prelude.<*> (x Data..?> "dashPackage")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "hlsPackage")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "manifestName")
+            Prelude.<*> (x Data..?> "mssPackage")
             Prelude.<*> (x Data..?> "origination")
+            Prelude.<*> (x Data..?> "startoverWindowSeconds")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "timeDelaySeconds")
+            Prelude.<*> (x Data..?> "url")
+            Prelude.<*> (x Data..?> "whitelist" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateOriginEndpoint where
   hashWithSalt _salt UpdateOriginEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` timeDelaySeconds
-      `Prelude.hashWithSalt` startoverWindowSeconds
-      `Prelude.hashWithSalt` mssPackage
-      `Prelude.hashWithSalt` whitelist
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` manifestName
-      `Prelude.hashWithSalt` authorization
-      `Prelude.hashWithSalt` dashPackage
+    _salt `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` dashPackage
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hlsPackage
+      `Prelude.hashWithSalt` manifestName
+      `Prelude.hashWithSalt` mssPackage
       `Prelude.hashWithSalt` origination
+      `Prelude.hashWithSalt` startoverWindowSeconds
+      `Prelude.hashWithSalt` timeDelaySeconds
+      `Prelude.hashWithSalt` whitelist
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateOriginEndpoint where
   rnf UpdateOriginEndpoint' {..} =
-    Prelude.rnf timeDelaySeconds
-      `Prelude.seq` Prelude.rnf startoverWindowSeconds
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf whitelist
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf dashPackage
+    Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf mssPackage
       `Prelude.seq` Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf whitelist
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateOriginEndpoint where
@@ -300,19 +300,19 @@ instance Data.ToJSON UpdateOriginEndpoint where
   toJSON UpdateOriginEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeDelaySeconds" Data..=)
-              Prelude.<$> timeDelaySeconds,
+          [ ("authorization" Data..=) Prelude.<$> authorization,
+            ("cmafPackage" Data..=) Prelude.<$> cmafPackage,
+            ("dashPackage" Data..=) Prelude.<$> dashPackage,
+            ("description" Data..=) Prelude.<$> description,
+            ("hlsPackage" Data..=) Prelude.<$> hlsPackage,
+            ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("mssPackage" Data..=) Prelude.<$> mssPackage,
+            ("origination" Data..=) Prelude.<$> origination,
             ("startoverWindowSeconds" Data..=)
               Prelude.<$> startoverWindowSeconds,
-            ("mssPackage" Data..=) Prelude.<$> mssPackage,
-            ("whitelist" Data..=) Prelude.<$> whitelist,
-            ("description" Data..=) Prelude.<$> description,
-            ("manifestName" Data..=) Prelude.<$> manifestName,
-            ("authorization" Data..=) Prelude.<$> authorization,
-            ("dashPackage" Data..=) Prelude.<$> dashPackage,
-            ("cmafPackage" Data..=) Prelude.<$> cmafPackage,
-            ("hlsPackage" Data..=) Prelude.<$> hlsPackage,
-            ("origination" Data..=) Prelude.<$> origination
+            ("timeDelaySeconds" Data..=)
+              Prelude.<$> timeDelaySeconds,
+            ("whitelist" Data..=) Prelude.<$> whitelist
           ]
       )
 
@@ -326,41 +326,41 @@ instance Data.ToQuery UpdateOriginEndpoint where
 
 -- | /See:/ 'newUpdateOriginEndpointResponse' smart constructor.
 data UpdateOriginEndpointResponse = UpdateOriginEndpointResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Amount of delay (seconds) to enforce on the playback of live content. If
-    -- not specified, there will be no time delay in effect for the
-    -- OriginEndpoint.
-    timeDelaySeconds :: Prelude.Maybe Prelude.Int,
-    -- | Maximum duration (seconds) of content to retain for startover playback.
-    -- If not specified, startover playback will be disabled for the
-    -- OriginEndpoint.
-    startoverWindowSeconds :: Prelude.Maybe Prelude.Int,
-    mssPackage :: Prelude.Maybe MssPackage,
-    -- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+  { -- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | A list of source IP CIDR blocks that will be allowed to access the
-    -- OriginEndpoint.
-    whitelist :: Prelude.Maybe [Prelude.Text],
-    -- | The URL of the packaged OriginEndpoint for consumption.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the OriginEndpoint.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A short text description of the OriginEndpoint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A short string appended to the end of the OriginEndpoint URL.
-    manifestName :: Prelude.Maybe Prelude.Text,
+    authorization :: Prelude.Maybe Authorization,
     -- | The ID of the Channel the OriginEndpoint is associated with.
     channelId :: Prelude.Maybe Prelude.Text,
-    authorization :: Prelude.Maybe Authorization,
-    dashPackage :: Prelude.Maybe DashPackage,
     cmafPackage :: Prelude.Maybe CmafPackage,
+    dashPackage :: Prelude.Maybe DashPackage,
+    -- | A short text description of the OriginEndpoint.
+    description :: Prelude.Maybe Prelude.Text,
     hlsPackage :: Prelude.Maybe HlsPackage,
+    -- | The ID of the OriginEndpoint.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A short string appended to the end of the OriginEndpoint URL.
+    manifestName :: Prelude.Maybe Prelude.Text,
+    mssPackage :: Prelude.Maybe MssPackage,
     -- | Control whether origination of video is allowed for this OriginEndpoint.
     -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
     -- other form of access control. If set to DENY, the OriginEndpoint may not
     -- be requested. This can be helpful for Live to VOD harvesting, or for
     -- temporarily disabling origination
     origination :: Prelude.Maybe Origination,
+    -- | Maximum duration (seconds) of content to retain for startover playback.
+    -- If not specified, startover playback will be disabled for the
+    -- OriginEndpoint.
+    startoverWindowSeconds :: Prelude.Maybe Prelude.Int,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Amount of delay (seconds) to enforce on the playback of live content. If
+    -- not specified, there will be no time delay in effect for the
+    -- OriginEndpoint.
+    timeDelaySeconds :: Prelude.Maybe Prelude.Int,
+    -- | The URL of the packaged OriginEndpoint for consumption.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | A list of source IP CIDR blocks that will be allowed to access the
+    -- OriginEndpoint.
+    whitelist :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -374,46 +374,46 @@ data UpdateOriginEndpointResponse = UpdateOriginEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateOriginEndpointResponse_tags' - Undocumented member.
---
--- 'timeDelaySeconds', 'updateOriginEndpointResponse_timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If
--- not specified, there will be no time delay in effect for the
--- OriginEndpoint.
---
--- 'startoverWindowSeconds', 'updateOriginEndpointResponse_startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
--- If not specified, startover playback will be disabled for the
--- OriginEndpoint.
---
--- 'mssPackage', 'updateOriginEndpointResponse_mssPackage' - Undocumented member.
---
 -- 'arn', 'updateOriginEndpointResponse_arn' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
---
--- 'whitelist', 'updateOriginEndpointResponse_whitelist' - A list of source IP CIDR blocks that will be allowed to access the
--- OriginEndpoint.
---
--- 'url', 'updateOriginEndpointResponse_url' - The URL of the packaged OriginEndpoint for consumption.
---
--- 'id', 'updateOriginEndpointResponse_id' - The ID of the OriginEndpoint.
---
--- 'description', 'updateOriginEndpointResponse_description' - A short text description of the OriginEndpoint.
---
--- 'manifestName', 'updateOriginEndpointResponse_manifestName' - A short string appended to the end of the OriginEndpoint URL.
---
--- 'channelId', 'updateOriginEndpointResponse_channelId' - The ID of the Channel the OriginEndpoint is associated with.
 --
 -- 'authorization', 'updateOriginEndpointResponse_authorization' - Undocumented member.
 --
--- 'dashPackage', 'updateOriginEndpointResponse_dashPackage' - Undocumented member.
+-- 'channelId', 'updateOriginEndpointResponse_channelId' - The ID of the Channel the OriginEndpoint is associated with.
 --
 -- 'cmafPackage', 'updateOriginEndpointResponse_cmafPackage' - Undocumented member.
 --
+-- 'dashPackage', 'updateOriginEndpointResponse_dashPackage' - Undocumented member.
+--
+-- 'description', 'updateOriginEndpointResponse_description' - A short text description of the OriginEndpoint.
+--
 -- 'hlsPackage', 'updateOriginEndpointResponse_hlsPackage' - Undocumented member.
+--
+-- 'id', 'updateOriginEndpointResponse_id' - The ID of the OriginEndpoint.
+--
+-- 'manifestName', 'updateOriginEndpointResponse_manifestName' - A short string appended to the end of the OriginEndpoint URL.
+--
+-- 'mssPackage', 'updateOriginEndpointResponse_mssPackage' - Undocumented member.
 --
 -- 'origination', 'updateOriginEndpointResponse_origination' - Control whether origination of video is allowed for this OriginEndpoint.
 -- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
 -- other form of access control. If set to DENY, the OriginEndpoint may not
 -- be requested. This can be helpful for Live to VOD harvesting, or for
 -- temporarily disabling origination
+--
+-- 'startoverWindowSeconds', 'updateOriginEndpointResponse_startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
+-- If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
+--
+-- 'tags', 'updateOriginEndpointResponse_tags' - Undocumented member.
+--
+-- 'timeDelaySeconds', 'updateOriginEndpointResponse_timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If
+-- not specified, there will be no time delay in effect for the
+-- OriginEndpoint.
+--
+-- 'url', 'updateOriginEndpointResponse_url' - The URL of the packaged OriginEndpoint for consumption.
+--
+-- 'whitelist', 'updateOriginEndpointResponse_whitelist' - A list of source IP CIDR blocks that will be allowed to access the
+-- OriginEndpoint.
 --
 -- 'httpStatus', 'updateOriginEndpointResponse_httpStatus' - The response's http status code.
 newUpdateOriginEndpointResponse ::
@@ -422,25 +422,79 @@ newUpdateOriginEndpointResponse ::
   UpdateOriginEndpointResponse
 newUpdateOriginEndpointResponse pHttpStatus_ =
   UpdateOriginEndpointResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      timeDelaySeconds = Prelude.Nothing,
-      startoverWindowSeconds = Prelude.Nothing,
-      mssPackage = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      whitelist = Prelude.Nothing,
-      url = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      manifestName = Prelude.Nothing,
-      channelId = Prelude.Nothing,
       authorization = Prelude.Nothing,
-      dashPackage = Prelude.Nothing,
+      channelId = Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      dashPackage = Prelude.Nothing,
+      description = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
+      id = Prelude.Nothing,
+      manifestName = Prelude.Nothing,
+      mssPackage = Prelude.Nothing,
       origination = Prelude.Nothing,
+      startoverWindowSeconds = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      timeDelaySeconds = Prelude.Nothing,
+      url = Prelude.Nothing,
+      whitelist = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+updateOriginEndpointResponse_arn :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_arn = Lens.lens (\UpdateOriginEndpointResponse' {arn} -> arn) (\s@UpdateOriginEndpointResponse' {} a -> s {arn = a} :: UpdateOriginEndpointResponse)
+
+-- | Undocumented member.
+updateOriginEndpointResponse_authorization :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Authorization)
+updateOriginEndpointResponse_authorization = Lens.lens (\UpdateOriginEndpointResponse' {authorization} -> authorization) (\s@UpdateOriginEndpointResponse' {} a -> s {authorization = a} :: UpdateOriginEndpointResponse)
+
+-- | The ID of the Channel the OriginEndpoint is associated with.
+updateOriginEndpointResponse_channelId :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_channelId = Lens.lens (\UpdateOriginEndpointResponse' {channelId} -> channelId) (\s@UpdateOriginEndpointResponse' {} a -> s {channelId = a} :: UpdateOriginEndpointResponse)
+
+-- | Undocumented member.
+updateOriginEndpointResponse_cmafPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe CmafPackage)
+updateOriginEndpointResponse_cmafPackage = Lens.lens (\UpdateOriginEndpointResponse' {cmafPackage} -> cmafPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {cmafPackage = a} :: UpdateOriginEndpointResponse)
+
+-- | Undocumented member.
+updateOriginEndpointResponse_dashPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe DashPackage)
+updateOriginEndpointResponse_dashPackage = Lens.lens (\UpdateOriginEndpointResponse' {dashPackage} -> dashPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {dashPackage = a} :: UpdateOriginEndpointResponse)
+
+-- | A short text description of the OriginEndpoint.
+updateOriginEndpointResponse_description :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_description = Lens.lens (\UpdateOriginEndpointResponse' {description} -> description) (\s@UpdateOriginEndpointResponse' {} a -> s {description = a} :: UpdateOriginEndpointResponse)
+
+-- | Undocumented member.
+updateOriginEndpointResponse_hlsPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe HlsPackage)
+updateOriginEndpointResponse_hlsPackage = Lens.lens (\UpdateOriginEndpointResponse' {hlsPackage} -> hlsPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {hlsPackage = a} :: UpdateOriginEndpointResponse)
+
+-- | The ID of the OriginEndpoint.
+updateOriginEndpointResponse_id :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_id = Lens.lens (\UpdateOriginEndpointResponse' {id} -> id) (\s@UpdateOriginEndpointResponse' {} a -> s {id = a} :: UpdateOriginEndpointResponse)
+
+-- | A short string appended to the end of the OriginEndpoint URL.
+updateOriginEndpointResponse_manifestName :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_manifestName = Lens.lens (\UpdateOriginEndpointResponse' {manifestName} -> manifestName) (\s@UpdateOriginEndpointResponse' {} a -> s {manifestName = a} :: UpdateOriginEndpointResponse)
+
+-- | Undocumented member.
+updateOriginEndpointResponse_mssPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe MssPackage)
+updateOriginEndpointResponse_mssPackage = Lens.lens (\UpdateOriginEndpointResponse' {mssPackage} -> mssPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {mssPackage = a} :: UpdateOriginEndpointResponse)
+
+-- | Control whether origination of video is allowed for this OriginEndpoint.
+-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
+-- other form of access control. If set to DENY, the OriginEndpoint may not
+-- be requested. This can be helpful for Live to VOD harvesting, or for
+-- temporarily disabling origination
+updateOriginEndpointResponse_origination :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Origination)
+updateOriginEndpointResponse_origination = Lens.lens (\UpdateOriginEndpointResponse' {origination} -> origination) (\s@UpdateOriginEndpointResponse' {} a -> s {origination = a} :: UpdateOriginEndpointResponse)
+
+-- | Maximum duration (seconds) of content to retain for startover playback.
+-- If not specified, startover playback will be disabled for the
+-- OriginEndpoint.
+updateOriginEndpointResponse_startoverWindowSeconds :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Int)
+updateOriginEndpointResponse_startoverWindowSeconds = Lens.lens (\UpdateOriginEndpointResponse' {startoverWindowSeconds} -> startoverWindowSeconds) (\s@UpdateOriginEndpointResponse' {} a -> s {startoverWindowSeconds = a} :: UpdateOriginEndpointResponse)
 
 -- | Undocumented member.
 updateOriginEndpointResponse_tags :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -452,68 +506,14 @@ updateOriginEndpointResponse_tags = Lens.lens (\UpdateOriginEndpointResponse' {t
 updateOriginEndpointResponse_timeDelaySeconds :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Int)
 updateOriginEndpointResponse_timeDelaySeconds = Lens.lens (\UpdateOriginEndpointResponse' {timeDelaySeconds} -> timeDelaySeconds) (\s@UpdateOriginEndpointResponse' {} a -> s {timeDelaySeconds = a} :: UpdateOriginEndpointResponse)
 
--- | Maximum duration (seconds) of content to retain for startover playback.
--- If not specified, startover playback will be disabled for the
--- OriginEndpoint.
-updateOriginEndpointResponse_startoverWindowSeconds :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Int)
-updateOriginEndpointResponse_startoverWindowSeconds = Lens.lens (\UpdateOriginEndpointResponse' {startoverWindowSeconds} -> startoverWindowSeconds) (\s@UpdateOriginEndpointResponse' {} a -> s {startoverWindowSeconds = a} :: UpdateOriginEndpointResponse)
-
--- | Undocumented member.
-updateOriginEndpointResponse_mssPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe MssPackage)
-updateOriginEndpointResponse_mssPackage = Lens.lens (\UpdateOriginEndpointResponse' {mssPackage} -> mssPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {mssPackage = a} :: UpdateOriginEndpointResponse)
-
--- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
-updateOriginEndpointResponse_arn :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_arn = Lens.lens (\UpdateOriginEndpointResponse' {arn} -> arn) (\s@UpdateOriginEndpointResponse' {} a -> s {arn = a} :: UpdateOriginEndpointResponse)
+-- | The URL of the packaged OriginEndpoint for consumption.
+updateOriginEndpointResponse_url :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+updateOriginEndpointResponse_url = Lens.lens (\UpdateOriginEndpointResponse' {url} -> url) (\s@UpdateOriginEndpointResponse' {} a -> s {url = a} :: UpdateOriginEndpointResponse)
 
 -- | A list of source IP CIDR blocks that will be allowed to access the
 -- OriginEndpoint.
 updateOriginEndpointResponse_whitelist :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe [Prelude.Text])
 updateOriginEndpointResponse_whitelist = Lens.lens (\UpdateOriginEndpointResponse' {whitelist} -> whitelist) (\s@UpdateOriginEndpointResponse' {} a -> s {whitelist = a} :: UpdateOriginEndpointResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The URL of the packaged OriginEndpoint for consumption.
-updateOriginEndpointResponse_url :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_url = Lens.lens (\UpdateOriginEndpointResponse' {url} -> url) (\s@UpdateOriginEndpointResponse' {} a -> s {url = a} :: UpdateOriginEndpointResponse)
-
--- | The ID of the OriginEndpoint.
-updateOriginEndpointResponse_id :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_id = Lens.lens (\UpdateOriginEndpointResponse' {id} -> id) (\s@UpdateOriginEndpointResponse' {} a -> s {id = a} :: UpdateOriginEndpointResponse)
-
--- | A short text description of the OriginEndpoint.
-updateOriginEndpointResponse_description :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_description = Lens.lens (\UpdateOriginEndpointResponse' {description} -> description) (\s@UpdateOriginEndpointResponse' {} a -> s {description = a} :: UpdateOriginEndpointResponse)
-
--- | A short string appended to the end of the OriginEndpoint URL.
-updateOriginEndpointResponse_manifestName :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_manifestName = Lens.lens (\UpdateOriginEndpointResponse' {manifestName} -> manifestName) (\s@UpdateOriginEndpointResponse' {} a -> s {manifestName = a} :: UpdateOriginEndpointResponse)
-
--- | The ID of the Channel the OriginEndpoint is associated with.
-updateOriginEndpointResponse_channelId :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Prelude.Text)
-updateOriginEndpointResponse_channelId = Lens.lens (\UpdateOriginEndpointResponse' {channelId} -> channelId) (\s@UpdateOriginEndpointResponse' {} a -> s {channelId = a} :: UpdateOriginEndpointResponse)
-
--- | Undocumented member.
-updateOriginEndpointResponse_authorization :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Authorization)
-updateOriginEndpointResponse_authorization = Lens.lens (\UpdateOriginEndpointResponse' {authorization} -> authorization) (\s@UpdateOriginEndpointResponse' {} a -> s {authorization = a} :: UpdateOriginEndpointResponse)
-
--- | Undocumented member.
-updateOriginEndpointResponse_dashPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe DashPackage)
-updateOriginEndpointResponse_dashPackage = Lens.lens (\UpdateOriginEndpointResponse' {dashPackage} -> dashPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {dashPackage = a} :: UpdateOriginEndpointResponse)
-
--- | Undocumented member.
-updateOriginEndpointResponse_cmafPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe CmafPackage)
-updateOriginEndpointResponse_cmafPackage = Lens.lens (\UpdateOriginEndpointResponse' {cmafPackage} -> cmafPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {cmafPackage = a} :: UpdateOriginEndpointResponse)
-
--- | Undocumented member.
-updateOriginEndpointResponse_hlsPackage :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe HlsPackage)
-updateOriginEndpointResponse_hlsPackage = Lens.lens (\UpdateOriginEndpointResponse' {hlsPackage} -> hlsPackage) (\s@UpdateOriginEndpointResponse' {} a -> s {hlsPackage = a} :: UpdateOriginEndpointResponse)
-
--- | Control whether origination of video is allowed for this OriginEndpoint.
--- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any
--- other form of access control. If set to DENY, the OriginEndpoint may not
--- be requested. This can be helpful for Live to VOD harvesting, or for
--- temporarily disabling origination
-updateOriginEndpointResponse_origination :: Lens.Lens' UpdateOriginEndpointResponse (Prelude.Maybe Origination)
-updateOriginEndpointResponse_origination = Lens.lens (\UpdateOriginEndpointResponse' {origination} -> origination) (\s@UpdateOriginEndpointResponse' {} a -> s {origination = a} :: UpdateOriginEndpointResponse)
 
 -- | The response's http status code.
 updateOriginEndpointResponse_httpStatus :: Lens.Lens' UpdateOriginEndpointResponse Prelude.Int
@@ -521,20 +521,20 @@ updateOriginEndpointResponse_httpStatus = Lens.lens (\UpdateOriginEndpointRespon
 
 instance Prelude.NFData UpdateOriginEndpointResponse where
   rnf UpdateOriginEndpointResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeDelaySeconds
-      `Prelude.seq` Prelude.rnf startoverWindowSeconds
-      `Prelude.seq` Prelude.rnf mssPackage
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf whitelist
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf channelId
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
-      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf dashPackage
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf hlsPackage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf manifestName
+      `Prelude.seq` Prelude.rnf mssPackage
       `Prelude.seq` Prelude.rnf origination
+      `Prelude.seq` Prelude.rnf startoverWindowSeconds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeDelaySeconds
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf whitelist
       `Prelude.seq` Prelude.rnf httpStatus

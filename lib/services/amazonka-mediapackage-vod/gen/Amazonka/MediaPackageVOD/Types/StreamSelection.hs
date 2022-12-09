@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
-  { -- | A directive that determines the order of streams in the output.
-    streamOrder :: Prelude.Maybe StreamOrder,
+  { -- | The maximum video bitrate (bps) to include in output.
+    maxVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The minimum video bitrate (bps) to include in output.
     minVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
-    -- | The maximum video bitrate (bps) to include in output.
-    maxVideoBitsPerSecond :: Prelude.Maybe Prelude.Int
+    -- | A directive that determines the order of streams in the output.
+    streamOrder :: Prelude.Maybe StreamOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,32 @@ data StreamSelection = StreamSelection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.
+-- 'maxVideoBitsPerSecond', 'streamSelection_maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
 --
 -- 'minVideoBitsPerSecond', 'streamSelection_minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
 --
--- 'maxVideoBitsPerSecond', 'streamSelection_maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
+-- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.
 newStreamSelection ::
   StreamSelection
 newStreamSelection =
   StreamSelection'
-    { streamOrder = Prelude.Nothing,
+    { maxVideoBitsPerSecond =
+        Prelude.Nothing,
       minVideoBitsPerSecond = Prelude.Nothing,
-      maxVideoBitsPerSecond = Prelude.Nothing
+      streamOrder = Prelude.Nothing
     }
 
--- | A directive that determines the order of streams in the output.
-streamSelection_streamOrder :: Lens.Lens' StreamSelection (Prelude.Maybe StreamOrder)
-streamSelection_streamOrder = Lens.lens (\StreamSelection' {streamOrder} -> streamOrder) (\s@StreamSelection' {} a -> s {streamOrder = a} :: StreamSelection)
+-- | The maximum video bitrate (bps) to include in output.
+streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
+streamSelection_maxVideoBitsPerSecond = Lens.lens (\StreamSelection' {maxVideoBitsPerSecond} -> maxVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
 
 -- | The minimum video bitrate (bps) to include in output.
 streamSelection_minVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
 streamSelection_minVideoBitsPerSecond = Lens.lens (\StreamSelection' {minVideoBitsPerSecond} -> minVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {minVideoBitsPerSecond = a} :: StreamSelection)
 
--- | The maximum video bitrate (bps) to include in output.
-streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
-streamSelection_maxVideoBitsPerSecond = Lens.lens (\StreamSelection' {maxVideoBitsPerSecond} -> maxVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
+-- | A directive that determines the order of streams in the output.
+streamSelection_streamOrder :: Lens.Lens' StreamSelection (Prelude.Maybe StreamOrder)
+streamSelection_streamOrder = Lens.lens (\StreamSelection' {streamOrder} -> streamOrder) (\s@StreamSelection' {} a -> s {streamOrder = a} :: StreamSelection)
 
 instance Data.FromJSON StreamSelection where
   parseJSON =
@@ -78,31 +79,31 @@ instance Data.FromJSON StreamSelection where
       "StreamSelection"
       ( \x ->
           StreamSelection'
-            Prelude.<$> (x Data..:? "streamOrder")
+            Prelude.<$> (x Data..:? "maxVideoBitsPerSecond")
             Prelude.<*> (x Data..:? "minVideoBitsPerSecond")
-            Prelude.<*> (x Data..:? "maxVideoBitsPerSecond")
+            Prelude.<*> (x Data..:? "streamOrder")
       )
 
 instance Prelude.Hashable StreamSelection where
   hashWithSalt _salt StreamSelection' {..} =
-    _salt `Prelude.hashWithSalt` streamOrder
+    _salt `Prelude.hashWithSalt` maxVideoBitsPerSecond
       `Prelude.hashWithSalt` minVideoBitsPerSecond
-      `Prelude.hashWithSalt` maxVideoBitsPerSecond
+      `Prelude.hashWithSalt` streamOrder
 
 instance Prelude.NFData StreamSelection where
   rnf StreamSelection' {..} =
-    Prelude.rnf streamOrder
+    Prelude.rnf maxVideoBitsPerSecond
       `Prelude.seq` Prelude.rnf minVideoBitsPerSecond
-      `Prelude.seq` Prelude.rnf maxVideoBitsPerSecond
+      `Prelude.seq` Prelude.rnf streamOrder
 
 instance Data.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("streamOrder" Data..=) Prelude.<$> streamOrder,
+          [ ("maxVideoBitsPerSecond" Data..=)
+              Prelude.<$> maxVideoBitsPerSecond,
             ("minVideoBitsPerSecond" Data..=)
               Prelude.<$> minVideoBitsPerSecond,
-            ("maxVideoBitsPerSecond" Data..=)
-              Prelude.<$> maxVideoBitsPerSecond
+            ("streamOrder" Data..=) Prelude.<$> streamOrder
           ]
       )

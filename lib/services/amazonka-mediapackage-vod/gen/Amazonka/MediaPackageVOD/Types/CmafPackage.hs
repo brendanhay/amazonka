@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCmafPackage' smart constructor.
 data CmafPackage = CmafPackage'
-  { -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
-    -- to the nearest multiple of the source fragment duration.
-    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
-    encryption :: Prelude.Maybe CmafEncryption,
+  { encryption :: Prelude.Maybe CmafEncryption,
     -- | When includeEncoderConfigurationInSegments is set to true, MediaPackage
     -- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter
     -- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment
     -- instead of in the init fragment. This lets you use different
     -- SPS\/PPS\/VPS settings for your assets during content playback.
     includeEncoderConfigurationInSegments :: Prelude.Maybe Prelude.Bool,
+    -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+    -- to the nearest multiple of the source fragment duration.
+    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
     -- | A list of HLS manifest configurations.
     hlsManifests :: [HlsManifest]
   }
@@ -53,9 +53,6 @@ data CmafPackage = CmafPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentDurationSeconds', 'cmafPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
---
 -- 'encryption', 'cmafPackage_encryption' - Undocumented member.
 --
 -- 'includeEncoderConfigurationInSegments', 'cmafPackage_includeEncoderConfigurationInSegments' - When includeEncoderConfigurationInSegments is set to true, MediaPackage
@@ -64,23 +61,20 @@ data CmafPackage = CmafPackage'
 -- instead of in the init fragment. This lets you use different
 -- SPS\/PPS\/VPS settings for your assets during content playback.
 --
+-- 'segmentDurationSeconds', 'cmafPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+--
 -- 'hlsManifests', 'cmafPackage_hlsManifests' - A list of HLS manifest configurations.
 newCmafPackage ::
   CmafPackage
 newCmafPackage =
   CmafPackage'
-    { segmentDurationSeconds =
-        Prelude.Nothing,
-      encryption = Prelude.Nothing,
+    { encryption = Prelude.Nothing,
       includeEncoderConfigurationInSegments =
         Prelude.Nothing,
+      segmentDurationSeconds = Prelude.Nothing,
       hlsManifests = Prelude.mempty
     }
-
--- | Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
-cmafPackage_segmentDurationSeconds :: Lens.Lens' CmafPackage (Prelude.Maybe Prelude.Int)
-cmafPackage_segmentDurationSeconds = Lens.lens (\CmafPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@CmafPackage' {} a -> s {segmentDurationSeconds = a} :: CmafPackage)
 
 -- | Undocumented member.
 cmafPackage_encryption :: Lens.Lens' CmafPackage (Prelude.Maybe CmafEncryption)
@@ -94,6 +88,11 @@ cmafPackage_encryption = Lens.lens (\CmafPackage' {encryption} -> encryption) (\
 cmafPackage_includeEncoderConfigurationInSegments :: Lens.Lens' CmafPackage (Prelude.Maybe Prelude.Bool)
 cmafPackage_includeEncoderConfigurationInSegments = Lens.lens (\CmafPackage' {includeEncoderConfigurationInSegments} -> includeEncoderConfigurationInSegments) (\s@CmafPackage' {} a -> s {includeEncoderConfigurationInSegments = a} :: CmafPackage)
 
+-- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+cmafPackage_segmentDurationSeconds :: Lens.Lens' CmafPackage (Prelude.Maybe Prelude.Int)
+cmafPackage_segmentDurationSeconds = Lens.lens (\CmafPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@CmafPackage' {} a -> s {segmentDurationSeconds = a} :: CmafPackage)
+
 -- | A list of HLS manifest configurations.
 cmafPackage_hlsManifests :: Lens.Lens' CmafPackage [HlsManifest]
 cmafPackage_hlsManifests = Lens.lens (\CmafPackage' {hlsManifests} -> hlsManifests) (\s@CmafPackage' {} a -> s {hlsManifests = a} :: CmafPackage) Prelude.. Lens.coerced
@@ -104,35 +103,35 @@ instance Data.FromJSON CmafPackage where
       "CmafPackage"
       ( \x ->
           CmafPackage'
-            Prelude.<$> (x Data..:? "segmentDurationSeconds")
-            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<$> (x Data..:? "encryption")
             Prelude.<*> (x Data..:? "includeEncoderConfigurationInSegments")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
             Prelude.<*> (x Data..:? "hlsManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CmafPackage where
   hashWithSalt _salt CmafPackage' {..} =
-    _salt `Prelude.hashWithSalt` segmentDurationSeconds
-      `Prelude.hashWithSalt` encryption
+    _salt `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
+      `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` hlsManifests
 
 instance Prelude.NFData CmafPackage where
   rnf CmafPackage' {..} =
-    Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf encryption
+    Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf includeEncoderConfigurationInSegments
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
       `Prelude.seq` Prelude.rnf hlsManifests
 
 instance Data.ToJSON CmafPackage where
   toJSON CmafPackage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("segmentDurationSeconds" Data..=)
-              Prelude.<$> segmentDurationSeconds,
-            ("encryption" Data..=) Prelude.<$> encryption,
+          [ ("encryption" Data..=) Prelude.<$> encryption,
             ("includeEncoderConfigurationInSegments" Data..=)
               Prelude.<$> includeEncoderConfigurationInSegments,
+            ("segmentDurationSeconds" Data..=)
+              Prelude.<$> segmentDurationSeconds,
             Prelude.Just ("hlsManifests" Data..= hlsManifests)
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.MediaPackageVOD.ListPackagingGroups
     newListPackagingGroups,
 
     -- * Request Lenses
-    listPackagingGroups_nextToken,
     listPackagingGroups_maxResults,
+    listPackagingGroups_nextToken,
 
     -- * Destructuring the Response
     ListPackagingGroupsResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackagingGroups' smart constructor.
 data ListPackagingGroups = ListPackagingGroups'
-  { -- | A token used to resume pagination from the end of a previous request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | Upper bound on number of records to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used to resume pagination from the end of a previous request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListPackagingGroups = ListPackagingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackagingGroups_nextToken' - A token used to resume pagination from the end of a previous request.
---
 -- 'maxResults', 'listPackagingGroups_maxResults' - Upper bound on number of records to return.
+--
+-- 'nextToken', 'listPackagingGroups_nextToken' - A token used to resume pagination from the end of a previous request.
 newListPackagingGroups ::
   ListPackagingGroups
 newListPackagingGroups =
   ListPackagingGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token used to resume pagination from the end of a previous request.
-listPackagingGroups_nextToken :: Lens.Lens' ListPackagingGroups (Prelude.Maybe Prelude.Text)
-listPackagingGroups_nextToken = Lens.lens (\ListPackagingGroups' {nextToken} -> nextToken) (\s@ListPackagingGroups' {} a -> s {nextToken = a} :: ListPackagingGroups)
 
 -- | Upper bound on number of records to return.
 listPackagingGroups_maxResults :: Lens.Lens' ListPackagingGroups (Prelude.Maybe Prelude.Natural)
 listPackagingGroups_maxResults = Lens.lens (\ListPackagingGroups' {maxResults} -> maxResults) (\s@ListPackagingGroups' {} a -> s {maxResults = a} :: ListPackagingGroups)
+
+-- | A token used to resume pagination from the end of a previous request.
+listPackagingGroups_nextToken :: Lens.Lens' ListPackagingGroups (Prelude.Maybe Prelude.Text)
+listPackagingGroups_nextToken = Lens.lens (\ListPackagingGroups' {nextToken} -> nextToken) (\s@ListPackagingGroups' {} a -> s {nextToken = a} :: ListPackagingGroups)
 
 instance Core.AWSPager ListPackagingGroups where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListPackagingGroups where
 
 instance Prelude.Hashable ListPackagingGroups where
   hashWithSalt _salt ListPackagingGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPackagingGroups where
   rnf ListPackagingGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackagingGroups where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToPath ListPackagingGroups where
 instance Data.ToQuery ListPackagingGroups where
   toQuery ListPackagingGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPackagingGroupsResponse' smart constructor.

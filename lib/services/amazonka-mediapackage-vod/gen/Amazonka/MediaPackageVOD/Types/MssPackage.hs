@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMssPackage' smart constructor.
 data MssPackage = MssPackage'
-  { -- | The duration (in seconds) of each segment.
+  { encryption :: Prelude.Maybe MssEncryption,
+    -- | The duration (in seconds) of each segment.
     segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
-    encryption :: Prelude.Maybe MssEncryption,
     -- | A list of MSS manifest configurations.
     mssManifests :: [MssManifest]
   }
@@ -46,28 +46,27 @@ data MssPackage = MssPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.
---
 -- 'encryption', 'mssPackage_encryption' - Undocumented member.
+--
+-- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.
 --
 -- 'mssManifests', 'mssPackage_mssManifests' - A list of MSS manifest configurations.
 newMssPackage ::
   MssPackage
 newMssPackage =
   MssPackage'
-    { segmentDurationSeconds =
-        Prelude.Nothing,
-      encryption = Prelude.Nothing,
+    { encryption = Prelude.Nothing,
+      segmentDurationSeconds = Prelude.Nothing,
       mssManifests = Prelude.mempty
     }
-
--- | The duration (in seconds) of each segment.
-mssPackage_segmentDurationSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
-mssPackage_segmentDurationSeconds = Lens.lens (\MssPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@MssPackage' {} a -> s {segmentDurationSeconds = a} :: MssPackage)
 
 -- | Undocumented member.
 mssPackage_encryption :: Lens.Lens' MssPackage (Prelude.Maybe MssEncryption)
 mssPackage_encryption = Lens.lens (\MssPackage' {encryption} -> encryption) (\s@MssPackage' {} a -> s {encryption = a} :: MssPackage)
+
+-- | The duration (in seconds) of each segment.
+mssPackage_segmentDurationSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
+mssPackage_segmentDurationSeconds = Lens.lens (\MssPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@MssPackage' {} a -> s {segmentDurationSeconds = a} :: MssPackage)
 
 -- | A list of MSS manifest configurations.
 mssPackage_mssManifests :: Lens.Lens' MssPackage [MssManifest]
@@ -79,30 +78,30 @@ instance Data.FromJSON MssPackage where
       "MssPackage"
       ( \x ->
           MssPackage'
-            Prelude.<$> (x Data..:? "segmentDurationSeconds")
-            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<$> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
             Prelude.<*> (x Data..:? "mssManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MssPackage where
   hashWithSalt _salt MssPackage' {..} =
-    _salt `Prelude.hashWithSalt` segmentDurationSeconds
-      `Prelude.hashWithSalt` encryption
+    _salt `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` mssManifests
 
 instance Prelude.NFData MssPackage where
   rnf MssPackage' {..} =
-    Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf encryption
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
       `Prelude.seq` Prelude.rnf mssManifests
 
 instance Data.ToJSON MssPackage where
   toJSON MssPackage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("segmentDurationSeconds" Data..=)
+          [ ("encryption" Data..=) Prelude.<$> encryption,
+            ("segmentDurationSeconds" Data..=)
               Prelude.<$> segmentDurationSeconds,
-            ("encryption" Data..=) Prelude.<$> encryption,
             Prelude.Just ("mssManifests" Data..= mssManifests)
           ]
       )

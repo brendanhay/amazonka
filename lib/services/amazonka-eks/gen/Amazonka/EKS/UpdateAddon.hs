@@ -27,10 +27,11 @@ module Amazonka.EKS.UpdateAddon
     newUpdateAddon,
 
     -- * Request Lenses
-    updateAddon_clientRequestToken,
     updateAddon_addonVersion,
-    updateAddon_serviceAccountRoleArn,
+    updateAddon_clientRequestToken,
+    updateAddon_configurationValues,
     updateAddon_resolveConflicts,
+    updateAddon_serviceAccountRoleArn,
     updateAddon_clusterName,
     updateAddon_addonName,
 
@@ -54,27 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAddon' smart constructor.
 data UpdateAddon = UpdateAddon'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the add-on. The version must match one of the versions
+  { -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
     addonVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
-    -- add-on\'s service account. The role must be assigned the IAM permissions
-    -- required by the add-on. If you don\'t specify an existing IAM role, then
-    -- the add-on uses the permissions assigned to the node IAM role. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
-    -- in the /Amazon EKS User Guide/.
-    --
-    -- To specify an existing IAM role, you must have an IAM OpenID Connect
-    -- (OIDC) provider created for your cluster. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
-    -- in the /Amazon EKS User Guide/.
-    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The set of configuration values for the add-on being created. Whatever
+    -- values provided here are validated against the schema from
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+    configurationValues :: Prelude.Maybe Prelude.Text,
     -- | How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
     -- changed a value from the Amazon EKS default value. Conflicts are handled
     -- based on the option you choose:
@@ -90,6 +82,19 @@ data UpdateAddon = UpdateAddon'
     --     non-production cluster before updating the add-on on your production
     --     cluster.
     resolveConflicts :: Prelude.Maybe ResolveConflicts,
+    -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+    -- add-on\'s service account. The role must be assigned the IAM permissions
+    -- required by the add-on. If you don\'t specify an existing IAM role, then
+    -- the add-on uses the permissions assigned to the node IAM role. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+    -- in the /Amazon EKS User Guide/.
+    --
+    -- To specify an existing IAM role, you must have an IAM OpenID Connect
+    -- (OIDC) provider created for your cluster. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+    -- in the /Amazon EKS User Guide/.
+    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
@@ -107,26 +112,17 @@ data UpdateAddon = UpdateAddon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
 -- 'addonVersion', 'updateAddon_addonVersion' - The version of the add-on. The version must match one of the versions
 -- returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
 --
--- 'serviceAccountRoleArn', 'updateAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
--- add-on\'s service account. The role must be assigned the IAM permissions
--- required by the add-on. If you don\'t specify an existing IAM role, then
--- the add-on uses the permissions assigned to the node IAM role. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
--- in the /Amazon EKS User Guide/.
+-- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
--- To specify an existing IAM role, you must have an IAM OpenID Connect
--- (OIDC) provider created for your cluster. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
--- in the /Amazon EKS User Guide/.
+-- 'configurationValues', 'updateAddon_configurationValues' - The set of configuration values for the add-on being created. Whatever
+-- values provided here are validated against the schema from
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
 --
 -- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
 -- changed a value from the Amazon EKS default value. Conflicts are handled
@@ -143,6 +139,19 @@ data UpdateAddon = UpdateAddon'
 --     non-production cluster before updating the add-on on your production
 --     cluster.
 --
+-- 'serviceAccountRoleArn', 'updateAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+-- add-on\'s service account. The role must be assigned the IAM permissions
+-- required by the add-on. If you don\'t specify an existing IAM role, then
+-- the add-on uses the permissions assigned to the node IAM role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+-- in the /Amazon EKS User Guide/.
+--
+-- To specify an existing IAM role, you must have an IAM OpenID Connect
+-- (OIDC) provider created for your cluster. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+-- in the /Amazon EKS User Guide/.
+--
 -- 'clusterName', 'updateAddon_clusterName' - The name of the cluster.
 --
 -- 'addonName', 'updateAddon_addonName' - The name of the add-on. The name must match one of the names returned by
@@ -156,18 +165,14 @@ newUpdateAddon ::
   UpdateAddon
 newUpdateAddon pClusterName_ pAddonName_ =
   UpdateAddon'
-    { clientRequestToken = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
-      serviceAccountRoleArn = Prelude.Nothing,
+    { addonVersion = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      configurationValues = Prelude.Nothing,
       resolveConflicts = Prelude.Nothing,
+      serviceAccountRoleArn = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
-updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
@@ -176,20 +181,16 @@ updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -
 updateAddon_addonVersion :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
 updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersion) (\s@UpdateAddon' {} a -> s {addonVersion = a} :: UpdateAddon)
 
--- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
--- add-on\'s service account. The role must be assigned the IAM permissions
--- required by the add-on. If you don\'t specify an existing IAM role, then
--- the add-on uses the permissions assigned to the node IAM role. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
--- in the /Amazon EKS User Guide/.
---
--- To specify an existing IAM role, you must have an IAM OpenID Connect
--- (OIDC) provider created for your cluster. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
--- in the /Amazon EKS User Guide/.
-updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
-updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@UpdateAddon' {} a -> s {serviceAccountRoleArn = a} :: UpdateAddon)
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
+
+-- | The set of configuration values for the add-on being created. Whatever
+-- values provided here are validated against the schema from
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html DescribeAddonConfiguration>
+updateAddon_configurationValues :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_configurationValues = Lens.lens (\UpdateAddon' {configurationValues} -> configurationValues) (\s@UpdateAddon' {} a -> s {configurationValues = a} :: UpdateAddon)
 
 -- | How to resolve field value conflicts for an Amazon EKS add-on if you\'ve
 -- changed a value from the Amazon EKS default value. Conflicts are handled
@@ -207,6 +208,21 @@ updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRole
 --     cluster.
 updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
 updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
+
+-- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
+-- add-on\'s service account. The role must be assigned the IAM permissions
+-- required by the add-on. If you don\'t specify an existing IAM role, then
+-- the add-on uses the permissions assigned to the node IAM role. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html Amazon EKS node IAM role>
+-- in the /Amazon EKS User Guide/.
+--
+-- To specify an existing IAM role, you must have an IAM OpenID Connect
+-- (OIDC) provider created for your cluster. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
+-- in the /Amazon EKS User Guide/.
+updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@UpdateAddon' {} a -> s {serviceAccountRoleArn = a} :: UpdateAddon)
 
 -- | The name of the cluster.
 updateAddon_clusterName :: Lens.Lens' UpdateAddon Prelude.Text
@@ -232,19 +248,21 @@ instance Core.AWSRequest UpdateAddon where
 
 instance Prelude.Hashable UpdateAddon where
   hashWithSalt _salt UpdateAddon' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` addonVersion
-      `Prelude.hashWithSalt` serviceAccountRoleArn
+    _salt `Prelude.hashWithSalt` addonVersion
+      `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` configurationValues
       `Prelude.hashWithSalt` resolveConflicts
+      `Prelude.hashWithSalt` serviceAccountRoleArn
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 
 instance Prelude.NFData UpdateAddon where
   rnf UpdateAddon' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf addonVersion
-      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
+    Prelude.rnf addonVersion
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf configurationValues
       `Prelude.seq` Prelude.rnf resolveConflicts
+      `Prelude.seq` Prelude.rnf serviceAccountRoleArn
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf addonName
 
@@ -263,13 +281,15 @@ instance Data.ToJSON UpdateAddon where
   toJSON UpdateAddon' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Data..=)
+          [ ("addonVersion" Data..=) Prelude.<$> addonVersion,
+            ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("addonVersion" Data..=) Prelude.<$> addonVersion,
-            ("serviceAccountRoleArn" Data..=)
-              Prelude.<$> serviceAccountRoleArn,
+            ("configurationValues" Data..=)
+              Prelude.<$> configurationValues,
             ("resolveConflicts" Data..=)
-              Prelude.<$> resolveConflicts
+              Prelude.<$> resolveConflicts,
+            ("serviceAccountRoleArn" Data..=)
+              Prelude.<$> serviceAccountRoleArn
           ]
       )
 

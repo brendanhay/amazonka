@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data UpdateTaintsPayload = UpdateTaintsPayload'
   { -- | Kubernetes taints to be added or updated.
     addOrUpdateTaints :: Prelude.Maybe [Taint],
-    -- | Kubernetes taints to be removed.
+    -- | Kubernetes taints to remove.
     removeTaints :: Prelude.Maybe [Taint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data UpdateTaintsPayload = UpdateTaintsPayload'
 --
 -- 'addOrUpdateTaints', 'updateTaintsPayload_addOrUpdateTaints' - Kubernetes taints to be added or updated.
 --
--- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to be removed.
+-- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to remove.
 newUpdateTaintsPayload ::
   UpdateTaintsPayload
 newUpdateTaintsPayload =
@@ -62,7 +62,7 @@ newUpdateTaintsPayload =
 updateTaintsPayload_addOrUpdateTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
 updateTaintsPayload_addOrUpdateTaints = Lens.lens (\UpdateTaintsPayload' {addOrUpdateTaints} -> addOrUpdateTaints) (\s@UpdateTaintsPayload' {} a -> s {addOrUpdateTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens.coerced
 
--- | Kubernetes taints to be removed.
+-- | Kubernetes taints to remove.
 updateTaintsPayload_removeTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
 updateTaintsPayload_removeTaints = Lens.lens (\UpdateTaintsPayload' {removeTaints} -> removeTaints) (\s@UpdateTaintsPayload' {} a -> s {removeTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens.coerced
 

@@ -29,8 +29,8 @@ module Amazonka.EKS.ListAddons
     newListAddons,
 
     -- * Request Lenses
-    listAddons_nextToken,
     listAddons_maxResults,
+    listAddons_nextToken,
     listAddons_clusterName,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.EKS.ListAddons
     newListAddonsResponse,
 
     -- * Response Lenses
-    listAddonsResponse_nextToken,
     listAddonsResponse_addons,
+    listAddonsResponse_nextToken,
     listAddonsResponse_httpStatus,
   )
 where
@@ -54,16 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAddons' smart constructor.
 data ListAddons = ListAddons'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded
-    -- the value of that parameter. Pagination continues from the end of the
-    -- previous results that returned the @nextToken@ value.
-    --
-    -- This token should be treated as an opaque identifier that is used only
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of add-on results returned by @ListAddonsRequest@ in
+  { -- | The maximum number of add-on results returned by @ListAddonsRequest@ in
     -- paginated output. When you use this parameter, @ListAddonsRequest@
     -- returns only @maxResults@ results in a single page along with a
     -- @nextToken@ response element. You can see the remaining results of the
@@ -72,6 +63,15 @@ data ListAddons = ListAddons'
     -- don\'t use this parameter, @ListAddonsRequest@ returns up to 100 results
     -- and a @nextToken@ value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded
+    -- the value of that parameter. Pagination continues from the end of the
+    -- previous results that returned the @nextToken@ value.
+    --
+    -- This token should be treated as an opaque identifier that is used only
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster.
     clusterName :: Prelude.Text
   }
@@ -85,15 +85,6 @@ data ListAddons = ListAddons'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAddons_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded
--- the value of that parameter. Pagination continues from the end of the
--- previous results that returned the @nextToken@ value.
---
--- This token should be treated as an opaque identifier that is used only
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
---
 -- 'maxResults', 'listAddons_maxResults' - The maximum number of add-on results returned by @ListAddonsRequest@ in
 -- paginated output. When you use this parameter, @ListAddonsRequest@
 -- returns only @maxResults@ results in a single page along with a
@@ -103,19 +94,7 @@ data ListAddons = ListAddons'
 -- don\'t use this parameter, @ListAddonsRequest@ returns up to 100 results
 -- and a @nextToken@ value, if applicable.
 --
--- 'clusterName', 'listAddons_clusterName' - The name of the cluster.
-newListAddons ::
-  -- | 'clusterName'
-  Prelude.Text ->
-  ListAddons
-newListAddons pClusterName_ =
-  ListAddons'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      clusterName = pClusterName_
-    }
-
--- | The @nextToken@ value returned from a previous paginated
+-- 'nextToken', 'listAddons_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded
 -- the value of that parameter. Pagination continues from the end of the
 -- previous results that returned the @nextToken@ value.
@@ -123,8 +102,18 @@ newListAddons pClusterName_ =
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listAddons_nextToken :: Lens.Lens' ListAddons (Prelude.Maybe Prelude.Text)
-listAddons_nextToken = Lens.lens (\ListAddons' {nextToken} -> nextToken) (\s@ListAddons' {} a -> s {nextToken = a} :: ListAddons)
+--
+-- 'clusterName', 'listAddons_clusterName' - The name of the cluster.
+newListAddons ::
+  -- | 'clusterName'
+  Prelude.Text ->
+  ListAddons
+newListAddons pClusterName_ =
+  ListAddons'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      clusterName = pClusterName_
+    }
 
 -- | The maximum number of add-on results returned by @ListAddonsRequest@ in
 -- paginated output. When you use this parameter, @ListAddonsRequest@
@@ -136,6 +125,17 @@ listAddons_nextToken = Lens.lens (\ListAddons' {nextToken} -> nextToken) (\s@Lis
 -- and a @nextToken@ value, if applicable.
 listAddons_maxResults :: Lens.Lens' ListAddons (Prelude.Maybe Prelude.Natural)
 listAddons_maxResults = Lens.lens (\ListAddons' {maxResults} -> maxResults) (\s@ListAddons' {} a -> s {maxResults = a} :: ListAddons)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded
+-- the value of that parameter. Pagination continues from the end of the
+-- previous results that returned the @nextToken@ value.
+--
+-- This token should be treated as an opaque identifier that is used only
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listAddons_nextToken :: Lens.Lens' ListAddons (Prelude.Maybe Prelude.Text)
+listAddons_nextToken = Lens.lens (\ListAddons' {nextToken} -> nextToken) (\s@ListAddons' {} a -> s {nextToken = a} :: ListAddons)
 
 -- | The name of the cluster.
 listAddons_clusterName :: Lens.Lens' ListAddons Prelude.Text
@@ -168,21 +168,21 @@ instance Core.AWSRequest ListAddons where
     Response.receiveJSON
       ( \s h x ->
           ListAddonsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAddons where
   hashWithSalt _salt ListAddons' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData ListAddons where
   rnf ListAddons' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clusterName
 
 instance Data.ToHeaders ListAddons where
@@ -204,13 +204,15 @@ instance Data.ToPath ListAddons where
 instance Data.ToQuery ListAddons where
   toQuery ListAddons' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAddonsResponse' smart constructor.
 data ListAddonsResponse = ListAddonsResponse'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | A list of available add-ons.
+    addons :: Prelude.Maybe [Prelude.Text],
+    -- | The @nextToken@ value returned from a previous paginated
     -- @ListAddonsResponse@ where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
@@ -219,8 +221,6 @@ data ListAddonsResponse = ListAddonsResponse'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of available add-ons.
-    addons :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,6 +234,8 @@ data ListAddonsResponse = ListAddonsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addons', 'listAddonsResponse_addons' - A list of available add-ons.
+--
 -- 'nextToken', 'listAddonsResponse_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListAddonsResponse@ where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
@@ -243,8 +245,6 @@ data ListAddonsResponse = ListAddonsResponse'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'addons', 'listAddonsResponse_addons' - A list of available add-ons.
---
 -- 'httpStatus', 'listAddonsResponse_httpStatus' - The response's http status code.
 newListAddonsResponse ::
   -- | 'httpStatus'
@@ -252,10 +252,14 @@ newListAddonsResponse ::
   ListAddonsResponse
 newListAddonsResponse pHttpStatus_ =
   ListAddonsResponse'
-    { nextToken = Prelude.Nothing,
-      addons = Prelude.Nothing,
+    { addons = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of available add-ons.
+listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Prelude.Maybe [Prelude.Text])
+listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListAddonsResponse@ where @maxResults@ was used and the results
@@ -268,16 +272,12 @@ newListAddonsResponse pHttpStatus_ =
 listAddonsResponse_nextToken :: Lens.Lens' ListAddonsResponse (Prelude.Maybe Prelude.Text)
 listAddonsResponse_nextToken = Lens.lens (\ListAddonsResponse' {nextToken} -> nextToken) (\s@ListAddonsResponse' {} a -> s {nextToken = a} :: ListAddonsResponse)
 
--- | A list of available add-ons.
-listAddonsResponse_addons :: Lens.Lens' ListAddonsResponse (Prelude.Maybe [Prelude.Text])
-listAddonsResponse_addons = Lens.lens (\ListAddonsResponse' {addons} -> addons) (\s@ListAddonsResponse' {} a -> s {addons = a} :: ListAddonsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listAddonsResponse_httpStatus :: Lens.Lens' ListAddonsResponse Prelude.Int
 listAddonsResponse_httpStatus = Lens.lens (\ListAddonsResponse' {httpStatus} -> httpStatus) (\s@ListAddonsResponse' {} a -> s {httpStatus = a} :: ListAddonsResponse)
 
 instance Prelude.NFData ListAddonsResponse where
   rnf ListAddonsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf addons
+    Prelude.rnf addons
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

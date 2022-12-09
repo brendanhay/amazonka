@@ -36,8 +36,8 @@ module Amazonka.EKS.AssociateIdentityProviderConfig
     newAssociateIdentityProviderConfig,
 
     -- * Request Lenses
-    associateIdentityProviderConfig_tags,
     associateIdentityProviderConfig_clientRequestToken,
+    associateIdentityProviderConfig_tags,
     associateIdentityProviderConfig_clusterName,
     associateIdentityProviderConfig_oidc,
 
@@ -62,13 +62,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateIdentityProviderConfig' smart constructor.
 data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
-  { -- | The metadata to apply to the configuration to assist with categorization
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The metadata to apply to the configuration to assist with categorization
     -- and organization. Each tag consists of a key and an optional value. You
     -- define both.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster to associate the configuration to.
     clusterName :: Prelude.Text,
     -- | An object representing an OpenID Connect (OIDC) identity provider
@@ -85,12 +85,12 @@ data AssociateIdentityProviderConfig = AssociateIdentityProviderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'associateIdentityProviderConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
 -- 'tags', 'associateIdentityProviderConfig_tags' - The metadata to apply to the configuration to assist with categorization
 -- and organization. Each tag consists of a key and an optional value. You
 -- define both.
---
--- 'clientRequestToken', 'associateIdentityProviderConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
 --
 -- 'clusterName', 'associateIdentityProviderConfig_clusterName' - The name of the cluster to associate the configuration to.
 --
@@ -106,23 +106,23 @@ newAssociateIdentityProviderConfig
   pClusterName_
   pOidc_ =
     AssociateIdentityProviderConfig'
-      { tags =
+      { clientRequestToken =
           Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clusterName = pClusterName_,
         oidc = pOidc_
       }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+associateIdentityProviderConfig_clientRequestToken :: Lens.Lens' AssociateIdentityProviderConfig (Prelude.Maybe Prelude.Text)
+associateIdentityProviderConfig_clientRequestToken = Lens.lens (\AssociateIdentityProviderConfig' {clientRequestToken} -> clientRequestToken) (\s@AssociateIdentityProviderConfig' {} a -> s {clientRequestToken = a} :: AssociateIdentityProviderConfig)
 
 -- | The metadata to apply to the configuration to assist with categorization
 -- and organization. Each tag consists of a key and an optional value. You
 -- define both.
 associateIdentityProviderConfig_tags :: Lens.Lens' AssociateIdentityProviderConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 associateIdentityProviderConfig_tags = Lens.lens (\AssociateIdentityProviderConfig' {tags} -> tags) (\s@AssociateIdentityProviderConfig' {} a -> s {tags = a} :: AssociateIdentityProviderConfig) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-associateIdentityProviderConfig_clientRequestToken :: Lens.Lens' AssociateIdentityProviderConfig (Prelude.Maybe Prelude.Text)
-associateIdentityProviderConfig_clientRequestToken = Lens.lens (\AssociateIdentityProviderConfig' {clientRequestToken} -> clientRequestToken) (\s@AssociateIdentityProviderConfig' {} a -> s {clientRequestToken = a} :: AssociateIdentityProviderConfig)
 
 -- | The name of the cluster to associate the configuration to.
 associateIdentityProviderConfig_clusterName :: Lens.Lens' AssociateIdentityProviderConfig Prelude.Text
@@ -158,8 +158,8 @@ instance
   hashWithSalt
     _salt
     AssociateIdentityProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientRequestToken
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` clusterName
         `Prelude.hashWithSalt` oidc
 
@@ -168,8 +168,8 @@ instance
     AssociateIdentityProviderConfig
   where
   rnf AssociateIdentityProviderConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterName
       `Prelude.seq` Prelude.rnf oidc
 
@@ -191,9 +191,9 @@ instance Data.ToJSON AssociateIdentityProviderConfig where
   toJSON AssociateIdentityProviderConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("oidc" Data..= oidc)
           ]
       )

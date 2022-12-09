@@ -56,6 +56,7 @@ library
     Amazonka.EKS.DeleteNodegroup
     Amazonka.EKS.DeregisterCluster
     Amazonka.EKS.DescribeAddon
+    Amazonka.EKS.DescribeAddonConfiguration
     Amazonka.EKS.DescribeAddonVersions
     Amazonka.EKS.DescribeCluster
     Amazonka.EKS.DescribeFargateProfile
@@ -114,6 +115,7 @@ library
     Amazonka.EKS.Types.Logging
     Amazonka.EKS.Types.LogSetup
     Amazonka.EKS.Types.LogType
+    Amazonka.EKS.Types.MarketplaceInformation
     Amazonka.EKS.Types.Nodegroup
     Amazonka.EKS.Types.NodegroupHealth
     Amazonka.EKS.Types.NodegroupIssueCode

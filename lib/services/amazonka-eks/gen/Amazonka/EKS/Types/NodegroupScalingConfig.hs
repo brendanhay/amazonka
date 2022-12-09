@@ -53,13 +53,13 @@ data NodegroupScalingConfig = NodegroupScalingConfig'
     -- of time). Cluster Autoscaler doesn\'t scale a managed node group lower
     -- than minSize or higher than maxSize.
     desiredSize :: Prelude.Maybe Prelude.Natural,
-    -- | The minimum number of nodes that the managed node group can scale in to.
-    minSize :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of nodes that the managed node group can scale out
     -- to. For information about the maximum number that you can specify, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas>
     -- in the /Amazon EKS User Guide/.
-    maxSize :: Prelude.Maybe Prelude.Natural
+    maxSize :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum number of nodes that the managed node group can scale in to.
+    minSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,20 +93,20 @@ data NodegroupScalingConfig = NodegroupScalingConfig'
 -- of time). Cluster Autoscaler doesn\'t scale a managed node group lower
 -- than minSize or higher than maxSize.
 --
--- 'minSize', 'nodegroupScalingConfig_minSize' - The minimum number of nodes that the managed node group can scale in to.
---
 -- 'maxSize', 'nodegroupScalingConfig_maxSize' - The maximum number of nodes that the managed node group can scale out
 -- to. For information about the maximum number that you can specify, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas>
 -- in the /Amazon EKS User Guide/.
+--
+-- 'minSize', 'nodegroupScalingConfig_minSize' - The minimum number of nodes that the managed node group can scale in to.
 newNodegroupScalingConfig ::
   NodegroupScalingConfig
 newNodegroupScalingConfig =
   NodegroupScalingConfig'
     { desiredSize =
         Prelude.Nothing,
-      minSize = Prelude.Nothing,
-      maxSize = Prelude.Nothing
+      maxSize = Prelude.Nothing,
+      minSize = Prelude.Nothing
     }
 
 -- | The current number of nodes that the managed node group should maintain.
@@ -133,16 +133,16 @@ newNodegroupScalingConfig =
 nodegroupScalingConfig_desiredSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
 nodegroupScalingConfig_desiredSize = Lens.lens (\NodegroupScalingConfig' {desiredSize} -> desiredSize) (\s@NodegroupScalingConfig' {} a -> s {desiredSize = a} :: NodegroupScalingConfig)
 
--- | The minimum number of nodes that the managed node group can scale in to.
-nodegroupScalingConfig_minSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
-nodegroupScalingConfig_minSize = Lens.lens (\NodegroupScalingConfig' {minSize} -> minSize) (\s@NodegroupScalingConfig' {} a -> s {minSize = a} :: NodegroupScalingConfig)
-
 -- | The maximum number of nodes that the managed node group can scale out
 -- to. For information about the maximum number that you can specify, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html Amazon EKS service quotas>
 -- in the /Amazon EKS User Guide/.
 nodegroupScalingConfig_maxSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
 nodegroupScalingConfig_maxSize = Lens.lens (\NodegroupScalingConfig' {maxSize} -> maxSize) (\s@NodegroupScalingConfig' {} a -> s {maxSize = a} :: NodegroupScalingConfig)
+
+-- | The minimum number of nodes that the managed node group can scale in to.
+nodegroupScalingConfig_minSize :: Lens.Lens' NodegroupScalingConfig (Prelude.Maybe Prelude.Natural)
+nodegroupScalingConfig_minSize = Lens.lens (\NodegroupScalingConfig' {minSize} -> minSize) (\s@NodegroupScalingConfig' {} a -> s {minSize = a} :: NodegroupScalingConfig)
 
 instance Data.FromJSON NodegroupScalingConfig where
   parseJSON =
@@ -151,28 +151,28 @@ instance Data.FromJSON NodegroupScalingConfig where
       ( \x ->
           NodegroupScalingConfig'
             Prelude.<$> (x Data..:? "desiredSize")
-            Prelude.<*> (x Data..:? "minSize")
             Prelude.<*> (x Data..:? "maxSize")
+            Prelude.<*> (x Data..:? "minSize")
       )
 
 instance Prelude.Hashable NodegroupScalingConfig where
   hashWithSalt _salt NodegroupScalingConfig' {..} =
     _salt `Prelude.hashWithSalt` desiredSize
-      `Prelude.hashWithSalt` minSize
       `Prelude.hashWithSalt` maxSize
+      `Prelude.hashWithSalt` minSize
 
 instance Prelude.NFData NodegroupScalingConfig where
   rnf NodegroupScalingConfig' {..} =
     Prelude.rnf desiredSize
-      `Prelude.seq` Prelude.rnf minSize
       `Prelude.seq` Prelude.rnf maxSize
+      `Prelude.seq` Prelude.rnf minSize
 
 instance Data.ToJSON NodegroupScalingConfig where
   toJSON NodegroupScalingConfig' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("desiredSize" Data..=) Prelude.<$> desiredSize,
-            ("minSize" Data..=) Prelude.<$> minSize,
-            ("maxSize" Data..=) Prelude.<$> maxSize
+            ("maxSize" Data..=) Prelude.<$> maxSize,
+            ("minSize" Data..=) Prelude.<$> minSize
           ]
       )

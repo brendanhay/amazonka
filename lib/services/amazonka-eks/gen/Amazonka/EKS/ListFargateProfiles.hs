@@ -30,8 +30,8 @@ module Amazonka.EKS.ListFargateProfiles
     newListFargateProfiles,
 
     -- * Request Lenses
-    listFargateProfiles_nextToken,
     listFargateProfiles_maxResults,
+    listFargateProfiles_nextToken,
     listFargateProfiles_clusterName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.EKS.ListFargateProfiles
     newListFargateProfilesResponse,
 
     -- * Response Lenses
-    listFargateProfilesResponse_nextToken,
     listFargateProfilesResponse_fargateProfileNames,
+    listFargateProfilesResponse_nextToken,
     listFargateProfilesResponse_httpStatus,
   )
 where
@@ -55,12 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFargateProfiles' smart constructor.
 data ListFargateProfiles = ListFargateProfiles'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListFargateProfiles@ request where @maxResults@ was used and the
-    -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @nextToken@ value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of Fargate profile results returned by
+  { -- | The maximum number of Fargate profile results returned by
     -- @ListFargateProfiles@ in paginated output. When you use this parameter,
     -- @ListFargateProfiles@ returns only @maxResults@ results in a single page
     -- along with a @nextToken@ response element. You can see the remaining
@@ -69,6 +64,11 @@ data ListFargateProfiles = ListFargateProfiles'
     -- and 100. If you don\'t use this parameter, @ListFargateProfiles@ returns
     -- up to 100 results and a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListFargateProfiles@ request where @maxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @nextToken@ value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster that you would like to list Fargate
     -- profiles in.
     clusterName :: Prelude.Text
@@ -83,11 +83,6 @@ data ListFargateProfiles = ListFargateProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFargateProfiles_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListFargateProfiles@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
---
 -- 'maxResults', 'listFargateProfiles_maxResults' - The maximum number of Fargate profile results returned by
 -- @ListFargateProfiles@ in paginated output. When you use this parameter,
 -- @ListFargateProfiles@ returns only @maxResults@ results in a single page
@@ -97,6 +92,11 @@ data ListFargateProfiles = ListFargateProfiles'
 -- and 100. If you don\'t use this parameter, @ListFargateProfiles@ returns
 -- up to 100 results and a @nextToken@ value if applicable.
 --
+-- 'nextToken', 'listFargateProfiles_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListFargateProfiles@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+--
 -- 'clusterName', 'listFargateProfiles_clusterName' - The name of the Amazon EKS cluster that you would like to list Fargate
 -- profiles in.
 newListFargateProfiles ::
@@ -105,17 +105,10 @@ newListFargateProfiles ::
   ListFargateProfiles
 newListFargateProfiles pClusterName_ =
   ListFargateProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       clusterName = pClusterName_
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @ListFargateProfiles@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
-listFargateProfiles_nextToken :: Lens.Lens' ListFargateProfiles (Prelude.Maybe Prelude.Text)
-listFargateProfiles_nextToken = Lens.lens (\ListFargateProfiles' {nextToken} -> nextToken) (\s@ListFargateProfiles' {} a -> s {nextToken = a} :: ListFargateProfiles)
 
 -- | The maximum number of Fargate profile results returned by
 -- @ListFargateProfiles@ in paginated output. When you use this parameter,
@@ -127,6 +120,13 @@ listFargateProfiles_nextToken = Lens.lens (\ListFargateProfiles' {nextToken} -> 
 -- up to 100 results and a @nextToken@ value if applicable.
 listFargateProfiles_maxResults :: Lens.Lens' ListFargateProfiles (Prelude.Maybe Prelude.Natural)
 listFargateProfiles_maxResults = Lens.lens (\ListFargateProfiles' {maxResults} -> maxResults) (\s@ListFargateProfiles' {} a -> s {maxResults = a} :: ListFargateProfiles)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @ListFargateProfiles@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+listFargateProfiles_nextToken :: Lens.Lens' ListFargateProfiles (Prelude.Maybe Prelude.Text)
+listFargateProfiles_nextToken = Lens.lens (\ListFargateProfiles' {nextToken} -> nextToken) (\s@ListFargateProfiles' {} a -> s {nextToken = a} :: ListFargateProfiles)
 
 -- | The name of the Amazon EKS cluster that you would like to list Fargate
 -- profiles in.
@@ -165,23 +165,23 @@ instance Core.AWSRequest ListFargateProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListFargateProfilesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "fargateProfileNames"
+            Prelude.<$> ( x Data..?> "fargateProfileNames"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFargateProfiles where
   hashWithSalt _salt ListFargateProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData ListFargateProfiles where
   rnf ListFargateProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clusterName
 
 instance Data.ToHeaders ListFargateProfiles where
@@ -206,20 +206,20 @@ instance Data.ToPath ListFargateProfiles where
 instance Data.ToQuery ListFargateProfiles where
   toQuery ListFargateProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFargateProfilesResponse' smart constructor.
 data ListFargateProfilesResponse = ListFargateProfilesResponse'
-  { -- | The @nextToken@ value to include in a future @ListFargateProfiles@
+  { -- | A list of all of the Fargate profiles associated with the specified
+    -- cluster.
+    fargateProfileNames :: Prelude.Maybe [Prelude.Text],
+    -- | The @nextToken@ value to include in a future @ListFargateProfiles@
     -- request. When the results of a @ListFargateProfiles@ request exceed
     -- @maxResults@, you can use this value to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of all of the Fargate profiles associated with the specified
-    -- cluster.
-    fargateProfileNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,13 +233,13 @@ data ListFargateProfilesResponse = ListFargateProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fargateProfileNames', 'listFargateProfilesResponse_fargateProfileNames' - A list of all of the Fargate profiles associated with the specified
+-- cluster.
+--
 -- 'nextToken', 'listFargateProfilesResponse_nextToken' - The @nextToken@ value to include in a future @ListFargateProfiles@
 -- request. When the results of a @ListFargateProfiles@ request exceed
 -- @maxResults@, you can use this value to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
---
--- 'fargateProfileNames', 'listFargateProfilesResponse_fargateProfileNames' - A list of all of the Fargate profiles associated with the specified
--- cluster.
 --
 -- 'httpStatus', 'listFargateProfilesResponse_httpStatus' - The response's http status code.
 newListFargateProfilesResponse ::
@@ -248,11 +248,16 @@ newListFargateProfilesResponse ::
   ListFargateProfilesResponse
 newListFargateProfilesResponse pHttpStatus_ =
   ListFargateProfilesResponse'
-    { nextToken =
+    { fargateProfileNames =
         Prelude.Nothing,
-      fargateProfileNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of all of the Fargate profiles associated with the specified
+-- cluster.
+listFargateProfilesResponse_fargateProfileNames :: Lens.Lens' ListFargateProfilesResponse (Prelude.Maybe [Prelude.Text])
+listFargateProfilesResponse_fargateProfileNames = Lens.lens (\ListFargateProfilesResponse' {fargateProfileNames} -> fargateProfileNames) (\s@ListFargateProfilesResponse' {} a -> s {fargateProfileNames = a} :: ListFargateProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @ListFargateProfiles@
 -- request. When the results of a @ListFargateProfiles@ request exceed
@@ -261,17 +266,12 @@ newListFargateProfilesResponse pHttpStatus_ =
 listFargateProfilesResponse_nextToken :: Lens.Lens' ListFargateProfilesResponse (Prelude.Maybe Prelude.Text)
 listFargateProfilesResponse_nextToken = Lens.lens (\ListFargateProfilesResponse' {nextToken} -> nextToken) (\s@ListFargateProfilesResponse' {} a -> s {nextToken = a} :: ListFargateProfilesResponse)
 
--- | A list of all of the Fargate profiles associated with the specified
--- cluster.
-listFargateProfilesResponse_fargateProfileNames :: Lens.Lens' ListFargateProfilesResponse (Prelude.Maybe [Prelude.Text])
-listFargateProfilesResponse_fargateProfileNames = Lens.lens (\ListFargateProfilesResponse' {fargateProfileNames} -> fargateProfileNames) (\s@ListFargateProfilesResponse' {} a -> s {fargateProfileNames = a} :: ListFargateProfilesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFargateProfilesResponse_httpStatus :: Lens.Lens' ListFargateProfilesResponse Prelude.Int
 listFargateProfilesResponse_httpStatus = Lens.lens (\ListFargateProfilesResponse' {httpStatus} -> httpStatus) (\s@ListFargateProfilesResponse' {} a -> s {httpStatus = a} :: ListFargateProfilesResponse)
 
 instance Prelude.NFData ListFargateProfilesResponse where
   rnf ListFargateProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fargateProfileNames
+    Prelude.rnf fargateProfileNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

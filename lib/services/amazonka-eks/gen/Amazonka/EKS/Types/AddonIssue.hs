@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddonIssue' smart constructor.
 data AddonIssue = AddonIssue'
-  { -- | A message that provides details about the issue and what might cause it.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A code that describes the type of issue.
+  { -- | A code that describes the type of issue.
     code :: Prelude.Maybe AddonIssueCode,
+    -- | A message that provides details about the issue and what might cause it.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The resource IDs of the issue.
     resourceIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -46,27 +46,27 @@ data AddonIssue = AddonIssue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'addonIssue_message' - A message that provides details about the issue and what might cause it.
---
 -- 'code', 'addonIssue_code' - A code that describes the type of issue.
+--
+-- 'message', 'addonIssue_message' - A message that provides details about the issue and what might cause it.
 --
 -- 'resourceIds', 'addonIssue_resourceIds' - The resource IDs of the issue.
 newAddonIssue ::
   AddonIssue
 newAddonIssue =
   AddonIssue'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing,
       resourceIds = Prelude.Nothing
     }
-
--- | A message that provides details about the issue and what might cause it.
-addonIssue_message :: Lens.Lens' AddonIssue (Prelude.Maybe Prelude.Text)
-addonIssue_message = Lens.lens (\AddonIssue' {message} -> message) (\s@AddonIssue' {} a -> s {message = a} :: AddonIssue)
 
 -- | A code that describes the type of issue.
 addonIssue_code :: Lens.Lens' AddonIssue (Prelude.Maybe AddonIssueCode)
 addonIssue_code = Lens.lens (\AddonIssue' {code} -> code) (\s@AddonIssue' {} a -> s {code = a} :: AddonIssue)
+
+-- | A message that provides details about the issue and what might cause it.
+addonIssue_message :: Lens.Lens' AddonIssue (Prelude.Maybe Prelude.Text)
+addonIssue_message = Lens.lens (\AddonIssue' {message} -> message) (\s@AddonIssue' {} a -> s {message = a} :: AddonIssue)
 
 -- | The resource IDs of the issue.
 addonIssue_resourceIds :: Lens.Lens' AddonIssue (Prelude.Maybe [Prelude.Text])
@@ -78,19 +78,19 @@ instance Data.FromJSON AddonIssue where
       "AddonIssue"
       ( \x ->
           AddonIssue'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AddonIssue where
   hashWithSalt _salt AddonIssue' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceIds
 
 instance Prelude.NFData AddonIssue where
   rnf AddonIssue' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf resourceIds

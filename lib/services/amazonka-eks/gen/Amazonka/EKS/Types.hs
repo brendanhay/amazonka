@@ -18,19 +18,19 @@ module Amazonka.EKS.Types
     defaultService,
 
     -- * Errors
-    _ClientException,
     _AccessDeniedException,
+    _BadRequestException,
+    _ClientException,
+    _InvalidParameterException,
+    _InvalidRequestException,
     _NotFoundException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _UnsupportedAvailabilityZoneException,
     _ResourceInUseException,
     _ResourceLimitExceededException,
-    _BadRequestException,
+    _ResourceNotFoundException,
     _ResourcePropagationDelayException,
-    _InvalidRequestException,
     _ServerException,
-    _InvalidParameterException,
+    _ServiceUnavailableException,
+    _UnsupportedAvailabilityZoneException,
 
     -- * AMITypes
     AMITypes (..),
@@ -92,16 +92,20 @@ module Amazonka.EKS.Types
     -- * Addon
     Addon (..),
     newAddon,
-    addon_tags,
-    addon_modifiedAt,
-    addon_status,
+    addon_addonArn,
     addon_addonName,
     addon_addonVersion,
-    addon_health,
-    addon_addonArn,
-    addon_serviceAccountRoleArn,
     addon_clusterName,
+    addon_configurationValues,
     addon_createdAt,
+    addon_health,
+    addon_marketplaceInformation,
+    addon_modifiedAt,
+    addon_owner,
+    addon_publisher,
+    addon_serviceAccountRoleArn,
+    addon_status,
+    addon_tags,
 
     -- * AddonHealth
     AddonHealth (..),
@@ -111,23 +115,27 @@ module Amazonka.EKS.Types
     -- * AddonInfo
     AddonInfo (..),
     newAddonInfo,
-    addonInfo_type,
-    addonInfo_addonVersions,
     addonInfo_addonName,
+    addonInfo_addonVersions,
+    addonInfo_marketplaceInformation,
+    addonInfo_owner,
+    addonInfo_publisher,
+    addonInfo_type,
 
     -- * AddonIssue
     AddonIssue (..),
     newAddonIssue,
-    addonIssue_message,
     addonIssue_code,
+    addonIssue_message,
     addonIssue_resourceIds,
 
     -- * AddonVersionInfo
     AddonVersionInfo (..),
     newAddonVersionInfo,
     addonVersionInfo_addonVersion,
-    addonVersionInfo_compatibilities,
     addonVersionInfo_architecture,
+    addonVersionInfo_compatibilities,
+    addonVersionInfo_requiresConfiguration,
 
     -- * AutoScalingGroup
     AutoScalingGroup (..),
@@ -142,25 +150,25 @@ module Amazonka.EKS.Types
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_encryptionConfig,
-    cluster_tags,
-    cluster_name,
-    cluster_roleArn,
-    cluster_clientRequestToken,
     cluster_arn,
-    cluster_status,
+    cluster_certificateAuthority,
+    cluster_clientRequestToken,
+    cluster_connectorConfig,
+    cluster_createdAt,
+    cluster_encryptionConfig,
+    cluster_endpoint,
+    cluster_health,
     cluster_id,
-    cluster_outpostConfig,
-    cluster_logging,
     cluster_identity,
     cluster_kubernetesNetworkConfig,
-    cluster_connectorConfig,
-    cluster_health,
+    cluster_logging,
+    cluster_name,
+    cluster_outpostConfig,
     cluster_platformVersion,
-    cluster_certificateAuthority,
-    cluster_endpoint,
     cluster_resourcesVpcConfig,
-    cluster_createdAt,
+    cluster_roleArn,
+    cluster_status,
+    cluster_tags,
     cluster_version,
 
     -- * ClusterHealth
@@ -171,8 +179,8 @@ module Amazonka.EKS.Types
     -- * ClusterIssue
     ClusterIssue (..),
     newClusterIssue,
-    clusterIssue_message,
     clusterIssue_code,
+    clusterIssue_message,
     clusterIssue_resourceIds,
 
     -- * Compatibility
@@ -191,11 +199,11 @@ module Amazonka.EKS.Types
     -- * ConnectorConfigResponse
     ConnectorConfigResponse (..),
     newConnectorConfigResponse,
-    connectorConfigResponse_roleArn,
-    connectorConfigResponse_provider,
-    connectorConfigResponse_activationId,
-    connectorConfigResponse_activationExpiry,
     connectorConfigResponse_activationCode,
+    connectorConfigResponse_activationExpiry,
+    connectorConfigResponse_activationId,
+    connectorConfigResponse_provider,
+    connectorConfigResponse_roleArn,
 
     -- * ControlPlanePlacementRequest
     ControlPlanePlacementRequest (..),
@@ -216,22 +224,22 @@ module Amazonka.EKS.Types
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
+    errorDetail_errorCode,
     errorDetail_errorMessage,
     errorDetail_resourceIds,
-    errorDetail_errorCode,
 
     -- * FargateProfile
     FargateProfile (..),
     newFargateProfile,
-    fargateProfile_tags,
-    fargateProfile_fargateProfileArn,
-    fargateProfile_subnets,
-    fargateProfile_fargateProfileName,
-    fargateProfile_selectors,
-    fargateProfile_status,
-    fargateProfile_podExecutionRoleArn,
     fargateProfile_clusterName,
     fargateProfile_createdAt,
+    fargateProfile_fargateProfileArn,
+    fargateProfile_fargateProfileName,
+    fargateProfile_podExecutionRoleArn,
+    fargateProfile_selectors,
+    fargateProfile_status,
+    fargateProfile_subnets,
+    fargateProfile_tags,
 
     -- * FargateProfileSelector
     FargateProfileSelector (..),
@@ -258,8 +266,8 @@ module Amazonka.EKS.Types
     -- * Issue
     Issue (..),
     newIssue,
-    issue_message,
     issue_code,
+    issue_message,
     issue_resourceIds,
 
     -- * KubernetesNetworkConfigRequest
@@ -272,14 +280,14 @@ module Amazonka.EKS.Types
     KubernetesNetworkConfigResponse (..),
     newKubernetesNetworkConfigResponse,
     kubernetesNetworkConfigResponse_ipFamily,
-    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
     kubernetesNetworkConfigResponse_serviceIpv4Cidr,
+    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
 
     -- * LaunchTemplateSpecification
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
-    launchTemplateSpecification_name,
     launchTemplateSpecification_id,
+    launchTemplateSpecification_name,
     launchTemplateSpecification_version,
 
     -- * LogSetup
@@ -293,31 +301,37 @@ module Amazonka.EKS.Types
     newLogging,
     logging_clusterLogging,
 
+    -- * MarketplaceInformation
+    MarketplaceInformation (..),
+    newMarketplaceInformation,
+    marketplaceInformation_productId,
+    marketplaceInformation_productUrl,
+
     -- * Nodegroup
     Nodegroup (..),
     newNodegroup,
-    nodegroup_tags,
-    nodegroup_releaseVersion,
-    nodegroup_modifiedAt,
-    nodegroup_remoteAccess,
-    nodegroup_instanceTypes,
-    nodegroup_updateConfig,
-    nodegroup_capacityType,
     nodegroup_amiType,
-    nodegroup_diskSize,
-    nodegroup_subnets,
-    nodegroup_nodegroupArn,
-    nodegroup_launchTemplate,
-    nodegroup_nodegroupName,
-    nodegroup_taints,
-    nodegroup_nodeRole,
-    nodegroup_status,
-    nodegroup_labels,
-    nodegroup_health,
-    nodegroup_resources,
-    nodegroup_scalingConfig,
+    nodegroup_capacityType,
     nodegroup_clusterName,
     nodegroup_createdAt,
+    nodegroup_diskSize,
+    nodegroup_health,
+    nodegroup_instanceTypes,
+    nodegroup_labels,
+    nodegroup_launchTemplate,
+    nodegroup_modifiedAt,
+    nodegroup_nodeRole,
+    nodegroup_nodegroupArn,
+    nodegroup_nodegroupName,
+    nodegroup_releaseVersion,
+    nodegroup_remoteAccess,
+    nodegroup_resources,
+    nodegroup_scalingConfig,
+    nodegroup_status,
+    nodegroup_subnets,
+    nodegroup_tags,
+    nodegroup_taints,
+    nodegroup_updateConfig,
     nodegroup_version,
 
     -- * NodegroupHealth
@@ -335,8 +349,8 @@ module Amazonka.EKS.Types
     NodegroupScalingConfig (..),
     newNodegroupScalingConfig,
     nodegroupScalingConfig_desiredSize,
-    nodegroupScalingConfig_minSize,
     nodegroupScalingConfig_maxSize,
+    nodegroupScalingConfig_minSize,
 
     -- * NodegroupUpdateConfig
     NodegroupUpdateConfig (..),
@@ -352,27 +366,27 @@ module Amazonka.EKS.Types
     -- * OidcIdentityProviderConfig
     OidcIdentityProviderConfig (..),
     newOidcIdentityProviderConfig,
-    oidcIdentityProviderConfig_tags,
-    oidcIdentityProviderConfig_requiredClaims,
     oidcIdentityProviderConfig_clientId,
-    oidcIdentityProviderConfig_identityProviderConfigName,
-    oidcIdentityProviderConfig_status,
-    oidcIdentityProviderConfig_usernamePrefix,
-    oidcIdentityProviderConfig_groupsClaim,
-    oidcIdentityProviderConfig_identityProviderConfigArn,
-    oidcIdentityProviderConfig_issuerUrl,
-    oidcIdentityProviderConfig_groupsPrefix,
     oidcIdentityProviderConfig_clusterName,
+    oidcIdentityProviderConfig_groupsClaim,
+    oidcIdentityProviderConfig_groupsPrefix,
+    oidcIdentityProviderConfig_identityProviderConfigArn,
+    oidcIdentityProviderConfig_identityProviderConfigName,
+    oidcIdentityProviderConfig_issuerUrl,
+    oidcIdentityProviderConfig_requiredClaims,
+    oidcIdentityProviderConfig_status,
+    oidcIdentityProviderConfig_tags,
     oidcIdentityProviderConfig_usernameClaim,
+    oidcIdentityProviderConfig_usernamePrefix,
 
     -- * OidcIdentityProviderConfigRequest
     OidcIdentityProviderConfigRequest (..),
     newOidcIdentityProviderConfigRequest,
-    oidcIdentityProviderConfigRequest_requiredClaims,
-    oidcIdentityProviderConfigRequest_usernamePrefix,
     oidcIdentityProviderConfigRequest_groupsClaim,
     oidcIdentityProviderConfigRequest_groupsPrefix,
+    oidcIdentityProviderConfigRequest_requiredClaims,
     oidcIdentityProviderConfigRequest_usernameClaim,
+    oidcIdentityProviderConfigRequest_usernamePrefix,
     oidcIdentityProviderConfigRequest_identityProviderConfigName,
     oidcIdentityProviderConfigRequest_issuerUrl,
     oidcIdentityProviderConfigRequest_clientId,
@@ -399,25 +413,25 @@ module Amazonka.EKS.Types
     -- * RemoteAccessConfig
     RemoteAccessConfig (..),
     newRemoteAccessConfig,
-    remoteAccessConfig_sourceSecurityGroups,
     remoteAccessConfig_ec2SshKey,
+    remoteAccessConfig_sourceSecurityGroups,
 
     -- * Taint
     Taint (..),
     newTaint,
-    taint_key,
     taint_effect,
+    taint_key,
     taint_value,
 
     -- * Update
     Update (..),
     newUpdate,
-    update_type,
-    update_status,
-    update_id,
-    update_errors,
-    update_params,
     update_createdAt,
+    update_errors,
+    update_id,
+    update_params,
+    update_status,
+    update_type,
 
     -- * UpdateLabelsPayload
     UpdateLabelsPayload (..),
@@ -440,22 +454,22 @@ module Amazonka.EKS.Types
     -- * VpcConfigRequest
     VpcConfigRequest (..),
     newVpcConfigRequest,
-    vpcConfigRequest_securityGroupIds,
     vpcConfigRequest_endpointPrivateAccess,
-    vpcConfigRequest_publicAccessCidrs,
     vpcConfigRequest_endpointPublicAccess,
+    vpcConfigRequest_publicAccessCidrs,
+    vpcConfigRequest_securityGroupIds,
     vpcConfigRequest_subnetIds,
 
     -- * VpcConfigResponse
     VpcConfigResponse (..),
     newVpcConfigResponse,
-    vpcConfigResponse_securityGroupIds,
     vpcConfigResponse_clusterSecurityGroupId,
     vpcConfigResponse_endpointPrivateAccess,
-    vpcConfigResponse_publicAccessCidrs,
-    vpcConfigResponse_vpcId,
     vpcConfigResponse_endpointPublicAccess,
+    vpcConfigResponse_publicAccessCidrs,
+    vpcConfigResponse_securityGroupIds,
     vpcConfigResponse_subnetIds,
+    vpcConfigResponse_vpcId,
   )
 where
 
@@ -501,6 +515,7 @@ import Amazonka.EKS.Types.LaunchTemplateSpecification
 import Amazonka.EKS.Types.LogSetup
 import Amazonka.EKS.Types.LogType
 import Amazonka.EKS.Types.Logging
+import Amazonka.EKS.Types.MarketplaceInformation
 import Amazonka.EKS.Types.Nodegroup
 import Amazonka.EKS.Types.NodegroupHealth
 import Amazonka.EKS.Types.NodegroupIssueCode
@@ -555,28 +570,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -584,13 +593,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -598,18 +611,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | These errors are usually caused by a client action. Actions can include
--- using an action or resource on behalf of a user that doesn\'t have
--- permissions to use the action or resource or specifying an identifier
--- that is not valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClientException =
-  Core._MatchServiceError
-    defaultService
-    "ClientException"
-    Prelude.. Core.hasStatus 400
 
 -- | You don\'t have permissions to perform the requested operation. The user
 -- or role that is making the request must have at least one IAM
@@ -624,6 +628,45 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | This exception is thrown if the request contains a semantic error. The
+-- precise meaning will depend on the API, and will be documented in the
+-- error message.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | These errors are usually caused by a client action. Actions can include
+-- using an action or resource on behalf of a user that doesn\'t have
+-- permissions to use the action or resource or specifying an identifier
+-- that is not valid.
+_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError
+    defaultService
+    "ClientException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified parameter is invalid. Review the available parameters for
+-- the API request.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request is invalid given the state of the cluster. Check the state
+-- of the cluster and the associated operations.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
 -- | A service resource associated with the request could not be found.
 -- Clients should not retry such requests.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -632,36 +675,6 @@ _NotFoundException =
     defaultService
     "NotFoundException"
     Prelude.. Core.hasStatus 404
-
--- | The service is unavailable. Back off and retry the operation.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The specified resource could not be found. You can view your available
--- clusters with ListClusters. You can view your available managed node
--- groups with ListNodegroups. Amazon EKS clusters and node groups are
--- Region-specific.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | At least one of your specified cluster subnets is in an Availability
--- Zone that does not support Amazon EKS. The exception output specifies
--- the supported Availability Zones for your account, from which you can
--- choose subnets for your cluster.
-_UnsupportedAvailabilityZoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedAvailabilityZoneException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedAvailabilityZoneException"
-    Prelude.. Core.hasStatus 400
 
 -- | The specified resource is in use.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -679,15 +692,16 @@ _ResourceLimitExceededException =
     "ResourceLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | This exception is thrown if the request contains a semantic error. The
--- precise meaning will depend on the API, and will be documented in the
--- error message.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | The specified resource could not be found. You can view your available
+-- clusters with ListClusters. You can view your available managed node
+-- groups with ListNodegroups. Amazon EKS clusters and node groups are
+-- Region-specific.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | Required resources (such as service-linked roles) were created and are
 -- still propagating. Retry later.
@@ -698,15 +712,6 @@ _ResourcePropagationDelayException =
     "ResourcePropagationDelayException"
     Prelude.. Core.hasStatus 428
 
--- | The request is invalid given the state of the cluster. Check the state
--- of the cluster and the associated operations.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
-
 -- | These errors are usually caused by a server-side issue.
 _ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServerException =
@@ -715,11 +720,21 @@ _ServerException =
     "ServerException"
     Prelude.. Core.hasStatus 500
 
--- | The specified parameter is invalid. Review the available parameters for
--- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The service is unavailable. Back off and retry the operation.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | At least one of your specified cluster subnets is in an Availability
+-- Zone that does not support Amazon EKS. The exception output specifies
+-- the supported Availability Zones for your account, from which you can
+-- choose subnets for your cluster.
+_UnsupportedAvailabilityZoneException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedAvailabilityZoneException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedAvailabilityZoneException"
     Prelude.. Core.hasStatus 400

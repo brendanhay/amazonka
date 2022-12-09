@@ -22,8 +22,8 @@ module Amazonka.EKS.Lens
     associateEncryptionConfigResponse_httpStatus,
 
     -- ** AssociateIdentityProviderConfig
-    associateIdentityProviderConfig_tags,
     associateIdentityProviderConfig_clientRequestToken,
+    associateIdentityProviderConfig_tags,
     associateIdentityProviderConfig_clusterName,
     associateIdentityProviderConfig_oidc,
     associateIdentityProviderConfigResponse_tags,
@@ -31,23 +31,24 @@ module Amazonka.EKS.Lens
     associateIdentityProviderConfigResponse_httpStatus,
 
     -- ** CreateAddon
-    createAddon_tags,
-    createAddon_clientRequestToken,
     createAddon_addonVersion,
-    createAddon_serviceAccountRoleArn,
+    createAddon_clientRequestToken,
+    createAddon_configurationValues,
     createAddon_resolveConflicts,
+    createAddon_serviceAccountRoleArn,
+    createAddon_tags,
     createAddon_clusterName,
     createAddon_addonName,
     createAddonResponse_addon,
     createAddonResponse_httpStatus,
 
     -- ** CreateCluster
-    createCluster_encryptionConfig,
-    createCluster_tags,
     createCluster_clientRequestToken,
-    createCluster_outpostConfig,
-    createCluster_logging,
+    createCluster_encryptionConfig,
     createCluster_kubernetesNetworkConfig,
+    createCluster_logging,
+    createCluster_outpostConfig,
+    createCluster_tags,
     createCluster_version,
     createCluster_name,
     createCluster_roleArn,
@@ -56,10 +57,10 @@ module Amazonka.EKS.Lens
     createClusterResponse_httpStatus,
 
     -- ** CreateFargateProfile
-    createFargateProfile_tags,
     createFargateProfile_clientRequestToken,
-    createFargateProfile_subnets,
     createFargateProfile_selectors,
+    createFargateProfile_subnets,
+    createFargateProfile_tags,
     createFargateProfile_fargateProfileName,
     createFargateProfile_clusterName,
     createFargateProfile_podExecutionRoleArn,
@@ -67,19 +68,19 @@ module Amazonka.EKS.Lens
     createFargateProfileResponse_httpStatus,
 
     -- ** CreateNodegroup
-    createNodegroup_tags,
+    createNodegroup_amiType,
+    createNodegroup_capacityType,
+    createNodegroup_clientRequestToken,
+    createNodegroup_diskSize,
+    createNodegroup_instanceTypes,
+    createNodegroup_labels,
+    createNodegroup_launchTemplate,
     createNodegroup_releaseVersion,
     createNodegroup_remoteAccess,
-    createNodegroup_instanceTypes,
-    createNodegroup_clientRequestToken,
-    createNodegroup_updateConfig,
-    createNodegroup_capacityType,
-    createNodegroup_amiType,
-    createNodegroup_diskSize,
-    createNodegroup_launchTemplate,
-    createNodegroup_taints,
-    createNodegroup_labels,
     createNodegroup_scalingConfig,
+    createNodegroup_tags,
+    createNodegroup_taints,
+    createNodegroup_updateConfig,
     createNodegroup_version,
     createNodegroup_clusterName,
     createNodegroup_nodegroupName,
@@ -123,13 +124,24 @@ module Amazonka.EKS.Lens
     describeAddonResponse_addon,
     describeAddonResponse_httpStatus,
 
+    -- ** DescribeAddonConfiguration
+    describeAddonConfiguration_addonName,
+    describeAddonConfiguration_addonVersion,
+    describeAddonConfigurationResponse_addonName,
+    describeAddonConfigurationResponse_addonVersion,
+    describeAddonConfigurationResponse_configurationSchema,
+    describeAddonConfigurationResponse_httpStatus,
+
     -- ** DescribeAddonVersions
-    describeAddonVersions_nextToken,
     describeAddonVersions_addonName,
-    describeAddonVersions_maxResults,
     describeAddonVersions_kubernetesVersion,
-    describeAddonVersionsResponse_nextToken,
+    describeAddonVersions_maxResults,
+    describeAddonVersions_nextToken,
+    describeAddonVersions_owners,
+    describeAddonVersions_publishers,
+    describeAddonVersions_types,
     describeAddonVersionsResponse_addons,
+    describeAddonVersionsResponse_nextToken,
     describeAddonVersionsResponse_httpStatus,
 
     -- ** DescribeCluster
@@ -156,8 +168,8 @@ module Amazonka.EKS.Lens
     describeNodegroupResponse_httpStatus,
 
     -- ** DescribeUpdate
-    describeUpdate_nodegroupName,
     describeUpdate_addonName,
+    describeUpdate_nodegroupName,
     describeUpdate_name,
     describeUpdate_updateId,
     describeUpdateResponse_update,
@@ -171,40 +183,40 @@ module Amazonka.EKS.Lens
     disassociateIdentityProviderConfigResponse_httpStatus,
 
     -- ** ListAddons
-    listAddons_nextToken,
     listAddons_maxResults,
+    listAddons_nextToken,
     listAddons_clusterName,
-    listAddonsResponse_nextToken,
     listAddonsResponse_addons,
+    listAddonsResponse_nextToken,
     listAddonsResponse_httpStatus,
 
     -- ** ListClusters
-    listClusters_nextToken,
-    listClusters_maxResults,
     listClusters_include,
-    listClustersResponse_nextToken,
+    listClusters_maxResults,
+    listClusters_nextToken,
     listClustersResponse_clusters,
+    listClustersResponse_nextToken,
     listClustersResponse_httpStatus,
 
     -- ** ListFargateProfiles
-    listFargateProfiles_nextToken,
     listFargateProfiles_maxResults,
+    listFargateProfiles_nextToken,
     listFargateProfiles_clusterName,
-    listFargateProfilesResponse_nextToken,
     listFargateProfilesResponse_fargateProfileNames,
+    listFargateProfilesResponse_nextToken,
     listFargateProfilesResponse_httpStatus,
 
     -- ** ListIdentityProviderConfigs
-    listIdentityProviderConfigs_nextToken,
     listIdentityProviderConfigs_maxResults,
+    listIdentityProviderConfigs_nextToken,
     listIdentityProviderConfigs_clusterName,
-    listIdentityProviderConfigsResponse_nextToken,
     listIdentityProviderConfigsResponse_identityProviderConfigs,
+    listIdentityProviderConfigsResponse_nextToken,
     listIdentityProviderConfigsResponse_httpStatus,
 
     -- ** ListNodegroups
-    listNodegroups_nextToken,
     listNodegroups_maxResults,
+    listNodegroups_nextToken,
     listNodegroups_clusterName,
     listNodegroupsResponse_nextToken,
     listNodegroupsResponse_nodegroups,
@@ -216,18 +228,18 @@ module Amazonka.EKS.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListUpdates
-    listUpdates_nextToken,
-    listUpdates_nodegroupName,
     listUpdates_addonName,
     listUpdates_maxResults,
+    listUpdates_nextToken,
+    listUpdates_nodegroupName,
     listUpdates_name,
     listUpdatesResponse_nextToken,
     listUpdatesResponse_updateIds,
     listUpdatesResponse_httpStatus,
 
     -- ** RegisterCluster
-    registerCluster_tags,
     registerCluster_clientRequestToken,
+    registerCluster_tags,
     registerCluster_name,
     registerCluster_connectorConfig,
     registerClusterResponse_cluster,
@@ -244,10 +256,11 @@ module Amazonka.EKS.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateAddon
-    updateAddon_clientRequestToken,
     updateAddon_addonVersion,
-    updateAddon_serviceAccountRoleArn,
+    updateAddon_clientRequestToken,
+    updateAddon_configurationValues,
     updateAddon_resolveConflicts,
+    updateAddon_serviceAccountRoleArn,
     updateAddon_clusterName,
     updateAddon_addonName,
     updateAddonResponse_update,
@@ -270,20 +283,20 @@ module Amazonka.EKS.Lens
 
     -- ** UpdateNodegroupConfig
     updateNodegroupConfig_clientRequestToken,
-    updateNodegroupConfig_updateConfig,
-    updateNodegroupConfig_taints,
     updateNodegroupConfig_labels,
     updateNodegroupConfig_scalingConfig,
+    updateNodegroupConfig_taints,
+    updateNodegroupConfig_updateConfig,
     updateNodegroupConfig_clusterName,
     updateNodegroupConfig_nodegroupName,
     updateNodegroupConfigResponse_update,
     updateNodegroupConfigResponse_httpStatus,
 
     -- ** UpdateNodegroupVersion
-    updateNodegroupVersion_releaseVersion,
     updateNodegroupVersion_clientRequestToken,
-    updateNodegroupVersion_launchTemplate,
     updateNodegroupVersion_force,
+    updateNodegroupVersion_launchTemplate,
+    updateNodegroupVersion_releaseVersion,
     updateNodegroupVersion_version,
     updateNodegroupVersion_clusterName,
     updateNodegroupVersion_nodegroupName,
@@ -293,34 +306,42 @@ module Amazonka.EKS.Lens
     -- * Types
 
     -- ** Addon
-    addon_tags,
-    addon_modifiedAt,
-    addon_status,
+    addon_addonArn,
     addon_addonName,
     addon_addonVersion,
-    addon_health,
-    addon_addonArn,
-    addon_serviceAccountRoleArn,
     addon_clusterName,
+    addon_configurationValues,
     addon_createdAt,
+    addon_health,
+    addon_marketplaceInformation,
+    addon_modifiedAt,
+    addon_owner,
+    addon_publisher,
+    addon_serviceAccountRoleArn,
+    addon_status,
+    addon_tags,
 
     -- ** AddonHealth
     addonHealth_issues,
 
     -- ** AddonInfo
-    addonInfo_type,
-    addonInfo_addonVersions,
     addonInfo_addonName,
+    addonInfo_addonVersions,
+    addonInfo_marketplaceInformation,
+    addonInfo_owner,
+    addonInfo_publisher,
+    addonInfo_type,
 
     -- ** AddonIssue
-    addonIssue_message,
     addonIssue_code,
+    addonIssue_message,
     addonIssue_resourceIds,
 
     -- ** AddonVersionInfo
     addonVersionInfo_addonVersion,
-    addonVersionInfo_compatibilities,
     addonVersionInfo_architecture,
+    addonVersionInfo_compatibilities,
+    addonVersionInfo_requiresConfiguration,
 
     -- ** AutoScalingGroup
     autoScalingGroup_name,
@@ -329,33 +350,33 @@ module Amazonka.EKS.Lens
     certificate_data,
 
     -- ** Cluster
-    cluster_encryptionConfig,
-    cluster_tags,
-    cluster_name,
-    cluster_roleArn,
-    cluster_clientRequestToken,
     cluster_arn,
-    cluster_status,
+    cluster_certificateAuthority,
+    cluster_clientRequestToken,
+    cluster_connectorConfig,
+    cluster_createdAt,
+    cluster_encryptionConfig,
+    cluster_endpoint,
+    cluster_health,
     cluster_id,
-    cluster_outpostConfig,
-    cluster_logging,
     cluster_identity,
     cluster_kubernetesNetworkConfig,
-    cluster_connectorConfig,
-    cluster_health,
+    cluster_logging,
+    cluster_name,
+    cluster_outpostConfig,
     cluster_platformVersion,
-    cluster_certificateAuthority,
-    cluster_endpoint,
     cluster_resourcesVpcConfig,
-    cluster_createdAt,
+    cluster_roleArn,
+    cluster_status,
+    cluster_tags,
     cluster_version,
 
     -- ** ClusterHealth
     clusterHealth_issues,
 
     -- ** ClusterIssue
-    clusterIssue_message,
     clusterIssue_code,
+    clusterIssue_message,
     clusterIssue_resourceIds,
 
     -- ** Compatibility
@@ -368,11 +389,11 @@ module Amazonka.EKS.Lens
     connectorConfigRequest_provider,
 
     -- ** ConnectorConfigResponse
-    connectorConfigResponse_roleArn,
-    connectorConfigResponse_provider,
-    connectorConfigResponse_activationId,
-    connectorConfigResponse_activationExpiry,
     connectorConfigResponse_activationCode,
+    connectorConfigResponse_activationExpiry,
+    connectorConfigResponse_activationId,
+    connectorConfigResponse_provider,
+    connectorConfigResponse_roleArn,
 
     -- ** ControlPlanePlacementRequest
     controlPlanePlacementRequest_groupName,
@@ -385,20 +406,20 @@ module Amazonka.EKS.Lens
     encryptionConfig_resources,
 
     -- ** ErrorDetail
+    errorDetail_errorCode,
     errorDetail_errorMessage,
     errorDetail_resourceIds,
-    errorDetail_errorCode,
 
     -- ** FargateProfile
-    fargateProfile_tags,
-    fargateProfile_fargateProfileArn,
-    fargateProfile_subnets,
-    fargateProfile_fargateProfileName,
-    fargateProfile_selectors,
-    fargateProfile_status,
-    fargateProfile_podExecutionRoleArn,
     fargateProfile_clusterName,
     fargateProfile_createdAt,
+    fargateProfile_fargateProfileArn,
+    fargateProfile_fargateProfileName,
+    fargateProfile_podExecutionRoleArn,
+    fargateProfile_selectors,
+    fargateProfile_status,
+    fargateProfile_subnets,
+    fargateProfile_tags,
 
     -- ** FargateProfileSelector
     fargateProfileSelector_labels,
@@ -415,8 +436,8 @@ module Amazonka.EKS.Lens
     identityProviderConfigResponse_oidc,
 
     -- ** Issue
-    issue_message,
     issue_code,
+    issue_message,
     issue_resourceIds,
 
     -- ** KubernetesNetworkConfigRequest
@@ -425,12 +446,12 @@ module Amazonka.EKS.Lens
 
     -- ** KubernetesNetworkConfigResponse
     kubernetesNetworkConfigResponse_ipFamily,
-    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
     kubernetesNetworkConfigResponse_serviceIpv4Cidr,
+    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
 
     -- ** LaunchTemplateSpecification
-    launchTemplateSpecification_name,
     launchTemplateSpecification_id,
+    launchTemplateSpecification_name,
     launchTemplateSpecification_version,
 
     -- ** LogSetup
@@ -440,29 +461,33 @@ module Amazonka.EKS.Lens
     -- ** Logging
     logging_clusterLogging,
 
+    -- ** MarketplaceInformation
+    marketplaceInformation_productId,
+    marketplaceInformation_productUrl,
+
     -- ** Nodegroup
-    nodegroup_tags,
-    nodegroup_releaseVersion,
-    nodegroup_modifiedAt,
-    nodegroup_remoteAccess,
-    nodegroup_instanceTypes,
-    nodegroup_updateConfig,
-    nodegroup_capacityType,
     nodegroup_amiType,
-    nodegroup_diskSize,
-    nodegroup_subnets,
-    nodegroup_nodegroupArn,
-    nodegroup_launchTemplate,
-    nodegroup_nodegroupName,
-    nodegroup_taints,
-    nodegroup_nodeRole,
-    nodegroup_status,
-    nodegroup_labels,
-    nodegroup_health,
-    nodegroup_resources,
-    nodegroup_scalingConfig,
+    nodegroup_capacityType,
     nodegroup_clusterName,
     nodegroup_createdAt,
+    nodegroup_diskSize,
+    nodegroup_health,
+    nodegroup_instanceTypes,
+    nodegroup_labels,
+    nodegroup_launchTemplate,
+    nodegroup_modifiedAt,
+    nodegroup_nodeRole,
+    nodegroup_nodegroupArn,
+    nodegroup_nodegroupName,
+    nodegroup_releaseVersion,
+    nodegroup_remoteAccess,
+    nodegroup_resources,
+    nodegroup_scalingConfig,
+    nodegroup_status,
+    nodegroup_subnets,
+    nodegroup_tags,
+    nodegroup_taints,
+    nodegroup_updateConfig,
     nodegroup_version,
 
     -- ** NodegroupHealth
@@ -474,8 +499,8 @@ module Amazonka.EKS.Lens
 
     -- ** NodegroupScalingConfig
     nodegroupScalingConfig_desiredSize,
-    nodegroupScalingConfig_minSize,
     nodegroupScalingConfig_maxSize,
+    nodegroupScalingConfig_minSize,
 
     -- ** NodegroupUpdateConfig
     nodegroupUpdateConfig_maxUnavailable,
@@ -485,25 +510,25 @@ module Amazonka.EKS.Lens
     oidc_issuer,
 
     -- ** OidcIdentityProviderConfig
-    oidcIdentityProviderConfig_tags,
-    oidcIdentityProviderConfig_requiredClaims,
     oidcIdentityProviderConfig_clientId,
-    oidcIdentityProviderConfig_identityProviderConfigName,
-    oidcIdentityProviderConfig_status,
-    oidcIdentityProviderConfig_usernamePrefix,
-    oidcIdentityProviderConfig_groupsClaim,
-    oidcIdentityProviderConfig_identityProviderConfigArn,
-    oidcIdentityProviderConfig_issuerUrl,
-    oidcIdentityProviderConfig_groupsPrefix,
     oidcIdentityProviderConfig_clusterName,
+    oidcIdentityProviderConfig_groupsClaim,
+    oidcIdentityProviderConfig_groupsPrefix,
+    oidcIdentityProviderConfig_identityProviderConfigArn,
+    oidcIdentityProviderConfig_identityProviderConfigName,
+    oidcIdentityProviderConfig_issuerUrl,
+    oidcIdentityProviderConfig_requiredClaims,
+    oidcIdentityProviderConfig_status,
+    oidcIdentityProviderConfig_tags,
     oidcIdentityProviderConfig_usernameClaim,
+    oidcIdentityProviderConfig_usernamePrefix,
 
     -- ** OidcIdentityProviderConfigRequest
-    oidcIdentityProviderConfigRequest_requiredClaims,
-    oidcIdentityProviderConfigRequest_usernamePrefix,
     oidcIdentityProviderConfigRequest_groupsClaim,
     oidcIdentityProviderConfigRequest_groupsPrefix,
+    oidcIdentityProviderConfigRequest_requiredClaims,
     oidcIdentityProviderConfigRequest_usernameClaim,
+    oidcIdentityProviderConfigRequest_usernamePrefix,
     oidcIdentityProviderConfigRequest_identityProviderConfigName,
     oidcIdentityProviderConfigRequest_issuerUrl,
     oidcIdentityProviderConfigRequest_clientId,
@@ -522,21 +547,21 @@ module Amazonka.EKS.Lens
     provider_keyArn,
 
     -- ** RemoteAccessConfig
-    remoteAccessConfig_sourceSecurityGroups,
     remoteAccessConfig_ec2SshKey,
+    remoteAccessConfig_sourceSecurityGroups,
 
     -- ** Taint
-    taint_key,
     taint_effect,
+    taint_key,
     taint_value,
 
     -- ** Update
-    update_type,
-    update_status,
-    update_id,
-    update_errors,
-    update_params,
     update_createdAt,
+    update_errors,
+    update_id,
+    update_params,
+    update_status,
+    update_type,
 
     -- ** UpdateLabelsPayload
     updateLabelsPayload_addOrUpdateLabels,
@@ -551,20 +576,20 @@ module Amazonka.EKS.Lens
     updateTaintsPayload_removeTaints,
 
     -- ** VpcConfigRequest
-    vpcConfigRequest_securityGroupIds,
     vpcConfigRequest_endpointPrivateAccess,
-    vpcConfigRequest_publicAccessCidrs,
     vpcConfigRequest_endpointPublicAccess,
+    vpcConfigRequest_publicAccessCidrs,
+    vpcConfigRequest_securityGroupIds,
     vpcConfigRequest_subnetIds,
 
     -- ** VpcConfigResponse
-    vpcConfigResponse_securityGroupIds,
     vpcConfigResponse_clusterSecurityGroupId,
     vpcConfigResponse_endpointPrivateAccess,
-    vpcConfigResponse_publicAccessCidrs,
-    vpcConfigResponse_vpcId,
     vpcConfigResponse_endpointPublicAccess,
+    vpcConfigResponse_publicAccessCidrs,
+    vpcConfigResponse_securityGroupIds,
     vpcConfigResponse_subnetIds,
+    vpcConfigResponse_vpcId,
   )
 where
 
@@ -580,6 +605,7 @@ import Amazonka.EKS.DeleteFargateProfile
 import Amazonka.EKS.DeleteNodegroup
 import Amazonka.EKS.DeregisterCluster
 import Amazonka.EKS.DescribeAddon
+import Amazonka.EKS.DescribeAddonConfiguration
 import Amazonka.EKS.DescribeAddonVersions
 import Amazonka.EKS.DescribeCluster
 import Amazonka.EKS.DescribeFargateProfile
@@ -624,6 +650,7 @@ import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
 import Amazonka.EKS.Types.LaunchTemplateSpecification
 import Amazonka.EKS.Types.LogSetup
 import Amazonka.EKS.Types.Logging
+import Amazonka.EKS.Types.MarketplaceInformation
 import Amazonka.EKS.Types.Nodegroup
 import Amazonka.EKS.Types.NodegroupHealth
 import Amazonka.EKS.Types.NodegroupResources

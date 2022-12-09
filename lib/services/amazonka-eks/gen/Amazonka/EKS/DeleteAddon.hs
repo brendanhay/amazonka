@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 data DeleteAddon = DeleteAddon'
   { -- | Specifying this option preserves the add-on software on your cluster but
     -- Amazon EKS stops managing any settings for the add-on. If an IAM account
-    -- is associated with the add-on, it is not removed.
+    -- is associated with the add-on, it isn\'t removed.
     preserve :: Prelude.Maybe Prelude.Bool,
     -- | The name of the cluster to delete the add-on from.
     clusterName :: Prelude.Text,
@@ -78,7 +78,7 @@ data DeleteAddon = DeleteAddon'
 --
 -- 'preserve', 'deleteAddon_preserve' - Specifying this option preserves the add-on software on your cluster but
 -- Amazon EKS stops managing any settings for the add-on. If an IAM account
--- is associated with the add-on, it is not removed.
+-- is associated with the add-on, it isn\'t removed.
 --
 -- 'clusterName', 'deleteAddon_clusterName' - The name of the cluster to delete the add-on from.
 --
@@ -100,7 +100,7 @@ newDeleteAddon pClusterName_ pAddonName_ =
 
 -- | Specifying this option preserves the add-on software on your cluster but
 -- Amazon EKS stops managing any settings for the add-on. If an IAM account
--- is associated with the add-on, it is not removed.
+-- is associated with the add-on, it isn\'t removed.
 deleteAddon_preserve :: Lens.Lens' DeleteAddon (Prelude.Maybe Prelude.Bool)
 deleteAddon_preserve = Lens.lens (\DeleteAddon' {preserve} -> preserve) (\s@DeleteAddon' {} a -> s {preserve = a} :: DeleteAddon)
 

@@ -54,12 +54,12 @@ module Amazonka.EKS.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_encryptionConfig,
-    createCluster_tags,
     createCluster_clientRequestToken,
-    createCluster_outpostConfig,
-    createCluster_logging,
+    createCluster_encryptionConfig,
     createCluster_kubernetesNetworkConfig,
+    createCluster_logging,
+    createCluster_outpostConfig,
+    createCluster_tags,
     createCluster_version,
     createCluster_name,
     createCluster_roleArn,
@@ -85,22 +85,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The encryption configuration for the cluster.
-    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
-    -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value. You
-    -- define both.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An object representing the configuration of your local Amazon EKS
-    -- cluster on an Amazon Web Services Outpost. Before creating a local
-    -- cluster on an Outpost, review
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
-    -- in the /Amazon EKS User Guide/. This object isn\'t available for
-    -- creating Amazon EKS clusters on the Amazon Web Services cloud.
-    outpostConfig :: Prelude.Maybe OutpostConfigRequest,
+    -- | The encryption configuration for the cluster.
+    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
+    -- | The Kubernetes network configuration for the cluster.
+    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -111,8 +102,17 @@ data CreateCluster = CreateCluster'
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
-    -- | The Kubernetes network configuration for the cluster.
-    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
+    -- | An object representing the configuration of your local Amazon EKS
+    -- cluster on an Amazon Web Services Outpost. Before creating a local
+    -- cluster on an Outpost, review
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
+    -- in the /Amazon EKS User Guide/. This object isn\'t available for
+    -- creating Amazon EKS clusters on the Amazon Web Services cloud.
+    outpostConfig :: Prelude.Maybe OutpostConfigRequest,
+    -- | The metadata to apply to the cluster to assist with categorization and
+    -- organization. Each tag consists of a key and an optional value. You
+    -- define both.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The desired Kubernetes version for your cluster. If you don\'t specify a
     -- value here, the default version available in Amazon EKS is used.
     --
@@ -147,21 +147,12 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
---
--- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value. You
--- define both.
---
 -- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'outpostConfig', 'createCluster_outpostConfig' - An object representing the configuration of your local Amazon EKS
--- cluster on an Amazon Web Services Outpost. Before creating a local
--- cluster on an Outpost, review
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
--- in the /Amazon EKS User Guide/. This object isn\'t available for
--- creating Amazon EKS clusters on the Amazon Web Services cloud.
+-- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
+--
+-- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
 --
 -- 'logging', 'createCluster_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
@@ -173,7 +164,16 @@ data CreateCluster = CreateCluster'
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
--- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
+-- 'outpostConfig', 'createCluster_outpostConfig' - An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. Before creating a local
+-- cluster on an Outpost, review
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
+-- in the /Amazon EKS User Guide/. This object isn\'t available for
+-- creating Amazon EKS clusters on the Amazon Web Services cloud.
+--
+-- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
 -- value here, the default version available in Amazon EKS is used.
@@ -210,41 +210,31 @@ newCreateCluster
   pRoleArn_
   pResourcesVpcConfig_ =
     CreateCluster'
-      { encryptionConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        outpostConfig = Prelude.Nothing,
-        logging = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
+        encryptionConfig = Prelude.Nothing,
         kubernetesNetworkConfig = Prelude.Nothing,
+        logging = Prelude.Nothing,
+        outpostConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         version = Prelude.Nothing,
         name = pName_,
         roleArn = pRoleArn_,
         resourcesVpcConfig = pResourcesVpcConfig_
       }
 
--- | The encryption configuration for the cluster.
-createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
-createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value. You
--- define both.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
-
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToken} -> clientRequestToken) (\s@CreateCluster' {} a -> s {clientRequestToken = a} :: CreateCluster)
 
--- | An object representing the configuration of your local Amazon EKS
--- cluster on an Amazon Web Services Outpost. Before creating a local
--- cluster on an Outpost, review
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
--- in the /Amazon EKS User Guide/. This object isn\'t available for
--- creating Amazon EKS clusters on the Amazon Web Services cloud.
-createCluster_outpostConfig :: Lens.Lens' CreateCluster (Prelude.Maybe OutpostConfigRequest)
-createCluster_outpostConfig = Lens.lens (\CreateCluster' {outpostConfig} -> outpostConfig) (\s@CreateCluster' {} a -> s {outpostConfig = a} :: CreateCluster)
+-- | The encryption configuration for the cluster.
+createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
+createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Kubernetes network configuration for the cluster.
+createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
+createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
 
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
@@ -258,9 +248,20 @@ createCluster_outpostConfig = Lens.lens (\CreateCluster' {outpostConfig} -> outp
 createCluster_logging :: Lens.Lens' CreateCluster (Prelude.Maybe Logging)
 createCluster_logging = Lens.lens (\CreateCluster' {logging} -> logging) (\s@CreateCluster' {} a -> s {logging = a} :: CreateCluster)
 
--- | The Kubernetes network configuration for the cluster.
-createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
-createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
+-- | An object representing the configuration of your local Amazon EKS
+-- cluster on an Amazon Web Services Outpost. Before creating a local
+-- cluster on an Outpost, review
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html Local clusters for Amazon EKS on Amazon Web Services Outposts>
+-- in the /Amazon EKS User Guide/. This object isn\'t available for
+-- creating Amazon EKS clusters on the Amazon Web Services cloud.
+createCluster_outpostConfig :: Lens.Lens' CreateCluster (Prelude.Maybe OutpostConfigRequest)
+createCluster_outpostConfig = Lens.lens (\CreateCluster' {outpostConfig} -> outpostConfig) (\s@CreateCluster' {} a -> s {outpostConfig = a} :: CreateCluster)
+
+-- | The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The desired Kubernetes version for your cluster. If you don\'t specify a
 -- value here, the default version available in Amazon EKS is used.
@@ -309,12 +310,12 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` encryptionConfig
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` outpostConfig
-      `Prelude.hashWithSalt` logging
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` kubernetesNetworkConfig
+      `Prelude.hashWithSalt` logging
+      `Prelude.hashWithSalt` outpostConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
@@ -322,12 +323,12 @@ instance Prelude.Hashable CreateCluster where
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf outpostConfig
-      `Prelude.seq` Prelude.rnf logging
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf encryptionConfig
       `Prelude.seq` Prelude.rnf kubernetesNetworkConfig
+      `Prelude.seq` Prelude.rnf logging
+      `Prelude.seq` Prelude.rnf outpostConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
@@ -348,15 +349,15 @@ instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("encryptionConfig" Data..=)
-              Prelude.<$> encryptionConfig,
-            ("tags" Data..=) Prelude.<$> tags,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("outpostConfig" Data..=) Prelude.<$> outpostConfig,
-            ("logging" Data..=) Prelude.<$> logging,
+            ("encryptionConfig" Data..=)
+              Prelude.<$> encryptionConfig,
             ("kubernetesNetworkConfig" Data..=)
               Prelude.<$> kubernetesNetworkConfig,
+            ("logging" Data..=) Prelude.<$> logging,
+            ("outpostConfig" Data..=) Prelude.<$> outpostConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             ("version" Data..=) Prelude.<$> version,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("roleArn" Data..= roleArn),

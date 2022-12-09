@@ -33,10 +33,10 @@ module Amazonka.Proton.ListEnvironmentAccountConnections
     newListEnvironmentAccountConnections,
 
     -- * Request Lenses
-    listEnvironmentAccountConnections_nextToken,
     listEnvironmentAccountConnections_environmentName,
-    listEnvironmentAccountConnections_statuses,
     listEnvironmentAccountConnections_maxResults,
+    listEnvironmentAccountConnections_nextToken,
+    listEnvironmentAccountConnections_statuses,
     listEnvironmentAccountConnections_requestedBy,
 
     -- * Destructuring the Response
@@ -60,17 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironmentAccountConnections' smart constructor.
 data ListEnvironmentAccountConnections = ListEnvironmentAccountConnections'
-  { -- | A token that indicates the location of the next environment account
+  { -- | The environment name that\'s associated with each listed environment
+    -- account connection.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of environment account connections to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates the location of the next environment account
     -- connection in the array of environment account connections, after the
     -- list of environment account connections that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The environment name that\'s associated with each listed environment
-    -- account connection.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The status details for each listed environment account connection.
     statuses :: Prelude.Maybe [EnvironmentAccountConnectionStatus],
-    -- | The maximum number of environment account connections to list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of account making the @ListEnvironmentAccountConnections@
     -- request.
     requestedBy :: EnvironmentAccountConnectionRequesterAccountType
@@ -85,16 +85,16 @@ data ListEnvironmentAccountConnections = ListEnvironmentAccountConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentName', 'listEnvironmentAccountConnections_environmentName' - The environment name that\'s associated with each listed environment
+-- account connection.
+--
+-- 'maxResults', 'listEnvironmentAccountConnections_maxResults' - The maximum number of environment account connections to list.
+--
 -- 'nextToken', 'listEnvironmentAccountConnections_nextToken' - A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
 -- list of environment account connections that was previously requested.
 --
--- 'environmentName', 'listEnvironmentAccountConnections_environmentName' - The environment name that\'s associated with each listed environment
--- account connection.
---
 -- 'statuses', 'listEnvironmentAccountConnections_statuses' - The status details for each listed environment account connection.
---
--- 'maxResults', 'listEnvironmentAccountConnections_maxResults' - The maximum number of environment account connections to list.
 --
 -- 'requestedBy', 'listEnvironmentAccountConnections_requestedBy' - The type of account making the @ListEnvironmentAccountConnections@
 -- request.
@@ -104,13 +104,22 @@ newListEnvironmentAccountConnections ::
   ListEnvironmentAccountConnections
 newListEnvironmentAccountConnections pRequestedBy_ =
   ListEnvironmentAccountConnections'
-    { nextToken =
+    { environmentName =
         Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      statuses = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      statuses = Prelude.Nothing,
       requestedBy = pRequestedBy_
     }
+
+-- | The environment name that\'s associated with each listed environment
+-- account connection.
+listEnvironmentAccountConnections_environmentName :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Text)
+listEnvironmentAccountConnections_environmentName = Lens.lens (\ListEnvironmentAccountConnections' {environmentName} -> environmentName) (\s@ListEnvironmentAccountConnections' {} a -> s {environmentName = a} :: ListEnvironmentAccountConnections)
+
+-- | The maximum number of environment account connections to list.
+listEnvironmentAccountConnections_maxResults :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Natural)
+listEnvironmentAccountConnections_maxResults = Lens.lens (\ListEnvironmentAccountConnections' {maxResults} -> maxResults) (\s@ListEnvironmentAccountConnections' {} a -> s {maxResults = a} :: ListEnvironmentAccountConnections)
 
 -- | A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
@@ -118,18 +127,9 @@ newListEnvironmentAccountConnections pRequestedBy_ =
 listEnvironmentAccountConnections_nextToken :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Text)
 listEnvironmentAccountConnections_nextToken = Lens.lens (\ListEnvironmentAccountConnections' {nextToken} -> nextToken) (\s@ListEnvironmentAccountConnections' {} a -> s {nextToken = a} :: ListEnvironmentAccountConnections)
 
--- | The environment name that\'s associated with each listed environment
--- account connection.
-listEnvironmentAccountConnections_environmentName :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Text)
-listEnvironmentAccountConnections_environmentName = Lens.lens (\ListEnvironmentAccountConnections' {environmentName} -> environmentName) (\s@ListEnvironmentAccountConnections' {} a -> s {environmentName = a} :: ListEnvironmentAccountConnections)
-
 -- | The status details for each listed environment account connection.
 listEnvironmentAccountConnections_statuses :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe [EnvironmentAccountConnectionStatus])
 listEnvironmentAccountConnections_statuses = Lens.lens (\ListEnvironmentAccountConnections' {statuses} -> statuses) (\s@ListEnvironmentAccountConnections' {} a -> s {statuses = a} :: ListEnvironmentAccountConnections) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of environment account connections to list.
-listEnvironmentAccountConnections_maxResults :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Natural)
-listEnvironmentAccountConnections_maxResults = Lens.lens (\ListEnvironmentAccountConnections' {maxResults} -> maxResults) (\s@ListEnvironmentAccountConnections' {} a -> s {maxResults = a} :: ListEnvironmentAccountConnections)
 
 -- | The type of account making the @ListEnvironmentAccountConnections@
 -- request.
@@ -187,10 +187,10 @@ instance
   hashWithSalt
     _salt
     ListEnvironmentAccountConnections' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` environmentName
-        `Prelude.hashWithSalt` statuses
+      _salt `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` statuses
         `Prelude.hashWithSalt` requestedBy
 
 instance
@@ -198,10 +198,10 @@ instance
     ListEnvironmentAccountConnections
   where
   rnf ListEnvironmentAccountConnections' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentName
-      `Prelude.seq` Prelude.rnf statuses
+    Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf statuses
       `Prelude.seq` Prelude.rnf requestedBy
 
 instance
@@ -229,11 +229,11 @@ instance
   toJSON ListEnvironmentAccountConnections' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("environmentName" Data..=)
+          [ ("environmentName" Data..=)
               Prelude.<$> environmentName,
-            ("statuses" Data..=) Prelude.<$> statuses,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("statuses" Data..=) Prelude.<$> statuses,
             Prelude.Just ("requestedBy" Data..= requestedBy)
           ]
       )

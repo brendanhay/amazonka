@@ -177,17 +177,17 @@ module Amazonka.Proton
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -198,8 +198,11 @@ module Amazonka.Proton
     -- * Waiters
     -- $waiters
 
-    -- ** ServiceTemplateVersionRegistered
-    newServiceTemplateVersionRegistered,
+    -- ** ComponentDeleted
+    newComponentDeleted,
+
+    -- ** ComponentDeployed
+    newComponentDeployed,
 
     -- ** EnvironmentDeployed
     newEnvironmentDeployed,
@@ -213,20 +216,17 @@ module Amazonka.Proton
     -- ** ServiceDeleted
     newServiceDeleted,
 
-    -- ** ServiceUpdated
-    newServiceUpdated,
-
     -- ** ServiceInstanceDeployed
     newServiceInstanceDeployed,
-
-    -- ** ComponentDeployed
-    newComponentDeployed,
 
     -- ** ServicePipelineDeployed
     newServicePipelineDeployed,
 
-    -- ** ComponentDeleted
-    newComponentDeleted,
+    -- ** ServiceTemplateVersionRegistered
+    newServiceTemplateVersionRegistered,
+
+    -- ** ServiceUpdated
+    newServiceUpdated,
 
     -- * Operations
     -- $operations

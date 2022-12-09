@@ -30,12 +30,12 @@ module Amazonka.Proton.ListServiceInstances
     newListServiceInstances,
 
     -- * Request Lenses
-    listServiceInstances_sortOrder,
-    listServiceInstances_nextToken,
     listServiceInstances_filters,
-    listServiceInstances_sortBy,
     listServiceInstances_maxResults,
+    listServiceInstances_nextToken,
     listServiceInstances_serviceName,
+    listServiceInstances_sortBy,
+    listServiceInstances_sortOrder,
 
     -- * Destructuring the Response
     ListServiceInstancesResponse (..),
@@ -58,18 +58,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServiceInstances' smart constructor.
 data ListServiceInstances = ListServiceInstances'
-  { -- | Result list sort order.
-    --
-    -- Default: @ASCENDING@
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | An array of filtering criteria that scope down the result list. By
+    -- default, all service instances in the Amazon Web Services account are
+    -- returned.
+    filters :: Prelude.Maybe [ListServiceInstancesFilter],
+    -- | The maximum number of service instances to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token that indicates the location of the next service in the array of
     -- service instances, after the list of service instances that was
     -- previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filtering criteria that scope down the result list. By
-    -- default, all service instances in the Amazon Web Services account are
-    -- returned.
-    filters :: Prelude.Maybe [ListServiceInstancesFilter],
+    -- | The name of the service that the service instance belongs to.
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The field that the result list is sorted by.
     --
     -- When you choose to sort by @serviceName@, service instances within each
@@ -77,10 +77,10 @@ data ListServiceInstances = ListServiceInstances'
     --
     -- Default: @serviceName@
     sortBy :: Prelude.Maybe ListServiceInstancesSortBy,
-    -- | The maximum number of service instances to list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the service that the service instance belongs to.
-    serviceName :: Prelude.Maybe Prelude.Text
+    -- | Result list sort order.
+    --
+    -- Default: @ASCENDING@
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,17 +92,17 @@ data ListServiceInstances = ListServiceInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listServiceInstances_sortOrder' - Result list sort order.
+-- 'filters', 'listServiceInstances_filters' - An array of filtering criteria that scope down the result list. By
+-- default, all service instances in the Amazon Web Services account are
+-- returned.
 --
--- Default: @ASCENDING@
+-- 'maxResults', 'listServiceInstances_maxResults' - The maximum number of service instances to list.
 --
 -- 'nextToken', 'listServiceInstances_nextToken' - A token that indicates the location of the next service in the array of
 -- service instances, after the list of service instances that was
 -- previously requested.
 --
--- 'filters', 'listServiceInstances_filters' - An array of filtering criteria that scope down the result list. By
--- default, all service instances in the Amazon Web Services account are
--- returned.
+-- 'serviceName', 'listServiceInstances_serviceName' - The name of the service that the service instance belongs to.
 --
 -- 'sortBy', 'listServiceInstances_sortBy' - The field that the result list is sorted by.
 --
@@ -111,26 +111,30 @@ data ListServiceInstances = ListServiceInstances'
 --
 -- Default: @serviceName@
 --
--- 'maxResults', 'listServiceInstances_maxResults' - The maximum number of service instances to list.
+-- 'sortOrder', 'listServiceInstances_sortOrder' - Result list sort order.
 --
--- 'serviceName', 'listServiceInstances_serviceName' - The name of the service that the service instance belongs to.
+-- Default: @ASCENDING@
 newListServiceInstances ::
   ListServiceInstances
 newListServiceInstances =
   ListServiceInstances'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      serviceName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | Result list sort order.
---
--- Default: @ASCENDING@
-listServiceInstances_sortOrder :: Lens.Lens' ListServiceInstances (Prelude.Maybe SortOrder)
-listServiceInstances_sortOrder = Lens.lens (\ListServiceInstances' {sortOrder} -> sortOrder) (\s@ListServiceInstances' {} a -> s {sortOrder = a} :: ListServiceInstances)
+-- | An array of filtering criteria that scope down the result list. By
+-- default, all service instances in the Amazon Web Services account are
+-- returned.
+listServiceInstances_filters :: Lens.Lens' ListServiceInstances (Prelude.Maybe [ListServiceInstancesFilter])
+listServiceInstances_filters = Lens.lens (\ListServiceInstances' {filters} -> filters) (\s@ListServiceInstances' {} a -> s {filters = a} :: ListServiceInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of service instances to list.
+listServiceInstances_maxResults :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Natural)
+listServiceInstances_maxResults = Lens.lens (\ListServiceInstances' {maxResults} -> maxResults) (\s@ListServiceInstances' {} a -> s {maxResults = a} :: ListServiceInstances)
 
 -- | A token that indicates the location of the next service in the array of
 -- service instances, after the list of service instances that was
@@ -138,11 +142,9 @@ listServiceInstances_sortOrder = Lens.lens (\ListServiceInstances' {sortOrder} -
 listServiceInstances_nextToken :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
 listServiceInstances_nextToken = Lens.lens (\ListServiceInstances' {nextToken} -> nextToken) (\s@ListServiceInstances' {} a -> s {nextToken = a} :: ListServiceInstances)
 
--- | An array of filtering criteria that scope down the result list. By
--- default, all service instances in the Amazon Web Services account are
--- returned.
-listServiceInstances_filters :: Lens.Lens' ListServiceInstances (Prelude.Maybe [ListServiceInstancesFilter])
-listServiceInstances_filters = Lens.lens (\ListServiceInstances' {filters} -> filters) (\s@ListServiceInstances' {} a -> s {filters = a} :: ListServiceInstances) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the service that the service instance belongs to.
+listServiceInstances_serviceName :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
+listServiceInstances_serviceName = Lens.lens (\ListServiceInstances' {serviceName} -> serviceName) (\s@ListServiceInstances' {} a -> s {serviceName = a} :: ListServiceInstances)
 
 -- | The field that the result list is sorted by.
 --
@@ -153,13 +155,11 @@ listServiceInstances_filters = Lens.lens (\ListServiceInstances' {filters} -> fi
 listServiceInstances_sortBy :: Lens.Lens' ListServiceInstances (Prelude.Maybe ListServiceInstancesSortBy)
 listServiceInstances_sortBy = Lens.lens (\ListServiceInstances' {sortBy} -> sortBy) (\s@ListServiceInstances' {} a -> s {sortBy = a} :: ListServiceInstances)
 
--- | The maximum number of service instances to list.
-listServiceInstances_maxResults :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Natural)
-listServiceInstances_maxResults = Lens.lens (\ListServiceInstances' {maxResults} -> maxResults) (\s@ListServiceInstances' {} a -> s {maxResults = a} :: ListServiceInstances)
-
--- | The name of the service that the service instance belongs to.
-listServiceInstances_serviceName :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
-listServiceInstances_serviceName = Lens.lens (\ListServiceInstances' {serviceName} -> serviceName) (\s@ListServiceInstances' {} a -> s {serviceName = a} :: ListServiceInstances)
+-- | Result list sort order.
+--
+-- Default: @ASCENDING@
+listServiceInstances_sortOrder :: Lens.Lens' ListServiceInstances (Prelude.Maybe SortOrder)
+listServiceInstances_sortOrder = Lens.lens (\ListServiceInstances' {sortOrder} -> sortOrder) (\s@ListServiceInstances' {} a -> s {sortOrder = a} :: ListServiceInstances)
 
 instance Core.AWSPager ListServiceInstances where
   page rq rs
@@ -201,21 +201,21 @@ instance Core.AWSRequest ListServiceInstances where
 
 instance Prelude.Hashable ListServiceInstances where
   hashWithSalt _salt ListServiceInstances' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListServiceInstances where
   rnf ListServiceInstances' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListServiceInstances where
   toHeaders =
@@ -236,12 +236,12 @@ instance Data.ToJSON ListServiceInstances where
   toJSON ListServiceInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
+          [ ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("serviceName" Data..=) Prelude.<$> serviceName
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

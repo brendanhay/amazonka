@@ -29,8 +29,8 @@ module Amazonka.Proton.ListServiceTemplates
     newListServiceTemplates,
 
     -- * Request Lenses
-    listServiceTemplates_nextToken,
     listServiceTemplates_maxResults,
+    listServiceTemplates_nextToken,
 
     -- * Destructuring the Response
     ListServiceTemplatesResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServiceTemplates' smart constructor.
 data ListServiceTemplates = ListServiceTemplates'
-  { -- | A token that indicates the location of the next service template in the
+  { -- | The maximum number of service templates to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates the location of the next service template in the
     -- array of service templates, after the list of service templates
     -- previously requested.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of service templates to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListServiceTemplates = ListServiceTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listServiceTemplates_maxResults' - The maximum number of service templates to list.
+--
 -- 'nextToken', 'listServiceTemplates_nextToken' - A token that indicates the location of the next service template in the
 -- array of service templates, after the list of service templates
 -- previously requested.
---
--- 'maxResults', 'listServiceTemplates_maxResults' - The maximum number of service templates to list.
 newListServiceTemplates ::
   ListServiceTemplates
 newListServiceTemplates =
   ListServiceTemplates'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of service templates to list.
+listServiceTemplates_maxResults :: Lens.Lens' ListServiceTemplates (Prelude.Maybe Prelude.Natural)
+listServiceTemplates_maxResults = Lens.lens (\ListServiceTemplates' {maxResults} -> maxResults) (\s@ListServiceTemplates' {} a -> s {maxResults = a} :: ListServiceTemplates)
 
 -- | A token that indicates the location of the next service template in the
 -- array of service templates, after the list of service templates
 -- previously requested.
 listServiceTemplates_nextToken :: Lens.Lens' ListServiceTemplates (Prelude.Maybe Prelude.Text)
 listServiceTemplates_nextToken = Lens.lens (\ListServiceTemplates' {nextToken} -> nextToken) (\s@ListServiceTemplates' {} a -> s {nextToken = a} :: ListServiceTemplates)
-
--- | The maximum number of service templates to list.
-listServiceTemplates_maxResults :: Lens.Lens' ListServiceTemplates (Prelude.Maybe Prelude.Natural)
-listServiceTemplates_maxResults = Lens.lens (\ListServiceTemplates' {maxResults} -> maxResults) (\s@ListServiceTemplates' {} a -> s {maxResults = a} :: ListServiceTemplates)
 
 instance Core.AWSPager ListServiceTemplates where
   page rq rs
@@ -129,13 +129,13 @@ instance Core.AWSRequest ListServiceTemplates where
 
 instance Prelude.Hashable ListServiceTemplates where
   hashWithSalt _salt ListServiceTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServiceTemplates where
   rnf ListServiceTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServiceTemplates where
   toHeaders =
@@ -156,8 +156,8 @@ instance Data.ToJSON ListServiceTemplates where
   toJSON ListServiceTemplates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

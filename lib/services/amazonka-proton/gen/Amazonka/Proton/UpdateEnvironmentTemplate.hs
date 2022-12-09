@@ -27,8 +27,8 @@ module Amazonka.Proton.UpdateEnvironmentTemplate
     newUpdateEnvironmentTemplate,
 
     -- * Request Lenses
-    updateEnvironmentTemplate_displayName,
     updateEnvironmentTemplate_description,
+    updateEnvironmentTemplate_displayName,
     updateEnvironmentTemplate_name,
 
     -- * Destructuring the Response
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironmentTemplate' smart constructor.
 data UpdateEnvironmentTemplate = UpdateEnvironmentTemplate'
-  { -- | The name of the environment template to update as displayed in the
+  { -- | A description of the environment template update.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the environment template to update as displayed in the
     -- developer interface.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A description of the environment template update.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the environment template to update.
     name :: Prelude.Text
   }
@@ -69,10 +69,10 @@ data UpdateEnvironmentTemplate = UpdateEnvironmentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateEnvironmentTemplate_description' - A description of the environment template update.
+--
 -- 'displayName', 'updateEnvironmentTemplate_displayName' - The name of the environment template to update as displayed in the
 -- developer interface.
---
--- 'description', 'updateEnvironmentTemplate_description' - A description of the environment template update.
 --
 -- 'name', 'updateEnvironmentTemplate_name' - The name of the environment template to update.
 newUpdateEnvironmentTemplate ::
@@ -81,20 +81,20 @@ newUpdateEnvironmentTemplate ::
   UpdateEnvironmentTemplate
 newUpdateEnvironmentTemplate pName_ =
   UpdateEnvironmentTemplate'
-    { displayName =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       name = pName_
     }
+
+-- | A description of the environment template update.
+updateEnvironmentTemplate_description :: Lens.Lens' UpdateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
+updateEnvironmentTemplate_description = Lens.lens (\UpdateEnvironmentTemplate' {description} -> description) (\s@UpdateEnvironmentTemplate' {} a -> s {description = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the environment template to update as displayed in the
 -- developer interface.
 updateEnvironmentTemplate_displayName :: Lens.Lens' UpdateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
 updateEnvironmentTemplate_displayName = Lens.lens (\UpdateEnvironmentTemplate' {displayName} -> displayName) (\s@UpdateEnvironmentTemplate' {} a -> s {displayName = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
-
--- | A description of the environment template update.
-updateEnvironmentTemplate_description :: Lens.Lens' UpdateEnvironmentTemplate (Prelude.Maybe Prelude.Text)
-updateEnvironmentTemplate_description = Lens.lens (\UpdateEnvironmentTemplate' {description} -> description) (\s@UpdateEnvironmentTemplate' {} a -> s {description = a} :: UpdateEnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the environment template to update.
 updateEnvironmentTemplate_name :: Lens.Lens' UpdateEnvironmentTemplate Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest UpdateEnvironmentTemplate where
 
 instance Prelude.Hashable UpdateEnvironmentTemplate where
   hashWithSalt _salt UpdateEnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateEnvironmentTemplate where
   rnf UpdateEnvironmentTemplate' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateEnvironmentTemplate where
@@ -145,8 +145,8 @@ instance Data.ToJSON UpdateEnvironmentTemplate where
   toJSON UpdateEnvironmentTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("displayName" Data..=) Prelude.<$> displayName,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("displayName" Data..=) Prelude.<$> displayName,
             Prelude.Just ("name" Data..= name)
           ]
       )

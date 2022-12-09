@@ -29,18 +29,18 @@ import Amazonka.Proton.Types.Provisioning
 --
 -- /See:/ 'newEnvironmentTemplate' smart constructor.
 data EnvironmentTemplate = EnvironmentTemplate'
-  { -- | The ID of the recommended version of the environment template.
-    recommendedVersion :: Prelude.Maybe Prelude.Text,
-    -- | When included, indicates that the environment template is for customer
-    -- provisioned and managed infrastructure.
-    provisioning :: Prelude.Maybe Provisioning,
+  { -- | A description of the environment template.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the environment template as displayed in the developer
     -- interface.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A description of the environment template.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The customer provided encryption key for the environment template.
     encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | When included, indicates that the environment template is for customer
+    -- provisioned and managed infrastructure.
+    provisioning :: Prelude.Maybe Provisioning,
+    -- | The ID of the recommended version of the environment template.
+    recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment template.
     arn :: Prelude.Text,
     -- | The time when the environment template was created.
@@ -60,17 +60,17 @@ data EnvironmentTemplate = EnvironmentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'environmentTemplate_recommendedVersion' - The ID of the recommended version of the environment template.
---
--- 'provisioning', 'environmentTemplate_provisioning' - When included, indicates that the environment template is for customer
--- provisioned and managed infrastructure.
+-- 'description', 'environmentTemplate_description' - A description of the environment template.
 --
 -- 'displayName', 'environmentTemplate_displayName' - The name of the environment template as displayed in the developer
 -- interface.
 --
--- 'description', 'environmentTemplate_description' - A description of the environment template.
---
 -- 'encryptionKey', 'environmentTemplate_encryptionKey' - The customer provided encryption key for the environment template.
+--
+-- 'provisioning', 'environmentTemplate_provisioning' - When included, indicates that the environment template is for customer
+-- provisioned and managed infrastructure.
+--
+-- 'recommendedVersion', 'environmentTemplate_recommendedVersion' - The ID of the recommended version of the environment template.
 --
 -- 'arn', 'environmentTemplate_arn' - The Amazon Resource Name (ARN) of the environment template.
 --
@@ -95,39 +95,38 @@ newEnvironmentTemplate
   pLastModifiedAt_
   pName_ =
     EnvironmentTemplate'
-      { recommendedVersion =
-          Prelude.Nothing,
-        provisioning = Prelude.Nothing,
+      { description = Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
+        provisioning = Prelude.Nothing,
+        recommendedVersion = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
--- | The ID of the recommended version of the environment template.
-environmentTemplate_recommendedVersion :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
-environmentTemplate_recommendedVersion = Lens.lens (\EnvironmentTemplate' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplate' {} a -> s {recommendedVersion = a} :: EnvironmentTemplate)
-
--- | When included, indicates that the environment template is for customer
--- provisioned and managed infrastructure.
-environmentTemplate_provisioning :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Provisioning)
-environmentTemplate_provisioning = Lens.lens (\EnvironmentTemplate' {provisioning} -> provisioning) (\s@EnvironmentTemplate' {} a -> s {provisioning = a} :: EnvironmentTemplate)
+-- | A description of the environment template.
+environmentTemplate_description :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
+environmentTemplate_description = Lens.lens (\EnvironmentTemplate' {description} -> description) (\s@EnvironmentTemplate' {} a -> s {description = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the environment template as displayed in the developer
 -- interface.
 environmentTemplate_displayName :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
 environmentTemplate_displayName = Lens.lens (\EnvironmentTemplate' {displayName} -> displayName) (\s@EnvironmentTemplate' {} a -> s {displayName = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
 
--- | A description of the environment template.
-environmentTemplate_description :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
-environmentTemplate_description = Lens.lens (\EnvironmentTemplate' {description} -> description) (\s@EnvironmentTemplate' {} a -> s {description = a} :: EnvironmentTemplate) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The customer provided encryption key for the environment template.
 environmentTemplate_encryptionKey :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
 environmentTemplate_encryptionKey = Lens.lens (\EnvironmentTemplate' {encryptionKey} -> encryptionKey) (\s@EnvironmentTemplate' {} a -> s {encryptionKey = a} :: EnvironmentTemplate)
+
+-- | When included, indicates that the environment template is for customer
+-- provisioned and managed infrastructure.
+environmentTemplate_provisioning :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Provisioning)
+environmentTemplate_provisioning = Lens.lens (\EnvironmentTemplate' {provisioning} -> provisioning) (\s@EnvironmentTemplate' {} a -> s {provisioning = a} :: EnvironmentTemplate)
+
+-- | The ID of the recommended version of the environment template.
+environmentTemplate_recommendedVersion :: Lens.Lens' EnvironmentTemplate (Prelude.Maybe Prelude.Text)
+environmentTemplate_recommendedVersion = Lens.lens (\EnvironmentTemplate' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplate' {} a -> s {recommendedVersion = a} :: EnvironmentTemplate)
 
 -- | The Amazon Resource Name (ARN) of the environment template.
 environmentTemplate_arn :: Lens.Lens' EnvironmentTemplate Prelude.Text
@@ -151,11 +150,11 @@ instance Data.FromJSON EnvironmentTemplate where
       "EnvironmentTemplate"
       ( \x ->
           EnvironmentTemplate'
-            Prelude.<$> (x Data..:? "recommendedVersion")
-            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "displayName")
-            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<*> (x Data..:? "recommendedVersion")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "lastModifiedAt")
@@ -164,11 +163,11 @@ instance Data.FromJSON EnvironmentTemplate where
 
 instance Prelude.Hashable EnvironmentTemplate where
   hashWithSalt _salt EnvironmentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
-      `Prelude.hashWithSalt` provisioning
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` provisioning
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -176,11 +175,11 @@ instance Prelude.Hashable EnvironmentTemplate where
 
 instance Prelude.NFData EnvironmentTemplate where
   rnf EnvironmentTemplate' {..} =
-    Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf provisioning
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf recommendedVersion
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

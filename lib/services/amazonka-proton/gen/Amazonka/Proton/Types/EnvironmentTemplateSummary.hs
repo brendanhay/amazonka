@@ -29,16 +29,16 @@ import Amazonka.Proton.Types.Provisioning
 --
 -- /See:/ 'newEnvironmentTemplateSummary' smart constructor.
 data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
-  { -- | The recommended version of the environment template.
-    recommendedVersion :: Prelude.Maybe Prelude.Text,
-    -- | When included, indicates that the environment template is for customer
-    -- provisioned and managed infrastructure.
-    provisioning :: Prelude.Maybe Provisioning,
+  { -- | A description of the environment template.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the environment template as displayed in the developer
     -- interface.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A description of the environment template.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | When included, indicates that the environment template is for customer
+    -- provisioned and managed infrastructure.
+    provisioning :: Prelude.Maybe Provisioning,
+    -- | The recommended version of the environment template.
+    recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the environment template.
     arn :: Prelude.Text,
     -- | The time when the environment template was created.
@@ -58,15 +58,15 @@ data EnvironmentTemplateSummary = EnvironmentTemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The recommended version of the environment template.
---
--- 'provisioning', 'environmentTemplateSummary_provisioning' - When included, indicates that the environment template is for customer
--- provisioned and managed infrastructure.
+-- 'description', 'environmentTemplateSummary_description' - A description of the environment template.
 --
 -- 'displayName', 'environmentTemplateSummary_displayName' - The name of the environment template as displayed in the developer
 -- interface.
 --
--- 'description', 'environmentTemplateSummary_description' - A description of the environment template.
+-- 'provisioning', 'environmentTemplateSummary_provisioning' - When included, indicates that the environment template is for customer
+-- provisioned and managed infrastructure.
+--
+-- 'recommendedVersion', 'environmentTemplateSummary_recommendedVersion' - The recommended version of the environment template.
 --
 -- 'arn', 'environmentTemplateSummary_arn' - The Amazon Resource Name (ARN) of the environment template.
 --
@@ -91,11 +91,11 @@ newEnvironmentTemplateSummary
   pLastModifiedAt_
   pName_ =
     EnvironmentTemplateSummary'
-      { recommendedVersion =
+      { description =
           Prelude.Nothing,
-        provisioning = Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
+        provisioning = Prelude.Nothing,
+        recommendedVersion = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         lastModifiedAt =
@@ -103,23 +103,23 @@ newEnvironmentTemplateSummary
         name = pName_
       }
 
--- | The recommended version of the environment template.
-environmentTemplateSummary_recommendedVersion :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateSummary_recommendedVersion = Lens.lens (\EnvironmentTemplateSummary' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplateSummary' {} a -> s {recommendedVersion = a} :: EnvironmentTemplateSummary)
-
--- | When included, indicates that the environment template is for customer
--- provisioned and managed infrastructure.
-environmentTemplateSummary_provisioning :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Provisioning)
-environmentTemplateSummary_provisioning = Lens.lens (\EnvironmentTemplateSummary' {provisioning} -> provisioning) (\s@EnvironmentTemplateSummary' {} a -> s {provisioning = a} :: EnvironmentTemplateSummary)
+-- | A description of the environment template.
+environmentTemplateSummary_description :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
+environmentTemplateSummary_description = Lens.lens (\EnvironmentTemplateSummary' {description} -> description) (\s@EnvironmentTemplateSummary' {} a -> s {description = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the environment template as displayed in the developer
 -- interface.
 environmentTemplateSummary_displayName :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
 environmentTemplateSummary_displayName = Lens.lens (\EnvironmentTemplateSummary' {displayName} -> displayName) (\s@EnvironmentTemplateSummary' {} a -> s {displayName = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Data._Sensitive
 
--- | A description of the environment template.
-environmentTemplateSummary_description :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
-environmentTemplateSummary_description = Lens.lens (\EnvironmentTemplateSummary' {description} -> description) (\s@EnvironmentTemplateSummary' {} a -> s {description = a} :: EnvironmentTemplateSummary) Prelude.. Lens.mapping Data._Sensitive
+-- | When included, indicates that the environment template is for customer
+-- provisioned and managed infrastructure.
+environmentTemplateSummary_provisioning :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Provisioning)
+environmentTemplateSummary_provisioning = Lens.lens (\EnvironmentTemplateSummary' {provisioning} -> provisioning) (\s@EnvironmentTemplateSummary' {} a -> s {provisioning = a} :: EnvironmentTemplateSummary)
+
+-- | The recommended version of the environment template.
+environmentTemplateSummary_recommendedVersion :: Lens.Lens' EnvironmentTemplateSummary (Prelude.Maybe Prelude.Text)
+environmentTemplateSummary_recommendedVersion = Lens.lens (\EnvironmentTemplateSummary' {recommendedVersion} -> recommendedVersion) (\s@EnvironmentTemplateSummary' {} a -> s {recommendedVersion = a} :: EnvironmentTemplateSummary)
 
 -- | The Amazon Resource Name (ARN) of the environment template.
 environmentTemplateSummary_arn :: Lens.Lens' EnvironmentTemplateSummary Prelude.Text
@@ -143,10 +143,10 @@ instance Data.FromJSON EnvironmentTemplateSummary where
       "EnvironmentTemplateSummary"
       ( \x ->
           EnvironmentTemplateSummary'
-            Prelude.<$> (x Data..:? "recommendedVersion")
-            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "displayName")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "provisioning")
+            Prelude.<*> (x Data..:? "recommendedVersion")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "lastModifiedAt")
@@ -155,10 +155,10 @@ instance Data.FromJSON EnvironmentTemplateSummary where
 
 instance Prelude.Hashable EnvironmentTemplateSummary where
   hashWithSalt _salt EnvironmentTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
-      `Prelude.hashWithSalt` provisioning
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` provisioning
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -166,10 +166,10 @@ instance Prelude.Hashable EnvironmentTemplateSummary where
 
 instance Prelude.NFData EnvironmentTemplateSummary where
   rnf EnvironmentTemplateSummary' {..} =
-    Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf provisioning
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf provisioning
+      `Prelude.seq` Prelude.rnf recommendedVersion
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

@@ -36,9 +36,9 @@ module Amazonka.Proton.GetTemplateSyncStatus
     newGetTemplateSyncStatusResponse,
 
     -- * Response Lenses
-    getTemplateSyncStatusResponse_latestSync,
     getTemplateSyncStatusResponse_desiredState,
     getTemplateSyncStatusResponse_latestSuccessfulSync,
+    getTemplateSyncStatusResponse_latestSync,
     getTemplateSyncStatusResponse_httpStatus,
   )
 where
@@ -116,9 +116,9 @@ instance Core.AWSRequest GetTemplateSyncStatus where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateSyncStatusResponse'
-            Prelude.<$> (x Data..?> "latestSync")
-            Prelude.<*> (x Data..?> "desiredState")
+            Prelude.<$> (x Data..?> "desiredState")
             Prelude.<*> (x Data..?> "latestSuccessfulSync")
+            Prelude.<*> (x Data..?> "latestSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,12 +168,12 @@ instance Data.ToQuery GetTemplateSyncStatus where
 
 -- | /See:/ 'newGetTemplateSyncStatusResponse' smart constructor.
 data GetTemplateSyncStatusResponse = GetTemplateSyncStatusResponse'
-  { -- | The details of the last sync that\'s returned by Proton.
-    latestSync :: Prelude.Maybe ResourceSyncAttempt,
-    -- | The template sync desired state that\'s returned by Proton.
+  { -- | The template sync desired state that\'s returned by Proton.
     desiredState :: Prelude.Maybe Revision,
     -- | The details of the last successful sync that\'s returned by Proton.
     latestSuccessfulSync :: Prelude.Maybe ResourceSyncAttempt,
+    -- | The details of the last sync that\'s returned by Proton.
+    latestSync :: Prelude.Maybe ResourceSyncAttempt,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,11 +187,11 @@ data GetTemplateSyncStatusResponse = GetTemplateSyncStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestSync', 'getTemplateSyncStatusResponse_latestSync' - The details of the last sync that\'s returned by Proton.
---
 -- 'desiredState', 'getTemplateSyncStatusResponse_desiredState' - The template sync desired state that\'s returned by Proton.
 --
 -- 'latestSuccessfulSync', 'getTemplateSyncStatusResponse_latestSuccessfulSync' - The details of the last successful sync that\'s returned by Proton.
+--
+-- 'latestSync', 'getTemplateSyncStatusResponse_latestSync' - The details of the last sync that\'s returned by Proton.
 --
 -- 'httpStatus', 'getTemplateSyncStatusResponse_httpStatus' - The response's http status code.
 newGetTemplateSyncStatusResponse ::
@@ -200,16 +200,12 @@ newGetTemplateSyncStatusResponse ::
   GetTemplateSyncStatusResponse
 newGetTemplateSyncStatusResponse pHttpStatus_ =
   GetTemplateSyncStatusResponse'
-    { latestSync =
+    { desiredState =
         Prelude.Nothing,
-      desiredState = Prelude.Nothing,
       latestSuccessfulSync = Prelude.Nothing,
+      latestSync = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details of the last sync that\'s returned by Proton.
-getTemplateSyncStatusResponse_latestSync :: Lens.Lens' GetTemplateSyncStatusResponse (Prelude.Maybe ResourceSyncAttempt)
-getTemplateSyncStatusResponse_latestSync = Lens.lens (\GetTemplateSyncStatusResponse' {latestSync} -> latestSync) (\s@GetTemplateSyncStatusResponse' {} a -> s {latestSync = a} :: GetTemplateSyncStatusResponse)
 
 -- | The template sync desired state that\'s returned by Proton.
 getTemplateSyncStatusResponse_desiredState :: Lens.Lens' GetTemplateSyncStatusResponse (Prelude.Maybe Revision)
@@ -219,13 +215,17 @@ getTemplateSyncStatusResponse_desiredState = Lens.lens (\GetTemplateSyncStatusRe
 getTemplateSyncStatusResponse_latestSuccessfulSync :: Lens.Lens' GetTemplateSyncStatusResponse (Prelude.Maybe ResourceSyncAttempt)
 getTemplateSyncStatusResponse_latestSuccessfulSync = Lens.lens (\GetTemplateSyncStatusResponse' {latestSuccessfulSync} -> latestSuccessfulSync) (\s@GetTemplateSyncStatusResponse' {} a -> s {latestSuccessfulSync = a} :: GetTemplateSyncStatusResponse)
 
+-- | The details of the last sync that\'s returned by Proton.
+getTemplateSyncStatusResponse_latestSync :: Lens.Lens' GetTemplateSyncStatusResponse (Prelude.Maybe ResourceSyncAttempt)
+getTemplateSyncStatusResponse_latestSync = Lens.lens (\GetTemplateSyncStatusResponse' {latestSync} -> latestSync) (\s@GetTemplateSyncStatusResponse' {} a -> s {latestSync = a} :: GetTemplateSyncStatusResponse)
+
 -- | The response's http status code.
 getTemplateSyncStatusResponse_httpStatus :: Lens.Lens' GetTemplateSyncStatusResponse Prelude.Int
 getTemplateSyncStatusResponse_httpStatus = Lens.lens (\GetTemplateSyncStatusResponse' {httpStatus} -> httpStatus) (\s@GetTemplateSyncStatusResponse' {} a -> s {httpStatus = a} :: GetTemplateSyncStatusResponse)
 
 instance Prelude.NFData GetTemplateSyncStatusResponse where
   rnf GetTemplateSyncStatusResponse' {..} =
-    Prelude.rnf latestSync
-      `Prelude.seq` Prelude.rnf desiredState
+    Prelude.rnf desiredState
       `Prelude.seq` Prelude.rnf latestSuccessfulSync
+      `Prelude.seq` Prelude.rnf latestSync
       `Prelude.seq` Prelude.rnf httpStatus

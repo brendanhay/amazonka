@@ -31,12 +31,12 @@ module Amazonka.Proton.CreateService
     newCreateService,
 
     -- * Request Lenses
-    createService_tags,
-    createService_repositoryConnectionArn,
     createService_branchName,
     createService_description,
-    createService_templateMinorVersion,
+    createService_repositoryConnectionArn,
     createService_repositoryId,
+    createService_tags,
+    createService_templateMinorVersion,
     createService_name,
     createService_spec,
     createService_templateMajorVersion,
@@ -62,31 +62,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateService' smart constructor.
 data CreateService = CreateService'
-  { -- | An optional list of metadata items that you can associate with the
-    -- Proton service. A tag is a key-value pair.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
-    -- in the /Proton User Guide/.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The name of the code repository branch that holds the code that\'s
+    -- deployed in Proton. /Don\'t/ include this parameter if your service
+    -- template /doesn\'t/ include a service pipeline.
+    branchName :: Prelude.Maybe Prelude.Text,
+    -- | A description of the Proton service.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the repository connection. For more
     -- information, see
     -- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
     -- in the /Proton User Guide/. /Don\'t/ include this parameter if your
     -- service template /doesn\'t/ include a service pipeline.
     repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the code repository branch that holds the code that\'s
-    -- deployed in Proton. /Don\'t/ include this parameter if your service
-    -- template /doesn\'t/ include a service pipeline.
-    branchName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the Proton service.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The minor version of the service template that was used to create the
-    -- service.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The ID of the code repository. /Don\'t/ include this parameter if your
     -- service template /doesn\'t/ include a service pipeline.
     repositoryId :: Prelude.Maybe Prelude.Text,
+    -- | An optional list of metadata items that you can associate with the
+    -- Proton service. A tag is a key-value pair.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
+    tags :: Prelude.Maybe [Tag],
+    -- | The minor version of the service template that was used to create the
+    -- service.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The service name.
     name :: Prelude.Text,
     -- | A link to a spec file that provides inputs as defined in the service
@@ -112,12 +112,11 @@ data CreateService = CreateService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createService_tags' - An optional list of metadata items that you can associate with the
--- Proton service. A tag is a key-value pair.
+-- 'branchName', 'createService_branchName' - The name of the code repository branch that holds the code that\'s
+-- deployed in Proton. /Don\'t/ include this parameter if your service
+-- template /doesn\'t/ include a service pipeline.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
+-- 'description', 'createService_description' - A description of the Proton service.
 --
 -- 'repositoryConnectionArn', 'createService_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
@@ -125,17 +124,18 @@ data CreateService = CreateService'
 -- in the /Proton User Guide/. /Don\'t/ include this parameter if your
 -- service template /doesn\'t/ include a service pipeline.
 --
--- 'branchName', 'createService_branchName' - The name of the code repository branch that holds the code that\'s
--- deployed in Proton. /Don\'t/ include this parameter if your service
--- template /doesn\'t/ include a service pipeline.
+-- 'repositoryId', 'createService_repositoryId' - The ID of the code repository. /Don\'t/ include this parameter if your
+-- service template /doesn\'t/ include a service pipeline.
 --
--- 'description', 'createService_description' - A description of the Proton service.
+-- 'tags', 'createService_tags' - An optional list of metadata items that you can associate with the
+-- Proton service. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'templateMinorVersion', 'createService_templateMinorVersion' - The minor version of the service template that was used to create the
 -- service.
---
--- 'repositoryId', 'createService_repositoryId' - The ID of the code repository. /Don\'t/ include this parameter if your
--- service template /doesn\'t/ include a service pipeline.
 --
 -- 'name', 'createService_name' - The service name.
 --
@@ -166,34 +166,17 @@ newCreateService
   pTemplateMajorVersion_
   pTemplateName_ =
     CreateService'
-      { tags = Prelude.Nothing,
-        repositoryConnectionArn = Prelude.Nothing,
-        branchName = Prelude.Nothing,
+      { branchName = Prelude.Nothing,
         description = Prelude.Nothing,
-        templateMinorVersion = Prelude.Nothing,
+        repositoryConnectionArn = Prelude.Nothing,
         repositoryId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        templateMinorVersion = Prelude.Nothing,
         name = pName_,
         spec = Data._Sensitive Lens.# pSpec_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateName = pTemplateName_
       }
-
--- | An optional list of metadata items that you can associate with the
--- Proton service. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
-createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
-createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the repository connection. For more
--- information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
--- in the /Proton User Guide/. /Don\'t/ include this parameter if your
--- service template /doesn\'t/ include a service pipeline.
-createService_repositoryConnectionArn :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_repositoryConnectionArn = Lens.lens (\CreateService' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@CreateService' {} a -> s {repositoryConnectionArn = a} :: CreateService)
 
 -- | The name of the code repository branch that holds the code that\'s
 -- deployed in Proton. /Don\'t/ include this parameter if your service
@@ -205,15 +188,32 @@ createService_branchName = Lens.lens (\CreateService' {branchName} -> branchName
 createService_description :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_description = Lens.lens (\CreateService' {description} -> description) (\s@CreateService' {} a -> s {description = a} :: CreateService) Prelude.. Lens.mapping Data._Sensitive
 
--- | The minor version of the service template that was used to create the
--- service.
-createService_templateMinorVersion :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_templateMinorVersion = Lens.lens (\CreateService' {templateMinorVersion} -> templateMinorVersion) (\s@CreateService' {} a -> s {templateMinorVersion = a} :: CreateService)
+-- | The Amazon Resource Name (ARN) of the repository connection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
+-- in the /Proton User Guide/. /Don\'t/ include this parameter if your
+-- service template /doesn\'t/ include a service pipeline.
+createService_repositoryConnectionArn :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_repositoryConnectionArn = Lens.lens (\CreateService' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@CreateService' {} a -> s {repositoryConnectionArn = a} :: CreateService)
 
 -- | The ID of the code repository. /Don\'t/ include this parameter if your
 -- service template /doesn\'t/ include a service pipeline.
 createService_repositoryId :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_repositoryId = Lens.lens (\CreateService' {repositoryId} -> repositoryId) (\s@CreateService' {} a -> s {repositoryId = a} :: CreateService)
+
+-- | An optional list of metadata items that you can associate with the
+-- Proton service. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
+createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The minor version of the service template that was used to create the
+-- service.
+createService_templateMinorVersion :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_templateMinorVersion = Lens.lens (\CreateService' {templateMinorVersion} -> templateMinorVersion) (\s@CreateService' {} a -> s {templateMinorVersion = a} :: CreateService)
 
 -- | The service name.
 createService_name :: Lens.Lens' CreateService Prelude.Text
@@ -253,12 +253,12 @@ instance Core.AWSRequest CreateService where
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` repositoryConnectionArn
-      `Prelude.hashWithSalt` branchName
+    _salt `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` templateMinorVersion
+      `Prelude.hashWithSalt` repositoryConnectionArn
       `Prelude.hashWithSalt` repositoryId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` templateMajorVersion
@@ -266,12 +266,12 @@ instance Prelude.Hashable CreateService where
 
 instance Prelude.NFData CreateService where
   rnf CreateService' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryConnectionArn
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateMinorVersion
+      `Prelude.seq` Prelude.rnf repositoryConnectionArn
       `Prelude.seq` Prelude.rnf repositoryId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf templateMajorVersion
@@ -296,14 +296,14 @@ instance Data.ToJSON CreateService where
   toJSON CreateService' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("branchName" Data..=) Prelude.<$> branchName,
+            ("description" Data..=) Prelude.<$> description,
             ("repositoryConnectionArn" Data..=)
               Prelude.<$> repositoryConnectionArn,
-            ("branchName" Data..=) Prelude.<$> branchName,
-            ("description" Data..=) Prelude.<$> description,
+            ("repositoryId" Data..=) Prelude.<$> repositoryId,
+            ("tags" Data..=) Prelude.<$> tags,
             ("templateMinorVersion" Data..=)
               Prelude.<$> templateMinorVersion,
-            ("repositoryId" Data..=) Prelude.<$> repositoryId,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("spec" Data..= spec),
             Prelude.Just

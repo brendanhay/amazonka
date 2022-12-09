@@ -31,15 +31,7 @@ import Amazonka.Proton.Types.TemplateVersionStatus
 --
 -- /See:/ 'newServiceTemplateVersion' smart constructor.
 data ServiceTemplateVersion = ServiceTemplateVersion'
-  { -- | An array of supported component sources. Components with supported
-    -- sources can be attached to service instances based on this service
-    -- template version.
-    --
-    -- For more information about components, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
-    -- in the /Proton User Guide/.
-    supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
-    -- | A description of the version of a service template.
+  { -- | A description of the version of a service template.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The recommended minor version of the service template.
     recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
@@ -47,6 +39,14 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
     schema :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A service template version status message.
     statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | An array of supported component sources. Components with supported
+    -- sources can be attached to service instances based on this service
+    -- template version.
+    --
+    -- For more information about components, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+    -- in the /Proton User Guide/.
+    supportedComponentSources :: Prelude.Maybe [ServiceTemplateSupportedComponentSourceType],
     -- | The Amazon Resource Name (ARN) of the version of a service template.
     arn :: Prelude.Text,
     -- | An array of compatible environment template names for the major version
@@ -76,14 +76,6 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedComponentSources', 'serviceTemplateVersion_supportedComponentSources' - An array of supported component sources. Components with supported
--- sources can be attached to service instances based on this service
--- template version.
---
--- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
--- in the /Proton User Guide/.
---
 -- 'description', 'serviceTemplateVersion_description' - A description of the version of a service template.
 --
 -- 'recommendedMinorVersion', 'serviceTemplateVersion_recommendedMinorVersion' - The recommended minor version of the service template.
@@ -91,6 +83,14 @@ data ServiceTemplateVersion = ServiceTemplateVersion'
 -- 'schema', 'serviceTemplateVersion_schema' - The schema of the version of a service template.
 --
 -- 'statusMessage', 'serviceTemplateVersion_statusMessage' - A service template version status message.
+--
+-- 'supportedComponentSources', 'serviceTemplateVersion_supportedComponentSources' - An array of supported component sources. Components with supported
+-- sources can be attached to service instances based on this service
+-- template version.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
 --
 -- 'arn', 'serviceTemplateVersion_arn' - The Amazon Resource Name (ARN) of the version of a service template.
 --
@@ -134,12 +134,12 @@ newServiceTemplateVersion
   pStatus_
   pTemplateName_ =
     ServiceTemplateVersion'
-      { supportedComponentSources =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         recommendedMinorVersion = Prelude.Nothing,
         schema = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
+        supportedComponentSources = Prelude.Nothing,
         arn = pArn_,
         compatibleEnvironmentTemplates = Prelude.mempty,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -149,16 +149,6 @@ newServiceTemplateVersion
         status = pStatus_,
         templateName = pTemplateName_
       }
-
--- | An array of supported component sources. Components with supported
--- sources can be attached to service instances based on this service
--- template version.
---
--- For more information about components, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
--- in the /Proton User Guide/.
-serviceTemplateVersion_supportedComponentSources :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
-serviceTemplateVersion_supportedComponentSources = Lens.lens (\ServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@ServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the version of a service template.
 serviceTemplateVersion_description :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
@@ -175,6 +165,16 @@ serviceTemplateVersion_schema = Lens.lens (\ServiceTemplateVersion' {schema} -> 
 -- | A service template version status message.
 serviceTemplateVersion_statusMessage :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe Prelude.Text)
 serviceTemplateVersion_statusMessage = Lens.lens (\ServiceTemplateVersion' {statusMessage} -> statusMessage) (\s@ServiceTemplateVersion' {} a -> s {statusMessage = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
+
+-- | An array of supported component sources. Components with supported
+-- sources can be attached to service instances based on this service
+-- template version.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
+-- in the /Proton User Guide/.
+serviceTemplateVersion_supportedComponentSources :: Lens.Lens' ServiceTemplateVersion (Prelude.Maybe [ServiceTemplateSupportedComponentSourceType])
+serviceTemplateVersion_supportedComponentSources = Lens.lens (\ServiceTemplateVersion' {supportedComponentSources} -> supportedComponentSources) (\s@ServiceTemplateVersion' {} a -> s {supportedComponentSources = a} :: ServiceTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the version of a service template.
 serviceTemplateVersion_arn :: Lens.Lens' ServiceTemplateVersion Prelude.Text
@@ -216,13 +216,13 @@ instance Data.FromJSON ServiceTemplateVersion where
       "ServiceTemplateVersion"
       ( \x ->
           ServiceTemplateVersion'
-            Prelude.<$> ( x Data..:? "supportedComponentSources"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "recommendedMinorVersion")
             Prelude.<*> (x Data..:? "schema")
             Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> ( x Data..:? "supportedComponentSources"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> ( x Data..:? "compatibleEnvironmentTemplates"
                             Data..!= Prelude.mempty
@@ -237,12 +237,11 @@ instance Data.FromJSON ServiceTemplateVersion where
 
 instance Prelude.Hashable ServiceTemplateVersion where
   hashWithSalt _salt ServiceTemplateVersion' {..} =
-    _salt
-      `Prelude.hashWithSalt` supportedComponentSources
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` recommendedMinorVersion
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` supportedComponentSources
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` compatibleEnvironmentTemplates
       `Prelude.hashWithSalt` createdAt
@@ -254,11 +253,11 @@ instance Prelude.Hashable ServiceTemplateVersion where
 
 instance Prelude.NFData ServiceTemplateVersion where
   rnf ServiceTemplateVersion' {..} =
-    Prelude.rnf supportedComponentSources
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf recommendedMinorVersion
       `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf supportedComponentSources
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf compatibleEnvironmentTemplates
       `Prelude.seq` Prelude.rnf createdAt

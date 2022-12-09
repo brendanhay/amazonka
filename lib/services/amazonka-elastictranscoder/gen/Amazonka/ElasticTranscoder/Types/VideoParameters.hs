@@ -29,57 +29,62 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVideoParameters' smart constructor.
 data VideoParameters = VideoParameters'
-  { -- | Specify one of the following values to control scaling of the output
-    -- video:
+  { -- | To better control resolution and aspect ratio of output videos, we
+    -- recommend that you use the values @MaxWidth@, @MaxHeight@,
+    -- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
+    -- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
+    -- exclusive. Do not use them together.
     --
-    -- -   @Fit@: Elastic Transcoder scales the output video so it matches the
-    --     value that you specified in either @MaxWidth@ or @MaxHeight@ without
-    --     exceeding the other value.
+    -- The display aspect ratio of the video in the output file. Valid values
+    -- include:
     --
-    -- -   @Fill@: Elastic Transcoder scales the output video so it matches the
-    --     value that you specified in either @MaxWidth@ or @MaxHeight@ and
-    --     matches or exceeds the other value. Elastic Transcoder centers the
-    --     output video and then crops it in the dimension (if any) that
-    --     exceeds the maximum value.
+    -- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
     --
-    -- -   @Stretch@: Elastic Transcoder stretches the output video to match
-    --     the values that you specified for @MaxWidth@ and @MaxHeight@. If the
-    --     relative proportions of the input video and the output video are
-    --     different, the output video will be distorted.
+    -- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
+    -- ratio of the input file.
     --
-    -- -   @Keep@: Elastic Transcoder does not scale the output video. If
-    --     either dimension of the input video exceeds the values that you
-    --     specified for @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops
-    --     the output video.
+    -- If you specify an aspect ratio for the output file that differs from
+    -- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
+    -- (black bars on the sides) or letterboxing (black bars on the top and
+    -- bottom) to maintain the aspect ratio of the active region of the video.
+    aspectRatio :: Prelude.Maybe Prelude.Text,
+    -- | The bit rate of the video stream in the output file, in
+    -- kilobits\/second. Valid values depend on the values of @Level@ and
+    -- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
+    -- bit rate of the input source. If you specify a value other than @auto@,
+    -- we recommend that you specify a value less than or equal to the maximum
+    -- H.264-compliant value listed for your level and profile:
     --
-    -- -   @ShrinkToFit@: Elastic Transcoder scales the output video down so
-    --     that its dimensions match the values that you specified for at least
-    --     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
-    --     you specify this option, Elastic Transcoder does not scale the video
-    --     up.
+    -- /Level - Maximum video bit rate in kilobits\/second (baseline and main
+    -- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
     --
-    -- -   @ShrinkToFill@: Elastic Transcoder scales the output video down so
-    --     that its dimensions match the values that you specified for at least
-    --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
-    --     value. If you specify this option, Elastic Transcoder does not scale
-    --     the video up.
-    sizingPolicy :: Prelude.Maybe Prelude.Text,
-    -- | Settings for the size, location, and opacity of graphics that you want
-    -- Elastic Transcoder to overlay over videos that are transcoded using this
-    -- preset. You can specify settings for up to four watermarks. Watermarks
-    -- appear in the specified size and location, and with the specified
-    -- opacity for the duration of the transcoded video.
+    -- -   1 - 64 : 80
     --
-    -- Watermarks can be in .png or .jpg format. If you want to display a
-    -- watermark that is not rectangular, use the .png format, which supports
-    -- transparency.
+    -- -   1b - 128 : 160
     --
-    -- When you create a job that uses this preset, you specify the .png or
-    -- .jpg graphics that you want Elastic Transcoder to include in the
-    -- transcoded videos. You can specify fewer graphics in the job than you
-    -- specify watermark settings in the preset, which allows you to use the
-    -- same preset for up to four watermarks that have different dimensions.
-    watermarks :: Prelude.Maybe [PresetWatermark],
+    -- -   1.1 - 192 : 240
+    --
+    -- -   1.2 - 384 : 480
+    --
+    -- -   1.3 - 768 : 960
+    --
+    -- -   2 - 2000 : 2500
+    --
+    -- -   3 - 10000 : 12500
+    --
+    -- -   3.1 - 14000 : 17500
+    --
+    -- -   3.2 - 20000 : 25000
+    --
+    -- -   4 - 20000 : 25000
+    --
+    -- -   4.1 - 50000 : 62500
+    bitRate :: Prelude.Maybe Prelude.Text,
+    -- | The video codec for the output file. Valid values include @gif@,
+    -- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
+    -- when the container type is @webm@, @gif@ when the container type is
+    -- @gif@, and @mpeg2@ when the container type is @mpg@.
+    codec :: Prelude.Maybe Prelude.Text,
     -- | __Profile (H.264\/VP8\/VP9 Only)__
     --
     -- The H.264 profile that you want to use for the output file. Elastic
@@ -230,11 +235,72 @@ data VideoParameters = VideoParameters'
     -- The number of times you want the output gif to loop. Valid values
     -- include @Infinite@ and integers between @0@ and @100@, inclusive.
     codecOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
-    -- bars to the top and bottom and\/or left and right sides of the output
-    -- video to make the total size of the output video match the values that
-    -- you specified for @MaxWidth@ and @MaxHeight@.
-    paddingPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The value that Elastic Transcoder adds to the metadata in the output
+    -- file.
+    displayAspectRatio :: Prelude.Maybe Prelude.Text,
+    -- | Applicable only when the value of Video:Codec is one of @H.264@,
+    -- @MPEG2@, or @VP8@.
+    --
+    -- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
+    -- @false@:
+    --
+    -- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
+    --     the distance between key frames (the number of frames in a group of
+    --     pictures, or GOP).
+    --
+    -- -   @false@: The distance between key frames can vary.
+    --
+    -- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
+    fixedGOP :: Prelude.Maybe Prelude.Text,
+    -- | The frames per second for the video stream in the output file. Valid
+    -- values include:
+    --
+    -- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+    --
+    -- If you specify @auto@, Elastic Transcoder uses the detected frame rate
+    -- of the input source. If you specify a frame rate, we recommend that you
+    -- perform the following calculation:
+    --
+    -- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+    --
+    -- where:
+    --
+    -- -   /width in pixels/ and /height in pixels/ represent the Resolution of
+    --     the output video.
+    --
+    -- -   /maximum recommended decoding speed in Luma samples\/second/ is less
+    --     than or equal to the maximum value listed in the following table,
+    --     based on the value that you specified for Level.
+    --
+    -- The maximum recommended decoding speed in Luma samples\/second for each
+    -- level is described in the following list (/Level - Decoding speed/):
+    --
+    -- -   1 - 380160
+    --
+    -- -   1b - 380160
+    --
+    -- -   1.1 - 76800
+    --
+    -- -   1.2 - 1536000
+    --
+    -- -   1.3 - 3041280
+    --
+    -- -   2 - 3041280
+    --
+    -- -   2.1 - 5068800
+    --
+    -- -   2.2 - 5184000
+    --
+    -- -   3 - 10368000
+    --
+    -- -   3.1 - 27648000
+    --
+    -- -   3.2 - 55296000
+    --
+    -- -   4 - 62914560
+    --
+    -- -   4.1 - 62914560
+    frameRate :: Prelude.Maybe Prelude.Text,
     -- | Applicable only when the value of Video:Codec is one of @H.264@,
     -- @MPEG2@, or @VP8@.
     --
@@ -257,76 +323,26 @@ data VideoParameters = VideoParameters'
     -- Alternately, this can be achieved by setting @FrameRate@ to auto and
     -- having the same values for @MaxFrameRate@ and @KeyframesMaxDist@.
     keyframesMaxDist :: Prelude.Maybe Prelude.Text,
-    -- | The bit rate of the video stream in the output file, in
-    -- kilobits\/second. Valid values depend on the values of @Level@ and
-    -- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
-    -- bit rate of the input source. If you specify a value other than @auto@,
-    -- we recommend that you specify a value less than or equal to the maximum
-    -- H.264-compliant value listed for your level and profile:
-    --
-    -- /Level - Maximum video bit rate in kilobits\/second (baseline and main
-    -- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
-    --
-    -- -   1 - 64 : 80
-    --
-    -- -   1b - 128 : 160
-    --
-    -- -   1.1 - 192 : 240
-    --
-    -- -   1.2 - 384 : 480
-    --
-    -- -   1.3 - 768 : 960
-    --
-    -- -   2 - 2000 : 2500
-    --
-    -- -   3 - 10000 : 12500
-    --
-    -- -   3.1 - 14000 : 17500
-    --
-    -- -   3.2 - 20000 : 25000
-    --
-    -- -   4 - 20000 : 25000
-    --
-    -- -   4.1 - 50000 : 62500
-    bitRate :: Prelude.Maybe Prelude.Text,
-    -- | To better control resolution and aspect ratio of output videos, we
-    -- recommend that you use the values @MaxWidth@, @MaxHeight@,
-    -- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
-    -- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
-    -- exclusive. Do not use them together.
-    --
-    -- The display aspect ratio of the video in the output file. Valid values
-    -- include:
-    --
-    -- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
-    --
-    -- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
-    -- ratio of the input file.
-    --
-    -- If you specify an aspect ratio for the output file that differs from
-    -- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
-    -- (black bars on the sides) or letterboxing (black bars on the top and
-    -- bottom) to maintain the aspect ratio of the active region of the video.
-    aspectRatio :: Prelude.Maybe Prelude.Text,
-    -- | The video codec for the output file. Valid values include @gif@,
-    -- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
-    -- when the container type is @webm@, @gif@ when the container type is
-    -- @gif@, and @mpeg2@ when the container type is @mpg@.
-    codec :: Prelude.Maybe Prelude.Text,
-    -- | Applicable only when the value of Video:Codec is one of @H.264@,
-    -- @MPEG2@, or @VP8@.
-    --
-    -- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
-    -- @false@:
-    --
-    -- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
-    --     the distance between key frames (the number of frames in a group of
-    --     pictures, or GOP).
-    --
-    -- -   @false@: The distance between key frames can vary.
-    --
-    -- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
-    fixedGOP :: Prelude.Maybe Prelude.Text,
+    -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+    -- rate of the input video for the frame rate of the output video. Specify
+    -- the maximum frame rate that you want Elastic Transcoder to use when the
+    -- frame rate of the input video is greater than the desired maximum frame
+    -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+    -- @24@, @25@, @29.97@, @30@, @60@.
+    maxFrameRate :: Prelude.Maybe Prelude.Text,
+    -- | The maximum height of the output video in pixels. If you specify @auto@,
+    -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
+    -- specify a numeric value, enter an even integer between 96 and 3072.
+    maxHeight :: Prelude.Maybe Prelude.Text,
+    -- | The maximum width of the output video in pixels. If you specify @auto@,
+    -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
+    -- specify a numeric value, enter an even integer between 128 and 4096.
+    maxWidth :: Prelude.Maybe Prelude.Text,
+    -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
+    -- bars to the top and bottom and\/or left and right sides of the output
+    -- video to make the total size of the output video match the values that
+    -- you specified for @MaxWidth@ and @MaxHeight@.
+    paddingPolicy :: Prelude.Maybe Prelude.Text,
     -- | To better control resolution and aspect ratio of output videos, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
@@ -386,73 +402,57 @@ data VideoParameters = VideoParameters'
     --
     --     -   4.1 - 2097152
     resolution :: Prelude.Maybe Prelude.Text,
-    -- | The maximum height of the output video in pixels. If you specify @auto@,
-    -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
-    -- specify a numeric value, enter an even integer between 96 and 3072.
-    maxHeight :: Prelude.Maybe Prelude.Text,
-    -- | The value that Elastic Transcoder adds to the metadata in the output
-    -- file.
-    displayAspectRatio :: Prelude.Maybe Prelude.Text,
-    -- | The maximum width of the output video in pixels. If you specify @auto@,
-    -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
-    -- specify a numeric value, enter an even integer between 128 and 4096.
-    maxWidth :: Prelude.Maybe Prelude.Text,
-    -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
-    -- rate of the input video for the frame rate of the output video. Specify
-    -- the maximum frame rate that you want Elastic Transcoder to use when the
-    -- frame rate of the input video is greater than the desired maximum frame
-    -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
-    -- @24@, @25@, @29.97@, @30@, @60@.
-    maxFrameRate :: Prelude.Maybe Prelude.Text,
-    -- | The frames per second for the video stream in the output file. Valid
-    -- values include:
+    -- | Specify one of the following values to control scaling of the output
+    -- video:
     --
-    -- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+    -- -   @Fit@: Elastic Transcoder scales the output video so it matches the
+    --     value that you specified in either @MaxWidth@ or @MaxHeight@ without
+    --     exceeding the other value.
     --
-    -- If you specify @auto@, Elastic Transcoder uses the detected frame rate
-    -- of the input source. If you specify a frame rate, we recommend that you
-    -- perform the following calculation:
+    -- -   @Fill@: Elastic Transcoder scales the output video so it matches the
+    --     value that you specified in either @MaxWidth@ or @MaxHeight@ and
+    --     matches or exceeds the other value. Elastic Transcoder centers the
+    --     output video and then crops it in the dimension (if any) that
+    --     exceeds the maximum value.
     --
-    -- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+    -- -   @Stretch@: Elastic Transcoder stretches the output video to match
+    --     the values that you specified for @MaxWidth@ and @MaxHeight@. If the
+    --     relative proportions of the input video and the output video are
+    --     different, the output video will be distorted.
     --
-    -- where:
-    --
-    -- -   /width in pixels/ and /height in pixels/ represent the Resolution of
+    -- -   @Keep@: Elastic Transcoder does not scale the output video. If
+    --     either dimension of the input video exceeds the values that you
+    --     specified for @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops
     --     the output video.
     --
-    -- -   /maximum recommended decoding speed in Luma samples\/second/ is less
-    --     than or equal to the maximum value listed in the following table,
-    --     based on the value that you specified for Level.
+    -- -   @ShrinkToFit@: Elastic Transcoder scales the output video down so
+    --     that its dimensions match the values that you specified for at least
+    --     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
+    --     you specify this option, Elastic Transcoder does not scale the video
+    --     up.
     --
-    -- The maximum recommended decoding speed in Luma samples\/second for each
-    -- level is described in the following list (/Level - Decoding speed/):
+    -- -   @ShrinkToFill@: Elastic Transcoder scales the output video down so
+    --     that its dimensions match the values that you specified for at least
+    --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
+    --     value. If you specify this option, Elastic Transcoder does not scale
+    --     the video up.
+    sizingPolicy :: Prelude.Maybe Prelude.Text,
+    -- | Settings for the size, location, and opacity of graphics that you want
+    -- Elastic Transcoder to overlay over videos that are transcoded using this
+    -- preset. You can specify settings for up to four watermarks. Watermarks
+    -- appear in the specified size and location, and with the specified
+    -- opacity for the duration of the transcoded video.
     --
-    -- -   1 - 380160
+    -- Watermarks can be in .png or .jpg format. If you want to display a
+    -- watermark that is not rectangular, use the .png format, which supports
+    -- transparency.
     --
-    -- -   1b - 380160
-    --
-    -- -   1.1 - 76800
-    --
-    -- -   1.2 - 1536000
-    --
-    -- -   1.3 - 3041280
-    --
-    -- -   2 - 3041280
-    --
-    -- -   2.1 - 5068800
-    --
-    -- -   2.2 - 5184000
-    --
-    -- -   3 - 10368000
-    --
-    -- -   3.1 - 27648000
-    --
-    -- -   3.2 - 55296000
-    --
-    -- -   4 - 62914560
-    --
-    -- -   4.1 - 62914560
-    frameRate :: Prelude.Maybe Prelude.Text
+    -- When you create a job that uses this preset, you specify the .png or
+    -- .jpg graphics that you want Elastic Transcoder to include in the
+    -- transcoded videos. You can specify fewer graphics in the job than you
+    -- specify watermark settings in the preset, which allows you to use the
+    -- same preset for up to four watermarks that have different dimensions.
+    watermarks :: Prelude.Maybe [PresetWatermark]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -464,56 +464,61 @@ data VideoParameters = VideoParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizingPolicy', 'videoParameters_sizingPolicy' - Specify one of the following values to control scaling of the output
--- video:
+-- 'aspectRatio', 'videoParameters_aspectRatio' - To better control resolution and aspect ratio of output videos, we
+-- recommend that you use the values @MaxWidth@, @MaxHeight@,
+-- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
+-- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
+-- exclusive. Do not use them together.
 --
--- -   @Fit@: Elastic Transcoder scales the output video so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ without
---     exceeding the other value.
+-- The display aspect ratio of the video in the output file. Valid values
+-- include:
 --
--- -   @Fill@: Elastic Transcoder scales the output video so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ and
---     matches or exceeds the other value. Elastic Transcoder centers the
---     output video and then crops it in the dimension (if any) that
---     exceeds the maximum value.
+-- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
 --
--- -   @Stretch@: Elastic Transcoder stretches the output video to match
---     the values that you specified for @MaxWidth@ and @MaxHeight@. If the
---     relative proportions of the input video and the output video are
---     different, the output video will be distorted.
+-- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
+-- ratio of the input file.
 --
--- -   @Keep@: Elastic Transcoder does not scale the output video. If
---     either dimension of the input video exceeds the values that you
---     specified for @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops
---     the output video.
+-- If you specify an aspect ratio for the output file that differs from
+-- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
+-- (black bars on the sides) or letterboxing (black bars on the top and
+-- bottom) to maintain the aspect ratio of the active region of the video.
 --
--- -   @ShrinkToFit@: Elastic Transcoder scales the output video down so
---     that its dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
---     you specify this option, Elastic Transcoder does not scale the video
---     up.
+-- 'bitRate', 'videoParameters_bitRate' - The bit rate of the video stream in the output file, in
+-- kilobits\/second. Valid values depend on the values of @Level@ and
+-- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
+-- bit rate of the input source. If you specify a value other than @auto@,
+-- we recommend that you specify a value less than or equal to the maximum
+-- H.264-compliant value listed for your level and profile:
 --
--- -   @ShrinkToFill@: Elastic Transcoder scales the output video down so
---     that its dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without dropping below either
---     value. If you specify this option, Elastic Transcoder does not scale
---     the video up.
+-- /Level - Maximum video bit rate in kilobits\/second (baseline and main
+-- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
 --
--- 'watermarks', 'videoParameters_watermarks' - Settings for the size, location, and opacity of graphics that you want
--- Elastic Transcoder to overlay over videos that are transcoded using this
--- preset. You can specify settings for up to four watermarks. Watermarks
--- appear in the specified size and location, and with the specified
--- opacity for the duration of the transcoded video.
+-- -   1 - 64 : 80
 --
--- Watermarks can be in .png or .jpg format. If you want to display a
--- watermark that is not rectangular, use the .png format, which supports
--- transparency.
+-- -   1b - 128 : 160
 --
--- When you create a job that uses this preset, you specify the .png or
--- .jpg graphics that you want Elastic Transcoder to include in the
--- transcoded videos. You can specify fewer graphics in the job than you
--- specify watermark settings in the preset, which allows you to use the
--- same preset for up to four watermarks that have different dimensions.
+-- -   1.1 - 192 : 240
+--
+-- -   1.2 - 384 : 480
+--
+-- -   1.3 - 768 : 960
+--
+-- -   2 - 2000 : 2500
+--
+-- -   3 - 10000 : 12500
+--
+-- -   3.1 - 14000 : 17500
+--
+-- -   3.2 - 20000 : 25000
+--
+-- -   4 - 20000 : 25000
+--
+-- -   4.1 - 50000 : 62500
+--
+-- 'codec', 'videoParameters_codec' - The video codec for the output file. Valid values include @gif@,
+-- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
+-- when the container type is @webm@, @gif@ when the container type is
+-- @gif@, and @mpeg2@ when the container type is @mpg@.
 --
 -- 'codecOptions', 'videoParameters_codecOptions' - __Profile (H.264\/VP8\/VP9 Only)__
 --
@@ -665,10 +670,71 @@ data VideoParameters = VideoParameters'
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
 --
--- 'paddingPolicy', 'videoParameters_paddingPolicy' - When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
--- bars to the top and bottom and\/or left and right sides of the output
--- video to make the total size of the output video match the values that
--- you specified for @MaxWidth@ and @MaxHeight@.
+-- 'displayAspectRatio', 'videoParameters_displayAspectRatio' - The value that Elastic Transcoder adds to the metadata in the output
+-- file.
+--
+-- 'fixedGOP', 'videoParameters_fixedGOP' - Applicable only when the value of Video:Codec is one of @H.264@,
+-- @MPEG2@, or @VP8@.
+--
+-- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
+-- @false@:
+--
+-- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
+--     the distance between key frames (the number of frames in a group of
+--     pictures, or GOP).
+--
+-- -   @false@: The distance between key frames can vary.
+--
+-- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
+--
+-- 'frameRate', 'videoParameters_frameRate' - The frames per second for the video stream in the output file. Valid
+-- values include:
+--
+-- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+--
+-- If you specify @auto@, Elastic Transcoder uses the detected frame rate
+-- of the input source. If you specify a frame rate, we recommend that you
+-- perform the following calculation:
+--
+-- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+--
+-- where:
+--
+-- -   /width in pixels/ and /height in pixels/ represent the Resolution of
+--     the output video.
+--
+-- -   /maximum recommended decoding speed in Luma samples\/second/ is less
+--     than or equal to the maximum value listed in the following table,
+--     based on the value that you specified for Level.
+--
+-- The maximum recommended decoding speed in Luma samples\/second for each
+-- level is described in the following list (/Level - Decoding speed/):
+--
+-- -   1 - 380160
+--
+-- -   1b - 380160
+--
+-- -   1.1 - 76800
+--
+-- -   1.2 - 1536000
+--
+-- -   1.3 - 3041280
+--
+-- -   2 - 3041280
+--
+-- -   2.1 - 5068800
+--
+-- -   2.2 - 5184000
+--
+-- -   3 - 10368000
+--
+-- -   3.1 - 27648000
+--
+-- -   3.2 - 55296000
+--
+-- -   4 - 62914560
+--
+-- -   4.1 - 62914560
 --
 -- 'keyframesMaxDist', 'videoParameters_keyframesMaxDist' - Applicable only when the value of Video:Codec is one of @H.264@,
 -- @MPEG2@, or @VP8@.
@@ -692,75 +758,25 @@ data VideoParameters = VideoParameters'
 -- Alternately, this can be achieved by setting @FrameRate@ to auto and
 -- having the same values for @MaxFrameRate@ and @KeyframesMaxDist@.
 --
--- 'bitRate', 'videoParameters_bitRate' - The bit rate of the video stream in the output file, in
--- kilobits\/second. Valid values depend on the values of @Level@ and
--- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
--- bit rate of the input source. If you specify a value other than @auto@,
--- we recommend that you specify a value less than or equal to the maximum
--- H.264-compliant value listed for your level and profile:
+-- 'maxFrameRate', 'videoParameters_maxFrameRate' - If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+-- rate of the input video for the frame rate of the output video. Specify
+-- the maximum frame rate that you want Elastic Transcoder to use when the
+-- frame rate of the input video is greater than the desired maximum frame
+-- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+-- @24@, @25@, @29.97@, @30@, @60@.
 --
--- /Level - Maximum video bit rate in kilobits\/second (baseline and main
--- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
+-- 'maxHeight', 'videoParameters_maxHeight' - The maximum height of the output video in pixels. If you specify @auto@,
+-- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
+-- specify a numeric value, enter an even integer between 96 and 3072.
 --
--- -   1 - 64 : 80
+-- 'maxWidth', 'videoParameters_maxWidth' - The maximum width of the output video in pixels. If you specify @auto@,
+-- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
+-- specify a numeric value, enter an even integer between 128 and 4096.
 --
--- -   1b - 128 : 160
---
--- -   1.1 - 192 : 240
---
--- -   1.2 - 384 : 480
---
--- -   1.3 - 768 : 960
---
--- -   2 - 2000 : 2500
---
--- -   3 - 10000 : 12500
---
--- -   3.1 - 14000 : 17500
---
--- -   3.2 - 20000 : 25000
---
--- -   4 - 20000 : 25000
---
--- -   4.1 - 50000 : 62500
---
--- 'aspectRatio', 'videoParameters_aspectRatio' - To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
--- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
--- exclusive. Do not use them together.
---
--- The display aspect ratio of the video in the output file. Valid values
--- include:
---
--- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
---
--- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
--- ratio of the input file.
---
--- If you specify an aspect ratio for the output file that differs from
--- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
--- (black bars on the sides) or letterboxing (black bars on the top and
--- bottom) to maintain the aspect ratio of the active region of the video.
---
--- 'codec', 'videoParameters_codec' - The video codec for the output file. Valid values include @gif@,
--- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
--- when the container type is @webm@, @gif@ when the container type is
--- @gif@, and @mpeg2@ when the container type is @mpg@.
---
--- 'fixedGOP', 'videoParameters_fixedGOP' - Applicable only when the value of Video:Codec is one of @H.264@,
--- @MPEG2@, or @VP8@.
---
--- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
--- @false@:
---
--- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
---     the distance between key frames (the number of frames in a group of
---     pictures, or GOP).
---
--- -   @false@: The distance between key frames can vary.
---
--- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
+-- 'paddingPolicy', 'videoParameters_paddingPolicy' - When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
+-- bars to the top and bottom and\/or left and right sides of the output
+-- video to make the total size of the output video match the values that
+-- you specified for @MaxWidth@ and @MaxHeight@.
 --
 -- 'resolution', 'videoParameters_resolution' - To better control resolution and aspect ratio of output videos, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -821,94 +837,7 @@ data VideoParameters = VideoParameters'
 --
 --     -   4.1 - 2097152
 --
--- 'maxHeight', 'videoParameters_maxHeight' - The maximum height of the output video in pixels. If you specify @auto@,
--- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 96 and 3072.
---
--- 'displayAspectRatio', 'videoParameters_displayAspectRatio' - The value that Elastic Transcoder adds to the metadata in the output
--- file.
---
--- 'maxWidth', 'videoParameters_maxWidth' - The maximum width of the output video in pixels. If you specify @auto@,
--- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 128 and 4096.
---
--- 'maxFrameRate', 'videoParameters_maxFrameRate' - If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
--- rate of the input video for the frame rate of the output video. Specify
--- the maximum frame rate that you want Elastic Transcoder to use when the
--- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: @10@, @15@, @23.97@,
--- @24@, @25@, @29.97@, @30@, @60@.
---
--- 'frameRate', 'videoParameters_frameRate' - The frames per second for the video stream in the output file. Valid
--- values include:
---
--- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
---
--- If you specify @auto@, Elastic Transcoder uses the detected frame rate
--- of the input source. If you specify a frame rate, we recommend that you
--- perform the following calculation:
---
--- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
---
--- where:
---
--- -   /width in pixels/ and /height in pixels/ represent the Resolution of
---     the output video.
---
--- -   /maximum recommended decoding speed in Luma samples\/second/ is less
---     than or equal to the maximum value listed in the following table,
---     based on the value that you specified for Level.
---
--- The maximum recommended decoding speed in Luma samples\/second for each
--- level is described in the following list (/Level - Decoding speed/):
---
--- -   1 - 380160
---
--- -   1b - 380160
---
--- -   1.1 - 76800
---
--- -   1.2 - 1536000
---
--- -   1.3 - 3041280
---
--- -   2 - 3041280
---
--- -   2.1 - 5068800
---
--- -   2.2 - 5184000
---
--- -   3 - 10368000
---
--- -   3.1 - 27648000
---
--- -   3.2 - 55296000
---
--- -   4 - 62914560
---
--- -   4.1 - 62914560
-newVideoParameters ::
-  VideoParameters
-newVideoParameters =
-  VideoParameters'
-    { sizingPolicy = Prelude.Nothing,
-      watermarks = Prelude.Nothing,
-      codecOptions = Prelude.Nothing,
-      paddingPolicy = Prelude.Nothing,
-      keyframesMaxDist = Prelude.Nothing,
-      bitRate = Prelude.Nothing,
-      aspectRatio = Prelude.Nothing,
-      codec = Prelude.Nothing,
-      fixedGOP = Prelude.Nothing,
-      resolution = Prelude.Nothing,
-      maxHeight = Prelude.Nothing,
-      displayAspectRatio = Prelude.Nothing,
-      maxWidth = Prelude.Nothing,
-      maxFrameRate = Prelude.Nothing,
-      frameRate = Prelude.Nothing
-    }
-
--- | Specify one of the following values to control scaling of the output
+-- 'sizingPolicy', 'videoParameters_sizingPolicy' - Specify one of the following values to control scaling of the output
 -- video:
 --
 -- -   @Fit@: Elastic Transcoder scales the output video so it matches the
@@ -942,10 +871,8 @@ newVideoParameters =
 --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     the video up.
-videoParameters_sizingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_sizingPolicy = Lens.lens (\VideoParameters' {sizingPolicy} -> sizingPolicy) (\s@VideoParameters' {} a -> s {sizingPolicy = a} :: VideoParameters)
-
--- | Settings for the size, location, and opacity of graphics that you want
+--
+-- 'watermarks', 'videoParameters_watermarks' - Settings for the size, location, and opacity of graphics that you want
 -- Elastic Transcoder to overlay over videos that are transcoded using this
 -- preset. You can specify settings for up to four watermarks. Watermarks
 -- appear in the specified size and location, and with the specified
@@ -960,8 +887,88 @@ videoParameters_sizingPolicy = Lens.lens (\VideoParameters' {sizingPolicy} -> si
 -- transcoded videos. You can specify fewer graphics in the job than you
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
-videoParameters_watermarks :: Lens.Lens' VideoParameters (Prelude.Maybe [PresetWatermark])
-videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Lens.coerced
+newVideoParameters ::
+  VideoParameters
+newVideoParameters =
+  VideoParameters'
+    { aspectRatio = Prelude.Nothing,
+      bitRate = Prelude.Nothing,
+      codec = Prelude.Nothing,
+      codecOptions = Prelude.Nothing,
+      displayAspectRatio = Prelude.Nothing,
+      fixedGOP = Prelude.Nothing,
+      frameRate = Prelude.Nothing,
+      keyframesMaxDist = Prelude.Nothing,
+      maxFrameRate = Prelude.Nothing,
+      maxHeight = Prelude.Nothing,
+      maxWidth = Prelude.Nothing,
+      paddingPolicy = Prelude.Nothing,
+      resolution = Prelude.Nothing,
+      sizingPolicy = Prelude.Nothing,
+      watermarks = Prelude.Nothing
+    }
+
+-- | To better control resolution and aspect ratio of output videos, we
+-- recommend that you use the values @MaxWidth@, @MaxHeight@,
+-- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
+-- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
+-- exclusive. Do not use them together.
+--
+-- The display aspect ratio of the video in the output file. Valid values
+-- include:
+--
+-- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
+--
+-- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
+-- ratio of the input file.
+--
+-- If you specify an aspect ratio for the output file that differs from
+-- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
+-- (black bars on the sides) or letterboxing (black bars on the top and
+-- bottom) to maintain the aspect ratio of the active region of the video.
+videoParameters_aspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_aspectRatio = Lens.lens (\VideoParameters' {aspectRatio} -> aspectRatio) (\s@VideoParameters' {} a -> s {aspectRatio = a} :: VideoParameters)
+
+-- | The bit rate of the video stream in the output file, in
+-- kilobits\/second. Valid values depend on the values of @Level@ and
+-- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
+-- bit rate of the input source. If you specify a value other than @auto@,
+-- we recommend that you specify a value less than or equal to the maximum
+-- H.264-compliant value listed for your level and profile:
+--
+-- /Level - Maximum video bit rate in kilobits\/second (baseline and main
+-- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
+--
+-- -   1 - 64 : 80
+--
+-- -   1b - 128 : 160
+--
+-- -   1.1 - 192 : 240
+--
+-- -   1.2 - 384 : 480
+--
+-- -   1.3 - 768 : 960
+--
+-- -   2 - 2000 : 2500
+--
+-- -   3 - 10000 : 12500
+--
+-- -   3.1 - 14000 : 17500
+--
+-- -   3.2 - 20000 : 25000
+--
+-- -   4 - 20000 : 25000
+--
+-- -   4.1 - 50000 : 62500
+videoParameters_bitRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_bitRate = Lens.lens (\VideoParameters' {bitRate} -> bitRate) (\s@VideoParameters' {} a -> s {bitRate = a} :: VideoParameters)
+
+-- | The video codec for the output file. Valid values include @gif@,
+-- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
+-- when the container type is @webm@, @gif@ when the container type is
+-- @gif@, and @mpeg2@ when the container type is @mpg@.
+videoParameters_codec :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@VideoParameters' {} a -> s {codec = a} :: VideoParameters)
 
 -- | __Profile (H.264\/VP8\/VP9 Only)__
 --
@@ -1115,12 +1122,77 @@ videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> waterm
 videoParameters_codecOptions :: Lens.Lens' VideoParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> codecOptions) (\s@VideoParameters' {} a -> s {codecOptions = a} :: VideoParameters) Prelude.. Lens.mapping Lens.coerced
 
--- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
--- bars to the top and bottom and\/or left and right sides of the output
--- video to make the total size of the output video match the values that
--- you specified for @MaxWidth@ and @MaxHeight@.
-videoParameters_paddingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> paddingPolicy) (\s@VideoParameters' {} a -> s {paddingPolicy = a} :: VideoParameters)
+-- | The value that Elastic Transcoder adds to the metadata in the output
+-- file.
+videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspectRatio} -> displayAspectRatio) (\s@VideoParameters' {} a -> s {displayAspectRatio = a} :: VideoParameters)
+
+-- | Applicable only when the value of Video:Codec is one of @H.264@,
+-- @MPEG2@, or @VP8@.
+--
+-- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
+-- @false@:
+--
+-- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
+--     the distance between key frames (the number of frames in a group of
+--     pictures, or GOP).
+--
+-- -   @false@: The distance between key frames can vary.
+--
+-- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
+videoParameters_fixedGOP :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) (\s@VideoParameters' {} a -> s {fixedGOP = a} :: VideoParameters)
+
+-- | The frames per second for the video stream in the output file. Valid
+-- values include:
+--
+-- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+--
+-- If you specify @auto@, Elastic Transcoder uses the detected frame rate
+-- of the input source. If you specify a frame rate, we recommend that you
+-- perform the following calculation:
+--
+-- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+--
+-- where:
+--
+-- -   /width in pixels/ and /height in pixels/ represent the Resolution of
+--     the output video.
+--
+-- -   /maximum recommended decoding speed in Luma samples\/second/ is less
+--     than or equal to the maximum value listed in the following table,
+--     based on the value that you specified for Level.
+--
+-- The maximum recommended decoding speed in Luma samples\/second for each
+-- level is described in the following list (/Level - Decoding speed/):
+--
+-- -   1 - 380160
+--
+-- -   1b - 380160
+--
+-- -   1.1 - 76800
+--
+-- -   1.2 - 1536000
+--
+-- -   1.3 - 3041280
+--
+-- -   2 - 3041280
+--
+-- -   2.1 - 5068800
+--
+-- -   2.2 - 5184000
+--
+-- -   3 - 10368000
+--
+-- -   3.1 - 27648000
+--
+-- -   3.2 - 55296000
+--
+-- -   4 - 62914560
+--
+-- -   4.1 - 62914560
+videoParameters_frameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_frameRate = Lens.lens (\VideoParameters' {frameRate} -> frameRate) (\s@VideoParameters' {} a -> s {frameRate = a} :: VideoParameters)
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@,
 -- @MPEG2@, or @VP8@.
@@ -1146,83 +1218,33 @@ videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> 
 videoParameters_keyframesMaxDist :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
 videoParameters_keyframesMaxDist = Lens.lens (\VideoParameters' {keyframesMaxDist} -> keyframesMaxDist) (\s@VideoParameters' {} a -> s {keyframesMaxDist = a} :: VideoParameters)
 
--- | The bit rate of the video stream in the output file, in
--- kilobits\/second. Valid values depend on the values of @Level@ and
--- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
--- bit rate of the input source. If you specify a value other than @auto@,
--- we recommend that you specify a value less than or equal to the maximum
--- H.264-compliant value listed for your level and profile:
---
--- /Level - Maximum video bit rate in kilobits\/second (baseline and main
--- Profile) : maximum video bit rate in kilobits\/second (high Profile)/
---
--- -   1 - 64 : 80
---
--- -   1b - 128 : 160
---
--- -   1.1 - 192 : 240
---
--- -   1.2 - 384 : 480
---
--- -   1.3 - 768 : 960
---
--- -   2 - 2000 : 2500
---
--- -   3 - 10000 : 12500
---
--- -   3.1 - 14000 : 17500
---
--- -   3.2 - 20000 : 25000
---
--- -   4 - 20000 : 25000
---
--- -   4.1 - 50000 : 62500
-videoParameters_bitRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_bitRate = Lens.lens (\VideoParameters' {bitRate} -> bitRate) (\s@VideoParameters' {} a -> s {bitRate = a} :: VideoParameters)
+-- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+-- rate of the input video for the frame rate of the output video. Specify
+-- the maximum frame rate that you want Elastic Transcoder to use when the
+-- frame rate of the input video is greater than the desired maximum frame
+-- rate of the output video. Valid values include: @10@, @15@, @23.97@,
+-- @24@, @25@, @29.97@, @30@, @60@.
+videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> maxFrameRate) (\s@VideoParameters' {} a -> s {maxFrameRate = a} :: VideoParameters)
 
--- | To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
--- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
--- exclusive. Do not use them together.
---
--- The display aspect ratio of the video in the output file. Valid values
--- include:
---
--- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
---
--- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
--- ratio of the input file.
---
--- If you specify an aspect ratio for the output file that differs from
--- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
--- (black bars on the sides) or letterboxing (black bars on the top and
--- bottom) to maintain the aspect ratio of the active region of the video.
-videoParameters_aspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_aspectRatio = Lens.lens (\VideoParameters' {aspectRatio} -> aspectRatio) (\s@VideoParameters' {} a -> s {aspectRatio = a} :: VideoParameters)
+-- | The maximum height of the output video in pixels. If you specify @auto@,
+-- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
+-- specify a numeric value, enter an even integer between 96 and 3072.
+videoParameters_maxHeight :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxHeight = Lens.lens (\VideoParameters' {maxHeight} -> maxHeight) (\s@VideoParameters' {} a -> s {maxHeight = a} :: VideoParameters)
 
--- | The video codec for the output file. Valid values include @gif@,
--- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
--- when the container type is @webm@, @gif@ when the container type is
--- @gif@, and @mpeg2@ when the container type is @mpg@.
-videoParameters_codec :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@VideoParameters' {} a -> s {codec = a} :: VideoParameters)
+-- | The maximum width of the output video in pixels. If you specify @auto@,
+-- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
+-- specify a numeric value, enter an even integer between 128 and 4096.
+videoParameters_maxWidth :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxWidth = Lens.lens (\VideoParameters' {maxWidth} -> maxWidth) (\s@VideoParameters' {} a -> s {maxWidth = a} :: VideoParameters)
 
--- | Applicable only when the value of Video:Codec is one of @H.264@,
--- @MPEG2@, or @VP8@.
---
--- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
--- @false@:
---
--- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
---     the distance between key frames (the number of frames in a group of
---     pictures, or GOP).
---
--- -   @false@: The distance between key frames can vary.
---
--- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
-videoParameters_fixedGOP :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) (\s@VideoParameters' {} a -> s {fixedGOP = a} :: VideoParameters)
+-- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
+-- bars to the top and bottom and\/or left and right sides of the output
+-- video to make the total size of the output video match the values that
+-- you specified for @MaxWidth@ and @MaxHeight@.
+videoParameters_paddingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> paddingPolicy) (\s@VideoParameters' {} a -> s {paddingPolicy = a} :: VideoParameters)
 
 -- | To better control resolution and aspect ratio of output videos, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -1285,82 +1307,60 @@ videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) 
 videoParameters_resolution :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
 videoParameters_resolution = Lens.lens (\VideoParameters' {resolution} -> resolution) (\s@VideoParameters' {} a -> s {resolution = a} :: VideoParameters)
 
--- | The maximum height of the output video in pixels. If you specify @auto@,
--- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 96 and 3072.
-videoParameters_maxHeight :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_maxHeight = Lens.lens (\VideoParameters' {maxHeight} -> maxHeight) (\s@VideoParameters' {} a -> s {maxHeight = a} :: VideoParameters)
-
--- | The value that Elastic Transcoder adds to the metadata in the output
--- file.
-videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspectRatio} -> displayAspectRatio) (\s@VideoParameters' {} a -> s {displayAspectRatio = a} :: VideoParameters)
-
--- | The maximum width of the output video in pixels. If you specify @auto@,
--- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
--- specify a numeric value, enter an even integer between 128 and 4096.
-videoParameters_maxWidth :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_maxWidth = Lens.lens (\VideoParameters' {maxWidth} -> maxWidth) (\s@VideoParameters' {} a -> s {maxWidth = a} :: VideoParameters)
-
--- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
--- rate of the input video for the frame rate of the output video. Specify
--- the maximum frame rate that you want Elastic Transcoder to use when the
--- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: @10@, @15@, @23.97@,
--- @24@, @25@, @29.97@, @30@, @60@.
-videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> maxFrameRate) (\s@VideoParameters' {} a -> s {maxFrameRate = a} :: VideoParameters)
-
--- | The frames per second for the video stream in the output file. Valid
--- values include:
+-- | Specify one of the following values to control scaling of the output
+-- video:
 --
--- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+-- -   @Fit@: Elastic Transcoder scales the output video so it matches the
+--     value that you specified in either @MaxWidth@ or @MaxHeight@ without
+--     exceeding the other value.
 --
--- If you specify @auto@, Elastic Transcoder uses the detected frame rate
--- of the input source. If you specify a frame rate, we recommend that you
--- perform the following calculation:
+-- -   @Fill@: Elastic Transcoder scales the output video so it matches the
+--     value that you specified in either @MaxWidth@ or @MaxHeight@ and
+--     matches or exceeds the other value. Elastic Transcoder centers the
+--     output video and then crops it in the dimension (if any) that
+--     exceeds the maximum value.
 --
--- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+-- -   @Stretch@: Elastic Transcoder stretches the output video to match
+--     the values that you specified for @MaxWidth@ and @MaxHeight@. If the
+--     relative proportions of the input video and the output video are
+--     different, the output video will be distorted.
 --
--- where:
---
--- -   /width in pixels/ and /height in pixels/ represent the Resolution of
+-- -   @Keep@: Elastic Transcoder does not scale the output video. If
+--     either dimension of the input video exceeds the values that you
+--     specified for @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops
 --     the output video.
 --
--- -   /maximum recommended decoding speed in Luma samples\/second/ is less
---     than or equal to the maximum value listed in the following table,
---     based on the value that you specified for Level.
+-- -   @ShrinkToFit@: Elastic Transcoder scales the output video down so
+--     that its dimensions match the values that you specified for at least
+--     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
+--     you specify this option, Elastic Transcoder does not scale the video
+--     up.
 --
--- The maximum recommended decoding speed in Luma samples\/second for each
--- level is described in the following list (/Level - Decoding speed/):
+-- -   @ShrinkToFill@: Elastic Transcoder scales the output video down so
+--     that its dimensions match the values that you specified for at least
+--     one of @MaxWidth@ and @MaxHeight@ without dropping below either
+--     value. If you specify this option, Elastic Transcoder does not scale
+--     the video up.
+videoParameters_sizingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_sizingPolicy = Lens.lens (\VideoParameters' {sizingPolicy} -> sizingPolicy) (\s@VideoParameters' {} a -> s {sizingPolicy = a} :: VideoParameters)
+
+-- | Settings for the size, location, and opacity of graphics that you want
+-- Elastic Transcoder to overlay over videos that are transcoded using this
+-- preset. You can specify settings for up to four watermarks. Watermarks
+-- appear in the specified size and location, and with the specified
+-- opacity for the duration of the transcoded video.
 --
--- -   1 - 380160
+-- Watermarks can be in .png or .jpg format. If you want to display a
+-- watermark that is not rectangular, use the .png format, which supports
+-- transparency.
 --
--- -   1b - 380160
---
--- -   1.1 - 76800
---
--- -   1.2 - 1536000
---
--- -   1.3 - 3041280
---
--- -   2 - 3041280
---
--- -   2.1 - 5068800
---
--- -   2.2 - 5184000
---
--- -   3 - 10368000
---
--- -   3.1 - 27648000
---
--- -   3.2 - 55296000
---
--- -   4 - 62914560
---
--- -   4.1 - 62914560
-videoParameters_frameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
-videoParameters_frameRate = Lens.lens (\VideoParameters' {frameRate} -> frameRate) (\s@VideoParameters' {} a -> s {frameRate = a} :: VideoParameters)
+-- When you create a job that uses this preset, you specify the .png or
+-- .jpg graphics that you want Elastic Transcoder to include in the
+-- transcoded videos. You can specify fewer graphics in the job than you
+-- specify watermark settings in the preset, which allows you to use the
+-- same preset for up to four watermarks that have different dimensions.
+videoParameters_watermarks :: Lens.Lens' VideoParameters (Prelude.Maybe [PresetWatermark])
+videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON VideoParameters where
   parseJSON =
@@ -1368,79 +1368,79 @@ instance Data.FromJSON VideoParameters where
       "VideoParameters"
       ( \x ->
           VideoParameters'
-            Prelude.<$> (x Data..:? "SizingPolicy")
-            Prelude.<*> (x Data..:? "Watermarks" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CodecOptions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "PaddingPolicy")
-            Prelude.<*> (x Data..:? "KeyframesMaxDist")
+            Prelude.<$> (x Data..:? "AspectRatio")
             Prelude.<*> (x Data..:? "BitRate")
-            Prelude.<*> (x Data..:? "AspectRatio")
             Prelude.<*> (x Data..:? "Codec")
-            Prelude.<*> (x Data..:? "FixedGOP")
-            Prelude.<*> (x Data..:? "Resolution")
-            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "CodecOptions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "DisplayAspectRatio")
-            Prelude.<*> (x Data..:? "MaxWidth")
-            Prelude.<*> (x Data..:? "MaxFrameRate")
+            Prelude.<*> (x Data..:? "FixedGOP")
             Prelude.<*> (x Data..:? "FrameRate")
+            Prelude.<*> (x Data..:? "KeyframesMaxDist")
+            Prelude.<*> (x Data..:? "MaxFrameRate")
+            Prelude.<*> (x Data..:? "MaxHeight")
+            Prelude.<*> (x Data..:? "MaxWidth")
+            Prelude.<*> (x Data..:? "PaddingPolicy")
+            Prelude.<*> (x Data..:? "Resolution")
+            Prelude.<*> (x Data..:? "SizingPolicy")
+            Prelude.<*> (x Data..:? "Watermarks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VideoParameters where
   hashWithSalt _salt VideoParameters' {..} =
-    _salt `Prelude.hashWithSalt` sizingPolicy
-      `Prelude.hashWithSalt` watermarks
-      `Prelude.hashWithSalt` codecOptions
-      `Prelude.hashWithSalt` paddingPolicy
-      `Prelude.hashWithSalt` keyframesMaxDist
+    _salt `Prelude.hashWithSalt` aspectRatio
       `Prelude.hashWithSalt` bitRate
-      `Prelude.hashWithSalt` aspectRatio
       `Prelude.hashWithSalt` codec
-      `Prelude.hashWithSalt` fixedGOP
-      `Prelude.hashWithSalt` resolution
-      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` codecOptions
       `Prelude.hashWithSalt` displayAspectRatio
-      `Prelude.hashWithSalt` maxWidth
-      `Prelude.hashWithSalt` maxFrameRate
+      `Prelude.hashWithSalt` fixedGOP
       `Prelude.hashWithSalt` frameRate
+      `Prelude.hashWithSalt` keyframesMaxDist
+      `Prelude.hashWithSalt` maxFrameRate
+      `Prelude.hashWithSalt` maxHeight
+      `Prelude.hashWithSalt` maxWidth
+      `Prelude.hashWithSalt` paddingPolicy
+      `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` sizingPolicy
+      `Prelude.hashWithSalt` watermarks
 
 instance Prelude.NFData VideoParameters where
   rnf VideoParameters' {..} =
-    Prelude.rnf sizingPolicy
-      `Prelude.seq` Prelude.rnf watermarks
-      `Prelude.seq` Prelude.rnf codecOptions
-      `Prelude.seq` Prelude.rnf paddingPolicy
-      `Prelude.seq` Prelude.rnf keyframesMaxDist
+    Prelude.rnf aspectRatio
       `Prelude.seq` Prelude.rnf bitRate
-      `Prelude.seq` Prelude.rnf aspectRatio
       `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf fixedGOP
-      `Prelude.seq` Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf codecOptions
       `Prelude.seq` Prelude.rnf displayAspectRatio
-      `Prelude.seq` Prelude.rnf maxWidth
-      `Prelude.seq` Prelude.rnf maxFrameRate
+      `Prelude.seq` Prelude.rnf fixedGOP
       `Prelude.seq` Prelude.rnf frameRate
+      `Prelude.seq` Prelude.rnf keyframesMaxDist
+      `Prelude.seq` Prelude.rnf maxFrameRate
+      `Prelude.seq` Prelude.rnf maxHeight
+      `Prelude.seq` Prelude.rnf maxWidth
+      `Prelude.seq` Prelude.rnf paddingPolicy
+      `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf sizingPolicy
+      `Prelude.seq` Prelude.rnf watermarks
 
 instance Data.ToJSON VideoParameters where
   toJSON VideoParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
-            ("Watermarks" Data..=) Prelude.<$> watermarks,
-            ("CodecOptions" Data..=) Prelude.<$> codecOptions,
-            ("PaddingPolicy" Data..=) Prelude.<$> paddingPolicy,
-            ("KeyframesMaxDist" Data..=)
-              Prelude.<$> keyframesMaxDist,
+          [ ("AspectRatio" Data..=) Prelude.<$> aspectRatio,
             ("BitRate" Data..=) Prelude.<$> bitRate,
-            ("AspectRatio" Data..=) Prelude.<$> aspectRatio,
             ("Codec" Data..=) Prelude.<$> codec,
-            ("FixedGOP" Data..=) Prelude.<$> fixedGOP,
-            ("Resolution" Data..=) Prelude.<$> resolution,
-            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("CodecOptions" Data..=) Prelude.<$> codecOptions,
             ("DisplayAspectRatio" Data..=)
               Prelude.<$> displayAspectRatio,
-            ("MaxWidth" Data..=) Prelude.<$> maxWidth,
+            ("FixedGOP" Data..=) Prelude.<$> fixedGOP,
+            ("FrameRate" Data..=) Prelude.<$> frameRate,
+            ("KeyframesMaxDist" Data..=)
+              Prelude.<$> keyframesMaxDist,
             ("MaxFrameRate" Data..=) Prelude.<$> maxFrameRate,
-            ("FrameRate" Data..=) Prelude.<$> frameRate
+            ("MaxHeight" Data..=) Prelude.<$> maxHeight,
+            ("MaxWidth" Data..=) Prelude.<$> maxWidth,
+            ("PaddingPolicy" Data..=) Prelude.<$> paddingPolicy,
+            ("Resolution" Data..=) Prelude.<$> resolution,
+            ("SizingPolicy" Data..=) Prelude.<$> sizingPolicy,
+            ("Watermarks" Data..=) Prelude.<$> watermarks
           ]
       )

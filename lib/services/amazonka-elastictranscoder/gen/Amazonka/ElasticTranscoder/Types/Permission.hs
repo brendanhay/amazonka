@@ -28,19 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermission' smart constructor.
 data Permission = Permission'
-  { -- | The type of value that appears in the Grantee object:
-    --
-    -- -   @Canonical@: Either the canonical user ID for an AWS account or an
-    --     origin access identity for an Amazon CloudFront distribution.
-    --
-    --     A canonical user ID is not the same as an AWS account number.
-    --
-    -- -   @Email@: The registered email address of an AWS account.
-    --
-    -- -   @Group@: One of the following predefined Amazon S3 groups:
-    --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
-    granteeType :: Prelude.Maybe Prelude.Text,
-    -- | The permission that you want to give to the AWS user that is listed in
+  { -- | The permission that you want to give to the AWS user that is listed in
     -- Grantee. Valid values include:
     --
     -- -   @READ@: The grantee can read the thumbnails and metadata for
@@ -61,7 +49,19 @@ data Permission = Permission'
     -- canonical user ID for an AWS account, an origin access identity for a
     -- CloudFront distribution, the registered email address of an AWS account,
     -- or a predefined Amazon S3 group.
-    grantee :: Prelude.Maybe Prelude.Text
+    grantee :: Prelude.Maybe Prelude.Text,
+    -- | The type of value that appears in the Grantee object:
+    --
+    -- -   @Canonical@: Either the canonical user ID for an AWS account or an
+    --     origin access identity for an Amazon CloudFront distribution.
+    --
+    --     A canonical user ID is not the same as an AWS account number.
+    --
+    -- -   @Email@: The registered email address of an AWS account.
+    --
+    -- -   @Group@: One of the following predefined Amazon S3 groups:
+    --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
+    granteeType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,18 +72,6 @@ data Permission = Permission'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'granteeType', 'permission_granteeType' - The type of value that appears in the Grantee object:
---
--- -   @Canonical@: Either the canonical user ID for an AWS account or an
---     origin access identity for an Amazon CloudFront distribution.
---
---     A canonical user ID is not the same as an AWS account number.
---
--- -   @Email@: The registered email address of an AWS account.
---
--- -   @Group@: One of the following predefined Amazon S3 groups:
---     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
 --
 -- 'access', 'permission_access' - The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include:
@@ -106,16 +94,8 @@ data Permission = Permission'
 -- canonical user ID for an AWS account, an origin access identity for a
 -- CloudFront distribution, the registered email address of an AWS account,
 -- or a predefined Amazon S3 group.
-newPermission ::
-  Permission
-newPermission =
-  Permission'
-    { granteeType = Prelude.Nothing,
-      access = Prelude.Nothing,
-      grantee = Prelude.Nothing
-    }
-
--- | The type of value that appears in the Grantee object:
+--
+-- 'granteeType', 'permission_granteeType' - The type of value that appears in the Grantee object:
 --
 -- -   @Canonical@: Either the canonical user ID for an AWS account or an
 --     origin access identity for an Amazon CloudFront distribution.
@@ -126,8 +106,14 @@ newPermission =
 --
 -- -   @Group@: One of the following predefined Amazon S3 groups:
 --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
-permission_granteeType :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
-permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (\s@Permission' {} a -> s {granteeType = a} :: Permission)
+newPermission ::
+  Permission
+newPermission =
+  Permission'
+    { access = Prelude.Nothing,
+      grantee = Prelude.Nothing,
+      granteeType = Prelude.Nothing
+    }
 
 -- | The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include:
@@ -155,35 +141,49 @@ permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' 
 permission_grantee :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_grantee = Lens.lens (\Permission' {grantee} -> grantee) (\s@Permission' {} a -> s {grantee = a} :: Permission)
 
+-- | The type of value that appears in the Grantee object:
+--
+-- -   @Canonical@: Either the canonical user ID for an AWS account or an
+--     origin access identity for an Amazon CloudFront distribution.
+--
+--     A canonical user ID is not the same as an AWS account number.
+--
+-- -   @Email@: The registered email address of an AWS account.
+--
+-- -   @Group@: One of the following predefined Amazon S3 groups:
+--     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
+permission_granteeType :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
+permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (\s@Permission' {} a -> s {granteeType = a} :: Permission)
+
 instance Data.FromJSON Permission where
   parseJSON =
     Data.withObject
       "Permission"
       ( \x ->
           Permission'
-            Prelude.<$> (x Data..:? "GranteeType")
-            Prelude.<*> (x Data..:? "Access" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Access" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Grantee")
+            Prelude.<*> (x Data..:? "GranteeType")
       )
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` granteeType
-      `Prelude.hashWithSalt` access
+    _salt `Prelude.hashWithSalt` access
       `Prelude.hashWithSalt` grantee
+      `Prelude.hashWithSalt` granteeType
 
 instance Prelude.NFData Permission where
   rnf Permission' {..} =
-    Prelude.rnf granteeType
-      `Prelude.seq` Prelude.rnf access
+    Prelude.rnf access
       `Prelude.seq` Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf granteeType
 
 instance Data.ToJSON Permission where
   toJSON Permission' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GranteeType" Data..=) Prelude.<$> granteeType,
-            ("Access" Data..=) Prelude.<$> access,
-            ("Grantee" Data..=) Prelude.<$> grantee
+          [ ("Access" Data..=) Prelude.<$> access,
+            ("Grantee" Data..=) Prelude.<$> grantee,
+            ("GranteeType" Data..=) Prelude.<$> granteeType
           ]
       )

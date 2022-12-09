@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTiming' smart constructor.
 data Timing = Timing'
-  { -- | The time the job was submitted to Elastic Transcoder, in epoch
-    -- milliseconds.
-    submitTimeMillis :: Prelude.Maybe Prelude.Integer,
+  { -- | The time the job finished transcoding, in epoch milliseconds.
+    finishTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The time the job began transcoding, in epoch milliseconds.
     startTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The time the job finished transcoding, in epoch milliseconds.
-    finishTimeMillis :: Prelude.Maybe Prelude.Integer
+    -- | The time the job was submitted to Elastic Transcoder, in epoch
+    -- milliseconds.
+    submitTimeMillis :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,33 +46,33 @@ data Timing = Timing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'submitTimeMillis', 'timing_submitTimeMillis' - The time the job was submitted to Elastic Transcoder, in epoch
--- milliseconds.
+-- 'finishTimeMillis', 'timing_finishTimeMillis' - The time the job finished transcoding, in epoch milliseconds.
 --
 -- 'startTimeMillis', 'timing_startTimeMillis' - The time the job began transcoding, in epoch milliseconds.
 --
--- 'finishTimeMillis', 'timing_finishTimeMillis' - The time the job finished transcoding, in epoch milliseconds.
+-- 'submitTimeMillis', 'timing_submitTimeMillis' - The time the job was submitted to Elastic Transcoder, in epoch
+-- milliseconds.
 newTiming ::
   Timing
 newTiming =
   Timing'
-    { submitTimeMillis = Prelude.Nothing,
+    { finishTimeMillis = Prelude.Nothing,
       startTimeMillis = Prelude.Nothing,
-      finishTimeMillis = Prelude.Nothing
+      submitTimeMillis = Prelude.Nothing
     }
 
--- | The time the job was submitted to Elastic Transcoder, in epoch
--- milliseconds.
-timing_submitTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
-timing_submitTimeMillis = Lens.lens (\Timing' {submitTimeMillis} -> submitTimeMillis) (\s@Timing' {} a -> s {submitTimeMillis = a} :: Timing)
+-- | The time the job finished transcoding, in epoch milliseconds.
+timing_finishTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
+timing_finishTimeMillis = Lens.lens (\Timing' {finishTimeMillis} -> finishTimeMillis) (\s@Timing' {} a -> s {finishTimeMillis = a} :: Timing)
 
 -- | The time the job began transcoding, in epoch milliseconds.
 timing_startTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
 timing_startTimeMillis = Lens.lens (\Timing' {startTimeMillis} -> startTimeMillis) (\s@Timing' {} a -> s {startTimeMillis = a} :: Timing)
 
--- | The time the job finished transcoding, in epoch milliseconds.
-timing_finishTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
-timing_finishTimeMillis = Lens.lens (\Timing' {finishTimeMillis} -> finishTimeMillis) (\s@Timing' {} a -> s {finishTimeMillis = a} :: Timing)
+-- | The time the job was submitted to Elastic Transcoder, in epoch
+-- milliseconds.
+timing_submitTimeMillis :: Lens.Lens' Timing (Prelude.Maybe Prelude.Integer)
+timing_submitTimeMillis = Lens.lens (\Timing' {submitTimeMillis} -> submitTimeMillis) (\s@Timing' {} a -> s {submitTimeMillis = a} :: Timing)
 
 instance Data.FromJSON Timing where
   parseJSON =
@@ -80,19 +80,19 @@ instance Data.FromJSON Timing where
       "Timing"
       ( \x ->
           Timing'
-            Prelude.<$> (x Data..:? "SubmitTimeMillis")
+            Prelude.<$> (x Data..:? "FinishTimeMillis")
             Prelude.<*> (x Data..:? "StartTimeMillis")
-            Prelude.<*> (x Data..:? "FinishTimeMillis")
+            Prelude.<*> (x Data..:? "SubmitTimeMillis")
       )
 
 instance Prelude.Hashable Timing where
   hashWithSalt _salt Timing' {..} =
-    _salt `Prelude.hashWithSalt` submitTimeMillis
+    _salt `Prelude.hashWithSalt` finishTimeMillis
       `Prelude.hashWithSalt` startTimeMillis
-      `Prelude.hashWithSalt` finishTimeMillis
+      `Prelude.hashWithSalt` submitTimeMillis
 
 instance Prelude.NFData Timing where
   rnf Timing' {..} =
-    Prelude.rnf submitTimeMillis
+    Prelude.rnf finishTimeMillis
       `Prelude.seq` Prelude.rnf startTimeMillis
-      `Prelude.seq` Prelude.rnf finishTimeMillis
+      `Prelude.seq` Prelude.rnf submitTimeMillis

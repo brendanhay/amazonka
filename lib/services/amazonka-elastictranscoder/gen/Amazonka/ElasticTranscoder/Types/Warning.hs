@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWarning' smart constructor.
 data Warning = Warning'
-  { -- | The message explaining what resources are in a different region from the
+  { -- | The code of the cross-regional warning.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The message explaining what resources are in a different region from the
     -- pipeline.
     --
     -- AWS KMS keys must be in the same region as the pipeline.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The code of the cross-regional warning.
-    code :: Prelude.Maybe Prelude.Text
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,19 +51,23 @@ data Warning = Warning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'warning_code' - The code of the cross-regional warning.
+--
 -- 'message', 'warning_message' - The message explaining what resources are in a different region from the
 -- pipeline.
 --
 -- AWS KMS keys must be in the same region as the pipeline.
---
--- 'code', 'warning_code' - The code of the cross-regional warning.
 newWarning ::
   Warning
 newWarning =
   Warning'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
+
+-- | The code of the cross-regional warning.
+warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
+warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
 
 -- | The message explaining what resources are in a different region from the
 -- pipeline.
@@ -72,25 +76,21 @@ newWarning =
 warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
 warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
--- | The code of the cross-regional warning.
-warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
-warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
-
 instance Data.FromJSON Warning where
   parseJSON =
     Data.withObject
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable Warning where
   hashWithSalt _salt Warning' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData Warning where
   rnf Warning' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

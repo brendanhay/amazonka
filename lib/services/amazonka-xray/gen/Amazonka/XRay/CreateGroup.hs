@@ -27,9 +27,9 @@ module Amazonka.XRay.CreateGroup
     newCreateGroup,
 
     -- * Request Lenses
-    createGroup_tags,
-    createGroup_insightsConfiguration,
     createGroup_filterExpression,
+    createGroup_insightsConfiguration,
+    createGroup_tags,
     createGroup_groupName,
 
     -- * Destructuring the Response
@@ -52,7 +52,18 @@ import Amazonka.XRay.Types
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | A map that contains one or more tag keys and tag values to attach to an
+  { -- | The filter expression defining criteria by which to group traces.
+    filterExpression :: Prelude.Maybe Prelude.Text,
+    -- | The structure containing configurations related to insights.
+    --
+    -- -   The InsightsEnabled boolean can be set to true to enable insights
+    --     for the new group or false to disable insights for the new group.
+    --
+    -- -   The NotificationsEnabled boolean can be set to true to enable
+    --     insights notifications for the new group. Notifications may only be
+    --     enabled on a group with InsightsEnabled set to true.
+    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
+    -- | A map that contains one or more tag keys and tag values to attach to an
     -- X-Ray group. For more information about ways to use tags, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference/.
@@ -73,17 +84,6 @@ data CreateGroup = CreateGroup'
     -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
     --     Web Services use.
     tags :: Prelude.Maybe [Tag],
-    -- | The structure containing configurations related to insights.
-    --
-    -- -   The InsightsEnabled boolean can be set to true to enable insights
-    --     for the new group or false to disable insights for the new group.
-    --
-    -- -   The NotificationsEnabled boolean can be set to true to enable
-    --     insights notifications for the new group. Notifications may only be
-    --     enabled on a group with InsightsEnabled set to true.
-    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
-    -- | The filter expression defining criteria by which to group traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The case-sensitive name of the new group. Default is a reserved name and
     -- names must be unique.
     groupName :: Prelude.Text
@@ -97,6 +97,17 @@ data CreateGroup = CreateGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filterExpression', 'createGroup_filterExpression' - The filter expression defining criteria by which to group traces.
+--
+-- 'insightsConfiguration', 'createGroup_insightsConfiguration' - The structure containing configurations related to insights.
+--
+-- -   The InsightsEnabled boolean can be set to true to enable insights
+--     for the new group or false to disable insights for the new group.
+--
+-- -   The NotificationsEnabled boolean can be set to true to enable
+--     insights notifications for the new group. Notifications may only be
+--     enabled on a group with InsightsEnabled set to true.
 --
 -- 'tags', 'createGroup_tags' - A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group. For more information about ways to use tags, see
@@ -119,17 +130,6 @@ data CreateGroup = CreateGroup'
 -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
 --     Web Services use.
 --
--- 'insightsConfiguration', 'createGroup_insightsConfiguration' - The structure containing configurations related to insights.
---
--- -   The InsightsEnabled boolean can be set to true to enable insights
---     for the new group or false to disable insights for the new group.
---
--- -   The NotificationsEnabled boolean can be set to true to enable
---     insights notifications for the new group. Notifications may only be
---     enabled on a group with InsightsEnabled set to true.
---
--- 'filterExpression', 'createGroup_filterExpression' - The filter expression defining criteria by which to group traces.
---
 -- 'groupName', 'createGroup_groupName' - The case-sensitive name of the new group. Default is a reserved name and
 -- names must be unique.
 newCreateGroup ::
@@ -138,11 +138,26 @@ newCreateGroup ::
   CreateGroup
 newCreateGroup pGroupName_ =
   CreateGroup'
-    { tags = Prelude.Nothing,
+    { filterExpression = Prelude.Nothing,
       insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
+      tags = Prelude.Nothing,
       groupName = pGroupName_
     }
+
+-- | The filter expression defining criteria by which to group traces.
+createGroup_filterExpression :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> filterExpression) (\s@CreateGroup' {} a -> s {filterExpression = a} :: CreateGroup)
+
+-- | The structure containing configurations related to insights.
+--
+-- -   The InsightsEnabled boolean can be set to true to enable insights
+--     for the new group or false to disable insights for the new group.
+--
+-- -   The NotificationsEnabled boolean can be set to true to enable
+--     insights notifications for the new group. Notifications may only be
+--     enabled on a group with InsightsEnabled set to true.
+createGroup_insightsConfiguration :: Lens.Lens' CreateGroup (Prelude.Maybe InsightsConfiguration)
+createGroup_insightsConfiguration = Lens.lens (\CreateGroup' {insightsConfiguration} -> insightsConfiguration) (\s@CreateGroup' {} a -> s {insightsConfiguration = a} :: CreateGroup)
 
 -- | A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group. For more information about ways to use tags, see
@@ -167,21 +182,6 @@ newCreateGroup pGroupName_ =
 createGroup_tags :: Lens.Lens' CreateGroup (Prelude.Maybe [Tag])
 createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} a -> s {tags = a} :: CreateGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The structure containing configurations related to insights.
---
--- -   The InsightsEnabled boolean can be set to true to enable insights
---     for the new group or false to disable insights for the new group.
---
--- -   The NotificationsEnabled boolean can be set to true to enable
---     insights notifications for the new group. Notifications may only be
---     enabled on a group with InsightsEnabled set to true.
-createGroup_insightsConfiguration :: Lens.Lens' CreateGroup (Prelude.Maybe InsightsConfiguration)
-createGroup_insightsConfiguration = Lens.lens (\CreateGroup' {insightsConfiguration} -> insightsConfiguration) (\s@CreateGroup' {} a -> s {insightsConfiguration = a} :: CreateGroup)
-
--- | The filter expression defining criteria by which to group traces.
-createGroup_filterExpression :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> filterExpression) (\s@CreateGroup' {} a -> s {filterExpression = a} :: CreateGroup)
-
 -- | The case-sensitive name of the new group. Default is a reserved name and
 -- names must be unique.
 createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
@@ -201,16 +201,16 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` insightsConfiguration
-      `Prelude.hashWithSalt` filterExpression
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData CreateGroup where
   rnf CreateGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf filterExpression
       `Prelude.seq` Prelude.rnf insightsConfiguration
-      `Prelude.seq` Prelude.rnf filterExpression
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToHeaders CreateGroup where
@@ -220,11 +220,11 @@ instance Data.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("FilterExpression" Data..=)
+              Prelude.<$> filterExpression,
             ("InsightsConfiguration" Data..=)
               Prelude.<$> insightsConfiguration,
-            ("FilterExpression" Data..=)
-              Prelude.<$> filterExpression,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("GroupName" Data..= groupName)
           ]
       )

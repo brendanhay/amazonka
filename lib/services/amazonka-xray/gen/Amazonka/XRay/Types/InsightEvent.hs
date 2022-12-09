@@ -32,20 +32,20 @@ import Amazonka.XRay.Types.RequestImpactStatistics
 --
 -- /See:/ 'newInsightEvent' smart constructor.
 data InsightEvent = InsightEvent'
-  { -- | The impact statistics of the root cause service. This includes the
+  { -- | The impact statistics of the client side service. This includes the
+    -- number of requests to the client service and whether the requests were
+    -- faults or okay.
+    clientRequestImpactStatistics :: Prelude.Maybe RequestImpactStatistics,
+    -- | The time, in Unix seconds, at which the event was recorded.
+    eventTime :: Prelude.Maybe Data.POSIX,
+    -- | The impact statistics of the root cause service. This includes the
     -- number of requests to the client service and whether the requests were
     -- faults or okay.
     rootCauseServiceRequestImpactStatistics :: Prelude.Maybe RequestImpactStatistics,
-    -- | The service during the event that is most impacted by the incident.
-    topAnomalousServices :: Prelude.Maybe [AnomalousService],
     -- | A brief description of the event.
     summary :: Prelude.Maybe Prelude.Text,
-    -- | The time, in Unix seconds, at which the event was recorded.
-    eventTime :: Prelude.Maybe Data.POSIX,
-    -- | The impact statistics of the client side service. This includes the
-    -- number of requests to the client service and whether the requests were
-    -- faults or okay.
-    clientRequestImpactStatistics :: Prelude.Maybe RequestImpactStatistics
+    -- | The service during the event that is most impacted by the incident.
+    topAnomalousServices :: Prelude.Maybe [AnomalousService]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,48 +57,31 @@ data InsightEvent = InsightEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestImpactStatistics', 'insightEvent_clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the
+-- number of requests to the client service and whether the requests were
+-- faults or okay.
+--
+-- 'eventTime', 'insightEvent_eventTime' - The time, in Unix seconds, at which the event was recorded.
+--
 -- 'rootCauseServiceRequestImpactStatistics', 'insightEvent_rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the
 -- number of requests to the client service and whether the requests were
 -- faults or okay.
 --
--- 'topAnomalousServices', 'insightEvent_topAnomalousServices' - The service during the event that is most impacted by the incident.
---
 -- 'summary', 'insightEvent_summary' - A brief description of the event.
 --
--- 'eventTime', 'insightEvent_eventTime' - The time, in Unix seconds, at which the event was recorded.
---
--- 'clientRequestImpactStatistics', 'insightEvent_clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the
--- number of requests to the client service and whether the requests were
--- faults or okay.
+-- 'topAnomalousServices', 'insightEvent_topAnomalousServices' - The service during the event that is most impacted by the incident.
 newInsightEvent ::
   InsightEvent
 newInsightEvent =
   InsightEvent'
-    { rootCauseServiceRequestImpactStatistics =
+    { clientRequestImpactStatistics =
         Prelude.Nothing,
-      topAnomalousServices = Prelude.Nothing,
-      summary = Prelude.Nothing,
       eventTime = Prelude.Nothing,
-      clientRequestImpactStatistics = Prelude.Nothing
+      rootCauseServiceRequestImpactStatistics =
+        Prelude.Nothing,
+      summary = Prelude.Nothing,
+      topAnomalousServices = Prelude.Nothing
     }
-
--- | The impact statistics of the root cause service. This includes the
--- number of requests to the client service and whether the requests were
--- faults or okay.
-insightEvent_rootCauseServiceRequestImpactStatistics :: Lens.Lens' InsightEvent (Prelude.Maybe RequestImpactStatistics)
-insightEvent_rootCauseServiceRequestImpactStatistics = Lens.lens (\InsightEvent' {rootCauseServiceRequestImpactStatistics} -> rootCauseServiceRequestImpactStatistics) (\s@InsightEvent' {} a -> s {rootCauseServiceRequestImpactStatistics = a} :: InsightEvent)
-
--- | The service during the event that is most impacted by the incident.
-insightEvent_topAnomalousServices :: Lens.Lens' InsightEvent (Prelude.Maybe [AnomalousService])
-insightEvent_topAnomalousServices = Lens.lens (\InsightEvent' {topAnomalousServices} -> topAnomalousServices) (\s@InsightEvent' {} a -> s {topAnomalousServices = a} :: InsightEvent) Prelude.. Lens.mapping Lens.coerced
-
--- | A brief description of the event.
-insightEvent_summary :: Lens.Lens' InsightEvent (Prelude.Maybe Prelude.Text)
-insightEvent_summary = Lens.lens (\InsightEvent' {summary} -> summary) (\s@InsightEvent' {} a -> s {summary = a} :: InsightEvent)
-
--- | The time, in Unix seconds, at which the event was recorded.
-insightEvent_eventTime :: Lens.Lens' InsightEvent (Prelude.Maybe Prelude.UTCTime)
-insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s@InsightEvent' {} a -> s {eventTime = a} :: InsightEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The impact statistics of the client side service. This includes the
 -- number of requests to the client service and whether the requests were
@@ -106,36 +89,54 @@ insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s
 insightEvent_clientRequestImpactStatistics :: Lens.Lens' InsightEvent (Prelude.Maybe RequestImpactStatistics)
 insightEvent_clientRequestImpactStatistics = Lens.lens (\InsightEvent' {clientRequestImpactStatistics} -> clientRequestImpactStatistics) (\s@InsightEvent' {} a -> s {clientRequestImpactStatistics = a} :: InsightEvent)
 
+-- | The time, in Unix seconds, at which the event was recorded.
+insightEvent_eventTime :: Lens.Lens' InsightEvent (Prelude.Maybe Prelude.UTCTime)
+insightEvent_eventTime = Lens.lens (\InsightEvent' {eventTime} -> eventTime) (\s@InsightEvent' {} a -> s {eventTime = a} :: InsightEvent) Prelude.. Lens.mapping Data._Time
+
+-- | The impact statistics of the root cause service. This includes the
+-- number of requests to the client service and whether the requests were
+-- faults or okay.
+insightEvent_rootCauseServiceRequestImpactStatistics :: Lens.Lens' InsightEvent (Prelude.Maybe RequestImpactStatistics)
+insightEvent_rootCauseServiceRequestImpactStatistics = Lens.lens (\InsightEvent' {rootCauseServiceRequestImpactStatistics} -> rootCauseServiceRequestImpactStatistics) (\s@InsightEvent' {} a -> s {rootCauseServiceRequestImpactStatistics = a} :: InsightEvent)
+
+-- | A brief description of the event.
+insightEvent_summary :: Lens.Lens' InsightEvent (Prelude.Maybe Prelude.Text)
+insightEvent_summary = Lens.lens (\InsightEvent' {summary} -> summary) (\s@InsightEvent' {} a -> s {summary = a} :: InsightEvent)
+
+-- | The service during the event that is most impacted by the incident.
+insightEvent_topAnomalousServices :: Lens.Lens' InsightEvent (Prelude.Maybe [AnomalousService])
+insightEvent_topAnomalousServices = Lens.lens (\InsightEvent' {topAnomalousServices} -> topAnomalousServices) (\s@InsightEvent' {} a -> s {topAnomalousServices = a} :: InsightEvent) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON InsightEvent where
   parseJSON =
     Data.withObject
       "InsightEvent"
       ( \x ->
           InsightEvent'
-            Prelude.<$> ( x
+            Prelude.<$> (x Data..:? "ClientRequestImpactStatistics")
+            Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> ( x
                             Data..:? "RootCauseServiceRequestImpactStatistics"
                         )
+            Prelude.<*> (x Data..:? "Summary")
             Prelude.<*> ( x Data..:? "TopAnomalousServices"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Summary")
-            Prelude.<*> (x Data..:? "EventTime")
-            Prelude.<*> (x Data..:? "ClientRequestImpactStatistics")
       )
 
 instance Prelude.Hashable InsightEvent where
   hashWithSalt _salt InsightEvent' {..} =
     _salt
-      `Prelude.hashWithSalt` rootCauseServiceRequestImpactStatistics
-      `Prelude.hashWithSalt` topAnomalousServices
-      `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` clientRequestImpactStatistics
+      `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` rootCauseServiceRequestImpactStatistics
+      `Prelude.hashWithSalt` summary
+      `Prelude.hashWithSalt` topAnomalousServices
 
 instance Prelude.NFData InsightEvent where
   rnf InsightEvent' {..} =
-    Prelude.rnf rootCauseServiceRequestImpactStatistics
-      `Prelude.seq` Prelude.rnf topAnomalousServices
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf clientRequestImpactStatistics
       `Prelude.seq` Prelude.rnf eventTime
-      `Prelude.seq` Prelude.rnf clientRequestImpactStatistics
+      `Prelude.seq` Prelude.rnf rootCauseServiceRequestImpactStatistics
+      `Prelude.seq` Prelude.rnf summary
+      `Prelude.seq` Prelude.rnf topAnomalousServices

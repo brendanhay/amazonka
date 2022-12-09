@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedStatistics' smart constructor.
 data UnprocessedStatistics = UnprocessedStatistics'
-  { -- | The error message.
+  { -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
     message :: Prelude.Maybe Prelude.Text,
     -- | The name of the sampling rule.
-    ruleName :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+    ruleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,19 +47,23 @@ data UnprocessedStatistics = UnprocessedStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'unprocessedStatistics_errorCode' - The error code.
+--
 -- 'message', 'unprocessedStatistics_message' - The error message.
 --
 -- 'ruleName', 'unprocessedStatistics_ruleName' - The name of the sampling rule.
---
--- 'errorCode', 'unprocessedStatistics_errorCode' - The error code.
 newUnprocessedStatistics ::
   UnprocessedStatistics
 newUnprocessedStatistics =
   UnprocessedStatistics'
-    { message = Prelude.Nothing,
-      ruleName = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      message = Prelude.Nothing,
+      ruleName = Prelude.Nothing
     }
+
+-- | The error code.
+unprocessedStatistics_errorCode :: Lens.Lens' UnprocessedStatistics (Prelude.Maybe Prelude.Text)
+unprocessedStatistics_errorCode = Lens.lens (\UnprocessedStatistics' {errorCode} -> errorCode) (\s@UnprocessedStatistics' {} a -> s {errorCode = a} :: UnprocessedStatistics)
 
 -- | The error message.
 unprocessedStatistics_message :: Lens.Lens' UnprocessedStatistics (Prelude.Maybe Prelude.Text)
@@ -69,29 +73,25 @@ unprocessedStatistics_message = Lens.lens (\UnprocessedStatistics' {message} -> 
 unprocessedStatistics_ruleName :: Lens.Lens' UnprocessedStatistics (Prelude.Maybe Prelude.Text)
 unprocessedStatistics_ruleName = Lens.lens (\UnprocessedStatistics' {ruleName} -> ruleName) (\s@UnprocessedStatistics' {} a -> s {ruleName = a} :: UnprocessedStatistics)
 
--- | The error code.
-unprocessedStatistics_errorCode :: Lens.Lens' UnprocessedStatistics (Prelude.Maybe Prelude.Text)
-unprocessedStatistics_errorCode = Lens.lens (\UnprocessedStatistics' {errorCode} -> errorCode) (\s@UnprocessedStatistics' {} a -> s {errorCode = a} :: UnprocessedStatistics)
-
 instance Data.FromJSON UnprocessedStatistics where
   parseJSON =
     Data.withObject
       "UnprocessedStatistics"
       ( \x ->
           UnprocessedStatistics'
-            Prelude.<$> (x Data..:? "Message")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "RuleName")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable UnprocessedStatistics where
   hashWithSalt _salt UnprocessedStatistics' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` ruleName
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData UnprocessedStatistics where
   rnf UnprocessedStatistics' {..} =
-    Prelude.rnf message
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf ruleName
-      `Prelude.seq` Prelude.rnf errorCode

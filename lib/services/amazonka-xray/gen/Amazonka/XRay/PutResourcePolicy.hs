@@ -32,8 +32,8 @@ module Amazonka.XRay.PutResourcePolicy
     newPutResourcePolicy,
 
     -- * Request Lenses
-    putResourcePolicy_policyRevisionId,
     putResourcePolicy_bypassPolicyLockoutCheck,
+    putResourcePolicy_policyRevisionId,
     putResourcePolicy_policyName,
     putResourcePolicy_policyDocument,
 
@@ -57,18 +57,7 @@ import Amazonka.XRay.Types
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | Specifies a specific policy revision, to ensure an atomic create
-    -- operation. By default the resource policy is created if it does not
-    -- exist, or updated with an incremented revision id. The revision id is
-    -- unique to each policy in the account.
-    --
-    -- If the policy revision id does not match the latest revision id, the
-    -- operation will fail with an @InvalidPolicyRevisionIdException@
-    -- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
-    -- the operation will fail with an @InvalidPolicyRevisionIdException@
-    -- exception if a resource policy with the same name already exists.
-    policyRevisionId :: Prelude.Maybe Prelude.Text,
-    -- | A flag to indicate whether to bypass the resource policy lockout safety
+  { -- | A flag to indicate whether to bypass the resource policy lockout safety
     -- check.
     --
     -- Setting this value to true increases the risk that the policy becomes
@@ -80,6 +69,17 @@ data PutResourcePolicy = PutResourcePolicy'
     --
     -- The default value is false.
     bypassPolicyLockoutCheck :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies a specific policy revision, to ensure an atomic create
+    -- operation. By default the resource policy is created if it does not
+    -- exist, or updated with an incremented revision id. The revision id is
+    -- unique to each policy in the account.
+    --
+    -- If the policy revision id does not match the latest revision id, the
+    -- operation will fail with an @InvalidPolicyRevisionIdException@
+    -- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
+    -- the operation will fail with an @InvalidPolicyRevisionIdException@
+    -- exception if a resource policy with the same name already exists.
+    policyRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource policy. Must be unique within a specific Amazon
     -- Web Services account.
     policyName :: Prelude.Text,
@@ -96,17 +96,6 @@ data PutResourcePolicy = PutResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyRevisionId', 'putResourcePolicy_policyRevisionId' - Specifies a specific policy revision, to ensure an atomic create
--- operation. By default the resource policy is created if it does not
--- exist, or updated with an incremented revision id. The revision id is
--- unique to each policy in the account.
---
--- If the policy revision id does not match the latest revision id, the
--- operation will fail with an @InvalidPolicyRevisionIdException@
--- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
--- the operation will fail with an @InvalidPolicyRevisionIdException@
--- exception if a resource policy with the same name already exists.
---
 -- 'bypassPolicyLockoutCheck', 'putResourcePolicy_bypassPolicyLockoutCheck' - A flag to indicate whether to bypass the resource policy lockout safety
 -- check.
 --
@@ -118,6 +107,17 @@ data PutResourcePolicy = PutResourcePolicy'
 -- subsequent @PutResourcePolicy@ request.
 --
 -- The default value is false.
+--
+-- 'policyRevisionId', 'putResourcePolicy_policyRevisionId' - Specifies a specific policy revision, to ensure an atomic create
+-- operation. By default the resource policy is created if it does not
+-- exist, or updated with an incremented revision id. The revision id is
+-- unique to each policy in the account.
+--
+-- If the policy revision id does not match the latest revision id, the
+-- operation will fail with an @InvalidPolicyRevisionIdException@
+-- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
+-- the operation will fail with an @InvalidPolicyRevisionIdException@
+-- exception if a resource policy with the same name already exists.
 --
 -- 'policyName', 'putResourcePolicy_policyName' - The name of the resource policy. Must be unique within a specific Amazon
 -- Web Services account.
@@ -131,25 +131,12 @@ newPutResourcePolicy ::
   PutResourcePolicy
 newPutResourcePolicy pPolicyName_ pPolicyDocument_ =
   PutResourcePolicy'
-    { policyRevisionId =
+    { bypassPolicyLockoutCheck =
         Prelude.Nothing,
-      bypassPolicyLockoutCheck = Prelude.Nothing,
+      policyRevisionId = Prelude.Nothing,
       policyName = pPolicyName_,
       policyDocument = pPolicyDocument_
     }
-
--- | Specifies a specific policy revision, to ensure an atomic create
--- operation. By default the resource policy is created if it does not
--- exist, or updated with an incremented revision id. The revision id is
--- unique to each policy in the account.
---
--- If the policy revision id does not match the latest revision id, the
--- operation will fail with an @InvalidPolicyRevisionIdException@
--- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
--- the operation will fail with an @InvalidPolicyRevisionIdException@
--- exception if a resource policy with the same name already exists.
-putResourcePolicy_policyRevisionId :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
-putResourcePolicy_policyRevisionId = Lens.lens (\PutResourcePolicy' {policyRevisionId} -> policyRevisionId) (\s@PutResourcePolicy' {} a -> s {policyRevisionId = a} :: PutResourcePolicy)
 
 -- | A flag to indicate whether to bypass the resource policy lockout safety
 -- check.
@@ -164,6 +151,19 @@ putResourcePolicy_policyRevisionId = Lens.lens (\PutResourcePolicy' {policyRevis
 -- The default value is false.
 putResourcePolicy_bypassPolicyLockoutCheck :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Bool)
 putResourcePolicy_bypassPolicyLockoutCheck = Lens.lens (\PutResourcePolicy' {bypassPolicyLockoutCheck} -> bypassPolicyLockoutCheck) (\s@PutResourcePolicy' {} a -> s {bypassPolicyLockoutCheck = a} :: PutResourcePolicy)
+
+-- | Specifies a specific policy revision, to ensure an atomic create
+-- operation. By default the resource policy is created if it does not
+-- exist, or updated with an incremented revision id. The revision id is
+-- unique to each policy in the account.
+--
+-- If the policy revision id does not match the latest revision id, the
+-- operation will fail with an @InvalidPolicyRevisionIdException@
+-- exception. You can also provide a @PolicyRevisionId@ of 0. In this case,
+-- the operation will fail with an @InvalidPolicyRevisionIdException@
+-- exception if a resource policy with the same name already exists.
+putResourcePolicy_policyRevisionId :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyRevisionId = Lens.lens (\PutResourcePolicy' {policyRevisionId} -> policyRevisionId) (\s@PutResourcePolicy' {} a -> s {policyRevisionId = a} :: PutResourcePolicy)
 
 -- | The name of the resource policy. Must be unique within a specific Amazon
 -- Web Services account.
@@ -190,15 +190,16 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
       `Prelude.hashWithSalt` bypassPolicyLockoutCheck
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf policyRevisionId
-      `Prelude.seq` Prelude.rnf bypassPolicyLockoutCheck
+    Prelude.rnf bypassPolicyLockoutCheck
+      `Prelude.seq` Prelude.rnf policyRevisionId
       `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyDocument
 
@@ -209,10 +210,10 @@ instance Data.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyRevisionId" Data..=)
-              Prelude.<$> policyRevisionId,
-            ("BypassPolicyLockoutCheck" Data..=)
+          [ ("BypassPolicyLockoutCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutCheck,
+            ("PolicyRevisionId" Data..=)
+              Prelude.<$> policyRevisionId,
             Prelude.Just ("PolicyName" Data..= policyName),
             Prelude.Just
               ("PolicyDocument" Data..= policyDocument)

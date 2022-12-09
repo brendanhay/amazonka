@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { otherCount :: Prelude.Maybe Prelude.Int,
-    unknownHostCount :: Prelude.Maybe Prelude.Int,
+  { connectionRefusedCount :: Prelude.Maybe Prelude.Int,
     hTTPCode4XXCount :: Prelude.Maybe Prelude.Int,
-    connectionRefusedCount :: Prelude.Maybe Prelude.Int,
+    hTTPCode5XXCount :: Prelude.Maybe Prelude.Int,
+    otherCount :: Prelude.Maybe Prelude.Int,
     timeoutCount :: Prelude.Maybe Prelude.Int,
-    hTTPCode5XXCount :: Prelude.Maybe Prelude.Int
+    unknownHostCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,85 +45,85 @@ data BackendConnectionErrors = BackendConnectionErrors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'otherCount', 'backendConnectionErrors_otherCount' -
---
--- 'unknownHostCount', 'backendConnectionErrors_unknownHostCount' -
+-- 'connectionRefusedCount', 'backendConnectionErrors_connectionRefusedCount' -
 --
 -- 'hTTPCode4XXCount', 'backendConnectionErrors_hTTPCode4XXCount' -
 --
--- 'connectionRefusedCount', 'backendConnectionErrors_connectionRefusedCount' -
+-- 'hTTPCode5XXCount', 'backendConnectionErrors_hTTPCode5XXCount' -
+--
+-- 'otherCount', 'backendConnectionErrors_otherCount' -
 --
 -- 'timeoutCount', 'backendConnectionErrors_timeoutCount' -
 --
--- 'hTTPCode5XXCount', 'backendConnectionErrors_hTTPCode5XXCount' -
+-- 'unknownHostCount', 'backendConnectionErrors_unknownHostCount' -
 newBackendConnectionErrors ::
   BackendConnectionErrors
 newBackendConnectionErrors =
   BackendConnectionErrors'
-    { otherCount =
+    { connectionRefusedCount =
         Prelude.Nothing,
-      unknownHostCount = Prelude.Nothing,
       hTTPCode4XXCount = Prelude.Nothing,
-      connectionRefusedCount = Prelude.Nothing,
+      hTTPCode5XXCount = Prelude.Nothing,
+      otherCount = Prelude.Nothing,
       timeoutCount = Prelude.Nothing,
-      hTTPCode5XXCount = Prelude.Nothing
+      unknownHostCount = Prelude.Nothing
     }
-
--- |
-backendConnectionErrors_otherCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
-backendConnectionErrors_otherCount = Lens.lens (\BackendConnectionErrors' {otherCount} -> otherCount) (\s@BackendConnectionErrors' {} a -> s {otherCount = a} :: BackendConnectionErrors)
-
--- |
-backendConnectionErrors_unknownHostCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
-backendConnectionErrors_unknownHostCount = Lens.lens (\BackendConnectionErrors' {unknownHostCount} -> unknownHostCount) (\s@BackendConnectionErrors' {} a -> s {unknownHostCount = a} :: BackendConnectionErrors)
-
--- |
-backendConnectionErrors_hTTPCode4XXCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
-backendConnectionErrors_hTTPCode4XXCount = Lens.lens (\BackendConnectionErrors' {hTTPCode4XXCount} -> hTTPCode4XXCount) (\s@BackendConnectionErrors' {} a -> s {hTTPCode4XXCount = a} :: BackendConnectionErrors)
 
 -- |
 backendConnectionErrors_connectionRefusedCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_connectionRefusedCount = Lens.lens (\BackendConnectionErrors' {connectionRefusedCount} -> connectionRefusedCount) (\s@BackendConnectionErrors' {} a -> s {connectionRefusedCount = a} :: BackendConnectionErrors)
 
 -- |
-backendConnectionErrors_timeoutCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
-backendConnectionErrors_timeoutCount = Lens.lens (\BackendConnectionErrors' {timeoutCount} -> timeoutCount) (\s@BackendConnectionErrors' {} a -> s {timeoutCount = a} :: BackendConnectionErrors)
+backendConnectionErrors_hTTPCode4XXCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
+backendConnectionErrors_hTTPCode4XXCount = Lens.lens (\BackendConnectionErrors' {hTTPCode4XXCount} -> hTTPCode4XXCount) (\s@BackendConnectionErrors' {} a -> s {hTTPCode4XXCount = a} :: BackendConnectionErrors)
 
 -- |
 backendConnectionErrors_hTTPCode5XXCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
 backendConnectionErrors_hTTPCode5XXCount = Lens.lens (\BackendConnectionErrors' {hTTPCode5XXCount} -> hTTPCode5XXCount) (\s@BackendConnectionErrors' {} a -> s {hTTPCode5XXCount = a} :: BackendConnectionErrors)
 
+-- |
+backendConnectionErrors_otherCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
+backendConnectionErrors_otherCount = Lens.lens (\BackendConnectionErrors' {otherCount} -> otherCount) (\s@BackendConnectionErrors' {} a -> s {otherCount = a} :: BackendConnectionErrors)
+
+-- |
+backendConnectionErrors_timeoutCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
+backendConnectionErrors_timeoutCount = Lens.lens (\BackendConnectionErrors' {timeoutCount} -> timeoutCount) (\s@BackendConnectionErrors' {} a -> s {timeoutCount = a} :: BackendConnectionErrors)
+
+-- |
+backendConnectionErrors_unknownHostCount :: Lens.Lens' BackendConnectionErrors (Prelude.Maybe Prelude.Int)
+backendConnectionErrors_unknownHostCount = Lens.lens (\BackendConnectionErrors' {unknownHostCount} -> unknownHostCount) (\s@BackendConnectionErrors' {} a -> s {unknownHostCount = a} :: BackendConnectionErrors)
+
 instance Prelude.Hashable BackendConnectionErrors where
   hashWithSalt _salt BackendConnectionErrors' {..} =
-    _salt `Prelude.hashWithSalt` otherCount
-      `Prelude.hashWithSalt` unknownHostCount
+    _salt `Prelude.hashWithSalt` connectionRefusedCount
       `Prelude.hashWithSalt` hTTPCode4XXCount
-      `Prelude.hashWithSalt` connectionRefusedCount
-      `Prelude.hashWithSalt` timeoutCount
       `Prelude.hashWithSalt` hTTPCode5XXCount
+      `Prelude.hashWithSalt` otherCount
+      `Prelude.hashWithSalt` timeoutCount
+      `Prelude.hashWithSalt` unknownHostCount
 
 instance Prelude.NFData BackendConnectionErrors where
   rnf BackendConnectionErrors' {..} =
-    Prelude.rnf otherCount
-      `Prelude.seq` Prelude.rnf unknownHostCount
+    Prelude.rnf connectionRefusedCount
       `Prelude.seq` Prelude.rnf hTTPCode4XXCount
-      `Prelude.seq` Prelude.rnf connectionRefusedCount
-      `Prelude.seq` Prelude.rnf timeoutCount
       `Prelude.seq` Prelude.rnf hTTPCode5XXCount
+      `Prelude.seq` Prelude.rnf otherCount
+      `Prelude.seq` Prelude.rnf timeoutCount
+      `Prelude.seq` Prelude.rnf unknownHostCount
 
 instance Data.ToJSON BackendConnectionErrors where
   toJSON BackendConnectionErrors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OtherCount" Data..=) Prelude.<$> otherCount,
-            ("UnknownHostCount" Data..=)
-              Prelude.<$> unknownHostCount,
+          [ ("ConnectionRefusedCount" Data..=)
+              Prelude.<$> connectionRefusedCount,
             ("HTTPCode4XXCount" Data..=)
               Prelude.<$> hTTPCode4XXCount,
-            ("ConnectionRefusedCount" Data..=)
-              Prelude.<$> connectionRefusedCount,
-            ("TimeoutCount" Data..=) Prelude.<$> timeoutCount,
             ("HTTPCode5XXCount" Data..=)
-              Prelude.<$> hTTPCode5XXCount
+              Prelude.<$> hTTPCode5XXCount,
+            ("OtherCount" Data..=) Prelude.<$> otherCount,
+            ("TimeoutCount" Data..=) Prelude.<$> timeoutCount,
+            ("UnknownHostCount" Data..=)
+              Prelude.<$> unknownHostCount
           ]
       )

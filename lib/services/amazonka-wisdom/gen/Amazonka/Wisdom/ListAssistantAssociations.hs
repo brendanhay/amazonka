@@ -29,8 +29,8 @@ module Amazonka.Wisdom.ListAssistantAssociations
     newListAssistantAssociations,
 
     -- * Request Lenses
-    listAssistantAssociations_nextToken,
     listAssistantAssociations_maxResults,
+    listAssistantAssociations_nextToken,
     listAssistantAssociations_assistantId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newListAssistantAssociations' smart constructor.
 data ListAssistantAssociations = ListAssistantAssociations'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text
@@ -74,11 +74,11 @@ data ListAssistantAssociations = ListAssistantAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAssistantAssociations_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listAssistantAssociations_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listAssistantAssociations_maxResults' - The maximum number of results to return per page.
 --
 -- 'assistantId', 'listAssistantAssociations_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -88,21 +88,21 @@ newListAssistantAssociations ::
   ListAssistantAssociations
 newListAssistantAssociations pAssistantId_ =
   ListAssistantAssociations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assistantId = pAssistantId_
     }
+
+-- | The maximum number of results to return per page.
+listAssistantAssociations_maxResults :: Lens.Lens' ListAssistantAssociations (Prelude.Maybe Prelude.Natural)
+listAssistantAssociations_maxResults = Lens.lens (\ListAssistantAssociations' {maxResults} -> maxResults) (\s@ListAssistantAssociations' {} a -> s {maxResults = a} :: ListAssistantAssociations)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listAssistantAssociations_nextToken :: Lens.Lens' ListAssistantAssociations (Prelude.Maybe Prelude.Text)
 listAssistantAssociations_nextToken = Lens.lens (\ListAssistantAssociations' {nextToken} -> nextToken) (\s@ListAssistantAssociations' {} a -> s {nextToken = a} :: ListAssistantAssociations)
-
--- | The maximum number of results to return per page.
-listAssistantAssociations_maxResults :: Lens.Lens' ListAssistantAssociations (Prelude.Maybe Prelude.Natural)
-listAssistantAssociations_maxResults = Lens.lens (\ListAssistantAssociations' {maxResults} -> maxResults) (\s@ListAssistantAssociations' {} a -> s {maxResults = a} :: ListAssistantAssociations)
 
 -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -149,14 +149,14 @@ instance Core.AWSRequest ListAssistantAssociations where
 
 instance Prelude.Hashable ListAssistantAssociations where
   hashWithSalt _salt ListAssistantAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assistantId
 
 instance Prelude.NFData ListAssistantAssociations where
   rnf ListAssistantAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assistantId
 
 instance Data.ToHeaders ListAssistantAssociations where
@@ -181,8 +181,8 @@ instance Data.ToPath ListAssistantAssociations where
 instance Data.ToQuery ListAssistantAssociations where
   toQuery ListAssistantAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAssistantAssociationsResponse' smart constructor.

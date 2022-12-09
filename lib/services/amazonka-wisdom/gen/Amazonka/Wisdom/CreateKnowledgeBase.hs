@@ -34,12 +34,12 @@ module Amazonka.Wisdom.CreateKnowledgeBase
     newCreateKnowledgeBase,
 
     -- * Request Lenses
-    createKnowledgeBase_tags,
     createKnowledgeBase_clientToken,
-    createKnowledgeBase_sourceConfiguration,
-    createKnowledgeBase_serverSideEncryptionConfiguration,
     createKnowledgeBase_description,
     createKnowledgeBase_renderingConfiguration,
+    createKnowledgeBase_serverSideEncryptionConfiguration,
+    createKnowledgeBase_sourceConfiguration,
+    createKnowledgeBase_tags,
     createKnowledgeBase_knowledgeBaseType,
     createKnowledgeBase_name,
 
@@ -63,20 +63,20 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateKnowledgeBase' smart constructor.
 data CreateKnowledgeBase = CreateKnowledgeBase'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The source of the knowledge base content. Only set this argument for
-    -- EXTERNAL knowledge bases.
-    sourceConfiguration :: Prelude.Maybe SourceConfiguration,
-    -- | The KMS key used for encryption.
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
     -- | Information about how to render the content.
     renderingConfiguration :: Prelude.Maybe RenderingConfiguration,
+    -- | The KMS key used for encryption.
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | The source of the knowledge base content. Only set this argument for
+    -- EXTERNAL knowledge bases.
+    sourceConfiguration :: Prelude.Maybe SourceConfiguration,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of knowledge base. Only CUSTOM knowledge bases allow you to
     -- upload your own content. EXTERNAL knowledge bases support integrations
     -- with third-party systems whose content is synchronized automatically.
@@ -94,19 +94,19 @@ data CreateKnowledgeBase = CreateKnowledgeBase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createKnowledgeBase_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'clientToken', 'createKnowledgeBase_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
---
--- 'sourceConfiguration', 'createKnowledgeBase_sourceConfiguration' - The source of the knowledge base content. Only set this argument for
--- EXTERNAL knowledge bases.
---
--- 'serverSideEncryptionConfiguration', 'createKnowledgeBase_serverSideEncryptionConfiguration' - The KMS key used for encryption.
 --
 -- 'description', 'createKnowledgeBase_description' - The description.
 --
 -- 'renderingConfiguration', 'createKnowledgeBase_renderingConfiguration' - Information about how to render the content.
+--
+-- 'serverSideEncryptionConfiguration', 'createKnowledgeBase_serverSideEncryptionConfiguration' - The KMS key used for encryption.
+--
+-- 'sourceConfiguration', 'createKnowledgeBase_sourceConfiguration' - The source of the knowledge base content. Only set this argument for
+-- EXTERNAL knowledge bases.
+--
+-- 'tags', 'createKnowledgeBase_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'knowledgeBaseType', 'createKnowledgeBase_knowledgeBaseType' - The type of knowledge base. Only CUSTOM knowledge bases allow you to
 -- upload your own content. EXTERNAL knowledge bases support integrations
@@ -121,33 +121,20 @@ newCreateKnowledgeBase ::
   CreateKnowledgeBase
 newCreateKnowledgeBase pKnowledgeBaseType_ pName_ =
   CreateKnowledgeBase'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      sourceConfiguration = Prelude.Nothing,
-      serverSideEncryptionConfiguration = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       renderingConfiguration = Prelude.Nothing,
+      serverSideEncryptionConfiguration = Prelude.Nothing,
+      sourceConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       knowledgeBaseType = pKnowledgeBaseType_,
       name = pName_
     }
-
--- | The tags used to organize, track, or control access for this resource.
-createKnowledgeBase_tags :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createKnowledgeBase_tags = Lens.lens (\CreateKnowledgeBase' {tags} -> tags) (\s@CreateKnowledgeBase' {} a -> s {tags = a} :: CreateKnowledgeBase) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createKnowledgeBase_clientToken :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe Prelude.Text)
 createKnowledgeBase_clientToken = Lens.lens (\CreateKnowledgeBase' {clientToken} -> clientToken) (\s@CreateKnowledgeBase' {} a -> s {clientToken = a} :: CreateKnowledgeBase)
-
--- | The source of the knowledge base content. Only set this argument for
--- EXTERNAL knowledge bases.
-createKnowledgeBase_sourceConfiguration :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe SourceConfiguration)
-createKnowledgeBase_sourceConfiguration = Lens.lens (\CreateKnowledgeBase' {sourceConfiguration} -> sourceConfiguration) (\s@CreateKnowledgeBase' {} a -> s {sourceConfiguration = a} :: CreateKnowledgeBase)
-
--- | The KMS key used for encryption.
-createKnowledgeBase_serverSideEncryptionConfiguration :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe ServerSideEncryptionConfiguration)
-createKnowledgeBase_serverSideEncryptionConfiguration = Lens.lens (\CreateKnowledgeBase' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateKnowledgeBase' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateKnowledgeBase)
 
 -- | The description.
 createKnowledgeBase_description :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe Prelude.Text)
@@ -156,6 +143,19 @@ createKnowledgeBase_description = Lens.lens (\CreateKnowledgeBase' {description}
 -- | Information about how to render the content.
 createKnowledgeBase_renderingConfiguration :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe RenderingConfiguration)
 createKnowledgeBase_renderingConfiguration = Lens.lens (\CreateKnowledgeBase' {renderingConfiguration} -> renderingConfiguration) (\s@CreateKnowledgeBase' {} a -> s {renderingConfiguration = a} :: CreateKnowledgeBase)
+
+-- | The KMS key used for encryption.
+createKnowledgeBase_serverSideEncryptionConfiguration :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe ServerSideEncryptionConfiguration)
+createKnowledgeBase_serverSideEncryptionConfiguration = Lens.lens (\CreateKnowledgeBase' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateKnowledgeBase' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateKnowledgeBase)
+
+-- | The source of the knowledge base content. Only set this argument for
+-- EXTERNAL knowledge bases.
+createKnowledgeBase_sourceConfiguration :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe SourceConfiguration)
+createKnowledgeBase_sourceConfiguration = Lens.lens (\CreateKnowledgeBase' {sourceConfiguration} -> sourceConfiguration) (\s@CreateKnowledgeBase' {} a -> s {sourceConfiguration = a} :: CreateKnowledgeBase)
+
+-- | The tags used to organize, track, or control access for this resource.
+createKnowledgeBase_tags :: Lens.Lens' CreateKnowledgeBase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createKnowledgeBase_tags = Lens.lens (\CreateKnowledgeBase' {tags} -> tags) (\s@CreateKnowledgeBase' {} a -> s {tags = a} :: CreateKnowledgeBase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of knowledge base. Only CUSTOM knowledge bases allow you to
 -- upload your own content. EXTERNAL knowledge bases support integrations
@@ -183,23 +183,23 @@ instance Core.AWSRequest CreateKnowledgeBase where
 
 instance Prelude.Hashable CreateKnowledgeBase where
   hashWithSalt _salt CreateKnowledgeBase' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` sourceConfiguration
-      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` renderingConfiguration
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` knowledgeBaseType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateKnowledgeBase where
   rnf CreateKnowledgeBase' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf renderingConfiguration
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf knowledgeBaseType
       `Prelude.seq` Prelude.rnf name
 
@@ -218,15 +218,15 @@ instance Data.ToJSON CreateKnowledgeBase where
   toJSON CreateKnowledgeBase' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("sourceConfiguration" Data..=)
-              Prelude.<$> sourceConfiguration,
-            ("serverSideEncryptionConfiguration" Data..=)
-              Prelude.<$> serverSideEncryptionConfiguration,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
             ("renderingConfiguration" Data..=)
               Prelude.<$> renderingConfiguration,
+            ("serverSideEncryptionConfiguration" Data..=)
+              Prelude.<$> serverSideEncryptionConfiguration,
+            ("sourceConfiguration" Data..=)
+              Prelude.<$> sourceConfiguration,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("knowledgeBaseType" Data..= knowledgeBaseType),
             Prelude.Just ("name" Data..= name)

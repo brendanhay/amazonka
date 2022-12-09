@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHighlight' smart constructor.
 data Highlight = Highlight'
-  { -- | The offset for the end of the highlight.
-    endOffsetExclusive :: Prelude.Maybe Prelude.Int,
-    -- | The offset for the start of the highlight.
-    beginOffsetInclusive :: Prelude.Maybe Prelude.Int
+  { -- | The offset for the start of the highlight.
+    beginOffsetInclusive :: Prelude.Maybe Prelude.Int,
+    -- | The offset for the end of the highlight.
+    endOffsetExclusive :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Highlight = Highlight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endOffsetExclusive', 'highlight_endOffsetExclusive' - The offset for the end of the highlight.
---
 -- 'beginOffsetInclusive', 'highlight_beginOffsetInclusive' - The offset for the start of the highlight.
+--
+-- 'endOffsetExclusive', 'highlight_endOffsetExclusive' - The offset for the end of the highlight.
 newHighlight ::
   Highlight
 newHighlight =
   Highlight'
-    { endOffsetExclusive = Prelude.Nothing,
-      beginOffsetInclusive = Prelude.Nothing
+    { beginOffsetInclusive = Prelude.Nothing,
+      endOffsetExclusive = Prelude.Nothing
     }
-
--- | The offset for the end of the highlight.
-highlight_endOffsetExclusive :: Lens.Lens' Highlight (Prelude.Maybe Prelude.Int)
-highlight_endOffsetExclusive = Lens.lens (\Highlight' {endOffsetExclusive} -> endOffsetExclusive) (\s@Highlight' {} a -> s {endOffsetExclusive = a} :: Highlight)
 
 -- | The offset for the start of the highlight.
 highlight_beginOffsetInclusive :: Lens.Lens' Highlight (Prelude.Maybe Prelude.Int)
 highlight_beginOffsetInclusive = Lens.lens (\Highlight' {beginOffsetInclusive} -> beginOffsetInclusive) (\s@Highlight' {} a -> s {beginOffsetInclusive = a} :: Highlight)
+
+-- | The offset for the end of the highlight.
+highlight_endOffsetExclusive :: Lens.Lens' Highlight (Prelude.Maybe Prelude.Int)
+highlight_endOffsetExclusive = Lens.lens (\Highlight' {endOffsetExclusive} -> endOffsetExclusive) (\s@Highlight' {} a -> s {endOffsetExclusive = a} :: Highlight)
 
 instance Data.FromJSON Highlight where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON Highlight where
       "Highlight"
       ( \x ->
           Highlight'
-            Prelude.<$> (x Data..:? "endOffsetExclusive")
-            Prelude.<*> (x Data..:? "beginOffsetInclusive")
+            Prelude.<$> (x Data..:? "beginOffsetInclusive")
+            Prelude.<*> (x Data..:? "endOffsetExclusive")
       )
 
 instance Prelude.Hashable Highlight where
   hashWithSalt _salt Highlight' {..} =
-    _salt `Prelude.hashWithSalt` endOffsetExclusive
-      `Prelude.hashWithSalt` beginOffsetInclusive
+    _salt `Prelude.hashWithSalt` beginOffsetInclusive
+      `Prelude.hashWithSalt` endOffsetExclusive
 
 instance Prelude.NFData Highlight where
   rnf Highlight' {..} =
-    Prelude.rnf endOffsetExclusive
-      `Prelude.seq` Prelude.rnf beginOffsetInclusive
+    Prelude.rnf beginOffsetInclusive
+      `Prelude.seq` Prelude.rnf endOffsetExclusive

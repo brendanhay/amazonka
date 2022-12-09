@@ -29,11 +29,11 @@ module Amazonka.Wisdom.CreateContent
     newCreateContent,
 
     -- * Request Lenses
-    createContent_tags,
     createContent_clientToken,
     createContent_metadata,
-    createContent_title,
     createContent_overrideLinkOutUri,
+    createContent_tags,
+    createContent_title,
     createContent_knowledgeBaseId,
     createContent_name,
     createContent_uploadId,
@@ -58,9 +58,7 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateContent' smart constructor.
 data CreateContent = CreateContent'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A key\/value map to store attributes without affecting tagging or
@@ -68,12 +66,14 @@ data CreateContent = CreateContent'
     -- external system and Wisdom, you can store an external version identifier
     -- as metadata to utilize for determining drift.
     metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The title of the content. If not set, the title is equal to the name.
-    title :: Prelude.Maybe Prelude.Text,
     -- | The URI you want to use for the article. If the knowledge base has a
     -- templateUri, setting this argument overrides it for this piece of
     -- content.
     overrideLinkOutUri :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The title of the content. If not set, the title is equal to the name.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the knowledge base. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text,
@@ -97,8 +97,6 @@ data CreateContent = CreateContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContent_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'clientToken', 'createContent_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
@@ -107,11 +105,13 @@ data CreateContent = CreateContent'
 -- external system and Wisdom, you can store an external version identifier
 -- as metadata to utilize for determining drift.
 --
--- 'title', 'createContent_title' - The title of the content. If not set, the title is equal to the name.
---
 -- 'overrideLinkOutUri', 'createContent_overrideLinkOutUri' - The URI you want to use for the article. If the knowledge base has a
 -- templateUri, setting this argument overrides it for this piece of
 -- content.
+--
+-- 'tags', 'createContent_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'title', 'createContent_title' - The title of the content. If not set, the title is equal to the name.
 --
 -- 'knowledgeBaseId', 'createContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -134,19 +134,15 @@ newCreateContent ::
   CreateContent
 newCreateContent pKnowledgeBaseId_ pName_ pUploadId_ =
   CreateContent'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       metadata = Prelude.Nothing,
-      title = Prelude.Nothing,
       overrideLinkOutUri = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      title = Prelude.Nothing,
       knowledgeBaseId = pKnowledgeBaseId_,
       name = pName_,
       uploadId = pUploadId_
     }
-
--- | The tags used to organize, track, or control access for this resource.
-createContent_tags :: Lens.Lens' CreateContent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContent_tags = Lens.lens (\CreateContent' {tags} -> tags) (\s@CreateContent' {} a -> s {tags = a} :: CreateContent) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -160,15 +156,19 @@ createContent_clientToken = Lens.lens (\CreateContent' {clientToken} -> clientTo
 createContent_metadata :: Lens.Lens' CreateContent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createContent_metadata = Lens.lens (\CreateContent' {metadata} -> metadata) (\s@CreateContent' {} a -> s {metadata = a} :: CreateContent) Prelude.. Lens.mapping Lens.coerced
 
--- | The title of the content. If not set, the title is equal to the name.
-createContent_title :: Lens.Lens' CreateContent (Prelude.Maybe Prelude.Text)
-createContent_title = Lens.lens (\CreateContent' {title} -> title) (\s@CreateContent' {} a -> s {title = a} :: CreateContent)
-
 -- | The URI you want to use for the article. If the knowledge base has a
 -- templateUri, setting this argument overrides it for this piece of
 -- content.
 createContent_overrideLinkOutUri :: Lens.Lens' CreateContent (Prelude.Maybe Prelude.Text)
 createContent_overrideLinkOutUri = Lens.lens (\CreateContent' {overrideLinkOutUri} -> overrideLinkOutUri) (\s@CreateContent' {} a -> s {overrideLinkOutUri = a} :: CreateContent)
+
+-- | The tags used to organize, track, or control access for this resource.
+createContent_tags :: Lens.Lens' CreateContent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createContent_tags = Lens.lens (\CreateContent' {tags} -> tags) (\s@CreateContent' {} a -> s {tags = a} :: CreateContent) Prelude.. Lens.mapping Lens.coerced
+
+-- | The title of the content. If not set, the title is equal to the name.
+createContent_title :: Lens.Lens' CreateContent (Prelude.Maybe Prelude.Text)
+createContent_title = Lens.lens (\CreateContent' {title} -> title) (\s@CreateContent' {} a -> s {title = a} :: CreateContent)
 
 -- | The identifier of the knowledge base. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -204,22 +204,22 @@ instance Core.AWSRequest CreateContent where
 
 instance Prelude.Hashable CreateContent where
   hashWithSalt _salt CreateContent' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` overrideLinkOutUri
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` knowledgeBaseId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` uploadId
 
 instance Prelude.NFData CreateContent where
   rnf CreateContent' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf overrideLinkOutUri
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf knowledgeBaseId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf uploadId
@@ -239,12 +239,12 @@ instance Data.ToJSON CreateContent where
   toJSON CreateContent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("metadata" Data..=) Prelude.<$> metadata,
-            ("title" Data..=) Prelude.<$> title,
             ("overrideLinkOutUri" Data..=)
               Prelude.<$> overrideLinkOutUri,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("title" Data..=) Prelude.<$> title,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("uploadId" Data..= uploadId)
           ]

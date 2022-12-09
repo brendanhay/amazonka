@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionData' smart constructor.
 data SessionData = SessionData'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the session.
+  { -- | The description of the session.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the session.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the session.
@@ -49,9 +49,9 @@ data SessionData = SessionData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'sessionData_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'description', 'sessionData_description' - The description of the session.
+--
+-- 'tags', 'sessionData_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'name', 'sessionData_name' - The name of the session.
 --
@@ -68,20 +68,20 @@ newSessionData ::
   SessionData
 newSessionData pName_ pSessionArn_ pSessionId_ =
   SessionData'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       sessionArn = pSessionArn_,
       sessionId = pSessionId_
     }
 
--- | The tags used to organize, track, or control access for this resource.
-sessionData_tags :: Lens.Lens' SessionData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sessionData_tags = Lens.lens (\SessionData' {tags} -> tags) (\s@SessionData' {} a -> s {tags = a} :: SessionData) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the session.
 sessionData_description :: Lens.Lens' SessionData (Prelude.Maybe Prelude.Text)
 sessionData_description = Lens.lens (\SessionData' {description} -> description) (\s@SessionData' {} a -> s {description = a} :: SessionData)
+
+-- | The tags used to organize, track, or control access for this resource.
+sessionData_tags :: Lens.Lens' SessionData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+sessionData_tags = Lens.lens (\SessionData' {tags} -> tags) (\s@SessionData' {} a -> s {tags = a} :: SessionData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the session.
 sessionData_name :: Lens.Lens' SessionData Prelude.Text
@@ -101,8 +101,8 @@ instance Data.FromJSON SessionData where
       "SessionData"
       ( \x ->
           SessionData'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "sessionArn")
             Prelude.<*> (x Data..: "sessionId")
@@ -110,16 +110,16 @@ instance Data.FromJSON SessionData where
 
 instance Prelude.Hashable SessionData where
   hashWithSalt _salt SessionData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sessionArn
       `Prelude.hashWithSalt` sessionId
 
 instance Prelude.NFData SessionData where
   rnf SessionData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sessionArn
       `Prelude.seq` Prelude.rnf sessionId

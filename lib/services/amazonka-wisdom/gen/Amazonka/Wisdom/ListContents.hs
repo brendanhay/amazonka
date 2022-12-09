@@ -29,8 +29,8 @@ module Amazonka.Wisdom.ListContents
     newListContents,
 
     -- * Request Lenses
-    listContents_nextToken,
     listContents_maxResults,
+    listContents_nextToken,
     listContents_knowledgeBaseId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newListContents' smart constructor.
 data ListContents = ListContents'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the knowledge base. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
@@ -74,11 +74,11 @@ data ListContents = ListContents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listContents_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listContents_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listContents_maxResults' - The maximum number of results to return per page.
 --
 -- 'knowledgeBaseId', 'listContents_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -88,20 +88,20 @@ newListContents ::
   ListContents
 newListContents pKnowledgeBaseId_ =
   ListContents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       knowledgeBaseId = pKnowledgeBaseId_
     }
+
+-- | The maximum number of results to return per page.
+listContents_maxResults :: Lens.Lens' ListContents (Prelude.Maybe Prelude.Natural)
+listContents_maxResults = Lens.lens (\ListContents' {maxResults} -> maxResults) (\s@ListContents' {} a -> s {maxResults = a} :: ListContents)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listContents_nextToken :: Lens.Lens' ListContents (Prelude.Maybe Prelude.Text)
 listContents_nextToken = Lens.lens (\ListContents' {nextToken} -> nextToken) (\s@ListContents' {} a -> s {nextToken = a} :: ListContents)
-
--- | The maximum number of results to return per page.
-listContents_maxResults :: Lens.Lens' ListContents (Prelude.Maybe Prelude.Natural)
-listContents_maxResults = Lens.lens (\ListContents' {maxResults} -> maxResults) (\s@ListContents' {} a -> s {maxResults = a} :: ListContents)
 
 -- | The identifier of the knowledge base. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListContents where
 
 instance Prelude.Hashable ListContents where
   hashWithSalt _salt ListContents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` knowledgeBaseId
 
 instance Prelude.NFData ListContents where
   rnf ListContents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf knowledgeBaseId
 
 instance Data.ToHeaders ListContents where
@@ -174,8 +174,8 @@ instance Data.ToPath ListContents where
 instance Data.ToQuery ListContents where
   toQuery ListContents' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListContentsResponse' smart constructor.

@@ -41,8 +41,8 @@ module Amazonka.Wisdom.NotifyRecommendationsReceived
     newNotifyRecommendationsReceivedResponse,
 
     -- * Response Lenses
-    notifyRecommendationsReceivedResponse_recommendationIds,
     notifyRecommendationsReceivedResponse_errors,
+    notifyRecommendationsReceivedResponse_recommendationIds,
     notifyRecommendationsReceivedResponse_httpStatus,
   )
 where
@@ -126,10 +126,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           NotifyRecommendationsReceivedResponse'
-            Prelude.<$> ( x Data..?> "recommendationIds"
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "recommendationIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,10 +183,10 @@ instance Data.ToQuery NotifyRecommendationsReceived where
 
 -- | /See:/ 'newNotifyRecommendationsReceivedResponse' smart constructor.
 data NotifyRecommendationsReceivedResponse = NotifyRecommendationsReceivedResponse'
-  { -- | The identifiers of the recommendations.
-    recommendationIds :: Prelude.Maybe [Prelude.Text],
-    -- | The identifiers of recommendations that are causing errors.
+  { -- | The identifiers of recommendations that are causing errors.
     errors :: Prelude.Maybe [NotifyRecommendationsReceivedError],
+    -- | The identifiers of the recommendations.
+    recommendationIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,9 +200,9 @@ data NotifyRecommendationsReceivedResponse = NotifyRecommendationsReceivedRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationIds', 'notifyRecommendationsReceivedResponse_recommendationIds' - The identifiers of the recommendations.
---
 -- 'errors', 'notifyRecommendationsReceivedResponse_errors' - The identifiers of recommendations that are causing errors.
+--
+-- 'recommendationIds', 'notifyRecommendationsReceivedResponse_recommendationIds' - The identifiers of the recommendations.
 --
 -- 'httpStatus', 'notifyRecommendationsReceivedResponse_httpStatus' - The response's http status code.
 newNotifyRecommendationsReceivedResponse ::
@@ -211,19 +211,19 @@ newNotifyRecommendationsReceivedResponse ::
   NotifyRecommendationsReceivedResponse
 newNotifyRecommendationsReceivedResponse pHttpStatus_ =
   NotifyRecommendationsReceivedResponse'
-    { recommendationIds =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      recommendationIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifiers of the recommendations.
-notifyRecommendationsReceivedResponse_recommendationIds :: Lens.Lens' NotifyRecommendationsReceivedResponse (Prelude.Maybe [Prelude.Text])
-notifyRecommendationsReceivedResponse_recommendationIds = Lens.lens (\NotifyRecommendationsReceivedResponse' {recommendationIds} -> recommendationIds) (\s@NotifyRecommendationsReceivedResponse' {} a -> s {recommendationIds = a} :: NotifyRecommendationsReceivedResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifiers of recommendations that are causing errors.
 notifyRecommendationsReceivedResponse_errors :: Lens.Lens' NotifyRecommendationsReceivedResponse (Prelude.Maybe [NotifyRecommendationsReceivedError])
 notifyRecommendationsReceivedResponse_errors = Lens.lens (\NotifyRecommendationsReceivedResponse' {errors} -> errors) (\s@NotifyRecommendationsReceivedResponse' {} a -> s {errors = a} :: NotifyRecommendationsReceivedResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifiers of the recommendations.
+notifyRecommendationsReceivedResponse_recommendationIds :: Lens.Lens' NotifyRecommendationsReceivedResponse (Prelude.Maybe [Prelude.Text])
+notifyRecommendationsReceivedResponse_recommendationIds = Lens.lens (\NotifyRecommendationsReceivedResponse' {recommendationIds} -> recommendationIds) (\s@NotifyRecommendationsReceivedResponse' {} a -> s {recommendationIds = a} :: NotifyRecommendationsReceivedResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 notifyRecommendationsReceivedResponse_httpStatus :: Lens.Lens' NotifyRecommendationsReceivedResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     NotifyRecommendationsReceivedResponse
   where
   rnf NotifyRecommendationsReceivedResponse' {..} =
-    Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf recommendationIds
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,12 +31,12 @@ import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
 --
 -- /See:/ 'newAssistantData' smart constructor.
 data AssistantData = AssistantData'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The KMS key used for encryption.
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
-    -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the Wisdom assistant.
     assistantArn :: Prelude.Text,
     -- | The identifier of the Wisdom assistant.
@@ -58,11 +58,11 @@ data AssistantData = AssistantData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'assistantData_tags' - The tags used to organize, track, or control access for this resource.
+-- 'description', 'assistantData_description' - The description.
 --
 -- 'serverSideEncryptionConfiguration', 'assistantData_serverSideEncryptionConfiguration' - The KMS key used for encryption.
 --
--- 'description', 'assistantData_description' - The description.
+-- 'tags', 'assistantData_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'assistantArn', 'assistantData_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant.
 --
@@ -92,9 +92,9 @@ newAssistantData
   pStatus_
   pType_ =
     AssistantData'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         serverSideEncryptionConfiguration = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         assistantArn = pAssistantArn_,
         assistantId = pAssistantId_,
         name = pName_,
@@ -102,17 +102,17 @@ newAssistantData
         type' = pType_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-assistantData_tags :: Lens.Lens' AssistantData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-assistantData_tags = Lens.lens (\AssistantData' {tags} -> tags) (\s@AssistantData' {} a -> s {tags = a} :: AssistantData) Prelude.. Lens.mapping Lens.coerced
+-- | The description.
+assistantData_description :: Lens.Lens' AssistantData (Prelude.Maybe Prelude.Text)
+assistantData_description = Lens.lens (\AssistantData' {description} -> description) (\s@AssistantData' {} a -> s {description = a} :: AssistantData)
 
 -- | The KMS key used for encryption.
 assistantData_serverSideEncryptionConfiguration :: Lens.Lens' AssistantData (Prelude.Maybe ServerSideEncryptionConfiguration)
 assistantData_serverSideEncryptionConfiguration = Lens.lens (\AssistantData' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@AssistantData' {} a -> s {serverSideEncryptionConfiguration = a} :: AssistantData)
 
--- | The description.
-assistantData_description :: Lens.Lens' AssistantData (Prelude.Maybe Prelude.Text)
-assistantData_description = Lens.lens (\AssistantData' {description} -> description) (\s@AssistantData' {} a -> s {description = a} :: AssistantData)
+-- | The tags used to organize, track, or control access for this resource.
+assistantData_tags :: Lens.Lens' AssistantData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+assistantData_tags = Lens.lens (\AssistantData' {tags} -> tags) (\s@AssistantData' {} a -> s {tags = a} :: AssistantData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the Wisdom assistant.
 assistantData_assistantArn :: Lens.Lens' AssistantData Prelude.Text
@@ -140,9 +140,9 @@ instance Data.FromJSON AssistantData where
       "AssistantData"
       ( \x ->
           AssistantData'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "assistantArn")
             Prelude.<*> (x Data..: "assistantId")
             Prelude.<*> (x Data..: "name")
@@ -152,9 +152,9 @@ instance Data.FromJSON AssistantData where
 
 instance Prelude.Hashable AssistantData where
   hashWithSalt _salt AssistantData' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantArn
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` name
@@ -163,9 +163,9 @@ instance Prelude.Hashable AssistantData where
 
 instance Prelude.NFData AssistantData where
   rnf AssistantData' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf assistantArn
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf name

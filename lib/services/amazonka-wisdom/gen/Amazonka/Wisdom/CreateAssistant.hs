@@ -27,10 +27,10 @@ module Amazonka.Wisdom.CreateAssistant
     newCreateAssistant,
 
     -- * Request Lenses
-    createAssistant_tags,
     createAssistant_clientToken,
-    createAssistant_serverSideEncryptionConfiguration,
     createAssistant_description,
+    createAssistant_serverSideEncryptionConfiguration,
+    createAssistant_tags,
     createAssistant_name,
     createAssistant_type,
 
@@ -54,15 +54,15 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateAssistant' smart constructor.
 data CreateAssistant = CreateAssistant'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The KMS key used for encryption.
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
     -- | The description of the assistant.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The KMS key used for encryption.
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the assistant.
     name :: Prelude.Text,
     -- | The type of assistant.
@@ -78,14 +78,14 @@ data CreateAssistant = CreateAssistant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAssistant_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'clientToken', 'createAssistant_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
+-- 'description', 'createAssistant_description' - The description of the assistant.
+--
 -- 'serverSideEncryptionConfiguration', 'createAssistant_serverSideEncryptionConfiguration' - The KMS key used for encryption.
 --
--- 'description', 'createAssistant_description' - The description of the assistant.
+-- 'tags', 'createAssistant_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'name', 'createAssistant_name' - The name of the assistant.
 --
@@ -98,30 +98,30 @@ newCreateAssistant ::
   CreateAssistant
 newCreateAssistant pName_ pType_ =
   CreateAssistant'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      serverSideEncryptionConfiguration = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      serverSideEncryptionConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
-
--- | The tags used to organize, track, or control access for this resource.
-createAssistant_tags :: Lens.Lens' CreateAssistant (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAssistant_tags = Lens.lens (\CreateAssistant' {tags} -> tags) (\s@CreateAssistant' {} a -> s {tags = a} :: CreateAssistant) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createAssistant_clientToken :: Lens.Lens' CreateAssistant (Prelude.Maybe Prelude.Text)
 createAssistant_clientToken = Lens.lens (\CreateAssistant' {clientToken} -> clientToken) (\s@CreateAssistant' {} a -> s {clientToken = a} :: CreateAssistant)
 
+-- | The description of the assistant.
+createAssistant_description :: Lens.Lens' CreateAssistant (Prelude.Maybe Prelude.Text)
+createAssistant_description = Lens.lens (\CreateAssistant' {description} -> description) (\s@CreateAssistant' {} a -> s {description = a} :: CreateAssistant)
+
 -- | The KMS key used for encryption.
 createAssistant_serverSideEncryptionConfiguration :: Lens.Lens' CreateAssistant (Prelude.Maybe ServerSideEncryptionConfiguration)
 createAssistant_serverSideEncryptionConfiguration = Lens.lens (\CreateAssistant' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateAssistant' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateAssistant)
 
--- | The description of the assistant.
-createAssistant_description :: Lens.Lens' CreateAssistant (Prelude.Maybe Prelude.Text)
-createAssistant_description = Lens.lens (\CreateAssistant' {description} -> description) (\s@CreateAssistant' {} a -> s {description = a} :: CreateAssistant)
+-- | The tags used to organize, track, or control access for this resource.
+createAssistant_tags :: Lens.Lens' CreateAssistant (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAssistant_tags = Lens.lens (\CreateAssistant' {tags} -> tags) (\s@CreateAssistant' {} a -> s {tags = a} :: CreateAssistant) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the assistant.
 createAssistant_name :: Lens.Lens' CreateAssistant Prelude.Text
@@ -147,19 +147,19 @@ instance Core.AWSRequest CreateAssistant where
 
 instance Prelude.Hashable CreateAssistant where
   hashWithSalt _salt CreateAssistant' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateAssistant where
   rnf CreateAssistant' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -178,11 +178,11 @@ instance Data.ToJSON CreateAssistant where
   toJSON CreateAssistant' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             ("serverSideEncryptionConfiguration" Data..=)
               Prelude.<$> serverSideEncryptionConfiguration,
-            ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("type" Data..= type')
           ]

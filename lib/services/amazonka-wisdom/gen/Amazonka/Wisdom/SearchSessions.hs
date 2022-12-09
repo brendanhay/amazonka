@@ -29,8 +29,8 @@ module Amazonka.Wisdom.SearchSessions
     newSearchSessions,
 
     -- * Request Lenses
-    searchSessions_nextToken,
     searchSessions_maxResults,
+    searchSessions_nextToken,
     searchSessions_assistantId,
     searchSessions_searchExpression,
 
@@ -55,12 +55,12 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newSearchSessions' smart constructor.
 data SearchSessions = SearchSessions'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text,
@@ -77,11 +77,11 @@ data SearchSessions = SearchSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchSessions_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'searchSessions_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'searchSessions_maxResults' - The maximum number of results to return per page.
 --
 -- 'assistantId', 'searchSessions_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -95,21 +95,21 @@ newSearchSessions ::
   SearchSessions
 newSearchSessions pAssistantId_ pSearchExpression_ =
   SearchSessions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assistantId = pAssistantId_,
       searchExpression = pSearchExpression_
     }
+
+-- | The maximum number of results to return per page.
+searchSessions_maxResults :: Lens.Lens' SearchSessions (Prelude.Maybe Prelude.Natural)
+searchSessions_maxResults = Lens.lens (\SearchSessions' {maxResults} -> maxResults) (\s@SearchSessions' {} a -> s {maxResults = a} :: SearchSessions)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 searchSessions_nextToken :: Lens.Lens' SearchSessions (Prelude.Maybe Prelude.Text)
 searchSessions_nextToken = Lens.lens (\SearchSessions' {nextToken} -> nextToken) (\s@SearchSessions' {} a -> s {nextToken = a} :: SearchSessions)
-
--- | The maximum number of results to return per page.
-searchSessions_maxResults :: Lens.Lens' SearchSessions (Prelude.Maybe Prelude.Natural)
-searchSessions_maxResults = Lens.lens (\SearchSessions' {maxResults} -> maxResults) (\s@SearchSessions' {} a -> s {maxResults = a} :: SearchSessions)
 
 -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -157,15 +157,15 @@ instance Core.AWSRequest SearchSessions where
 
 instance Prelude.Hashable SearchSessions where
   hashWithSalt _salt SearchSessions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` searchExpression
 
 instance Prelude.NFData SearchSessions where
   rnf SearchSessions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf searchExpression
 
@@ -200,8 +200,8 @@ instance Data.ToPath SearchSessions where
 instance Data.ToQuery SearchSessions where
   toQuery SearchSessions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newSearchSessionsResponse' smart constructor.

@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.S3Object
 
 -- | The Amazon S3 bucket that contains the document to be processed. It\'s
--- used by asynchronous operations such as StartDocumentTextDetection.
+-- used by asynchronous operations.
 --
 -- The input document can be an image file in JPEG or PNG format. It can
 -- also be a file in PDF format.

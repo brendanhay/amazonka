@@ -47,11 +47,11 @@ module Amazonka.Textract.StartDocumentAnalysis
 
     -- * Request Lenses
     startDocumentAnalysis_clientRequestToken,
-    startDocumentAnalysis_queriesConfig,
-    startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_jobTag,
-    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_notificationChannel,
+    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_queriesConfig,
     startDocumentAnalysis_documentLocation,
     startDocumentAnalysis_featureTypes,
 
@@ -82,25 +82,25 @@ data StartDocumentAnalysis = StartDocumentAnalysis'
     -- information, see
     -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    queriesConfig :: Prelude.Maybe QueriesConfig,
+    -- | An identifier that you specify that\'s included in the completion
+    -- notification published to the Amazon SNS topic. For example, you can use
+    -- @JobTag@ to identify the type of document that the completion
+    -- notification corresponds to (such as a tax form or a receipt).
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The KMS key used to encrypt the inference results. This can be in either
     -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
     -- be used for server-side encryption of the objects in the customer
     -- bucket. When this parameter is not enabled, the result will be encrypted
     -- server side,using SSE-S3.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An identifier that you specify that\'s included in the completion
-    -- notification published to the Amazon SNS topic. For example, you can use
-    -- @JobTag@ to identify the type of document that the completion
-    -- notification corresponds to (such as a tax form or a receipt).
-    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
+    -- completion status of the operation to.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Sets if the output will go to a customer defined bucket. By default,
     -- Amazon Textract will save the results internally to be accessed by the
     -- GetDocumentAnalysis operation.
     outputConfig :: Prelude.Maybe OutputConfig,
-    -- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
-    -- completion status of the operation to.
-    notificationChannel :: Prelude.Maybe NotificationChannel,
+    queriesConfig :: Prelude.Maybe QueriesConfig,
     -- | The location of the document to be processed.
     documentLocation :: DocumentLocation,
     -- | A list of the types of analysis to perform. Add TABLES to the list to
@@ -128,7 +128,10 @@ data StartDocumentAnalysis = StartDocumentAnalysis'
 -- information, see
 -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>.
 --
--- 'queriesConfig', 'startDocumentAnalysis_queriesConfig' - Undocumented member.
+-- 'jobTag', 'startDocumentAnalysis_jobTag' - An identifier that you specify that\'s included in the completion
+-- notification published to the Amazon SNS topic. For example, you can use
+-- @JobTag@ to identify the type of document that the completion
+-- notification corresponds to (such as a tax form or a receipt).
 --
 -- 'kmsKeyId', 'startDocumentAnalysis_kmsKeyId' - The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
@@ -136,17 +139,14 @@ data StartDocumentAnalysis = StartDocumentAnalysis'
 -- bucket. When this parameter is not enabled, the result will be encrypted
 -- server side,using SSE-S3.
 --
--- 'jobTag', 'startDocumentAnalysis_jobTag' - An identifier that you specify that\'s included in the completion
--- notification published to the Amazon SNS topic. For example, you can use
--- @JobTag@ to identify the type of document that the completion
--- notification corresponds to (such as a tax form or a receipt).
+-- 'notificationChannel', 'startDocumentAnalysis_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Textract to publish the
+-- completion status of the operation to.
 --
 -- 'outputConfig', 'startDocumentAnalysis_outputConfig' - Sets if the output will go to a customer defined bucket. By default,
 -- Amazon Textract will save the results internally to be accessed by the
 -- GetDocumentAnalysis operation.
 --
--- 'notificationChannel', 'startDocumentAnalysis_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Textract to publish the
--- completion status of the operation to.
+-- 'queriesConfig', 'startDocumentAnalysis_queriesConfig' - Undocumented member.
 --
 -- 'documentLocation', 'startDocumentAnalysis_documentLocation' - The location of the document to be processed.
 --
@@ -164,11 +164,11 @@ newStartDocumentAnalysis pDocumentLocation_ =
   StartDocumentAnalysis'
     { clientRequestToken =
         Prelude.Nothing,
-      queriesConfig = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
       jobTag = Prelude.Nothing,
-      outputConfig = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
+      outputConfig = Prelude.Nothing,
+      queriesConfig = Prelude.Nothing,
       documentLocation = pDocumentLocation_,
       featureTypes = Prelude.mempty
     }
@@ -182,9 +182,12 @@ newStartDocumentAnalysis pDocumentLocation_ =
 startDocumentAnalysis_clientRequestToken :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe Prelude.Text)
 startDocumentAnalysis_clientRequestToken = Lens.lens (\StartDocumentAnalysis' {clientRequestToken} -> clientRequestToken) (\s@StartDocumentAnalysis' {} a -> s {clientRequestToken = a} :: StartDocumentAnalysis)
 
--- | Undocumented member.
-startDocumentAnalysis_queriesConfig :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe QueriesConfig)
-startDocumentAnalysis_queriesConfig = Lens.lens (\StartDocumentAnalysis' {queriesConfig} -> queriesConfig) (\s@StartDocumentAnalysis' {} a -> s {queriesConfig = a} :: StartDocumentAnalysis)
+-- | An identifier that you specify that\'s included in the completion
+-- notification published to the Amazon SNS topic. For example, you can use
+-- @JobTag@ to identify the type of document that the completion
+-- notification corresponds to (such as a tax form or a receipt).
+startDocumentAnalysis_jobTag :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe Prelude.Text)
+startDocumentAnalysis_jobTag = Lens.lens (\StartDocumentAnalysis' {jobTag} -> jobTag) (\s@StartDocumentAnalysis' {} a -> s {jobTag = a} :: StartDocumentAnalysis)
 
 -- | The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
@@ -194,12 +197,10 @@ startDocumentAnalysis_queriesConfig = Lens.lens (\StartDocumentAnalysis' {querie
 startDocumentAnalysis_kmsKeyId :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe Prelude.Text)
 startDocumentAnalysis_kmsKeyId = Lens.lens (\StartDocumentAnalysis' {kmsKeyId} -> kmsKeyId) (\s@StartDocumentAnalysis' {} a -> s {kmsKeyId = a} :: StartDocumentAnalysis)
 
--- | An identifier that you specify that\'s included in the completion
--- notification published to the Amazon SNS topic. For example, you can use
--- @JobTag@ to identify the type of document that the completion
--- notification corresponds to (such as a tax form or a receipt).
-startDocumentAnalysis_jobTag :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe Prelude.Text)
-startDocumentAnalysis_jobTag = Lens.lens (\StartDocumentAnalysis' {jobTag} -> jobTag) (\s@StartDocumentAnalysis' {} a -> s {jobTag = a} :: StartDocumentAnalysis)
+-- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
+-- completion status of the operation to.
+startDocumentAnalysis_notificationChannel :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe NotificationChannel)
+startDocumentAnalysis_notificationChannel = Lens.lens (\StartDocumentAnalysis' {notificationChannel} -> notificationChannel) (\s@StartDocumentAnalysis' {} a -> s {notificationChannel = a} :: StartDocumentAnalysis)
 
 -- | Sets if the output will go to a customer defined bucket. By default,
 -- Amazon Textract will save the results internally to be accessed by the
@@ -207,10 +208,9 @@ startDocumentAnalysis_jobTag = Lens.lens (\StartDocumentAnalysis' {jobTag} -> jo
 startDocumentAnalysis_outputConfig :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe OutputConfig)
 startDocumentAnalysis_outputConfig = Lens.lens (\StartDocumentAnalysis' {outputConfig} -> outputConfig) (\s@StartDocumentAnalysis' {} a -> s {outputConfig = a} :: StartDocumentAnalysis)
 
--- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
--- completion status of the operation to.
-startDocumentAnalysis_notificationChannel :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe NotificationChannel)
-startDocumentAnalysis_notificationChannel = Lens.lens (\StartDocumentAnalysis' {notificationChannel} -> notificationChannel) (\s@StartDocumentAnalysis' {} a -> s {notificationChannel = a} :: StartDocumentAnalysis)
+-- | Undocumented member.
+startDocumentAnalysis_queriesConfig :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe QueriesConfig)
+startDocumentAnalysis_queriesConfig = Lens.lens (\StartDocumentAnalysis' {queriesConfig} -> queriesConfig) (\s@StartDocumentAnalysis' {} a -> s {queriesConfig = a} :: StartDocumentAnalysis)
 
 -- | The location of the document to be processed.
 startDocumentAnalysis_documentLocation :: Lens.Lens' StartDocumentAnalysis DocumentLocation
@@ -242,22 +242,22 @@ instance Core.AWSRequest StartDocumentAnalysis where
 instance Prelude.Hashable StartDocumentAnalysis where
   hashWithSalt _salt StartDocumentAnalysis' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` queriesConfig
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` jobTag
-      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` queriesConfig
       `Prelude.hashWithSalt` documentLocation
       `Prelude.hashWithSalt` featureTypes
 
 instance Prelude.NFData StartDocumentAnalysis where
   rnf StartDocumentAnalysis' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf queriesConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf queriesConfig
       `Prelude.seq` Prelude.rnf documentLocation
       `Prelude.seq` Prelude.rnf featureTypes
 
@@ -282,12 +282,12 @@ instance Data.ToJSON StartDocumentAnalysis where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("QueriesConfig" Data..=) Prelude.<$> queriesConfig,
-            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("JobTag" Data..=) Prelude.<$> jobTag,
-            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("QueriesConfig" Data..=) Prelude.<$> queriesConfig,
             Prelude.Just
               ("DocumentLocation" Data..= documentLocation),
             Prelude.Just ("FeatureTypes" Data..= featureTypes)

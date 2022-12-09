@@ -102,24 +102,10 @@ data Block = Block'
     --     analyze document. Comes with an alias and ID for ease of locating in
     --     a response. Also contains location and confidence score.
     blockType :: Prelude.Maybe BlockType,
-    -- | The number of rows that a table cell spans. Currently this value is
-    -- always 1, even if the number of rows spanned is greater than 1.
-    -- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
-    -- @GetDocumentTextDetection@.
-    rowSpan :: Prelude.Maybe Prelude.Natural,
     -- | The column in which a table cell appears. The first column position is
     -- 1. @ColumnIndex@ isn\'t returned by @DetectDocumentText@ and
     -- @GetDocumentTextDetection@.
     columnIndex :: Prelude.Maybe Prelude.Natural,
-    -- | The type of entity. The following can be returned:
-    --
-    -- -   /KEY/ - An identifier for a field on the document.
-    --
-    -- -   /VALUE/ - The field text.
-    --
-    -- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
-    -- @GetDocumentTextDetection@.
-    entityTypes :: Prelude.Maybe [EntityType],
     -- | The number of columns that a table cell spans. Currently this value is
     -- always 1, even if the number of columns spanned is greater than 1.
     -- @ColumnSpan@ isn\'t returned by @DetectDocumentText@ and
@@ -129,17 +115,22 @@ data Block = Block'
     -- recognized text and the accuracy of the geometry points around the
     -- recognized text.
     confidence :: Prelude.Maybe Prelude.Double,
-    -- | The row in which a table cell is located. The first row position is 1.
-    -- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+    -- | The type of entity. The following can be returned:
+    --
+    -- -   /KEY/ - An identifier for a field on the document.
+    --
+    -- -   /VALUE/ - The field text.
+    --
+    -- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
     -- @GetDocumentTextDetection@.
-    rowIndex :: Prelude.Maybe Prelude.Natural,
-    -- | The selection status of a selection element, such as an option button or
-    -- check box.
-    selectionStatus :: Prelude.Maybe SelectionStatus,
+    entityTypes :: Prelude.Maybe [EntityType],
+    -- | The location of the recognized text on the image. It includes an
+    -- axis-aligned, coarse bounding box that surrounds the text, and a
+    -- finer-grain polygon for more accurate spatial information.
+    geometry :: Prelude.Maybe Geometry,
     -- | The identifier for the recognized text. The identifier is only unique
     -- for a single operation.
     id :: Prelude.Maybe Prelude.Text,
-    query :: Prelude.Maybe Query,
     -- | The page on which a block was detected. @Page@ is returned by
     -- synchronous and asynchronous operations. Page values greater than 1 are
     -- only returned for multipage documents that are in PDF or TIFF format. A
@@ -150,9 +141,7 @@ data Block = Block'
     -- value of 1 because every input document is considered to be a
     -- single-page document.
     page :: Prelude.Maybe Prelude.Natural,
-    -- | The kind of text that Amazon Textract has detected. Can check for
-    -- handwritten text and printed text.
-    textType :: Prelude.Maybe TextType,
+    query :: Prelude.Maybe Query,
     -- | A list of child blocks of the current block. For example, a LINE object
     -- has child blocks for each WORD block that\'s part of the line of text.
     -- There aren\'t Relationship objects in the list for relationships that
@@ -163,12 +152,23 @@ data Block = Block'
     --
     -- -   1 - The block has child blocks.
     relationships :: Prelude.Maybe [Relationship],
+    -- | The row in which a table cell is located. The first row position is 1.
+    -- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+    -- @GetDocumentTextDetection@.
+    rowIndex :: Prelude.Maybe Prelude.Natural,
+    -- | The number of rows that a table cell spans. Currently this value is
+    -- always 1, even if the number of rows spanned is greater than 1.
+    -- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
+    -- @GetDocumentTextDetection@.
+    rowSpan :: Prelude.Maybe Prelude.Natural,
+    -- | The selection status of a selection element, such as an option button or
+    -- check box.
+    selectionStatus :: Prelude.Maybe SelectionStatus,
     -- | The word or line of text that\'s recognized by Amazon Textract.
     text :: Prelude.Maybe Prelude.Text,
-    -- | The location of the recognized text on the image. It includes an
-    -- axis-aligned, coarse bounding box that surrounds the text, and a
-    -- finer-grain polygon for more accurate spatial information.
-    geometry :: Prelude.Maybe Geometry
+    -- | The kind of text that Amazon Textract has detected. Can check for
+    -- handwritten text and printed text.
+    textType :: Prelude.Maybe TextType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -232,22 +232,8 @@ data Block = Block'
 --     analyze document. Comes with an alias and ID for ease of locating in
 --     a response. Also contains location and confidence score.
 --
--- 'rowSpan', 'block_rowSpan' - The number of rows that a table cell spans. Currently this value is
--- always 1, even if the number of rows spanned is greater than 1.
--- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
--- @GetDocumentTextDetection@.
---
 -- 'columnIndex', 'block_columnIndex' - The column in which a table cell appears. The first column position is
 -- 1. @ColumnIndex@ isn\'t returned by @DetectDocumentText@ and
--- @GetDocumentTextDetection@.
---
--- 'entityTypes', 'block_entityTypes' - The type of entity. The following can be returned:
---
--- -   /KEY/ - An identifier for a field on the document.
---
--- -   /VALUE/ - The field text.
---
--- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
 -- @GetDocumentTextDetection@.
 --
 -- 'columnSpan', 'block_columnSpan' - The number of columns that a table cell spans. Currently this value is
@@ -259,17 +245,21 @@ data Block = Block'
 -- recognized text and the accuracy of the geometry points around the
 -- recognized text.
 --
--- 'rowIndex', 'block_rowIndex' - The row in which a table cell is located. The first row position is 1.
--- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+-- 'entityTypes', 'block_entityTypes' - The type of entity. The following can be returned:
+--
+-- -   /KEY/ - An identifier for a field on the document.
+--
+-- -   /VALUE/ - The field text.
+--
+-- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
 -- @GetDocumentTextDetection@.
 --
--- 'selectionStatus', 'block_selectionStatus' - The selection status of a selection element, such as an option button or
--- check box.
+-- 'geometry', 'block_geometry' - The location of the recognized text on the image. It includes an
+-- axis-aligned, coarse bounding box that surrounds the text, and a
+-- finer-grain polygon for more accurate spatial information.
 --
 -- 'id', 'block_id' - The identifier for the recognized text. The identifier is only unique
 -- for a single operation.
---
--- 'query', 'block_query' -
 --
 -- 'page', 'block_page' - The page on which a block was detected. @Page@ is returned by
 -- synchronous and asynchronous operations. Page values greater than 1 are
@@ -281,8 +271,7 @@ data Block = Block'
 -- value of 1 because every input document is considered to be a
 -- single-page document.
 --
--- 'textType', 'block_textType' - The kind of text that Amazon Textract has detected. Can check for
--- handwritten text and printed text.
+-- 'query', 'block_query' -
 --
 -- 'relationships', 'block_relationships' - A list of child blocks of the current block. For example, a LINE object
 -- has child blocks for each WORD block that\'s part of the line of text.
@@ -294,30 +283,41 @@ data Block = Block'
 --
 -- -   1 - The block has child blocks.
 --
+-- 'rowIndex', 'block_rowIndex' - The row in which a table cell is located. The first row position is 1.
+-- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+-- @GetDocumentTextDetection@.
+--
+-- 'rowSpan', 'block_rowSpan' - The number of rows that a table cell spans. Currently this value is
+-- always 1, even if the number of rows spanned is greater than 1.
+-- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
+-- @GetDocumentTextDetection@.
+--
+-- 'selectionStatus', 'block_selectionStatus' - The selection status of a selection element, such as an option button or
+-- check box.
+--
 -- 'text', 'block_text' - The word or line of text that\'s recognized by Amazon Textract.
 --
--- 'geometry', 'block_geometry' - The location of the recognized text on the image. It includes an
--- axis-aligned, coarse bounding box that surrounds the text, and a
--- finer-grain polygon for more accurate spatial information.
+-- 'textType', 'block_textType' - The kind of text that Amazon Textract has detected. Can check for
+-- handwritten text and printed text.
 newBlock ::
   Block
 newBlock =
   Block'
     { blockType = Prelude.Nothing,
-      rowSpan = Prelude.Nothing,
       columnIndex = Prelude.Nothing,
-      entityTypes = Prelude.Nothing,
       columnSpan = Prelude.Nothing,
       confidence = Prelude.Nothing,
-      rowIndex = Prelude.Nothing,
-      selectionStatus = Prelude.Nothing,
+      entityTypes = Prelude.Nothing,
+      geometry = Prelude.Nothing,
       id = Prelude.Nothing,
-      query = Prelude.Nothing,
       page = Prelude.Nothing,
-      textType = Prelude.Nothing,
+      query = Prelude.Nothing,
       relationships = Prelude.Nothing,
+      rowIndex = Prelude.Nothing,
+      rowSpan = Prelude.Nothing,
+      selectionStatus = Prelude.Nothing,
       text = Prelude.Nothing,
-      geometry = Prelude.Nothing
+      textType = Prelude.Nothing
     }
 
 -- | The type of text item that\'s recognized. In operations for text
@@ -374,29 +374,11 @@ newBlock =
 block_blockType :: Lens.Lens' Block (Prelude.Maybe BlockType)
 block_blockType = Lens.lens (\Block' {blockType} -> blockType) (\s@Block' {} a -> s {blockType = a} :: Block)
 
--- | The number of rows that a table cell spans. Currently this value is
--- always 1, even if the number of rows spanned is greater than 1.
--- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
--- @GetDocumentTextDetection@.
-block_rowSpan :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
-block_rowSpan = Lens.lens (\Block' {rowSpan} -> rowSpan) (\s@Block' {} a -> s {rowSpan = a} :: Block)
-
 -- | The column in which a table cell appears. The first column position is
 -- 1. @ColumnIndex@ isn\'t returned by @DetectDocumentText@ and
 -- @GetDocumentTextDetection@.
 block_columnIndex :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_columnIndex = Lens.lens (\Block' {columnIndex} -> columnIndex) (\s@Block' {} a -> s {columnIndex = a} :: Block)
-
--- | The type of entity. The following can be returned:
---
--- -   /KEY/ - An identifier for a field on the document.
---
--- -   /VALUE/ - The field text.
---
--- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
--- @GetDocumentTextDetection@.
-block_entityTypes :: Lens.Lens' Block (Prelude.Maybe [EntityType])
-block_entityTypes = Lens.lens (\Block' {entityTypes} -> entityTypes) (\s@Block' {} a -> s {entityTypes = a} :: Block) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of columns that a table cell spans. Currently this value is
 -- always 1, even if the number of columns spanned is greater than 1.
@@ -411,25 +393,27 @@ block_columnSpan = Lens.lens (\Block' {columnSpan} -> columnSpan) (\s@Block' {} 
 block_confidence :: Lens.Lens' Block (Prelude.Maybe Prelude.Double)
 block_confidence = Lens.lens (\Block' {confidence} -> confidence) (\s@Block' {} a -> s {confidence = a} :: Block)
 
--- | The row in which a table cell is located. The first row position is 1.
--- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+-- | The type of entity. The following can be returned:
+--
+-- -   /KEY/ - An identifier for a field on the document.
+--
+-- -   /VALUE/ - The field text.
+--
+-- @EntityTypes@ isn\'t returned by @DetectDocumentText@ and
 -- @GetDocumentTextDetection@.
-block_rowIndex :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
-block_rowIndex = Lens.lens (\Block' {rowIndex} -> rowIndex) (\s@Block' {} a -> s {rowIndex = a} :: Block)
+block_entityTypes :: Lens.Lens' Block (Prelude.Maybe [EntityType])
+block_entityTypes = Lens.lens (\Block' {entityTypes} -> entityTypes) (\s@Block' {} a -> s {entityTypes = a} :: Block) Prelude.. Lens.mapping Lens.coerced
 
--- | The selection status of a selection element, such as an option button or
--- check box.
-block_selectionStatus :: Lens.Lens' Block (Prelude.Maybe SelectionStatus)
-block_selectionStatus = Lens.lens (\Block' {selectionStatus} -> selectionStatus) (\s@Block' {} a -> s {selectionStatus = a} :: Block)
+-- | The location of the recognized text on the image. It includes an
+-- axis-aligned, coarse bounding box that surrounds the text, and a
+-- finer-grain polygon for more accurate spatial information.
+block_geometry :: Lens.Lens' Block (Prelude.Maybe Geometry)
+block_geometry = Lens.lens (\Block' {geometry} -> geometry) (\s@Block' {} a -> s {geometry = a} :: Block)
 
 -- | The identifier for the recognized text. The identifier is only unique
 -- for a single operation.
 block_id :: Lens.Lens' Block (Prelude.Maybe Prelude.Text)
 block_id = Lens.lens (\Block' {id} -> id) (\s@Block' {} a -> s {id = a} :: Block)
-
--- |
-block_query :: Lens.Lens' Block (Prelude.Maybe Query)
-block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query = a} :: Block)
 
 -- | The page on which a block was detected. @Page@ is returned by
 -- synchronous and asynchronous operations. Page values greater than 1 are
@@ -443,10 +427,9 @@ block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query =
 block_page :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_page = Lens.lens (\Block' {page} -> page) (\s@Block' {} a -> s {page = a} :: Block)
 
--- | The kind of text that Amazon Textract has detected. Can check for
--- handwritten text and printed text.
-block_textType :: Lens.Lens' Block (Prelude.Maybe TextType)
-block_textType = Lens.lens (\Block' {textType} -> textType) (\s@Block' {} a -> s {textType = a} :: Block)
+-- |
+block_query :: Lens.Lens' Block (Prelude.Maybe Query)
+block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query = a} :: Block)
 
 -- | A list of child blocks of the current block. For example, a LINE object
 -- has child blocks for each WORD block that\'s part of the line of text.
@@ -460,15 +443,32 @@ block_textType = Lens.lens (\Block' {textType} -> textType) (\s@Block' {} a -> s
 block_relationships :: Lens.Lens' Block (Prelude.Maybe [Relationship])
 block_relationships = Lens.lens (\Block' {relationships} -> relationships) (\s@Block' {} a -> s {relationships = a} :: Block) Prelude.. Lens.mapping Lens.coerced
 
+-- | The row in which a table cell is located. The first row position is 1.
+-- @RowIndex@ isn\'t returned by @DetectDocumentText@ and
+-- @GetDocumentTextDetection@.
+block_rowIndex :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
+block_rowIndex = Lens.lens (\Block' {rowIndex} -> rowIndex) (\s@Block' {} a -> s {rowIndex = a} :: Block)
+
+-- | The number of rows that a table cell spans. Currently this value is
+-- always 1, even if the number of rows spanned is greater than 1.
+-- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
+-- @GetDocumentTextDetection@.
+block_rowSpan :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
+block_rowSpan = Lens.lens (\Block' {rowSpan} -> rowSpan) (\s@Block' {} a -> s {rowSpan = a} :: Block)
+
+-- | The selection status of a selection element, such as an option button or
+-- check box.
+block_selectionStatus :: Lens.Lens' Block (Prelude.Maybe SelectionStatus)
+block_selectionStatus = Lens.lens (\Block' {selectionStatus} -> selectionStatus) (\s@Block' {} a -> s {selectionStatus = a} :: Block)
+
 -- | The word or line of text that\'s recognized by Amazon Textract.
 block_text :: Lens.Lens' Block (Prelude.Maybe Prelude.Text)
 block_text = Lens.lens (\Block' {text} -> text) (\s@Block' {} a -> s {text = a} :: Block)
 
--- | The location of the recognized text on the image. It includes an
--- axis-aligned, coarse bounding box that surrounds the text, and a
--- finer-grain polygon for more accurate spatial information.
-block_geometry :: Lens.Lens' Block (Prelude.Maybe Geometry)
-block_geometry = Lens.lens (\Block' {geometry} -> geometry) (\s@Block' {} a -> s {geometry = a} :: Block)
+-- | The kind of text that Amazon Textract has detected. Can check for
+-- handwritten text and printed text.
+block_textType :: Lens.Lens' Block (Prelude.Maybe TextType)
+block_textType = Lens.lens (\Block' {textType} -> textType) (\s@Block' {} a -> s {textType = a} :: Block)
 
 instance Data.FromJSON Block where
   parseJSON =
@@ -477,54 +477,54 @@ instance Data.FromJSON Block where
       ( \x ->
           Block'
             Prelude.<$> (x Data..:? "BlockType")
-            Prelude.<*> (x Data..:? "RowSpan")
             Prelude.<*> (x Data..:? "ColumnIndex")
-            Prelude.<*> (x Data..:? "EntityTypes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ColumnSpan")
             Prelude.<*> (x Data..:? "Confidence")
-            Prelude.<*> (x Data..:? "RowIndex")
-            Prelude.<*> (x Data..:? "SelectionStatus")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Query")
-            Prelude.<*> (x Data..:? "Page")
-            Prelude.<*> (x Data..:? "TextType")
-            Prelude.<*> (x Data..:? "Relationships" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "EntityTypes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Geometry")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Page")
+            Prelude.<*> (x Data..:? "Query")
+            Prelude.<*> (x Data..:? "Relationships" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RowIndex")
+            Prelude.<*> (x Data..:? "RowSpan")
+            Prelude.<*> (x Data..:? "SelectionStatus")
+            Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "TextType")
       )
 
 instance Prelude.Hashable Block where
   hashWithSalt _salt Block' {..} =
     _salt `Prelude.hashWithSalt` blockType
-      `Prelude.hashWithSalt` rowSpan
       `Prelude.hashWithSalt` columnIndex
-      `Prelude.hashWithSalt` entityTypes
       `Prelude.hashWithSalt` columnSpan
       `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` rowIndex
-      `Prelude.hashWithSalt` selectionStatus
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` query
-      `Prelude.hashWithSalt` page
-      `Prelude.hashWithSalt` textType
-      `Prelude.hashWithSalt` relationships
-      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` entityTypes
       `Prelude.hashWithSalt` geometry
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` page
+      `Prelude.hashWithSalt` query
+      `Prelude.hashWithSalt` relationships
+      `Prelude.hashWithSalt` rowIndex
+      `Prelude.hashWithSalt` rowSpan
+      `Prelude.hashWithSalt` selectionStatus
+      `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` textType
 
 instance Prelude.NFData Block where
   rnf Block' {..} =
     Prelude.rnf blockType
-      `Prelude.seq` Prelude.rnf rowSpan
       `Prelude.seq` Prelude.rnf columnIndex
-      `Prelude.seq` Prelude.rnf entityTypes
       `Prelude.seq` Prelude.rnf columnSpan
       `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf rowIndex
-      `Prelude.seq` Prelude.rnf selectionStatus
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf query
-      `Prelude.seq` Prelude.rnf page
-      `Prelude.seq` Prelude.rnf textType
-      `Prelude.seq` Prelude.rnf relationships
-      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf entityTypes
       `Prelude.seq` Prelude.rnf geometry
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf page
+      `Prelude.seq` Prelude.rnf query
+      `Prelude.seq` Prelude.rnf relationships
+      `Prelude.seq` Prelude.rnf rowIndex
+      `Prelude.seq` Prelude.rnf rowSpan
+      `Prelude.seq` Prelude.rnf selectionStatus
+      `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf textType

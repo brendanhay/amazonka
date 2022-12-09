@@ -38,9 +38,9 @@ module Amazonka.Textract.AnalyzeID
     newAnalyzeIDResponse,
 
     -- * Response Lenses
-    analyzeIDResponse_identityDocuments,
-    analyzeIDResponse_documentMetadata,
     analyzeIDResponse_analyzeIDModelVersion,
+    analyzeIDResponse_documentMetadata,
+    analyzeIDResponse_identityDocuments,
     analyzeIDResponse_httpStatus,
   )
 where
@@ -91,11 +91,11 @@ instance Core.AWSRequest AnalyzeID where
     Response.receiveJSON
       ( \s h x ->
           AnalyzeIDResponse'
-            Prelude.<$> ( x Data..?> "IdentityDocuments"
+            Prelude.<$> (x Data..?> "AnalyzeIDModelVersion")
+            Prelude.<*> (x Data..?> "DocumentMetadata")
+            Prelude.<*> ( x Data..?> "IdentityDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "DocumentMetadata")
-            Prelude.<*> (x Data..?> "AnalyzeIDModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,12 +136,12 @@ instance Data.ToQuery AnalyzeID where
 
 -- | /See:/ 'newAnalyzeIDResponse' smart constructor.
 data AnalyzeIDResponse = AnalyzeIDResponse'
-  { -- | The list of documents processed by AnalyzeID. Includes a number denoting
+  { -- | The version of the AnalyzeIdentity API being used to process documents.
+    analyzeIDModelVersion :: Prelude.Maybe Prelude.Text,
+    documentMetadata :: Prelude.Maybe DocumentMetadata,
+    -- | The list of documents processed by AnalyzeID. Includes a number denoting
     -- their place in the list and the response structure for the document.
     identityDocuments :: Prelude.Maybe [IdentityDocument],
-    documentMetadata :: Prelude.Maybe DocumentMetadata,
-    -- | The version of the AnalyzeIdentity API being used to process documents.
-    analyzeIDModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,12 +155,12 @@ data AnalyzeIDResponse = AnalyzeIDResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityDocuments', 'analyzeIDResponse_identityDocuments' - The list of documents processed by AnalyzeID. Includes a number denoting
--- their place in the list and the response structure for the document.
+-- 'analyzeIDModelVersion', 'analyzeIDResponse_analyzeIDModelVersion' - The version of the AnalyzeIdentity API being used to process documents.
 --
 -- 'documentMetadata', 'analyzeIDResponse_documentMetadata' - Undocumented member.
 --
--- 'analyzeIDModelVersion', 'analyzeIDResponse_analyzeIDModelVersion' - The version of the AnalyzeIdentity API being used to process documents.
+-- 'identityDocuments', 'analyzeIDResponse_identityDocuments' - The list of documents processed by AnalyzeID. Includes a number denoting
+-- their place in the list and the response structure for the document.
 --
 -- 'httpStatus', 'analyzeIDResponse_httpStatus' - The response's http status code.
 newAnalyzeIDResponse ::
@@ -169,25 +169,25 @@ newAnalyzeIDResponse ::
   AnalyzeIDResponse
 newAnalyzeIDResponse pHttpStatus_ =
   AnalyzeIDResponse'
-    { identityDocuments =
+    { analyzeIDModelVersion =
         Prelude.Nothing,
       documentMetadata = Prelude.Nothing,
-      analyzeIDModelVersion = Prelude.Nothing,
+      identityDocuments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of documents processed by AnalyzeID. Includes a number denoting
--- their place in the list and the response structure for the document.
-analyzeIDResponse_identityDocuments :: Lens.Lens' AnalyzeIDResponse (Prelude.Maybe [IdentityDocument])
-analyzeIDResponse_identityDocuments = Lens.lens (\AnalyzeIDResponse' {identityDocuments} -> identityDocuments) (\s@AnalyzeIDResponse' {} a -> s {identityDocuments = a} :: AnalyzeIDResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the AnalyzeIdentity API being used to process documents.
+analyzeIDResponse_analyzeIDModelVersion :: Lens.Lens' AnalyzeIDResponse (Prelude.Maybe Prelude.Text)
+analyzeIDResponse_analyzeIDModelVersion = Lens.lens (\AnalyzeIDResponse' {analyzeIDModelVersion} -> analyzeIDModelVersion) (\s@AnalyzeIDResponse' {} a -> s {analyzeIDModelVersion = a} :: AnalyzeIDResponse)
 
 -- | Undocumented member.
 analyzeIDResponse_documentMetadata :: Lens.Lens' AnalyzeIDResponse (Prelude.Maybe DocumentMetadata)
 analyzeIDResponse_documentMetadata = Lens.lens (\AnalyzeIDResponse' {documentMetadata} -> documentMetadata) (\s@AnalyzeIDResponse' {} a -> s {documentMetadata = a} :: AnalyzeIDResponse)
 
--- | The version of the AnalyzeIdentity API being used to process documents.
-analyzeIDResponse_analyzeIDModelVersion :: Lens.Lens' AnalyzeIDResponse (Prelude.Maybe Prelude.Text)
-analyzeIDResponse_analyzeIDModelVersion = Lens.lens (\AnalyzeIDResponse' {analyzeIDModelVersion} -> analyzeIDModelVersion) (\s@AnalyzeIDResponse' {} a -> s {analyzeIDModelVersion = a} :: AnalyzeIDResponse)
+-- | The list of documents processed by AnalyzeID. Includes a number denoting
+-- their place in the list and the response structure for the document.
+analyzeIDResponse_identityDocuments :: Lens.Lens' AnalyzeIDResponse (Prelude.Maybe [IdentityDocument])
+analyzeIDResponse_identityDocuments = Lens.lens (\AnalyzeIDResponse' {identityDocuments} -> identityDocuments) (\s@AnalyzeIDResponse' {} a -> s {identityDocuments = a} :: AnalyzeIDResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 analyzeIDResponse_httpStatus :: Lens.Lens' AnalyzeIDResponse Prelude.Int
@@ -195,7 +195,7 @@ analyzeIDResponse_httpStatus = Lens.lens (\AnalyzeIDResponse' {httpStatus} -> ht
 
 instance Prelude.NFData AnalyzeIDResponse where
   rnf AnalyzeIDResponse' {..} =
-    Prelude.rnf identityDocuments
+    Prelude.rnf analyzeIDModelVersion
       `Prelude.seq` Prelude.rnf documentMetadata
-      `Prelude.seq` Prelude.rnf analyzeIDModelVersion
+      `Prelude.seq` Prelude.rnf identityDocuments
       `Prelude.seq` Prelude.rnf httpStatus

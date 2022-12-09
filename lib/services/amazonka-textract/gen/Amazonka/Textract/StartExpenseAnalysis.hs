@@ -48,10 +48,10 @@ module Amazonka.Textract.StartExpenseAnalysis
 
     -- * Request Lenses
     startExpenseAnalysis_clientRequestToken,
-    startExpenseAnalysis_kmsKeyId,
     startExpenseAnalysis_jobTag,
-    startExpenseAnalysis_outputConfig,
+    startExpenseAnalysis_kmsKeyId,
     startExpenseAnalysis_notificationChannel,
+    startExpenseAnalysis_outputConfig,
     startExpenseAnalysis_documentLocation,
 
     -- * Destructuring the Response
@@ -81,24 +81,24 @@ data StartExpenseAnalysis = StartExpenseAnalysis'
     -- information, see
     -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s included in the completion
+    -- notification published to the Amazon SNS topic. For example, you can use
+    -- @JobTag@ to identify the type of document that the completion
+    -- notification corresponds to (such as a tax form or a receipt).
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The KMS key used to encrypt the inference results. This can be in either
     -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
     -- be used for server-side encryption of the objects in the customer
     -- bucket. When this parameter is not enabled, the result will be encrypted
     -- server side,using SSE-S3.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s included in the completion
-    -- notification published to the Amazon SNS topic. For example, you can use
-    -- @JobTag@ to identify the type of document that the completion
-    -- notification corresponds to (such as a tax form or a receipt).
-    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
+    -- completion status of the operation to.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Sets if the output will go to a customer defined bucket. By default,
     -- Amazon Textract will save the results internally to be accessed by the
     -- @GetExpenseAnalysis@ operation.
     outputConfig :: Prelude.Maybe OutputConfig,
-    -- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
-    -- completion status of the operation to.
-    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | The location of the document to be processed.
     documentLocation :: DocumentLocation
   }
@@ -119,23 +119,23 @@ data StartExpenseAnalysis = StartExpenseAnalysis'
 -- information, see
 -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>
 --
+-- 'jobTag', 'startExpenseAnalysis_jobTag' - An identifier you specify that\'s included in the completion
+-- notification published to the Amazon SNS topic. For example, you can use
+-- @JobTag@ to identify the type of document that the completion
+-- notification corresponds to (such as a tax form or a receipt).
+--
 -- 'kmsKeyId', 'startExpenseAnalysis_kmsKeyId' - The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
 -- be used for server-side encryption of the objects in the customer
 -- bucket. When this parameter is not enabled, the result will be encrypted
 -- server side,using SSE-S3.
 --
--- 'jobTag', 'startExpenseAnalysis_jobTag' - An identifier you specify that\'s included in the completion
--- notification published to the Amazon SNS topic. For example, you can use
--- @JobTag@ to identify the type of document that the completion
--- notification corresponds to (such as a tax form or a receipt).
+-- 'notificationChannel', 'startExpenseAnalysis_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Textract to publish the
+-- completion status of the operation to.
 --
 -- 'outputConfig', 'startExpenseAnalysis_outputConfig' - Sets if the output will go to a customer defined bucket. By default,
 -- Amazon Textract will save the results internally to be accessed by the
 -- @GetExpenseAnalysis@ operation.
---
--- 'notificationChannel', 'startExpenseAnalysis_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Textract to publish the
--- completion status of the operation to.
 --
 -- 'documentLocation', 'startExpenseAnalysis_documentLocation' - The location of the document to be processed.
 newStartExpenseAnalysis ::
@@ -146,10 +146,10 @@ newStartExpenseAnalysis pDocumentLocation_ =
   StartExpenseAnalysis'
     { clientRequestToken =
         Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
       jobTag = Prelude.Nothing,
-      outputConfig = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
+      outputConfig = Prelude.Nothing,
       documentLocation = pDocumentLocation_
     }
 
@@ -162,6 +162,13 @@ newStartExpenseAnalysis pDocumentLocation_ =
 startExpenseAnalysis_clientRequestToken :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe Prelude.Text)
 startExpenseAnalysis_clientRequestToken = Lens.lens (\StartExpenseAnalysis' {clientRequestToken} -> clientRequestToken) (\s@StartExpenseAnalysis' {} a -> s {clientRequestToken = a} :: StartExpenseAnalysis)
 
+-- | An identifier you specify that\'s included in the completion
+-- notification published to the Amazon SNS topic. For example, you can use
+-- @JobTag@ to identify the type of document that the completion
+-- notification corresponds to (such as a tax form or a receipt).
+startExpenseAnalysis_jobTag :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe Prelude.Text)
+startExpenseAnalysis_jobTag = Lens.lens (\StartExpenseAnalysis' {jobTag} -> jobTag) (\s@StartExpenseAnalysis' {} a -> s {jobTag = a} :: StartExpenseAnalysis)
+
 -- | The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
 -- be used for server-side encryption of the objects in the customer
@@ -170,23 +177,16 @@ startExpenseAnalysis_clientRequestToken = Lens.lens (\StartExpenseAnalysis' {cli
 startExpenseAnalysis_kmsKeyId :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe Prelude.Text)
 startExpenseAnalysis_kmsKeyId = Lens.lens (\StartExpenseAnalysis' {kmsKeyId} -> kmsKeyId) (\s@StartExpenseAnalysis' {} a -> s {kmsKeyId = a} :: StartExpenseAnalysis)
 
--- | An identifier you specify that\'s included in the completion
--- notification published to the Amazon SNS topic. For example, you can use
--- @JobTag@ to identify the type of document that the completion
--- notification corresponds to (such as a tax form or a receipt).
-startExpenseAnalysis_jobTag :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe Prelude.Text)
-startExpenseAnalysis_jobTag = Lens.lens (\StartExpenseAnalysis' {jobTag} -> jobTag) (\s@StartExpenseAnalysis' {} a -> s {jobTag = a} :: StartExpenseAnalysis)
+-- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
+-- completion status of the operation to.
+startExpenseAnalysis_notificationChannel :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe NotificationChannel)
+startExpenseAnalysis_notificationChannel = Lens.lens (\StartExpenseAnalysis' {notificationChannel} -> notificationChannel) (\s@StartExpenseAnalysis' {} a -> s {notificationChannel = a} :: StartExpenseAnalysis)
 
 -- | Sets if the output will go to a customer defined bucket. By default,
 -- Amazon Textract will save the results internally to be accessed by the
 -- @GetExpenseAnalysis@ operation.
 startExpenseAnalysis_outputConfig :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe OutputConfig)
 startExpenseAnalysis_outputConfig = Lens.lens (\StartExpenseAnalysis' {outputConfig} -> outputConfig) (\s@StartExpenseAnalysis' {} a -> s {outputConfig = a} :: StartExpenseAnalysis)
-
--- | The Amazon SNS topic ARN that you want Amazon Textract to publish the
--- completion status of the operation to.
-startExpenseAnalysis_notificationChannel :: Lens.Lens' StartExpenseAnalysis (Prelude.Maybe NotificationChannel)
-startExpenseAnalysis_notificationChannel = Lens.lens (\StartExpenseAnalysis' {notificationChannel} -> notificationChannel) (\s@StartExpenseAnalysis' {} a -> s {notificationChannel = a} :: StartExpenseAnalysis)
 
 -- | The location of the document to be processed.
 startExpenseAnalysis_documentLocation :: Lens.Lens' StartExpenseAnalysis DocumentLocation
@@ -209,19 +209,19 @@ instance Core.AWSRequest StartExpenseAnalysis where
 instance Prelude.Hashable StartExpenseAnalysis where
   hashWithSalt _salt StartExpenseAnalysis' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` jobTag
-      `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` outputConfig
       `Prelude.hashWithSalt` documentLocation
 
 instance Prelude.NFData StartExpenseAnalysis where
   rnf StartExpenseAnalysis' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf jobTag
-      `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf outputConfig
       `Prelude.seq` Prelude.rnf documentLocation
 
 instance Data.ToHeaders StartExpenseAnalysis where
@@ -245,11 +245,11 @@ instance Data.ToJSON StartExpenseAnalysis where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("JobTag" Data..=) Prelude.<$> jobTag,
-            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
+            ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
             Prelude.Just
               ("DocumentLocation" Data..= documentLocation)
           ]

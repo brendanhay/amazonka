@@ -50,9 +50,9 @@ module Amazonka.CognitoIdentityProvider.InitiateAuth
 
     -- * Request Lenses
     initiateAuth_analyticsMetadata,
+    initiateAuth_authParameters,
     initiateAuth_clientMetadata,
     initiateAuth_userContextData,
-    initiateAuth_authParameters,
     initiateAuth_authFlow,
     initiateAuth_clientId,
 
@@ -62,9 +62,9 @@ module Amazonka.CognitoIdentityProvider.InitiateAuth
 
     -- * Response Lenses
     initiateAuthResponse_authenticationResult,
-    initiateAuthResponse_session,
     initiateAuthResponse_challengeName,
     initiateAuthResponse_challengeParameters,
+    initiateAuthResponse_session,
     initiateAuthResponse_httpStatus,
   )
 where
@@ -84,6 +84,23 @@ data InitiateAuth = InitiateAuth'
   { -- | The Amazon Pinpoint analytics metadata that contributes to your metrics
     -- for @InitiateAuth@ calls.
     analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | The authentication parameters. These are inputs corresponding to the
+    -- @AuthFlow@ that you\'re invoking. The required values depend on the
+    -- value of @AuthFlow@:
+    --
+    -- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
+    --     @SECRET_HASH@ (required if the app client is configured with a
+    --     client secret), @DEVICE_KEY@.
+    --
+    -- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
+    --     @SECRET_HASH@ (required if the app client is configured with a
+    --     client secret), @DEVICE_KEY@.
+    --
+    -- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
+    --     client is configured with client secret), @DEVICE_KEY@. To start the
+    --     authentication flow with password verification, include
+    --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
+    authParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | A map of custom key-value pairs that you can provide as input for
     -- certain custom workflows that this action triggers.
     --
@@ -144,23 +161,6 @@ data InitiateAuth = InitiateAuth'
     -- risk of an authentication event based on the context that your app
     -- generates and passes to Amazon Cognito when it makes API requests.
     userContextData :: Prelude.Maybe UserContextDataType,
-    -- | The authentication parameters. These are inputs corresponding to the
-    -- @AuthFlow@ that you\'re invoking. The required values depend on the
-    -- value of @AuthFlow@:
-    --
-    -- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
-    --     @SECRET_HASH@ (required if the app client is configured with a
-    --     client secret), @DEVICE_KEY@.
-    --
-    -- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
-    --     @SECRET_HASH@ (required if the app client is configured with a
-    --     client secret), @DEVICE_KEY@.
-    --
-    -- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
-    --     client is configured with client secret), @DEVICE_KEY@. To start the
-    --     authentication flow with password verification, include
-    --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-    authParameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The authentication flow for this call to run. The API action will depend
     -- on this value. For example:
     --
@@ -206,6 +206,23 @@ data InitiateAuth = InitiateAuth'
 --
 -- 'analyticsMetadata', 'initiateAuth_analyticsMetadata' - The Amazon Pinpoint analytics metadata that contributes to your metrics
 -- for @InitiateAuth@ calls.
+--
+-- 'authParameters', 'initiateAuth_authParameters' - The authentication parameters. These are inputs corresponding to the
+-- @AuthFlow@ that you\'re invoking. The required values depend on the
+-- value of @AuthFlow@:
+--
+-- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
+--     @SECRET_HASH@ (required if the app client is configured with a
+--     client secret), @DEVICE_KEY@.
+--
+-- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
+--     @SECRET_HASH@ (required if the app client is configured with a
+--     client secret), @DEVICE_KEY@.
+--
+-- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
+--     client is configured with client secret), @DEVICE_KEY@. To start the
+--     authentication flow with password verification, include
+--     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 --
 -- 'clientMetadata', 'initiateAuth_clientMetadata' - A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
@@ -267,23 +284,6 @@ data InitiateAuth = InitiateAuth'
 -- risk of an authentication event based on the context that your app
 -- generates and passes to Amazon Cognito when it makes API requests.
 --
--- 'authParameters', 'initiateAuth_authParameters' - The authentication parameters. These are inputs corresponding to the
--- @AuthFlow@ that you\'re invoking. The required values depend on the
--- value of @AuthFlow@:
---
--- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
---     @SECRET_HASH@ (required if the app client is configured with a
---     client secret), @DEVICE_KEY@.
---
--- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
---     @SECRET_HASH@ (required if the app client is configured with a
---     client secret), @DEVICE_KEY@.
---
--- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
---     client is configured with client secret), @DEVICE_KEY@. To start the
---     authentication flow with password verification, include
---     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
---
 -- 'authFlow', 'initiateAuth_authFlow' - The authentication flow for this call to run. The API action will depend
 -- on this value. For example:
 --
@@ -324,9 +324,9 @@ newInitiateAuth ::
 newInitiateAuth pAuthFlow_ pClientId_ =
   InitiateAuth'
     { analyticsMetadata = Prelude.Nothing,
+      authParameters = Prelude.Nothing,
       clientMetadata = Prelude.Nothing,
       userContextData = Prelude.Nothing,
-      authParameters = Prelude.Nothing,
       authFlow = pAuthFlow_,
       clientId = Data._Sensitive Lens.# pClientId_
     }
@@ -335,6 +335,25 @@ newInitiateAuth pAuthFlow_ pClientId_ =
 -- for @InitiateAuth@ calls.
 initiateAuth_analyticsMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe AnalyticsMetadataType)
 initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@InitiateAuth' {} a -> s {analyticsMetadata = a} :: InitiateAuth)
+
+-- | The authentication parameters. These are inputs corresponding to the
+-- @AuthFlow@ that you\'re invoking. The required values depend on the
+-- value of @AuthFlow@:
+--
+-- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
+--     @SECRET_HASH@ (required if the app client is configured with a
+--     client secret), @DEVICE_KEY@.
+--
+-- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
+--     @SECRET_HASH@ (required if the app client is configured with a
+--     client secret), @DEVICE_KEY@.
+--
+-- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
+--     client is configured with client secret), @DEVICE_KEY@. To start the
+--     authentication flow with password verification, include
+--     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
+initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A map of custom key-value pairs that you can provide as input for
 -- certain custom workflows that this action triggers.
@@ -400,25 +419,6 @@ initiateAuth_clientMetadata = Lens.lens (\InitiateAuth' {clientMetadata} -> clie
 initiateAuth_userContextData :: Lens.Lens' InitiateAuth (Prelude.Maybe UserContextDataType)
 initiateAuth_userContextData = Lens.lens (\InitiateAuth' {userContextData} -> userContextData) (\s@InitiateAuth' {} a -> s {userContextData = a} :: InitiateAuth)
 
--- | The authentication parameters. These are inputs corresponding to the
--- @AuthFlow@ that you\'re invoking. The required values depend on the
--- value of @AuthFlow@:
---
--- -   For @USER_SRP_AUTH@: @USERNAME@ (required), @SRP_A@ (required),
---     @SECRET_HASH@ (required if the app client is configured with a
---     client secret), @DEVICE_KEY@.
---
--- -   For @REFRESH_TOKEN_AUTH\/REFRESH_TOKEN@: @REFRESH_TOKEN@ (required),
---     @SECRET_HASH@ (required if the app client is configured with a
---     client secret), @DEVICE_KEY@.
---
--- -   For @CUSTOM_AUTH@: @USERNAME@ (required), @SECRET_HASH@ (if app
---     client is configured with client secret), @DEVICE_KEY@. To start the
---     authentication flow with password verification, include
---     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
-initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
 -- | The authentication flow for this call to run. The API action will depend
 -- on this value. For example:
 --
@@ -464,29 +464,29 @@ instance Core.AWSRequest InitiateAuth where
       ( \s h x ->
           InitiateAuthResponse'
             Prelude.<$> (x Data..?> "AuthenticationResult")
-            Prelude.<*> (x Data..?> "Session")
             Prelude.<*> (x Data..?> "ChallengeName")
             Prelude.<*> ( x Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable InitiateAuth where
   hashWithSalt _salt InitiateAuth' {..} =
     _salt `Prelude.hashWithSalt` analyticsMetadata
+      `Prelude.hashWithSalt` authParameters
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userContextData
-      `Prelude.hashWithSalt` authParameters
       `Prelude.hashWithSalt` authFlow
       `Prelude.hashWithSalt` clientId
 
 instance Prelude.NFData InitiateAuth where
   rnf InitiateAuth' {..} =
     Prelude.rnf analyticsMetadata
+      `Prelude.seq` Prelude.rnf authParameters
       `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf authParameters
       `Prelude.seq` Prelude.rnf authFlow
       `Prelude.seq` Prelude.rnf clientId
 
@@ -511,12 +511,12 @@ instance Data.ToJSON InitiateAuth where
       ( Prelude.catMaybes
           [ ("AnalyticsMetadata" Data..=)
               Prelude.<$> analyticsMetadata,
+            ("AuthParameters" Data..=)
+              Prelude.<$> authParameters,
             ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
             ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("AuthParameters" Data..=)
-              Prelude.<$> authParameters,
             Prelude.Just ("AuthFlow" Data..= authFlow),
             Prelude.Just ("ClientId" Data..= clientId)
           ]
@@ -537,11 +537,6 @@ data InitiateAuthResponse = InitiateAuthResponse'
     -- does need to pass another challenge before it gets tokens,
     -- @ChallengeName@, @ChallengeParameters@, and @Session@ are returned.
     authenticationResult :: Prelude.Maybe AuthenticationResultType,
-    -- | The session that should pass both ways in challenge-response calls to
-    -- the service. If the caller must pass another challenge, they return a
-    -- session with other challenge parameters. This session should be passed
-    -- as it is to the next @RespondToAuthChallenge@ API call.
-    session :: Prelude.Maybe Prelude.Text,
     -- | The name of the challenge that you\'re responding to with this call.
     -- This name is returned in the @AdminInitiateAuth@ response if you must
     -- pass another challenge.
@@ -605,6 +600,11 @@ data InitiateAuthResponse = InitiateAuthResponse'
     --
     -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
     challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The session that should pass both ways in challenge-response calls to
+    -- the service. If the caller must pass another challenge, they return a
+    -- session with other challenge parameters. This session should be passed
+    -- as it is to the next @RespondToAuthChallenge@ API call.
+    session :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -622,11 +622,6 @@ data InitiateAuthResponse = InitiateAuthResponse'
 -- if the caller doesn\'t need to pass another challenge. If the caller
 -- does need to pass another challenge before it gets tokens,
 -- @ChallengeName@, @ChallengeParameters@, and @Session@ are returned.
---
--- 'session', 'initiateAuthResponse_session' - The session that should pass both ways in challenge-response calls to
--- the service. If the caller must pass another challenge, they return a
--- session with other challenge parameters. This session should be passed
--- as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- 'challengeName', 'initiateAuthResponse_challengeName' - The name of the challenge that you\'re responding to with this call.
 -- This name is returned in the @AdminInitiateAuth@ response if you must
@@ -691,6 +686,11 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
 --
+-- 'session', 'initiateAuthResponse_session' - The session that should pass both ways in challenge-response calls to
+-- the service. If the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
+--
 -- 'httpStatus', 'initiateAuthResponse_httpStatus' - The response's http status code.
 newInitiateAuthResponse ::
   -- | 'httpStatus'
@@ -700,9 +700,9 @@ newInitiateAuthResponse pHttpStatus_ =
   InitiateAuthResponse'
     { authenticationResult =
         Prelude.Nothing,
-      session = Prelude.Nothing,
       challengeName = Prelude.Nothing,
       challengeParameters = Prelude.Nothing,
+      session = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -712,13 +712,6 @@ newInitiateAuthResponse pHttpStatus_ =
 -- @ChallengeName@, @ChallengeParameters@, and @Session@ are returned.
 initiateAuthResponse_authenticationResult :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
 initiateAuthResponse_authenticationResult = Lens.lens (\InitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@InitiateAuthResponse' {} a -> s {authenticationResult = a} :: InitiateAuthResponse)
-
--- | The session that should pass both ways in challenge-response calls to
--- the service. If the caller must pass another challenge, they return a
--- session with other challenge parameters. This session should be passed
--- as it is to the next @RespondToAuthChallenge@ API call.
-initiateAuthResponse_session :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe Prelude.Text)
-initiateAuthResponse_session = Lens.lens (\InitiateAuthResponse' {session} -> session) (\s@InitiateAuthResponse' {} a -> s {session = a} :: InitiateAuthResponse)
 
 -- | The name of the challenge that you\'re responding to with this call.
 -- This name is returned in the @AdminInitiateAuth@ response if you must
@@ -787,6 +780,13 @@ initiateAuthResponse_challengeName = Lens.lens (\InitiateAuthResponse' {challeng
 initiateAuthResponse_challengeParameters :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 initiateAuthResponse_challengeParameters = Lens.lens (\InitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@InitiateAuthResponse' {} a -> s {challengeParameters = a} :: InitiateAuthResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The session that should pass both ways in challenge-response calls to
+-- the service. If the caller must pass another challenge, they return a
+-- session with other challenge parameters. This session should be passed
+-- as it is to the next @RespondToAuthChallenge@ API call.
+initiateAuthResponse_session :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe Prelude.Text)
+initiateAuthResponse_session = Lens.lens (\InitiateAuthResponse' {session} -> session) (\s@InitiateAuthResponse' {} a -> s {session = a} :: InitiateAuthResponse)
+
 -- | The response's http status code.
 initiateAuthResponse_httpStatus :: Lens.Lens' InitiateAuthResponse Prelude.Int
 initiateAuthResponse_httpStatus = Lens.lens (\InitiateAuthResponse' {httpStatus} -> httpStatus) (\s@InitiateAuthResponse' {} a -> s {httpStatus = a} :: InitiateAuthResponse)
@@ -794,7 +794,7 @@ initiateAuthResponse_httpStatus = Lens.lens (\InitiateAuthResponse' {httpStatus}
 instance Prelude.NFData InitiateAuthResponse where
   rnf InitiateAuthResponse' {..} =
     Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf session
       `Prelude.seq` Prelude.rnf challengeName
       `Prelude.seq` Prelude.rnf challengeParameters
+      `Prelude.seq` Prelude.rnf session
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.CognitoIdentityProvider.ListResourceServers
     newListResourceServers,
 
     -- * Request Lenses
-    listResourceServers_nextToken,
     listResourceServers_maxResults,
+    listResourceServers_nextToken,
     listResourceServers_userPoolId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
-  { -- | A pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resource servers to return.
+  { -- | The maximum number of resource servers to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListResourceServers = ListResourceServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceServers_nextToken' - A pagination token.
---
 -- 'maxResults', 'listResourceServers_maxResults' - The maximum number of resource servers to return.
+--
+-- 'nextToken', 'listResourceServers_nextToken' - A pagination token.
 --
 -- 'userPoolId', 'listResourceServers_userPoolId' - The user pool ID for the user pool.
 newListResourceServers ::
@@ -82,18 +82,18 @@ newListResourceServers ::
   ListResourceServers
 newListResourceServers pUserPoolId_ =
   ListResourceServers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
-
--- | A pagination token.
-listResourceServers_nextToken :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Text)
-listResourceServers_nextToken = Lens.lens (\ListResourceServers' {nextToken} -> nextToken) (\s@ListResourceServers' {} a -> s {nextToken = a} :: ListResourceServers)
 
 -- | The maximum number of resource servers to return.
 listResourceServers_maxResults :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Natural)
 listResourceServers_maxResults = Lens.lens (\ListResourceServers' {maxResults} -> maxResults) (\s@ListResourceServers' {} a -> s {maxResults = a} :: ListResourceServers)
+
+-- | A pagination token.
+listResourceServers_nextToken :: Lens.Lens' ListResourceServers (Prelude.Maybe Prelude.Text)
+listResourceServers_nextToken = Lens.lens (\ListResourceServers' {nextToken} -> nextToken) (\s@ListResourceServers' {} a -> s {nextToken = a} :: ListResourceServers)
 
 -- | The user pool ID for the user pool.
 listResourceServers_userPoolId :: Lens.Lens' ListResourceServers Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListResourceServers where
 
 instance Prelude.Hashable ListResourceServers where
   hashWithSalt _salt ListResourceServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData ListResourceServers where
   rnf ListResourceServers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListResourceServers where
@@ -168,8 +168,8 @@ instance Data.ToJSON ListResourceServers where
   toJSON ListResourceServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.CognitoIdentityProvider.AdminListDevices
     newAdminListDevices,
 
     -- * Request Lenses
-    adminListDevices_paginationToken,
     adminListDevices_limit,
+    adminListDevices_paginationToken,
     adminListDevices_userPoolId,
     adminListDevices_username,
 
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAdminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
-  { -- | The pagination token.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The limit of the devices request.
+  { -- | The limit of the devices request.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The user name.
@@ -76,9 +76,9 @@ data AdminListDevices = AdminListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'adminListDevices_paginationToken' - The pagination token.
---
 -- 'limit', 'adminListDevices_limit' - The limit of the devices request.
+--
+-- 'paginationToken', 'adminListDevices_paginationToken' - The pagination token.
 --
 -- 'userPoolId', 'adminListDevices_userPoolId' - The user pool ID.
 --
@@ -91,20 +91,19 @@ newAdminListDevices ::
   AdminListDevices
 newAdminListDevices pUserPoolId_ pUsername_ =
   AdminListDevices'
-    { paginationToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       username = Data._Sensitive Lens.# pUsername_
     }
 
--- | The pagination token.
-adminListDevices_paginationToken :: Lens.Lens' AdminListDevices (Prelude.Maybe Prelude.Text)
-adminListDevices_paginationToken = Lens.lens (\AdminListDevices' {paginationToken} -> paginationToken) (\s@AdminListDevices' {} a -> s {paginationToken = a} :: AdminListDevices)
-
 -- | The limit of the devices request.
 adminListDevices_limit :: Lens.Lens' AdminListDevices (Prelude.Maybe Prelude.Natural)
 adminListDevices_limit = Lens.lens (\AdminListDevices' {limit} -> limit) (\s@AdminListDevices' {} a -> s {limit = a} :: AdminListDevices)
+
+-- | The pagination token.
+adminListDevices_paginationToken :: Lens.Lens' AdminListDevices (Prelude.Maybe Prelude.Text)
+adminListDevices_paginationToken = Lens.lens (\AdminListDevices' {paginationToken} -> paginationToken) (\s@AdminListDevices' {} a -> s {paginationToken = a} :: AdminListDevices)
 
 -- | The user pool ID.
 adminListDevices_userPoolId :: Lens.Lens' AdminListDevices Prelude.Text
@@ -131,15 +130,15 @@ instance Core.AWSRequest AdminListDevices where
 
 instance Prelude.Hashable AdminListDevices where
   hashWithSalt _salt AdminListDevices' {..} =
-    _salt `Prelude.hashWithSalt` paginationToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData AdminListDevices where
   rnf AdminListDevices' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf username
 
@@ -162,9 +161,9 @@ instance Data.ToJSON AdminListDevices where
   toJSON AdminListDevices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Data..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just ("Username" Data..= username)
           ]

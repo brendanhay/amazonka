@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdminCreateUserConfigType' smart constructor.
 data AdminCreateUserConfigType = AdminCreateUserConfigType'
-  { -- | The message template to be used for the welcome message to new users.
+  { -- | Set to @True@ if only the administrator is allowed to create user
+    -- profiles. Set to @False@ if users can sign themselves up via an app.
+    allowAdminCreateUserOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The message template to be used for the welcome message to new users.
     --
     -- See also
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
     inviteMessageTemplate :: Prelude.Maybe MessageTemplateType,
-    -- | Set to @True@ if only the administrator is allowed to create user
-    -- profiles. Set to @False@ if users can sign themselves up via an app.
-    allowAdminCreateUserOnly :: Prelude.Maybe Prelude.Bool,
     -- | The user account expiration limit, in days, after which a new account
     -- that hasn\'t signed in is no longer usable. To reset the account after
     -- that time limit, you must call @AdminCreateUser@ again, specifying
@@ -59,13 +59,13 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowAdminCreateUserOnly', 'adminCreateUserConfigType_allowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user
+-- profiles. Set to @False@ if users can sign themselves up via an app.
+--
 -- 'inviteMessageTemplate', 'adminCreateUserConfigType_inviteMessageTemplate' - The message template to be used for the welcome message to new users.
 --
 -- See also
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
---
--- 'allowAdminCreateUserOnly', 'adminCreateUserConfigType_allowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user
--- profiles. Set to @False@ if users can sign themselves up via an app.
 --
 -- 'unusedAccountValidityDays', 'adminCreateUserConfigType_unusedAccountValidityDays' - The user account expiration limit, in days, after which a new account
 -- that hasn\'t signed in is no longer usable. To reset the account after
@@ -81,11 +81,16 @@ newAdminCreateUserConfigType ::
   AdminCreateUserConfigType
 newAdminCreateUserConfigType =
   AdminCreateUserConfigType'
-    { inviteMessageTemplate =
+    { allowAdminCreateUserOnly =
         Prelude.Nothing,
-      allowAdminCreateUserOnly = Prelude.Nothing,
+      inviteMessageTemplate = Prelude.Nothing,
       unusedAccountValidityDays = Prelude.Nothing
     }
+
+-- | Set to @True@ if only the administrator is allowed to create user
+-- profiles. Set to @False@ if users can sign themselves up via an app.
+adminCreateUserConfigType_allowAdminCreateUserOnly :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Bool)
+adminCreateUserConfigType_allowAdminCreateUserOnly = Lens.lens (\AdminCreateUserConfigType' {allowAdminCreateUserOnly} -> allowAdminCreateUserOnly) (\s@AdminCreateUserConfigType' {} a -> s {allowAdminCreateUserOnly = a} :: AdminCreateUserConfigType)
 
 -- | The message template to be used for the welcome message to new users.
 --
@@ -93,11 +98,6 @@ newAdminCreateUserConfigType =
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages>.
 adminCreateUserConfigType_inviteMessageTemplate :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe MessageTemplateType)
 adminCreateUserConfigType_inviteMessageTemplate = Lens.lens (\AdminCreateUserConfigType' {inviteMessageTemplate} -> inviteMessageTemplate) (\s@AdminCreateUserConfigType' {} a -> s {inviteMessageTemplate = a} :: AdminCreateUserConfigType)
-
--- | Set to @True@ if only the administrator is allowed to create user
--- profiles. Set to @False@ if users can sign themselves up via an app.
-adminCreateUserConfigType_allowAdminCreateUserOnly :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Bool)
-adminCreateUserConfigType_allowAdminCreateUserOnly = Lens.lens (\AdminCreateUserConfigType' {allowAdminCreateUserOnly} -> allowAdminCreateUserOnly) (\s@AdminCreateUserConfigType' {} a -> s {allowAdminCreateUserOnly = a} :: AdminCreateUserConfigType)
 
 -- | The user account expiration limit, in days, after which a new account
 -- that hasn\'t signed in is no longer usable. To reset the account after
@@ -118,31 +118,32 @@ instance Data.FromJSON AdminCreateUserConfigType where
       "AdminCreateUserConfigType"
       ( \x ->
           AdminCreateUserConfigType'
-            Prelude.<$> (x Data..:? "InviteMessageTemplate")
-            Prelude.<*> (x Data..:? "AllowAdminCreateUserOnly")
+            Prelude.<$> (x Data..:? "AllowAdminCreateUserOnly")
+            Prelude.<*> (x Data..:? "InviteMessageTemplate")
             Prelude.<*> (x Data..:? "UnusedAccountValidityDays")
       )
 
 instance Prelude.Hashable AdminCreateUserConfigType where
   hashWithSalt _salt AdminCreateUserConfigType' {..} =
-    _salt `Prelude.hashWithSalt` inviteMessageTemplate
+    _salt
       `Prelude.hashWithSalt` allowAdminCreateUserOnly
+      `Prelude.hashWithSalt` inviteMessageTemplate
       `Prelude.hashWithSalt` unusedAccountValidityDays
 
 instance Prelude.NFData AdminCreateUserConfigType where
   rnf AdminCreateUserConfigType' {..} =
-    Prelude.rnf inviteMessageTemplate
-      `Prelude.seq` Prelude.rnf allowAdminCreateUserOnly
+    Prelude.rnf allowAdminCreateUserOnly
+      `Prelude.seq` Prelude.rnf inviteMessageTemplate
       `Prelude.seq` Prelude.rnf unusedAccountValidityDays
 
 instance Data.ToJSON AdminCreateUserConfigType where
   toJSON AdminCreateUserConfigType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InviteMessageTemplate" Data..=)
-              Prelude.<$> inviteMessageTemplate,
-            ("AllowAdminCreateUserOnly" Data..=)
+          [ ("AllowAdminCreateUserOnly" Data..=)
               Prelude.<$> allowAdminCreateUserOnly,
+            ("InviteMessageTemplate" Data..=)
+              Prelude.<$> inviteMessageTemplate,
             ("UnusedAccountValidityDays" Data..=)
               Prelude.<$> unusedAccountValidityDays
           ]

@@ -28,8 +28,8 @@ module Amazonka.CognitoIdentityProvider.UpdateIdentityProvider
 
     -- * Request Lenses
     updateIdentityProvider_attributeMapping,
-    updateIdentityProvider_providerDetails,
     updateIdentityProvider_idpIdentifiers,
+    updateIdentityProvider_providerDetails,
     updateIdentityProvider_userPoolId,
     updateIdentityProvider_providerName,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 data UpdateIdentityProvider = UpdateIdentityProvider'
   { -- | The IdP attribute mapping to be changed.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
-    providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of IdP identifiers.
     idpIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
+    providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The IdP name.
@@ -76,9 +76,9 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
 --
 -- 'attributeMapping', 'updateIdentityProvider_attributeMapping' - The IdP attribute mapping to be changed.
 --
--- 'providerDetails', 'updateIdentityProvider_providerDetails' - The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
---
 -- 'idpIdentifiers', 'updateIdentityProvider_idpIdentifiers' - A list of IdP identifiers.
+--
+-- 'providerDetails', 'updateIdentityProvider_providerDetails' - The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
 --
 -- 'userPoolId', 'updateIdentityProvider_userPoolId' - The user pool ID.
 --
@@ -93,8 +93,8 @@ newUpdateIdentityProvider pUserPoolId_ pProviderName_ =
   UpdateIdentityProvider'
     { attributeMapping =
         Prelude.Nothing,
-      providerDetails = Prelude.Nothing,
       idpIdentifiers = Prelude.Nothing,
+      providerDetails = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       providerName = pProviderName_
     }
@@ -103,13 +103,13 @@ newUpdateIdentityProvider pUserPoolId_ pProviderName_ =
 updateIdentityProvider_attributeMapping :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
--- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
-updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
-
 -- | A list of IdP identifiers.
 updateIdentityProvider_idpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe [Prelude.Text])
 updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
+updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID.
 updateIdentityProvider_userPoolId :: Lens.Lens' UpdateIdentityProvider Prelude.Text
@@ -136,16 +136,16 @@ instance Core.AWSRequest UpdateIdentityProvider where
 instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =
     _salt `Prelude.hashWithSalt` attributeMapping
-      `Prelude.hashWithSalt` providerDetails
       `Prelude.hashWithSalt` idpIdentifiers
+      `Prelude.hashWithSalt` providerDetails
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` providerName
 
 instance Prelude.NFData UpdateIdentityProvider where
   rnf UpdateIdentityProvider' {..} =
     Prelude.rnf attributeMapping
-      `Prelude.seq` Prelude.rnf providerDetails
       `Prelude.seq` Prelude.rnf idpIdentifiers
+      `Prelude.seq` Prelude.rnf providerDetails
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf providerName
 
@@ -170,10 +170,10 @@ instance Data.ToJSON UpdateIdentityProvider where
       ( Prelude.catMaybes
           [ ("AttributeMapping" Data..=)
               Prelude.<$> attributeMapping,
-            ("ProviderDetails" Data..=)
-              Prelude.<$> providerDetails,
             ("IdpIdentifiers" Data..=)
               Prelude.<$> idpIdentifiers,
+            ("ProviderDetails" Data..=)
+              Prelude.<$> providerDetails,
             Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just ("ProviderName" Data..= providerName)
           ]

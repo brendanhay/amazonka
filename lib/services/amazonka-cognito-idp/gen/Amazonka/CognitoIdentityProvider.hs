@@ -27,98 +27,62 @@ module Amazonka.CognitoIdentityProvider
     -- * Errors
     -- $errors
 
-    -- ** CodeMismatchException
-    _CodeMismatchException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** UsernameExistsException
-    _UsernameExistsException,
-
-    -- ** PasswordResetRequiredException
-    _PasswordResetRequiredException,
-
-    -- ** UserPoolAddOnNotEnabledException
-    _UserPoolAddOnNotEnabledException,
+    -- ** AliasExistsException
+    _AliasExistsException,
 
     -- ** CodeDeliveryFailureException
     _CodeDeliveryFailureException,
 
+    -- ** CodeMismatchException
+    _CodeMismatchException,
+
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
-
-    -- ** UserPoolTaggingException
-    _UserPoolTaggingException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** EnableSoftwareTokenMFAException
-    _EnableSoftwareTokenMFAException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** UserNotFoundException
-    _UserNotFoundException,
 
     -- ** DuplicateProviderException
     _DuplicateProviderException,
 
-    -- ** PreconditionNotMetException
-    _PreconditionNotMetException,
-
-    -- ** TooManyFailedAttemptsException
-    _TooManyFailedAttemptsException,
-
-    -- ** UserLambdaValidationException
-    _UserLambdaValidationException,
-
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnexpectedLambdaException
-    _UnexpectedLambdaException,
-
-    -- ** UnsupportedUserStateException
-    _UnsupportedUserStateException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidUserPoolConfigurationException
-    _InvalidUserPoolConfigurationException,
-
-    -- ** AliasExistsException
-    _AliasExistsException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** ScopeDoesNotExistException
-    _ScopeDoesNotExistException,
-
-    -- ** InvalidLambdaResponseException
-    _InvalidLambdaResponseException,
-
-    -- ** GroupExistsException
-    _GroupExistsException,
+    -- ** EnableSoftwareTokenMFAException
+    _EnableSoftwareTokenMFAException,
 
     -- ** ExpiredCodeException
     _ExpiredCodeException,
 
-    -- ** UserImportInProgressException
-    _UserImportInProgressException,
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** GroupExistsException
+    _GroupExistsException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidEmailRoleAccessPolicyException
+    _InvalidEmailRoleAccessPolicyException,
+
+    -- ** InvalidLambdaResponseException
+    _InvalidLambdaResponseException,
+
+    -- ** InvalidOAuthFlowException
+    _InvalidOAuthFlowException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
+
+    -- ** InvalidSmsRoleAccessPolicyException
+    _InvalidSmsRoleAccessPolicyException,
 
     -- ** InvalidSmsRoleTrustRelationshipException
     _InvalidSmsRoleTrustRelationshipException,
 
-    -- ** SoftwareTokenMFANotFoundException
-    _SoftwareTokenMFANotFoundException,
+    -- ** InvalidUserPoolConfigurationException
+    _InvalidUserPoolConfigurationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** MFAMethodNotFoundException
     _MFAMethodNotFoundException,
@@ -126,29 +90,65 @@ module Amazonka.CognitoIdentityProvider
     -- ** NotAuthorizedException
     _NotAuthorizedException,
 
-    -- ** InvalidOAuthFlowException
-    _InvalidOAuthFlowException,
+    -- ** PasswordResetRequiredException
+    _PasswordResetRequiredException,
 
-    -- ** UnsupportedIdentityProviderException
-    _UnsupportedIdentityProviderException,
+    -- ** PreconditionNotMetException
+    _PreconditionNotMetException,
 
-    -- ** InvalidEmailRoleAccessPolicyException
-    _InvalidEmailRoleAccessPolicyException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
-    -- ** UnsupportedTokenTypeException
-    _UnsupportedTokenTypeException,
+    -- ** ScopeDoesNotExistException
+    _ScopeDoesNotExistException,
 
-    -- ** InvalidSmsRoleAccessPolicyException
-    _InvalidSmsRoleAccessPolicyException,
+    -- ** SoftwareTokenMFANotFoundException
+    _SoftwareTokenMFANotFoundException,
+
+    -- ** TooManyFailedAttemptsException
+    _TooManyFailedAttemptsException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** UnexpectedLambdaException
+    _UnexpectedLambdaException,
+
+    -- ** UnsupportedIdentityProviderException
+    _UnsupportedIdentityProviderException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** UnsupportedTokenTypeException
+    _UnsupportedTokenTypeException,
+
+    -- ** UnsupportedUserStateException
+    _UnsupportedUserStateException,
+
+    -- ** UserImportInProgressException
+    _UserImportInProgressException,
+
+    -- ** UserLambdaValidationException
+    _UserLambdaValidationException,
+
     -- ** UserNotConfirmedException
     _UserNotConfirmedException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** UserNotFoundException
+    _UserNotFoundException,
+
+    -- ** UserPoolAddOnNotEnabledException
+    _UserPoolAddOnNotEnabledException,
+
+    -- ** UserPoolTaggingException
+    _UserPoolTaggingException,
+
+    -- ** UsernameExistsException
+    _UsernameExistsException,
 
     -- * Waiters
     -- $waiters

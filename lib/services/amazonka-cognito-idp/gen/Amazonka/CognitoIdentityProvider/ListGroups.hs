@@ -31,8 +31,8 @@ module Amazonka.CognitoIdentityProvider.ListGroups
     newListGroups,
 
     -- * Request Lenses
-    listGroups_nextToken,
     listGroups_limit,
+    listGroups_nextToken,
     listGroups_userPoolId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.CognitoIdentityProvider.ListGroups
     newListGroupsResponse,
 
     -- * Response Lenses
-    listGroupsResponse_nextToken,
     listGroupsResponse_groups,
+    listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The limit of the request to list groups.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The limit of the request to list groups.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data ListGroups = ListGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listGroups_limit' - The limit of the request to list groups.
+--
 -- 'nextToken', 'listGroups_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'limit', 'listGroups_limit' - The limit of the request to list groups.
 --
 -- 'userPoolId', 'listGroups_userPoolId' - The user pool ID for the user pool.
 newListGroups ::
@@ -88,20 +88,20 @@ newListGroups ::
   ListGroups
 newListGroups pUserPoolId_ =
   ListGroups'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
+
+-- | The limit of the request to list groups.
+listGroups_limit :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
+listGroups_limit = Lens.lens (\ListGroups' {limit} -> limit) (\s@ListGroups' {} a -> s {limit = a} :: ListGroups)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listGroups_nextToken :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
 listGroups_nextToken = Lens.lens (\ListGroups' {nextToken} -> nextToken) (\s@ListGroups' {} a -> s {nextToken = a} :: ListGroups)
-
--- | The limit of the request to list groups.
-listGroups_limit :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
-listGroups_limit = Lens.lens (\ListGroups' {limit} -> limit) (\s@ListGroups' {} a -> s {limit = a} :: ListGroups)
 
 -- | The user pool ID for the user pool.
 listGroups_userPoolId :: Lens.Lens' ListGroups Prelude.Text
@@ -134,21 +134,21 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData ListGroups where
   rnf ListGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListGroups where
@@ -170,8 +170,8 @@ instance Data.ToJSON ListGroups where
   toJSON ListGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
@@ -184,12 +184,12 @@ instance Data.ToQuery ListGroups where
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The group objects for the groups.
+    groups :: Prelude.Maybe [GroupType],
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The group objects for the groups.
-    groups :: Prelude.Maybe [GroupType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data ListGroupsResponse = ListGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groups', 'listGroupsResponse_groups' - The group objects for the groups.
+--
 -- 'nextToken', 'listGroupsResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'groups', 'listGroupsResponse_groups' - The group objects for the groups.
 --
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 newListGroupsResponse ::
@@ -216,10 +216,14 @@ newListGroupsResponse ::
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { nextToken = Prelude.Nothing,
-      groups = Prelude.Nothing,
+    { groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The group objects for the groups.
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupType])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
@@ -227,16 +231,12 @@ newListGroupsResponse pHttpStatus_ =
 listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
 listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
 
--- | The group objects for the groups.
-listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupType])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
 listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGroupsResponse' {} a -> s {httpStatus = a} :: ListGroupsResponse)
 
 instance Prelude.NFData ListGroupsResponse where
   rnf ListGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

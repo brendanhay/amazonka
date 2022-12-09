@@ -32,8 +32,8 @@ module Amazonka.CognitoIdentityProvider.AdminSetUserMFAPreference
     newAdminSetUserMFAPreference,
 
     -- * Request Lenses
-    adminSetUserMFAPreference_softwareTokenMfaSettings,
     adminSetUserMFAPreference_sMSMfaSettings,
+    adminSetUserMFAPreference_softwareTokenMfaSettings,
     adminSetUserMFAPreference_username,
     adminSetUserMFAPreference_userPoolId,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAdminSetUserMFAPreference' smart constructor.
 data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
-  { -- | The time-based one-time password software token MFA settings.
-    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
-    -- | The SMS text message MFA settings.
+  { -- | The SMS text message MFA settings.
     sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
+    -- | The time-based one-time password software token MFA settings.
+    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
     -- | The user pool username or alias.
     username :: Data.Sensitive Prelude.Text,
     -- | The user pool ID.
@@ -75,9 +75,9 @@ data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'softwareTokenMfaSettings', 'adminSetUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
---
 -- 'sMSMfaSettings', 'adminSetUserMFAPreference_sMSMfaSettings' - The SMS text message MFA settings.
+--
+-- 'softwareTokenMfaSettings', 'adminSetUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
 --
 -- 'username', 'adminSetUserMFAPreference_username' - The user pool username or alias.
 --
@@ -90,20 +90,20 @@ newAdminSetUserMFAPreference ::
   AdminSetUserMFAPreference
 newAdminSetUserMFAPreference pUsername_ pUserPoolId_ =
   AdminSetUserMFAPreference'
-    { softwareTokenMfaSettings =
+    { sMSMfaSettings =
         Prelude.Nothing,
-      sMSMfaSettings = Prelude.Nothing,
+      softwareTokenMfaSettings = Prelude.Nothing,
       username = Data._Sensitive Lens.# pUsername_,
       userPoolId = pUserPoolId_
     }
 
--- | The time-based one-time password software token MFA settings.
-adminSetUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' AdminSetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
-adminSetUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\AdminSetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@AdminSetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: AdminSetUserMFAPreference)
-
 -- | The SMS text message MFA settings.
 adminSetUserMFAPreference_sMSMfaSettings :: Lens.Lens' AdminSetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
 adminSetUserMFAPreference_sMSMfaSettings = Lens.lens (\AdminSetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@AdminSetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: AdminSetUserMFAPreference)
+
+-- | The time-based one-time password software token MFA settings.
+adminSetUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' AdminSetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
+adminSetUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\AdminSetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@AdminSetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: AdminSetUserMFAPreference)
 
 -- | The user pool username or alias.
 adminSetUserMFAPreference_username :: Lens.Lens' AdminSetUserMFAPreference Prelude.Text
@@ -128,16 +128,15 @@ instance Core.AWSRequest AdminSetUserMFAPreference where
 
 instance Prelude.Hashable AdminSetUserMFAPreference where
   hashWithSalt _salt AdminSetUserMFAPreference' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` sMSMfaSettings
       `Prelude.hashWithSalt` softwareTokenMfaSettings
-      `Prelude.hashWithSalt` sMSMfaSettings
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData AdminSetUserMFAPreference where
   rnf AdminSetUserMFAPreference' {..} =
-    Prelude.rnf softwareTokenMfaSettings
-      `Prelude.seq` Prelude.rnf sMSMfaSettings
+    Prelude.rnf sMSMfaSettings
+      `Prelude.seq` Prelude.rnf softwareTokenMfaSettings
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userPoolId
 
@@ -160,10 +159,10 @@ instance Data.ToJSON AdminSetUserMFAPreference where
   toJSON AdminSetUserMFAPreference' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SoftwareTokenMfaSettings" Data..=)
-              Prelude.<$> softwareTokenMfaSettings,
-            ("SMSMfaSettings" Data..=)
+          [ ("SMSMfaSettings" Data..=)
               Prelude.<$> sMSMfaSettings,
+            ("SoftwareTokenMfaSettings" Data..=)
+              Prelude.<$> softwareTokenMfaSettings,
             Prelude.Just ("Username" Data..= username),
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]

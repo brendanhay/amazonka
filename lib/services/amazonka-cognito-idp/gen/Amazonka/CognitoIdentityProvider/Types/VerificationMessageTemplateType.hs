@@ -29,7 +29,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVerificationMessageTemplateType' smart constructor.
 data VerificationMessageTemplateType = VerificationMessageTemplateType'
-  { -- | The subject line for the email message template. You can set an
+  { -- | The default email option.
+    defaultEmailOption :: Prelude.Maybe DefaultEmailOptionType,
+    -- | The template for email messages that Amazon Cognito sends to your users.
+    -- You can set an @EmailMessage@ template only if the value of
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is @DEVELOPER@. When your
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
+    -- SES configuration.
+    emailMessage :: Prelude.Maybe Prelude.Text,
+    -- | The email message template for sending a confirmation link to the user.
+    -- You can set an @EmailMessageByLink@ template only if the value of
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is @DEVELOPER@. When your
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
+    -- SES configuration.
+    emailMessageByLink :: Prelude.Maybe Prelude.Text,
+    -- | The subject line for the email message template. You can set an
     -- @EmailSubject@ template only if the value of
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
     -- is @DEVELOPER@. When your
@@ -37,8 +55,6 @@ data VerificationMessageTemplateType = VerificationMessageTemplateType'
     -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
     -- SES configuration.
     emailSubject :: Prelude.Maybe Prelude.Text,
-    -- | The template for SMS messages that Amazon Cognito sends to your users.
-    smsMessage :: Prelude.Maybe Prelude.Text,
     -- | The subject line for the email message template for sending a
     -- confirmation link to the user. You can set an @EmailSubjectByLink@
     -- template only if the value of
@@ -48,24 +64,8 @@ data VerificationMessageTemplateType = VerificationMessageTemplateType'
     -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
     -- SES configuration.
     emailSubjectByLink :: Prelude.Maybe Prelude.Text,
-    -- | The email message template for sending a confirmation link to the user.
-    -- You can set an @EmailMessageByLink@ template only if the value of
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is @DEVELOPER@. When your
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
-    -- SES configuration.
-    emailMessageByLink :: Prelude.Maybe Prelude.Text,
-    -- | The default email option.
-    defaultEmailOption :: Prelude.Maybe DefaultEmailOptionType,
-    -- | The template for email messages that Amazon Cognito sends to your users.
-    -- You can set an @EmailMessage@ template only if the value of
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is @DEVELOPER@. When your
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
-    -- SES configuration.
-    emailMessage :: Prelude.Maybe Prelude.Text
+    -- | The template for SMS messages that Amazon Cognito sends to your users.
+    smsMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,19 +77,10 @@ data VerificationMessageTemplateType = VerificationMessageTemplateType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailSubject', 'verificationMessageTemplateType_emailSubject' - The subject line for the email message template. You can set an
--- @EmailSubject@ template only if the value of
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@. When your
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@, your user pool sends email messages with your own Amazon
--- SES configuration.
+-- 'defaultEmailOption', 'verificationMessageTemplateType_defaultEmailOption' - The default email option.
 --
--- 'smsMessage', 'verificationMessageTemplateType_smsMessage' - The template for SMS messages that Amazon Cognito sends to your users.
---
--- 'emailSubjectByLink', 'verificationMessageTemplateType_emailSubjectByLink' - The subject line for the email message template for sending a
--- confirmation link to the user. You can set an @EmailSubjectByLink@
--- template only if the value of
+-- 'emailMessage', 'verificationMessageTemplateType_emailMessage' - The template for email messages that Amazon Cognito sends to your users.
+-- You can set an @EmailMessage@ template only if the value of
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is @DEVELOPER@. When your
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
@@ -104,43 +95,15 @@ data VerificationMessageTemplateType = VerificationMessageTemplateType'
 -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
 -- SES configuration.
 --
--- 'defaultEmailOption', 'verificationMessageTemplateType_defaultEmailOption' - The default email option.
---
--- 'emailMessage', 'verificationMessageTemplateType_emailMessage' - The template for email messages that Amazon Cognito sends to your users.
--- You can set an @EmailMessage@ template only if the value of
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@. When your
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@, your user pool sends email messages with your own Amazon
--- SES configuration.
-newVerificationMessageTemplateType ::
-  VerificationMessageTemplateType
-newVerificationMessageTemplateType =
-  VerificationMessageTemplateType'
-    { emailSubject =
-        Prelude.Nothing,
-      smsMessage = Prelude.Nothing,
-      emailSubjectByLink = Prelude.Nothing,
-      emailMessageByLink = Prelude.Nothing,
-      defaultEmailOption = Prelude.Nothing,
-      emailMessage = Prelude.Nothing
-    }
-
--- | The subject line for the email message template. You can set an
+-- 'emailSubject', 'verificationMessageTemplateType_emailSubject' - The subject line for the email message template. You can set an
 -- @EmailSubject@ template only if the value of
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is @DEVELOPER@. When your
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
 -- SES configuration.
-verificationMessageTemplateType_emailSubject :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
-verificationMessageTemplateType_emailSubject = Lens.lens (\VerificationMessageTemplateType' {emailSubject} -> emailSubject) (\s@VerificationMessageTemplateType' {} a -> s {emailSubject = a} :: VerificationMessageTemplateType)
-
--- | The template for SMS messages that Amazon Cognito sends to your users.
-verificationMessageTemplateType_smsMessage :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
-verificationMessageTemplateType_smsMessage = Lens.lens (\VerificationMessageTemplateType' {smsMessage} -> smsMessage) (\s@VerificationMessageTemplateType' {} a -> s {smsMessage = a} :: VerificationMessageTemplateType)
-
--- | The subject line for the email message template for sending a
+--
+-- 'emailSubjectByLink', 'verificationMessageTemplateType_emailSubjectByLink' - The subject line for the email message template for sending a
 -- confirmation link to the user. You can set an @EmailSubjectByLink@
 -- template only if the value of
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
@@ -148,18 +111,20 @@ verificationMessageTemplateType_smsMessage = Lens.lens (\VerificationMessageTemp
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is @DEVELOPER@, your user pool sends email messages with your own Amazon
 -- SES configuration.
-verificationMessageTemplateType_emailSubjectByLink :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
-verificationMessageTemplateType_emailSubjectByLink = Lens.lens (\VerificationMessageTemplateType' {emailSubjectByLink} -> emailSubjectByLink) (\s@VerificationMessageTemplateType' {} a -> s {emailSubjectByLink = a} :: VerificationMessageTemplateType)
-
--- | The email message template for sending a confirmation link to the user.
--- You can set an @EmailMessageByLink@ template only if the value of
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@. When your
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is @DEVELOPER@, your user pool sends email messages with your own Amazon
--- SES configuration.
-verificationMessageTemplateType_emailMessageByLink :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
-verificationMessageTemplateType_emailMessageByLink = Lens.lens (\VerificationMessageTemplateType' {emailMessageByLink} -> emailMessageByLink) (\s@VerificationMessageTemplateType' {} a -> s {emailMessageByLink = a} :: VerificationMessageTemplateType)
+--
+-- 'smsMessage', 'verificationMessageTemplateType_smsMessage' - The template for SMS messages that Amazon Cognito sends to your users.
+newVerificationMessageTemplateType ::
+  VerificationMessageTemplateType
+newVerificationMessageTemplateType =
+  VerificationMessageTemplateType'
+    { defaultEmailOption =
+        Prelude.Nothing,
+      emailMessage = Prelude.Nothing,
+      emailMessageByLink = Prelude.Nothing,
+      emailSubject = Prelude.Nothing,
+      emailSubjectByLink = Prelude.Nothing,
+      smsMessage = Prelude.Nothing
+    }
 
 -- | The default email option.
 verificationMessageTemplateType_defaultEmailOption :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe DefaultEmailOptionType)
@@ -175,6 +140,41 @@ verificationMessageTemplateType_defaultEmailOption = Lens.lens (\VerificationMes
 verificationMessageTemplateType_emailMessage :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
 verificationMessageTemplateType_emailMessage = Lens.lens (\VerificationMessageTemplateType' {emailMessage} -> emailMessage) (\s@VerificationMessageTemplateType' {} a -> s {emailMessage = a} :: VerificationMessageTemplateType)
 
+-- | The email message template for sending a confirmation link to the user.
+-- You can set an @EmailMessageByLink@ template only if the value of
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@. When your
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@, your user pool sends email messages with your own Amazon
+-- SES configuration.
+verificationMessageTemplateType_emailMessageByLink :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
+verificationMessageTemplateType_emailMessageByLink = Lens.lens (\VerificationMessageTemplateType' {emailMessageByLink} -> emailMessageByLink) (\s@VerificationMessageTemplateType' {} a -> s {emailMessageByLink = a} :: VerificationMessageTemplateType)
+
+-- | The subject line for the email message template. You can set an
+-- @EmailSubject@ template only if the value of
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@. When your
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@, your user pool sends email messages with your own Amazon
+-- SES configuration.
+verificationMessageTemplateType_emailSubject :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
+verificationMessageTemplateType_emailSubject = Lens.lens (\VerificationMessageTemplateType' {emailSubject} -> emailSubject) (\s@VerificationMessageTemplateType' {} a -> s {emailSubject = a} :: VerificationMessageTemplateType)
+
+-- | The subject line for the email message template for sending a
+-- confirmation link to the user. You can set an @EmailSubjectByLink@
+-- template only if the value of
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@. When your
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is @DEVELOPER@, your user pool sends email messages with your own Amazon
+-- SES configuration.
+verificationMessageTemplateType_emailSubjectByLink :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
+verificationMessageTemplateType_emailSubjectByLink = Lens.lens (\VerificationMessageTemplateType' {emailSubjectByLink} -> emailSubjectByLink) (\s@VerificationMessageTemplateType' {} a -> s {emailSubjectByLink = a} :: VerificationMessageTemplateType)
+
+-- | The template for SMS messages that Amazon Cognito sends to your users.
+verificationMessageTemplateType_smsMessage :: Lens.Lens' VerificationMessageTemplateType (Prelude.Maybe Prelude.Text)
+verificationMessageTemplateType_smsMessage = Lens.lens (\VerificationMessageTemplateType' {smsMessage} -> smsMessage) (\s@VerificationMessageTemplateType' {} a -> s {smsMessage = a} :: VerificationMessageTemplateType)
+
 instance
   Data.FromJSON
     VerificationMessageTemplateType
@@ -184,12 +184,12 @@ instance
       "VerificationMessageTemplateType"
       ( \x ->
           VerificationMessageTemplateType'
-            Prelude.<$> (x Data..:? "EmailSubject")
-            Prelude.<*> (x Data..:? "SmsMessage")
-            Prelude.<*> (x Data..:? "EmailSubjectByLink")
-            Prelude.<*> (x Data..:? "EmailMessageByLink")
-            Prelude.<*> (x Data..:? "DefaultEmailOption")
+            Prelude.<$> (x Data..:? "DefaultEmailOption")
             Prelude.<*> (x Data..:? "EmailMessage")
+            Prelude.<*> (x Data..:? "EmailMessageByLink")
+            Prelude.<*> (x Data..:? "EmailSubject")
+            Prelude.<*> (x Data..:? "EmailSubjectByLink")
+            Prelude.<*> (x Data..:? "SmsMessage")
       )
 
 instance
@@ -199,37 +199,37 @@ instance
   hashWithSalt
     _salt
     VerificationMessageTemplateType' {..} =
-      _salt `Prelude.hashWithSalt` emailSubject
-        `Prelude.hashWithSalt` smsMessage
-        `Prelude.hashWithSalt` emailSubjectByLink
-        `Prelude.hashWithSalt` emailMessageByLink
-        `Prelude.hashWithSalt` defaultEmailOption
+      _salt `Prelude.hashWithSalt` defaultEmailOption
         `Prelude.hashWithSalt` emailMessage
+        `Prelude.hashWithSalt` emailMessageByLink
+        `Prelude.hashWithSalt` emailSubject
+        `Prelude.hashWithSalt` emailSubjectByLink
+        `Prelude.hashWithSalt` smsMessage
 
 instance
   Prelude.NFData
     VerificationMessageTemplateType
   where
   rnf VerificationMessageTemplateType' {..} =
-    Prelude.rnf emailSubject
-      `Prelude.seq` Prelude.rnf smsMessage
-      `Prelude.seq` Prelude.rnf emailSubjectByLink
-      `Prelude.seq` Prelude.rnf emailMessageByLink
-      `Prelude.seq` Prelude.rnf defaultEmailOption
+    Prelude.rnf defaultEmailOption
       `Prelude.seq` Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf emailMessageByLink
+      `Prelude.seq` Prelude.rnf emailSubject
+      `Prelude.seq` Prelude.rnf emailSubjectByLink
+      `Prelude.seq` Prelude.rnf smsMessage
 
 instance Data.ToJSON VerificationMessageTemplateType where
   toJSON VerificationMessageTemplateType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EmailSubject" Data..=) Prelude.<$> emailSubject,
-            ("SmsMessage" Data..=) Prelude.<$> smsMessage,
-            ("EmailSubjectByLink" Data..=)
-              Prelude.<$> emailSubjectByLink,
+          [ ("DefaultEmailOption" Data..=)
+              Prelude.<$> defaultEmailOption,
+            ("EmailMessage" Data..=) Prelude.<$> emailMessage,
             ("EmailMessageByLink" Data..=)
               Prelude.<$> emailMessageByLink,
-            ("DefaultEmailOption" Data..=)
-              Prelude.<$> defaultEmailOption,
-            ("EmailMessage" Data..=) Prelude.<$> emailMessage
+            ("EmailSubject" Data..=) Prelude.<$> emailSubject,
+            ("EmailSubjectByLink" Data..=)
+              Prelude.<$> emailSubjectByLink,
+            ("SmsMessage" Data..=) Prelude.<$> smsMessage
           ]
       )

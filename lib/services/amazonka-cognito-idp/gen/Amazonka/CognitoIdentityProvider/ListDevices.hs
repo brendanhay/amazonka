@@ -28,8 +28,8 @@ module Amazonka.CognitoIdentityProvider.ListDevices
     newListDevices,
 
     -- * Request Lenses
-    listDevices_paginationToken,
     listDevices_limit,
+    listDevices_paginationToken,
     listDevices_accessToken,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { -- | The pagination token for the list request.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | The limit of the device request.
+  { -- | The limit of the device request.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list request.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | A valid access token that Amazon Cognito issued to the user whose list
     -- of devices you want to view.
     accessToken :: Data.Sensitive Prelude.Text
@@ -73,9 +73,9 @@ data ListDevices = ListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'listDevices_paginationToken' - The pagination token for the list request.
---
 -- 'limit', 'listDevices_limit' - The limit of the device request.
+--
+-- 'paginationToken', 'listDevices_paginationToken' - The pagination token for the list request.
 --
 -- 'accessToken', 'listDevices_accessToken' - A valid access token that Amazon Cognito issued to the user whose list
 -- of devices you want to view.
@@ -85,18 +85,18 @@ newListDevices ::
   ListDevices
 newListDevices pAccessToken_ =
   ListDevices'
-    { paginationToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       accessToken = Data._Sensitive Lens.# pAccessToken_
     }
-
--- | The pagination token for the list request.
-listDevices_paginationToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_paginationToken = Lens.lens (\ListDevices' {paginationToken} -> paginationToken) (\s@ListDevices' {} a -> s {paginationToken = a} :: ListDevices)
 
 -- | The limit of the device request.
 listDevices_limit :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_limit = Lens.lens (\ListDevices' {limit} -> limit) (\s@ListDevices' {} a -> s {limit = a} :: ListDevices)
+
+-- | The pagination token for the list request.
+listDevices_paginationToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_paginationToken = Lens.lens (\ListDevices' {paginationToken} -> paginationToken) (\s@ListDevices' {} a -> s {paginationToken = a} :: ListDevices)
 
 -- | A valid access token that Amazon Cognito issued to the user whose list
 -- of devices you want to view.
@@ -118,14 +118,14 @@ instance Core.AWSRequest ListDevices where
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` paginationToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` accessToken
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf accessToken
 
 instance Data.ToHeaders ListDevices where
@@ -147,9 +147,9 @@ instance Data.ToJSON ListDevices where
   toJSON ListDevices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Data..=)
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("PaginationToken" Data..=)
               Prelude.<$> paginationToken,
-            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just ("AccessToken" Data..= accessToken)
           ]
       )

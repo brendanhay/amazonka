@@ -31,8 +31,8 @@ module Amazonka.CognitoIdentityProvider.ListUsersInGroup
     newListUsersInGroup,
 
     -- * Request Lenses
-    listUsersInGroup_nextToken,
     listUsersInGroup_limit,
+    listUsersInGroup_nextToken,
     listUsersInGroup_userPoolId,
     listUsersInGroup_groupName,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsersInGroup' smart constructor.
 data ListUsersInGroup = ListUsersInGroup'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The limit of the request to list users.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The limit of the request to list users.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text,
     -- | The name of the group.
@@ -78,11 +78,11 @@ data ListUsersInGroup = ListUsersInGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listUsersInGroup_limit' - The limit of the request to list users.
+--
 -- 'nextToken', 'listUsersInGroup_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'limit', 'listUsersInGroup_limit' - The limit of the request to list users.
 --
 -- 'userPoolId', 'listUsersInGroup_userPoolId' - The user pool ID for the user pool.
 --
@@ -95,21 +95,21 @@ newListUsersInGroup ::
   ListUsersInGroup
 newListUsersInGroup pUserPoolId_ pGroupName_ =
   ListUsersInGroup'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       groupName = pGroupName_
     }
+
+-- | The limit of the request to list users.
+listUsersInGroup_limit :: Lens.Lens' ListUsersInGroup (Prelude.Maybe Prelude.Natural)
+listUsersInGroup_limit = Lens.lens (\ListUsersInGroup' {limit} -> limit) (\s@ListUsersInGroup' {} a -> s {limit = a} :: ListUsersInGroup)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listUsersInGroup_nextToken :: Lens.Lens' ListUsersInGroup (Prelude.Maybe Prelude.Text)
 listUsersInGroup_nextToken = Lens.lens (\ListUsersInGroup' {nextToken} -> nextToken) (\s@ListUsersInGroup' {} a -> s {nextToken = a} :: ListUsersInGroup)
-
--- | The limit of the request to list users.
-listUsersInGroup_limit :: Lens.Lens' ListUsersInGroup (Prelude.Maybe Prelude.Natural)
-listUsersInGroup_limit = Lens.lens (\ListUsersInGroup' {limit} -> limit) (\s@ListUsersInGroup' {} a -> s {limit = a} :: ListUsersInGroup)
 
 -- | The user pool ID for the user pool.
 listUsersInGroup_userPoolId :: Lens.Lens' ListUsersInGroup Prelude.Text
@@ -157,15 +157,15 @@ instance Core.AWSRequest ListUsersInGroup where
 
 instance Prelude.Hashable ListUsersInGroup where
   hashWithSalt _salt ListUsersInGroup' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData ListUsersInGroup where
   rnf ListUsersInGroup' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userPoolId
       `Prelude.seq` Prelude.rnf groupName
 
@@ -188,8 +188,8 @@ instance Data.ToJSON ListUsersInGroup where
   toJSON ListUsersInGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("UserPoolId" Data..= userPoolId),
             Prelude.Just ("GroupName" Data..= groupName)
           ]

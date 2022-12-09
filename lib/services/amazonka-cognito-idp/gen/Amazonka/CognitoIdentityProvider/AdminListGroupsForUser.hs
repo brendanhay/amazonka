@@ -31,8 +31,8 @@ module Amazonka.CognitoIdentityProvider.AdminListGroupsForUser
     newAdminListGroupsForUser,
 
     -- * Request Lenses
-    adminListGroupsForUser_nextToken,
     adminListGroupsForUser_limit,
+    adminListGroupsForUser_nextToken,
     adminListGroupsForUser_username,
     adminListGroupsForUser_userPoolId,
 
@@ -41,8 +41,8 @@ module Amazonka.CognitoIdentityProvider.AdminListGroupsForUser
     newAdminListGroupsForUserResponse,
 
     -- * Response Lenses
-    adminListGroupsForUserResponse_nextToken,
     adminListGroupsForUserResponse_groups,
+    adminListGroupsForUserResponse_nextToken,
     adminListGroupsForUserResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAdminListGroupsForUser' smart constructor.
 data AdminListGroupsForUser = AdminListGroupsForUser'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The limit of the request to list groups.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The limit of the request to list groups.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The username for the user.
     username :: Data.Sensitive Prelude.Text,
     -- | The user pool ID for the user pool.
@@ -78,11 +78,11 @@ data AdminListGroupsForUser = AdminListGroupsForUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'adminListGroupsForUser_limit' - The limit of the request to list groups.
+--
 -- 'nextToken', 'adminListGroupsForUser_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'limit', 'adminListGroupsForUser_limit' - The limit of the request to list groups.
 --
 -- 'username', 'adminListGroupsForUser_username' - The username for the user.
 --
@@ -95,22 +95,21 @@ newAdminListGroupsForUser ::
   AdminListGroupsForUser
 newAdminListGroupsForUser pUsername_ pUserPoolId_ =
   AdminListGroupsForUser'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       username = Data._Sensitive Lens.# pUsername_,
       userPoolId = pUserPoolId_
     }
+
+-- | The limit of the request to list groups.
+adminListGroupsForUser_limit :: Lens.Lens' AdminListGroupsForUser (Prelude.Maybe Prelude.Natural)
+adminListGroupsForUser_limit = Lens.lens (\AdminListGroupsForUser' {limit} -> limit) (\s@AdminListGroupsForUser' {} a -> s {limit = a} :: AdminListGroupsForUser)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 adminListGroupsForUser_nextToken :: Lens.Lens' AdminListGroupsForUser (Prelude.Maybe Prelude.Text)
 adminListGroupsForUser_nextToken = Lens.lens (\AdminListGroupsForUser' {nextToken} -> nextToken) (\s@AdminListGroupsForUser' {} a -> s {nextToken = a} :: AdminListGroupsForUser)
-
--- | The limit of the request to list groups.
-adminListGroupsForUser_limit :: Lens.Lens' AdminListGroupsForUser (Prelude.Maybe Prelude.Natural)
-adminListGroupsForUser_limit = Lens.lens (\AdminListGroupsForUser' {limit} -> limit) (\s@AdminListGroupsForUser' {} a -> s {limit = a} :: AdminListGroupsForUser)
 
 -- | The username for the user.
 adminListGroupsForUser_username :: Lens.Lens' AdminListGroupsForUser Prelude.Text
@@ -152,22 +151,22 @@ instance Core.AWSRequest AdminListGroupsForUser where
     Response.receiveJSON
       ( \s h x ->
           AdminListGroupsForUserResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AdminListGroupsForUser where
   hashWithSalt _salt AdminListGroupsForUser' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData AdminListGroupsForUser where
   rnf AdminListGroupsForUser' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userPoolId
 
@@ -190,8 +189,8 @@ instance Data.ToJSON AdminListGroupsForUser where
   toJSON AdminListGroupsForUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Username" Data..= username),
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
@@ -205,12 +204,12 @@ instance Data.ToQuery AdminListGroupsForUser where
 
 -- | /See:/ 'newAdminListGroupsForUserResponse' smart constructor.
 data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The groups that the user belongs to.
+    groups :: Prelude.Maybe [GroupType],
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The groups that the user belongs to.
-    groups :: Prelude.Maybe [GroupType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,11 +223,11 @@ data AdminListGroupsForUserResponse = AdminListGroupsForUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groups', 'adminListGroupsForUserResponse_groups' - The groups that the user belongs to.
+--
 -- 'nextToken', 'adminListGroupsForUserResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'groups', 'adminListGroupsForUserResponse_groups' - The groups that the user belongs to.
 --
 -- 'httpStatus', 'adminListGroupsForUserResponse_httpStatus' - The response's http status code.
 newAdminListGroupsForUserResponse ::
@@ -237,21 +236,21 @@ newAdminListGroupsForUserResponse ::
   AdminListGroupsForUserResponse
 newAdminListGroupsForUserResponse pHttpStatus_ =
   AdminListGroupsForUserResponse'
-    { nextToken =
+    { groups =
         Prelude.Nothing,
-      groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The groups that the user belongs to.
+adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
+adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 adminListGroupsForUserResponse_nextToken :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe Prelude.Text)
 adminListGroupsForUserResponse_nextToken = Lens.lens (\AdminListGroupsForUserResponse' {nextToken} -> nextToken) (\s@AdminListGroupsForUserResponse' {} a -> s {nextToken = a} :: AdminListGroupsForUserResponse)
-
--- | The groups that the user belongs to.
-adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
-adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 adminListGroupsForUserResponse_httpStatus :: Lens.Lens' AdminListGroupsForUserResponse Prelude.Int
@@ -262,6 +261,6 @@ instance
     AdminListGroupsForUserResponse
   where
   rnf AdminListGroupsForUserResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

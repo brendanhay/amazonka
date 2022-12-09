@@ -29,9 +29,9 @@ module Amazonka.CognitoIdentityProvider.ConfirmSignUp
     -- * Request Lenses
     confirmSignUp_analyticsMetadata,
     confirmSignUp_clientMetadata,
+    confirmSignUp_forceAliasCreation,
     confirmSignUp_secretHash,
     confirmSignUp_userContextData,
-    confirmSignUp_forceAliasCreation,
     confirmSignUp_clientId,
     confirmSignUp_username,
     confirmSignUp_confirmationCode,
@@ -90,6 +90,13 @@ data ConfirmSignUp = ConfirmSignUp'
     -- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
     --     provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Boolean to be specified to force user confirmation irrespective of
+    -- existing alias. By default set to @False@. If this parameter is set to
+    -- @True@ and the phone number\/email used for sign up confirmation already
+    -- exists as an alias with a different user, the API call will migrate the
+    -- alias from the previous user to the newly created user being confirmed.
+    -- If set to @False@, the API will throw an __AliasExistsException__ error.
+    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
@@ -99,13 +106,6 @@ data ConfirmSignUp = ConfirmSignUp'
     -- risk of an authentication event based on the context that your app
     -- generates and passes to Amazon Cognito when it makes API requests.
     userContextData :: Prelude.Maybe UserContextDataType,
-    -- | Boolean to be specified to force user confirmation irrespective of
-    -- existing alias. By default set to @False@. If this parameter is set to
-    -- @True@ and the phone number\/email used for sign up confirmation already
-    -- exists as an alias with a different user, the API call will migrate the
-    -- alias from the previous user to the newly created user being confirmed.
-    -- If set to @False@, the API will throw an __AliasExistsException__ error.
-    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the app client associated with the user pool.
     clientId :: Data.Sensitive Prelude.Text,
     -- | The user name of the user whose registration you want to confirm.
@@ -156,6 +156,13 @@ data ConfirmSignUp = ConfirmSignUp'
 -- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
 --     provide sensitive information.
 --
+-- 'forceAliasCreation', 'confirmSignUp_forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of
+-- existing alias. By default set to @False@. If this parameter is set to
+-- @True@ and the phone number\/email used for sign up confirmation already
+-- exists as an alias with a different user, the API call will migrate the
+-- alias from the previous user to the newly created user being confirmed.
+-- If set to @False@, the API will throw an __AliasExistsException__ error.
+--
 -- 'secretHash', 'confirmSignUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
@@ -164,13 +171,6 @@ data ConfirmSignUp = ConfirmSignUp'
 -- IP address, or location. Amazon Cognito advanced security evaluates the
 -- risk of an authentication event based on the context that your app
 -- generates and passes to Amazon Cognito when it makes API requests.
---
--- 'forceAliasCreation', 'confirmSignUp_forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of
--- existing alias. By default set to @False@. If this parameter is set to
--- @True@ and the phone number\/email used for sign up confirmation already
--- exists as an alias with a different user, the API call will migrate the
--- alias from the previous user to the newly created user being confirmed.
--- If set to @False@, the API will throw an __AliasExistsException__ error.
 --
 -- 'clientId', 'confirmSignUp_clientId' - The ID of the app client associated with the user pool.
 --
@@ -192,9 +192,9 @@ newConfirmSignUp
     ConfirmSignUp'
       { analyticsMetadata = Prelude.Nothing,
         clientMetadata = Prelude.Nothing,
+        forceAliasCreation = Prelude.Nothing,
         secretHash = Prelude.Nothing,
         userContextData = Prelude.Nothing,
-        forceAliasCreation = Prelude.Nothing,
         clientId = Data._Sensitive Lens.# pClientId_,
         username = Data._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_
@@ -237,6 +237,15 @@ confirmSignUp_analyticsMetadata = Lens.lens (\ConfirmSignUp' {analyticsMetadata}
 confirmSignUp_clientMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@ConfirmSignUp' {} a -> s {clientMetadata = a} :: ConfirmSignUp) Prelude.. Lens.mapping Lens.coerced
 
+-- | Boolean to be specified to force user confirmation irrespective of
+-- existing alias. By default set to @False@. If this parameter is set to
+-- @True@ and the phone number\/email used for sign up confirmation already
+-- exists as an alias with a different user, the API call will migrate the
+-- alias from the previous user to the newly created user being confirmed.
+-- If set to @False@, the API will throw an __AliasExistsException__ error.
+confirmSignUp_forceAliasCreation :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Bool)
+confirmSignUp_forceAliasCreation = Lens.lens (\ConfirmSignUp' {forceAliasCreation} -> forceAliasCreation) (\s@ConfirmSignUp' {} a -> s {forceAliasCreation = a} :: ConfirmSignUp)
+
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
@@ -249,15 +258,6 @@ confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash
 -- generates and passes to Amazon Cognito when it makes API requests.
 confirmSignUp_userContextData :: Lens.Lens' ConfirmSignUp (Prelude.Maybe UserContextDataType)
 confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> userContextData) (\s@ConfirmSignUp' {} a -> s {userContextData = a} :: ConfirmSignUp)
-
--- | Boolean to be specified to force user confirmation irrespective of
--- existing alias. By default set to @False@. If this parameter is set to
--- @True@ and the phone number\/email used for sign up confirmation already
--- exists as an alias with a different user, the API call will migrate the
--- alias from the previous user to the newly created user being confirmed.
--- If set to @False@, the API will throw an __AliasExistsException__ error.
-confirmSignUp_forceAliasCreation :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Bool)
-confirmSignUp_forceAliasCreation = Lens.lens (\ConfirmSignUp' {forceAliasCreation} -> forceAliasCreation) (\s@ConfirmSignUp' {} a -> s {forceAliasCreation = a} :: ConfirmSignUp)
 
 -- | The ID of the app client associated with the user pool.
 confirmSignUp_clientId :: Lens.Lens' ConfirmSignUp Prelude.Text
@@ -288,9 +288,9 @@ instance Prelude.Hashable ConfirmSignUp where
   hashWithSalt _salt ConfirmSignUp' {..} =
     _salt `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
+      `Prelude.hashWithSalt` forceAliasCreation
       `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userContextData
-      `Prelude.hashWithSalt` forceAliasCreation
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` confirmationCode
@@ -299,9 +299,9 @@ instance Prelude.NFData ConfirmSignUp where
   rnf ConfirmSignUp' {..} =
     Prelude.rnf analyticsMetadata
       `Prelude.seq` Prelude.rnf clientMetadata
+      `Prelude.seq` Prelude.rnf forceAliasCreation
       `Prelude.seq` Prelude.rnf secretHash
       `Prelude.seq` Prelude.rnf userContextData
-      `Prelude.seq` Prelude.rnf forceAliasCreation
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf confirmationCode
@@ -329,11 +329,11 @@ instance Data.ToJSON ConfirmSignUp where
               Prelude.<$> analyticsMetadata,
             ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
+            ("ForceAliasCreation" Data..=)
+              Prelude.<$> forceAliasCreation,
             ("SecretHash" Data..=) Prelude.<$> secretHash,
             ("UserContextData" Data..=)
               Prelude.<$> userContextData,
-            ("ForceAliasCreation" Data..=)
-              Prelude.<$> forceAliasCreation,
             Prelude.Just ("ClientId" Data..= clientId),
             Prelude.Just ("Username" Data..= username),
             Prelude.Just

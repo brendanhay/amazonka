@@ -50,8 +50,8 @@ module Amazonka.CognitoIdentityProvider.SignUp
     signUp_analyticsMetadata,
     signUp_clientMetadata,
     signUp_secretHash,
-    signUp_userContextData,
     signUp_userAttributes,
+    signUp_userContextData,
     signUp_validationData,
     signUp_clientId,
     signUp_username,
@@ -119,16 +119,16 @@ data SignUp = SignUp'
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Contextual data about your user session, such as the device fingerprint,
-    -- IP address, or location. Amazon Cognito advanced security evaluates the
-    -- risk of an authentication event based on the context that your app
-    -- generates and passes to Amazon Cognito when it makes API requests.
-    userContextData :: Prelude.Maybe UserContextDataType,
     -- | An array of name-value pairs representing user attributes.
     --
     -- For custom attributes, you must prepend the @custom:@ prefix to the
     -- attribute name.
     userAttributes :: Prelude.Maybe [AttributeType],
+    -- | Contextual data about your user session, such as the device fingerprint,
+    -- IP address, or location. Amazon Cognito advanced security evaluates the
+    -- risk of an authentication event based on the context that your app
+    -- generates and passes to Amazon Cognito when it makes API requests.
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | The validation data in the request to register a user.
     validationData :: Prelude.Maybe [AttributeType],
     -- | The ID of the client associated with the user pool.
@@ -186,15 +186,15 @@ data SignUp = SignUp'
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 --
--- 'userContextData', 'signUp_userContextData' - Contextual data about your user session, such as the device fingerprint,
--- IP address, or location. Amazon Cognito advanced security evaluates the
--- risk of an authentication event based on the context that your app
--- generates and passes to Amazon Cognito when it makes API requests.
---
 -- 'userAttributes', 'signUp_userAttributes' - An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
+--
+-- 'userContextData', 'signUp_userContextData' - Contextual data about your user session, such as the device fingerprint,
+-- IP address, or location. Amazon Cognito advanced security evaluates the
+-- risk of an authentication event based on the context that your app
+-- generates and passes to Amazon Cognito when it makes API requests.
 --
 -- 'validationData', 'signUp_validationData' - The validation data in the request to register a user.
 --
@@ -216,8 +216,8 @@ newSignUp pClientId_ pUsername_ pPassword_ =
     { analyticsMetadata = Prelude.Nothing,
       clientMetadata = Prelude.Nothing,
       secretHash = Prelude.Nothing,
-      userContextData = Prelude.Nothing,
       userAttributes = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
       validationData = Prelude.Nothing,
       clientId = Data._Sensitive Lens.# pClientId_,
       username = Data._Sensitive Lens.# pUsername_,
@@ -268,19 +268,19 @@ signUp_clientMetadata = Lens.lens (\SignUp' {clientMetadata} -> clientMetadata) 
 signUp_secretHash :: Lens.Lens' SignUp (Prelude.Maybe Prelude.Text)
 signUp_secretHash = Lens.lens (\SignUp' {secretHash} -> secretHash) (\s@SignUp' {} a -> s {secretHash = a} :: SignUp) Prelude.. Lens.mapping Data._Sensitive
 
--- | Contextual data about your user session, such as the device fingerprint,
--- IP address, or location. Amazon Cognito advanced security evaluates the
--- risk of an authentication event based on the context that your app
--- generates and passes to Amazon Cognito when it makes API requests.
-signUp_userContextData :: Lens.Lens' SignUp (Prelude.Maybe UserContextDataType)
-signUp_userContextData = Lens.lens (\SignUp' {userContextData} -> userContextData) (\s@SignUp' {} a -> s {userContextData = a} :: SignUp)
-
 -- | An array of name-value pairs representing user attributes.
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 signUp_userAttributes :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
 signUp_userAttributes = Lens.lens (\SignUp' {userAttributes} -> userAttributes) (\s@SignUp' {} a -> s {userAttributes = a} :: SignUp) Prelude.. Lens.mapping Lens.coerced
+
+-- | Contextual data about your user session, such as the device fingerprint,
+-- IP address, or location. Amazon Cognito advanced security evaluates the
+-- risk of an authentication event based on the context that your app
+-- generates and passes to Amazon Cognito when it makes API requests.
+signUp_userContextData :: Lens.Lens' SignUp (Prelude.Maybe UserContextDataType)
+signUp_userContextData = Lens.lens (\SignUp' {userContextData} -> userContextData) (\s@SignUp' {} a -> s {userContextData = a} :: SignUp)
 
 -- | The validation data in the request to register a user.
 signUp_validationData :: Lens.Lens' SignUp (Prelude.Maybe [AttributeType])
@@ -317,8 +317,8 @@ instance Prelude.Hashable SignUp where
     _salt `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
-      `Prelude.hashWithSalt` userContextData
       `Prelude.hashWithSalt` userAttributes
+      `Prelude.hashWithSalt` userContextData
       `Prelude.hashWithSalt` validationData
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` username
@@ -329,8 +329,8 @@ instance Prelude.NFData SignUp where
     Prelude.rnf analyticsMetadata
       `Prelude.seq` Prelude.rnf clientMetadata
       `Prelude.seq` Prelude.rnf secretHash
-      `Prelude.seq` Prelude.rnf userContextData
       `Prelude.seq` Prelude.rnf userAttributes
+      `Prelude.seq` Prelude.rnf userContextData
       `Prelude.seq` Prelude.rnf validationData
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf username
@@ -360,10 +360,10 @@ instance Data.ToJSON SignUp where
             ("ClientMetadata" Data..=)
               Prelude.<$> clientMetadata,
             ("SecretHash" Data..=) Prelude.<$> secretHash,
-            ("UserContextData" Data..=)
-              Prelude.<$> userContextData,
             ("UserAttributes" Data..=)
               Prelude.<$> userAttributes,
+            ("UserContextData" Data..=)
+              Prelude.<$> userContextData,
             ("ValidationData" Data..=)
               Prelude.<$> validationData,
             Prelude.Just ("ClientId" Data..= clientId),

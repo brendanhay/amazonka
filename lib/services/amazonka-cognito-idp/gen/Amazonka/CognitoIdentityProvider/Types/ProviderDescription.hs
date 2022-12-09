@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProviderDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-  { -- | The IdP name.
-    providerName :: Prelude.Maybe Prelude.Text,
+  { -- | The date the provider was added to the user pool.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The date the provider was last modified.
     lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the provider was added to the user pool.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The IdP name.
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | The IdP type.
     providerType :: Prelude.Maybe IdentityProviderTypeType
   }
@@ -48,35 +48,35 @@ data ProviderDescription = ProviderDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'providerDescription_providerName' - The IdP name.
+-- 'creationDate', 'providerDescription_creationDate' - The date the provider was added to the user pool.
 --
 -- 'lastModifiedDate', 'providerDescription_lastModifiedDate' - The date the provider was last modified.
 --
--- 'creationDate', 'providerDescription_creationDate' - The date the provider was added to the user pool.
+-- 'providerName', 'providerDescription_providerName' - The IdP name.
 --
 -- 'providerType', 'providerDescription_providerType' - The IdP type.
 newProviderDescription ::
   ProviderDescription
 newProviderDescription =
   ProviderDescription'
-    { providerName =
+    { creationDate =
         Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+      providerName = Prelude.Nothing,
       providerType = Prelude.Nothing
     }
 
--- | The IdP name.
-providerDescription_providerName :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.Text)
-providerDescription_providerName = Lens.lens (\ProviderDescription' {providerName} -> providerName) (\s@ProviderDescription' {} a -> s {providerName = a} :: ProviderDescription)
+-- | The date the provider was added to the user pool.
+providerDescription_creationDate :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.UTCTime)
+providerDescription_creationDate = Lens.lens (\ProviderDescription' {creationDate} -> creationDate) (\s@ProviderDescription' {} a -> s {creationDate = a} :: ProviderDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date the provider was last modified.
 providerDescription_lastModifiedDate :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.UTCTime)
 providerDescription_lastModifiedDate = Lens.lens (\ProviderDescription' {lastModifiedDate} -> lastModifiedDate) (\s@ProviderDescription' {} a -> s {lastModifiedDate = a} :: ProviderDescription) Prelude.. Lens.mapping Data._Time
 
--- | The date the provider was added to the user pool.
-providerDescription_creationDate :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.UTCTime)
-providerDescription_creationDate = Lens.lens (\ProviderDescription' {creationDate} -> creationDate) (\s@ProviderDescription' {} a -> s {creationDate = a} :: ProviderDescription) Prelude.. Lens.mapping Data._Time
+-- | The IdP name.
+providerDescription_providerName :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.Text)
+providerDescription_providerName = Lens.lens (\ProviderDescription' {providerName} -> providerName) (\s@ProviderDescription' {} a -> s {providerName = a} :: ProviderDescription)
 
 -- | The IdP type.
 providerDescription_providerType :: Lens.Lens' ProviderDescription (Prelude.Maybe IdentityProviderTypeType)
@@ -88,22 +88,22 @@ instance Data.FromJSON ProviderDescription where
       "ProviderDescription"
       ( \x ->
           ProviderDescription'
-            Prelude.<$> (x Data..:? "ProviderName")
+            Prelude.<$> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "LastModifiedDate")
-            Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "ProviderName")
             Prelude.<*> (x Data..:? "ProviderType")
       )
 
 instance Prelude.Hashable ProviderDescription where
   hashWithSalt _salt ProviderDescription' {..} =
-    _salt `Prelude.hashWithSalt` providerName
+    _salt `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` providerType
 
 instance Prelude.NFData ProviderDescription where
   rnf ProviderDescription' {..} =
-    Prelude.rnf providerName
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf providerName
       `Prelude.seq` Prelude.rnf providerType

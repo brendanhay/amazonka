@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountTakeoverActionsType' smart constructor.
 data AccountTakeoverActionsType = AccountTakeoverActionsType'
-  { -- | Action to take for a low risk.
+  { -- | Action to take for a high risk.
+    highAction :: Prelude.Maybe AccountTakeoverActionType,
+    -- | Action to take for a low risk.
     lowAction :: Prelude.Maybe AccountTakeoverActionType,
     -- | Action to take for a medium risk.
-    mediumAction :: Prelude.Maybe AccountTakeoverActionType,
-    -- | Action to take for a high risk.
-    highAction :: Prelude.Maybe AccountTakeoverActionType
+    mediumAction :: Prelude.Maybe AccountTakeoverActionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data AccountTakeoverActionsType = AccountTakeoverActionsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'highAction', 'accountTakeoverActionsType_highAction' - Action to take for a high risk.
+--
 -- 'lowAction', 'accountTakeoverActionsType_lowAction' - Action to take for a low risk.
 --
 -- 'mediumAction', 'accountTakeoverActionsType_mediumAction' - Action to take for a medium risk.
---
--- 'highAction', 'accountTakeoverActionsType_highAction' - Action to take for a high risk.
 newAccountTakeoverActionsType ::
   AccountTakeoverActionsType
 newAccountTakeoverActionsType =
   AccountTakeoverActionsType'
-    { lowAction =
+    { highAction =
         Prelude.Nothing,
-      mediumAction = Prelude.Nothing,
-      highAction = Prelude.Nothing
+      lowAction = Prelude.Nothing,
+      mediumAction = Prelude.Nothing
     }
+
+-- | Action to take for a high risk.
+accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
+accountTakeoverActionsType_highAction = Lens.lens (\AccountTakeoverActionsType' {highAction} -> highAction) (\s@AccountTakeoverActionsType' {} a -> s {highAction = a} :: AccountTakeoverActionsType)
 
 -- | Action to take for a low risk.
 accountTakeoverActionsType_lowAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
@@ -69,39 +73,35 @@ accountTakeoverActionsType_lowAction = Lens.lens (\AccountTakeoverActionsType' {
 accountTakeoverActionsType_mediumAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_mediumAction = Lens.lens (\AccountTakeoverActionsType' {mediumAction} -> mediumAction) (\s@AccountTakeoverActionsType' {} a -> s {mediumAction = a} :: AccountTakeoverActionsType)
 
--- | Action to take for a high risk.
-accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
-accountTakeoverActionsType_highAction = Lens.lens (\AccountTakeoverActionsType' {highAction} -> highAction) (\s@AccountTakeoverActionsType' {} a -> s {highAction = a} :: AccountTakeoverActionsType)
-
 instance Data.FromJSON AccountTakeoverActionsType where
   parseJSON =
     Data.withObject
       "AccountTakeoverActionsType"
       ( \x ->
           AccountTakeoverActionsType'
-            Prelude.<$> (x Data..:? "LowAction")
+            Prelude.<$> (x Data..:? "HighAction")
+            Prelude.<*> (x Data..:? "LowAction")
             Prelude.<*> (x Data..:? "MediumAction")
-            Prelude.<*> (x Data..:? "HighAction")
       )
 
 instance Prelude.Hashable AccountTakeoverActionsType where
   hashWithSalt _salt AccountTakeoverActionsType' {..} =
-    _salt `Prelude.hashWithSalt` lowAction
+    _salt `Prelude.hashWithSalt` highAction
+      `Prelude.hashWithSalt` lowAction
       `Prelude.hashWithSalt` mediumAction
-      `Prelude.hashWithSalt` highAction
 
 instance Prelude.NFData AccountTakeoverActionsType where
   rnf AccountTakeoverActionsType' {..} =
-    Prelude.rnf lowAction
+    Prelude.rnf highAction
+      `Prelude.seq` Prelude.rnf lowAction
       `Prelude.seq` Prelude.rnf mediumAction
-      `Prelude.seq` Prelude.rnf highAction
 
 instance Data.ToJSON AccountTakeoverActionsType where
   toJSON AccountTakeoverActionsType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LowAction" Data..=) Prelude.<$> lowAction,
-            ("MediumAction" Data..=) Prelude.<$> mediumAction,
-            ("HighAction" Data..=) Prelude.<$> highAction
+          [ ("HighAction" Data..=) Prelude.<$> highAction,
+            ("LowAction" Data..=) Prelude.<$> lowAction,
+            ("MediumAction" Data..=) Prelude.<$> mediumAction
           ]
       )

@@ -30,8 +30,6 @@ import qualified Amazonka.Prelude as Prelude
 -- use a filter configuration allow placement with some, but not all of
 -- these locations.
 --
--- Filter configurations are part of a GameSessionQueue.
---
 -- /See:/ 'newFilterConfiguration' smart constructor.
 data FilterConfiguration = FilterConfiguration'
   { -- | A list of locations to allow game session placement in, in the form of

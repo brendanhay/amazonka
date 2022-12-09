@@ -30,18 +30,11 @@
 -- the Auto Scaling group directly.
 --
 -- To get attributes for a game server group, provide a group name or ARN
--- value. If successful, a GameServerGroup object is returned.
+-- value. If successful, a @GameServerGroup@ object is returned.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.DescribeGameServerGroup
   ( -- * Creating a Request
     DescribeGameServerGroup (..),
@@ -70,8 +63,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeGameServerGroup' smart constructor.
 data DescribeGameServerGroup = DescribeGameServerGroup'
-  { -- | A unique identifier for the game server group. Use either the
-    -- GameServerGroup name or ARN value.
+  { -- | A unique identifier for the game server group. Use either the name or
+    -- ARN value.
     gameServerGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,8 +77,8 @@ data DescribeGameServerGroup = DescribeGameServerGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameServerGroupName', 'describeGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- 'gameServerGroupName', 'describeGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the name or
+-- ARN value.
 newDescribeGameServerGroup ::
   -- | 'gameServerGroupName'
   Prelude.Text ->
@@ -96,8 +89,8 @@ newDescribeGameServerGroup pGameServerGroupName_ =
         pGameServerGroupName_
     }
 
--- | A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- | A unique identifier for the game server group. Use either the name or
+-- ARN value.
 describeGameServerGroup_gameServerGroupName :: Lens.Lens' DescribeGameServerGroup Prelude.Text
 describeGameServerGroup_gameServerGroupName = Lens.lens (\DescribeGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@DescribeGameServerGroup' {} a -> s {gameServerGroupName = a} :: DescribeGameServerGroup)
 

@@ -29,28 +29,26 @@ import qualified Amazonka.Prelude as Prelude
 -- capacity is adjusting to a scaling event or if access to resources is
 -- temporarily affected.
 --
--- EC2 instance counts are part of FleetCapacity.
---
 -- /See:/ 'newEC2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
-  { -- | The minimum instance count value allowed.
-    minimum :: Prelude.Maybe Prelude.Natural,
-    -- | Actual number of instances that are ready to host game sessions.
+  { -- | Actual number of instances that are ready to host game sessions.
     active :: Prelude.Maybe Prelude.Natural,
-    -- | Number of instances that are no longer active but haven\'t yet been
-    -- terminated.
-    terminating :: Prelude.Maybe Prelude.Natural,
     -- | Ideal number of active instances. GameLift will always try to maintain
     -- the desired number of instances. Capacity is scaled up or down by
     -- changing the desired instances.
     desired :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum instance count value allowed.
-    maximum :: Prelude.Maybe Prelude.Natural,
-    -- | Number of instances that are starting but not yet active.
-    pending :: Prelude.Maybe Prelude.Natural,
     -- | Number of active instances that are not currently hosting a game
     -- session.
-    idle :: Prelude.Maybe Prelude.Natural
+    idle :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum instance count value allowed.
+    maximum :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum instance count value allowed.
+    minimum :: Prelude.Maybe Prelude.Natural,
+    -- | Number of instances that are starting but not yet active.
+    pending :: Prelude.Maybe Prelude.Natural,
+    -- | Number of instances that are no longer active but haven\'t yet been
+    -- terminated.
+    terminating :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,48 +60,39 @@ data EC2InstanceCounts = EC2InstanceCounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimum', 'eC2InstanceCounts_minimum' - The minimum instance count value allowed.
---
 -- 'active', 'eC2InstanceCounts_active' - Actual number of instances that are ready to host game sessions.
---
--- 'terminating', 'eC2InstanceCounts_terminating' - Number of instances that are no longer active but haven\'t yet been
--- terminated.
 --
 -- 'desired', 'eC2InstanceCounts_desired' - Ideal number of active instances. GameLift will always try to maintain
 -- the desired number of instances. Capacity is scaled up or down by
 -- changing the desired instances.
 --
+-- 'idle', 'eC2InstanceCounts_idle' - Number of active instances that are not currently hosting a game
+-- session.
+--
 -- 'maximum', 'eC2InstanceCounts_maximum' - The maximum instance count value allowed.
+--
+-- 'minimum', 'eC2InstanceCounts_minimum' - The minimum instance count value allowed.
 --
 -- 'pending', 'eC2InstanceCounts_pending' - Number of instances that are starting but not yet active.
 --
--- 'idle', 'eC2InstanceCounts_idle' - Number of active instances that are not currently hosting a game
--- session.
+-- 'terminating', 'eC2InstanceCounts_terminating' - Number of instances that are no longer active but haven\'t yet been
+-- terminated.
 newEC2InstanceCounts ::
   EC2InstanceCounts
 newEC2InstanceCounts =
   EC2InstanceCounts'
-    { minimum = Prelude.Nothing,
-      active = Prelude.Nothing,
-      terminating = Prelude.Nothing,
+    { active = Prelude.Nothing,
       desired = Prelude.Nothing,
+      idle = Prelude.Nothing,
       maximum = Prelude.Nothing,
+      minimum = Prelude.Nothing,
       pending = Prelude.Nothing,
-      idle = Prelude.Nothing
+      terminating = Prelude.Nothing
     }
-
--- | The minimum instance count value allowed.
-eC2InstanceCounts_minimum :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
-eC2InstanceCounts_minimum = Lens.lens (\EC2InstanceCounts' {minimum} -> minimum) (\s@EC2InstanceCounts' {} a -> s {minimum = a} :: EC2InstanceCounts)
 
 -- | Actual number of instances that are ready to host game sessions.
 eC2InstanceCounts_active :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
 eC2InstanceCounts_active = Lens.lens (\EC2InstanceCounts' {active} -> active) (\s@EC2InstanceCounts' {} a -> s {active = a} :: EC2InstanceCounts)
-
--- | Number of instances that are no longer active but haven\'t yet been
--- terminated.
-eC2InstanceCounts_terminating :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
-eC2InstanceCounts_terminating = Lens.lens (\EC2InstanceCounts' {terminating} -> terminating) (\s@EC2InstanceCounts' {} a -> s {terminating = a} :: EC2InstanceCounts)
 
 -- | Ideal number of active instances. GameLift will always try to maintain
 -- the desired number of instances. Capacity is scaled up or down by
@@ -111,18 +100,27 @@ eC2InstanceCounts_terminating = Lens.lens (\EC2InstanceCounts' {terminating} -> 
 eC2InstanceCounts_desired :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
 eC2InstanceCounts_desired = Lens.lens (\EC2InstanceCounts' {desired} -> desired) (\s@EC2InstanceCounts' {} a -> s {desired = a} :: EC2InstanceCounts)
 
+-- | Number of active instances that are not currently hosting a game
+-- session.
+eC2InstanceCounts_idle :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_idle = Lens.lens (\EC2InstanceCounts' {idle} -> idle) (\s@EC2InstanceCounts' {} a -> s {idle = a} :: EC2InstanceCounts)
+
 -- | The maximum instance count value allowed.
 eC2InstanceCounts_maximum :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
 eC2InstanceCounts_maximum = Lens.lens (\EC2InstanceCounts' {maximum} -> maximum) (\s@EC2InstanceCounts' {} a -> s {maximum = a} :: EC2InstanceCounts)
+
+-- | The minimum instance count value allowed.
+eC2InstanceCounts_minimum :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_minimum = Lens.lens (\EC2InstanceCounts' {minimum} -> minimum) (\s@EC2InstanceCounts' {} a -> s {minimum = a} :: EC2InstanceCounts)
 
 -- | Number of instances that are starting but not yet active.
 eC2InstanceCounts_pending :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
 eC2InstanceCounts_pending = Lens.lens (\EC2InstanceCounts' {pending} -> pending) (\s@EC2InstanceCounts' {} a -> s {pending = a} :: EC2InstanceCounts)
 
--- | Number of active instances that are not currently hosting a game
--- session.
-eC2InstanceCounts_idle :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
-eC2InstanceCounts_idle = Lens.lens (\EC2InstanceCounts' {idle} -> idle) (\s@EC2InstanceCounts' {} a -> s {idle = a} :: EC2InstanceCounts)
+-- | Number of instances that are no longer active but haven\'t yet been
+-- terminated.
+eC2InstanceCounts_terminating :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_terminating = Lens.lens (\EC2InstanceCounts' {terminating} -> terminating) (\s@EC2InstanceCounts' {} a -> s {terminating = a} :: EC2InstanceCounts)
 
 instance Data.FromJSON EC2InstanceCounts where
   parseJSON =
@@ -130,31 +128,31 @@ instance Data.FromJSON EC2InstanceCounts where
       "EC2InstanceCounts"
       ( \x ->
           EC2InstanceCounts'
-            Prelude.<$> (x Data..:? "MINIMUM")
-            Prelude.<*> (x Data..:? "ACTIVE")
-            Prelude.<*> (x Data..:? "TERMINATING")
+            Prelude.<$> (x Data..:? "ACTIVE")
             Prelude.<*> (x Data..:? "DESIRED")
-            Prelude.<*> (x Data..:? "MAXIMUM")
-            Prelude.<*> (x Data..:? "PENDING")
             Prelude.<*> (x Data..:? "IDLE")
+            Prelude.<*> (x Data..:? "MAXIMUM")
+            Prelude.<*> (x Data..:? "MINIMUM")
+            Prelude.<*> (x Data..:? "PENDING")
+            Prelude.<*> (x Data..:? "TERMINATING")
       )
 
 instance Prelude.Hashable EC2InstanceCounts where
   hashWithSalt _salt EC2InstanceCounts' {..} =
-    _salt `Prelude.hashWithSalt` minimum
-      `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` terminating
+    _salt `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` desired
-      `Prelude.hashWithSalt` maximum
-      `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` idle
+      `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` minimum
+      `Prelude.hashWithSalt` pending
+      `Prelude.hashWithSalt` terminating
 
 instance Prelude.NFData EC2InstanceCounts where
   rnf EC2InstanceCounts' {..} =
-    Prelude.rnf minimum
-      `Prelude.seq` Prelude.rnf active
-      `Prelude.seq` Prelude.rnf terminating
+    Prelude.rnf active
       `Prelude.seq` Prelude.rnf desired
-      `Prelude.seq` Prelude.rnf maximum
-      `Prelude.seq` Prelude.rnf pending
       `Prelude.seq` Prelude.rnf idle
+      `Prelude.seq` Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf minimum
+      `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf terminating

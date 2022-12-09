@@ -32,47 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- requests for new game sessions. A queue can be used on its own or as
 -- part of a matchmaking solution.
 --
--- __Related actions__
---
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html CreateGameSessionQueue>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html DescribeGameSessionQueues>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html UpdateGameSessionQueue>
---
 -- /See:/ 'newGameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
-  { -- | An SNS topic ARN that is set up to receive game session placement
-    -- notifications. See
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
-    notificationTarget :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive label that is associated with game session queue. Queue
-    -- names must be unique within each Region.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Custom settings to use when prioritizing destinations and locations for
-    -- game session placements. This configuration replaces the FleetIQ default
-    -- prioritization process. Priority types that are not explicitly named
-    -- will be automatically applied at the end of the prioritization process.
-    priorityConfiguration :: Prelude.Maybe PriorityConfiguration,
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Format is
-    -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
-    -- GameLift game session queue ARN, the resource ID matches the /Name/
-    -- value.
-    gameSessionQueueArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum time, in seconds, that a new game session placement request
-    -- remains in the queue. When a request exceeds this time, the game session
-    -- placement changes to a @TIMED_OUT@ status.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A set of policies that act as a sliding cap on player latency. FleetIQ
-    -- works to deliver low latency for most players in a game session. These
-    -- policies ensure that no individual player can be placed into a game with
-    -- unreasonably high latency. Use multiple policies to gradually relax
-    -- latency requirements a step at a time. Multiple policies are applied
-    -- based on their maximum allowed latency, starting with the lowest value.
-    playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
+  { -- | Information that is added to all events that are related to this game
+    -- session queue.
+    customEventData :: Prelude.Maybe Prelude.Text,
     -- | A list of fleets and\/or fleet aliases that can be used to fulfill game
     -- session placement requests in the queue. Destinations are identified by
     -- either a fleet ARN or a fleet alias ARN, and are listed in order of
@@ -83,9 +47,37 @@ data GameSessionQueue = GameSessionQueue'
     -- such as @us-west-2@. If this parameter is not set, game sessions can be
     -- placed in any queue location.
     filterConfiguration :: Prelude.Maybe FilterConfiguration,
-    -- | Information that is added to all events that are related to this game
-    -- session queue.
-    customEventData :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- that is assigned to a GameLift game session queue resource and uniquely
+    -- identifies it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
+    -- GameLift game session queue ARN, the resource ID matches the /Name/
+    -- value.
+    gameSessionQueueArn :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with game session queue. Queue
+    -- names must be unique within each Region.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An SNS topic ARN that is set up to receive game session placement
+    -- notifications. See
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+    notificationTarget :: Prelude.Maybe Prelude.Text,
+    -- | A set of policies that act as a sliding cap on player latency. FleetIQ
+    -- works to deliver low latency for most players in a game session. These
+    -- policies ensure that no individual player can be placed into a game with
+    -- unreasonably high latency. Use multiple policies to gradually relax
+    -- latency requirements a step at a time. Multiple policies are applied
+    -- based on their maximum allowed latency, starting with the lowest value.
+    playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
+    -- | Custom settings to use when prioritizing destinations and locations for
+    -- game session placements. This configuration replaces the FleetIQ default
+    -- prioritization process. Priority types that are not explicitly named
+    -- will be automatically applied at the end of the prioritization process.
+    priorityConfiguration :: Prelude.Maybe PriorityConfiguration,
+    -- | The maximum time, in seconds, that a new game session placement request
+    -- remains in the queue. When a request exceeds this time, the game session
+    -- placement changes to a @TIMED_OUT@ status.
+    timeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,36 +89,8 @@ data GameSessionQueue = GameSessionQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationTarget', 'gameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement
--- notifications. See
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
---
--- 'name', 'gameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
--- names must be unique within each Region.
---
--- 'priorityConfiguration', 'gameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for
--- game session placements. This configuration replaces the FleetIQ default
--- prioritization process. Priority types that are not explicitly named
--- will be automatically applied at the end of the prioritization process.
---
--- 'gameSessionQueueArn', 'gameSessionQueue_gameSessionQueueArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
--- GameLift game session queue ARN, the resource ID matches the /Name/
--- value.
---
--- 'timeoutInSeconds', 'gameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
--- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
---
--- 'playerLatencyPolicies', 'gameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ
--- works to deliver low latency for most players in a game session. These
--- policies ensure that no individual player can be placed into a game with
--- unreasonably high latency. Use multiple policies to gradually relax
--- latency requirements a step at a time. Multiple policies are applied
--- based on their maximum allowed latency, starting with the lowest value.
+-- 'customEventData', 'gameSessionQueue_customEventData' - Information that is added to all events that are related to this game
+-- session queue.
 --
 -- 'destinations', 'gameSessionQueue_destinations' - A list of fleets and\/or fleet aliases that can be used to fulfill game
 -- session placement requests in the queue. Destinations are identified by
@@ -138,66 +102,56 @@ data GameSessionQueue = GameSessionQueue'
 -- such as @us-west-2@. If this parameter is not set, game sessions can be
 -- placed in any queue location.
 --
--- 'customEventData', 'gameSessionQueue_customEventData' - Information that is added to all events that are related to this game
--- session queue.
-newGameSessionQueue ::
-  GameSessionQueue
-newGameSessionQueue =
-  GameSessionQueue'
-    { notificationTarget =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      priorityConfiguration = Prelude.Nothing,
-      gameSessionQueueArn = Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
-      playerLatencyPolicies = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      filterConfiguration = Prelude.Nothing,
-      customEventData = Prelude.Nothing
-    }
-
--- | An SNS topic ARN that is set up to receive game session placement
--- notifications. See
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
-gameSessionQueue_notificationTarget :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
-gameSessionQueue_notificationTarget = Lens.lens (\GameSessionQueue' {notificationTarget} -> notificationTarget) (\s@GameSessionQueue' {} a -> s {notificationTarget = a} :: GameSessionQueue)
-
--- | A descriptive label that is associated with game session queue. Queue
--- names must be unique within each Region.
-gameSessionQueue_name :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
-gameSessionQueue_name = Lens.lens (\GameSessionQueue' {name} -> name) (\s@GameSessionQueue' {} a -> s {name = a} :: GameSessionQueue)
-
--- | Custom settings to use when prioritizing destinations and locations for
--- game session placements. This configuration replaces the FleetIQ default
--- prioritization process. Priority types that are not explicitly named
--- will be automatically applied at the end of the prioritization process.
-gameSessionQueue_priorityConfiguration :: Lens.Lens' GameSessionQueue (Prelude.Maybe PriorityConfiguration)
-gameSessionQueue_priorityConfiguration = Lens.lens (\GameSessionQueue' {priorityConfiguration} -> priorityConfiguration) (\s@GameSessionQueue' {} a -> s {priorityConfiguration = a} :: GameSessionQueue)
-
--- | The Amazon Resource Name
+-- 'gameSessionQueueArn', 'gameSessionQueue_gameSessionQueueArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift game session queue resource and uniquely
 -- identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
 -- GameLift game session queue ARN, the resource ID matches the /Name/
 -- value.
-gameSessionQueue_gameSessionQueueArn :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
-gameSessionQueue_gameSessionQueueArn = Lens.lens (\GameSessionQueue' {gameSessionQueueArn} -> gameSessionQueueArn) (\s@GameSessionQueue' {} a -> s {gameSessionQueueArn = a} :: GameSessionQueue)
-
--- | The maximum time, in seconds, that a new game session placement request
--- remains in the queue. When a request exceeds this time, the game session
--- placement changes to a @TIMED_OUT@ status.
-gameSessionQueue_timeoutInSeconds :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Natural)
-gameSessionQueue_timeoutInSeconds = Lens.lens (\GameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@GameSessionQueue' {} a -> s {timeoutInSeconds = a} :: GameSessionQueue)
-
--- | A set of policies that act as a sliding cap on player latency. FleetIQ
+--
+-- 'name', 'gameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
+-- names must be unique within each Region.
+--
+-- 'notificationTarget', 'gameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement
+-- notifications. See
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+--
+-- 'playerLatencyPolicies', 'gameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ
 -- works to deliver low latency for most players in a game session. These
 -- policies ensure that no individual player can be placed into a game with
 -- unreasonably high latency. Use multiple policies to gradually relax
 -- latency requirements a step at a time. Multiple policies are applied
 -- based on their maximum allowed latency, starting with the lowest value.
-gameSessionQueue_playerLatencyPolicies :: Lens.Lens' GameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
-gameSessionQueue_playerLatencyPolicies = Lens.lens (\GameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@GameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: GameSessionQueue) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'priorityConfiguration', 'gameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for
+-- game session placements. This configuration replaces the FleetIQ default
+-- prioritization process. Priority types that are not explicitly named
+-- will be automatically applied at the end of the prioritization process.
+--
+-- 'timeoutInSeconds', 'gameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
+-- remains in the queue. When a request exceeds this time, the game session
+-- placement changes to a @TIMED_OUT@ status.
+newGameSessionQueue ::
+  GameSessionQueue
+newGameSessionQueue =
+  GameSessionQueue'
+    { customEventData =
+        Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      filterConfiguration = Prelude.Nothing,
+      gameSessionQueueArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      notificationTarget = Prelude.Nothing,
+      playerLatencyPolicies = Prelude.Nothing,
+      priorityConfiguration = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
+    }
+
+-- | Information that is added to all events that are related to this game
+-- session queue.
+gameSessionQueue_customEventData :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_customEventData = Lens.lens (\GameSessionQueue' {customEventData} -> customEventData) (\s@GameSessionQueue' {} a -> s {customEventData = a} :: GameSessionQueue)
 
 -- | A list of fleets and\/or fleet aliases that can be used to fulfill game
 -- session placement requests in the queue. Destinations are identified by
@@ -213,10 +167,48 @@ gameSessionQueue_destinations = Lens.lens (\GameSessionQueue' {destinations} -> 
 gameSessionQueue_filterConfiguration :: Lens.Lens' GameSessionQueue (Prelude.Maybe FilterConfiguration)
 gameSessionQueue_filterConfiguration = Lens.lens (\GameSessionQueue' {filterConfiguration} -> filterConfiguration) (\s@GameSessionQueue' {} a -> s {filterConfiguration = a} :: GameSessionQueue)
 
--- | Information that is added to all events that are related to this game
--- session queue.
-gameSessionQueue_customEventData :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
-gameSessionQueue_customEventData = Lens.lens (\GameSessionQueue' {customEventData} -> customEventData) (\s@GameSessionQueue' {} a -> s {customEventData = a} :: GameSessionQueue)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift game session queue resource and uniquely
+-- identifies it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. In a
+-- GameLift game session queue ARN, the resource ID matches the /Name/
+-- value.
+gameSessionQueue_gameSessionQueueArn :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_gameSessionQueueArn = Lens.lens (\GameSessionQueue' {gameSessionQueueArn} -> gameSessionQueueArn) (\s@GameSessionQueue' {} a -> s {gameSessionQueueArn = a} :: GameSessionQueue)
+
+-- | A descriptive label that is associated with game session queue. Queue
+-- names must be unique within each Region.
+gameSessionQueue_name :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_name = Lens.lens (\GameSessionQueue' {name} -> name) (\s@GameSessionQueue' {} a -> s {name = a} :: GameSessionQueue)
+
+-- | An SNS topic ARN that is set up to receive game session placement
+-- notifications. See
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+gameSessionQueue_notificationTarget :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_notificationTarget = Lens.lens (\GameSessionQueue' {notificationTarget} -> notificationTarget) (\s@GameSessionQueue' {} a -> s {notificationTarget = a} :: GameSessionQueue)
+
+-- | A set of policies that act as a sliding cap on player latency. FleetIQ
+-- works to deliver low latency for most players in a game session. These
+-- policies ensure that no individual player can be placed into a game with
+-- unreasonably high latency. Use multiple policies to gradually relax
+-- latency requirements a step at a time. Multiple policies are applied
+-- based on their maximum allowed latency, starting with the lowest value.
+gameSessionQueue_playerLatencyPolicies :: Lens.Lens' GameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
+gameSessionQueue_playerLatencyPolicies = Lens.lens (\GameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@GameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: GameSessionQueue) Prelude.. Lens.mapping Lens.coerced
+
+-- | Custom settings to use when prioritizing destinations and locations for
+-- game session placements. This configuration replaces the FleetIQ default
+-- prioritization process. Priority types that are not explicitly named
+-- will be automatically applied at the end of the prioritization process.
+gameSessionQueue_priorityConfiguration :: Lens.Lens' GameSessionQueue (Prelude.Maybe PriorityConfiguration)
+gameSessionQueue_priorityConfiguration = Lens.lens (\GameSessionQueue' {priorityConfiguration} -> priorityConfiguration) (\s@GameSessionQueue' {} a -> s {priorityConfiguration = a} :: GameSessionQueue)
+
+-- | The maximum time, in seconds, that a new game session placement request
+-- remains in the queue. When a request exceeds this time, the game session
+-- placement changes to a @TIMED_OUT@ status.
+gameSessionQueue_timeoutInSeconds :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Natural)
+gameSessionQueue_timeoutInSeconds = Lens.lens (\GameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@GameSessionQueue' {} a -> s {timeoutInSeconds = a} :: GameSessionQueue)
 
 instance Data.FromJSON GameSessionQueue where
   parseJSON =
@@ -224,39 +216,39 @@ instance Data.FromJSON GameSessionQueue where
       "GameSessionQueue"
       ( \x ->
           GameSessionQueue'
-            Prelude.<$> (x Data..:? "NotificationTarget")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "PriorityConfiguration")
+            Prelude.<$> (x Data..:? "CustomEventData")
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "FilterConfiguration")
             Prelude.<*> (x Data..:? "GameSessionQueueArn")
-            Prelude.<*> (x Data..:? "TimeoutInSeconds")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "NotificationTarget")
             Prelude.<*> ( x Data..:? "PlayerLatencyPolicies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "FilterConfiguration")
-            Prelude.<*> (x Data..:? "CustomEventData")
+            Prelude.<*> (x Data..:? "PriorityConfiguration")
+            Prelude.<*> (x Data..:? "TimeoutInSeconds")
       )
 
 instance Prelude.Hashable GameSessionQueue where
   hashWithSalt _salt GameSessionQueue' {..} =
-    _salt `Prelude.hashWithSalt` notificationTarget
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` priorityConfiguration
-      `Prelude.hashWithSalt` gameSessionQueueArn
-      `Prelude.hashWithSalt` timeoutInSeconds
-      `Prelude.hashWithSalt` playerLatencyPolicies
+    _salt `Prelude.hashWithSalt` customEventData
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` filterConfiguration
-      `Prelude.hashWithSalt` customEventData
+      `Prelude.hashWithSalt` gameSessionQueueArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` notificationTarget
+      `Prelude.hashWithSalt` playerLatencyPolicies
+      `Prelude.hashWithSalt` priorityConfiguration
+      `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData GameSessionQueue where
   rnf GameSessionQueue' {..} =
-    Prelude.rnf notificationTarget
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf priorityConfiguration
-      `Prelude.seq` Prelude.rnf gameSessionQueueArn
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf playerLatencyPolicies
+    Prelude.rnf customEventData
       `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf filterConfiguration
-      `Prelude.seq` Prelude.rnf customEventData
+      `Prelude.seq` Prelude.rnf gameSessionQueueArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf notificationTarget
+      `Prelude.seq` Prelude.rnf playerLatencyPolicies
+      `Prelude.seq` Prelude.rnf priorityConfiguration
+      `Prelude.seq` Prelude.rnf timeoutInSeconds

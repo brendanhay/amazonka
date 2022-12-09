@@ -31,29 +31,22 @@
 -- To update the game server group, specify the game server group ID and
 -- provide the updated values. Before applying the updates, the new values
 -- are validated to ensure that GameLift FleetIQ can continue to perform
--- instance balancing activity. If successful, a GameServerGroup object is
--- returned.
+-- instance balancing activity. If successful, a @GameServerGroup@ object
+-- is returned.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.UpdateGameServerGroup
   ( -- * Creating a Request
     UpdateGameServerGroup (..),
     newUpdateGameServerGroup,
 
     -- * Request Lenses
-    updateGameServerGroup_roleArn,
-    updateGameServerGroup_instanceDefinitions,
-    updateGameServerGroup_gameServerProtectionPolicy,
     updateGameServerGroup_balancingStrategy,
+    updateGameServerGroup_gameServerProtectionPolicy,
+    updateGameServerGroup_instanceDefinitions,
+    updateGameServerGroup_roleArn,
     updateGameServerGroup_gameServerGroupName,
 
     -- * Destructuring the Response
@@ -76,35 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGameServerGroup' smart constructor.
 data UpdateGameServerGroup = UpdateGameServerGroup'
-  { -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- for an IAM role that allows Amazon GameLift to access your Amazon EC2
-    -- Auto Scaling groups.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
-    -- group. The instance definitions must specify at least two different
-    -- instance types that are supported by GameLift FleetIQ. This updated list
-    -- replaces the entire current list of instance definitions for the game
-    -- server group. For more information on instance types, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
-    -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
-    -- weighting for each instance type. If no weight value is specified for an
-    -- instance type, it is set to the default value \"1\". For more
-    -- information about capacity weighting, see
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
-    -- in the Amazon EC2 Auto Scaling User Guide.
-    instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
-    -- | A flag that indicates whether instances in the game server group are
-    -- protected from early termination. Unprotected instances that have active
-    -- game servers running might be terminated during a scale-down event,
-    -- causing players to be dropped from the game. Protected instances cannot
-    -- be terminated while there are active game servers running except in the
-    -- event of a forced game server group deletion (see ). An exception to
-    -- this is with Spot Instances, which can be terminated by Amazon Web
-    -- Services regardless of protection status. This property is set to
-    -- @NO_PROTECTION@ by default.
-    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
-    -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
+  { -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
     --
@@ -126,8 +91,36 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
     balancingStrategy :: Prelude.Maybe BalancingStrategy,
-    -- | A unique identifier for the game server group. Use either the
-    -- GameServerGroup name or ARN value.
+    -- | A flag that indicates whether instances in the game server group are
+    -- protected from early termination. Unprotected instances that have active
+    -- game servers running might be terminated during a scale-down event,
+    -- causing players to be dropped from the game. Protected instances cannot
+    -- be terminated while there are active game servers running except in the
+    -- event of a forced game server group deletion (see ). An exception to
+    -- this is with Spot Instances, which can be terminated by Amazon Web
+    -- Services regardless of protection status. This property is set to
+    -- @NO_PROTECTION@ by default.
+    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
+    -- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
+    -- group. The instance definitions must specify at least two different
+    -- instance types that are supported by GameLift FleetIQ. This updated list
+    -- replaces the entire current list of instance definitions for the game
+    -- server group. For more information on instance types, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
+    -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
+    -- weighting for each instance type. If no weight value is specified for an
+    -- instance type, it is set to the default value \"1\". For more
+    -- information about capacity weighting, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
+    -- in the Amazon EC2 Auto Scaling User Guide.
+    instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+    -- Auto Scaling groups.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the game server group. Use either the name or
+    -- ARN value.
     gameServerGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,34 +132,6 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'updateGameServerGroup_roleArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your Amazon EC2
--- Auto Scaling groups.
---
--- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of Amazon EC2 instance types to use in the Auto Scaling
--- group. The instance definitions must specify at least two different
--- instance types that are supported by GameLift FleetIQ. This updated list
--- replaces the entire current list of instance definitions for the game
--- server group. For more information on instance types, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
--- in the /Amazon EC2 User Guide/. You can optionally specify capacity
--- weighting for each instance type. If no weight value is specified for an
--- instance type, it is set to the default value \"1\". For more
--- information about capacity weighting, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
--- in the Amazon EC2 Auto Scaling User Guide.
---
--- 'gameServerProtectionPolicy', 'updateGameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are
--- protected from early termination. Unprotected instances that have active
--- game servers running might be terminated during a scale-down event,
--- causing players to be dropped from the game. Protected instances cannot
--- be terminated while there are active game servers running except in the
--- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by Amazon Web
--- Services regardless of protection status. This property is set to
--- @NO_PROTECTION@ by default.
 --
 -- 'balancingStrategy', 'updateGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -190,29 +155,17 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
 --
--- 'gameServerGroupName', 'updateGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
-newUpdateGameServerGroup ::
-  -- | 'gameServerGroupName'
-  Prelude.Text ->
-  UpdateGameServerGroup
-newUpdateGameServerGroup pGameServerGroupName_ =
-  UpdateGameServerGroup'
-    { roleArn = Prelude.Nothing,
-      instanceDefinitions = Prelude.Nothing,
-      gameServerProtectionPolicy = Prelude.Nothing,
-      balancingStrategy = Prelude.Nothing,
-      gameServerGroupName = pGameServerGroupName_
-    }
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your Amazon EC2
--- Auto Scaling groups.
-updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
-updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
-
--- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
+-- 'gameServerProtectionPolicy', 'updateGameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are
+-- protected from early termination. Unprotected instances that have active
+-- game servers running might be terminated during a scale-down event,
+-- causing players to be dropped from the game. Protected instances cannot
+-- be terminated while there are active game servers running except in the
+-- event of a forced game server group deletion (see ). An exception to
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
+--
+-- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of Amazon EC2 instance types to use in the Auto Scaling
 -- group. The instance definitions must specify at least two different
 -- instance types that are supported by GameLift FleetIQ. This updated list
 -- replaces the entire current list of instance definitions for the game
@@ -224,20 +177,27 @@ updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> 
 -- information about capacity weighting, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
 -- in the Amazon EC2 Auto Scaling User Guide.
-updateGameServerGroup_instanceDefinitions :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
-updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A flag that indicates whether instances in the game server group are
--- protected from early termination. Unprotected instances that have active
--- game servers running might be terminated during a scale-down event,
--- causing players to be dropped from the game. Protected instances cannot
--- be terminated while there are active game servers running except in the
--- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by Amazon Web
--- Services regardless of protection status. This property is set to
--- @NO_PROTECTION@ by default.
-updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
-updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@UpdateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: UpdateGameServerGroup)
+--
+-- 'roleArn', 'updateGameServerGroup_roleArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
+--
+-- 'gameServerGroupName', 'updateGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the name or
+-- ARN value.
+newUpdateGameServerGroup ::
+  -- | 'gameServerGroupName'
+  Prelude.Text ->
+  UpdateGameServerGroup
+newUpdateGameServerGroup pGameServerGroupName_ =
+  UpdateGameServerGroup'
+    { balancingStrategy =
+        Prelude.Nothing,
+      gameServerProtectionPolicy = Prelude.Nothing,
+      instanceDefinitions = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      gameServerGroupName = pGameServerGroupName_
+    }
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -263,8 +223,42 @@ updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerG
 updateGameServerGroup_balancingStrategy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe BalancingStrategy)
 updateGameServerGroup_balancingStrategy = Lens.lens (\UpdateGameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@UpdateGameServerGroup' {} a -> s {balancingStrategy = a} :: UpdateGameServerGroup)
 
--- | A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- | A flag that indicates whether instances in the game server group are
+-- protected from early termination. Unprotected instances that have active
+-- game servers running might be terminated during a scale-down event,
+-- causing players to be dropped from the game. Protected instances cannot
+-- be terminated while there are active game servers running except in the
+-- event of a forced game server group deletion (see ). An exception to
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
+updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
+updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@UpdateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: UpdateGameServerGroup)
+
+-- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
+-- group. The instance definitions must specify at least two different
+-- instance types that are supported by GameLift FleetIQ. This updated list
+-- replaces the entire current list of instance definitions for the game
+-- server group. For more information on instance types, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
+-- in the /Amazon EC2 User Guide/. You can optionally specify capacity
+-- weighting for each instance type. If no weight value is specified for an
+-- instance type, it is set to the default value \"1\". For more
+-- information about capacity weighting, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
+-- in the Amazon EC2 Auto Scaling User Guide.
+updateGameServerGroup_instanceDefinitions :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
+updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
+updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
+updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
+
+-- | A unique identifier for the game server group. Use either the name or
+-- ARN value.
 updateGameServerGroup_gameServerGroupName :: Lens.Lens' UpdateGameServerGroup Prelude.Text
 updateGameServerGroup_gameServerGroupName = Lens.lens (\UpdateGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@UpdateGameServerGroup' {} a -> s {gameServerGroupName = a} :: UpdateGameServerGroup)
 
@@ -284,18 +278,18 @@ instance Core.AWSRequest UpdateGameServerGroup where
 
 instance Prelude.Hashable UpdateGameServerGroup where
   hashWithSalt _salt UpdateGameServerGroup' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` instanceDefinitions
+    _salt `Prelude.hashWithSalt` balancingStrategy
       `Prelude.hashWithSalt` gameServerProtectionPolicy
-      `Prelude.hashWithSalt` balancingStrategy
+      `Prelude.hashWithSalt` instanceDefinitions
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData UpdateGameServerGroup where
   rnf UpdateGameServerGroup' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf instanceDefinitions
+    Prelude.rnf balancingStrategy
       `Prelude.seq` Prelude.rnf gameServerProtectionPolicy
-      `Prelude.seq` Prelude.rnf balancingStrategy
+      `Prelude.seq` Prelude.rnf instanceDefinitions
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders UpdateGameServerGroup where
@@ -317,13 +311,13 @@ instance Data.ToJSON UpdateGameServerGroup where
   toJSON UpdateGameServerGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("InstanceDefinitions" Data..=)
-              Prelude.<$> instanceDefinitions,
+          [ ("BalancingStrategy" Data..=)
+              Prelude.<$> balancingStrategy,
             ("GameServerProtectionPolicy" Data..=)
               Prelude.<$> gameServerProtectionPolicy,
-            ("BalancingStrategy" Data..=)
-              Prelude.<$> balancingStrategy,
+            ("InstanceDefinitions" Data..=)
+              Prelude.<$> instanceDefinitions,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just
               ("GameServerGroupName" Data..= gameServerGroupName)
           ]

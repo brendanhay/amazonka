@@ -22,9 +22,7 @@
 --
 -- Removes a VPC peering connection. To delete the connection, you must
 -- have a valid authorization for the VPC peering connection that you want
--- to delete. You can check for an authorization by calling
--- DescribeVpcPeeringAuthorizations or request a new one using
--- CreateVpcPeeringAuthorization.
+-- to delete..
 --
 -- Once a valid authorization exists, call this operation from the Amazon
 -- Web Services account that is used to manage the Amazon GameLift fleets.
@@ -33,9 +31,6 @@
 --
 -- __Related actions__
 --
--- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
--- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
--- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteVpcPeeringConnection
   ( -- * Creating a Request
@@ -63,17 +58,13 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteVpcPeeringConnection' smart constructor.
+-- | /See:/ 'newDeleteVpcPeeringConnection' smart constructor.
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
   { -- | A unique identifier for the fleet. This fleet specified must match the
     -- fleet referenced in the VPC peering connection record. You can use
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
-    -- | A unique identifier for a VPC peering connection. This value is included
-    -- in the VpcPeeringConnection object, which can be retrieved by calling
-    -- DescribeVpcPeeringConnections.
+    -- | A unique identifier for a VPC peering connection.
     vpcPeeringConnectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,9 +81,7 @@ data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection'
 -- fleet referenced in the VPC peering connection record. You can use
 -- either the fleet ID or ARN value.
 --
--- 'vpcPeeringConnectionId', 'deleteVpcPeeringConnection_vpcPeeringConnectionId' - A unique identifier for a VPC peering connection. This value is included
--- in the VpcPeeringConnection object, which can be retrieved by calling
--- DescribeVpcPeeringConnections.
+-- 'vpcPeeringConnectionId', 'deleteVpcPeeringConnection_vpcPeeringConnectionId' - A unique identifier for a VPC peering connection.
 newDeleteVpcPeeringConnection ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -114,9 +103,7 @@ newDeleteVpcPeeringConnection
 deleteVpcPeeringConnection_fleetId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text
 deleteVpcPeeringConnection_fleetId = Lens.lens (\DeleteVpcPeeringConnection' {fleetId} -> fleetId) (\s@DeleteVpcPeeringConnection' {} a -> s {fleetId = a} :: DeleteVpcPeeringConnection)
 
--- | A unique identifier for a VPC peering connection. This value is included
--- in the VpcPeeringConnection object, which can be retrieved by calling
--- DescribeVpcPeeringConnections.
+-- | A unique identifier for a VPC peering connection.
 deleteVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' DeleteVpcPeeringConnection Prelude.Text
 deleteVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\DeleteVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@DeleteVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: DeleteVpcPeeringConnection)
 

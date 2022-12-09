@@ -32,12 +32,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related actions__
---
--- RegisterGameServer | ListGameServers | ClaimGameServer |
--- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
---
 -- This operation returns paginated results.
 module Amazonka.GameLift.ListGameServers
   ( -- * Creating a Request
@@ -45,9 +39,9 @@ module Amazonka.GameLift.ListGameServers
     newListGameServers,
 
     -- * Request Lenses
-    listGameServers_sortOrder,
-    listGameServers_nextToken,
     listGameServers_limit,
+    listGameServers_nextToken,
+    listGameServers_sortOrder,
     listGameServers_gameServerGroupName,
 
     -- * Destructuring the Response
@@ -55,8 +49,8 @@ module Amazonka.GameLift.ListGameServers
     newListGameServersResponse,
 
     -- * Response Lenses
-    listGameServersResponse_nextToken,
     listGameServersResponse_gameServers,
+    listGameServersResponse_nextToken,
     listGameServersResponse_httpStatus,
   )
 where
@@ -71,21 +65,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGameServers' smart constructor.
 data ListGameServers = ListGameServers'
-  { -- | Indicates how to sort the returned data based on game server
+  { -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates how to sort the returned data based on game server
     -- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
     -- first, or use @DESCENDING@ to retrieve newest game servers first. If
     -- this parameter is left empty, game servers are returned in no particular
     -- order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | An identifier for the game server group to retrieve a list of game
-    -- servers from. Use either the GameServerGroup name or ARN value.
+    -- servers from. Use either the name or ARN value.
     gameServerGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,32 +92,43 @@ data ListGameServers = ListGameServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listGameServers_limit' - The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages.
+--
+-- 'nextToken', 'listGameServers_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+--
 -- 'sortOrder', 'listGameServers_sortOrder' - Indicates how to sort the returned data based on game server
 -- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
 -- first, or use @DESCENDING@ to retrieve newest game servers first. If
 -- this parameter is left empty, game servers are returned in no particular
 -- order.
 --
--- 'nextToken', 'listGameServers_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
---
--- 'limit', 'listGameServers_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
---
 -- 'gameServerGroupName', 'listGameServers_gameServerGroupName' - An identifier for the game server group to retrieve a list of game
--- servers from. Use either the GameServerGroup name or ARN value.
+-- servers from. Use either the name or ARN value.
 newListGameServers ::
   -- | 'gameServerGroupName'
   Prelude.Text ->
   ListGameServers
 newListGameServers pGameServerGroupName_ =
   ListGameServers'
-    { sortOrder = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
+
+-- | The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages.
+listGameServers_limit :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Natural)
+listGameServers_limit = Lens.lens (\ListGameServers' {limit} -> limit) (\s@ListGameServers' {} a -> s {limit = a} :: ListGameServers)
+
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+listGameServers_nextToken :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Text)
+listGameServers_nextToken = Lens.lens (\ListGameServers' {nextToken} -> nextToken) (\s@ListGameServers' {} a -> s {nextToken = a} :: ListGameServers)
 
 -- | Indicates how to sort the returned data based on game server
 -- registration timestamp. Use @ASCENDING@ to retrieve oldest game servers
@@ -133,19 +138,8 @@ newListGameServers pGameServerGroupName_ =
 listGameServers_sortOrder :: Lens.Lens' ListGameServers (Prelude.Maybe SortOrder)
 listGameServers_sortOrder = Lens.lens (\ListGameServers' {sortOrder} -> sortOrder) (\s@ListGameServers' {} a -> s {sortOrder = a} :: ListGameServers)
 
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-listGameServers_nextToken :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Text)
-listGameServers_nextToken = Lens.lens (\ListGameServers' {nextToken} -> nextToken) (\s@ListGameServers' {} a -> s {nextToken = a} :: ListGameServers)
-
--- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
-listGameServers_limit :: Lens.Lens' ListGameServers (Prelude.Maybe Prelude.Natural)
-listGameServers_limit = Lens.lens (\ListGameServers' {limit} -> limit) (\s@ListGameServers' {} a -> s {limit = a} :: ListGameServers)
-
 -- | An identifier for the game server group to retrieve a list of game
--- servers from. Use either the GameServerGroup name or ARN value.
+-- servers from. Use either the name or ARN value.
 listGameServers_gameServerGroupName :: Lens.Lens' ListGameServers Prelude.Text
 listGameServers_gameServerGroupName = Lens.lens (\ListGameServers' {gameServerGroupName} -> gameServerGroupName) (\s@ListGameServers' {} a -> s {gameServerGroupName = a} :: ListGameServers)
 
@@ -181,23 +175,23 @@ instance Core.AWSRequest ListGameServers where
     Response.receiveJSON
       ( \s h x ->
           ListGameServersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "GameServers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "GameServers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGameServers where
   hashWithSalt _salt ListGameServers' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` gameServerGroupName
 
 instance Prelude.NFData ListGameServers where
   rnf ListGameServers' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf gameServerGroupName
 
 instance Data.ToHeaders ListGameServers where
@@ -217,9 +211,9 @@ instance Data.ToJSON ListGameServers where
   toJSON ListGameServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("Limit" Data..=) Prelude.<$> limit,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
             Prelude.Just
               ("GameServerGroupName" Data..= gameServerGroupName)
           ]
@@ -233,12 +227,12 @@ instance Data.ToQuery ListGameServers where
 
 -- | /See:/ 'newListGameServersResponse' smart constructor.
 data ListGameServersResponse = ListGameServersResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A collection of game server objects that match the request.
+    gameServers :: Prelude.Maybe [GameServer],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of game server objects that match the request.
-    gameServers :: Prelude.Maybe [GameServer],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,11 +246,11 @@ data ListGameServersResponse = ListGameServersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gameServers', 'listGameServersResponse_gameServers' - A collection of game server objects that match the request.
+--
 -- 'nextToken', 'listGameServersResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'gameServers', 'listGameServersResponse_gameServers' - A collection of game server objects that match the request.
 --
 -- 'httpStatus', 'listGameServersResponse_httpStatus' - The response's http status code.
 newListGameServersResponse ::
@@ -265,11 +259,15 @@ newListGameServersResponse ::
   ListGameServersResponse
 newListGameServersResponse pHttpStatus_ =
   ListGameServersResponse'
-    { nextToken =
+    { gameServers =
         Prelude.Nothing,
-      gameServers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of game server objects that match the request.
+listGameServersResponse_gameServers :: Lens.Lens' ListGameServersResponse (Prelude.Maybe [GameServer])
+listGameServersResponse_gameServers = Lens.lens (\ListGameServersResponse' {gameServers} -> gameServers) (\s@ListGameServersResponse' {} a -> s {gameServers = a} :: ListGameServersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -277,16 +275,12 @@ newListGameServersResponse pHttpStatus_ =
 listGameServersResponse_nextToken :: Lens.Lens' ListGameServersResponse (Prelude.Maybe Prelude.Text)
 listGameServersResponse_nextToken = Lens.lens (\ListGameServersResponse' {nextToken} -> nextToken) (\s@ListGameServersResponse' {} a -> s {nextToken = a} :: ListGameServersResponse)
 
--- | A collection of game server objects that match the request.
-listGameServersResponse_gameServers :: Lens.Lens' ListGameServersResponse (Prelude.Maybe [GameServer])
-listGameServersResponse_gameServers = Lens.lens (\ListGameServersResponse' {gameServers} -> gameServers) (\s@ListGameServersResponse' {} a -> s {gameServers = a} :: ListGameServersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listGameServersResponse_httpStatus :: Lens.Lens' ListGameServersResponse Prelude.Int
 listGameServersResponse_httpStatus = Lens.lens (\ListGameServersResponse' {httpStatus} -> httpStatus) (\s@ListGameServersResponse' {} a -> s {httpStatus = a} :: ListGameServersResponse)
 
 instance Prelude.NFData ListGameServersResponse where
   rnf ListGameServersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameServers
+    Prelude.rnf gameServers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

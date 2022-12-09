@@ -24,18 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents status information for a VPC peering connection. Status is
--- associated with a VpcPeeringConnection object. Status codes and messages
--- are provided from EC2 (see
+-- | Represents status information for a VPC peering connection. Status codes
+-- and messages are provided from EC2 (see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html VpcPeeringConnectionStateReason>).
--- Connection status information is also communicated as a fleet Event.
+-- Connection status information is also communicated as a fleet event.
 --
 -- /See:/ 'newVpcPeeringConnectionStatus' smart constructor.
 data VpcPeeringConnectionStatus = VpcPeeringConnectionStatus'
-  { -- | Additional messaging associated with the connection status.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Code indicating the status of a VPC peering connection.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | Code indicating the status of a VPC peering connection.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | Additional messaging associated with the connection status.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +46,24 @@ data VpcPeeringConnectionStatus = VpcPeeringConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.
---
 -- 'code', 'vpcPeeringConnectionStatus_code' - Code indicating the status of a VPC peering connection.
+--
+-- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.
 newVpcPeeringConnectionStatus ::
   VpcPeeringConnectionStatus
 newVpcPeeringConnectionStatus =
   VpcPeeringConnectionStatus'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Additional messaging associated with the connection status.
-vpcPeeringConnectionStatus_message :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
-vpcPeeringConnectionStatus_message = Lens.lens (\VpcPeeringConnectionStatus' {message} -> message) (\s@VpcPeeringConnectionStatus' {} a -> s {message = a} :: VpcPeeringConnectionStatus)
 
 -- | Code indicating the status of a VPC peering connection.
 vpcPeeringConnectionStatus_code :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionStatus_code = Lens.lens (\VpcPeeringConnectionStatus' {code} -> code) (\s@VpcPeeringConnectionStatus' {} a -> s {code = a} :: VpcPeeringConnectionStatus)
+
+-- | Additional messaging associated with the connection status.
+vpcPeeringConnectionStatus_message :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionStatus_message = Lens.lens (\VpcPeeringConnectionStatus' {message} -> message) (\s@VpcPeeringConnectionStatus' {} a -> s {message = a} :: VpcPeeringConnectionStatus)
 
 instance Data.FromJSON VpcPeeringConnectionStatus where
   parseJSON =
@@ -73,15 +71,15 @@ instance Data.FromJSON VpcPeeringConnectionStatus where
       "VpcPeeringConnectionStatus"
       ( \x ->
           VpcPeeringConnectionStatus'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable VpcPeeringConnectionStatus where
   hashWithSalt _salt VpcPeeringConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData VpcPeeringConnectionStatus where
   rnf VpcPeeringConnectionStatus' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

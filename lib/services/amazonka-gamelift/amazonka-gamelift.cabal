@@ -53,6 +53,7 @@ library
     Amazonka.GameLift.CreateGameServerGroup
     Amazonka.GameLift.CreateGameSession
     Amazonka.GameLift.CreateGameSessionQueue
+    Amazonka.GameLift.CreateLocation
     Amazonka.GameLift.CreateMatchmakingConfiguration
     Amazonka.GameLift.CreateMatchmakingRuleSet
     Amazonka.GameLift.CreatePlayerSession
@@ -66,15 +67,18 @@ library
     Amazonka.GameLift.DeleteFleetLocations
     Amazonka.GameLift.DeleteGameServerGroup
     Amazonka.GameLift.DeleteGameSessionQueue
+    Amazonka.GameLift.DeleteLocation
     Amazonka.GameLift.DeleteMatchmakingConfiguration
     Amazonka.GameLift.DeleteMatchmakingRuleSet
     Amazonka.GameLift.DeleteScalingPolicy
     Amazonka.GameLift.DeleteScript
     Amazonka.GameLift.DeleteVpcPeeringAuthorization
     Amazonka.GameLift.DeleteVpcPeeringConnection
+    Amazonka.GameLift.DeregisterCompute
     Amazonka.GameLift.DeregisterGameServer
     Amazonka.GameLift.DescribeAlias
     Amazonka.GameLift.DescribeBuild
+    Amazonka.GameLift.DescribeCompute
     Amazonka.GameLift.DescribeEC2InstanceLimits
     Amazonka.GameLift.DescribeFleetAttributes
     Amazonka.GameLift.DescribeFleetCapacity
@@ -101,17 +105,22 @@ library
     Amazonka.GameLift.DescribeScript
     Amazonka.GameLift.DescribeVpcPeeringAuthorizations
     Amazonka.GameLift.DescribeVpcPeeringConnections
+    Amazonka.GameLift.GetComputeAccess
+    Amazonka.GameLift.GetComputeAuthToken
     Amazonka.GameLift.GetGameSessionLogUrl
     Amazonka.GameLift.GetInstanceAccess
     Amazonka.GameLift.Lens
     Amazonka.GameLift.ListAliases
     Amazonka.GameLift.ListBuilds
+    Amazonka.GameLift.ListCompute
     Amazonka.GameLift.ListFleets
     Amazonka.GameLift.ListGameServerGroups
     Amazonka.GameLift.ListGameServers
+    Amazonka.GameLift.ListLocations
     Amazonka.GameLift.ListScripts
     Amazonka.GameLift.ListTagsForResource
     Amazonka.GameLift.PutScalingPolicy
+    Amazonka.GameLift.RegisterCompute
     Amazonka.GameLift.RegisterGameServer
     Amazonka.GameLift.RequestUploadCredentials
     Amazonka.GameLift.ResolveAlias
@@ -129,6 +138,7 @@ library
     Amazonka.GameLift.Types
     Amazonka.GameLift.Types.AcceptanceType
     Amazonka.GameLift.Types.Alias
+    Amazonka.GameLift.Types.AnywhereConfiguration
     Amazonka.GameLift.Types.AttributeValue
     Amazonka.GameLift.Types.AwsCredentials
     Amazonka.GameLift.Types.BackfillMode
@@ -138,6 +148,9 @@ library
     Amazonka.GameLift.Types.CertificateConfiguration
     Amazonka.GameLift.Types.CertificateType
     Amazonka.GameLift.Types.ComparisonOperatorType
+    Amazonka.GameLift.Types.Compute
+    Amazonka.GameLift.Types.ComputeStatus
+    Amazonka.GameLift.Types.ComputeType
     Amazonka.GameLift.Types.DesiredPlayerSession
     Amazonka.GameLift.Types.EC2InstanceCounts
     Amazonka.GameLift.Types.EC2InstanceLimit
@@ -185,6 +198,8 @@ library
     Amazonka.GameLift.Types.LaunchTemplateSpecification
     Amazonka.GameLift.Types.LocationAttributes
     Amazonka.GameLift.Types.LocationConfiguration
+    Amazonka.GameLift.Types.LocationFilter
+    Amazonka.GameLift.Types.LocationModel
     Amazonka.GameLift.Types.LocationState
     Amazonka.GameLift.Types.LocationUpdateStatus
     Amazonka.GameLift.Types.MatchedPlayerSession

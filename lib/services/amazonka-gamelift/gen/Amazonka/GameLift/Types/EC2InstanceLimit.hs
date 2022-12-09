@@ -32,22 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 -- for your account by using the __Service limits__ page in the GameLift
 -- console.
 --
--- __Related actions__
---
--- DescribeEC2InstanceLimits
---
 -- /See:/ 'newEC2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
-  { -- | The number of instances that is allowed for the specified instance type
-    -- and location.
-    instanceLimit :: Prelude.Maybe Prelude.Natural,
+  { -- | The number of instances for the specified type and location that are
+    -- currently being used by the Amazon Web Services account.
+    currentInstances :: Prelude.Maybe Prelude.Natural,
     -- | The name of an Amazon EC2 instance type. See
     -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
     -- for detailed descriptions.
     eC2InstanceType :: Prelude.Maybe EC2InstanceType,
-    -- | The number of instances for the specified type and location that are
-    -- currently being used by the Amazon Web Services account.
-    currentInstances :: Prelude.Maybe Prelude.Natural,
+    -- | The number of instances that is allowed for the specified instance type
+    -- and location.
+    instanceLimit :: Prelude.Maybe Prelude.Natural,
     -- | An Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text
   }
@@ -61,31 +57,32 @@ data EC2InstanceLimit = EC2InstanceLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceLimit', 'eC2InstanceLimit_instanceLimit' - The number of instances that is allowed for the specified instance type
--- and location.
+-- 'currentInstances', 'eC2InstanceLimit_currentInstances' - The number of instances for the specified type and location that are
+-- currently being used by the Amazon Web Services account.
 --
 -- 'eC2InstanceType', 'eC2InstanceLimit_eC2InstanceType' - The name of an Amazon EC2 instance type. See
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
 -- for detailed descriptions.
 --
--- 'currentInstances', 'eC2InstanceLimit_currentInstances' - The number of instances for the specified type and location that are
--- currently being used by the Amazon Web Services account.
+-- 'instanceLimit', 'eC2InstanceLimit_instanceLimit' - The number of instances that is allowed for the specified instance type
+-- and location.
 --
 -- 'location', 'eC2InstanceLimit_location' - An Amazon Web Services Region code, such as @us-west-2@.
 newEC2InstanceLimit ::
   EC2InstanceLimit
 newEC2InstanceLimit =
   EC2InstanceLimit'
-    { instanceLimit = Prelude.Nothing,
+    { currentInstances =
+        Prelude.Nothing,
       eC2InstanceType = Prelude.Nothing,
-      currentInstances = Prelude.Nothing,
+      instanceLimit = Prelude.Nothing,
       location = Prelude.Nothing
     }
 
--- | The number of instances that is allowed for the specified instance type
--- and location.
-eC2InstanceLimit_instanceLimit :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
-eC2InstanceLimit_instanceLimit = Lens.lens (\EC2InstanceLimit' {instanceLimit} -> instanceLimit) (\s@EC2InstanceLimit' {} a -> s {instanceLimit = a} :: EC2InstanceLimit)
+-- | The number of instances for the specified type and location that are
+-- currently being used by the Amazon Web Services account.
+eC2InstanceLimit_currentInstances :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
+eC2InstanceLimit_currentInstances = Lens.lens (\EC2InstanceLimit' {currentInstances} -> currentInstances) (\s@EC2InstanceLimit' {} a -> s {currentInstances = a} :: EC2InstanceLimit)
 
 -- | The name of an Amazon EC2 instance type. See
 -- <http://aws.amazon.com/ec2/instance-types/ Amazon Elastic Compute Cloud Instance Types>
@@ -93,10 +90,10 @@ eC2InstanceLimit_instanceLimit = Lens.lens (\EC2InstanceLimit' {instanceLimit} -
 eC2InstanceLimit_eC2InstanceType :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe EC2InstanceType)
 eC2InstanceLimit_eC2InstanceType = Lens.lens (\EC2InstanceLimit' {eC2InstanceType} -> eC2InstanceType) (\s@EC2InstanceLimit' {} a -> s {eC2InstanceType = a} :: EC2InstanceLimit)
 
--- | The number of instances for the specified type and location that are
--- currently being used by the Amazon Web Services account.
-eC2InstanceLimit_currentInstances :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
-eC2InstanceLimit_currentInstances = Lens.lens (\EC2InstanceLimit' {currentInstances} -> currentInstances) (\s@EC2InstanceLimit' {} a -> s {currentInstances = a} :: EC2InstanceLimit)
+-- | The number of instances that is allowed for the specified instance type
+-- and location.
+eC2InstanceLimit_instanceLimit :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Natural)
+eC2InstanceLimit_instanceLimit = Lens.lens (\EC2InstanceLimit' {instanceLimit} -> instanceLimit) (\s@EC2InstanceLimit' {} a -> s {instanceLimit = a} :: EC2InstanceLimit)
 
 -- | An Amazon Web Services Region code, such as @us-west-2@.
 eC2InstanceLimit_location :: Lens.Lens' EC2InstanceLimit (Prelude.Maybe Prelude.Text)
@@ -108,22 +105,22 @@ instance Data.FromJSON EC2InstanceLimit where
       "EC2InstanceLimit"
       ( \x ->
           EC2InstanceLimit'
-            Prelude.<$> (x Data..:? "InstanceLimit")
+            Prelude.<$> (x Data..:? "CurrentInstances")
             Prelude.<*> (x Data..:? "EC2InstanceType")
-            Prelude.<*> (x Data..:? "CurrentInstances")
+            Prelude.<*> (x Data..:? "InstanceLimit")
             Prelude.<*> (x Data..:? "Location")
       )
 
 instance Prelude.Hashable EC2InstanceLimit where
   hashWithSalt _salt EC2InstanceLimit' {..} =
-    _salt `Prelude.hashWithSalt` instanceLimit
+    _salt `Prelude.hashWithSalt` currentInstances
       `Prelude.hashWithSalt` eC2InstanceType
-      `Prelude.hashWithSalt` currentInstances
+      `Prelude.hashWithSalt` instanceLimit
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData EC2InstanceLimit where
   rnf EC2InstanceLimit' {..} =
-    Prelude.rnf instanceLimit
+    Prelude.rnf currentInstances
       `Prelude.seq` Prelude.rnf eC2InstanceType
-      `Prelude.seq` Prelude.rnf currentInstances
+      `Prelude.seq` Prelude.rnf instanceLimit
       `Prelude.seq` Prelude.rnf location

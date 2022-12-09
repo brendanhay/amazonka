@@ -27,23 +27,19 @@ import Amazonka.GameLift.Types.LocationState
 import Amazonka.GameLift.Types.LocationUpdateStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a location in a multi-location fleet.
---
--- __Related actions__
---
--- DescribeFleetLocationAttributes
+-- | Details about a location in a multi-location fleet.
 --
 -- /See:/ 'newLocationAttributes' smart constructor.
 data LocationAttributes = LocationAttributes'
-  { -- | The status of fleet activity updates to the location. The status
-    -- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
-    -- has been requested but the update has not yet been completed for the
-    -- location.
-    updateStatus :: Prelude.Maybe LocationUpdateStatus,
+  { -- | A fleet location and its current life-cycle state.
+    locationState :: Prelude.Maybe LocationState,
     -- | A list of fleet actions that have been suspended in the fleet location.
     stoppedActions :: Prelude.Maybe (Prelude.NonEmpty FleetAction),
-    -- | A fleet location and its current life-cycle state.
-    locationState :: Prelude.Maybe LocationState
+    -- | The status of fleet activity updates to the location. The status
+    -- @PENDING_UPDATE@ indicates that @StopFleetActions@ or
+    -- @StartFleetActions@ has been requested but the update has not yet been
+    -- completed for the location.
+    updateStatus :: Prelude.Maybe LocationUpdateStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +51,38 @@ data LocationAttributes = LocationAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateStatus', 'locationAttributes_updateStatus' - The status of fleet activity updates to the location. The status
--- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
--- has been requested but the update has not yet been completed for the
--- location.
+-- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.
 --
 -- 'stoppedActions', 'locationAttributes_stoppedActions' - A list of fleet actions that have been suspended in the fleet location.
 --
--- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.
+-- 'updateStatus', 'locationAttributes_updateStatus' - The status of fleet activity updates to the location. The status
+-- @PENDING_UPDATE@ indicates that @StopFleetActions@ or
+-- @StartFleetActions@ has been requested but the update has not yet been
+-- completed for the location.
 newLocationAttributes ::
   LocationAttributes
 newLocationAttributes =
   LocationAttributes'
-    { updateStatus = Prelude.Nothing,
+    { locationState =
+        Prelude.Nothing,
       stoppedActions = Prelude.Nothing,
-      locationState = Prelude.Nothing
+      updateStatus = Prelude.Nothing
     }
 
--- | The status of fleet activity updates to the location. The status
--- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions
--- has been requested but the update has not yet been completed for the
--- location.
-locationAttributes_updateStatus :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationUpdateStatus)
-locationAttributes_updateStatus = Lens.lens (\LocationAttributes' {updateStatus} -> updateStatus) (\s@LocationAttributes' {} a -> s {updateStatus = a} :: LocationAttributes)
+-- | A fleet location and its current life-cycle state.
+locationAttributes_locationState :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationState)
+locationAttributes_locationState = Lens.lens (\LocationAttributes' {locationState} -> locationState) (\s@LocationAttributes' {} a -> s {locationState = a} :: LocationAttributes)
 
 -- | A list of fleet actions that have been suspended in the fleet location.
 locationAttributes_stoppedActions :: Lens.Lens' LocationAttributes (Prelude.Maybe (Prelude.NonEmpty FleetAction))
 locationAttributes_stoppedActions = Lens.lens (\LocationAttributes' {stoppedActions} -> stoppedActions) (\s@LocationAttributes' {} a -> s {stoppedActions = a} :: LocationAttributes) Prelude.. Lens.mapping Lens.coerced
 
--- | A fleet location and its current life-cycle state.
-locationAttributes_locationState :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationState)
-locationAttributes_locationState = Lens.lens (\LocationAttributes' {locationState} -> locationState) (\s@LocationAttributes' {} a -> s {locationState = a} :: LocationAttributes)
+-- | The status of fleet activity updates to the location. The status
+-- @PENDING_UPDATE@ indicates that @StopFleetActions@ or
+-- @StartFleetActions@ has been requested but the update has not yet been
+-- completed for the location.
+locationAttributes_updateStatus :: Lens.Lens' LocationAttributes (Prelude.Maybe LocationUpdateStatus)
+locationAttributes_updateStatus = Lens.lens (\LocationAttributes' {updateStatus} -> updateStatus) (\s@LocationAttributes' {} a -> s {updateStatus = a} :: LocationAttributes)
 
 instance Data.FromJSON LocationAttributes where
   parseJSON =
@@ -93,19 +90,19 @@ instance Data.FromJSON LocationAttributes where
       "LocationAttributes"
       ( \x ->
           LocationAttributes'
-            Prelude.<$> (x Data..:? "UpdateStatus")
+            Prelude.<$> (x Data..:? "LocationState")
             Prelude.<*> (x Data..:? "StoppedActions")
-            Prelude.<*> (x Data..:? "LocationState")
+            Prelude.<*> (x Data..:? "UpdateStatus")
       )
 
 instance Prelude.Hashable LocationAttributes where
   hashWithSalt _salt LocationAttributes' {..} =
-    _salt `Prelude.hashWithSalt` updateStatus
+    _salt `Prelude.hashWithSalt` locationState
       `Prelude.hashWithSalt` stoppedActions
-      `Prelude.hashWithSalt` locationState
+      `Prelude.hashWithSalt` updateStatus
 
 instance Prelude.NFData LocationAttributes where
   rnf LocationAttributes' {..} =
-    Prelude.rnf updateStatus
+    Prelude.rnf locationState
       `Prelude.seq` Prelude.rnf stoppedActions
-      `Prelude.seq` Prelude.rnf locationState
+      `Prelude.seq` Prelude.rnf updateStatus

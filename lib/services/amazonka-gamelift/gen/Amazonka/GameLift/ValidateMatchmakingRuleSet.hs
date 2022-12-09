@@ -28,14 +28,6 @@
 -- __Learn more__
 --
 -- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a rule set>
---
--- __Related actions__
---
--- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
--- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
--- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
--- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.ValidateMatchmakingRuleSet
   ( -- * Creating a Request
     ValidateMatchmakingRuleSet (..),
@@ -62,9 +54,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newValidateMatchmakingRuleSet' smart constructor.
+-- | /See:/ 'newValidateMatchmakingRuleSet' smart constructor.
 data ValidateMatchmakingRuleSet = ValidateMatchmakingRuleSet'
   { -- | A collection of matchmaking rules to validate, formatted as a JSON
     -- string.
@@ -147,9 +137,7 @@ instance Data.ToPath ValidateMatchmakingRuleSet where
 instance Data.ToQuery ValidateMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newValidateMatchmakingRuleSetResponse' smart constructor.
+-- | /See:/ 'newValidateMatchmakingRuleSetResponse' smart constructor.
 data ValidateMatchmakingRuleSetResponse = ValidateMatchmakingRuleSetResponse'
   { -- | A response indicating whether the rule set is valid.
     valid :: Prelude.Maybe Prelude.Bool,

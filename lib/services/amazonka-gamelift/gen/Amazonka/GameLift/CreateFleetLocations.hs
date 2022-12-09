@@ -26,9 +26,8 @@
 --
 -- This operation cannot be used with fleets that don\'t support remote
 -- locations. Fleets can have multiple locations only if they reside in
--- Amazon Web Services Regions that support this feature (see CreateFleet
--- for the complete list) and were created after the feature was released
--- in March 2021.
+-- Amazon Web Services Regions that support this feature and were created
+-- after the feature was released in March 2021.
 --
 -- To add fleet locations, specify the fleet to be updated and provide a
 -- list of one or more locations.
@@ -37,25 +36,13 @@
 -- their status set to @NEW@. GameLift initiates the process of starting an
 -- instance in each added location. You can track the status of each new
 -- location by monitoring location creation events using
--- DescribeFleetEvents. Alternatively, you can poll location status by
--- calling DescribeFleetLocationAttributes. After a location status becomes
--- @ACTIVE@, you can adjust the location\'s capacity as needed with
--- UpdateFleetCapacity.
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html DescribeFleetEvents>.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up fleets>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Multi-location fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | DescribeFleetLocationAttributes |
--- DescribeFleetLocationCapacity | DescribeFleetLocationUtilization |
--- DescribeFleetAttributes | DescribeFleetCapacity |
--- DescribeFleetUtilization | UpdateFleetCapacity | StopFleetActions |
--- DeleteFleetLocations |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateFleetLocations
   ( -- * Creating a Request
     CreateFleetLocations (..),
@@ -70,9 +57,9 @@ module Amazonka.GameLift.CreateFleetLocations
     newCreateFleetLocationsResponse,
 
     -- * Response Lenses
+    createFleetLocationsResponse_fleetArn,
     createFleetLocationsResponse_fleetId,
     createFleetLocationsResponse_locationStates,
-    createFleetLocationsResponse_fleetArn,
     createFleetLocationsResponse_httpStatus,
   )
 where
@@ -85,9 +72,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newCreateFleetLocations' smart constructor.
+-- | /See:/ 'newCreateFleetLocations' smart constructor.
 data CreateFleetLocations = CreateFleetLocations'
   { -- | A unique identifier for the fleet to add locations to. You can use
     -- either the fleet ID or ARN value.
@@ -149,9 +134,9 @@ instance Core.AWSRequest CreateFleetLocations where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetLocationsResponse'
-            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<$> (x Data..?> "FleetArn")
+            Prelude.<*> (x Data..?> "FleetId")
             Prelude.<*> (x Data..?> "LocationStates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,11 +180,15 @@ instance Data.ToPath CreateFleetLocations where
 instance Data.ToQuery CreateFleetLocations where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newCreateFleetLocationsResponse' smart constructor.
+-- | /See:/ 'newCreateFleetLocationsResponse' smart constructor.
 data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
-  { -- | A unique identifier for the fleet that was updated with new locations.
+  { -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- that is assigned to a GameLift fleet resource and uniquely identifies
+    -- it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+    fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet that was updated with new locations.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | The remote locations that are being added to the fleet, and the
     -- life-cycle status of each location. For new locations, the status is set
@@ -208,12 +197,6 @@ data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
     -- This list does not include the fleet home Region or any remote locations
     -- that were already added to the fleet.
     locationStates :: Prelude.Maybe [LocationState],
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- that is assigned to a GameLift fleet resource and uniquely identifies
-    -- it. ARNs are unique across all Regions. Format is
-    -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
-    fleetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,6 +210,12 @@ data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetArn', 'createFleetLocationsResponse_fleetArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+--
 -- 'fleetId', 'createFleetLocationsResponse_fleetId' - A unique identifier for the fleet that was updated with new locations.
 --
 -- 'locationStates', 'createFleetLocationsResponse_locationStates' - The remote locations that are being added to the fleet, and the
@@ -236,12 +225,6 @@ data CreateFleetLocationsResponse = CreateFleetLocationsResponse'
 -- This list does not include the fleet home Region or any remote locations
 -- that were already added to the fleet.
 --
--- 'fleetArn', 'createFleetLocationsResponse_fleetArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
---
 -- 'httpStatus', 'createFleetLocationsResponse_httpStatus' - The response's http status code.
 newCreateFleetLocationsResponse ::
   -- | 'httpStatus'
@@ -249,12 +232,20 @@ newCreateFleetLocationsResponse ::
   CreateFleetLocationsResponse
 newCreateFleetLocationsResponse pHttpStatus_ =
   CreateFleetLocationsResponse'
-    { fleetId =
+    { fleetArn =
         Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       locationStates = Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+createFleetLocationsResponse_fleetArn :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe Prelude.Text)
+createFleetLocationsResponse_fleetArn = Lens.lens (\CreateFleetLocationsResponse' {fleetArn} -> fleetArn) (\s@CreateFleetLocationsResponse' {} a -> s {fleetArn = a} :: CreateFleetLocationsResponse)
 
 -- | A unique identifier for the fleet that was updated with new locations.
 createFleetLocationsResponse_fleetId :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe Prelude.Text)
@@ -269,21 +260,13 @@ createFleetLocationsResponse_fleetId = Lens.lens (\CreateFleetLocationsResponse'
 createFleetLocationsResponse_locationStates :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe [LocationState])
 createFleetLocationsResponse_locationStates = Lens.lens (\CreateFleetLocationsResponse' {locationStates} -> locationStates) (\s@CreateFleetLocationsResponse' {} a -> s {locationStates = a} :: CreateFleetLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
-createFleetLocationsResponse_fleetArn :: Lens.Lens' CreateFleetLocationsResponse (Prelude.Maybe Prelude.Text)
-createFleetLocationsResponse_fleetArn = Lens.lens (\CreateFleetLocationsResponse' {fleetArn} -> fleetArn) (\s@CreateFleetLocationsResponse' {} a -> s {fleetArn = a} :: CreateFleetLocationsResponse)
-
 -- | The response's http status code.
 createFleetLocationsResponse_httpStatus :: Lens.Lens' CreateFleetLocationsResponse Prelude.Int
 createFleetLocationsResponse_httpStatus = Lens.lens (\CreateFleetLocationsResponse' {httpStatus} -> httpStatus) (\s@CreateFleetLocationsResponse' {} a -> s {httpStatus = a} :: CreateFleetLocationsResponse)
 
 instance Prelude.NFData CreateFleetLocationsResponse where
   rnf CreateFleetLocationsResponse' {..} =
-    Prelude.rnf fleetId
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf locationStates
-      `Prelude.seq` Prelude.rnf fleetArn
       `Prelude.seq` Prelude.rnf httpStatus

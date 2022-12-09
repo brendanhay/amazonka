@@ -53,14 +53,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
--- __Related actions__
---
--- CreateFleet | UpdateFleetCapacity | PutScalingPolicy |
--- DescribeEC2InstanceLimits | DescribeFleetAttributes |
--- DescribeFleetLocationAttributes | UpdateFleetAttributes |
--- StopFleetActions | DeleteFleet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
---
 -- This operation returns paginated results.
 module Amazonka.GameLift.ListFleets
   ( -- * Creating a Request
@@ -68,9 +60,9 @@ module Amazonka.GameLift.ListFleets
     newListFleets,
 
     -- * Request Lenses
-    listFleets_nextToken,
     listFleets_buildId,
     listFleets_limit,
+    listFleets_nextToken,
     listFleets_scriptId,
 
     -- * Destructuring the Response
@@ -78,8 +70,8 @@ module Amazonka.GameLift.ListFleets
     newListFleetsResponse,
 
     -- * Response Lenses
-    listFleetsResponse_nextToken,
     listFleetsResponse_fleetIds,
+    listFleetsResponse_nextToken,
     listFleetsResponse_httpStatus,
   )
 where
@@ -92,21 +84,19 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newListFleets' smart constructor.
+-- | /See:/ 'newListFleets' smart constructor.
 data ListFleets = ListFleets'
-  { -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the build to request fleets for. Use this
+  { -- | A unique identifier for the build to request fleets for. Use this
     -- parameter to return only fleets using a specified build. Use either the
     -- build ID or ARN value.
     buildId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the Realtime script to request fleets for. Use
     -- this parameter to return only fleets using a specified script. Use
     -- either the script ID or ARN value.
@@ -122,16 +112,16 @@ data ListFleets = ListFleets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFleets_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
---
 -- 'buildId', 'listFleets_buildId' - A unique identifier for the build to request fleets for. Use this
 -- parameter to return only fleets using a specified build. Use either the
 -- build ID or ARN value.
 --
 -- 'limit', 'listFleets_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
+--
+-- 'nextToken', 'listFleets_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 --
 -- 'scriptId', 'listFleets_scriptId' - A unique identifier for the Realtime script to request fleets for. Use
 -- this parameter to return only fleets using a specified script. Use
@@ -140,17 +130,11 @@ newListFleets ::
   ListFleets
 newListFleets =
   ListFleets'
-    { nextToken = Prelude.Nothing,
-      buildId = Prelude.Nothing,
+    { buildId = Prelude.Nothing,
       limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       scriptId = Prelude.Nothing
     }
-
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-listFleets_nextToken :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
-listFleets_nextToken = Lens.lens (\ListFleets' {nextToken} -> nextToken) (\s@ListFleets' {} a -> s {nextToken = a} :: ListFleets)
 
 -- | A unique identifier for the build to request fleets for. Use this
 -- parameter to return only fleets using a specified build. Use either the
@@ -162,6 +146,12 @@ listFleets_buildId = Lens.lens (\ListFleets' {buildId} -> buildId) (\s@ListFleet
 -- @NextToken@ to get results as a set of sequential pages.
 listFleets_limit :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Natural)
 listFleets_limit = Lens.lens (\ListFleets' {limit} -> limit) (\s@ListFleets' {} a -> s {limit = a} :: ListFleets)
+
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+listFleets_nextToken :: Lens.Lens' ListFleets (Prelude.Maybe Prelude.Text)
+listFleets_nextToken = Lens.lens (\ListFleets' {nextToken} -> nextToken) (\s@ListFleets' {} a -> s {nextToken = a} :: ListFleets)
 
 -- | A unique identifier for the Realtime script to request fleets for. Use
 -- this parameter to return only fleets using a specified script. Use
@@ -197,23 +187,23 @@ instance Core.AWSRequest ListFleets where
     Response.receiveJSON
       ( \s h x ->
           ListFleetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "FleetIds")
+            Prelude.<$> (x Data..?> "FleetIds")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFleets where
   hashWithSalt _salt ListFleets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` buildId
+    _salt `Prelude.hashWithSalt` buildId
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scriptId
 
 instance Prelude.NFData ListFleets where
   rnf ListFleets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf buildId
+    Prelude.rnf buildId
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scriptId
 
 instance Data.ToHeaders ListFleets where
@@ -233,9 +223,9 @@ instance Data.ToJSON ListFleets where
   toJSON ListFleets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BuildId" Data..=) Prelude.<$> buildId,
+          [ ("BuildId" Data..=) Prelude.<$> buildId,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ScriptId" Data..=) Prelude.<$> scriptId
           ]
       )
@@ -246,19 +236,14 @@ instance Data.ToPath ListFleets where
 instance Data.ToQuery ListFleets where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newListFleetsResponse' smart constructor.
+-- | /See:/ 'newListFleetsResponse' smart constructor.
 data ListFleetsResponse = ListFleetsResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A set of fleet IDs that match the list request.
+    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of fleet IDs that match the list request. You can retrieve
-    -- additional information about all returned fleets by passing this result
-    -- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
-    -- DescribeFleetUtilization call.
-    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -272,14 +257,11 @@ data ListFleetsResponse = ListFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetIds', 'listFleetsResponse_fleetIds' - A set of fleet IDs that match the list request.
+--
 -- 'nextToken', 'listFleetsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'fleetIds', 'listFleetsResponse_fleetIds' - A set of fleet IDs that match the list request. You can retrieve
--- additional information about all returned fleets by passing this result
--- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
--- DescribeFleetUtilization call.
 --
 -- 'httpStatus', 'listFleetsResponse_httpStatus' - The response's http status code.
 newListFleetsResponse ::
@@ -288,10 +270,14 @@ newListFleetsResponse ::
   ListFleetsResponse
 newListFleetsResponse pHttpStatus_ =
   ListFleetsResponse'
-    { nextToken = Prelude.Nothing,
-      fleetIds = Prelude.Nothing,
+    { fleetIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A set of fleet IDs that match the list request.
+listFleetsResponse_fleetIds :: Lens.Lens' ListFleetsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listFleetsResponse_fleetIds = Lens.lens (\ListFleetsResponse' {fleetIds} -> fleetIds) (\s@ListFleetsResponse' {} a -> s {fleetIds = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
@@ -299,19 +285,12 @@ newListFleetsResponse pHttpStatus_ =
 listFleetsResponse_nextToken :: Lens.Lens' ListFleetsResponse (Prelude.Maybe Prelude.Text)
 listFleetsResponse_nextToken = Lens.lens (\ListFleetsResponse' {nextToken} -> nextToken) (\s@ListFleetsResponse' {} a -> s {nextToken = a} :: ListFleetsResponse)
 
--- | A set of fleet IDs that match the list request. You can retrieve
--- additional information about all returned fleets by passing this result
--- set to a DescribeFleetAttributes, DescribeFleetCapacity, or
--- DescribeFleetUtilization call.
-listFleetsResponse_fleetIds :: Lens.Lens' ListFleetsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listFleetsResponse_fleetIds = Lens.lens (\ListFleetsResponse' {fleetIds} -> fleetIds) (\s@ListFleetsResponse' {} a -> s {fleetIds = a} :: ListFleetsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFleetsResponse_httpStatus :: Lens.Lens' ListFleetsResponse Prelude.Int
 listFleetsResponse_httpStatus = Lens.lens (\ListFleetsResponse' {httpStatus} -> httpStatus) (\s@ListFleetsResponse' {} a -> s {httpStatus = a} :: ListFleetsResponse)
 
 instance Prelude.NFData ListFleetsResponse where
   rnf ListFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetIds
+    Prelude.rnf fleetIds
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

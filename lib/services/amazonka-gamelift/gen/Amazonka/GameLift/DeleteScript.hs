@@ -36,8 +36,6 @@
 --
 -- __Related actions__
 --
--- CreateScript | ListScripts | DescribeScript | UpdateScript |
--- DeleteScript |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteScript
   ( -- * Creating a Request

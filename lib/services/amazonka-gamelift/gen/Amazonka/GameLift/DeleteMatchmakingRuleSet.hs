@@ -27,14 +27,6 @@
 -- __Learn more__
 --
 -- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a rule set>
---
--- __Related actions__
---
--- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
--- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
--- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
--- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteMatchmakingRuleSet
   ( -- * Creating a Request
     DeleteMatchmakingRuleSet (..),
@@ -60,9 +52,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteMatchmakingRuleSet' smart constructor.
+-- | /See:/ 'newDeleteMatchmakingRuleSet' smart constructor.
 data DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
   { -- | A unique identifier for the matchmaking rule set to be deleted. (Note:
     -- The rule set name is different from the optional \"name\" field in the
@@ -143,9 +133,7 @@ instance Data.ToPath DeleteMatchmakingRuleSet where
 instance Data.ToQuery DeleteMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDeleteMatchmakingRuleSetResponse' smart constructor.
+-- | /See:/ 'newDeleteMatchmakingRuleSetResponse' smart constructor.
 data DeleteMatchmakingRuleSetResponse = DeleteMatchmakingRuleSetResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int

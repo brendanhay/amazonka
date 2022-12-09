@@ -27,8 +27,6 @@
 --
 -- __Related actions__
 --
--- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
--- ResolveAlias |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.UpdateAlias
   ( -- * Creating a Request
@@ -36,9 +34,9 @@ module Amazonka.GameLift.UpdateAlias
     newUpdateAlias,
 
     -- * Request Lenses
+    updateAlias_description,
     updateAlias_name,
     updateAlias_routingStrategy,
-    updateAlias_description,
     updateAlias_aliasId,
 
     -- * Destructuring the Response
@@ -59,18 +57,16 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newUpdateAlias' smart constructor.
+-- | /See:/ 'newUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { -- | A descriptive label that is associated with an alias. Alias names do not
+  { -- | A human-readable description of the alias.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | The routing configuration, including routing type and fleet target, for
     -- the alias.
     routingStrategy :: Prelude.Maybe RoutingStrategy,
-    -- | A human-readable description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the alias that you want to update. You can use
     -- either the alias ID or ARN value.
     aliasId :: Prelude.Text
@@ -85,13 +81,13 @@ data UpdateAlias = UpdateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateAlias_description' - A human-readable description of the alias.
+--
 -- 'name', 'updateAlias_name' - A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
 --
 -- 'routingStrategy', 'updateAlias_routingStrategy' - The routing configuration, including routing type and fleet target, for
 -- the alias.
---
--- 'description', 'updateAlias_description' - A human-readable description of the alias.
 --
 -- 'aliasId', 'updateAlias_aliasId' - A unique identifier for the alias that you want to update. You can use
 -- either the alias ID or ARN value.
@@ -101,11 +97,15 @@ newUpdateAlias ::
   UpdateAlias
 newUpdateAlias pAliasId_ =
   UpdateAlias'
-    { name = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       routingStrategy = Prelude.Nothing,
-      description = Prelude.Nothing,
       aliasId = pAliasId_
     }
+
+-- | A human-readable description of the alias.
+updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description) (\s@UpdateAlias' {} a -> s {description = a} :: UpdateAlias)
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
@@ -116,10 +116,6 @@ updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} 
 -- the alias.
 updateAlias_routingStrategy :: Lens.Lens' UpdateAlias (Prelude.Maybe RoutingStrategy)
 updateAlias_routingStrategy = Lens.lens (\UpdateAlias' {routingStrategy} -> routingStrategy) (\s@UpdateAlias' {} a -> s {routingStrategy = a} :: UpdateAlias)
-
--- | A human-readable description of the alias.
-updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
-updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description) (\s@UpdateAlias' {} a -> s {description = a} :: UpdateAlias)
 
 -- | A unique identifier for the alias that you want to update. You can use
 -- either the alias ID or ARN value.
@@ -140,16 +136,16 @@ instance Core.AWSRequest UpdateAlias where
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` routingStrategy
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` aliasId
 
 instance Prelude.NFData UpdateAlias where
   rnf UpdateAlias' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf routingStrategy
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf aliasId
 
 instance Data.ToHeaders UpdateAlias where
@@ -169,10 +165,10 @@ instance Data.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("RoutingStrategy" Data..=)
               Prelude.<$> routingStrategy,
-            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just ("AliasId" Data..= aliasId)
           ]
       )
@@ -183,9 +179,7 @@ instance Data.ToPath UpdateAlias where
 instance Data.ToQuery UpdateAlias where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newUpdateAliasResponse' smart constructor.
+-- | /See:/ 'newUpdateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
   { -- | The updated alias resource.
     alias :: Prelude.Maybe Alias,

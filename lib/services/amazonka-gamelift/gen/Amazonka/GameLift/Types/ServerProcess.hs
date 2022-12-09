@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | A set of instructions for launching server processes on each instance in
 -- a fleet. Server processes run either an executable in a custom game
 -- build or a Realtime Servers script. Server process configurations are
--- part of a fleet\'s RuntimeConfiguration.
+-- part of a fleet\'s runtime configuration.
 --
 -- /See:/ 'newServerProcess' smart constructor.
 data ServerProcess = ServerProcess'

@@ -27,6 +27,7 @@ module Amazonka.GameLift.Types.FleetStatus
         FleetStatus_DOWNLOADING,
         FleetStatus_ERROR,
         FleetStatus_NEW,
+        FleetStatus_NOT_FOUND,
         FleetStatus_TERMINATED,
         FleetStatus_VALIDATING
       ),
@@ -86,6 +87,9 @@ pattern FleetStatus_ERROR = FleetStatus' "ERROR"
 pattern FleetStatus_NEW :: FleetStatus
 pattern FleetStatus_NEW = FleetStatus' "NEW"
 
+pattern FleetStatus_NOT_FOUND :: FleetStatus
+pattern FleetStatus_NOT_FOUND = FleetStatus' "NOT_FOUND"
+
 pattern FleetStatus_TERMINATED :: FleetStatus
 pattern FleetStatus_TERMINATED = FleetStatus' "TERMINATED"
 
@@ -100,6 +104,7 @@ pattern FleetStatus_VALIDATING = FleetStatus' "VALIDATING"
   FleetStatus_DOWNLOADING,
   FleetStatus_ERROR,
   FleetStatus_NEW,
+  FleetStatus_NOT_FOUND,
   FleetStatus_TERMINATED,
   FleetStatus_VALIDATING,
   FleetStatus'

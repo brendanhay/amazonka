@@ -54,6 +54,9 @@ import Test.Tasty
 --         , requestCreateGameSessionQueue $
 --             newCreateGameSessionQueue
 --
+--         , requestCreateLocation $
+--             newCreateLocation
+--
 --         , requestCreateMatchmakingConfiguration $
 --             newCreateMatchmakingConfiguration
 --
@@ -93,6 +96,9 @@ import Test.Tasty
 --         , requestDeleteGameSessionQueue $
 --             newDeleteGameSessionQueue
 --
+--         , requestDeleteLocation $
+--             newDeleteLocation
+--
 --         , requestDeleteMatchmakingConfiguration $
 --             newDeleteMatchmakingConfiguration
 --
@@ -111,6 +117,9 @@ import Test.Tasty
 --         , requestDeleteVpcPeeringConnection $
 --             newDeleteVpcPeeringConnection
 --
+--         , requestDeregisterCompute $
+--             newDeregisterCompute
+--
 --         , requestDeregisterGameServer $
 --             newDeregisterGameServer
 --
@@ -119,6 +128,9 @@ import Test.Tasty
 --
 --         , requestDescribeBuild $
 --             newDescribeBuild
+--
+--         , requestDescribeCompute $
+--             newDescribeCompute
 --
 --         , requestDescribeEC2InstanceLimits $
 --             newDescribeEC2InstanceLimits
@@ -198,6 +210,12 @@ import Test.Tasty
 --         , requestDescribeVpcPeeringConnections $
 --             newDescribeVpcPeeringConnections
 --
+--         , requestGetComputeAccess $
+--             newGetComputeAccess
+--
+--         , requestGetComputeAuthToken $
+--             newGetComputeAuthToken
+--
 --         , requestGetGameSessionLogUrl $
 --             newGetGameSessionLogUrl
 --
@@ -210,6 +228,9 @@ import Test.Tasty
 --         , requestListBuilds $
 --             newListBuilds
 --
+--         , requestListCompute $
+--             newListCompute
+--
 --         , requestListFleets $
 --             newListFleets
 --
@@ -219,6 +240,9 @@ import Test.Tasty
 --         , requestListGameServers $
 --             newListGameServers
 --
+--         , requestListLocations $
+--             newListLocations
+--
 --         , requestListScripts $
 --             newListScripts
 --
@@ -227,6 +251,9 @@ import Test.Tasty
 --
 --         , requestPutScalingPolicy $
 --             newPutScalingPolicy
+--
+--         , requestRegisterCompute $
+--             newRegisterCompute
 --
 --         , requestRegisterGameServer $
 --             newRegisterGameServer
@@ -342,6 +369,9 @@ import Test.Tasty
 --         , responseCreateGameSessionQueue $
 --             newCreateGameSessionQueueResponse
 --
+--         , responseCreateLocation $
+--             newCreateLocationResponse
+--
 --         , responseCreateMatchmakingConfiguration $
 --             newCreateMatchmakingConfigurationResponse
 --
@@ -381,6 +411,9 @@ import Test.Tasty
 --         , responseDeleteGameSessionQueue $
 --             newDeleteGameSessionQueueResponse
 --
+--         , responseDeleteLocation $
+--             newDeleteLocationResponse
+--
 --         , responseDeleteMatchmakingConfiguration $
 --             newDeleteMatchmakingConfigurationResponse
 --
@@ -399,6 +432,9 @@ import Test.Tasty
 --         , responseDeleteVpcPeeringConnection $
 --             newDeleteVpcPeeringConnectionResponse
 --
+--         , responseDeregisterCompute $
+--             newDeregisterComputeResponse
+--
 --         , responseDeregisterGameServer $
 --             newDeregisterGameServerResponse
 --
@@ -407,6 +443,9 @@ import Test.Tasty
 --
 --         , responseDescribeBuild $
 --             newDescribeBuildResponse
+--
+--         , responseDescribeCompute $
+--             newDescribeComputeResponse
 --
 --         , responseDescribeEC2InstanceLimits $
 --             newDescribeEC2InstanceLimitsResponse
@@ -486,6 +525,12 @@ import Test.Tasty
 --         , responseDescribeVpcPeeringConnections $
 --             newDescribeVpcPeeringConnectionsResponse
 --
+--         , responseGetComputeAccess $
+--             newGetComputeAccessResponse
+--
+--         , responseGetComputeAuthToken $
+--             newGetComputeAuthTokenResponse
+--
 --         , responseGetGameSessionLogUrl $
 --             newGetGameSessionLogUrlResponse
 --
@@ -498,6 +543,9 @@ import Test.Tasty
 --         , responseListBuilds $
 --             newListBuildsResponse
 --
+--         , responseListCompute $
+--             newListComputeResponse
+--
 --         , responseListFleets $
 --             newListFleetsResponse
 --
@@ -507,6 +555,9 @@ import Test.Tasty
 --         , responseListGameServers $
 --             newListGameServersResponse
 --
+--         , responseListLocations $
+--             newListLocationsResponse
+--
 --         , responseListScripts $
 --             newListScriptsResponse
 --
@@ -515,6 +566,9 @@ import Test.Tasty
 --
 --         , responsePutScalingPolicy $
 --             newPutScalingPolicyResponse
+--
+--         , responseRegisterCompute $
+--             newRegisterComputeResponse
 --
 --         , responseRegisterGameServer $
 --             newRegisterGameServerResponse
@@ -659,6 +713,12 @@ requestCreateGameSessionQueue =
     "CreateGameSessionQueue"
     "fixture/CreateGameSessionQueue.yaml"
 
+requestCreateLocation :: CreateLocation -> TestTree
+requestCreateLocation =
+  req
+    "CreateLocation"
+    "fixture/CreateLocation.yaml"
+
 requestCreateMatchmakingConfiguration :: CreateMatchmakingConfiguration -> TestTree
 requestCreateMatchmakingConfiguration =
   req
@@ -737,6 +797,12 @@ requestDeleteGameSessionQueue =
     "DeleteGameSessionQueue"
     "fixture/DeleteGameSessionQueue.yaml"
 
+requestDeleteLocation :: DeleteLocation -> TestTree
+requestDeleteLocation =
+  req
+    "DeleteLocation"
+    "fixture/DeleteLocation.yaml"
+
 requestDeleteMatchmakingConfiguration :: DeleteMatchmakingConfiguration -> TestTree
 requestDeleteMatchmakingConfiguration =
   req
@@ -773,6 +839,12 @@ requestDeleteVpcPeeringConnection =
     "DeleteVpcPeeringConnection"
     "fixture/DeleteVpcPeeringConnection.yaml"
 
+requestDeregisterCompute :: DeregisterCompute -> TestTree
+requestDeregisterCompute =
+  req
+    "DeregisterCompute"
+    "fixture/DeregisterCompute.yaml"
+
 requestDeregisterGameServer :: DeregisterGameServer -> TestTree
 requestDeregisterGameServer =
   req
@@ -790,6 +862,12 @@ requestDescribeBuild =
   req
     "DescribeBuild"
     "fixture/DescribeBuild.yaml"
+
+requestDescribeCompute :: DescribeCompute -> TestTree
+requestDescribeCompute =
+  req
+    "DescribeCompute"
+    "fixture/DescribeCompute.yaml"
 
 requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
 requestDescribeEC2InstanceLimits =
@@ -947,6 +1025,18 @@ requestDescribeVpcPeeringConnections =
     "DescribeVpcPeeringConnections"
     "fixture/DescribeVpcPeeringConnections.yaml"
 
+requestGetComputeAccess :: GetComputeAccess -> TestTree
+requestGetComputeAccess =
+  req
+    "GetComputeAccess"
+    "fixture/GetComputeAccess.yaml"
+
+requestGetComputeAuthToken :: GetComputeAuthToken -> TestTree
+requestGetComputeAuthToken =
+  req
+    "GetComputeAuthToken"
+    "fixture/GetComputeAuthToken.yaml"
+
 requestGetGameSessionLogUrl :: GetGameSessionLogUrl -> TestTree
 requestGetGameSessionLogUrl =
   req
@@ -971,6 +1061,12 @@ requestListBuilds =
     "ListBuilds"
     "fixture/ListBuilds.yaml"
 
+requestListCompute :: ListCompute -> TestTree
+requestListCompute =
+  req
+    "ListCompute"
+    "fixture/ListCompute.yaml"
+
 requestListFleets :: ListFleets -> TestTree
 requestListFleets =
   req
@@ -989,6 +1085,12 @@ requestListGameServers =
     "ListGameServers"
     "fixture/ListGameServers.yaml"
 
+requestListLocations :: ListLocations -> TestTree
+requestListLocations =
+  req
+    "ListLocations"
+    "fixture/ListLocations.yaml"
+
 requestListScripts :: ListScripts -> TestTree
 requestListScripts =
   req
@@ -1006,6 +1108,12 @@ requestPutScalingPolicy =
   req
     "PutScalingPolicy"
     "fixture/PutScalingPolicy.yaml"
+
+requestRegisterCompute :: RegisterCompute -> TestTree
+requestRegisterCompute =
+  req
+    "RegisterCompute"
+    "fixture/RegisterCompute.yaml"
 
 requestRegisterGameServer :: RegisterGameServer -> TestTree
 requestRegisterGameServer =
@@ -1249,6 +1357,14 @@ responseCreateGameSessionQueue =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGameSessionQueue)
 
+responseCreateLocation :: CreateLocationResponse -> TestTree
+responseCreateLocation =
+  res
+    "CreateLocationResponse"
+    "fixture/CreateLocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLocation)
+
 responseCreateMatchmakingConfiguration :: CreateMatchmakingConfigurationResponse -> TestTree
 responseCreateMatchmakingConfiguration =
   res
@@ -1353,6 +1469,14 @@ responseDeleteGameSessionQueue =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGameSessionQueue)
 
+responseDeleteLocation :: DeleteLocationResponse -> TestTree
+responseDeleteLocation =
+  res
+    "DeleteLocationResponse"
+    "fixture/DeleteLocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLocation)
+
 responseDeleteMatchmakingConfiguration :: DeleteMatchmakingConfigurationResponse -> TestTree
 responseDeleteMatchmakingConfiguration =
   res
@@ -1401,6 +1525,14 @@ responseDeleteVpcPeeringConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteVpcPeeringConnection)
 
+responseDeregisterCompute :: DeregisterComputeResponse -> TestTree
+responseDeregisterCompute =
+  res
+    "DeregisterComputeResponse"
+    "fixture/DeregisterComputeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterCompute)
+
 responseDeregisterGameServer :: DeregisterGameServerResponse -> TestTree
 responseDeregisterGameServer =
   res
@@ -1424,6 +1556,14 @@ responseDescribeBuild =
     "fixture/DescribeBuildResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeBuild)
+
+responseDescribeCompute :: DescribeComputeResponse -> TestTree
+responseDescribeCompute =
+  res
+    "DescribeComputeResponse"
+    "fixture/DescribeComputeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCompute)
 
 responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
 responseDescribeEC2InstanceLimits =
@@ -1633,6 +1773,22 @@ responseDescribeVpcPeeringConnections =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeVpcPeeringConnections)
 
+responseGetComputeAccess :: GetComputeAccessResponse -> TestTree
+responseGetComputeAccess =
+  res
+    "GetComputeAccessResponse"
+    "fixture/GetComputeAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComputeAccess)
+
+responseGetComputeAuthToken :: GetComputeAuthTokenResponse -> TestTree
+responseGetComputeAuthToken =
+  res
+    "GetComputeAuthTokenResponse"
+    "fixture/GetComputeAuthTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetComputeAuthToken)
+
 responseGetGameSessionLogUrl :: GetGameSessionLogUrlResponse -> TestTree
 responseGetGameSessionLogUrl =
   res
@@ -1665,6 +1821,14 @@ responseListBuilds =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBuilds)
 
+responseListCompute :: ListComputeResponse -> TestTree
+responseListCompute =
+  res
+    "ListComputeResponse"
+    "fixture/ListComputeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCompute)
+
 responseListFleets :: ListFleetsResponse -> TestTree
 responseListFleets =
   res
@@ -1689,6 +1853,14 @@ responseListGameServers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGameServers)
 
+responseListLocations :: ListLocationsResponse -> TestTree
+responseListLocations =
+  res
+    "ListLocationsResponse"
+    "fixture/ListLocationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLocations)
+
 responseListScripts :: ListScriptsResponse -> TestTree
 responseListScripts =
   res
@@ -1712,6 +1884,14 @@ responsePutScalingPolicy =
     "fixture/PutScalingPolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutScalingPolicy)
+
+responseRegisterCompute :: RegisterComputeResponse -> TestTree
+responseRegisterCompute =
+  res
+    "RegisterComputeResponse"
+    "fixture/RegisterComputeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterCompute)
 
 responseRegisterGameServer :: RegisterGameServerResponse -> TestTree
 responseRegisterGameServer =

@@ -32,8 +32,6 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html GameLift Server SDK>
 -- operation @GetInstanceCertificate@.
 --
--- A fleet\'s certificate configuration is part of FleetAttributes.
---
 -- /See:/ 'newCertificateConfiguration' smart constructor.
 data CertificateConfiguration = CertificateConfiguration'
   { -- | Indicates whether a TLS\/SSL certificate is generated for a fleet.

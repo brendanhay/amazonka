@@ -25,22 +25,6 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html StartGameSessionPlacement>
 -- requests that reference the queue will fail. To delete a queue, specify
 -- the queue name.
---
--- __Learn more__
---
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Using Multi-Region Queues>
---
--- __Related actions__
---
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html CreateGameSessionQueue>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html DescribeGameSessionQueues>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html UpdateGameSessionQueue>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html DeleteGameSessionQueue>
--- |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteGameSessionQueue
   ( -- * Creating a Request
     DeleteGameSessionQueue (..),
@@ -66,9 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteGameSessionQueue' smart constructor.
+-- | /See:/ 'newDeleteGameSessionQueue' smart constructor.
 data DeleteGameSessionQueue = DeleteGameSessionQueue'
   { -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region. You can use either the queue ID

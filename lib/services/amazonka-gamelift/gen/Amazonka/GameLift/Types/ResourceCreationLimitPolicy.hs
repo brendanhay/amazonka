@@ -33,12 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 -- that the player (identified by @CreatorId@) has created fewer than game
 -- session limit in the specified time period.
 --
--- The resource creation limit policy is included in FleetAttributes.
---
 -- /See:/ 'newResourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
-  { -- | The maximum number of game sessions that an individual can create during
-    -- the policy period.
+  { -- | A policy that puts limits on the number of game sessions that a player
+    -- can create within a specified span of time. With this policy, you can
+    -- control players\' ability to consume available resources.
+    --
+    -- The policy is evaluated when a player tries to create a new game
+    -- session. On receiving a @CreateGameSession@ request, GameLift checks
+    -- that the player (identified by @CreatorId@) has created fewer than game
+    -- session limit in the specified time period.
     newGameSessionsPerCreator' :: Prelude.Maybe Prelude.Natural,
     -- | The time span used in evaluating the resource creation limit policy.
     policyPeriodInMinutes :: Prelude.Maybe Prelude.Natural
@@ -53,8 +57,14 @@ data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'newGameSessionsPerCreator'', 'resourceCreationLimitPolicy_newGameSessionsPerCreator' - The maximum number of game sessions that an individual can create during
--- the policy period.
+-- 'newGameSessionsPerCreator'', 'resourceCreationLimitPolicy_newGameSessionsPerCreator' - A policy that puts limits on the number of game sessions that a player
+-- can create within a specified span of time. With this policy, you can
+-- control players\' ability to consume available resources.
+--
+-- The policy is evaluated when a player tries to create a new game
+-- session. On receiving a @CreateGameSession@ request, GameLift checks
+-- that the player (identified by @CreatorId@) has created fewer than game
+-- session limit in the specified time period.
 --
 -- 'policyPeriodInMinutes', 'resourceCreationLimitPolicy_policyPeriodInMinutes' - The time span used in evaluating the resource creation limit policy.
 newResourceCreationLimitPolicy ::
@@ -66,8 +76,14 @@ newResourceCreationLimitPolicy =
       policyPeriodInMinutes = Prelude.Nothing
     }
 
--- | The maximum number of game sessions that an individual can create during
--- the policy period.
+-- | A policy that puts limits on the number of game sessions that a player
+-- can create within a specified span of time. With this policy, you can
+-- control players\' ability to consume available resources.
+--
+-- The policy is evaluated when a player tries to create a new game
+-- session. On receiving a @CreateGameSession@ request, GameLift checks
+-- that the player (identified by @CreatorId@) has created fewer than game
+-- session limit in the specified time period.
 resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
 resourceCreationLimitPolicy_newGameSessionsPerCreator = Lens.lens (\ResourceCreationLimitPolicy' {newGameSessionsPerCreator'} -> newGameSessionsPerCreator') (\s@ResourceCreationLimitPolicy' {} a -> s {newGameSessionsPerCreator' = a} :: ResourceCreationLimitPolicy)
 

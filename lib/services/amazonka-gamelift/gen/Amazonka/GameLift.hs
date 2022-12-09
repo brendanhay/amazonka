@@ -11,12 +11,10 @@
 --
 -- Derived from API version @2015-10-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- GameLift Service
---
--- Amazon Web Services provides solutions for hosting session-based
--- multiplayer game servers in the cloud, including tools for deploying,
--- operating, and scaling game servers. Built on Amazon Web Services global
--- computing infrastructure, GameLift helps you deliver high-performance,
+-- Amazon GameLift provides solutions for hosting session-based multiplayer
+-- game servers in the cloud, including tools for deploying, operating, and
+-- scaling game servers. Built on Amazon Web Services global computing
+-- infrastructure, GameLift helps you deliver high-performance,
 -- high-reliability, low-cost game servers while dynamically scaling your
 -- resource usage to meet player demand.
 --
@@ -55,8 +53,8 @@
 --
 -- __About this API Reference__
 --
--- This reference guide describes the low-level service API for Amazon Web
--- Services. With each topic in this guide, you can find links to
+-- This reference guide describes the low-level service API for Amazon
+-- GameLift. With each topic in this guide, you can find links to
 -- language-specific SDK guides and the Amazon Web Services CLI reference.
 -- Useful links:
 --
@@ -70,11 +68,32 @@ module Amazonka.GameLift
     -- * Errors
     -- $errors
 
-    -- ** TerminalRoutingStrategyException
-    _TerminalRoutingStrategyException,
+    -- ** ConflictException
+    _ConflictException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** FleetCapacityExceededException
+    _FleetCapacityExceededException,
+
+    -- ** GameSessionFullException
+    _GameSessionFullException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** InvalidFleetStatusException
+    _InvalidFleetStatusException,
+
+    -- ** InvalidGameSessionStatusException
+    _InvalidGameSessionStatusException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -82,35 +101,14 @@ module Amazonka.GameLift
     -- ** OutOfCapacityException
     _OutOfCapacityException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidFleetStatusException
-    _InvalidFleetStatusException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** TaggingFailedException
     _TaggingFailedException,
 
-    -- ** FleetCapacityExceededException
-    _FleetCapacityExceededException,
+    -- ** TerminalRoutingStrategyException
+    _TerminalRoutingStrategyException,
 
-    -- ** InvalidGameSessionStatusException
-    _InvalidGameSessionStatusException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** GameSessionFullException
-    _GameSessionFullException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- ** UnsupportedRegionException
     _UnsupportedRegionException,
@@ -174,6 +172,12 @@ module Amazonka.GameLift
     newCreateGameSessionQueue,
     CreateGameSessionQueueResponse (CreateGameSessionQueueResponse'),
     newCreateGameSessionQueueResponse,
+
+    -- ** CreateLocation
+    CreateLocation (CreateLocation'),
+    newCreateLocation,
+    CreateLocationResponse (CreateLocationResponse'),
+    newCreateLocationResponse,
 
     -- ** CreateMatchmakingConfiguration
     CreateMatchmakingConfiguration (CreateMatchmakingConfiguration'),
@@ -253,6 +257,12 @@ module Amazonka.GameLift
     DeleteGameSessionQueueResponse (DeleteGameSessionQueueResponse'),
     newDeleteGameSessionQueueResponse,
 
+    -- ** DeleteLocation
+    DeleteLocation (DeleteLocation'),
+    newDeleteLocation,
+    DeleteLocationResponse (DeleteLocationResponse'),
+    newDeleteLocationResponse,
+
     -- ** DeleteMatchmakingConfiguration
     DeleteMatchmakingConfiguration (DeleteMatchmakingConfiguration'),
     newDeleteMatchmakingConfiguration,
@@ -289,6 +299,12 @@ module Amazonka.GameLift
     DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
     newDeleteVpcPeeringConnectionResponse,
 
+    -- ** DeregisterCompute
+    DeregisterCompute (DeregisterCompute'),
+    newDeregisterCompute,
+    DeregisterComputeResponse (DeregisterComputeResponse'),
+    newDeregisterComputeResponse,
+
     -- ** DeregisterGameServer
     DeregisterGameServer (DeregisterGameServer'),
     newDeregisterGameServer,
@@ -306,6 +322,12 @@ module Amazonka.GameLift
     newDescribeBuild,
     DescribeBuildResponse (DescribeBuildResponse'),
     newDescribeBuildResponse,
+
+    -- ** DescribeCompute
+    DescribeCompute (DescribeCompute'),
+    newDescribeCompute,
+    DescribeComputeResponse (DescribeComputeResponse'),
+    newDescribeComputeResponse,
 
     -- ** DescribeEC2InstanceLimits
     DescribeEC2InstanceLimits (DescribeEC2InstanceLimits'),
@@ -463,6 +485,18 @@ module Amazonka.GameLift
     DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
     newDescribeVpcPeeringConnectionsResponse,
 
+    -- ** GetComputeAccess
+    GetComputeAccess (GetComputeAccess'),
+    newGetComputeAccess,
+    GetComputeAccessResponse (GetComputeAccessResponse'),
+    newGetComputeAccessResponse,
+
+    -- ** GetComputeAuthToken
+    GetComputeAuthToken (GetComputeAuthToken'),
+    newGetComputeAuthToken,
+    GetComputeAuthTokenResponse (GetComputeAuthTokenResponse'),
+    newGetComputeAuthTokenResponse,
+
     -- ** GetGameSessionLogUrl
     GetGameSessionLogUrl (GetGameSessionLogUrl'),
     newGetGameSessionLogUrl,
@@ -487,6 +521,12 @@ module Amazonka.GameLift
     ListBuildsResponse (ListBuildsResponse'),
     newListBuildsResponse,
 
+    -- ** ListCompute (Paginated)
+    ListCompute (ListCompute'),
+    newListCompute,
+    ListComputeResponse (ListComputeResponse'),
+    newListComputeResponse,
+
     -- ** ListFleets (Paginated)
     ListFleets (ListFleets'),
     newListFleets,
@@ -505,6 +545,12 @@ module Amazonka.GameLift
     ListGameServersResponse (ListGameServersResponse'),
     newListGameServersResponse,
 
+    -- ** ListLocations (Paginated)
+    ListLocations (ListLocations'),
+    newListLocations,
+    ListLocationsResponse (ListLocationsResponse'),
+    newListLocationsResponse,
+
     -- ** ListScripts (Paginated)
     ListScripts (ListScripts'),
     newListScripts,
@@ -522,6 +568,12 @@ module Amazonka.GameLift
     newPutScalingPolicy,
     PutScalingPolicyResponse (PutScalingPolicyResponse'),
     newPutScalingPolicyResponse,
+
+    -- ** RegisterCompute
+    RegisterCompute (RegisterCompute'),
+    newRegisterCompute,
+    RegisterComputeResponse (RegisterComputeResponse'),
+    newRegisterComputeResponse,
 
     -- ** RegisterGameServer
     RegisterGameServer (RegisterGameServer'),
@@ -711,6 +763,12 @@ module Amazonka.GameLift
     -- ** ComparisonOperatorType
     ComparisonOperatorType (..),
 
+    -- ** ComputeStatus
+    ComputeStatus (..),
+
+    -- ** ComputeType
+    ComputeType (..),
+
     -- ** EC2InstanceType
     EC2InstanceType (..),
 
@@ -771,6 +829,9 @@ module Amazonka.GameLift
     -- ** IpProtocol
     IpProtocol (..),
 
+    -- ** LocationFilter
+    LocationFilter (..),
+
     -- ** LocationUpdateStatus
     LocationUpdateStatus (..),
 
@@ -814,6 +875,10 @@ module Amazonka.GameLift
     Alias (Alias'),
     newAlias,
 
+    -- ** AnywhereConfiguration
+    AnywhereConfiguration (AnywhereConfiguration'),
+    newAnywhereConfiguration,
+
     -- ** AttributeValue
     AttributeValue (AttributeValue'),
     newAttributeValue,
@@ -829,6 +894,10 @@ module Amazonka.GameLift
     -- ** CertificateConfiguration
     CertificateConfiguration (CertificateConfiguration'),
     newCertificateConfiguration,
+
+    -- ** Compute
+    Compute (Compute'),
+    newCompute,
 
     -- ** DesiredPlayerSession
     DesiredPlayerSession (DesiredPlayerSession'),
@@ -938,6 +1007,10 @@ module Amazonka.GameLift
     LocationConfiguration (LocationConfiguration'),
     newLocationConfiguration,
 
+    -- ** LocationModel
+    LocationModel (LocationModel'),
+    newLocationModel,
+
     -- ** LocationState
     LocationState (LocationState'),
     newLocationState,
@@ -1045,6 +1118,7 @@ import Amazonka.GameLift.CreateFleetLocations
 import Amazonka.GameLift.CreateGameServerGroup
 import Amazonka.GameLift.CreateGameSession
 import Amazonka.GameLift.CreateGameSessionQueue
+import Amazonka.GameLift.CreateLocation
 import Amazonka.GameLift.CreateMatchmakingConfiguration
 import Amazonka.GameLift.CreateMatchmakingRuleSet
 import Amazonka.GameLift.CreatePlayerSession
@@ -1058,15 +1132,18 @@ import Amazonka.GameLift.DeleteFleet
 import Amazonka.GameLift.DeleteFleetLocations
 import Amazonka.GameLift.DeleteGameServerGroup
 import Amazonka.GameLift.DeleteGameSessionQueue
+import Amazonka.GameLift.DeleteLocation
 import Amazonka.GameLift.DeleteMatchmakingConfiguration
 import Amazonka.GameLift.DeleteMatchmakingRuleSet
 import Amazonka.GameLift.DeleteScalingPolicy
 import Amazonka.GameLift.DeleteScript
 import Amazonka.GameLift.DeleteVpcPeeringAuthorization
 import Amazonka.GameLift.DeleteVpcPeeringConnection
+import Amazonka.GameLift.DeregisterCompute
 import Amazonka.GameLift.DeregisterGameServer
 import Amazonka.GameLift.DescribeAlias
 import Amazonka.GameLift.DescribeBuild
+import Amazonka.GameLift.DescribeCompute
 import Amazonka.GameLift.DescribeEC2InstanceLimits
 import Amazonka.GameLift.DescribeFleetAttributes
 import Amazonka.GameLift.DescribeFleetCapacity
@@ -1093,17 +1170,22 @@ import Amazonka.GameLift.DescribeScalingPolicies
 import Amazonka.GameLift.DescribeScript
 import Amazonka.GameLift.DescribeVpcPeeringAuthorizations
 import Amazonka.GameLift.DescribeVpcPeeringConnections
+import Amazonka.GameLift.GetComputeAccess
+import Amazonka.GameLift.GetComputeAuthToken
 import Amazonka.GameLift.GetGameSessionLogUrl
 import Amazonka.GameLift.GetInstanceAccess
 import Amazonka.GameLift.Lens
 import Amazonka.GameLift.ListAliases
 import Amazonka.GameLift.ListBuilds
+import Amazonka.GameLift.ListCompute
 import Amazonka.GameLift.ListFleets
 import Amazonka.GameLift.ListGameServerGroups
 import Amazonka.GameLift.ListGameServers
+import Amazonka.GameLift.ListLocations
 import Amazonka.GameLift.ListScripts
 import Amazonka.GameLift.ListTagsForResource
 import Amazonka.GameLift.PutScalingPolicy
+import Amazonka.GameLift.RegisterCompute
 import Amazonka.GameLift.RegisterGameServer
 import Amazonka.GameLift.RequestUploadCredentials
 import Amazonka.GameLift.ResolveAlias

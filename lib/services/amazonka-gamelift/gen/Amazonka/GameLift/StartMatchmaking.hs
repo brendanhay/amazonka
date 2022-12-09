@@ -48,12 +48,6 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Set Up FlexMatch event notification>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How GameLift FlexMatch works>
---
--- __Related actions__
---
--- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
--- StartMatchBackfill |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.StartMatchmaking
   ( -- * Creating a Request
     StartMatchmaking (..),
@@ -82,9 +76,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newStartMatchmaking' smart constructor.
+-- | /See:/ 'newStartMatchmaking' smart constructor.
 data StartMatchmaking = StartMatchmaking'
   { -- | A unique identifier for a matchmaking ticket. If no ticket ID is
     -- specified here, Amazon GameLift will generate one in the form of a UUID.
@@ -99,6 +91,8 @@ data StartMatchmaking = StartMatchmaking'
     -- a player ID, and may contain player attributes and latency data to be
     -- used in the matchmaking process. After a successful match, @Player@
     -- objects contain the name of the team the player is assigned to.
+    --
+    -- You can include up to 10 @Players@ in a @StartMatchmaking@ request.
     players :: [Player]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -124,6 +118,8 @@ data StartMatchmaking = StartMatchmaking'
 -- a player ID, and may contain player attributes and latency data to be
 -- used in the matchmaking process. After a successful match, @Player@
 -- objects contain the name of the team the player is assigned to.
+--
+-- You can include up to 10 @Players@ in a @StartMatchmaking@ request.
 newStartMatchmaking ::
   -- | 'configurationName'
   Prelude.Text ->
@@ -152,6 +148,8 @@ startMatchmaking_configurationName = Lens.lens (\StartMatchmaking' {configuratio
 -- a player ID, and may contain player attributes and latency data to be
 -- used in the matchmaking process. After a successful match, @Player@
 -- objects contain the name of the team the player is assigned to.
+--
+-- You can include up to 10 @Players@ in a @StartMatchmaking@ request.
 startMatchmaking_players :: Lens.Lens' StartMatchmaking [Player]
 startMatchmaking_players = Lens.lens (\StartMatchmaking' {players} -> players) (\s@StartMatchmaking' {} a -> s {players = a} :: StartMatchmaking) Prelude.. Lens.coerced
 
@@ -211,9 +209,7 @@ instance Data.ToPath StartMatchmaking where
 instance Data.ToQuery StartMatchmaking where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newStartMatchmakingResponse' smart constructor.
+-- | /See:/ 'newStartMatchmakingResponse' smart constructor.
 data StartMatchmakingResponse = StartMatchmakingResponse'
   { -- | Ticket representing the matchmaking request. This object include the
     -- information included in the request, ticket status, and match results as

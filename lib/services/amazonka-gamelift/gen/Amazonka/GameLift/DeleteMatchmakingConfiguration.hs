@@ -23,14 +23,6 @@
 -- Permanently removes a FlexMatch matchmaking configuration. To delete,
 -- specify the configuration name. A matchmaking configuration cannot be
 -- deleted if it is being used in any active matchmaking tickets.
---
--- __Related actions__
---
--- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
--- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
--- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
--- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteMatchmakingConfiguration
   ( -- * Creating a Request
     DeleteMatchmakingConfiguration (..),
@@ -56,9 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteMatchmakingConfiguration' smart constructor.
+-- | /See:/ 'newDeleteMatchmakingConfiguration' smart constructor.
 data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
   { -- | A unique identifier for the matchmaking configuration. You can use
     -- either the configuration name or ARN value.

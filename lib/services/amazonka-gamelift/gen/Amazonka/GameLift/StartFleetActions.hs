@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resumes certain types of activity on fleet instances that were suspended
--- with StopFleetActions. For multi-location fleets, fleet actions are
--- managed separately for each location. Currently, this operation is used
--- to restart a fleet\'s auto-scaling activity.
+-- with
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html StopFleetActions>.
+-- For multi-location fleets, fleet actions are managed separately for each
+-- location. Currently, this operation is used to restart a fleet\'s
+-- auto-scaling activity.
 --
 -- This operation can be used in the following ways:
 --
@@ -36,21 +38,11 @@
 --
 -- If successful, GameLift once again initiates scaling events as triggered
 -- by the fleet\'s scaling policies. If actions on the fleet location were
--- never stopped, this operation will have no effect. You can view a
--- fleet\'s stopped actions using DescribeFleetAttributes or
--- DescribeFleetLocationAttributes.
+-- never stopped, this operation will have no effect.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
---
--- __Related actions__
---
--- CreateFleet | UpdateFleetCapacity | PutScalingPolicy |
--- DescribeEC2InstanceLimits | DescribeFleetAttributes |
--- DescribeFleetLocationAttributes | UpdateFleetAttributes |
--- StopFleetActions | DeleteFleet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.StartFleetActions
   ( -- * Creating a Request
     StartFleetActions (..),
@@ -66,8 +58,8 @@ module Amazonka.GameLift.StartFleetActions
     newStartFleetActionsResponse,
 
     -- * Response Lenses
-    startFleetActionsResponse_fleetId,
     startFleetActionsResponse_fleetArn,
+    startFleetActionsResponse_fleetId,
     startFleetActionsResponse_httpStatus,
   )
 where
@@ -80,9 +72,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newStartFleetActions' smart constructor.
+-- | /See:/ 'newStartFleetActions' smart constructor.
 data StartFleetActions = StartFleetActions'
   { -- | The fleet location to restart fleet actions for. Specify a location in
     -- the form of an Amazon Web Services Region code, such as @us-west-2@.
@@ -147,8 +137,8 @@ instance Core.AWSRequest StartFleetActions where
     Response.receiveJSON
       ( \s h x ->
           StartFleetActionsResponse'
-            Prelude.<$> (x Data..?> "FleetId")
-            Prelude.<*> (x Data..?> "FleetArn")
+            Prelude.<$> (x Data..?> "FleetArn")
+            Prelude.<*> (x Data..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,18 +183,16 @@ instance Data.ToPath StartFleetActions where
 instance Data.ToQuery StartFleetActions where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newStartFleetActionsResponse' smart constructor.
+-- | /See:/ 'newStartFleetActionsResponse' smart constructor.
 data StartFleetActionsResponse = StartFleetActionsResponse'
-  { -- | A unique identifier for the fleet to restart actions on.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet to restart actions on.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,13 +206,13 @@ data StartFleetActionsResponse = StartFleetActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'startFleetActionsResponse_fleetId' - A unique identifier for the fleet to restart actions on.
---
 -- 'fleetArn', 'startFleetActionsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift fleet resource and uniquely identifies
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+--
+-- 'fleetId', 'startFleetActionsResponse_fleetId' - A unique identifier for the fleet to restart actions on.
 --
 -- 'httpStatus', 'startFleetActionsResponse_httpStatus' - The response's http status code.
 newStartFleetActionsResponse ::
@@ -233,15 +221,11 @@ newStartFleetActionsResponse ::
   StartFleetActionsResponse
 newStartFleetActionsResponse pHttpStatus_ =
   StartFleetActionsResponse'
-    { fleetId =
+    { fleetArn =
         Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A unique identifier for the fleet to restart actions on.
-startFleetActionsResponse_fleetId :: Lens.Lens' StartFleetActionsResponse (Prelude.Maybe Prelude.Text)
-startFleetActionsResponse_fleetId = Lens.lens (\StartFleetActionsResponse' {fleetId} -> fleetId) (\s@StartFleetActionsResponse' {} a -> s {fleetId = a} :: StartFleetActionsResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -251,12 +235,16 @@ startFleetActionsResponse_fleetId = Lens.lens (\StartFleetActionsResponse' {flee
 startFleetActionsResponse_fleetArn :: Lens.Lens' StartFleetActionsResponse (Prelude.Maybe Prelude.Text)
 startFleetActionsResponse_fleetArn = Lens.lens (\StartFleetActionsResponse' {fleetArn} -> fleetArn) (\s@StartFleetActionsResponse' {} a -> s {fleetArn = a} :: StartFleetActionsResponse)
 
+-- | A unique identifier for the fleet to restart actions on.
+startFleetActionsResponse_fleetId :: Lens.Lens' StartFleetActionsResponse (Prelude.Maybe Prelude.Text)
+startFleetActionsResponse_fleetId = Lens.lens (\StartFleetActionsResponse' {fleetId} -> fleetId) (\s@StartFleetActionsResponse' {} a -> s {fleetId = a} :: StartFleetActionsResponse)
+
 -- | The response's http status code.
 startFleetActionsResponse_httpStatus :: Lens.Lens' StartFleetActionsResponse Prelude.Int
 startFleetActionsResponse_httpStatus = Lens.lens (\StartFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StartFleetActionsResponse' {} a -> s {httpStatus = a} :: StartFleetActionsResponse)
 
 instance Prelude.NFData StartFleetActionsResponse where
   rnf StartFleetActionsResponse' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf fleetArn
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf httpStatus

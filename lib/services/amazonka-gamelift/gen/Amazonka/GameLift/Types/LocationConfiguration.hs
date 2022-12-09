@@ -27,14 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 -- | A remote location where a multi-location fleet can deploy EC2 instances
 -- for game hosting.
 --
--- __Related actions__
---
--- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html CreateFleet>
---
 -- /See:/ 'newLocationConfiguration' smart constructor.
 data LocationConfiguration = LocationConfiguration'
   { -- | An Amazon Web Services Region code, such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text
+    location :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,12 +44,14 @@ data LocationConfiguration = LocationConfiguration'
 --
 -- 'location', 'locationConfiguration_location' - An Amazon Web Services Region code, such as @us-west-2@.
 newLocationConfiguration ::
+  -- | 'location'
+  Prelude.Text ->
   LocationConfiguration
-newLocationConfiguration =
-  LocationConfiguration' {location = Prelude.Nothing}
+newLocationConfiguration pLocation_ =
+  LocationConfiguration' {location = pLocation_}
 
 -- | An Amazon Web Services Region code, such as @us-west-2@.
-locationConfiguration_location :: Lens.Lens' LocationConfiguration (Prelude.Maybe Prelude.Text)
+locationConfiguration_location :: Lens.Lens' LocationConfiguration Prelude.Text
 locationConfiguration_location = Lens.lens (\LocationConfiguration' {location} -> location) (\s@LocationConfiguration' {} a -> s {location = a} :: LocationConfiguration)
 
 instance Prelude.Hashable LocationConfiguration where
@@ -67,5 +65,5 @@ instance Data.ToJSON LocationConfiguration where
   toJSON LocationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("Location" Data..=) Prelude.<$> location]
+          [Prelude.Just ("Location" Data..= location)]
       )

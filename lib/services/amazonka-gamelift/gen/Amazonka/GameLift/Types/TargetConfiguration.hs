@@ -24,19 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Settings for a target-based scaling policy (see ScalingPolicy. A
--- target-based policy tracks a particular fleet metric specifies a target
--- value for the metric. As player usage changes, the policy triggers
--- Amazon GameLift to adjust capacity so that the metric returns to the
--- target value. The target configuration specifies settings as needed for
--- the target based policy, including the target value.
---
--- __Related actions__
---
--- DescribeFleetCapacity | UpdateFleetCapacity | DescribeEC2InstanceLimits
--- | PutScalingPolicy | DescribeScalingPolicies | DeleteScalingPolicy |
--- StopFleetActions | StartFleetActions |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
+-- | Settings for a target-based scaling policy. A target-based policy tracks
+-- a particular fleet metric specifies a target value for the metric. As
+-- player usage changes, the policy triggers Amazon GameLift to adjust
+-- capacity so that the metric returns to the target value. The target
+-- configuration specifies settings as needed for the target based policy,
+-- including the target value.
 --
 -- /See:/ 'newTargetConfiguration' smart constructor.
 data TargetConfiguration = TargetConfiguration'

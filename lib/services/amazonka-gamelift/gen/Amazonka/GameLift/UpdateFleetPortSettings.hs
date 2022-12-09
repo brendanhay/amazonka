@@ -38,22 +38,14 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |
--- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions
--- | StartFleetActions | PutScalingPolicy | DeleteFleet |
--- DeleteFleetLocations | DeleteScalingPolicy |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.UpdateFleetPortSettings
   ( -- * Creating a Request
     UpdateFleetPortSettings (..),
     newUpdateFleetPortSettings,
 
     -- * Request Lenses
-    updateFleetPortSettings_inboundPermissionRevocations,
     updateFleetPortSettings_inboundPermissionAuthorizations,
+    updateFleetPortSettings_inboundPermissionRevocations,
     updateFleetPortSettings_fleetId,
 
     -- * Destructuring the Response
@@ -61,6 +53,7 @@ module Amazonka.GameLift.UpdateFleetPortSettings
     newUpdateFleetPortSettingsResponse,
 
     -- * Response Lenses
+    updateFleetPortSettingsResponse_fleetArn,
     updateFleetPortSettingsResponse_fleetId,
     updateFleetPortSettingsResponse_httpStatus,
   )
@@ -74,14 +67,12 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newUpdateFleetPortSettings' smart constructor.
+-- | /See:/ 'newUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { -- | A collection of port settings to be removed from the fleet resource.
-    inboundPermissionRevocations :: Prelude.Maybe [IpPermission],
-    -- | A collection of port settings to be added to the fleet resource.
+  { -- | A collection of port settings to be added to the fleet resource.
     inboundPermissionAuthorizations :: Prelude.Maybe [IpPermission],
+    -- | A collection of port settings to be removed from the fleet resource.
+    inboundPermissionRevocations :: Prelude.Maybe [IpPermission],
     -- | A unique identifier for the fleet to update port settings for. You can
     -- use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -96,9 +87,9 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inboundPermissionRevocations', 'updateFleetPortSettings_inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
---
 -- 'inboundPermissionAuthorizations', 'updateFleetPortSettings_inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
+--
+-- 'inboundPermissionRevocations', 'updateFleetPortSettings_inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
 --
 -- 'fleetId', 'updateFleetPortSettings_fleetId' - A unique identifier for the fleet to update port settings for. You can
 -- use either the fleet ID or ARN value.
@@ -108,19 +99,19 @@ newUpdateFleetPortSettings ::
   UpdateFleetPortSettings
 newUpdateFleetPortSettings pFleetId_ =
   UpdateFleetPortSettings'
-    { inboundPermissionRevocations =
+    { inboundPermissionAuthorizations =
         Prelude.Nothing,
-      inboundPermissionAuthorizations = Prelude.Nothing,
+      inboundPermissionRevocations = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | A collection of port settings to be removed from the fleet resource.
-updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
-updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A collection of port settings to be added to the fleet resource.
 updateFleetPortSettings_inboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
 updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionAuthorizations} -> inboundPermissionAuthorizations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of port settings to be removed from the fleet resource.
+updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
+updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the fleet to update port settings for. You can
 -- use either the fleet ID or ARN value.
@@ -137,21 +128,22 @@ instance Core.AWSRequest UpdateFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetPortSettingsResponse'
-            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<$> (x Data..?> "FleetArn")
+            Prelude.<*> (x Data..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFleetPortSettings where
   hashWithSalt _salt UpdateFleetPortSettings' {..} =
     _salt
-      `Prelude.hashWithSalt` inboundPermissionRevocations
       `Prelude.hashWithSalt` inboundPermissionAuthorizations
+      `Prelude.hashWithSalt` inboundPermissionRevocations
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData UpdateFleetPortSettings where
   rnf UpdateFleetPortSettings' {..} =
-    Prelude.rnf inboundPermissionRevocations
-      `Prelude.seq` Prelude.rnf inboundPermissionAuthorizations
+    Prelude.rnf inboundPermissionAuthorizations
+      `Prelude.seq` Prelude.rnf inboundPermissionRevocations
       `Prelude.seq` Prelude.rnf fleetId
 
 instance Data.ToHeaders UpdateFleetPortSettings where
@@ -173,10 +165,10 @@ instance Data.ToJSON UpdateFleetPortSettings where
   toJSON UpdateFleetPortSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InboundPermissionRevocations" Data..=)
-              Prelude.<$> inboundPermissionRevocations,
-            ("InboundPermissionAuthorizations" Data..=)
+          [ ("InboundPermissionAuthorizations" Data..=)
               Prelude.<$> inboundPermissionAuthorizations,
+            ("InboundPermissionRevocations" Data..=)
+              Prelude.<$> inboundPermissionRevocations,
             Prelude.Just ("FleetId" Data..= fleetId)
           ]
       )
@@ -187,11 +179,15 @@ instance Data.ToPath UpdateFleetPortSettings where
 instance Data.ToQuery UpdateFleetPortSettings where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newUpdateFleetPortSettingsResponse' smart constructor.
+-- | /See:/ 'newUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { -- | A unique identifier for the fleet that was updated.
+  { -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- that is assigned to a GameLift fleet resource and uniquely identifies
+    -- it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+    fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet that was updated.
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -206,6 +202,12 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetArn', 'updateFleetPortSettingsResponse_fleetArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+--
 -- 'fleetId', 'updateFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was updated.
 --
 -- 'httpStatus', 'updateFleetPortSettingsResponse_httpStatus' - The response's http status code.
@@ -215,10 +217,19 @@ newUpdateFleetPortSettingsResponse ::
   UpdateFleetPortSettingsResponse
 newUpdateFleetPortSettingsResponse pHttpStatus_ =
   UpdateFleetPortSettingsResponse'
-    { fleetId =
+    { fleetArn =
         Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+updateFleetPortSettingsResponse_fleetArn :: Lens.Lens' UpdateFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
+updateFleetPortSettingsResponse_fleetArn = Lens.lens (\UpdateFleetPortSettingsResponse' {fleetArn} -> fleetArn) (\s@UpdateFleetPortSettingsResponse' {} a -> s {fleetArn = a} :: UpdateFleetPortSettingsResponse)
 
 -- | A unique identifier for the fleet that was updated.
 updateFleetPortSettingsResponse_fleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
@@ -233,5 +244,6 @@ instance
     UpdateFleetPortSettingsResponse
   where
   rnf UpdateFleetPortSettingsResponse' {..} =
-    Prelude.rnf fleetId
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf httpStatus

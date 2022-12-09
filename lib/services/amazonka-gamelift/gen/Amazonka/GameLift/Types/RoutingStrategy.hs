@@ -29,8 +29,6 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- __Related actions__
 --
--- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
--- ResolveAlias |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- /See:/ 'newRoutingStrategy' smart constructor.
@@ -49,8 +47,7 @@ data RoutingStrategy = RoutingStrategy'
     --
     -- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can
     --     be used to display a message to the user. A terminal alias throws a
-    --     TerminalRoutingStrategyException with the RoutingStrategy message
-    --     embedded.
+    --     TerminalRoutingStrategyException with the message embedded.
     type' :: Prelude.Maybe RoutingStrategyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,8 +74,7 @@ data RoutingStrategy = RoutingStrategy'
 --
 -- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can
 --     be used to display a message to the user. A terminal alias throws a
---     TerminalRoutingStrategyException with the RoutingStrategy message
---     embedded.
+--     TerminalRoutingStrategyException with the message embedded.
 newRoutingStrategy ::
   RoutingStrategy
 newRoutingStrategy =
@@ -106,8 +102,7 @@ routingStrategy_message = Lens.lens (\RoutingStrategy' {message} -> message) (\s
 --
 -- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can
 --     be used to display a message to the user. A terminal alias throws a
---     TerminalRoutingStrategyException with the RoutingStrategy message
---     embedded.
+--     TerminalRoutingStrategyException with the message embedded.
 routingStrategy_type :: Lens.Lens' RoutingStrategy (Prelude.Maybe RoutingStrategyType)
 routingStrategy_type = Lens.lens (\RoutingStrategy' {type'} -> type') (\s@RoutingStrategy' {} a -> s {type' = a} :: RoutingStrategy)
 

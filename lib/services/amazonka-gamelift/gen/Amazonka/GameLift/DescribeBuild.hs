@@ -28,9 +28,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related actions__
---
--- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeBuild
   ( -- * Creating a Request
@@ -58,9 +55,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeBuild' smart constructor.
+-- | /See:/ 'newDescribeBuild' smart constructor.
 data DescribeBuild = DescribeBuild'
   { -- | A unique identifier for the build to retrieve properties for. You can
     -- use either the build ID or ARN value.
@@ -137,9 +132,7 @@ instance Data.ToPath DescribeBuild where
 instance Data.ToQuery DescribeBuild where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeBuildResponse' smart constructor.
+-- | /See:/ 'newDescribeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
   { -- | Set of properties describing the requested build.
     build :: Prelude.Maybe Build,

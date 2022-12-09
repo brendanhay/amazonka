@@ -30,12 +30,6 @@
 -- page for maximum log file sizes. Log files that exceed this limit are
 -- not saved.
 --
--- __Related actions__
---
--- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
--- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
--- StartGameSessionPlacement | DescribeGameSessionPlacement |
--- StopGameSessionPlacement |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.GetGameSessionLogUrl
   ( -- * Creating a Request
@@ -63,9 +57,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newGetGameSessionLogUrl' smart constructor.
+-- | /See:/ 'newGetGameSessionLogUrl' smart constructor.
 data GetGameSessionLogUrl = GetGameSessionLogUrl'
   { -- | A unique identifier for the game session to get logs for.
     gameSessionId :: Prelude.Text
@@ -147,9 +139,7 @@ instance Data.ToPath GetGameSessionLogUrl where
 instance Data.ToQuery GetGameSessionLogUrl where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newGetGameSessionLogUrlResponse' smart constructor.
+-- | /See:/ 'newGetGameSessionLogUrlResponse' smart constructor.
 data GetGameSessionLogUrlResponse = GetGameSessionLogUrlResponse'
   { -- | Location of the requested game session logs, available for download.
     -- This URL is valid for 15 minutes, after which S3 will reject any

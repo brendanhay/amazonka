@@ -27,7 +27,7 @@
 -- To get the runtime configuration that is currently in forces for a
 -- fleet, provide the fleet ID.
 --
--- If successful, a RuntimeConfiguration object is returned for the
+-- If successful, a @RuntimeConfiguration@ object is returned for the
 -- requested fleet. If the requested fleet has been deleted, the result set
 -- is empty.
 --
@@ -36,15 +36,6 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html Running multiple processes on a fleet>
---
--- __Related actions__
---
--- ListFleets | DescribeEC2InstanceLimits | DescribeFleetAttributes |
--- DescribeFleetCapacity | DescribeFleetEvents |
--- DescribeFleetLocationAttributes | DescribeFleetPortSettings |
--- DescribeFleetUtilization | DescribeRuntimeConfiguration |
--- DescribeScalingPolicies |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeRuntimeConfiguration
   ( -- * Creating a Request
     DescribeRuntimeConfiguration (..),
@@ -71,9 +62,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeRuntimeConfiguration' smart constructor.
+-- | /See:/ 'newDescribeRuntimeConfiguration' smart constructor.
 data DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
   { -- | A unique identifier for the fleet to get the runtime configuration for.
     -- You can use either the fleet ID or ARN value.
@@ -156,9 +145,7 @@ instance Data.ToPath DescribeRuntimeConfiguration where
 instance Data.ToQuery DescribeRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeRuntimeConfigurationResponse' smart constructor.
+-- | /See:/ 'newDescribeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
   { -- | Instructions that describe how server processes should be launched and
     -- maintained on each instance in the fleet.

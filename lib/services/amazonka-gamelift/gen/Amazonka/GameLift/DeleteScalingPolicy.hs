@@ -25,15 +25,9 @@
 -- specify both the scaling policy name and the fleet ID it is associated
 -- with.
 --
--- To temporarily suspend scaling policies, call StopFleetActions. This
--- operation suspends all policies for the fleet.
---
--- __Related actions__
---
--- DescribeFleetCapacity | UpdateFleetCapacity | DescribeEC2InstanceLimits
--- | PutScalingPolicy | DescribeScalingPolicies | DeleteScalingPolicy |
--- StopFleetActions | StartFleetActions |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
+-- To temporarily suspend scaling policies, use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html StopFleetActions>.
+-- This operation suspends all policies for the fleet.
 module Amazonka.GameLift.DeleteScalingPolicy
   ( -- * Creating a Request
     DeleteScalingPolicy (..),
@@ -57,9 +51,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteScalingPolicy' smart constructor.
+-- | /See:/ 'newDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
   { -- | A descriptive label that is associated with a fleet\'s scaling policy.
     -- Policy names do not need to be unique.

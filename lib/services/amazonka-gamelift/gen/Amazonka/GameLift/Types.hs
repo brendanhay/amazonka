@@ -18,20 +18,20 @@ module Amazonka.GameLift.Types
     defaultService,
 
     -- * Errors
-    _TerminalRoutingStrategyException,
-    _UnauthorizedException,
+    _ConflictException,
+    _FleetCapacityExceededException,
+    _GameSessionFullException,
+    _IdempotentParameterMismatchException,
+    _InternalServiceException,
+    _InvalidFleetStatusException,
+    _InvalidGameSessionStatusException,
+    _InvalidRequestException,
+    _LimitExceededException,
     _NotFoundException,
     _OutOfCapacityException,
-    _LimitExceededException,
-    _InvalidFleetStatusException,
-    _ConflictException,
     _TaggingFailedException,
-    _FleetCapacityExceededException,
-    _InvalidGameSessionStatusException,
-    _InternalServiceException,
-    _GameSessionFullException,
-    _InvalidRequestException,
-    _IdempotentParameterMismatchException,
+    _TerminalRoutingStrategyException,
+    _UnauthorizedException,
     _UnsupportedRegionException,
 
     -- * AcceptanceType
@@ -51,6 +51,12 @@ module Amazonka.GameLift.Types
 
     -- * ComparisonOperatorType
     ComparisonOperatorType (..),
+
+    -- * ComputeStatus
+    ComputeStatus (..),
+
+    -- * ComputeType
+    ComputeType (..),
 
     -- * EC2InstanceType
     EC2InstanceType (..),
@@ -112,6 +118,9 @@ module Amazonka.GameLift.Types
     -- * IpProtocol
     IpProtocol (..),
 
+    -- * LocationFilter
+    LocationFilter (..),
+
     -- * LocationUpdateStatus
     LocationUpdateStatus (..),
 
@@ -154,39 +163,45 @@ module Amazonka.GameLift.Types
     -- * Alias
     Alias (..),
     newAlias,
-    alias_name,
-    alias_aliasId,
     alias_aliasArn,
-    alias_routingStrategy,
-    alias_lastUpdatedTime,
-    alias_description,
+    alias_aliasId,
     alias_creationTime,
+    alias_description,
+    alias_lastUpdatedTime,
+    alias_name,
+    alias_routingStrategy,
+
+    -- * AnywhereConfiguration
+    AnywhereConfiguration (..),
+    newAnywhereConfiguration,
+    anywhereConfiguration_cost,
 
     -- * AttributeValue
     AttributeValue (..),
     newAttributeValue,
-    attributeValue_sl,
+    attributeValue_n,
     attributeValue_s,
     attributeValue_sdm,
-    attributeValue_n,
+    attributeValue_sl,
 
     -- * AwsCredentials
     AwsCredentials (..),
     newAwsCredentials,
-    awsCredentials_sessionToken,
-    awsCredentials_secretAccessKey,
     awsCredentials_accessKeyId,
+    awsCredentials_secretAccessKey,
+    awsCredentials_sessionToken,
 
     -- * Build
     Build (..),
     newBuild,
-    build_operatingSystem,
-    build_name,
-    build_buildId,
     build_buildArn,
+    build_buildId,
+    build_creationTime,
+    build_name,
+    build_operatingSystem,
+    build_serverSdkVersion,
     build_sizeOnDisk,
     build_status,
-    build_creationTime,
     build_version,
 
     -- * CertificateConfiguration
@@ -194,40 +209,56 @@ module Amazonka.GameLift.Types
     newCertificateConfiguration,
     certificateConfiguration_certificateType,
 
+    -- * Compute
+    Compute (..),
+    newCompute,
+    compute_computeArn,
+    compute_computeName,
+    compute_computeStatus,
+    compute_creationTime,
+    compute_dnsName,
+    compute_fleetArn,
+    compute_fleetId,
+    compute_gameLiftServiceSdkEndpoint,
+    compute_ipAddress,
+    compute_location,
+    compute_operatingSystem,
+    compute_type,
+
     -- * DesiredPlayerSession
     DesiredPlayerSession (..),
     newDesiredPlayerSession,
-    desiredPlayerSession_playerId,
     desiredPlayerSession_playerData,
+    desiredPlayerSession_playerId,
 
     -- * EC2InstanceCounts
     EC2InstanceCounts (..),
     newEC2InstanceCounts,
-    eC2InstanceCounts_minimum,
     eC2InstanceCounts_active,
-    eC2InstanceCounts_terminating,
     eC2InstanceCounts_desired,
-    eC2InstanceCounts_maximum,
-    eC2InstanceCounts_pending,
     eC2InstanceCounts_idle,
+    eC2InstanceCounts_maximum,
+    eC2InstanceCounts_minimum,
+    eC2InstanceCounts_pending,
+    eC2InstanceCounts_terminating,
 
     -- * EC2InstanceLimit
     EC2InstanceLimit (..),
     newEC2InstanceLimit,
-    eC2InstanceLimit_instanceLimit,
-    eC2InstanceLimit_eC2InstanceType,
     eC2InstanceLimit_currentInstances,
+    eC2InstanceLimit_eC2InstanceType,
+    eC2InstanceLimit_instanceLimit,
     eC2InstanceLimit_location,
 
     -- * Event
     Event (..),
     newEvent,
-    event_resourceId,
     event_eventCode,
-    event_message,
     event_eventId,
     event_eventTime,
+    event_message,
     event_preSignedLogUrl,
+    event_resourceId,
 
     -- * FilterConfiguration
     FilterConfiguration (..),
@@ -237,49 +268,51 @@ module Amazonka.GameLift.Types
     -- * FleetAttributes
     FleetAttributes (..),
     newFleetAttributes,
-    fleetAttributes_scriptArn,
-    fleetAttributes_operatingSystem,
-    fleetAttributes_serverLaunchPath,
-    fleetAttributes_fleetId,
-    fleetAttributes_name,
-    fleetAttributes_fleetType,
-    fleetAttributes_certificateConfiguration,
-    fleetAttributes_instanceRoleArn,
-    fleetAttributes_buildId,
+    fleetAttributes_anywhereConfiguration,
     fleetAttributes_buildArn,
-    fleetAttributes_newGameSessionProtectionPolicy,
-    fleetAttributes_stoppedActions,
-    fleetAttributes_status,
-    fleetAttributes_description,
-    fleetAttributes_instanceType,
-    fleetAttributes_fleetArn,
-    fleetAttributes_terminationTime,
-    fleetAttributes_logPaths,
+    fleetAttributes_buildId,
+    fleetAttributes_certificateConfiguration,
+    fleetAttributes_computeType,
     fleetAttributes_creationTime,
+    fleetAttributes_description,
+    fleetAttributes_fleetArn,
+    fleetAttributes_fleetId,
+    fleetAttributes_fleetType,
+    fleetAttributes_instanceRoleArn,
+    fleetAttributes_instanceType,
+    fleetAttributes_logPaths,
     fleetAttributes_metricGroups,
-    fleetAttributes_serverLaunchParameters,
-    fleetAttributes_scriptId,
+    fleetAttributes_name,
+    fleetAttributes_newGameSessionProtectionPolicy,
+    fleetAttributes_operatingSystem,
     fleetAttributes_resourceCreationLimitPolicy,
+    fleetAttributes_scriptArn,
+    fleetAttributes_scriptId,
+    fleetAttributes_serverLaunchParameters,
+    fleetAttributes_serverLaunchPath,
+    fleetAttributes_status,
+    fleetAttributes_stoppedActions,
+    fleetAttributes_terminationTime,
 
     -- * FleetCapacity
     FleetCapacity (..),
     newFleetCapacity,
+    fleetCapacity_fleetArn,
     fleetCapacity_fleetId,
     fleetCapacity_instanceCounts,
-    fleetCapacity_location,
     fleetCapacity_instanceType,
-    fleetCapacity_fleetArn,
+    fleetCapacity_location,
 
     -- * FleetUtilization
     FleetUtilization (..),
     newFleetUtilization,
-    fleetUtilization_fleetId,
-    fleetUtilization_currentPlayerSessionCount,
-    fleetUtilization_location,
-    fleetUtilization_fleetArn,
-    fleetUtilization_maximumPlayerSessionCount,
     fleetUtilization_activeGameSessionCount,
     fleetUtilization_activeServerProcessCount,
+    fleetUtilization_currentPlayerSessionCount,
+    fleetUtilization_fleetArn,
+    fleetUtilization_fleetId,
+    fleetUtilization_location,
+    fleetUtilization_maximumPlayerSessionCount,
 
     -- * GameProperty
     GameProperty (..),
@@ -290,33 +323,33 @@ module Amazonka.GameLift.Types
     -- * GameServer
     GameServer (..),
     newGameServer,
-    gameServer_gameServerData,
     gameServer_claimStatus,
-    gameServer_gameServerGroupName,
-    gameServer_lastClaimTime,
-    gameServer_instanceId,
-    gameServer_gameServerGroupArn,
-    gameServer_registrationTime,
-    gameServer_lastHealthCheckTime,
     gameServer_connectionInfo,
-    gameServer_utilizationStatus,
+    gameServer_gameServerData,
+    gameServer_gameServerGroupArn,
+    gameServer_gameServerGroupName,
     gameServer_gameServerId,
+    gameServer_instanceId,
+    gameServer_lastClaimTime,
+    gameServer_lastHealthCheckTime,
+    gameServer_registrationTime,
+    gameServer_utilizationStatus,
 
     -- * GameServerGroup
     GameServerGroup (..),
     newGameServerGroup,
-    gameServerGroup_suspendedActions,
-    gameServerGroup_roleArn,
     gameServerGroup_autoScalingGroupArn,
-    gameServerGroup_instanceDefinitions,
-    gameServerGroup_statusReason,
-    gameServerGroup_gameServerGroupName,
-    gameServerGroup_status,
-    gameServerGroup_gameServerProtectionPolicy,
-    gameServerGroup_lastUpdatedTime,
     gameServerGroup_balancingStrategy,
-    gameServerGroup_gameServerGroupArn,
     gameServerGroup_creationTime,
+    gameServerGroup_gameServerGroupArn,
+    gameServerGroup_gameServerGroupName,
+    gameServerGroup_gameServerProtectionPolicy,
+    gameServerGroup_instanceDefinitions,
+    gameServerGroup_lastUpdatedTime,
+    gameServerGroup_roleArn,
+    gameServerGroup_status,
+    gameServerGroup_statusReason,
+    gameServerGroup_suspendedActions,
 
     -- * GameServerGroupAutoScalingPolicy
     GameServerGroupAutoScalingPolicy (..),
@@ -327,83 +360,83 @@ module Amazonka.GameLift.Types
     -- * GameServerInstance
     GameServerInstance (..),
     newGameServerInstance,
-    gameServerInstance_instanceStatus,
+    gameServerInstance_gameServerGroupArn,
     gameServerInstance_gameServerGroupName,
     gameServerInstance_instanceId,
-    gameServerInstance_gameServerGroupArn,
+    gameServerInstance_instanceStatus,
 
     -- * GameSession
     GameSession (..),
     newGameSession,
-    gameSession_port,
-    gameSession_matchmakerData,
-    gameSession_gameSessionId,
-    gameSession_fleetId,
-    gameSession_creatorId,
-    gameSession_name,
-    gameSession_currentPlayerSessionCount,
-    gameSession_gameSessionData,
-    gameSession_playerSessionCreationPolicy,
-    gameSession_statusReason,
-    gameSession_status,
-    gameSession_location,
-    gameSession_fleetArn,
-    gameSession_terminationTime,
-    gameSession_maximumPlayerSessionCount,
-    gameSession_gameProperties,
     gameSession_creationTime,
+    gameSession_creatorId,
+    gameSession_currentPlayerSessionCount,
     gameSession_dnsName,
+    gameSession_fleetArn,
+    gameSession_fleetId,
+    gameSession_gameProperties,
+    gameSession_gameSessionData,
+    gameSession_gameSessionId,
     gameSession_ipAddress,
+    gameSession_location,
+    gameSession_matchmakerData,
+    gameSession_maximumPlayerSessionCount,
+    gameSession_name,
+    gameSession_playerSessionCreationPolicy,
+    gameSession_port,
+    gameSession_status,
+    gameSession_statusReason,
+    gameSession_terminationTime,
 
     -- * GameSessionConnectionInfo
     GameSessionConnectionInfo (..),
     newGameSessionConnectionInfo,
-    gameSessionConnectionInfo_port,
-    gameSessionConnectionInfo_matchedPlayerSessions,
-    gameSessionConnectionInfo_gameSessionArn,
     gameSessionConnectionInfo_dnsName,
+    gameSessionConnectionInfo_gameSessionArn,
     gameSessionConnectionInfo_ipAddress,
+    gameSessionConnectionInfo_matchedPlayerSessions,
+    gameSessionConnectionInfo_port,
 
     -- * GameSessionDetail
     GameSessionDetail (..),
     newGameSessionDetail,
-    gameSessionDetail_protectionPolicy,
     gameSessionDetail_gameSession,
+    gameSessionDetail_protectionPolicy,
 
     -- * GameSessionPlacement
     GameSessionPlacement (..),
     newGameSessionPlacement,
-    gameSessionPlacement_placedPlayerSessions,
-    gameSessionPlacement_port,
-    gameSessionPlacement_placementId,
-    gameSessionPlacement_matchmakerData,
-    gameSessionPlacement_gameSessionId,
-    gameSessionPlacement_gameSessionName,
-    gameSessionPlacement_gameSessionData,
-    gameSessionPlacement_status,
-    gameSessionPlacement_gameSessionQueueName,
-    gameSessionPlacement_gameSessionRegion,
+    gameSessionPlacement_dnsName,
     gameSessionPlacement_endTime,
-    gameSessionPlacement_playerLatencies,
-    gameSessionPlacement_maximumPlayerSessionCount,
     gameSessionPlacement_gameProperties,
     gameSessionPlacement_gameSessionArn,
-    gameSessionPlacement_dnsName,
-    gameSessionPlacement_startTime,
+    gameSessionPlacement_gameSessionData,
+    gameSessionPlacement_gameSessionId,
+    gameSessionPlacement_gameSessionName,
+    gameSessionPlacement_gameSessionQueueName,
+    gameSessionPlacement_gameSessionRegion,
     gameSessionPlacement_ipAddress,
+    gameSessionPlacement_matchmakerData,
+    gameSessionPlacement_maximumPlayerSessionCount,
+    gameSessionPlacement_placedPlayerSessions,
+    gameSessionPlacement_placementId,
+    gameSessionPlacement_playerLatencies,
+    gameSessionPlacement_port,
+    gameSessionPlacement_startTime,
+    gameSessionPlacement_status,
 
     -- * GameSessionQueue
     GameSessionQueue (..),
     newGameSessionQueue,
-    gameSessionQueue_notificationTarget,
-    gameSessionQueue_name,
-    gameSessionQueue_priorityConfiguration,
-    gameSessionQueue_gameSessionQueueArn,
-    gameSessionQueue_timeoutInSeconds,
-    gameSessionQueue_playerLatencyPolicies,
+    gameSessionQueue_customEventData,
     gameSessionQueue_destinations,
     gameSessionQueue_filterConfiguration,
-    gameSessionQueue_customEventData,
+    gameSessionQueue_gameSessionQueueArn,
+    gameSessionQueue_name,
+    gameSessionQueue_notificationTarget,
+    gameSessionQueue_playerLatencyPolicies,
+    gameSessionQueue_priorityConfiguration,
+    gameSessionQueue_timeoutInSeconds,
 
     -- * GameSessionQueueDestination
     GameSessionQueueDestination (..),
@@ -413,31 +446,31 @@ module Amazonka.GameLift.Types
     -- * Instance
     Instance (..),
     newInstance,
-    instance_operatingSystem,
-    instance_fleetId,
-    instance_type,
-    instance_status,
-    instance_location,
-    instance_instanceId,
-    instance_fleetArn,
     instance_creationTime,
     instance_dnsName,
+    instance_fleetArn,
+    instance_fleetId,
+    instance_instanceId,
     instance_ipAddress,
+    instance_location,
+    instance_operatingSystem,
+    instance_status,
+    instance_type,
 
     -- * InstanceAccess
     InstanceAccess (..),
     newInstanceAccess,
-    instanceAccess_operatingSystem,
+    instanceAccess_credentials,
     instanceAccess_fleetId,
     instanceAccess_instanceId,
-    instanceAccess_credentials,
     instanceAccess_ipAddress,
+    instanceAccess_operatingSystem,
 
     -- * InstanceCredentials
     InstanceCredentials (..),
     newInstanceCredentials,
-    instanceCredentials_userName,
     instanceCredentials_secret,
+    instanceCredentials_userName,
 
     -- * InstanceDefinition
     InstanceDefinition (..),
@@ -457,90 +490,96 @@ module Amazonka.GameLift.Types
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_version,
     launchTemplateSpecification_launchTemplateName,
+    launchTemplateSpecification_version,
 
     -- * LocationAttributes
     LocationAttributes (..),
     newLocationAttributes,
-    locationAttributes_updateStatus,
-    locationAttributes_stoppedActions,
     locationAttributes_locationState,
+    locationAttributes_stoppedActions,
+    locationAttributes_updateStatus,
 
     -- * LocationConfiguration
     LocationConfiguration (..),
     newLocationConfiguration,
     locationConfiguration_location,
 
+    -- * LocationModel
+    LocationModel (..),
+    newLocationModel,
+    locationModel_locationArn,
+    locationModel_locationName,
+
     -- * LocationState
     LocationState (..),
     newLocationState,
-    locationState_status,
     locationState_location,
+    locationState_status,
 
     -- * MatchedPlayerSession
     MatchedPlayerSession (..),
     newMatchedPlayerSession,
-    matchedPlayerSession_playerSessionId,
     matchedPlayerSession_playerId,
+    matchedPlayerSession_playerSessionId,
 
     -- * MatchmakingConfiguration
     MatchmakingConfiguration (..),
     newMatchmakingConfiguration,
-    matchmakingConfiguration_configurationArn,
-    matchmakingConfiguration_notificationTarget,
-    matchmakingConfiguration_name,
-    matchmakingConfiguration_acceptanceTimeoutSeconds,
-    matchmakingConfiguration_ruleSetName,
     matchmakingConfiguration_acceptanceRequired,
+    matchmakingConfiguration_acceptanceTimeoutSeconds,
     matchmakingConfiguration_additionalPlayerCount,
-    matchmakingConfiguration_gameSessionData,
-    matchmakingConfiguration_ruleSetArn,
-    matchmakingConfiguration_flexMatchMode,
-    matchmakingConfiguration_description,
     matchmakingConfiguration_backfillMode,
-    matchmakingConfiguration_gameSessionQueueArns,
-    matchmakingConfiguration_gameProperties,
+    matchmakingConfiguration_configurationArn,
     matchmakingConfiguration_creationTime,
-    matchmakingConfiguration_requestTimeoutSeconds,
     matchmakingConfiguration_customEventData,
+    matchmakingConfiguration_description,
+    matchmakingConfiguration_flexMatchMode,
+    matchmakingConfiguration_gameProperties,
+    matchmakingConfiguration_gameSessionData,
+    matchmakingConfiguration_gameSessionQueueArns,
+    matchmakingConfiguration_name,
+    matchmakingConfiguration_notificationTarget,
+    matchmakingConfiguration_requestTimeoutSeconds,
+    matchmakingConfiguration_ruleSetArn,
+    matchmakingConfiguration_ruleSetName,
 
     -- * MatchmakingRuleSet
     MatchmakingRuleSet (..),
     newMatchmakingRuleSet,
-    matchmakingRuleSet_ruleSetName,
-    matchmakingRuleSet_ruleSetArn,
     matchmakingRuleSet_creationTime,
+    matchmakingRuleSet_ruleSetArn,
+    matchmakingRuleSet_ruleSetName,
     matchmakingRuleSet_ruleSetBody,
 
     -- * MatchmakingTicket
     MatchmakingTicket (..),
     newMatchmakingTicket,
-    matchmakingTicket_players,
     matchmakingTicket_configurationArn,
-    matchmakingTicket_estimatedWaitTime,
-    matchmakingTicket_statusReason,
-    matchmakingTicket_status,
-    matchmakingTicket_endTime,
-    matchmakingTicket_ticketId,
-    matchmakingTicket_gameSessionConnectionInfo,
     matchmakingTicket_configurationName,
-    matchmakingTicket_statusMessage,
+    matchmakingTicket_endTime,
+    matchmakingTicket_estimatedWaitTime,
+    matchmakingTicket_gameSessionConnectionInfo,
+    matchmakingTicket_players,
     matchmakingTicket_startTime,
+    matchmakingTicket_status,
+    matchmakingTicket_statusMessage,
+    matchmakingTicket_statusReason,
+    matchmakingTicket_ticketId,
 
     -- * PlacedPlayerSession
     PlacedPlayerSession (..),
     newPlacedPlayerSession,
-    placedPlayerSession_playerSessionId,
     placedPlayerSession_playerId,
+    placedPlayerSession_playerSessionId,
 
     -- * Player
     Player (..),
     newPlayer,
-    player_team,
-    player_playerAttributes,
     player_latencyInMs,
+    player_playerAttributes,
     player_playerId,
+    player_team,
 
     -- * PlayerLatency
     PlayerLatency (..),
@@ -558,18 +597,18 @@ module Amazonka.GameLift.Types
     -- * PlayerSession
     PlayerSession (..),
     newPlayerSession,
-    playerSession_port,
-    playerSession_gameSessionId,
-    playerSession_fleetId,
-    playerSession_playerSessionId,
-    playerSession_status,
-    playerSession_playerId,
-    playerSession_fleetArn,
-    playerSession_terminationTime,
     playerSession_creationTime,
     playerSession_dnsName,
-    playerSession_playerData,
+    playerSession_fleetArn,
+    playerSession_fleetId,
+    playerSession_gameSessionId,
     playerSession_ipAddress,
+    playerSession_playerData,
+    playerSession_playerId,
+    playerSession_playerSessionId,
+    playerSession_port,
+    playerSession_status,
+    playerSession_terminationTime,
 
     -- * PriorityConfiguration
     PriorityConfiguration (..),
@@ -593,45 +632,45 @@ module Amazonka.GameLift.Types
     -- * RuntimeConfiguration
     RuntimeConfiguration (..),
     newRuntimeConfiguration,
-    runtimeConfiguration_maxConcurrentGameSessionActivations,
     runtimeConfiguration_gameSessionActivationTimeoutSeconds,
+    runtimeConfiguration_maxConcurrentGameSessionActivations,
     runtimeConfiguration_serverProcesses,
 
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_key,
-    s3Location_roleArn,
     s3Location_bucket,
+    s3Location_key,
     s3Location_objectVersion,
+    s3Location_roleArn,
 
     -- * ScalingPolicy
     ScalingPolicy (..),
     newScalingPolicy,
+    scalingPolicy_comparisonOperator,
+    scalingPolicy_evaluationPeriods,
+    scalingPolicy_fleetArn,
     scalingPolicy_fleetId,
+    scalingPolicy_location,
+    scalingPolicy_metricName,
     scalingPolicy_name,
     scalingPolicy_policyType,
-    scalingPolicy_updateStatus,
+    scalingPolicy_scalingAdjustment,
+    scalingPolicy_scalingAdjustmentType,
     scalingPolicy_status,
-    scalingPolicy_evaluationPeriods,
-    scalingPolicy_location,
-    scalingPolicy_fleetArn,
-    scalingPolicy_metricName,
     scalingPolicy_targetConfiguration,
     scalingPolicy_threshold,
-    scalingPolicy_scalingAdjustment,
-    scalingPolicy_comparisonOperator,
-    scalingPolicy_scalingAdjustmentType,
+    scalingPolicy_updateStatus,
 
     -- * Script
     Script (..),
     newScript,
-    script_scriptArn,
+    script_creationTime,
     script_name,
+    script_scriptArn,
+    script_scriptId,
     script_sizeOnDisk,
     script_storageLocation,
-    script_creationTime,
-    script_scriptId,
     script_version,
 
     -- * ServerProcess
@@ -660,28 +699,28 @@ module Amazonka.GameLift.Types
     -- * VpcPeeringAuthorization
     VpcPeeringAuthorization (..),
     newVpcPeeringAuthorization,
+    vpcPeeringAuthorization_creationTime,
     vpcPeeringAuthorization_expirationTime,
     vpcPeeringAuthorization_gameLiftAwsAccountId,
-    vpcPeeringAuthorization_creationTime,
-    vpcPeeringAuthorization_peerVpcId,
     vpcPeeringAuthorization_peerVpcAwsAccountId,
+    vpcPeeringAuthorization_peerVpcId,
 
     -- * VpcPeeringConnection
     VpcPeeringConnection (..),
     newVpcPeeringConnection,
+    vpcPeeringConnection_fleetArn,
     vpcPeeringConnection_fleetId,
     vpcPeeringConnection_gameLiftVpcId,
     vpcPeeringConnection_ipV4CidrBlock,
-    vpcPeeringConnection_vpcPeeringConnectionId,
-    vpcPeeringConnection_status,
-    vpcPeeringConnection_fleetArn,
     vpcPeeringConnection_peerVpcId,
+    vpcPeeringConnection_status,
+    vpcPeeringConnection_vpcPeeringConnectionId,
 
     -- * VpcPeeringConnectionStatus
     VpcPeeringConnectionStatus (..),
     newVpcPeeringConnectionStatus,
-    vpcPeeringConnectionStatus_message,
     vpcPeeringConnectionStatus_code,
+    vpcPeeringConnectionStatus_message,
   )
 where
 
@@ -689,6 +728,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.GameLift.Types.AcceptanceType
 import Amazonka.GameLift.Types.Alias
+import Amazonka.GameLift.Types.AnywhereConfiguration
 import Amazonka.GameLift.Types.AttributeValue
 import Amazonka.GameLift.Types.AwsCredentials
 import Amazonka.GameLift.Types.BackfillMode
@@ -698,6 +738,9 @@ import Amazonka.GameLift.Types.BuildStatus
 import Amazonka.GameLift.Types.CertificateConfiguration
 import Amazonka.GameLift.Types.CertificateType
 import Amazonka.GameLift.Types.ComparisonOperatorType
+import Amazonka.GameLift.Types.Compute
+import Amazonka.GameLift.Types.ComputeStatus
+import Amazonka.GameLift.Types.ComputeType
 import Amazonka.GameLift.Types.DesiredPlayerSession
 import Amazonka.GameLift.Types.EC2InstanceCounts
 import Amazonka.GameLift.Types.EC2InstanceLimit
@@ -745,6 +788,8 @@ import Amazonka.GameLift.Types.IpProtocol
 import Amazonka.GameLift.Types.LaunchTemplateSpecification
 import Amazonka.GameLift.Types.LocationAttributes
 import Amazonka.GameLift.Types.LocationConfiguration
+import Amazonka.GameLift.Types.LocationFilter
+import Amazonka.GameLift.Types.LocationModel
 import Amazonka.GameLift.Types.LocationState
 import Amazonka.GameLift.Types.LocationUpdateStatus
 import Amazonka.GameLift.Types.MatchedPlayerSession
@@ -810,28 +855,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -839,13 +878,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -853,10 +896,116 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | The requested operation would cause a conflict with the current state of
+-- a service resource associated with the request. Resolve the conflict
+-- before retrying this request.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
+-- | The specified fleet has no available instances to fulfill a
+-- @CreateGameSession@ request. Clients can retry such requests immediately
+-- or after a waiting period.
+_FleetCapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FleetCapacityExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FleetCapacityExceededException"
+
+-- | The game instance is currently full and cannot allow the requested
+-- player(s) to join. Clients can retry such requests immediately or after
+-- a waiting period.
+_GameSessionFullException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GameSessionFullException =
+  Core._MatchServiceError
+    defaultService
+    "GameSessionFullException"
+
+-- | A game session with this custom ID string already exists in this fleet.
+-- Resolve this conflict before retrying this request.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+
+-- | The service encountered an unrecoverable internal failure while
+-- processing the request. Clients can retry such requests immediately or
+-- after a waiting period.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The requested operation would cause a conflict with the current state of
+-- a resource associated with the request and\/or the fleet. Resolve the
+-- conflict before retrying.
+_InvalidFleetStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFleetStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFleetStatusException"
+
+-- | The requested operation would cause a conflict with the current state of
+-- a resource associated with the request and\/or the game instance.
+-- Resolve the conflict before retrying.
+_InvalidGameSessionStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGameSessionStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidGameSessionStatusException"
+
+-- | One or more parameter values in the request are invalid. Correct the
+-- invalid parameter values before retrying.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | The requested operation would cause the resource to exceed the allowed
+-- service limit. Resolve the issue before retrying.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | THe requested resources was not found. The resource was either not
+-- created yet or deleted.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+
+-- | The specified game server group has no available game servers to fulfill
+-- a @ClaimGameServer@ request. Clients can retry such requests immediately
+-- or after a waiting period.
+_OutOfCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OutOfCapacityException =
+  Core._MatchServiceError
+    defaultService
+    "OutOfCapacityException"
+
+-- | The requested tagging operation did not succeed. This may be due to
+-- invalid tag format or the maximum tag limit may have been exceeded.
+-- Resolve the issue before retrying.
+_TaggingFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TaggingFailedException =
+  Core._MatchServiceError
+    defaultService
+    "TaggingFailedException"
+
 -- | The service is unable to resolve the routing for a particular alias
--- because it has a terminal RoutingStrategy associated with it. The
+-- because it has a terminal @RoutingStrategy@ associated with it. The
 -- message returned in this exception is the message defined in the routing
 -- strategy itself. Such requests should only be retried if the routing
 -- strategy for the specified alias is modified.
@@ -873,110 +1022,6 @@ _UnauthorizedException =
   Core._MatchServiceError
     defaultService
     "UnauthorizedException"
-
--- | A service resource associated with the request could not be found.
--- Clients should not retry such requests.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-
--- | The specified game server group has no available game servers to fulfill
--- a @ClaimGameServer@ request. Clients can retry such requests immediately
--- or after a waiting period.
-_OutOfCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OutOfCapacityException =
-  Core._MatchServiceError
-    defaultService
-    "OutOfCapacityException"
-
--- | The requested operation would cause the resource to exceed the allowed
--- service limit. Resolve the issue before retrying.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The requested operation would cause a conflict with the current state of
--- a resource associated with the request and\/or the fleet. Resolve the
--- conflict before retrying.
-_InvalidFleetStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFleetStatusException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFleetStatusException"
-
--- | The requested operation would cause a conflict with the current state of
--- a service resource associated with the request. Resolve the conflict
--- before retrying this request.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | The requested tagging operation did not succeed. This may be due to
--- invalid tag format or the maximum tag limit may have been exceeded.
--- Resolve the issue before retrying.
-_TaggingFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TaggingFailedException =
-  Core._MatchServiceError
-    defaultService
-    "TaggingFailedException"
-
--- | The specified fleet has no available instances to fulfill a
--- @CreateGameSession@ request. Clients can retry such requests immediately
--- or after a waiting period.
-_FleetCapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FleetCapacityExceededException =
-  Core._MatchServiceError
-    defaultService
-    "FleetCapacityExceededException"
-
--- | The requested operation would cause a conflict with the current state of
--- a resource associated with the request and\/or the game instance.
--- Resolve the conflict before retrying.
-_InvalidGameSessionStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidGameSessionStatusException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidGameSessionStatusException"
-
--- | The service encountered an unrecoverable internal failure while
--- processing the request. Clients can retry such requests immediately or
--- after a waiting period.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-
--- | The game instance is currently full and cannot allow the requested
--- player(s) to join. Clients can retry such requests immediately or after
--- a waiting period.
-_GameSessionFullException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GameSessionFullException =
-  Core._MatchServiceError
-    defaultService
-    "GameSessionFullException"
-
--- | One or more parameter values in the request are invalid. Correct the
--- invalid parameter values before retrying.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-
--- | A game session with this custom ID string already exists in this fleet.
--- Resolve this conflict before retrying this request.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "IdempotentParameterMismatchException"
 
 -- | The requested operation is not supported in the Region specified.
 _UnsupportedRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchLookupPolicy' smart constructor.
 data BatchLookupPolicy = BatchLookupPolicy'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
+  { -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Reference that identifies the object whose policies will be looked up.
     objectReference :: ObjectReference
   }
@@ -48,9 +48,9 @@ data BatchLookupPolicy = BatchLookupPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchLookupPolicy_nextToken' - The pagination token.
---
 -- 'maxResults', 'batchLookupPolicy_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'batchLookupPolicy_nextToken' - The pagination token.
 --
 -- 'objectReference', 'batchLookupPolicy_objectReference' - Reference that identifies the object whose policies will be looked up.
 newBatchLookupPolicy ::
@@ -59,18 +59,18 @@ newBatchLookupPolicy ::
   BatchLookupPolicy
 newBatchLookupPolicy pObjectReference_ =
   BatchLookupPolicy'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       objectReference = pObjectReference_
     }
-
--- | The pagination token.
-batchLookupPolicy_nextToken :: Lens.Lens' BatchLookupPolicy (Prelude.Maybe Prelude.Text)
-batchLookupPolicy_nextToken = Lens.lens (\BatchLookupPolicy' {nextToken} -> nextToken) (\s@BatchLookupPolicy' {} a -> s {nextToken = a} :: BatchLookupPolicy)
 
 -- | The maximum number of results to retrieve.
 batchLookupPolicy_maxResults :: Lens.Lens' BatchLookupPolicy (Prelude.Maybe Prelude.Natural)
 batchLookupPolicy_maxResults = Lens.lens (\BatchLookupPolicy' {maxResults} -> maxResults) (\s@BatchLookupPolicy' {} a -> s {maxResults = a} :: BatchLookupPolicy)
+
+-- | The pagination token.
+batchLookupPolicy_nextToken :: Lens.Lens' BatchLookupPolicy (Prelude.Maybe Prelude.Text)
+batchLookupPolicy_nextToken = Lens.lens (\BatchLookupPolicy' {nextToken} -> nextToken) (\s@BatchLookupPolicy' {} a -> s {nextToken = a} :: BatchLookupPolicy)
 
 -- | Reference that identifies the object whose policies will be looked up.
 batchLookupPolicy_objectReference :: Lens.Lens' BatchLookupPolicy ObjectReference
@@ -78,22 +78,22 @@ batchLookupPolicy_objectReference = Lens.lens (\BatchLookupPolicy' {objectRefere
 
 instance Prelude.Hashable BatchLookupPolicy where
   hashWithSalt _salt BatchLookupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData BatchLookupPolicy where
   rnf BatchLookupPolicy' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf objectReference
 
 instance Data.ToJSON BatchLookupPolicy where
   toJSON BatchLookupPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

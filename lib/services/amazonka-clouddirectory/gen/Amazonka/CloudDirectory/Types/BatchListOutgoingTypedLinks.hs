@@ -33,11 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListOutgoingTypedLinks' smart constructor.
 data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Provides range filters for multiple attributes. When providing ranges to
+  { -- | Provides range filters for multiple attributes. When providing ranges to
     -- typed link selection, any inexact ranges must be specified at the end.
     -- Any attributes that do not have a range specified are presumed to match
     -- the entire range.
@@ -45,6 +41,10 @@ data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
     -- | Filters are interpreted in the order of the attributes defined on the
     -- typed link facet, not the order they are supplied to any API calls.
     filterTypedLink :: Prelude.Maybe TypedLinkSchemaAndFacetName,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
@@ -59,10 +59,6 @@ data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListOutgoingTypedLinks_nextToken' - The pagination token.
---
--- 'maxResults', 'batchListOutgoingTypedLinks_maxResults' - The maximum number of results to retrieve.
---
 -- 'filterAttributeRanges', 'batchListOutgoingTypedLinks_filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
 -- Any attributes that do not have a range specified are presumed to match
@@ -70,6 +66,10 @@ data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
 --
 -- 'filterTypedLink', 'batchListOutgoingTypedLinks_filterTypedLink' - Filters are interpreted in the order of the attributes defined on the
 -- typed link facet, not the order they are supplied to any API calls.
+--
+-- 'maxResults', 'batchListOutgoingTypedLinks_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'batchListOutgoingTypedLinks_nextToken' - The pagination token.
 --
 -- 'objectReference', 'batchListOutgoingTypedLinks_objectReference' - The reference that identifies the object whose attributes will be
 -- listed.
@@ -79,21 +79,13 @@ newBatchListOutgoingTypedLinks ::
   BatchListOutgoingTypedLinks
 newBatchListOutgoingTypedLinks pObjectReference_ =
   BatchListOutgoingTypedLinks'
-    { nextToken =
+    { filterAttributeRanges =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filterAttributeRanges = Prelude.Nothing,
       filterTypedLink = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       objectReference = pObjectReference_
     }
-
--- | The pagination token.
-batchListOutgoingTypedLinks_nextToken :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Text)
-batchListOutgoingTypedLinks_nextToken = Lens.lens (\BatchListOutgoingTypedLinks' {nextToken} -> nextToken) (\s@BatchListOutgoingTypedLinks' {} a -> s {nextToken = a} :: BatchListOutgoingTypedLinks)
-
--- | The maximum number of results to retrieve.
-batchListOutgoingTypedLinks_maxResults :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Natural)
-batchListOutgoingTypedLinks_maxResults = Lens.lens (\BatchListOutgoingTypedLinks' {maxResults} -> maxResults) (\s@BatchListOutgoingTypedLinks' {} a -> s {maxResults = a} :: BatchListOutgoingTypedLinks)
 
 -- | Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
@@ -107,6 +99,14 @@ batchListOutgoingTypedLinks_filterAttributeRanges = Lens.lens (\BatchListOutgoin
 batchListOutgoingTypedLinks_filterTypedLink :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe TypedLinkSchemaAndFacetName)
 batchListOutgoingTypedLinks_filterTypedLink = Lens.lens (\BatchListOutgoingTypedLinks' {filterTypedLink} -> filterTypedLink) (\s@BatchListOutgoingTypedLinks' {} a -> s {filterTypedLink = a} :: BatchListOutgoingTypedLinks)
 
+-- | The maximum number of results to retrieve.
+batchListOutgoingTypedLinks_maxResults :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Natural)
+batchListOutgoingTypedLinks_maxResults = Lens.lens (\BatchListOutgoingTypedLinks' {maxResults} -> maxResults) (\s@BatchListOutgoingTypedLinks' {} a -> s {maxResults = a} :: BatchListOutgoingTypedLinks)
+
+-- | The pagination token.
+batchListOutgoingTypedLinks_nextToken :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Text)
+batchListOutgoingTypedLinks_nextToken = Lens.lens (\BatchListOutgoingTypedLinks' {nextToken} -> nextToken) (\s@BatchListOutgoingTypedLinks' {} a -> s {nextToken = a} :: BatchListOutgoingTypedLinks)
+
 -- | The reference that identifies the object whose attributes will be
 -- listed.
 batchListOutgoingTypedLinks_objectReference :: Lens.Lens' BatchListOutgoingTypedLinks ObjectReference
@@ -114,30 +114,30 @@ batchListOutgoingTypedLinks_objectReference = Lens.lens (\BatchListOutgoingTyped
 
 instance Prelude.Hashable BatchListOutgoingTypedLinks where
   hashWithSalt _salt BatchListOutgoingTypedLinks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` filterAttributeRanges
+    _salt `Prelude.hashWithSalt` filterAttributeRanges
       `Prelude.hashWithSalt` filterTypedLink
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData BatchListOutgoingTypedLinks where
   rnf BatchListOutgoingTypedLinks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf filterAttributeRanges
+    Prelude.rnf filterAttributeRanges
       `Prelude.seq` Prelude.rnf filterTypedLink
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf objectReference
 
 instance Data.ToJSON BatchListOutgoingTypedLinks where
   toJSON BatchListOutgoingTypedLinks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("FilterAttributeRanges" Data..=)
+          [ ("FilterAttributeRanges" Data..=)
               Prelude.<$> filterAttributeRanges,
             ("FilterTypedLink" Data..=)
               Prelude.<$> filterTypedLink,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

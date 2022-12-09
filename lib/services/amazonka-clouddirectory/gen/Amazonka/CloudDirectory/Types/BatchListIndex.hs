@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListIndex' smart constructor.
 data BatchListIndex = BatchListIndex'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
+  { -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ranges of indexed values that you want to query.
     rangesOnIndexedValues :: Prelude.Maybe [ObjectAttributeRange],
     -- | The reference to the index to list.
@@ -51,9 +51,9 @@ data BatchListIndex = BatchListIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListIndex_nextToken' - The pagination token.
---
 -- 'maxResults', 'batchListIndex_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'batchListIndex_nextToken' - The pagination token.
 --
 -- 'rangesOnIndexedValues', 'batchListIndex_rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
 --
@@ -64,19 +64,19 @@ newBatchListIndex ::
   BatchListIndex
 newBatchListIndex pIndexReference_ =
   BatchListIndex'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       rangesOnIndexedValues = Prelude.Nothing,
       indexReference = pIndexReference_
     }
 
--- | The pagination token.
-batchListIndex_nextToken :: Lens.Lens' BatchListIndex (Prelude.Maybe Prelude.Text)
-batchListIndex_nextToken = Lens.lens (\BatchListIndex' {nextToken} -> nextToken) (\s@BatchListIndex' {} a -> s {nextToken = a} :: BatchListIndex)
-
 -- | The maximum number of results to retrieve.
 batchListIndex_maxResults :: Lens.Lens' BatchListIndex (Prelude.Maybe Prelude.Natural)
 batchListIndex_maxResults = Lens.lens (\BatchListIndex' {maxResults} -> maxResults) (\s@BatchListIndex' {} a -> s {maxResults = a} :: BatchListIndex)
+
+-- | The pagination token.
+batchListIndex_nextToken :: Lens.Lens' BatchListIndex (Prelude.Maybe Prelude.Text)
+batchListIndex_nextToken = Lens.lens (\BatchListIndex' {nextToken} -> nextToken) (\s@BatchListIndex' {} a -> s {nextToken = a} :: BatchListIndex)
 
 -- | Specifies the ranges of indexed values that you want to query.
 batchListIndex_rangesOnIndexedValues :: Lens.Lens' BatchListIndex (Prelude.Maybe [ObjectAttributeRange])
@@ -88,15 +88,15 @@ batchListIndex_indexReference = Lens.lens (\BatchListIndex' {indexReference} -> 
 
 instance Prelude.Hashable BatchListIndex where
   hashWithSalt _salt BatchListIndex' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rangesOnIndexedValues
       `Prelude.hashWithSalt` indexReference
 
 instance Prelude.NFData BatchListIndex where
   rnf BatchListIndex' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf rangesOnIndexedValues
       `Prelude.seq` Prelude.rnf indexReference
 
@@ -104,8 +104,8 @@ instance Data.ToJSON BatchListIndex where
   toJSON BatchListIndex' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("RangesOnIndexedValues" Data..=)
               Prelude.<$> rangesOnIndexedValues,
             Prelude.Just

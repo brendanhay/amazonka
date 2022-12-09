@@ -29,10 +29,10 @@ module Amazonka.CloudDirectory.ListObjectAttributes
     newListObjectAttributes,
 
     -- * Request Lenses
-    listObjectAttributes_nextToken,
     listObjectAttributes_consistencyLevel,
-    listObjectAttributes_maxResults,
     listObjectAttributes_facetFilter,
+    listObjectAttributes_maxResults,
+    listObjectAttributes_nextToken,
     listObjectAttributes_directoryArn,
     listObjectAttributes_objectReference,
 
@@ -41,8 +41,8 @@ module Amazonka.CloudDirectory.ListObjectAttributes
     newListObjectAttributesResponse,
 
     -- * Response Lenses
-    listObjectAttributesResponse_nextToken,
     listObjectAttributesResponse_attributes,
+    listObjectAttributesResponse_nextToken,
     listObjectAttributesResponse_httpStatus,
   )
 where
@@ -57,18 +57,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the manner and timing in which the successful write or update
+  { -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
     consistencyLevel :: Prelude.Maybe ConsistencyLevel,
-    -- | The maximum number of items to be retrieved in a single call. This is an
-    -- approximate number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Used to filter the list of object attributes that are associated with a
     -- certain facet.
     facetFilter :: Prelude.Maybe SchemaFacet,
+    -- | The maximum number of items to be retrieved in a single call. This is an
+    -- approximate number.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -86,17 +86,17 @@ data ListObjectAttributes = ListObjectAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listObjectAttributes_nextToken' - The pagination token.
---
 -- 'consistencyLevel', 'listObjectAttributes_consistencyLevel' - Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
 --
+-- 'facetFilter', 'listObjectAttributes_facetFilter' - Used to filter the list of object attributes that are associated with a
+-- certain facet.
+--
 -- 'maxResults', 'listObjectAttributes_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
 --
--- 'facetFilter', 'listObjectAttributes_facetFilter' - Used to filter the list of object attributes that are associated with a
--- certain facet.
+-- 'nextToken', 'listObjectAttributes_nextToken' - The pagination token.
 --
 -- 'directoryArn', 'listObjectAttributes_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
@@ -113,17 +113,14 @@ newListObjectAttributes
   pDirectoryArn_
   pObjectReference_ =
     ListObjectAttributes'
-      { nextToken = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { consistencyLevel =
+          Prelude.Nothing,
         facetFilter = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
-
--- | The pagination token.
-listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Text)
-listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -> nextToken) (\s@ListObjectAttributes' {} a -> s {nextToken = a} :: ListObjectAttributes)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
@@ -131,15 +128,19 @@ listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -
 listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Prelude.Maybe ConsistencyLevel)
 listObjectAttributes_consistencyLevel = Lens.lens (\ListObjectAttributes' {consistencyLevel} -> consistencyLevel) (\s@ListObjectAttributes' {} a -> s {consistencyLevel = a} :: ListObjectAttributes)
 
+-- | Used to filter the list of object attributes that are associated with a
+-- certain facet.
+listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Prelude.Maybe SchemaFacet)
+listObjectAttributes_facetFilter = Lens.lens (\ListObjectAttributes' {facetFilter} -> facetFilter) (\s@ListObjectAttributes' {} a -> s {facetFilter = a} :: ListObjectAttributes)
+
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
 listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Natural)
 listObjectAttributes_maxResults = Lens.lens (\ListObjectAttributes' {maxResults} -> maxResults) (\s@ListObjectAttributes' {} a -> s {maxResults = a} :: ListObjectAttributes)
 
--- | Used to filter the list of object attributes that are associated with a
--- certain facet.
-listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Prelude.Maybe SchemaFacet)
-listObjectAttributes_facetFilter = Lens.lens (\ListObjectAttributes' {facetFilter} -> facetFilter) (\s@ListObjectAttributes' {} a -> s {facetFilter = a} :: ListObjectAttributes)
+-- | The pagination token.
+listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Text)
+listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -> nextToken) (\s@ListObjectAttributes' {} a -> s {nextToken = a} :: ListObjectAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
@@ -183,26 +184,26 @@ instance Core.AWSRequest ListObjectAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListObjectAttributesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjectAttributes where
   hashWithSalt _salt ListObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` consistencyLevel
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` facetFilter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData ListObjectAttributes where
   rnf ListObjectAttributes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf consistencyLevel
       `Prelude.seq` Prelude.rnf facetFilter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
@@ -217,9 +218,9 @@ instance Data.ToJSON ListObjectAttributes where
   toJSON ListObjectAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("FacetFilter" Data..=) Prelude.<$> facetFilter,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("FacetFilter" Data..=) Prelude.<$> facetFilter,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]
@@ -235,11 +236,11 @@ instance Data.ToQuery ListObjectAttributes where
 
 -- | /See:/ 'newListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Attributes map that is associated with the object. @AttributeArn@ is the
+  { -- | Attributes map that is associated with the object. @AttributeArn@ is the
     -- key, and attribute value is the value.
     attributes :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,10 +254,10 @@ data ListObjectAttributesResponse = ListObjectAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listObjectAttributesResponse_nextToken' - The pagination token.
---
 -- 'attributes', 'listObjectAttributesResponse_attributes' - Attributes map that is associated with the object. @AttributeArn@ is the
 -- key, and attribute value is the value.
+--
+-- 'nextToken', 'listObjectAttributesResponse_nextToken' - The pagination token.
 --
 -- 'httpStatus', 'listObjectAttributesResponse_httpStatus' - The response's http status code.
 newListObjectAttributesResponse ::
@@ -265,20 +266,20 @@ newListObjectAttributesResponse ::
   ListObjectAttributesResponse
 newListObjectAttributesResponse pHttpStatus_ =
   ListObjectAttributesResponse'
-    { nextToken =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token.
-listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
-listObjectAttributesResponse_nextToken = Lens.lens (\ListObjectAttributesResponse' {nextToken} -> nextToken) (\s@ListObjectAttributesResponse' {} a -> s {nextToken = a} :: ListObjectAttributesResponse)
 
 -- | Attributes map that is associated with the object. @AttributeArn@ is the
 -- key, and attribute value is the value.
 listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
 listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+listObjectAttributesResponse_nextToken = Lens.lens (\ListObjectAttributesResponse' {nextToken} -> nextToken) (\s@ListObjectAttributesResponse' {} a -> s {nextToken = a} :: ListObjectAttributesResponse)
 
 -- | The response's http status code.
 listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Prelude.Int
@@ -286,6 +287,6 @@ listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesRespon
 
 instance Prelude.NFData ListObjectAttributesResponse where
   rnf ListObjectAttributesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

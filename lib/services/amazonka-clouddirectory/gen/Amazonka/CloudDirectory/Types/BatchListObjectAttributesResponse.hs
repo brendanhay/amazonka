@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectAttributesResponse' smart constructor.
 data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The attributes map that is associated with the object. @AttributeArn@ is
+  { -- | The attributes map that is associated with the object. @AttributeArn@ is
     -- the key; attribute value is the value.
-    attributes :: Prelude.Maybe [AttributeKeyAndValue]
+    attributes :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListObjectAttributesResponse_nextToken' - The pagination token.
---
 -- 'attributes', 'batchListObjectAttributesResponse_attributes' - The attributes map that is associated with the object. @AttributeArn@ is
 -- the key; attribute value is the value.
+--
+-- 'nextToken', 'batchListObjectAttributesResponse_nextToken' - The pagination token.
 newBatchListObjectAttributesResponse ::
   BatchListObjectAttributesResponse
 newBatchListObjectAttributesResponse =
   BatchListObjectAttributesResponse'
-    { nextToken =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token.
-batchListObjectAttributesResponse_nextToken :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
-batchListObjectAttributesResponse_nextToken = Lens.lens (\BatchListObjectAttributesResponse' {nextToken} -> nextToken) (\s@BatchListObjectAttributesResponse' {} a -> s {nextToken = a} :: BatchListObjectAttributesResponse)
 
 -- | The attributes map that is associated with the object. @AttributeArn@ is
 -- the key; attribute value is the value.
 batchListObjectAttributesResponse_attributes :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
 batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+batchListObjectAttributesResponse_nextToken :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+batchListObjectAttributesResponse_nextToken = Lens.lens (\BatchListObjectAttributesResponse' {nextToken} -> nextToken) (\s@BatchListObjectAttributesResponse' {} a -> s {nextToken = a} :: BatchListObjectAttributesResponse)
 
 instance
   Data.FromJSON
@@ -76,8 +76,8 @@ instance
       "BatchListObjectAttributesResponse"
       ( \x ->
           BatchListObjectAttributesResponse'
-            Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NextToken")
       )
 
 instance
@@ -87,13 +87,13 @@ instance
   hashWithSalt
     _salt
     BatchListObjectAttributesResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` attributes
+      _salt `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     BatchListObjectAttributesResponse
   where
   rnf BatchListObjectAttributesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf nextToken

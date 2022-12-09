@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-  { -- | The range of attribute values being selected.
-    range :: Prelude.Maybe TypedAttributeValueRange,
-    -- | The key of the attribute that the attribute range covers.
-    attributeKey :: Prelude.Maybe AttributeKey
+  { -- | The key of the attribute that the attribute range covers.
+    attributeKey :: Prelude.Maybe AttributeKey,
+    -- | The range of attribute values being selected.
+    range :: Prelude.Maybe TypedAttributeValueRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,40 +45,41 @@ data ObjectAttributeRange = ObjectAttributeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'range', 'objectAttributeRange_range' - The range of attribute values being selected.
---
 -- 'attributeKey', 'objectAttributeRange_attributeKey' - The key of the attribute that the attribute range covers.
+--
+-- 'range', 'objectAttributeRange_range' - The range of attribute values being selected.
 newObjectAttributeRange ::
   ObjectAttributeRange
 newObjectAttributeRange =
   ObjectAttributeRange'
-    { range = Prelude.Nothing,
-      attributeKey = Prelude.Nothing
+    { attributeKey =
+        Prelude.Nothing,
+      range = Prelude.Nothing
     }
-
--- | The range of attribute values being selected.
-objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe TypedAttributeValueRange)
-objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range) (\s@ObjectAttributeRange' {} a -> s {range = a} :: ObjectAttributeRange)
 
 -- | The key of the attribute that the attribute range covers.
 objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe AttributeKey)
 objectAttributeRange_attributeKey = Lens.lens (\ObjectAttributeRange' {attributeKey} -> attributeKey) (\s@ObjectAttributeRange' {} a -> s {attributeKey = a} :: ObjectAttributeRange)
 
+-- | The range of attribute values being selected.
+objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe TypedAttributeValueRange)
+objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range) (\s@ObjectAttributeRange' {} a -> s {range = a} :: ObjectAttributeRange)
+
 instance Prelude.Hashable ObjectAttributeRange where
   hashWithSalt _salt ObjectAttributeRange' {..} =
-    _salt `Prelude.hashWithSalt` range
-      `Prelude.hashWithSalt` attributeKey
+    _salt `Prelude.hashWithSalt` attributeKey
+      `Prelude.hashWithSalt` range
 
 instance Prelude.NFData ObjectAttributeRange where
   rnf ObjectAttributeRange' {..} =
-    Prelude.rnf range
-      `Prelude.seq` Prelude.rnf attributeKey
+    Prelude.rnf attributeKey
+      `Prelude.seq` Prelude.rnf range
 
 instance Data.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Range" Data..=) Prelude.<$> range,
-            ("AttributeKey" Data..=) Prelude.<$> attributeKey
+          [ ("AttributeKey" Data..=) Prelude.<$> attributeKey,
+            ("Range" Data..=) Prelude.<$> range
           ]
       )

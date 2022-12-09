@@ -28,53 +28,29 @@ module Amazonka.CloudDirectory
     -- * Errors
     -- $errors
 
-    -- ** InvalidAttachmentException
-    _InvalidAttachmentException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
-    -- ** SchemaAlreadyPublishedException
-    _SchemaAlreadyPublishedException,
-
-    -- ** DirectoryAlreadyExistsException
-    _DirectoryAlreadyExistsException,
-
-    -- ** InvalidFacetUpdateException
-    _InvalidFacetUpdateException,
-
-    -- ** DirectoryDeletedException
-    _DirectoryDeletedException,
-
-    -- ** FacetValidationException
-    _FacetValidationException,
+    -- ** BatchWriteException
+    _BatchWriteException,
 
     -- ** CannotListParentOfRootException
     _CannotListParentOfRootException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** DirectoryAlreadyExistsException
+    _DirectoryAlreadyExistsException,
 
-    -- ** IndexedAttributeMissingException
-    _IndexedAttributeMissingException,
+    -- ** DirectoryDeletedException
+    _DirectoryDeletedException,
 
     -- ** DirectoryNotDisabledException
     _DirectoryNotDisabledException,
 
-    -- ** IncompatibleSchemaException
-    _IncompatibleSchemaException,
-
-    -- ** ObjectAlreadyDetachedException
-    _ObjectAlreadyDetachedException,
-
-    -- ** SchemaAlreadyExistsException
-    _SchemaAlreadyExistsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LinkNameAlreadyInUseException
-    _LinkNameAlreadyInUseException,
-
     -- ** DirectoryNotEnabledException
     _DirectoryNotEnabledException,
+
+    -- ** FacetAlreadyExistsException
+    _FacetAlreadyExistsException,
 
     -- ** FacetInUseException
     _FacetInUseException,
@@ -82,56 +58,80 @@ module Amazonka.CloudDirectory
     -- ** FacetNotFoundException
     _FacetNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** FacetValidationException
+    _FacetValidationException,
 
-    -- ** InvalidSchemaDocException
-    _InvalidSchemaDocException,
+    -- ** IncompatibleSchemaException
+    _IncompatibleSchemaException,
 
-    -- ** FacetAlreadyExistsException
-    _FacetAlreadyExistsException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** NotIndexException
-    _NotIndexException,
-
-    -- ** InvalidTaggingRequestException
-    _InvalidTaggingRequestException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** NotNodeException
-    _NotNodeException,
-
-    -- ** StillContainsLinksException
-    _StillContainsLinksException,
-
-    -- ** ValidationException
-    _ValidationException,
+    -- ** IndexedAttributeMissingException
+    _IndexedAttributeMissingException,
 
     -- ** InternalServiceException
     _InternalServiceException,
 
-    -- ** ObjectNotDetachedException
-    _ObjectNotDetachedException,
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidAttachmentException
+    _InvalidAttachmentException,
+
+    -- ** InvalidFacetUpdateException
+    _InvalidFacetUpdateException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** InvalidRuleException
     _InvalidRuleException,
 
+    -- ** InvalidSchemaDocException
+    _InvalidSchemaDocException,
+
+    -- ** InvalidTaggingRequestException
+    _InvalidTaggingRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** LinkNameAlreadyInUseException
+    _LinkNameAlreadyInUseException,
+
+    -- ** NotIndexException
+    _NotIndexException,
+
+    -- ** NotNodeException
+    _NotNodeException,
+
+    -- ** NotPolicyException
+    _NotPolicyException,
+
+    -- ** ObjectAlreadyDetachedException
+    _ObjectAlreadyDetachedException,
+
+    -- ** ObjectNotDetachedException
+    _ObjectNotDetachedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** RetryableConflictException
     _RetryableConflictException,
+
+    -- ** SchemaAlreadyExistsException
+    _SchemaAlreadyExistsException,
+
+    -- ** SchemaAlreadyPublishedException
+    _SchemaAlreadyPublishedException,
+
+    -- ** StillContainsLinksException
+    _StillContainsLinksException,
 
     -- ** UnsupportedIndexTypeException
     _UnsupportedIndexTypeException,
 
-    -- ** BatchWriteException
-    _BatchWriteException,
-
-    -- ** NotPolicyException
-    _NotPolicyException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListIndexResponse' smart constructor.
 data BatchListIndexResponse = BatchListIndexResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The objects and indexed values attached to the index.
-    indexAttachments :: Prelude.Maybe [IndexAttachment]
+  { -- | The objects and indexed values attached to the index.
+    indexAttachments :: Prelude.Maybe [IndexAttachment],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data BatchListIndexResponse = BatchListIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListIndexResponse_nextToken' - The pagination token.
---
 -- 'indexAttachments', 'batchListIndexResponse_indexAttachments' - The objects and indexed values attached to the index.
+--
+-- 'nextToken', 'batchListIndexResponse_nextToken' - The pagination token.
 newBatchListIndexResponse ::
   BatchListIndexResponse
 newBatchListIndexResponse =
   BatchListIndexResponse'
-    { nextToken =
+    { indexAttachments =
         Prelude.Nothing,
-      indexAttachments = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token.
-batchListIndexResponse_nextToken :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe Prelude.Text)
-batchListIndexResponse_nextToken = Lens.lens (\BatchListIndexResponse' {nextToken} -> nextToken) (\s@BatchListIndexResponse' {} a -> s {nextToken = a} :: BatchListIndexResponse)
 
 -- | The objects and indexed values attached to the index.
 batchListIndexResponse_indexAttachments :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe [IndexAttachment])
 batchListIndexResponse_indexAttachments = Lens.lens (\BatchListIndexResponse' {indexAttachments} -> indexAttachments) (\s@BatchListIndexResponse' {} a -> s {indexAttachments = a} :: BatchListIndexResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+batchListIndexResponse_nextToken :: Lens.Lens' BatchListIndexResponse (Prelude.Maybe Prelude.Text)
+batchListIndexResponse_nextToken = Lens.lens (\BatchListIndexResponse' {nextToken} -> nextToken) (\s@BatchListIndexResponse' {} a -> s {nextToken = a} :: BatchListIndexResponse)
 
 instance Data.FromJSON BatchListIndexResponse where
   parseJSON =
@@ -70,18 +70,18 @@ instance Data.FromJSON BatchListIndexResponse where
       "BatchListIndexResponse"
       ( \x ->
           BatchListIndexResponse'
-            Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> ( x Data..:? "IndexAttachments"
+            Prelude.<$> ( x Data..:? "IndexAttachments"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "NextToken")
       )
 
 instance Prelude.Hashable BatchListIndexResponse where
   hashWithSalt _salt BatchListIndexResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` indexAttachments
+    _salt `Prelude.hashWithSalt` indexAttachments
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData BatchListIndexResponse where
   rnf BatchListIndexResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexAttachments
+    Prelude.rnf indexAttachments
+      `Prelude.seq` Prelude.rnf nextToken

@@ -29,9 +29,9 @@ module Amazonka.CloudDirectory.ListDirectories
     newListDirectories,
 
     -- * Request Lenses
+    listDirectories_maxResults,
     listDirectories_nextToken,
     listDirectories_state,
-    listDirectories_maxResults,
 
     -- * Destructuring the Response
     ListDirectoriesResponse (..),
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDirectories' smart constructor.
 data ListDirectories = ListDirectories'
-  { -- | The pagination token.
+  { -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The state of the directories in the list. Can be either Enabled,
     -- Disabled, or Deleted.
-    state :: Prelude.Maybe DirectoryState,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    state :: Prelude.Maybe DirectoryState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,20 +72,24 @@ data ListDirectories = ListDirectories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDirectories_maxResults' - The maximum number of results to retrieve.
+--
 -- 'nextToken', 'listDirectories_nextToken' - The pagination token.
 --
 -- 'state', 'listDirectories_state' - The state of the directories in the list. Can be either Enabled,
 -- Disabled, or Deleted.
---
--- 'maxResults', 'listDirectories_maxResults' - The maximum number of results to retrieve.
 newListDirectories ::
   ListDirectories
 newListDirectories =
   ListDirectories'
-    { nextToken = Prelude.Nothing,
-      state = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The maximum number of results to retrieve.
+listDirectories_maxResults :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Natural)
+listDirectories_maxResults = Lens.lens (\ListDirectories' {maxResults} -> maxResults) (\s@ListDirectories' {} a -> s {maxResults = a} :: ListDirectories)
 
 -- | The pagination token.
 listDirectories_nextToken :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Text)
@@ -95,10 +99,6 @@ listDirectories_nextToken = Lens.lens (\ListDirectories' {nextToken} -> nextToke
 -- Disabled, or Deleted.
 listDirectories_state :: Lens.Lens' ListDirectories (Prelude.Maybe DirectoryState)
 listDirectories_state = Lens.lens (\ListDirectories' {state} -> state) (\s@ListDirectories' {} a -> s {state = a} :: ListDirectories)
-
--- | The maximum number of results to retrieve.
-listDirectories_maxResults :: Lens.Lens' ListDirectories (Prelude.Maybe Prelude.Natural)
-listDirectories_maxResults = Lens.lens (\ListDirectories' {maxResults} -> maxResults) (\s@ListDirectories' {} a -> s {maxResults = a} :: ListDirectories)
 
 instance Core.AWSPager ListDirectories where
   page rq rs
@@ -136,15 +136,15 @@ instance Core.AWSRequest ListDirectories where
 
 instance Prelude.Hashable ListDirectories where
   hashWithSalt _salt ListDirectories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListDirectories where
   rnf ListDirectories' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListDirectories where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,9 +153,9 @@ instance Data.ToJSON ListDirectories where
   toJSON ListDirectories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("state" Data..=) Prelude.<$> state,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("state" Data..=) Prelude.<$> state
           ]
       )
 

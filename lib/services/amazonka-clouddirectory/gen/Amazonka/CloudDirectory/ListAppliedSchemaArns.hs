@@ -30,9 +30,9 @@ module Amazonka.CloudDirectory.ListAppliedSchemaArns
     newListAppliedSchemaArns,
 
     -- * Request Lenses
+    listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_nextToken,
     listAppliedSchemaArns_schemaArn,
-    listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_directoryArn,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppliedSchemaArns' smart constructor.
 data ListAppliedSchemaArns = ListAppliedSchemaArns'
-  { -- | The pagination token.
+  { -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response for @ListAppliedSchemaArns@ when this parameter is used
     -- will list all minor version ARNs for a major version.
     schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the directory you are listing.
     directoryArn :: Prelude.Text
   }
@@ -76,12 +76,12 @@ data ListAppliedSchemaArns = ListAppliedSchemaArns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAppliedSchemaArns_maxResults' - The maximum number of results to retrieve.
+--
 -- 'nextToken', 'listAppliedSchemaArns_nextToken' - The pagination token.
 --
 -- 'schemaArn', 'listAppliedSchemaArns_schemaArn' - The response for @ListAppliedSchemaArns@ when this parameter is used
 -- will list all minor version ARNs for a major version.
---
--- 'maxResults', 'listAppliedSchemaArns_maxResults' - The maximum number of results to retrieve.
 --
 -- 'directoryArn', 'listAppliedSchemaArns_directoryArn' - The ARN of the directory you are listing.
 newListAppliedSchemaArns ::
@@ -90,11 +90,16 @@ newListAppliedSchemaArns ::
   ListAppliedSchemaArns
 newListAppliedSchemaArns pDirectoryArn_ =
   ListAppliedSchemaArns'
-    { nextToken = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       directoryArn = pDirectoryArn_
     }
+
+-- | The maximum number of results to retrieve.
+listAppliedSchemaArns_maxResults :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Natural)
+listAppliedSchemaArns_maxResults = Lens.lens (\ListAppliedSchemaArns' {maxResults} -> maxResults) (\s@ListAppliedSchemaArns' {} a -> s {maxResults = a} :: ListAppliedSchemaArns)
 
 -- | The pagination token.
 listAppliedSchemaArns_nextToken :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
@@ -104,10 +109,6 @@ listAppliedSchemaArns_nextToken = Lens.lens (\ListAppliedSchemaArns' {nextToken}
 -- will list all minor version ARNs for a major version.
 listAppliedSchemaArns_schemaArn :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Text)
 listAppliedSchemaArns_schemaArn = Lens.lens (\ListAppliedSchemaArns' {schemaArn} -> schemaArn) (\s@ListAppliedSchemaArns' {} a -> s {schemaArn = a} :: ListAppliedSchemaArns)
-
--- | The maximum number of results to retrieve.
-listAppliedSchemaArns_maxResults :: Lens.Lens' ListAppliedSchemaArns (Prelude.Maybe Prelude.Natural)
-listAppliedSchemaArns_maxResults = Lens.lens (\ListAppliedSchemaArns' {maxResults} -> maxResults) (\s@ListAppliedSchemaArns' {} a -> s {maxResults = a} :: ListAppliedSchemaArns)
 
 -- | The ARN of the directory you are listing.
 listAppliedSchemaArns_directoryArn :: Lens.Lens' ListAppliedSchemaArns Prelude.Text
@@ -152,16 +153,16 @@ instance Core.AWSRequest ListAppliedSchemaArns where
 
 instance Prelude.Hashable ListAppliedSchemaArns where
   hashWithSalt _salt ListAppliedSchemaArns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaArn
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` directoryArn
 
 instance Prelude.NFData ListAppliedSchemaArns where
   rnf ListAppliedSchemaArns' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf directoryArn
 
 instance Data.ToHeaders ListAppliedSchemaArns where
@@ -171,9 +172,9 @@ instance Data.ToJSON ListAppliedSchemaArns where
   toJSON ListAppliedSchemaArns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SchemaArn" Data..=) Prelude.<$> schemaArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("DirectoryArn" Data..= directoryArn)
           ]
       )

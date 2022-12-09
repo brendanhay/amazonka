@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFacetAttribute' smart constructor.
 data FacetAttribute = FacetAttribute'
-  { -- | An attribute reference that is associated with the attribute. See
+  { -- | A facet attribute consists of either a definition or a reference. This
+    -- structure contains the attribute definition. See
+    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
+    -- for more information.
+    attributeDefinition :: Prelude.Maybe FacetAttributeDefinition,
+    -- | An attribute reference that is associated with the attribute. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
     attributeReference :: Prelude.Maybe FacetAttributeReference,
     -- | The required behavior of the @FacetAttribute@.
     requiredBehavior :: Prelude.Maybe RequiredAttributeBehavior,
-    -- | A facet attribute consists of either a definition or a reference. This
-    -- structure contains the attribute definition. See
-    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
-    -- for more information.
-    attributeDefinition :: Prelude.Maybe FacetAttributeDefinition,
     -- | The name of the facet attribute.
     name :: Prelude.Text
   }
@@ -55,16 +55,16 @@ data FacetAttribute = FacetAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeDefinition', 'facetAttribute_attributeDefinition' - A facet attribute consists of either a definition or a reference. This
+-- structure contains the attribute definition. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
+-- for more information.
+--
 -- 'attributeReference', 'facetAttribute_attributeReference' - An attribute reference that is associated with the attribute. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
 --
 -- 'requiredBehavior', 'facetAttribute_requiredBehavior' - The required behavior of the @FacetAttribute@.
---
--- 'attributeDefinition', 'facetAttribute_attributeDefinition' - A facet attribute consists of either a definition or a reference. This
--- structure contains the attribute definition. See
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
--- for more information.
 --
 -- 'name', 'facetAttribute_name' - The name of the facet attribute.
 newFacetAttribute ::
@@ -73,12 +73,19 @@ newFacetAttribute ::
   FacetAttribute
 newFacetAttribute pName_ =
   FacetAttribute'
-    { attributeReference =
+    { attributeDefinition =
         Prelude.Nothing,
+      attributeReference = Prelude.Nothing,
       requiredBehavior = Prelude.Nothing,
-      attributeDefinition = Prelude.Nothing,
       name = pName_
     }
+
+-- | A facet attribute consists of either a definition or a reference. This
+-- structure contains the attribute definition. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
+-- for more information.
+facetAttribute_attributeDefinition :: Lens.Lens' FacetAttribute (Prelude.Maybe FacetAttributeDefinition)
+facetAttribute_attributeDefinition = Lens.lens (\FacetAttribute' {attributeDefinition} -> attributeDefinition) (\s@FacetAttribute' {} a -> s {attributeDefinition = a} :: FacetAttribute)
 
 -- | An attribute reference that is associated with the attribute. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
@@ -90,13 +97,6 @@ facetAttribute_attributeReference = Lens.lens (\FacetAttribute' {attributeRefere
 facetAttribute_requiredBehavior :: Lens.Lens' FacetAttribute (Prelude.Maybe RequiredAttributeBehavior)
 facetAttribute_requiredBehavior = Lens.lens (\FacetAttribute' {requiredBehavior} -> requiredBehavior) (\s@FacetAttribute' {} a -> s {requiredBehavior = a} :: FacetAttribute)
 
--- | A facet attribute consists of either a definition or a reference. This
--- structure contains the attribute definition. See
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
--- for more information.
-facetAttribute_attributeDefinition :: Lens.Lens' FacetAttribute (Prelude.Maybe FacetAttributeDefinition)
-facetAttribute_attributeDefinition = Lens.lens (\FacetAttribute' {attributeDefinition} -> attributeDefinition) (\s@FacetAttribute' {} a -> s {attributeDefinition = a} :: FacetAttribute)
-
 -- | The name of the facet attribute.
 facetAttribute_name :: Lens.Lens' FacetAttribute Prelude.Text
 facetAttribute_name = Lens.lens (\FacetAttribute' {name} -> name) (\s@FacetAttribute' {} a -> s {name = a} :: FacetAttribute)
@@ -107,36 +107,36 @@ instance Data.FromJSON FacetAttribute where
       "FacetAttribute"
       ( \x ->
           FacetAttribute'
-            Prelude.<$> (x Data..:? "AttributeReference")
+            Prelude.<$> (x Data..:? "AttributeDefinition")
+            Prelude.<*> (x Data..:? "AttributeReference")
             Prelude.<*> (x Data..:? "RequiredBehavior")
-            Prelude.<*> (x Data..:? "AttributeDefinition")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable FacetAttribute where
   hashWithSalt _salt FacetAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeReference
+    _salt `Prelude.hashWithSalt` attributeDefinition
+      `Prelude.hashWithSalt` attributeReference
       `Prelude.hashWithSalt` requiredBehavior
-      `Prelude.hashWithSalt` attributeDefinition
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData FacetAttribute where
   rnf FacetAttribute' {..} =
-    Prelude.rnf attributeReference
+    Prelude.rnf attributeDefinition
+      `Prelude.seq` Prelude.rnf attributeReference
       `Prelude.seq` Prelude.rnf requiredBehavior
-      `Prelude.seq` Prelude.rnf attributeDefinition
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON FacetAttribute where
   toJSON FacetAttribute' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AttributeReference" Data..=)
+          [ ("AttributeDefinition" Data..=)
+              Prelude.<$> attributeDefinition,
+            ("AttributeReference" Data..=)
               Prelude.<$> attributeReference,
             ("RequiredBehavior" Data..=)
               Prelude.<$> requiredBehavior,
-            ("AttributeDefinition" Data..=)
-              Prelude.<$> attributeDefinition,
             Prelude.Just ("Name" Data..= name)
           ]
       )

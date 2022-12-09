@@ -24,8 +24,8 @@ module Amazonka.CloudDirectory.Lens
     -- ** ApplySchema
     applySchema_publishedSchemaArn,
     applySchema_directoryArn,
-    applySchemaResponse_directoryArn,
     applySchemaResponse_appliedSchemaArn,
+    applySchemaResponse_directoryArn,
     applySchemaResponse_httpStatus,
 
     -- ** AttachObject
@@ -81,16 +81,16 @@ module Amazonka.CloudDirectory.Lens
     createDirectoryResponse_appliedSchemaArn,
 
     -- ** CreateFacet
-    createFacet_facetStyle,
     createFacet_attributes,
+    createFacet_facetStyle,
     createFacet_objectType,
     createFacet_schemaArn,
     createFacet_name,
     createFacetResponse_httpStatus,
 
     -- ** CreateIndex
-    createIndex_parentReference,
     createIndex_linkName,
+    createIndex_parentReference,
     createIndex_directoryArn,
     createIndex_orderedIndexedAttributeList,
     createIndex_isUnique,
@@ -98,9 +98,9 @@ module Amazonka.CloudDirectory.Lens
     createIndexResponse_httpStatus,
 
     -- ** CreateObject
+    createObject_linkName,
     createObject_objectAttributeList,
     createObject_parentReference,
-    createObject_linkName,
     createObject_directoryArn,
     createObject_schemaFacets,
     createObjectResponse_objectIdentifier,
@@ -218,8 +218,8 @@ module Amazonka.CloudDirectory.Lens
 
     -- ** GetSchemaAsJson
     getSchemaAsJson_schemaArn,
-    getSchemaAsJsonResponse_name,
     getSchemaAsJsonResponse_document,
+    getSchemaAsJsonResponse_name,
     getSchemaAsJsonResponse_httpStatus,
 
     -- ** GetTypedLinkFacetInformation
@@ -229,111 +229,111 @@ module Amazonka.CloudDirectory.Lens
     getTypedLinkFacetInformationResponse_httpStatus,
 
     -- ** ListAppliedSchemaArns
+    listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_nextToken,
     listAppliedSchemaArns_schemaArn,
-    listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_directoryArn,
     listAppliedSchemaArnsResponse_nextToken,
     listAppliedSchemaArnsResponse_schemaArns,
     listAppliedSchemaArnsResponse_httpStatus,
 
     -- ** ListAttachedIndices
-    listAttachedIndices_nextToken,
     listAttachedIndices_consistencyLevel,
     listAttachedIndices_maxResults,
+    listAttachedIndices_nextToken,
     listAttachedIndices_directoryArn,
     listAttachedIndices_targetReference,
-    listAttachedIndicesResponse_nextToken,
     listAttachedIndicesResponse_indexAttachments,
+    listAttachedIndicesResponse_nextToken,
     listAttachedIndicesResponse_httpStatus,
 
     -- ** ListDevelopmentSchemaArns
-    listDevelopmentSchemaArns_nextToken,
     listDevelopmentSchemaArns_maxResults,
+    listDevelopmentSchemaArns_nextToken,
     listDevelopmentSchemaArnsResponse_nextToken,
     listDevelopmentSchemaArnsResponse_schemaArns,
     listDevelopmentSchemaArnsResponse_httpStatus,
 
     -- ** ListDirectories
+    listDirectories_maxResults,
     listDirectories_nextToken,
     listDirectories_state,
-    listDirectories_maxResults,
     listDirectoriesResponse_nextToken,
     listDirectoriesResponse_httpStatus,
     listDirectoriesResponse_directories,
 
     -- ** ListFacetAttributes
-    listFacetAttributes_nextToken,
     listFacetAttributes_maxResults,
+    listFacetAttributes_nextToken,
     listFacetAttributes_schemaArn,
     listFacetAttributes_name,
-    listFacetAttributesResponse_nextToken,
     listFacetAttributesResponse_attributes,
+    listFacetAttributesResponse_nextToken,
     listFacetAttributesResponse_httpStatus,
 
     -- ** ListFacetNames
-    listFacetNames_nextToken,
     listFacetNames_maxResults,
+    listFacetNames_nextToken,
     listFacetNames_schemaArn,
-    listFacetNamesResponse_nextToken,
     listFacetNamesResponse_facetNames,
+    listFacetNamesResponse_nextToken,
     listFacetNamesResponse_httpStatus,
 
     -- ** ListIncomingTypedLinks
-    listIncomingTypedLinks_nextToken,
     listIncomingTypedLinks_consistencyLevel,
-    listIncomingTypedLinks_maxResults,
     listIncomingTypedLinks_filterAttributeRanges,
     listIncomingTypedLinks_filterTypedLink,
+    listIncomingTypedLinks_maxResults,
+    listIncomingTypedLinks_nextToken,
     listIncomingTypedLinks_directoryArn,
     listIncomingTypedLinks_objectReference,
-    listIncomingTypedLinksResponse_nextToken,
     listIncomingTypedLinksResponse_linkSpecifiers,
+    listIncomingTypedLinksResponse_nextToken,
     listIncomingTypedLinksResponse_httpStatus,
 
     -- ** ListIndex
-    listIndex_nextToken,
     listIndex_consistencyLevel,
     listIndex_maxResults,
+    listIndex_nextToken,
     listIndex_rangesOnIndexedValues,
     listIndex_directoryArn,
     listIndex_indexReference,
-    listIndexResponse_nextToken,
     listIndexResponse_indexAttachments,
+    listIndexResponse_nextToken,
     listIndexResponse_httpStatus,
 
     -- ** ListManagedSchemaArns
+    listManagedSchemaArns_maxResults,
     listManagedSchemaArns_nextToken,
     listManagedSchemaArns_schemaArn,
-    listManagedSchemaArns_maxResults,
     listManagedSchemaArnsResponse_nextToken,
     listManagedSchemaArnsResponse_schemaArns,
     listManagedSchemaArnsResponse_httpStatus,
 
     -- ** ListObjectAttributes
-    listObjectAttributes_nextToken,
     listObjectAttributes_consistencyLevel,
-    listObjectAttributes_maxResults,
     listObjectAttributes_facetFilter,
+    listObjectAttributes_maxResults,
+    listObjectAttributes_nextToken,
     listObjectAttributes_directoryArn,
     listObjectAttributes_objectReference,
-    listObjectAttributesResponse_nextToken,
     listObjectAttributesResponse_attributes,
+    listObjectAttributesResponse_nextToken,
     listObjectAttributesResponse_httpStatus,
 
     -- ** ListObjectChildren
-    listObjectChildren_nextToken,
     listObjectChildren_consistencyLevel,
     listObjectChildren_maxResults,
+    listObjectChildren_nextToken,
     listObjectChildren_directoryArn,
     listObjectChildren_objectReference,
-    listObjectChildrenResponse_nextToken,
     listObjectChildrenResponse_children,
+    listObjectChildrenResponse_nextToken,
     listObjectChildrenResponse_httpStatus,
 
     -- ** ListObjectParentPaths
-    listObjectParentPaths_nextToken,
     listObjectParentPaths_maxResults,
+    listObjectParentPaths_nextToken,
     listObjectParentPaths_directoryArn,
     listObjectParentPaths_objectReference,
     listObjectParentPathsResponse_nextToken,
@@ -341,10 +341,10 @@ module Amazonka.CloudDirectory.Lens
     listObjectParentPathsResponse_httpStatus,
 
     -- ** ListObjectParents
-    listObjectParents_nextToken,
-    listObjectParents_includeAllLinksToEachParent,
     listObjectParents_consistencyLevel,
+    listObjectParents_includeAllLinksToEachParent,
     listObjectParents_maxResults,
+    listObjectParents_nextToken,
     listObjectParents_directoryArn,
     listObjectParents_objectReference,
     listObjectParentsResponse_nextToken,
@@ -353,21 +353,21 @@ module Amazonka.CloudDirectory.Lens
     listObjectParentsResponse_httpStatus,
 
     -- ** ListObjectPolicies
-    listObjectPolicies_nextToken,
     listObjectPolicies_consistencyLevel,
     listObjectPolicies_maxResults,
+    listObjectPolicies_nextToken,
     listObjectPolicies_directoryArn,
     listObjectPolicies_objectReference,
-    listObjectPoliciesResponse_nextToken,
     listObjectPoliciesResponse_attachedPolicyIds,
+    listObjectPoliciesResponse_nextToken,
     listObjectPoliciesResponse_httpStatus,
 
     -- ** ListOutgoingTypedLinks
-    listOutgoingTypedLinks_nextToken,
     listOutgoingTypedLinks_consistencyLevel,
-    listOutgoingTypedLinks_maxResults,
     listOutgoingTypedLinks_filterAttributeRanges,
     listOutgoingTypedLinks_filterTypedLink,
+    listOutgoingTypedLinks_maxResults,
+    listOutgoingTypedLinks_nextToken,
     listOutgoingTypedLinks_directoryArn,
     listOutgoingTypedLinks_objectReference,
     listOutgoingTypedLinksResponse_nextToken,
@@ -375,9 +375,9 @@ module Amazonka.CloudDirectory.Lens
     listOutgoingTypedLinksResponse_httpStatus,
 
     -- ** ListPolicyAttachments
-    listPolicyAttachments_nextToken,
     listPolicyAttachments_consistencyLevel,
     listPolicyAttachments_maxResults,
+    listPolicyAttachments_nextToken,
     listPolicyAttachments_directoryArn,
     listPolicyAttachments_policyReference,
     listPolicyAttachmentsResponse_nextToken,
@@ -385,41 +385,41 @@ module Amazonka.CloudDirectory.Lens
     listPolicyAttachmentsResponse_httpStatus,
 
     -- ** ListPublishedSchemaArns
+    listPublishedSchemaArns_maxResults,
     listPublishedSchemaArns_nextToken,
     listPublishedSchemaArns_schemaArn,
-    listPublishedSchemaArns_maxResults,
     listPublishedSchemaArnsResponse_nextToken,
     listPublishedSchemaArnsResponse_schemaArns,
     listPublishedSchemaArnsResponse_httpStatus,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTypedLinkFacetAttributes
-    listTypedLinkFacetAttributes_nextToken,
     listTypedLinkFacetAttributes_maxResults,
+    listTypedLinkFacetAttributes_nextToken,
     listTypedLinkFacetAttributes_schemaArn,
     listTypedLinkFacetAttributes_name,
-    listTypedLinkFacetAttributesResponse_nextToken,
     listTypedLinkFacetAttributesResponse_attributes,
+    listTypedLinkFacetAttributesResponse_nextToken,
     listTypedLinkFacetAttributesResponse_httpStatus,
 
     -- ** ListTypedLinkFacetNames
-    listTypedLinkFacetNames_nextToken,
     listTypedLinkFacetNames_maxResults,
+    listTypedLinkFacetNames_nextToken,
     listTypedLinkFacetNames_schemaArn,
-    listTypedLinkFacetNamesResponse_nextToken,
     listTypedLinkFacetNamesResponse_facetNames,
+    listTypedLinkFacetNamesResponse_nextToken,
     listTypedLinkFacetNamesResponse_httpStatus,
 
     -- ** LookupPolicy
-    lookupPolicy_nextToken,
     lookupPolicy_maxResults,
+    lookupPolicy_nextToken,
     lookupPolicy_directoryArn,
     lookupPolicy_objectReference,
     lookupPolicyResponse_nextToken,
@@ -427,8 +427,8 @@ module Amazonka.CloudDirectory.Lens
     lookupPolicyResponse_httpStatus,
 
     -- ** PublishSchema
-    publishSchema_name,
     publishSchema_minorVersion,
+    publishSchema_name,
     publishSchema_developmentSchemaArn,
     publishSchema_version,
     publishSchemaResponse_publishedSchemaArn,
@@ -559,8 +559,8 @@ module Amazonka.CloudDirectory.Lens
 
     -- ** BatchCreateIndex
     batchCreateIndex_batchReferenceName,
-    batchCreateIndex_parentReference,
     batchCreateIndex_linkName,
+    batchCreateIndex_parentReference,
     batchCreateIndex_orderedIndexedAttributeList,
     batchCreateIndex_isUnique,
 
@@ -569,8 +569,8 @@ module Amazonka.CloudDirectory.Lens
 
     -- ** BatchCreateObject
     batchCreateObject_batchReferenceName,
-    batchCreateObject_parentReference,
     batchCreateObject_linkName,
+    batchCreateObject_parentReference,
     batchCreateObject_schemaFacet,
     batchCreateObject_objectAttributeList,
 
@@ -631,57 +631,57 @@ module Amazonka.CloudDirectory.Lens
     batchGetObjectInformationResponse_schemaFacets,
 
     -- ** BatchListAttachedIndices
-    batchListAttachedIndices_nextToken,
     batchListAttachedIndices_maxResults,
+    batchListAttachedIndices_nextToken,
     batchListAttachedIndices_targetReference,
 
     -- ** BatchListAttachedIndicesResponse
-    batchListAttachedIndicesResponse_nextToken,
     batchListAttachedIndicesResponse_indexAttachments,
+    batchListAttachedIndicesResponse_nextToken,
 
     -- ** BatchListIncomingTypedLinks
-    batchListIncomingTypedLinks_nextToken,
-    batchListIncomingTypedLinks_maxResults,
     batchListIncomingTypedLinks_filterAttributeRanges,
     batchListIncomingTypedLinks_filterTypedLink,
+    batchListIncomingTypedLinks_maxResults,
+    batchListIncomingTypedLinks_nextToken,
     batchListIncomingTypedLinks_objectReference,
 
     -- ** BatchListIncomingTypedLinksResponse
-    batchListIncomingTypedLinksResponse_nextToken,
     batchListIncomingTypedLinksResponse_linkSpecifiers,
+    batchListIncomingTypedLinksResponse_nextToken,
 
     -- ** BatchListIndex
-    batchListIndex_nextToken,
     batchListIndex_maxResults,
+    batchListIndex_nextToken,
     batchListIndex_rangesOnIndexedValues,
     batchListIndex_indexReference,
 
     -- ** BatchListIndexResponse
-    batchListIndexResponse_nextToken,
     batchListIndexResponse_indexAttachments,
+    batchListIndexResponse_nextToken,
 
     -- ** BatchListObjectAttributes
-    batchListObjectAttributes_nextToken,
-    batchListObjectAttributes_maxResults,
     batchListObjectAttributes_facetFilter,
+    batchListObjectAttributes_maxResults,
+    batchListObjectAttributes_nextToken,
     batchListObjectAttributes_objectReference,
 
     -- ** BatchListObjectAttributesResponse
-    batchListObjectAttributesResponse_nextToken,
     batchListObjectAttributesResponse_attributes,
+    batchListObjectAttributesResponse_nextToken,
 
     -- ** BatchListObjectChildren
-    batchListObjectChildren_nextToken,
     batchListObjectChildren_maxResults,
+    batchListObjectChildren_nextToken,
     batchListObjectChildren_objectReference,
 
     -- ** BatchListObjectChildrenResponse
-    batchListObjectChildrenResponse_nextToken,
     batchListObjectChildrenResponse_children,
+    batchListObjectChildrenResponse_nextToken,
 
     -- ** BatchListObjectParentPaths
-    batchListObjectParentPaths_nextToken,
     batchListObjectParentPaths_maxResults,
+    batchListObjectParentPaths_nextToken,
     batchListObjectParentPaths_objectReference,
 
     -- ** BatchListObjectParentPathsResponse
@@ -689,8 +689,8 @@ module Amazonka.CloudDirectory.Lens
     batchListObjectParentPathsResponse_pathToObjectIdentifiersList,
 
     -- ** BatchListObjectParents
-    batchListObjectParents_nextToken,
     batchListObjectParents_maxResults,
+    batchListObjectParents_nextToken,
     batchListObjectParents_objectReference,
 
     -- ** BatchListObjectParentsResponse
@@ -698,19 +698,19 @@ module Amazonka.CloudDirectory.Lens
     batchListObjectParentsResponse_parentLinks,
 
     -- ** BatchListObjectPolicies
-    batchListObjectPolicies_nextToken,
     batchListObjectPolicies_maxResults,
+    batchListObjectPolicies_nextToken,
     batchListObjectPolicies_objectReference,
 
     -- ** BatchListObjectPoliciesResponse
-    batchListObjectPoliciesResponse_nextToken,
     batchListObjectPoliciesResponse_attachedPolicyIds,
+    batchListObjectPoliciesResponse_nextToken,
 
     -- ** BatchListOutgoingTypedLinks
-    batchListOutgoingTypedLinks_nextToken,
-    batchListOutgoingTypedLinks_maxResults,
     batchListOutgoingTypedLinks_filterAttributeRanges,
     batchListOutgoingTypedLinks_filterTypedLink,
+    batchListOutgoingTypedLinks_maxResults,
+    batchListOutgoingTypedLinks_nextToken,
     batchListOutgoingTypedLinks_objectReference,
 
     -- ** BatchListOutgoingTypedLinksResponse
@@ -718,8 +718,8 @@ module Amazonka.CloudDirectory.Lens
     batchListOutgoingTypedLinksResponse_typedLinkSpecifiers,
 
     -- ** BatchListPolicyAttachments
-    batchListPolicyAttachments_nextToken,
     batchListPolicyAttachments_maxResults,
+    batchListPolicyAttachments_nextToken,
     batchListPolicyAttachments_policyReference,
 
     -- ** BatchListPolicyAttachmentsResponse
@@ -727,8 +727,8 @@ module Amazonka.CloudDirectory.Lens
     batchListPolicyAttachmentsResponse_objectIdentifiers,
 
     -- ** BatchLookupPolicy
-    batchLookupPolicy_nextToken,
     batchLookupPolicy_maxResults,
+    batchLookupPolicy_nextToken,
     batchLookupPolicy_objectReference,
 
     -- ** BatchLookupPolicyResponse
@@ -740,40 +740,40 @@ module Amazonka.CloudDirectory.Lens
     batchReadException_type,
 
     -- ** BatchReadOperation
-    batchReadOperation_listOutgoingTypedLinks,
-    batchReadOperation_getObjectAttributes,
-    batchReadOperation_listObjectChildren,
-    batchReadOperation_listPolicyAttachments,
-    batchReadOperation_listObjectPolicies,
-    batchReadOperation_listIncomingTypedLinks,
-    batchReadOperation_getObjectInformation,
-    batchReadOperation_listObjectAttributes,
-    batchReadOperation_lookupPolicy,
     batchReadOperation_getLinkAttributes,
-    batchReadOperation_listObjectParents,
-    batchReadOperation_listObjectParentPaths,
+    batchReadOperation_getObjectAttributes,
+    batchReadOperation_getObjectInformation,
     batchReadOperation_listAttachedIndices,
+    batchReadOperation_listIncomingTypedLinks,
     batchReadOperation_listIndex,
+    batchReadOperation_listObjectAttributes,
+    batchReadOperation_listObjectChildren,
+    batchReadOperation_listObjectParentPaths,
+    batchReadOperation_listObjectParents,
+    batchReadOperation_listObjectPolicies,
+    batchReadOperation_listOutgoingTypedLinks,
+    batchReadOperation_listPolicyAttachments,
+    batchReadOperation_lookupPolicy,
 
     -- ** BatchReadOperationResponse
     batchReadOperationResponse_exceptionResponse,
     batchReadOperationResponse_successfulResponse,
 
     -- ** BatchReadSuccessfulResponse
-    batchReadSuccessfulResponse_listOutgoingTypedLinks,
-    batchReadSuccessfulResponse_getObjectAttributes,
-    batchReadSuccessfulResponse_listObjectChildren,
-    batchReadSuccessfulResponse_listPolicyAttachments,
-    batchReadSuccessfulResponse_listObjectPolicies,
-    batchReadSuccessfulResponse_listIncomingTypedLinks,
-    batchReadSuccessfulResponse_getObjectInformation,
-    batchReadSuccessfulResponse_listObjectAttributes,
-    batchReadSuccessfulResponse_lookupPolicy,
     batchReadSuccessfulResponse_getLinkAttributes,
-    batchReadSuccessfulResponse_listObjectParents,
-    batchReadSuccessfulResponse_listObjectParentPaths,
+    batchReadSuccessfulResponse_getObjectAttributes,
+    batchReadSuccessfulResponse_getObjectInformation,
     batchReadSuccessfulResponse_listAttachedIndices,
+    batchReadSuccessfulResponse_listIncomingTypedLinks,
     batchReadSuccessfulResponse_listIndex,
+    batchReadSuccessfulResponse_listObjectAttributes,
+    batchReadSuccessfulResponse_listObjectChildren,
+    batchReadSuccessfulResponse_listObjectParentPaths,
+    batchReadSuccessfulResponse_listObjectParents,
+    batchReadSuccessfulResponse_listObjectPolicies,
+    batchReadSuccessfulResponse_listOutgoingTypedLinks,
+    batchReadSuccessfulResponse_listPolicyAttachments,
+    batchReadSuccessfulResponse_lookupPolicy,
 
     -- ** BatchRemoveFacetFromObject
     batchRemoveFacetFromObject_schemaFacet,
@@ -795,60 +795,60 @@ module Amazonka.CloudDirectory.Lens
     batchUpdateObjectAttributesResponse_objectIdentifier,
 
     -- ** BatchWriteOperation
-    batchWriteOperation_attachToIndex,
-    batchWriteOperation_updateObjectAttributes,
-    batchWriteOperation_deleteObject,
-    batchWriteOperation_detachObject,
-    batchWriteOperation_detachTypedLink,
-    batchWriteOperation_updateLinkAttributes,
-    batchWriteOperation_createObject,
     batchWriteOperation_addFacetToObject,
-    batchWriteOperation_detachFromIndex,
-    batchWriteOperation_attachPolicy,
-    batchWriteOperation_createIndex,
-    batchWriteOperation_detachPolicy,
-    batchWriteOperation_removeFacetFromObject,
-    batchWriteOperation_attachTypedLink,
     batchWriteOperation_attachObject,
+    batchWriteOperation_attachPolicy,
+    batchWriteOperation_attachToIndex,
+    batchWriteOperation_attachTypedLink,
+    batchWriteOperation_createIndex,
+    batchWriteOperation_createObject,
+    batchWriteOperation_deleteObject,
+    batchWriteOperation_detachFromIndex,
+    batchWriteOperation_detachObject,
+    batchWriteOperation_detachPolicy,
+    batchWriteOperation_detachTypedLink,
+    batchWriteOperation_removeFacetFromObject,
+    batchWriteOperation_updateLinkAttributes,
+    batchWriteOperation_updateObjectAttributes,
 
     -- ** BatchWriteOperationResponse
-    batchWriteOperationResponse_attachToIndex,
-    batchWriteOperationResponse_updateObjectAttributes,
-    batchWriteOperationResponse_deleteObject,
-    batchWriteOperationResponse_detachObject,
-    batchWriteOperationResponse_detachTypedLink,
-    batchWriteOperationResponse_updateLinkAttributes,
-    batchWriteOperationResponse_createObject,
     batchWriteOperationResponse_addFacetToObject,
-    batchWriteOperationResponse_detachFromIndex,
-    batchWriteOperationResponse_attachPolicy,
-    batchWriteOperationResponse_createIndex,
-    batchWriteOperationResponse_detachPolicy,
-    batchWriteOperationResponse_removeFacetFromObject,
-    batchWriteOperationResponse_attachTypedLink,
     batchWriteOperationResponse_attachObject,
+    batchWriteOperationResponse_attachPolicy,
+    batchWriteOperationResponse_attachToIndex,
+    batchWriteOperationResponse_attachTypedLink,
+    batchWriteOperationResponse_createIndex,
+    batchWriteOperationResponse_createObject,
+    batchWriteOperationResponse_deleteObject,
+    batchWriteOperationResponse_detachFromIndex,
+    batchWriteOperationResponse_detachObject,
+    batchWriteOperationResponse_detachPolicy,
+    batchWriteOperationResponse_detachTypedLink,
+    batchWriteOperationResponse_removeFacetFromObject,
+    batchWriteOperationResponse_updateLinkAttributes,
+    batchWriteOperationResponse_updateObjectAttributes,
 
     -- ** Directory
-    directory_name,
     directory_creationDateTime,
     directory_directoryArn,
+    directory_name,
     directory_state,
 
     -- ** Facet
-    facet_name,
     facet_facetStyle,
+    facet_name,
     facet_objectType,
 
     -- ** FacetAttribute
+    facetAttribute_attributeDefinition,
     facetAttribute_attributeReference,
     facetAttribute_requiredBehavior,
-    facetAttribute_attributeDefinition,
     facetAttribute_name,
 
     -- ** FacetAttributeDefinition
-    facetAttributeDefinition_rules,
     facetAttributeDefinition_defaultValue,
     facetAttributeDefinition_isImmutable,
+    facetAttributeDefinition_rules,
     facetAttributeDefinition_type,
 
     -- ** FacetAttributeReference
@@ -856,12 +856,12 @@ module Amazonka.CloudDirectory.Lens
     facetAttributeReference_targetAttributeName,
 
     -- ** FacetAttributeUpdate
-    facetAttributeUpdate_attribute,
     facetAttributeUpdate_action,
+    facetAttributeUpdate_attribute,
 
     -- ** IndexAttachment
-    indexAttachment_objectIdentifier,
     indexAttachment_indexedAttributes,
+    indexAttachment_objectIdentifier,
 
     -- ** LinkAttributeAction
     linkAttributeAction_attributeActionType,
@@ -872,31 +872,31 @@ module Amazonka.CloudDirectory.Lens
     linkAttributeUpdate_attributeKey,
 
     -- ** ObjectAttributeAction
-    objectAttributeAction_objectAttributeUpdateValue,
     objectAttributeAction_objectAttributeActionType,
+    objectAttributeAction_objectAttributeUpdateValue,
 
     -- ** ObjectAttributeRange
-    objectAttributeRange_range,
     objectAttributeRange_attributeKey,
+    objectAttributeRange_range,
 
     -- ** ObjectAttributeUpdate
-    objectAttributeUpdate_objectAttributeKey,
     objectAttributeUpdate_objectAttributeAction,
+    objectAttributeUpdate_objectAttributeKey,
 
     -- ** ObjectIdentifierAndLinkNameTuple
-    objectIdentifierAndLinkNameTuple_objectIdentifier,
     objectIdentifierAndLinkNameTuple_linkName,
+    objectIdentifierAndLinkNameTuple_objectIdentifier,
 
     -- ** ObjectReference
     objectReference_selector,
 
     -- ** PathToObjectIdentifiers
-    pathToObjectIdentifiers_path,
     pathToObjectIdentifiers_objectIdentifiers,
+    pathToObjectIdentifiers_path,
 
     -- ** PolicyAttachment
-    policyAttachment_policyId,
     policyAttachment_objectIdentifier,
+    policyAttachment_policyId,
     policyAttachment_policyType,
 
     -- ** PolicyToPath
@@ -904,8 +904,8 @@ module Amazonka.CloudDirectory.Lens
     policyToPath_policies,
 
     -- ** Rule
-    rule_type,
     rule_parameters,
+    rule_type,
 
     -- ** SchemaFacet
     schemaFacet_facetName,
@@ -916,10 +916,10 @@ module Amazonka.CloudDirectory.Lens
     tag_value,
 
     -- ** TypedAttributeValue
+    typedAttributeValue_binaryValue,
+    typedAttributeValue_booleanValue,
     typedAttributeValue_datetimeValue,
     typedAttributeValue_numberValue,
-    typedAttributeValue_booleanValue,
-    typedAttributeValue_binaryValue,
     typedAttributeValue_stringValue,
 
     -- ** TypedAttributeValueRange
@@ -929,9 +929,9 @@ module Amazonka.CloudDirectory.Lens
     typedAttributeValueRange_endMode,
 
     -- ** TypedLinkAttributeDefinition
-    typedLinkAttributeDefinition_rules,
     typedLinkAttributeDefinition_defaultValue,
     typedLinkAttributeDefinition_isImmutable,
+    typedLinkAttributeDefinition_rules,
     typedLinkAttributeDefinition_name,
     typedLinkAttributeDefinition_type,
     typedLinkAttributeDefinition_requiredBehavior,

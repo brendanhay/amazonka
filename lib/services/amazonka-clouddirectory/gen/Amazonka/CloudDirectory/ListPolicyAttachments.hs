@@ -30,9 +30,9 @@ module Amazonka.CloudDirectory.ListPolicyAttachments
     newListPolicyAttachments,
 
     -- * Request Lenses
-    listPolicyAttachments_nextToken,
     listPolicyAttachments_consistencyLevel,
     listPolicyAttachments_maxResults,
+    listPolicyAttachments_nextToken,
     listPolicyAttachments_directoryArn,
     listPolicyAttachments_policyReference,
 
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPolicyAttachments' smart constructor.
 data ListPolicyAttachments = ListPolicyAttachments'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the manner and timing in which the successful write or update
+  { -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
     consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where objects reside. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -82,14 +82,14 @@ data ListPolicyAttachments = ListPolicyAttachments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPolicyAttachments_nextToken' - The pagination token.
---
 -- 'consistencyLevel', 'listPolicyAttachments_consistencyLevel' - Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
 --
 -- 'maxResults', 'listPolicyAttachments_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
+--
+-- 'nextToken', 'listPolicyAttachments_nextToken' - The pagination token.
 --
 -- 'directoryArn', 'listPolicyAttachments_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -105,16 +105,13 @@ newListPolicyAttachments
   pDirectoryArn_
   pPolicyReference_ =
     ListPolicyAttachments'
-      { nextToken = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
+      { consistencyLevel =
+          Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         policyReference = pPolicyReference_
       }
-
--- | The pagination token.
-listPolicyAttachments_nextToken :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Text)
-listPolicyAttachments_nextToken = Lens.lens (\ListPolicyAttachments' {nextToken} -> nextToken) (\s@ListPolicyAttachments' {} a -> s {nextToken = a} :: ListPolicyAttachments)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
@@ -126,6 +123,10 @@ listPolicyAttachments_consistencyLevel = Lens.lens (\ListPolicyAttachments' {con
 -- approximate number.
 listPolicyAttachments_maxResults :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Natural)
 listPolicyAttachments_maxResults = Lens.lens (\ListPolicyAttachments' {maxResults} -> maxResults) (\s@ListPolicyAttachments' {} a -> s {maxResults = a} :: ListPolicyAttachments)
+
+-- | The pagination token.
+listPolicyAttachments_nextToken :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Text)
+listPolicyAttachments_nextToken = Lens.lens (\ListPolicyAttachments' {nextToken} -> nextToken) (\s@ListPolicyAttachments' {} a -> s {nextToken = a} :: ListPolicyAttachments)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -177,17 +178,17 @@ instance Core.AWSRequest ListPolicyAttachments where
 
 instance Prelude.Hashable ListPolicyAttachments where
   hashWithSalt _salt ListPolicyAttachments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` consistencyLevel
+    _salt `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` policyReference
 
 instance Prelude.NFData ListPolicyAttachments where
   rnf ListPolicyAttachments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf consistencyLevel
+    Prelude.rnf consistencyLevel
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf policyReference
 
@@ -202,8 +203,8 @@ instance Data.ToJSON ListPolicyAttachments where
   toJSON ListPolicyAttachments' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("PolicyReference" Data..= policyReference)
           ]

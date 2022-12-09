@@ -30,8 +30,8 @@ module Amazonka.CloudDirectory.ListDevelopmentSchemaArns
     newListDevelopmentSchemaArns,
 
     -- * Request Lenses
-    listDevelopmentSchemaArns_nextToken,
     listDevelopmentSchemaArns_maxResults,
+    listDevelopmentSchemaArns_nextToken,
 
     -- * Destructuring the Response
     ListDevelopmentSchemaArnsResponse (..),
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDevelopmentSchemaArns' smart constructor.
 data ListDevelopmentSchemaArns = ListDevelopmentSchemaArns'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,25 +69,25 @@ data ListDevelopmentSchemaArns = ListDevelopmentSchemaArns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDevelopmentSchemaArns_nextToken' - The pagination token.
---
 -- 'maxResults', 'listDevelopmentSchemaArns_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'listDevelopmentSchemaArns_nextToken' - The pagination token.
 newListDevelopmentSchemaArns ::
   ListDevelopmentSchemaArns
 newListDevelopmentSchemaArns =
   ListDevelopmentSchemaArns'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token.
-listDevelopmentSchemaArns_nextToken :: Lens.Lens' ListDevelopmentSchemaArns (Prelude.Maybe Prelude.Text)
-listDevelopmentSchemaArns_nextToken = Lens.lens (\ListDevelopmentSchemaArns' {nextToken} -> nextToken) (\s@ListDevelopmentSchemaArns' {} a -> s {nextToken = a} :: ListDevelopmentSchemaArns)
 
 -- | The maximum number of results to retrieve.
 listDevelopmentSchemaArns_maxResults :: Lens.Lens' ListDevelopmentSchemaArns (Prelude.Maybe Prelude.Natural)
 listDevelopmentSchemaArns_maxResults = Lens.lens (\ListDevelopmentSchemaArns' {maxResults} -> maxResults) (\s@ListDevelopmentSchemaArns' {} a -> s {maxResults = a} :: ListDevelopmentSchemaArns)
+
+-- | The pagination token.
+listDevelopmentSchemaArns_nextToken :: Lens.Lens' ListDevelopmentSchemaArns (Prelude.Maybe Prelude.Text)
+listDevelopmentSchemaArns_nextToken = Lens.lens (\ListDevelopmentSchemaArns' {nextToken} -> nextToken) (\s@ListDevelopmentSchemaArns' {} a -> s {nextToken = a} :: ListDevelopmentSchemaArns)
 
 instance Core.AWSPager ListDevelopmentSchemaArns where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListDevelopmentSchemaArns where
 
 instance Prelude.Hashable ListDevelopmentSchemaArns where
   hashWithSalt _salt ListDevelopmentSchemaArns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDevelopmentSchemaArns where
   rnf ListDevelopmentSchemaArns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDevelopmentSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
@@ -143,8 +143,8 @@ instance Data.ToJSON ListDevelopmentSchemaArns where
   toJSON ListDevelopmentSchemaArns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

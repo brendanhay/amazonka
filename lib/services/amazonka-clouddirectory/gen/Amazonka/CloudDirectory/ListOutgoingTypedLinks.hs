@@ -32,11 +32,11 @@ module Amazonka.CloudDirectory.ListOutgoingTypedLinks
     newListOutgoingTypedLinks,
 
     -- * Request Lenses
-    listOutgoingTypedLinks_nextToken,
     listOutgoingTypedLinks_consistencyLevel,
-    listOutgoingTypedLinks_maxResults,
     listOutgoingTypedLinks_filterAttributeRanges,
     listOutgoingTypedLinks_filterTypedLink,
+    listOutgoingTypedLinks_maxResults,
+    listOutgoingTypedLinks_nextToken,
     listOutgoingTypedLinks_directoryArn,
     listOutgoingTypedLinks_objectReference,
 
@@ -61,12 +61,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOutgoingTypedLinks' smart constructor.
 data ListOutgoingTypedLinks = ListOutgoingTypedLinks'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The consistency level to execute the request at.
+  { -- | The consistency level to execute the request at.
     consistencyLevel :: Prelude.Maybe ConsistencyLevel,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Provides range filters for multiple attributes. When providing ranges to
     -- typed link selection, any inexact ranges must be specified at the end.
     -- Any attributes that do not have a range specified are presumed to match
@@ -75,6 +71,10 @@ data ListOutgoingTypedLinks = ListOutgoingTypedLinks'
     -- | Filters are interpreted in the order of the attributes defined on the
     -- typed link facet, not the order they are supplied to any API calls.
     filterTypedLink :: Prelude.Maybe TypedLinkSchemaAndFacetName,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the directory where you want to list
     -- the typed links.
     directoryArn :: Prelude.Text,
@@ -91,11 +91,7 @@ data ListOutgoingTypedLinks = ListOutgoingTypedLinks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOutgoingTypedLinks_nextToken' - The pagination token.
---
 -- 'consistencyLevel', 'listOutgoingTypedLinks_consistencyLevel' - The consistency level to execute the request at.
---
--- 'maxResults', 'listOutgoingTypedLinks_maxResults' - The maximum number of results to retrieve.
 --
 -- 'filterAttributeRanges', 'listOutgoingTypedLinks_filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
@@ -104,6 +100,10 @@ data ListOutgoingTypedLinks = ListOutgoingTypedLinks'
 --
 -- 'filterTypedLink', 'listOutgoingTypedLinks_filterTypedLink' - Filters are interpreted in the order of the attributes defined on the
 -- typed link facet, not the order they are supplied to any API calls.
+--
+-- 'maxResults', 'listOutgoingTypedLinks_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'listOutgoingTypedLinks_nextToken' - The pagination token.
 --
 -- 'directoryArn', 'listOutgoingTypedLinks_directoryArn' - The Amazon Resource Name (ARN) of the directory where you want to list
 -- the typed links.
@@ -119,27 +119,19 @@ newListOutgoingTypedLinks
   pDirectoryArn_
   pObjectReference_ =
     ListOutgoingTypedLinks'
-      { nextToken =
+      { consistencyLevel =
           Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         filterAttributeRanges = Prelude.Nothing,
         filterTypedLink = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
 
--- | The pagination token.
-listOutgoingTypedLinks_nextToken :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe Prelude.Text)
-listOutgoingTypedLinks_nextToken = Lens.lens (\ListOutgoingTypedLinks' {nextToken} -> nextToken) (\s@ListOutgoingTypedLinks' {} a -> s {nextToken = a} :: ListOutgoingTypedLinks)
-
 -- | The consistency level to execute the request at.
 listOutgoingTypedLinks_consistencyLevel :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe ConsistencyLevel)
 listOutgoingTypedLinks_consistencyLevel = Lens.lens (\ListOutgoingTypedLinks' {consistencyLevel} -> consistencyLevel) (\s@ListOutgoingTypedLinks' {} a -> s {consistencyLevel = a} :: ListOutgoingTypedLinks)
-
--- | The maximum number of results to retrieve.
-listOutgoingTypedLinks_maxResults :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe Prelude.Natural)
-listOutgoingTypedLinks_maxResults = Lens.lens (\ListOutgoingTypedLinks' {maxResults} -> maxResults) (\s@ListOutgoingTypedLinks' {} a -> s {maxResults = a} :: ListOutgoingTypedLinks)
 
 -- | Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
@@ -152,6 +144,14 @@ listOutgoingTypedLinks_filterAttributeRanges = Lens.lens (\ListOutgoingTypedLink
 -- typed link facet, not the order they are supplied to any API calls.
 listOutgoingTypedLinks_filterTypedLink :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe TypedLinkSchemaAndFacetName)
 listOutgoingTypedLinks_filterTypedLink = Lens.lens (\ListOutgoingTypedLinks' {filterTypedLink} -> filterTypedLink) (\s@ListOutgoingTypedLinks' {} a -> s {filterTypedLink = a} :: ListOutgoingTypedLinks)
+
+-- | The maximum number of results to retrieve.
+listOutgoingTypedLinks_maxResults :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe Prelude.Natural)
+listOutgoingTypedLinks_maxResults = Lens.lens (\ListOutgoingTypedLinks' {maxResults} -> maxResults) (\s@ListOutgoingTypedLinks' {} a -> s {maxResults = a} :: ListOutgoingTypedLinks)
+
+-- | The pagination token.
+listOutgoingTypedLinks_nextToken :: Lens.Lens' ListOutgoingTypedLinks (Prelude.Maybe Prelude.Text)
+listOutgoingTypedLinks_nextToken = Lens.lens (\ListOutgoingTypedLinks' {nextToken} -> nextToken) (\s@ListOutgoingTypedLinks' {} a -> s {nextToken = a} :: ListOutgoingTypedLinks)
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to list
 -- the typed links.
@@ -203,21 +203,21 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
 
 instance Prelude.Hashable ListOutgoingTypedLinks where
   hashWithSalt _salt ListOutgoingTypedLinks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` consistencyLevel
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` filterAttributeRanges
       `Prelude.hashWithSalt` filterTypedLink
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData ListOutgoingTypedLinks where
   rnf ListOutgoingTypedLinks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf consistencyLevel
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf consistencyLevel
       `Prelude.seq` Prelude.rnf filterAttributeRanges
       `Prelude.seq` Prelude.rnf filterTypedLink
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
@@ -230,14 +230,14 @@ instance Data.ToJSON ListOutgoingTypedLinks where
   toJSON ListOutgoingTypedLinks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConsistencyLevel" Data..=)
+          [ ("ConsistencyLevel" Data..=)
               Prelude.<$> consistencyLevel,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("FilterAttributeRanges" Data..=)
               Prelude.<$> filterAttributeRanges,
             ("FilterTypedLink" Data..=)
               Prelude.<$> filterTypedLink,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileModes' smart constructor.
 data FileModes = FileModes'
-  { -- | The file mode of a file in the destination of a merge or pull request.
-    destination :: Prelude.Maybe FileModeTypeEnum,
-    -- | The file mode of a file in the base of a merge or pull request.
+  { -- | The file mode of a file in the base of a merge or pull request.
     base :: Prelude.Maybe FileModeTypeEnum,
+    -- | The file mode of a file in the destination of a merge or pull request.
+    destination :: Prelude.Maybe FileModeTypeEnum,
     -- | The file mode of a file in the source of a merge or pull request.
     source :: Prelude.Maybe FileModeTypeEnum
   }
@@ -46,27 +46,27 @@ data FileModes = FileModes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'fileModes_destination' - The file mode of a file in the destination of a merge or pull request.
---
 -- 'base', 'fileModes_base' - The file mode of a file in the base of a merge or pull request.
+--
+-- 'destination', 'fileModes_destination' - The file mode of a file in the destination of a merge or pull request.
 --
 -- 'source', 'fileModes_source' - The file mode of a file in the source of a merge or pull request.
 newFileModes ::
   FileModes
 newFileModes =
   FileModes'
-    { destination = Prelude.Nothing,
-      base = Prelude.Nothing,
+    { base = Prelude.Nothing,
+      destination = Prelude.Nothing,
       source = Prelude.Nothing
     }
-
--- | The file mode of a file in the destination of a merge or pull request.
-fileModes_destination :: Lens.Lens' FileModes (Prelude.Maybe FileModeTypeEnum)
-fileModes_destination = Lens.lens (\FileModes' {destination} -> destination) (\s@FileModes' {} a -> s {destination = a} :: FileModes)
 
 -- | The file mode of a file in the base of a merge or pull request.
 fileModes_base :: Lens.Lens' FileModes (Prelude.Maybe FileModeTypeEnum)
 fileModes_base = Lens.lens (\FileModes' {base} -> base) (\s@FileModes' {} a -> s {base = a} :: FileModes)
+
+-- | The file mode of a file in the destination of a merge or pull request.
+fileModes_destination :: Lens.Lens' FileModes (Prelude.Maybe FileModeTypeEnum)
+fileModes_destination = Lens.lens (\FileModes' {destination} -> destination) (\s@FileModes' {} a -> s {destination = a} :: FileModes)
 
 -- | The file mode of a file in the source of a merge or pull request.
 fileModes_source :: Lens.Lens' FileModes (Prelude.Maybe FileModeTypeEnum)
@@ -78,19 +78,19 @@ instance Data.FromJSON FileModes where
       "FileModes"
       ( \x ->
           FileModes'
-            Prelude.<$> (x Data..:? "destination")
-            Prelude.<*> (x Data..:? "base")
+            Prelude.<$> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable FileModes where
   hashWithSalt _salt FileModes' {..} =
-    _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` base
+    _salt `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData FileModes where
   rnf FileModes' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf base
+    Prelude.rnf base
+      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf source

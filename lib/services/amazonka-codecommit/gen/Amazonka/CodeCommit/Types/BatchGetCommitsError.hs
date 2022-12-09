@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data BatchGetCommitsError = BatchGetCommitsError'
   { -- | A commit ID that either could not be found or was not in a valid format.
     commitId :: Prelude.Maybe Prelude.Text,
-    -- | An error message that provides detail about why the commit ID either was
-    -- not found or was not valid.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | An error code that specifies whether the commit ID was not valid or not
     -- found.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | An error message that provides detail about why the commit ID either was
+    -- not found or was not valid.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,33 +49,33 @@ data BatchGetCommitsError = BatchGetCommitsError'
 --
 -- 'commitId', 'batchGetCommitsError_commitId' - A commit ID that either could not be found or was not in a valid format.
 --
--- 'errorMessage', 'batchGetCommitsError_errorMessage' - An error message that provides detail about why the commit ID either was
--- not found or was not valid.
---
 -- 'errorCode', 'batchGetCommitsError_errorCode' - An error code that specifies whether the commit ID was not valid or not
 -- found.
+--
+-- 'errorMessage', 'batchGetCommitsError_errorMessage' - An error message that provides detail about why the commit ID either was
+-- not found or was not valid.
 newBatchGetCommitsError ::
   BatchGetCommitsError
 newBatchGetCommitsError =
   BatchGetCommitsError'
     { commitId = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | A commit ID that either could not be found or was not in a valid format.
 batchGetCommitsError_commitId :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
 batchGetCommitsError_commitId = Lens.lens (\BatchGetCommitsError' {commitId} -> commitId) (\s@BatchGetCommitsError' {} a -> s {commitId = a} :: BatchGetCommitsError)
 
--- | An error message that provides detail about why the commit ID either was
--- not found or was not valid.
-batchGetCommitsError_errorMessage :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
-batchGetCommitsError_errorMessage = Lens.lens (\BatchGetCommitsError' {errorMessage} -> errorMessage) (\s@BatchGetCommitsError' {} a -> s {errorMessage = a} :: BatchGetCommitsError)
-
 -- | An error code that specifies whether the commit ID was not valid or not
 -- found.
 batchGetCommitsError_errorCode :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
 batchGetCommitsError_errorCode = Lens.lens (\BatchGetCommitsError' {errorCode} -> errorCode) (\s@BatchGetCommitsError' {} a -> s {errorCode = a} :: BatchGetCommitsError)
+
+-- | An error message that provides detail about why the commit ID either was
+-- not found or was not valid.
+batchGetCommitsError_errorMessage :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
+batchGetCommitsError_errorMessage = Lens.lens (\BatchGetCommitsError' {errorMessage} -> errorMessage) (\s@BatchGetCommitsError' {} a -> s {errorMessage = a} :: BatchGetCommitsError)
 
 instance Data.FromJSON BatchGetCommitsError where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON BatchGetCommitsError where
       ( \x ->
           BatchGetCommitsError'
             Prelude.<$> (x Data..:? "commitId")
-            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable BatchGetCommitsError where
   hashWithSalt _salt BatchGetCommitsError' {..} =
     _salt `Prelude.hashWithSalt` commitId
-      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData BatchGetCommitsError where
   rnf BatchGetCommitsError' {..} =
     Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

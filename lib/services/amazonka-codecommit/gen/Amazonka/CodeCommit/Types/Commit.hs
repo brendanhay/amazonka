@@ -29,17 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCommit' smart constructor.
 data Commit = Commit'
-  { -- | The commit message associated with the specified commit.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | Any other data associated with the specified commit.
+    additionalData :: Prelude.Maybe Prelude.Text,
     -- | Information about the author of the specified commit. Information
     -- includes the date in timestamp format with GMT offset, the name of the
     -- author, and the email address for the author, as configured in Git.
     author :: Prelude.Maybe UserInfo,
     -- | The full SHA ID of the specified commit.
     commitId :: Prelude.Maybe Prelude.Text,
-    -- | A list of parent commits for the specified commit. Each parent commit ID
-    -- is the full commit ID.
-    parents :: Prelude.Maybe [Prelude.Text],
     -- | Information about the person who committed the specified commit, also
     -- known as the committer. Information includes the date in timestamp
     -- format with GMT offset, the name of the committer, and the email address
@@ -50,10 +47,13 @@ data Commit = Commit'
     -- <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro
     -- Git by Scott Chacon and Ben Straub.
     committer :: Prelude.Maybe UserInfo,
+    -- | The commit message associated with the specified commit.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | A list of parent commits for the specified commit. Each parent commit ID
+    -- is the full commit ID.
+    parents :: Prelude.Maybe [Prelude.Text],
     -- | Tree information for the specified commit.
-    treeId :: Prelude.Maybe Prelude.Text,
-    -- | Any other data associated with the specified commit.
-    additionalData :: Prelude.Maybe Prelude.Text
+    treeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,16 +65,13 @@ data Commit = Commit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'commit_message' - The commit message associated with the specified commit.
+-- 'additionalData', 'commit_additionalData' - Any other data associated with the specified commit.
 --
 -- 'author', 'commit_author' - Information about the author of the specified commit. Information
 -- includes the date in timestamp format with GMT offset, the name of the
 -- author, and the email address for the author, as configured in Git.
 --
 -- 'commitId', 'commit_commitId' - The full SHA ID of the specified commit.
---
--- 'parents', 'commit_parents' - A list of parent commits for the specified commit. Each parent commit ID
--- is the full commit ID.
 --
 -- 'committer', 'commit_committer' - Information about the person who committed the specified commit, also
 -- known as the committer. Information includes the date in timestamp
@@ -86,25 +83,28 @@ data Commit = Commit'
 -- <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro
 -- Git by Scott Chacon and Ben Straub.
 --
--- 'treeId', 'commit_treeId' - Tree information for the specified commit.
+-- 'message', 'commit_message' - The commit message associated with the specified commit.
 --
--- 'additionalData', 'commit_additionalData' - Any other data associated with the specified commit.
+-- 'parents', 'commit_parents' - A list of parent commits for the specified commit. Each parent commit ID
+-- is the full commit ID.
+--
+-- 'treeId', 'commit_treeId' - Tree information for the specified commit.
 newCommit ::
   Commit
 newCommit =
   Commit'
-    { message = Prelude.Nothing,
+    { additionalData = Prelude.Nothing,
       author = Prelude.Nothing,
       commitId = Prelude.Nothing,
-      parents = Prelude.Nothing,
       committer = Prelude.Nothing,
-      treeId = Prelude.Nothing,
-      additionalData = Prelude.Nothing
+      message = Prelude.Nothing,
+      parents = Prelude.Nothing,
+      treeId = Prelude.Nothing
     }
 
--- | The commit message associated with the specified commit.
-commit_message :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
-commit_message = Lens.lens (\Commit' {message} -> message) (\s@Commit' {} a -> s {message = a} :: Commit)
+-- | Any other data associated with the specified commit.
+commit_additionalData :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
+commit_additionalData = Lens.lens (\Commit' {additionalData} -> additionalData) (\s@Commit' {} a -> s {additionalData = a} :: Commit)
 
 -- | Information about the author of the specified commit. Information
 -- includes the date in timestamp format with GMT offset, the name of the
@@ -115,11 +115,6 @@ commit_author = Lens.lens (\Commit' {author} -> author) (\s@Commit' {} a -> s {a
 -- | The full SHA ID of the specified commit.
 commit_commitId :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
 commit_commitId = Lens.lens (\Commit' {commitId} -> commitId) (\s@Commit' {} a -> s {commitId = a} :: Commit)
-
--- | A list of parent commits for the specified commit. Each parent commit ID
--- is the full commit ID.
-commit_parents :: Lens.Lens' Commit (Prelude.Maybe [Prelude.Text])
-commit_parents = Lens.lens (\Commit' {parents} -> parents) (\s@Commit' {} a -> s {parents = a} :: Commit) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the person who committed the specified commit, also
 -- known as the committer. Information includes the date in timestamp
@@ -133,13 +128,18 @@ commit_parents = Lens.lens (\Commit' {parents} -> parents) (\s@Commit' {} a -> s
 commit_committer :: Lens.Lens' Commit (Prelude.Maybe UserInfo)
 commit_committer = Lens.lens (\Commit' {committer} -> committer) (\s@Commit' {} a -> s {committer = a} :: Commit)
 
+-- | The commit message associated with the specified commit.
+commit_message :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
+commit_message = Lens.lens (\Commit' {message} -> message) (\s@Commit' {} a -> s {message = a} :: Commit)
+
+-- | A list of parent commits for the specified commit. Each parent commit ID
+-- is the full commit ID.
+commit_parents :: Lens.Lens' Commit (Prelude.Maybe [Prelude.Text])
+commit_parents = Lens.lens (\Commit' {parents} -> parents) (\s@Commit' {} a -> s {parents = a} :: Commit) Prelude.. Lens.mapping Lens.coerced
+
 -- | Tree information for the specified commit.
 commit_treeId :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
 commit_treeId = Lens.lens (\Commit' {treeId} -> treeId) (\s@Commit' {} a -> s {treeId = a} :: Commit)
-
--- | Any other data associated with the specified commit.
-commit_additionalData :: Lens.Lens' Commit (Prelude.Maybe Prelude.Text)
-commit_additionalData = Lens.lens (\Commit' {additionalData} -> additionalData) (\s@Commit' {} a -> s {additionalData = a} :: Commit)
 
 instance Data.FromJSON Commit where
   parseJSON =
@@ -147,31 +147,31 @@ instance Data.FromJSON Commit where
       "Commit"
       ( \x ->
           Commit'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "additionalData")
             Prelude.<*> (x Data..:? "author")
             Prelude.<*> (x Data..:? "commitId")
-            Prelude.<*> (x Data..:? "parents" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "committer")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "parents" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "treeId")
-            Prelude.<*> (x Data..:? "additionalData")
       )
 
 instance Prelude.Hashable Commit where
   hashWithSalt _salt Commit' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` additionalData
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` commitId
-      `Prelude.hashWithSalt` parents
       `Prelude.hashWithSalt` committer
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` parents
       `Prelude.hashWithSalt` treeId
-      `Prelude.hashWithSalt` additionalData
 
 instance Prelude.NFData Commit where
   rnf Commit' {..} =
-    Prelude.rnf message
+    Prelude.rnf additionalData
       `Prelude.seq` Prelude.rnf author
       `Prelude.seq` Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf parents
       `Prelude.seq` Prelude.rnf committer
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf parents
       `Prelude.seq` Prelude.rnf treeId
-      `Prelude.seq` Prelude.rnf additionalData

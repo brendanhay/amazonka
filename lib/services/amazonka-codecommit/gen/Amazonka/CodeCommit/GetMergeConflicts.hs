@@ -28,10 +28,10 @@ module Amazonka.CodeCommit.GetMergeConflicts
     newGetMergeConflicts,
 
     -- * Request Lenses
-    getMergeConflicts_nextToken,
+    getMergeConflicts_conflictDetailLevel,
     getMergeConflicts_conflictResolutionStrategy,
     getMergeConflicts_maxConflictFiles,
-    getMergeConflicts_conflictDetailLevel,
+    getMergeConflicts_nextToken,
     getMergeConflicts_repositoryName,
     getMergeConflicts_destinationCommitSpecifier,
     getMergeConflicts_sourceCommitSpecifier,
@@ -62,9 +62,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMergeConflicts' smart constructor.
 data GetMergeConflicts = GetMergeConflicts'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The level of conflict detail to use. If unspecified, the default
+    -- FILE_LEVEL is used, which returns a not-mergeable result if the same
+    -- file has differences in both branches. If LINE_LEVEL is specified, a
+    -- conflict is considered not mergeable if the same file in both branches
+    -- has differences on the same line.
+    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
@@ -72,12 +75,9 @@ data GetMergeConflicts = GetMergeConflicts'
     conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | The maximum number of files to include in the output.
     maxConflictFiles :: Prelude.Maybe Prelude.Int,
-    -- | The level of conflict detail to use. If unspecified, the default
-    -- FILE_LEVEL is used, which returns a not-mergeable result if the same
-    -- file has differences in both branches. If LINE_LEVEL is specified, a
-    -- conflict is considered not mergeable if the same file in both branches
-    -- has differences on the same line.
-    conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository where the pull request was created.
     repositoryName :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
@@ -99,8 +99,11 @@ data GetMergeConflicts = GetMergeConflicts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getMergeConflicts_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
+-- 'conflictDetailLevel', 'getMergeConflicts_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
+-- FILE_LEVEL is used, which returns a not-mergeable result if the same
+-- file has differences in both branches. If LINE_LEVEL is specified, a
+-- conflict is considered not mergeable if the same file in both branches
+-- has differences on the same line.
 --
 -- 'conflictResolutionStrategy', 'getMergeConflicts_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -109,11 +112,8 @@ data GetMergeConflicts = GetMergeConflicts'
 --
 -- 'maxConflictFiles', 'getMergeConflicts_maxConflictFiles' - The maximum number of files to include in the output.
 --
--- 'conflictDetailLevel', 'getMergeConflicts_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
--- FILE_LEVEL is used, which returns a not-mergeable result if the same
--- file has differences in both branches. If LINE_LEVEL is specified, a
--- conflict is considered not mergeable if the same file in both branches
--- has differences on the same line.
+-- 'nextToken', 'getMergeConflicts_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
 --
 -- 'repositoryName', 'getMergeConflicts_repositoryName' - The name of the repository where the pull request was created.
 --
@@ -140,10 +140,11 @@ newGetMergeConflicts
   pSourceCommitSpecifier_
   pMergeOption_ =
     GetMergeConflicts'
-      { nextToken = Prelude.Nothing,
+      { conflictDetailLevel =
+          Prelude.Nothing,
         conflictResolutionStrategy = Prelude.Nothing,
         maxConflictFiles = Prelude.Nothing,
-        conflictDetailLevel = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         destinationCommitSpecifier =
           pDestinationCommitSpecifier_,
@@ -151,10 +152,13 @@ newGetMergeConflicts
         mergeOption = pMergeOption_
       }
 
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-getMergeConflicts_nextToken :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Text)
-getMergeConflicts_nextToken = Lens.lens (\GetMergeConflicts' {nextToken} -> nextToken) (\s@GetMergeConflicts' {} a -> s {nextToken = a} :: GetMergeConflicts)
+-- | The level of conflict detail to use. If unspecified, the default
+-- FILE_LEVEL is used, which returns a not-mergeable result if the same
+-- file has differences in both branches. If LINE_LEVEL is specified, a
+-- conflict is considered not mergeable if the same file in both branches
+-- has differences on the same line.
+getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
+getMergeConflicts_conflictDetailLevel = Lens.lens (\GetMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeConflicts' {} a -> s {conflictDetailLevel = a} :: GetMergeConflicts)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -167,13 +171,10 @@ getMergeConflicts_conflictResolutionStrategy = Lens.lens (\GetMergeConflicts' {c
 getMergeConflicts_maxConflictFiles :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Int)
 getMergeConflicts_maxConflictFiles = Lens.lens (\GetMergeConflicts' {maxConflictFiles} -> maxConflictFiles) (\s@GetMergeConflicts' {} a -> s {maxConflictFiles = a} :: GetMergeConflicts)
 
--- | The level of conflict detail to use. If unspecified, the default
--- FILE_LEVEL is used, which returns a not-mergeable result if the same
--- file has differences in both branches. If LINE_LEVEL is specified, a
--- conflict is considered not mergeable if the same file in both branches
--- has differences on the same line.
-getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
-getMergeConflicts_conflictDetailLevel = Lens.lens (\GetMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeConflicts' {} a -> s {conflictDetailLevel = a} :: GetMergeConflicts)
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+getMergeConflicts_nextToken :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Text)
+getMergeConflicts_nextToken = Lens.lens (\GetMergeConflicts' {nextToken} -> nextToken) (\s@GetMergeConflicts' {} a -> s {nextToken = a} :: GetMergeConflicts)
 
 -- | The name of the repository where the pull request was created.
 getMergeConflicts_repositoryName :: Lens.Lens' GetMergeConflicts Prelude.Text
@@ -216,10 +217,10 @@ instance Core.AWSRequest GetMergeConflicts where
 
 instance Prelude.Hashable GetMergeConflicts where
   hashWithSalt _salt GetMergeConflicts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` conflictDetailLevel
       `Prelude.hashWithSalt` conflictResolutionStrategy
       `Prelude.hashWithSalt` maxConflictFiles
-      `Prelude.hashWithSalt` conflictDetailLevel
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` destinationCommitSpecifier
       `Prelude.hashWithSalt` sourceCommitSpecifier
@@ -227,10 +228,10 @@ instance Prelude.Hashable GetMergeConflicts where
 
 instance Prelude.NFData GetMergeConflicts where
   rnf GetMergeConflicts' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf conflictDetailLevel
       `Prelude.seq` Prelude.rnf conflictResolutionStrategy
       `Prelude.seq` Prelude.rnf maxConflictFiles
-      `Prelude.seq` Prelude.rnf conflictDetailLevel
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf destinationCommitSpecifier
       `Prelude.seq` Prelude.rnf sourceCommitSpecifier
@@ -255,13 +256,13 @@ instance Data.ToJSON GetMergeConflicts where
   toJSON GetMergeConflicts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("conflictDetailLevel" Data..=)
+              Prelude.<$> conflictDetailLevel,
             ("conflictResolutionStrategy" Data..=)
               Prelude.<$> conflictResolutionStrategy,
             ("maxConflictFiles" Data..=)
               Prelude.<$> maxConflictFiles,
-            ("conflictDetailLevel" Data..=)
-              Prelude.<$> conflictDetailLevel,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("repositoryName" Data..= repositoryName),
             Prelude.Just

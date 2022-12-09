@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSymbolicLink' smart constructor.
 data SymbolicLink = SymbolicLink'
-  { -- | The file mode permissions of the blob that cotains information about the
-    -- symbolic link.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
-    -- | The fully qualified path to the folder that contains the symbolic link.
+  { -- | The fully qualified path to the folder that contains the symbolic link.
     absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the information about the symbolic link.
     blobId :: Prelude.Maybe Prelude.Text,
+    -- | The file mode permissions of the blob that cotains information about the
+    -- symbolic link.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The relative path of the symbolic link from the folder where the query
     -- originated.
     relativePath :: Prelude.Maybe Prelude.Text
@@ -50,12 +50,12 @@ data SymbolicLink = SymbolicLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileMode', 'symbolicLink_fileMode' - The file mode permissions of the blob that cotains information about the
--- symbolic link.
---
 -- 'absolutePath', 'symbolicLink_absolutePath' - The fully qualified path to the folder that contains the symbolic link.
 --
 -- 'blobId', 'symbolicLink_blobId' - The blob ID that contains the information about the symbolic link.
+--
+-- 'fileMode', 'symbolicLink_fileMode' - The file mode permissions of the blob that cotains information about the
+-- symbolic link.
 --
 -- 'relativePath', 'symbolicLink_relativePath' - The relative path of the symbolic link from the folder where the query
 -- originated.
@@ -63,16 +63,11 @@ newSymbolicLink ::
   SymbolicLink
 newSymbolicLink =
   SymbolicLink'
-    { fileMode = Prelude.Nothing,
-      absolutePath = Prelude.Nothing,
+    { absolutePath = Prelude.Nothing,
       blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing,
       relativePath = Prelude.Nothing
     }
-
--- | The file mode permissions of the blob that cotains information about the
--- symbolic link.
-symbolicLink_fileMode :: Lens.Lens' SymbolicLink (Prelude.Maybe FileModeTypeEnum)
-symbolicLink_fileMode = Lens.lens (\SymbolicLink' {fileMode} -> fileMode) (\s@SymbolicLink' {} a -> s {fileMode = a} :: SymbolicLink)
 
 -- | The fully qualified path to the folder that contains the symbolic link.
 symbolicLink_absolutePath :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
@@ -81,6 +76,11 @@ symbolicLink_absolutePath = Lens.lens (\SymbolicLink' {absolutePath} -> absolute
 -- | The blob ID that contains the information about the symbolic link.
 symbolicLink_blobId :: Lens.Lens' SymbolicLink (Prelude.Maybe Prelude.Text)
 symbolicLink_blobId = Lens.lens (\SymbolicLink' {blobId} -> blobId) (\s@SymbolicLink' {} a -> s {blobId = a} :: SymbolicLink)
+
+-- | The file mode permissions of the blob that cotains information about the
+-- symbolic link.
+symbolicLink_fileMode :: Lens.Lens' SymbolicLink (Prelude.Maybe FileModeTypeEnum)
+symbolicLink_fileMode = Lens.lens (\SymbolicLink' {fileMode} -> fileMode) (\s@SymbolicLink' {} a -> s {fileMode = a} :: SymbolicLink)
 
 -- | The relative path of the symbolic link from the folder where the query
 -- originated.
@@ -93,22 +93,22 @@ instance Data.FromJSON SymbolicLink where
       "SymbolicLink"
       ( \x ->
           SymbolicLink'
-            Prelude.<$> (x Data..:? "fileMode")
-            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<$> (x Data..:? "absolutePath")
             Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "fileMode")
             Prelude.<*> (x Data..:? "relativePath")
       )
 
 instance Prelude.Hashable SymbolicLink where
   hashWithSalt _salt SymbolicLink' {..} =
-    _salt `Prelude.hashWithSalt` fileMode
-      `Prelude.hashWithSalt` absolutePath
+    _salt `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` relativePath
 
 instance Prelude.NFData SymbolicLink where
   rnf SymbolicLink' {..} =
-    Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf absolutePath
+    Prelude.rnf absolutePath
       `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode
       `Prelude.seq` Prelude.rnf relativePath

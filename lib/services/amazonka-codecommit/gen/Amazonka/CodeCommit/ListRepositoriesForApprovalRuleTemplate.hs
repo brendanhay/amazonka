@@ -28,8 +28,8 @@ module Amazonka.CodeCommit.ListRepositoriesForApprovalRuleTemplate
     newListRepositoriesForApprovalRuleTemplate,
 
     -- * Request Lenses
-    listRepositoriesForApprovalRuleTemplate_nextToken,
     listRepositoriesForApprovalRuleTemplate_maxResults,
+    listRepositoriesForApprovalRuleTemplate_nextToken,
     listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositoriesForApprovalRuleTemplate' smart constructor.
 data ListRepositoriesForApprovalRuleTemplate = ListRepositoriesForApprovalRuleTemplate'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A non-zero, non-negative integer used to limit the number of returned
+  { -- | A non-zero, non-negative integer used to limit the number of returned
     -- results.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the approval rule template for which you want to list
     -- repositories that are associated with that template.
     approvalRuleTemplateName :: Prelude.Text
@@ -73,11 +73,11 @@ data ListRepositoriesForApprovalRuleTemplate = ListRepositoriesForApprovalRuleTe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRepositoriesForApprovalRuleTemplate_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
 -- 'maxResults', 'listRepositoriesForApprovalRuleTemplate_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results.
+--
+-- 'nextToken', 'listRepositoriesForApprovalRuleTemplate_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
 --
 -- 'approvalRuleTemplateName', 'listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName' - The name of the approval rule template for which you want to list
 -- repositories that are associated with that template.
@@ -88,22 +88,22 @@ newListRepositoriesForApprovalRuleTemplate ::
 newListRepositoriesForApprovalRuleTemplate
   pApprovalRuleTemplateName_ =
     ListRepositoriesForApprovalRuleTemplate'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         approvalRuleTemplateName =
           pApprovalRuleTemplateName_
       }
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-listRepositoriesForApprovalRuleTemplate_nextToken :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
-listRepositoriesForApprovalRuleTemplate_nextToken = Lens.lens (\ListRepositoriesForApprovalRuleTemplate' {nextToken} -> nextToken) (\s@ListRepositoriesForApprovalRuleTemplate' {} a -> s {nextToken = a} :: ListRepositoriesForApprovalRuleTemplate)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results.
 listRepositoriesForApprovalRuleTemplate_maxResults :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Prelude.Maybe Prelude.Int)
 listRepositoriesForApprovalRuleTemplate_maxResults = Lens.lens (\ListRepositoriesForApprovalRuleTemplate' {maxResults} -> maxResults) (\s@ListRepositoriesForApprovalRuleTemplate' {} a -> s {maxResults = a} :: ListRepositoriesForApprovalRuleTemplate)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+listRepositoriesForApprovalRuleTemplate_nextToken :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+listRepositoriesForApprovalRuleTemplate_nextToken = Lens.lens (\ListRepositoriesForApprovalRuleTemplate' {nextToken} -> nextToken) (\s@ListRepositoriesForApprovalRuleTemplate' {} a -> s {nextToken = a} :: ListRepositoriesForApprovalRuleTemplate)
 
 -- | The name of the approval rule template for which you want to list
 -- repositories that are associated with that template.
@@ -138,8 +138,8 @@ instance
   hashWithSalt
     _salt
     ListRepositoriesForApprovalRuleTemplate' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` approvalRuleTemplateName
 
 instance
@@ -147,8 +147,8 @@ instance
     ListRepositoriesForApprovalRuleTemplate
   where
   rnf ListRepositoriesForApprovalRuleTemplate' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf approvalRuleTemplateName
 
 instance
@@ -176,8 +176,8 @@ instance
   toJSON ListRepositoriesForApprovalRuleTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "approvalRuleTemplateName"
                   Data..= approvalRuleTemplateName

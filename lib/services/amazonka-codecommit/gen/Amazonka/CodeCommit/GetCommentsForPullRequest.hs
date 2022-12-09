@@ -34,10 +34,10 @@ module Amazonka.CodeCommit.GetCommentsForPullRequest
 
     -- * Request Lenses
     getCommentsForPullRequest_afterCommitId,
-    getCommentsForPullRequest_nextToken,
-    getCommentsForPullRequest_repositoryName,
     getCommentsForPullRequest_beforeCommitId,
     getCommentsForPullRequest_maxResults,
+    getCommentsForPullRequest_nextToken,
+    getCommentsForPullRequest_repositoryName,
     getCommentsForPullRequest_pullRequestId,
 
     -- * Destructuring the Response
@@ -64,11 +64,6 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
   { -- | The full commit ID of the commit in the source branch that was the tip
     -- of the branch at the time the comment was made.
     afterCommitId :: Prelude.Maybe Prelude.Text,
-    -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository that contains the pull request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The full commit ID of the commit in the destination branch that was the
     -- tip of the branch at the time the pull request was created.
     beforeCommitId :: Prelude.Maybe Prelude.Text,
@@ -76,6 +71,11 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
     -- results. The default is 100 comments. You can return up to 500 comments
     -- with a single request.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository that contains the pull request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request. To get this ID, use
     -- ListPullRequests.
     pullRequestId :: Prelude.Text
@@ -93,17 +93,17 @@ data GetCommentsForPullRequest = GetCommentsForPullRequest'
 -- 'afterCommitId', 'getCommentsForPullRequest_afterCommitId' - The full commit ID of the commit in the source branch that was the tip
 -- of the branch at the time the comment was made.
 --
--- 'nextToken', 'getCommentsForPullRequest_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
--- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
---
 -- 'beforeCommitId', 'getCommentsForPullRequest_beforeCommitId' - The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
 --
 -- 'maxResults', 'getCommentsForPullRequest_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results. The default is 100 comments. You can return up to 500 comments
 -- with a single request.
+--
+-- 'nextToken', 'getCommentsForPullRequest_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+--
+-- 'repositoryName', 'getCommentsForPullRequest_repositoryName' - The name of the repository that contains the pull request.
 --
 -- 'pullRequestId', 'getCommentsForPullRequest_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -115,10 +115,10 @@ newGetCommentsForPullRequest pPullRequestId_ =
   GetCommentsForPullRequest'
     { afterCommitId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       beforeCommitId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       pullRequestId = pPullRequestId_
     }
 
@@ -126,15 +126,6 @@ newGetCommentsForPullRequest pPullRequestId_ =
 -- of the branch at the time the comment was made.
 getCommentsForPullRequest_afterCommitId :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
 getCommentsForPullRequest_afterCommitId = Lens.lens (\GetCommentsForPullRequest' {afterCommitId} -> afterCommitId) (\s@GetCommentsForPullRequest' {} a -> s {afterCommitId = a} :: GetCommentsForPullRequest)
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-getCommentsForPullRequest_nextToken :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
-getCommentsForPullRequest_nextToken = Lens.lens (\GetCommentsForPullRequest' {nextToken} -> nextToken) (\s@GetCommentsForPullRequest' {} a -> s {nextToken = a} :: GetCommentsForPullRequest)
-
--- | The name of the repository that contains the pull request.
-getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
-getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
 
 -- | The full commit ID of the commit in the destination branch that was the
 -- tip of the branch at the time the pull request was created.
@@ -146,6 +137,15 @@ getCommentsForPullRequest_beforeCommitId = Lens.lens (\GetCommentsForPullRequest
 -- with a single request.
 getCommentsForPullRequest_maxResults :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Int)
 getCommentsForPullRequest_maxResults = Lens.lens (\GetCommentsForPullRequest' {maxResults} -> maxResults) (\s@GetCommentsForPullRequest' {} a -> s {maxResults = a} :: GetCommentsForPullRequest)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+getCommentsForPullRequest_nextToken :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
+getCommentsForPullRequest_nextToken = Lens.lens (\GetCommentsForPullRequest' {nextToken} -> nextToken) (\s@GetCommentsForPullRequest' {} a -> s {nextToken = a} :: GetCommentsForPullRequest)
+
+-- | The name of the repository that contains the pull request.
+getCommentsForPullRequest_repositoryName :: Lens.Lens' GetCommentsForPullRequest (Prelude.Maybe Prelude.Text)
+getCommentsForPullRequest_repositoryName = Lens.lens (\GetCommentsForPullRequest' {repositoryName} -> repositoryName) (\s@GetCommentsForPullRequest' {} a -> s {repositoryName = a} :: GetCommentsForPullRequest)
 
 -- | The system-generated ID of the pull request. To get this ID, use
 -- ListPullRequests.
@@ -194,19 +194,19 @@ instance Core.AWSRequest GetCommentsForPullRequest where
 instance Prelude.Hashable GetCommentsForPullRequest where
   hashWithSalt _salt GetCommentsForPullRequest' {..} =
     _salt `Prelude.hashWithSalt` afterCommitId
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` beforeCommitId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` pullRequestId
 
 instance Prelude.NFData GetCommentsForPullRequest where
   rnf GetCommentsForPullRequest' {..} =
     Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf beforeCommitId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf pullRequestId
 
 instance Data.ToHeaders GetCommentsForPullRequest where
@@ -229,12 +229,12 @@ instance Data.ToJSON GetCommentsForPullRequest where
     Data.object
       ( Prelude.catMaybes
           [ ("afterCommitId" Data..=) Prelude.<$> afterCommitId,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("repositoryName" Data..=)
-              Prelude.<$> repositoryName,
             ("beforeCommitId" Data..=)
               Prelude.<$> beforeCommitId,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("repositoryName" Data..=)
+              Prelude.<$> repositoryName,
             Prelude.Just
               ("pullRequestId" Data..= pullRequestId)
           ]

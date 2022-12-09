@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOriginApprovalRuleTemplate' smart constructor.
 data OriginApprovalRuleTemplate = OriginApprovalRuleTemplate'
-  { -- | The name of the template that created the approval rule.
-    approvalRuleTemplateName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the template that created the approval rule.
-    approvalRuleTemplateId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the template that created the approval rule.
+    approvalRuleTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the template that created the approval rule.
+    approvalRuleTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data OriginApprovalRuleTemplate = OriginApprovalRuleTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'approvalRuleTemplateName', 'originApprovalRuleTemplate_approvalRuleTemplateName' - The name of the template that created the approval rule.
---
 -- 'approvalRuleTemplateId', 'originApprovalRuleTemplate_approvalRuleTemplateId' - The ID of the template that created the approval rule.
+--
+-- 'approvalRuleTemplateName', 'originApprovalRuleTemplate_approvalRuleTemplateName' - The name of the template that created the approval rule.
 newOriginApprovalRuleTemplate ::
   OriginApprovalRuleTemplate
 newOriginApprovalRuleTemplate =
   OriginApprovalRuleTemplate'
-    { approvalRuleTemplateName =
+    { approvalRuleTemplateId =
         Prelude.Nothing,
-      approvalRuleTemplateId = Prelude.Nothing
+      approvalRuleTemplateName = Prelude.Nothing
     }
-
--- | The name of the template that created the approval rule.
-originApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' OriginApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
-originApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\OriginApprovalRuleTemplate' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@OriginApprovalRuleTemplate' {} a -> s {approvalRuleTemplateName = a} :: OriginApprovalRuleTemplate)
 
 -- | The ID of the template that created the approval rule.
 originApprovalRuleTemplate_approvalRuleTemplateId :: Lens.Lens' OriginApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
 originApprovalRuleTemplate_approvalRuleTemplateId = Lens.lens (\OriginApprovalRuleTemplate' {approvalRuleTemplateId} -> approvalRuleTemplateId) (\s@OriginApprovalRuleTemplate' {} a -> s {approvalRuleTemplateId = a} :: OriginApprovalRuleTemplate)
+
+-- | The name of the template that created the approval rule.
+originApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' OriginApprovalRuleTemplate (Prelude.Maybe Prelude.Text)
+originApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\OriginApprovalRuleTemplate' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@OriginApprovalRuleTemplate' {} a -> s {approvalRuleTemplateName = a} :: OriginApprovalRuleTemplate)
 
 instance Data.FromJSON OriginApprovalRuleTemplate where
   parseJSON =
@@ -70,17 +70,16 @@ instance Data.FromJSON OriginApprovalRuleTemplate where
       "OriginApprovalRuleTemplate"
       ( \x ->
           OriginApprovalRuleTemplate'
-            Prelude.<$> (x Data..:? "approvalRuleTemplateName")
-            Prelude.<*> (x Data..:? "approvalRuleTemplateId")
+            Prelude.<$> (x Data..:? "approvalRuleTemplateId")
+            Prelude.<*> (x Data..:? "approvalRuleTemplateName")
       )
 
 instance Prelude.Hashable OriginApprovalRuleTemplate where
   hashWithSalt _salt OriginApprovalRuleTemplate' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` approvalRuleTemplateId
       `Prelude.hashWithSalt` approvalRuleTemplateName
-      `Prelude.hashWithSalt` approvalRuleTemplateId
 
 instance Prelude.NFData OriginApprovalRuleTemplate where
   rnf OriginApprovalRuleTemplate' {..} =
-    Prelude.rnf approvalRuleTemplateName
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateId
+    Prelude.rnf approvalRuleTemplateId
+      `Prelude.seq` Prelude.rnf approvalRuleTemplateName

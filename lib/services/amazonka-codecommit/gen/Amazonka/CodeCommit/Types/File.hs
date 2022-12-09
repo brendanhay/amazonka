@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFile' smart constructor.
 data File = File'
-  { -- | The extrapolated file mode permissions for the file. Valid values
-    -- include EXECUTABLE and NORMAL.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
-    -- | The fully qualified path to the file in the repository.
+  { -- | The fully qualified path to the file in the repository.
     absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the file information.
     blobId :: Prelude.Maybe Prelude.Text,
+    -- | The extrapolated file mode permissions for the file. Valid values
+    -- include EXECUTABLE and NORMAL.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The relative path of the file from the folder where the query
     -- originated.
     relativePath :: Prelude.Maybe Prelude.Text
@@ -50,12 +50,12 @@ data File = File'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileMode', 'file_fileMode' - The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
---
 -- 'absolutePath', 'file_absolutePath' - The fully qualified path to the file in the repository.
 --
 -- 'blobId', 'file_blobId' - The blob ID that contains the file information.
+--
+-- 'fileMode', 'file_fileMode' - The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
 --
 -- 'relativePath', 'file_relativePath' - The relative path of the file from the folder where the query
 -- originated.
@@ -63,16 +63,11 @@ newFile ::
   File
 newFile =
   File'
-    { fileMode = Prelude.Nothing,
-      absolutePath = Prelude.Nothing,
+    { absolutePath = Prelude.Nothing,
       blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing,
       relativePath = Prelude.Nothing
     }
-
--- | The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
-file_fileMode :: Lens.Lens' File (Prelude.Maybe FileModeTypeEnum)
-file_fileMode = Lens.lens (\File' {fileMode} -> fileMode) (\s@File' {} a -> s {fileMode = a} :: File)
 
 -- | The fully qualified path to the file in the repository.
 file_absolutePath :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
@@ -81,6 +76,11 @@ file_absolutePath = Lens.lens (\File' {absolutePath} -> absolutePath) (\s@File' 
 -- | The blob ID that contains the file information.
 file_blobId :: Lens.Lens' File (Prelude.Maybe Prelude.Text)
 file_blobId = Lens.lens (\File' {blobId} -> blobId) (\s@File' {} a -> s {blobId = a} :: File)
+
+-- | The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
+file_fileMode :: Lens.Lens' File (Prelude.Maybe FileModeTypeEnum)
+file_fileMode = Lens.lens (\File' {fileMode} -> fileMode) (\s@File' {} a -> s {fileMode = a} :: File)
 
 -- | The relative path of the file from the folder where the query
 -- originated.
@@ -93,22 +93,22 @@ instance Data.FromJSON File where
       "File"
       ( \x ->
           File'
-            Prelude.<$> (x Data..:? "fileMode")
-            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<$> (x Data..:? "absolutePath")
             Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "fileMode")
             Prelude.<*> (x Data..:? "relativePath")
       )
 
 instance Prelude.Hashable File where
   hashWithSalt _salt File' {..} =
-    _salt `Prelude.hashWithSalt` fileMode
-      `Prelude.hashWithSalt` absolutePath
+    _salt `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` relativePath
 
 instance Prelude.NFData File where
   rnf File' {..} =
-    Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf absolutePath
+    Prelude.rnf absolutePath
       `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode
       `Prelude.seq` Prelude.rnf relativePath

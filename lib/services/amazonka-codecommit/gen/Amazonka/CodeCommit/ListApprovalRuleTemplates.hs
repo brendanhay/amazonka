@@ -29,16 +29,16 @@ module Amazonka.CodeCommit.ListApprovalRuleTemplates
     newListApprovalRuleTemplates,
 
     -- * Request Lenses
-    listApprovalRuleTemplates_nextToken,
     listApprovalRuleTemplates_maxResults,
+    listApprovalRuleTemplates_nextToken,
 
     -- * Destructuring the Response
     ListApprovalRuleTemplatesResponse (..),
     newListApprovalRuleTemplatesResponse,
 
     -- * Response Lenses
-    listApprovalRuleTemplatesResponse_nextToken,
     listApprovalRuleTemplatesResponse_approvalRuleTemplateNames,
+    listApprovalRuleTemplatesResponse_nextToken,
     listApprovalRuleTemplatesResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApprovalRuleTemplates' smart constructor.
 data ListApprovalRuleTemplates = ListApprovalRuleTemplates'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A non-zero, non-negative integer used to limit the number of returned
+  { -- | A non-zero, non-negative integer used to limit the number of returned
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,29 +70,29 @@ data ListApprovalRuleTemplates = ListApprovalRuleTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApprovalRuleTemplates_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
 -- 'maxResults', 'listApprovalRuleTemplates_maxResults' - A non-zero, non-negative integer used to limit the number of returned
 -- results.
+--
+-- 'nextToken', 'listApprovalRuleTemplates_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
 newListApprovalRuleTemplates ::
   ListApprovalRuleTemplates
 newListApprovalRuleTemplates =
   ListApprovalRuleTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-listApprovalRuleTemplates_nextToken :: Lens.Lens' ListApprovalRuleTemplates (Prelude.Maybe Prelude.Text)
-listApprovalRuleTemplates_nextToken = Lens.lens (\ListApprovalRuleTemplates' {nextToken} -> nextToken) (\s@ListApprovalRuleTemplates' {} a -> s {nextToken = a} :: ListApprovalRuleTemplates)
 
 -- | A non-zero, non-negative integer used to limit the number of returned
 -- results.
 listApprovalRuleTemplates_maxResults :: Lens.Lens' ListApprovalRuleTemplates (Prelude.Maybe Prelude.Int)
 listApprovalRuleTemplates_maxResults = Lens.lens (\ListApprovalRuleTemplates' {maxResults} -> maxResults) (\s@ListApprovalRuleTemplates' {} a -> s {maxResults = a} :: ListApprovalRuleTemplates)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+listApprovalRuleTemplates_nextToken :: Lens.Lens' ListApprovalRuleTemplates (Prelude.Maybe Prelude.Text)
+listApprovalRuleTemplates_nextToken = Lens.lens (\ListApprovalRuleTemplates' {nextToken} -> nextToken) (\s@ListApprovalRuleTemplates' {} a -> s {nextToken = a} :: ListApprovalRuleTemplates)
 
 instance Core.AWSRequest ListApprovalRuleTemplates where
   type
@@ -104,22 +104,22 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListApprovalRuleTemplatesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "approvalRuleTemplateNames"
+            Prelude.<$> ( x Data..?> "approvalRuleTemplateNames"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApprovalRuleTemplates where
   hashWithSalt _salt ListApprovalRuleTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApprovalRuleTemplates where
   rnf ListApprovalRuleTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApprovalRuleTemplates where
   toHeaders =
@@ -140,8 +140,8 @@ instance Data.ToJSON ListApprovalRuleTemplates where
   toJSON ListApprovalRuleTemplates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -153,12 +153,12 @@ instance Data.ToQuery ListApprovalRuleTemplates where
 
 -- | /See:/ 'newListApprovalRuleTemplatesResponse' smart constructor.
 data ListApprovalRuleTemplatesResponse = ListApprovalRuleTemplatesResponse'
-  { -- | An enumeration token that allows the operation to batch the next results
-    -- of the operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of all the approval rule templates found in the AWS Region for
+  { -- | The names of all the approval rule templates found in the AWS Region for
     -- your AWS account.
     approvalRuleTemplateNames :: Prelude.Maybe [Prelude.Text],
+    -- | An enumeration token that allows the operation to batch the next results
+    -- of the operation.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,11 +172,11 @@ data ListApprovalRuleTemplatesResponse = ListApprovalRuleTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApprovalRuleTemplatesResponse_nextToken' - An enumeration token that allows the operation to batch the next results
--- of the operation.
---
 -- 'approvalRuleTemplateNames', 'listApprovalRuleTemplatesResponse_approvalRuleTemplateNames' - The names of all the approval rule templates found in the AWS Region for
 -- your AWS account.
+--
+-- 'nextToken', 'listApprovalRuleTemplatesResponse_nextToken' - An enumeration token that allows the operation to batch the next results
+-- of the operation.
 --
 -- 'httpStatus', 'listApprovalRuleTemplatesResponse_httpStatus' - The response's http status code.
 newListApprovalRuleTemplatesResponse ::
@@ -185,22 +185,21 @@ newListApprovalRuleTemplatesResponse ::
   ListApprovalRuleTemplatesResponse
 newListApprovalRuleTemplatesResponse pHttpStatus_ =
   ListApprovalRuleTemplatesResponse'
-    { nextToken =
+    { approvalRuleTemplateNames =
         Prelude.Nothing,
-      approvalRuleTemplateNames =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An enumeration token that allows the operation to batch the next results
--- of the operation.
-listApprovalRuleTemplatesResponse_nextToken :: Lens.Lens' ListApprovalRuleTemplatesResponse (Prelude.Maybe Prelude.Text)
-listApprovalRuleTemplatesResponse_nextToken = Lens.lens (\ListApprovalRuleTemplatesResponse' {nextToken} -> nextToken) (\s@ListApprovalRuleTemplatesResponse' {} a -> s {nextToken = a} :: ListApprovalRuleTemplatesResponse)
 
 -- | The names of all the approval rule templates found in the AWS Region for
 -- your AWS account.
 listApprovalRuleTemplatesResponse_approvalRuleTemplateNames :: Lens.Lens' ListApprovalRuleTemplatesResponse (Prelude.Maybe [Prelude.Text])
 listApprovalRuleTemplatesResponse_approvalRuleTemplateNames = Lens.lens (\ListApprovalRuleTemplatesResponse' {approvalRuleTemplateNames} -> approvalRuleTemplateNames) (\s@ListApprovalRuleTemplatesResponse' {} a -> s {approvalRuleTemplateNames = a} :: ListApprovalRuleTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An enumeration token that allows the operation to batch the next results
+-- of the operation.
+listApprovalRuleTemplatesResponse_nextToken :: Lens.Lens' ListApprovalRuleTemplatesResponse (Prelude.Maybe Prelude.Text)
+listApprovalRuleTemplatesResponse_nextToken = Lens.lens (\ListApprovalRuleTemplatesResponse' {nextToken} -> nextToken) (\s@ListApprovalRuleTemplatesResponse' {} a -> s {nextToken = a} :: ListApprovalRuleTemplatesResponse)
 
 -- | The response's http status code.
 listApprovalRuleTemplatesResponse_httpStatus :: Lens.Lens' ListApprovalRuleTemplatesResponse Prelude.Int
@@ -211,6 +210,6 @@ instance
     ListApprovalRuleTemplatesResponse
   where
   rnf ListApprovalRuleTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf approvalRuleTemplateNames
+    Prelude.rnf approvalRuleTemplateNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

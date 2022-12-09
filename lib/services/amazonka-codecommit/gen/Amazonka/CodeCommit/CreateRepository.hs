@@ -27,8 +27,8 @@ module Amazonka.CodeCommit.CreateRepository
     newCreateRepository,
 
     -- * Request Lenses
-    createRepository_tags,
     createRepository_repositoryDescription,
+    createRepository_tags,
     createRepository_repositoryName,
 
     -- * Destructuring the Response
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | One or more tag key-value pairs to use when tagging this repository.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A comment or description about the new repository.
+  { -- | A comment or description about the new repository.
     --
     -- The description field for a repository accepts all HTML characters and
     -- all valid Unicode characters. Applications that do not HTML-encode the
@@ -64,6 +62,8 @@ data CreateRepository = CreateRepository'
     -- any application that uses this API to display the repository description
     -- on a webpage.
     repositoryDescription :: Prelude.Maybe Prelude.Text,
+    -- | One or more tag key-value pairs to use when tagging this repository.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the new repository to be created.
     --
     -- The repository name must be unique across the calling AWS account.
@@ -84,8 +84,6 @@ data CreateRepository = CreateRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRepository_tags' - One or more tag key-value pairs to use when tagging this repository.
---
 -- 'repositoryDescription', 'createRepository_repositoryDescription' - A comment or description about the new repository.
 --
 -- The description field for a repository accepts all HTML characters and
@@ -94,6 +92,8 @@ data CreateRepository = CreateRepository'
 -- malicious code. Make sure that you HTML-encode the description field in
 -- any application that uses this API to display the repository description
 -- on a webpage.
+--
+-- 'tags', 'createRepository_tags' - One or more tag key-value pairs to use when tagging this repository.
 --
 -- 'repositoryName', 'createRepository_repositoryName' - The name of the new repository to be created.
 --
@@ -109,14 +109,11 @@ newCreateRepository ::
   CreateRepository
 newCreateRepository pRepositoryName_ =
   CreateRepository'
-    { tags = Prelude.Nothing,
-      repositoryDescription = Prelude.Nothing,
+    { repositoryDescription =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | One or more tag key-value pairs to use when tagging this repository.
-createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | A comment or description about the new repository.
 --
@@ -128,6 +125,10 @@ createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@Create
 -- on a webpage.
 createRepository_repositoryDescription :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
 createRepository_repositoryDescription = Lens.lens (\CreateRepository' {repositoryDescription} -> repositoryDescription) (\s@CreateRepository' {} a -> s {repositoryDescription = a} :: CreateRepository)
+
+-- | One or more tag key-value pairs to use when tagging this repository.
+createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new repository to be created.
 --
@@ -156,14 +157,14 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` repositoryDescription
+    _salt `Prelude.hashWithSalt` repositoryDescription
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryDescription
+    Prelude.rnf repositoryDescription
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Data.ToHeaders CreateRepository where
@@ -185,9 +186,9 @@ instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("repositoryDescription" Data..=)
+          [ ("repositoryDescription" Data..=)
               Prelude.<$> repositoryDescription,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("repositoryName" Data..= repositoryName)
           ]

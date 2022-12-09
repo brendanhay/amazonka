@@ -26,19 +26,19 @@ module Amazonka.CodeCommit.Lens
     batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors,
 
     -- ** BatchDescribeMergeConflicts
-    batchDescribeMergeConflicts_nextToken,
-    batchDescribeMergeConflicts_filePaths,
-    batchDescribeMergeConflicts_maxMergeHunks,
-    batchDescribeMergeConflicts_conflictResolutionStrategy,
-    batchDescribeMergeConflicts_maxConflictFiles,
     batchDescribeMergeConflicts_conflictDetailLevel,
+    batchDescribeMergeConflicts_conflictResolutionStrategy,
+    batchDescribeMergeConflicts_filePaths,
+    batchDescribeMergeConflicts_maxConflictFiles,
+    batchDescribeMergeConflicts_maxMergeHunks,
+    batchDescribeMergeConflicts_nextToken,
     batchDescribeMergeConflicts_repositoryName,
     batchDescribeMergeConflicts_destinationCommitSpecifier,
     batchDescribeMergeConflicts_sourceCommitSpecifier,
     batchDescribeMergeConflicts_mergeOption,
     batchDescribeMergeConflictsResponse_baseCommitId,
-    batchDescribeMergeConflictsResponse_nextToken,
     batchDescribeMergeConflictsResponse_errors,
+    batchDescribeMergeConflictsResponse_nextToken,
     batchDescribeMergeConflictsResponse_httpStatus,
     batchDescribeMergeConflictsResponse_conflicts,
     batchDescribeMergeConflictsResponse_destinationCommitId,
@@ -77,21 +77,21 @@ module Amazonka.CodeCommit.Lens
     createBranch_commitId,
 
     -- ** CreateCommit
-    createCommit_parentCommitId,
-    createCommit_keepEmptyFolders,
-    createCommit_email,
     createCommit_authorName,
-    createCommit_setFileModes,
-    createCommit_deleteFiles,
-    createCommit_putFiles,
     createCommit_commitMessage,
+    createCommit_deleteFiles,
+    createCommit_email,
+    createCommit_keepEmptyFolders,
+    createCommit_parentCommitId,
+    createCommit_putFiles,
+    createCommit_setFileModes,
     createCommit_repositoryName,
     createCommit_branchName,
     createCommitResponse_commitId,
     createCommitResponse_filesAdded,
-    createCommitResponse_treeId,
-    createCommitResponse_filesUpdated,
     createCommitResponse_filesDeleted,
+    createCommitResponse_filesUpdated,
+    createCommitResponse_treeId,
     createCommitResponse_httpStatus,
 
     -- ** CreatePullRequest
@@ -110,20 +110,20 @@ module Amazonka.CodeCommit.Lens
     createPullRequestApprovalRuleResponse_approvalRule,
 
     -- ** CreateRepository
-    createRepository_tags,
     createRepository_repositoryDescription,
+    createRepository_tags,
     createRepository_repositoryName,
     createRepositoryResponse_repositoryMetadata,
     createRepositoryResponse_httpStatus,
 
     -- ** CreateUnreferencedMergeCommit
-    createUnreferencedMergeCommit_keepEmptyFolders,
-    createUnreferencedMergeCommit_conflictResolution,
-    createUnreferencedMergeCommit_email,
     createUnreferencedMergeCommit_authorName,
     createUnreferencedMergeCommit_commitMessage,
-    createUnreferencedMergeCommit_conflictResolutionStrategy,
     createUnreferencedMergeCommit_conflictDetailLevel,
+    createUnreferencedMergeCommit_conflictResolution,
+    createUnreferencedMergeCommit_conflictResolutionStrategy,
+    createUnreferencedMergeCommit_email,
+    createUnreferencedMergeCommit_keepEmptyFolders,
     createUnreferencedMergeCommit_repositoryName,
     createUnreferencedMergeCommit_sourceCommitSpecifier,
     createUnreferencedMergeCommit_destinationCommitSpecifier,
@@ -149,10 +149,10 @@ module Amazonka.CodeCommit.Lens
     deleteCommentContentResponse_httpStatus,
 
     -- ** DeleteFile
+    deleteFile_commitMessage,
+    deleteFile_email,
     deleteFile_keepEmptyFolders,
     deleteFile_name,
-    deleteFile_email,
-    deleteFile_commitMessage,
     deleteFile_repositoryName,
     deleteFile_branchName,
     deleteFile_filePath,
@@ -175,10 +175,10 @@ module Amazonka.CodeCommit.Lens
     deleteRepositoryResponse_httpStatus,
 
     -- ** DescribeMergeConflicts
-    describeMergeConflicts_nextToken,
-    describeMergeConflicts_maxMergeHunks,
-    describeMergeConflicts_conflictResolutionStrategy,
     describeMergeConflicts_conflictDetailLevel,
+    describeMergeConflicts_conflictResolutionStrategy,
+    describeMergeConflicts_maxMergeHunks,
+    describeMergeConflicts_nextToken,
     describeMergeConflicts_repositoryName,
     describeMergeConflicts_destinationCommitSpecifier,
     describeMergeConflicts_sourceCommitSpecifier,
@@ -193,9 +193,9 @@ module Amazonka.CodeCommit.Lens
     describeMergeConflictsResponse_sourceCommitId,
 
     -- ** DescribePullRequestEvents
-    describePullRequestEvents_nextToken,
-    describePullRequestEvents_maxResults,
     describePullRequestEvents_actorArn,
+    describePullRequestEvents_maxResults,
+    describePullRequestEvents_nextToken,
     describePullRequestEvents_pullRequestEventType,
     describePullRequestEvents_pullRequestId,
     describePullRequestEventsResponse_nextToken,
@@ -235,8 +235,8 @@ module Amazonka.CodeCommit.Lens
     getCommentResponse_httpStatus,
 
     -- ** GetCommentReactions
-    getCommentReactions_nextToken,
     getCommentReactions_maxResults,
+    getCommentReactions_nextToken,
     getCommentReactions_reactionUserArn,
     getCommentReactions_commentId,
     getCommentReactionsResponse_nextToken,
@@ -244,21 +244,21 @@ module Amazonka.CodeCommit.Lens
     getCommentReactionsResponse_reactionsForComment,
 
     -- ** GetCommentsForComparedCommit
-    getCommentsForComparedCommit_nextToken,
     getCommentsForComparedCommit_beforeCommitId,
     getCommentsForComparedCommit_maxResults,
+    getCommentsForComparedCommit_nextToken,
     getCommentsForComparedCommit_repositoryName,
     getCommentsForComparedCommit_afterCommitId,
-    getCommentsForComparedCommitResponse_nextToken,
     getCommentsForComparedCommitResponse_commentsForComparedCommitData,
+    getCommentsForComparedCommitResponse_nextToken,
     getCommentsForComparedCommitResponse_httpStatus,
 
     -- ** GetCommentsForPullRequest
     getCommentsForPullRequest_afterCommitId,
-    getCommentsForPullRequest_nextToken,
-    getCommentsForPullRequest_repositoryName,
     getCommentsForPullRequest_beforeCommitId,
     getCommentsForPullRequest_maxResults,
+    getCommentsForPullRequest_nextToken,
+    getCommentsForPullRequest_repositoryName,
     getCommentsForPullRequest_pullRequestId,
     getCommentsForPullRequestResponse_commentsForPullRequestData,
     getCommentsForPullRequestResponse_nextToken,
@@ -271,11 +271,11 @@ module Amazonka.CodeCommit.Lens
     getCommitResponse_commit,
 
     -- ** GetDifferences
+    getDifferences_maxResults,
     getDifferences_nextToken,
     getDifferences_afterPath,
-    getDifferences_maxResults,
-    getDifferences_beforePath,
     getDifferences_beforeCommitSpecifier,
+    getDifferences_beforePath,
     getDifferences_repositoryName,
     getDifferences_afterCommitSpecifier,
     getDifferencesResponse_nextToken,
@@ -299,31 +299,31 @@ module Amazonka.CodeCommit.Lens
     getFolder_repositoryName,
     getFolder_folderPath,
     getFolderResponse_files,
-    getFolderResponse_symbolicLinks,
     getFolderResponse_subFolders,
-    getFolderResponse_treeId,
     getFolderResponse_subModules,
+    getFolderResponse_symbolicLinks,
+    getFolderResponse_treeId,
     getFolderResponse_httpStatus,
     getFolderResponse_commitId,
     getFolderResponse_folderPath,
 
     -- ** GetMergeCommit
-    getMergeCommit_conflictResolutionStrategy,
     getMergeCommit_conflictDetailLevel,
+    getMergeCommit_conflictResolutionStrategy,
     getMergeCommit_repositoryName,
     getMergeCommit_sourceCommitSpecifier,
     getMergeCommit_destinationCommitSpecifier,
     getMergeCommitResponse_baseCommitId,
+    getMergeCommitResponse_destinationCommitId,
     getMergeCommitResponse_mergedCommitId,
     getMergeCommitResponse_sourceCommitId,
-    getMergeCommitResponse_destinationCommitId,
     getMergeCommitResponse_httpStatus,
 
     -- ** GetMergeConflicts
-    getMergeConflicts_nextToken,
+    getMergeConflicts_conflictDetailLevel,
     getMergeConflicts_conflictResolutionStrategy,
     getMergeConflicts_maxConflictFiles,
-    getMergeConflicts_conflictDetailLevel,
+    getMergeConflicts_nextToken,
     getMergeConflicts_repositoryName,
     getMergeConflicts_destinationCommitSpecifier,
     getMergeConflicts_sourceCommitSpecifier,
@@ -337,8 +337,8 @@ module Amazonka.CodeCommit.Lens
     getMergeConflictsResponse_conflictMetadataList,
 
     -- ** GetMergeOptions
-    getMergeOptions_conflictResolutionStrategy,
     getMergeOptions_conflictDetailLevel,
+    getMergeOptions_conflictResolutionStrategy,
     getMergeOptions_repositoryName,
     getMergeOptions_sourceCommitSpecifier,
     getMergeOptions_destinationCommitSpecifier,
@@ -373,37 +373,37 @@ module Amazonka.CodeCommit.Lens
 
     -- ** GetRepositoryTriggers
     getRepositoryTriggers_repositoryName,
-    getRepositoryTriggersResponse_triggers,
     getRepositoryTriggersResponse_configurationId,
+    getRepositoryTriggersResponse_triggers,
     getRepositoryTriggersResponse_httpStatus,
 
     -- ** ListApprovalRuleTemplates
-    listApprovalRuleTemplates_nextToken,
     listApprovalRuleTemplates_maxResults,
-    listApprovalRuleTemplatesResponse_nextToken,
+    listApprovalRuleTemplates_nextToken,
     listApprovalRuleTemplatesResponse_approvalRuleTemplateNames,
+    listApprovalRuleTemplatesResponse_nextToken,
     listApprovalRuleTemplatesResponse_httpStatus,
 
     -- ** ListAssociatedApprovalRuleTemplatesForRepository
-    listAssociatedApprovalRuleTemplatesForRepository_nextToken,
     listAssociatedApprovalRuleTemplatesForRepository_maxResults,
+    listAssociatedApprovalRuleTemplatesForRepository_nextToken,
     listAssociatedApprovalRuleTemplatesForRepository_repositoryName,
-    listAssociatedApprovalRuleTemplatesForRepositoryResponse_nextToken,
     listAssociatedApprovalRuleTemplatesForRepositoryResponse_approvalRuleTemplateNames,
+    listAssociatedApprovalRuleTemplatesForRepositoryResponse_nextToken,
     listAssociatedApprovalRuleTemplatesForRepositoryResponse_httpStatus,
 
     -- ** ListBranches
     listBranches_nextToken,
     listBranches_repositoryName,
-    listBranchesResponse_nextToken,
     listBranchesResponse_branches,
+    listBranchesResponse_nextToken,
     listBranchesResponse_httpStatus,
 
     -- ** ListPullRequests
+    listPullRequests_authorArn,
+    listPullRequests_maxResults,
     listPullRequests_nextToken,
     listPullRequests_pullRequestStatus,
-    listPullRequests_maxResults,
-    listPullRequests_authorArn,
     listPullRequests_repositoryName,
     listPullRequestsResponse_nextToken,
     listPullRequestsResponse_httpStatus,
@@ -411,15 +411,15 @@ module Amazonka.CodeCommit.Lens
 
     -- ** ListRepositories
     listRepositories_nextToken,
-    listRepositories_sortBy,
     listRepositories_order,
+    listRepositories_sortBy,
     listRepositoriesResponse_nextToken,
     listRepositoriesResponse_repositories,
     listRepositoriesResponse_httpStatus,
 
     -- ** ListRepositoriesForApprovalRuleTemplate
-    listRepositoriesForApprovalRuleTemplate_nextToken,
     listRepositoriesForApprovalRuleTemplate_maxResults,
+    listRepositoriesForApprovalRuleTemplate_nextToken,
     listRepositoriesForApprovalRuleTemplate_approvalRuleTemplateName,
     listRepositoriesForApprovalRuleTemplateResponse_nextToken,
     listRepositoriesForApprovalRuleTemplateResponse_repositoryNames,
@@ -428,8 +428,8 @@ module Amazonka.CodeCommit.Lens
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** MergeBranchesByFastForward
@@ -442,14 +442,14 @@ module Amazonka.CodeCommit.Lens
     mergeBranchesByFastForwardResponse_httpStatus,
 
     -- ** MergeBranchesBySquash
-    mergeBranchesBySquash_keepEmptyFolders,
-    mergeBranchesBySquash_targetBranch,
-    mergeBranchesBySquash_conflictResolution,
-    mergeBranchesBySquash_email,
     mergeBranchesBySquash_authorName,
     mergeBranchesBySquash_commitMessage,
-    mergeBranchesBySquash_conflictResolutionStrategy,
     mergeBranchesBySquash_conflictDetailLevel,
+    mergeBranchesBySquash_conflictResolution,
+    mergeBranchesBySquash_conflictResolutionStrategy,
+    mergeBranchesBySquash_email,
+    mergeBranchesBySquash_keepEmptyFolders,
+    mergeBranchesBySquash_targetBranch,
     mergeBranchesBySquash_repositoryName,
     mergeBranchesBySquash_sourceCommitSpecifier,
     mergeBranchesBySquash_destinationCommitSpecifier,
@@ -458,14 +458,14 @@ module Amazonka.CodeCommit.Lens
     mergeBranchesBySquashResponse_httpStatus,
 
     -- ** MergeBranchesByThreeWay
-    mergeBranchesByThreeWay_keepEmptyFolders,
-    mergeBranchesByThreeWay_targetBranch,
-    mergeBranchesByThreeWay_conflictResolution,
-    mergeBranchesByThreeWay_email,
     mergeBranchesByThreeWay_authorName,
     mergeBranchesByThreeWay_commitMessage,
-    mergeBranchesByThreeWay_conflictResolutionStrategy,
     mergeBranchesByThreeWay_conflictDetailLevel,
+    mergeBranchesByThreeWay_conflictResolution,
+    mergeBranchesByThreeWay_conflictResolutionStrategy,
+    mergeBranchesByThreeWay_email,
+    mergeBranchesByThreeWay_keepEmptyFolders,
+    mergeBranchesByThreeWay_targetBranch,
     mergeBranchesByThreeWay_repositoryName,
     mergeBranchesByThreeWay_sourceCommitSpecifier,
     mergeBranchesByThreeWay_destinationCommitSpecifier,
@@ -481,28 +481,28 @@ module Amazonka.CodeCommit.Lens
     mergePullRequestByFastForwardResponse_httpStatus,
 
     -- ** MergePullRequestBySquash
-    mergePullRequestBySquash_keepEmptyFolders,
-    mergePullRequestBySquash_conflictResolution,
-    mergePullRequestBySquash_email,
-    mergePullRequestBySquash_sourceCommitId,
     mergePullRequestBySquash_authorName,
     mergePullRequestBySquash_commitMessage,
-    mergePullRequestBySquash_conflictResolutionStrategy,
     mergePullRequestBySquash_conflictDetailLevel,
+    mergePullRequestBySquash_conflictResolution,
+    mergePullRequestBySquash_conflictResolutionStrategy,
+    mergePullRequestBySquash_email,
+    mergePullRequestBySquash_keepEmptyFolders,
+    mergePullRequestBySquash_sourceCommitId,
     mergePullRequestBySquash_pullRequestId,
     mergePullRequestBySquash_repositoryName,
     mergePullRequestBySquashResponse_pullRequest,
     mergePullRequestBySquashResponse_httpStatus,
 
     -- ** MergePullRequestByThreeWay
-    mergePullRequestByThreeWay_keepEmptyFolders,
-    mergePullRequestByThreeWay_conflictResolution,
-    mergePullRequestByThreeWay_email,
-    mergePullRequestByThreeWay_sourceCommitId,
     mergePullRequestByThreeWay_authorName,
     mergePullRequestByThreeWay_commitMessage,
-    mergePullRequestByThreeWay_conflictResolutionStrategy,
     mergePullRequestByThreeWay_conflictDetailLevel,
+    mergePullRequestByThreeWay_conflictResolution,
+    mergePullRequestByThreeWay_conflictResolutionStrategy,
+    mergePullRequestByThreeWay_email,
+    mergePullRequestByThreeWay_keepEmptyFolders,
+    mergePullRequestByThreeWay_sourceCommitId,
     mergePullRequestByThreeWay_pullRequestId,
     mergePullRequestByThreeWay_repositoryName,
     mergePullRequestByThreeWayResponse_pullRequest,
@@ -514,19 +514,19 @@ module Amazonka.CodeCommit.Lens
     overridePullRequestApprovalRules_overrideStatus,
 
     -- ** PostCommentForComparedCommit
-    postCommentForComparedCommit_clientRequestToken,
     postCommentForComparedCommit_beforeCommitId,
+    postCommentForComparedCommit_clientRequestToken,
     postCommentForComparedCommit_location,
     postCommentForComparedCommit_repositoryName,
     postCommentForComparedCommit_afterCommitId,
     postCommentForComparedCommit_content,
-    postCommentForComparedCommitResponse_beforeBlobId,
-    postCommentForComparedCommitResponse_afterCommitId,
-    postCommentForComparedCommitResponse_repositoryName,
-    postCommentForComparedCommitResponse_beforeCommitId,
-    postCommentForComparedCommitResponse_location,
-    postCommentForComparedCommitResponse_comment,
     postCommentForComparedCommitResponse_afterBlobId,
+    postCommentForComparedCommitResponse_afterCommitId,
+    postCommentForComparedCommitResponse_beforeBlobId,
+    postCommentForComparedCommitResponse_beforeCommitId,
+    postCommentForComparedCommitResponse_comment,
+    postCommentForComparedCommitResponse_location,
+    postCommentForComparedCommitResponse_repositoryName,
     postCommentForComparedCommitResponse_httpStatus,
 
     -- ** PostCommentForPullRequest
@@ -537,14 +537,14 @@ module Amazonka.CodeCommit.Lens
     postCommentForPullRequest_beforeCommitId,
     postCommentForPullRequest_afterCommitId,
     postCommentForPullRequest_content,
-    postCommentForPullRequestResponse_beforeBlobId,
+    postCommentForPullRequestResponse_afterBlobId,
     postCommentForPullRequestResponse_afterCommitId,
+    postCommentForPullRequestResponse_beforeBlobId,
+    postCommentForPullRequestResponse_beforeCommitId,
+    postCommentForPullRequestResponse_comment,
+    postCommentForPullRequestResponse_location,
     postCommentForPullRequestResponse_pullRequestId,
     postCommentForPullRequestResponse_repositoryName,
-    postCommentForPullRequestResponse_beforeCommitId,
-    postCommentForPullRequestResponse_location,
-    postCommentForPullRequestResponse_comment,
-    postCommentForPullRequestResponse_afterBlobId,
     postCommentForPullRequestResponse_httpStatus,
 
     -- ** PostCommentReply
@@ -559,11 +559,11 @@ module Amazonka.CodeCommit.Lens
     putCommentReaction_reactionValue,
 
     -- ** PutFile
-    putFile_fileMode,
-    putFile_parentCommitId,
-    putFile_name,
-    putFile_email,
     putFile_commitMessage,
+    putFile_email,
+    putFile_fileMode,
+    putFile_name,
+    putFile_parentCommitId,
     putFile_repositoryName,
     putFile_branchName,
     putFile_fileContent,
@@ -669,42 +669,42 @@ module Amazonka.CodeCommit.Lens
     approval_userArn,
 
     -- ** ApprovalRule
-    approvalRule_lastModifiedUser,
-    approvalRule_lastModifiedDate,
-    approvalRule_creationDate,
-    approvalRule_approvalRuleName,
-    approvalRule_ruleContentSha256,
     approvalRule_approvalRuleContent,
-    approvalRule_originApprovalRuleTemplate,
     approvalRule_approvalRuleId,
+    approvalRule_approvalRuleName,
+    approvalRule_creationDate,
+    approvalRule_lastModifiedDate,
+    approvalRule_lastModifiedUser,
+    approvalRule_originApprovalRuleTemplate,
+    approvalRule_ruleContentSha256,
 
     -- ** ApprovalRuleEventMetadata
-    approvalRuleEventMetadata_approvalRuleName,
     approvalRuleEventMetadata_approvalRuleContent,
     approvalRuleEventMetadata_approvalRuleId,
+    approvalRuleEventMetadata_approvalRuleName,
 
     -- ** ApprovalRuleOverriddenEventMetadata
-    approvalRuleOverriddenEventMetadata_revisionId,
     approvalRuleOverriddenEventMetadata_overrideStatus,
+    approvalRuleOverriddenEventMetadata_revisionId,
 
     -- ** ApprovalRuleTemplate
     approvalRuleTemplate_approvalRuleTemplateContent,
-    approvalRuleTemplate_lastModifiedUser,
-    approvalRuleTemplate_lastModifiedDate,
-    approvalRuleTemplate_creationDate,
-    approvalRuleTemplate_approvalRuleTemplateName,
-    approvalRuleTemplate_ruleContentSha256,
     approvalRuleTemplate_approvalRuleTemplateDescription,
     approvalRuleTemplate_approvalRuleTemplateId,
+    approvalRuleTemplate_approvalRuleTemplateName,
+    approvalRuleTemplate_creationDate,
+    approvalRuleTemplate_lastModifiedDate,
+    approvalRuleTemplate_lastModifiedUser,
+    approvalRuleTemplate_ruleContentSha256,
 
     -- ** ApprovalStateChangedEventMetadata
-    approvalStateChangedEventMetadata_revisionId,
     approvalStateChangedEventMetadata_approvalStatus,
+    approvalStateChangedEventMetadata_revisionId,
 
     -- ** BatchAssociateApprovalRuleTemplateWithRepositoriesError
+    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode,
     batchAssociateApprovalRuleTemplateWithRepositoriesError_errorMessage,
     batchAssociateApprovalRuleTemplateWithRepositoriesError_repositoryName,
-    batchAssociateApprovalRuleTemplateWithRepositoriesError_errorCode,
 
     -- ** BatchDescribeMergeConflictsError
     batchDescribeMergeConflictsError_filePath,
@@ -712,118 +712,118 @@ module Amazonka.CodeCommit.Lens
     batchDescribeMergeConflictsError_message,
 
     -- ** BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode,
     batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorMessage,
     batchDisassociateApprovalRuleTemplateFromRepositoriesError_repositoryName,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesError_errorCode,
 
     -- ** BatchGetCommitsError
     batchGetCommitsError_commitId,
-    batchGetCommitsError_errorMessage,
     batchGetCommitsError_errorCode,
+    batchGetCommitsError_errorMessage,
 
     -- ** BlobMetadata
-    blobMetadata_path,
-    blobMetadata_mode,
     blobMetadata_blobId,
+    blobMetadata_mode,
+    blobMetadata_path,
 
     -- ** BranchInfo
-    branchInfo_commitId,
     branchInfo_branchName,
+    branchInfo_commitId,
 
     -- ** Comment
-    comment_clientRequestToken,
-    comment_reactionCounts,
-    comment_lastModifiedDate,
-    comment_deleted,
-    comment_creationDate,
-    comment_commentId,
-    comment_inReplyTo,
     comment_authorArn,
-    comment_content,
     comment_callerReactions,
+    comment_clientRequestToken,
+    comment_commentId,
+    comment_content,
+    comment_creationDate,
+    comment_deleted,
+    comment_inReplyTo,
+    comment_lastModifiedDate,
+    comment_reactionCounts,
 
     -- ** CommentsForComparedCommit
-    commentsForComparedCommit_beforeBlobId,
+    commentsForComparedCommit_afterBlobId,
     commentsForComparedCommit_afterCommitId,
-    commentsForComparedCommit_repositoryName,
+    commentsForComparedCommit_beforeBlobId,
     commentsForComparedCommit_beforeCommitId,
     commentsForComparedCommit_comments,
     commentsForComparedCommit_location,
-    commentsForComparedCommit_afterBlobId,
+    commentsForComparedCommit_repositoryName,
 
     -- ** CommentsForPullRequest
-    commentsForPullRequest_beforeBlobId,
+    commentsForPullRequest_afterBlobId,
     commentsForPullRequest_afterCommitId,
-    commentsForPullRequest_pullRequestId,
-    commentsForPullRequest_repositoryName,
+    commentsForPullRequest_beforeBlobId,
     commentsForPullRequest_beforeCommitId,
     commentsForPullRequest_comments,
     commentsForPullRequest_location,
-    commentsForPullRequest_afterBlobId,
+    commentsForPullRequest_pullRequestId,
+    commentsForPullRequest_repositoryName,
 
     -- ** Commit
-    commit_message,
+    commit_additionalData,
     commit_author,
     commit_commitId,
-    commit_parents,
     commit_committer,
+    commit_message,
+    commit_parents,
     commit_treeId,
-    commit_additionalData,
 
     -- ** Conflict
-    conflict_mergeHunks,
     conflict_conflictMetadata,
+    conflict_mergeHunks,
 
     -- ** ConflictMetadata
-    conflictMetadata_filePath,
     conflictMetadata_contentConflict,
-    conflictMetadata_fileSizes,
-    conflictMetadata_numberOfConflicts,
-    conflictMetadata_mergeOperations,
-    conflictMetadata_fileModes,
-    conflictMetadata_isBinaryFile,
     conflictMetadata_fileModeConflict,
+    conflictMetadata_fileModes,
+    conflictMetadata_filePath,
+    conflictMetadata_fileSizes,
+    conflictMetadata_isBinaryFile,
+    conflictMetadata_mergeOperations,
+    conflictMetadata_numberOfConflicts,
     conflictMetadata_objectTypeConflict,
     conflictMetadata_objectTypes,
 
     -- ** ConflictResolution
+    conflictResolution_deleteFiles,
     conflictResolution_replaceContents,
     conflictResolution_setFileModes,
-    conflictResolution_deleteFiles,
 
     -- ** DeleteFileEntry
     deleteFileEntry_filePath,
 
     -- ** Difference
-    difference_changeType,
     difference_afterBlob,
     difference_beforeBlob,
+    difference_changeType,
 
     -- ** Evaluation
-    evaluation_overridden,
     evaluation_approvalRulesNotSatisfied,
     evaluation_approvalRulesSatisfied,
     evaluation_approved,
+    evaluation_overridden,
 
     -- ** File
-    file_fileMode,
     file_absolutePath,
     file_blobId,
+    file_fileMode,
     file_relativePath,
 
     -- ** FileMetadata
-    fileMetadata_fileMode,
     fileMetadata_absolutePath,
     fileMetadata_blobId,
+    fileMetadata_fileMode,
 
     -- ** FileModes
-    fileModes_destination,
     fileModes_base,
+    fileModes_destination,
     fileModes_source,
 
     -- ** FileSizes
-    fileSizes_destination,
     fileSizes_base,
+    fileSizes_destination,
     fileSizes_source,
 
     -- ** Folder
@@ -832,8 +832,8 @@ module Amazonka.CodeCommit.Lens
     folder_treeId,
 
     -- ** IsBinaryFile
-    isBinaryFile_destination,
     isBinaryFile_base,
+    isBinaryFile_destination,
     isBinaryFile_source,
 
     -- ** Location
@@ -842,9 +842,9 @@ module Amazonka.CodeCommit.Lens
     location_relativeFileVersion,
 
     -- ** MergeHunk
+    mergeHunk_base,
     mergeHunk_destination,
     mergeHunk_isConflict,
-    mergeHunk_base,
     mergeHunk_source,
 
     -- ** MergeHunkDetail
@@ -853,9 +853,9 @@ module Amazonka.CodeCommit.Lens
     mergeHunkDetail_startLine,
 
     -- ** MergeMetadata
-    mergeMetadata_mergeOption,
-    mergeMetadata_mergeCommitId,
     mergeMetadata_isMerged,
+    mergeMetadata_mergeCommitId,
+    mergeMetadata_mergeOption,
     mergeMetadata_mergedBy,
 
     -- ** MergeOperations
@@ -863,79 +863,79 @@ module Amazonka.CodeCommit.Lens
     mergeOperations_source,
 
     -- ** ObjectTypes
-    objectTypes_destination,
     objectTypes_base,
+    objectTypes_destination,
     objectTypes_source,
 
     -- ** OriginApprovalRuleTemplate
-    originApprovalRuleTemplate_approvalRuleTemplateName,
     originApprovalRuleTemplate_approvalRuleTemplateId,
+    originApprovalRuleTemplate_approvalRuleTemplateName,
 
     -- ** PullRequest
     pullRequest_approvalRules,
+    pullRequest_authorArn,
     pullRequest_clientRequestToken,
-    pullRequest_pullRequestId,
-    pullRequest_pullRequestStatus,
-    pullRequest_pullRequestTargets,
     pullRequest_creationDate,
     pullRequest_description,
     pullRequest_lastActivityDate,
-    pullRequest_title,
+    pullRequest_pullRequestId,
+    pullRequest_pullRequestStatus,
+    pullRequest_pullRequestTargets,
     pullRequest_revisionId,
-    pullRequest_authorArn,
+    pullRequest_title,
 
     -- ** PullRequestCreatedEventMetadata
-    pullRequestCreatedEventMetadata_repositoryName,
-    pullRequestCreatedEventMetadata_mergeBase,
-    pullRequestCreatedEventMetadata_sourceCommitId,
     pullRequestCreatedEventMetadata_destinationCommitId,
+    pullRequestCreatedEventMetadata_mergeBase,
+    pullRequestCreatedEventMetadata_repositoryName,
+    pullRequestCreatedEventMetadata_sourceCommitId,
 
     -- ** PullRequestEvent
-    pullRequestEvent_pullRequestMergedStateChangedEventMetadata,
-    pullRequestEvent_pullRequestId,
+    pullRequestEvent_actorArn,
+    pullRequestEvent_approvalRuleEventMetadata,
     pullRequestEvent_approvalRuleOverriddenEventMetadata,
-    pullRequestEvent_pullRequestCreatedEventMetadata,
     pullRequestEvent_approvalStateChangedEventMetadata,
     pullRequestEvent_eventDate,
-    pullRequestEvent_pullRequestStatusChangedEventMetadata,
-    pullRequestEvent_approvalRuleEventMetadata,
-    pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata,
-    pullRequestEvent_actorArn,
+    pullRequestEvent_pullRequestCreatedEventMetadata,
     pullRequestEvent_pullRequestEventType,
+    pullRequestEvent_pullRequestId,
+    pullRequestEvent_pullRequestMergedStateChangedEventMetadata,
+    pullRequestEvent_pullRequestSourceReferenceUpdatedEventMetadata,
+    pullRequestEvent_pullRequestStatusChangedEventMetadata,
 
     -- ** PullRequestMergedStateChangedEventMetadata
+    pullRequestMergedStateChangedEventMetadata_destinationReference,
     pullRequestMergedStateChangedEventMetadata_mergeMetadata,
     pullRequestMergedStateChangedEventMetadata_repositoryName,
-    pullRequestMergedStateChangedEventMetadata_destinationReference,
 
     -- ** PullRequestSourceReferenceUpdatedEventMetadata
     pullRequestSourceReferenceUpdatedEventMetadata_afterCommitId,
-    pullRequestSourceReferenceUpdatedEventMetadata_repositoryName,
     pullRequestSourceReferenceUpdatedEventMetadata_beforeCommitId,
     pullRequestSourceReferenceUpdatedEventMetadata_mergeBase,
+    pullRequestSourceReferenceUpdatedEventMetadata_repositoryName,
 
     -- ** PullRequestStatusChangedEventMetadata
     pullRequestStatusChangedEventMetadata_pullRequestStatus,
 
     -- ** PullRequestTarget
-    pullRequestTarget_mergeMetadata,
-    pullRequestTarget_sourceReference,
-    pullRequestTarget_sourceCommit,
-    pullRequestTarget_repositoryName,
+    pullRequestTarget_destinationCommit,
     pullRequestTarget_destinationReference,
     pullRequestTarget_mergeBase,
-    pullRequestTarget_destinationCommit,
+    pullRequestTarget_mergeMetadata,
+    pullRequestTarget_repositoryName,
+    pullRequestTarget_sourceCommit,
+    pullRequestTarget_sourceReference,
 
     -- ** PutFileEntry
+    putFileEntry_fileContent,
     putFileEntry_fileMode,
     putFileEntry_sourceFile,
-    putFileEntry_fileContent,
     putFileEntry_filePath,
 
     -- ** ReactionForComment
-    reactionForComment_reactionsFromDeletedUsersCount,
-    reactionForComment_reactionUsers,
     reactionForComment_reaction,
+    reactionForComment_reactionUsers,
+    reactionForComment_reactionsFromDeletedUsersCount,
 
     -- ** ReactionValueFormats
     reactionValueFormats_emoji,
@@ -943,26 +943,26 @@ module Amazonka.CodeCommit.Lens
     reactionValueFormats_unicode,
 
     -- ** ReplaceContentEntry
-    replaceContentEntry_fileMode,
     replaceContentEntry_content,
+    replaceContentEntry_fileMode,
     replaceContentEntry_filePath,
     replaceContentEntry_replacementType,
 
     -- ** RepositoryMetadata
-    repositoryMetadata_lastModifiedDate,
-    repositoryMetadata_repositoryName,
     repositoryMetadata_arn,
-    repositoryMetadata_defaultBranch,
-    repositoryMetadata_creationDate,
     repositoryMetadata_accountId,
     repositoryMetadata_cloneUrlHttp,
+    repositoryMetadata_cloneUrlSsh,
+    repositoryMetadata_creationDate,
+    repositoryMetadata_defaultBranch,
+    repositoryMetadata_lastModifiedDate,
     repositoryMetadata_repositoryDescription,
     repositoryMetadata_repositoryId,
-    repositoryMetadata_cloneUrlSsh,
+    repositoryMetadata_repositoryName,
 
     -- ** RepositoryNameIdPair
-    repositoryNameIdPair_repositoryName,
     repositoryNameIdPair_repositoryId,
+    repositoryNameIdPair_repositoryName,
 
     -- ** RepositoryTrigger
     repositoryTrigger_branches,
@@ -972,8 +972,8 @@ module Amazonka.CodeCommit.Lens
     repositoryTrigger_events,
 
     -- ** RepositoryTriggerExecutionFailure
-    repositoryTriggerExecutionFailure_trigger,
     repositoryTriggerExecutionFailure_failureMessage,
+    repositoryTriggerExecutionFailure_trigger,
 
     -- ** SetFileModeEntry
     setFileModeEntry_filePath,
@@ -989,9 +989,9 @@ module Amazonka.CodeCommit.Lens
     subModule_relativePath,
 
     -- ** SymbolicLink
-    symbolicLink_fileMode,
     symbolicLink_absolutePath,
     symbolicLink_blobId,
+    symbolicLink_fileMode,
     symbolicLink_relativePath,
 
     -- ** Target
@@ -1000,9 +1000,9 @@ module Amazonka.CodeCommit.Lens
     target_sourceReference,
 
     -- ** UserInfo
-    userInfo_name,
-    userInfo_email,
     userInfo_date,
+    userInfo_email,
+    userInfo_name,
   )
 where
 

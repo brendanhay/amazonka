@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-  { -- | The path to the blob and associated file name, if any.
-    path :: Prelude.Maybe Prelude.Text,
+  { -- | The full ID of the blob.
+    blobId :: Prelude.Maybe Prelude.Text,
     -- | The file mode permissions of the blob. File mode permission codes
     -- include:
     --
@@ -41,8 +41,8 @@ data BlobMetadata = BlobMetadata'
     --
     -- -   @120000@ indicates a symlink
     mode :: Prelude.Maybe Prelude.Text,
-    -- | The full ID of the blob.
-    blobId :: Prelude.Maybe Prelude.Text
+    -- | The path to the blob and associated file name, if any.
+    path :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +54,7 @@ data BlobMetadata = BlobMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'blobMetadata_path' - The path to the blob and associated file name, if any.
+-- 'blobId', 'blobMetadata_blobId' - The full ID of the blob.
 --
 -- 'mode', 'blobMetadata_mode' - The file mode permissions of the blob. File mode permission codes
 -- include:
@@ -67,19 +67,19 @@ data BlobMetadata = BlobMetadata'
 --
 -- -   @120000@ indicates a symlink
 --
--- 'blobId', 'blobMetadata_blobId' - The full ID of the blob.
+-- 'path', 'blobMetadata_path' - The path to the blob and associated file name, if any.
 newBlobMetadata ::
   BlobMetadata
 newBlobMetadata =
   BlobMetadata'
-    { path = Prelude.Nothing,
+    { blobId = Prelude.Nothing,
       mode = Prelude.Nothing,
-      blobId = Prelude.Nothing
+      path = Prelude.Nothing
     }
 
--- | The path to the blob and associated file name, if any.
-blobMetadata_path :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
-blobMetadata_path = Lens.lens (\BlobMetadata' {path} -> path) (\s@BlobMetadata' {} a -> s {path = a} :: BlobMetadata)
+-- | The full ID of the blob.
+blobMetadata_blobId :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
+blobMetadata_blobId = Lens.lens (\BlobMetadata' {blobId} -> blobId) (\s@BlobMetadata' {} a -> s {blobId = a} :: BlobMetadata)
 
 -- | The file mode permissions of the blob. File mode permission codes
 -- include:
@@ -94,9 +94,9 @@ blobMetadata_path = Lens.lens (\BlobMetadata' {path} -> path) (\s@BlobMetadata' 
 blobMetadata_mode :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
 blobMetadata_mode = Lens.lens (\BlobMetadata' {mode} -> mode) (\s@BlobMetadata' {} a -> s {mode = a} :: BlobMetadata)
 
--- | The full ID of the blob.
-blobMetadata_blobId :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
-blobMetadata_blobId = Lens.lens (\BlobMetadata' {blobId} -> blobId) (\s@BlobMetadata' {} a -> s {blobId = a} :: BlobMetadata)
+-- | The path to the blob and associated file name, if any.
+blobMetadata_path :: Lens.Lens' BlobMetadata (Prelude.Maybe Prelude.Text)
+blobMetadata_path = Lens.lens (\BlobMetadata' {path} -> path) (\s@BlobMetadata' {} a -> s {path = a} :: BlobMetadata)
 
 instance Data.FromJSON BlobMetadata where
   parseJSON =
@@ -104,19 +104,19 @@ instance Data.FromJSON BlobMetadata where
       "BlobMetadata"
       ( \x ->
           BlobMetadata'
-            Prelude.<$> (x Data..:? "path")
+            Prelude.<$> (x Data..:? "blobId")
             Prelude.<*> (x Data..:? "mode")
-            Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "path")
       )
 
 instance Prelude.Hashable BlobMetadata where
   hashWithSalt _salt BlobMetadata' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` blobId
       `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` path
 
 instance Prelude.NFData BlobMetadata where
   rnf BlobMetadata' {..} =
-    Prelude.rnf path
+    Prelude.rnf blobId
       `Prelude.seq` Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf path

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppCookieStickinessPolicy' smart constructor.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
-  { -- | The mnemonic name for the policy being created. The name must be unique
+  { -- | The name of the application cookie used for stickiness.
+    cookieName :: Prelude.Maybe Prelude.Text,
+    -- | The mnemonic name for the policy being created. The name must be unique
     -- within a set of policies for this load balancer.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application cookie used for stickiness.
-    cookieName :: Prelude.Maybe Prelude.Text
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,40 +46,40 @@ data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cookieName', 'appCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.
+--
 -- 'policyName', 'appCookieStickinessPolicy_policyName' - The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
---
--- 'cookieName', 'appCookieStickinessPolicy_cookieName' - The name of the application cookie used for stickiness.
 newAppCookieStickinessPolicy ::
   AppCookieStickinessPolicy
 newAppCookieStickinessPolicy =
   AppCookieStickinessPolicy'
-    { policyName =
+    { cookieName =
         Prelude.Nothing,
-      cookieName = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
+
+-- | The name of the application cookie used for stickiness.
+appCookieStickinessPolicy_cookieName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+appCookieStickinessPolicy_cookieName = Lens.lens (\AppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AppCookieStickinessPolicy)
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
 appCookieStickinessPolicy_policyName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
 appCookieStickinessPolicy_policyName = Lens.lens (\AppCookieStickinessPolicy' {policyName} -> policyName) (\s@AppCookieStickinessPolicy' {} a -> s {policyName = a} :: AppCookieStickinessPolicy)
 
--- | The name of the application cookie used for stickiness.
-appCookieStickinessPolicy_cookieName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
-appCookieStickinessPolicy_cookieName = Lens.lens (\AppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AppCookieStickinessPolicy)
-
 instance Data.FromXML AppCookieStickinessPolicy where
   parseXML x =
     AppCookieStickinessPolicy'
-      Prelude.<$> (x Data..@? "PolicyName")
-      Prelude.<*> (x Data..@? "CookieName")
+      Prelude.<$> (x Data..@? "CookieName")
+      Prelude.<*> (x Data..@? "PolicyName")
 
 instance Prelude.Hashable AppCookieStickinessPolicy where
   hashWithSalt _salt AppCookieStickinessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` cookieName
+    _salt `Prelude.hashWithSalt` cookieName
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData AppCookieStickinessPolicy where
   rnf AppCookieStickinessPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf cookieName
+    Prelude.rnf cookieName
+      `Prelude.seq` Prelude.rnf policyName

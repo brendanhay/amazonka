@@ -50,11 +50,11 @@ module Amazonka.ELB.Lens
     createLBCookieStickinessPolicyResponse_httpStatus,
 
     -- ** CreateLoadBalancer
-    createLoadBalancer_tags,
-    createLoadBalancer_scheme,
-    createLoadBalancer_subnets,
     createLoadBalancer_availabilityZones,
+    createLoadBalancer_scheme,
     createLoadBalancer_securityGroups,
+    createLoadBalancer_subnets,
+    createLoadBalancer_tags,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_listeners,
     createLoadBalancerResponse_dNSName,
@@ -122,11 +122,11 @@ module Amazonka.ELB.Lens
     describeLoadBalancerPolicyTypesResponse_httpStatus,
 
     -- ** DescribeLoadBalancers
-    describeLoadBalancers_marker,
     describeLoadBalancers_loadBalancerNames,
+    describeLoadBalancers_marker,
     describeLoadBalancers_pageSize,
-    describeLoadBalancersResponse_nextMarker,
     describeLoadBalancersResponse_loadBalancerDescriptions,
+    describeLoadBalancersResponse_nextMarker,
     describeLoadBalancersResponse_httpStatus,
 
     -- ** DescribeTags
@@ -155,8 +155,8 @@ module Amazonka.ELB.Lens
     -- ** ModifyLoadBalancerAttributes
     modifyLoadBalancerAttributes_loadBalancerName,
     modifyLoadBalancerAttributes_loadBalancerAttributes,
-    modifyLoadBalancerAttributesResponse_loadBalancerName,
     modifyLoadBalancerAttributesResponse_loadBalancerAttributes,
+    modifyLoadBalancerAttributesResponse_loadBalancerName,
     modifyLoadBalancerAttributesResponse_httpStatus,
 
     -- ** RegisterInstancesWithLoadBalancer
@@ -191,9 +191,9 @@ module Amazonka.ELB.Lens
     -- * Types
 
     -- ** AccessLog
-    accessLog_s3BucketPrefix,
-    accessLog_s3BucketName,
     accessLog_emitInterval,
+    accessLog_s3BucketName,
+    accessLog_s3BucketPrefix,
     accessLog_enabled,
 
     -- ** AdditionalAttribute
@@ -201,12 +201,12 @@ module Amazonka.ELB.Lens
     additionalAttribute_value,
 
     -- ** AppCookieStickinessPolicy
-    appCookieStickinessPolicy_policyName,
     appCookieStickinessPolicy_cookieName,
+    appCookieStickinessPolicy_policyName,
 
     -- ** BackendServerDescription
-    backendServerDescription_policyNames,
     backendServerDescription_instancePort,
+    backendServerDescription_policyNames,
 
     -- ** ConnectionDraining
     connectionDraining_timeout,
@@ -229,22 +229,22 @@ module Amazonka.ELB.Lens
     instance_instanceId,
 
     -- ** InstanceState
-    instanceState_state,
     instanceState_description,
     instanceState_instanceId,
     instanceState_reasonCode,
+    instanceState_state,
 
     -- ** LBCookieStickinessPolicy
-    lBCookieStickinessPolicy_policyName,
     lBCookieStickinessPolicy_cookieExpirationPeriod,
+    lBCookieStickinessPolicy_policyName,
 
     -- ** Limit
-    limit_name,
     limit_max,
+    limit_name,
 
     -- ** Listener
-    listener_sSLCertificateId,
     listener_instanceProtocol,
+    listener_sSLCertificateId,
     listener_protocol,
     listener_loadBalancerPort,
     listener_instancePort,
@@ -254,71 +254,71 @@ module Amazonka.ELB.Lens
     listenerDescription_policyNames,
 
     -- ** LoadBalancerAttributes
-    loadBalancerAttributes_connectionSettings,
-    loadBalancerAttributes_connectionDraining,
-    loadBalancerAttributes_additionalAttributes,
     loadBalancerAttributes_accessLog,
+    loadBalancerAttributes_additionalAttributes,
+    loadBalancerAttributes_connectionDraining,
+    loadBalancerAttributes_connectionSettings,
     loadBalancerAttributes_crossZoneLoadBalancing,
 
     -- ** LoadBalancerDescription
-    loadBalancerDescription_instances,
-    loadBalancerDescription_healthCheck,
-    loadBalancerDescription_scheme,
-    loadBalancerDescription_createdTime,
+    loadBalancerDescription_availabilityZones,
+    loadBalancerDescription_backendServerDescriptions,
     loadBalancerDescription_canonicalHostedZoneName,
     loadBalancerDescription_canonicalHostedZoneNameID,
-    loadBalancerDescription_loadBalancerName,
-    loadBalancerDescription_subnets,
-    loadBalancerDescription_sourceSecurityGroup,
-    loadBalancerDescription_availabilityZones,
-    loadBalancerDescription_listenerDescriptions,
-    loadBalancerDescription_policies,
-    loadBalancerDescription_backendServerDescriptions,
-    loadBalancerDescription_securityGroups,
-    loadBalancerDescription_vPCId,
+    loadBalancerDescription_createdTime,
     loadBalancerDescription_dNSName,
+    loadBalancerDescription_healthCheck,
+    loadBalancerDescription_instances,
+    loadBalancerDescription_listenerDescriptions,
+    loadBalancerDescription_loadBalancerName,
+    loadBalancerDescription_policies,
+    loadBalancerDescription_scheme,
+    loadBalancerDescription_securityGroups,
+    loadBalancerDescription_sourceSecurityGroup,
+    loadBalancerDescription_subnets,
+    loadBalancerDescription_vPCId,
 
     -- ** Policies
-    policies_otherPolicies,
-    policies_lBCookieStickinessPolicies,
     policies_appCookieStickinessPolicies,
+    policies_lBCookieStickinessPolicies,
+    policies_otherPolicies,
 
     -- ** PolicyAttribute
-    policyAttribute_attributeValue,
     policyAttribute_attributeName,
+    policyAttribute_attributeValue,
 
     -- ** PolicyAttributeDescription
-    policyAttributeDescription_attributeValue,
     policyAttributeDescription_attributeName,
+    policyAttributeDescription_attributeValue,
 
     -- ** PolicyAttributeTypeDescription
-    policyAttributeTypeDescription_defaultValue,
-    policyAttributeTypeDescription_description,
+    policyAttributeTypeDescription_attributeName,
     policyAttributeTypeDescription_attributeType,
     policyAttributeTypeDescription_cardinality,
-    policyAttributeTypeDescription_attributeName,
+    policyAttributeTypeDescription_defaultValue,
+    policyAttributeTypeDescription_description,
 
     -- ** PolicyDescription
-    policyDescription_policyName,
     policyDescription_policyAttributeDescriptions,
+    policyDescription_policyName,
     policyDescription_policyTypeName,
 
     -- ** PolicyTypeDescription
+    policyTypeDescription_description,
     policyTypeDescription_policyAttributeTypeDescriptions,
     policyTypeDescription_policyTypeName,
-    policyTypeDescription_description,
 
     -- ** SourceSecurityGroup
-    sourceSecurityGroup_ownerAlias,
     sourceSecurityGroup_groupName,
+    sourceSecurityGroup_ownerAlias,
 
     -- ** Tag
     tag_value,
     tag_key,
 
     -- ** TagDescription
-    tagDescription_tags,
     tagDescription_loadBalancerName,
+    tagDescription_tags,
 
     -- ** TagKeyOnly
     tagKeyOnly_key,

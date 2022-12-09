@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
-  { -- | The value of the attribute.
-    attributeValue :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute.
-    attributeName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the attribute.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The value of the attribute.
+    attributeValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,38 +44,38 @@ data PolicyAttributeDescription = PolicyAttributeDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeValue', 'policyAttributeDescription_attributeValue' - The value of the attribute.
---
 -- 'attributeName', 'policyAttributeDescription_attributeName' - The name of the attribute.
+--
+-- 'attributeValue', 'policyAttributeDescription_attributeValue' - The value of the attribute.
 newPolicyAttributeDescription ::
   PolicyAttributeDescription
 newPolicyAttributeDescription =
   PolicyAttributeDescription'
-    { attributeValue =
+    { attributeName =
         Prelude.Nothing,
-      attributeName = Prelude.Nothing
+      attributeValue = Prelude.Nothing
     }
-
--- | The value of the attribute.
-policyAttributeDescription_attributeValue :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
-policyAttributeDescription_attributeValue = Lens.lens (\PolicyAttributeDescription' {attributeValue} -> attributeValue) (\s@PolicyAttributeDescription' {} a -> s {attributeValue = a} :: PolicyAttributeDescription)
 
 -- | The name of the attribute.
 policyAttributeDescription_attributeName :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
 policyAttributeDescription_attributeName = Lens.lens (\PolicyAttributeDescription' {attributeName} -> attributeName) (\s@PolicyAttributeDescription' {} a -> s {attributeName = a} :: PolicyAttributeDescription)
 
+-- | The value of the attribute.
+policyAttributeDescription_attributeValue :: Lens.Lens' PolicyAttributeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeDescription_attributeValue = Lens.lens (\PolicyAttributeDescription' {attributeValue} -> attributeValue) (\s@PolicyAttributeDescription' {} a -> s {attributeValue = a} :: PolicyAttributeDescription)
+
 instance Data.FromXML PolicyAttributeDescription where
   parseXML x =
     PolicyAttributeDescription'
-      Prelude.<$> (x Data..@? "AttributeValue")
-      Prelude.<*> (x Data..@? "AttributeName")
+      Prelude.<$> (x Data..@? "AttributeName")
+      Prelude.<*> (x Data..@? "AttributeValue")
 
 instance Prelude.Hashable PolicyAttributeDescription where
   hashWithSalt _salt PolicyAttributeDescription' {..} =
-    _salt `Prelude.hashWithSalt` attributeValue
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData PolicyAttributeDescription where
   rnf PolicyAttributeDescription' {..} =
-    Prelude.rnf attributeValue
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf attributeValue

@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLBCookieStickinessPolicy' smart constructor.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
-  { -- | The name of the policy. This name must be unique within the set of
-    -- policies for this load balancer.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The time period, in seconds, after which the cookie should be considered
+  { -- | The time period, in seconds, after which the cookie should be considered
     -- stale. If this parameter is not specified, the stickiness session lasts
     -- for the duration of the browser session.
-    cookieExpirationPeriod :: Prelude.Maybe Prelude.Integer
+    cookieExpirationPeriod :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the policy. This name must be unique within the set of
+    -- policies for this load balancer.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'lBCookieStickinessPolicy_policyName' - The name of the policy. This name must be unique within the set of
--- policies for this load balancer.
---
 -- 'cookieExpirationPeriod', 'lBCookieStickinessPolicy_cookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered
 -- stale. If this parameter is not specified, the stickiness session lasts
 -- for the duration of the browser session.
+--
+-- 'policyName', 'lBCookieStickinessPolicy_policyName' - The name of the policy. This name must be unique within the set of
+-- policies for this load balancer.
 newLBCookieStickinessPolicy ::
   LBCookieStickinessPolicy
 newLBCookieStickinessPolicy =
   LBCookieStickinessPolicy'
-    { policyName =
+    { cookieExpirationPeriod =
         Prelude.Nothing,
-      cookieExpirationPeriod = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
-
--- | The name of the policy. This name must be unique within the set of
--- policies for this load balancer.
-lBCookieStickinessPolicy_policyName :: Lens.Lens' LBCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
-lBCookieStickinessPolicy_policyName = Lens.lens (\LBCookieStickinessPolicy' {policyName} -> policyName) (\s@LBCookieStickinessPolicy' {} a -> s {policyName = a} :: LBCookieStickinessPolicy)
 
 -- | The time period, in seconds, after which the cookie should be considered
 -- stale. If this parameter is not specified, the stickiness session lasts
@@ -73,18 +68,23 @@ lBCookieStickinessPolicy_policyName = Lens.lens (\LBCookieStickinessPolicy' {pol
 lBCookieStickinessPolicy_cookieExpirationPeriod :: Lens.Lens' LBCookieStickinessPolicy (Prelude.Maybe Prelude.Integer)
 lBCookieStickinessPolicy_cookieExpirationPeriod = Lens.lens (\LBCookieStickinessPolicy' {cookieExpirationPeriod} -> cookieExpirationPeriod) (\s@LBCookieStickinessPolicy' {} a -> s {cookieExpirationPeriod = a} :: LBCookieStickinessPolicy)
 
+-- | The name of the policy. This name must be unique within the set of
+-- policies for this load balancer.
+lBCookieStickinessPolicy_policyName :: Lens.Lens' LBCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+lBCookieStickinessPolicy_policyName = Lens.lens (\LBCookieStickinessPolicy' {policyName} -> policyName) (\s@LBCookieStickinessPolicy' {} a -> s {policyName = a} :: LBCookieStickinessPolicy)
+
 instance Data.FromXML LBCookieStickinessPolicy where
   parseXML x =
     LBCookieStickinessPolicy'
-      Prelude.<$> (x Data..@? "PolicyName")
-      Prelude.<*> (x Data..@? "CookieExpirationPeriod")
+      Prelude.<$> (x Data..@? "CookieExpirationPeriod")
+      Prelude.<*> (x Data..@? "PolicyName")
 
 instance Prelude.Hashable LBCookieStickinessPolicy where
   hashWithSalt _salt LBCookieStickinessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` cookieExpirationPeriod
+    _salt `Prelude.hashWithSalt` cookieExpirationPeriod
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData LBCookieStickinessPolicy where
   rnf LBCookieStickinessPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf cookieExpirationPeriod
+    Prelude.rnf cookieExpirationPeriod
+      `Prelude.seq` Prelude.rnf policyName

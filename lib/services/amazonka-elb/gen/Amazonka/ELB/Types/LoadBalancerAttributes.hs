@@ -34,15 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerAttributes' smart constructor.
 data LoadBalancerAttributes = LoadBalancerAttributes'
-  { -- | If enabled, the load balancer allows the connections to remain idle (no
-    -- data is sent over the connection) for the specified duration.
+  { -- | If enabled, the load balancer captures detailed information of all
+    -- requests and delivers the information to the Amazon S3 bucket that you
+    -- specify.
     --
-    -- By default, Elastic Load Balancing maintains a 60-second idle connection
-    -- timeout for both front-end and back-end connections of your load
-    -- balancer. For more information, see
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
     -- in the /Classic Load Balancers Guide/.
-    connectionSettings :: Prelude.Maybe ConnectionSettings,
+    accessLog :: Prelude.Maybe AccessLog,
+    -- | Any additional attributes.
+    additionalAttributes :: Prelude.Maybe [AdditionalAttribute],
     -- | If enabled, the load balancer allows existing requests to complete
     -- before the load balancer shifts traffic away from a deregistered or
     -- unhealthy instance.
@@ -51,16 +52,15 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining>
     -- in the /Classic Load Balancers Guide/.
     connectionDraining :: Prelude.Maybe ConnectionDraining,
-    -- | Any additional attributes.
-    additionalAttributes :: Prelude.Maybe [AdditionalAttribute],
-    -- | If enabled, the load balancer captures detailed information of all
-    -- requests and delivers the information to the Amazon S3 bucket that you
-    -- specify.
+    -- | If enabled, the load balancer allows the connections to remain idle (no
+    -- data is sent over the connection) for the specified duration.
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
+    -- By default, Elastic Load Balancing maintains a 60-second idle connection
+    -- timeout for both front-end and back-end connections of your load
+    -- balancer. For more information, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
     -- in the /Classic Load Balancers Guide/.
-    accessLog :: Prelude.Maybe AccessLog,
+    connectionSettings :: Prelude.Maybe ConnectionSettings,
     -- | If enabled, the load balancer routes the request traffic evenly across
     -- all instances regardless of the Availability Zones.
     --
@@ -79,14 +79,15 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionSettings', 'loadBalancerAttributes_connectionSettings' - If enabled, the load balancer allows the connections to remain idle (no
--- data is sent over the connection) for the specified duration.
+-- 'accessLog', 'loadBalancerAttributes_accessLog' - If enabled, the load balancer captures detailed information of all
+-- requests and delivers the information to the Amazon S3 bucket that you
+-- specify.
 --
--- By default, Elastic Load Balancing maintains a 60-second idle connection
--- timeout for both front-end and back-end connections of your load
--- balancer. For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
 -- in the /Classic Load Balancers Guide/.
+--
+-- 'additionalAttributes', 'loadBalancerAttributes_additionalAttributes' - Any additional attributes.
 --
 -- 'connectionDraining', 'loadBalancerAttributes_connectionDraining' - If enabled, the load balancer allows existing requests to complete
 -- before the load balancer shifts traffic away from a deregistered or
@@ -96,14 +97,13 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining>
 -- in the /Classic Load Balancers Guide/.
 --
--- 'additionalAttributes', 'loadBalancerAttributes_additionalAttributes' - Any additional attributes.
+-- 'connectionSettings', 'loadBalancerAttributes_connectionSettings' - If enabled, the load balancer allows the connections to remain idle (no
+-- data is sent over the connection) for the specified duration.
 --
--- 'accessLog', 'loadBalancerAttributes_accessLog' - If enabled, the load balancer captures detailed information of all
--- requests and delivers the information to the Amazon S3 bucket that you
--- specify.
---
--- For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
+-- By default, Elastic Load Balancing maintains a 60-second idle connection
+-- timeout for both front-end and back-end connections of your load
+-- balancer. For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
 -- in the /Classic Load Balancers Guide/.
 --
 -- 'crossZoneLoadBalancing', 'loadBalancerAttributes_crossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across
@@ -116,24 +116,27 @@ newLoadBalancerAttributes ::
   LoadBalancerAttributes
 newLoadBalancerAttributes =
   LoadBalancerAttributes'
-    { connectionSettings =
+    { accessLog =
         Prelude.Nothing,
-      connectionDraining = Prelude.Nothing,
       additionalAttributes = Prelude.Nothing,
-      accessLog = Prelude.Nothing,
+      connectionDraining = Prelude.Nothing,
+      connectionSettings = Prelude.Nothing,
       crossZoneLoadBalancing = Prelude.Nothing
     }
 
--- | If enabled, the load balancer allows the connections to remain idle (no
--- data is sent over the connection) for the specified duration.
+-- | If enabled, the load balancer captures detailed information of all
+-- requests and delivers the information to the Amazon S3 bucket that you
+-- specify.
 --
--- By default, Elastic Load Balancing maintains a 60-second idle connection
--- timeout for both front-end and back-end connections of your load
--- balancer. For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_connectionSettings :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe ConnectionSettings)
-loadBalancerAttributes_connectionSettings = Lens.lens (\LoadBalancerAttributes' {connectionSettings} -> connectionSettings) (\s@LoadBalancerAttributes' {} a -> s {connectionSettings = a} :: LoadBalancerAttributes)
+loadBalancerAttributes_accessLog :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe AccessLog)
+loadBalancerAttributes_accessLog = Lens.lens (\LoadBalancerAttributes' {accessLog} -> accessLog) (\s@LoadBalancerAttributes' {} a -> s {accessLog = a} :: LoadBalancerAttributes)
+
+-- | Any additional attributes.
+loadBalancerAttributes_additionalAttributes :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe [AdditionalAttribute])
+loadBalancerAttributes_additionalAttributes = Lens.lens (\LoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@LoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: LoadBalancerAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | If enabled, the load balancer allows existing requests to complete
 -- before the load balancer shifts traffic away from a deregistered or
@@ -145,19 +148,16 @@ loadBalancerAttributes_connectionSettings = Lens.lens (\LoadBalancerAttributes' 
 loadBalancerAttributes_connectionDraining :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe ConnectionDraining)
 loadBalancerAttributes_connectionDraining = Lens.lens (\LoadBalancerAttributes' {connectionDraining} -> connectionDraining) (\s@LoadBalancerAttributes' {} a -> s {connectionDraining = a} :: LoadBalancerAttributes)
 
--- | Any additional attributes.
-loadBalancerAttributes_additionalAttributes :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe [AdditionalAttribute])
-loadBalancerAttributes_additionalAttributes = Lens.lens (\LoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@LoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: LoadBalancerAttributes) Prelude.. Lens.mapping Lens.coerced
-
--- | If enabled, the load balancer captures detailed information of all
--- requests and delivers the information to the Amazon S3 bucket that you
--- specify.
+-- | If enabled, the load balancer allows the connections to remain idle (no
+-- data is sent over the connection) for the specified duration.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs>
+-- By default, Elastic Load Balancing maintains a 60-second idle connection
+-- timeout for both front-end and back-end connections of your load
+-- balancer. For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout>
 -- in the /Classic Load Balancers Guide/.
-loadBalancerAttributes_accessLog :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe AccessLog)
-loadBalancerAttributes_accessLog = Lens.lens (\LoadBalancerAttributes' {accessLog} -> accessLog) (\s@LoadBalancerAttributes' {} a -> s {accessLog = a} :: LoadBalancerAttributes)
+loadBalancerAttributes_connectionSettings :: Lens.Lens' LoadBalancerAttributes (Prelude.Maybe ConnectionSettings)
+loadBalancerAttributes_connectionSettings = Lens.lens (\LoadBalancerAttributes' {connectionSettings} -> connectionSettings) (\s@LoadBalancerAttributes' {} a -> s {connectionSettings = a} :: LoadBalancerAttributes)
 
 -- | If enabled, the load balancer routes the request traffic evenly across
 -- all instances regardless of the Availability Zones.
@@ -171,42 +171,42 @@ loadBalancerAttributes_crossZoneLoadBalancing = Lens.lens (\LoadBalancerAttribut
 instance Data.FromXML LoadBalancerAttributes where
   parseXML x =
     LoadBalancerAttributes'
-      Prelude.<$> (x Data..@? "ConnectionSettings")
-      Prelude.<*> (x Data..@? "ConnectionDraining")
+      Prelude.<$> (x Data..@? "AccessLog")
       Prelude.<*> ( x Data..@? "AdditionalAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "AccessLog")
+      Prelude.<*> (x Data..@? "ConnectionDraining")
+      Prelude.<*> (x Data..@? "ConnectionSettings")
       Prelude.<*> (x Data..@? "CrossZoneLoadBalancing")
 
 instance Prelude.Hashable LoadBalancerAttributes where
   hashWithSalt _salt LoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` connectionSettings
-      `Prelude.hashWithSalt` connectionDraining
+    _salt `Prelude.hashWithSalt` accessLog
       `Prelude.hashWithSalt` additionalAttributes
-      `Prelude.hashWithSalt` accessLog
+      `Prelude.hashWithSalt` connectionDraining
+      `Prelude.hashWithSalt` connectionSettings
       `Prelude.hashWithSalt` crossZoneLoadBalancing
 
 instance Prelude.NFData LoadBalancerAttributes where
   rnf LoadBalancerAttributes' {..} =
-    Prelude.rnf connectionSettings
-      `Prelude.seq` Prelude.rnf connectionDraining
+    Prelude.rnf accessLog
       `Prelude.seq` Prelude.rnf additionalAttributes
-      `Prelude.seq` Prelude.rnf accessLog
+      `Prelude.seq` Prelude.rnf connectionDraining
+      `Prelude.seq` Prelude.rnf connectionSettings
       `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
 instance Data.ToQuery LoadBalancerAttributes where
   toQuery LoadBalancerAttributes' {..} =
     Prelude.mconcat
-      [ "ConnectionSettings" Data.=: connectionSettings,
-        "ConnectionDraining" Data.=: connectionDraining,
+      [ "AccessLog" Data.=: accessLog,
         "AdditionalAttributes"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> additionalAttributes
             ),
-        "AccessLog" Data.=: accessLog,
+        "ConnectionDraining" Data.=: connectionDraining,
+        "ConnectionSettings" Data.=: connectionSettings,
         "CrossZoneLoadBalancing"
           Data.=: crossZoneLoadBalancing
       ]

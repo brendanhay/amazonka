@@ -35,8 +35,8 @@ module Amazonka.Kinesis.EnableEnhancedMonitoring
     newEnhancedMonitoringOutput,
 
     -- * Response Lenses
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
   )
 where

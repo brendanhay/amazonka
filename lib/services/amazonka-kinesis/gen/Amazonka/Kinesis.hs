@@ -22,26 +22,20 @@ module Amazonka.Kinesis
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
 
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
 
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** KMSAccessDeniedException
     _KMSAccessDeniedException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** KMSDisabledException
     _KMSDisabledException,
@@ -49,23 +43,29 @@ module Amazonka.Kinesis
     -- ** KMSInvalidStateException
     _KMSInvalidStateException,
 
-    -- ** ExpiredIteratorException
-    _ExpiredIteratorException,
-
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** KMSNotFoundException
     _KMSNotFoundException,
+
+    -- ** KMSOptInRequired
+    _KMSOptInRequired,
 
     -- ** KMSThrottlingException
     _KMSThrottlingException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
-    -- ** KMSOptInRequired
-    _KMSOptInRequired,
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

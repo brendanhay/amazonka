@@ -99,9 +99,9 @@ module Amazonka.Kinesis.GetRecords
     newGetRecordsResponse,
 
     -- * Response Lenses
+    getRecordsResponse_childShards,
     getRecordsResponse_millisBehindLatest,
     getRecordsResponse_nextShardIterator,
-    getRecordsResponse_childShards,
     getRecordsResponse_httpStatus,
     getRecordsResponse_records,
   )
@@ -175,9 +175,9 @@ instance Core.AWSRequest GetRecords where
     Response.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Prelude.<$> (x Data..?> "MillisBehindLatest")
+            Prelude.<$> (x Data..?> "ChildShards" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "MillisBehindLatest")
             Prelude.<*> (x Data..?> "NextShardIterator")
-            Prelude.<*> (x Data..?> "ChildShards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
       )
@@ -227,7 +227,11 @@ instance Data.ToQuery GetRecords where
 --
 -- /See:/ 'newGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { -- | The number of milliseconds the GetRecords response is from the tip of
+  { -- | The list of the current shard\'s child shards, returned in the
+    -- @GetRecords@ API\'s response only when the end of the current shard is
+    -- reached.
+    childShards :: Prelude.Maybe [ChildShard],
+    -- | The number of milliseconds the GetRecords response is from the tip of
     -- the stream, indicating how far behind current time the consumer is. A
     -- value of zero indicates that record processing is caught up, and there
     -- are no new records to process at this moment.
@@ -236,10 +240,6 @@ data GetRecordsResponse = GetRecordsResponse'
     -- data records. If set to @null@, the shard has been closed and the
     -- requested iterator does not return any more data.
     nextShardIterator :: Prelude.Maybe Prelude.Text,
-    -- | The list of the current shard\'s child shards, returned in the
-    -- @GetRecords@ API\'s response only when the end of the current shard is
-    -- reached.
-    childShards :: Prelude.Maybe [ChildShard],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The data records retrieved from the shard.
@@ -255,6 +255,10 @@ data GetRecordsResponse = GetRecordsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'childShards', 'getRecordsResponse_childShards' - The list of the current shard\'s child shards, returned in the
+-- @GetRecords@ API\'s response only when the end of the current shard is
+-- reached.
+--
 -- 'millisBehindLatest', 'getRecordsResponse_millisBehindLatest' - The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
 -- value of zero indicates that record processing is caught up, and there
@@ -263,10 +267,6 @@ data GetRecordsResponse = GetRecordsResponse'
 -- 'nextShardIterator', 'getRecordsResponse_nextShardIterator' - The next position in the shard from which to start sequentially reading
 -- data records. If set to @null@, the shard has been closed and the
 -- requested iterator does not return any more data.
---
--- 'childShards', 'getRecordsResponse_childShards' - The list of the current shard\'s child shards, returned in the
--- @GetRecords@ API\'s response only when the end of the current shard is
--- reached.
 --
 -- 'httpStatus', 'getRecordsResponse_httpStatus' - The response's http status code.
 --
@@ -277,13 +277,18 @@ newGetRecordsResponse ::
   GetRecordsResponse
 newGetRecordsResponse pHttpStatus_ =
   GetRecordsResponse'
-    { millisBehindLatest =
-        Prelude.Nothing,
+    { childShards = Prelude.Nothing,
+      millisBehindLatest = Prelude.Nothing,
       nextShardIterator = Prelude.Nothing,
-      childShards = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       records = Prelude.mempty
     }
+
+-- | The list of the current shard\'s child shards, returned in the
+-- @GetRecords@ API\'s response only when the end of the current shard is
+-- reached.
+getRecordsResponse_childShards :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [ChildShard])
+getRecordsResponse_childShards = Lens.lens (\GetRecordsResponse' {childShards} -> childShards) (\s@GetRecordsResponse' {} a -> s {childShards = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
@@ -298,12 +303,6 @@ getRecordsResponse_millisBehindLatest = Lens.lens (\GetRecordsResponse' {millisB
 getRecordsResponse_nextShardIterator :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Text)
 getRecordsResponse_nextShardIterator = Lens.lens (\GetRecordsResponse' {nextShardIterator} -> nextShardIterator) (\s@GetRecordsResponse' {} a -> s {nextShardIterator = a} :: GetRecordsResponse)
 
--- | The list of the current shard\'s child shards, returned in the
--- @GetRecords@ API\'s response only when the end of the current shard is
--- reached.
-getRecordsResponse_childShards :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [ChildShard])
-getRecordsResponse_childShards = Lens.lens (\GetRecordsResponse' {childShards} -> childShards) (\s@GetRecordsResponse' {} a -> s {childShards = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getRecordsResponse_httpStatus :: Lens.Lens' GetRecordsResponse Prelude.Int
 getRecordsResponse_httpStatus = Lens.lens (\GetRecordsResponse' {httpStatus} -> httpStatus) (\s@GetRecordsResponse' {} a -> s {httpStatus = a} :: GetRecordsResponse)
@@ -314,8 +313,8 @@ getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> record
 
 instance Prelude.NFData GetRecordsResponse where
   rnf GetRecordsResponse' {..} =
-    Prelude.rnf millisBehindLatest
+    Prelude.rnf childShards
+      `Prelude.seq` Prelude.rnf millisBehindLatest
       `Prelude.seq` Prelude.rnf nextShardIterator
-      `Prelude.seq` Prelude.rnf childShards
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf records

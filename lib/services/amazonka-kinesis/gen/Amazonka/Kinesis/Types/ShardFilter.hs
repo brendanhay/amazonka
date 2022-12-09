@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { -- | The timestamps specified in the @ShardFilter@ parameter. A timestamp is
+  { -- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+    -- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+    -- specified.
+    shardId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamps specified in the @ShardFilter@ parameter. A timestamp is
     -- a Unix epoch date with precision in milliseconds. For example,
     -- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
     -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
     timestamp :: Prelude.Maybe Data.POSIX,
-    -- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
-    -- This property can only be used if the @AFTER_SHARD_ID@ shard type is
-    -- specified.
-    shardId :: Prelude.Maybe Prelude.Text,
     -- | The shard type specified in the @ShardFilter@ parameter. This is a
     -- required property of the @ShardFilter@ parameter.
     --
@@ -78,14 +78,14 @@ data ShardFilter = ShardFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'shardId', 'shardFilter_shardId' - The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+-- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+-- specified.
+--
 -- 'timestamp', 'shardFilter_timestamp' - The timestamps specified in the @ShardFilter@ parameter. A timestamp is
 -- a Unix epoch date with precision in milliseconds. For example,
 -- 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only
 -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
---
--- 'shardId', 'shardFilter_shardId' - The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
--- This property can only be used if the @AFTER_SHARD_ID@ shard type is
--- specified.
 --
 -- 'type'', 'shardFilter_type' - The shard type specified in the @ShardFilter@ parameter. This is a
 -- required property of the @ShardFilter@ parameter.
@@ -120,10 +120,16 @@ newShardFilter ::
   ShardFilter
 newShardFilter pType_ =
   ShardFilter'
-    { timestamp = Prelude.Nothing,
-      shardId = Prelude.Nothing,
+    { shardId = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       type' = pType_
     }
+
+-- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
+-- This property can only be used if the @AFTER_SHARD_ID@ shard type is
+-- specified.
+shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
+shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
 -- | The timestamps specified in the @ShardFilter@ parameter. A timestamp is
 -- a Unix epoch date with precision in milliseconds. For example,
@@ -131,12 +137,6 @@ newShardFilter pType_ =
 -- be used if @FROM_TIMESTAMP@ or @AT_TIMESTAMP@ shard types are specified.
 shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
 shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Data._Time
-
--- | The exclusive start @shardID@ speified in the @ShardFilter@ parameter.
--- This property can only be used if the @AFTER_SHARD_ID@ shard type is
--- specified.
-shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
-shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
 -- | The shard type specified in the @ShardFilter@ parameter. This is a
 -- required property of the @ShardFilter@ parameter.
@@ -170,22 +170,22 @@ shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {
 
 instance Prelude.Hashable ShardFilter where
   hashWithSalt _salt ShardFilter' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` shardId
+    _salt `Prelude.hashWithSalt` shardId
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ShardFilter where
   rnf ShardFilter' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf shardId
+    Prelude.rnf shardId
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Timestamp" Data..=) Prelude.<$> timestamp,
-            ("ShardId" Data..=) Prelude.<$> shardId,
+          [ ("ShardId" Data..=) Prelude.<$> shardId,
+            ("Timestamp" Data..=) Prelude.<$> timestamp,
             Prelude.Just ("Type" Data..= type')
           ]
       )

@@ -65,29 +65,29 @@ module Amazonka.Kinesis.Lens
     -- ** DisableEnhancedMonitoring
     disableEnhancedMonitoring_streamName,
     disableEnhancedMonitoring_shardLevelMetrics,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
 
     -- ** EnableEnhancedMonitoring
     enableEnhancedMonitoring_streamName,
     enableEnhancedMonitoring_shardLevelMetrics,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
 
     -- ** GetRecords
     getRecords_limit,
     getRecords_shardIterator,
+    getRecordsResponse_childShards,
     getRecordsResponse_millisBehindLatest,
     getRecordsResponse_nextShardIterator,
-    getRecordsResponse_childShards,
     getRecordsResponse_httpStatus,
     getRecordsResponse_records,
 
     -- ** GetShardIterator
-    getShardIterator_timestamp,
     getShardIterator_startingSequenceNumber,
+    getShardIterator_timestamp,
     getShardIterator_streamName,
     getShardIterator_shardId,
     getShardIterator_shardIteratorType,
@@ -99,35 +99,35 @@ module Amazonka.Kinesis.Lens
     increaseStreamRetentionPeriod_retentionPeriodHours,
 
     -- ** ListShards
-    listShards_nextToken,
     listShards_exclusiveStartShardId,
+    listShards_maxResults,
+    listShards_nextToken,
     listShards_shardFilter,
     listShards_streamCreationTimestamp,
-    listShards_maxResults,
     listShards_streamName,
     listShardsResponse_nextToken,
     listShardsResponse_shards,
     listShardsResponse_httpStatus,
 
     -- ** ListStreamConsumers
+    listStreamConsumers_maxResults,
     listStreamConsumers_nextToken,
     listStreamConsumers_streamCreationTimestamp,
-    listStreamConsumers_maxResults,
     listStreamConsumers_streamARN,
-    listStreamConsumersResponse_nextToken,
     listStreamConsumersResponse_consumers,
+    listStreamConsumersResponse_nextToken,
     listStreamConsumersResponse_httpStatus,
 
     -- ** ListStreams
-    listStreams_limit,
     listStreams_exclusiveStartStreamName,
+    listStreams_limit,
     listStreamsResponse_httpStatus,
     listStreamsResponse_streamNames,
     listStreamsResponse_hasMoreStreams,
 
     -- ** ListTagsForStream
-    listTagsForStream_limit,
     listTagsForStream_exclusiveStartTagKey,
+    listTagsForStream_limit,
     listTagsForStream_streamName,
     listTagsForStreamResponse_httpStatus,
     listTagsForStreamResponse_tags,
@@ -193,9 +193,9 @@ module Amazonka.Kinesis.Lens
     updateShardCount_streamName,
     updateShardCount_targetShardCount,
     updateShardCount_scalingType,
-    updateShardCountResponse_targetShardCount,
     updateShardCountResponse_currentShardCount,
     updateShardCountResponse_streamName,
+    updateShardCountResponse_targetShardCount,
     updateShardCountResponse_httpStatus,
 
     -- ** UpdateStreamMode
@@ -226,8 +226,8 @@ module Amazonka.Kinesis.Lens
     enhancedMetrics_shardLevelMetrics,
 
     -- ** EnhancedMonitoringOutput
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
 
     -- ** HashKeyRange
@@ -240,14 +240,14 @@ module Amazonka.Kinesis.Lens
     putRecordsRequestEntry_partitionKey,
 
     -- ** PutRecordsResultEntry
-    putRecordsResultEntry_errorMessage,
-    putRecordsResultEntry_shardId,
-    putRecordsResultEntry_sequenceNumber,
     putRecordsResultEntry_errorCode,
+    putRecordsResultEntry_errorMessage,
+    putRecordsResultEntry_sequenceNumber,
+    putRecordsResultEntry_shardId,
 
     -- ** Record
-    record_encryptionType,
     record_approximateArrivalTimestamp,
+    record_encryptionType,
     record_sequenceNumber,
     record_data,
     record_partitionKey,
@@ -257,26 +257,26 @@ module Amazonka.Kinesis.Lens
     sequenceNumberRange_startingSequenceNumber,
 
     -- ** Shard
-    shard_parentShardId,
     shard_adjacentParentShardId,
+    shard_parentShardId,
     shard_shardId,
     shard_hashKeyRange,
     shard_sequenceNumberRange,
 
     -- ** ShardFilter
-    shardFilter_timestamp,
     shardFilter_shardId,
+    shardFilter_timestamp,
     shardFilter_type,
 
     -- ** StartingPosition
-    startingPosition_timestamp,
     startingPosition_sequenceNumber,
+    startingPosition_timestamp,
     startingPosition_type,
 
     -- ** StreamDescription
     streamDescription_encryptionType,
-    streamDescription_streamModeDetails,
     streamDescription_keyId,
+    streamDescription_streamModeDetails,
     streamDescription_streamName,
     streamDescription_streamARN,
     streamDescription_streamStatus,
@@ -289,8 +289,8 @@ module Amazonka.Kinesis.Lens
     -- ** StreamDescriptionSummary
     streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_encryptionType,
-    streamDescriptionSummary_streamModeDetails,
     streamDescriptionSummary_keyId,
+    streamDescriptionSummary_streamModeDetails,
     streamDescriptionSummary_streamName,
     streamDescriptionSummary_streamARN,
     streamDescriptionSummary_streamStatus,

@@ -32,23 +32,23 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newAnswer' smart constructor.
 data Answer = Answer'
-  { choices :: Prelude.Maybe [Choice],
-    selectedChoices :: Prelude.Maybe [Prelude.Text],
+  { -- | A list of selected choices to a question in your workload.
+    choiceAnswers :: Prelude.Maybe [ChoiceAnswer],
+    choices :: Prelude.Maybe [Choice],
     -- | The helpful resource text to be displayed.
     helpfulResourceDisplayText :: Prelude.Maybe Prelude.Text,
-    risk :: Prelude.Maybe Risk,
-    questionId :: Prelude.Maybe Prelude.Text,
-    questionDescription :: Prelude.Maybe Prelude.Text,
+    helpfulResourceUrl :: Prelude.Maybe Prelude.Text,
     improvementPlanUrl :: Prelude.Maybe Prelude.Text,
     isApplicable :: Prelude.Maybe Prelude.Bool,
+    notes :: Prelude.Maybe Prelude.Text,
+    pillarId :: Prelude.Maybe Prelude.Text,
+    questionDescription :: Prelude.Maybe Prelude.Text,
+    questionId :: Prelude.Maybe Prelude.Text,
+    questionTitle :: Prelude.Maybe Prelude.Text,
     -- | The reason why the question is not applicable to your workload.
     reason :: Prelude.Maybe AnswerReason,
-    notes :: Prelude.Maybe Prelude.Text,
-    questionTitle :: Prelude.Maybe Prelude.Text,
-    helpfulResourceUrl :: Prelude.Maybe Prelude.Text,
-    pillarId :: Prelude.Maybe Prelude.Text,
-    -- | A list of selected choices to a question in your workload.
-    choiceAnswers :: Prelude.Maybe [ChoiceAnswer]
+    risk :: Prelude.Maybe Risk,
+    selectedChoices :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,76 +60,68 @@ data Answer = Answer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'choices', 'answer_choices' - Undocumented member.
+-- 'choiceAnswers', 'answer_choiceAnswers' - A list of selected choices to a question in your workload.
 --
--- 'selectedChoices', 'answer_selectedChoices' - Undocumented member.
+-- 'choices', 'answer_choices' - Undocumented member.
 --
 -- 'helpfulResourceDisplayText', 'answer_helpfulResourceDisplayText' - The helpful resource text to be displayed.
 --
--- 'risk', 'answer_risk' - Undocumented member.
---
--- 'questionId', 'answer_questionId' - Undocumented member.
---
--- 'questionDescription', 'answer_questionDescription' - Undocumented member.
+-- 'helpfulResourceUrl', 'answer_helpfulResourceUrl' - Undocumented member.
 --
 -- 'improvementPlanUrl', 'answer_improvementPlanUrl' - Undocumented member.
 --
 -- 'isApplicable', 'answer_isApplicable' - Undocumented member.
 --
--- 'reason', 'answer_reason' - The reason why the question is not applicable to your workload.
---
 -- 'notes', 'answer_notes' - Undocumented member.
---
--- 'questionTitle', 'answer_questionTitle' - Undocumented member.
---
--- 'helpfulResourceUrl', 'answer_helpfulResourceUrl' - Undocumented member.
 --
 -- 'pillarId', 'answer_pillarId' - Undocumented member.
 --
--- 'choiceAnswers', 'answer_choiceAnswers' - A list of selected choices to a question in your workload.
+-- 'questionDescription', 'answer_questionDescription' - Undocumented member.
+--
+-- 'questionId', 'answer_questionId' - Undocumented member.
+--
+-- 'questionTitle', 'answer_questionTitle' - Undocumented member.
+--
+-- 'reason', 'answer_reason' - The reason why the question is not applicable to your workload.
+--
+-- 'risk', 'answer_risk' - Undocumented member.
+--
+-- 'selectedChoices', 'answer_selectedChoices' - Undocumented member.
 newAnswer ::
   Answer
 newAnswer =
   Answer'
-    { choices = Prelude.Nothing,
-      selectedChoices = Prelude.Nothing,
+    { choiceAnswers = Prelude.Nothing,
+      choices = Prelude.Nothing,
       helpfulResourceDisplayText = Prelude.Nothing,
-      risk = Prelude.Nothing,
-      questionId = Prelude.Nothing,
-      questionDescription = Prelude.Nothing,
+      helpfulResourceUrl = Prelude.Nothing,
       improvementPlanUrl = Prelude.Nothing,
       isApplicable = Prelude.Nothing,
-      reason = Prelude.Nothing,
       notes = Prelude.Nothing,
-      questionTitle = Prelude.Nothing,
-      helpfulResourceUrl = Prelude.Nothing,
       pillarId = Prelude.Nothing,
-      choiceAnswers = Prelude.Nothing
+      questionDescription = Prelude.Nothing,
+      questionId = Prelude.Nothing,
+      questionTitle = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      risk = Prelude.Nothing,
+      selectedChoices = Prelude.Nothing
     }
+
+-- | A list of selected choices to a question in your workload.
+answer_choiceAnswers :: Lens.Lens' Answer (Prelude.Maybe [ChoiceAnswer])
+answer_choiceAnswers = Lens.lens (\Answer' {choiceAnswers} -> choiceAnswers) (\s@Answer' {} a -> s {choiceAnswers = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 answer_choices :: Lens.Lens' Answer (Prelude.Maybe [Choice])
 answer_choices = Lens.lens (\Answer' {choices} -> choices) (\s@Answer' {} a -> s {choices = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-answer_selectedChoices :: Lens.Lens' Answer (Prelude.Maybe [Prelude.Text])
-answer_selectedChoices = Lens.lens (\Answer' {selectedChoices} -> selectedChoices) (\s@Answer' {} a -> s {selectedChoices = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The helpful resource text to be displayed.
 answer_helpfulResourceDisplayText :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
 answer_helpfulResourceDisplayText = Lens.lens (\Answer' {helpfulResourceDisplayText} -> helpfulResourceDisplayText) (\s@Answer' {} a -> s {helpfulResourceDisplayText = a} :: Answer)
 
 -- | Undocumented member.
-answer_risk :: Lens.Lens' Answer (Prelude.Maybe Risk)
-answer_risk = Lens.lens (\Answer' {risk} -> risk) (\s@Answer' {} a -> s {risk = a} :: Answer)
-
--- | Undocumented member.
-answer_questionId :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
-answer_questionId = Lens.lens (\Answer' {questionId} -> questionId) (\s@Answer' {} a -> s {questionId = a} :: Answer)
-
--- | Undocumented member.
-answer_questionDescription :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
-answer_questionDescription = Lens.lens (\Answer' {questionDescription} -> questionDescription) (\s@Answer' {} a -> s {questionDescription = a} :: Answer)
+answer_helpfulResourceUrl :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
+answer_helpfulResourceUrl = Lens.lens (\Answer' {helpfulResourceUrl} -> helpfulResourceUrl) (\s@Answer' {} a -> s {helpfulResourceUrl = a} :: Answer)
 
 -- | Undocumented member.
 answer_improvementPlanUrl :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
@@ -139,29 +131,37 @@ answer_improvementPlanUrl = Lens.lens (\Answer' {improvementPlanUrl} -> improvem
 answer_isApplicable :: Lens.Lens' Answer (Prelude.Maybe Prelude.Bool)
 answer_isApplicable = Lens.lens (\Answer' {isApplicable} -> isApplicable) (\s@Answer' {} a -> s {isApplicable = a} :: Answer)
 
--- | The reason why the question is not applicable to your workload.
-answer_reason :: Lens.Lens' Answer (Prelude.Maybe AnswerReason)
-answer_reason = Lens.lens (\Answer' {reason} -> reason) (\s@Answer' {} a -> s {reason = a} :: Answer)
-
 -- | Undocumented member.
 answer_notes :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
 answer_notes = Lens.lens (\Answer' {notes} -> notes) (\s@Answer' {} a -> s {notes = a} :: Answer)
 
 -- | Undocumented member.
-answer_questionTitle :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
-answer_questionTitle = Lens.lens (\Answer' {questionTitle} -> questionTitle) (\s@Answer' {} a -> s {questionTitle = a} :: Answer)
-
--- | Undocumented member.
-answer_helpfulResourceUrl :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
-answer_helpfulResourceUrl = Lens.lens (\Answer' {helpfulResourceUrl} -> helpfulResourceUrl) (\s@Answer' {} a -> s {helpfulResourceUrl = a} :: Answer)
-
--- | Undocumented member.
 answer_pillarId :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
 answer_pillarId = Lens.lens (\Answer' {pillarId} -> pillarId) (\s@Answer' {} a -> s {pillarId = a} :: Answer)
 
--- | A list of selected choices to a question in your workload.
-answer_choiceAnswers :: Lens.Lens' Answer (Prelude.Maybe [ChoiceAnswer])
-answer_choiceAnswers = Lens.lens (\Answer' {choiceAnswers} -> choiceAnswers) (\s@Answer' {} a -> s {choiceAnswers = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+answer_questionDescription :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
+answer_questionDescription = Lens.lens (\Answer' {questionDescription} -> questionDescription) (\s@Answer' {} a -> s {questionDescription = a} :: Answer)
+
+-- | Undocumented member.
+answer_questionId :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
+answer_questionId = Lens.lens (\Answer' {questionId} -> questionId) (\s@Answer' {} a -> s {questionId = a} :: Answer)
+
+-- | Undocumented member.
+answer_questionTitle :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
+answer_questionTitle = Lens.lens (\Answer' {questionTitle} -> questionTitle) (\s@Answer' {} a -> s {questionTitle = a} :: Answer)
+
+-- | The reason why the question is not applicable to your workload.
+answer_reason :: Lens.Lens' Answer (Prelude.Maybe AnswerReason)
+answer_reason = Lens.lens (\Answer' {reason} -> reason) (\s@Answer' {} a -> s {reason = a} :: Answer)
+
+-- | Undocumented member.
+answer_risk :: Lens.Lens' Answer (Prelude.Maybe Risk)
+answer_risk = Lens.lens (\Answer' {risk} -> risk) (\s@Answer' {} a -> s {risk = a} :: Answer)
+
+-- | Undocumented member.
+answer_selectedChoices :: Lens.Lens' Answer (Prelude.Maybe [Prelude.Text])
+answer_selectedChoices = Lens.lens (\Answer' {selectedChoices} -> selectedChoices) (\s@Answer' {} a -> s {selectedChoices = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Answer where
   parseJSON =
@@ -169,54 +169,54 @@ instance Data.FromJSON Answer where
       "Answer"
       ( \x ->
           Answer'
-            Prelude.<$> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ChoiceAnswers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HelpfulResourceDisplayText")
+            Prelude.<*> (x Data..:? "HelpfulResourceUrl")
+            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
+            Prelude.<*> (x Data..:? "IsApplicable")
+            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "QuestionDescription")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Risk")
             Prelude.<*> ( x Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "HelpfulResourceDisplayText")
-            Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> (x Data..:? "QuestionId")
-            Prelude.<*> (x Data..:? "QuestionDescription")
-            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
-            Prelude.<*> (x Data..:? "IsApplicable")
-            Prelude.<*> (x Data..:? "Reason")
-            Prelude.<*> (x Data..:? "Notes")
-            Prelude.<*> (x Data..:? "QuestionTitle")
-            Prelude.<*> (x Data..:? "HelpfulResourceUrl")
-            Prelude.<*> (x Data..:? "PillarId")
-            Prelude.<*> (x Data..:? "ChoiceAnswers" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Answer where
   hashWithSalt _salt Answer' {..} =
-    _salt `Prelude.hashWithSalt` choices
-      `Prelude.hashWithSalt` selectedChoices
+    _salt `Prelude.hashWithSalt` choiceAnswers
+      `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` helpfulResourceDisplayText
-      `Prelude.hashWithSalt` risk
-      `Prelude.hashWithSalt` questionId
-      `Prelude.hashWithSalt` questionDescription
+      `Prelude.hashWithSalt` helpfulResourceUrl
       `Prelude.hashWithSalt` improvementPlanUrl
       `Prelude.hashWithSalt` isApplicable
-      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` notes
-      `Prelude.hashWithSalt` questionTitle
-      `Prelude.hashWithSalt` helpfulResourceUrl
       `Prelude.hashWithSalt` pillarId
-      `Prelude.hashWithSalt` choiceAnswers
+      `Prelude.hashWithSalt` questionDescription
+      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` selectedChoices
 
 instance Prelude.NFData Answer where
   rnf Answer' {..} =
-    Prelude.rnf choices
-      `Prelude.seq` Prelude.rnf selectedChoices
+    Prelude.rnf choiceAnswers
+      `Prelude.seq` Prelude.rnf choices
       `Prelude.seq` Prelude.rnf helpfulResourceDisplayText
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf questionDescription
+      `Prelude.seq` Prelude.rnf helpfulResourceUrl
       `Prelude.seq` Prelude.rnf improvementPlanUrl
       `Prelude.seq` Prelude.rnf isApplicable
-      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf notes
-      `Prelude.seq` Prelude.rnf questionTitle
-      `Prelude.seq` Prelude.rnf helpfulResourceUrl
       `Prelude.seq` Prelude.rnf pillarId
-      `Prelude.seq` Prelude.rnf choiceAnswers
+      `Prelude.seq` Prelude.rnf questionDescription
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf selectedChoices

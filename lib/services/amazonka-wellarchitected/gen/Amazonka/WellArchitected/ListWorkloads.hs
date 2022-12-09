@@ -27,9 +27,9 @@ module Amazonka.WellArchitected.ListWorkloads
     newListWorkloads,
 
     -- * Request Lenses
+    listWorkloads_maxResults,
     listWorkloads_nextToken,
     listWorkloads_workloadNamePrefix,
-    listWorkloads_maxResults,
 
     -- * Destructuring the Response
     ListWorkloadsResponse (..),
@@ -54,10 +54,10 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newListWorkloads' smart constructor.
 data ListWorkloads = ListWorkloads'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    workloadNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for this request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return for this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    workloadNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,19 +69,23 @@ data ListWorkloads = ListWorkloads'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWorkloads_maxResults' - The maximum number of results to return for this request.
+--
 -- 'nextToken', 'listWorkloads_nextToken' - Undocumented member.
 --
 -- 'workloadNamePrefix', 'listWorkloads_workloadNamePrefix' - Undocumented member.
---
--- 'maxResults', 'listWorkloads_maxResults' - The maximum number of results to return for this request.
 newListWorkloads ::
   ListWorkloads
 newListWorkloads =
   ListWorkloads'
-    { nextToken = Prelude.Nothing,
-      workloadNamePrefix = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      workloadNamePrefix = Prelude.Nothing
     }
+
+-- | The maximum number of results to return for this request.
+listWorkloads_maxResults :: Lens.Lens' ListWorkloads (Prelude.Maybe Prelude.Natural)
+listWorkloads_maxResults = Lens.lens (\ListWorkloads' {maxResults} -> maxResults) (\s@ListWorkloads' {} a -> s {maxResults = a} :: ListWorkloads)
 
 -- | Undocumented member.
 listWorkloads_nextToken :: Lens.Lens' ListWorkloads (Prelude.Maybe Prelude.Text)
@@ -90,10 +94,6 @@ listWorkloads_nextToken = Lens.lens (\ListWorkloads' {nextToken} -> nextToken) (
 -- | Undocumented member.
 listWorkloads_workloadNamePrefix :: Lens.Lens' ListWorkloads (Prelude.Maybe Prelude.Text)
 listWorkloads_workloadNamePrefix = Lens.lens (\ListWorkloads' {workloadNamePrefix} -> workloadNamePrefix) (\s@ListWorkloads' {} a -> s {workloadNamePrefix = a} :: ListWorkloads)
-
--- | The maximum number of results to return for this request.
-listWorkloads_maxResults :: Lens.Lens' ListWorkloads (Prelude.Maybe Prelude.Natural)
-listWorkloads_maxResults = Lens.lens (\ListWorkloads' {maxResults} -> maxResults) (\s@ListWorkloads' {} a -> s {maxResults = a} :: ListWorkloads)
 
 instance Core.AWSRequest ListWorkloads where
   type
@@ -114,15 +114,15 @@ instance Core.AWSRequest ListWorkloads where
 
 instance Prelude.Hashable ListWorkloads where
   hashWithSalt _salt ListWorkloads' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadNamePrefix
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListWorkloads where
   rnf ListWorkloads' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadNamePrefix
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListWorkloads where
   toHeaders =
@@ -139,10 +139,10 @@ instance Data.ToJSON ListWorkloads where
   toJSON ListWorkloads' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("WorkloadNamePrefix" Data..=)
-              Prelude.<$> workloadNamePrefix,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> workloadNamePrefix
           ]
       )
 

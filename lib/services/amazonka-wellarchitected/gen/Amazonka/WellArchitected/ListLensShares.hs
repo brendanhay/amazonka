@@ -27,10 +27,10 @@ module Amazonka.WellArchitected.ListLensShares
     newListLensShares,
 
     -- * Request Lenses
+    listLensShares_maxResults,
     listLensShares_nextToken,
     listLensShares_sharedWithPrefix,
     listLensShares_status,
-    listLensShares_maxResults,
     listLensShares_lensAlias,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.WellArchitected.ListLensShares
     newListLensSharesResponse,
 
     -- * Response Lenses
-    listLensSharesResponse_nextToken,
     listLensSharesResponse_lensShareSummaries,
+    listLensSharesResponse_nextToken,
     listLensSharesResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newListLensShares' smart constructor.
 data ListLensShares = ListLensShares'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of results to return for this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID, IAM role, organization ID, or
     -- organizational unit (OU) ID with which the lens is shared.
     sharedWithPrefix :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
-    -- | The maximum number of results to return for this request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     lensAlias :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,14 +73,14 @@ data ListLensShares = ListLensShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLensShares_maxResults' - The maximum number of results to return for this request.
+--
 -- 'nextToken', 'listLensShares_nextToken' - Undocumented member.
 --
 -- 'sharedWithPrefix', 'listLensShares_sharedWithPrefix' - The Amazon Web Services account ID, IAM role, organization ID, or
 -- organizational unit (OU) ID with which the lens is shared.
 --
 -- 'status', 'listLensShares_status' - Undocumented member.
---
--- 'maxResults', 'listLensShares_maxResults' - The maximum number of results to return for this request.
 --
 -- 'lensAlias', 'listLensShares_lensAlias' - Undocumented member.
 newListLensShares ::
@@ -89,12 +89,16 @@ newListLensShares ::
   ListLensShares
 newListLensShares pLensAlias_ =
   ListLensShares'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sharedWithPrefix = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       lensAlias = pLensAlias_
     }
+
+-- | The maximum number of results to return for this request.
+listLensShares_maxResults :: Lens.Lens' ListLensShares (Prelude.Maybe Prelude.Natural)
+listLensShares_maxResults = Lens.lens (\ListLensShares' {maxResults} -> maxResults) (\s@ListLensShares' {} a -> s {maxResults = a} :: ListLensShares)
 
 -- | Undocumented member.
 listLensShares_nextToken :: Lens.Lens' ListLensShares (Prelude.Maybe Prelude.Text)
@@ -108,10 +112,6 @@ listLensShares_sharedWithPrefix = Lens.lens (\ListLensShares' {sharedWithPrefix}
 -- | Undocumented member.
 listLensShares_status :: Lens.Lens' ListLensShares (Prelude.Maybe ShareStatus)
 listLensShares_status = Lens.lens (\ListLensShares' {status} -> status) (\s@ListLensShares' {} a -> s {status = a} :: ListLensShares)
-
--- | The maximum number of results to return for this request.
-listLensShares_maxResults :: Lens.Lens' ListLensShares (Prelude.Maybe Prelude.Natural)
-listLensShares_maxResults = Lens.lens (\ListLensShares' {maxResults} -> maxResults) (\s@ListLensShares' {} a -> s {maxResults = a} :: ListLensShares)
 
 -- | Undocumented member.
 listLensShares_lensAlias :: Lens.Lens' ListLensShares Prelude.Text
@@ -127,27 +127,27 @@ instance Core.AWSRequest ListLensShares where
     Response.receiveJSON
       ( \s h x ->
           ListLensSharesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LensShareSummaries"
+            Prelude.<$> ( x Data..?> "LensShareSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLensShares where
   hashWithSalt _salt ListLensShares' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedWithPrefix
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData ListLensShares where
   rnf ListLensShares' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sharedWithPrefix
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf lensAlias
 
 instance Data.ToHeaders ListLensShares where
@@ -169,17 +169,17 @@ instance Data.ToPath ListLensShares where
 instance Data.ToQuery ListLensShares where
   toQuery ListLensShares' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "SharedWithPrefix" Data.=: sharedWithPrefix,
-        "Status" Data.=: status,
-        "MaxResults" Data.=: maxResults
+        "Status" Data.=: status
       ]
 
 -- | /See:/ 'newListLensSharesResponse' smart constructor.
 data ListLensSharesResponse = ListLensSharesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of lens share summaries.
+  { -- | A list of lens share summaries.
     lensShareSummaries :: Prelude.Maybe [LensShareSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data ListLensSharesResponse = ListLensSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLensSharesResponse_nextToken' - Undocumented member.
---
 -- 'lensShareSummaries', 'listLensSharesResponse_lensShareSummaries' - A list of lens share summaries.
+--
+-- 'nextToken', 'listLensSharesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listLensSharesResponse_httpStatus' - The response's http status code.
 newListLensSharesResponse ::
@@ -204,19 +204,19 @@ newListLensSharesResponse ::
   ListLensSharesResponse
 newListLensSharesResponse pHttpStatus_ =
   ListLensSharesResponse'
-    { nextToken =
+    { lensShareSummaries =
         Prelude.Nothing,
-      lensShareSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listLensSharesResponse_nextToken :: Lens.Lens' ListLensSharesResponse (Prelude.Maybe Prelude.Text)
-listLensSharesResponse_nextToken = Lens.lens (\ListLensSharesResponse' {nextToken} -> nextToken) (\s@ListLensSharesResponse' {} a -> s {nextToken = a} :: ListLensSharesResponse)
 
 -- | A list of lens share summaries.
 listLensSharesResponse_lensShareSummaries :: Lens.Lens' ListLensSharesResponse (Prelude.Maybe [LensShareSummary])
 listLensSharesResponse_lensShareSummaries = Lens.lens (\ListLensSharesResponse' {lensShareSummaries} -> lensShareSummaries) (\s@ListLensSharesResponse' {} a -> s {lensShareSummaries = a} :: ListLensSharesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listLensSharesResponse_nextToken :: Lens.Lens' ListLensSharesResponse (Prelude.Maybe Prelude.Text)
+listLensSharesResponse_nextToken = Lens.lens (\ListLensSharesResponse' {nextToken} -> nextToken) (\s@ListLensSharesResponse' {} a -> s {nextToken = a} :: ListLensSharesResponse)
 
 -- | The response's http status code.
 listLensSharesResponse_httpStatus :: Lens.Lens' ListLensSharesResponse Prelude.Int
@@ -224,6 +224,6 @@ listLensSharesResponse_httpStatus = Lens.lens (\ListLensSharesResponse' {httpSta
 
 instance Prelude.NFData ListLensSharesResponse where
   rnf ListLensSharesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lensShareSummaries
+    Prelude.rnf lensShareSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

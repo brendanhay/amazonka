@@ -28,8 +28,8 @@ module Amazonka.WellArchitected.ListCheckSummaries
     newListCheckSummaries,
 
     -- * Request Lenses
-    listCheckSummaries_nextToken,
     listCheckSummaries_maxResults,
+    listCheckSummaries_nextToken,
     listCheckSummaries_workloadId,
     listCheckSummaries_lensArn,
     listCheckSummaries_pillarId,
@@ -41,8 +41,8 @@ module Amazonka.WellArchitected.ListCheckSummaries
     newListCheckSummariesResponse,
 
     -- * Response Lenses
-    listCheckSummariesResponse_nextToken,
     listCheckSummariesResponse_checkSummaries,
+    listCheckSummariesResponse_nextToken,
     listCheckSummariesResponse_httpStatus,
   )
 where
@@ -57,8 +57,8 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newListCheckSummaries' smart constructor.
 data ListCheckSummaries = ListCheckSummaries'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Text,
     -- | Well-Architected Lens ARN.
     lensArn :: Prelude.Text,
@@ -76,9 +76,9 @@ data ListCheckSummaries = ListCheckSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCheckSummaries_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listCheckSummaries_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listCheckSummaries_nextToken' - Undocumented member.
 --
 -- 'workloadId', 'listCheckSummaries_workloadId' - Undocumented member.
 --
@@ -108,8 +108,8 @@ newListCheckSummaries
   pQuestionId_
   pChoiceId_ =
     ListCheckSummaries'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         workloadId = pWorkloadId_,
         lensArn = pLensArn_,
         pillarId = pPillarId_,
@@ -118,12 +118,12 @@ newListCheckSummaries
       }
 
 -- | Undocumented member.
-listCheckSummaries_nextToken :: Lens.Lens' ListCheckSummaries (Prelude.Maybe Prelude.Text)
-listCheckSummaries_nextToken = Lens.lens (\ListCheckSummaries' {nextToken} -> nextToken) (\s@ListCheckSummaries' {} a -> s {nextToken = a} :: ListCheckSummaries)
-
--- | Undocumented member.
 listCheckSummaries_maxResults :: Lens.Lens' ListCheckSummaries (Prelude.Maybe Prelude.Natural)
 listCheckSummaries_maxResults = Lens.lens (\ListCheckSummaries' {maxResults} -> maxResults) (\s@ListCheckSummaries' {} a -> s {maxResults = a} :: ListCheckSummaries)
+
+-- | Undocumented member.
+listCheckSummaries_nextToken :: Lens.Lens' ListCheckSummaries (Prelude.Maybe Prelude.Text)
+listCheckSummaries_nextToken = Lens.lens (\ListCheckSummaries' {nextToken} -> nextToken) (\s@ListCheckSummaries' {} a -> s {nextToken = a} :: ListCheckSummaries)
 
 -- | Undocumented member.
 listCheckSummaries_workloadId :: Lens.Lens' ListCheckSummaries Prelude.Text
@@ -155,15 +155,15 @@ instance Core.AWSRequest ListCheckSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListCheckSummariesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "CheckSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CheckSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCheckSummaries where
   hashWithSalt _salt ListCheckSummaries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` pillarId
@@ -172,8 +172,8 @@ instance Prelude.Hashable ListCheckSummaries where
 
 instance Prelude.NFData ListCheckSummaries where
   rnf ListCheckSummaries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf pillarId
@@ -195,8 +195,8 @@ instance Data.ToJSON ListCheckSummaries where
   toJSON ListCheckSummaries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("LensArn" Data..= lensArn),
             Prelude.Just ("PillarId" Data..= pillarId),
             Prelude.Just ("QuestionId" Data..= questionId),
@@ -217,10 +217,10 @@ instance Data.ToQuery ListCheckSummaries where
 
 -- | /See:/ 'newListCheckSummariesResponse' smart constructor.
 data ListCheckSummariesResponse = ListCheckSummariesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of Trusted Advisor summaries related to the Well-Architected best
+  { -- | List of Trusted Advisor summaries related to the Well-Architected best
     -- practice.
     checkSummaries :: Prelude.Maybe [CheckSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,10 +234,10 @@ data ListCheckSummariesResponse = ListCheckSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCheckSummariesResponse_nextToken' - Undocumented member.
---
 -- 'checkSummaries', 'listCheckSummariesResponse_checkSummaries' - List of Trusted Advisor summaries related to the Well-Architected best
 -- practice.
+--
+-- 'nextToken', 'listCheckSummariesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listCheckSummariesResponse_httpStatus' - The response's http status code.
 newListCheckSummariesResponse ::
@@ -246,20 +246,20 @@ newListCheckSummariesResponse ::
   ListCheckSummariesResponse
 newListCheckSummariesResponse pHttpStatus_ =
   ListCheckSummariesResponse'
-    { nextToken =
+    { checkSummaries =
         Prelude.Nothing,
-      checkSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listCheckSummariesResponse_nextToken :: Lens.Lens' ListCheckSummariesResponse (Prelude.Maybe Prelude.Text)
-listCheckSummariesResponse_nextToken = Lens.lens (\ListCheckSummariesResponse' {nextToken} -> nextToken) (\s@ListCheckSummariesResponse' {} a -> s {nextToken = a} :: ListCheckSummariesResponse)
 
 -- | List of Trusted Advisor summaries related to the Well-Architected best
 -- practice.
 listCheckSummariesResponse_checkSummaries :: Lens.Lens' ListCheckSummariesResponse (Prelude.Maybe [CheckSummary])
 listCheckSummariesResponse_checkSummaries = Lens.lens (\ListCheckSummariesResponse' {checkSummaries} -> checkSummaries) (\s@ListCheckSummariesResponse' {} a -> s {checkSummaries = a} :: ListCheckSummariesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listCheckSummariesResponse_nextToken :: Lens.Lens' ListCheckSummariesResponse (Prelude.Maybe Prelude.Text)
+listCheckSummariesResponse_nextToken = Lens.lens (\ListCheckSummariesResponse' {nextToken} -> nextToken) (\s@ListCheckSummariesResponse' {} a -> s {nextToken = a} :: ListCheckSummariesResponse)
 
 -- | The response's http status code.
 listCheckSummariesResponse_httpStatus :: Lens.Lens' ListCheckSummariesResponse Prelude.Int
@@ -267,6 +267,6 @@ listCheckSummariesResponse_httpStatus = Lens.lens (\ListCheckSummariesResponse' 
 
 instance Prelude.NFData ListCheckSummariesResponse where
   rnf ListCheckSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf checkSummaries
+    Prelude.rnf checkSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ module Amazonka.WellArchitected.ListShareInvitations
 
     -- * Request Lenses
     listShareInvitations_lensNamePrefix,
-    listShareInvitations_nextToken,
-    listShareInvitations_workloadNamePrefix,
     listShareInvitations_maxResults,
+    listShareInvitations_nextToken,
     listShareInvitations_shareResourceType,
+    listShareInvitations_workloadNamePrefix,
 
     -- * Destructuring the Response
     ListShareInvitationsResponse (..),
@@ -59,12 +59,12 @@ data ListShareInvitations = ListShareInvitations'
   { -- | An optional string added to the beginning of each lens name returned in
     -- the results.
     lensNamePrefix :: Prelude.Maybe Prelude.Text,
-    nextToken :: Prelude.Maybe Prelude.Text,
-    workloadNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return for this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of share invitations to be returned.
-    shareResourceType :: Prelude.Maybe ShareResourceType
+    shareResourceType :: Prelude.Maybe ShareResourceType,
+    workloadNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,23 +79,23 @@ data ListShareInvitations = ListShareInvitations'
 -- 'lensNamePrefix', 'listShareInvitations_lensNamePrefix' - An optional string added to the beginning of each lens name returned in
 -- the results.
 --
--- 'nextToken', 'listShareInvitations_nextToken' - Undocumented member.
---
--- 'workloadNamePrefix', 'listShareInvitations_workloadNamePrefix' - Undocumented member.
---
 -- 'maxResults', 'listShareInvitations_maxResults' - The maximum number of results to return for this request.
 --
+-- 'nextToken', 'listShareInvitations_nextToken' - Undocumented member.
+--
 -- 'shareResourceType', 'listShareInvitations_shareResourceType' - The type of share invitations to be returned.
+--
+-- 'workloadNamePrefix', 'listShareInvitations_workloadNamePrefix' - Undocumented member.
 newListShareInvitations ::
   ListShareInvitations
 newListShareInvitations =
   ListShareInvitations'
     { lensNamePrefix =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      workloadNamePrefix = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      shareResourceType = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      shareResourceType = Prelude.Nothing,
+      workloadNamePrefix = Prelude.Nothing
     }
 
 -- | An optional string added to the beginning of each lens name returned in
@@ -103,21 +103,21 @@ newListShareInvitations =
 listShareInvitations_lensNamePrefix :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
 listShareInvitations_lensNamePrefix = Lens.lens (\ListShareInvitations' {lensNamePrefix} -> lensNamePrefix) (\s@ListShareInvitations' {} a -> s {lensNamePrefix = a} :: ListShareInvitations)
 
--- | Undocumented member.
-listShareInvitations_nextToken :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
-listShareInvitations_nextToken = Lens.lens (\ListShareInvitations' {nextToken} -> nextToken) (\s@ListShareInvitations' {} a -> s {nextToken = a} :: ListShareInvitations)
-
--- | Undocumented member.
-listShareInvitations_workloadNamePrefix :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
-listShareInvitations_workloadNamePrefix = Lens.lens (\ListShareInvitations' {workloadNamePrefix} -> workloadNamePrefix) (\s@ListShareInvitations' {} a -> s {workloadNamePrefix = a} :: ListShareInvitations)
-
 -- | The maximum number of results to return for this request.
 listShareInvitations_maxResults :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Natural)
 listShareInvitations_maxResults = Lens.lens (\ListShareInvitations' {maxResults} -> maxResults) (\s@ListShareInvitations' {} a -> s {maxResults = a} :: ListShareInvitations)
 
+-- | Undocumented member.
+listShareInvitations_nextToken :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
+listShareInvitations_nextToken = Lens.lens (\ListShareInvitations' {nextToken} -> nextToken) (\s@ListShareInvitations' {} a -> s {nextToken = a} :: ListShareInvitations)
+
 -- | The type of share invitations to be returned.
 listShareInvitations_shareResourceType :: Lens.Lens' ListShareInvitations (Prelude.Maybe ShareResourceType)
 listShareInvitations_shareResourceType = Lens.lens (\ListShareInvitations' {shareResourceType} -> shareResourceType) (\s@ListShareInvitations' {} a -> s {shareResourceType = a} :: ListShareInvitations)
+
+-- | Undocumented member.
+listShareInvitations_workloadNamePrefix :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
+listShareInvitations_workloadNamePrefix = Lens.lens (\ListShareInvitations' {workloadNamePrefix} -> workloadNamePrefix) (\s@ListShareInvitations' {} a -> s {workloadNamePrefix = a} :: ListShareInvitations)
 
 instance Core.AWSRequest ListShareInvitations where
   type
@@ -139,18 +139,18 @@ instance Core.AWSRequest ListShareInvitations where
 instance Prelude.Hashable ListShareInvitations where
   hashWithSalt _salt ListShareInvitations' {..} =
     _salt `Prelude.hashWithSalt` lensNamePrefix
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` workloadNamePrefix
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` shareResourceType
+      `Prelude.hashWithSalt` workloadNamePrefix
 
 instance Prelude.NFData ListShareInvitations where
   rnf ListShareInvitations' {..} =
     Prelude.rnf lensNamePrefix
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workloadNamePrefix
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf shareResourceType
+      `Prelude.seq` Prelude.rnf workloadNamePrefix
 
 instance Data.ToHeaders ListShareInvitations where
   toHeaders =
@@ -170,10 +170,10 @@ instance Data.ToQuery ListShareInvitations where
   toQuery ListShareInvitations' {..} =
     Prelude.mconcat
       [ "LensNamePrefix" Data.=: lensNamePrefix,
-        "NextToken" Data.=: nextToken,
-        "WorkloadNamePrefix" Data.=: workloadNamePrefix,
         "MaxResults" Data.=: maxResults,
-        "ShareResourceType" Data.=: shareResourceType
+        "NextToken" Data.=: nextToken,
+        "ShareResourceType" Data.=: shareResourceType,
+        "WorkloadNamePrefix" Data.=: workloadNamePrefix
       ]
 
 -- | Input for List Share Invitations

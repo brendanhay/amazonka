@@ -31,9 +31,9 @@ import Amazonka.WellArchitected.Types.ShareStatus
 -- /See:/ 'newWorkloadShareSummary' smart constructor.
 data WorkloadShareSummary = WorkloadShareSummary'
   { permissionType :: Prelude.Maybe PermissionType,
+    shareId :: Prelude.Maybe Prelude.Text,
     sharedWith :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
-    shareId :: Prelude.Maybe Prelude.Text,
     -- | Optional message to compliment the Status field.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -49,11 +49,11 @@ data WorkloadShareSummary = WorkloadShareSummary'
 --
 -- 'permissionType', 'workloadShareSummary_permissionType' - Undocumented member.
 --
+-- 'shareId', 'workloadShareSummary_shareId' - Undocumented member.
+--
 -- 'sharedWith', 'workloadShareSummary_sharedWith' - Undocumented member.
 --
 -- 'status', 'workloadShareSummary_status' - Undocumented member.
---
--- 'shareId', 'workloadShareSummary_shareId' - Undocumented member.
 --
 -- 'statusMessage', 'workloadShareSummary_statusMessage' - Optional message to compliment the Status field.
 newWorkloadShareSummary ::
@@ -62,9 +62,9 @@ newWorkloadShareSummary =
   WorkloadShareSummary'
     { permissionType =
         Prelude.Nothing,
+      shareId = Prelude.Nothing,
       sharedWith = Prelude.Nothing,
       status = Prelude.Nothing,
-      shareId = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
 
@@ -73,16 +73,16 @@ workloadShareSummary_permissionType :: Lens.Lens' WorkloadShareSummary (Prelude.
 workloadShareSummary_permissionType = Lens.lens (\WorkloadShareSummary' {permissionType} -> permissionType) (\s@WorkloadShareSummary' {} a -> s {permissionType = a} :: WorkloadShareSummary)
 
 -- | Undocumented member.
+workloadShareSummary_shareId :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
+workloadShareSummary_shareId = Lens.lens (\WorkloadShareSummary' {shareId} -> shareId) (\s@WorkloadShareSummary' {} a -> s {shareId = a} :: WorkloadShareSummary)
+
+-- | Undocumented member.
 workloadShareSummary_sharedWith :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
 workloadShareSummary_sharedWith = Lens.lens (\WorkloadShareSummary' {sharedWith} -> sharedWith) (\s@WorkloadShareSummary' {} a -> s {sharedWith = a} :: WorkloadShareSummary)
 
 -- | Undocumented member.
 workloadShareSummary_status :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe ShareStatus)
 workloadShareSummary_status = Lens.lens (\WorkloadShareSummary' {status} -> status) (\s@WorkloadShareSummary' {} a -> s {status = a} :: WorkloadShareSummary)
-
--- | Undocumented member.
-workloadShareSummary_shareId :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
-workloadShareSummary_shareId = Lens.lens (\WorkloadShareSummary' {shareId} -> shareId) (\s@WorkloadShareSummary' {} a -> s {shareId = a} :: WorkloadShareSummary)
 
 -- | Optional message to compliment the Status field.
 workloadShareSummary_statusMessage :: Lens.Lens' WorkloadShareSummary (Prelude.Maybe Prelude.Text)
@@ -95,24 +95,24 @@ instance Data.FromJSON WorkloadShareSummary where
       ( \x ->
           WorkloadShareSummary'
             Prelude.<$> (x Data..:? "PermissionType")
+            Prelude.<*> (x Data..:? "ShareId")
             Prelude.<*> (x Data..:? "SharedWith")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ShareId")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable WorkloadShareSummary where
   hashWithSalt _salt WorkloadShareSummary' {..} =
     _salt `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData WorkloadShareSummary where
   rnf WorkloadShareSummary' {..} =
     Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf shareId
       `Prelude.seq` Prelude.rnf sharedWith
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf shareId
       `Prelude.seq` Prelude.rnf statusMessage

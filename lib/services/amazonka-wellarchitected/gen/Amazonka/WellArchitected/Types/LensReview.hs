@@ -31,18 +31,18 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newLensReview' smart constructor.
 data LensReview = LensReview'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { lensAlias :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the lens.
     lensArn :: Prelude.Maybe Prelude.Text,
-    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
-    lensAlias :: Prelude.Maybe Prelude.Text,
-    -- | The version of the lens.
-    lensVersion :: Prelude.Maybe Prelude.Text,
     lensName :: Prelude.Maybe Prelude.Text,
-    pillarReviewSummaries :: Prelude.Maybe [PillarReviewSummary],
-    notes :: Prelude.Maybe Prelude.Text,
     -- | The status of the lens.
     lensStatus :: Prelude.Maybe LensStatus,
+    -- | The version of the lens.
+    lensVersion :: Prelude.Maybe Prelude.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    notes :: Prelude.Maybe Prelude.Text,
+    pillarReviewSummaries :: Prelude.Maybe [PillarReviewSummary],
+    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,76 +55,76 @@ data LensReview = LensReview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'lensReview_nextToken' - Undocumented member.
+-- 'lensAlias', 'lensReview_lensAlias' - Undocumented member.
 --
 -- 'lensArn', 'lensReview_lensArn' - The ARN for the lens.
 --
--- 'riskCounts', 'lensReview_riskCounts' - Undocumented member.
+-- 'lensName', 'lensReview_lensName' - Undocumented member.
 --
--- 'lensAlias', 'lensReview_lensAlias' - Undocumented member.
+-- 'lensStatus', 'lensReview_lensStatus' - The status of the lens.
 --
 -- 'lensVersion', 'lensReview_lensVersion' - The version of the lens.
 --
--- 'lensName', 'lensReview_lensName' - Undocumented member.
---
--- 'pillarReviewSummaries', 'lensReview_pillarReviewSummaries' - Undocumented member.
+-- 'nextToken', 'lensReview_nextToken' - Undocumented member.
 --
 -- 'notes', 'lensReview_notes' - Undocumented member.
 --
--- 'lensStatus', 'lensReview_lensStatus' - The status of the lens.
+-- 'pillarReviewSummaries', 'lensReview_pillarReviewSummaries' - Undocumented member.
+--
+-- 'riskCounts', 'lensReview_riskCounts' - Undocumented member.
 --
 -- 'updatedAt', 'lensReview_updatedAt' - Undocumented member.
 newLensReview ::
   LensReview
 newLensReview =
   LensReview'
-    { nextToken = Prelude.Nothing,
+    { lensAlias = Prelude.Nothing,
       lensArn = Prelude.Nothing,
-      riskCounts = Prelude.Nothing,
-      lensAlias = Prelude.Nothing,
-      lensVersion = Prelude.Nothing,
       lensName = Prelude.Nothing,
-      pillarReviewSummaries = Prelude.Nothing,
-      notes = Prelude.Nothing,
       lensStatus = Prelude.Nothing,
+      lensVersion = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      notes = Prelude.Nothing,
+      pillarReviewSummaries = Prelude.Nothing,
+      riskCounts = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
 
 -- | Undocumented member.
-lensReview_nextToken :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
-lensReview_nextToken = Lens.lens (\LensReview' {nextToken} -> nextToken) (\s@LensReview' {} a -> s {nextToken = a} :: LensReview)
+lensReview_lensAlias :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
+lensReview_lensAlias = Lens.lens (\LensReview' {lensAlias} -> lensAlias) (\s@LensReview' {} a -> s {lensAlias = a} :: LensReview)
 
 -- | The ARN for the lens.
 lensReview_lensArn :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
 lensReview_lensArn = Lens.lens (\LensReview' {lensArn} -> lensArn) (\s@LensReview' {} a -> s {lensArn = a} :: LensReview)
 
 -- | Undocumented member.
-lensReview_riskCounts :: Lens.Lens' LensReview (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
-lensReview_riskCounts = Lens.lens (\LensReview' {riskCounts} -> riskCounts) (\s@LensReview' {} a -> s {riskCounts = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
+lensReview_lensName :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
+lensReview_lensName = Lens.lens (\LensReview' {lensName} -> lensName) (\s@LensReview' {} a -> s {lensName = a} :: LensReview)
 
--- | Undocumented member.
-lensReview_lensAlias :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
-lensReview_lensAlias = Lens.lens (\LensReview' {lensAlias} -> lensAlias) (\s@LensReview' {} a -> s {lensAlias = a} :: LensReview)
+-- | The status of the lens.
+lensReview_lensStatus :: Lens.Lens' LensReview (Prelude.Maybe LensStatus)
+lensReview_lensStatus = Lens.lens (\LensReview' {lensStatus} -> lensStatus) (\s@LensReview' {} a -> s {lensStatus = a} :: LensReview)
 
 -- | The version of the lens.
 lensReview_lensVersion :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
 lensReview_lensVersion = Lens.lens (\LensReview' {lensVersion} -> lensVersion) (\s@LensReview' {} a -> s {lensVersion = a} :: LensReview)
 
 -- | Undocumented member.
-lensReview_lensName :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
-lensReview_lensName = Lens.lens (\LensReview' {lensName} -> lensName) (\s@LensReview' {} a -> s {lensName = a} :: LensReview)
+lensReview_nextToken :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
+lensReview_nextToken = Lens.lens (\LensReview' {nextToken} -> nextToken) (\s@LensReview' {} a -> s {nextToken = a} :: LensReview)
+
+-- | Undocumented member.
+lensReview_notes :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
+lensReview_notes = Lens.lens (\LensReview' {notes} -> notes) (\s@LensReview' {} a -> s {notes = a} :: LensReview)
 
 -- | Undocumented member.
 lensReview_pillarReviewSummaries :: Lens.Lens' LensReview (Prelude.Maybe [PillarReviewSummary])
 lensReview_pillarReviewSummaries = Lens.lens (\LensReview' {pillarReviewSummaries} -> pillarReviewSummaries) (\s@LensReview' {} a -> s {pillarReviewSummaries = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-lensReview_notes :: Lens.Lens' LensReview (Prelude.Maybe Prelude.Text)
-lensReview_notes = Lens.lens (\LensReview' {notes} -> notes) (\s@LensReview' {} a -> s {notes = a} :: LensReview)
-
--- | The status of the lens.
-lensReview_lensStatus :: Lens.Lens' LensReview (Prelude.Maybe LensStatus)
-lensReview_lensStatus = Lens.lens (\LensReview' {lensStatus} -> lensStatus) (\s@LensReview' {} a -> s {lensStatus = a} :: LensReview)
+lensReview_riskCounts :: Lens.Lens' LensReview (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+lensReview_riskCounts = Lens.lens (\LensReview' {riskCounts} -> riskCounts) (\s@LensReview' {} a -> s {riskCounts = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 lensReview_updatedAt :: Lens.Lens' LensReview (Prelude.Maybe Prelude.UTCTime)
@@ -136,42 +136,42 @@ instance Data.FromJSON LensReview where
       "LensReview"
       ( \x ->
           LensReview'
-            Prelude.<$> (x Data..:? "NextToken")
+            Prelude.<$> (x Data..:? "LensAlias")
             Prelude.<*> (x Data..:? "LensArn")
-            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "LensAlias")
-            Prelude.<*> (x Data..:? "LensVersion")
             Prelude.<*> (x Data..:? "LensName")
+            Prelude.<*> (x Data..:? "LensStatus")
+            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> (x Data..:? "NextToken")
+            Prelude.<*> (x Data..:? "Notes")
             Prelude.<*> ( x Data..:? "PillarReviewSummaries"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Notes")
-            Prelude.<*> (x Data..:? "LensStatus")
+            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensReview where
   hashWithSalt _salt LensReview' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
-      `Prelude.hashWithSalt` riskCounts
-      `Prelude.hashWithSalt` lensAlias
-      `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` lensName
-      `Prelude.hashWithSalt` pillarReviewSummaries
-      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` lensStatus
+      `Prelude.hashWithSalt` lensVersion
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` pillarReviewSummaries
+      `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData LensReview where
   rnf LensReview' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf lensAlias
       `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensVersion
       `Prelude.seq` Prelude.rnf lensName
-      `Prelude.seq` Prelude.rnf pillarReviewSummaries
-      `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf lensStatus
+      `Prelude.seq` Prelude.rnf lensVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf pillarReviewSummaries
+      `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf updatedAt

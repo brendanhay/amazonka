@@ -27,8 +27,8 @@ module Amazonka.WellArchitected.UpdateLensReview
     newUpdateLensReview,
 
     -- * Request Lenses
-    updateLensReview_pillarNotes,
     updateLensReview_lensNotes,
+    updateLensReview_pillarNotes,
     updateLensReview_workloadId,
     updateLensReview_lensAlias,
 
@@ -55,8 +55,8 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newUpdateLensReview' smart constructor.
 data UpdateLensReview = UpdateLensReview'
-  { pillarNotes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    lensNotes :: Prelude.Maybe Prelude.Text,
+  { lensNotes :: Prelude.Maybe Prelude.Text,
+    pillarNotes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     workloadId :: Prelude.Text,
     lensAlias :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data UpdateLensReview = UpdateLensReview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pillarNotes', 'updateLensReview_pillarNotes' - Undocumented member.
---
 -- 'lensNotes', 'updateLensReview_lensNotes' - Undocumented member.
+--
+-- 'pillarNotes', 'updateLensReview_pillarNotes' - Undocumented member.
 --
 -- 'workloadId', 'updateLensReview_workloadId' - Undocumented member.
 --
@@ -85,19 +85,19 @@ newUpdateLensReview ::
   UpdateLensReview
 newUpdateLensReview pWorkloadId_ pLensAlias_ =
   UpdateLensReview'
-    { pillarNotes = Prelude.Nothing,
-      lensNotes = Prelude.Nothing,
+    { lensNotes = Prelude.Nothing,
+      pillarNotes = Prelude.Nothing,
       workloadId = pWorkloadId_,
       lensAlias = pLensAlias_
     }
 
 -- | Undocumented member.
-updateLensReview_pillarNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateLensReview_pillarNotes = Lens.lens (\UpdateLensReview' {pillarNotes} -> pillarNotes) (\s@UpdateLensReview' {} a -> s {pillarNotes = a} :: UpdateLensReview) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 updateLensReview_lensNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe Prelude.Text)
 updateLensReview_lensNotes = Lens.lens (\UpdateLensReview' {lensNotes} -> lensNotes) (\s@UpdateLensReview' {} a -> s {lensNotes = a} :: UpdateLensReview)
+
+-- | Undocumented member.
+updateLensReview_pillarNotes :: Lens.Lens' UpdateLensReview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateLensReview_pillarNotes = Lens.lens (\UpdateLensReview' {pillarNotes} -> pillarNotes) (\s@UpdateLensReview' {} a -> s {pillarNotes = a} :: UpdateLensReview) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateLensReview_workloadId :: Lens.Lens' UpdateLensReview Prelude.Text
@@ -124,15 +124,15 @@ instance Core.AWSRequest UpdateLensReview where
 
 instance Prelude.Hashable UpdateLensReview where
   hashWithSalt _salt UpdateLensReview' {..} =
-    _salt `Prelude.hashWithSalt` pillarNotes
-      `Prelude.hashWithSalt` lensNotes
+    _salt `Prelude.hashWithSalt` lensNotes
+      `Prelude.hashWithSalt` pillarNotes
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData UpdateLensReview where
   rnf UpdateLensReview' {..} =
-    Prelude.rnf pillarNotes
-      `Prelude.seq` Prelude.rnf lensNotes
+    Prelude.rnf lensNotes
+      `Prelude.seq` Prelude.rnf pillarNotes
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
@@ -151,8 +151,8 @@ instance Data.ToJSON UpdateLensReview where
   toJSON UpdateLensReview' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PillarNotes" Data..=) Prelude.<$> pillarNotes,
-            ("LensNotes" Data..=) Prelude.<$> lensNotes
+          [ ("LensNotes" Data..=) Prelude.<$> lensNotes,
+            ("PillarNotes" Data..=) Prelude.<$> pillarNotes
           ]
       )
 

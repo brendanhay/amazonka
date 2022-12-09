@@ -30,15 +30,15 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newLensReviewSummary' smart constructor.
 data LensReviewSummary = LensReviewSummary'
-  { -- | The ARN for the lens.
+  { lensAlias :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
     lensArn :: Prelude.Maybe Prelude.Text,
-    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
-    lensAlias :: Prelude.Maybe Prelude.Text,
-    -- | The version of the lens.
-    lensVersion :: Prelude.Maybe Prelude.Text,
     lensName :: Prelude.Maybe Prelude.Text,
     -- | The status of the lens.
     lensStatus :: Prelude.Maybe LensStatus,
+    -- | The version of the lens.
+    lensVersion :: Prelude.Maybe Prelude.Text,
+    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,47 +51,39 @@ data LensReviewSummary = LensReviewSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lensArn', 'lensReviewSummary_lensArn' - The ARN for the lens.
---
--- 'riskCounts', 'lensReviewSummary_riskCounts' - Undocumented member.
---
 -- 'lensAlias', 'lensReviewSummary_lensAlias' - Undocumented member.
 --
--- 'lensVersion', 'lensReviewSummary_lensVersion' - The version of the lens.
+-- 'lensArn', 'lensReviewSummary_lensArn' - The ARN for the lens.
 --
 -- 'lensName', 'lensReviewSummary_lensName' - Undocumented member.
 --
 -- 'lensStatus', 'lensReviewSummary_lensStatus' - The status of the lens.
+--
+-- 'lensVersion', 'lensReviewSummary_lensVersion' - The version of the lens.
+--
+-- 'riskCounts', 'lensReviewSummary_riskCounts' - Undocumented member.
 --
 -- 'updatedAt', 'lensReviewSummary_updatedAt' - Undocumented member.
 newLensReviewSummary ::
   LensReviewSummary
 newLensReviewSummary =
   LensReviewSummary'
-    { lensArn = Prelude.Nothing,
-      riskCounts = Prelude.Nothing,
-      lensAlias = Prelude.Nothing,
-      lensVersion = Prelude.Nothing,
+    { lensAlias = Prelude.Nothing,
+      lensArn = Prelude.Nothing,
       lensName = Prelude.Nothing,
       lensStatus = Prelude.Nothing,
+      lensVersion = Prelude.Nothing,
+      riskCounts = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
-
--- | The ARN for the lens.
-lensReviewSummary_lensArn :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
-lensReviewSummary_lensArn = Lens.lens (\LensReviewSummary' {lensArn} -> lensArn) (\s@LensReviewSummary' {} a -> s {lensArn = a} :: LensReviewSummary)
-
--- | Undocumented member.
-lensReviewSummary_riskCounts :: Lens.Lens' LensReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
-lensReviewSummary_riskCounts = Lens.lens (\LensReviewSummary' {riskCounts} -> riskCounts) (\s@LensReviewSummary' {} a -> s {riskCounts = a} :: LensReviewSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 lensReviewSummary_lensAlias :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
 lensReviewSummary_lensAlias = Lens.lens (\LensReviewSummary' {lensAlias} -> lensAlias) (\s@LensReviewSummary' {} a -> s {lensAlias = a} :: LensReviewSummary)
 
--- | The version of the lens.
-lensReviewSummary_lensVersion :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
-lensReviewSummary_lensVersion = Lens.lens (\LensReviewSummary' {lensVersion} -> lensVersion) (\s@LensReviewSummary' {} a -> s {lensVersion = a} :: LensReviewSummary)
+-- | The ARN for the lens.
+lensReviewSummary_lensArn :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
+lensReviewSummary_lensArn = Lens.lens (\LensReviewSummary' {lensArn} -> lensArn) (\s@LensReviewSummary' {} a -> s {lensArn = a} :: LensReviewSummary)
 
 -- | Undocumented member.
 lensReviewSummary_lensName :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
@@ -100,6 +92,14 @@ lensReviewSummary_lensName = Lens.lens (\LensReviewSummary' {lensName} -> lensNa
 -- | The status of the lens.
 lensReviewSummary_lensStatus :: Lens.Lens' LensReviewSummary (Prelude.Maybe LensStatus)
 lensReviewSummary_lensStatus = Lens.lens (\LensReviewSummary' {lensStatus} -> lensStatus) (\s@LensReviewSummary' {} a -> s {lensStatus = a} :: LensReviewSummary)
+
+-- | The version of the lens.
+lensReviewSummary_lensVersion :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.Text)
+lensReviewSummary_lensVersion = Lens.lens (\LensReviewSummary' {lensVersion} -> lensVersion) (\s@LensReviewSummary' {} a -> s {lensVersion = a} :: LensReviewSummary)
+
+-- | Undocumented member.
+lensReviewSummary_riskCounts :: Lens.Lens' LensReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+lensReviewSummary_riskCounts = Lens.lens (\LensReviewSummary' {riskCounts} -> riskCounts) (\s@LensReviewSummary' {} a -> s {riskCounts = a} :: LensReviewSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 lensReviewSummary_updatedAt :: Lens.Lens' LensReviewSummary (Prelude.Maybe Prelude.UTCTime)
@@ -111,31 +111,31 @@ instance Data.FromJSON LensReviewSummary where
       "LensReviewSummary"
       ( \x ->
           LensReviewSummary'
-            Prelude.<$> (x Data..:? "LensArn")
-            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "LensAlias")
-            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<$> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "LensArn")
             Prelude.<*> (x Data..:? "LensName")
             Prelude.<*> (x Data..:? "LensStatus")
+            Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensReviewSummary where
   hashWithSalt _salt LensReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensArn
-      `Prelude.hashWithSalt` riskCounts
-      `Prelude.hashWithSalt` lensAlias
-      `Prelude.hashWithSalt` lensVersion
+    _salt `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus
+      `Prelude.hashWithSalt` lensVersion
+      `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData LensReviewSummary where
   rnf LensReviewSummary' {..} =
-    Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf lensVersion
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf lensName
       `Prelude.seq` Prelude.rnf lensStatus
+      `Prelude.seq` Prelude.rnf lensVersion
+      `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf updatedAt

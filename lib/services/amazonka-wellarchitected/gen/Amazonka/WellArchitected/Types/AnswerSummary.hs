@@ -32,18 +32,18 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newAnswerSummary' smart constructor.
 data AnswerSummary = AnswerSummary'
-  { choices :: Prelude.Maybe [Choice],
-    selectedChoices :: Prelude.Maybe [Prelude.Text],
-    risk :: Prelude.Maybe Risk,
-    -- | A list of selected choices to a question in your workload.
+  { -- | A list of selected choices to a question in your workload.
     choiceAnswerSummaries :: Prelude.Maybe [ChoiceAnswerSummary],
-    questionId :: Prelude.Maybe Prelude.Text,
+    choices :: Prelude.Maybe [Choice],
     isApplicable :: Prelude.Maybe Prelude.Bool,
+    pillarId :: Prelude.Maybe Prelude.Text,
+    questionId :: Prelude.Maybe Prelude.Text,
+    questionTitle :: Prelude.Maybe Prelude.Text,
     -- | The reason why a choice is non-applicable to a question in your
     -- workload.
     reason :: Prelude.Maybe AnswerReason,
-    questionTitle :: Prelude.Maybe Prelude.Text,
-    pillarId :: Prelude.Maybe Prelude.Text
+    risk :: Prelude.Maybe Risk,
+    selectedChoices :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,62 +55,63 @@ data AnswerSummary = AnswerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'choiceAnswerSummaries', 'answerSummary_choiceAnswerSummaries' - A list of selected choices to a question in your workload.
+--
 -- 'choices', 'answerSummary_choices' - Undocumented member.
 --
--- 'selectedChoices', 'answerSummary_selectedChoices' - Undocumented member.
+-- 'isApplicable', 'answerSummary_isApplicable' - Undocumented member.
 --
--- 'risk', 'answerSummary_risk' - Undocumented member.
---
--- 'choiceAnswerSummaries', 'answerSummary_choiceAnswerSummaries' - A list of selected choices to a question in your workload.
+-- 'pillarId', 'answerSummary_pillarId' - Undocumented member.
 --
 -- 'questionId', 'answerSummary_questionId' - Undocumented member.
 --
--- 'isApplicable', 'answerSummary_isApplicable' - Undocumented member.
+-- 'questionTitle', 'answerSummary_questionTitle' - Undocumented member.
 --
 -- 'reason', 'answerSummary_reason' - The reason why a choice is non-applicable to a question in your
 -- workload.
 --
--- 'questionTitle', 'answerSummary_questionTitle' - Undocumented member.
+-- 'risk', 'answerSummary_risk' - Undocumented member.
 --
--- 'pillarId', 'answerSummary_pillarId' - Undocumented member.
+-- 'selectedChoices', 'answerSummary_selectedChoices' - Undocumented member.
 newAnswerSummary ::
   AnswerSummary
 newAnswerSummary =
   AnswerSummary'
-    { choices = Prelude.Nothing,
-      selectedChoices = Prelude.Nothing,
-      risk = Prelude.Nothing,
-      choiceAnswerSummaries = Prelude.Nothing,
-      questionId = Prelude.Nothing,
+    { choiceAnswerSummaries =
+        Prelude.Nothing,
+      choices = Prelude.Nothing,
       isApplicable = Prelude.Nothing,
-      reason = Prelude.Nothing,
+      pillarId = Prelude.Nothing,
+      questionId = Prelude.Nothing,
       questionTitle = Prelude.Nothing,
-      pillarId = Prelude.Nothing
+      reason = Prelude.Nothing,
+      risk = Prelude.Nothing,
+      selectedChoices = Prelude.Nothing
     }
-
--- | Undocumented member.
-answerSummary_choices :: Lens.Lens' AnswerSummary (Prelude.Maybe [Choice])
-answerSummary_choices = Lens.lens (\AnswerSummary' {choices} -> choices) (\s@AnswerSummary' {} a -> s {choices = a} :: AnswerSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-answerSummary_selectedChoices :: Lens.Lens' AnswerSummary (Prelude.Maybe [Prelude.Text])
-answerSummary_selectedChoices = Lens.lens (\AnswerSummary' {selectedChoices} -> selectedChoices) (\s@AnswerSummary' {} a -> s {selectedChoices = a} :: AnswerSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-answerSummary_risk :: Lens.Lens' AnswerSummary (Prelude.Maybe Risk)
-answerSummary_risk = Lens.lens (\AnswerSummary' {risk} -> risk) (\s@AnswerSummary' {} a -> s {risk = a} :: AnswerSummary)
 
 -- | A list of selected choices to a question in your workload.
 answerSummary_choiceAnswerSummaries :: Lens.Lens' AnswerSummary (Prelude.Maybe [ChoiceAnswerSummary])
 answerSummary_choiceAnswerSummaries = Lens.lens (\AnswerSummary' {choiceAnswerSummaries} -> choiceAnswerSummaries) (\s@AnswerSummary' {} a -> s {choiceAnswerSummaries = a} :: AnswerSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-answerSummary_questionId :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
-answerSummary_questionId = Lens.lens (\AnswerSummary' {questionId} -> questionId) (\s@AnswerSummary' {} a -> s {questionId = a} :: AnswerSummary)
+answerSummary_choices :: Lens.Lens' AnswerSummary (Prelude.Maybe [Choice])
+answerSummary_choices = Lens.lens (\AnswerSummary' {choices} -> choices) (\s@AnswerSummary' {} a -> s {choices = a} :: AnswerSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 answerSummary_isApplicable :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Bool)
 answerSummary_isApplicable = Lens.lens (\AnswerSummary' {isApplicable} -> isApplicable) (\s@AnswerSummary' {} a -> s {isApplicable = a} :: AnswerSummary)
+
+-- | Undocumented member.
+answerSummary_pillarId :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
+answerSummary_pillarId = Lens.lens (\AnswerSummary' {pillarId} -> pillarId) (\s@AnswerSummary' {} a -> s {pillarId = a} :: AnswerSummary)
+
+-- | Undocumented member.
+answerSummary_questionId :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
+answerSummary_questionId = Lens.lens (\AnswerSummary' {questionId} -> questionId) (\s@AnswerSummary' {} a -> s {questionId = a} :: AnswerSummary)
+
+-- | Undocumented member.
+answerSummary_questionTitle :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
+answerSummary_questionTitle = Lens.lens (\AnswerSummary' {questionTitle} -> questionTitle) (\s@AnswerSummary' {} a -> s {questionTitle = a} :: AnswerSummary)
 
 -- | The reason why a choice is non-applicable to a question in your
 -- workload.
@@ -118,12 +119,12 @@ answerSummary_reason :: Lens.Lens' AnswerSummary (Prelude.Maybe AnswerReason)
 answerSummary_reason = Lens.lens (\AnswerSummary' {reason} -> reason) (\s@AnswerSummary' {} a -> s {reason = a} :: AnswerSummary)
 
 -- | Undocumented member.
-answerSummary_questionTitle :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
-answerSummary_questionTitle = Lens.lens (\AnswerSummary' {questionTitle} -> questionTitle) (\s@AnswerSummary' {} a -> s {questionTitle = a} :: AnswerSummary)
+answerSummary_risk :: Lens.Lens' AnswerSummary (Prelude.Maybe Risk)
+answerSummary_risk = Lens.lens (\AnswerSummary' {risk} -> risk) (\s@AnswerSummary' {} a -> s {risk = a} :: AnswerSummary)
 
 -- | Undocumented member.
-answerSummary_pillarId :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
-answerSummary_pillarId = Lens.lens (\AnswerSummary' {pillarId} -> pillarId) (\s@AnswerSummary' {} a -> s {pillarId = a} :: AnswerSummary)
+answerSummary_selectedChoices :: Lens.Lens' AnswerSummary (Prelude.Maybe [Prelude.Text])
+answerSummary_selectedChoices = Lens.lens (\AnswerSummary' {selectedChoices} -> selectedChoices) (\s@AnswerSummary' {} a -> s {selectedChoices = a} :: AnswerSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AnswerSummary where
   parseJSON =
@@ -131,41 +132,41 @@ instance Data.FromJSON AnswerSummary where
       "AnswerSummary"
       ( \x ->
           AnswerSummary'
-            Prelude.<$> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<$> ( x Data..:? "ChoiceAnswerSummaries"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Choices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "IsApplicable")
+            Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Risk")
             Prelude.<*> ( x Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> ( x Data..:? "ChoiceAnswerSummaries"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "QuestionId")
-            Prelude.<*> (x Data..:? "IsApplicable")
-            Prelude.<*> (x Data..:? "Reason")
-            Prelude.<*> (x Data..:? "QuestionTitle")
-            Prelude.<*> (x Data..:? "PillarId")
       )
 
 instance Prelude.Hashable AnswerSummary where
   hashWithSalt _salt AnswerSummary' {..} =
-    _salt `Prelude.hashWithSalt` choices
-      `Prelude.hashWithSalt` selectedChoices
-      `Prelude.hashWithSalt` risk
-      `Prelude.hashWithSalt` choiceAnswerSummaries
-      `Prelude.hashWithSalt` questionId
+    _salt `Prelude.hashWithSalt` choiceAnswerSummaries
+      `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` isApplicable
-      `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` questionTitle
       `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` selectedChoices
 
 instance Prelude.NFData AnswerSummary where
   rnf AnswerSummary' {..} =
-    Prelude.rnf choices
-      `Prelude.seq` Prelude.rnf selectedChoices
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf choiceAnswerSummaries
-      `Prelude.seq` Prelude.rnf questionId
+    Prelude.rnf choiceAnswerSummaries
+      `Prelude.seq` Prelude.rnf choices
       `Prelude.seq` Prelude.rnf isApplicable
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf questionTitle
       `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf selectedChoices

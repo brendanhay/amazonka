@@ -30,13 +30,13 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newImprovementSummary' smart constructor.
 data ImprovementSummary = ImprovementSummary'
-  { risk :: Prelude.Maybe Risk,
-    questionId :: Prelude.Maybe Prelude.Text,
-    improvementPlanUrl :: Prelude.Maybe Prelude.Text,
+  { improvementPlanUrl :: Prelude.Maybe Prelude.Text,
     -- | The improvement plan details.
     improvementPlans :: Prelude.Maybe [ChoiceImprovementPlan],
+    pillarId :: Prelude.Maybe Prelude.Text,
+    questionId :: Prelude.Maybe Prelude.Text,
     questionTitle :: Prelude.Maybe Prelude.Text,
-    pillarId :: Prelude.Maybe Prelude.Text
+    risk :: Prelude.Maybe Risk
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,36 +48,29 @@ data ImprovementSummary = ImprovementSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'risk', 'improvementSummary_risk' - Undocumented member.
---
--- 'questionId', 'improvementSummary_questionId' - Undocumented member.
---
 -- 'improvementPlanUrl', 'improvementSummary_improvementPlanUrl' - Undocumented member.
 --
 -- 'improvementPlans', 'improvementSummary_improvementPlans' - The improvement plan details.
 --
+-- 'pillarId', 'improvementSummary_pillarId' - Undocumented member.
+--
+-- 'questionId', 'improvementSummary_questionId' - Undocumented member.
+--
 -- 'questionTitle', 'improvementSummary_questionTitle' - Undocumented member.
 --
--- 'pillarId', 'improvementSummary_pillarId' - Undocumented member.
+-- 'risk', 'improvementSummary_risk' - Undocumented member.
 newImprovementSummary ::
   ImprovementSummary
 newImprovementSummary =
   ImprovementSummary'
-    { risk = Prelude.Nothing,
-      questionId = Prelude.Nothing,
-      improvementPlanUrl = Prelude.Nothing,
+    { improvementPlanUrl =
+        Prelude.Nothing,
       improvementPlans = Prelude.Nothing,
+      pillarId = Prelude.Nothing,
+      questionId = Prelude.Nothing,
       questionTitle = Prelude.Nothing,
-      pillarId = Prelude.Nothing
+      risk = Prelude.Nothing
     }
-
--- | Undocumented member.
-improvementSummary_risk :: Lens.Lens' ImprovementSummary (Prelude.Maybe Risk)
-improvementSummary_risk = Lens.lens (\ImprovementSummary' {risk} -> risk) (\s@ImprovementSummary' {} a -> s {risk = a} :: ImprovementSummary)
-
--- | Undocumented member.
-improvementSummary_questionId :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
-improvementSummary_questionId = Lens.lens (\ImprovementSummary' {questionId} -> questionId) (\s@ImprovementSummary' {} a -> s {questionId = a} :: ImprovementSummary)
 
 -- | Undocumented member.
 improvementSummary_improvementPlanUrl :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
@@ -88,12 +81,20 @@ improvementSummary_improvementPlans :: Lens.Lens' ImprovementSummary (Prelude.Ma
 improvementSummary_improvementPlans = Lens.lens (\ImprovementSummary' {improvementPlans} -> improvementPlans) (\s@ImprovementSummary' {} a -> s {improvementPlans = a} :: ImprovementSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
+improvementSummary_pillarId :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
+improvementSummary_pillarId = Lens.lens (\ImprovementSummary' {pillarId} -> pillarId) (\s@ImprovementSummary' {} a -> s {pillarId = a} :: ImprovementSummary)
+
+-- | Undocumented member.
+improvementSummary_questionId :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
+improvementSummary_questionId = Lens.lens (\ImprovementSummary' {questionId} -> questionId) (\s@ImprovementSummary' {} a -> s {questionId = a} :: ImprovementSummary)
+
+-- | Undocumented member.
 improvementSummary_questionTitle :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
 improvementSummary_questionTitle = Lens.lens (\ImprovementSummary' {questionTitle} -> questionTitle) (\s@ImprovementSummary' {} a -> s {questionTitle = a} :: ImprovementSummary)
 
 -- | Undocumented member.
-improvementSummary_pillarId :: Lens.Lens' ImprovementSummary (Prelude.Maybe Prelude.Text)
-improvementSummary_pillarId = Lens.lens (\ImprovementSummary' {pillarId} -> pillarId) (\s@ImprovementSummary' {} a -> s {pillarId = a} :: ImprovementSummary)
+improvementSummary_risk :: Lens.Lens' ImprovementSummary (Prelude.Maybe Risk)
+improvementSummary_risk = Lens.lens (\ImprovementSummary' {risk} -> risk) (\s@ImprovementSummary' {} a -> s {risk = a} :: ImprovementSummary)
 
 instance Data.FromJSON ImprovementSummary where
   parseJSON =
@@ -101,30 +102,30 @@ instance Data.FromJSON ImprovementSummary where
       "ImprovementSummary"
       ( \x ->
           ImprovementSummary'
-            Prelude.<$> (x Data..:? "Risk")
-            Prelude.<*> (x Data..:? "QuestionId")
-            Prelude.<*> (x Data..:? "ImprovementPlanUrl")
+            Prelude.<$> (x Data..:? "ImprovementPlanUrl")
             Prelude.<*> ( x Data..:? "ImprovementPlans"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "QuestionTitle")
             Prelude.<*> (x Data..:? "PillarId")
+            Prelude.<*> (x Data..:? "QuestionId")
+            Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "Risk")
       )
 
 instance Prelude.Hashable ImprovementSummary where
   hashWithSalt _salt ImprovementSummary' {..} =
-    _salt `Prelude.hashWithSalt` risk
-      `Prelude.hashWithSalt` questionId
-      `Prelude.hashWithSalt` improvementPlanUrl
+    _salt `Prelude.hashWithSalt` improvementPlanUrl
       `Prelude.hashWithSalt` improvementPlans
-      `Prelude.hashWithSalt` questionTitle
       `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` questionId
+      `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` risk
 
 instance Prelude.NFData ImprovementSummary where
   rnf ImprovementSummary' {..} =
-    Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf questionId
-      `Prelude.seq` Prelude.rnf improvementPlanUrl
+    Prelude.rnf improvementPlanUrl
       `Prelude.seq` Prelude.rnf improvementPlans
-      `Prelude.seq` Prelude.rnf questionTitle
       `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf questionId
+      `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf risk

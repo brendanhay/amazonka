@@ -30,10 +30,10 @@ import Amazonka.WellArchitected.Types.NotificationType
 --
 -- /See:/ 'newNotificationSummary' smart constructor.
 data NotificationSummary = NotificationSummary'
-  { -- | The type of notification.
-    type' :: Prelude.Maybe NotificationType,
-    -- | Summary of lens upgrade.
-    lensUpgradeSummary :: Prelude.Maybe LensUpgradeSummary
+  { -- | Summary of lens upgrade.
+    lensUpgradeSummary :: Prelude.Maybe LensUpgradeSummary,
+    -- | The type of notification.
+    type' :: Prelude.Maybe NotificationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,25 @@ data NotificationSummary = NotificationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'notificationSummary_type' - The type of notification.
---
 -- 'lensUpgradeSummary', 'notificationSummary_lensUpgradeSummary' - Summary of lens upgrade.
+--
+-- 'type'', 'notificationSummary_type' - The type of notification.
 newNotificationSummary ::
   NotificationSummary
 newNotificationSummary =
   NotificationSummary'
-    { type' = Prelude.Nothing,
-      lensUpgradeSummary = Prelude.Nothing
+    { lensUpgradeSummary =
+        Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of notification.
-notificationSummary_type :: Lens.Lens' NotificationSummary (Prelude.Maybe NotificationType)
-notificationSummary_type = Lens.lens (\NotificationSummary' {type'} -> type') (\s@NotificationSummary' {} a -> s {type' = a} :: NotificationSummary)
 
 -- | Summary of lens upgrade.
 notificationSummary_lensUpgradeSummary :: Lens.Lens' NotificationSummary (Prelude.Maybe LensUpgradeSummary)
 notificationSummary_lensUpgradeSummary = Lens.lens (\NotificationSummary' {lensUpgradeSummary} -> lensUpgradeSummary) (\s@NotificationSummary' {} a -> s {lensUpgradeSummary = a} :: NotificationSummary)
+
+-- | The type of notification.
+notificationSummary_type :: Lens.Lens' NotificationSummary (Prelude.Maybe NotificationType)
+notificationSummary_type = Lens.lens (\NotificationSummary' {type'} -> type') (\s@NotificationSummary' {} a -> s {type' = a} :: NotificationSummary)
 
 instance Data.FromJSON NotificationSummary where
   parseJSON =
@@ -70,16 +71,16 @@ instance Data.FromJSON NotificationSummary where
       "NotificationSummary"
       ( \x ->
           NotificationSummary'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "LensUpgradeSummary")
+            Prelude.<$> (x Data..:? "LensUpgradeSummary")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable NotificationSummary where
   hashWithSalt _salt NotificationSummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` lensUpgradeSummary
+    _salt `Prelude.hashWithSalt` lensUpgradeSummary
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NotificationSummary where
   rnf NotificationSummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf lensUpgradeSummary
+    Prelude.rnf lensUpgradeSummary
+      `Prelude.seq` Prelude.rnf type'

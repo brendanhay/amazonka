@@ -45,9 +45,9 @@ module Amazonka.SQS.ListQueues
     newListQueues,
 
     -- * Request Lenses
+    listQueues_maxResults,
     listQueues_nextToken,
     listQueues_queueNamePrefix,
-    listQueues_maxResults,
 
     -- * Destructuring the Response
     ListQueuesResponse (..),
@@ -72,17 +72,17 @@ import Amazonka.SQS.Types
 --
 -- /See:/ 'newListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { -- | Pagination token to request the next set of results.
+  { -- | Maximum number of results to include in the response. Value range is 1
+    -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+    -- the response.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Pagination token to request the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string to use for filtering the list results. Only those queues whose
     -- name begins with the specified string are returned.
     --
     -- Queue URLs and names are case-sensitive.
-    queueNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to include in the response. Value range is 1
-    -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
-    -- the response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    queueNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,24 +94,30 @@ data ListQueues = ListQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQueues_maxResults' - Maximum number of results to include in the response. Value range is 1
+-- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+-- the response.
+--
 -- 'nextToken', 'listQueues_nextToken' - Pagination token to request the next set of results.
 --
 -- 'queueNamePrefix', 'listQueues_queueNamePrefix' - A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
 --
 -- Queue URLs and names are case-sensitive.
---
--- 'maxResults', 'listQueues_maxResults' - Maximum number of results to include in the response. Value range is 1
--- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
--- the response.
 newListQueues ::
   ListQueues
 newListQueues =
   ListQueues'
-    { nextToken = Prelude.Nothing,
-      queueNamePrefix = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      queueNamePrefix = Prelude.Nothing
     }
+
+-- | Maximum number of results to include in the response. Value range is 1
+-- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
+-- the response.
+listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Int)
+listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | Pagination token to request the next set of results.
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
@@ -123,12 +129,6 @@ listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@Lis
 -- Queue URLs and names are case-sensitive.
 listQueues_queueNamePrefix :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_queueNamePrefix = Lens.lens (\ListQueues' {queueNamePrefix} -> queueNamePrefix) (\s@ListQueues' {} a -> s {queueNamePrefix = a} :: ListQueues)
-
--- | Maximum number of results to include in the response. Value range is 1
--- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
--- the response.
-listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Int)
-listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 instance Core.AWSPager ListQueues where
   page rq rs
@@ -165,15 +165,15 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueNamePrefix
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListQueues where
   rnf ListQueues' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queueNamePrefix
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListQueues where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,9 +188,9 @@ instance Data.ToQuery ListQueues where
           Data.=: ("ListQueues" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-11-05" :: Prelude.ByteString),
+        "MaxResults" Data.=: maxResults,
         "NextToken" Data.=: nextToken,
-        "QueueNamePrefix" Data.=: queueNamePrefix,
-        "MaxResults" Data.=: maxResults
+        "QueueNamePrefix" Data.=: queueNamePrefix
       ]
 
 -- | A list of your queues.

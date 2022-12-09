@@ -43,8 +43,8 @@ module Amazonka.SQS.ListDeadLetterSourceQueues
     newListDeadLetterSourceQueues,
 
     -- * Request Lenses
-    listDeadLetterSourceQueues_nextToken,
     listDeadLetterSourceQueues_maxResults,
+    listDeadLetterSourceQueues_nextToken,
     listDeadLetterSourceQueues_queueUrl,
 
     -- * Destructuring the Response
@@ -70,12 +70,12 @@ import Amazonka.SQS.Types
 --
 -- /See:/ 'newListDeadLetterSourceQueues' smart constructor.
 data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
-  { -- | Pagination token to request the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to include in the response. Value range is 1
+  { -- | Maximum number of results to include in the response. Value range is 1
     -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
     -- the response.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Pagination token to request the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The URL of a dead-letter queue.
     --
     -- Queue URLs and names are case-sensitive.
@@ -91,11 +91,11 @@ data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeadLetterSourceQueues_nextToken' - Pagination token to request the next set of results.
---
 -- 'maxResults', 'listDeadLetterSourceQueues_maxResults' - Maximum number of results to include in the response. Value range is 1
 -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
 -- the response.
+--
+-- 'nextToken', 'listDeadLetterSourceQueues_nextToken' - Pagination token to request the next set of results.
 --
 -- 'queueUrl', 'listDeadLetterSourceQueues_queueUrl' - The URL of a dead-letter queue.
 --
@@ -106,21 +106,21 @@ newListDeadLetterSourceQueues ::
   ListDeadLetterSourceQueues
 newListDeadLetterSourceQueues pQueueUrl_ =
   ListDeadLetterSourceQueues'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queueUrl = pQueueUrl_
     }
-
--- | Pagination token to request the next set of results.
-listDeadLetterSourceQueues_nextToken :: Lens.Lens' ListDeadLetterSourceQueues (Prelude.Maybe Prelude.Text)
-listDeadLetterSourceQueues_nextToken = Lens.lens (\ListDeadLetterSourceQueues' {nextToken} -> nextToken) (\s@ListDeadLetterSourceQueues' {} a -> s {nextToken = a} :: ListDeadLetterSourceQueues)
 
 -- | Maximum number of results to include in the response. Value range is 1
 -- to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in
 -- the response.
 listDeadLetterSourceQueues_maxResults :: Lens.Lens' ListDeadLetterSourceQueues (Prelude.Maybe Prelude.Int)
 listDeadLetterSourceQueues_maxResults = Lens.lens (\ListDeadLetterSourceQueues' {maxResults} -> maxResults) (\s@ListDeadLetterSourceQueues' {} a -> s {maxResults = a} :: ListDeadLetterSourceQueues)
+
+-- | Pagination token to request the next set of results.
+listDeadLetterSourceQueues_nextToken :: Lens.Lens' ListDeadLetterSourceQueues (Prelude.Maybe Prelude.Text)
+listDeadLetterSourceQueues_nextToken = Lens.lens (\ListDeadLetterSourceQueues' {nextToken} -> nextToken) (\s@ListDeadLetterSourceQueues' {} a -> s {nextToken = a} :: ListDeadLetterSourceQueues)
 
 -- | The URL of a dead-letter queue.
 --
@@ -167,14 +167,14 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
 
 instance Prelude.Hashable ListDeadLetterSourceQueues where
   hashWithSalt _salt ListDeadLetterSourceQueues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueUrl
 
 instance Prelude.NFData ListDeadLetterSourceQueues where
   rnf ListDeadLetterSourceQueues' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queueUrl
 
 instance Data.ToHeaders ListDeadLetterSourceQueues where
@@ -190,8 +190,8 @@ instance Data.ToQuery ListDeadLetterSourceQueues where
           Data.=: ("ListDeadLetterSourceQueues" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-11-05" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "QueueUrl" Data.=: queueUrl
       ]
 

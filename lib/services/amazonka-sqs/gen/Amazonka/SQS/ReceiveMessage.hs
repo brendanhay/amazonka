@@ -77,11 +77,11 @@ module Amazonka.SQS.ReceiveMessage
     newReceiveMessage,
 
     -- * Request Lenses
-    receiveMessage_visibilityTimeout,
     receiveMessage_attributeNames,
-    receiveMessage_messageAttributeNames,
     receiveMessage_maxNumberOfMessages,
+    receiveMessage_messageAttributeNames,
     receiveMessage_receiveRequestAttemptId,
+    receiveMessage_visibilityTimeout,
     receiveMessage_waitTimeSeconds,
     receiveMessage_queueUrl,
 
@@ -107,11 +107,7 @@ import Amazonka.SQS.Types
 --
 -- /See:/ 'newReceiveMessage' smart constructor.
 data ReceiveMessage = ReceiveMessage'
-  { -- | The duration (in seconds) that the received messages are hidden from
-    -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
-    -- request.
-    visibilityTimeout :: Prelude.Maybe Prelude.Int,
-    -- | A list of attributes that need to be returned along with each message.
+  { -- | A list of attributes that need to be returned along with each message.
     -- These attributes include:
     --
     -- -   @All@ – Returns all values.
@@ -154,6 +150,10 @@ data ReceiveMessage = ReceiveMessage'
     --
     -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
     attributeNames :: Prelude.Maybe [MessageAttribute],
+    -- | The maximum number of messages to return. Amazon SQS never returns more
+    -- messages than this value (however, fewer messages might be returned).
+    -- Valid values: 1 to 10. Default: 1.
+    maxNumberOfMessages :: Prelude.Maybe Prelude.Int,
     -- | The name of the message attribute, where /N/ is the index.
     --
     -- -   The name can contain alphanumeric characters and the underscore
@@ -175,10 +175,6 @@ data ReceiveMessage = ReceiveMessage'
     -- @.*@ in your request. You can also use all message attributes starting
     -- with a prefix, for example @bar.*@.
     messageAttributeNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of messages to return. Amazon SQS never returns more
-    -- messages than this value (however, fewer messages might be returned).
-    -- Valid values: 1 to 10. Default: 1.
-    maxNumberOfMessages :: Prelude.Maybe Prelude.Int,
     -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The token used for deduplication of @ReceiveMessage@ calls. If a
@@ -238,6 +234,10 @@ data ReceiveMessage = ReceiveMessage'
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
     -- in the /Amazon SQS Developer Guide/.
     receiveRequestAttemptId :: Prelude.Maybe Prelude.Text,
+    -- | The duration (in seconds) that the received messages are hidden from
+    -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
+    -- request.
+    visibilityTimeout :: Prelude.Maybe Prelude.Int,
     -- | The duration (in seconds) for which the call waits for a message to
     -- arrive in the queue before returning. If a message is available, the
     -- call returns sooner than @WaitTimeSeconds@. If no messages are available
@@ -267,10 +267,6 @@ data ReceiveMessage = ReceiveMessage'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'visibilityTimeout', 'receiveMessage_visibilityTimeout' - The duration (in seconds) that the received messages are hidden from
--- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
--- request.
 --
 -- 'attributeNames', 'receiveMessage_attributeNames' - A list of attributes that need to be returned along with each message.
 -- These attributes include:
@@ -315,6 +311,10 @@ data ReceiveMessage = ReceiveMessage'
 --
 -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
 --
+-- 'maxNumberOfMessages', 'receiveMessage_maxNumberOfMessages' - The maximum number of messages to return. Amazon SQS never returns more
+-- messages than this value (however, fewer messages might be returned).
+-- Valid values: 1 to 10. Default: 1.
+--
 -- 'messageAttributeNames', 'receiveMessage_messageAttributeNames' - The name of the message attribute, where /N/ is the index.
 --
 -- -   The name can contain alphanumeric characters and the underscore
@@ -335,10 +335,6 @@ data ReceiveMessage = ReceiveMessage'
 -- receive, or you can return all of the attributes by specifying @All@ or
 -- @.*@ in your request. You can also use all message attributes starting
 -- with a prefix, for example @bar.*@.
---
--- 'maxNumberOfMessages', 'receiveMessage_maxNumberOfMessages' - The maximum number of messages to return. Amazon SQS never returns more
--- messages than this value (however, fewer messages might be returned).
--- Valid values: 1 to 10. Default: 1.
 --
 -- 'receiveRequestAttemptId', 'receiveMessage_receiveRequestAttemptId' - This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -399,6 +395,10 @@ data ReceiveMessage = ReceiveMessage'
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html Using the ReceiveRequestAttemptId Request Parameter>
 -- in the /Amazon SQS Developer Guide/.
 --
+-- 'visibilityTimeout', 'receiveMessage_visibilityTimeout' - The duration (in seconds) that the received messages are hidden from
+-- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
+-- request.
+--
 -- 'waitTimeSeconds', 'receiveMessage_waitTimeSeconds' - The duration (in seconds) for which the call waits for a message to
 -- arrive in the queue before returning. If a message is available, the
 -- call returns sooner than @WaitTimeSeconds@. If no messages are available
@@ -423,21 +423,14 @@ newReceiveMessage ::
   ReceiveMessage
 newReceiveMessage pQueueUrl_ =
   ReceiveMessage'
-    { visibilityTimeout =
-        Prelude.Nothing,
-      attributeNames = Prelude.Nothing,
-      messageAttributeNames = Prelude.Nothing,
+    { attributeNames = Prelude.Nothing,
       maxNumberOfMessages = Prelude.Nothing,
+      messageAttributeNames = Prelude.Nothing,
       receiveRequestAttemptId = Prelude.Nothing,
+      visibilityTimeout = Prelude.Nothing,
       waitTimeSeconds = Prelude.Nothing,
       queueUrl = pQueueUrl_
     }
-
--- | The duration (in seconds) that the received messages are hidden from
--- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
--- request.
-receiveMessage_visibilityTimeout :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
-receiveMessage_visibilityTimeout = Lens.lens (\ReceiveMessage' {visibilityTimeout} -> visibilityTimeout) (\s@ReceiveMessage' {} a -> s {visibilityTimeout = a} :: ReceiveMessage)
 
 -- | A list of attributes that need to be returned along with each message.
 -- These attributes include:
@@ -484,6 +477,12 @@ receiveMessage_visibilityTimeout = Lens.lens (\ReceiveMessage' {visibilityTimeou
 receiveMessage_attributeNames :: Lens.Lens' ReceiveMessage (Prelude.Maybe [MessageAttribute])
 receiveMessage_attributeNames = Lens.lens (\ReceiveMessage' {attributeNames} -> attributeNames) (\s@ReceiveMessage' {} a -> s {attributeNames = a} :: ReceiveMessage) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum number of messages to return. Amazon SQS never returns more
+-- messages than this value (however, fewer messages might be returned).
+-- Valid values: 1 to 10. Default: 1.
+receiveMessage_maxNumberOfMessages :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
+receiveMessage_maxNumberOfMessages = Lens.lens (\ReceiveMessage' {maxNumberOfMessages} -> maxNumberOfMessages) (\s@ReceiveMessage' {} a -> s {maxNumberOfMessages = a} :: ReceiveMessage)
+
 -- | The name of the message attribute, where /N/ is the index.
 --
 -- -   The name can contain alphanumeric characters and the underscore
@@ -506,12 +505,6 @@ receiveMessage_attributeNames = Lens.lens (\ReceiveMessage' {attributeNames} -> 
 -- with a prefix, for example @bar.*@.
 receiveMessage_messageAttributeNames :: Lens.Lens' ReceiveMessage (Prelude.Maybe [Prelude.Text])
 receiveMessage_messageAttributeNames = Lens.lens (\ReceiveMessage' {messageAttributeNames} -> messageAttributeNames) (\s@ReceiveMessage' {} a -> s {messageAttributeNames = a} :: ReceiveMessage) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of messages to return. Amazon SQS never returns more
--- messages than this value (however, fewer messages might be returned).
--- Valid values: 1 to 10. Default: 1.
-receiveMessage_maxNumberOfMessages :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
-receiveMessage_maxNumberOfMessages = Lens.lens (\ReceiveMessage' {maxNumberOfMessages} -> maxNumberOfMessages) (\s@ReceiveMessage' {} a -> s {maxNumberOfMessages = a} :: ReceiveMessage)
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -574,6 +567,12 @@ receiveMessage_maxNumberOfMessages = Lens.lens (\ReceiveMessage' {maxNumberOfMes
 receiveMessage_receiveRequestAttemptId :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Text)
 receiveMessage_receiveRequestAttemptId = Lens.lens (\ReceiveMessage' {receiveRequestAttemptId} -> receiveRequestAttemptId) (\s@ReceiveMessage' {} a -> s {receiveRequestAttemptId = a} :: ReceiveMessage)
 
+-- | The duration (in seconds) that the received messages are hidden from
+-- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
+-- request.
+receiveMessage_visibilityTimeout :: Lens.Lens' ReceiveMessage (Prelude.Maybe Prelude.Int)
+receiveMessage_visibilityTimeout = Lens.lens (\ReceiveMessage' {visibilityTimeout} -> visibilityTimeout) (\s@ReceiveMessage' {} a -> s {visibilityTimeout = a} :: ReceiveMessage)
+
 -- | The duration (in seconds) for which the call waits for a message to
 -- arrive in the queue before returning. If a message is available, the
 -- call returns sooner than @WaitTimeSeconds@. If no messages are available
@@ -614,21 +613,21 @@ instance Core.AWSRequest ReceiveMessage where
 
 instance Prelude.Hashable ReceiveMessage where
   hashWithSalt _salt ReceiveMessage' {..} =
-    _salt `Prelude.hashWithSalt` visibilityTimeout
-      `Prelude.hashWithSalt` attributeNames
-      `Prelude.hashWithSalt` messageAttributeNames
+    _salt `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` maxNumberOfMessages
+      `Prelude.hashWithSalt` messageAttributeNames
       `Prelude.hashWithSalt` receiveRequestAttemptId
+      `Prelude.hashWithSalt` visibilityTimeout
       `Prelude.hashWithSalt` waitTimeSeconds
       `Prelude.hashWithSalt` queueUrl
 
 instance Prelude.NFData ReceiveMessage where
   rnf ReceiveMessage' {..} =
-    Prelude.rnf visibilityTimeout
-      `Prelude.seq` Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf messageAttributeNames
+    Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf maxNumberOfMessages
+      `Prelude.seq` Prelude.rnf messageAttributeNames
       `Prelude.seq` Prelude.rnf receiveRequestAttemptId
+      `Prelude.seq` Prelude.rnf visibilityTimeout
       `Prelude.seq` Prelude.rnf waitTimeSeconds
       `Prelude.seq` Prelude.rnf queueUrl
 
@@ -645,18 +644,18 @@ instance Data.ToQuery ReceiveMessage where
           Data.=: ("ReceiveMessage" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-11-05" :: Prelude.ByteString),
-        "VisibilityTimeout" Data.=: visibilityTimeout,
         Data.toQuery
           ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
+        "MaxNumberOfMessages" Data.=: maxNumberOfMessages,
         Data.toQuery
           ( Data.toQueryList "MessageAttributeName"
               Prelude.<$> messageAttributeNames
           ),
-        "MaxNumberOfMessages" Data.=: maxNumberOfMessages,
         "ReceiveRequestAttemptId"
           Data.=: receiveRequestAttemptId,
+        "VisibilityTimeout" Data.=: visibilityTimeout,
         "WaitTimeSeconds" Data.=: waitTimeSeconds,
         "QueueUrl" Data.=: queueUrl
       ]

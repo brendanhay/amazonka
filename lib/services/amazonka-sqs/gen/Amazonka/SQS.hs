@@ -56,53 +56,53 @@ module Amazonka.SQS
     -- * Errors
     -- $errors
 
-    -- ** QueueDoesNotExist
-    _QueueDoesNotExist,
-
-    -- ** InvalidIdFormat
-    _InvalidIdFormat,
+    -- ** BatchEntryIdsNotDistinct
+    _BatchEntryIdsNotDistinct,
 
     -- ** BatchRequestTooLong
     _BatchRequestTooLong,
 
-    -- ** ReceiptHandleIsInvalid
-    _ReceiptHandleIsInvalid,
-
-    -- ** MessageNotInflight
-    _MessageNotInflight,
-
-    -- ** TooManyEntriesInBatchRequest
-    _TooManyEntriesInBatchRequest,
-
-    -- ** PurgeQueueInProgress
-    _PurgeQueueInProgress,
-
     -- ** EmptyBatchRequest
     _EmptyBatchRequest,
-
-    -- ** InvalidBatchEntryId
-    _InvalidBatchEntryId,
-
-    -- ** InvalidMessageContents
-    _InvalidMessageContents,
 
     -- ** InvalidAttributeName
     _InvalidAttributeName,
 
-    -- ** QueueDeletedRecently
-    _QueueDeletedRecently,
+    -- ** InvalidBatchEntryId
+    _InvalidBatchEntryId,
 
-    -- ** QueueNameExists
-    _QueueNameExists,
+    -- ** InvalidIdFormat
+    _InvalidIdFormat,
 
-    -- ** UnsupportedOperation
-    _UnsupportedOperation,
+    -- ** InvalidMessageContents
+    _InvalidMessageContents,
+
+    -- ** MessageNotInflight
+    _MessageNotInflight,
 
     -- ** OverLimit
     _OverLimit,
 
-    -- ** BatchEntryIdsNotDistinct
-    _BatchEntryIdsNotDistinct,
+    -- ** PurgeQueueInProgress
+    _PurgeQueueInProgress,
+
+    -- ** QueueDeletedRecently
+    _QueueDeletedRecently,
+
+    -- ** QueueDoesNotExist
+    _QueueDoesNotExist,
+
+    -- ** QueueNameExists
+    _QueueNameExists,
+
+    -- ** ReceiptHandleIsInvalid
+    _ReceiptHandleIsInvalid,
+
+    -- ** TooManyEntriesInBatchRequest
+    _TooManyEntriesInBatchRequest,
+
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
 
     -- * Waiters
     -- $waiters

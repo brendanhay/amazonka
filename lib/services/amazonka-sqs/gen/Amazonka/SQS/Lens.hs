@@ -33,8 +33,8 @@ module Amazonka.SQS.Lens
     changeMessageVisibilityBatchResponse_failed,
 
     -- ** CreateQueue
-    createQueue_tags,
     createQueue_attributes,
+    createQueue_tags,
     createQueue_queueName,
     createQueueResponse_queueUrl,
     createQueueResponse_httpStatus,
@@ -66,8 +66,8 @@ module Amazonka.SQS.Lens
     getQueueUrlResponse_queueUrl,
 
     -- ** ListDeadLetterSourceQueues
-    listDeadLetterSourceQueues_nextToken,
     listDeadLetterSourceQueues_maxResults,
+    listDeadLetterSourceQueues_nextToken,
     listDeadLetterSourceQueues_queueUrl,
     listDeadLetterSourceQueuesResponse_nextToken,
     listDeadLetterSourceQueuesResponse_httpStatus,
@@ -79,9 +79,9 @@ module Amazonka.SQS.Lens
     listQueueTagsResponse_httpStatus,
 
     -- ** ListQueues
+    listQueues_maxResults,
     listQueues_nextToken,
     listQueues_queueNamePrefix,
-    listQueues_maxResults,
     listQueuesResponse_nextToken,
     listQueuesResponse_queueUrls,
     listQueuesResponse_httpStatus,
@@ -90,11 +90,11 @@ module Amazonka.SQS.Lens
     purgeQueue_queueUrl,
 
     -- ** ReceiveMessage
-    receiveMessage_visibilityTimeout,
     receiveMessage_attributeNames,
-    receiveMessage_messageAttributeNames,
     receiveMessage_maxNumberOfMessages,
+    receiveMessage_messageAttributeNames,
     receiveMessage_receiveRequestAttemptId,
+    receiveMessage_visibilityTimeout,
     receiveMessage_waitTimeSeconds,
     receiveMessage_queueUrl,
     receiveMessageResponse_messages,
@@ -105,18 +105,18 @@ module Amazonka.SQS.Lens
     removePermission_label,
 
     -- ** SendMessage
-    sendMessage_messageDeduplicationId,
-    sendMessage_messageGroupId,
     sendMessage_delaySeconds,
     sendMessage_messageAttributes,
+    sendMessage_messageDeduplicationId,
+    sendMessage_messageGroupId,
     sendMessage_messageSystemAttributes,
     sendMessage_queueUrl,
     sendMessage_messageBody,
-    sendMessageResponse_messageId,
-    sendMessageResponse_mD5OfMessageSystemAttributes,
-    sendMessageResponse_sequenceNumber,
-    sendMessageResponse_mD5OfMessageBody,
     sendMessageResponse_mD5OfMessageAttributes,
+    sendMessageResponse_mD5OfMessageBody,
+    sendMessageResponse_mD5OfMessageSystemAttributes,
+    sendMessageResponse_messageId,
+    sendMessageResponse_sequenceNumber,
     sendMessageResponse_httpStatus,
 
     -- ** SendMessageBatch
@@ -162,41 +162,41 @@ module Amazonka.SQS.Lens
     deleteMessageBatchResultEntry_id,
 
     -- ** Message
-    message_receiptHandle,
-    message_body,
-    message_messageId,
-    message_messageAttributes,
     message_attributes,
+    message_body,
     message_mD5OfBody,
     message_mD5OfMessageAttributes,
+    message_messageAttributes,
+    message_messageId,
+    message_receiptHandle,
 
     -- ** MessageAttributeValue
-    messageAttributeValue_stringListValues,
-    messageAttributeValue_binaryValue,
     messageAttributeValue_binaryListValues,
+    messageAttributeValue_binaryValue,
+    messageAttributeValue_stringListValues,
     messageAttributeValue_stringValue,
     messageAttributeValue_dataType,
 
     -- ** MessageSystemAttributeValue
-    messageSystemAttributeValue_stringListValues,
-    messageSystemAttributeValue_binaryValue,
     messageSystemAttributeValue_binaryListValues,
+    messageSystemAttributeValue_binaryValue,
+    messageSystemAttributeValue_stringListValues,
     messageSystemAttributeValue_stringValue,
     messageSystemAttributeValue_dataType,
 
     -- ** SendMessageBatchRequestEntry
-    sendMessageBatchRequestEntry_messageDeduplicationId,
-    sendMessageBatchRequestEntry_messageGroupId,
     sendMessageBatchRequestEntry_delaySeconds,
     sendMessageBatchRequestEntry_messageAttributes,
+    sendMessageBatchRequestEntry_messageDeduplicationId,
+    sendMessageBatchRequestEntry_messageGroupId,
     sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_id,
     sendMessageBatchRequestEntry_messageBody,
 
     -- ** SendMessageBatchResultEntry
+    sendMessageBatchResultEntry_mD5OfMessageAttributes,
     sendMessageBatchResultEntry_mD5OfMessageSystemAttributes,
     sendMessageBatchResultEntry_sequenceNumber,
-    sendMessageBatchResultEntry_mD5OfMessageAttributes,
     sendMessageBatchResultEntry_id,
     sendMessageBatchResultEntry_messageId,
     sendMessageBatchResultEntry_mD5OfMessageBody,

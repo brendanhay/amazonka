@@ -29,7 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-  { -- | An MD5 digest of the non-URL-encoded message system attribute string.
+  { -- | An MD5 digest of the non-URL-encoded message attribute string. You can
+    -- use this attribute to verify that Amazon SQS received the message
+    -- correctly. Amazon SQS URL-decodes the message before creating the MD5
+    -- digest. For information about MD5, see
+    -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
+    mD5OfMessageAttributes :: Prelude.Maybe Prelude.Text,
+    -- | An MD5 digest of the non-URL-encoded message system attribute string.
     -- You can use this attribute to verify that Amazon SQS received the
     -- message correctly. Amazon SQS URL-decodes the message before creating
     -- the MD5 digest. For information about MD5, see
@@ -43,12 +49,6 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
     -- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@
     -- continues to increase for a particular @MessageGroupId@.
     sequenceNumber :: Prelude.Maybe Prelude.Text,
-    -- | An MD5 digest of the non-URL-encoded message attribute string. You can
-    -- use this attribute to verify that Amazon SQS received the message
-    -- correctly. Amazon SQS URL-decodes the message before creating the MD5
-    -- digest. For information about MD5, see
-    -- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-    mD5OfMessageAttributes :: Prelude.Maybe Prelude.Text,
     -- | An identifier for the message in this batch.
     id :: Prelude.Text,
     -- | An identifier for the message.
@@ -70,6 +70,12 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mD5OfMessageAttributes', 'sendMessageBatchResultEntry_mD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can
+-- use this attribute to verify that Amazon SQS received the message
+-- correctly. Amazon SQS URL-decodes the message before creating the MD5
+-- digest. For information about MD5, see
+-- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
+--
 -- 'mD5OfMessageSystemAttributes', 'sendMessageBatchResultEntry_mD5OfMessageSystemAttributes' - An MD5 digest of the non-URL-encoded message system attribute string.
 -- You can use this attribute to verify that Amazon SQS received the
 -- message correctly. Amazon SQS URL-decodes the message before creating
@@ -83,12 +89,6 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 --
 -- The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@
 -- continues to increase for a particular @MessageGroupId@.
---
--- 'mD5OfMessageAttributes', 'sendMessageBatchResultEntry_mD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can
--- use this attribute to verify that Amazon SQS received the message
--- correctly. Amazon SQS URL-decodes the message before creating the MD5
--- digest. For information about MD5, see
--- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
 --
 -- 'id', 'sendMessageBatchResultEntry_id' - An identifier for the message in this batch.
 --
@@ -112,14 +112,22 @@ newSendMessageBatchResultEntry
   pMessageId_
   pMD5OfMessageBody_ =
     SendMessageBatchResultEntry'
-      { mD5OfMessageSystemAttributes =
+      { mD5OfMessageAttributes =
           Prelude.Nothing,
+        mD5OfMessageSystemAttributes = Prelude.Nothing,
         sequenceNumber = Prelude.Nothing,
-        mD5OfMessageAttributes = Prelude.Nothing,
         id = pId_,
         messageId = pMessageId_,
         mD5OfMessageBody = pMD5OfMessageBody_
       }
+
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can
+-- use this attribute to verify that Amazon SQS received the message
+-- correctly. Amazon SQS URL-decodes the message before creating the MD5
+-- digest. For information about MD5, see
+-- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
+sendMessageBatchResultEntry_mD5OfMessageAttributes :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
+sendMessageBatchResultEntry_mD5OfMessageAttributes = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageAttributes} -> mD5OfMessageAttributes) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageAttributes = a} :: SendMessageBatchResultEntry)
 
 -- | An MD5 digest of the non-URL-encoded message system attribute string.
 -- You can use this attribute to verify that Amazon SQS received the
@@ -138,14 +146,6 @@ sendMessageBatchResultEntry_mD5OfMessageSystemAttributes = Lens.lens (\SendMessa
 -- continues to increase for a particular @MessageGroupId@.
 sendMessageBatchResultEntry_sequenceNumber :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchResultEntry_sequenceNumber = Lens.lens (\SendMessageBatchResultEntry' {sequenceNumber} -> sequenceNumber) (\s@SendMessageBatchResultEntry' {} a -> s {sequenceNumber = a} :: SendMessageBatchResultEntry)
-
--- | An MD5 digest of the non-URL-encoded message attribute string. You can
--- use this attribute to verify that Amazon SQS received the message
--- correctly. Amazon SQS URL-decodes the message before creating the MD5
--- digest. For information about MD5, see
--- <https://www.ietf.org/rfc/rfc1321.txt RFC1321>.
-sendMessageBatchResultEntry_mD5OfMessageAttributes :: Lens.Lens' SendMessageBatchResultEntry (Prelude.Maybe Prelude.Text)
-sendMessageBatchResultEntry_mD5OfMessageAttributes = Lens.lens (\SendMessageBatchResultEntry' {mD5OfMessageAttributes} -> mD5OfMessageAttributes) (\s@SendMessageBatchResultEntry' {} a -> s {mD5OfMessageAttributes = a} :: SendMessageBatchResultEntry)
 
 -- | An identifier for the message in this batch.
 sendMessageBatchResultEntry_id :: Lens.Lens' SendMessageBatchResultEntry Prelude.Text
@@ -166,28 +166,27 @@ sendMessageBatchResultEntry_mD5OfMessageBody = Lens.lens (\SendMessageBatchResul
 instance Data.FromXML SendMessageBatchResultEntry where
   parseXML x =
     SendMessageBatchResultEntry'
-      Prelude.<$> (x Data..@? "MD5OfMessageSystemAttributes")
+      Prelude.<$> (x Data..@? "MD5OfMessageAttributes")
+      Prelude.<*> (x Data..@? "MD5OfMessageSystemAttributes")
       Prelude.<*> (x Data..@? "SequenceNumber")
-      Prelude.<*> (x Data..@? "MD5OfMessageAttributes")
       Prelude.<*> (x Data..@ "Id")
       Prelude.<*> (x Data..@ "MessageId")
       Prelude.<*> (x Data..@ "MD5OfMessageBody")
 
 instance Prelude.Hashable SendMessageBatchResultEntry where
   hashWithSalt _salt SendMessageBatchResultEntry' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` mD5OfMessageAttributes
       `Prelude.hashWithSalt` mD5OfMessageSystemAttributes
       `Prelude.hashWithSalt` sequenceNumber
-      `Prelude.hashWithSalt` mD5OfMessageAttributes
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` mD5OfMessageBody
 
 instance Prelude.NFData SendMessageBatchResultEntry where
   rnf SendMessageBatchResultEntry' {..} =
-    Prelude.rnf mD5OfMessageSystemAttributes
+    Prelude.rnf mD5OfMessageAttributes
+      `Prelude.seq` Prelude.rnf mD5OfMessageSystemAttributes
       `Prelude.seq` Prelude.rnf sequenceNumber
-      `Prelude.seq` Prelude.rnf mD5OfMessageAttributes
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf mD5OfMessageBody

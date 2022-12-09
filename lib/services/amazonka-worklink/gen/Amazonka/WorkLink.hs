@@ -27,23 +27,23 @@ module Amazonka.WorkLink
     -- * Errors
     -- $errors
 
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

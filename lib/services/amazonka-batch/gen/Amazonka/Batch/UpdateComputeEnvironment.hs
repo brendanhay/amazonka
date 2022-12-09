@@ -27,11 +27,11 @@ module Amazonka.Batch.UpdateComputeEnvironment
     newUpdateComputeEnvironment,
 
     -- * Request Lenses
-    updateComputeEnvironment_state,
-    updateComputeEnvironment_serviceRole,
-    updateComputeEnvironment_updatePolicy,
     updateComputeEnvironment_computeResources,
+    updateComputeEnvironment_serviceRole,
+    updateComputeEnvironment_state,
     updateComputeEnvironment_unmanagedvCpus,
+    updateComputeEnvironment_updatePolicy,
     updateComputeEnvironment_computeEnvironment,
 
     -- * Destructuring the Response
@@ -57,21 +57,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateComputeEnvironment' smart constructor.
 data UpdateComputeEnvironment = UpdateComputeEnvironment'
-  { -- | The state of the compute environment. Compute environments in the
-    -- @ENABLED@ state can accept jobs from a queue and scale in or out
-    -- automatically based on the workload demand of its associated queues.
-    --
-    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
-    -- jobs from an associated job queue on the compute resources within the
-    -- environment. If the compute environment is managed, then it can scale
-    -- its instances out or in automatically, based on the job queue demand.
-    --
-    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
-    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
-    -- state continue to progress normally. Managed compute environments in the
-    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
-    -- value after instances become idle.
-    state :: Prelude.Maybe CEState,
+  { -- | Details of the compute resources managed by the compute environment.
+    -- Required for a managed compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- in the /Batch User Guide/.
+    computeResources :: Prelude.Maybe ComputeResourceUpdate,
     -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
     -- make calls to other Amazon Web Services services on your behalf. For
     -- more information, see
@@ -98,16 +88,21 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the updated infrastructure update policy for the compute
-    -- environment. For more information about infrastructure updates, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
-    -- in the /Batch User Guide/.
-    updatePolicy :: Prelude.Maybe UpdatePolicy,
-    -- | Details of the compute resources managed by the compute environment.
-    -- Required for a managed compute environment. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /Batch User Guide/.
-    computeResources :: Prelude.Maybe ComputeResourceUpdate,
+    -- | The state of the compute environment. Compute environments in the
+    -- @ENABLED@ state can accept jobs from a queue and scale in or out
+    -- automatically based on the workload demand of its associated queues.
+    --
+    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+    -- jobs from an associated job queue on the compute resources within the
+    -- environment. If the compute environment is managed, then it can scale
+    -- its instances out or in automatically, based on the job queue demand.
+    --
+    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+    -- state continue to progress normally. Managed compute environments in the
+    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+    -- value after instances become idle.
+    state :: Prelude.Maybe CEState,
     -- | The maximum number of vCPUs expected to be used for an unmanaged compute
     -- environment. Don\'t specify this parameter for a managed compute
     -- environment. This parameter is only used for fair share scheduling to
@@ -115,6 +110,11 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- isn\'t provided for a fair share job queue, no vCPU capacity is
     -- reserved.
     unmanagedvCpus :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the updated infrastructure update policy for the compute
+    -- environment. For more information about infrastructure updates, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+    -- in the /Batch User Guide/.
+    updatePolicy :: Prelude.Maybe UpdatePolicy,
     -- | The name or full Amazon Resource Name (ARN) of the compute environment
     -- to update.
     computeEnvironment :: Prelude.Text
@@ -129,20 +129,10 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'updateComputeEnvironment_state' - The state of the compute environment. Compute environments in the
--- @ENABLED@ state can accept jobs from a queue and scale in or out
--- automatically based on the workload demand of its associated queues.
---
--- If the state is @ENABLED@, then the Batch scheduler can attempt to place
--- jobs from an associated job queue on the compute resources within the
--- environment. If the compute environment is managed, then it can scale
--- its instances out or in automatically, based on the job queue demand.
---
--- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
--- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
--- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- 'computeResources', 'updateComputeEnvironment_computeResources' - Details of the compute resources managed by the compute environment.
+-- Required for a managed compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
 --
 -- 'serviceRole', 'updateComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -170,40 +160,7 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- specify the full ARN of your service role when you create compute
 -- environments.
 --
--- 'updatePolicy', 'updateComputeEnvironment_updatePolicy' - Specifies the updated infrastructure update policy for the compute
--- environment. For more information about infrastructure updates, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
--- in the /Batch User Guide/.
---
--- 'computeResources', 'updateComputeEnvironment_computeResources' - Details of the compute resources managed by the compute environment.
--- Required for a managed compute environment. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
---
--- 'unmanagedvCpus', 'updateComputeEnvironment_unmanagedvCpus' - The maximum number of vCPUs expected to be used for an unmanaged compute
--- environment. Don\'t specify this parameter for a managed compute
--- environment. This parameter is only used for fair share scheduling to
--- reserve vCPU capacity for new share identifiers. If this parameter
--- isn\'t provided for a fair share job queue, no vCPU capacity is
--- reserved.
---
--- 'computeEnvironment', 'updateComputeEnvironment_computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment
--- to update.
-newUpdateComputeEnvironment ::
-  -- | 'computeEnvironment'
-  Prelude.Text ->
-  UpdateComputeEnvironment
-newUpdateComputeEnvironment pComputeEnvironment_ =
-  UpdateComputeEnvironment'
-    { state = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      updatePolicy = Prelude.Nothing,
-      computeResources = Prelude.Nothing,
-      unmanagedvCpus = Prelude.Nothing,
-      computeEnvironment = pComputeEnvironment_
-    }
-
--- | The state of the compute environment. Compute environments in the
+-- 'state', 'updateComputeEnvironment_state' - The state of the compute environment. Compute environments in the
 -- @ENABLED@ state can accept jobs from a queue and scale in or out
 -- automatically based on the workload demand of its associated queues.
 --
@@ -217,8 +174,42 @@ newUpdateComputeEnvironment pComputeEnvironment_ =
 -- state continue to progress normally. Managed compute environments in the
 -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
 -- value after instances become idle.
-updateComputeEnvironment_state :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe CEState)
-updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -> state) (\s@UpdateComputeEnvironment' {} a -> s {state = a} :: UpdateComputeEnvironment)
+--
+-- 'unmanagedvCpus', 'updateComputeEnvironment_unmanagedvCpus' - The maximum number of vCPUs expected to be used for an unmanaged compute
+-- environment. Don\'t specify this parameter for a managed compute
+-- environment. This parameter is only used for fair share scheduling to
+-- reserve vCPU capacity for new share identifiers. If this parameter
+-- isn\'t provided for a fair share job queue, no vCPU capacity is
+-- reserved.
+--
+-- 'updatePolicy', 'updateComputeEnvironment_updatePolicy' - Specifies the updated infrastructure update policy for the compute
+-- environment. For more information about infrastructure updates, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/.
+--
+-- 'computeEnvironment', 'updateComputeEnvironment_computeEnvironment' - The name or full Amazon Resource Name (ARN) of the compute environment
+-- to update.
+newUpdateComputeEnvironment ::
+  -- | 'computeEnvironment'
+  Prelude.Text ->
+  UpdateComputeEnvironment
+newUpdateComputeEnvironment pComputeEnvironment_ =
+  UpdateComputeEnvironment'
+    { computeResources =
+        Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
+      state = Prelude.Nothing,
+      unmanagedvCpus = Prelude.Nothing,
+      updatePolicy = Prelude.Nothing,
+      computeEnvironment = pComputeEnvironment_
+    }
+
+-- | Details of the compute resources managed by the compute environment.
+-- Required for a managed compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe ComputeResourceUpdate)
+updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -248,19 +239,22 @@ updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -
 updateComputeEnvironment_serviceRole :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe Prelude.Text)
 updateComputeEnvironment_serviceRole = Lens.lens (\UpdateComputeEnvironment' {serviceRole} -> serviceRole) (\s@UpdateComputeEnvironment' {} a -> s {serviceRole = a} :: UpdateComputeEnvironment)
 
--- | Specifies the updated infrastructure update policy for the compute
--- environment. For more information about infrastructure updates, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
--- in the /Batch User Guide/.
-updateComputeEnvironment_updatePolicy :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe UpdatePolicy)
-updateComputeEnvironment_updatePolicy = Lens.lens (\UpdateComputeEnvironment' {updatePolicy} -> updatePolicy) (\s@UpdateComputeEnvironment' {} a -> s {updatePolicy = a} :: UpdateComputeEnvironment)
-
--- | Details of the compute resources managed by the compute environment.
--- Required for a managed compute environment. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
-updateComputeEnvironment_computeResources :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe ComputeResourceUpdate)
-updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment' {computeResources} -> computeResources) (\s@UpdateComputeEnvironment' {} a -> s {computeResources = a} :: UpdateComputeEnvironment)
+-- | The state of the compute environment. Compute environments in the
+-- @ENABLED@ state can accept jobs from a queue and scale in or out
+-- automatically based on the workload demand of its associated queues.
+--
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
+--
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
+updateComputeEnvironment_state :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe CEState)
+updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -> state) (\s@UpdateComputeEnvironment' {} a -> s {state = a} :: UpdateComputeEnvironment)
 
 -- | The maximum number of vCPUs expected to be used for an unmanaged compute
 -- environment. Don\'t specify this parameter for a managed compute
@@ -270,6 +264,13 @@ updateComputeEnvironment_computeResources = Lens.lens (\UpdateComputeEnvironment
 -- reserved.
 updateComputeEnvironment_unmanagedvCpus :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe Prelude.Int)
 updateComputeEnvironment_unmanagedvCpus = Lens.lens (\UpdateComputeEnvironment' {unmanagedvCpus} -> unmanagedvCpus) (\s@UpdateComputeEnvironment' {} a -> s {unmanagedvCpus = a} :: UpdateComputeEnvironment)
+
+-- | Specifies the updated infrastructure update policy for the compute
+-- environment. For more information about infrastructure updates, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html Updating compute environments>
+-- in the /Batch User Guide/.
+updateComputeEnvironment_updatePolicy :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe UpdatePolicy)
+updateComputeEnvironment_updatePolicy = Lens.lens (\UpdateComputeEnvironment' {updatePolicy} -> updatePolicy) (\s@UpdateComputeEnvironment' {} a -> s {updatePolicy = a} :: UpdateComputeEnvironment)
 
 -- | The name or full Amazon Resource Name (ARN) of the compute environment
 -- to update.
@@ -293,20 +294,20 @@ instance Core.AWSRequest UpdateComputeEnvironment where
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` serviceRole
-      `Prelude.hashWithSalt` updatePolicy
-      `Prelude.hashWithSalt` computeResources
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` unmanagedvCpus
+      `Prelude.hashWithSalt` updatePolicy
       `Prelude.hashWithSalt` computeEnvironment
 
 instance Prelude.NFData UpdateComputeEnvironment where
   rnf UpdateComputeEnvironment' {..} =
-    Prelude.rnf state
+    Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf updatePolicy
-      `Prelude.seq` Prelude.rnf computeResources
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf unmanagedvCpus
+      `Prelude.seq` Prelude.rnf updatePolicy
       `Prelude.seq` Prelude.rnf computeEnvironment
 
 instance Data.ToHeaders UpdateComputeEnvironment where
@@ -324,13 +325,13 @@ instance Data.ToJSON UpdateComputeEnvironment where
   toJSON UpdateComputeEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("state" Data..=) Prelude.<$> state,
-            ("serviceRole" Data..=) Prelude.<$> serviceRole,
-            ("updatePolicy" Data..=) Prelude.<$> updatePolicy,
-            ("computeResources" Data..=)
+          [ ("computeResources" Data..=)
               Prelude.<$> computeResources,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("state" Data..=) Prelude.<$> state,
             ("unmanagedvCpus" Data..=)
               Prelude.<$> unmanagedvCpus,
+            ("updatePolicy" Data..=) Prelude.<$> updatePolicy,
             Prelude.Just
               ("computeEnvironment" Data..= computeEnvironment)
           ]

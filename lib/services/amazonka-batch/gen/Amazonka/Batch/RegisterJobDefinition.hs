@@ -27,16 +27,16 @@ module Amazonka.Batch.RegisterJobDefinition
     newRegisterJobDefinition,
 
     -- * Request Lenses
-    registerJobDefinition_tags,
-    registerJobDefinition_timeout,
     registerJobDefinition_containerProperties,
-    registerJobDefinition_retryStrategy,
+    registerJobDefinition_eksProperties,
+    registerJobDefinition_nodeProperties,
+    registerJobDefinition_parameters,
     registerJobDefinition_platformCapabilities,
     registerJobDefinition_propagateTags,
-    registerJobDefinition_nodeProperties,
+    registerJobDefinition_retryStrategy,
     registerJobDefinition_schedulingPriority,
-    registerJobDefinition_eksProperties,
-    registerJobDefinition_parameters,
+    registerJobDefinition_tags,
+    registerJobDefinition_timeout,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
 
@@ -64,22 +64,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRegisterJobDefinition' smart constructor.
 data RegisterJobDefinition = RegisterJobDefinition'
-  { -- | The tags that you apply to the job definition to help you categorize and
-    -- organize your resources. Each tag consists of a key and an optional
-    -- value. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
-    -- in /Batch User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The timeout configuration for jobs that are submitted with this job
-    -- definition, after which Batch terminates your jobs if they have not
-    -- finished. If a job is terminated due to a timeout, it isn\'t retried.
-    -- The minimum value for the timeout is 60 seconds. Any timeout
-    -- configuration that\'s specified during a SubmitJob operation overrides
-    -- the timeout configuration defined here. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
-    -- in the /Batch User Guide/.
-    timeout :: Prelude.Maybe JobTimeout,
-    -- | An object with various properties specific to Amazon ECS based
+  { -- | An object with various properties specific to Amazon ECS based
     -- single-node container-based jobs. If the job definition\'s @type@
     -- parameter is @container@, then you must specify either
     -- @containerProperties@ or @nodeProperties@. This must not be specified
@@ -88,11 +73,28 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use only @containerProperties@.
     containerProperties :: Prelude.Maybe ContainerProperties,
-    -- | The retry strategy to use for failed jobs that are submitted with this
-    -- job definition. Any retry strategy that\'s specified during a SubmitJob
-    -- operation overrides the retry strategy defined here. If a job is
-    -- terminated due to a timeout, it isn\'t retried.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | An object with various properties that are specific to Amazon EKS based
+    -- jobs. This must not be specified for Amazon ECS based job definitions.
+    eksProperties :: Prelude.Maybe EksProperties,
+    -- | An object with various properties specific to multi-node parallel jobs.
+    -- If you specify node properties for a job, it becomes a multi-node
+    -- parallel job. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
+    -- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+    -- @container@, then you must specify either @containerProperties@ or
+    -- @nodeProperties@.
+    --
+    -- If the job runs on Fargate resources, then you must not specify
+    -- @nodeProperties@; use @containerProperties@ instead.
+    --
+    -- If the job runs on Amazon EKS resources, then you must not specify
+    -- @nodeProperties@.
+    nodeProperties :: Prelude.Maybe NodeProperties,
+    -- | Default parameter substitution placeholders to set in the job
+    -- definition. Parameters are specified as a key-value pair mapping.
+    -- Parameters in a @SubmitJob@ request override any corresponding parameter
+    -- defaults from the job definition.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The platform capabilities required by the job definition. If no value is
     -- specified, it defaults to @EC2@. To run the job on Fargate resources,
     -- specify @FARGATE@.
@@ -110,20 +112,11 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- If the job runs on Amazon EKS resources, then you must not specify
     -- @propagateTags@.
     propagateTags :: Prelude.Maybe Prelude.Bool,
-    -- | An object with various properties specific to multi-node parallel jobs.
-    -- If you specify node properties for a job, it becomes a multi-node
-    -- parallel job. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
-    -- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
-    -- @container@, then you must specify either @containerProperties@ or
-    -- @nodeProperties@.
-    --
-    -- If the job runs on Fargate resources, then you must not specify
-    -- @nodeProperties@; use @containerProperties@ instead.
-    --
-    -- If the job runs on Amazon EKS resources, then you must not specify
-    -- @nodeProperties@.
-    nodeProperties :: Prelude.Maybe NodeProperties,
+    -- | The retry strategy to use for failed jobs that are submitted with this
+    -- job definition. Any retry strategy that\'s specified during a SubmitJob
+    -- operation overrides the retry strategy defined here. If a job is
+    -- terminated due to a timeout, it isn\'t retried.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
     -- | The scheduling priority for jobs that are submitted with this job
     -- definition. This only affects jobs in job queues with a fair share
     -- policy. Jobs with a higher scheduling priority are scheduled before jobs
@@ -132,14 +125,21 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- The minimum supported value is 0 and the maximum supported value is
     -- 9999.
     schedulingPriority :: Prelude.Maybe Prelude.Int,
-    -- | An object with various properties that are specific to Amazon EKS based
-    -- jobs. This must not be specified for Amazon ECS based job definitions.
-    eksProperties :: Prelude.Maybe EksProperties,
-    -- | Default parameter substitution placeholders to set in the job
-    -- definition. Parameters are specified as a key-value pair mapping.
-    -- Parameters in a @SubmitJob@ request override any corresponding parameter
-    -- defaults from the job definition.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The tags that you apply to the job definition to help you categorize and
+    -- organize your resources. Each tag consists of a key and an optional
+    -- value. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+    -- in /Batch User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The timeout configuration for jobs that are submitted with this job
+    -- definition, after which Batch terminates your jobs if they have not
+    -- finished. If a job is terminated due to a timeout, it isn\'t retried.
+    -- The minimum value for the timeout is 60 seconds. Any timeout
+    -- configuration that\'s specified during a SubmitJob operation overrides
+    -- the timeout configuration defined here. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
+    -- in the /Batch User Guide/.
+    timeout :: Prelude.Maybe JobTimeout,
     -- | The name of the job definition to register. It can be up to 128 letters
     -- long. It can contain uppercase and lowercase letters, numbers, hyphens
     -- (-), and underscores (_).
@@ -163,21 +163,6 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'registerJobDefinition_tags' - The tags that you apply to the job definition to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
--- in /Batch User Guide/.
---
--- 'timeout', 'registerJobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
--- definition, after which Batch terminates your jobs if they have not
--- finished. If a job is terminated due to a timeout, it isn\'t retried.
--- The minimum value for the timeout is 60 seconds. Any timeout
--- configuration that\'s specified during a SubmitJob operation overrides
--- the timeout configuration defined here. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
--- in the /Batch User Guide/.
---
 -- 'containerProperties', 'registerJobDefinition_containerProperties' - An object with various properties specific to Amazon ECS based
 -- single-node container-based jobs. If the job definition\'s @type@
 -- parameter is @container@, then you must specify either
@@ -187,10 +172,27 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use only @containerProperties@.
 --
--- 'retryStrategy', 'registerJobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
--- job definition. Any retry strategy that\'s specified during a SubmitJob
--- operation overrides the retry strategy defined here. If a job is
--- terminated due to a timeout, it isn\'t retried.
+-- 'eksProperties', 'registerJobDefinition_eksProperties' - An object with various properties that are specific to Amazon EKS based
+-- jobs. This must not be specified for Amazon ECS based job definitions.
+--
+-- 'nodeProperties', 'registerJobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
+-- If you specify node properties for a job, it becomes a multi-node
+-- parallel job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
+-- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+-- @container@, then you must specify either @containerProperties@ or
+-- @nodeProperties@.
+--
+-- If the job runs on Fargate resources, then you must not specify
+-- @nodeProperties@; use @containerProperties@ instead.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @nodeProperties@.
+--
+-- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
+-- definition. Parameters are specified as a key-value pair mapping.
+-- Parameters in a @SubmitJob@ request override any corresponding parameter
+-- defaults from the job definition.
 --
 -- 'platformCapabilities', 'registerJobDefinition_platformCapabilities' - The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. To run the job on Fargate resources,
@@ -209,19 +211,10 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Amazon EKS resources, then you must not specify
 -- @propagateTags@.
 --
--- 'nodeProperties', 'registerJobDefinition_nodeProperties' - An object with various properties specific to multi-node parallel jobs.
--- If you specify node properties for a job, it becomes a multi-node
--- parallel job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
--- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
--- @container@, then you must specify either @containerProperties@ or
--- @nodeProperties@.
---
--- If the job runs on Fargate resources, then you must not specify
--- @nodeProperties@; use @containerProperties@ instead.
---
--- If the job runs on Amazon EKS resources, then you must not specify
--- @nodeProperties@.
+-- 'retryStrategy', 'registerJobDefinition_retryStrategy' - The retry strategy to use for failed jobs that are submitted with this
+-- job definition. Any retry strategy that\'s specified during a SubmitJob
+-- operation overrides the retry strategy defined here. If a job is
+-- terminated due to a timeout, it isn\'t retried.
 --
 -- 'schedulingPriority', 'registerJobDefinition_schedulingPriority' - The scheduling priority for jobs that are submitted with this job
 -- definition. This only affects jobs in job queues with a fair share
@@ -231,13 +224,20 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- The minimum supported value is 0 and the maximum supported value is
 -- 9999.
 --
--- 'eksProperties', 'registerJobDefinition_eksProperties' - An object with various properties that are specific to Amazon EKS based
--- jobs. This must not be specified for Amazon ECS based job definitions.
+-- 'tags', 'registerJobDefinition_tags' - The tags that you apply to the job definition to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
 --
--- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
--- definition. Parameters are specified as a key-value pair mapping.
--- Parameters in a @SubmitJob@ request override any corresponding parameter
--- defaults from the job definition.
+-- 'timeout', 'registerJobDefinition_timeout' - The timeout configuration for jobs that are submitted with this job
+-- definition, after which Batch terminates your jobs if they have not
+-- finished. If a job is terminated due to a timeout, it isn\'t retried.
+-- The minimum value for the timeout is 60 seconds. Any timeout
+-- configuration that\'s specified during a SubmitJob operation overrides
+-- the timeout configuration defined here. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
+-- in the /Batch User Guide/.
 --
 -- 'jobDefinitionName', 'registerJobDefinition_jobDefinitionName' - The name of the job definition to register. It can be up to 128 letters
 -- long. It can contain uppercase and lowercase letters, numbers, hyphens
@@ -258,38 +258,20 @@ newRegisterJobDefinition ::
   RegisterJobDefinition
 newRegisterJobDefinition pJobDefinitionName_ pType_ =
   RegisterJobDefinition'
-    { tags = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      containerProperties = Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
+    { containerProperties =
+        Prelude.Nothing,
+      eksProperties = Prelude.Nothing,
+      nodeProperties = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       platformCapabilities = Prelude.Nothing,
       propagateTags = Prelude.Nothing,
-      nodeProperties = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
       schedulingPriority = Prelude.Nothing,
-      eksProperties = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      timeout = Prelude.Nothing,
       jobDefinitionName = pJobDefinitionName_,
       type' = pType_
     }
-
--- | The tags that you apply to the job definition to help you categorize and
--- organize your resources. Each tag consists of a key and an optional
--- value. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
--- in /Batch User Guide/.
-registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | The timeout configuration for jobs that are submitted with this job
--- definition, after which Batch terminates your jobs if they have not
--- finished. If a job is terminated due to a timeout, it isn\'t retried.
--- The minimum value for the timeout is 60 seconds. Any timeout
--- configuration that\'s specified during a SubmitJob operation overrides
--- the timeout configuration defined here. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
--- in the /Batch User Guide/.
-registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe JobTimeout)
-registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> timeout) (\s@RegisterJobDefinition' {} a -> s {timeout = a} :: RegisterJobDefinition)
 
 -- | An object with various properties specific to Amazon ECS based
 -- single-node container-based jobs. If the job definition\'s @type@
@@ -302,12 +284,33 @@ registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> 
 registerJobDefinition_containerProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe ContainerProperties)
 registerJobDefinition_containerProperties = Lens.lens (\RegisterJobDefinition' {containerProperties} -> containerProperties) (\s@RegisterJobDefinition' {} a -> s {containerProperties = a} :: RegisterJobDefinition)
 
--- | The retry strategy to use for failed jobs that are submitted with this
--- job definition. Any retry strategy that\'s specified during a SubmitJob
--- operation overrides the retry strategy defined here. If a job is
--- terminated due to a timeout, it isn\'t retried.
-registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe RetryStrategy)
-registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryStrategy} -> retryStrategy) (\s@RegisterJobDefinition' {} a -> s {retryStrategy = a} :: RegisterJobDefinition)
+-- | An object with various properties that are specific to Amazon EKS based
+-- jobs. This must not be specified for Amazon ECS based job definitions.
+registerJobDefinition_eksProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe EksProperties)
+registerJobDefinition_eksProperties = Lens.lens (\RegisterJobDefinition' {eksProperties} -> eksProperties) (\s@RegisterJobDefinition' {} a -> s {eksProperties = a} :: RegisterJobDefinition)
+
+-- | An object with various properties specific to multi-node parallel jobs.
+-- If you specify node properties for a job, it becomes a multi-node
+-- parallel job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
+-- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
+-- @container@, then you must specify either @containerProperties@ or
+-- @nodeProperties@.
+--
+-- If the job runs on Fargate resources, then you must not specify
+-- @nodeProperties@; use @containerProperties@ instead.
+--
+-- If the job runs on Amazon EKS resources, then you must not specify
+-- @nodeProperties@.
+registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
+registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
+
+-- | Default parameter substitution placeholders to set in the job
+-- definition. Parameters are specified as a key-value pair mapping.
+-- Parameters in a @SubmitJob@ request override any corresponding parameter
+-- defaults from the job definition.
+registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. To run the job on Fargate resources,
@@ -330,21 +333,12 @@ registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' 
 registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Bool)
 registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propagateTags} -> propagateTags) (\s@RegisterJobDefinition' {} a -> s {propagateTags = a} :: RegisterJobDefinition)
 
--- | An object with various properties specific to multi-node parallel jobs.
--- If you specify node properties for a job, it becomes a multi-node
--- parallel job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html Multi-node Parallel Jobs>
--- in the /Batch User Guide/. If the job definition\'s @type@ parameter is
--- @container@, then you must specify either @containerProperties@ or
--- @nodeProperties@.
---
--- If the job runs on Fargate resources, then you must not specify
--- @nodeProperties@; use @containerProperties@ instead.
---
--- If the job runs on Amazon EKS resources, then you must not specify
--- @nodeProperties@.
-registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
-registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
+-- | The retry strategy to use for failed jobs that are submitted with this
+-- job definition. Any retry strategy that\'s specified during a SubmitJob
+-- operation overrides the retry strategy defined here. If a job is
+-- terminated due to a timeout, it isn\'t retried.
+registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe RetryStrategy)
+registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryStrategy} -> retryStrategy) (\s@RegisterJobDefinition' {} a -> s {retryStrategy = a} :: RegisterJobDefinition)
 
 -- | The scheduling priority for jobs that are submitted with this job
 -- definition. This only affects jobs in job queues with a fair share
@@ -356,17 +350,24 @@ registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeP
 registerJobDefinition_schedulingPriority :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Int)
 registerJobDefinition_schedulingPriority = Lens.lens (\RegisterJobDefinition' {schedulingPriority} -> schedulingPriority) (\s@RegisterJobDefinition' {} a -> s {schedulingPriority = a} :: RegisterJobDefinition)
 
--- | An object with various properties that are specific to Amazon EKS based
--- jobs. This must not be specified for Amazon ECS based job definitions.
-registerJobDefinition_eksProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe EksProperties)
-registerJobDefinition_eksProperties = Lens.lens (\RegisterJobDefinition' {eksProperties} -> eksProperties) (\s@RegisterJobDefinition' {} a -> s {eksProperties = a} :: RegisterJobDefinition)
+-- | The tags that you apply to the job definition to help you categorize and
+-- organize your resources. Each tag consists of a key and an optional
+-- value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging Amazon Web Services Resources>
+-- in /Batch User Guide/.
+registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | Default parameter substitution placeholders to set in the job
--- definition. Parameters are specified as a key-value pair mapping.
--- Parameters in a @SubmitJob@ request override any corresponding parameter
--- defaults from the job definition.
-registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
+-- | The timeout configuration for jobs that are submitted with this job
+-- definition, after which Batch terminates your jobs if they have not
+-- finished. If a job is terminated due to a timeout, it isn\'t retried.
+-- The minimum value for the timeout is 60 seconds. Any timeout
+-- configuration that\'s specified during a SubmitJob operation overrides
+-- the timeout configuration defined here. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
+-- in the /Batch User Guide/.
+registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe JobTimeout)
+registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> timeout) (\s@RegisterJobDefinition' {} a -> s {timeout = a} :: RegisterJobDefinition)
 
 -- | The name of the job definition to register. It can be up to 128 letters
 -- long. It can contain uppercase and lowercase letters, numbers, hyphens
@@ -402,31 +403,31 @@ instance Core.AWSRequest RegisterJobDefinition where
 
 instance Prelude.Hashable RegisterJobDefinition where
   hashWithSalt _salt RegisterJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` containerProperties
-      `Prelude.hashWithSalt` retryStrategy
+    _salt `Prelude.hashWithSalt` containerProperties
+      `Prelude.hashWithSalt` eksProperties
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` platformCapabilities
       `Prelude.hashWithSalt` propagateTags
-      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` retryStrategy
       `Prelude.hashWithSalt` schedulingPriority
-      `Prelude.hashWithSalt` eksProperties
-      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RegisterJobDefinition where
   rnf RegisterJobDefinition' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf containerProperties
-      `Prelude.seq` Prelude.rnf retryStrategy
+    Prelude.rnf containerProperties
+      `Prelude.seq` Prelude.rnf eksProperties
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf platformCapabilities
       `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf retryStrategy
       `Prelude.seq` Prelude.rnf schedulingPriority
-      `Prelude.seq` Prelude.rnf eksProperties
-      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf type'
 
@@ -445,20 +446,20 @@ instance Data.ToJSON RegisterJobDefinition where
   toJSON RegisterJobDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("timeout" Data..=) Prelude.<$> timeout,
-            ("containerProperties" Data..=)
+          [ ("containerProperties" Data..=)
               Prelude.<$> containerProperties,
-            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("eksProperties" Data..=) Prelude.<$> eksProperties,
+            ("nodeProperties" Data..=)
+              Prelude.<$> nodeProperties,
+            ("parameters" Data..=) Prelude.<$> parameters,
             ("platformCapabilities" Data..=)
               Prelude.<$> platformCapabilities,
             ("propagateTags" Data..=) Prelude.<$> propagateTags,
-            ("nodeProperties" Data..=)
-              Prelude.<$> nodeProperties,
+            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
             ("schedulingPriority" Data..=)
               Prelude.<$> schedulingPriority,
-            ("eksProperties" Data..=) Prelude.<$> eksProperties,
-            ("parameters" Data..=) Prelude.<$> parameters,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("timeout" Data..=) Prelude.<$> timeout,
             Prelude.Just
               ("jobDefinitionName" Data..= jobDefinitionName),
             Prelude.Just ("type" Data..= type')

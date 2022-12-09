@@ -27,8 +27,8 @@ module Amazonka.Batch.CreateSchedulingPolicy
     newCreateSchedulingPolicy,
 
     -- * Request Lenses
-    createSchedulingPolicy_tags,
     createSchedulingPolicy_fairsharePolicy,
+    createSchedulingPolicy_tags,
     createSchedulingPolicy_name,
 
     -- * Destructuring the Response
@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateSchedulingPolicy' smart constructor.
 data CreateSchedulingPolicy = CreateSchedulingPolicy'
-  { -- | The tags that you apply to the scheduling policy to help you categorize
+  { -- | The fair share policy of the scheduling policy.
+    fairsharePolicy :: Prelude.Maybe FairsharePolicy,
+    -- | The tags that you apply to the scheduling policy to help you categorize
     -- and organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
@@ -66,8 +68,6 @@ data CreateSchedulingPolicy = CreateSchedulingPolicy'
     -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
     -- API operations.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The fair share policy of the scheduling policy.
-    fairsharePolicy :: Prelude.Maybe FairsharePolicy,
     -- | The name of the scheduling policy. It can be up to 128 letters long. It
     -- can contain uppercase and lowercase letters, numbers, hyphens (-), and
     -- underscores (_).
@@ -83,6 +83,8 @@ data CreateSchedulingPolicy = CreateSchedulingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fairsharePolicy', 'createSchedulingPolicy_fairsharePolicy' - The fair share policy of the scheduling policy.
+--
 -- 'tags', 'createSchedulingPolicy_tags' - The tags that you apply to the scheduling policy to help you categorize
 -- and organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
@@ -95,8 +97,6 @@ data CreateSchedulingPolicy = CreateSchedulingPolicy'
 -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
 -- API operations.
 --
--- 'fairsharePolicy', 'createSchedulingPolicy_fairsharePolicy' - The fair share policy of the scheduling policy.
---
 -- 'name', 'createSchedulingPolicy_name' - The name of the scheduling policy. It can be up to 128 letters long. It
 -- can contain uppercase and lowercase letters, numbers, hyphens (-), and
 -- underscores (_).
@@ -106,10 +106,15 @@ newCreateSchedulingPolicy ::
   CreateSchedulingPolicy
 newCreateSchedulingPolicy pName_ =
   CreateSchedulingPolicy'
-    { tags = Prelude.Nothing,
-      fairsharePolicy = Prelude.Nothing,
+    { fairsharePolicy =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | The fair share policy of the scheduling policy.
+createSchedulingPolicy_fairsharePolicy :: Lens.Lens' CreateSchedulingPolicy (Prelude.Maybe FairsharePolicy)
+createSchedulingPolicy_fairsharePolicy = Lens.lens (\CreateSchedulingPolicy' {fairsharePolicy} -> fairsharePolicy) (\s@CreateSchedulingPolicy' {} a -> s {fairsharePolicy = a} :: CreateSchedulingPolicy)
 
 -- | The tags that you apply to the scheduling policy to help you categorize
 -- and organize your resources. Each tag consists of a key and an optional
@@ -124,10 +129,6 @@ newCreateSchedulingPolicy pName_ =
 -- API operations.
 createSchedulingPolicy_tags :: Lens.Lens' CreateSchedulingPolicy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSchedulingPolicy_tags = Lens.lens (\CreateSchedulingPolicy' {tags} -> tags) (\s@CreateSchedulingPolicy' {} a -> s {tags = a} :: CreateSchedulingPolicy) Prelude.. Lens.mapping Lens.coerced
-
--- | The fair share policy of the scheduling policy.
-createSchedulingPolicy_fairsharePolicy :: Lens.Lens' CreateSchedulingPolicy (Prelude.Maybe FairsharePolicy)
-createSchedulingPolicy_fairsharePolicy = Lens.lens (\CreateSchedulingPolicy' {fairsharePolicy} -> fairsharePolicy) (\s@CreateSchedulingPolicy' {} a -> s {fairsharePolicy = a} :: CreateSchedulingPolicy)
 
 -- | The name of the scheduling policy. It can be up to 128 letters long. It
 -- can contain uppercase and lowercase letters, numbers, hyphens (-), and
@@ -152,14 +153,14 @@ instance Core.AWSRequest CreateSchedulingPolicy where
 
 instance Prelude.Hashable CreateSchedulingPolicy where
   hashWithSalt _salt CreateSchedulingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` fairsharePolicy
+    _salt `Prelude.hashWithSalt` fairsharePolicy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSchedulingPolicy where
   rnf CreateSchedulingPolicy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf fairsharePolicy
+    Prelude.rnf fairsharePolicy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateSchedulingPolicy where
@@ -177,9 +178,9 @@ instance Data.ToJSON CreateSchedulingPolicy where
   toJSON CreateSchedulingPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("fairsharePolicy" Data..=)
+          [ ("fairsharePolicy" Data..=)
               Prelude.<$> fairsharePolicy,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

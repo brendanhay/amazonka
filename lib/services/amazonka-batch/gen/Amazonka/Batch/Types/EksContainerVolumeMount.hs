@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEksContainerVolumeMount' smart constructor.
 data EksContainerVolumeMount = EksContainerVolumeMount'
-  { -- | The name the volume mount. This must match the name of one of the
+  { -- | The path on the container where the volume is mounted.
+    mountPath :: Prelude.Maybe Prelude.Text,
+    -- | The name the volume mount. This must match the name of one of the
     -- volumes in the pod.
     name :: Prelude.Maybe Prelude.Text,
     -- | If this value is @true@, the container has read-only access to the
     -- volume. Otherwise, the container can write to the volume. The default
     -- value is @false@.
-    readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The path on the container where the volume is mounted.
-    mountPath :: Prelude.Maybe Prelude.Text
+    readOnly :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,22 +51,27 @@ data EksContainerVolumeMount = EksContainerVolumeMount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mountPath', 'eksContainerVolumeMount_mountPath' - The path on the container where the volume is mounted.
+--
 -- 'name', 'eksContainerVolumeMount_name' - The name the volume mount. This must match the name of one of the
 -- volumes in the pod.
 --
 -- 'readOnly', 'eksContainerVolumeMount_readOnly' - If this value is @true@, the container has read-only access to the
 -- volume. Otherwise, the container can write to the volume. The default
 -- value is @false@.
---
--- 'mountPath', 'eksContainerVolumeMount_mountPath' - The path on the container where the volume is mounted.
 newEksContainerVolumeMount ::
   EksContainerVolumeMount
 newEksContainerVolumeMount =
   EksContainerVolumeMount'
-    { name = Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      mountPath = Prelude.Nothing
+    { mountPath =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      readOnly = Prelude.Nothing
     }
+
+-- | The path on the container where the volume is mounted.
+eksContainerVolumeMount_mountPath :: Lens.Lens' EksContainerVolumeMount (Prelude.Maybe Prelude.Text)
+eksContainerVolumeMount_mountPath = Lens.lens (\EksContainerVolumeMount' {mountPath} -> mountPath) (\s@EksContainerVolumeMount' {} a -> s {mountPath = a} :: EksContainerVolumeMount)
 
 -- | The name the volume mount. This must match the name of one of the
 -- volumes in the pod.
@@ -79,39 +84,35 @@ eksContainerVolumeMount_name = Lens.lens (\EksContainerVolumeMount' {name} -> na
 eksContainerVolumeMount_readOnly :: Lens.Lens' EksContainerVolumeMount (Prelude.Maybe Prelude.Bool)
 eksContainerVolumeMount_readOnly = Lens.lens (\EksContainerVolumeMount' {readOnly} -> readOnly) (\s@EksContainerVolumeMount' {} a -> s {readOnly = a} :: EksContainerVolumeMount)
 
--- | The path on the container where the volume is mounted.
-eksContainerVolumeMount_mountPath :: Lens.Lens' EksContainerVolumeMount (Prelude.Maybe Prelude.Text)
-eksContainerVolumeMount_mountPath = Lens.lens (\EksContainerVolumeMount' {mountPath} -> mountPath) (\s@EksContainerVolumeMount' {} a -> s {mountPath = a} :: EksContainerVolumeMount)
-
 instance Data.FromJSON EksContainerVolumeMount where
   parseJSON =
     Data.withObject
       "EksContainerVolumeMount"
       ( \x ->
           EksContainerVolumeMount'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "mountPath")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "readOnly")
-            Prelude.<*> (x Data..:? "mountPath")
       )
 
 instance Prelude.Hashable EksContainerVolumeMount where
   hashWithSalt _salt EksContainerVolumeMount' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` mountPath
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` readOnly
-      `Prelude.hashWithSalt` mountPath
 
 instance Prelude.NFData EksContainerVolumeMount where
   rnf EksContainerVolumeMount' {..} =
-    Prelude.rnf name
+    Prelude.rnf mountPath
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf mountPath
 
 instance Data.ToJSON EksContainerVolumeMount where
   toJSON EksContainerVolumeMount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("readOnly" Data..=) Prelude.<$> readOnly,
-            ("mountPath" Data..=) Prelude.<$> mountPath
+          [ ("mountPath" Data..=) Prelude.<$> mountPath,
+            ("name" Data..=) Prelude.<$> name,
+            ("readOnly" Data..=) Prelude.<$> readOnly
           ]
       )

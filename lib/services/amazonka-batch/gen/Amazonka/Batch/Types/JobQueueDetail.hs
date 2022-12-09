@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
-  { -- | The tags that are applied to the job queue. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
-    -- in /Batch User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A short, human-readable string to provide additional details for the
-    -- current status of the job queue.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the job queue (for example, @CREATING@ or @VALID@).
-    status :: Prelude.Maybe JQStatus,
-    -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
+  { -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
     -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
     -- example,
     -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job queue (for example, @CREATING@ or @VALID@).
+    status :: Prelude.Maybe JQStatus,
+    -- | A short, human-readable string to provide additional details for the
+    -- current status of the job queue.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The tags that are applied to the job queue. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+    -- in /Batch User Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The job queue name.
     jobQueueName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the job queue.
@@ -78,19 +78,19 @@ data JobQueueDetail = JobQueueDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'jobQueueDetail_tags' - The tags that are applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
--- in /Batch User Guide/.
---
--- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details for the
--- current status of the job queue.
---
--- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
---
 -- 'schedulingPolicyArn', 'jobQueueDetail_schedulingPolicyArn' - The Amazon Resource Name (ARN) of the scheduling policy. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
+--
+-- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
+--
+-- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details for the
+-- current status of the job queue.
+--
+-- 'tags', 'jobQueueDetail_tags' - The tags that are applied to the job queue. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
 --
 -- 'jobQueueName', 'jobQueueDetail_jobQueueName' - The job queue name.
 --
@@ -129,10 +129,11 @@ newJobQueueDetail
   pState_
   pPriority_ =
     JobQueueDetail'
-      { tags = Prelude.Nothing,
-        statusReason = Prelude.Nothing,
+      { schedulingPolicyArn =
+          Prelude.Nothing,
         status = Prelude.Nothing,
-        schedulingPolicyArn = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobQueueName = pJobQueueName_,
         jobQueueArn = pJobQueueArn_,
         state = pState_,
@@ -140,27 +141,27 @@ newJobQueueDetail
         computeEnvironmentOrder = Prelude.mempty
       }
 
--- | The tags that are applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
--- in /Batch User Guide/.
-jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | A short, human-readable string to provide additional details for the
--- current status of the job queue.
-jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
-jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> statusReason) (\s@JobQueueDetail' {} a -> s {statusReason = a} :: JobQueueDetail)
-
--- | The status of the job queue (for example, @CREATING@ or @VALID@).
-jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
-jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
-
 -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
 -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
 -- example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 jobQueueDetail_schedulingPolicyArn :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
 jobQueueDetail_schedulingPolicyArn = Lens.lens (\JobQueueDetail' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@JobQueueDetail' {} a -> s {schedulingPolicyArn = a} :: JobQueueDetail)
+
+-- | The status of the job queue (for example, @CREATING@ or @VALID@).
+jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
+jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
+
+-- | A short, human-readable string to provide additional details for the
+-- current status of the job queue.
+jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
+jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> statusReason) (\s@JobQueueDetail' {} a -> s {statusReason = a} :: JobQueueDetail)
+
+-- | The tags that are applied to the job queue. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
+jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The job queue name.
 jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Prelude.Text
@@ -200,10 +201,10 @@ instance Data.FromJSON JobQueueDetail where
       "JobQueueDetail"
       ( \x ->
           JobQueueDetail'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<$> (x Data..:? "schedulingPolicyArn")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "schedulingPolicyArn")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "jobQueueName")
             Prelude.<*> (x Data..: "jobQueueArn")
             Prelude.<*> (x Data..: "state")
@@ -215,10 +216,10 @@ instance Data.FromJSON JobQueueDetail where
 
 instance Prelude.Hashable JobQueueDetail where
   hashWithSalt _salt JobQueueDetail' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` statusReason
+    _salt `Prelude.hashWithSalt` schedulingPolicyArn
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` schedulingPolicyArn
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobQueueName
       `Prelude.hashWithSalt` jobQueueArn
       `Prelude.hashWithSalt` state
@@ -227,10 +228,10 @@ instance Prelude.Hashable JobQueueDetail where
 
 instance Prelude.NFData JobQueueDetail where
   rnf JobQueueDetail' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf schedulingPolicyArn
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf schedulingPolicyArn
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobQueueName
       `Prelude.seq` Prelude.rnf jobQueueArn
       `Prelude.seq` Prelude.rnf state

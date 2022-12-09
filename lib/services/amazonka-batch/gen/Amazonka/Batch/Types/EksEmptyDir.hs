@@ -37,10 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEksEmptyDir' smart constructor.
 data EksEmptyDir = EksEmptyDir'
-  { -- | The maximum size of the volume. By default, there\'s no maximum size
-    -- defined.
-    sizeLimit :: Prelude.Maybe Prelude.Text,
-    -- | The medium to store the volume. The default value is an empty string,
+  { -- | The medium to store the volume. The default value is an empty string,
     -- which uses the storage of the node.
     --
     -- [\"\"]
@@ -50,7 +47,10 @@ data EksEmptyDir = EksEmptyDir'
     --     Use the @tmpfs@ volume that\'s backed by the RAM of the node.
     --     Contents of the volume are lost when the node reboots, and any
     --     storage on the volume counts against the container\'s memory limit.
-    medium :: Prelude.Maybe Prelude.Text
+    medium :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size of the volume. By default, there\'s no maximum size
+    -- defined.
+    sizeLimit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,9 +62,6 @@ data EksEmptyDir = EksEmptyDir'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeLimit', 'eksEmptyDir_sizeLimit' - The maximum size of the volume. By default, there\'s no maximum size
--- defined.
---
 -- 'medium', 'eksEmptyDir_medium' - The medium to store the volume. The default value is an empty string,
 -- which uses the storage of the node.
 --
@@ -75,18 +72,16 @@ data EksEmptyDir = EksEmptyDir'
 --     Use the @tmpfs@ volume that\'s backed by the RAM of the node.
 --     Contents of the volume are lost when the node reboots, and any
 --     storage on the volume counts against the container\'s memory limit.
+--
+-- 'sizeLimit', 'eksEmptyDir_sizeLimit' - The maximum size of the volume. By default, there\'s no maximum size
+-- defined.
 newEksEmptyDir ::
   EksEmptyDir
 newEksEmptyDir =
   EksEmptyDir'
-    { sizeLimit = Prelude.Nothing,
-      medium = Prelude.Nothing
+    { medium = Prelude.Nothing,
+      sizeLimit = Prelude.Nothing
     }
-
--- | The maximum size of the volume. By default, there\'s no maximum size
--- defined.
-eksEmptyDir_sizeLimit :: Lens.Lens' EksEmptyDir (Prelude.Maybe Prelude.Text)
-eksEmptyDir_sizeLimit = Lens.lens (\EksEmptyDir' {sizeLimit} -> sizeLimit) (\s@EksEmptyDir' {} a -> s {sizeLimit = a} :: EksEmptyDir)
 
 -- | The medium to store the volume. The default value is an empty string,
 -- which uses the storage of the node.
@@ -101,31 +96,36 @@ eksEmptyDir_sizeLimit = Lens.lens (\EksEmptyDir' {sizeLimit} -> sizeLimit) (\s@E
 eksEmptyDir_medium :: Lens.Lens' EksEmptyDir (Prelude.Maybe Prelude.Text)
 eksEmptyDir_medium = Lens.lens (\EksEmptyDir' {medium} -> medium) (\s@EksEmptyDir' {} a -> s {medium = a} :: EksEmptyDir)
 
+-- | The maximum size of the volume. By default, there\'s no maximum size
+-- defined.
+eksEmptyDir_sizeLimit :: Lens.Lens' EksEmptyDir (Prelude.Maybe Prelude.Text)
+eksEmptyDir_sizeLimit = Lens.lens (\EksEmptyDir' {sizeLimit} -> sizeLimit) (\s@EksEmptyDir' {} a -> s {sizeLimit = a} :: EksEmptyDir)
+
 instance Data.FromJSON EksEmptyDir where
   parseJSON =
     Data.withObject
       "EksEmptyDir"
       ( \x ->
           EksEmptyDir'
-            Prelude.<$> (x Data..:? "sizeLimit")
-            Prelude.<*> (x Data..:? "medium")
+            Prelude.<$> (x Data..:? "medium")
+            Prelude.<*> (x Data..:? "sizeLimit")
       )
 
 instance Prelude.Hashable EksEmptyDir where
   hashWithSalt _salt EksEmptyDir' {..} =
-    _salt `Prelude.hashWithSalt` sizeLimit
-      `Prelude.hashWithSalt` medium
+    _salt `Prelude.hashWithSalt` medium
+      `Prelude.hashWithSalt` sizeLimit
 
 instance Prelude.NFData EksEmptyDir where
   rnf EksEmptyDir' {..} =
-    Prelude.rnf sizeLimit
-      `Prelude.seq` Prelude.rnf medium
+    Prelude.rnf medium
+      `Prelude.seq` Prelude.rnf sizeLimit
 
 instance Data.ToJSON EksEmptyDir where
   toJSON EksEmptyDir' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sizeLimit" Data..=) Prelude.<$> sizeLimit,
-            ("medium" Data..=) Prelude.<$> medium
+          [ ("medium" Data..=) Prelude.<$> medium,
+            ("sizeLimit" Data..=) Prelude.<$> sizeLimit
           ]
       )

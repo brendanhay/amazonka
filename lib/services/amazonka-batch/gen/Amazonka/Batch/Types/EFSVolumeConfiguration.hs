@@ -33,14 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEFSVolumeConfiguration' smart constructor.
 data EFSVolumeConfiguration = EFSVolumeConfiguration'
-  { -- | The port to use when sending encrypted data between the Amazon ECS host
-    -- and the Amazon EFS server. If you don\'t specify a transit encryption
-    -- port, it uses the port selection strategy that the Amazon EFS mount
-    -- helper uses. The value must be between 0 and 65,535. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
-    -- in the /Amazon Elastic File System User Guide/.
-    transitEncryptionPort :: Prelude.Maybe Prelude.Int,
+  { -- | The authorization configuration details for the Amazon EFS file system.
+    authorizationConfig :: Prelude.Maybe EFSAuthorizationConfig,
     -- | The directory within the Amazon EFS file system to mount as the root
     -- directory inside the host. If this parameter is omitted, the root of the
     -- Amazon EFS volume is used instead. Specifying @\/@ has the same effect
@@ -58,8 +52,14 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
     -- in the /Amazon Elastic File System User Guide/.
     transitEncryption :: Prelude.Maybe EFSTransitEncryption,
-    -- | The authorization configuration details for the Amazon EFS file system.
-    authorizationConfig :: Prelude.Maybe EFSAuthorizationConfig,
+    -- | The port to use when sending encrypted data between the Amazon ECS host
+    -- and the Amazon EFS server. If you don\'t specify a transit encryption
+    -- port, it uses the port selection strategy that the Amazon EFS mount
+    -- helper uses. The value must be between 0 and 65,535. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
+    -- in the /Amazon Elastic File System User Guide/.
+    transitEncryptionPort :: Prelude.Maybe Prelude.Int,
     -- | The Amazon EFS file system ID to use.
     fileSystemId :: Prelude.Text
   }
@@ -73,13 +73,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitEncryptionPort', 'eFSVolumeConfiguration_transitEncryptionPort' - The port to use when sending encrypted data between the Amazon ECS host
--- and the Amazon EFS server. If you don\'t specify a transit encryption
--- port, it uses the port selection strategy that the Amazon EFS mount
--- helper uses. The value must be between 0 and 65,535. For more
--- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
--- in the /Amazon Elastic File System User Guide/.
+-- 'authorizationConfig', 'eFSVolumeConfiguration_authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
 --
 -- 'rootDirectory', 'eFSVolumeConfiguration_rootDirectory' - The directory within the Amazon EFS file system to mount as the root
 -- directory inside the host. If this parameter is omitted, the root of the
@@ -98,7 +92,13 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
 -- in the /Amazon Elastic File System User Guide/.
 --
--- 'authorizationConfig', 'eFSVolumeConfiguration_authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
+-- 'transitEncryptionPort', 'eFSVolumeConfiguration_transitEncryptionPort' - The port to use when sending encrypted data between the Amazon ECS host
+-- and the Amazon EFS server. If you don\'t specify a transit encryption
+-- port, it uses the port selection strategy that the Amazon EFS mount
+-- helper uses. The value must be between 0 and 65,535. For more
+-- information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
+-- in the /Amazon Elastic File System User Guide/.
 --
 -- 'fileSystemId', 'eFSVolumeConfiguration_fileSystemId' - The Amazon EFS file system ID to use.
 newEFSVolumeConfiguration ::
@@ -107,23 +107,17 @@ newEFSVolumeConfiguration ::
   EFSVolumeConfiguration
 newEFSVolumeConfiguration pFileSystemId_ =
   EFSVolumeConfiguration'
-    { transitEncryptionPort =
+    { authorizationConfig =
         Prelude.Nothing,
       rootDirectory = Prelude.Nothing,
       transitEncryption = Prelude.Nothing,
-      authorizationConfig = Prelude.Nothing,
+      transitEncryptionPort = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
 
--- | The port to use when sending encrypted data between the Amazon ECS host
--- and the Amazon EFS server. If you don\'t specify a transit encryption
--- port, it uses the port selection strategy that the Amazon EFS mount
--- helper uses. The value must be between 0 and 65,535. For more
--- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
--- in the /Amazon Elastic File System User Guide/.
-eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Int)
-eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguration' {transitEncryptionPort} -> transitEncryptionPort) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)
+-- | The authorization configuration details for the Amazon EFS file system.
+eFSVolumeConfiguration_authorizationConfig :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSAuthorizationConfig)
+eFSVolumeConfiguration_authorizationConfig = Lens.lens (\EFSVolumeConfiguration' {authorizationConfig} -> authorizationConfig) (\s@EFSVolumeConfiguration' {} a -> s {authorizationConfig = a} :: EFSVolumeConfiguration)
 
 -- | The directory within the Amazon EFS file system to mount as the root
 -- directory inside the host. If this parameter is omitted, the root of the
@@ -146,9 +140,15 @@ eFSVolumeConfiguration_rootDirectory = Lens.lens (\EFSVolumeConfiguration' {root
 eFSVolumeConfiguration_transitEncryption :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSTransitEncryption)
 eFSVolumeConfiguration_transitEncryption = Lens.lens (\EFSVolumeConfiguration' {transitEncryption} -> transitEncryption) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryption = a} :: EFSVolumeConfiguration)
 
--- | The authorization configuration details for the Amazon EFS file system.
-eFSVolumeConfiguration_authorizationConfig :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSAuthorizationConfig)
-eFSVolumeConfiguration_authorizationConfig = Lens.lens (\EFSVolumeConfiguration' {authorizationConfig} -> authorizationConfig) (\s@EFSVolumeConfiguration' {} a -> s {authorizationConfig = a} :: EFSVolumeConfiguration)
+-- | The port to use when sending encrypted data between the Amazon ECS host
+-- and the Amazon EFS server. If you don\'t specify a transit encryption
+-- port, it uses the port selection strategy that the Amazon EFS mount
+-- helper uses. The value must be between 0 and 65,535. For more
+-- information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
+-- in the /Amazon Elastic File System User Guide/.
+eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Int)
+eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguration' {transitEncryptionPort} -> transitEncryptionPort) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)
 
 -- | The Amazon EFS file system ID to use.
 eFSVolumeConfiguration_fileSystemId :: Lens.Lens' EFSVolumeConfiguration Prelude.Text
@@ -160,40 +160,40 @@ instance Data.FromJSON EFSVolumeConfiguration where
       "EFSVolumeConfiguration"
       ( \x ->
           EFSVolumeConfiguration'
-            Prelude.<$> (x Data..:? "transitEncryptionPort")
+            Prelude.<$> (x Data..:? "authorizationConfig")
             Prelude.<*> (x Data..:? "rootDirectory")
             Prelude.<*> (x Data..:? "transitEncryption")
-            Prelude.<*> (x Data..:? "authorizationConfig")
+            Prelude.<*> (x Data..:? "transitEncryptionPort")
             Prelude.<*> (x Data..: "fileSystemId")
       )
 
 instance Prelude.Hashable EFSVolumeConfiguration where
   hashWithSalt _salt EFSVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` transitEncryptionPort
+    _salt `Prelude.hashWithSalt` authorizationConfig
       `Prelude.hashWithSalt` rootDirectory
       `Prelude.hashWithSalt` transitEncryption
-      `Prelude.hashWithSalt` authorizationConfig
+      `Prelude.hashWithSalt` transitEncryptionPort
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData EFSVolumeConfiguration where
   rnf EFSVolumeConfiguration' {..} =
-    Prelude.rnf transitEncryptionPort
+    Prelude.rnf authorizationConfig
       `Prelude.seq` Prelude.rnf rootDirectory
       `Prelude.seq` Prelude.rnf transitEncryption
-      `Prelude.seq` Prelude.rnf authorizationConfig
+      `Prelude.seq` Prelude.rnf transitEncryptionPort
       `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Data.ToJSON EFSVolumeConfiguration where
   toJSON EFSVolumeConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("transitEncryptionPort" Data..=)
-              Prelude.<$> transitEncryptionPort,
+          [ ("authorizationConfig" Data..=)
+              Prelude.<$> authorizationConfig,
             ("rootDirectory" Data..=) Prelude.<$> rootDirectory,
             ("transitEncryption" Data..=)
               Prelude.<$> transitEncryption,
-            ("authorizationConfig" Data..=)
-              Prelude.<$> authorizationConfig,
+            ("transitEncryptionPort" Data..=)
+              Prelude.<$> transitEncryptionPort,
             Prelude.Just ("fileSystemId" Data..= fileSystemId)
           ]
       )

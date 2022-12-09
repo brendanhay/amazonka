@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEksVolume' smart constructor.
 data EksVolume = EksVolume'
-  { -- | Specifies the configuration of a Kubernetes @hostPath@ volume. For more
-    -- information, see
-    -- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
-    -- in the /Kubernetes documentation/.
-    hostPath :: Prelude.Maybe EksHostPath,
-    -- | Specifies the configuration of a Kubernetes @emptyDir@ volume. For more
+  { -- | Specifies the configuration of a Kubernetes @emptyDir@ volume. For more
     -- information, see
     -- <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir emptyDir>
     -- in the /Kubernetes documentation/.
     emptyDir :: Prelude.Maybe EksEmptyDir,
+    -- | Specifies the configuration of a Kubernetes @hostPath@ volume. For more
+    -- information, see
+    -- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
+    -- in the /Kubernetes documentation/.
+    hostPath :: Prelude.Maybe EksHostPath,
     -- | Specifies the configuration of a Kubernetes @secret@ volume. For more
     -- information, see
     -- <https://kubernetes.io/docs/concepts/storage/volumes/#secret secret> in
@@ -62,14 +62,14 @@ data EksVolume = EksVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostPath', 'eksVolume_hostPath' - Specifies the configuration of a Kubernetes @hostPath@ volume. For more
--- information, see
--- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
--- in the /Kubernetes documentation/.
---
 -- 'emptyDir', 'eksVolume_emptyDir' - Specifies the configuration of a Kubernetes @emptyDir@ volume. For more
 -- information, see
 -- <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir emptyDir>
+-- in the /Kubernetes documentation/.
+--
+-- 'hostPath', 'eksVolume_hostPath' - Specifies the configuration of a Kubernetes @hostPath@ volume. For more
+-- information, see
+-- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
 -- in the /Kubernetes documentation/.
 --
 -- 'secret', 'eksVolume_secret' - Specifies the configuration of a Kubernetes @secret@ volume. For more
@@ -87,18 +87,11 @@ newEksVolume ::
   EksVolume
 newEksVolume pName_ =
   EksVolume'
-    { hostPath = Prelude.Nothing,
-      emptyDir = Prelude.Nothing,
+    { emptyDir = Prelude.Nothing,
+      hostPath = Prelude.Nothing,
       secret = Prelude.Nothing,
       name = pName_
     }
-
--- | Specifies the configuration of a Kubernetes @hostPath@ volume. For more
--- information, see
--- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
--- in the /Kubernetes documentation/.
-eksVolume_hostPath :: Lens.Lens' EksVolume (Prelude.Maybe EksHostPath)
-eksVolume_hostPath = Lens.lens (\EksVolume' {hostPath} -> hostPath) (\s@EksVolume' {} a -> s {hostPath = a} :: EksVolume)
 
 -- | Specifies the configuration of a Kubernetes @emptyDir@ volume. For more
 -- information, see
@@ -106,6 +99,13 @@ eksVolume_hostPath = Lens.lens (\EksVolume' {hostPath} -> hostPath) (\s@EksVolum
 -- in the /Kubernetes documentation/.
 eksVolume_emptyDir :: Lens.Lens' EksVolume (Prelude.Maybe EksEmptyDir)
 eksVolume_emptyDir = Lens.lens (\EksVolume' {emptyDir} -> emptyDir) (\s@EksVolume' {} a -> s {emptyDir = a} :: EksVolume)
+
+-- | Specifies the configuration of a Kubernetes @hostPath@ volume. For more
+-- information, see
+-- <https://kubernetes.io/docs/concepts/storage/volumes/#hostpath hostPath>
+-- in the /Kubernetes documentation/.
+eksVolume_hostPath :: Lens.Lens' EksVolume (Prelude.Maybe EksHostPath)
+eksVolume_hostPath = Lens.lens (\EksVolume' {hostPath} -> hostPath) (\s@EksVolume' {} a -> s {hostPath = a} :: EksVolume)
 
 -- | Specifies the configuration of a Kubernetes @secret@ volume. For more
 -- information, see
@@ -127,23 +127,23 @@ instance Data.FromJSON EksVolume where
       "EksVolume"
       ( \x ->
           EksVolume'
-            Prelude.<$> (x Data..:? "hostPath")
-            Prelude.<*> (x Data..:? "emptyDir")
+            Prelude.<$> (x Data..:? "emptyDir")
+            Prelude.<*> (x Data..:? "hostPath")
             Prelude.<*> (x Data..:? "secret")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable EksVolume where
   hashWithSalt _salt EksVolume' {..} =
-    _salt `Prelude.hashWithSalt` hostPath
-      `Prelude.hashWithSalt` emptyDir
+    _salt `Prelude.hashWithSalt` emptyDir
+      `Prelude.hashWithSalt` hostPath
       `Prelude.hashWithSalt` secret
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData EksVolume where
   rnf EksVolume' {..} =
-    Prelude.rnf hostPath
-      `Prelude.seq` Prelude.rnf emptyDir
+    Prelude.rnf emptyDir
+      `Prelude.seq` Prelude.rnf hostPath
       `Prelude.seq` Prelude.rnf secret
       `Prelude.seq` Prelude.rnf name
 
@@ -151,8 +151,8 @@ instance Data.ToJSON EksVolume where
   toJSON EksVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("hostPath" Data..=) Prelude.<$> hostPath,
-            ("emptyDir" Data..=) Prelude.<$> emptyDir,
+          [ ("emptyDir" Data..=) Prelude.<$> emptyDir,
+            ("hostPath" Data..=) Prelude.<$> hostPath,
             ("secret" Data..=) Prelude.<$> secret,
             Prelude.Just ("name" Data..= name)
           ]

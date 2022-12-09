@@ -30,14 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
-  { -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
-    -- with the job attempt. Each container attempt receives a task ARN when
-    -- they reach the @STARTING@ status.
-    taskArn :: Prelude.Maybe Prelude.Text,
-    -- | A short (255 max characters) human-readable string to provide additional
-    -- details for a running or stopped container.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that
+  { -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that
     -- hosts the job attempt.
     containerInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The exit code for the job attempt. A non-zero exit code is considered
@@ -49,7 +42,14 @@ data AttemptContainerDetail = AttemptContainerDetail'
     -- @RUNNING@ status.
     logStreamName :: Prelude.Maybe Prelude.Text,
     -- | The network interfaces that are associated with the job attempt.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
+    -- | A short (255 max characters) human-readable string to provide additional
+    -- details for a running or stopped container.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
+    -- with the job attempt. Each container attempt receives a task ARN when
+    -- they reach the @STARTING@ status.
+    taskArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,13 +60,6 @@ data AttemptContainerDetail = AttemptContainerDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'taskArn', 'attemptContainerDetail_taskArn' - The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
--- with the job attempt. Each container attempt receives a task ARN when
--- they reach the @STARTING@ status.
---
--- 'reason', 'attemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional
--- details for a running or stopped container.
 --
 -- 'containerInstanceArn', 'attemptContainerDetail_containerInstanceArn' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that
 -- hosts the job attempt.
@@ -80,28 +73,25 @@ data AttemptContainerDetail = AttemptContainerDetail'
 -- @RUNNING@ status.
 --
 -- 'networkInterfaces', 'attemptContainerDetail_networkInterfaces' - The network interfaces that are associated with the job attempt.
+--
+-- 'reason', 'attemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional
+-- details for a running or stopped container.
+--
+-- 'taskArn', 'attemptContainerDetail_taskArn' - The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
+-- with the job attempt. Each container attempt receives a task ARN when
+-- they reach the @STARTING@ status.
 newAttemptContainerDetail ::
   AttemptContainerDetail
 newAttemptContainerDetail =
   AttemptContainerDetail'
-    { taskArn = Prelude.Nothing,
-      reason = Prelude.Nothing,
-      containerInstanceArn = Prelude.Nothing,
+    { containerInstanceArn =
+        Prelude.Nothing,
       exitCode = Prelude.Nothing,
       logStreamName = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      networkInterfaces = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      taskArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
--- with the job attempt. Each container attempt receives a task ARN when
--- they reach the @STARTING@ status.
-attemptContainerDetail_taskArn :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
-attemptContainerDetail_taskArn = Lens.lens (\AttemptContainerDetail' {taskArn} -> taskArn) (\s@AttemptContainerDetail' {} a -> s {taskArn = a} :: AttemptContainerDetail)
-
--- | A short (255 max characters) human-readable string to provide additional
--- details for a running or stopped container.
-attemptContainerDetail_reason :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
-attemptContainerDetail_reason = Lens.lens (\AttemptContainerDetail' {reason} -> reason) (\s@AttemptContainerDetail' {} a -> s {reason = a} :: AttemptContainerDetail)
 
 -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that
 -- hosts the job attempt.
@@ -124,36 +114,47 @@ attemptContainerDetail_logStreamName = Lens.lens (\AttemptContainerDetail' {logS
 attemptContainerDetail_networkInterfaces :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe [NetworkInterface])
 attemptContainerDetail_networkInterfaces = Lens.lens (\AttemptContainerDetail' {networkInterfaces} -> networkInterfaces) (\s@AttemptContainerDetail' {} a -> s {networkInterfaces = a} :: AttemptContainerDetail) Prelude.. Lens.mapping Lens.coerced
 
+-- | A short (255 max characters) human-readable string to provide additional
+-- details for a running or stopped container.
+attemptContainerDetail_reason :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
+attemptContainerDetail_reason = Lens.lens (\AttemptContainerDetail' {reason} -> reason) (\s@AttemptContainerDetail' {} a -> s {reason = a} :: AttemptContainerDetail)
+
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated
+-- with the job attempt. Each container attempt receives a task ARN when
+-- they reach the @STARTING@ status.
+attemptContainerDetail_taskArn :: Lens.Lens' AttemptContainerDetail (Prelude.Maybe Prelude.Text)
+attemptContainerDetail_taskArn = Lens.lens (\AttemptContainerDetail' {taskArn} -> taskArn) (\s@AttemptContainerDetail' {} a -> s {taskArn = a} :: AttemptContainerDetail)
+
 instance Data.FromJSON AttemptContainerDetail where
   parseJSON =
     Data.withObject
       "AttemptContainerDetail"
       ( \x ->
           AttemptContainerDetail'
-            Prelude.<$> (x Data..:? "taskArn")
-            Prelude.<*> (x Data..:? "reason")
-            Prelude.<*> (x Data..:? "containerInstanceArn")
+            Prelude.<$> (x Data..:? "containerInstanceArn")
             Prelude.<*> (x Data..:? "exitCode")
             Prelude.<*> (x Data..:? "logStreamName")
             Prelude.<*> ( x Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "taskArn")
       )
 
 instance Prelude.Hashable AttemptContainerDetail where
   hashWithSalt _salt AttemptContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` taskArn
-      `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` containerInstanceArn
+    _salt `Prelude.hashWithSalt` containerInstanceArn
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` taskArn
 
 instance Prelude.NFData AttemptContainerDetail where
   rnf AttemptContainerDetail' {..} =
-    Prelude.rnf taskArn
-      `Prelude.seq` Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf containerInstanceArn
+    Prelude.rnf containerInstanceArn
       `Prelude.seq` Prelude.rnf exitCode
       `Prelude.seq` Prelude.rnf logStreamName
       `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf taskArn

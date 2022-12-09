@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEksAttemptContainerDetail' smart constructor.
 data EksAttemptContainerDetail = EksAttemptContainerDetail'
-  { -- | A short (255 max characters) human-readable string to provide additional
-    -- details for a running or stopped container.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | The exit code for the job attempt. A non-zero exit code is considered
+  { -- | The exit code for the job attempt. A non-zero exit code is considered
     -- failed.
-    exitCode :: Prelude.Maybe Prelude.Int
+    exitCode :: Prelude.Maybe Prelude.Int,
+    -- | A short (255 max characters) human-readable string to provide additional
+    -- details for a running or stopped container.
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data EksAttemptContainerDetail = EksAttemptContainerDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'eksAttemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional
--- details for a running or stopped container.
---
 -- 'exitCode', 'eksAttemptContainerDetail_exitCode' - The exit code for the job attempt. A non-zero exit code is considered
 -- failed.
+--
+-- 'reason', 'eksAttemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional
+-- details for a running or stopped container.
 newEksAttemptContainerDetail ::
   EksAttemptContainerDetail
 newEksAttemptContainerDetail =
   EksAttemptContainerDetail'
-    { reason =
+    { exitCode =
         Prelude.Nothing,
-      exitCode = Prelude.Nothing
+      reason = Prelude.Nothing
     }
-
--- | A short (255 max characters) human-readable string to provide additional
--- details for a running or stopped container.
-eksAttemptContainerDetail_reason :: Lens.Lens' EksAttemptContainerDetail (Prelude.Maybe Prelude.Text)
-eksAttemptContainerDetail_reason = Lens.lens (\EksAttemptContainerDetail' {reason} -> reason) (\s@EksAttemptContainerDetail' {} a -> s {reason = a} :: EksAttemptContainerDetail)
 
 -- | The exit code for the job attempt. A non-zero exit code is considered
 -- failed.
 eksAttemptContainerDetail_exitCode :: Lens.Lens' EksAttemptContainerDetail (Prelude.Maybe Prelude.Int)
 eksAttemptContainerDetail_exitCode = Lens.lens (\EksAttemptContainerDetail' {exitCode} -> exitCode) (\s@EksAttemptContainerDetail' {} a -> s {exitCode = a} :: EksAttemptContainerDetail)
+
+-- | A short (255 max characters) human-readable string to provide additional
+-- details for a running or stopped container.
+eksAttemptContainerDetail_reason :: Lens.Lens' EksAttemptContainerDetail (Prelude.Maybe Prelude.Text)
+eksAttemptContainerDetail_reason = Lens.lens (\EksAttemptContainerDetail' {reason} -> reason) (\s@EksAttemptContainerDetail' {} a -> s {reason = a} :: EksAttemptContainerDetail)
 
 instance Data.FromJSON EksAttemptContainerDetail where
   parseJSON =
@@ -76,16 +76,16 @@ instance Data.FromJSON EksAttemptContainerDetail where
       "EksAttemptContainerDetail"
       ( \x ->
           EksAttemptContainerDetail'
-            Prelude.<$> (x Data..:? "reason")
-            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<$> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable EksAttemptContainerDetail where
   hashWithSalt _salt EksAttemptContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` exitCode
+    _salt `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData EksAttemptContainerDetail where
   rnf EksAttemptContainerDetail' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf exitCode
+    Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf reason

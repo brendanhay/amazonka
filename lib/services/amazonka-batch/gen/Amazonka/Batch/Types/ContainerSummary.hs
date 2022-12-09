@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
-  { -- | A short (255 max characters) human-readable string to provide additional
+  { -- | The exit code to return upon completion.
+    exitCode :: Prelude.Maybe Prelude.Int,
+    -- | A short (255 max characters) human-readable string to provide additional
     -- details for a running or stopped container.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | The exit code to return upon completion.
-    exitCode :: Prelude.Maybe Prelude.Int
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ContainerSummary = ContainerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.
+--
 -- 'reason', 'containerSummary_reason' - A short (255 max characters) human-readable string to provide additional
 -- details for a running or stopped container.
---
--- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.
 newContainerSummary ::
   ContainerSummary
 newContainerSummary =
   ContainerSummary'
-    { reason = Prelude.Nothing,
-      exitCode = Prelude.Nothing
+    { exitCode = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
+
+-- | The exit code to return upon completion.
+containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
+containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- details for a running or stopped container.
 containerSummary_reason :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Text)
 containerSummary_reason = Lens.lens (\ContainerSummary' {reason} -> reason) (\s@ContainerSummary' {} a -> s {reason = a} :: ContainerSummary)
-
--- | The exit code to return upon completion.
-containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
-containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
 instance Data.FromJSON ContainerSummary where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON ContainerSummary where
       "ContainerSummary"
       ( \x ->
           ContainerSummary'
-            Prelude.<$> (x Data..:? "reason")
-            Prelude.<*> (x Data..:? "exitCode")
+            Prelude.<$> (x Data..:? "exitCode")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ContainerSummary where
   hashWithSalt _salt ContainerSummary' {..} =
-    _salt `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` exitCode
+    _salt `Prelude.hashWithSalt` exitCode
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ContainerSummary where
   rnf ContainerSummary' {..} =
-    Prelude.rnf reason
-      `Prelude.seq` Prelude.rnf exitCode
+    Prelude.rnf exitCode
+      `Prelude.seq` Prelude.rnf reason

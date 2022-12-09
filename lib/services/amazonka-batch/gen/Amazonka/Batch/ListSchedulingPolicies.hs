@@ -29,8 +29,8 @@ module Amazonka.Batch.ListSchedulingPolicies
     newListSchedulingPolicies,
 
     -- * Request Lenses
-    listSchedulingPolicies_nextToken,
     listSchedulingPolicies_maxResults,
+    listSchedulingPolicies_nextToken,
 
     -- * Destructuring the Response
     ListSchedulingPoliciesResponse (..),
@@ -55,16 +55,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListSchedulingPolicies' smart constructor.
 data ListSchedulingPolicies = ListSchedulingPolicies'
-  { -- | The @nextToken@ value that\'s returned from a previous paginated
-    -- @ListSchedulingPolicies@ request where @maxResults@ was used and the
-    -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @nextToken@ value.
-    -- This value is @null@ when there are no more results to return.
-    --
-    -- Treat this token as an opaque identifier that\'s only used to retrieve
-    -- the next items in a list and not for other programmatic purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that\'s returned by
+  { -- | The maximum number of results that\'s returned by
     -- @ListSchedulingPolicies@ in paginated output. When this parameter is
     -- used, @ListSchedulingPolicies@ only returns @maxResults@ results in a
     -- single page and a @nextToken@ response element. You can see the
@@ -73,7 +64,16 @@ data ListSchedulingPolicies = ListSchedulingPolicies'
     -- This value can be between 1 and 100. If this parameter isn\'t used,
     -- @ListSchedulingPolicies@ returns up to 100 results and a @nextToken@
     -- value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The @nextToken@ value that\'s returned from a previous paginated
+    -- @ListSchedulingPolicies@ request where @maxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @nextToken@ value.
+    -- This value is @null@ when there are no more results to return.
+    --
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,15 +85,6 @@ data ListSchedulingPolicies = ListSchedulingPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSchedulingPolicies_nextToken' - The @nextToken@ value that\'s returned from a previous paginated
--- @ListSchedulingPolicies@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
--- This value is @null@ when there are no more results to return.
---
--- Treat this token as an opaque identifier that\'s only used to retrieve
--- the next items in a list and not for other programmatic purposes.
---
 -- 'maxResults', 'listSchedulingPolicies_maxResults' - The maximum number of results that\'s returned by
 -- @ListSchedulingPolicies@ in paginated output. When this parameter is
 -- used, @ListSchedulingPolicies@ only returns @maxResults@ results in a
@@ -103,16 +94,8 @@ data ListSchedulingPolicies = ListSchedulingPolicies'
 -- This value can be between 1 and 100. If this parameter isn\'t used,
 -- @ListSchedulingPolicies@ returns up to 100 results and a @nextToken@
 -- value if applicable.
-newListSchedulingPolicies ::
-  ListSchedulingPolicies
-newListSchedulingPolicies =
-  ListSchedulingPolicies'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The @nextToken@ value that\'s returned from a previous paginated
+--
+-- 'nextToken', 'listSchedulingPolicies_nextToken' - The @nextToken@ value that\'s returned from a previous paginated
 -- @ListSchedulingPolicies@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
@@ -120,8 +103,14 @@ newListSchedulingPolicies =
 --
 -- Treat this token as an opaque identifier that\'s only used to retrieve
 -- the next items in a list and not for other programmatic purposes.
-listSchedulingPolicies_nextToken :: Lens.Lens' ListSchedulingPolicies (Prelude.Maybe Prelude.Text)
-listSchedulingPolicies_nextToken = Lens.lens (\ListSchedulingPolicies' {nextToken} -> nextToken) (\s@ListSchedulingPolicies' {} a -> s {nextToken = a} :: ListSchedulingPolicies)
+newListSchedulingPolicies ::
+  ListSchedulingPolicies
+newListSchedulingPolicies =
+  ListSchedulingPolicies'
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The maximum number of results that\'s returned by
 -- @ListSchedulingPolicies@ in paginated output. When this parameter is
@@ -134,6 +123,17 @@ listSchedulingPolicies_nextToken = Lens.lens (\ListSchedulingPolicies' {nextToke
 -- value if applicable.
 listSchedulingPolicies_maxResults :: Lens.Lens' ListSchedulingPolicies (Prelude.Maybe Prelude.Int)
 listSchedulingPolicies_maxResults = Lens.lens (\ListSchedulingPolicies' {maxResults} -> maxResults) (\s@ListSchedulingPolicies' {} a -> s {maxResults = a} :: ListSchedulingPolicies)
+
+-- | The @nextToken@ value that\'s returned from a previous paginated
+-- @ListSchedulingPolicies@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+-- This value is @null@ when there are no more results to return.
+--
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
+listSchedulingPolicies_nextToken :: Lens.Lens' ListSchedulingPolicies (Prelude.Maybe Prelude.Text)
+listSchedulingPolicies_nextToken = Lens.lens (\ListSchedulingPolicies' {nextToken} -> nextToken) (\s@ListSchedulingPolicies' {} a -> s {nextToken = a} :: ListSchedulingPolicies)
 
 instance Core.AWSPager ListSchedulingPolicies where
   page rq rs
@@ -176,13 +176,13 @@ instance Core.AWSRequest ListSchedulingPolicies where
 
 instance Prelude.Hashable ListSchedulingPolicies where
   hashWithSalt _salt ListSchedulingPolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSchedulingPolicies where
   rnf ListSchedulingPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSchedulingPolicies where
   toHeaders =
@@ -199,8 +199,8 @@ instance Data.ToJSON ListSchedulingPolicies where
   toJSON ListSchedulingPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

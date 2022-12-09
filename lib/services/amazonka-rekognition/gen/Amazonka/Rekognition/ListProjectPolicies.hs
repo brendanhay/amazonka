@@ -32,8 +32,8 @@ module Amazonka.Rekognition.ListProjectPolicies
     newListProjectPolicies,
 
     -- * Request Lenses
-    listProjectPolicies_nextToken,
     listProjectPolicies_maxResults,
+    listProjectPolicies_nextToken,
     listProjectPolicies_projectArn,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.Rekognition.ListProjectPolicies
     newListProjectPoliciesResponse,
 
     -- * Response Lenses
-    listProjectPoliciesResponse_projectPolicies,
     listProjectPoliciesResponse_nextToken,
+    listProjectPoliciesResponse_projectPolicies,
     listProjectPoliciesResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjectPolicies' smart constructor.
 data ListProjectPolicies = ListProjectPolicies'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 5. If you specify a value greater than 5, a
+    -- ValidationException error occurs. The default value is 5.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 5. If you specify a value greater than 5, a
-    -- ValidationException error occurs. The default value is 5.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the project for which you want to list the project policies.
     projectArn :: Prelude.Text
   }
@@ -79,14 +79,14 @@ data ListProjectPolicies = ListProjectPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProjectPolicies_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 5. If you specify a value greater than 5, a
+-- ValidationException error occurs. The default value is 5.
+--
 -- 'nextToken', 'listProjectPolicies_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
---
--- 'maxResults', 'listProjectPolicies_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 5. If you specify a value greater than 5, a
--- ValidationException error occurs. The default value is 5.
 --
 -- 'projectArn', 'listProjectPolicies_projectArn' - The ARN of the project for which you want to list the project policies.
 newListProjectPolicies ::
@@ -95,10 +95,16 @@ newListProjectPolicies ::
   ListProjectPolicies
 newListProjectPolicies pProjectArn_ =
   ListProjectPolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectArn = pProjectArn_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 5. If you specify a value greater than 5, a
+-- ValidationException error occurs. The default value is 5.
+listProjectPolicies_maxResults :: Lens.Lens' ListProjectPolicies (Prelude.Maybe Prelude.Natural)
+listProjectPolicies_maxResults = Lens.lens (\ListProjectPolicies' {maxResults} -> maxResults) (\s@ListProjectPolicies' {} a -> s {maxResults = a} :: ListProjectPolicies)
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
@@ -106,12 +112,6 @@ newListProjectPolicies pProjectArn_ =
 -- next set of results.
 listProjectPolicies_nextToken :: Lens.Lens' ListProjectPolicies (Prelude.Maybe Prelude.Text)
 listProjectPolicies_nextToken = Lens.lens (\ListProjectPolicies' {nextToken} -> nextToken) (\s@ListProjectPolicies' {} a -> s {nextToken = a} :: ListProjectPolicies)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 5. If you specify a value greater than 5, a
--- ValidationException error occurs. The default value is 5.
-listProjectPolicies_maxResults :: Lens.Lens' ListProjectPolicies (Prelude.Maybe Prelude.Natural)
-listProjectPolicies_maxResults = Lens.lens (\ListProjectPolicies' {maxResults} -> maxResults) (\s@ListProjectPolicies' {} a -> s {maxResults = a} :: ListProjectPolicies)
 
 -- | The ARN of the project for which you want to list the project policies.
 listProjectPolicies_projectArn :: Lens.Lens' ListProjectPolicies Prelude.Text
@@ -149,23 +149,23 @@ instance Core.AWSRequest ListProjectPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListProjectPoliciesResponse'
-            Prelude.<$> ( x Data..?> "ProjectPolicies"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ProjectPolicies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjectPolicies where
   hashWithSalt _salt ListProjectPolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectArn
 
 instance Prelude.NFData ListProjectPolicies where
   rnf ListProjectPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectArn
 
 instance Data.ToHeaders ListProjectPolicies where
@@ -187,8 +187,8 @@ instance Data.ToJSON ListProjectPolicies where
   toJSON ListProjectPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ProjectArn" Data..= projectArn)
           ]
       )
@@ -201,12 +201,12 @@ instance Data.ToQuery ListProjectPolicies where
 
 -- | /See:/ 'newListProjectPoliciesResponse' smart constructor.
 data ListProjectPoliciesResponse = ListProjectPoliciesResponse'
-  { -- | A list of project policies attached to the project.
-    projectPolicies :: Prelude.Maybe [ProjectPolicy],
-    -- | If the response is truncated, Amazon Rekognition returns this token that
+  { -- | If the response is truncated, Amazon Rekognition returns this token that
     -- you can use in the subsequent request to retrieve the next set of
     -- project policies.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of project policies attached to the project.
+    projectPolicies :: Prelude.Maybe [ProjectPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,11 +220,11 @@ data ListProjectPoliciesResponse = ListProjectPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectPolicies', 'listProjectPoliciesResponse_projectPolicies' - A list of project policies attached to the project.
---
 -- 'nextToken', 'listProjectPoliciesResponse_nextToken' - If the response is truncated, Amazon Rekognition returns this token that
 -- you can use in the subsequent request to retrieve the next set of
 -- project policies.
+--
+-- 'projectPolicies', 'listProjectPoliciesResponse_projectPolicies' - A list of project policies attached to the project.
 --
 -- 'httpStatus', 'listProjectPoliciesResponse_httpStatus' - The response's http status code.
 newListProjectPoliciesResponse ::
@@ -233,15 +233,11 @@ newListProjectPoliciesResponse ::
   ListProjectPoliciesResponse
 newListProjectPoliciesResponse pHttpStatus_ =
   ListProjectPoliciesResponse'
-    { projectPolicies =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      projectPolicies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of project policies attached to the project.
-listProjectPoliciesResponse_projectPolicies :: Lens.Lens' ListProjectPoliciesResponse (Prelude.Maybe [ProjectPolicy])
-listProjectPoliciesResponse_projectPolicies = Lens.lens (\ListProjectPoliciesResponse' {projectPolicies} -> projectPolicies) (\s@ListProjectPoliciesResponse' {} a -> s {projectPolicies = a} :: ListProjectPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Rekognition returns this token that
 -- you can use in the subsequent request to retrieve the next set of
@@ -249,12 +245,16 @@ listProjectPoliciesResponse_projectPolicies = Lens.lens (\ListProjectPoliciesRes
 listProjectPoliciesResponse_nextToken :: Lens.Lens' ListProjectPoliciesResponse (Prelude.Maybe Prelude.Text)
 listProjectPoliciesResponse_nextToken = Lens.lens (\ListProjectPoliciesResponse' {nextToken} -> nextToken) (\s@ListProjectPoliciesResponse' {} a -> s {nextToken = a} :: ListProjectPoliciesResponse)
 
+-- | A list of project policies attached to the project.
+listProjectPoliciesResponse_projectPolicies :: Lens.Lens' ListProjectPoliciesResponse (Prelude.Maybe [ProjectPolicy])
+listProjectPoliciesResponse_projectPolicies = Lens.lens (\ListProjectPoliciesResponse' {projectPolicies} -> projectPolicies) (\s@ListProjectPoliciesResponse' {} a -> s {projectPolicies = a} :: ListProjectPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listProjectPoliciesResponse_httpStatus :: Lens.Lens' ListProjectPoliciesResponse Prelude.Int
 listProjectPoliciesResponse_httpStatus = Lens.lens (\ListProjectPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListProjectPoliciesResponse' {} a -> s {httpStatus = a} :: ListProjectPoliciesResponse)
 
 instance Prelude.NFData ListProjectPoliciesResponse where
   rnf ListProjectPoliciesResponse' {..} =
-    Prelude.rnf projectPolicies
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projectPolicies
       `Prelude.seq` Prelude.rnf httpStatus

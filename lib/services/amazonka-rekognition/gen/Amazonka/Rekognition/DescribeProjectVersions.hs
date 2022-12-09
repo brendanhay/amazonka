@@ -35,9 +35,9 @@ module Amazonka.Rekognition.DescribeProjectVersions
     newDescribeProjectVersions,
 
     -- * Request Lenses
+    describeProjectVersions_maxResults,
     describeProjectVersions_nextToken,
     describeProjectVersions_versionNames,
-    describeProjectVersions_maxResults,
     describeProjectVersions_projectArn,
 
     -- * Destructuring the Response
@@ -61,7 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeProjectVersions' smart constructor.
 data DescribeProjectVersions = DescribeProjectVersions'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
@@ -73,10 +77,6 @@ data DescribeProjectVersions = DescribeProjectVersions'
     -- version name in the following ARN.
     -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
     versionNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the project that contains the models
     -- you want to describe.
     projectArn :: Prelude.Text
@@ -91,6 +91,10 @@ data DescribeProjectVersions = DescribeProjectVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeProjectVersions_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'describeProjectVersions_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
@@ -103,10 +107,6 @@ data DescribeProjectVersions = DescribeProjectVersions'
 -- version name in the following ARN.
 -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
 --
--- 'maxResults', 'describeProjectVersions_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
---
 -- 'projectArn', 'describeProjectVersions_projectArn' - The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
 newDescribeProjectVersions ::
@@ -115,12 +115,18 @@ newDescribeProjectVersions ::
   DescribeProjectVersions
 newDescribeProjectVersions pProjectArn_ =
   DescribeProjectVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       versionNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       projectArn = pProjectArn_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Natural)
+describeProjectVersions_maxResults = Lens.lens (\DescribeProjectVersions' {maxResults} -> maxResults) (\s@DescribeProjectVersions' {} a -> s {maxResults = a} :: DescribeProjectVersions)
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
@@ -137,12 +143,6 @@ describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextTo
 -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
 describeProjectVersions_versionNames :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeProjectVersions_versionNames = Lens.lens (\DescribeProjectVersions' {versionNames} -> versionNames) (\s@DescribeProjectVersions' {} a -> s {versionNames = a} :: DescribeProjectVersions) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-describeProjectVersions_maxResults :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe Prelude.Natural)
-describeProjectVersions_maxResults = Lens.lens (\DescribeProjectVersions' {maxResults} -> maxResults) (\s@DescribeProjectVersions' {} a -> s {maxResults = a} :: DescribeProjectVersions)
 
 -- | The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
@@ -190,16 +190,16 @@ instance Core.AWSRequest DescribeProjectVersions where
 
 instance Prelude.Hashable DescribeProjectVersions where
   hashWithSalt _salt DescribeProjectVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` versionNames
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` projectArn
 
 instance Prelude.NFData DescribeProjectVersions where
   rnf DescribeProjectVersions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf versionNames
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf projectArn
 
 instance Data.ToHeaders DescribeProjectVersions where
@@ -221,9 +221,9 @@ instance Data.ToJSON DescribeProjectVersions where
   toJSON DescribeProjectVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("VersionNames" Data..=) Prelude.<$> versionNames,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("ProjectArn" Data..= projectArn)
           ]
       )

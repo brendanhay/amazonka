@@ -30,11 +30,11 @@ import Amazonka.Rekognition.Types.Face
 --
 -- /See:/ 'newFaceMatch' smart constructor.
 data FaceMatch = FaceMatch'
-  { -- | Confidence in the match of this face with the input face.
-    similarity :: Prelude.Maybe Prelude.Double,
-    -- | Describes the face properties such as the bounding box, face ID, image
+  { -- | Describes the face properties such as the bounding box, face ID, image
     -- ID of the source image, and external image ID that you assigned.
-    face :: Prelude.Maybe Face
+    face :: Prelude.Maybe Face,
+    -- | Confidence in the match of this face with the input face.
+    similarity :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data FaceMatch = FaceMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'similarity', 'faceMatch_similarity' - Confidence in the match of this face with the input face.
---
 -- 'face', 'faceMatch_face' - Describes the face properties such as the bounding box, face ID, image
 -- ID of the source image, and external image ID that you assigned.
+--
+-- 'similarity', 'faceMatch_similarity' - Confidence in the match of this face with the input face.
 newFaceMatch ::
   FaceMatch
 newFaceMatch =
   FaceMatch'
-    { similarity = Prelude.Nothing,
-      face = Prelude.Nothing
+    { face = Prelude.Nothing,
+      similarity = Prelude.Nothing
     }
-
--- | Confidence in the match of this face with the input face.
-faceMatch_similarity :: Lens.Lens' FaceMatch (Prelude.Maybe Prelude.Double)
-faceMatch_similarity = Lens.lens (\FaceMatch' {similarity} -> similarity) (\s@FaceMatch' {} a -> s {similarity = a} :: FaceMatch)
 
 -- | Describes the face properties such as the bounding box, face ID, image
 -- ID of the source image, and external image ID that you assigned.
 faceMatch_face :: Lens.Lens' FaceMatch (Prelude.Maybe Face)
 faceMatch_face = Lens.lens (\FaceMatch' {face} -> face) (\s@FaceMatch' {} a -> s {face = a} :: FaceMatch)
+
+-- | Confidence in the match of this face with the input face.
+faceMatch_similarity :: Lens.Lens' FaceMatch (Prelude.Maybe Prelude.Double)
+faceMatch_similarity = Lens.lens (\FaceMatch' {similarity} -> similarity) (\s@FaceMatch' {} a -> s {similarity = a} :: FaceMatch)
 
 instance Data.FromJSON FaceMatch where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON FaceMatch where
       "FaceMatch"
       ( \x ->
           FaceMatch'
-            Prelude.<$> (x Data..:? "Similarity")
-            Prelude.<*> (x Data..:? "Face")
+            Prelude.<$> (x Data..:? "Face")
+            Prelude.<*> (x Data..:? "Similarity")
       )
 
 instance Prelude.Hashable FaceMatch where
   hashWithSalt _salt FaceMatch' {..} =
-    _salt `Prelude.hashWithSalt` similarity
-      `Prelude.hashWithSalt` face
+    _salt `Prelude.hashWithSalt` face
+      `Prelude.hashWithSalt` similarity
 
 instance Prelude.NFData FaceMatch where
   rnf FaceMatch' {..} =
-    Prelude.rnf similarity
-      `Prelude.seq` Prelude.rnf face
+    Prelude.rnf face
+      `Prelude.seq` Prelude.rnf similarity

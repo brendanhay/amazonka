@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGeneralLabelsSettings' smart constructor.
 data GeneralLabelsSettings = GeneralLabelsSettings'
-  { -- | The label categories that should be included in the return from
+  { -- | The label categories that should be excluded from the return from
+    -- DetectLabels.
+    labelCategoryExclusionFilters :: Prelude.Maybe [Prelude.Text],
+    -- | The label categories that should be included in the return from
     -- DetectLabels.
     labelCategoryInclusionFilters :: Prelude.Maybe [Prelude.Text],
     -- | The labels that should be excluded from the return from DetectLabels.
     labelExclusionFilters :: Prelude.Maybe [Prelude.Text],
     -- | The labels that should be included in the return from DetectLabels.
-    labelInclusionFilters :: Prelude.Maybe [Prelude.Text],
-    -- | The label categories that should be excluded from the return from
-    -- DetectLabels.
-    labelCategoryExclusionFilters :: Prelude.Maybe [Prelude.Text]
+    labelInclusionFilters :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,25 +51,30 @@ data GeneralLabelsSettings = GeneralLabelsSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'labelCategoryExclusionFilters', 'generalLabelsSettings_labelCategoryExclusionFilters' - The label categories that should be excluded from the return from
+-- DetectLabels.
+--
 -- 'labelCategoryInclusionFilters', 'generalLabelsSettings_labelCategoryInclusionFilters' - The label categories that should be included in the return from
 -- DetectLabels.
 --
 -- 'labelExclusionFilters', 'generalLabelsSettings_labelExclusionFilters' - The labels that should be excluded from the return from DetectLabels.
 --
 -- 'labelInclusionFilters', 'generalLabelsSettings_labelInclusionFilters' - The labels that should be included in the return from DetectLabels.
---
--- 'labelCategoryExclusionFilters', 'generalLabelsSettings_labelCategoryExclusionFilters' - The label categories that should be excluded from the return from
--- DetectLabels.
 newGeneralLabelsSettings ::
   GeneralLabelsSettings
 newGeneralLabelsSettings =
   GeneralLabelsSettings'
-    { labelCategoryInclusionFilters =
+    { labelCategoryExclusionFilters =
         Prelude.Nothing,
+      labelCategoryInclusionFilters = Prelude.Nothing,
       labelExclusionFilters = Prelude.Nothing,
-      labelInclusionFilters = Prelude.Nothing,
-      labelCategoryExclusionFilters = Prelude.Nothing
+      labelInclusionFilters = Prelude.Nothing
     }
+
+-- | The label categories that should be excluded from the return from
+-- DetectLabels.
+generalLabelsSettings_labelCategoryExclusionFilters :: Lens.Lens' GeneralLabelsSettings (Prelude.Maybe [Prelude.Text])
+generalLabelsSettings_labelCategoryExclusionFilters = Lens.lens (\GeneralLabelsSettings' {labelCategoryExclusionFilters} -> labelCategoryExclusionFilters) (\s@GeneralLabelsSettings' {} a -> s {labelCategoryExclusionFilters = a} :: GeneralLabelsSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The label categories that should be included in the return from
 -- DetectLabels.
@@ -84,37 +89,32 @@ generalLabelsSettings_labelExclusionFilters = Lens.lens (\GeneralLabelsSettings'
 generalLabelsSettings_labelInclusionFilters :: Lens.Lens' GeneralLabelsSettings (Prelude.Maybe [Prelude.Text])
 generalLabelsSettings_labelInclusionFilters = Lens.lens (\GeneralLabelsSettings' {labelInclusionFilters} -> labelInclusionFilters) (\s@GeneralLabelsSettings' {} a -> s {labelInclusionFilters = a} :: GeneralLabelsSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The label categories that should be excluded from the return from
--- DetectLabels.
-generalLabelsSettings_labelCategoryExclusionFilters :: Lens.Lens' GeneralLabelsSettings (Prelude.Maybe [Prelude.Text])
-generalLabelsSettings_labelCategoryExclusionFilters = Lens.lens (\GeneralLabelsSettings' {labelCategoryExclusionFilters} -> labelCategoryExclusionFilters) (\s@GeneralLabelsSettings' {} a -> s {labelCategoryExclusionFilters = a} :: GeneralLabelsSettings) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable GeneralLabelsSettings where
   hashWithSalt _salt GeneralLabelsSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` labelCategoryExclusionFilters
       `Prelude.hashWithSalt` labelCategoryInclusionFilters
       `Prelude.hashWithSalt` labelExclusionFilters
       `Prelude.hashWithSalt` labelInclusionFilters
-      `Prelude.hashWithSalt` labelCategoryExclusionFilters
 
 instance Prelude.NFData GeneralLabelsSettings where
   rnf GeneralLabelsSettings' {..} =
-    Prelude.rnf labelCategoryInclusionFilters
+    Prelude.rnf labelCategoryExclusionFilters
+      `Prelude.seq` Prelude.rnf labelCategoryInclusionFilters
       `Prelude.seq` Prelude.rnf labelExclusionFilters
       `Prelude.seq` Prelude.rnf labelInclusionFilters
-      `Prelude.seq` Prelude.rnf labelCategoryExclusionFilters
 
 instance Data.ToJSON GeneralLabelsSettings where
   toJSON GeneralLabelsSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LabelCategoryInclusionFilters" Data..=)
+          [ ("LabelCategoryExclusionFilters" Data..=)
+              Prelude.<$> labelCategoryExclusionFilters,
+            ("LabelCategoryInclusionFilters" Data..=)
               Prelude.<$> labelCategoryInclusionFilters,
             ("LabelExclusionFilters" Data..=)
               Prelude.<$> labelExclusionFilters,
             ("LabelInclusionFilters" Data..=)
-              Prelude.<$> labelInclusionFilters,
-            ("LabelCategoryExclusionFilters" Data..=)
-              Prelude.<$> labelCategoryExclusionFilters
+              Prelude.<$> labelInclusionFilters
           ]
       )

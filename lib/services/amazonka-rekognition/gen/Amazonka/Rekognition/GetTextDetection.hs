@@ -55,8 +55,8 @@ module Amazonka.Rekognition.GetTextDetection
     newGetTextDetection,
 
     -- * Request Lenses
-    getTextDetection_nextToken,
     getTextDetection_maxResults,
+    getTextDetection_nextToken,
     getTextDetection_jobId,
 
     -- * Destructuring the Response
@@ -64,12 +64,12 @@ module Amazonka.Rekognition.GetTextDetection
     newGetTextDetectionResponse,
 
     -- * Response Lenses
-    getTextDetectionResponse_nextToken,
     getTextDetectionResponse_jobStatus,
-    getTextDetectionResponse_textDetections,
-    getTextDetectionResponse_videoMetadata,
-    getTextDetectionResponse_textModelVersion,
+    getTextDetectionResponse_nextToken,
     getTextDetectionResponse_statusMessage,
+    getTextDetectionResponse_textDetections,
+    getTextDetectionResponse_textModelVersion,
+    getTextDetectionResponse_videoMetadata,
     getTextDetectionResponse_httpStatus,
   )
 where
@@ -84,14 +84,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTextDetection' smart constructor.
 data GetTextDetection = GetTextDetection'
-  { -- | If the previous response was incomplete (because there are more labels
+  { -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there are more labels
     -- to retrieve), Amazon Rekognition Video returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- text.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return per paginated call. The largest
-    -- value you can specify is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Job identifier for the text detection operation for which you want
     -- results returned. You get the job identifer from an initial call to
     -- @StartTextDetection@.
@@ -107,13 +107,13 @@ data GetTextDetection = GetTextDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getTextDetection_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000.
+--
 -- 'nextToken', 'getTextDetection_nextToken' - If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- text.
---
--- 'maxResults', 'getTextDetection_maxResults' - Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000.
 --
 -- 'jobId', 'getTextDetection_jobId' - Job identifier for the text detection operation for which you want
 -- results returned. You get the job identifer from an initial call to
@@ -124,10 +124,15 @@ newGetTextDetection ::
   GetTextDetection
 newGetTextDetection pJobId_ =
   GetTextDetection'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       jobId = pJobId_
     }
+
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000.
+getTextDetection_maxResults :: Lens.Lens' GetTextDetection (Prelude.Maybe Prelude.Natural)
+getTextDetection_maxResults = Lens.lens (\GetTextDetection' {maxResults} -> maxResults) (\s@GetTextDetection' {} a -> s {maxResults = a} :: GetTextDetection)
 
 -- | If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
@@ -135,11 +140,6 @@ newGetTextDetection pJobId_ =
 -- text.
 getTextDetection_nextToken :: Lens.Lens' GetTextDetection (Prelude.Maybe Prelude.Text)
 getTextDetection_nextToken = Lens.lens (\GetTextDetection' {nextToken} -> nextToken) (\s@GetTextDetection' {} a -> s {nextToken = a} :: GetTextDetection)
-
--- | Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000.
-getTextDetection_maxResults :: Lens.Lens' GetTextDetection (Prelude.Maybe Prelude.Natural)
-getTextDetection_maxResults = Lens.lens (\GetTextDetection' {maxResults} -> maxResults) (\s@GetTextDetection' {} a -> s {maxResults = a} :: GetTextDetection)
 
 -- | Job identifier for the text detection operation for which you want
 -- results returned. You get the job identifer from an initial call to
@@ -157,25 +157,25 @@ instance Core.AWSRequest GetTextDetection where
     Response.receiveJSON
       ( \s h x ->
           GetTextDetectionResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "TextDetections" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "VideoMetadata")
-            Prelude.<*> (x Data..?> "TextModelVersion")
+            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "TextDetections" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TextModelVersion")
+            Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetTextDetection where
   hashWithSalt _salt GetTextDetection' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetTextDetection where
   rnf GetTextDetection' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders GetTextDetection where
@@ -197,8 +197,8 @@ instance Data.ToJSON GetTextDetection where
   toJSON GetTextDetection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("JobId" Data..= jobId)
           ]
       )
@@ -211,21 +211,21 @@ instance Data.ToQuery GetTextDetection where
 
 -- | /See:/ 'newGetTextDetectionResponse' smart constructor.
 data GetTextDetectionResponse = GetTextDetectionResponse'
-  { -- | If the response is truncated, Amazon Rekognition Video returns this
+  { -- | Current status of the text detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of text.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Current status of the text detection job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An array of text detected in the video. Each element contains the
     -- detected text, the time in milliseconds from the start of the video that
     -- the text was detected, and where it was detected on the screen.
     textDetections :: Prelude.Maybe [TextDetectionResult],
-    videoMetadata :: Prelude.Maybe VideoMetadata,
     -- | Version number of the text detection model that was used to detect text.
     textModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    videoMetadata :: Prelude.Maybe VideoMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,21 +239,21 @@ data GetTextDetectionResponse = GetTextDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobStatus', 'getTextDetectionResponse_jobStatus' - Current status of the text detection job.
+--
 -- 'nextToken', 'getTextDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of text.
 --
--- 'jobStatus', 'getTextDetectionResponse_jobStatus' - Current status of the text detection job.
+-- 'statusMessage', 'getTextDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'textDetections', 'getTextDetectionResponse_textDetections' - An array of text detected in the video. Each element contains the
 -- detected text, the time in milliseconds from the start of the video that
 -- the text was detected, and where it was detected on the screen.
 --
--- 'videoMetadata', 'getTextDetectionResponse_videoMetadata' - Undocumented member.
---
 -- 'textModelVersion', 'getTextDetectionResponse_textModelVersion' - Version number of the text detection model that was used to detect text.
 --
--- 'statusMessage', 'getTextDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- 'videoMetadata', 'getTextDetectionResponse_videoMetadata' - Undocumented member.
 --
 -- 'httpStatus', 'getTextDetectionResponse_httpStatus' - The response's http status code.
 newGetTextDetectionResponse ::
@@ -262,15 +262,19 @@ newGetTextDetectionResponse ::
   GetTextDetectionResponse
 newGetTextDetectionResponse pHttpStatus_ =
   GetTextDetectionResponse'
-    { nextToken =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      textDetections = Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
-      textModelVersion = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      textDetections = Prelude.Nothing,
+      textModelVersion = Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Current status of the text detection job.
+getTextDetectionResponse_jobStatus :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoJobStatus)
+getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetTextDetectionResponse' {} a -> s {jobStatus = a} :: GetTextDetectionResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -278,9 +282,9 @@ newGetTextDetectionResponse pHttpStatus_ =
 getTextDetectionResponse_nextToken :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getTextDetectionResponse_nextToken = Lens.lens (\GetTextDetectionResponse' {nextToken} -> nextToken) (\s@GetTextDetectionResponse' {} a -> s {nextToken = a} :: GetTextDetectionResponse)
 
--- | Current status of the text detection job.
-getTextDetectionResponse_jobStatus :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoJobStatus)
-getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobStatus} -> jobStatus) (\s@GetTextDetectionResponse' {} a -> s {jobStatus = a} :: GetTextDetectionResponse)
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getTextDetectionResponse_statusMessage :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
+getTextDetectionResponse_statusMessage = Lens.lens (\GetTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetTextDetectionResponse' {} a -> s {statusMessage = a} :: GetTextDetectionResponse)
 
 -- | An array of text detected in the video. Each element contains the
 -- detected text, the time in milliseconds from the start of the video that
@@ -288,17 +292,13 @@ getTextDetectionResponse_jobStatus = Lens.lens (\GetTextDetectionResponse' {jobS
 getTextDetectionResponse_textDetections :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe [TextDetectionResult])
 getTextDetectionResponse_textDetections = Lens.lens (\GetTextDetectionResponse' {textDetections} -> textDetections) (\s@GetTextDetectionResponse' {} a -> s {textDetections = a} :: GetTextDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-getTextDetectionResponse_videoMetadata :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoMetadata)
-getTextDetectionResponse_videoMetadata = Lens.lens (\GetTextDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetTextDetectionResponse' {} a -> s {videoMetadata = a} :: GetTextDetectionResponse)
-
 -- | Version number of the text detection model that was used to detect text.
 getTextDetectionResponse_textModelVersion :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
 getTextDetectionResponse_textModelVersion = Lens.lens (\GetTextDetectionResponse' {textModelVersion} -> textModelVersion) (\s@GetTextDetectionResponse' {} a -> s {textModelVersion = a} :: GetTextDetectionResponse)
 
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getTextDetectionResponse_statusMessage :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe Prelude.Text)
-getTextDetectionResponse_statusMessage = Lens.lens (\GetTextDetectionResponse' {statusMessage} -> statusMessage) (\s@GetTextDetectionResponse' {} a -> s {statusMessage = a} :: GetTextDetectionResponse)
+-- | Undocumented member.
+getTextDetectionResponse_videoMetadata :: Lens.Lens' GetTextDetectionResponse (Prelude.Maybe VideoMetadata)
+getTextDetectionResponse_videoMetadata = Lens.lens (\GetTextDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetTextDetectionResponse' {} a -> s {videoMetadata = a} :: GetTextDetectionResponse)
 
 -- | The response's http status code.
 getTextDetectionResponse_httpStatus :: Lens.Lens' GetTextDetectionResponse Prelude.Int
@@ -306,10 +306,10 @@ getTextDetectionResponse_httpStatus = Lens.lens (\GetTextDetectionResponse' {htt
 
 instance Prelude.NFData GetTextDetectionResponse where
   rnf GetTextDetectionResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf textDetections
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf textModelVersion
+    Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf textDetections
+      `Prelude.seq` Prelude.rnf textModelVersion
+      `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

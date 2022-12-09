@@ -31,11 +31,11 @@ import Amazonka.Rekognition.Types.DominantColor
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The confidence that Amazon Rekognition has in the accuracy of the
+  { -- | The position of the label instance on the image.
+    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | The confidence that Amazon Rekognition has in the accuracy of the
     -- bounding box.
     confidence :: Prelude.Maybe Prelude.Double,
-    -- | The position of the label instance on the image.
-    boundingBox :: Prelude.Maybe BoundingBox,
     -- | The dominant colors found in an individual instance of a label.
     dominantColors :: Prelude.Maybe [DominantColor]
   }
@@ -49,29 +49,29 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'boundingBox', 'instance_boundingBox' - The position of the label instance on the image.
+--
 -- 'confidence', 'instance_confidence' - The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
---
--- 'boundingBox', 'instance_boundingBox' - The position of the label instance on the image.
 --
 -- 'dominantColors', 'instance_dominantColors' - The dominant colors found in an individual instance of a label.
 newInstance ::
   Instance
 newInstance =
   Instance'
-    { confidence = Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
+    { boundingBox = Prelude.Nothing,
+      confidence = Prelude.Nothing,
       dominantColors = Prelude.Nothing
     }
+
+-- | The position of the label instance on the image.
+instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
+instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
 instance_confidence :: Lens.Lens' Instance (Prelude.Maybe Prelude.Double)
 instance_confidence = Lens.lens (\Instance' {confidence} -> confidence) (\s@Instance' {} a -> s {confidence = a} :: Instance)
-
--- | The position of the label instance on the image.
-instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
-instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 -- | The dominant colors found in an individual instance of a label.
 instance_dominantColors :: Lens.Lens' Instance (Prelude.Maybe [DominantColor])
@@ -83,8 +83,8 @@ instance Data.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Data..:? "Confidence")
-            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Confidence")
             Prelude.<*> ( x Data..:? "DominantColors"
                             Data..!= Prelude.mempty
                         )
@@ -92,12 +92,12 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` boundingBox
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` dominantColors
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf boundingBox
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf dominantColors

@@ -30,13 +30,13 @@ import Amazonka.Rekognition.Types.ModerationLabel
 --
 -- /See:/ 'newContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
-  { -- | Time, in milliseconds from the beginning of the video, that the content
+  { -- | The content moderation label detected by in the stored video.
+    moderationLabel :: Prelude.Maybe ModerationLabel,
+    -- | Time, in milliseconds from the beginning of the video, that the content
     -- moderation label was detected. Note that @Timestamp@ is not guaranteed
     -- to be accurate to the individual frame where the moderated content first
     -- appears.
-    timestamp :: Prelude.Maybe Prelude.Integer,
-    -- | The content moderation label detected by in the stored video.
-    moderationLabel :: Prelude.Maybe ModerationLabel
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data ContentModerationDetection = ContentModerationDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.
+--
 -- 'timestamp', 'contentModerationDetection_timestamp' - Time, in milliseconds from the beginning of the video, that the content
 -- moderation label was detected. Note that @Timestamp@ is not guaranteed
 -- to be accurate to the individual frame where the moderated content first
 -- appears.
---
--- 'moderationLabel', 'contentModerationDetection_moderationLabel' - The content moderation label detected by in the stored video.
 newContentModerationDetection ::
   ContentModerationDetection
 newContentModerationDetection =
   ContentModerationDetection'
-    { timestamp =
+    { moderationLabel =
         Prelude.Nothing,
-      moderationLabel = Prelude.Nothing
+      timestamp = Prelude.Nothing
     }
+
+-- | The content moderation label detected by in the stored video.
+contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
+contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
 
 -- | Time, in milliseconds from the beginning of the video, that the content
 -- moderation label was detected. Note that @Timestamp@ is not guaranteed
@@ -70,26 +74,22 @@ newContentModerationDetection =
 contentModerationDetection_timestamp :: Lens.Lens' ContentModerationDetection (Prelude.Maybe Prelude.Integer)
 contentModerationDetection_timestamp = Lens.lens (\ContentModerationDetection' {timestamp} -> timestamp) (\s@ContentModerationDetection' {} a -> s {timestamp = a} :: ContentModerationDetection)
 
--- | The content moderation label detected by in the stored video.
-contentModerationDetection_moderationLabel :: Lens.Lens' ContentModerationDetection (Prelude.Maybe ModerationLabel)
-contentModerationDetection_moderationLabel = Lens.lens (\ContentModerationDetection' {moderationLabel} -> moderationLabel) (\s@ContentModerationDetection' {} a -> s {moderationLabel = a} :: ContentModerationDetection)
-
 instance Data.FromJSON ContentModerationDetection where
   parseJSON =
     Data.withObject
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            Prelude.<$> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "ModerationLabel")
+            Prelude.<$> (x Data..:? "ModerationLabel")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable ContentModerationDetection where
   hashWithSalt _salt ContentModerationDetection' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` moderationLabel
+    _salt `Prelude.hashWithSalt` moderationLabel
+      `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData ContentModerationDetection where
   rnf ContentModerationDetection' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf moderationLabel
+    Prelude.rnf moderationLabel
+      `Prelude.seq` Prelude.rnf timestamp

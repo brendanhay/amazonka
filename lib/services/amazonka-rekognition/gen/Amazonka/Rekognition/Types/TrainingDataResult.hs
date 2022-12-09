@@ -31,14 +31,14 @@ import Amazonka.Rekognition.Types.ValidationData
 --
 -- /See:/ 'newTrainingDataResult' smart constructor.
 data TrainingDataResult = TrainingDataResult'
-  { -- | The location of the data validation manifest. The data validation
-    -- manifest is created for the training dataset during model training.
-    validation :: Prelude.Maybe ValidationData,
-    -- | The training assets that you supplied for training.
+  { -- | The training assets that you supplied for training.
     input :: Prelude.Maybe TrainingData,
     -- | The images (assets) that were actually trained by Amazon Rekognition
     -- Custom Labels.
-    output :: Prelude.Maybe TrainingData
+    output :: Prelude.Maybe TrainingData,
+    -- | The location of the data validation manifest. The data validation
+    -- manifest is created for the training dataset during model training.
+    validation :: Prelude.Maybe ValidationData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,21 @@ data TrainingDataResult = TrainingDataResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validation', 'trainingDataResult_validation' - The location of the data validation manifest. The data validation
--- manifest is created for the training dataset during model training.
---
 -- 'input', 'trainingDataResult_input' - The training assets that you supplied for training.
 --
 -- 'output', 'trainingDataResult_output' - The images (assets) that were actually trained by Amazon Rekognition
 -- Custom Labels.
+--
+-- 'validation', 'trainingDataResult_validation' - The location of the data validation manifest. The data validation
+-- manifest is created for the training dataset during model training.
 newTrainingDataResult ::
   TrainingDataResult
 newTrainingDataResult =
   TrainingDataResult'
-    { validation = Prelude.Nothing,
-      input = Prelude.Nothing,
-      output = Prelude.Nothing
+    { input = Prelude.Nothing,
+      output = Prelude.Nothing,
+      validation = Prelude.Nothing
     }
-
--- | The location of the data validation manifest. The data validation
--- manifest is created for the training dataset during model training.
-trainingDataResult_validation :: Lens.Lens' TrainingDataResult (Prelude.Maybe ValidationData)
-trainingDataResult_validation = Lens.lens (\TrainingDataResult' {validation} -> validation) (\s@TrainingDataResult' {} a -> s {validation = a} :: TrainingDataResult)
 
 -- | The training assets that you supplied for training.
 trainingDataResult_input :: Lens.Lens' TrainingDataResult (Prelude.Maybe TrainingData)
@@ -80,25 +75,30 @@ trainingDataResult_input = Lens.lens (\TrainingDataResult' {input} -> input) (\s
 trainingDataResult_output :: Lens.Lens' TrainingDataResult (Prelude.Maybe TrainingData)
 trainingDataResult_output = Lens.lens (\TrainingDataResult' {output} -> output) (\s@TrainingDataResult' {} a -> s {output = a} :: TrainingDataResult)
 
+-- | The location of the data validation manifest. The data validation
+-- manifest is created for the training dataset during model training.
+trainingDataResult_validation :: Lens.Lens' TrainingDataResult (Prelude.Maybe ValidationData)
+trainingDataResult_validation = Lens.lens (\TrainingDataResult' {validation} -> validation) (\s@TrainingDataResult' {} a -> s {validation = a} :: TrainingDataResult)
+
 instance Data.FromJSON TrainingDataResult where
   parseJSON =
     Data.withObject
       "TrainingDataResult"
       ( \x ->
           TrainingDataResult'
-            Prelude.<$> (x Data..:? "Validation")
-            Prelude.<*> (x Data..:? "Input")
+            Prelude.<$> (x Data..:? "Input")
             Prelude.<*> (x Data..:? "Output")
+            Prelude.<*> (x Data..:? "Validation")
       )
 
 instance Prelude.Hashable TrainingDataResult where
   hashWithSalt _salt TrainingDataResult' {..} =
-    _salt `Prelude.hashWithSalt` validation
-      `Prelude.hashWithSalt` input
+    _salt `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` validation
 
 instance Prelude.NFData TrainingDataResult where
   rnf TrainingDataResult' {..} =
-    Prelude.rnf validation
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input
       `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf validation

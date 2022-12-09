@@ -51,8 +51,8 @@ module Amazonka.Rekognition.CopyProjectVersion
     newCopyProjectVersion,
 
     -- * Request Lenses
-    copyProjectVersion_tags,
     copyProjectVersion_kmsKeyId,
+    copyProjectVersion_tags,
     copyProjectVersion_sourceProjectArn,
     copyProjectVersion_sourceProjectVersionArn,
     copyProjectVersion_destinationProjectArn,
@@ -79,9 +79,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCopyProjectVersion' smart constructor.
 data CopyProjectVersion = CopyProjectVersion'
-  { -- | The key-value tags to assign to the model version.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
+  { -- | The identifier for your AWS Key Management Service key (AWS KMS key).
     -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
     -- your KMS key, an alias for your KMS key, or an alias ARN. The key is
     -- used to encrypt training results and manifest files written to the
@@ -101,6 +99,8 @@ data CopyProjectVersion = CopyProjectVersion'
     -- If you don\'t specify a value for @KmsKeyId@, images copied into the
     -- service are encrypted using a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The key-value tags to assign to the model version.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the source project in the trusting AWS account.
     sourceProjectArn :: Prelude.Text,
     -- | The ARN of the model version in the source project that you want to copy
@@ -126,8 +126,6 @@ data CopyProjectVersion = CopyProjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'copyProjectVersion_tags' - The key-value tags to assign to the model version.
---
 -- 'kmsKeyId', 'copyProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
 -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
 -- your KMS key, an alias for your KMS key, or an alias ARN. The key is
@@ -147,6 +145,8 @@ data CopyProjectVersion = CopyProjectVersion'
 --
 -- If you don\'t specify a value for @KmsKeyId@, images copied into the
 -- service are encrypted using a key that AWS owns and manages.
+--
+-- 'tags', 'copyProjectVersion_tags' - The key-value tags to assign to the model version.
 --
 -- 'sourceProjectArn', 'copyProjectVersion_sourceProjectArn' - The ARN of the source project in the trusting AWS account.
 --
@@ -180,18 +180,14 @@ newCopyProjectVersion
   pVersionName_
   pOutputConfig_ =
     CopyProjectVersion'
-      { tags = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         sourceProjectArn = pSourceProjectArn_,
         sourceProjectVersionArn = pSourceProjectVersionArn_,
         destinationProjectArn = pDestinationProjectArn_,
         versionName = pVersionName_,
         outputConfig = pOutputConfig_
       }
-
--- | The key-value tags to assign to the model version.
-copyProjectVersion_tags :: Lens.Lens' CopyProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-copyProjectVersion_tags = Lens.lens (\CopyProjectVersion' {tags} -> tags) (\s@CopyProjectVersion' {} a -> s {tags = a} :: CopyProjectVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for your AWS Key Management Service key (AWS KMS key).
 -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
@@ -214,6 +210,10 @@ copyProjectVersion_tags = Lens.lens (\CopyProjectVersion' {tags} -> tags) (\s@Co
 -- service are encrypted using a key that AWS owns and manages.
 copyProjectVersion_kmsKeyId :: Lens.Lens' CopyProjectVersion (Prelude.Maybe Prelude.Text)
 copyProjectVersion_kmsKeyId = Lens.lens (\CopyProjectVersion' {kmsKeyId} -> kmsKeyId) (\s@CopyProjectVersion' {} a -> s {kmsKeyId = a} :: CopyProjectVersion)
+
+-- | The key-value tags to assign to the model version.
+copyProjectVersion_tags :: Lens.Lens' CopyProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+copyProjectVersion_tags = Lens.lens (\CopyProjectVersion' {tags} -> tags) (\s@CopyProjectVersion' {} a -> s {tags = a} :: CopyProjectVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the source project in the trusting AWS account.
 copyProjectVersion_sourceProjectArn :: Lens.Lens' CopyProjectVersion Prelude.Text
@@ -255,8 +255,8 @@ instance Core.AWSRequest CopyProjectVersion where
 
 instance Prelude.Hashable CopyProjectVersion where
   hashWithSalt _salt CopyProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceProjectArn
       `Prelude.hashWithSalt` sourceProjectVersionArn
       `Prelude.hashWithSalt` destinationProjectArn
@@ -265,8 +265,8 @@ instance Prelude.Hashable CopyProjectVersion where
 
 instance Prelude.NFData CopyProjectVersion where
   rnf CopyProjectVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceProjectArn
       `Prelude.seq` Prelude.rnf sourceProjectVersionArn
       `Prelude.seq` Prelude.rnf destinationProjectArn
@@ -292,8 +292,8 @@ instance Data.ToJSON CopyProjectVersion where
   toJSON CopyProjectVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("SourceProjectArn" Data..= sourceProjectArn),
             Prelude.Just

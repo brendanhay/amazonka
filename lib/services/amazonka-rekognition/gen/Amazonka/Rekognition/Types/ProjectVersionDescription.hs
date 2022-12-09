@@ -34,45 +34,45 @@ import Amazonka.Rekognition.Types.TrainingDataResult
 --
 -- /See:/ 'newProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
-  { -- | The Unix date and time that training of the model ended.
-    trainingEndTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The minimum number of inference units used by the model. For more
-    -- information, see StartProjectVersion.
-    minInferenceUnits :: Prelude.Maybe Prelude.Natural,
-    -- | If the model version was copied from a different project,
-    -- @SourceProjectVersionArn@ contains the ARN of the source model version.
-    sourceProjectVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the model version.
-    status :: Prelude.Maybe ProjectVersionStatus,
-    -- | Contains information about the testing results.
-    testingDataResult :: Prelude.Maybe TestingDataResult,
+  { -- | The duration, in seconds, that you were billed for a successful training
+    -- of the model version. This value is only returned if the model version
+    -- has been successfully trained.
+    billableTrainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Unix datetime for the date and time that training started.
     creationTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The location of the summary manifest. The summary manifest provides
-    -- aggregate data validation results for the training and test datasets.
-    manifestSummary :: Prelude.Maybe GroundTruthManifest,
-    -- | Contains information about the training results.
-    trainingDataResult :: Prelude.Maybe TrainingDataResult,
     -- | The training results. @EvaluationResult@ is only returned if training is
     -- successful.
     evaluationResult :: Prelude.Maybe EvaluationResult,
     -- | The identifer for the AWS Key Management Service key (AWS KMS key) that
     -- was used to encrypt the model during training.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the model version.
-    projectVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The location of the summary manifest. The summary manifest provides
+    -- aggregate data validation results for the training and test datasets.
+    manifestSummary :: Prelude.Maybe GroundTruthManifest,
     -- | The maximum number of inference units Amazon Rekognition Custom Labels
     -- uses to auto-scale the model. For more information, see
     -- StartProjectVersion.
     maxInferenceUnits :: Prelude.Maybe Prelude.Natural,
-    -- | The duration, in seconds, that you were billed for a successful training
-    -- of the model version. This value is only returned if the model version
-    -- has been successfully trained.
-    billableTrainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum number of inference units used by the model. For more
+    -- information, see StartProjectVersion.
+    minInferenceUnits :: Prelude.Maybe Prelude.Natural,
+    -- | The location where training results are saved.
+    outputConfig :: Prelude.Maybe OutputConfig,
+    -- | The Amazon Resource Name (ARN) of the model version.
+    projectVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | If the model version was copied from a different project,
+    -- @SourceProjectVersionArn@ contains the ARN of the source model version.
+    sourceProjectVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the model version.
+    status :: Prelude.Maybe ProjectVersionStatus,
     -- | A descriptive message for an error or warning that occurred.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The location where training results are saved.
-    outputConfig :: Prelude.Maybe OutputConfig
+    -- | Contains information about the testing results.
+    testingDataResult :: Prelude.Maybe TestingDataResult,
+    -- | Contains information about the training results.
+    trainingDataResult :: Prelude.Maybe TrainingDataResult,
+    -- | The Unix date and time that training of the model ended.
+    trainingEndTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,24 +84,11 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trainingEndTimestamp', 'projectVersionDescription_trainingEndTimestamp' - The Unix date and time that training of the model ended.
---
--- 'minInferenceUnits', 'projectVersionDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more
--- information, see StartProjectVersion.
---
--- 'sourceProjectVersionArn', 'projectVersionDescription_sourceProjectVersionArn' - If the model version was copied from a different project,
--- @SourceProjectVersionArn@ contains the ARN of the source model version.
---
--- 'status', 'projectVersionDescription_status' - The current status of the model version.
---
--- 'testingDataResult', 'projectVersionDescription_testingDataResult' - Contains information about the testing results.
+-- 'billableTrainingTimeInSeconds', 'projectVersionDescription_billableTrainingTimeInSeconds' - The duration, in seconds, that you were billed for a successful training
+-- of the model version. This value is only returned if the model version
+-- has been successfully trained.
 --
 -- 'creationTimestamp', 'projectVersionDescription_creationTimestamp' - The Unix datetime for the date and time that training started.
---
--- 'manifestSummary', 'projectVersionDescription_manifestSummary' - The location of the summary manifest. The summary manifest provides
--- aggregate data validation results for the training and test datasets.
---
--- 'trainingDataResult', 'projectVersionDescription_trainingDataResult' - Contains information about the training results.
 --
 -- 'evaluationResult', 'projectVersionDescription_evaluationResult' - The training results. @EvaluationResult@ is only returned if training is
 -- successful.
@@ -109,75 +96,63 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- 'kmsKeyId', 'projectVersionDescription_kmsKeyId' - The identifer for the AWS Key Management Service key (AWS KMS key) that
 -- was used to encrypt the model during training.
 --
--- 'projectVersionArn', 'projectVersionDescription_projectVersionArn' - The Amazon Resource Name (ARN) of the model version.
+-- 'manifestSummary', 'projectVersionDescription_manifestSummary' - The location of the summary manifest. The summary manifest provides
+-- aggregate data validation results for the training and test datasets.
 --
 -- 'maxInferenceUnits', 'projectVersionDescription_maxInferenceUnits' - The maximum number of inference units Amazon Rekognition Custom Labels
 -- uses to auto-scale the model. For more information, see
 -- StartProjectVersion.
 --
--- 'billableTrainingTimeInSeconds', 'projectVersionDescription_billableTrainingTimeInSeconds' - The duration, in seconds, that you were billed for a successful training
--- of the model version. This value is only returned if the model version
--- has been successfully trained.
+-- 'minInferenceUnits', 'projectVersionDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more
+-- information, see StartProjectVersion.
+--
+-- 'outputConfig', 'projectVersionDescription_outputConfig' - The location where training results are saved.
+--
+-- 'projectVersionArn', 'projectVersionDescription_projectVersionArn' - The Amazon Resource Name (ARN) of the model version.
+--
+-- 'sourceProjectVersionArn', 'projectVersionDescription_sourceProjectVersionArn' - If the model version was copied from a different project,
+-- @SourceProjectVersionArn@ contains the ARN of the source model version.
+--
+-- 'status', 'projectVersionDescription_status' - The current status of the model version.
 --
 -- 'statusMessage', 'projectVersionDescription_statusMessage' - A descriptive message for an error or warning that occurred.
 --
--- 'outputConfig', 'projectVersionDescription_outputConfig' - The location where training results are saved.
+-- 'testingDataResult', 'projectVersionDescription_testingDataResult' - Contains information about the testing results.
+--
+-- 'trainingDataResult', 'projectVersionDescription_trainingDataResult' - Contains information about the training results.
+--
+-- 'trainingEndTimestamp', 'projectVersionDescription_trainingEndTimestamp' - The Unix date and time that training of the model ended.
 newProjectVersionDescription ::
   ProjectVersionDescription
 newProjectVersionDescription =
   ProjectVersionDescription'
-    { trainingEndTimestamp =
+    { billableTrainingTimeInSeconds =
         Prelude.Nothing,
-      minInferenceUnits = Prelude.Nothing,
-      sourceProjectVersionArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      testingDataResult = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
-      manifestSummary = Prelude.Nothing,
-      trainingDataResult = Prelude.Nothing,
       evaluationResult = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      projectVersionArn = Prelude.Nothing,
+      manifestSummary = Prelude.Nothing,
       maxInferenceUnits = Prelude.Nothing,
-      billableTrainingTimeInSeconds = Prelude.Nothing,
+      minInferenceUnits = Prelude.Nothing,
+      outputConfig = Prelude.Nothing,
+      projectVersionArn = Prelude.Nothing,
+      sourceProjectVersionArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      outputConfig = Prelude.Nothing
+      testingDataResult = Prelude.Nothing,
+      trainingDataResult = Prelude.Nothing,
+      trainingEndTimestamp = Prelude.Nothing
     }
 
--- | The Unix date and time that training of the model ended.
-projectVersionDescription_trainingEndTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
-projectVersionDescription_trainingEndTimestamp = Lens.lens (\ProjectVersionDescription' {trainingEndTimestamp} -> trainingEndTimestamp) (\s@ProjectVersionDescription' {} a -> s {trainingEndTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Data._Time
-
--- | The minimum number of inference units used by the model. For more
--- information, see StartProjectVersion.
-projectVersionDescription_minInferenceUnits :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
-projectVersionDescription_minInferenceUnits = Lens.lens (\ProjectVersionDescription' {minInferenceUnits} -> minInferenceUnits) (\s@ProjectVersionDescription' {} a -> s {minInferenceUnits = a} :: ProjectVersionDescription)
-
--- | If the model version was copied from a different project,
--- @SourceProjectVersionArn@ contains the ARN of the source model version.
-projectVersionDescription_sourceProjectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
-projectVersionDescription_sourceProjectVersionArn = Lens.lens (\ProjectVersionDescription' {sourceProjectVersionArn} -> sourceProjectVersionArn) (\s@ProjectVersionDescription' {} a -> s {sourceProjectVersionArn = a} :: ProjectVersionDescription)
-
--- | The current status of the model version.
-projectVersionDescription_status :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe ProjectVersionStatus)
-projectVersionDescription_status = Lens.lens (\ProjectVersionDescription' {status} -> status) (\s@ProjectVersionDescription' {} a -> s {status = a} :: ProjectVersionDescription)
-
--- | Contains information about the testing results.
-projectVersionDescription_testingDataResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe TestingDataResult)
-projectVersionDescription_testingDataResult = Lens.lens (\ProjectVersionDescription' {testingDataResult} -> testingDataResult) (\s@ProjectVersionDescription' {} a -> s {testingDataResult = a} :: ProjectVersionDescription)
+-- | The duration, in seconds, that you were billed for a successful training
+-- of the model version. This value is only returned if the model version
+-- has been successfully trained.
+projectVersionDescription_billableTrainingTimeInSeconds :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
+projectVersionDescription_billableTrainingTimeInSeconds = Lens.lens (\ProjectVersionDescription' {billableTrainingTimeInSeconds} -> billableTrainingTimeInSeconds) (\s@ProjectVersionDescription' {} a -> s {billableTrainingTimeInSeconds = a} :: ProjectVersionDescription)
 
 -- | The Unix datetime for the date and time that training started.
 projectVersionDescription_creationTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
 projectVersionDescription_creationTimestamp = Lens.lens (\ProjectVersionDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectVersionDescription' {} a -> s {creationTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Data._Time
-
--- | The location of the summary manifest. The summary manifest provides
--- aggregate data validation results for the training and test datasets.
-projectVersionDescription_manifestSummary :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe GroundTruthManifest)
-projectVersionDescription_manifestSummary = Lens.lens (\ProjectVersionDescription' {manifestSummary} -> manifestSummary) (\s@ProjectVersionDescription' {} a -> s {manifestSummary = a} :: ProjectVersionDescription)
-
--- | Contains information about the training results.
-projectVersionDescription_trainingDataResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe TrainingDataResult)
-projectVersionDescription_trainingDataResult = Lens.lens (\ProjectVersionDescription' {trainingDataResult} -> trainingDataResult) (\s@ProjectVersionDescription' {} a -> s {trainingDataResult = a} :: ProjectVersionDescription)
 
 -- | The training results. @EvaluationResult@ is only returned if training is
 -- successful.
@@ -189,9 +164,10 @@ projectVersionDescription_evaluationResult = Lens.lens (\ProjectVersionDescripti
 projectVersionDescription_kmsKeyId :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
 projectVersionDescription_kmsKeyId = Lens.lens (\ProjectVersionDescription' {kmsKeyId} -> kmsKeyId) (\s@ProjectVersionDescription' {} a -> s {kmsKeyId = a} :: ProjectVersionDescription)
 
--- | The Amazon Resource Name (ARN) of the model version.
-projectVersionDescription_projectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
-projectVersionDescription_projectVersionArn = Lens.lens (\ProjectVersionDescription' {projectVersionArn} -> projectVersionArn) (\s@ProjectVersionDescription' {} a -> s {projectVersionArn = a} :: ProjectVersionDescription)
+-- | The location of the summary manifest. The summary manifest provides
+-- aggregate data validation results for the training and test datasets.
+projectVersionDescription_manifestSummary :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe GroundTruthManifest)
+projectVersionDescription_manifestSummary = Lens.lens (\ProjectVersionDescription' {manifestSummary} -> manifestSummary) (\s@ProjectVersionDescription' {} a -> s {manifestSummary = a} :: ProjectVersionDescription)
 
 -- | The maximum number of inference units Amazon Rekognition Custom Labels
 -- uses to auto-scale the model. For more information, see
@@ -199,19 +175,43 @@ projectVersionDescription_projectVersionArn = Lens.lens (\ProjectVersionDescript
 projectVersionDescription_maxInferenceUnits :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
 projectVersionDescription_maxInferenceUnits = Lens.lens (\ProjectVersionDescription' {maxInferenceUnits} -> maxInferenceUnits) (\s@ProjectVersionDescription' {} a -> s {maxInferenceUnits = a} :: ProjectVersionDescription)
 
--- | The duration, in seconds, that you were billed for a successful training
--- of the model version. This value is only returned if the model version
--- has been successfully trained.
-projectVersionDescription_billableTrainingTimeInSeconds :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
-projectVersionDescription_billableTrainingTimeInSeconds = Lens.lens (\ProjectVersionDescription' {billableTrainingTimeInSeconds} -> billableTrainingTimeInSeconds) (\s@ProjectVersionDescription' {} a -> s {billableTrainingTimeInSeconds = a} :: ProjectVersionDescription)
+-- | The minimum number of inference units used by the model. For more
+-- information, see StartProjectVersion.
+projectVersionDescription_minInferenceUnits :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
+projectVersionDescription_minInferenceUnits = Lens.lens (\ProjectVersionDescription' {minInferenceUnits} -> minInferenceUnits) (\s@ProjectVersionDescription' {} a -> s {minInferenceUnits = a} :: ProjectVersionDescription)
+
+-- | The location where training results are saved.
+projectVersionDescription_outputConfig :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe OutputConfig)
+projectVersionDescription_outputConfig = Lens.lens (\ProjectVersionDescription' {outputConfig} -> outputConfig) (\s@ProjectVersionDescription' {} a -> s {outputConfig = a} :: ProjectVersionDescription)
+
+-- | The Amazon Resource Name (ARN) of the model version.
+projectVersionDescription_projectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
+projectVersionDescription_projectVersionArn = Lens.lens (\ProjectVersionDescription' {projectVersionArn} -> projectVersionArn) (\s@ProjectVersionDescription' {} a -> s {projectVersionArn = a} :: ProjectVersionDescription)
+
+-- | If the model version was copied from a different project,
+-- @SourceProjectVersionArn@ contains the ARN of the source model version.
+projectVersionDescription_sourceProjectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
+projectVersionDescription_sourceProjectVersionArn = Lens.lens (\ProjectVersionDescription' {sourceProjectVersionArn} -> sourceProjectVersionArn) (\s@ProjectVersionDescription' {} a -> s {sourceProjectVersionArn = a} :: ProjectVersionDescription)
+
+-- | The current status of the model version.
+projectVersionDescription_status :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe ProjectVersionStatus)
+projectVersionDescription_status = Lens.lens (\ProjectVersionDescription' {status} -> status) (\s@ProjectVersionDescription' {} a -> s {status = a} :: ProjectVersionDescription)
 
 -- | A descriptive message for an error or warning that occurred.
 projectVersionDescription_statusMessage :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
 projectVersionDescription_statusMessage = Lens.lens (\ProjectVersionDescription' {statusMessage} -> statusMessage) (\s@ProjectVersionDescription' {} a -> s {statusMessage = a} :: ProjectVersionDescription)
 
--- | The location where training results are saved.
-projectVersionDescription_outputConfig :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe OutputConfig)
-projectVersionDescription_outputConfig = Lens.lens (\ProjectVersionDescription' {outputConfig} -> outputConfig) (\s@ProjectVersionDescription' {} a -> s {outputConfig = a} :: ProjectVersionDescription)
+-- | Contains information about the testing results.
+projectVersionDescription_testingDataResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe TestingDataResult)
+projectVersionDescription_testingDataResult = Lens.lens (\ProjectVersionDescription' {testingDataResult} -> testingDataResult) (\s@ProjectVersionDescription' {} a -> s {testingDataResult = a} :: ProjectVersionDescription)
+
+-- | Contains information about the training results.
+projectVersionDescription_trainingDataResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe TrainingDataResult)
+projectVersionDescription_trainingDataResult = Lens.lens (\ProjectVersionDescription' {trainingDataResult} -> trainingDataResult) (\s@ProjectVersionDescription' {} a -> s {trainingDataResult = a} :: ProjectVersionDescription)
+
+-- | The Unix date and time that training of the model ended.
+projectVersionDescription_trainingEndTimestamp :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.UTCTime)
+projectVersionDescription_trainingEndTimestamp = Lens.lens (\ProjectVersionDescription' {trainingEndTimestamp} -> trainingEndTimestamp) (\s@ProjectVersionDescription' {} a -> s {trainingEndTimestamp = a} :: ProjectVersionDescription) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ProjectVersionDescription where
   parseJSON =
@@ -219,55 +219,56 @@ instance Data.FromJSON ProjectVersionDescription where
       "ProjectVersionDescription"
       ( \x ->
           ProjectVersionDescription'
-            Prelude.<$> (x Data..:? "TrainingEndTimestamp")
-            Prelude.<*> (x Data..:? "MinInferenceUnits")
-            Prelude.<*> (x Data..:? "SourceProjectVersionArn")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "TestingDataResult")
+            Prelude.<$> (x Data..:? "BillableTrainingTimeInSeconds")
             Prelude.<*> (x Data..:? "CreationTimestamp")
-            Prelude.<*> (x Data..:? "ManifestSummary")
-            Prelude.<*> (x Data..:? "TrainingDataResult")
             Prelude.<*> (x Data..:? "EvaluationResult")
             Prelude.<*> (x Data..:? "KmsKeyId")
-            Prelude.<*> (x Data..:? "ProjectVersionArn")
+            Prelude.<*> (x Data..:? "ManifestSummary")
             Prelude.<*> (x Data..:? "MaxInferenceUnits")
-            Prelude.<*> (x Data..:? "BillableTrainingTimeInSeconds")
-            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "MinInferenceUnits")
             Prelude.<*> (x Data..:? "OutputConfig")
+            Prelude.<*> (x Data..:? "ProjectVersionArn")
+            Prelude.<*> (x Data..:? "SourceProjectVersionArn")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "TestingDataResult")
+            Prelude.<*> (x Data..:? "TrainingDataResult")
+            Prelude.<*> (x Data..:? "TrainingEndTimestamp")
       )
 
 instance Prelude.Hashable ProjectVersionDescription where
   hashWithSalt _salt ProjectVersionDescription' {..} =
-    _salt `Prelude.hashWithSalt` trainingEndTimestamp
-      `Prelude.hashWithSalt` minInferenceUnits
-      `Prelude.hashWithSalt` sourceProjectVersionArn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` testingDataResult
+    _salt
+      `Prelude.hashWithSalt` billableTrainingTimeInSeconds
       `Prelude.hashWithSalt` creationTimestamp
-      `Prelude.hashWithSalt` manifestSummary
-      `Prelude.hashWithSalt` trainingDataResult
       `Prelude.hashWithSalt` evaluationResult
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` manifestSummary
       `Prelude.hashWithSalt` maxInferenceUnits
-      `Prelude.hashWithSalt` billableTrainingTimeInSeconds
-      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` minInferenceUnits
       `Prelude.hashWithSalt` outputConfig
+      `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` sourceProjectVersionArn
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` testingDataResult
+      `Prelude.hashWithSalt` trainingDataResult
+      `Prelude.hashWithSalt` trainingEndTimestamp
 
 instance Prelude.NFData ProjectVersionDescription where
   rnf ProjectVersionDescription' {..} =
-    Prelude.rnf trainingEndTimestamp
-      `Prelude.seq` Prelude.rnf minInferenceUnits
-      `Prelude.seq` Prelude.rnf sourceProjectVersionArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf testingDataResult
+    Prelude.rnf billableTrainingTimeInSeconds
       `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf manifestSummary
-      `Prelude.seq` Prelude.rnf trainingDataResult
       `Prelude.seq` Prelude.rnf evaluationResult
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf manifestSummary
       `Prelude.seq` Prelude.rnf maxInferenceUnits
-      `Prelude.seq` Prelude.rnf billableTrainingTimeInSeconds
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf minInferenceUnits
       `Prelude.seq` Prelude.rnf outputConfig
+      `Prelude.seq` Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf sourceProjectVersionArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf testingDataResult
+      `Prelude.seq` Prelude.rnf trainingDataResult
+      `Prelude.seq` Prelude.rnf trainingEndTimestamp

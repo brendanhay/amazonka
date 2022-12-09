@@ -47,8 +47,8 @@ module Amazonka.Rekognition.StartContentModeration
 
     -- * Request Lenses
     startContentModeration_clientRequestToken,
-    startContentModeration_minConfidence,
     startContentModeration_jobTag,
+    startContentModeration_minConfidence,
     startContentModeration_notificationChannel,
     startContentModeration_video,
 
@@ -77,6 +77,11 @@ data StartContentModeration = StartContentModeration'
     -- is returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | Specifies the minimum confidence that Amazon Rekognition must have in
     -- order to return a moderated content label. Confidence represents how
     -- certain Amazon Rekognition is that the moderated content is correctly
@@ -86,11 +91,6 @@ data StartContentModeration = StartContentModeration'
     -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
     -- values greater than or equal to 50 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
     -- publish the completion status of the content analysis to. The Amazon SNS
     -- topic must have a topic name that begins with /AmazonRekognition/ if you
@@ -116,6 +116,11 @@ data StartContentModeration = StartContentModeration'
 -- is returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 --
+-- 'jobTag', 'startContentModeration_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'minConfidence', 'startContentModeration_minConfidence' - Specifies the minimum confidence that Amazon Rekognition must have in
 -- order to return a moderated content label. Confidence represents how
 -- certain Amazon Rekognition is that the moderated content is correctly
@@ -124,11 +129,6 @@ data StartContentModeration = StartContentModeration'
 -- confidence level lower than this specified value. If you don\'t specify
 -- @MinConfidence@, @GetContentModeration@ returns labels with confidence
 -- values greater than or equal to 50 percent.
---
--- 'jobTag', 'startContentModeration_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
 --
 -- 'notificationChannel', 'startContentModeration_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the content analysis to. The Amazon SNS
@@ -146,8 +146,8 @@ newStartContentModeration pVideo_ =
   StartContentModeration'
     { clientRequestToken =
         Prelude.Nothing,
-      minConfidence = Prelude.Nothing,
       jobTag = Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
       video = pVideo_
     }
@@ -159,6 +159,13 @@ newStartContentModeration pVideo_ =
 startContentModeration_clientRequestToken :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
 startContentModeration_clientRequestToken = Lens.lens (\StartContentModeration' {clientRequestToken} -> clientRequestToken) (\s@StartContentModeration' {} a -> s {clientRequestToken = a} :: StartContentModeration)
 
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
+startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
+
 -- | Specifies the minimum confidence that Amazon Rekognition must have in
 -- order to return a moderated content label. Confidence represents how
 -- certain Amazon Rekognition is that the moderated content is correctly
@@ -169,13 +176,6 @@ startContentModeration_clientRequestToken = Lens.lens (\StartContentModeration' 
 -- values greater than or equal to 50 percent.
 startContentModeration_minConfidence :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Double)
 startContentModeration_minConfidence = Lens.lens (\StartContentModeration' {minConfidence} -> minConfidence) (\s@StartContentModeration' {} a -> s {minConfidence = a} :: StartContentModeration)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
-startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the content analysis to. The Amazon SNS
@@ -207,16 +207,16 @@ instance Core.AWSRequest StartContentModeration where
 instance Prelude.Hashable StartContentModeration where
   hashWithSalt _salt StartContentModeration' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData StartContentModeration where
   rnf StartContentModeration' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
@@ -241,8 +241,8 @@ instance Data.ToJSON StartContentModeration where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
             Prelude.Just ("Video" Data..= video)

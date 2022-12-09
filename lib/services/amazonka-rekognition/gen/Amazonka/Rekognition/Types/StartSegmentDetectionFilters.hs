@@ -31,10 +31,10 @@ import Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
 --
 -- /See:/ 'newStartSegmentDetectionFilters' smart constructor.
 data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
-  { -- | Filters that are specific to technical cues.
-    technicalCueFilter :: Prelude.Maybe StartTechnicalCueDetectionFilter,
-    -- | Filters that are specific to shot detections.
-    shotFilter :: Prelude.Maybe StartShotDetectionFilter
+  { -- | Filters that are specific to shot detections.
+    shotFilter :: Prelude.Maybe StartShotDetectionFilter,
+    -- | Filters that are specific to technical cues.
+    technicalCueFilter :: Prelude.Maybe StartTechnicalCueDetectionFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,45 +46,45 @@ data StartSegmentDetectionFilters = StartSegmentDetectionFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'technicalCueFilter', 'startSegmentDetectionFilters_technicalCueFilter' - Filters that are specific to technical cues.
---
 -- 'shotFilter', 'startSegmentDetectionFilters_shotFilter' - Filters that are specific to shot detections.
+--
+-- 'technicalCueFilter', 'startSegmentDetectionFilters_technicalCueFilter' - Filters that are specific to technical cues.
 newStartSegmentDetectionFilters ::
   StartSegmentDetectionFilters
 newStartSegmentDetectionFilters =
   StartSegmentDetectionFilters'
-    { technicalCueFilter =
+    { shotFilter =
         Prelude.Nothing,
-      shotFilter = Prelude.Nothing
+      technicalCueFilter = Prelude.Nothing
     }
-
--- | Filters that are specific to technical cues.
-startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartTechnicalCueDetectionFilter)
-startSegmentDetectionFilters_technicalCueFilter = Lens.lens (\StartSegmentDetectionFilters' {technicalCueFilter} -> technicalCueFilter) (\s@StartSegmentDetectionFilters' {} a -> s {technicalCueFilter = a} :: StartSegmentDetectionFilters)
 
 -- | Filters that are specific to shot detections.
 startSegmentDetectionFilters_shotFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartShotDetectionFilter)
 startSegmentDetectionFilters_shotFilter = Lens.lens (\StartSegmentDetectionFilters' {shotFilter} -> shotFilter) (\s@StartSegmentDetectionFilters' {} a -> s {shotFilter = a} :: StartSegmentDetectionFilters)
+
+-- | Filters that are specific to technical cues.
+startSegmentDetectionFilters_technicalCueFilter :: Lens.Lens' StartSegmentDetectionFilters (Prelude.Maybe StartTechnicalCueDetectionFilter)
+startSegmentDetectionFilters_technicalCueFilter = Lens.lens (\StartSegmentDetectionFilters' {technicalCueFilter} -> technicalCueFilter) (\s@StartSegmentDetectionFilters' {} a -> s {technicalCueFilter = a} :: StartSegmentDetectionFilters)
 
 instance
   Prelude.Hashable
     StartSegmentDetectionFilters
   where
   hashWithSalt _salt StartSegmentDetectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` technicalCueFilter
-      `Prelude.hashWithSalt` shotFilter
+    _salt `Prelude.hashWithSalt` shotFilter
+      `Prelude.hashWithSalt` technicalCueFilter
 
 instance Prelude.NFData StartSegmentDetectionFilters where
   rnf StartSegmentDetectionFilters' {..} =
-    Prelude.rnf technicalCueFilter
-      `Prelude.seq` Prelude.rnf shotFilter
+    Prelude.rnf shotFilter
+      `Prelude.seq` Prelude.rnf technicalCueFilter
 
 instance Data.ToJSON StartSegmentDetectionFilters where
   toJSON StartSegmentDetectionFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TechnicalCueFilter" Data..=)
-              Prelude.<$> technicalCueFilter,
-            ("ShotFilter" Data..=) Prelude.<$> shotFilter
+          [ ("ShotFilter" Data..=) Prelude.<$> shotFilter,
+            ("TechnicalCueFilter" Data..=)
+              Prelude.<$> technicalCueFilter
           ]
       )

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPose' smart constructor.
 data Pose = Pose'
-  { -- | Value representing the face rotation on the roll axis.
-    roll :: Prelude.Maybe Prelude.Double,
-    -- | Value representing the face rotation on the pitch axis.
+  { -- | Value representing the face rotation on the pitch axis.
     pitch :: Prelude.Maybe Prelude.Double,
+    -- | Value representing the face rotation on the roll axis.
+    roll :: Prelude.Maybe Prelude.Double,
     -- | Value representing the face rotation on the yaw axis.
     yaw :: Prelude.Maybe Prelude.Double
   }
@@ -46,27 +46,27 @@ data Pose = Pose'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roll', 'pose_roll' - Value representing the face rotation on the roll axis.
---
 -- 'pitch', 'pose_pitch' - Value representing the face rotation on the pitch axis.
+--
+-- 'roll', 'pose_roll' - Value representing the face rotation on the roll axis.
 --
 -- 'yaw', 'pose_yaw' - Value representing the face rotation on the yaw axis.
 newPose ::
   Pose
 newPose =
   Pose'
-    { roll = Prelude.Nothing,
-      pitch = Prelude.Nothing,
+    { pitch = Prelude.Nothing,
+      roll = Prelude.Nothing,
       yaw = Prelude.Nothing
     }
-
--- | Value representing the face rotation on the roll axis.
-pose_roll :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
-pose_roll = Lens.lens (\Pose' {roll} -> roll) (\s@Pose' {} a -> s {roll = a} :: Pose)
 
 -- | Value representing the face rotation on the pitch axis.
 pose_pitch :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_pitch = Lens.lens (\Pose' {pitch} -> pitch) (\s@Pose' {} a -> s {pitch = a} :: Pose)
+
+-- | Value representing the face rotation on the roll axis.
+pose_roll :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
+pose_roll = Lens.lens (\Pose' {roll} -> roll) (\s@Pose' {} a -> s {roll = a} :: Pose)
 
 -- | Value representing the face rotation on the yaw axis.
 pose_yaw :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
@@ -78,19 +78,19 @@ instance Data.FromJSON Pose where
       "Pose"
       ( \x ->
           Pose'
-            Prelude.<$> (x Data..:? "Roll")
-            Prelude.<*> (x Data..:? "Pitch")
+            Prelude.<$> (x Data..:? "Pitch")
+            Prelude.<*> (x Data..:? "Roll")
             Prelude.<*> (x Data..:? "Yaw")
       )
 
 instance Prelude.Hashable Pose where
   hashWithSalt _salt Pose' {..} =
-    _salt `Prelude.hashWithSalt` roll
-      `Prelude.hashWithSalt` pitch
+    _salt `Prelude.hashWithSalt` pitch
+      `Prelude.hashWithSalt` roll
       `Prelude.hashWithSalt` yaw
 
 instance Prelude.NFData Pose where
   rnf Pose' {..} =
-    Prelude.rnf roll
-      `Prelude.seq` Prelude.rnf pitch
+    Prelude.rnf pitch
+      `Prelude.seq` Prelude.rnf roll
       `Prelude.seq` Prelude.rnf yaw

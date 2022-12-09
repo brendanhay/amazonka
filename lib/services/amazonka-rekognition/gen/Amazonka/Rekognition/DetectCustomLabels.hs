@@ -69,8 +69,8 @@ module Amazonka.Rekognition.DetectCustomLabels
     newDetectCustomLabels,
 
     -- * Request Lenses
-    detectCustomLabels_minConfidence,
     detectCustomLabels_maxResults,
+    detectCustomLabels_minConfidence,
     detectCustomLabels_projectVersionArn,
     detectCustomLabels_image,
 
@@ -94,7 +94,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectCustomLabels' smart constructor.
 data DetectCustomLabels = DetectCustomLabels'
-  { -- | Specifies the minimum confidence level for the labels to return.
+  { -- | Maximum number of results you want the service to return in the
+    -- response. The service returns the specified number of highest confidence
+    -- labels ranked from highest confidence to lowest.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the minimum confidence level for the labels to return.
     -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
     -- that\'s lower than this specified value. If you specify a value of 0,
     -- @DetectCustomLabels@ returns all labels, regardless of the assumed
@@ -102,10 +106,6 @@ data DetectCustomLabels = DetectCustomLabels'
     -- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
     -- assumed threshold of each label.
     minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | Maximum number of results you want the service to return in the
-    -- response. The service returns the specified number of highest confidence
-    -- labels ranked from highest confidence to lowest.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the model version that you want to use.
     projectVersionArn :: Prelude.Text,
     image :: Image
@@ -120,6 +120,10 @@ data DetectCustomLabels = DetectCustomLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'detectCustomLabels_maxResults' - Maximum number of results you want the service to return in the
+-- response. The service returns the specified number of highest confidence
+-- labels ranked from highest confidence to lowest.
+--
 -- 'minConfidence', 'detectCustomLabels_minConfidence' - Specifies the minimum confidence level for the labels to return.
 -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
 -- that\'s lower than this specified value. If you specify a value of 0,
@@ -127,10 +131,6 @@ data DetectCustomLabels = DetectCustomLabels'
 -- threshold applied to each label. If you don\'t specify a value for
 -- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
 -- assumed threshold of each label.
---
--- 'maxResults', 'detectCustomLabels_maxResults' - Maximum number of results you want the service to return in the
--- response. The service returns the specified number of highest confidence
--- labels ranked from highest confidence to lowest.
 --
 -- 'projectVersionArn', 'detectCustomLabels_projectVersionArn' - The ARN of the model version that you want to use.
 --
@@ -143,12 +143,17 @@ newDetectCustomLabels ::
   DetectCustomLabels
 newDetectCustomLabels pProjectVersionArn_ pImage_ =
   DetectCustomLabels'
-    { minConfidence =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       projectVersionArn = pProjectVersionArn_,
       image = pImage_
     }
+
+-- | Maximum number of results you want the service to return in the
+-- response. The service returns the specified number of highest confidence
+-- labels ranked from highest confidence to lowest.
+detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
+detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
 -- | Specifies the minimum confidence level for the labels to return.
 -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
@@ -159,12 +164,6 @@ newDetectCustomLabels pProjectVersionArn_ pImage_ =
 -- assumed threshold of each label.
 detectCustomLabels_minConfidence :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Double)
 detectCustomLabels_minConfidence = Lens.lens (\DetectCustomLabels' {minConfidence} -> minConfidence) (\s@DetectCustomLabels' {} a -> s {minConfidence = a} :: DetectCustomLabels)
-
--- | Maximum number of results you want the service to return in the
--- response. The service returns the specified number of highest confidence
--- labels ranked from highest confidence to lowest.
-detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
-detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
 -- | The ARN of the model version that you want to use.
 detectCustomLabels_projectVersionArn :: Lens.Lens' DetectCustomLabels Prelude.Text
@@ -190,15 +189,15 @@ instance Core.AWSRequest DetectCustomLabels where
 
 instance Prelude.Hashable DetectCustomLabels where
   hashWithSalt _salt DetectCustomLabels' {..} =
-    _salt `Prelude.hashWithSalt` minConfidence
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` projectVersionArn
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectCustomLabels where
   rnf DetectCustomLabels' {..} =
-    Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf projectVersionArn
       `Prelude.seq` Prelude.rnf image
 
@@ -221,8 +220,8 @@ instance Data.ToJSON DetectCustomLabels where
   toJSON DetectCustomLabels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Data..=) Prelude.<$> minConfidence,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             Prelude.Just
               ("ProjectVersionArn" Data..= projectVersionArn),
             Prelude.Just ("Image" Data..= image)

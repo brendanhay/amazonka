@@ -50,8 +50,8 @@ module Amazonka.Rekognition.DetectModerationLabels
     newDetectModerationLabelsResponse,
 
     -- * Response Lenses
-    detectModerationLabelsResponse_moderationLabels,
     detectModerationLabelsResponse_humanLoopActivationOutput,
+    detectModerationLabelsResponse_moderationLabels,
     detectModerationLabelsResponse_moderationModelVersion,
     detectModerationLabelsResponse_httpStatus,
   )
@@ -159,10 +159,10 @@ instance Core.AWSRequest DetectModerationLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectModerationLabelsResponse'
-            Prelude.<$> ( x Data..?> "ModerationLabels"
+            Prelude.<$> (x Data..?> "HumanLoopActivationOutput")
+            Prelude.<*> ( x Data..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "HumanLoopActivationOutput")
             Prelude.<*> (x Data..?> "ModerationModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -213,11 +213,11 @@ instance Data.ToQuery DetectModerationLabels where
 
 -- | /See:/ 'newDetectModerationLabelsResponse' smart constructor.
 data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
-  { -- | Array of detected Moderation labels and the time, in milliseconds from
+  { -- | Shows the results of the human in the loop evaluation.
+    humanLoopActivationOutput :: Prelude.Maybe HumanLoopActivationOutput,
+    -- | Array of detected Moderation labels and the time, in milliseconds from
     -- the start of the video, they were detected.
     moderationLabels :: Prelude.Maybe [ModerationLabel],
-    -- | Shows the results of the human in the loop evaluation.
-    humanLoopActivationOutput :: Prelude.Maybe HumanLoopActivationOutput,
     -- | Version number of the moderation detection model that was used to detect
     -- unsafe content.
     moderationModelVersion :: Prelude.Maybe Prelude.Text,
@@ -234,10 +234,10 @@ data DetectModerationLabelsResponse = DetectModerationLabelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'humanLoopActivationOutput', 'detectModerationLabelsResponse_humanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
+--
 -- 'moderationLabels', 'detectModerationLabelsResponse_moderationLabels' - Array of detected Moderation labels and the time, in milliseconds from
 -- the start of the video, they were detected.
---
--- 'humanLoopActivationOutput', 'detectModerationLabelsResponse_humanLoopActivationOutput' - Shows the results of the human in the loop evaluation.
 --
 -- 'moderationModelVersion', 'detectModerationLabelsResponse_moderationModelVersion' - Version number of the moderation detection model that was used to detect
 -- unsafe content.
@@ -249,21 +249,21 @@ newDetectModerationLabelsResponse ::
   DetectModerationLabelsResponse
 newDetectModerationLabelsResponse pHttpStatus_ =
   DetectModerationLabelsResponse'
-    { moderationLabels =
+    { humanLoopActivationOutput =
         Prelude.Nothing,
-      humanLoopActivationOutput = Prelude.Nothing,
+      moderationLabels = Prelude.Nothing,
       moderationModelVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Shows the results of the human in the loop evaluation.
+detectModerationLabelsResponse_humanLoopActivationOutput :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe HumanLoopActivationOutput)
+detectModerationLabelsResponse_humanLoopActivationOutput = Lens.lens (\DetectModerationLabelsResponse' {humanLoopActivationOutput} -> humanLoopActivationOutput) (\s@DetectModerationLabelsResponse' {} a -> s {humanLoopActivationOutput = a} :: DetectModerationLabelsResponse)
 
 -- | Array of detected Moderation labels and the time, in milliseconds from
 -- the start of the video, they were detected.
 detectModerationLabelsResponse_moderationLabels :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe [ModerationLabel])
 detectModerationLabelsResponse_moderationLabels = Lens.lens (\DetectModerationLabelsResponse' {moderationLabels} -> moderationLabels) (\s@DetectModerationLabelsResponse' {} a -> s {moderationLabels = a} :: DetectModerationLabelsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Shows the results of the human in the loop evaluation.
-detectModerationLabelsResponse_humanLoopActivationOutput :: Lens.Lens' DetectModerationLabelsResponse (Prelude.Maybe HumanLoopActivationOutput)
-detectModerationLabelsResponse_humanLoopActivationOutput = Lens.lens (\DetectModerationLabelsResponse' {humanLoopActivationOutput} -> humanLoopActivationOutput) (\s@DetectModerationLabelsResponse' {} a -> s {humanLoopActivationOutput = a} :: DetectModerationLabelsResponse)
 
 -- | Version number of the moderation detection model that was used to detect
 -- unsafe content.
@@ -279,7 +279,7 @@ instance
     DetectModerationLabelsResponse
   where
   rnf DetectModerationLabelsResponse' {..} =
-    Prelude.rnf moderationLabels
-      `Prelude.seq` Prelude.rnf humanLoopActivationOutput
+    Prelude.rnf humanLoopActivationOutput
+      `Prelude.seq` Prelude.rnf moderationLabels
       `Prelude.seq` Prelude.rnf moderationModelVersion
       `Prelude.seq` Prelude.rnf httpStatus

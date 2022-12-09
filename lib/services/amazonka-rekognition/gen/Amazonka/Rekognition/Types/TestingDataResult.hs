@@ -31,14 +31,14 @@ import Amazonka.Rekognition.Types.ValidationData
 --
 -- /See:/ 'newTestingDataResult' smart constructor.
 data TestingDataResult = TestingDataResult'
-  { -- | The location of the data validation manifest. The data validation
-    -- manifest is created for the test dataset during model training.
-    validation :: Prelude.Maybe ValidationData,
-    -- | The testing dataset that was supplied for training.
+  { -- | The testing dataset that was supplied for training.
     input :: Prelude.Maybe TestingData,
     -- | The subset of the dataset that was actually tested. Some images (assets)
     -- might not be tested due to file formatting and other issues.
-    output :: Prelude.Maybe TestingData
+    output :: Prelude.Maybe TestingData,
+    -- | The location of the data validation manifest. The data validation
+    -- manifest is created for the test dataset during model training.
+    validation :: Prelude.Maybe ValidationData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,21 @@ data TestingDataResult = TestingDataResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validation', 'testingDataResult_validation' - The location of the data validation manifest. The data validation
--- manifest is created for the test dataset during model training.
---
 -- 'input', 'testingDataResult_input' - The testing dataset that was supplied for training.
 --
 -- 'output', 'testingDataResult_output' - The subset of the dataset that was actually tested. Some images (assets)
 -- might not be tested due to file formatting and other issues.
+--
+-- 'validation', 'testingDataResult_validation' - The location of the data validation manifest. The data validation
+-- manifest is created for the test dataset during model training.
 newTestingDataResult ::
   TestingDataResult
 newTestingDataResult =
   TestingDataResult'
-    { validation = Prelude.Nothing,
-      input = Prelude.Nothing,
-      output = Prelude.Nothing
+    { input = Prelude.Nothing,
+      output = Prelude.Nothing,
+      validation = Prelude.Nothing
     }
-
--- | The location of the data validation manifest. The data validation
--- manifest is created for the test dataset during model training.
-testingDataResult_validation :: Lens.Lens' TestingDataResult (Prelude.Maybe ValidationData)
-testingDataResult_validation = Lens.lens (\TestingDataResult' {validation} -> validation) (\s@TestingDataResult' {} a -> s {validation = a} :: TestingDataResult)
 
 -- | The testing dataset that was supplied for training.
 testingDataResult_input :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
@@ -80,25 +75,30 @@ testingDataResult_input = Lens.lens (\TestingDataResult' {input} -> input) (\s@T
 testingDataResult_output :: Lens.Lens' TestingDataResult (Prelude.Maybe TestingData)
 testingDataResult_output = Lens.lens (\TestingDataResult' {output} -> output) (\s@TestingDataResult' {} a -> s {output = a} :: TestingDataResult)
 
+-- | The location of the data validation manifest. The data validation
+-- manifest is created for the test dataset during model training.
+testingDataResult_validation :: Lens.Lens' TestingDataResult (Prelude.Maybe ValidationData)
+testingDataResult_validation = Lens.lens (\TestingDataResult' {validation} -> validation) (\s@TestingDataResult' {} a -> s {validation = a} :: TestingDataResult)
+
 instance Data.FromJSON TestingDataResult where
   parseJSON =
     Data.withObject
       "TestingDataResult"
       ( \x ->
           TestingDataResult'
-            Prelude.<$> (x Data..:? "Validation")
-            Prelude.<*> (x Data..:? "Input")
+            Prelude.<$> (x Data..:? "Input")
             Prelude.<*> (x Data..:? "Output")
+            Prelude.<*> (x Data..:? "Validation")
       )
 
 instance Prelude.Hashable TestingDataResult where
   hashWithSalt _salt TestingDataResult' {..} =
-    _salt `Prelude.hashWithSalt` validation
-      `Prelude.hashWithSalt` input
+    _salt `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` validation
 
 instance Prelude.NFData TestingDataResult where
   rnf TestingDataResult' {..} =
-    Prelude.rnf validation
-      `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input
       `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf validation

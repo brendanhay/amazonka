@@ -31,12 +31,12 @@ import Amazonka.Rekognition.Types.TextDetection
 --
 -- /See:/ 'newTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
-  { -- | The time, in milliseconds from the start of the video, that the text was
+  { -- | Details about text detected in a video.
+    textDetection :: Prelude.Maybe TextDetection,
+    -- | The time, in milliseconds from the start of the video, that the text was
     -- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
     -- individual frame where the text first appears.
-    timestamp :: Prelude.Maybe Prelude.Integer,
-    -- | Details about text detected in a video.
-    textDetection :: Prelude.Maybe TextDetection
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,18 +48,23 @@ data TextDetectionResult = TextDetectionResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'textDetection', 'textDetectionResult_textDetection' - Details about text detected in a video.
+--
 -- 'timestamp', 'textDetectionResult_timestamp' - The time, in milliseconds from the start of the video, that the text was
 -- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
 -- individual frame where the text first appears.
---
--- 'textDetection', 'textDetectionResult_textDetection' - Details about text detected in a video.
 newTextDetectionResult ::
   TextDetectionResult
 newTextDetectionResult =
   TextDetectionResult'
-    { timestamp = Prelude.Nothing,
-      textDetection = Prelude.Nothing
+    { textDetection =
+        Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
+
+-- | Details about text detected in a video.
+textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
+textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
 -- | The time, in milliseconds from the start of the video, that the text was
 -- detected. Note that @Timestamp@ is not guaranteed to be accurate to the
@@ -67,26 +72,22 @@ newTextDetectionResult =
 textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Prelude.Maybe Prelude.Integer)
 textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> timestamp) (\s@TextDetectionResult' {} a -> s {timestamp = a} :: TextDetectionResult)
 
--- | Details about text detected in a video.
-textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
-textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
-
 instance Data.FromJSON TextDetectionResult where
   parseJSON =
     Data.withObject
       "TextDetectionResult"
       ( \x ->
           TextDetectionResult'
-            Prelude.<$> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "TextDetection")
+            Prelude.<$> (x Data..:? "TextDetection")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable TextDetectionResult where
   hashWithSalt _salt TextDetectionResult' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` textDetection
+    _salt `Prelude.hashWithSalt` textDetection
+      `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TextDetectionResult where
   rnf TextDetectionResult' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf textDetection
+    Prelude.rnf textDetection
+      `Prelude.seq` Prelude.rnf timestamp

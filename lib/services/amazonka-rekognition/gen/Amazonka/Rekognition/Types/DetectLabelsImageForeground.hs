@@ -31,13 +31,13 @@ import Amazonka.Rekognition.Types.DominantColor
 --
 -- /See:/ 'newDetectLabelsImageForeground' smart constructor.
 data DetectLabelsImageForeground = DetectLabelsImageForeground'
-  { -- | The quality of the image foreground as defined by brightness and
-    -- sharpness.
-    quality :: Prelude.Maybe DetectLabelsImageQuality,
-    -- | The dominant colors found in the foreground of an image, defined with
+  { -- | The dominant colors found in the foreground of an image, defined with
     -- RGB values, CSS color name, simplified color name, and PixelPercentage
     -- (the percentage of image pixels that have a particular color).
-    dominantColors :: Prelude.Maybe [DominantColor]
+    dominantColors :: Prelude.Maybe [DominantColor],
+    -- | The quality of the image foreground as defined by brightness and
+    -- sharpness.
+    quality :: Prelude.Maybe DetectLabelsImageQuality
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,20 @@ data DetectLabelsImageForeground = DetectLabelsImageForeground'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quality', 'detectLabelsImageForeground_quality' - The quality of the image foreground as defined by brightness and
--- sharpness.
---
 -- 'dominantColors', 'detectLabelsImageForeground_dominantColors' - The dominant colors found in the foreground of an image, defined with
 -- RGB values, CSS color name, simplified color name, and PixelPercentage
 -- (the percentage of image pixels that have a particular color).
+--
+-- 'quality', 'detectLabelsImageForeground_quality' - The quality of the image foreground as defined by brightness and
+-- sharpness.
 newDetectLabelsImageForeground ::
   DetectLabelsImageForeground
 newDetectLabelsImageForeground =
   DetectLabelsImageForeground'
-    { quality =
+    { dominantColors =
         Prelude.Nothing,
-      dominantColors = Prelude.Nothing
+      quality = Prelude.Nothing
     }
-
--- | The quality of the image foreground as defined by brightness and
--- sharpness.
-detectLabelsImageForeground_quality :: Lens.Lens' DetectLabelsImageForeground (Prelude.Maybe DetectLabelsImageQuality)
-detectLabelsImageForeground_quality = Lens.lens (\DetectLabelsImageForeground' {quality} -> quality) (\s@DetectLabelsImageForeground' {} a -> s {quality = a} :: DetectLabelsImageForeground)
 
 -- | The dominant colors found in the foreground of an image, defined with
 -- RGB values, CSS color name, simplified color name, and PixelPercentage
@@ -75,24 +70,27 @@ detectLabelsImageForeground_quality = Lens.lens (\DetectLabelsImageForeground' {
 detectLabelsImageForeground_dominantColors :: Lens.Lens' DetectLabelsImageForeground (Prelude.Maybe [DominantColor])
 detectLabelsImageForeground_dominantColors = Lens.lens (\DetectLabelsImageForeground' {dominantColors} -> dominantColors) (\s@DetectLabelsImageForeground' {} a -> s {dominantColors = a} :: DetectLabelsImageForeground) Prelude.. Lens.mapping Lens.coerced
 
+-- | The quality of the image foreground as defined by brightness and
+-- sharpness.
+detectLabelsImageForeground_quality :: Lens.Lens' DetectLabelsImageForeground (Prelude.Maybe DetectLabelsImageQuality)
+detectLabelsImageForeground_quality = Lens.lens (\DetectLabelsImageForeground' {quality} -> quality) (\s@DetectLabelsImageForeground' {} a -> s {quality = a} :: DetectLabelsImageForeground)
+
 instance Data.FromJSON DetectLabelsImageForeground where
   parseJSON =
     Data.withObject
       "DetectLabelsImageForeground"
       ( \x ->
           DetectLabelsImageForeground'
-            Prelude.<$> (x Data..:? "Quality")
-            Prelude.<*> ( x Data..:? "DominantColors"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "DominantColors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Quality")
       )
 
 instance Prelude.Hashable DetectLabelsImageForeground where
   hashWithSalt _salt DetectLabelsImageForeground' {..} =
-    _salt `Prelude.hashWithSalt` quality
-      `Prelude.hashWithSalt` dominantColors
+    _salt `Prelude.hashWithSalt` dominantColors
+      `Prelude.hashWithSalt` quality
 
 instance Prelude.NFData DetectLabelsImageForeground where
   rnf DetectLabelsImageForeground' {..} =
-    Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf dominantColors
+    Prelude.rnf dominantColors
+      `Prelude.seq` Prelude.rnf quality

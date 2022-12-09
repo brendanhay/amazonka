@@ -30,14 +30,14 @@ import Amazonka.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'newPersonDetail' smart constructor.
 data PersonDetail = PersonDetail'
-  { -- | Identifier for the person detected person within a video. Use to keep
-    -- track of the person throughout the video. The identifier is not stored
-    -- by Amazon Rekognition.
-    index :: Prelude.Maybe Prelude.Integer,
+  { -- | Bounding box around the detected person.
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | Face details for the detected person.
     face :: Prelude.Maybe FaceDetail,
-    -- | Bounding box around the detected person.
-    boundingBox :: Prelude.Maybe BoundingBox
+    -- | Identifier for the person detected person within a video. Use to keep
+    -- track of the person throughout the video. The identifier is not stored
+    -- by Amazon Rekognition.
+    index :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,29 @@ data PersonDetail = PersonDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'index', 'personDetail_index' - Identifier for the person detected person within a video. Use to keep
--- track of the person throughout the video. The identifier is not stored
--- by Amazon Rekognition.
+-- 'boundingBox', 'personDetail_boundingBox' - Bounding box around the detected person.
 --
 -- 'face', 'personDetail_face' - Face details for the detected person.
 --
--- 'boundingBox', 'personDetail_boundingBox' - Bounding box around the detected person.
+-- 'index', 'personDetail_index' - Identifier for the person detected person within a video. Use to keep
+-- track of the person throughout the video. The identifier is not stored
+-- by Amazon Rekognition.
 newPersonDetail ::
   PersonDetail
 newPersonDetail =
   PersonDetail'
-    { index = Prelude.Nothing,
+    { boundingBox = Prelude.Nothing,
       face = Prelude.Nothing,
-      boundingBox = Prelude.Nothing
+      index = Prelude.Nothing
     }
+
+-- | Bounding box around the detected person.
+personDetail_boundingBox :: Lens.Lens' PersonDetail (Prelude.Maybe BoundingBox)
+personDetail_boundingBox = Lens.lens (\PersonDetail' {boundingBox} -> boundingBox) (\s@PersonDetail' {} a -> s {boundingBox = a} :: PersonDetail)
+
+-- | Face details for the detected person.
+personDetail_face :: Lens.Lens' PersonDetail (Prelude.Maybe FaceDetail)
+personDetail_face = Lens.lens (\PersonDetail' {face} -> face) (\s@PersonDetail' {} a -> s {face = a} :: PersonDetail)
 
 -- | Identifier for the person detected person within a video. Use to keep
 -- track of the person throughout the video. The identifier is not stored
@@ -71,33 +79,25 @@ newPersonDetail =
 personDetail_index :: Lens.Lens' PersonDetail (Prelude.Maybe Prelude.Integer)
 personDetail_index = Lens.lens (\PersonDetail' {index} -> index) (\s@PersonDetail' {} a -> s {index = a} :: PersonDetail)
 
--- | Face details for the detected person.
-personDetail_face :: Lens.Lens' PersonDetail (Prelude.Maybe FaceDetail)
-personDetail_face = Lens.lens (\PersonDetail' {face} -> face) (\s@PersonDetail' {} a -> s {face = a} :: PersonDetail)
-
--- | Bounding box around the detected person.
-personDetail_boundingBox :: Lens.Lens' PersonDetail (Prelude.Maybe BoundingBox)
-personDetail_boundingBox = Lens.lens (\PersonDetail' {boundingBox} -> boundingBox) (\s@PersonDetail' {} a -> s {boundingBox = a} :: PersonDetail)
-
 instance Data.FromJSON PersonDetail where
   parseJSON =
     Data.withObject
       "PersonDetail"
       ( \x ->
           PersonDetail'
-            Prelude.<$> (x Data..:? "Index")
+            Prelude.<$> (x Data..:? "BoundingBox")
             Prelude.<*> (x Data..:? "Face")
-            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Index")
       )
 
 instance Prelude.Hashable PersonDetail where
   hashWithSalt _salt PersonDetail' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` face
-      `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` index
 
 instance Prelude.NFData PersonDetail where
   rnf PersonDetail' {..} =
-    Prelude.rnf index
+    Prelude.rnf boundingBox
       `Prelude.seq` Prelude.rnf face
-      `Prelude.seq` Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf index

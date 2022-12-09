@@ -57,8 +57,8 @@ module Amazonka.Rekognition.SearchFaces
 
     -- * Response Lenses
     searchFacesResponse_faceMatches,
-    searchFacesResponse_searchedFaceId,
     searchFacesResponse_faceModelVersion,
+    searchFacesResponse_searchedFaceId,
     searchFacesResponse_httpStatus,
   )
 where
@@ -147,8 +147,8 @@ instance Core.AWSRequest SearchFaces where
       ( \s h x ->
           SearchFacesResponse'
             Prelude.<$> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "SearchedFaceId")
             Prelude.<*> (x Data..?> "FaceModelVersion")
+            Prelude.<*> (x Data..?> "SearchedFaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,11 +204,11 @@ data SearchFacesResponse = SearchFacesResponse'
   { -- | An array of faces that matched the input face, along with the confidence
     -- in the match.
     faceMatches :: Prelude.Maybe [FaceMatch],
-    -- | ID of the face that was searched for matches in a collection.
-    searchedFaceId :: Prelude.Maybe Prelude.Text,
     -- | Version number of the face detection model associated with the input
     -- collection (@CollectionId@).
     faceModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | ID of the face that was searched for matches in a collection.
+    searchedFaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,10 +225,10 @@ data SearchFacesResponse = SearchFacesResponse'
 -- 'faceMatches', 'searchFacesResponse_faceMatches' - An array of faces that matched the input face, along with the confidence
 -- in the match.
 --
--- 'searchedFaceId', 'searchFacesResponse_searchedFaceId' - ID of the face that was searched for matches in a collection.
---
 -- 'faceModelVersion', 'searchFacesResponse_faceModelVersion' - Version number of the face detection model associated with the input
 -- collection (@CollectionId@).
+--
+-- 'searchedFaceId', 'searchFacesResponse_searchedFaceId' - ID of the face that was searched for matches in a collection.
 --
 -- 'httpStatus', 'searchFacesResponse_httpStatus' - The response's http status code.
 newSearchFacesResponse ::
@@ -238,8 +238,8 @@ newSearchFacesResponse ::
 newSearchFacesResponse pHttpStatus_ =
   SearchFacesResponse'
     { faceMatches = Prelude.Nothing,
-      searchedFaceId = Prelude.Nothing,
       faceModelVersion = Prelude.Nothing,
+      searchedFaceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -248,14 +248,14 @@ newSearchFacesResponse pHttpStatus_ =
 searchFacesResponse_faceMatches :: Lens.Lens' SearchFacesResponse (Prelude.Maybe [FaceMatch])
 searchFacesResponse_faceMatches = Lens.lens (\SearchFacesResponse' {faceMatches} -> faceMatches) (\s@SearchFacesResponse' {} a -> s {faceMatches = a} :: SearchFacesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | ID of the face that was searched for matches in a collection.
-searchFacesResponse_searchedFaceId :: Lens.Lens' SearchFacesResponse (Prelude.Maybe Prelude.Text)
-searchFacesResponse_searchedFaceId = Lens.lens (\SearchFacesResponse' {searchedFaceId} -> searchedFaceId) (\s@SearchFacesResponse' {} a -> s {searchedFaceId = a} :: SearchFacesResponse)
-
 -- | Version number of the face detection model associated with the input
 -- collection (@CollectionId@).
 searchFacesResponse_faceModelVersion :: Lens.Lens' SearchFacesResponse (Prelude.Maybe Prelude.Text)
 searchFacesResponse_faceModelVersion = Lens.lens (\SearchFacesResponse' {faceModelVersion} -> faceModelVersion) (\s@SearchFacesResponse' {} a -> s {faceModelVersion = a} :: SearchFacesResponse)
+
+-- | ID of the face that was searched for matches in a collection.
+searchFacesResponse_searchedFaceId :: Lens.Lens' SearchFacesResponse (Prelude.Maybe Prelude.Text)
+searchFacesResponse_searchedFaceId = Lens.lens (\SearchFacesResponse' {searchedFaceId} -> searchedFaceId) (\s@SearchFacesResponse' {} a -> s {searchedFaceId = a} :: SearchFacesResponse)
 
 -- | The response's http status code.
 searchFacesResponse_httpStatus :: Lens.Lens' SearchFacesResponse Prelude.Int
@@ -264,6 +264,6 @@ searchFacesResponse_httpStatus = Lens.lens (\SearchFacesResponse' {httpStatus} -
 instance Prelude.NFData SearchFacesResponse where
   rnf SearchFacesResponse' {..} =
     Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf searchedFaceId
       `Prelude.seq` Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf searchedFaceId
       `Prelude.seq` Prelude.rnf httpStatus

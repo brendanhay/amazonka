@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKinesisVideoStreamStartSelector' smart constructor.
 data KinesisVideoStreamStartSelector = KinesisVideoStreamStartSelector'
-  { -- | The timestamp from the producer corresponding to the fragment, in
-    -- milliseconds, expressed in unix time format.
-    producerTimestamp :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier of the fragment. This value monotonically
+  { -- | The unique identifier of the fragment. This value monotonically
     -- increases based on the ingestion order.
-    fragmentNumber :: Prelude.Maybe Prelude.Text
+    fragmentNumber :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp from the producer corresponding to the fragment, in
+    -- milliseconds, expressed in unix time format.
+    producerTimestamp :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,29 @@ data KinesisVideoStreamStartSelector = KinesisVideoStreamStartSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'producerTimestamp', 'kinesisVideoStreamStartSelector_producerTimestamp' - The timestamp from the producer corresponding to the fragment, in
--- milliseconds, expressed in unix time format.
---
 -- 'fragmentNumber', 'kinesisVideoStreamStartSelector_fragmentNumber' - The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
+--
+-- 'producerTimestamp', 'kinesisVideoStreamStartSelector_producerTimestamp' - The timestamp from the producer corresponding to the fragment, in
+-- milliseconds, expressed in unix time format.
 newKinesisVideoStreamStartSelector ::
   KinesisVideoStreamStartSelector
 newKinesisVideoStreamStartSelector =
   KinesisVideoStreamStartSelector'
-    { producerTimestamp =
+    { fragmentNumber =
         Prelude.Nothing,
-      fragmentNumber = Prelude.Nothing
+      producerTimestamp = Prelude.Nothing
     }
-
--- | The timestamp from the producer corresponding to the fragment, in
--- milliseconds, expressed in unix time format.
-kinesisVideoStreamStartSelector_producerTimestamp :: Lens.Lens' KinesisVideoStreamStartSelector (Prelude.Maybe Prelude.Natural)
-kinesisVideoStreamStartSelector_producerTimestamp = Lens.lens (\KinesisVideoStreamStartSelector' {producerTimestamp} -> producerTimestamp) (\s@KinesisVideoStreamStartSelector' {} a -> s {producerTimestamp = a} :: KinesisVideoStreamStartSelector)
 
 -- | The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
 kinesisVideoStreamStartSelector_fragmentNumber :: Lens.Lens' KinesisVideoStreamStartSelector (Prelude.Maybe Prelude.Text)
 kinesisVideoStreamStartSelector_fragmentNumber = Lens.lens (\KinesisVideoStreamStartSelector' {fragmentNumber} -> fragmentNumber) (\s@KinesisVideoStreamStartSelector' {} a -> s {fragmentNumber = a} :: KinesisVideoStreamStartSelector)
+
+-- | The timestamp from the producer corresponding to the fragment, in
+-- milliseconds, expressed in unix time format.
+kinesisVideoStreamStartSelector_producerTimestamp :: Lens.Lens' KinesisVideoStreamStartSelector (Prelude.Maybe Prelude.Natural)
+kinesisVideoStreamStartSelector_producerTimestamp = Lens.lens (\KinesisVideoStreamStartSelector' {producerTimestamp} -> producerTimestamp) (\s@KinesisVideoStreamStartSelector' {} a -> s {producerTimestamp = a} :: KinesisVideoStreamStartSelector)
 
 instance
   Prelude.Hashable
@@ -81,24 +81,24 @@ instance
   hashWithSalt
     _salt
     KinesisVideoStreamStartSelector' {..} =
-      _salt `Prelude.hashWithSalt` producerTimestamp
-        `Prelude.hashWithSalt` fragmentNumber
+      _salt `Prelude.hashWithSalt` fragmentNumber
+        `Prelude.hashWithSalt` producerTimestamp
 
 instance
   Prelude.NFData
     KinesisVideoStreamStartSelector
   where
   rnf KinesisVideoStreamStartSelector' {..} =
-    Prelude.rnf producerTimestamp
-      `Prelude.seq` Prelude.rnf fragmentNumber
+    Prelude.rnf fragmentNumber
+      `Prelude.seq` Prelude.rnf producerTimestamp
 
 instance Data.ToJSON KinesisVideoStreamStartSelector where
   toJSON KinesisVideoStreamStartSelector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProducerTimestamp" Data..=)
-              Prelude.<$> producerTimestamp,
-            ("FragmentNumber" Data..=)
-              Prelude.<$> fragmentNumber
+          [ ("FragmentNumber" Data..=)
+              Prelude.<$> fragmentNumber,
+            ("ProducerTimestamp" Data..=)
+              Prelude.<$> producerTimestamp
           ]
       )

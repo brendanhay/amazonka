@@ -32,14 +32,14 @@ import Amazonka.Rekognition.Types.EquipmentDetection
 --
 -- /See:/ 'newProtectiveEquipmentBodyPart' smart constructor.
 data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
-  { -- | The detected body part.
-    name :: Prelude.Maybe BodyPart,
-    -- | The confidence that Amazon Rekognition has in the detection accuracy of
+  { -- | The confidence that Amazon Rekognition has in the detection accuracy of
     -- the detected body part.
     confidence :: Prelude.Maybe Prelude.Double,
     -- | An array of Personal Protective Equipment items detected around a body
     -- part.
-    equipmentDetections :: Prelude.Maybe [EquipmentDetection]
+    equipmentDetections :: Prelude.Maybe [EquipmentDetection],
+    -- | The detected body part.
+    name :: Prelude.Maybe BodyPart
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,22 @@ data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'protectiveEquipmentBodyPart_name' - The detected body part.
---
 -- 'confidence', 'protectiveEquipmentBodyPart_confidence' - The confidence that Amazon Rekognition has in the detection accuracy of
 -- the detected body part.
 --
 -- 'equipmentDetections', 'protectiveEquipmentBodyPart_equipmentDetections' - An array of Personal Protective Equipment items detected around a body
 -- part.
+--
+-- 'name', 'protectiveEquipmentBodyPart_name' - The detected body part.
 newProtectiveEquipmentBodyPart ::
   ProtectiveEquipmentBodyPart
 newProtectiveEquipmentBodyPart =
   ProtectiveEquipmentBodyPart'
-    { name =
+    { confidence =
         Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      equipmentDetections = Prelude.Nothing
+      equipmentDetections = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The detected body part.
-protectiveEquipmentBodyPart_name :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe BodyPart)
-protectiveEquipmentBodyPart_name = Lens.lens (\ProtectiveEquipmentBodyPart' {name} -> name) (\s@ProtectiveEquipmentBodyPart' {} a -> s {name = a} :: ProtectiveEquipmentBodyPart)
 
 -- | The confidence that Amazon Rekognition has in the detection accuracy of
 -- the detected body part.
@@ -82,27 +78,31 @@ protectiveEquipmentBodyPart_confidence = Lens.lens (\ProtectiveEquipmentBodyPart
 protectiveEquipmentBodyPart_equipmentDetections :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe [EquipmentDetection])
 protectiveEquipmentBodyPart_equipmentDetections = Lens.lens (\ProtectiveEquipmentBodyPart' {equipmentDetections} -> equipmentDetections) (\s@ProtectiveEquipmentBodyPart' {} a -> s {equipmentDetections = a} :: ProtectiveEquipmentBodyPart) Prelude.. Lens.mapping Lens.coerced
 
+-- | The detected body part.
+protectiveEquipmentBodyPart_name :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe BodyPart)
+protectiveEquipmentBodyPart_name = Lens.lens (\ProtectiveEquipmentBodyPart' {name} -> name) (\s@ProtectiveEquipmentBodyPart' {} a -> s {name = a} :: ProtectiveEquipmentBodyPart)
+
 instance Data.FromJSON ProtectiveEquipmentBodyPart where
   parseJSON =
     Data.withObject
       "ProtectiveEquipmentBodyPart"
       ( \x ->
           ProtectiveEquipmentBodyPart'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<$> (x Data..:? "Confidence")
             Prelude.<*> ( x Data..:? "EquipmentDetections"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ProtectiveEquipmentBodyPart where
   hashWithSalt _salt ProtectiveEquipmentBodyPart' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` equipmentDetections
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ProtectiveEquipmentBodyPart where
   rnf ProtectiveEquipmentBodyPart' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf equipmentDetections
+      `Prelude.seq` Prelude.rnf name

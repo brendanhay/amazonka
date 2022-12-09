@@ -64,35 +64,17 @@ import Amazonka.Rekognition.Types.Sunglasses
 --
 -- /See:/ 'newFaceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-  { -- | Indicates whether or not the face has a beard, and the confidence level
-    -- in the determination.
-    beard :: Prelude.Maybe Beard,
-    -- | The estimated age range, in years, for the face. Low represents the
+  { -- | The estimated age range, in years, for the face. Low represents the
     -- lowest estimated age and High represents the highest estimated age.
     ageRange :: Prelude.Maybe AgeRange,
-    -- | Identifies image brightness and sharpness. Default attribute.
-    quality :: Prelude.Maybe ImageQuality,
-    -- | Indicates the pose of the face as determined by its pitch, roll, and
-    -- yaw. Default attribute.
-    pose :: Prelude.Maybe Pose,
+    -- | Indicates whether or not the face has a beard, and the confidence level
+    -- in the determination.
+    beard :: Prelude.Maybe Beard,
+    -- | Bounding box of the face. Default attribute.
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | Confidence level that the bounding box contains a face (and not a
     -- different object such as a tree). Default attribute.
     confidence :: Prelude.Maybe Prelude.Double,
-    -- | Indicates whether or not the mouth on the face is open, and the
-    -- confidence level in the determination.
-    mouthOpen :: Prelude.Maybe MouthOpen,
-    -- | Indicates whether or not the face is wearing sunglasses, and the
-    -- confidence level in the determination.
-    sunglasses :: Prelude.Maybe Sunglasses,
-    -- | Bounding box of the face. Default attribute.
-    boundingBox :: Prelude.Maybe BoundingBox,
-    -- | Indicates the location of landmarks on the face. Default attribute.
-    landmarks :: Prelude.Maybe [Landmark],
-    -- | The predicted gender of a detected face.
-    gender :: Prelude.Maybe Gender,
-    -- | Indicates whether or not the face is wearing eye glasses, and the
-    -- confidence level in the determination.
-    eyeglasses :: Prelude.Maybe Eyeglasses,
     -- | The emotions that appear to be expressed on the face, and the confidence
     -- level in the determination. The API is only making a determination of
     -- the physical appearance of a person\'s face. It is not a determination
@@ -100,15 +82,33 @@ data FaceDetail = FaceDetail'
     -- a way. For example, a person pretending to have a sad face might not be
     -- sad emotionally.
     emotions :: Prelude.Maybe [Emotion],
-    -- | Indicates whether or not the face is smiling, and the confidence level
-    -- in the determination.
-    smile :: Prelude.Maybe Smile,
+    -- | Indicates whether or not the face is wearing eye glasses, and the
+    -- confidence level in the determination.
+    eyeglasses :: Prelude.Maybe Eyeglasses,
     -- | Indicates whether or not the eyes on the face are open, and the
     -- confidence level in the determination.
     eyesOpen :: Prelude.Maybe EyeOpen,
+    -- | The predicted gender of a detected face.
+    gender :: Prelude.Maybe Gender,
+    -- | Indicates the location of landmarks on the face. Default attribute.
+    landmarks :: Prelude.Maybe [Landmark],
+    -- | Indicates whether or not the mouth on the face is open, and the
+    -- confidence level in the determination.
+    mouthOpen :: Prelude.Maybe MouthOpen,
     -- | Indicates whether or not the face has a mustache, and the confidence
     -- level in the determination.
-    mustache :: Prelude.Maybe Mustache
+    mustache :: Prelude.Maybe Mustache,
+    -- | Indicates the pose of the face as determined by its pitch, roll, and
+    -- yaw. Default attribute.
+    pose :: Prelude.Maybe Pose,
+    -- | Identifies image brightness and sharpness. Default attribute.
+    quality :: Prelude.Maybe ImageQuality,
+    -- | Indicates whether or not the face is smiling, and the confidence level
+    -- in the determination.
+    smile :: Prelude.Maybe Smile,
+    -- | Indicates whether or not the face is wearing sunglasses, and the
+    -- confidence level in the determination.
+    sunglasses :: Prelude.Maybe Sunglasses
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,34 +120,16 @@ data FaceDetail = FaceDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'beard', 'faceDetail_beard' - Indicates whether or not the face has a beard, and the confidence level
--- in the determination.
---
 -- 'ageRange', 'faceDetail_ageRange' - The estimated age range, in years, for the face. Low represents the
 -- lowest estimated age and High represents the highest estimated age.
 --
--- 'quality', 'faceDetail_quality' - Identifies image brightness and sharpness. Default attribute.
---
--- 'pose', 'faceDetail_pose' - Indicates the pose of the face as determined by its pitch, roll, and
--- yaw. Default attribute.
---
--- 'confidence', 'faceDetail_confidence' - Confidence level that the bounding box contains a face (and not a
--- different object such as a tree). Default attribute.
---
--- 'mouthOpen', 'faceDetail_mouthOpen' - Indicates whether or not the mouth on the face is open, and the
--- confidence level in the determination.
---
--- 'sunglasses', 'faceDetail_sunglasses' - Indicates whether or not the face is wearing sunglasses, and the
--- confidence level in the determination.
+-- 'beard', 'faceDetail_beard' - Indicates whether or not the face has a beard, and the confidence level
+-- in the determination.
 --
 -- 'boundingBox', 'faceDetail_boundingBox' - Bounding box of the face. Default attribute.
 --
--- 'landmarks', 'faceDetail_landmarks' - Indicates the location of landmarks on the face. Default attribute.
---
--- 'gender', 'faceDetail_gender' - The predicted gender of a detected face.
---
--- 'eyeglasses', 'faceDetail_eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the
--- confidence level in the determination.
+-- 'confidence', 'faceDetail_confidence' - Confidence level that the bounding box contains a face (and not a
+-- different object such as a tree). Default attribute.
 --
 -- 'emotions', 'faceDetail_emotions' - The emotions that appear to be expressed on the face, and the confidence
 -- level in the determination. The API is only making a determination of
@@ -156,85 +138,71 @@ data FaceDetail = FaceDetail'
 -- a way. For example, a person pretending to have a sad face might not be
 -- sad emotionally.
 --
--- 'smile', 'faceDetail_smile' - Indicates whether or not the face is smiling, and the confidence level
--- in the determination.
+-- 'eyeglasses', 'faceDetail_eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the
+-- confidence level in the determination.
 --
 -- 'eyesOpen', 'faceDetail_eyesOpen' - Indicates whether or not the eyes on the face are open, and the
 -- confidence level in the determination.
 --
+-- 'gender', 'faceDetail_gender' - The predicted gender of a detected face.
+--
+-- 'landmarks', 'faceDetail_landmarks' - Indicates the location of landmarks on the face. Default attribute.
+--
+-- 'mouthOpen', 'faceDetail_mouthOpen' - Indicates whether or not the mouth on the face is open, and the
+-- confidence level in the determination.
+--
 -- 'mustache', 'faceDetail_mustache' - Indicates whether or not the face has a mustache, and the confidence
 -- level in the determination.
+--
+-- 'pose', 'faceDetail_pose' - Indicates the pose of the face as determined by its pitch, roll, and
+-- yaw. Default attribute.
+--
+-- 'quality', 'faceDetail_quality' - Identifies image brightness and sharpness. Default attribute.
+--
+-- 'smile', 'faceDetail_smile' - Indicates whether or not the face is smiling, and the confidence level
+-- in the determination.
+--
+-- 'sunglasses', 'faceDetail_sunglasses' - Indicates whether or not the face is wearing sunglasses, and the
+-- confidence level in the determination.
 newFaceDetail ::
   FaceDetail
 newFaceDetail =
   FaceDetail'
-    { beard = Prelude.Nothing,
-      ageRange = Prelude.Nothing,
-      quality = Prelude.Nothing,
-      pose = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      mouthOpen = Prelude.Nothing,
-      sunglasses = Prelude.Nothing,
+    { ageRange = Prelude.Nothing,
+      beard = Prelude.Nothing,
       boundingBox = Prelude.Nothing,
-      landmarks = Prelude.Nothing,
-      gender = Prelude.Nothing,
-      eyeglasses = Prelude.Nothing,
+      confidence = Prelude.Nothing,
       emotions = Prelude.Nothing,
-      smile = Prelude.Nothing,
+      eyeglasses = Prelude.Nothing,
       eyesOpen = Prelude.Nothing,
-      mustache = Prelude.Nothing
+      gender = Prelude.Nothing,
+      landmarks = Prelude.Nothing,
+      mouthOpen = Prelude.Nothing,
+      mustache = Prelude.Nothing,
+      pose = Prelude.Nothing,
+      quality = Prelude.Nothing,
+      smile = Prelude.Nothing,
+      sunglasses = Prelude.Nothing
     }
-
--- | Indicates whether or not the face has a beard, and the confidence level
--- in the determination.
-faceDetail_beard :: Lens.Lens' FaceDetail (Prelude.Maybe Beard)
-faceDetail_beard = Lens.lens (\FaceDetail' {beard} -> beard) (\s@FaceDetail' {} a -> s {beard = a} :: FaceDetail)
 
 -- | The estimated age range, in years, for the face. Low represents the
 -- lowest estimated age and High represents the highest estimated age.
 faceDetail_ageRange :: Lens.Lens' FaceDetail (Prelude.Maybe AgeRange)
 faceDetail_ageRange = Lens.lens (\FaceDetail' {ageRange} -> ageRange) (\s@FaceDetail' {} a -> s {ageRange = a} :: FaceDetail)
 
--- | Identifies image brightness and sharpness. Default attribute.
-faceDetail_quality :: Lens.Lens' FaceDetail (Prelude.Maybe ImageQuality)
-faceDetail_quality = Lens.lens (\FaceDetail' {quality} -> quality) (\s@FaceDetail' {} a -> s {quality = a} :: FaceDetail)
-
--- | Indicates the pose of the face as determined by its pitch, roll, and
--- yaw. Default attribute.
-faceDetail_pose :: Lens.Lens' FaceDetail (Prelude.Maybe Pose)
-faceDetail_pose = Lens.lens (\FaceDetail' {pose} -> pose) (\s@FaceDetail' {} a -> s {pose = a} :: FaceDetail)
-
--- | Confidence level that the bounding box contains a face (and not a
--- different object such as a tree). Default attribute.
-faceDetail_confidence :: Lens.Lens' FaceDetail (Prelude.Maybe Prelude.Double)
-faceDetail_confidence = Lens.lens (\FaceDetail' {confidence} -> confidence) (\s@FaceDetail' {} a -> s {confidence = a} :: FaceDetail)
-
--- | Indicates whether or not the mouth on the face is open, and the
--- confidence level in the determination.
-faceDetail_mouthOpen :: Lens.Lens' FaceDetail (Prelude.Maybe MouthOpen)
-faceDetail_mouthOpen = Lens.lens (\FaceDetail' {mouthOpen} -> mouthOpen) (\s@FaceDetail' {} a -> s {mouthOpen = a} :: FaceDetail)
-
--- | Indicates whether or not the face is wearing sunglasses, and the
--- confidence level in the determination.
-faceDetail_sunglasses :: Lens.Lens' FaceDetail (Prelude.Maybe Sunglasses)
-faceDetail_sunglasses = Lens.lens (\FaceDetail' {sunglasses} -> sunglasses) (\s@FaceDetail' {} a -> s {sunglasses = a} :: FaceDetail)
+-- | Indicates whether or not the face has a beard, and the confidence level
+-- in the determination.
+faceDetail_beard :: Lens.Lens' FaceDetail (Prelude.Maybe Beard)
+faceDetail_beard = Lens.lens (\FaceDetail' {beard} -> beard) (\s@FaceDetail' {} a -> s {beard = a} :: FaceDetail)
 
 -- | Bounding box of the face. Default attribute.
 faceDetail_boundingBox :: Lens.Lens' FaceDetail (Prelude.Maybe BoundingBox)
 faceDetail_boundingBox = Lens.lens (\FaceDetail' {boundingBox} -> boundingBox) (\s@FaceDetail' {} a -> s {boundingBox = a} :: FaceDetail)
 
--- | Indicates the location of landmarks on the face. Default attribute.
-faceDetail_landmarks :: Lens.Lens' FaceDetail (Prelude.Maybe [Landmark])
-faceDetail_landmarks = Lens.lens (\FaceDetail' {landmarks} -> landmarks) (\s@FaceDetail' {} a -> s {landmarks = a} :: FaceDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | The predicted gender of a detected face.
-faceDetail_gender :: Lens.Lens' FaceDetail (Prelude.Maybe Gender)
-faceDetail_gender = Lens.lens (\FaceDetail' {gender} -> gender) (\s@FaceDetail' {} a -> s {gender = a} :: FaceDetail)
-
--- | Indicates whether or not the face is wearing eye glasses, and the
--- confidence level in the determination.
-faceDetail_eyeglasses :: Lens.Lens' FaceDetail (Prelude.Maybe Eyeglasses)
-faceDetail_eyeglasses = Lens.lens (\FaceDetail' {eyeglasses} -> eyeglasses) (\s@FaceDetail' {} a -> s {eyeglasses = a} :: FaceDetail)
+-- | Confidence level that the bounding box contains a face (and not a
+-- different object such as a tree). Default attribute.
+faceDetail_confidence :: Lens.Lens' FaceDetail (Prelude.Maybe Prelude.Double)
+faceDetail_confidence = Lens.lens (\FaceDetail' {confidence} -> confidence) (\s@FaceDetail' {} a -> s {confidence = a} :: FaceDetail)
 
 -- | The emotions that appear to be expressed on the face, and the confidence
 -- level in the determination. The API is only making a determination of
@@ -245,20 +213,52 @@ faceDetail_eyeglasses = Lens.lens (\FaceDetail' {eyeglasses} -> eyeglasses) (\s@
 faceDetail_emotions :: Lens.Lens' FaceDetail (Prelude.Maybe [Emotion])
 faceDetail_emotions = Lens.lens (\FaceDetail' {emotions} -> emotions) (\s@FaceDetail' {} a -> s {emotions = a} :: FaceDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether or not the face is smiling, and the confidence level
--- in the determination.
-faceDetail_smile :: Lens.Lens' FaceDetail (Prelude.Maybe Smile)
-faceDetail_smile = Lens.lens (\FaceDetail' {smile} -> smile) (\s@FaceDetail' {} a -> s {smile = a} :: FaceDetail)
+-- | Indicates whether or not the face is wearing eye glasses, and the
+-- confidence level in the determination.
+faceDetail_eyeglasses :: Lens.Lens' FaceDetail (Prelude.Maybe Eyeglasses)
+faceDetail_eyeglasses = Lens.lens (\FaceDetail' {eyeglasses} -> eyeglasses) (\s@FaceDetail' {} a -> s {eyeglasses = a} :: FaceDetail)
 
 -- | Indicates whether or not the eyes on the face are open, and the
 -- confidence level in the determination.
 faceDetail_eyesOpen :: Lens.Lens' FaceDetail (Prelude.Maybe EyeOpen)
 faceDetail_eyesOpen = Lens.lens (\FaceDetail' {eyesOpen} -> eyesOpen) (\s@FaceDetail' {} a -> s {eyesOpen = a} :: FaceDetail)
 
+-- | The predicted gender of a detected face.
+faceDetail_gender :: Lens.Lens' FaceDetail (Prelude.Maybe Gender)
+faceDetail_gender = Lens.lens (\FaceDetail' {gender} -> gender) (\s@FaceDetail' {} a -> s {gender = a} :: FaceDetail)
+
+-- | Indicates the location of landmarks on the face. Default attribute.
+faceDetail_landmarks :: Lens.Lens' FaceDetail (Prelude.Maybe [Landmark])
+faceDetail_landmarks = Lens.lens (\FaceDetail' {landmarks} -> landmarks) (\s@FaceDetail' {} a -> s {landmarks = a} :: FaceDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether or not the mouth on the face is open, and the
+-- confidence level in the determination.
+faceDetail_mouthOpen :: Lens.Lens' FaceDetail (Prelude.Maybe MouthOpen)
+faceDetail_mouthOpen = Lens.lens (\FaceDetail' {mouthOpen} -> mouthOpen) (\s@FaceDetail' {} a -> s {mouthOpen = a} :: FaceDetail)
+
 -- | Indicates whether or not the face has a mustache, and the confidence
 -- level in the determination.
 faceDetail_mustache :: Lens.Lens' FaceDetail (Prelude.Maybe Mustache)
 faceDetail_mustache = Lens.lens (\FaceDetail' {mustache} -> mustache) (\s@FaceDetail' {} a -> s {mustache = a} :: FaceDetail)
+
+-- | Indicates the pose of the face as determined by its pitch, roll, and
+-- yaw. Default attribute.
+faceDetail_pose :: Lens.Lens' FaceDetail (Prelude.Maybe Pose)
+faceDetail_pose = Lens.lens (\FaceDetail' {pose} -> pose) (\s@FaceDetail' {} a -> s {pose = a} :: FaceDetail)
+
+-- | Identifies image brightness and sharpness. Default attribute.
+faceDetail_quality :: Lens.Lens' FaceDetail (Prelude.Maybe ImageQuality)
+faceDetail_quality = Lens.lens (\FaceDetail' {quality} -> quality) (\s@FaceDetail' {} a -> s {quality = a} :: FaceDetail)
+
+-- | Indicates whether or not the face is smiling, and the confidence level
+-- in the determination.
+faceDetail_smile :: Lens.Lens' FaceDetail (Prelude.Maybe Smile)
+faceDetail_smile = Lens.lens (\FaceDetail' {smile} -> smile) (\s@FaceDetail' {} a -> s {smile = a} :: FaceDetail)
+
+-- | Indicates whether or not the face is wearing sunglasses, and the
+-- confidence level in the determination.
+faceDetail_sunglasses :: Lens.Lens' FaceDetail (Prelude.Maybe Sunglasses)
+faceDetail_sunglasses = Lens.lens (\FaceDetail' {sunglasses} -> sunglasses) (\s@FaceDetail' {} a -> s {sunglasses = a} :: FaceDetail)
 
 instance Data.FromJSON FaceDetail where
   parseJSON =
@@ -266,55 +266,55 @@ instance Data.FromJSON FaceDetail where
       "FaceDetail"
       ( \x ->
           FaceDetail'
-            Prelude.<$> (x Data..:? "Beard")
-            Prelude.<*> (x Data..:? "AgeRange")
-            Prelude.<*> (x Data..:? "Quality")
-            Prelude.<*> (x Data..:? "Pose")
-            Prelude.<*> (x Data..:? "Confidence")
-            Prelude.<*> (x Data..:? "MouthOpen")
-            Prelude.<*> (x Data..:? "Sunglasses")
+            Prelude.<$> (x Data..:? "AgeRange")
+            Prelude.<*> (x Data..:? "Beard")
             Prelude.<*> (x Data..:? "BoundingBox")
-            Prelude.<*> (x Data..:? "Landmarks" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Gender")
-            Prelude.<*> (x Data..:? "Eyeglasses")
+            Prelude.<*> (x Data..:? "Confidence")
             Prelude.<*> (x Data..:? "Emotions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Smile")
+            Prelude.<*> (x Data..:? "Eyeglasses")
             Prelude.<*> (x Data..:? "EyesOpen")
+            Prelude.<*> (x Data..:? "Gender")
+            Prelude.<*> (x Data..:? "Landmarks" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MouthOpen")
             Prelude.<*> (x Data..:? "Mustache")
+            Prelude.<*> (x Data..:? "Pose")
+            Prelude.<*> (x Data..:? "Quality")
+            Prelude.<*> (x Data..:? "Smile")
+            Prelude.<*> (x Data..:? "Sunglasses")
       )
 
 instance Prelude.Hashable FaceDetail where
   hashWithSalt _salt FaceDetail' {..} =
-    _salt `Prelude.hashWithSalt` beard
-      `Prelude.hashWithSalt` ageRange
-      `Prelude.hashWithSalt` quality
-      `Prelude.hashWithSalt` pose
-      `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` mouthOpen
-      `Prelude.hashWithSalt` sunglasses
+    _salt `Prelude.hashWithSalt` ageRange
+      `Prelude.hashWithSalt` beard
       `Prelude.hashWithSalt` boundingBox
-      `Prelude.hashWithSalt` landmarks
-      `Prelude.hashWithSalt` gender
-      `Prelude.hashWithSalt` eyeglasses
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` emotions
-      `Prelude.hashWithSalt` smile
+      `Prelude.hashWithSalt` eyeglasses
       `Prelude.hashWithSalt` eyesOpen
+      `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` landmarks
+      `Prelude.hashWithSalt` mouthOpen
       `Prelude.hashWithSalt` mustache
+      `Prelude.hashWithSalt` pose
+      `Prelude.hashWithSalt` quality
+      `Prelude.hashWithSalt` smile
+      `Prelude.hashWithSalt` sunglasses
 
 instance Prelude.NFData FaceDetail where
   rnf FaceDetail' {..} =
-    Prelude.rnf beard
-      `Prelude.seq` Prelude.rnf ageRange
-      `Prelude.seq` Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf pose
-      `Prelude.seq` Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf mouthOpen
-      `Prelude.seq` Prelude.rnf sunglasses
+    Prelude.rnf ageRange
+      `Prelude.seq` Prelude.rnf beard
       `Prelude.seq` Prelude.rnf boundingBox
-      `Prelude.seq` Prelude.rnf landmarks
-      `Prelude.seq` Prelude.rnf gender
-      `Prelude.seq` Prelude.rnf eyeglasses
+      `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf emotions
-      `Prelude.seq` Prelude.rnf smile
+      `Prelude.seq` Prelude.rnf eyeglasses
       `Prelude.seq` Prelude.rnf eyesOpen
+      `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf landmarks
+      `Prelude.seq` Prelude.rnf mouthOpen
       `Prelude.seq` Prelude.rnf mustache
+      `Prelude.seq` Prelude.rnf pose
+      `Prelude.seq` Prelude.rnf quality
+      `Prelude.seq` Prelude.rnf smile
+      `Prelude.seq` Prelude.rnf sunglasses

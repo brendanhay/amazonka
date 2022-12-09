@@ -153,74 +153,74 @@ module Amazonka.Rekognition
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ImageTooLargeException
-    _ImageTooLargeException,
-
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** HumanLoopQuotaExceededException
     _HumanLoopQuotaExceededException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
 
-    -- ** VideoTooLargeException
-    _VideoTooLargeException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidPolicyRevisionIdException
-    _InvalidPolicyRevisionIdException,
+    -- ** ImageTooLargeException
+    _ImageTooLargeException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InvalidImageFormatException
     _InvalidImageFormatException,
 
-    -- ** InvalidS3ObjectException
-    _InvalidS3ObjectException,
-
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
 
+    -- ** InvalidPolicyRevisionIdException
+    _InvalidPolicyRevisionIdException,
+
+    -- ** InvalidS3ObjectException
+    _InvalidS3ObjectException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** VideoTooLargeException
+    _VideoTooLargeException,
+
     -- * Waiters
     -- $waiters
 
-    -- ** ProjectVersionTrainingCompleted
-    newProjectVersionTrainingCompleted,
-
     -- ** ProjectVersionRunning
     newProjectVersionRunning,
+
+    -- ** ProjectVersionTrainingCompleted
+    newProjectVersionTrainingCompleted,
 
     -- * Operations
     -- $operations

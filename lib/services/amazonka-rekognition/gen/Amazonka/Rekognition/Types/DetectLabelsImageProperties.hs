@@ -34,22 +34,22 @@ import Amazonka.Rekognition.Types.DominantColor
 --
 -- /See:/ 'newDetectLabelsImageProperties' smart constructor.
 data DetectLabelsImageProperties = DetectLabelsImageProperties'
-  { -- | Information about the properties of an image’s foreground, including the
-    -- foreground’s quality and dominant colors, including the quality and
-    -- dominant colors of the image.
-    foreground :: Prelude.Maybe DetectLabelsImageForeground,
-    -- | Information about the quality of the image foreground as defined by
-    -- brightness, sharpness, and contrast. The higher the value the greater
-    -- the brightness, sharpness, and contrast respectively.
-    quality :: Prelude.Maybe DetectLabelsImageQuality,
-    -- | Information about the properties of an image’s background, including the
+  { -- | Information about the properties of an image’s background, including the
     -- background’s quality and dominant colors, including the quality and
     -- dominant colors of the image.
     background :: Prelude.Maybe DetectLabelsImageBackground,
     -- | Information about the dominant colors found in an image, described with
     -- RGB values, CSS color name, simplified color name, and PixelPercentage
     -- (the percentage of image pixels that have a particular color).
-    dominantColors :: Prelude.Maybe [DominantColor]
+    dominantColors :: Prelude.Maybe [DominantColor],
+    -- | Information about the properties of an image’s foreground, including the
+    -- foreground’s quality and dominant colors, including the quality and
+    -- dominant colors of the image.
+    foreground :: Prelude.Maybe DetectLabelsImageForeground,
+    -- | Information about the quality of the image foreground as defined by
+    -- brightness, sharpness, and contrast. The higher the value the greater
+    -- the brightness, sharpness, and contrast respectively.
+    quality :: Prelude.Maybe DetectLabelsImageQuality
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,14 +61,6 @@ data DetectLabelsImageProperties = DetectLabelsImageProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'foreground', 'detectLabelsImageProperties_foreground' - Information about the properties of an image’s foreground, including the
--- foreground’s quality and dominant colors, including the quality and
--- dominant colors of the image.
---
--- 'quality', 'detectLabelsImageProperties_quality' - Information about the quality of the image foreground as defined by
--- brightness, sharpness, and contrast. The higher the value the greater
--- the brightness, sharpness, and contrast respectively.
---
 -- 'background', 'detectLabelsImageProperties_background' - Information about the properties of an image’s background, including the
 -- background’s quality and dominant colors, including the quality and
 -- dominant colors of the image.
@@ -76,28 +68,24 @@ data DetectLabelsImageProperties = DetectLabelsImageProperties'
 -- 'dominantColors', 'detectLabelsImageProperties_dominantColors' - Information about the dominant colors found in an image, described with
 -- RGB values, CSS color name, simplified color name, and PixelPercentage
 -- (the percentage of image pixels that have a particular color).
+--
+-- 'foreground', 'detectLabelsImageProperties_foreground' - Information about the properties of an image’s foreground, including the
+-- foreground’s quality and dominant colors, including the quality and
+-- dominant colors of the image.
+--
+-- 'quality', 'detectLabelsImageProperties_quality' - Information about the quality of the image foreground as defined by
+-- brightness, sharpness, and contrast. The higher the value the greater
+-- the brightness, sharpness, and contrast respectively.
 newDetectLabelsImageProperties ::
   DetectLabelsImageProperties
 newDetectLabelsImageProperties =
   DetectLabelsImageProperties'
-    { foreground =
+    { background =
         Prelude.Nothing,
-      quality = Prelude.Nothing,
-      background = Prelude.Nothing,
-      dominantColors = Prelude.Nothing
+      dominantColors = Prelude.Nothing,
+      foreground = Prelude.Nothing,
+      quality = Prelude.Nothing
     }
-
--- | Information about the properties of an image’s foreground, including the
--- foreground’s quality and dominant colors, including the quality and
--- dominant colors of the image.
-detectLabelsImageProperties_foreground :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe DetectLabelsImageForeground)
-detectLabelsImageProperties_foreground = Lens.lens (\DetectLabelsImageProperties' {foreground} -> foreground) (\s@DetectLabelsImageProperties' {} a -> s {foreground = a} :: DetectLabelsImageProperties)
-
--- | Information about the quality of the image foreground as defined by
--- brightness, sharpness, and contrast. The higher the value the greater
--- the brightness, sharpness, and contrast respectively.
-detectLabelsImageProperties_quality :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe DetectLabelsImageQuality)
-detectLabelsImageProperties_quality = Lens.lens (\DetectLabelsImageProperties' {quality} -> quality) (\s@DetectLabelsImageProperties' {} a -> s {quality = a} :: DetectLabelsImageProperties)
 
 -- | Information about the properties of an image’s background, including the
 -- background’s quality and dominant colors, including the quality and
@@ -111,30 +99,40 @@ detectLabelsImageProperties_background = Lens.lens (\DetectLabelsImageProperties
 detectLabelsImageProperties_dominantColors :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe [DominantColor])
 detectLabelsImageProperties_dominantColors = Lens.lens (\DetectLabelsImageProperties' {dominantColors} -> dominantColors) (\s@DetectLabelsImageProperties' {} a -> s {dominantColors = a} :: DetectLabelsImageProperties) Prelude.. Lens.mapping Lens.coerced
 
+-- | Information about the properties of an image’s foreground, including the
+-- foreground’s quality and dominant colors, including the quality and
+-- dominant colors of the image.
+detectLabelsImageProperties_foreground :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe DetectLabelsImageForeground)
+detectLabelsImageProperties_foreground = Lens.lens (\DetectLabelsImageProperties' {foreground} -> foreground) (\s@DetectLabelsImageProperties' {} a -> s {foreground = a} :: DetectLabelsImageProperties)
+
+-- | Information about the quality of the image foreground as defined by
+-- brightness, sharpness, and contrast. The higher the value the greater
+-- the brightness, sharpness, and contrast respectively.
+detectLabelsImageProperties_quality :: Lens.Lens' DetectLabelsImageProperties (Prelude.Maybe DetectLabelsImageQuality)
+detectLabelsImageProperties_quality = Lens.lens (\DetectLabelsImageProperties' {quality} -> quality) (\s@DetectLabelsImageProperties' {} a -> s {quality = a} :: DetectLabelsImageProperties)
+
 instance Data.FromJSON DetectLabelsImageProperties where
   parseJSON =
     Data.withObject
       "DetectLabelsImageProperties"
       ( \x ->
           DetectLabelsImageProperties'
-            Prelude.<$> (x Data..:? "Foreground")
+            Prelude.<$> (x Data..:? "Background")
+            Prelude.<*> (x Data..:? "DominantColors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Foreground")
             Prelude.<*> (x Data..:? "Quality")
-            Prelude.<*> (x Data..:? "Background")
-            Prelude.<*> ( x Data..:? "DominantColors"
-                            Data..!= Prelude.mempty
-                        )
       )
 
 instance Prelude.Hashable DetectLabelsImageProperties where
   hashWithSalt _salt DetectLabelsImageProperties' {..} =
-    _salt `Prelude.hashWithSalt` foreground
-      `Prelude.hashWithSalt` quality
-      `Prelude.hashWithSalt` background
+    _salt `Prelude.hashWithSalt` background
       `Prelude.hashWithSalt` dominantColors
+      `Prelude.hashWithSalt` foreground
+      `Prelude.hashWithSalt` quality
 
 instance Prelude.NFData DetectLabelsImageProperties where
   rnf DetectLabelsImageProperties' {..} =
-    Prelude.rnf foreground
-      `Prelude.seq` Prelude.rnf quality
-      `Prelude.seq` Prelude.rnf background
+    Prelude.rnf background
       `Prelude.seq` Prelude.rnf dominantColors
+      `Prelude.seq` Prelude.rnf foreground
+      `Prelude.seq` Prelude.rnf quality

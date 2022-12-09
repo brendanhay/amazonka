@@ -35,8 +35,8 @@ module Amazonka.Rekognition.ListDatasetLabels
     newListDatasetLabels,
 
     -- * Request Lenses
-    listDatasetLabels_nextToken,
     listDatasetLabels_maxResults,
+    listDatasetLabels_nextToken,
     listDatasetLabels_datasetArn,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.Rekognition.ListDatasetLabels
     newListDatasetLabelsResponse,
 
     -- * Response Lenses
-    listDatasetLabelsResponse_nextToken,
     listDatasetLabelsResponse_datasetLabelDescriptions,
+    listDatasetLabelsResponse_nextToken,
     listDatasetLabelsResponse_httpStatus,
   )
 where
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatasetLabels' smart constructor.
 data ListDatasetLabels = ListDatasetLabels'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the dataset that you want to use.
     datasetArn :: Prelude.Text
   }
@@ -82,14 +82,14 @@ data ListDatasetLabels = ListDatasetLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDatasetLabels_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'listDatasetLabels_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
---
--- 'maxResults', 'listDatasetLabels_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 --
 -- 'datasetArn', 'listDatasetLabels_datasetArn' - The Amazon Resource Name (ARN) of the dataset that you want to use.
 newListDatasetLabels ::
@@ -98,10 +98,16 @@ newListDatasetLabels ::
   ListDatasetLabels
 newListDatasetLabels pDatasetArn_ =
   ListDatasetLabels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       datasetArn = pDatasetArn_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+listDatasetLabels_maxResults :: Lens.Lens' ListDatasetLabels (Prelude.Maybe Prelude.Natural)
+listDatasetLabels_maxResults = Lens.lens (\ListDatasetLabels' {maxResults} -> maxResults) (\s@ListDatasetLabels' {} a -> s {maxResults = a} :: ListDatasetLabels)
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
@@ -109,12 +115,6 @@ newListDatasetLabels pDatasetArn_ =
 -- next set of results.
 listDatasetLabels_nextToken :: Lens.Lens' ListDatasetLabels (Prelude.Maybe Prelude.Text)
 listDatasetLabels_nextToken = Lens.lens (\ListDatasetLabels' {nextToken} -> nextToken) (\s@ListDatasetLabels' {} a -> s {nextToken = a} :: ListDatasetLabels)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-listDatasetLabels_maxResults :: Lens.Lens' ListDatasetLabels (Prelude.Maybe Prelude.Natural)
-listDatasetLabels_maxResults = Lens.lens (\ListDatasetLabels' {maxResults} -> maxResults) (\s@ListDatasetLabels' {} a -> s {maxResults = a} :: ListDatasetLabels)
 
 -- | The Amazon Resource Name (ARN) of the dataset that you want to use.
 listDatasetLabels_datasetArn :: Lens.Lens' ListDatasetLabels Prelude.Text
@@ -152,23 +152,23 @@ instance Core.AWSRequest ListDatasetLabels where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetLabelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DatasetLabelDescriptions"
+            Prelude.<$> ( x Data..?> "DatasetLabelDescriptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDatasetLabels where
   hashWithSalt _salt ListDatasetLabels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` datasetArn
 
 instance Prelude.NFData ListDatasetLabels where
   rnf ListDatasetLabels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf datasetArn
 
 instance Data.ToHeaders ListDatasetLabels where
@@ -190,8 +190,8 @@ instance Data.ToJSON ListDatasetLabels where
   toJSON ListDatasetLabels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DatasetArn" Data..= datasetArn)
           ]
       )
@@ -204,13 +204,13 @@ instance Data.ToQuery ListDatasetLabels where
 
 -- | /See:/ 'newListDatasetLabelsResponse' smart constructor.
 data ListDatasetLabelsResponse = ListDatasetLabelsResponse'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | A list of the labels in the dataset.
+    datasetLabelDescriptions :: Prelude.Maybe [DatasetLabelDescription],
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the labels in the dataset.
-    datasetLabelDescriptions :: Prelude.Maybe [DatasetLabelDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,12 +224,12 @@ data ListDatasetLabelsResponse = ListDatasetLabelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasetLabelDescriptions', 'listDatasetLabelsResponse_datasetLabelDescriptions' - A list of the labels in the dataset.
+--
 -- 'nextToken', 'listDatasetLabelsResponse_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of results.
---
--- 'datasetLabelDescriptions', 'listDatasetLabelsResponse_datasetLabelDescriptions' - A list of the labels in the dataset.
 --
 -- 'httpStatus', 'listDatasetLabelsResponse_httpStatus' - The response's http status code.
 newListDatasetLabelsResponse ::
@@ -238,11 +238,15 @@ newListDatasetLabelsResponse ::
   ListDatasetLabelsResponse
 newListDatasetLabelsResponse pHttpStatus_ =
   ListDatasetLabelsResponse'
-    { nextToken =
+    { datasetLabelDescriptions =
         Prelude.Nothing,
-      datasetLabelDescriptions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the labels in the dataset.
+listDatasetLabelsResponse_datasetLabelDescriptions :: Lens.Lens' ListDatasetLabelsResponse (Prelude.Maybe [DatasetLabelDescription])
+listDatasetLabelsResponse_datasetLabelDescriptions = Lens.lens (\ListDatasetLabelsResponse' {datasetLabelDescriptions} -> datasetLabelDescriptions) (\s@ListDatasetLabelsResponse' {} a -> s {datasetLabelDescriptions = a} :: ListDatasetLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
@@ -251,16 +255,12 @@ newListDatasetLabelsResponse pHttpStatus_ =
 listDatasetLabelsResponse_nextToken :: Lens.Lens' ListDatasetLabelsResponse (Prelude.Maybe Prelude.Text)
 listDatasetLabelsResponse_nextToken = Lens.lens (\ListDatasetLabelsResponse' {nextToken} -> nextToken) (\s@ListDatasetLabelsResponse' {} a -> s {nextToken = a} :: ListDatasetLabelsResponse)
 
--- | A list of the labels in the dataset.
-listDatasetLabelsResponse_datasetLabelDescriptions :: Lens.Lens' ListDatasetLabelsResponse (Prelude.Maybe [DatasetLabelDescription])
-listDatasetLabelsResponse_datasetLabelDescriptions = Lens.lens (\ListDatasetLabelsResponse' {datasetLabelDescriptions} -> datasetLabelDescriptions) (\s@ListDatasetLabelsResponse' {} a -> s {datasetLabelDescriptions = a} :: ListDatasetLabelsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDatasetLabelsResponse_httpStatus :: Lens.Lens' ListDatasetLabelsResponse Prelude.Int
 listDatasetLabelsResponse_httpStatus = Lens.lens (\ListDatasetLabelsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetLabelsResponse' {} a -> s {httpStatus = a} :: ListDatasetLabelsResponse)
 
 instance Prelude.NFData ListDatasetLabelsResponse where
   rnf ListDatasetLabelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf datasetLabelDescriptions
+    Prelude.rnf datasetLabelDescriptions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

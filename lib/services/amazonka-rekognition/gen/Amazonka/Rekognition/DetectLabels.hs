@@ -140,10 +140,10 @@ module Amazonka.Rekognition.DetectLabels
     newDetectLabels,
 
     -- * Request Lenses
-    detectLabels_maxLabels,
     detectLabels_features,
-    detectLabels_settings,
+    detectLabels_maxLabels,
     detectLabels_minConfidence,
+    detectLabels_settings,
     detectLabels_image,
 
     -- * Destructuring the Response
@@ -151,10 +151,10 @@ module Amazonka.Rekognition.DetectLabels
     newDetectLabelsResponse,
 
     -- * Response Lenses
-    detectLabelsResponse_labelModelVersion,
-    detectLabelsResponse_orientationCorrection,
-    detectLabelsResponse_labels,
     detectLabelsResponse_imageProperties,
+    detectLabelsResponse_labelModelVersion,
+    detectLabelsResponse_labels,
+    detectLabelsResponse_orientationCorrection,
     detectLabelsResponse_httpStatus,
   )
 where
@@ -169,20 +169,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectLabels' smart constructor.
 data DetectLabels = DetectLabels'
-  { -- | Maximum number of labels you want the service to return in the response.
-    -- The service returns the specified number of highest confidence labels.
-    maxLabels :: Prelude.Maybe Prelude.Natural,
-    -- | A list of the types of analysis to perform. Specifying GENERAL_LABELS
+  { -- | A list of the types of analysis to perform. Specifying GENERAL_LABELS
     -- uses the label detection feature, while specifying IMAGE_PROPERTIES
     -- returns information regarding image color and quality. If no option is
     -- specified GENERAL_LABELS is used by default.
     features :: Prelude.Maybe [DetectLabelsFeatureName],
-    -- | A list of the filters to be applied to returned detected labels and
-    -- image properties. Specified filters can be inclusive, exclusive, or a
-    -- combination of both. Filters can be used for individual labels or label
-    -- categories. The exact label names or label categories must be supplied.
-    -- For a full list of labels and label categories, see LINK HERE.
-    settings :: Prelude.Maybe DetectLabelsSettings,
+    -- | Maximum number of labels you want the service to return in the response.
+    -- The service returns the specified number of highest confidence labels.
+    maxLabels :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the minimum confidence level for the labels to return. Amazon
     -- Rekognition doesn\'t return any labels with confidence lower than this
     -- specified value.
@@ -190,6 +184,12 @@ data DetectLabels = DetectLabels'
     -- If @MinConfidence@ is not specified, the operation returns labels with a
     -- confidence values greater than or equal to 55 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
+    -- | A list of the filters to be applied to returned detected labels and
+    -- image properties. Specified filters can be inclusive, exclusive, or a
+    -- combination of both. Filters can be used for individual labels or label
+    -- categories. The exact label names or label categories must be supplied.
+    -- For a full list of labels and label categories, see LINK HERE.
+    settings :: Prelude.Maybe DetectLabelsSettings,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
     -- not supported. Images stored in an S3 Bucket do not need to be
@@ -210,19 +210,13 @@ data DetectLabels = DetectLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.
--- The service returns the specified number of highest confidence labels.
---
 -- 'features', 'detectLabels_features' - A list of the types of analysis to perform. Specifying GENERAL_LABELS
 -- uses the label detection feature, while specifying IMAGE_PROPERTIES
 -- returns information regarding image color and quality. If no option is
 -- specified GENERAL_LABELS is used by default.
 --
--- 'settings', 'detectLabels_settings' - A list of the filters to be applied to returned detected labels and
--- image properties. Specified filters can be inclusive, exclusive, or a
--- combination of both. Filters can be used for individual labels or label
--- categories. The exact label names or label categories must be supplied.
--- For a full list of labels and label categories, see LINK HERE.
+-- 'maxLabels', 'detectLabels_maxLabels' - Maximum number of labels you want the service to return in the response.
+-- The service returns the specified number of highest confidence labels.
 --
 -- 'minConfidence', 'detectLabels_minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon
 -- Rekognition doesn\'t return any labels with confidence lower than this
@@ -230,6 +224,12 @@ data DetectLabels = DetectLabels'
 --
 -- If @MinConfidence@ is not specified, the operation returns labels with a
 -- confidence values greater than or equal to 55 percent.
+--
+-- 'settings', 'detectLabels_settings' - A list of the filters to be applied to returned detected labels and
+-- image properties. Specified filters can be inclusive, exclusive, or a
+-- combination of both. Filters can be used for individual labels or label
+-- categories. The exact label names or label categories must be supplied.
+-- For a full list of labels and label categories, see LINK HERE.
 --
 -- 'image', 'detectLabels_image' - The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -245,17 +245,12 @@ newDetectLabels ::
   DetectLabels
 newDetectLabels pImage_ =
   DetectLabels'
-    { maxLabels = Prelude.Nothing,
-      features = Prelude.Nothing,
-      settings = Prelude.Nothing,
+    { features = Prelude.Nothing,
+      maxLabels = Prelude.Nothing,
       minConfidence = Prelude.Nothing,
+      settings = Prelude.Nothing,
       image = pImage_
     }
-
--- | Maximum number of labels you want the service to return in the response.
--- The service returns the specified number of highest confidence labels.
-detectLabels_maxLabels :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Natural)
-detectLabels_maxLabels = Lens.lens (\DetectLabels' {maxLabels} -> maxLabels) (\s@DetectLabels' {} a -> s {maxLabels = a} :: DetectLabels)
 
 -- | A list of the types of analysis to perform. Specifying GENERAL_LABELS
 -- uses the label detection feature, while specifying IMAGE_PROPERTIES
@@ -264,13 +259,10 @@ detectLabels_maxLabels = Lens.lens (\DetectLabels' {maxLabels} -> maxLabels) (\s
 detectLabels_features :: Lens.Lens' DetectLabels (Prelude.Maybe [DetectLabelsFeatureName])
 detectLabels_features = Lens.lens (\DetectLabels' {features} -> features) (\s@DetectLabels' {} a -> s {features = a} :: DetectLabels) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of the filters to be applied to returned detected labels and
--- image properties. Specified filters can be inclusive, exclusive, or a
--- combination of both. Filters can be used for individual labels or label
--- categories. The exact label names or label categories must be supplied.
--- For a full list of labels and label categories, see LINK HERE.
-detectLabels_settings :: Lens.Lens' DetectLabels (Prelude.Maybe DetectLabelsSettings)
-detectLabels_settings = Lens.lens (\DetectLabels' {settings} -> settings) (\s@DetectLabels' {} a -> s {settings = a} :: DetectLabels)
+-- | Maximum number of labels you want the service to return in the response.
+-- The service returns the specified number of highest confidence labels.
+detectLabels_maxLabels :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Natural)
+detectLabels_maxLabels = Lens.lens (\DetectLabels' {maxLabels} -> maxLabels) (\s@DetectLabels' {} a -> s {maxLabels = a} :: DetectLabels)
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon
 -- Rekognition doesn\'t return any labels with confidence lower than this
@@ -280,6 +272,14 @@ detectLabels_settings = Lens.lens (\DetectLabels' {settings} -> settings) (\s@De
 -- confidence values greater than or equal to 55 percent.
 detectLabels_minConfidence :: Lens.Lens' DetectLabels (Prelude.Maybe Prelude.Double)
 detectLabels_minConfidence = Lens.lens (\DetectLabels' {minConfidence} -> minConfidence) (\s@DetectLabels' {} a -> s {minConfidence = a} :: DetectLabels)
+
+-- | A list of the filters to be applied to returned detected labels and
+-- image properties. Specified filters can be inclusive, exclusive, or a
+-- combination of both. Filters can be used for individual labels or label
+-- categories. The exact label names or label categories must be supplied.
+-- For a full list of labels and label categories, see LINK HERE.
+detectLabels_settings :: Lens.Lens' DetectLabels (Prelude.Maybe DetectLabelsSettings)
+detectLabels_settings = Lens.lens (\DetectLabels' {settings} -> settings) (\s@DetectLabels' {} a -> s {settings = a} :: DetectLabels)
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -300,27 +300,27 @@ instance Core.AWSRequest DetectLabels where
     Response.receiveJSON
       ( \s h x ->
           DetectLabelsResponse'
-            Prelude.<$> (x Data..?> "LabelModelVersion")
-            Prelude.<*> (x Data..?> "OrientationCorrection")
+            Prelude.<$> (x Data..?> "ImageProperties")
+            Prelude.<*> (x Data..?> "LabelModelVersion")
             Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "ImageProperties")
+            Prelude.<*> (x Data..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DetectLabels where
   hashWithSalt _salt DetectLabels' {..} =
-    _salt `Prelude.hashWithSalt` maxLabels
-      `Prelude.hashWithSalt` features
-      `Prelude.hashWithSalt` settings
+    _salt `Prelude.hashWithSalt` features
+      `Prelude.hashWithSalt` maxLabels
       `Prelude.hashWithSalt` minConfidence
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectLabels where
   rnf DetectLabels' {..} =
-    Prelude.rnf maxLabels
-      `Prelude.seq` Prelude.rnf features
-      `Prelude.seq` Prelude.rnf settings
+    Prelude.rnf features
+      `Prelude.seq` Prelude.rnf maxLabels
       `Prelude.seq` Prelude.rnf minConfidence
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf image
 
 instance Data.ToHeaders DetectLabels where
@@ -342,10 +342,10 @@ instance Data.ToJSON DetectLabels where
   toJSON DetectLabels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxLabels" Data..=) Prelude.<$> maxLabels,
-            ("Features" Data..=) Prelude.<$> features,
-            ("Settings" Data..=) Prelude.<$> settings,
+          [ ("Features" Data..=) Prelude.<$> features,
+            ("MaxLabels" Data..=) Prelude.<$> maxLabels,
             ("MinConfidence" Data..=) Prelude.<$> minConfidence,
+            ("Settings" Data..=) Prelude.<$> settings,
             Prelude.Just ("Image" Data..= image)
           ]
       )
@@ -358,9 +358,14 @@ instance Data.ToQuery DetectLabels where
 
 -- | /See:/ 'newDetectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-  { -- | Version number of the label detection model that was used to detect
+  { -- | Information about the properties of the input image, such as brightness,
+    -- sharpness, contrast, and dominant colors.
+    imageProperties :: Prelude.Maybe DetectLabelsImageProperties,
+    -- | Version number of the label detection model that was used to detect
     -- labels.
     labelModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | An array of labels for the real-world objects detected.
+    labels :: Prelude.Maybe [Label],
     -- | The value of @OrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -376,11 +381,6 @@ data DetectLabelsResponse = DetectLabelsResponse'
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
     orientationCorrection :: Prelude.Maybe OrientationCorrection,
-    -- | An array of labels for the real-world objects detected.
-    labels :: Prelude.Maybe [Label],
-    -- | Information about the properties of the input image, such as brightness,
-    -- sharpness, contrast, and dominant colors.
-    imageProperties :: Prelude.Maybe DetectLabelsImageProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -394,8 +394,13 @@ data DetectLabelsResponse = DetectLabelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageProperties', 'detectLabelsResponse_imageProperties' - Information about the properties of the input image, such as brightness,
+-- sharpness, contrast, and dominant colors.
+--
 -- 'labelModelVersion', 'detectLabelsResponse_labelModelVersion' - Version number of the label detection model that was used to detect
 -- labels.
+--
+-- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.
 --
 -- 'orientationCorrection', 'detectLabelsResponse_orientationCorrection' - The value of @OrientationCorrection@ is always null.
 --
@@ -412,11 +417,6 @@ data DetectLabelsResponse = DetectLabelsResponse'
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
 --
--- 'labels', 'detectLabelsResponse_labels' - An array of labels for the real-world objects detected.
---
--- 'imageProperties', 'detectLabelsResponse_imageProperties' - Information about the properties of the input image, such as brightness,
--- sharpness, contrast, and dominant colors.
---
 -- 'httpStatus', 'detectLabelsResponse_httpStatus' - The response's http status code.
 newDetectLabelsResponse ::
   -- | 'httpStatus'
@@ -424,18 +424,27 @@ newDetectLabelsResponse ::
   DetectLabelsResponse
 newDetectLabelsResponse pHttpStatus_ =
   DetectLabelsResponse'
-    { labelModelVersion =
+    { imageProperties =
         Prelude.Nothing,
-      orientationCorrection = Prelude.Nothing,
+      labelModelVersion = Prelude.Nothing,
       labels = Prelude.Nothing,
-      imageProperties = Prelude.Nothing,
+      orientationCorrection = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the properties of the input image, such as brightness,
+-- sharpness, contrast, and dominant colors.
+detectLabelsResponse_imageProperties :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe DetectLabelsImageProperties)
+detectLabelsResponse_imageProperties = Lens.lens (\DetectLabelsResponse' {imageProperties} -> imageProperties) (\s@DetectLabelsResponse' {} a -> s {imageProperties = a} :: DetectLabelsResponse)
 
 -- | Version number of the label detection model that was used to detect
 -- labels.
 detectLabelsResponse_labelModelVersion :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe Prelude.Text)
 detectLabelsResponse_labelModelVersion = Lens.lens (\DetectLabelsResponse' {labelModelVersion} -> labelModelVersion) (\s@DetectLabelsResponse' {} a -> s {labelModelVersion = a} :: DetectLabelsResponse)
+
+-- | An array of labels for the real-world objects detected.
+detectLabelsResponse_labels :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe [Label])
+detectLabelsResponse_labels = Lens.lens (\DetectLabelsResponse' {labels} -> labels) (\s@DetectLabelsResponse' {} a -> s {labels = a} :: DetectLabelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of @OrientationCorrection@ is always null.
 --
@@ -454,23 +463,14 @@ detectLabelsResponse_labelModelVersion = Lens.lens (\DetectLabelsResponse' {labe
 detectLabelsResponse_orientationCorrection :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe OrientationCorrection)
 detectLabelsResponse_orientationCorrection = Lens.lens (\DetectLabelsResponse' {orientationCorrection} -> orientationCorrection) (\s@DetectLabelsResponse' {} a -> s {orientationCorrection = a} :: DetectLabelsResponse)
 
--- | An array of labels for the real-world objects detected.
-detectLabelsResponse_labels :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe [Label])
-detectLabelsResponse_labels = Lens.lens (\DetectLabelsResponse' {labels} -> labels) (\s@DetectLabelsResponse' {} a -> s {labels = a} :: DetectLabelsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the properties of the input image, such as brightness,
--- sharpness, contrast, and dominant colors.
-detectLabelsResponse_imageProperties :: Lens.Lens' DetectLabelsResponse (Prelude.Maybe DetectLabelsImageProperties)
-detectLabelsResponse_imageProperties = Lens.lens (\DetectLabelsResponse' {imageProperties} -> imageProperties) (\s@DetectLabelsResponse' {} a -> s {imageProperties = a} :: DetectLabelsResponse)
-
 -- | The response's http status code.
 detectLabelsResponse_httpStatus :: Lens.Lens' DetectLabelsResponse Prelude.Int
 detectLabelsResponse_httpStatus = Lens.lens (\DetectLabelsResponse' {httpStatus} -> httpStatus) (\s@DetectLabelsResponse' {} a -> s {httpStatus = a} :: DetectLabelsResponse)
 
 instance Prelude.NFData DetectLabelsResponse where
   rnf DetectLabelsResponse' {..} =
-    Prelude.rnf labelModelVersion
-      `Prelude.seq` Prelude.rnf orientationCorrection
+    Prelude.rnf imageProperties
+      `Prelude.seq` Prelude.rnf labelModelVersion
       `Prelude.seq` Prelude.rnf labels
-      `Prelude.seq` Prelude.rnf imageProperties
+      `Prelude.seq` Prelude.rnf orientationCorrection
       `Prelude.seq` Prelude.rnf httpStatus

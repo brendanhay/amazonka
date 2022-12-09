@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFaceSearchSettings' smart constructor.
 data FaceSearchSettings = FaceSearchSettings'
-  { -- | Minimum face match confidence score that must be met to return a result
+  { -- | The ID of a collection that contains faces that you want to search for.
+    collectionId :: Prelude.Maybe Prelude.Text,
+    -- | Minimum face match confidence score that must be met to return a result
     -- for a recognized face. The default is 80. 0 is the lowest confidence.
     -- 100 is the highest confidence. Values between 0 and 100 are accepted,
     -- and values lower than 80 are set to 80.
-    faceMatchThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The ID of a collection that contains faces that you want to search for.
-    collectionId :: Prelude.Maybe Prelude.Text
+    faceMatchThreshold :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,20 +49,23 @@ data FaceSearchSettings = FaceSearchSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'collectionId', 'faceSearchSettings_collectionId' - The ID of a collection that contains faces that you want to search for.
+--
 -- 'faceMatchThreshold', 'faceSearchSettings_faceMatchThreshold' - Minimum face match confidence score that must be met to return a result
 -- for a recognized face. The default is 80. 0 is the lowest confidence.
 -- 100 is the highest confidence. Values between 0 and 100 are accepted,
 -- and values lower than 80 are set to 80.
---
--- 'collectionId', 'faceSearchSettings_collectionId' - The ID of a collection that contains faces that you want to search for.
 newFaceSearchSettings ::
   FaceSearchSettings
 newFaceSearchSettings =
   FaceSearchSettings'
-    { faceMatchThreshold =
-        Prelude.Nothing,
-      collectionId = Prelude.Nothing
+    { collectionId = Prelude.Nothing,
+      faceMatchThreshold = Prelude.Nothing
     }
+
+-- | The ID of a collection that contains faces that you want to search for.
+faceSearchSettings_collectionId :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Text)
+faceSearchSettings_collectionId = Lens.lens (\FaceSearchSettings' {collectionId} -> collectionId) (\s@FaceSearchSettings' {} a -> s {collectionId = a} :: FaceSearchSettings)
 
 -- | Minimum face match confidence score that must be met to return a result
 -- for a recognized face. The default is 80. 0 is the lowest confidence.
@@ -71,36 +74,32 @@ newFaceSearchSettings =
 faceSearchSettings_faceMatchThreshold :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Double)
 faceSearchSettings_faceMatchThreshold = Lens.lens (\FaceSearchSettings' {faceMatchThreshold} -> faceMatchThreshold) (\s@FaceSearchSettings' {} a -> s {faceMatchThreshold = a} :: FaceSearchSettings)
 
--- | The ID of a collection that contains faces that you want to search for.
-faceSearchSettings_collectionId :: Lens.Lens' FaceSearchSettings (Prelude.Maybe Prelude.Text)
-faceSearchSettings_collectionId = Lens.lens (\FaceSearchSettings' {collectionId} -> collectionId) (\s@FaceSearchSettings' {} a -> s {collectionId = a} :: FaceSearchSettings)
-
 instance Data.FromJSON FaceSearchSettings where
   parseJSON =
     Data.withObject
       "FaceSearchSettings"
       ( \x ->
           FaceSearchSettings'
-            Prelude.<$> (x Data..:? "FaceMatchThreshold")
-            Prelude.<*> (x Data..:? "CollectionId")
+            Prelude.<$> (x Data..:? "CollectionId")
+            Prelude.<*> (x Data..:? "FaceMatchThreshold")
       )
 
 instance Prelude.Hashable FaceSearchSettings where
   hashWithSalt _salt FaceSearchSettings' {..} =
-    _salt `Prelude.hashWithSalt` faceMatchThreshold
-      `Prelude.hashWithSalt` collectionId
+    _salt `Prelude.hashWithSalt` collectionId
+      `Prelude.hashWithSalt` faceMatchThreshold
 
 instance Prelude.NFData FaceSearchSettings where
   rnf FaceSearchSettings' {..} =
-    Prelude.rnf faceMatchThreshold
-      `Prelude.seq` Prelude.rnf collectionId
+    Prelude.rnf collectionId
+      `Prelude.seq` Prelude.rnf faceMatchThreshold
 
 instance Data.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FaceMatchThreshold" Data..=)
-              Prelude.<$> faceMatchThreshold,
-            ("CollectionId" Data..=) Prelude.<$> collectionId
+          [ ("CollectionId" Data..=) Prelude.<$> collectionId,
+            ("FaceMatchThreshold" Data..=)
+              Prelude.<$> faceMatchThreshold
           ]
       )

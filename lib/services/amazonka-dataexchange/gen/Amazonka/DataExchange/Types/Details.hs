@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDetails' smart constructor.
 data Details = Details'
   { -- | Information about the job error.
-    importAssetsFromS3JobErrorDetails :: Prelude.Maybe [AssetSourceEntry],
-    -- | Information about the job error.
-    importAssetFromSignedUrlJobErrorDetails :: Prelude.Maybe ImportAssetFromSignedUrlJobErrorDetails
+    importAssetFromSignedUrlJobErrorDetails :: Prelude.Maybe ImportAssetFromSignedUrlJobErrorDetails,
+    -- | Details about the job error.
+    importAssetsFromS3JobErrorDetails :: Prelude.Maybe [AssetSourceEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,25 @@ data Details = Details'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importAssetsFromS3JobErrorDetails', 'details_importAssetsFromS3JobErrorDetails' - Information about the job error.
---
 -- 'importAssetFromSignedUrlJobErrorDetails', 'details_importAssetFromSignedUrlJobErrorDetails' - Information about the job error.
+--
+-- 'importAssetsFromS3JobErrorDetails', 'details_importAssetsFromS3JobErrorDetails' - Details about the job error.
 newDetails ::
   Details
 newDetails =
   Details'
-    { importAssetsFromS3JobErrorDetails =
+    { importAssetFromSignedUrlJobErrorDetails =
         Prelude.Nothing,
-      importAssetFromSignedUrlJobErrorDetails =
-        Prelude.Nothing
+      importAssetsFromS3JobErrorDetails = Prelude.Nothing
     }
-
--- | Information about the job error.
-details_importAssetsFromS3JobErrorDetails :: Lens.Lens' Details (Prelude.Maybe [AssetSourceEntry])
-details_importAssetsFromS3JobErrorDetails = Lens.lens (\Details' {importAssetsFromS3JobErrorDetails} -> importAssetsFromS3JobErrorDetails) (\s@Details' {} a -> s {importAssetsFromS3JobErrorDetails = a} :: Details) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the job error.
 details_importAssetFromSignedUrlJobErrorDetails :: Lens.Lens' Details (Prelude.Maybe ImportAssetFromSignedUrlJobErrorDetails)
 details_importAssetFromSignedUrlJobErrorDetails = Lens.lens (\Details' {importAssetFromSignedUrlJobErrorDetails} -> importAssetFromSignedUrlJobErrorDetails) (\s@Details' {} a -> s {importAssetFromSignedUrlJobErrorDetails = a} :: Details)
+
+-- | Details about the job error.
+details_importAssetsFromS3JobErrorDetails :: Lens.Lens' Details (Prelude.Maybe [AssetSourceEntry])
+details_importAssetsFromS3JobErrorDetails = Lens.lens (\Details' {importAssetsFromS3JobErrorDetails} -> importAssetsFromS3JobErrorDetails) (\s@Details' {} a -> s {importAssetsFromS3JobErrorDetails = a} :: Details) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Details where
   parseJSON =
@@ -72,21 +71,21 @@ instance Data.FromJSON Details where
       "Details"
       ( \x ->
           Details'
-            Prelude.<$> ( x Data..:? "ImportAssetsFromS3JobErrorDetails"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Data..:? "ImportAssetFromSignedUrlJobErrorDetails"
+                        )
+            Prelude.<*> ( x Data..:? "ImportAssetsFromS3JobErrorDetails"
+                            Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Details where
   hashWithSalt _salt Details' {..} =
     _salt
-      `Prelude.hashWithSalt` importAssetsFromS3JobErrorDetails
       `Prelude.hashWithSalt` importAssetFromSignedUrlJobErrorDetails
+      `Prelude.hashWithSalt` importAssetsFromS3JobErrorDetails
 
 instance Prelude.NFData Details where
   rnf Details' {..} =
-    Prelude.rnf importAssetsFromS3JobErrorDetails
-      `Prelude.seq` Prelude.rnf importAssetFromSignedUrlJobErrorDetails
+    Prelude.rnf importAssetFromSignedUrlJobErrorDetails
+      `Prelude.seq` Prelude.rnf importAssetsFromS3JobErrorDetails

@@ -24,11 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the job error.
+-- | Details about the job error.
 --
 -- /See:/ 'newImportAssetFromSignedUrlJobErrorDetails' smart constructor.
 data ImportAssetFromSignedUrlJobErrorDetails = ImportAssetFromSignedUrlJobErrorDetails'
-  { -- | Information about the job error.
+  { -- | Details about the job error.
     assetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data ImportAssetFromSignedUrlJobErrorDetails = ImportAssetFromSignedUrlJobErrorD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assetName', 'importAssetFromSignedUrlJobErrorDetails_assetName' - Information about the job error.
+-- 'assetName', 'importAssetFromSignedUrlJobErrorDetails_assetName' - Details about the job error.
 newImportAssetFromSignedUrlJobErrorDetails ::
   -- | 'assetName'
   Prelude.Text ->
@@ -53,7 +53,7 @@ newImportAssetFromSignedUrlJobErrorDetails
           pAssetName_
       }
 
--- | Information about the job error.
+-- | Details about the job error.
 importAssetFromSignedUrlJobErrorDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlJobErrorDetails Prelude.Text
 importAssetFromSignedUrlJobErrorDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlJobErrorDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlJobErrorDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlJobErrorDetails)
 

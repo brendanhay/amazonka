@@ -35,11 +35,11 @@ module Amazonka.DataExchange.CreateEventAction
     newCreateEventActionResponse,
 
     -- * Response Lenses
-    createEventActionResponse_arn,
-    createEventActionResponse_id,
-    createEventActionResponse_event,
     createEventActionResponse_action,
+    createEventActionResponse_arn,
     createEventActionResponse_createdAt,
+    createEventActionResponse_event,
+    createEventActionResponse_id,
     createEventActionResponse_updatedAt,
     createEventActionResponse_httpStatus,
   )
@@ -103,11 +103,11 @@ instance Core.AWSRequest CreateEventAction where
     Response.receiveJSON
       ( \s h x ->
           CreateEventActionResponse'
-            Prelude.<$> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Event")
-            Prelude.<*> (x Data..?> "Action")
+            Prelude.<$> (x Data..?> "Action")
+            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Event")
+            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -149,16 +149,16 @@ instance Data.ToQuery CreateEventAction where
 
 -- | /See:/ 'newCreateEventActionResponse' smart constructor.
 data CreateEventActionResponse = CreateEventActionResponse'
-  { -- | The ARN for the event action.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event action.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | What occurs to start an action.
-    event :: Prelude.Maybe Event,
-    -- | What occurs after a certain event.
+  { -- | What occurs after a certain event.
     action :: Prelude.Maybe Action,
+    -- | The ARN for the event action.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event action was created, in ISO 8601 format.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | What occurs to start an action.
+    event :: Prelude.Maybe Event,
+    -- | The unique identifier for the event action.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event action was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Data.POSIX,
@@ -175,15 +175,15 @@ data CreateEventActionResponse = CreateEventActionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'createEventActionResponse_action' - What occurs after a certain event.
+--
 -- 'arn', 'createEventActionResponse_arn' - The ARN for the event action.
 --
--- 'id', 'createEventActionResponse_id' - The unique identifier for the event action.
+-- 'createdAt', 'createEventActionResponse_createdAt' - The date and time that the event action was created, in ISO 8601 format.
 --
 -- 'event', 'createEventActionResponse_event' - What occurs to start an action.
 --
--- 'action', 'createEventActionResponse_action' - What occurs after a certain event.
---
--- 'createdAt', 'createEventActionResponse_createdAt' - The date and time that the event action was created, in ISO 8601 format.
+-- 'id', 'createEventActionResponse_id' - The unique identifier for the event action.
 --
 -- 'updatedAt', 'createEventActionResponse_updatedAt' - The date and time that the event action was last updated, in ISO 8601
 -- format.
@@ -195,34 +195,35 @@ newCreateEventActionResponse ::
   CreateEventActionResponse
 newCreateEventActionResponse pHttpStatus_ =
   CreateEventActionResponse'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      event = Prelude.Nothing,
-      action = Prelude.Nothing,
+    { action =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      event = Prelude.Nothing,
+      id = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN for the event action.
-createEventActionResponse_arn :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Prelude.Text)
-createEventActionResponse_arn = Lens.lens (\CreateEventActionResponse' {arn} -> arn) (\s@CreateEventActionResponse' {} a -> s {arn = a} :: CreateEventActionResponse)
-
--- | The unique identifier for the event action.
-createEventActionResponse_id :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Prelude.Text)
-createEventActionResponse_id = Lens.lens (\CreateEventActionResponse' {id} -> id) (\s@CreateEventActionResponse' {} a -> s {id = a} :: CreateEventActionResponse)
-
--- | What occurs to start an action.
-createEventActionResponse_event :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Event)
-createEventActionResponse_event = Lens.lens (\CreateEventActionResponse' {event} -> event) (\s@CreateEventActionResponse' {} a -> s {event = a} :: CreateEventActionResponse)
 
 -- | What occurs after a certain event.
 createEventActionResponse_action :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Action)
 createEventActionResponse_action = Lens.lens (\CreateEventActionResponse' {action} -> action) (\s@CreateEventActionResponse' {} a -> s {action = a} :: CreateEventActionResponse)
 
+-- | The ARN for the event action.
+createEventActionResponse_arn :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Prelude.Text)
+createEventActionResponse_arn = Lens.lens (\CreateEventActionResponse' {arn} -> arn) (\s@CreateEventActionResponse' {} a -> s {arn = a} :: CreateEventActionResponse)
+
 -- | The date and time that the event action was created, in ISO 8601 format.
 createEventActionResponse_createdAt :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Prelude.UTCTime)
 createEventActionResponse_createdAt = Lens.lens (\CreateEventActionResponse' {createdAt} -> createdAt) (\s@CreateEventActionResponse' {} a -> s {createdAt = a} :: CreateEventActionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | What occurs to start an action.
+createEventActionResponse_event :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Event)
+createEventActionResponse_event = Lens.lens (\CreateEventActionResponse' {event} -> event) (\s@CreateEventActionResponse' {} a -> s {event = a} :: CreateEventActionResponse)
+
+-- | The unique identifier for the event action.
+createEventActionResponse_id :: Lens.Lens' CreateEventActionResponse (Prelude.Maybe Prelude.Text)
+createEventActionResponse_id = Lens.lens (\CreateEventActionResponse' {id} -> id) (\s@CreateEventActionResponse' {} a -> s {id = a} :: CreateEventActionResponse)
 
 -- | The date and time that the event action was last updated, in ISO 8601
 -- format.
@@ -235,10 +236,10 @@ createEventActionResponse_httpStatus = Lens.lens (\CreateEventActionResponse' {h
 
 instance Prelude.NFData CreateEventActionResponse where
   rnf CreateEventActionResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf event
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf event
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

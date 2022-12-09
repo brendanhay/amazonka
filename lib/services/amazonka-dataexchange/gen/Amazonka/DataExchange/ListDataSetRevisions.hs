@@ -30,8 +30,8 @@ module Amazonka.DataExchange.ListDataSetRevisions
     newListDataSetRevisions,
 
     -- * Request Lenses
-    listDataSetRevisions_nextToken,
     listDataSetRevisions_maxResults,
+    listDataSetRevisions_nextToken,
     listDataSetRevisions_dataSetId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSetRevisions' smart constructor.
 data ListDataSetRevisions = ListDataSetRevisions'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The maximum number of results returned by a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier for a data set.
     dataSetId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListDataSetRevisions = ListDataSetRevisions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSetRevisions_maxResults' - The maximum number of results returned by a single call.
+--
 -- 'nextToken', 'listDataSetRevisions_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'maxResults', 'listDataSetRevisions_maxResults' - The maximum number of results returned by a single call.
 --
 -- 'dataSetId', 'listDataSetRevisions_dataSetId' - The unique identifier for a data set.
 newListDataSetRevisions ::
@@ -85,19 +85,19 @@ newListDataSetRevisions ::
   ListDataSetRevisions
 newListDataSetRevisions pDataSetId_ =
   ListDataSetRevisions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dataSetId = pDataSetId_
     }
+
+-- | The maximum number of results returned by a single call.
+listDataSetRevisions_maxResults :: Lens.Lens' ListDataSetRevisions (Prelude.Maybe Prelude.Natural)
+listDataSetRevisions_maxResults = Lens.lens (\ListDataSetRevisions' {maxResults} -> maxResults) (\s@ListDataSetRevisions' {} a -> s {maxResults = a} :: ListDataSetRevisions)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listDataSetRevisions_nextToken :: Lens.Lens' ListDataSetRevisions (Prelude.Maybe Prelude.Text)
 listDataSetRevisions_nextToken = Lens.lens (\ListDataSetRevisions' {nextToken} -> nextToken) (\s@ListDataSetRevisions' {} a -> s {nextToken = a} :: ListDataSetRevisions)
-
--- | The maximum number of results returned by a single call.
-listDataSetRevisions_maxResults :: Lens.Lens' ListDataSetRevisions (Prelude.Maybe Prelude.Natural)
-listDataSetRevisions_maxResults = Lens.lens (\ListDataSetRevisions' {maxResults} -> maxResults) (\s@ListDataSetRevisions' {} a -> s {maxResults = a} :: ListDataSetRevisions)
 
 -- | The unique identifier for a data set.
 listDataSetRevisions_dataSetId :: Lens.Lens' ListDataSetRevisions Prelude.Text
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListDataSetRevisions where
 
 instance Prelude.Hashable ListDataSetRevisions where
   hashWithSalt _salt ListDataSetRevisions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData ListDataSetRevisions where
   rnf ListDataSetRevisions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dataSetId
 
 instance Data.ToHeaders ListDataSetRevisions where
@@ -171,8 +171,8 @@ instance Data.ToPath ListDataSetRevisions where
 instance Data.ToQuery ListDataSetRevisions where
   toQuery ListDataSetRevisions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDataSetRevisionsResponse' smart constructor.

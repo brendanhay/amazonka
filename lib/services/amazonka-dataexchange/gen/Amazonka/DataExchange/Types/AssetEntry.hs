@@ -26,13 +26,16 @@ import Amazonka.DataExchange.Types.AssetDetails
 import Amazonka.DataExchange.Types.AssetType
 import qualified Amazonka.Prelude as Prelude
 
--- | An asset in AWS Data Exchange is a piece of data (S3 object) or a means
--- of fulfilling data (Amazon Redshift datashare or Amazon API Gateway
--- API). The asset can be a structured data file, an image file, or some
--- other data file that can be stored as an S3 object, an Amazon API
--- Gateway API, or an Amazon Redshift datashare. When you create an import
--- job for your files, API Gateway APIs, or Amazon Redshift datashares, you
--- create an asset in AWS Data Exchange.
+-- | An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a
+-- means of fulfilling data (Amazon Redshift datashare or Amazon API
+-- Gateway API, AWS Lake Formation data permission, or Amazon S3 data
+-- access). The asset can be a structured data file, an image file, or some
+-- other data file that can be stored as an Amazon S3 object, an Amazon API
+-- Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data
+-- permission, or an Amazon S3 data access. When you create an import job
+-- for your files, API Gateway APIs, Amazon Redshift datashares, AWS Lake
+-- Formation data permission, or Amazon S3 data access, you create an asset
+-- in AWS Data Exchange.
 --
 -- /See:/ 'newAssetEntry' smart constructor.
 data AssetEntry = AssetEntry'
@@ -42,7 +45,7 @@ data AssetEntry = AssetEntry'
     sourceId :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the asset.
     arn :: Prelude.Text,
-    -- | Information about the asset.
+    -- | Details about the asset.
     assetDetails :: AssetDetails,
     -- | The type of asset that is added to a data set.
     assetType :: AssetType,
@@ -52,11 +55,14 @@ data AssetEntry = AssetEntry'
     dataSetId :: Prelude.Text,
     -- | The unique identifier for the asset.
     id :: Prelude.Text,
-    -- | The name of the asset. When importing from Amazon S3, the S3 object key
-    -- is used as the asset name. When exporting to Amazon S3, the asset name
-    -- is used as default target S3 object key. When importing from Amazon API
-    -- Gateway API, the API name is used as the asset name. When importing from
-    -- Amazon Redshift, the datashare name is used as the asset name.
+    -- | The name of the asset. When importing from Amazon S3, the Amazon S3
+    -- object key is used as the asset name. When exporting to Amazon S3, the
+    -- asset name is used as default target Amazon S3 object key. When
+    -- importing from Amazon API Gateway API, the API name is used as the asset
+    -- name. When importing from Amazon Redshift, the datashare name is used as
+    -- the asset name. When importing from AWS Lake Formation, the static
+    -- values of \"Database(s) included in LF-tag policy\" or \"Table(s)
+    -- included in LF-tag policy\" are used as the asset name.
     name :: Prelude.Text,
     -- | The unique identifier for the revision associated with this asset.
     revisionId :: Prelude.Text,
@@ -79,7 +85,7 @@ data AssetEntry = AssetEntry'
 --
 -- 'arn', 'assetEntry_arn' - The ARN for the asset.
 --
--- 'assetDetails', 'assetEntry_assetDetails' - Information about the asset.
+-- 'assetDetails', 'assetEntry_assetDetails' - Details about the asset.
 --
 -- 'assetType', 'assetEntry_assetType' - The type of asset that is added to a data set.
 --
@@ -89,11 +95,14 @@ data AssetEntry = AssetEntry'
 --
 -- 'id', 'assetEntry_id' - The unique identifier for the asset.
 --
--- 'name', 'assetEntry_name' - The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key. When importing from Amazon API
--- Gateway API, the API name is used as the asset name. When importing from
--- Amazon Redshift, the datashare name is used as the asset name.
+-- 'name', 'assetEntry_name' - The name of the asset. When importing from Amazon S3, the Amazon S3
+-- object key is used as the asset name. When exporting to Amazon S3, the
+-- asset name is used as default target Amazon S3 object key. When
+-- importing from Amazon API Gateway API, the API name is used as the asset
+-- name. When importing from Amazon Redshift, the datashare name is used as
+-- the asset name. When importing from AWS Lake Formation, the static
+-- values of \"Database(s) included in LF-tag policy\" or \"Table(s)
+-- included in LF-tag policy\" are used as the asset name.
 --
 -- 'revisionId', 'assetEntry_revisionId' - The unique identifier for the revision associated with this asset.
 --
@@ -151,7 +160,7 @@ assetEntry_sourceId = Lens.lens (\AssetEntry' {sourceId} -> sourceId) (\s@AssetE
 assetEntry_arn :: Lens.Lens' AssetEntry Prelude.Text
 assetEntry_arn = Lens.lens (\AssetEntry' {arn} -> arn) (\s@AssetEntry' {} a -> s {arn = a} :: AssetEntry)
 
--- | Information about the asset.
+-- | Details about the asset.
 assetEntry_assetDetails :: Lens.Lens' AssetEntry AssetDetails
 assetEntry_assetDetails = Lens.lens (\AssetEntry' {assetDetails} -> assetDetails) (\s@AssetEntry' {} a -> s {assetDetails = a} :: AssetEntry)
 
@@ -171,11 +180,14 @@ assetEntry_dataSetId = Lens.lens (\AssetEntry' {dataSetId} -> dataSetId) (\s@Ass
 assetEntry_id :: Lens.Lens' AssetEntry Prelude.Text
 assetEntry_id = Lens.lens (\AssetEntry' {id} -> id) (\s@AssetEntry' {} a -> s {id = a} :: AssetEntry)
 
--- | The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key. When importing from Amazon API
--- Gateway API, the API name is used as the asset name. When importing from
--- Amazon Redshift, the datashare name is used as the asset name.
+-- | The name of the asset. When importing from Amazon S3, the Amazon S3
+-- object key is used as the asset name. When exporting to Amazon S3, the
+-- asset name is used as default target Amazon S3 object key. When
+-- importing from Amazon API Gateway API, the API name is used as the asset
+-- name. When importing from Amazon Redshift, the datashare name is used as
+-- the asset name. When importing from AWS Lake Formation, the static
+-- values of \"Database(s) included in LF-tag policy\" or \"Table(s)
+-- included in LF-tag policy\" are used as the asset name.
 assetEntry_name :: Lens.Lens' AssetEntry Prelude.Text
 assetEntry_name = Lens.lens (\AssetEntry' {name} -> name) (\s@AssetEntry' {} a -> s {name = a} :: AssetEntry)
 

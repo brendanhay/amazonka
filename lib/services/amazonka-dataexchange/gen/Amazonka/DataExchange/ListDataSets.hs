@@ -32,8 +32,8 @@ module Amazonka.DataExchange.ListDataSets
     newListDataSets,
 
     -- * Request Lenses
-    listDataSets_nextToken,
     listDataSets_maxResults,
+    listDataSets_nextToken,
     listDataSets_origin,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.DataExchange.ListDataSets
     newListDataSetsResponse,
 
     -- * Response Lenses
-    listDataSetsResponse_nextToken,
     listDataSetsResponse_dataSets,
+    listDataSetsResponse_nextToken,
     listDataSetsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSets' smart constructor.
 data ListDataSets = ListDataSets'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The maximum number of results returned by a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A property that defines the data set as OWNED by the account (for
     -- providers) or ENTITLED to the account (for subscribers).
     origin :: Prelude.Maybe Prelude.Text
@@ -76,10 +76,10 @@ data ListDataSets = ListDataSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSets_maxResults' - The maximum number of results returned by a single call.
+--
 -- 'nextToken', 'listDataSets_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'maxResults', 'listDataSets_maxResults' - The maximum number of results returned by a single call.
 --
 -- 'origin', 'listDataSets_origin' - A property that defines the data set as OWNED by the account (for
 -- providers) or ENTITLED to the account (for subscribers).
@@ -87,19 +87,19 @@ newListDataSets ::
   ListDataSets
 newListDataSets =
   ListDataSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       origin = Prelude.Nothing
     }
+
+-- | The maximum number of results returned by a single call.
+listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
+listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listDataSets_nextToken :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Text)
 listDataSets_nextToken = Lens.lens (\ListDataSets' {nextToken} -> nextToken) (\s@ListDataSets' {} a -> s {nextToken = a} :: ListDataSets)
-
--- | The maximum number of results returned by a single call.
-listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
-listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | A property that defines the data set as OWNED by the account (for
 -- providers) or ENTITLED to the account (for subscribers).
@@ -133,21 +133,21 @@ instance Core.AWSRequest ListDataSets where
     Response.receiveJSON
       ( \s h x ->
           ListDataSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DataSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DataSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataSets where
   hashWithSalt _salt ListDataSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` origin
 
 instance Prelude.NFData ListDataSets where
   rnf ListDataSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf origin
 
 instance Data.ToHeaders ListDataSets where
@@ -167,18 +167,18 @@ instance Data.ToPath ListDataSets where
 instance Data.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "origin" Data.=: origin
       ]
 
 -- | /See:/ 'newListDataSetsResponse' smart constructor.
 data ListDataSetsResponse = ListDataSetsResponse'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The data set objects listed by the request.
+    dataSets :: Prelude.Maybe [DataSetEntry],
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The data set objects listed by the request.
-    dataSets :: Prelude.Maybe [DataSetEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,10 +192,10 @@ data ListDataSetsResponse = ListDataSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSets', 'listDataSetsResponse_dataSets' - The data set objects listed by the request.
+--
 -- 'nextToken', 'listDataSetsResponse_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'dataSets', 'listDataSetsResponse_dataSets' - The data set objects listed by the request.
 --
 -- 'httpStatus', 'listDataSetsResponse_httpStatus' - The response's http status code.
 newListDataSetsResponse ::
@@ -204,19 +204,19 @@ newListDataSetsResponse ::
   ListDataSetsResponse
 newListDataSetsResponse pHttpStatus_ =
   ListDataSetsResponse'
-    { nextToken = Prelude.Nothing,
-      dataSets = Prelude.Nothing,
+    { dataSets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The data set objects listed by the request.
+listDataSetsResponse_dataSets :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe [DataSetEntry])
+listDataSetsResponse_dataSets = Lens.lens (\ListDataSetsResponse' {dataSets} -> dataSets) (\s@ListDataSetsResponse' {} a -> s {dataSets = a} :: ListDataSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listDataSetsResponse_nextToken :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe Prelude.Text)
 listDataSetsResponse_nextToken = Lens.lens (\ListDataSetsResponse' {nextToken} -> nextToken) (\s@ListDataSetsResponse' {} a -> s {nextToken = a} :: ListDataSetsResponse)
-
--- | The data set objects listed by the request.
-listDataSetsResponse_dataSets :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe [DataSetEntry])
-listDataSetsResponse_dataSets = Lens.lens (\ListDataSetsResponse' {dataSets} -> dataSets) (\s@ListDataSetsResponse' {} a -> s {dataSets = a} :: ListDataSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataSetsResponse_httpStatus :: Lens.Lens' ListDataSetsResponse Prelude.Int
@@ -224,6 +224,6 @@ listDataSetsResponse_httpStatus = Lens.lens (\ListDataSetsResponse' {httpStatus}
 
 instance Prelude.NFData ListDataSetsResponse where
   rnf ListDataSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataSets
+    Prelude.rnf dataSets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,18 +29,18 @@ module Amazonka.DataExchange.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobs_revisionId,
     listJobs_dataSetId,
+    listJobs_maxResults,
+    listJobs_nextToken,
+    listJobs_revisionId,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
     newListJobsResponse,
 
     -- * Response Lenses
-    listJobsResponse_nextToken,
     listJobsResponse_jobs,
+    listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The token value retrieved from a previous call to access the next page
-    -- of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier for a data set.
+    dataSetId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value retrieved from a previous call to access the next page
+    -- of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for a revision.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for a data set.
-    dataSetId :: Prelude.Maybe Prelude.Text
+    revisionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,40 +75,40 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobs_nextToken' - The token value retrieved from a previous call to access the next page
--- of results.
+-- 'dataSetId', 'listJobs_dataSetId' - The unique identifier for a data set.
 --
 -- 'maxResults', 'listJobs_maxResults' - The maximum number of results returned by a single call.
 --
--- 'revisionId', 'listJobs_revisionId' - The unique identifier for a revision.
+-- 'nextToken', 'listJobs_nextToken' - The token value retrieved from a previous call to access the next page
+-- of results.
 --
--- 'dataSetId', 'listJobs_dataSetId' - The unique identifier for a data set.
+-- 'revisionId', 'listJobs_revisionId' - The unique identifier for a revision.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { nextToken = Prelude.Nothing,
+    { dataSetId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      revisionId = Prelude.Nothing,
-      dataSetId = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      revisionId = Prelude.Nothing
     }
+
+-- | The unique identifier for a data set.
+listJobs_dataSetId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_dataSetId = Lens.lens (\ListJobs' {dataSetId} -> dataSetId) (\s@ListJobs' {} a -> s {dataSetId = a} :: ListJobs)
+
+-- | The maximum number of results returned by a single call.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
--- | The maximum number of results returned by a single call.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
-
 -- | The unique identifier for a revision.
 listJobs_revisionId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_revisionId = Lens.lens (\ListJobs' {revisionId} -> revisionId) (\s@ListJobs' {} a -> s {revisionId = a} :: ListJobs)
-
--- | The unique identifier for a data set.
-listJobs_dataSetId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_dataSetId = Lens.lens (\ListJobs' {dataSetId} -> dataSetId) (\s@ListJobs' {} a -> s {dataSetId = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
@@ -137,24 +137,24 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf dataSetId
 
 instance Data.ToHeaders ListJobs where
   toHeaders =
@@ -173,19 +173,19 @@ instance Data.ToPath ListJobs where
 instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "dataSetId" Data.=: dataSetId,
         "maxResults" Data.=: maxResults,
-        "revisionId" Data.=: revisionId,
-        "dataSetId" Data.=: dataSetId
+        "nextToken" Data.=: nextToken,
+        "revisionId" Data.=: revisionId
       ]
 
 -- | /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The jobs listed by the request.
+    jobs :: Prelude.Maybe [JobEntry],
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The jobs listed by the request.
-    jobs :: Prelude.Maybe [JobEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListJobsResponse = ListJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobs', 'listJobsResponse_jobs' - The jobs listed by the request.
+--
 -- 'nextToken', 'listJobsResponse_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'jobs', 'listJobsResponse_jobs' - The jobs listed by the request.
 --
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
@@ -211,19 +211,19 @@ newListJobsResponse ::
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { nextToken = Prelude.Nothing,
-      jobs = Prelude.Nothing,
+    { jobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The jobs listed by the request.
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobEntry])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
 listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextToken) (\s@ListJobsResponse' {} a -> s {nextToken = a} :: ListJobsResponse)
-
--- | The jobs listed by the request.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobEntry])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int
@@ -231,6 +231,6 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListJobsResponse where
   rnf ListJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobs
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

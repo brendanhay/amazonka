@@ -21,7 +21,9 @@ module Amazonka.DataExchange.Types.AssetType
   ( AssetType
       ( ..,
         AssetType_API_GATEWAY_API,
+        AssetType_LAKE_FORMATION_DATA_PERMISSION,
         AssetType_REDSHIFT_DATA_SHARE,
+        AssetType_S3_DATA_ACCESS,
         AssetType_S3_SNAPSHOT
       ),
   )
@@ -62,15 +64,23 @@ newtype AssetType = AssetType'
 pattern AssetType_API_GATEWAY_API :: AssetType
 pattern AssetType_API_GATEWAY_API = AssetType' "API_GATEWAY_API"
 
+pattern AssetType_LAKE_FORMATION_DATA_PERMISSION :: AssetType
+pattern AssetType_LAKE_FORMATION_DATA_PERMISSION = AssetType' "LAKE_FORMATION_DATA_PERMISSION"
+
 pattern AssetType_REDSHIFT_DATA_SHARE :: AssetType
 pattern AssetType_REDSHIFT_DATA_SHARE = AssetType' "REDSHIFT_DATA_SHARE"
+
+pattern AssetType_S3_DATA_ACCESS :: AssetType
+pattern AssetType_S3_DATA_ACCESS = AssetType' "S3_DATA_ACCESS"
 
 pattern AssetType_S3_SNAPSHOT :: AssetType
 pattern AssetType_S3_SNAPSHOT = AssetType' "S3_SNAPSHOT"
 
 {-# COMPLETE
   AssetType_API_GATEWAY_API,
+  AssetType_LAKE_FORMATION_DATA_PERMISSION,
   AssetType_REDSHIFT_DATA_SHARE,
+  AssetType_S3_DATA_ACCESS,
   AssetType_S3_SNAPSHOT,
   AssetType'
   #-}

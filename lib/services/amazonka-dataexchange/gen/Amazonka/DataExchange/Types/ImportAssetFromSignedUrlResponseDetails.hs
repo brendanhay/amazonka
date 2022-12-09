@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetFromSignedUrlResponseDetails' smart constructor.
 data ImportAssetFromSignedUrlResponseDetails = ImportAssetFromSignedUrlResponseDetails'
-  { -- | The time and date at which the signed URL expires, in ISO 8601 format.
-    signedUrlExpiresAt :: Prelude.Maybe Data.POSIX,
-    -- | The signed URL.
-    signedUrl :: Prelude.Maybe Prelude.Text,
-    -- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
+  { -- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
     -- of the file at that location.
     md5Hash :: Prelude.Maybe Prelude.Text,
+    -- | The signed URL.
+    signedUrl :: Prelude.Maybe Prelude.Text,
+    -- | The time and date at which the signed URL expires, in ISO 8601 format.
+    signedUrlExpiresAt :: Prelude.Maybe Data.POSIX,
     -- | The name for the asset associated with this import job.
     assetName :: Prelude.Text,
     -- | The unique identifier for the data set associated with this import job.
@@ -54,12 +54,12 @@ data ImportAssetFromSignedUrlResponseDetails = ImportAssetFromSignedUrlResponseD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signedUrlExpiresAt', 'importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt' - The time and date at which the signed URL expires, in ISO 8601 format.
+-- 'md5Hash', 'importAssetFromSignedUrlResponseDetails_md5Hash' - The Base64-encoded Md5 hash for the asset, used to ensure the integrity
+-- of the file at that location.
 --
 -- 'signedUrl', 'importAssetFromSignedUrlResponseDetails_signedUrl' - The signed URL.
 --
--- 'md5Hash', 'importAssetFromSignedUrlResponseDetails_md5Hash' - The Base64-encoded Md5 hash for the asset, used to ensure the integrity
--- of the file at that location.
+-- 'signedUrlExpiresAt', 'importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt' - The time and date at which the signed URL expires, in ISO 8601 format.
 --
 -- 'assetName', 'importAssetFromSignedUrlResponseDetails_assetName' - The name for the asset associated with this import job.
 --
@@ -80,27 +80,28 @@ newImportAssetFromSignedUrlResponseDetails
   pDataSetId_
   pRevisionId_ =
     ImportAssetFromSignedUrlResponseDetails'
-      { signedUrlExpiresAt =
+      { md5Hash =
           Prelude.Nothing,
         signedUrl = Prelude.Nothing,
-        md5Hash = Prelude.Nothing,
+        signedUrlExpiresAt =
+          Prelude.Nothing,
         assetName = pAssetName_,
         dataSetId = pDataSetId_,
         revisionId = pRevisionId_
       }
 
--- | The time and date at which the signed URL expires, in ISO 8601 format.
-importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.UTCTime)
-importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ImportAssetFromSignedUrlResponseDetails) Prelude.. Lens.mapping Data._Time
+-- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
+-- of the file at that location.
+importAssetFromSignedUrlResponseDetails_md5Hash :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
+importAssetFromSignedUrlResponseDetails_md5Hash = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {md5Hash} -> md5Hash) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {md5Hash = a} :: ImportAssetFromSignedUrlResponseDetails)
 
 -- | The signed URL.
 importAssetFromSignedUrlResponseDetails_signedUrl :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
 importAssetFromSignedUrlResponseDetails_signedUrl = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {signedUrl} -> signedUrl) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {signedUrl = a} :: ImportAssetFromSignedUrlResponseDetails)
 
--- | The Base64-encoded Md5 hash for the asset, used to ensure the integrity
--- of the file at that location.
-importAssetFromSignedUrlResponseDetails_md5Hash :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.Text)
-importAssetFromSignedUrlResponseDetails_md5Hash = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {md5Hash} -> md5Hash) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {md5Hash = a} :: ImportAssetFromSignedUrlResponseDetails)
+-- | The time and date at which the signed URL expires, in ISO 8601 format.
+importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails (Prelude.Maybe Prelude.UTCTime)
+importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt = Lens.lens (\ImportAssetFromSignedUrlResponseDetails' {signedUrlExpiresAt} -> signedUrlExpiresAt) (\s@ImportAssetFromSignedUrlResponseDetails' {} a -> s {signedUrlExpiresAt = a} :: ImportAssetFromSignedUrlResponseDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The name for the asset associated with this import job.
 importAssetFromSignedUrlResponseDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlResponseDetails Prelude.Text
@@ -124,9 +125,9 @@ instance
       "ImportAssetFromSignedUrlResponseDetails"
       ( \x ->
           ImportAssetFromSignedUrlResponseDetails'
-            Prelude.<$> (x Data..:? "SignedUrlExpiresAt")
+            Prelude.<$> (x Data..:? "Md5Hash")
             Prelude.<*> (x Data..:? "SignedUrl")
-            Prelude.<*> (x Data..:? "Md5Hash")
+            Prelude.<*> (x Data..:? "SignedUrlExpiresAt")
             Prelude.<*> (x Data..: "AssetName")
             Prelude.<*> (x Data..: "DataSetId")
             Prelude.<*> (x Data..: "RevisionId")
@@ -139,9 +140,9 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromSignedUrlResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` signedUrlExpiresAt
+      _salt `Prelude.hashWithSalt` md5Hash
         `Prelude.hashWithSalt` signedUrl
-        `Prelude.hashWithSalt` md5Hash
+        `Prelude.hashWithSalt` signedUrlExpiresAt
         `Prelude.hashWithSalt` assetName
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
@@ -151,9 +152,9 @@ instance
     ImportAssetFromSignedUrlResponseDetails
   where
   rnf ImportAssetFromSignedUrlResponseDetails' {..} =
-    Prelude.rnf signedUrlExpiresAt
+    Prelude.rnf md5Hash
       `Prelude.seq` Prelude.rnf signedUrl
-      `Prelude.seq` Prelude.rnf md5Hash
+      `Prelude.seq` Prelude.rnf signedUrlExpiresAt
       `Prelude.seq` Prelude.rnf assetName
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId

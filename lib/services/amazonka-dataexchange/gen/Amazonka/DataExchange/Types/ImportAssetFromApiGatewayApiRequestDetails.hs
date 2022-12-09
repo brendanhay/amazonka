@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetFromApiGatewayApiRequestDetails' smart constructor.
 data ImportAssetFromApiGatewayApiRequestDetails = ImportAssetFromApiGatewayApiRequestDetails'
-  { -- | The API Gateway API key.
-    apiKey :: Prelude.Maybe Prelude.Text,
-    -- | The API description. Markdown supported.
+  { -- | The API description. Markdown supported.
     apiDescription :: Prelude.Maybe Prelude.Text,
+    -- | The API Gateway API key.
+    apiKey :: Prelude.Maybe Prelude.Text,
     -- | The API Gateway API ID.
     apiId :: Prelude.Text,
     -- | The API name.
@@ -59,9 +59,9 @@ data ImportAssetFromApiGatewayApiRequestDetails = ImportAssetFromApiGatewayApiRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'apiKey', 'importAssetFromApiGatewayApiRequestDetails_apiKey' - The API Gateway API key.
---
 -- 'apiDescription', 'importAssetFromApiGatewayApiRequestDetails_apiDescription' - The API description. Markdown supported.
+--
+-- 'apiKey', 'importAssetFromApiGatewayApiRequestDetails_apiKey' - The API Gateway API key.
 --
 -- 'apiId', 'importAssetFromApiGatewayApiRequestDetails_apiId' - The API Gateway API ID.
 --
@@ -102,10 +102,9 @@ newImportAssetFromApiGatewayApiRequestDetails
   pRevisionId_
   pStage_ =
     ImportAssetFromApiGatewayApiRequestDetails'
-      { apiKey =
+      { apiDescription =
           Prelude.Nothing,
-        apiDescription =
-          Prelude.Nothing,
+        apiKey = Prelude.Nothing,
         apiId = pApiId_,
         apiName = pApiName_,
         apiSpecificationMd5Hash =
@@ -116,13 +115,13 @@ newImportAssetFromApiGatewayApiRequestDetails
         stage = pStage_
       }
 
--- | The API Gateway API key.
-importAssetFromApiGatewayApiRequestDetails_apiKey :: Lens.Lens' ImportAssetFromApiGatewayApiRequestDetails (Prelude.Maybe Prelude.Text)
-importAssetFromApiGatewayApiRequestDetails_apiKey = Lens.lens (\ImportAssetFromApiGatewayApiRequestDetails' {apiKey} -> apiKey) (\s@ImportAssetFromApiGatewayApiRequestDetails' {} a -> s {apiKey = a} :: ImportAssetFromApiGatewayApiRequestDetails)
-
 -- | The API description. Markdown supported.
 importAssetFromApiGatewayApiRequestDetails_apiDescription :: Lens.Lens' ImportAssetFromApiGatewayApiRequestDetails (Prelude.Maybe Prelude.Text)
 importAssetFromApiGatewayApiRequestDetails_apiDescription = Lens.lens (\ImportAssetFromApiGatewayApiRequestDetails' {apiDescription} -> apiDescription) (\s@ImportAssetFromApiGatewayApiRequestDetails' {} a -> s {apiDescription = a} :: ImportAssetFromApiGatewayApiRequestDetails)
+
+-- | The API Gateway API key.
+importAssetFromApiGatewayApiRequestDetails_apiKey :: Lens.Lens' ImportAssetFromApiGatewayApiRequestDetails (Prelude.Maybe Prelude.Text)
+importAssetFromApiGatewayApiRequestDetails_apiKey = Lens.lens (\ImportAssetFromApiGatewayApiRequestDetails' {apiKey} -> apiKey) (\s@ImportAssetFromApiGatewayApiRequestDetails' {} a -> s {apiKey = a} :: ImportAssetFromApiGatewayApiRequestDetails)
 
 -- | The API Gateway API ID.
 importAssetFromApiGatewayApiRequestDetails_apiId :: Lens.Lens' ImportAssetFromApiGatewayApiRequestDetails Prelude.Text
@@ -160,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromApiGatewayApiRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` apiKey
-        `Prelude.hashWithSalt` apiDescription
+      _salt `Prelude.hashWithSalt` apiDescription
+        `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` apiId
         `Prelude.hashWithSalt` apiName
         `Prelude.hashWithSalt` apiSpecificationMd5Hash
@@ -175,8 +174,8 @@ instance
     ImportAssetFromApiGatewayApiRequestDetails
   where
   rnf ImportAssetFromApiGatewayApiRequestDetails' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf apiDescription
+    Prelude.rnf apiDescription
+      `Prelude.seq` Prelude.rnf apiKey
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf apiName
       `Prelude.seq` Prelude.rnf apiSpecificationMd5Hash
@@ -193,9 +192,9 @@ instance
     ImportAssetFromApiGatewayApiRequestDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ApiKey" Data..=) Prelude.<$> apiKey,
-              ("ApiDescription" Data..=)
+            [ ("ApiDescription" Data..=)
                 Prelude.<$> apiDescription,
+              ("ApiKey" Data..=) Prelude.<$> apiKey,
               Prelude.Just ("ApiId" Data..= apiId),
               Prelude.Just ("ApiName" Data..= apiName),
               Prelude.Just

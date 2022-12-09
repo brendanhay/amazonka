@@ -30,8 +30,8 @@ module Amazonka.DataExchange.ListRevisionAssets
     newListRevisionAssets,
 
     -- * Request Lenses
-    listRevisionAssets_nextToken,
     listRevisionAssets_maxResults,
+    listRevisionAssets_nextToken,
     listRevisionAssets_dataSetId,
     listRevisionAssets_revisionId,
 
@@ -40,8 +40,8 @@ module Amazonka.DataExchange.ListRevisionAssets
     newListRevisionAssetsResponse,
 
     -- * Response Lenses
-    listRevisionAssetsResponse_nextToken,
     listRevisionAssetsResponse_assets,
+    listRevisionAssetsResponse_nextToken,
     listRevisionAssetsResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRevisionAssets' smart constructor.
 data ListRevisionAssets = ListRevisionAssets'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The maximum number of results returned by a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier for a data set.
     dataSetId :: Prelude.Text,
     -- | The unique identifier for a revision.
@@ -76,10 +76,10 @@ data ListRevisionAssets = ListRevisionAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRevisionAssets_maxResults' - The maximum number of results returned by a single call.
+--
 -- 'nextToken', 'listRevisionAssets_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'maxResults', 'listRevisionAssets_maxResults' - The maximum number of results returned by a single call.
 --
 -- 'dataSetId', 'listRevisionAssets_dataSetId' - The unique identifier for a data set.
 --
@@ -92,20 +92,20 @@ newListRevisionAssets ::
   ListRevisionAssets
 newListRevisionAssets pDataSetId_ pRevisionId_ =
   ListRevisionAssets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dataSetId = pDataSetId_,
       revisionId = pRevisionId_
     }
+
+-- | The maximum number of results returned by a single call.
+listRevisionAssets_maxResults :: Lens.Lens' ListRevisionAssets (Prelude.Maybe Prelude.Natural)
+listRevisionAssets_maxResults = Lens.lens (\ListRevisionAssets' {maxResults} -> maxResults) (\s@ListRevisionAssets' {} a -> s {maxResults = a} :: ListRevisionAssets)
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listRevisionAssets_nextToken :: Lens.Lens' ListRevisionAssets (Prelude.Maybe Prelude.Text)
 listRevisionAssets_nextToken = Lens.lens (\ListRevisionAssets' {nextToken} -> nextToken) (\s@ListRevisionAssets' {} a -> s {nextToken = a} :: ListRevisionAssets)
-
--- | The maximum number of results returned by a single call.
-listRevisionAssets_maxResults :: Lens.Lens' ListRevisionAssets (Prelude.Maybe Prelude.Natural)
-listRevisionAssets_maxResults = Lens.lens (\ListRevisionAssets' {maxResults} -> maxResults) (\s@ListRevisionAssets' {} a -> s {maxResults = a} :: ListRevisionAssets)
 
 -- | The unique identifier for a data set.
 listRevisionAssets_dataSetId :: Lens.Lens' ListRevisionAssets Prelude.Text
@@ -147,22 +147,22 @@ instance Core.AWSRequest ListRevisionAssets where
     Response.receiveJSON
       ( \s h x ->
           ListRevisionAssetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRevisionAssets where
   hashWithSalt _salt ListRevisionAssets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData ListRevisionAssets where
   rnf ListRevisionAssets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf revisionId
 
@@ -190,17 +190,17 @@ instance Data.ToPath ListRevisionAssets where
 instance Data.ToQuery ListRevisionAssets where
   toQuery ListRevisionAssets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRevisionAssetsResponse' smart constructor.
 data ListRevisionAssetsResponse = ListRevisionAssetsResponse'
-  { -- | The token value retrieved from a previous call to access the next page
+  { -- | The asset objects listed by the request.
+    assets :: Prelude.Maybe [AssetEntry],
+    -- | The token value retrieved from a previous call to access the next page
     -- of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The asset objects listed by the request.
-    assets :: Prelude.Maybe [AssetEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,10 +214,10 @@ data ListRevisionAssetsResponse = ListRevisionAssetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assets', 'listRevisionAssetsResponse_assets' - The asset objects listed by the request.
+--
 -- 'nextToken', 'listRevisionAssetsResponse_nextToken' - The token value retrieved from a previous call to access the next page
 -- of results.
---
--- 'assets', 'listRevisionAssetsResponse_assets' - The asset objects listed by the request.
 --
 -- 'httpStatus', 'listRevisionAssetsResponse_httpStatus' - The response's http status code.
 newListRevisionAssetsResponse ::
@@ -226,20 +226,20 @@ newListRevisionAssetsResponse ::
   ListRevisionAssetsResponse
 newListRevisionAssetsResponse pHttpStatus_ =
   ListRevisionAssetsResponse'
-    { nextToken =
+    { assets =
         Prelude.Nothing,
-      assets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The asset objects listed by the request.
+listRevisionAssetsResponse_assets :: Lens.Lens' ListRevisionAssetsResponse (Prelude.Maybe [AssetEntry])
+listRevisionAssetsResponse_assets = Lens.lens (\ListRevisionAssetsResponse' {assets} -> assets) (\s@ListRevisionAssetsResponse' {} a -> s {assets = a} :: ListRevisionAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token value retrieved from a previous call to access the next page
 -- of results.
 listRevisionAssetsResponse_nextToken :: Lens.Lens' ListRevisionAssetsResponse (Prelude.Maybe Prelude.Text)
 listRevisionAssetsResponse_nextToken = Lens.lens (\ListRevisionAssetsResponse' {nextToken} -> nextToken) (\s@ListRevisionAssetsResponse' {} a -> s {nextToken = a} :: ListRevisionAssetsResponse)
-
--- | The asset objects listed by the request.
-listRevisionAssetsResponse_assets :: Lens.Lens' ListRevisionAssetsResponse (Prelude.Maybe [AssetEntry])
-listRevisionAssetsResponse_assets = Lens.lens (\ListRevisionAssetsResponse' {assets} -> assets) (\s@ListRevisionAssetsResponse' {} a -> s {assets = a} :: ListRevisionAssetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRevisionAssetsResponse_httpStatus :: Lens.Lens' ListRevisionAssetsResponse Prelude.Int
@@ -247,6 +247,6 @@ listRevisionAssetsResponse_httpStatus = Lens.lens (\ListRevisionAssetsResponse' 
 
 instance Prelude.NFData ListRevisionAssetsResponse where
   rnf ListRevisionAssetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assets
+    Prelude.rnf assets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

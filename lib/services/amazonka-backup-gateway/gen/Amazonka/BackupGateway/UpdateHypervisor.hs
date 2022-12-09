@@ -29,8 +29,8 @@ module Amazonka.BackupGateway.UpdateHypervisor
     newUpdateHypervisor,
 
     -- * Request Lenses
-    updateHypervisor_name,
     updateHypervisor_host,
+    updateHypervisor_name,
     updateHypervisor_password,
     updateHypervisor_username,
     updateHypervisor_hypervisorArn,
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateHypervisor' smart constructor.
 data UpdateHypervisor = UpdateHypervisor'
-  { -- | The updated name for the hypervisor
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated host of the hypervisor. This can be either an IP address or
+  { -- | The updated host of the hypervisor. This can be either an IP address or
     -- a fully-qualified domain name (FQDN).
     host :: Prelude.Maybe Prelude.Text,
+    -- | The updated name for the hypervisor
+    name :: Prelude.Maybe Prelude.Text,
     -- | The updated password for the hypervisor.
     password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The updated username for the hypervisor.
@@ -77,10 +77,10 @@ data UpdateHypervisor = UpdateHypervisor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateHypervisor_name' - The updated name for the hypervisor
---
 -- 'host', 'updateHypervisor_host' - The updated host of the hypervisor. This can be either an IP address or
 -- a fully-qualified domain name (FQDN).
+--
+-- 'name', 'updateHypervisor_name' - The updated name for the hypervisor
 --
 -- 'password', 'updateHypervisor_password' - The updated password for the hypervisor.
 --
@@ -93,21 +93,21 @@ newUpdateHypervisor ::
   UpdateHypervisor
 newUpdateHypervisor pHypervisorArn_ =
   UpdateHypervisor'
-    { name = Prelude.Nothing,
-      host = Prelude.Nothing,
+    { host = Prelude.Nothing,
+      name = Prelude.Nothing,
       password = Prelude.Nothing,
       username = Prelude.Nothing,
       hypervisorArn = pHypervisorArn_
     }
 
--- | The updated name for the hypervisor
-updateHypervisor_name :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
-updateHypervisor_name = Lens.lens (\UpdateHypervisor' {name} -> name) (\s@UpdateHypervisor' {} a -> s {name = a} :: UpdateHypervisor)
-
 -- | The updated host of the hypervisor. This can be either an IP address or
 -- a fully-qualified domain name (FQDN).
 updateHypervisor_host :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
 updateHypervisor_host = Lens.lens (\UpdateHypervisor' {host} -> host) (\s@UpdateHypervisor' {} a -> s {host = a} :: UpdateHypervisor)
+
+-- | The updated name for the hypervisor
+updateHypervisor_name :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
+updateHypervisor_name = Lens.lens (\UpdateHypervisor' {name} -> name) (\s@UpdateHypervisor' {} a -> s {name = a} :: UpdateHypervisor)
 
 -- | The updated password for the hypervisor.
 updateHypervisor_password :: Lens.Lens' UpdateHypervisor (Prelude.Maybe Prelude.Text)
@@ -137,16 +137,16 @@ instance Core.AWSRequest UpdateHypervisor where
 
 instance Prelude.Hashable UpdateHypervisor where
   hashWithSalt _salt UpdateHypervisor' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` host
+    _salt `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` hypervisorArn
 
 instance Prelude.NFData UpdateHypervisor where
   rnf UpdateHypervisor' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf host
+    Prelude.rnf host
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf hypervisorArn
@@ -170,8 +170,8 @@ instance Data.ToJSON UpdateHypervisor where
   toJSON UpdateHypervisor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Host" Data..=) Prelude.<$> host,
+          [ ("Host" Data..=) Prelude.<$> host,
+            ("Name" Data..=) Prelude.<$> name,
             ("Password" Data..=) Prelude.<$> password,
             ("Username" Data..=) Prelude.<$> username,
             Prelude.Just

@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualMachineDetails' smart constructor.
 data VirtualMachineDetails = VirtualMachineDetails'
-  { -- | The name of the virtual machine.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The path of the virtual machine.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | The host name of the virtual machine.
+  { -- | The host name of the virtual machine.
     hostName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the virtual machine. For example,
-    -- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual machine\'s hypervisor.
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | The most recent date a virtual machine was backed up, in Unix format and
     -- UTC time.
-    lastBackupDate :: Prelude.Maybe Data.POSIX
+    lastBackupDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of the virtual machine.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The path of the virtual machine.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the virtual machine. For example,
+    -- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,47 +54,34 @@ data VirtualMachineDetails = VirtualMachineDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'virtualMachineDetails_name' - The name of the virtual machine.
---
--- 'path', 'virtualMachineDetails_path' - The path of the virtual machine.
---
 -- 'hostName', 'virtualMachineDetails_hostName' - The host name of the virtual machine.
---
--- 'resourceArn', 'virtualMachineDetails_resourceArn' - The Amazon Resource Name (ARN) of the virtual machine. For example,
--- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
 --
 -- 'hypervisorId', 'virtualMachineDetails_hypervisorId' - The ID of the virtual machine\'s hypervisor.
 --
 -- 'lastBackupDate', 'virtualMachineDetails_lastBackupDate' - The most recent date a virtual machine was backed up, in Unix format and
 -- UTC time.
+--
+-- 'name', 'virtualMachineDetails_name' - The name of the virtual machine.
+--
+-- 'path', 'virtualMachineDetails_path' - The path of the virtual machine.
+--
+-- 'resourceArn', 'virtualMachineDetails_resourceArn' - The Amazon Resource Name (ARN) of the virtual machine. For example,
+-- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
 newVirtualMachineDetails ::
   VirtualMachineDetails
 newVirtualMachineDetails =
   VirtualMachineDetails'
-    { name = Prelude.Nothing,
-      path = Prelude.Nothing,
-      hostName = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+    { hostName = Prelude.Nothing,
       hypervisorId = Prelude.Nothing,
-      lastBackupDate = Prelude.Nothing
+      lastBackupDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      path = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
-
--- | The name of the virtual machine.
-virtualMachineDetails_name :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
-virtualMachineDetails_name = Lens.lens (\VirtualMachineDetails' {name} -> name) (\s@VirtualMachineDetails' {} a -> s {name = a} :: VirtualMachineDetails)
-
--- | The path of the virtual machine.
-virtualMachineDetails_path :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
-virtualMachineDetails_path = Lens.lens (\VirtualMachineDetails' {path} -> path) (\s@VirtualMachineDetails' {} a -> s {path = a} :: VirtualMachineDetails)
 
 -- | The host name of the virtual machine.
 virtualMachineDetails_hostName :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
 virtualMachineDetails_hostName = Lens.lens (\VirtualMachineDetails' {hostName} -> hostName) (\s@VirtualMachineDetails' {} a -> s {hostName = a} :: VirtualMachineDetails)
-
--- | The Amazon Resource Name (ARN) of the virtual machine. For example,
--- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
-virtualMachineDetails_resourceArn :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
-virtualMachineDetails_resourceArn = Lens.lens (\VirtualMachineDetails' {resourceArn} -> resourceArn) (\s@VirtualMachineDetails' {} a -> s {resourceArn = a} :: VirtualMachineDetails)
 
 -- | The ID of the virtual machine\'s hypervisor.
 virtualMachineDetails_hypervisorId :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
@@ -105,34 +92,47 @@ virtualMachineDetails_hypervisorId = Lens.lens (\VirtualMachineDetails' {hypervi
 virtualMachineDetails_lastBackupDate :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.UTCTime)
 virtualMachineDetails_lastBackupDate = Lens.lens (\VirtualMachineDetails' {lastBackupDate} -> lastBackupDate) (\s@VirtualMachineDetails' {} a -> s {lastBackupDate = a} :: VirtualMachineDetails) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the virtual machine.
+virtualMachineDetails_name :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
+virtualMachineDetails_name = Lens.lens (\VirtualMachineDetails' {name} -> name) (\s@VirtualMachineDetails' {} a -> s {name = a} :: VirtualMachineDetails)
+
+-- | The path of the virtual machine.
+virtualMachineDetails_path :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
+virtualMachineDetails_path = Lens.lens (\VirtualMachineDetails' {path} -> path) (\s@VirtualMachineDetails' {} a -> s {path = a} :: VirtualMachineDetails)
+
+-- | The Amazon Resource Name (ARN) of the virtual machine. For example,
+-- @arn:aws:backup-gateway:us-west-1:0000000000000:vm\/vm-0000ABCDEFGIJKL@.
+virtualMachineDetails_resourceArn :: Lens.Lens' VirtualMachineDetails (Prelude.Maybe Prelude.Text)
+virtualMachineDetails_resourceArn = Lens.lens (\VirtualMachineDetails' {resourceArn} -> resourceArn) (\s@VirtualMachineDetails' {} a -> s {resourceArn = a} :: VirtualMachineDetails)
+
 instance Data.FromJSON VirtualMachineDetails where
   parseJSON =
     Data.withObject
       "VirtualMachineDetails"
       ( \x ->
           VirtualMachineDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Path")
-            Prelude.<*> (x Data..:? "HostName")
-            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<$> (x Data..:? "HostName")
             Prelude.<*> (x Data..:? "HypervisorId")
             Prelude.<*> (x Data..:? "LastBackupDate")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance Prelude.Hashable VirtualMachineDetails where
   hashWithSalt _salt VirtualMachineDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` hostName
-      `Prelude.hashWithSalt` resourceArn
+    _salt `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` hypervisorId
       `Prelude.hashWithSalt` lastBackupDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData VirtualMachineDetails where
   rnf VirtualMachineDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf hostName
       `Prelude.seq` Prelude.rnf hypervisorId
       `Prelude.seq` Prelude.rnf lastBackupDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf resourceArn

@@ -29,9 +29,9 @@ module Amazonka.BackupGateway.ListVirtualMachines
     newListVirtualMachines,
 
     -- * Request Lenses
-    listVirtualMachines_nextToken,
-    listVirtualMachines_maxResults,
     listVirtualMachines_hypervisorArn,
+    listVirtualMachines_maxResults,
+    listVirtualMachines_nextToken,
 
     -- * Destructuring the Response
     ListVirtualMachinesResponse (..),
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVirtualMachines' smart constructor.
 data ListVirtualMachines = ListVirtualMachines'
-  { -- | The next item following a partial list of returned resources. For
+  { -- | The Amazon Resource Name (ARN) of the hypervisor connected to your
+    -- virtual machine.
+    hypervisorArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of virtual machines to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned resources. For
     -- example, if a request is made to return @maxResults@ number of
     -- resources, @NextToken@ allows you to return more items in your list
     -- starting at the location pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of virtual machines to list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the hypervisor connected to your
-    -- virtual machine.
-    hypervisorArn :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,23 +75,33 @@ data ListVirtualMachines = ListVirtualMachines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hypervisorArn', 'listVirtualMachines_hypervisorArn' - The Amazon Resource Name (ARN) of the hypervisor connected to your
+-- virtual machine.
+--
+-- 'maxResults', 'listVirtualMachines_maxResults' - The maximum number of virtual machines to list.
+--
 -- 'nextToken', 'listVirtualMachines_nextToken' - The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
 -- resources, @NextToken@ allows you to return more items in your list
 -- starting at the location pointed to by the next token.
---
--- 'maxResults', 'listVirtualMachines_maxResults' - The maximum number of virtual machines to list.
---
--- 'hypervisorArn', 'listVirtualMachines_hypervisorArn' - The Amazon Resource Name (ARN) of the hypervisor connected to your
--- virtual machine.
 newListVirtualMachines ::
   ListVirtualMachines
 newListVirtualMachines =
   ListVirtualMachines'
-    { nextToken = Prelude.Nothing,
+    { hypervisorArn =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      hypervisorArn = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the hypervisor connected to your
+-- virtual machine.
+listVirtualMachines_hypervisorArn :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Text)
+listVirtualMachines_hypervisorArn = Lens.lens (\ListVirtualMachines' {hypervisorArn} -> hypervisorArn) (\s@ListVirtualMachines' {} a -> s {hypervisorArn = a} :: ListVirtualMachines)
+
+-- | The maximum number of virtual machines to list.
+listVirtualMachines_maxResults :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Natural)
+listVirtualMachines_maxResults = Lens.lens (\ListVirtualMachines' {maxResults} -> maxResults) (\s@ListVirtualMachines' {} a -> s {maxResults = a} :: ListVirtualMachines)
 
 -- | The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
@@ -99,15 +109,6 @@ newListVirtualMachines =
 -- starting at the location pointed to by the next token.
 listVirtualMachines_nextToken :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Text)
 listVirtualMachines_nextToken = Lens.lens (\ListVirtualMachines' {nextToken} -> nextToken) (\s@ListVirtualMachines' {} a -> s {nextToken = a} :: ListVirtualMachines)
-
--- | The maximum number of virtual machines to list.
-listVirtualMachines_maxResults :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Natural)
-listVirtualMachines_maxResults = Lens.lens (\ListVirtualMachines' {maxResults} -> maxResults) (\s@ListVirtualMachines' {} a -> s {maxResults = a} :: ListVirtualMachines)
-
--- | The Amazon Resource Name (ARN) of the hypervisor connected to your
--- virtual machine.
-listVirtualMachines_hypervisorArn :: Lens.Lens' ListVirtualMachines (Prelude.Maybe Prelude.Text)
-listVirtualMachines_hypervisorArn = Lens.lens (\ListVirtualMachines' {hypervisorArn} -> hypervisorArn) (\s@ListVirtualMachines' {} a -> s {hypervisorArn = a} :: ListVirtualMachines)
 
 instance Core.AWSPager ListVirtualMachines where
   page rq rs
@@ -150,15 +151,15 @@ instance Core.AWSRequest ListVirtualMachines where
 
 instance Prelude.Hashable ListVirtualMachines where
   hashWithSalt _salt ListVirtualMachines' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` hypervisorArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` hypervisorArn
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVirtualMachines where
   rnf ListVirtualMachines' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf hypervisorArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf hypervisorArn
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVirtualMachines where
   toHeaders =
@@ -179,9 +180,9 @@ instance Data.ToJSON ListVirtualMachines where
   toJSON ListVirtualMachines' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("HypervisorArn" Data..=) Prelude.<$> hypervisorArn,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("HypervisorArn" Data..=) Prelude.<$> hypervisorArn
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

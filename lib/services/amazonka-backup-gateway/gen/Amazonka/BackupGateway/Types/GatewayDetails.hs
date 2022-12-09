@@ -30,25 +30,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewayDetails' smart constructor.
 data GatewayDetails = GatewayDetails'
-  { -- | The type of the gateway type.
-    gatewayType :: Prelude.Maybe GatewayType,
-    -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
+  { -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
     -- operation to return a list of gateways for your account and Amazon Web
     -- Services Region.
     gatewayArn :: Prelude.Maybe Prelude.Text,
-    -- | Details showing the next update availability time of the gateway.
-    nextUpdateAvailabilityTime :: Prelude.Maybe Data.POSIX,
-    -- | Returns your gateway\'s weekly maintenance start time including the day
-    -- and time of the week. Note that values are in terms of the gateway\'s
-    -- time zone. Can be weekly or monthly.
-    maintenanceStartTime :: Prelude.Maybe MaintenanceStartTime,
+    -- | The display name of the gateway.
+    gatewayDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | The type of the gateway type.
+    gatewayType :: Prelude.Maybe GatewayType,
     -- | The hypervisor ID of the gateway.
     hypervisorId :: Prelude.Maybe Prelude.Text,
     -- | Details showing the last time Backup gateway communicated with the
     -- cloud, in Unix format and UTC time.
     lastSeenTime :: Prelude.Maybe Data.POSIX,
-    -- | The display name of the gateway.
-    gatewayDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | Returns your gateway\'s weekly maintenance start time including the day
+    -- and time of the week. Note that values are in terms of the gateway\'s
+    -- time zone. Can be weekly or monthly.
+    maintenanceStartTime :: Prelude.Maybe MaintenanceStartTime,
+    -- | Details showing the next update availability time of the gateway.
+    nextUpdateAvailabilityTime :: Prelude.Maybe Data.POSIX,
     -- | The DNS name for the virtual private cloud (VPC) endpoint the gateway
     -- uses to connect to the cloud for backup gateway.
     vpcEndpoint :: Prelude.Maybe Prelude.Text
@@ -63,24 +63,24 @@ data GatewayDetails = GatewayDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayType', 'gatewayDetails_gatewayType' - The type of the gateway type.
---
 -- 'gatewayArn', 'gatewayDetails_gatewayArn' - The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
 -- operation to return a list of gateways for your account and Amazon Web
 -- Services Region.
 --
--- 'nextUpdateAvailabilityTime', 'gatewayDetails_nextUpdateAvailabilityTime' - Details showing the next update availability time of the gateway.
+-- 'gatewayDisplayName', 'gatewayDetails_gatewayDisplayName' - The display name of the gateway.
 --
--- 'maintenanceStartTime', 'gatewayDetails_maintenanceStartTime' - Returns your gateway\'s weekly maintenance start time including the day
--- and time of the week. Note that values are in terms of the gateway\'s
--- time zone. Can be weekly or monthly.
+-- 'gatewayType', 'gatewayDetails_gatewayType' - The type of the gateway type.
 --
 -- 'hypervisorId', 'gatewayDetails_hypervisorId' - The hypervisor ID of the gateway.
 --
 -- 'lastSeenTime', 'gatewayDetails_lastSeenTime' - Details showing the last time Backup gateway communicated with the
 -- cloud, in Unix format and UTC time.
 --
--- 'gatewayDisplayName', 'gatewayDetails_gatewayDisplayName' - The display name of the gateway.
+-- 'maintenanceStartTime', 'gatewayDetails_maintenanceStartTime' - Returns your gateway\'s weekly maintenance start time including the day
+-- and time of the week. Note that values are in terms of the gateway\'s
+-- time zone. Can be weekly or monthly.
+--
+-- 'nextUpdateAvailabilityTime', 'gatewayDetails_nextUpdateAvailabilityTime' - Details showing the next update availability time of the gateway.
 --
 -- 'vpcEndpoint', 'gatewayDetails_vpcEndpoint' - The DNS name for the virtual private cloud (VPC) endpoint the gateway
 -- uses to connect to the cloud for backup gateway.
@@ -88,19 +88,15 @@ newGatewayDetails ::
   GatewayDetails
 newGatewayDetails =
   GatewayDetails'
-    { gatewayType = Prelude.Nothing,
-      gatewayArn = Prelude.Nothing,
-      nextUpdateAvailabilityTime = Prelude.Nothing,
-      maintenanceStartTime = Prelude.Nothing,
+    { gatewayArn = Prelude.Nothing,
+      gatewayDisplayName = Prelude.Nothing,
+      gatewayType = Prelude.Nothing,
       hypervisorId = Prelude.Nothing,
       lastSeenTime = Prelude.Nothing,
-      gatewayDisplayName = Prelude.Nothing,
+      maintenanceStartTime = Prelude.Nothing,
+      nextUpdateAvailabilityTime = Prelude.Nothing,
       vpcEndpoint = Prelude.Nothing
     }
-
--- | The type of the gateway type.
-gatewayDetails_gatewayType :: Lens.Lens' GatewayDetails (Prelude.Maybe GatewayType)
-gatewayDetails_gatewayType = Lens.lens (\GatewayDetails' {gatewayType} -> gatewayType) (\s@GatewayDetails' {} a -> s {gatewayType = a} :: GatewayDetails)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
 -- operation to return a list of gateways for your account and Amazon Web
@@ -108,15 +104,13 @@ gatewayDetails_gatewayType = Lens.lens (\GatewayDetails' {gatewayType} -> gatewa
 gatewayDetails_gatewayArn :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
 gatewayDetails_gatewayArn = Lens.lens (\GatewayDetails' {gatewayArn} -> gatewayArn) (\s@GatewayDetails' {} a -> s {gatewayArn = a} :: GatewayDetails)
 
--- | Details showing the next update availability time of the gateway.
-gatewayDetails_nextUpdateAvailabilityTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
-gatewayDetails_nextUpdateAvailabilityTime = Lens.lens (\GatewayDetails' {nextUpdateAvailabilityTime} -> nextUpdateAvailabilityTime) (\s@GatewayDetails' {} a -> s {nextUpdateAvailabilityTime = a} :: GatewayDetails) Prelude.. Lens.mapping Data._Time
+-- | The display name of the gateway.
+gatewayDetails_gatewayDisplayName :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
+gatewayDetails_gatewayDisplayName = Lens.lens (\GatewayDetails' {gatewayDisplayName} -> gatewayDisplayName) (\s@GatewayDetails' {} a -> s {gatewayDisplayName = a} :: GatewayDetails)
 
--- | Returns your gateway\'s weekly maintenance start time including the day
--- and time of the week. Note that values are in terms of the gateway\'s
--- time zone. Can be weekly or monthly.
-gatewayDetails_maintenanceStartTime :: Lens.Lens' GatewayDetails (Prelude.Maybe MaintenanceStartTime)
-gatewayDetails_maintenanceStartTime = Lens.lens (\GatewayDetails' {maintenanceStartTime} -> maintenanceStartTime) (\s@GatewayDetails' {} a -> s {maintenanceStartTime = a} :: GatewayDetails)
+-- | The type of the gateway type.
+gatewayDetails_gatewayType :: Lens.Lens' GatewayDetails (Prelude.Maybe GatewayType)
+gatewayDetails_gatewayType = Lens.lens (\GatewayDetails' {gatewayType} -> gatewayType) (\s@GatewayDetails' {} a -> s {gatewayType = a} :: GatewayDetails)
 
 -- | The hypervisor ID of the gateway.
 gatewayDetails_hypervisorId :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
@@ -127,9 +121,15 @@ gatewayDetails_hypervisorId = Lens.lens (\GatewayDetails' {hypervisorId} -> hype
 gatewayDetails_lastSeenTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
 gatewayDetails_lastSeenTime = Lens.lens (\GatewayDetails' {lastSeenTime} -> lastSeenTime) (\s@GatewayDetails' {} a -> s {lastSeenTime = a} :: GatewayDetails) Prelude.. Lens.mapping Data._Time
 
--- | The display name of the gateway.
-gatewayDetails_gatewayDisplayName :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.Text)
-gatewayDetails_gatewayDisplayName = Lens.lens (\GatewayDetails' {gatewayDisplayName} -> gatewayDisplayName) (\s@GatewayDetails' {} a -> s {gatewayDisplayName = a} :: GatewayDetails)
+-- | Returns your gateway\'s weekly maintenance start time including the day
+-- and time of the week. Note that values are in terms of the gateway\'s
+-- time zone. Can be weekly or monthly.
+gatewayDetails_maintenanceStartTime :: Lens.Lens' GatewayDetails (Prelude.Maybe MaintenanceStartTime)
+gatewayDetails_maintenanceStartTime = Lens.lens (\GatewayDetails' {maintenanceStartTime} -> maintenanceStartTime) (\s@GatewayDetails' {} a -> s {maintenanceStartTime = a} :: GatewayDetails)
+
+-- | Details showing the next update availability time of the gateway.
+gatewayDetails_nextUpdateAvailabilityTime :: Lens.Lens' GatewayDetails (Prelude.Maybe Prelude.UTCTime)
+gatewayDetails_nextUpdateAvailabilityTime = Lens.lens (\GatewayDetails' {nextUpdateAvailabilityTime} -> nextUpdateAvailabilityTime) (\s@GatewayDetails' {} a -> s {nextUpdateAvailabilityTime = a} :: GatewayDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The DNS name for the virtual private cloud (VPC) endpoint the gateway
 -- uses to connect to the cloud for backup gateway.
@@ -142,34 +142,34 @@ instance Data.FromJSON GatewayDetails where
       "GatewayDetails"
       ( \x ->
           GatewayDetails'
-            Prelude.<$> (x Data..:? "GatewayType")
-            Prelude.<*> (x Data..:? "GatewayArn")
-            Prelude.<*> (x Data..:? "NextUpdateAvailabilityTime")
-            Prelude.<*> (x Data..:? "MaintenanceStartTime")
+            Prelude.<$> (x Data..:? "GatewayArn")
+            Prelude.<*> (x Data..:? "GatewayDisplayName")
+            Prelude.<*> (x Data..:? "GatewayType")
             Prelude.<*> (x Data..:? "HypervisorId")
             Prelude.<*> (x Data..:? "LastSeenTime")
-            Prelude.<*> (x Data..:? "GatewayDisplayName")
+            Prelude.<*> (x Data..:? "MaintenanceStartTime")
+            Prelude.<*> (x Data..:? "NextUpdateAvailabilityTime")
             Prelude.<*> (x Data..:? "VpcEndpoint")
       )
 
 instance Prelude.Hashable GatewayDetails where
   hashWithSalt _salt GatewayDetails' {..} =
-    _salt `Prelude.hashWithSalt` gatewayType
-      `Prelude.hashWithSalt` gatewayArn
-      `Prelude.hashWithSalt` nextUpdateAvailabilityTime
-      `Prelude.hashWithSalt` maintenanceStartTime
+    _salt `Prelude.hashWithSalt` gatewayArn
+      `Prelude.hashWithSalt` gatewayDisplayName
+      `Prelude.hashWithSalt` gatewayType
       `Prelude.hashWithSalt` hypervisorId
       `Prelude.hashWithSalt` lastSeenTime
-      `Prelude.hashWithSalt` gatewayDisplayName
+      `Prelude.hashWithSalt` maintenanceStartTime
+      `Prelude.hashWithSalt` nextUpdateAvailabilityTime
       `Prelude.hashWithSalt` vpcEndpoint
 
 instance Prelude.NFData GatewayDetails where
   rnf GatewayDetails' {..} =
-    Prelude.rnf gatewayType
-      `Prelude.seq` Prelude.rnf gatewayArn
-      `Prelude.seq` Prelude.rnf nextUpdateAvailabilityTime
-      `Prelude.seq` Prelude.rnf maintenanceStartTime
+    Prelude.rnf gatewayArn
+      `Prelude.seq` Prelude.rnf gatewayDisplayName
+      `Prelude.seq` Prelude.rnf gatewayType
       `Prelude.seq` Prelude.rnf hypervisorId
       `Prelude.seq` Prelude.rnf lastSeenTime
-      `Prelude.seq` Prelude.rnf gatewayDisplayName
+      `Prelude.seq` Prelude.rnf maintenanceStartTime
+      `Prelude.seq` Prelude.rnf nextUpdateAvailabilityTime
       `Prelude.seq` Prelude.rnf vpcEndpoint

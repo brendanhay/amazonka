@@ -19,9 +19,9 @@ module Amazonka.BackupGateway.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ConflictException,
     _ThrottlingException,
     _ValidationException,
 
@@ -34,38 +34,38 @@ module Amazonka.BackupGateway.Types
     -- * Gateway
     Gateway (..),
     newGateway,
-    gateway_gatewayType,
     gateway_gatewayArn,
+    gateway_gatewayDisplayName,
+    gateway_gatewayType,
     gateway_hypervisorId,
     gateway_lastSeenTime,
-    gateway_gatewayDisplayName,
 
     -- * GatewayDetails
     GatewayDetails (..),
     newGatewayDetails,
-    gatewayDetails_gatewayType,
     gatewayDetails_gatewayArn,
-    gatewayDetails_nextUpdateAvailabilityTime,
-    gatewayDetails_maintenanceStartTime,
+    gatewayDetails_gatewayDisplayName,
+    gatewayDetails_gatewayType,
     gatewayDetails_hypervisorId,
     gatewayDetails_lastSeenTime,
-    gatewayDetails_gatewayDisplayName,
+    gatewayDetails_maintenanceStartTime,
+    gatewayDetails_nextUpdateAvailabilityTime,
     gatewayDetails_vpcEndpoint,
 
     -- * Hypervisor
     Hypervisor (..),
     newHypervisor,
-    hypervisor_name,
     hypervisor_host,
-    hypervisor_state,
-    hypervisor_kmsKeyArn,
     hypervisor_hypervisorArn,
+    hypervisor_kmsKeyArn,
+    hypervisor_name,
+    hypervisor_state,
 
     -- * MaintenanceStartTime
     MaintenanceStartTime (..),
     newMaintenanceStartTime,
-    maintenanceStartTime_dayOfWeek,
     maintenanceStartTime_dayOfMonth,
+    maintenanceStartTime_dayOfWeek,
     maintenanceStartTime_hourOfDay,
     maintenanceStartTime_minuteOfHour,
 
@@ -78,22 +78,22 @@ module Amazonka.BackupGateway.Types
     -- * VirtualMachine
     VirtualMachine (..),
     newVirtualMachine,
-    virtualMachine_name,
-    virtualMachine_path,
     virtualMachine_hostName,
-    virtualMachine_resourceArn,
     virtualMachine_hypervisorId,
     virtualMachine_lastBackupDate,
+    virtualMachine_name,
+    virtualMachine_path,
+    virtualMachine_resourceArn,
 
     -- * VirtualMachineDetails
     VirtualMachineDetails (..),
     newVirtualMachineDetails,
-    virtualMachineDetails_name,
-    virtualMachineDetails_path,
     virtualMachineDetails_hostName,
-    virtualMachineDetails_resourceArn,
     virtualMachineDetails_hypervisorId,
     virtualMachineDetails_lastBackupDate,
+    virtualMachineDetails_name,
+    virtualMachineDetails_path,
+    virtualMachineDetails_resourceArn,
   )
 where
 
@@ -136,28 +136,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -165,13 +159,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -179,6 +177,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation cannot proceed because you have insufficient permissions.
@@ -187,6 +187,13 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
+
+-- | The operation cannot proceed because it is not supported.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
 -- | The operation did not succeed because an internal error occurred. Try
 -- again later.
@@ -202,13 +209,6 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-
--- | The operation cannot proceed because it is not supported.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
 
 -- | TPS has been limited to protect against intentional or unintentional
 -- high request volumes.

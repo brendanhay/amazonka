@@ -29,16 +29,16 @@ module Amazonka.BackupGateway.ListHypervisors
     newListHypervisors,
 
     -- * Request Lenses
-    listHypervisors_nextToken,
     listHypervisors_maxResults,
+    listHypervisors_nextToken,
 
     -- * Destructuring the Response
     ListHypervisorsResponse (..),
     newListHypervisorsResponse,
 
     -- * Response Lenses
-    listHypervisorsResponse_nextToken,
     listHypervisorsResponse_hypervisors,
+    listHypervisorsResponse_nextToken,
     listHypervisorsResponse_httpStatus,
   )
 where
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListHypervisors' smart constructor.
 data ListHypervisors = ListHypervisors'
-  { -- | The next item following a partial list of returned resources. For
+  { -- | The maximum number of hypervisors to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned resources. For
     -- example, if a request is made to return @maxResults@ number of
     -- resources, @NextToken@ allows you to return more items in your list
     -- starting at the location pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of hypervisors to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,19 +71,23 @@ data ListHypervisors = ListHypervisors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listHypervisors_maxResults' - The maximum number of hypervisors to list.
+--
 -- 'nextToken', 'listHypervisors_nextToken' - The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
 -- resources, @NextToken@ allows you to return more items in your list
 -- starting at the location pointed to by the next token.
---
--- 'maxResults', 'listHypervisors_maxResults' - The maximum number of hypervisors to list.
 newListHypervisors ::
   ListHypervisors
 newListHypervisors =
   ListHypervisors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of hypervisors to list.
+listHypervisors_maxResults :: Lens.Lens' ListHypervisors (Prelude.Maybe Prelude.Natural)
+listHypervisors_maxResults = Lens.lens (\ListHypervisors' {maxResults} -> maxResults) (\s@ListHypervisors' {} a -> s {maxResults = a} :: ListHypervisors)
 
 -- | The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
@@ -91,10 +95,6 @@ newListHypervisors =
 -- starting at the location pointed to by the next token.
 listHypervisors_nextToken :: Lens.Lens' ListHypervisors (Prelude.Maybe Prelude.Text)
 listHypervisors_nextToken = Lens.lens (\ListHypervisors' {nextToken} -> nextToken) (\s@ListHypervisors' {} a -> s {nextToken = a} :: ListHypervisors)
-
--- | The maximum number of hypervisors to list.
-listHypervisors_maxResults :: Lens.Lens' ListHypervisors (Prelude.Maybe Prelude.Natural)
-listHypervisors_maxResults = Lens.lens (\ListHypervisors' {maxResults} -> maxResults) (\s@ListHypervisors' {} a -> s {maxResults = a} :: ListHypervisors)
 
 instance Core.AWSPager ListHypervisors where
   page rq rs
@@ -128,20 +128,20 @@ instance Core.AWSRequest ListHypervisors where
     Response.receiveJSON
       ( \s h x ->
           ListHypervisorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Hypervisors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Hypervisors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListHypervisors where
   hashWithSalt _salt ListHypervisors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHypervisors where
   rnf ListHypervisors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHypervisors where
   toHeaders =
@@ -162,8 +162,8 @@ instance Data.ToJSON ListHypervisors where
   toJSON ListHypervisors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -175,14 +175,14 @@ instance Data.ToQuery ListHypervisors where
 
 -- | /See:/ 'newListHypervisorsResponse' smart constructor.
 data ListHypervisorsResponse = ListHypervisorsResponse'
-  { -- | The next item following a partial list of returned resources. For
+  { -- | A list of your @Hypervisor@ objects, ordered by their Amazon Resource
+    -- Names (ARNs).
+    hypervisors :: Prelude.Maybe [Hypervisor],
+    -- | The next item following a partial list of returned resources. For
     -- example, if a request is made to return @maxResults@ number of
     -- resources, @NextToken@ allows you to return more items in your list
     -- starting at the location pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of your @Hypervisor@ objects, ordered by their Amazon Resource
-    -- Names (ARNs).
-    hypervisors :: Prelude.Maybe [Hypervisor],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,13 +196,13 @@ data ListHypervisorsResponse = ListHypervisorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hypervisors', 'listHypervisorsResponse_hypervisors' - A list of your @Hypervisor@ objects, ordered by their Amazon Resource
+-- Names (ARNs).
+--
 -- 'nextToken', 'listHypervisorsResponse_nextToken' - The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
 -- resources, @NextToken@ allows you to return more items in your list
 -- starting at the location pointed to by the next token.
---
--- 'hypervisors', 'listHypervisorsResponse_hypervisors' - A list of your @Hypervisor@ objects, ordered by their Amazon Resource
--- Names (ARNs).
 --
 -- 'httpStatus', 'listHypervisorsResponse_httpStatus' - The response's http status code.
 newListHypervisorsResponse ::
@@ -211,11 +211,16 @@ newListHypervisorsResponse ::
   ListHypervisorsResponse
 newListHypervisorsResponse pHttpStatus_ =
   ListHypervisorsResponse'
-    { nextToken =
+    { hypervisors =
         Prelude.Nothing,
-      hypervisors = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of your @Hypervisor@ objects, ordered by their Amazon Resource
+-- Names (ARNs).
+listHypervisorsResponse_hypervisors :: Lens.Lens' ListHypervisorsResponse (Prelude.Maybe [Hypervisor])
+listHypervisorsResponse_hypervisors = Lens.lens (\ListHypervisorsResponse' {hypervisors} -> hypervisors) (\s@ListHypervisorsResponse' {} a -> s {hypervisors = a} :: ListHypervisorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
@@ -224,17 +229,12 @@ newListHypervisorsResponse pHttpStatus_ =
 listHypervisorsResponse_nextToken :: Lens.Lens' ListHypervisorsResponse (Prelude.Maybe Prelude.Text)
 listHypervisorsResponse_nextToken = Lens.lens (\ListHypervisorsResponse' {nextToken} -> nextToken) (\s@ListHypervisorsResponse' {} a -> s {nextToken = a} :: ListHypervisorsResponse)
 
--- | A list of your @Hypervisor@ objects, ordered by their Amazon Resource
--- Names (ARNs).
-listHypervisorsResponse_hypervisors :: Lens.Lens' ListHypervisorsResponse (Prelude.Maybe [Hypervisor])
-listHypervisorsResponse_hypervisors = Lens.lens (\ListHypervisorsResponse' {hypervisors} -> hypervisors) (\s@ListHypervisorsResponse' {} a -> s {hypervisors = a} :: ListHypervisorsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listHypervisorsResponse_httpStatus :: Lens.Lens' ListHypervisorsResponse Prelude.Int
 listHypervisorsResponse_httpStatus = Lens.lens (\ListHypervisorsResponse' {httpStatus} -> httpStatus) (\s@ListHypervisorsResponse' {} a -> s {httpStatus = a} :: ListHypervisorsResponse)
 
 instance Prelude.NFData ListHypervisorsResponse where
   rnf ListHypervisorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hypervisors
+    Prelude.rnf hypervisors
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ module Amazonka.BackupGateway.ImportHypervisorConfiguration
     newImportHypervisorConfiguration,
 
     -- * Request Lenses
-    importHypervisorConfiguration_tags,
-    importHypervisorConfiguration_password,
-    importHypervisorConfiguration_username,
     importHypervisorConfiguration_kmsKeyArn,
+    importHypervisorConfiguration_password,
+    importHypervisorConfiguration_tags,
+    importHypervisorConfiguration_username,
     importHypervisorConfiguration_host,
     importHypervisorConfiguration_name,
 
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportHypervisorConfiguration' smart constructor.
 data ImportHypervisorConfiguration = ImportHypervisorConfiguration'
-  { -- | The tags of the hypervisor configuration to import.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Key Management Service for the hypervisor.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The password for the hypervisor.
     password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tags of the hypervisor configuration to import.
+    tags :: Prelude.Maybe [Tag],
     -- | The username for the hypervisor.
     username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The Key Management Service for the hypervisor.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The server host of the hypervisor. This can be either an IP address or a
     -- fully-qualified domain name (FQDN).
     host :: Prelude.Text,
@@ -78,13 +78,13 @@ data ImportHypervisorConfiguration = ImportHypervisorConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importHypervisorConfiguration_tags' - The tags of the hypervisor configuration to import.
+-- 'kmsKeyArn', 'importHypervisorConfiguration_kmsKeyArn' - The Key Management Service for the hypervisor.
 --
 -- 'password', 'importHypervisorConfiguration_password' - The password for the hypervisor.
 --
--- 'username', 'importHypervisorConfiguration_username' - The username for the hypervisor.
+-- 'tags', 'importHypervisorConfiguration_tags' - The tags of the hypervisor configuration to import.
 --
--- 'kmsKeyArn', 'importHypervisorConfiguration_kmsKeyArn' - The Key Management Service for the hypervisor.
+-- 'username', 'importHypervisorConfiguration_username' - The username for the hypervisor.
 --
 -- 'host', 'importHypervisorConfiguration_host' - The server host of the hypervisor. This can be either an IP address or a
 -- fully-qualified domain name (FQDN).
@@ -98,30 +98,30 @@ newImportHypervisorConfiguration ::
   ImportHypervisorConfiguration
 newImportHypervisorConfiguration pHost_ pName_ =
   ImportHypervisorConfiguration'
-    { tags =
+    { kmsKeyArn =
         Prelude.Nothing,
       password = Prelude.Nothing,
+      tags = Prelude.Nothing,
       username = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
       host = pHost_,
       name = pName_
     }
 
--- | The tags of the hypervisor configuration to import.
-importHypervisorConfiguration_tags :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe [Tag])
-importHypervisorConfiguration_tags = Lens.lens (\ImportHypervisorConfiguration' {tags} -> tags) (\s@ImportHypervisorConfiguration' {} a -> s {tags = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | The Key Management Service for the hypervisor.
+importHypervisorConfiguration_kmsKeyArn :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
+importHypervisorConfiguration_kmsKeyArn = Lens.lens (\ImportHypervisorConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@ImportHypervisorConfiguration' {} a -> s {kmsKeyArn = a} :: ImportHypervisorConfiguration)
 
 -- | The password for the hypervisor.
 importHypervisorConfiguration_password :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
 importHypervisorConfiguration_password = Lens.lens (\ImportHypervisorConfiguration' {password} -> password) (\s@ImportHypervisorConfiguration' {} a -> s {password = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The tags of the hypervisor configuration to import.
+importHypervisorConfiguration_tags :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe [Tag])
+importHypervisorConfiguration_tags = Lens.lens (\ImportHypervisorConfiguration' {tags} -> tags) (\s@ImportHypervisorConfiguration' {} a -> s {tags = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The username for the hypervisor.
 importHypervisorConfiguration_username :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
 importHypervisorConfiguration_username = Lens.lens (\ImportHypervisorConfiguration' {username} -> username) (\s@ImportHypervisorConfiguration' {} a -> s {username = a} :: ImportHypervisorConfiguration) Prelude.. Lens.mapping Data._Sensitive
-
--- | The Key Management Service for the hypervisor.
-importHypervisorConfiguration_kmsKeyArn :: Lens.Lens' ImportHypervisorConfiguration (Prelude.Maybe Prelude.Text)
-importHypervisorConfiguration_kmsKeyArn = Lens.lens (\ImportHypervisorConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@ImportHypervisorConfiguration' {} a -> s {kmsKeyArn = a} :: ImportHypervisorConfiguration)
 
 -- | The server host of the hypervisor. This can be either an IP address or a
 -- fully-qualified domain name (FQDN).
@@ -154,19 +154,19 @@ instance
     ImportHypervisorConfiguration
   where
   hashWithSalt _salt ImportHypervisorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ImportHypervisorConfiguration where
   rnf ImportHypervisorConfiguration' {..} =
-    Prelude.rnf tags
+    Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf host
       `Prelude.seq` Prelude.rnf name
 
@@ -189,10 +189,10 @@ instance Data.ToJSON ImportHypervisorConfiguration where
   toJSON ImportHypervisorConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             ("Password" Data..=) Prelude.<$> password,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("Username" Data..=) Prelude.<$> username,
-            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             Prelude.Just ("Host" Data..= host),
             Prelude.Just ("Name" Data..= name)
           ]

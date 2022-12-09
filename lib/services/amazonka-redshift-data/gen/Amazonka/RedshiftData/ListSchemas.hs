@@ -45,13 +45,13 @@ module Amazonka.RedshiftData.ListSchemas
 
     -- * Request Lenses
     listSchemas_clusterIdentifier,
-    listSchemas_nextToken,
-    listSchemas_workgroupName,
     listSchemas_connectedDatabase,
-    listSchemas_maxResults,
-    listSchemas_secretArn,
     listSchemas_dbUser,
+    listSchemas_maxResults,
+    listSchemas_nextToken,
     listSchemas_schemaPattern,
+    listSchemas_secretArn,
+    listSchemas_workgroupName,
     listSchemas_database,
 
     -- * Destructuring the Response
@@ -79,6 +79,16 @@ data ListSchemas = ListSchemas'
     -- cluster and authenticating using either Secrets Manager or temporary
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A database name. The connected database is specified when you connect
+    -- with your authentication credentials.
+    connectedDatabase :: Prelude.Maybe Prelude.Text,
+    -- | The database user name. This parameter is required when connecting to a
+    -- cluster and authenticating using temporary credentials.
+    dbUser :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of schemas to return in the response. If more schemas
+    -- exist than fit in one response, then @NextToken@ is returned to page
+    -- through the results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
@@ -86,28 +96,18 @@ data ListSchemas = ListSchemas'
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
-    workgroupName :: Prelude.Maybe Prelude.Text,
-    -- | A database name. The connected database is specified when you connect
-    -- with your authentication credentials.
-    connectedDatabase :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of schemas to return in the response. If more schemas
-    -- exist than fit in one response, then @NextToken@ is returned to page
-    -- through the results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name or ARN of the secret that enables access to the database. This
-    -- parameter is required when authenticating using Secrets Manager.
-    secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
-    dbUser :: Prelude.Maybe Prelude.Text,
     -- | A pattern to filter results by schema name. Within a schema pattern,
     -- \"%\" means match any substring of 0 or more characters and \"_\" means
     -- match any one character. Only schema name entries matching the search
     -- pattern are returned.
     schemaPattern :: Prelude.Maybe Prelude.Text,
+    -- | The name or ARN of the secret that enables access to the database. This
+    -- parameter is required when authenticating using Secrets Manager.
+    secretArn :: Prelude.Maybe Prelude.Text,
+    -- | The serverless workgroup name. This parameter is required when
+    -- connecting to a serverless workgroup and authenticating using either
+    -- Secrets Manager or temporary credentials.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database that contains the schemas to list. If
     -- @ConnectedDatabase@ is not specified, this is also the database to
     -- connect to with your authentication credentials.
@@ -127,6 +127,16 @@ data ListSchemas = ListSchemas'
 -- cluster and authenticating using either Secrets Manager or temporary
 -- credentials.
 --
+-- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect
+-- with your authentication credentials.
+--
+-- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
+--
+-- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return in the response. If more schemas
+-- exist than fit in one response, then @NextToken@ is returned to page
+-- through the results.
+--
 -- 'nextToken', 'listSchemas_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
@@ -134,27 +144,17 @@ data ListSchemas = ListSchemas'
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
 --
--- 'workgroupName', 'listSchemas_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
---
--- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect
--- with your authentication credentials.
---
--- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return in the response. If more schemas
--- exist than fit in one response, then @NextToken@ is returned to page
--- through the results.
---
--- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
---
--- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
---
 -- 'schemaPattern', 'listSchemas_schemaPattern' - A pattern to filter results by schema name. Within a schema pattern,
 -- \"%\" means match any substring of 0 or more characters and \"_\" means
 -- match any one character. Only schema name entries matching the search
 -- pattern are returned.
+--
+-- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+--
+-- 'workgroupName', 'listSchemas_workgroupName' - The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
 --
 -- 'database', 'listSchemas_database' - The name of the database that contains the schemas to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -166,13 +166,13 @@ newListSchemas ::
 newListSchemas pDatabase_ =
   ListSchemas'
     { clusterIdentifier = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      workgroupName = Prelude.Nothing,
       connectedDatabase = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
       dbUser = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       schemaPattern = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       database = pDatabase_
     }
 
@@ -181,6 +181,22 @@ newListSchemas pDatabase_ =
 -- credentials.
 listSchemas_clusterIdentifier :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_clusterIdentifier = Lens.lens (\ListSchemas' {clusterIdentifier} -> clusterIdentifier) (\s@ListSchemas' {} a -> s {clusterIdentifier = a} :: ListSchemas)
+
+-- | A database name. The connected database is specified when you connect
+-- with your authentication credentials.
+listSchemas_connectedDatabase :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> connectedDatabase) (\s@ListSchemas' {} a -> s {connectedDatabase = a} :: ListSchemas)
+
+-- | The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
+listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
+
+-- | The maximum number of schemas to return in the response. If more schemas
+-- exist than fit in one response, then @NextToken@ is returned to page
+-- through the results.
+listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
+listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -191,39 +207,23 @@ listSchemas_clusterIdentifier = Lens.lens (\ListSchemas' {clusterIdentifier} -> 
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
-listSchemas_workgroupName :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_workgroupName = Lens.lens (\ListSchemas' {workgroupName} -> workgroupName) (\s@ListSchemas' {} a -> s {workgroupName = a} :: ListSchemas)
-
--- | A database name. The connected database is specified when you connect
--- with your authentication credentials.
-listSchemas_connectedDatabase :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> connectedDatabase) (\s@ListSchemas' {} a -> s {connectedDatabase = a} :: ListSchemas)
-
--- | The maximum number of schemas to return in the response. If more schemas
--- exist than fit in one response, then @NextToken@ is returned to page
--- through the results.
-listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
-listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
-
--- | The name or ARN of the secret that enables access to the database. This
--- parameter is required when authenticating using Secrets Manager.
-listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
-
--- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
-listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
-listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
-
 -- | A pattern to filter results by schema name. Within a schema pattern,
 -- \"%\" means match any substring of 0 or more characters and \"_\" means
 -- match any one character. Only schema name entries matching the search
 -- pattern are returned.
 listSchemas_schemaPattern :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_schemaPattern = Lens.lens (\ListSchemas' {schemaPattern} -> schemaPattern) (\s@ListSchemas' {} a -> s {schemaPattern = a} :: ListSchemas)
+
+-- | The name or ARN of the secret that enables access to the database. This
+-- parameter is required when authenticating using Secrets Manager.
+listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
+
+-- | The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+listSchemas_workgroupName :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_workgroupName = Lens.lens (\ListSchemas' {workgroupName} -> workgroupName) (\s@ListSchemas' {} a -> s {workgroupName = a} :: ListSchemas)
 
 -- | The name of the database that contains the schemas to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -266,25 +266,25 @@ instance Core.AWSRequest ListSchemas where
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` workgroupName
       `Prelude.hashWithSalt` connectedDatabase
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaPattern
+      `Prelude.hashWithSalt` secretArn
+      `Prelude.hashWithSalt` workgroupName
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf connectedDatabase
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaPattern
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf database
 
 instance Data.ToHeaders ListSchemas where
@@ -306,14 +306,14 @@ instance Data.ToJSON ListSchemas where
       ( Prelude.catMaybes
           [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
             ("ConnectedDatabase" Data..=)
               Prelude.<$> connectedDatabase,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("SecretArn" Data..=) Prelude.<$> secretArn,
             ("DbUser" Data..=) Prelude.<$> dbUser,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SchemaPattern" Data..=) Prelude.<$> schemaPattern,
+            ("SecretArn" Data..=) Prelude.<$> secretArn,
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
             Prelude.Just ("Database" Data..= database)
           ]
       )

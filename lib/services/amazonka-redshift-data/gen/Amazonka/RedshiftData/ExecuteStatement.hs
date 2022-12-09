@@ -44,12 +44,12 @@ module Amazonka.RedshiftData.ExecuteStatement
 
     -- * Request Lenses
     executeStatement_clusterIdentifier,
-    executeStatement_workgroupName,
+    executeStatement_dbUser,
+    executeStatement_parameters,
     executeStatement_secretArn,
     executeStatement_statementName,
     executeStatement_withEvent,
-    executeStatement_dbUser,
-    executeStatement_parameters,
+    executeStatement_workgroupName,
     executeStatement_database,
     executeStatement_sql,
 
@@ -59,12 +59,12 @@ module Amazonka.RedshiftData.ExecuteStatement
 
     -- * Response Lenses
     executeStatementResponse_clusterIdentifier,
-    executeStatementResponse_workgroupName,
-    executeStatementResponse_id,
-    executeStatementResponse_database,
-    executeStatementResponse_secretArn,
-    executeStatementResponse_dbUser,
     executeStatementResponse_createdAt,
+    executeStatementResponse_database,
+    executeStatementResponse_dbUser,
+    executeStatementResponse_id,
+    executeStatementResponse_secretArn,
+    executeStatementResponse_workgroupName,
     executeStatementResponse_httpStatus,
   )
 where
@@ -83,10 +83,11 @@ data ExecuteStatement = ExecuteStatement'
     -- cluster and authenticating using either Secrets Manager or temporary
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
-    workgroupName :: Prelude.Maybe Prelude.Text,
+    -- | The database user name. This parameter is required when connecting to a
+    -- cluster and authenticating using temporary credentials.
+    dbUser :: Prelude.Maybe Prelude.Text,
+    -- | The parameters for the SQL statement.
+    parameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
     -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
@@ -96,11 +97,10 @@ data ExecuteStatement = ExecuteStatement'
     -- | A value that indicates whether to send an event to the Amazon
     -- EventBridge event bus after the SQL statement runs.
     withEvent :: Prelude.Maybe Prelude.Bool,
-    -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
-    dbUser :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the SQL statement.
-    parameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
+    -- | The serverless workgroup name. This parameter is required when
+    -- connecting to a serverless workgroup and authenticating using either
+    -- Secrets Manager or temporary credentials.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
     database :: Prelude.Text,
@@ -121,9 +121,10 @@ data ExecuteStatement = ExecuteStatement'
 -- cluster and authenticating using either Secrets Manager or temporary
 -- credentials.
 --
--- 'workgroupName', 'executeStatement_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- 'dbUser', 'executeStatement_dbUser' - The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
+--
+-- 'parameters', 'executeStatement_parameters' - The parameters for the SQL statement.
 --
 -- 'secretArn', 'executeStatement_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
@@ -134,10 +135,9 @@ data ExecuteStatement = ExecuteStatement'
 -- 'withEvent', 'executeStatement_withEvent' - A value that indicates whether to send an event to the Amazon
 -- EventBridge event bus after the SQL statement runs.
 --
--- 'dbUser', 'executeStatement_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
---
--- 'parameters', 'executeStatement_parameters' - The parameters for the SQL statement.
+-- 'workgroupName', 'executeStatement_workgroupName' - The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
 --
 -- 'database', 'executeStatement_database' - The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -153,12 +153,12 @@ newExecuteStatement pDatabase_ pSql_ =
   ExecuteStatement'
     { clusterIdentifier =
         Prelude.Nothing,
-      workgroupName = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       secretArn = Prelude.Nothing,
       statementName = Prelude.Nothing,
       withEvent = Prelude.Nothing,
-      dbUser = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       database = pDatabase_,
       sql = pSql_
     }
@@ -169,11 +169,14 @@ newExecuteStatement pDatabase_ pSql_ =
 executeStatement_clusterIdentifier :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_clusterIdentifier = Lens.lens (\ExecuteStatement' {clusterIdentifier} -> clusterIdentifier) (\s@ExecuteStatement' {} a -> s {clusterIdentifier = a} :: ExecuteStatement)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
-executeStatement_workgroupName :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_workgroupName = Lens.lens (\ExecuteStatement' {workgroupName} -> workgroupName) (\s@ExecuteStatement' {} a -> s {workgroupName = a} :: ExecuteStatement)
+-- | The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
+executeStatement_dbUser :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_dbUser = Lens.lens (\ExecuteStatement' {dbUser} -> dbUser) (\s@ExecuteStatement' {} a -> s {dbUser = a} :: ExecuteStatement)
+
+-- | The parameters for the SQL statement.
+executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe (Prelude.NonEmpty SqlParameter))
+executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> parameters) (\s@ExecuteStatement' {} a -> s {parameters = a} :: ExecuteStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
@@ -190,14 +193,11 @@ executeStatement_statementName = Lens.lens (\ExecuteStatement' {statementName} -
 executeStatement_withEvent :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
 executeStatement_withEvent = Lens.lens (\ExecuteStatement' {withEvent} -> withEvent) (\s@ExecuteStatement' {} a -> s {withEvent = a} :: ExecuteStatement)
 
--- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
-executeStatement_dbUser :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_dbUser = Lens.lens (\ExecuteStatement' {dbUser} -> dbUser) (\s@ExecuteStatement' {} a -> s {dbUser = a} :: ExecuteStatement)
-
--- | The parameters for the SQL statement.
-executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe (Prelude.NonEmpty SqlParameter))
-executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> parameters) (\s@ExecuteStatement' {} a -> s {parameters = a} :: ExecuteStatement) Prelude.. Lens.mapping Lens.coerced
+-- | The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+executeStatement_workgroupName :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_workgroupName = Lens.lens (\ExecuteStatement' {workgroupName} -> workgroupName) (\s@ExecuteStatement' {} a -> s {workgroupName = a} :: ExecuteStatement)
 
 -- | The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -219,36 +219,36 @@ instance Core.AWSRequest ExecuteStatement where
       ( \s h x ->
           ExecuteStatementResponse'
             Prelude.<$> (x Data..?> "ClusterIdentifier")
-            Prelude.<*> (x Data..?> "WorkgroupName")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Database")
-            Prelude.<*> (x Data..?> "SecretArn")
-            Prelude.<*> (x Data..?> "DbUser")
             Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Database")
+            Prelude.<*> (x Data..?> "DbUser")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "SecretArn")
+            Prelude.<*> (x Data..?> "WorkgroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` workgroupName
+      `Prelude.hashWithSalt` dbUser
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` withEvent
-      `Prelude.hashWithSalt` dbUser
-      `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` workgroupName
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` sql
 
 instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf workgroupName
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf statementName
       `Prelude.seq` Prelude.rnf withEvent
-      `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf sql
 
@@ -273,12 +273,12 @@ instance Data.ToJSON ExecuteStatement where
       ( Prelude.catMaybes
           [ ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
-            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
+            ("DbUser" Data..=) Prelude.<$> dbUser,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             ("SecretArn" Data..=) Prelude.<$> secretArn,
             ("StatementName" Data..=) Prelude.<$> statementName,
             ("WithEvent" Data..=) Prelude.<$> withEvent,
-            ("DbUser" Data..=) Prelude.<$> dbUser,
-            ("Parameters" Data..=) Prelude.<$> parameters,
+            ("WorkgroupName" Data..=) Prelude.<$> workgroupName,
             Prelude.Just ("Database" Data..= database),
             Prelude.Just ("Sql" Data..= sql)
           ]
@@ -295,21 +295,21 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
   { -- | The cluster identifier. This element is not returned when connecting to
     -- a serverless workgroup.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This element is not returned when
-    -- connecting to a provisioned cluster.
-    workgroupName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (UTC) the statement was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the database.
+    database :: Prelude.Maybe Prelude.Text,
+    -- | The database user name.
+    dbUser :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the SQL statement whose results are to be fetched.
     -- This value is a universally unique identifier (UUID) generated by Amazon
     -- Redshift Data API.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database.
-    database :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the secret that enables access to the database.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The database user name.
-    dbUser :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (UTC) the statement was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The serverless workgroup name. This element is not returned when
+    -- connecting to a provisioned cluster.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -326,20 +326,20 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 -- 'clusterIdentifier', 'executeStatementResponse_clusterIdentifier' - The cluster identifier. This element is not returned when connecting to
 -- a serverless workgroup.
 --
--- 'workgroupName', 'executeStatementResponse_workgroupName' - The serverless workgroup name. This element is not returned when
--- connecting to a provisioned cluster.
+-- 'createdAt', 'executeStatementResponse_createdAt' - The date and time (UTC) the statement was created.
+--
+-- 'database', 'executeStatementResponse_database' - The name of the database.
+--
+-- 'dbUser', 'executeStatementResponse_dbUser' - The database user name.
 --
 -- 'id', 'executeStatementResponse_id' - The identifier of the SQL statement whose results are to be fetched.
 -- This value is a universally unique identifier (UUID) generated by Amazon
 -- Redshift Data API.
 --
--- 'database', 'executeStatementResponse_database' - The name of the database.
---
 -- 'secretArn', 'executeStatementResponse_secretArn' - The name or ARN of the secret that enables access to the database.
 --
--- 'dbUser', 'executeStatementResponse_dbUser' - The database user name.
---
--- 'createdAt', 'executeStatementResponse_createdAt' - The date and time (UTC) the statement was created.
+-- 'workgroupName', 'executeStatementResponse_workgroupName' - The serverless workgroup name. This element is not returned when
+-- connecting to a provisioned cluster.
 --
 -- 'httpStatus', 'executeStatementResponse_httpStatus' - The response's http status code.
 newExecuteStatementResponse ::
@@ -350,12 +350,12 @@ newExecuteStatementResponse pHttpStatus_ =
   ExecuteStatementResponse'
     { clusterIdentifier =
         Prelude.Nothing,
-      workgroupName = Prelude.Nothing,
-      id = Prelude.Nothing,
-      database = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
-      dbUser = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      database = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
+      id = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -364,10 +364,17 @@ newExecuteStatementResponse pHttpStatus_ =
 executeStatementResponse_clusterIdentifier :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 executeStatementResponse_clusterIdentifier = Lens.lens (\ExecuteStatementResponse' {clusterIdentifier} -> clusterIdentifier) (\s@ExecuteStatementResponse' {} a -> s {clusterIdentifier = a} :: ExecuteStatementResponse)
 
--- | The serverless workgroup name. This element is not returned when
--- connecting to a provisioned cluster.
-executeStatementResponse_workgroupName :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-executeStatementResponse_workgroupName = Lens.lens (\ExecuteStatementResponse' {workgroupName} -> workgroupName) (\s@ExecuteStatementResponse' {} a -> s {workgroupName = a} :: ExecuteStatementResponse)
+-- | The date and time (UTC) the statement was created.
+executeStatementResponse_createdAt :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.UTCTime)
+executeStatementResponse_createdAt = Lens.lens (\ExecuteStatementResponse' {createdAt} -> createdAt) (\s@ExecuteStatementResponse' {} a -> s {createdAt = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the database.
+executeStatementResponse_database :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+executeStatementResponse_database = Lens.lens (\ExecuteStatementResponse' {database} -> database) (\s@ExecuteStatementResponse' {} a -> s {database = a} :: ExecuteStatementResponse)
+
+-- | The database user name.
+executeStatementResponse_dbUser :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+executeStatementResponse_dbUser = Lens.lens (\ExecuteStatementResponse' {dbUser} -> dbUser) (\s@ExecuteStatementResponse' {} a -> s {dbUser = a} :: ExecuteStatementResponse)
 
 -- | The identifier of the SQL statement whose results are to be fetched.
 -- This value is a universally unique identifier (UUID) generated by Amazon
@@ -375,21 +382,14 @@ executeStatementResponse_workgroupName = Lens.lens (\ExecuteStatementResponse' {
 executeStatementResponse_id :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 executeStatementResponse_id = Lens.lens (\ExecuteStatementResponse' {id} -> id) (\s@ExecuteStatementResponse' {} a -> s {id = a} :: ExecuteStatementResponse)
 
--- | The name of the database.
-executeStatementResponse_database :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-executeStatementResponse_database = Lens.lens (\ExecuteStatementResponse' {database} -> database) (\s@ExecuteStatementResponse' {} a -> s {database = a} :: ExecuteStatementResponse)
-
 -- | The name or ARN of the secret that enables access to the database.
 executeStatementResponse_secretArn :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 executeStatementResponse_secretArn = Lens.lens (\ExecuteStatementResponse' {secretArn} -> secretArn) (\s@ExecuteStatementResponse' {} a -> s {secretArn = a} :: ExecuteStatementResponse)
 
--- | The database user name.
-executeStatementResponse_dbUser :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
-executeStatementResponse_dbUser = Lens.lens (\ExecuteStatementResponse' {dbUser} -> dbUser) (\s@ExecuteStatementResponse' {} a -> s {dbUser = a} :: ExecuteStatementResponse)
-
--- | The date and time (UTC) the statement was created.
-executeStatementResponse_createdAt :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.UTCTime)
-executeStatementResponse_createdAt = Lens.lens (\ExecuteStatementResponse' {createdAt} -> createdAt) (\s@ExecuteStatementResponse' {} a -> s {createdAt = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Data._Time
+-- | The serverless workgroup name. This element is not returned when
+-- connecting to a provisioned cluster.
+executeStatementResponse_workgroupName :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+executeStatementResponse_workgroupName = Lens.lens (\ExecuteStatementResponse' {workgroupName} -> workgroupName) (\s@ExecuteStatementResponse' {} a -> s {workgroupName = a} :: ExecuteStatementResponse)
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
@@ -398,10 +398,10 @@ executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {htt
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf dbUser
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf secretArn
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf httpStatus

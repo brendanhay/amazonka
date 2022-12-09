@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data TableMember = TableMember'
   { -- | The name of the table.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The schema containing the table.
+    schema :: Prelude.Maybe Prelude.Text,
     -- | The type of the table. Possible values include TABLE, VIEW, SYSTEM
     -- TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The schema containing the table.
-    schema :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data TableMember = TableMember'
 --
 -- 'name', 'tableMember_name' - The name of the table.
 --
+-- 'schema', 'tableMember_schema' - The schema containing the table.
+--
 -- 'type'', 'tableMember_type' - The type of the table. Possible values include TABLE, VIEW, SYSTEM
 -- TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM.
---
--- 'schema', 'tableMember_schema' - The schema containing the table.
 newTableMember ::
   TableMember
 newTableMember =
   TableMember'
     { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      schema = Prelude.Nothing
+      schema = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the table.
 tableMember_name :: Lens.Lens' TableMember (Prelude.Maybe Prelude.Text)
 tableMember_name = Lens.lens (\TableMember' {name} -> name) (\s@TableMember' {} a -> s {name = a} :: TableMember)
 
+-- | The schema containing the table.
+tableMember_schema :: Lens.Lens' TableMember (Prelude.Maybe Prelude.Text)
+tableMember_schema = Lens.lens (\TableMember' {schema} -> schema) (\s@TableMember' {} a -> s {schema = a} :: TableMember)
+
 -- | The type of the table. Possible values include TABLE, VIEW, SYSTEM
 -- TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM.
 tableMember_type :: Lens.Lens' TableMember (Prelude.Maybe Prelude.Text)
 tableMember_type = Lens.lens (\TableMember' {type'} -> type') (\s@TableMember' {} a -> s {type' = a} :: TableMember)
-
--- | The schema containing the table.
-tableMember_schema :: Lens.Lens' TableMember (Prelude.Maybe Prelude.Text)
-tableMember_schema = Lens.lens (\TableMember' {schema} -> schema) (\s@TableMember' {} a -> s {schema = a} :: TableMember)
 
 instance Data.FromJSON TableMember where
   parseJSON =
@@ -81,18 +81,18 @@ instance Data.FromJSON TableMember where
       ( \x ->
           TableMember'
             Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "schema")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable TableMember where
   hashWithSalt _salt TableMember' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TableMember where
   rnf TableMember' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf type'

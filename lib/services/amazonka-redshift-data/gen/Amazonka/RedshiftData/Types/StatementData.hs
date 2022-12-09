@@ -30,25 +30,25 @@ import Amazonka.RedshiftData.Types.StatusString
 --
 -- /See:/ 'newStatementData' smart constructor.
 data StatementData = StatementData'
-  { -- | A value that indicates whether the statement is a batch query request.
+  { -- | The date and time (UTC) the statement was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | A value that indicates whether the statement is a batch query request.
     isBatchStatement :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the SQL statement. An example is the that the SQL
-    -- statement finished.
-    status :: Prelude.Maybe StatusString,
+    -- | The parameters used in a SQL statement.
+    queryParameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
+    -- | The SQL statement.
+    queryString :: Prelude.Maybe Prelude.Text,
     -- | One or more SQL statements. Each query string in the array corresponds
     -- to one of the queries in a batch query request.
     queryStrings :: Prelude.Maybe [Prelude.Text],
-    -- | The parameters used in a SQL statement.
-    queryParameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
     -- | The name or Amazon Resource Name (ARN) of the secret that enables access
     -- to the database.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The SQL statement.
-    queryString :: Prelude.Maybe Prelude.Text,
     -- | The name of the SQL statement.
     statementName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (UTC) the statement was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The status of the SQL statement. An example is the that the SQL
+    -- statement finished.
+    status :: Prelude.Maybe StatusString,
     -- | The date and time (UTC) that the statement metadata was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The SQL statement identifier. This value is a universally unique
@@ -65,24 +65,24 @@ data StatementData = StatementData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'statementData_createdAt' - The date and time (UTC) the statement was created.
+--
 -- 'isBatchStatement', 'statementData_isBatchStatement' - A value that indicates whether the statement is a batch query request.
 --
--- 'status', 'statementData_status' - The status of the SQL statement. An example is the that the SQL
--- statement finished.
+-- 'queryParameters', 'statementData_queryParameters' - The parameters used in a SQL statement.
+--
+-- 'queryString', 'statementData_queryString' - The SQL statement.
 --
 -- 'queryStrings', 'statementData_queryStrings' - One or more SQL statements. Each query string in the array corresponds
 -- to one of the queries in a batch query request.
 --
--- 'queryParameters', 'statementData_queryParameters' - The parameters used in a SQL statement.
---
 -- 'secretArn', 'statementData_secretArn' - The name or Amazon Resource Name (ARN) of the secret that enables access
 -- to the database.
 --
--- 'queryString', 'statementData_queryString' - The SQL statement.
---
 -- 'statementName', 'statementData_statementName' - The name of the SQL statement.
 --
--- 'createdAt', 'statementData_createdAt' - The date and time (UTC) the statement was created.
+-- 'status', 'statementData_status' - The status of the SQL statement. An example is the that the SQL
+-- statement finished.
 --
 -- 'updatedAt', 'statementData_updatedAt' - The date and time (UTC) that the statement metadata was last updated.
 --
@@ -94,52 +94,52 @@ newStatementData ::
   StatementData
 newStatementData pId_ =
   StatementData'
-    { isBatchStatement = Prelude.Nothing,
-      status = Prelude.Nothing,
-      queryStrings = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      isBatchStatement = Prelude.Nothing,
       queryParameters = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
       queryString = Prelude.Nothing,
+      queryStrings = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
       statementName = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       id = pId_
     }
+
+-- | The date and time (UTC) the statement was created.
+statementData_createdAt :: Lens.Lens' StatementData (Prelude.Maybe Prelude.UTCTime)
+statementData_createdAt = Lens.lens (\StatementData' {createdAt} -> createdAt) (\s@StatementData' {} a -> s {createdAt = a} :: StatementData) Prelude.. Lens.mapping Data._Time
 
 -- | A value that indicates whether the statement is a batch query request.
 statementData_isBatchStatement :: Lens.Lens' StatementData (Prelude.Maybe Prelude.Bool)
 statementData_isBatchStatement = Lens.lens (\StatementData' {isBatchStatement} -> isBatchStatement) (\s@StatementData' {} a -> s {isBatchStatement = a} :: StatementData)
 
--- | The status of the SQL statement. An example is the that the SQL
--- statement finished.
-statementData_status :: Lens.Lens' StatementData (Prelude.Maybe StatusString)
-statementData_status = Lens.lens (\StatementData' {status} -> status) (\s@StatementData' {} a -> s {status = a} :: StatementData)
+-- | The parameters used in a SQL statement.
+statementData_queryParameters :: Lens.Lens' StatementData (Prelude.Maybe (Prelude.NonEmpty SqlParameter))
+statementData_queryParameters = Lens.lens (\StatementData' {queryParameters} -> queryParameters) (\s@StatementData' {} a -> s {queryParameters = a} :: StatementData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The SQL statement.
+statementData_queryString :: Lens.Lens' StatementData (Prelude.Maybe Prelude.Text)
+statementData_queryString = Lens.lens (\StatementData' {queryString} -> queryString) (\s@StatementData' {} a -> s {queryString = a} :: StatementData)
 
 -- | One or more SQL statements. Each query string in the array corresponds
 -- to one of the queries in a batch query request.
 statementData_queryStrings :: Lens.Lens' StatementData (Prelude.Maybe [Prelude.Text])
 statementData_queryStrings = Lens.lens (\StatementData' {queryStrings} -> queryStrings) (\s@StatementData' {} a -> s {queryStrings = a} :: StatementData) Prelude.. Lens.mapping Lens.coerced
 
--- | The parameters used in a SQL statement.
-statementData_queryParameters :: Lens.Lens' StatementData (Prelude.Maybe (Prelude.NonEmpty SqlParameter))
-statementData_queryParameters = Lens.lens (\StatementData' {queryParameters} -> queryParameters) (\s@StatementData' {} a -> s {queryParameters = a} :: StatementData) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name or Amazon Resource Name (ARN) of the secret that enables access
 -- to the database.
 statementData_secretArn :: Lens.Lens' StatementData (Prelude.Maybe Prelude.Text)
 statementData_secretArn = Lens.lens (\StatementData' {secretArn} -> secretArn) (\s@StatementData' {} a -> s {secretArn = a} :: StatementData)
 
--- | The SQL statement.
-statementData_queryString :: Lens.Lens' StatementData (Prelude.Maybe Prelude.Text)
-statementData_queryString = Lens.lens (\StatementData' {queryString} -> queryString) (\s@StatementData' {} a -> s {queryString = a} :: StatementData)
-
 -- | The name of the SQL statement.
 statementData_statementName :: Lens.Lens' StatementData (Prelude.Maybe Prelude.Text)
 statementData_statementName = Lens.lens (\StatementData' {statementName} -> statementName) (\s@StatementData' {} a -> s {statementName = a} :: StatementData)
 
--- | The date and time (UTC) the statement was created.
-statementData_createdAt :: Lens.Lens' StatementData (Prelude.Maybe Prelude.UTCTime)
-statementData_createdAt = Lens.lens (\StatementData' {createdAt} -> createdAt) (\s@StatementData' {} a -> s {createdAt = a} :: StatementData) Prelude.. Lens.mapping Data._Time
+-- | The status of the SQL statement. An example is the that the SQL
+-- statement finished.
+statementData_status :: Lens.Lens' StatementData (Prelude.Maybe StatusString)
+statementData_status = Lens.lens (\StatementData' {status} -> status) (\s@StatementData' {} a -> s {status = a} :: StatementData)
 
 -- | The date and time (UTC) that the statement metadata was last updated.
 statementData_updatedAt :: Lens.Lens' StatementData (Prelude.Maybe Prelude.UTCTime)
@@ -156,40 +156,40 @@ instance Data.FromJSON StatementData where
       "StatementData"
       ( \x ->
           StatementData'
-            Prelude.<$> (x Data..:? "IsBatchStatement")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "QueryStrings" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "IsBatchStatement")
             Prelude.<*> (x Data..:? "QueryParameters")
-            Prelude.<*> (x Data..:? "SecretArn")
             Prelude.<*> (x Data..:? "QueryString")
+            Prelude.<*> (x Data..:? "QueryStrings" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SecretArn")
             Prelude.<*> (x Data..:? "StatementName")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UpdatedAt")
             Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable StatementData where
   hashWithSalt _salt StatementData' {..} =
-    _salt `Prelude.hashWithSalt` isBatchStatement
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` queryStrings
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` isBatchStatement
       `Prelude.hashWithSalt` queryParameters
-      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` queryString
+      `Prelude.hashWithSalt` queryStrings
+      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` statementName
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData StatementData where
   rnf StatementData' {..} =
-    Prelude.rnf isBatchStatement
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf queryStrings
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf isBatchStatement
       `Prelude.seq` Prelude.rnf queryParameters
-      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf queryStrings
+      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf statementName
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf id

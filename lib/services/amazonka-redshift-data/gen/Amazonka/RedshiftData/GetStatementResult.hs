@@ -38,8 +38,8 @@ module Amazonka.RedshiftData.GetStatementResult
     newGetStatementResultResponse,
 
     -- * Response Lenses
-    getStatementResultResponse_nextToken,
     getStatementResultResponse_columnMetadata,
+    getStatementResultResponse_nextToken,
     getStatementResultResponse_totalNumRows,
     getStatementResultResponse_httpStatus,
     getStatementResultResponse_records,
@@ -154,8 +154,8 @@ instance Core.AWSRequest GetStatementResult where
     Response.receiveJSON
       ( \s h x ->
           GetStatementResultResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ColumnMetadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ColumnMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "TotalNumRows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
@@ -202,15 +202,15 @@ instance Data.ToQuery GetStatementResult where
 
 -- | /See:/ 'newGetStatementResultResponse' smart constructor.
 data GetStatementResultResponse = GetStatementResultResponse'
-  { -- | A value that indicates the starting point for the next set of response
+  { -- | The properties (metadata) of a column.
+    columnMetadata :: Prelude.Maybe [ColumnMetadata],
+    -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The properties (metadata) of a column.
-    columnMetadata :: Prelude.Maybe [ColumnMetadata],
     -- | The total number of rows in the result set returned from a query. You
     -- can use this number to estimate the number of calls to the
     -- @GetStatementResult@ operation needed to page through the results.
@@ -230,14 +230,14 @@ data GetStatementResultResponse = GetStatementResultResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'columnMetadata', 'getStatementResultResponse_columnMetadata' - The properties (metadata) of a column.
+--
 -- 'nextToken', 'getStatementResultResponse_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- NextToken value in the next NextToken parameter and retrying the
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
---
--- 'columnMetadata', 'getStatementResultResponse_columnMetadata' - The properties (metadata) of a column.
 --
 -- 'totalNumRows', 'getStatementResultResponse_totalNumRows' - The total number of rows in the result set returned from a query. You
 -- can use this number to estimate the number of calls to the
@@ -252,13 +252,17 @@ newGetStatementResultResponse ::
   GetStatementResultResponse
 newGetStatementResultResponse pHttpStatus_ =
   GetStatementResultResponse'
-    { nextToken =
+    { columnMetadata =
         Prelude.Nothing,
-      columnMetadata = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       totalNumRows = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       records = Prelude.mempty
     }
+
+-- | The properties (metadata) of a column.
+getStatementResultResponse_columnMetadata :: Lens.Lens' GetStatementResultResponse (Prelude.Maybe [ColumnMetadata])
+getStatementResultResponse_columnMetadata = Lens.lens (\GetStatementResultResponse' {columnMetadata} -> columnMetadata) (\s@GetStatementResultResponse' {} a -> s {columnMetadata = a} :: GetStatementResultResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -268,10 +272,6 @@ newGetStatementResultResponse pHttpStatus_ =
 -- retrieved for the request.
 getStatementResultResponse_nextToken :: Lens.Lens' GetStatementResultResponse (Prelude.Maybe Prelude.Text)
 getStatementResultResponse_nextToken = Lens.lens (\GetStatementResultResponse' {nextToken} -> nextToken) (\s@GetStatementResultResponse' {} a -> s {nextToken = a} :: GetStatementResultResponse)
-
--- | The properties (metadata) of a column.
-getStatementResultResponse_columnMetadata :: Lens.Lens' GetStatementResultResponse (Prelude.Maybe [ColumnMetadata])
-getStatementResultResponse_columnMetadata = Lens.lens (\GetStatementResultResponse' {columnMetadata} -> columnMetadata) (\s@GetStatementResultResponse' {} a -> s {columnMetadata = a} :: GetStatementResultResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of rows in the result set returned from a query. You
 -- can use this number to estimate the number of calls to the
@@ -289,8 +289,8 @@ getStatementResultResponse_records = Lens.lens (\GetStatementResultResponse' {re
 
 instance Prelude.NFData GetStatementResultResponse where
   rnf GetStatementResultResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf columnMetadata
+    Prelude.rnf columnMetadata
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf totalNumRows
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf records

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetResourceTypeSummary' smart constructor.
 data TargetResourceTypeSummary = TargetResourceTypeSummary'
-  { -- | The resource type.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | A description of the resource type.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | A description of the resource type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The resource type.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data TargetResourceTypeSummary = TargetResourceTypeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'targetResourceTypeSummary_resourceType' - The resource type.
---
 -- 'description', 'targetResourceTypeSummary_description' - A description of the resource type.
+--
+-- 'resourceType', 'targetResourceTypeSummary_resourceType' - The resource type.
 newTargetResourceTypeSummary ::
   TargetResourceTypeSummary
 newTargetResourceTypeSummary =
   TargetResourceTypeSummary'
-    { resourceType =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
-
--- | The resource type.
-targetResourceTypeSummary_resourceType :: Lens.Lens' TargetResourceTypeSummary (Prelude.Maybe Prelude.Text)
-targetResourceTypeSummary_resourceType = Lens.lens (\TargetResourceTypeSummary' {resourceType} -> resourceType) (\s@TargetResourceTypeSummary' {} a -> s {resourceType = a} :: TargetResourceTypeSummary)
 
 -- | A description of the resource type.
 targetResourceTypeSummary_description :: Lens.Lens' TargetResourceTypeSummary (Prelude.Maybe Prelude.Text)
 targetResourceTypeSummary_description = Lens.lens (\TargetResourceTypeSummary' {description} -> description) (\s@TargetResourceTypeSummary' {} a -> s {description = a} :: TargetResourceTypeSummary)
+
+-- | The resource type.
+targetResourceTypeSummary_resourceType :: Lens.Lens' TargetResourceTypeSummary (Prelude.Maybe Prelude.Text)
+targetResourceTypeSummary_resourceType = Lens.lens (\TargetResourceTypeSummary' {resourceType} -> resourceType) (\s@TargetResourceTypeSummary' {} a -> s {resourceType = a} :: TargetResourceTypeSummary)
 
 instance Data.FromJSON TargetResourceTypeSummary where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON TargetResourceTypeSummary where
       "TargetResourceTypeSummary"
       ( \x ->
           TargetResourceTypeSummary'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable TargetResourceTypeSummary where
   hashWithSalt _salt TargetResourceTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData TargetResourceTypeSummary where
   rnf TargetResourceTypeSummary' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceType

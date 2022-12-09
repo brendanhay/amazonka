@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateExperimentTemplateLogConfigurationInput' smart constructor.
 data UpdateExperimentTemplateLogConfigurationInput = UpdateExperimentTemplateLogConfigurationInput'
-  { -- | The configuration for experiment logging to Amazon S3.
-    s3Configuration :: Prelude.Maybe ExperimentTemplateS3LogConfigurationInput,
+  { -- | The configuration for experiment logging to Amazon CloudWatch Logs.
+    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfigurationInput,
     -- | The schema version.
     logSchemaVersion :: Prelude.Maybe Prelude.Int,
-    -- | The configuration for experiment logging to Amazon CloudWatch Logs.
-    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfigurationInput
+    -- | The configuration for experiment logging to Amazon S3.
+    s3Configuration :: Prelude.Maybe ExperimentTemplateS3LogConfigurationInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,34 +47,34 @@ data UpdateExperimentTemplateLogConfigurationInput = UpdateExperimentTemplateLog
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Configuration', 'updateExperimentTemplateLogConfigurationInput_s3Configuration' - The configuration for experiment logging to Amazon S3.
+-- 'cloudWatchLogsConfiguration', 'updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
 --
 -- 'logSchemaVersion', 'updateExperimentTemplateLogConfigurationInput_logSchemaVersion' - The schema version.
 --
--- 'cloudWatchLogsConfiguration', 'updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
+-- 's3Configuration', 'updateExperimentTemplateLogConfigurationInput_s3Configuration' - The configuration for experiment logging to Amazon S3.
 newUpdateExperimentTemplateLogConfigurationInput ::
   UpdateExperimentTemplateLogConfigurationInput
 newUpdateExperimentTemplateLogConfigurationInput =
   UpdateExperimentTemplateLogConfigurationInput'
-    { s3Configuration =
+    { cloudWatchLogsConfiguration =
         Prelude.Nothing,
       logSchemaVersion =
         Prelude.Nothing,
-      cloudWatchLogsConfiguration =
+      s3Configuration =
         Prelude.Nothing
     }
 
--- | The configuration for experiment logging to Amazon S3.
-updateExperimentTemplateLogConfigurationInput_s3Configuration :: Lens.Lens' UpdateExperimentTemplateLogConfigurationInput (Prelude.Maybe ExperimentTemplateS3LogConfigurationInput)
-updateExperimentTemplateLogConfigurationInput_s3Configuration = Lens.lens (\UpdateExperimentTemplateLogConfigurationInput' {s3Configuration} -> s3Configuration) (\s@UpdateExperimentTemplateLogConfigurationInput' {} a -> s {s3Configuration = a} :: UpdateExperimentTemplateLogConfigurationInput)
+-- | The configuration for experiment logging to Amazon CloudWatch Logs.
+updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration :: Lens.Lens' UpdateExperimentTemplateLogConfigurationInput (Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfigurationInput)
+updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration = Lens.lens (\UpdateExperimentTemplateLogConfigurationInput' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@UpdateExperimentTemplateLogConfigurationInput' {} a -> s {cloudWatchLogsConfiguration = a} :: UpdateExperimentTemplateLogConfigurationInput)
 
 -- | The schema version.
 updateExperimentTemplateLogConfigurationInput_logSchemaVersion :: Lens.Lens' UpdateExperimentTemplateLogConfigurationInput (Prelude.Maybe Prelude.Int)
 updateExperimentTemplateLogConfigurationInput_logSchemaVersion = Lens.lens (\UpdateExperimentTemplateLogConfigurationInput' {logSchemaVersion} -> logSchemaVersion) (\s@UpdateExperimentTemplateLogConfigurationInput' {} a -> s {logSchemaVersion = a} :: UpdateExperimentTemplateLogConfigurationInput)
 
--- | The configuration for experiment logging to Amazon CloudWatch Logs.
-updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration :: Lens.Lens' UpdateExperimentTemplateLogConfigurationInput (Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfigurationInput)
-updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration = Lens.lens (\UpdateExperimentTemplateLogConfigurationInput' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@UpdateExperimentTemplateLogConfigurationInput' {} a -> s {cloudWatchLogsConfiguration = a} :: UpdateExperimentTemplateLogConfigurationInput)
+-- | The configuration for experiment logging to Amazon S3.
+updateExperimentTemplateLogConfigurationInput_s3Configuration :: Lens.Lens' UpdateExperimentTemplateLogConfigurationInput (Prelude.Maybe ExperimentTemplateS3LogConfigurationInput)
+updateExperimentTemplateLogConfigurationInput_s3Configuration = Lens.lens (\UpdateExperimentTemplateLogConfigurationInput' {s3Configuration} -> s3Configuration) (\s@UpdateExperimentTemplateLogConfigurationInput' {} a -> s {s3Configuration = a} :: UpdateExperimentTemplateLogConfigurationInput)
 
 instance
   Prelude.Hashable
@@ -83,9 +83,10 @@ instance
   hashWithSalt
     _salt
     UpdateExperimentTemplateLogConfigurationInput' {..} =
-      _salt `Prelude.hashWithSalt` s3Configuration
-        `Prelude.hashWithSalt` logSchemaVersion
+      _salt
         `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+        `Prelude.hashWithSalt` logSchemaVersion
+        `Prelude.hashWithSalt` s3Configuration
 
 instance
   Prelude.NFData
@@ -93,9 +94,9 @@ instance
   where
   rnf
     UpdateExperimentTemplateLogConfigurationInput' {..} =
-      Prelude.rnf s3Configuration
+      Prelude.rnf cloudWatchLogsConfiguration
         `Prelude.seq` Prelude.rnf logSchemaVersion
-        `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+        `Prelude.seq` Prelude.rnf s3Configuration
 
 instance
   Data.ToJSON
@@ -105,11 +106,11 @@ instance
     UpdateExperimentTemplateLogConfigurationInput' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("s3Configuration" Data..=)
-                Prelude.<$> s3Configuration,
+            [ ("cloudWatchLogsConfiguration" Data..=)
+                Prelude.<$> cloudWatchLogsConfiguration,
               ("logSchemaVersion" Data..=)
                 Prelude.<$> logSchemaVersion,
-              ("cloudWatchLogsConfiguration" Data..=)
-                Prelude.<$> cloudWatchLogsConfiguration
+              ("s3Configuration" Data..=)
+                Prelude.<$> s3Configuration
             ]
         )

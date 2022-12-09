@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentTemplateTarget' smart constructor.
 data ExperimentTemplateTarget = ExperimentTemplateTarget'
-  { -- | The resource type.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The filters to apply to identify target resources using specific
+  { -- | The filters to apply to identify target resources using specific
     -- attributes.
     filters :: Prelude.Maybe [ExperimentTemplateTargetFilter],
-    -- | The tags for the target resources.
-    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The resource type parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the targets.
     resourceArns :: Prelude.Maybe [Prelude.Text],
+    -- | The tags for the target resources.
+    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource type.
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | Scopes the identified resources to a specific count or percentage.
     selectionMode :: Prelude.Maybe Prelude.Text
   }
@@ -53,43 +53,35 @@ data ExperimentTemplateTarget = ExperimentTemplateTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'experimentTemplateTarget_resourceType' - The resource type.
---
 -- 'filters', 'experimentTemplateTarget_filters' - The filters to apply to identify target resources using specific
 -- attributes.
---
--- 'resourceTags', 'experimentTemplateTarget_resourceTags' - The tags for the target resources.
 --
 -- 'parameters', 'experimentTemplateTarget_parameters' - The resource type parameters.
 --
 -- 'resourceArns', 'experimentTemplateTarget_resourceArns' - The Amazon Resource Names (ARNs) of the targets.
+--
+-- 'resourceTags', 'experimentTemplateTarget_resourceTags' - The tags for the target resources.
+--
+-- 'resourceType', 'experimentTemplateTarget_resourceType' - The resource type.
 --
 -- 'selectionMode', 'experimentTemplateTarget_selectionMode' - Scopes the identified resources to a specific count or percentage.
 newExperimentTemplateTarget ::
   ExperimentTemplateTarget
 newExperimentTemplateTarget =
   ExperimentTemplateTarget'
-    { resourceType =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
       parameters = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
+      resourceTags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       selectionMode = Prelude.Nothing
     }
-
--- | The resource type.
-experimentTemplateTarget_resourceType :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe Prelude.Text)
-experimentTemplateTarget_resourceType = Lens.lens (\ExperimentTemplateTarget' {resourceType} -> resourceType) (\s@ExperimentTemplateTarget' {} a -> s {resourceType = a} :: ExperimentTemplateTarget)
 
 -- | The filters to apply to identify target resources using specific
 -- attributes.
 experimentTemplateTarget_filters :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe [ExperimentTemplateTargetFilter])
 experimentTemplateTarget_filters = Lens.lens (\ExperimentTemplateTarget' {filters} -> filters) (\s@ExperimentTemplateTarget' {} a -> s {filters = a} :: ExperimentTemplateTarget) Prelude.. Lens.mapping Lens.coerced
-
--- | The tags for the target resources.
-experimentTemplateTarget_resourceTags :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-experimentTemplateTarget_resourceTags = Lens.lens (\ExperimentTemplateTarget' {resourceTags} -> resourceTags) (\s@ExperimentTemplateTarget' {} a -> s {resourceTags = a} :: ExperimentTemplateTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type parameters.
 experimentTemplateTarget_parameters :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -98,6 +90,14 @@ experimentTemplateTarget_parameters = Lens.lens (\ExperimentTemplateTarget' {par
 -- | The Amazon Resource Names (ARNs) of the targets.
 experimentTemplateTarget_resourceArns :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe [Prelude.Text])
 experimentTemplateTarget_resourceArns = Lens.lens (\ExperimentTemplateTarget' {resourceArns} -> resourceArns) (\s@ExperimentTemplateTarget' {} a -> s {resourceArns = a} :: ExperimentTemplateTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags for the target resources.
+experimentTemplateTarget_resourceTags :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+experimentTemplateTarget_resourceTags = Lens.lens (\ExperimentTemplateTarget' {resourceTags} -> resourceTags) (\s@ExperimentTemplateTarget' {} a -> s {resourceTags = a} :: ExperimentTemplateTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | The resource type.
+experimentTemplateTarget_resourceType :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe Prelude.Text)
+experimentTemplateTarget_resourceType = Lens.lens (\ExperimentTemplateTarget' {resourceType} -> resourceType) (\s@ExperimentTemplateTarget' {} a -> s {resourceType = a} :: ExperimentTemplateTarget)
 
 -- | Scopes the identified resources to a specific count or percentage.
 experimentTemplateTarget_selectionMode :: Lens.Lens' ExperimentTemplateTarget (Prelude.Maybe Prelude.Text)
@@ -109,28 +109,28 @@ instance Data.FromJSON ExperimentTemplateTarget where
       "ExperimentTemplateTarget"
       ( \x ->
           ExperimentTemplateTarget'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "filters" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "filters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resourceArns" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
             Prelude.<*> (x Data..:? "selectionMode")
       )
 
 instance Prelude.Hashable ExperimentTemplateTarget where
   hashWithSalt _salt ExperimentTemplateTarget' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` resourceTags
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceArns
+      `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` selectionMode
 
 instance Prelude.NFData ExperimentTemplateTarget where
   rnf ExperimentTemplateTarget' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resourceTags
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf selectionMode

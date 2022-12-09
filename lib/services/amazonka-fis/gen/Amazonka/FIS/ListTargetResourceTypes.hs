@@ -27,8 +27,8 @@ module Amazonka.FIS.ListTargetResourceTypes
     newListTargetResourceTypes,
 
     -- * Request Lenses
-    listTargetResourceTypes_nextToken,
     listTargetResourceTypes_maxResults,
+    listTargetResourceTypes_nextToken,
 
     -- * Destructuring the Response
     ListTargetResourceTypesResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTargetResourceTypes' smart constructor.
 data ListTargetResourceTypes = ListTargetResourceTypes'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,29 +68,29 @@ data ListTargetResourceTypes = ListTargetResourceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTargetResourceTypes_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listTargetResourceTypes_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listTargetResourceTypes_nextToken' - The token for the next page of results.
 newListTargetResourceTypes ::
   ListTargetResourceTypes
 newListTargetResourceTypes =
   ListTargetResourceTypes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listTargetResourceTypes_nextToken :: Lens.Lens' ListTargetResourceTypes (Prelude.Maybe Prelude.Text)
-listTargetResourceTypes_nextToken = Lens.lens (\ListTargetResourceTypes' {nextToken} -> nextToken) (\s@ListTargetResourceTypes' {} a -> s {nextToken = a} :: ListTargetResourceTypes)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listTargetResourceTypes_maxResults :: Lens.Lens' ListTargetResourceTypes (Prelude.Maybe Prelude.Natural)
 listTargetResourceTypes_maxResults = Lens.lens (\ListTargetResourceTypes' {maxResults} -> maxResults) (\s@ListTargetResourceTypes' {} a -> s {maxResults = a} :: ListTargetResourceTypes)
+
+-- | The token for the next page of results.
+listTargetResourceTypes_nextToken :: Lens.Lens' ListTargetResourceTypes (Prelude.Maybe Prelude.Text)
+listTargetResourceTypes_nextToken = Lens.lens (\ListTargetResourceTypes' {nextToken} -> nextToken) (\s@ListTargetResourceTypes' {} a -> s {nextToken = a} :: ListTargetResourceTypes)
 
 instance Core.AWSRequest ListTargetResourceTypes where
   type
@@ -111,13 +111,13 @@ instance Core.AWSRequest ListTargetResourceTypes where
 
 instance Prelude.Hashable ListTargetResourceTypes where
   hashWithSalt _salt ListTargetResourceTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTargetResourceTypes where
   rnf ListTargetResourceTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTargetResourceTypes where
   toHeaders =
@@ -136,8 +136,8 @@ instance Data.ToPath ListTargetResourceTypes where
 instance Data.ToQuery ListTargetResourceTypes where
   toQuery ListTargetResourceTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTargetResourceTypesResponse' smart constructor.

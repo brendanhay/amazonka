@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionParameter' smart constructor.
 data ActionParameter = ActionParameter'
-  { -- | Indicates whether the parameter is required.
-    required :: Prelude.Maybe Prelude.Bool,
-    -- | The parameter description.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | The parameter description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the parameter is required.
+    required :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ActionParameter = ActionParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'required', 'actionParameter_required' - Indicates whether the parameter is required.
---
 -- 'description', 'actionParameter_description' - The parameter description.
+--
+-- 'required', 'actionParameter_required' - Indicates whether the parameter is required.
 newActionParameter ::
   ActionParameter
 newActionParameter =
   ActionParameter'
-    { required = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      required = Prelude.Nothing
     }
-
--- | Indicates whether the parameter is required.
-actionParameter_required :: Lens.Lens' ActionParameter (Prelude.Maybe Prelude.Bool)
-actionParameter_required = Lens.lens (\ActionParameter' {required} -> required) (\s@ActionParameter' {} a -> s {required = a} :: ActionParameter)
 
 -- | The parameter description.
 actionParameter_description :: Lens.Lens' ActionParameter (Prelude.Maybe Prelude.Text)
 actionParameter_description = Lens.lens (\ActionParameter' {description} -> description) (\s@ActionParameter' {} a -> s {description = a} :: ActionParameter)
+
+-- | Indicates whether the parameter is required.
+actionParameter_required :: Lens.Lens' ActionParameter (Prelude.Maybe Prelude.Bool)
+actionParameter_required = Lens.lens (\ActionParameter' {required} -> required) (\s@ActionParameter' {} a -> s {required = a} :: ActionParameter)
 
 instance Data.FromJSON ActionParameter where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON ActionParameter where
       "ActionParameter"
       ( \x ->
           ActionParameter'
-            Prelude.<$> (x Data..:? "required")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "required")
       )
 
 instance Prelude.Hashable ActionParameter where
   hashWithSalt _salt ActionParameter' {..} =
-    _salt `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` required
 
 instance Prelude.NFData ActionParameter where
   rnf ActionParameter' {..} =
-    Prelude.rnf required
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf required

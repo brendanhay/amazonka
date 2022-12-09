@@ -18,9 +18,9 @@ module Amazonka.FIS.Types
     defaultService,
 
     -- * Errors
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ValidationException,
 
     -- * ExperimentActionStatus
@@ -32,25 +32,25 @@ module Amazonka.FIS.Types
     -- * Action
     Action (..),
     newAction,
-    action_tags,
-    action_targets,
     action_description,
     action_id,
     action_parameters,
+    action_tags,
+    action_targets,
 
     -- * ActionParameter
     ActionParameter (..),
     newActionParameter,
-    actionParameter_required,
     actionParameter_description,
+    actionParameter_required,
 
     -- * ActionSummary
     ActionSummary (..),
     newActionSummary,
-    actionSummary_tags,
-    actionSummary_targets,
     actionSummary_description,
     actionSummary_id,
+    actionSummary_tags,
+    actionSummary_targets,
 
     -- * ActionTarget
     ActionTarget (..),
@@ -60,17 +60,17 @@ module Amazonka.FIS.Types
     -- * CreateExperimentTemplateActionInput
     CreateExperimentTemplateActionInput (..),
     newCreateExperimentTemplateActionInput,
-    createExperimentTemplateActionInput_startAfter,
-    createExperimentTemplateActionInput_targets,
     createExperimentTemplateActionInput_description,
     createExperimentTemplateActionInput_parameters,
+    createExperimentTemplateActionInput_startAfter,
+    createExperimentTemplateActionInput_targets,
     createExperimentTemplateActionInput_actionId,
 
     -- * CreateExperimentTemplateLogConfigurationInput
     CreateExperimentTemplateLogConfigurationInput (..),
     newCreateExperimentTemplateLogConfigurationInput,
-    createExperimentTemplateLogConfigurationInput_s3Configuration,
     createExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration,
+    createExperimentTemplateLogConfigurationInput_s3Configuration,
     createExperimentTemplateLogConfigurationInput_logSchemaVersion,
 
     -- * CreateExperimentTemplateStopConditionInput
@@ -83,45 +83,45 @@ module Amazonka.FIS.Types
     CreateExperimentTemplateTargetInput (..),
     newCreateExperimentTemplateTargetInput,
     createExperimentTemplateTargetInput_filters,
-    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_parameters,
     createExperimentTemplateTargetInput_resourceArns,
+    createExperimentTemplateTargetInput_resourceTags,
     createExperimentTemplateTargetInput_resourceType,
     createExperimentTemplateTargetInput_selectionMode,
 
     -- * Experiment
     Experiment (..),
     newExperiment,
-    experiment_tags,
-    experiment_stopConditions,
+    experiment_actions,
+    experiment_creationTime,
+    experiment_endTime,
+    experiment_experimentTemplateId,
+    experiment_id,
     experiment_logConfiguration,
     experiment_roleArn,
-    experiment_state,
-    experiment_targets,
-    experiment_endTime,
-    experiment_id,
-    experiment_experimentTemplateId,
-    experiment_creationTime,
     experiment_startTime,
-    experiment_actions,
+    experiment_state,
+    experiment_stopConditions,
+    experiment_tags,
+    experiment_targets,
 
     -- * ExperimentAction
     ExperimentAction (..),
     newExperimentAction,
-    experimentAction_startAfter,
-    experimentAction_state,
-    experimentAction_targets,
+    experimentAction_actionId,
     experimentAction_description,
     experimentAction_endTime,
-    experimentAction_actionId,
-    experimentAction_startTime,
     experimentAction_parameters,
+    experimentAction_startAfter,
+    experimentAction_startTime,
+    experimentAction_state,
+    experimentAction_targets,
 
     -- * ExperimentActionState
     ExperimentActionState (..),
     newExperimentActionState,
-    experimentActionState_status,
     experimentActionState_reason,
+    experimentActionState_status,
 
     -- * ExperimentCloudWatchLogsLogConfiguration
     ExperimentCloudWatchLogsLogConfiguration (..),
@@ -131,9 +131,9 @@ module Amazonka.FIS.Types
     -- * ExperimentLogConfiguration
     ExperimentLogConfiguration (..),
     newExperimentLogConfiguration,
-    experimentLogConfiguration_s3Configuration,
-    experimentLogConfiguration_logSchemaVersion,
     experimentLogConfiguration_cloudWatchLogsConfiguration,
+    experimentLogConfiguration_logSchemaVersion,
+    experimentLogConfiguration_s3Configuration,
 
     -- * ExperimentS3LogConfiguration
     ExperimentS3LogConfiguration (..),
@@ -144,8 +144,8 @@ module Amazonka.FIS.Types
     -- * ExperimentState
     ExperimentState (..),
     newExperimentState,
-    experimentState_status,
     experimentState_reason,
+    experimentState_status,
 
     -- * ExperimentStopCondition
     ExperimentStopCondition (..),
@@ -156,20 +156,20 @@ module Amazonka.FIS.Types
     -- * ExperimentSummary
     ExperimentSummary (..),
     newExperimentSummary,
-    experimentSummary_tags,
-    experimentSummary_state,
-    experimentSummary_id,
-    experimentSummary_experimentTemplateId,
     experimentSummary_creationTime,
+    experimentSummary_experimentTemplateId,
+    experimentSummary_id,
+    experimentSummary_state,
+    experimentSummary_tags,
 
     -- * ExperimentTarget
     ExperimentTarget (..),
     newExperimentTarget,
-    experimentTarget_resourceType,
     experimentTarget_filters,
-    experimentTarget_resourceTags,
     experimentTarget_parameters,
     experimentTarget_resourceArns,
+    experimentTarget_resourceTags,
+    experimentTarget_resourceType,
     experimentTarget_selectionMode,
 
     -- * ExperimentTargetFilter
@@ -181,25 +181,25 @@ module Amazonka.FIS.Types
     -- * ExperimentTemplate
     ExperimentTemplate (..),
     newExperimentTemplate,
-    experimentTemplate_tags,
-    experimentTemplate_stopConditions,
-    experimentTemplate_logConfiguration,
-    experimentTemplate_roleArn,
-    experimentTemplate_targets,
+    experimentTemplate_actions,
+    experimentTemplate_creationTime,
     experimentTemplate_description,
     experimentTemplate_id,
-    experimentTemplate_creationTime,
     experimentTemplate_lastUpdateTime,
-    experimentTemplate_actions,
+    experimentTemplate_logConfiguration,
+    experimentTemplate_roleArn,
+    experimentTemplate_stopConditions,
+    experimentTemplate_tags,
+    experimentTemplate_targets,
 
     -- * ExperimentTemplateAction
     ExperimentTemplateAction (..),
     newExperimentTemplateAction,
+    experimentTemplateAction_actionId,
+    experimentTemplateAction_description,
+    experimentTemplateAction_parameters,
     experimentTemplateAction_startAfter,
     experimentTemplateAction_targets,
-    experimentTemplateAction_description,
-    experimentTemplateAction_actionId,
-    experimentTemplateAction_parameters,
 
     -- * ExperimentTemplateCloudWatchLogsLogConfiguration
     ExperimentTemplateCloudWatchLogsLogConfiguration (..),
@@ -214,9 +214,9 @@ module Amazonka.FIS.Types
     -- * ExperimentTemplateLogConfiguration
     ExperimentTemplateLogConfiguration (..),
     newExperimentTemplateLogConfiguration,
-    experimentTemplateLogConfiguration_s3Configuration,
-    experimentTemplateLogConfiguration_logSchemaVersion,
     experimentTemplateLogConfiguration_cloudWatchLogsConfiguration,
+    experimentTemplateLogConfiguration_logSchemaVersion,
+    experimentTemplateLogConfiguration_s3Configuration,
 
     -- * ExperimentTemplateS3LogConfiguration
     ExperimentTemplateS3LogConfiguration (..),
@@ -239,20 +239,20 @@ module Amazonka.FIS.Types
     -- * ExperimentTemplateSummary
     ExperimentTemplateSummary (..),
     newExperimentTemplateSummary,
-    experimentTemplateSummary_tags,
+    experimentTemplateSummary_creationTime,
     experimentTemplateSummary_description,
     experimentTemplateSummary_id,
-    experimentTemplateSummary_creationTime,
     experimentTemplateSummary_lastUpdateTime,
+    experimentTemplateSummary_tags,
 
     -- * ExperimentTemplateTarget
     ExperimentTemplateTarget (..),
     newExperimentTemplateTarget,
-    experimentTemplateTarget_resourceType,
     experimentTemplateTarget_filters,
-    experimentTemplateTarget_resourceTags,
     experimentTemplateTarget_parameters,
     experimentTemplateTarget_resourceArns,
+    experimentTemplateTarget_resourceTags,
+    experimentTemplateTarget_resourceType,
     experimentTemplateTarget_selectionMode,
 
     -- * ExperimentTemplateTargetFilter
@@ -270,37 +270,37 @@ module Amazonka.FIS.Types
     -- * TargetResourceType
     TargetResourceType (..),
     newTargetResourceType,
-    targetResourceType_resourceType,
     targetResourceType_description,
     targetResourceType_parameters,
+    targetResourceType_resourceType,
 
     -- * TargetResourceTypeParameter
     TargetResourceTypeParameter (..),
     newTargetResourceTypeParameter,
-    targetResourceTypeParameter_required,
     targetResourceTypeParameter_description,
+    targetResourceTypeParameter_required,
 
     -- * TargetResourceTypeSummary
     TargetResourceTypeSummary (..),
     newTargetResourceTypeSummary,
-    targetResourceTypeSummary_resourceType,
     targetResourceTypeSummary_description,
+    targetResourceTypeSummary_resourceType,
 
     -- * UpdateExperimentTemplateActionInputItem
     UpdateExperimentTemplateActionInputItem (..),
     newUpdateExperimentTemplateActionInputItem,
+    updateExperimentTemplateActionInputItem_actionId,
+    updateExperimentTemplateActionInputItem_description,
+    updateExperimentTemplateActionInputItem_parameters,
     updateExperimentTemplateActionInputItem_startAfter,
     updateExperimentTemplateActionInputItem_targets,
-    updateExperimentTemplateActionInputItem_description,
-    updateExperimentTemplateActionInputItem_actionId,
-    updateExperimentTemplateActionInputItem_parameters,
 
     -- * UpdateExperimentTemplateLogConfigurationInput
     UpdateExperimentTemplateLogConfigurationInput (..),
     newUpdateExperimentTemplateLogConfigurationInput,
-    updateExperimentTemplateLogConfigurationInput_s3Configuration,
-    updateExperimentTemplateLogConfigurationInput_logSchemaVersion,
     updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration,
+    updateExperimentTemplateLogConfigurationInput_logSchemaVersion,
+    updateExperimentTemplateLogConfigurationInput_s3Configuration,
 
     -- * UpdateExperimentTemplateStopConditionInput
     UpdateExperimentTemplateStopConditionInput (..),
@@ -312,9 +312,9 @@ module Amazonka.FIS.Types
     UpdateExperimentTemplateTargetInput (..),
     newUpdateExperimentTemplateTargetInput,
     updateExperimentTemplateTargetInput_filters,
-    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_parameters,
     updateExperimentTemplateTargetInput_resourceArns,
+    updateExperimentTemplateTargetInput_resourceTags,
     updateExperimentTemplateTargetInput_resourceType,
     updateExperimentTemplateTargetInput_selectionMode,
   )
@@ -390,28 +390,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -419,13 +413,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -433,15 +431,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You have exceeded your service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
+-- | The request could not be processed because of a conflict.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | The specified resource cannot be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -451,13 +451,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The request could not be processed because of a conflict.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | You have exceeded your service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The specified input is not valid, or fails to satisfy the constraints
 -- for the request.

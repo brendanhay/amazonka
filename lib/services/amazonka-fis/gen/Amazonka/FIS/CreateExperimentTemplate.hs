@@ -45,8 +45,8 @@ module Amazonka.FIS.CreateExperimentTemplate
     newCreateExperimentTemplate,
 
     -- * Request Lenses
-    createExperimentTemplate_tags,
     createExperimentTemplate_logConfiguration,
+    createExperimentTemplate_tags,
     createExperimentTemplate_targets,
     createExperimentTemplate_clientToken,
     createExperimentTemplate_description,
@@ -74,10 +74,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExperimentTemplate' smart constructor.
 data CreateExperimentTemplate = CreateExperimentTemplate'
-  { -- | The tags to apply to the experiment template.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The configuration for experiment logging.
+  { -- | The configuration for experiment logging.
     logConfiguration :: Prelude.Maybe CreateExperimentTemplateLogConfigurationInput,
+    -- | The tags to apply to the experiment template.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The targets for the experiment.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput),
     -- | Unique, case-sensitive identifier that you provide to ensure the
@@ -103,9 +103,9 @@ data CreateExperimentTemplate = CreateExperimentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createExperimentTemplate_tags' - The tags to apply to the experiment template.
---
 -- 'logConfiguration', 'createExperimentTemplate_logConfiguration' - The configuration for experiment logging.
+--
+-- 'tags', 'createExperimentTemplate_tags' - The tags to apply to the experiment template.
 --
 -- 'targets', 'createExperimentTemplate_targets' - The targets for the experiment.
 --
@@ -133,8 +133,9 @@ newCreateExperimentTemplate
   pDescription_
   pRoleArn_ =
     CreateExperimentTemplate'
-      { tags = Prelude.Nothing,
-        logConfiguration = Prelude.Nothing,
+      { logConfiguration =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         targets = Prelude.Nothing,
         clientToken = pClientToken_,
         description = pDescription_,
@@ -143,13 +144,13 @@ newCreateExperimentTemplate
         roleArn = pRoleArn_
       }
 
--- | The tags to apply to the experiment template.
-createExperimentTemplate_tags :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExperimentTemplate_tags = Lens.lens (\CreateExperimentTemplate' {tags} -> tags) (\s@CreateExperimentTemplate' {} a -> s {tags = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
-
 -- | The configuration for experiment logging.
 createExperimentTemplate_logConfiguration :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe CreateExperimentTemplateLogConfigurationInput)
 createExperimentTemplate_logConfiguration = Lens.lens (\CreateExperimentTemplate' {logConfiguration} -> logConfiguration) (\s@CreateExperimentTemplate' {} a -> s {logConfiguration = a} :: CreateExperimentTemplate)
+
+-- | The tags to apply to the experiment template.
+createExperimentTemplate_tags :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperimentTemplate_tags = Lens.lens (\CreateExperimentTemplate' {tags} -> tags) (\s@CreateExperimentTemplate' {} a -> s {tags = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The targets for the experiment.
 createExperimentTemplate_targets :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput))
@@ -193,8 +194,8 @@ instance Core.AWSRequest CreateExperimentTemplate where
 
 instance Prelude.Hashable CreateExperimentTemplate where
   hashWithSalt _salt CreateExperimentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` logConfiguration
+    _salt `Prelude.hashWithSalt` logConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
@@ -204,8 +205,8 @@ instance Prelude.Hashable CreateExperimentTemplate where
 
 instance Prelude.NFData CreateExperimentTemplate where
   rnf CreateExperimentTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf logConfiguration
+    Prelude.rnf logConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
@@ -228,9 +229,9 @@ instance Data.ToJSON CreateExperimentTemplate where
   toJSON CreateExperimentTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("logConfiguration" Data..=)
+          [ ("logConfiguration" Data..=)
               Prelude.<$> logConfiguration,
+            ("tags" Data..=) Prelude.<$> tags,
             ("targets" Data..=) Prelude.<$> targets,
             Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just ("description" Data..= description),

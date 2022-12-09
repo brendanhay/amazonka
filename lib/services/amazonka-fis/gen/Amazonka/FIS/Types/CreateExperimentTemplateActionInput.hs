@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateExperimentTemplateActionInput' smart constructor.
 data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
-  { -- | The name of the action that must be completed before the current action
+  { -- | A description for the action.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The parameters for the action, if applicable.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the action that must be completed before the current action
     -- starts. Omit this parameter to run the action at the start of the
     -- experiment.
     startAfter :: Prelude.Maybe [Prelude.Text],
     -- | The targets for the action.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description for the action.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the action, if applicable.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the action. The format of the action ID is:
     -- aws:/service-name/:/action-type/.
     actionId :: Prelude.Text
@@ -56,15 +56,15 @@ data CreateExperimentTemplateActionInput = CreateExperimentTemplateActionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createExperimentTemplateActionInput_description' - A description for the action.
+--
+-- 'parameters', 'createExperimentTemplateActionInput_parameters' - The parameters for the action, if applicable.
+--
 -- 'startAfter', 'createExperimentTemplateActionInput_startAfter' - The name of the action that must be completed before the current action
 -- starts. Omit this parameter to run the action at the start of the
 -- experiment.
 --
 -- 'targets', 'createExperimentTemplateActionInput_targets' - The targets for the action.
---
--- 'description', 'createExperimentTemplateActionInput_description' - A description for the action.
---
--- 'parameters', 'createExperimentTemplateActionInput_parameters' - The parameters for the action, if applicable.
 --
 -- 'actionId', 'createExperimentTemplateActionInput_actionId' - The ID of the action. The format of the action ID is:
 -- aws:/service-name/:/action-type/.
@@ -74,13 +74,21 @@ newCreateExperimentTemplateActionInput ::
   CreateExperimentTemplateActionInput
 newCreateExperimentTemplateActionInput pActionId_ =
   CreateExperimentTemplateActionInput'
-    { startAfter =
+    { description =
         Prelude.Nothing,
-      targets = Prelude.Nothing,
-      description = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      startAfter = Prelude.Nothing,
+      targets = Prelude.Nothing,
       actionId = pActionId_
     }
+
+-- | A description for the action.
+createExperimentTemplateActionInput_description :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe Prelude.Text)
+createExperimentTemplateActionInput_description = Lens.lens (\CreateExperimentTemplateActionInput' {description} -> description) (\s@CreateExperimentTemplateActionInput' {} a -> s {description = a} :: CreateExperimentTemplateActionInput)
+
+-- | The parameters for the action, if applicable.
+createExperimentTemplateActionInput_parameters :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperimentTemplateActionInput_parameters = Lens.lens (\CreateExperimentTemplateActionInput' {parameters} -> parameters) (\s@CreateExperimentTemplateActionInput' {} a -> s {parameters = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the action that must be completed before the current action
 -- starts. Omit this parameter to run the action at the start of the
@@ -91,14 +99,6 @@ createExperimentTemplateActionInput_startAfter = Lens.lens (\CreateExperimentTem
 -- | The targets for the action.
 createExperimentTemplateActionInput_targets :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplateActionInput_targets = Lens.lens (\CreateExperimentTemplateActionInput' {targets} -> targets) (\s@CreateExperimentTemplateActionInput' {} a -> s {targets = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
-
--- | A description for the action.
-createExperimentTemplateActionInput_description :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe Prelude.Text)
-createExperimentTemplateActionInput_description = Lens.lens (\CreateExperimentTemplateActionInput' {description} -> description) (\s@CreateExperimentTemplateActionInput' {} a -> s {description = a} :: CreateExperimentTemplateActionInput)
-
--- | The parameters for the action, if applicable.
-createExperimentTemplateActionInput_parameters :: Lens.Lens' CreateExperimentTemplateActionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExperimentTemplateActionInput_parameters = Lens.lens (\CreateExperimentTemplateActionInput' {parameters} -> parameters) (\s@CreateExperimentTemplateActionInput' {} a -> s {parameters = a} :: CreateExperimentTemplateActionInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the action. The format of the action ID is:
 -- aws:/service-name/:/action-type/.
@@ -112,10 +112,10 @@ instance
   hashWithSalt
     _salt
     CreateExperimentTemplateActionInput' {..} =
-      _salt `Prelude.hashWithSalt` startAfter
-        `Prelude.hashWithSalt` targets
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` startAfter
+        `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` actionId
 
 instance
@@ -123,10 +123,10 @@ instance
     CreateExperimentTemplateActionInput
   where
   rnf CreateExperimentTemplateActionInput' {..} =
-    Prelude.rnf startAfter
-      `Prelude.seq` Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf startAfter
+      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf actionId
 
 instance
@@ -136,10 +136,10 @@ instance
   toJSON CreateExperimentTemplateActionInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("startAfter" Data..=) Prelude.<$> startAfter,
-            ("targets" Data..=) Prelude.<$> targets,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("parameters" Data..=) Prelude.<$> parameters,
+            ("startAfter" Data..=) Prelude.<$> startAfter,
+            ("targets" Data..=) Prelude.<$> targets,
             Prelude.Just ("actionId" Data..= actionId)
           ]
       )

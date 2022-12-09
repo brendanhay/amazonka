@@ -27,8 +27,8 @@ module Amazonka.FIS.ListExperimentTemplates
     newListExperimentTemplates,
 
     -- * Request Lenses
-    listExperimentTemplates_nextToken,
     listExperimentTemplates_maxResults,
+    listExperimentTemplates_nextToken,
 
     -- * Destructuring the Response
     ListExperimentTemplatesResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExperimentTemplates' smart constructor.
 data ListExperimentTemplates = ListExperimentTemplates'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,29 +68,29 @@ data ListExperimentTemplates = ListExperimentTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listExperimentTemplates_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listExperimentTemplates_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listExperimentTemplates_nextToken' - The token for the next page of results.
 newListExperimentTemplates ::
   ListExperimentTemplates
 newListExperimentTemplates =
   ListExperimentTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listExperimentTemplates_nextToken :: Lens.Lens' ListExperimentTemplates (Prelude.Maybe Prelude.Text)
-listExperimentTemplates_nextToken = Lens.lens (\ListExperimentTemplates' {nextToken} -> nextToken) (\s@ListExperimentTemplates' {} a -> s {nextToken = a} :: ListExperimentTemplates)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listExperimentTemplates_maxResults :: Lens.Lens' ListExperimentTemplates (Prelude.Maybe Prelude.Natural)
 listExperimentTemplates_maxResults = Lens.lens (\ListExperimentTemplates' {maxResults} -> maxResults) (\s@ListExperimentTemplates' {} a -> s {maxResults = a} :: ListExperimentTemplates)
+
+-- | The token for the next page of results.
+listExperimentTemplates_nextToken :: Lens.Lens' ListExperimentTemplates (Prelude.Maybe Prelude.Text)
+listExperimentTemplates_nextToken = Lens.lens (\ListExperimentTemplates' {nextToken} -> nextToken) (\s@ListExperimentTemplates' {} a -> s {nextToken = a} :: ListExperimentTemplates)
 
 instance Core.AWSRequest ListExperimentTemplates where
   type
@@ -111,13 +111,13 @@ instance Core.AWSRequest ListExperimentTemplates where
 
 instance Prelude.Hashable ListExperimentTemplates where
   hashWithSalt _salt ListExperimentTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListExperimentTemplates where
   rnf ListExperimentTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExperimentTemplates where
   toHeaders =
@@ -136,8 +136,8 @@ instance Data.ToPath ListExperimentTemplates where
 instance Data.ToQuery ListExperimentTemplates where
   toQuery ListExperimentTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListExperimentTemplatesResponse' smart constructor.

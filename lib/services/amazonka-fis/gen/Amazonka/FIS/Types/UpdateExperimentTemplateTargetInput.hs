@@ -34,12 +34,12 @@ data UpdateExperimentTemplateTargetInput = UpdateExperimentTemplateTargetInput'
   { -- | The filters to apply to identify target resources using specific
     -- attributes.
     filters :: Prelude.Maybe [ExperimentTemplateTargetInputFilter],
-    -- | The tags for the target resources.
-    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The resource type parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the targets.
     resourceArns :: Prelude.Maybe [Prelude.Text],
+    -- | The tags for the target resources.
+    resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The resource type. The resource type must be supported for the specified
     -- action.
     resourceType :: Prelude.Text,
@@ -59,11 +59,11 @@ data UpdateExperimentTemplateTargetInput = UpdateExperimentTemplateTargetInput'
 -- 'filters', 'updateExperimentTemplateTargetInput_filters' - The filters to apply to identify target resources using specific
 -- attributes.
 --
--- 'resourceTags', 'updateExperimentTemplateTargetInput_resourceTags' - The tags for the target resources.
---
 -- 'parameters', 'updateExperimentTemplateTargetInput_parameters' - The resource type parameters.
 --
 -- 'resourceArns', 'updateExperimentTemplateTargetInput_resourceArns' - The Amazon Resource Names (ARNs) of the targets.
+--
+-- 'resourceTags', 'updateExperimentTemplateTargetInput_resourceTags' - The tags for the target resources.
 --
 -- 'resourceType', 'updateExperimentTemplateTargetInput_resourceType' - The resource type. The resource type must be supported for the specified
 -- action.
@@ -81,9 +81,9 @@ newUpdateExperimentTemplateTargetInput
     UpdateExperimentTemplateTargetInput'
       { filters =
           Prelude.Nothing,
-        resourceTags = Prelude.Nothing,
         parameters = Prelude.Nothing,
         resourceArns = Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         resourceType = pResourceType_,
         selectionMode = pSelectionMode_
       }
@@ -93,10 +93,6 @@ newUpdateExperimentTemplateTargetInput
 updateExperimentTemplateTargetInput_filters :: Lens.Lens' UpdateExperimentTemplateTargetInput (Prelude.Maybe [ExperimentTemplateTargetInputFilter])
 updateExperimentTemplateTargetInput_filters = Lens.lens (\UpdateExperimentTemplateTargetInput' {filters} -> filters) (\s@UpdateExperimentTemplateTargetInput' {} a -> s {filters = a} :: UpdateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The tags for the target resources.
-updateExperimentTemplateTargetInput_resourceTags :: Lens.Lens' UpdateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateExperimentTemplateTargetInput_resourceTags = Lens.lens (\UpdateExperimentTemplateTargetInput' {resourceTags} -> resourceTags) (\s@UpdateExperimentTemplateTargetInput' {} a -> s {resourceTags = a} :: UpdateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
-
 -- | The resource type parameters.
 updateExperimentTemplateTargetInput_parameters :: Lens.Lens' UpdateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateExperimentTemplateTargetInput_parameters = Lens.lens (\UpdateExperimentTemplateTargetInput' {parameters} -> parameters) (\s@UpdateExperimentTemplateTargetInput' {} a -> s {parameters = a} :: UpdateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
@@ -104,6 +100,10 @@ updateExperimentTemplateTargetInput_parameters = Lens.lens (\UpdateExperimentTem
 -- | The Amazon Resource Names (ARNs) of the targets.
 updateExperimentTemplateTargetInput_resourceArns :: Lens.Lens' UpdateExperimentTemplateTargetInput (Prelude.Maybe [Prelude.Text])
 updateExperimentTemplateTargetInput_resourceArns = Lens.lens (\UpdateExperimentTemplateTargetInput' {resourceArns} -> resourceArns) (\s@UpdateExperimentTemplateTargetInput' {} a -> s {resourceArns = a} :: UpdateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags for the target resources.
+updateExperimentTemplateTargetInput_resourceTags :: Lens.Lens' UpdateExperimentTemplateTargetInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateExperimentTemplateTargetInput_resourceTags = Lens.lens (\UpdateExperimentTemplateTargetInput' {resourceTags} -> resourceTags) (\s@UpdateExperimentTemplateTargetInput' {} a -> s {resourceTags = a} :: UpdateExperimentTemplateTargetInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type. The resource type must be supported for the specified
 -- action.
@@ -122,9 +122,9 @@ instance
     _salt
     UpdateExperimentTemplateTargetInput' {..} =
       _salt `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` resourceTags
         `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` resourceArns
+        `Prelude.hashWithSalt` resourceTags
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` selectionMode
 
@@ -134,9 +134,9 @@ instance
   where
   rnf UpdateExperimentTemplateTargetInput' {..} =
     Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceArns
+      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf selectionMode
 
@@ -148,9 +148,9 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("filters" Data..=) Prelude.<$> filters,
-            ("resourceTags" Data..=) Prelude.<$> resourceTags,
             ("parameters" Data..=) Prelude.<$> parameters,
             ("resourceArns" Data..=) Prelude.<$> resourceArns,
+            ("resourceTags" Data..=) Prelude.<$> resourceTags,
             Prelude.Just ("resourceType" Data..= resourceType),
             Prelude.Just
               ("selectionMode" Data..= selectionMode)

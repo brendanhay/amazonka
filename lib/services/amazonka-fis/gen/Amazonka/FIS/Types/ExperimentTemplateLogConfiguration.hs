@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentTemplateLogConfiguration' smart constructor.
 data ExperimentTemplateLogConfiguration = ExperimentTemplateLogConfiguration'
-  { -- | The configuration for experiment logging to Amazon S3.
-    s3Configuration :: Prelude.Maybe ExperimentTemplateS3LogConfiguration,
+  { -- | The configuration for experiment logging to Amazon CloudWatch Logs.
+    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfiguration,
     -- | The schema version.
     logSchemaVersion :: Prelude.Maybe Prelude.Int,
-    -- | The configuration for experiment logging to Amazon CloudWatch Logs.
-    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfiguration
+    -- | The configuration for experiment logging to Amazon S3.
+    s3Configuration :: Prelude.Maybe ExperimentTemplateS3LogConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,32 @@ data ExperimentTemplateLogConfiguration = ExperimentTemplateLogConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Configuration', 'experimentTemplateLogConfiguration_s3Configuration' - The configuration for experiment logging to Amazon S3.
+-- 'cloudWatchLogsConfiguration', 'experimentTemplateLogConfiguration_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
 --
 -- 'logSchemaVersion', 'experimentTemplateLogConfiguration_logSchemaVersion' - The schema version.
 --
--- 'cloudWatchLogsConfiguration', 'experimentTemplateLogConfiguration_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
+-- 's3Configuration', 'experimentTemplateLogConfiguration_s3Configuration' - The configuration for experiment logging to Amazon S3.
 newExperimentTemplateLogConfiguration ::
   ExperimentTemplateLogConfiguration
 newExperimentTemplateLogConfiguration =
   ExperimentTemplateLogConfiguration'
-    { s3Configuration =
+    { cloudWatchLogsConfiguration =
         Prelude.Nothing,
       logSchemaVersion = Prelude.Nothing,
-      cloudWatchLogsConfiguration =
-        Prelude.Nothing
+      s3Configuration = Prelude.Nothing
     }
 
--- | The configuration for experiment logging to Amazon S3.
-experimentTemplateLogConfiguration_s3Configuration :: Lens.Lens' ExperimentTemplateLogConfiguration (Prelude.Maybe ExperimentTemplateS3LogConfiguration)
-experimentTemplateLogConfiguration_s3Configuration = Lens.lens (\ExperimentTemplateLogConfiguration' {s3Configuration} -> s3Configuration) (\s@ExperimentTemplateLogConfiguration' {} a -> s {s3Configuration = a} :: ExperimentTemplateLogConfiguration)
+-- | The configuration for experiment logging to Amazon CloudWatch Logs.
+experimentTemplateLogConfiguration_cloudWatchLogsConfiguration :: Lens.Lens' ExperimentTemplateLogConfiguration (Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfiguration)
+experimentTemplateLogConfiguration_cloudWatchLogsConfiguration = Lens.lens (\ExperimentTemplateLogConfiguration' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@ExperimentTemplateLogConfiguration' {} a -> s {cloudWatchLogsConfiguration = a} :: ExperimentTemplateLogConfiguration)
 
 -- | The schema version.
 experimentTemplateLogConfiguration_logSchemaVersion :: Lens.Lens' ExperimentTemplateLogConfiguration (Prelude.Maybe Prelude.Int)
 experimentTemplateLogConfiguration_logSchemaVersion = Lens.lens (\ExperimentTemplateLogConfiguration' {logSchemaVersion} -> logSchemaVersion) (\s@ExperimentTemplateLogConfiguration' {} a -> s {logSchemaVersion = a} :: ExperimentTemplateLogConfiguration)
 
--- | The configuration for experiment logging to Amazon CloudWatch Logs.
-experimentTemplateLogConfiguration_cloudWatchLogsConfiguration :: Lens.Lens' ExperimentTemplateLogConfiguration (Prelude.Maybe ExperimentTemplateCloudWatchLogsLogConfiguration)
-experimentTemplateLogConfiguration_cloudWatchLogsConfiguration = Lens.lens (\ExperimentTemplateLogConfiguration' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@ExperimentTemplateLogConfiguration' {} a -> s {cloudWatchLogsConfiguration = a} :: ExperimentTemplateLogConfiguration)
+-- | The configuration for experiment logging to Amazon S3.
+experimentTemplateLogConfiguration_s3Configuration :: Lens.Lens' ExperimentTemplateLogConfiguration (Prelude.Maybe ExperimentTemplateS3LogConfiguration)
+experimentTemplateLogConfiguration_s3Configuration = Lens.lens (\ExperimentTemplateLogConfiguration' {s3Configuration} -> s3Configuration) (\s@ExperimentTemplateLogConfiguration' {} a -> s {s3Configuration = a} :: ExperimentTemplateLogConfiguration)
 
 instance
   Data.FromJSON
@@ -84,9 +83,9 @@ instance
       "ExperimentTemplateLogConfiguration"
       ( \x ->
           ExperimentTemplateLogConfiguration'
-            Prelude.<$> (x Data..:? "s3Configuration")
+            Prelude.<$> (x Data..:? "cloudWatchLogsConfiguration")
             Prelude.<*> (x Data..:? "logSchemaVersion")
-            Prelude.<*> (x Data..:? "cloudWatchLogsConfiguration")
+            Prelude.<*> (x Data..:? "s3Configuration")
       )
 
 instance
@@ -96,15 +95,16 @@ instance
   hashWithSalt
     _salt
     ExperimentTemplateLogConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` s3Configuration
-        `Prelude.hashWithSalt` logSchemaVersion
+      _salt
         `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+        `Prelude.hashWithSalt` logSchemaVersion
+        `Prelude.hashWithSalt` s3Configuration
 
 instance
   Prelude.NFData
     ExperimentTemplateLogConfiguration
   where
   rnf ExperimentTemplateLogConfiguration' {..} =
-    Prelude.rnf s3Configuration
+    Prelude.rnf cloudWatchLogsConfiguration
       `Prelude.seq` Prelude.rnf logSchemaVersion
-      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf s3Configuration

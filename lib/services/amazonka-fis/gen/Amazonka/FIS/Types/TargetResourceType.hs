@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetResourceType' smart constructor.
 data TargetResourceType = TargetResourceType'
-  { -- | The resource type.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | A description of the resource type.
+  { -- | A description of the resource type.
     description :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the resource type.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TargetResourceTypeParameter)
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TargetResourceTypeParameter),
+    -- | The resource type.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data TargetResourceType = TargetResourceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'targetResourceType_resourceType' - The resource type.
---
 -- 'description', 'targetResourceType_description' - A description of the resource type.
 --
 -- 'parameters', 'targetResourceType_parameters' - The parameters for the resource type.
+--
+-- 'resourceType', 'targetResourceType_resourceType' - The resource type.
 newTargetResourceType ::
   TargetResourceType
 newTargetResourceType =
   TargetResourceType'
-    { resourceType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      parameters = Prelude.Nothing
+    { description = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The resource type.
-targetResourceType_resourceType :: Lens.Lens' TargetResourceType (Prelude.Maybe Prelude.Text)
-targetResourceType_resourceType = Lens.lens (\TargetResourceType' {resourceType} -> resourceType) (\s@TargetResourceType' {} a -> s {resourceType = a} :: TargetResourceType)
 
 -- | A description of the resource type.
 targetResourceType_description :: Lens.Lens' TargetResourceType (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ targetResourceType_description = Lens.lens (\TargetResourceType' {description} -
 targetResourceType_parameters :: Lens.Lens' TargetResourceType (Prelude.Maybe (Prelude.HashMap Prelude.Text TargetResourceTypeParameter))
 targetResourceType_parameters = Lens.lens (\TargetResourceType' {parameters} -> parameters) (\s@TargetResourceType' {} a -> s {parameters = a} :: TargetResourceType) Prelude.. Lens.mapping Lens.coerced
 
+-- | The resource type.
+targetResourceType_resourceType :: Lens.Lens' TargetResourceType (Prelude.Maybe Prelude.Text)
+targetResourceType_resourceType = Lens.lens (\TargetResourceType' {resourceType} -> resourceType) (\s@TargetResourceType' {} a -> s {resourceType = a} :: TargetResourceType)
+
 instance Data.FromJSON TargetResourceType where
   parseJSON =
     Data.withObject
       "TargetResourceType"
       ( \x ->
           TargetResourceType'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable TargetResourceType where
   hashWithSalt _salt TargetResourceType' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData TargetResourceType where
   rnf TargetResourceType' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf resourceType

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentState' smart constructor.
 data ExperimentState = ExperimentState'
-  { -- | The state of the experiment.
-    status :: Prelude.Maybe ExperimentStatus,
-    -- | The reason for the state.
-    reason :: Prelude.Maybe Prelude.Text
+  { -- | The reason for the state.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The state of the experiment.
+    status :: Prelude.Maybe ExperimentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ExperimentState = ExperimentState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'experimentState_status' - The state of the experiment.
---
 -- 'reason', 'experimentState_reason' - The reason for the state.
+--
+-- 'status', 'experimentState_status' - The state of the experiment.
 newExperimentState ::
   ExperimentState
 newExperimentState =
   ExperimentState'
-    { status = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The state of the experiment.
-experimentState_status :: Lens.Lens' ExperimentState (Prelude.Maybe ExperimentStatus)
-experimentState_status = Lens.lens (\ExperimentState' {status} -> status) (\s@ExperimentState' {} a -> s {status = a} :: ExperimentState)
 
 -- | The reason for the state.
 experimentState_reason :: Lens.Lens' ExperimentState (Prelude.Maybe Prelude.Text)
 experimentState_reason = Lens.lens (\ExperimentState' {reason} -> reason) (\s@ExperimentState' {} a -> s {reason = a} :: ExperimentState)
+
+-- | The state of the experiment.
+experimentState_status :: Lens.Lens' ExperimentState (Prelude.Maybe ExperimentStatus)
+experimentState_status = Lens.lens (\ExperimentState' {status} -> status) (\s@ExperimentState' {} a -> s {status = a} :: ExperimentState)
 
 instance Data.FromJSON ExperimentState where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON ExperimentState where
       "ExperimentState"
       ( \x ->
           ExperimentState'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "reason")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ExperimentState where
   hashWithSalt _salt ExperimentState' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExperimentState where
   rnf ExperimentState' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status

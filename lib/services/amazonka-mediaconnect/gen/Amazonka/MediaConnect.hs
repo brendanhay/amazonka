@@ -19,8 +19,23 @@ module Amazonka.MediaConnect
     -- * Errors
     -- $errors
 
+    -- ** AddFlowOutputs420Exception
+    _AddFlowOutputs420Exception,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** CreateFlow420Exception
+    _CreateFlow420Exception,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
     -- ** GrantFlowEntitlements420Exception
     _GrantFlowEntitlements420Exception,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -28,35 +43,20 @@ module Amazonka.MediaConnect
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** AddFlowOutputs420Exception
-    _AddFlowOutputs420Exception,
-
-    -- ** CreateFlow420Exception
-    _CreateFlow420Exception,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** FlowStandby
-    newFlowStandby,
+    -- ** FlowActive
+    newFlowActive,
 
     -- ** FlowDeleted
     newFlowDeleted,
 
-    -- ** FlowActive
-    newFlowActive,
+    -- ** FlowStandby
+    newFlowStandby,
 
     -- * Operations
     -- $operations

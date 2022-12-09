@@ -34,8 +34,8 @@ module Amazonka.MediaConnect.StartFlow
     newStartFlowResponse,
 
     -- * Response Lenses
-    startFlowResponse_status,
     startFlowResponse_flowArn,
+    startFlowResponse_status,
     startFlowResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest StartFlow where
     Response.receiveJSON
       ( \s h x ->
           StartFlowResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,10 +119,10 @@ instance Data.ToQuery StartFlow where
 
 -- | /See:/ 'newStartFlowResponse' smart constructor.
 data StartFlowResponse = StartFlowResponse'
-  { -- | The status of the flow when the StartFlow process begins.
-    status :: Prelude.Maybe Status,
-    -- | The ARN of the flow that you started.
+  { -- | The ARN of the flow that you started.
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the flow when the StartFlow process begins.
+    status :: Prelude.Maybe Status,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -136,9 +136,9 @@ data StartFlowResponse = StartFlowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'startFlowResponse_status' - The status of the flow when the StartFlow process begins.
---
 -- 'flowArn', 'startFlowResponse_flowArn' - The ARN of the flow that you started.
+--
+-- 'status', 'startFlowResponse_status' - The status of the flow when the StartFlow process begins.
 --
 -- 'httpStatus', 'startFlowResponse_httpStatus' - The response's http status code.
 newStartFlowResponse ::
@@ -147,18 +147,18 @@ newStartFlowResponse ::
   StartFlowResponse
 newStartFlowResponse pHttpStatus_ =
   StartFlowResponse'
-    { status = Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+    { flowArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the flow when the StartFlow process begins.
-startFlowResponse_status :: Lens.Lens' StartFlowResponse (Prelude.Maybe Status)
-startFlowResponse_status = Lens.lens (\StartFlowResponse' {status} -> status) (\s@StartFlowResponse' {} a -> s {status = a} :: StartFlowResponse)
 
 -- | The ARN of the flow that you started.
 startFlowResponse_flowArn :: Lens.Lens' StartFlowResponse (Prelude.Maybe Prelude.Text)
 startFlowResponse_flowArn = Lens.lens (\StartFlowResponse' {flowArn} -> flowArn) (\s@StartFlowResponse' {} a -> s {flowArn = a} :: StartFlowResponse)
+
+-- | The status of the flow when the StartFlow process begins.
+startFlowResponse_status :: Lens.Lens' StartFlowResponse (Prelude.Maybe Status)
+startFlowResponse_status = Lens.lens (\StartFlowResponse' {status} -> status) (\s@StartFlowResponse' {} a -> s {status = a} :: StartFlowResponse)
 
 -- | The response's http status code.
 startFlowResponse_httpStatus :: Lens.Lens' StartFlowResponse Prelude.Int
@@ -166,6 +166,6 @@ startFlowResponse_httpStatus = Lens.lens (\StartFlowResponse' {httpStatus} -> ht
 
 instance Prelude.NFData StartFlowResponse where
   rnf StartFlowResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf flowArn
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

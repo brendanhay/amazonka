@@ -32,23 +32,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFmtpRequest' smart constructor.
 data FmtpRequest = FmtpRequest'
-  { -- | The frame rate for the video stream, in frames\/second. For example:
+  { -- | The format of the audio channel.
+    channelOrder :: Prelude.Maybe Prelude.Text,
+    -- | The format that is used for the representation of color.
+    colorimetry :: Prelude.Maybe Colorimetry,
+    -- | The frame rate for the video stream, in frames\/second. For example:
     -- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of
     -- N\/1. For example, if you specify 60, MediaConnect uses 60\/1 as the
     -- exactFramerate.
     exactFramerate :: Prelude.Maybe Prelude.Text,
-    -- | The type of compression that was used to smooth the video’s appearance.
-    scanMode :: Prelude.Maybe ScanMode,
-    -- | The format that is used for the representation of color.
-    colorimetry :: Prelude.Maybe Colorimetry,
     -- | The pixel aspect ratio (PAR) of the video.
     par :: Prelude.Maybe Prelude.Text,
     -- | The encoding range of the video.
     range :: Prelude.Maybe Range,
+    -- | The type of compression that was used to smooth the video’s appearance.
+    scanMode :: Prelude.Maybe ScanMode,
     -- | The transfer characteristic system (TCS) that is used in the video.
-    tcs :: Prelude.Maybe Tcs,
-    -- | The format of the audio channel.
-    channelOrder :: Prelude.Maybe Prelude.Text
+    tcs :: Prelude.Maybe Tcs
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,34 +60,42 @@ data FmtpRequest = FmtpRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelOrder', 'fmtpRequest_channelOrder' - The format of the audio channel.
+--
+-- 'colorimetry', 'fmtpRequest_colorimetry' - The format that is used for the representation of color.
+--
 -- 'exactFramerate', 'fmtpRequest_exactFramerate' - The frame rate for the video stream, in frames\/second. For example:
 -- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of
 -- N\/1. For example, if you specify 60, MediaConnect uses 60\/1 as the
 -- exactFramerate.
 --
--- 'scanMode', 'fmtpRequest_scanMode' - The type of compression that was used to smooth the video’s appearance.
---
--- 'colorimetry', 'fmtpRequest_colorimetry' - The format that is used for the representation of color.
---
 -- 'par', 'fmtpRequest_par' - The pixel aspect ratio (PAR) of the video.
 --
 -- 'range', 'fmtpRequest_range' - The encoding range of the video.
 --
--- 'tcs', 'fmtpRequest_tcs' - The transfer characteristic system (TCS) that is used in the video.
+-- 'scanMode', 'fmtpRequest_scanMode' - The type of compression that was used to smooth the video’s appearance.
 --
--- 'channelOrder', 'fmtpRequest_channelOrder' - The format of the audio channel.
+-- 'tcs', 'fmtpRequest_tcs' - The transfer characteristic system (TCS) that is used in the video.
 newFmtpRequest ::
   FmtpRequest
 newFmtpRequest =
   FmtpRequest'
-    { exactFramerate = Prelude.Nothing,
-      scanMode = Prelude.Nothing,
+    { channelOrder = Prelude.Nothing,
       colorimetry = Prelude.Nothing,
+      exactFramerate = Prelude.Nothing,
       par = Prelude.Nothing,
       range = Prelude.Nothing,
-      tcs = Prelude.Nothing,
-      channelOrder = Prelude.Nothing
+      scanMode = Prelude.Nothing,
+      tcs = Prelude.Nothing
     }
+
+-- | The format of the audio channel.
+fmtpRequest_channelOrder :: Lens.Lens' FmtpRequest (Prelude.Maybe Prelude.Text)
+fmtpRequest_channelOrder = Lens.lens (\FmtpRequest' {channelOrder} -> channelOrder) (\s@FmtpRequest' {} a -> s {channelOrder = a} :: FmtpRequest)
+
+-- | The format that is used for the representation of color.
+fmtpRequest_colorimetry :: Lens.Lens' FmtpRequest (Prelude.Maybe Colorimetry)
+fmtpRequest_colorimetry = Lens.lens (\FmtpRequest' {colorimetry} -> colorimetry) (\s@FmtpRequest' {} a -> s {colorimetry = a} :: FmtpRequest)
 
 -- | The frame rate for the video stream, in frames\/second. For example:
 -- 60000\/1001. If you specify a whole number, MediaConnect uses a ratio of
@@ -95,14 +103,6 @@ newFmtpRequest =
 -- exactFramerate.
 fmtpRequest_exactFramerate :: Lens.Lens' FmtpRequest (Prelude.Maybe Prelude.Text)
 fmtpRequest_exactFramerate = Lens.lens (\FmtpRequest' {exactFramerate} -> exactFramerate) (\s@FmtpRequest' {} a -> s {exactFramerate = a} :: FmtpRequest)
-
--- | The type of compression that was used to smooth the video’s appearance.
-fmtpRequest_scanMode :: Lens.Lens' FmtpRequest (Prelude.Maybe ScanMode)
-fmtpRequest_scanMode = Lens.lens (\FmtpRequest' {scanMode} -> scanMode) (\s@FmtpRequest' {} a -> s {scanMode = a} :: FmtpRequest)
-
--- | The format that is used for the representation of color.
-fmtpRequest_colorimetry :: Lens.Lens' FmtpRequest (Prelude.Maybe Colorimetry)
-fmtpRequest_colorimetry = Lens.lens (\FmtpRequest' {colorimetry} -> colorimetry) (\s@FmtpRequest' {} a -> s {colorimetry = a} :: FmtpRequest)
 
 -- | The pixel aspect ratio (PAR) of the video.
 fmtpRequest_par :: Lens.Lens' FmtpRequest (Prelude.Maybe Prelude.Text)
@@ -112,45 +112,45 @@ fmtpRequest_par = Lens.lens (\FmtpRequest' {par} -> par) (\s@FmtpRequest' {} a -
 fmtpRequest_range :: Lens.Lens' FmtpRequest (Prelude.Maybe Range)
 fmtpRequest_range = Lens.lens (\FmtpRequest' {range} -> range) (\s@FmtpRequest' {} a -> s {range = a} :: FmtpRequest)
 
+-- | The type of compression that was used to smooth the video’s appearance.
+fmtpRequest_scanMode :: Lens.Lens' FmtpRequest (Prelude.Maybe ScanMode)
+fmtpRequest_scanMode = Lens.lens (\FmtpRequest' {scanMode} -> scanMode) (\s@FmtpRequest' {} a -> s {scanMode = a} :: FmtpRequest)
+
 -- | The transfer characteristic system (TCS) that is used in the video.
 fmtpRequest_tcs :: Lens.Lens' FmtpRequest (Prelude.Maybe Tcs)
 fmtpRequest_tcs = Lens.lens (\FmtpRequest' {tcs} -> tcs) (\s@FmtpRequest' {} a -> s {tcs = a} :: FmtpRequest)
 
--- | The format of the audio channel.
-fmtpRequest_channelOrder :: Lens.Lens' FmtpRequest (Prelude.Maybe Prelude.Text)
-fmtpRequest_channelOrder = Lens.lens (\FmtpRequest' {channelOrder} -> channelOrder) (\s@FmtpRequest' {} a -> s {channelOrder = a} :: FmtpRequest)
-
 instance Prelude.Hashable FmtpRequest where
   hashWithSalt _salt FmtpRequest' {..} =
-    _salt `Prelude.hashWithSalt` exactFramerate
-      `Prelude.hashWithSalt` scanMode
+    _salt `Prelude.hashWithSalt` channelOrder
       `Prelude.hashWithSalt` colorimetry
+      `Prelude.hashWithSalt` exactFramerate
       `Prelude.hashWithSalt` par
       `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` scanMode
       `Prelude.hashWithSalt` tcs
-      `Prelude.hashWithSalt` channelOrder
 
 instance Prelude.NFData FmtpRequest where
   rnf FmtpRequest' {..} =
-    Prelude.rnf exactFramerate
-      `Prelude.seq` Prelude.rnf scanMode
+    Prelude.rnf channelOrder
       `Prelude.seq` Prelude.rnf colorimetry
+      `Prelude.seq` Prelude.rnf exactFramerate
       `Prelude.seq` Prelude.rnf par
       `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf scanMode
       `Prelude.seq` Prelude.rnf tcs
-      `Prelude.seq` Prelude.rnf channelOrder
 
 instance Data.ToJSON FmtpRequest where
   toJSON FmtpRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("exactFramerate" Data..=)
-              Prelude.<$> exactFramerate,
-            ("scanMode" Data..=) Prelude.<$> scanMode,
+          [ ("channelOrder" Data..=) Prelude.<$> channelOrder,
             ("colorimetry" Data..=) Prelude.<$> colorimetry,
+            ("exactFramerate" Data..=)
+              Prelude.<$> exactFramerate,
             ("par" Data..=) Prelude.<$> par,
             ("range" Data..=) Prelude.<$> range,
-            ("tcs" Data..=) Prelude.<$> tcs,
-            ("channelOrder" Data..=) Prelude.<$> channelOrder
+            ("scanMode" Data..=) Prelude.<$> scanMode,
+            ("tcs" Data..=) Prelude.<$> tcs
           ]
       )

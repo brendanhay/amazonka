@@ -28,15 +28,15 @@ module Amazonka.MediaConnect.CreateFlow
     newCreateFlow,
 
     -- * Request Lenses
-    createFlow_sources,
-    createFlow_maintenance,
-    createFlow_vpcInterfaces,
-    createFlow_entitlements,
     createFlow_availabilityZone,
-    createFlow_source,
-    createFlow_outputs,
-    createFlow_sourceFailoverConfig,
+    createFlow_entitlements,
+    createFlow_maintenance,
     createFlow_mediaStreams,
+    createFlow_outputs,
+    createFlow_source,
+    createFlow_sourceFailoverConfig,
+    createFlow_sources,
+    createFlow_vpcInterfaces,
     createFlow_name,
 
     -- * Destructuring the Response
@@ -62,22 +62,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateFlow' smart constructor.
 data CreateFlow = CreateFlow'
-  { sources :: Prelude.Maybe [SetSourceRequest],
-    maintenance :: Prelude.Maybe AddMaintenance,
-    -- | The VPC interfaces you want on the flow.
-    vpcInterfaces :: Prelude.Maybe [VpcInterfaceRequest],
-    -- | The entitlements that you want to grant on a flow.
-    entitlements :: Prelude.Maybe [GrantEntitlementRequest],
-    -- | The Availability Zone that you want to create the flow in. These options
+  { -- | The Availability Zone that you want to create the flow in. These options
     -- are limited to the Availability Zones within the current AWS Region.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    source :: Prelude.Maybe SetSourceRequest,
-    -- | The outputs that you want to add to this flow.
-    outputs :: Prelude.Maybe [AddOutputRequest],
-    sourceFailoverConfig :: Prelude.Maybe FailoverConfig,
+    -- | The entitlements that you want to grant on a flow.
+    entitlements :: Prelude.Maybe [GrantEntitlementRequest],
+    maintenance :: Prelude.Maybe AddMaintenance,
     -- | The media streams that you want to add to the flow. You can associate
     -- these media streams with sources and outputs on the flow.
     mediaStreams :: Prelude.Maybe [AddMediaStreamRequest],
+    -- | The outputs that you want to add to this flow.
+    outputs :: Prelude.Maybe [AddOutputRequest],
+    source :: Prelude.Maybe SetSourceRequest,
+    sourceFailoverConfig :: Prelude.Maybe FailoverConfig,
+    sources :: Prelude.Maybe [SetSourceRequest],
+    -- | The VPC interfaces you want on the flow.
+    vpcInterfaces :: Prelude.Maybe [VpcInterfaceRequest],
     -- | The name of the flow.
     name :: Prelude.Text
   }
@@ -91,25 +91,25 @@ data CreateFlow = CreateFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'createFlow_sources' - Undocumented member.
---
--- 'maintenance', 'createFlow_maintenance' - Undocumented member.
---
--- 'vpcInterfaces', 'createFlow_vpcInterfaces' - The VPC interfaces you want on the flow.
---
--- 'entitlements', 'createFlow_entitlements' - The entitlements that you want to grant on a flow.
---
 -- 'availabilityZone', 'createFlow_availabilityZone' - The Availability Zone that you want to create the flow in. These options
 -- are limited to the Availability Zones within the current AWS Region.
 --
--- 'source', 'createFlow_source' - Undocumented member.
+-- 'entitlements', 'createFlow_entitlements' - The entitlements that you want to grant on a flow.
 --
--- 'outputs', 'createFlow_outputs' - The outputs that you want to add to this flow.
---
--- 'sourceFailoverConfig', 'createFlow_sourceFailoverConfig' - Undocumented member.
+-- 'maintenance', 'createFlow_maintenance' - Undocumented member.
 --
 -- 'mediaStreams', 'createFlow_mediaStreams' - The media streams that you want to add to the flow. You can associate
 -- these media streams with sources and outputs on the flow.
+--
+-- 'outputs', 'createFlow_outputs' - The outputs that you want to add to this flow.
+--
+-- 'source', 'createFlow_source' - Undocumented member.
+--
+-- 'sourceFailoverConfig', 'createFlow_sourceFailoverConfig' - Undocumented member.
+--
+-- 'sources', 'createFlow_sources' - Undocumented member.
+--
+-- 'vpcInterfaces', 'createFlow_vpcInterfaces' - The VPC interfaces you want on the flow.
 --
 -- 'name', 'createFlow_name' - The name of the flow.
 newCreateFlow ::
@@ -118,55 +118,55 @@ newCreateFlow ::
   CreateFlow
 newCreateFlow pName_ =
   CreateFlow'
-    { sources = Prelude.Nothing,
-      maintenance = Prelude.Nothing,
-      vpcInterfaces = Prelude.Nothing,
+    { availabilityZone = Prelude.Nothing,
       entitlements = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      source = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      sourceFailoverConfig = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       mediaStreams = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      source = Prelude.Nothing,
+      sourceFailoverConfig = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      vpcInterfaces = Prelude.Nothing,
       name = pName_
     }
-
--- | Undocumented member.
-createFlow_sources :: Lens.Lens' CreateFlow (Prelude.Maybe [SetSourceRequest])
-createFlow_sources = Lens.lens (\CreateFlow' {sources} -> sources) (\s@CreateFlow' {} a -> s {sources = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createFlow_maintenance :: Lens.Lens' CreateFlow (Prelude.Maybe AddMaintenance)
-createFlow_maintenance = Lens.lens (\CreateFlow' {maintenance} -> maintenance) (\s@CreateFlow' {} a -> s {maintenance = a} :: CreateFlow)
-
--- | The VPC interfaces you want on the flow.
-createFlow_vpcInterfaces :: Lens.Lens' CreateFlow (Prelude.Maybe [VpcInterfaceRequest])
-createFlow_vpcInterfaces = Lens.lens (\CreateFlow' {vpcInterfaces} -> vpcInterfaces) (\s@CreateFlow' {} a -> s {vpcInterfaces = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
-
--- | The entitlements that you want to grant on a flow.
-createFlow_entitlements :: Lens.Lens' CreateFlow (Prelude.Maybe [GrantEntitlementRequest])
-createFlow_entitlements = Lens.lens (\CreateFlow' {entitlements} -> entitlements) (\s@CreateFlow' {} a -> s {entitlements = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Availability Zone that you want to create the flow in. These options
 -- are limited to the Availability Zones within the current AWS Region.
 createFlow_availabilityZone :: Lens.Lens' CreateFlow (Prelude.Maybe Prelude.Text)
 createFlow_availabilityZone = Lens.lens (\CreateFlow' {availabilityZone} -> availabilityZone) (\s@CreateFlow' {} a -> s {availabilityZone = a} :: CreateFlow)
 
+-- | The entitlements that you want to grant on a flow.
+createFlow_entitlements :: Lens.Lens' CreateFlow (Prelude.Maybe [GrantEntitlementRequest])
+createFlow_entitlements = Lens.lens (\CreateFlow' {entitlements} -> entitlements) (\s@CreateFlow' {} a -> s {entitlements = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
-createFlow_source :: Lens.Lens' CreateFlow (Prelude.Maybe SetSourceRequest)
-createFlow_source = Lens.lens (\CreateFlow' {source} -> source) (\s@CreateFlow' {} a -> s {source = a} :: CreateFlow)
+createFlow_maintenance :: Lens.Lens' CreateFlow (Prelude.Maybe AddMaintenance)
+createFlow_maintenance = Lens.lens (\CreateFlow' {maintenance} -> maintenance) (\s@CreateFlow' {} a -> s {maintenance = a} :: CreateFlow)
+
+-- | The media streams that you want to add to the flow. You can associate
+-- these media streams with sources and outputs on the flow.
+createFlow_mediaStreams :: Lens.Lens' CreateFlow (Prelude.Maybe [AddMediaStreamRequest])
+createFlow_mediaStreams = Lens.lens (\CreateFlow' {mediaStreams} -> mediaStreams) (\s@CreateFlow' {} a -> s {mediaStreams = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The outputs that you want to add to this flow.
 createFlow_outputs :: Lens.Lens' CreateFlow (Prelude.Maybe [AddOutputRequest])
 createFlow_outputs = Lens.lens (\CreateFlow' {outputs} -> outputs) (\s@CreateFlow' {} a -> s {outputs = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
+createFlow_source :: Lens.Lens' CreateFlow (Prelude.Maybe SetSourceRequest)
+createFlow_source = Lens.lens (\CreateFlow' {source} -> source) (\s@CreateFlow' {} a -> s {source = a} :: CreateFlow)
+
+-- | Undocumented member.
 createFlow_sourceFailoverConfig :: Lens.Lens' CreateFlow (Prelude.Maybe FailoverConfig)
 createFlow_sourceFailoverConfig = Lens.lens (\CreateFlow' {sourceFailoverConfig} -> sourceFailoverConfig) (\s@CreateFlow' {} a -> s {sourceFailoverConfig = a} :: CreateFlow)
 
--- | The media streams that you want to add to the flow. You can associate
--- these media streams with sources and outputs on the flow.
-createFlow_mediaStreams :: Lens.Lens' CreateFlow (Prelude.Maybe [AddMediaStreamRequest])
-createFlow_mediaStreams = Lens.lens (\CreateFlow' {mediaStreams} -> mediaStreams) (\s@CreateFlow' {} a -> s {mediaStreams = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+createFlow_sources :: Lens.Lens' CreateFlow (Prelude.Maybe [SetSourceRequest])
+createFlow_sources = Lens.lens (\CreateFlow' {sources} -> sources) (\s@CreateFlow' {} a -> s {sources = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC interfaces you want on the flow.
+createFlow_vpcInterfaces :: Lens.Lens' CreateFlow (Prelude.Maybe [VpcInterfaceRequest])
+createFlow_vpcInterfaces = Lens.lens (\CreateFlow' {vpcInterfaces} -> vpcInterfaces) (\s@CreateFlow' {} a -> s {vpcInterfaces = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the flow.
 createFlow_name :: Lens.Lens' CreateFlow Prelude.Text
@@ -186,28 +186,28 @@ instance Core.AWSRequest CreateFlow where
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
-    _salt `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` maintenance
-      `Prelude.hashWithSalt` vpcInterfaces
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` entitlements
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` outputs
-      `Prelude.hashWithSalt` sourceFailoverConfig
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` mediaStreams
+      `Prelude.hashWithSalt` outputs
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` sourceFailoverConfig
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` vpcInterfaces
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateFlow where
   rnf CreateFlow' {..} =
-    Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf vpcInterfaces
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf entitlements
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf sourceFailoverConfig
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf mediaStreams
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf sourceFailoverConfig
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf vpcInterfaces
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateFlow where
@@ -225,17 +225,17 @@ instance Data.ToJSON CreateFlow where
   toJSON CreateFlow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sources" Data..=) Prelude.<$> sources,
-            ("maintenance" Data..=) Prelude.<$> maintenance,
-            ("vpcInterfaces" Data..=) Prelude.<$> vpcInterfaces,
-            ("entitlements" Data..=) Prelude.<$> entitlements,
-            ("availabilityZone" Data..=)
+          [ ("availabilityZone" Data..=)
               Prelude.<$> availabilityZone,
-            ("source" Data..=) Prelude.<$> source,
+            ("entitlements" Data..=) Prelude.<$> entitlements,
+            ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("mediaStreams" Data..=) Prelude.<$> mediaStreams,
             ("outputs" Data..=) Prelude.<$> outputs,
+            ("source" Data..=) Prelude.<$> source,
             ("sourceFailoverConfig" Data..=)
               Prelude.<$> sourceFailoverConfig,
-            ("mediaStreams" Data..=) Prelude.<$> mediaStreams,
+            ("sources" Data..=) Prelude.<$> sources,
+            ("vpcInterfaces" Data..=) Prelude.<$> vpcInterfaces,
             Prelude.Just ("name" Data..= name)
           ]
       )

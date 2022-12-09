@@ -18,14 +18,14 @@ module Amazonka.MediaConnect.Types
     defaultService,
 
     -- * Errors
+    _AddFlowOutputs420Exception,
+    _BadRequestException,
+    _CreateFlow420Exception,
+    _ForbiddenException,
     _GrantFlowEntitlements420Exception,
+    _InternalServerErrorException,
     _NotFoundException,
     _ServiceUnavailableException,
-    _InternalServerErrorException,
-    _ForbiddenException,
-    _AddFlowOutputs420Exception,
-    _CreateFlow420Exception,
-    _BadRequestException,
     _TooManyRequestsException,
 
     -- * Algorithm
@@ -100,10 +100,10 @@ module Amazonka.MediaConnect.Types
     -- * AddMediaStreamRequest
     AddMediaStreamRequest (..),
     newAddMediaStreamRequest,
-    addMediaStreamRequest_videoFormat,
-    addMediaStreamRequest_description,
-    addMediaStreamRequest_clockRate,
     addMediaStreamRequest_attributes,
+    addMediaStreamRequest_clockRate,
+    addMediaStreamRequest_description,
+    addMediaStreamRequest_videoFormat,
     addMediaStreamRequest_mediaStreamType,
     addMediaStreamRequest_mediaStreamId,
     addMediaStreamRequest_mediaStreamName,
@@ -111,20 +111,20 @@ module Amazonka.MediaConnect.Types
     -- * AddOutputRequest
     AddOutputRequest (..),
     newAddOutputRequest,
-    addOutputRequest_destination,
-    addOutputRequest_port,
-    addOutputRequest_maxLatency,
-    addOutputRequest_name,
-    addOutputRequest_mediaStreamOutputConfigurations,
-    addOutputRequest_smoothingLatency,
     addOutputRequest_cidrAllowList,
-    addOutputRequest_streamId,
-    addOutputRequest_remoteId,
-    addOutputRequest_vpcInterfaceAttachment,
     addOutputRequest_description,
-    addOutputRequest_senderControlPort,
+    addOutputRequest_destination,
     addOutputRequest_encryption,
+    addOutputRequest_maxLatency,
+    addOutputRequest_mediaStreamOutputConfigurations,
     addOutputRequest_minLatency,
+    addOutputRequest_name,
+    addOutputRequest_port,
+    addOutputRequest_remoteId,
+    addOutputRequest_senderControlPort,
+    addOutputRequest_smoothingLatency,
+    addOutputRequest_streamId,
+    addOutputRequest_vpcInterfaceAttachment,
     addOutputRequest_protocol,
 
     -- * DestinationConfiguration
@@ -157,23 +157,23 @@ module Amazonka.MediaConnect.Types
     -- * Encryption
     Encryption (..),
     newEncryption,
-    encryption_resourceId,
-    encryption_deviceId,
-    encryption_constantInitializationVector,
-    encryption_keyType,
-    encryption_url,
-    encryption_region,
-    encryption_secretArn,
     encryption_algorithm,
+    encryption_constantInitializationVector,
+    encryption_deviceId,
+    encryption_keyType,
+    encryption_region,
+    encryption_resourceId,
+    encryption_secretArn,
+    encryption_url,
     encryption_roleArn,
 
     -- * Entitlement
     Entitlement (..),
     newEntitlement,
-    entitlement_entitlementStatus,
+    entitlement_dataTransferSubscriberFeePercent,
     entitlement_description,
     entitlement_encryption,
-    entitlement_dataTransferSubscriberFeePercent,
+    entitlement_entitlementStatus,
     entitlement_entitlementArn,
     entitlement_subscribers,
     entitlement_name,
@@ -181,21 +181,21 @@ module Amazonka.MediaConnect.Types
     -- * FailoverConfig
     FailoverConfig (..),
     newFailoverConfig,
-    failoverConfig_recoveryWindow,
-    failoverConfig_state,
-    failoverConfig_sourcePriority,
     failoverConfig_failoverMode,
+    failoverConfig_recoveryWindow,
+    failoverConfig_sourcePriority,
+    failoverConfig_state,
 
     -- * Flow
     Flow (..),
     newFlow,
-    flow_sources,
-    flow_maintenance,
-    flow_vpcInterfaces,
-    flow_egressIp,
     flow_description,
-    flow_sourceFailoverConfig,
+    flow_egressIp,
+    flow_maintenance,
     flow_mediaStreams,
+    flow_sourceFailoverConfig,
+    flow_sources,
+    flow_vpcInterfaces,
     flow_status,
     flow_entitlements,
     flow_outputs,
@@ -207,33 +207,33 @@ module Amazonka.MediaConnect.Types
     -- * Fmtp
     Fmtp (..),
     newFmtp,
-    fmtp_exactFramerate,
-    fmtp_scanMode,
+    fmtp_channelOrder,
     fmtp_colorimetry,
+    fmtp_exactFramerate,
     fmtp_par,
     fmtp_range,
+    fmtp_scanMode,
     fmtp_tcs,
-    fmtp_channelOrder,
 
     -- * FmtpRequest
     FmtpRequest (..),
     newFmtpRequest,
-    fmtpRequest_exactFramerate,
-    fmtpRequest_scanMode,
+    fmtpRequest_channelOrder,
     fmtpRequest_colorimetry,
+    fmtpRequest_exactFramerate,
     fmtpRequest_par,
     fmtpRequest_range,
+    fmtpRequest_scanMode,
     fmtpRequest_tcs,
-    fmtpRequest_channelOrder,
 
     -- * GrantEntitlementRequest
     GrantEntitlementRequest (..),
     newGrantEntitlementRequest,
-    grantEntitlementRequest_name,
-    grantEntitlementRequest_entitlementStatus,
+    grantEntitlementRequest_dataTransferSubscriberFeePercent,
     grantEntitlementRequest_description,
     grantEntitlementRequest_encryption,
-    grantEntitlementRequest_dataTransferSubscriberFeePercent,
+    grantEntitlementRequest_entitlementStatus,
+    grantEntitlementRequest_name,
     grantEntitlementRequest_subscribers,
 
     -- * InputConfiguration
@@ -280,18 +280,18 @@ module Amazonka.MediaConnect.Types
     -- * Maintenance
     Maintenance (..),
     newMaintenance,
+    maintenance_maintenanceDay,
     maintenance_maintenanceDeadline,
     maintenance_maintenanceScheduledDate,
     maintenance_maintenanceStartHour,
-    maintenance_maintenanceDay,
 
     -- * MediaStream
     MediaStream (..),
     newMediaStream,
-    mediaStream_videoFormat,
-    mediaStream_description,
-    mediaStream_clockRate,
     mediaStream_attributes,
+    mediaStream_clockRate,
+    mediaStream_description,
+    mediaStream_videoFormat,
     mediaStream_mediaStreamType,
     mediaStream_mediaStreamId,
     mediaStream_mediaStreamName,
@@ -312,16 +312,16 @@ module Amazonka.MediaConnect.Types
     -- * MediaStreamOutputConfiguration
     MediaStreamOutputConfiguration (..),
     newMediaStreamOutputConfiguration,
-    mediaStreamOutputConfiguration_encodingParameters,
     mediaStreamOutputConfiguration_destinationConfigurations,
+    mediaStreamOutputConfiguration_encodingParameters,
     mediaStreamOutputConfiguration_mediaStreamName,
     mediaStreamOutputConfiguration_encodingName,
 
     -- * MediaStreamOutputConfigurationRequest
     MediaStreamOutputConfigurationRequest (..),
     newMediaStreamOutputConfigurationRequest,
-    mediaStreamOutputConfigurationRequest_encodingParameters,
     mediaStreamOutputConfigurationRequest_destinationConfigurations,
+    mediaStreamOutputConfigurationRequest_encodingParameters,
     mediaStreamOutputConfigurationRequest_mediaStreamName,
     mediaStreamOutputConfigurationRequest_encodingName,
 
@@ -359,17 +359,17 @@ module Amazonka.MediaConnect.Types
     -- * Output
     Output (..),
     newOutput,
+    output_dataTransferSubscriberFeePercent,
+    output_description,
     output_destination,
-    output_port,
-    output_mediaStreamOutputConfigurations,
+    output_encryption,
     output_entitlementArn,
     output_listenerAddress,
-    output_vpcInterfaceAttachment,
-    output_description,
     output_mediaLiveInputArn,
+    output_mediaStreamOutputConfigurations,
+    output_port,
     output_transport,
-    output_encryption,
-    output_dataTransferSubscriberFeePercent,
+    output_vpcInterfaceAttachment,
     output_outputArn,
     output_name,
 
@@ -399,39 +399,39 @@ module Amazonka.MediaConnect.Types
     -- * SetSourceRequest
     SetSourceRequest (..),
     newSetSourceRequest,
-    setSourceRequest_maxLatency,
-    setSourceRequest_name,
-    setSourceRequest_mediaStreamSourceConfigurations,
-    setSourceRequest_entitlementArn,
-    setSourceRequest_vpcInterfaceName,
-    setSourceRequest_maxSyncBuffer,
-    setSourceRequest_maxBitrate,
-    setSourceRequest_streamId,
-    setSourceRequest_senderIpAddress,
     setSourceRequest_decryption,
     setSourceRequest_description,
-    setSourceRequest_sourceListenerAddress,
-    setSourceRequest_senderControlPort,
-    setSourceRequest_protocol,
+    setSourceRequest_entitlementArn,
     setSourceRequest_ingestPort,
-    setSourceRequest_whitelistCidr,
+    setSourceRequest_maxBitrate,
+    setSourceRequest_maxLatency,
+    setSourceRequest_maxSyncBuffer,
+    setSourceRequest_mediaStreamSourceConfigurations,
     setSourceRequest_minLatency,
+    setSourceRequest_name,
+    setSourceRequest_protocol,
+    setSourceRequest_senderControlPort,
+    setSourceRequest_senderIpAddress,
+    setSourceRequest_sourceListenerAddress,
     setSourceRequest_sourceListenerPort,
+    setSourceRequest_streamId,
+    setSourceRequest_vpcInterfaceName,
+    setSourceRequest_whitelistCidr,
 
     -- * Source
     Source (..),
     newSource,
-    source_mediaStreamSourceConfigurations,
-    source_ingestIp,
-    source_entitlementArn,
-    source_vpcInterfaceName,
-    source_senderIpAddress,
+    source_dataTransferSubscriberFeePercent,
     source_decryption,
     source_description,
-    source_transport,
-    source_senderControlPort,
-    source_dataTransferSubscriberFeePercent,
+    source_entitlementArn,
+    source_ingestIp,
     source_ingestPort,
+    source_mediaStreamSourceConfigurations,
+    source_senderControlPort,
+    source_senderIpAddress,
+    source_transport,
+    source_vpcInterfaceName,
     source_whitelistCidr,
     source_sourceArn,
     source_name,
@@ -444,47 +444,47 @@ module Amazonka.MediaConnect.Types
     -- * Transport
     Transport (..),
     newTransport,
-    transport_maxLatency,
-    transport_smoothingLatency,
-    transport_maxSyncBuffer,
-    transport_maxBitrate,
     transport_cidrAllowList,
-    transport_streamId,
-    transport_remoteId,
-    transport_senderIpAddress,
-    transport_sourceListenerAddress,
-    transport_senderControlPort,
+    transport_maxBitrate,
+    transport_maxLatency,
+    transport_maxSyncBuffer,
     transport_minLatency,
+    transport_remoteId,
+    transport_senderControlPort,
+    transport_senderIpAddress,
+    transport_smoothingLatency,
+    transport_sourceListenerAddress,
     transport_sourceListenerPort,
+    transport_streamId,
     transport_protocol,
 
     -- * UpdateEncryption
     UpdateEncryption (..),
     newUpdateEncryption,
+    updateEncryption_algorithm,
+    updateEncryption_constantInitializationVector,
+    updateEncryption_deviceId,
+    updateEncryption_keyType,
+    updateEncryption_region,
     updateEncryption_resourceId,
     updateEncryption_roleArn,
-    updateEncryption_deviceId,
-    updateEncryption_constantInitializationVector,
-    updateEncryption_keyType,
-    updateEncryption_url,
-    updateEncryption_region,
     updateEncryption_secretArn,
-    updateEncryption_algorithm,
+    updateEncryption_url,
 
     -- * UpdateFailoverConfig
     UpdateFailoverConfig (..),
     newUpdateFailoverConfig,
-    updateFailoverConfig_recoveryWindow,
-    updateFailoverConfig_state,
-    updateFailoverConfig_sourcePriority,
     updateFailoverConfig_failoverMode,
+    updateFailoverConfig_recoveryWindow,
+    updateFailoverConfig_sourcePriority,
+    updateFailoverConfig_state,
 
     -- * UpdateMaintenance
     UpdateMaintenance (..),
     newUpdateMaintenance,
+    updateMaintenance_maintenanceDay,
     updateMaintenance_maintenanceScheduledDate,
     updateMaintenance_maintenanceStartHour,
-    updateMaintenance_maintenanceDay,
 
     -- * VpcInterface
     VpcInterface (..),
@@ -606,28 +606,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -635,13 +629,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -649,7 +647,49 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_AddFlowOutputs420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AddFlowOutputs420Exception =
+  Core._MatchServiceError
+    defaultService
+    "AddFlowOutputs420Exception"
+    Prelude.. Core.hasStatus 420
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_CreateFlow420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CreateFlow420Exception =
+  Core._MatchServiceError
+    defaultService
+    "CreateFlow420Exception"
+    Prelude.. Core.hasStatus 420
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
@@ -660,6 +700,16 @@ _GrantFlowEntitlements420Exception =
     defaultService
     "GrantFlowEntitlements420Exception"
     Prelude.. Core.hasStatus 420
+
+-- | Exception raised by AWS Elemental MediaConnect. See the error message
+-- and documentation for the operation for more information on the cause of
+-- this exception.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
 
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of
@@ -680,56 +730,6 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
-
--- | Exception raised by AWS Elemental MediaConnect. See the error message
--- and documentation for the operation for more information on the cause of
--- this exception.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | Exception raised by AWS Elemental MediaConnect. See the error message
--- and documentation for the operation for more information on the cause of
--- this exception.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | Exception raised by AWS Elemental MediaConnect. See the error message
--- and documentation for the operation for more information on the cause of
--- this exception.
-_AddFlowOutputs420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AddFlowOutputs420Exception =
-  Core._MatchServiceError
-    defaultService
-    "AddFlowOutputs420Exception"
-    Prelude.. Core.hasStatus 420
-
--- | Exception raised by AWS Elemental MediaConnect. See the error message
--- and documentation for the operation for more information on the cause of
--- this exception.
-_CreateFlow420Exception :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CreateFlow420Exception =
-  Core._MatchServiceError
-    defaultService
-    "CreateFlow420Exception"
-    Prelude.. Core.hasStatus 420
-
--- | Exception raised by AWS Elemental MediaConnect. See the error message
--- and documentation for the operation for more information on the cause of
--- this exception.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | Exception raised by AWS Elemental MediaConnect. See the error message
 -- and documentation for the operation for more information on the cause of

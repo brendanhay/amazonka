@@ -36,8 +36,8 @@ module Amazonka.MediaConnect.AddFlowOutputs
     newAddFlowOutputsResponse,
 
     -- * Response Lenses
-    addFlowOutputsResponse_outputs,
     addFlowOutputsResponse_flowArn,
+    addFlowOutputsResponse_outputs,
     addFlowOutputsResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest AddFlowOutputs where
     Response.receiveJSON
       ( \s h x ->
           AddFlowOutputsResponse'
-            Prelude.<$> (x Data..?> "outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance Data.ToQuery AddFlowOutputs where
 
 -- | /See:/ 'newAddFlowOutputsResponse' smart constructor.
 data AddFlowOutputsResponse = AddFlowOutputsResponse'
-  { -- | The details of the newly added outputs.
-    outputs :: Prelude.Maybe [Output],
-    -- | The ARN of the flow that these outputs were added to.
+  { -- | The ARN of the flow that these outputs were added to.
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The details of the newly added outputs.
+    outputs :: Prelude.Maybe [Output],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,9 +160,9 @@ data AddFlowOutputsResponse = AddFlowOutputsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputs', 'addFlowOutputsResponse_outputs' - The details of the newly added outputs.
---
 -- 'flowArn', 'addFlowOutputsResponse_flowArn' - The ARN of the flow that these outputs were added to.
+--
+-- 'outputs', 'addFlowOutputsResponse_outputs' - The details of the newly added outputs.
 --
 -- 'httpStatus', 'addFlowOutputsResponse_httpStatus' - The response's http status code.
 newAddFlowOutputsResponse ::
@@ -171,18 +171,18 @@ newAddFlowOutputsResponse ::
   AddFlowOutputsResponse
 newAddFlowOutputsResponse pHttpStatus_ =
   AddFlowOutputsResponse'
-    { outputs = Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+    { flowArn = Prelude.Nothing,
+      outputs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details of the newly added outputs.
-addFlowOutputsResponse_outputs :: Lens.Lens' AddFlowOutputsResponse (Prelude.Maybe [Output])
-addFlowOutputsResponse_outputs = Lens.lens (\AddFlowOutputsResponse' {outputs} -> outputs) (\s@AddFlowOutputsResponse' {} a -> s {outputs = a} :: AddFlowOutputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the flow that these outputs were added to.
 addFlowOutputsResponse_flowArn :: Lens.Lens' AddFlowOutputsResponse (Prelude.Maybe Prelude.Text)
 addFlowOutputsResponse_flowArn = Lens.lens (\AddFlowOutputsResponse' {flowArn} -> flowArn) (\s@AddFlowOutputsResponse' {} a -> s {flowArn = a} :: AddFlowOutputsResponse)
+
+-- | The details of the newly added outputs.
+addFlowOutputsResponse_outputs :: Lens.Lens' AddFlowOutputsResponse (Prelude.Maybe [Output])
+addFlowOutputsResponse_outputs = Lens.lens (\AddFlowOutputsResponse' {outputs} -> outputs) (\s@AddFlowOutputsResponse' {} a -> s {outputs = a} :: AddFlowOutputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addFlowOutputsResponse_httpStatus :: Lens.Lens' AddFlowOutputsResponse Prelude.Int
@@ -190,6 +190,6 @@ addFlowOutputsResponse_httpStatus = Lens.lens (\AddFlowOutputsResponse' {httpSta
 
 instance Prelude.NFData AddFlowOutputsResponse where
   rnf AddFlowOutputsResponse' {..} =
-    Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf flowArn
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf httpStatus

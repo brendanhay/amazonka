@@ -27,23 +27,23 @@ module Amazonka.MediaConnect.UpdateFlowSource
     newUpdateFlowSource,
 
     -- * Request Lenses
-    updateFlowSource_maxLatency,
-    updateFlowSource_mediaStreamSourceConfigurations,
-    updateFlowSource_entitlementArn,
-    updateFlowSource_vpcInterfaceName,
-    updateFlowSource_maxSyncBuffer,
-    updateFlowSource_maxBitrate,
-    updateFlowSource_streamId,
-    updateFlowSource_senderIpAddress,
     updateFlowSource_decryption,
     updateFlowSource_description,
-    updateFlowSource_sourceListenerAddress,
-    updateFlowSource_senderControlPort,
-    updateFlowSource_protocol,
+    updateFlowSource_entitlementArn,
     updateFlowSource_ingestPort,
-    updateFlowSource_whitelistCidr,
+    updateFlowSource_maxBitrate,
+    updateFlowSource_maxLatency,
+    updateFlowSource_maxSyncBuffer,
+    updateFlowSource_mediaStreamSourceConfigurations,
     updateFlowSource_minLatency,
+    updateFlowSource_protocol,
+    updateFlowSource_senderControlPort,
+    updateFlowSource_senderIpAddress,
+    updateFlowSource_sourceListenerAddress,
     updateFlowSource_sourceListenerPort,
+    updateFlowSource_streamId,
+    updateFlowSource_vpcInterfaceName,
+    updateFlowSource_whitelistCidr,
     updateFlowSource_flowArn,
     updateFlowSource_sourceArn,
 
@@ -52,8 +52,8 @@ module Amazonka.MediaConnect.UpdateFlowSource
     newUpdateFlowSourceResponse,
 
     -- * Response Lenses
-    updateFlowSourceResponse_source,
     updateFlowSourceResponse_flowArn,
+    updateFlowSourceResponse_source,
     updateFlowSourceResponse_httpStatus,
   )
 where
@@ -70,55 +70,55 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateFlowSource' smart constructor.
 data UpdateFlowSource = UpdateFlowSource'
-  { -- | The maximum latency in milliseconds. This parameter applies only to
-    -- RIST-based, Zixi-based, and Fujitsu-based streams.
-    maxLatency :: Prelude.Maybe Prelude.Int,
-    -- | The media streams that are associated with the source, and the
-    -- parameters for those associations.
-    mediaStreamSourceConfigurations :: Prelude.Maybe [MediaStreamSourceConfigurationRequest],
-    -- | The ARN of the entitlement that allows you to subscribe to this flow.
-    -- The entitlement is set by the flow originator, and the ARN is generated
-    -- as part of the originator\'s flow.
-    entitlementArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the VPC interface to use for this source.
-    vpcInterfaceName :: Prelude.Maybe Prelude.Text,
-    -- | The size of the buffer (in milliseconds) to use to sync incoming source
-    -- data.
-    maxSyncBuffer :: Prelude.Maybe Prelude.Int,
-    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-    maxBitrate :: Prelude.Maybe Prelude.Int,
-    -- | The stream ID that you want to use for this transport. This parameter
-    -- applies only to Zixi-based streams.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | The IP address that the flow communicates with to initiate connection
-    -- with the sender.
-    senderIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The type of encryption used on the content ingested from this source.
+  { -- | The type of encryption used on the content ingested from this source.
     decryption :: Prelude.Maybe UpdateEncryption,
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Source IP or domain name for SRT-caller protocol.
-    sourceListenerAddress :: Prelude.Maybe Prelude.Text,
-    -- | The port that the flow uses to send outbound requests to initiate
-    -- connection with the sender.
-    senderControlPort :: Prelude.Maybe Prelude.Int,
-    -- | The protocol that is used by the source.
-    protocol :: Prelude.Maybe Protocol,
+    -- | The ARN of the entitlement that allows you to subscribe to this flow.
+    -- The entitlement is set by the flow originator, and the ARN is generated
+    -- as part of the originator\'s flow.
+    entitlementArn :: Prelude.Maybe Prelude.Text,
     -- | The port that the flow will be listening on for incoming content.
     ingestPort :: Prelude.Maybe Prelude.Int,
-    -- | The range of IP addresses that should be allowed to contribute content
-    -- to your source. These IP addresses should be in the form of a Classless
-    -- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
-    whitelistCidr :: Prelude.Maybe Prelude.Text,
+    -- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+    maxBitrate :: Prelude.Maybe Prelude.Int,
+    -- | The maximum latency in milliseconds. This parameter applies only to
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
+    maxLatency :: Prelude.Maybe Prelude.Int,
+    -- | The size of the buffer (in milliseconds) to use to sync incoming source
+    -- data.
+    maxSyncBuffer :: Prelude.Maybe Prelude.Int,
+    -- | The media streams that are associated with the source, and the
+    -- parameters for those associations.
+    mediaStreamSourceConfigurations :: Prelude.Maybe [MediaStreamSourceConfigurationRequest],
     -- | The minimum latency in milliseconds for SRT-based streams. In streams
     -- that use the SRT protocol, this value that you set on your MediaConnect
     -- source or output represents the minimal potential latency of that
     -- connection. The latency of the stream is set to the highest number
     -- between the sender’s minimum latency and the receiver’s minimum latency.
     minLatency :: Prelude.Maybe Prelude.Int,
+    -- | The protocol that is used by the source.
+    protocol :: Prelude.Maybe Protocol,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Source IP or domain name for SRT-caller protocol.
+    sourceListenerAddress :: Prelude.Maybe Prelude.Text,
     -- | Source port for SRT-caller protocol.
     sourceListenerPort :: Prelude.Maybe Prelude.Int,
+    -- | The stream ID that you want to use for this transport. This parameter
+    -- applies only to Zixi-based streams.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the VPC interface to use for this source.
+    vpcInterfaceName :: Prelude.Maybe Prelude.Text,
+    -- | The range of IP addresses that should be allowed to contribute content
+    -- to your source. These IP addresses should be in the form of a Classless
+    -- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
+    whitelistCidr :: Prelude.Maybe Prelude.Text,
     -- | The flow that is associated with the source that you want to update.
     flowArn :: Prelude.Text,
     -- | The ARN of the source that you want to update.
@@ -134,46 +134,27 @@ data UpdateFlowSource = UpdateFlowSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxLatency', 'updateFlowSource_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
--- RIST-based, Zixi-based, and Fujitsu-based streams.
---
--- 'mediaStreamSourceConfigurations', 'updateFlowSource_mediaStreamSourceConfigurations' - The media streams that are associated with the source, and the
--- parameters for those associations.
---
--- 'entitlementArn', 'updateFlowSource_entitlementArn' - The ARN of the entitlement that allows you to subscribe to this flow.
--- The entitlement is set by the flow originator, and the ARN is generated
--- as part of the originator\'s flow.
---
--- 'vpcInterfaceName', 'updateFlowSource_vpcInterfaceName' - The name of the VPC interface to use for this source.
---
--- 'maxSyncBuffer', 'updateFlowSource_maxSyncBuffer' - The size of the buffer (in milliseconds) to use to sync incoming source
--- data.
---
--- 'maxBitrate', 'updateFlowSource_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
---
--- 'streamId', 'updateFlowSource_streamId' - The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
---
--- 'senderIpAddress', 'updateFlowSource_senderIpAddress' - The IP address that the flow communicates with to initiate connection
--- with the sender.
---
 -- 'decryption', 'updateFlowSource_decryption' - The type of encryption used on the content ingested from this source.
 --
 -- 'description', 'updateFlowSource_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
 --
--- 'sourceListenerAddress', 'updateFlowSource_sourceListenerAddress' - Source IP or domain name for SRT-caller protocol.
---
--- 'senderControlPort', 'updateFlowSource_senderControlPort' - The port that the flow uses to send outbound requests to initiate
--- connection with the sender.
---
--- 'protocol', 'updateFlowSource_protocol' - The protocol that is used by the source.
+-- 'entitlementArn', 'updateFlowSource_entitlementArn' - The ARN of the entitlement that allows you to subscribe to this flow.
+-- The entitlement is set by the flow originator, and the ARN is generated
+-- as part of the originator\'s flow.
 --
 -- 'ingestPort', 'updateFlowSource_ingestPort' - The port that the flow will be listening on for incoming content.
 --
--- 'whitelistCidr', 'updateFlowSource_whitelistCidr' - The range of IP addresses that should be allowed to contribute content
--- to your source. These IP addresses should be in the form of a Classless
--- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
+-- 'maxBitrate', 'updateFlowSource_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+--
+-- 'maxLatency', 'updateFlowSource_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
+--
+-- 'maxSyncBuffer', 'updateFlowSource_maxSyncBuffer' - The size of the buffer (in milliseconds) to use to sync incoming source
+-- data.
+--
+-- 'mediaStreamSourceConfigurations', 'updateFlowSource_mediaStreamSourceConfigurations' - The media streams that are associated with the source, and the
+-- parameters for those associations.
 --
 -- 'minLatency', 'updateFlowSource_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams
 -- that use the SRT protocol, this value that you set on your MediaConnect
@@ -181,7 +162,26 @@ data UpdateFlowSource = UpdateFlowSource'
 -- connection. The latency of the stream is set to the highest number
 -- between the sender’s minimum latency and the receiver’s minimum latency.
 --
+-- 'protocol', 'updateFlowSource_protocol' - The protocol that is used by the source.
+--
+-- 'senderControlPort', 'updateFlowSource_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+--
+-- 'senderIpAddress', 'updateFlowSource_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
+-- 'sourceListenerAddress', 'updateFlowSource_sourceListenerAddress' - Source IP or domain name for SRT-caller protocol.
+--
 -- 'sourceListenerPort', 'updateFlowSource_sourceListenerPort' - Source port for SRT-caller protocol.
+--
+-- 'streamId', 'updateFlowSource_streamId' - The stream ID that you want to use for this transport. This parameter
+-- applies only to Zixi-based streams.
+--
+-- 'vpcInterfaceName', 'updateFlowSource_vpcInterfaceName' - The name of the VPC interface to use for this source.
+--
+-- 'whitelistCidr', 'updateFlowSource_whitelistCidr' - The range of IP addresses that should be allowed to contribute content
+-- to your source. These IP addresses should be in the form of a Classless
+-- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
 --
 -- 'flowArn', 'updateFlowSource_flowArn' - The flow that is associated with the source that you want to update.
 --
@@ -194,65 +194,26 @@ newUpdateFlowSource ::
   UpdateFlowSource
 newUpdateFlowSource pFlowArn_ pSourceArn_ =
   UpdateFlowSource'
-    { maxLatency = Prelude.Nothing,
-      mediaStreamSourceConfigurations = Prelude.Nothing,
-      entitlementArn = Prelude.Nothing,
-      vpcInterfaceName = Prelude.Nothing,
-      maxSyncBuffer = Prelude.Nothing,
-      maxBitrate = Prelude.Nothing,
-      streamId = Prelude.Nothing,
-      senderIpAddress = Prelude.Nothing,
-      decryption = Prelude.Nothing,
+    { decryption = Prelude.Nothing,
       description = Prelude.Nothing,
-      sourceListenerAddress = Prelude.Nothing,
-      senderControlPort = Prelude.Nothing,
-      protocol = Prelude.Nothing,
+      entitlementArn = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
-      whitelistCidr = Prelude.Nothing,
+      maxBitrate = Prelude.Nothing,
+      maxLatency = Prelude.Nothing,
+      maxSyncBuffer = Prelude.Nothing,
+      mediaStreamSourceConfigurations = Prelude.Nothing,
       minLatency = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
+      sourceListenerAddress = Prelude.Nothing,
       sourceListenerPort = Prelude.Nothing,
+      streamId = Prelude.Nothing,
+      vpcInterfaceName = Prelude.Nothing,
+      whitelistCidr = Prelude.Nothing,
       flowArn = pFlowArn_,
       sourceArn = pSourceArn_
     }
-
--- | The maximum latency in milliseconds. This parameter applies only to
--- RIST-based, Zixi-based, and Fujitsu-based streams.
-updateFlowSource_maxLatency :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
-updateFlowSource_maxLatency = Lens.lens (\UpdateFlowSource' {maxLatency} -> maxLatency) (\s@UpdateFlowSource' {} a -> s {maxLatency = a} :: UpdateFlowSource)
-
--- | The media streams that are associated with the source, and the
--- parameters for those associations.
-updateFlowSource_mediaStreamSourceConfigurations :: Lens.Lens' UpdateFlowSource (Prelude.Maybe [MediaStreamSourceConfigurationRequest])
-updateFlowSource_mediaStreamSourceConfigurations = Lens.lens (\UpdateFlowSource' {mediaStreamSourceConfigurations} -> mediaStreamSourceConfigurations) (\s@UpdateFlowSource' {} a -> s {mediaStreamSourceConfigurations = a} :: UpdateFlowSource) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the entitlement that allows you to subscribe to this flow.
--- The entitlement is set by the flow originator, and the ARN is generated
--- as part of the originator\'s flow.
-updateFlowSource_entitlementArn :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_entitlementArn = Lens.lens (\UpdateFlowSource' {entitlementArn} -> entitlementArn) (\s@UpdateFlowSource' {} a -> s {entitlementArn = a} :: UpdateFlowSource)
-
--- | The name of the VPC interface to use for this source.
-updateFlowSource_vpcInterfaceName :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_vpcInterfaceName = Lens.lens (\UpdateFlowSource' {vpcInterfaceName} -> vpcInterfaceName) (\s@UpdateFlowSource' {} a -> s {vpcInterfaceName = a} :: UpdateFlowSource)
-
--- | The size of the buffer (in milliseconds) to use to sync incoming source
--- data.
-updateFlowSource_maxSyncBuffer :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
-updateFlowSource_maxSyncBuffer = Lens.lens (\UpdateFlowSource' {maxSyncBuffer} -> maxSyncBuffer) (\s@UpdateFlowSource' {} a -> s {maxSyncBuffer = a} :: UpdateFlowSource)
-
--- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
-updateFlowSource_maxBitrate :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
-updateFlowSource_maxBitrate = Lens.lens (\UpdateFlowSource' {maxBitrate} -> maxBitrate) (\s@UpdateFlowSource' {} a -> s {maxBitrate = a} :: UpdateFlowSource)
-
--- | The stream ID that you want to use for this transport. This parameter
--- applies only to Zixi-based streams.
-updateFlowSource_streamId :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_streamId = Lens.lens (\UpdateFlowSource' {streamId} -> streamId) (\s@UpdateFlowSource' {} a -> s {streamId = a} :: UpdateFlowSource)
-
--- | The IP address that the flow communicates with to initiate connection
--- with the sender.
-updateFlowSource_senderIpAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_senderIpAddress = Lens.lens (\UpdateFlowSource' {senderIpAddress} -> senderIpAddress) (\s@UpdateFlowSource' {} a -> s {senderIpAddress = a} :: UpdateFlowSource)
 
 -- | The type of encryption used on the content ingested from this source.
 updateFlowSource_decryption :: Lens.Lens' UpdateFlowSource (Prelude.Maybe UpdateEncryption)
@@ -263,28 +224,34 @@ updateFlowSource_decryption = Lens.lens (\UpdateFlowSource' {decryption} -> decr
 updateFlowSource_description :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
 updateFlowSource_description = Lens.lens (\UpdateFlowSource' {description} -> description) (\s@UpdateFlowSource' {} a -> s {description = a} :: UpdateFlowSource)
 
--- | Source IP or domain name for SRT-caller protocol.
-updateFlowSource_sourceListenerAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_sourceListenerAddress = Lens.lens (\UpdateFlowSource' {sourceListenerAddress} -> sourceListenerAddress) (\s@UpdateFlowSource' {} a -> s {sourceListenerAddress = a} :: UpdateFlowSource)
-
--- | The port that the flow uses to send outbound requests to initiate
--- connection with the sender.
-updateFlowSource_senderControlPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
-updateFlowSource_senderControlPort = Lens.lens (\UpdateFlowSource' {senderControlPort} -> senderControlPort) (\s@UpdateFlowSource' {} a -> s {senderControlPort = a} :: UpdateFlowSource)
-
--- | The protocol that is used by the source.
-updateFlowSource_protocol :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Protocol)
-updateFlowSource_protocol = Lens.lens (\UpdateFlowSource' {protocol} -> protocol) (\s@UpdateFlowSource' {} a -> s {protocol = a} :: UpdateFlowSource)
+-- | The ARN of the entitlement that allows you to subscribe to this flow.
+-- The entitlement is set by the flow originator, and the ARN is generated
+-- as part of the originator\'s flow.
+updateFlowSource_entitlementArn :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_entitlementArn = Lens.lens (\UpdateFlowSource' {entitlementArn} -> entitlementArn) (\s@UpdateFlowSource' {} a -> s {entitlementArn = a} :: UpdateFlowSource)
 
 -- | The port that the flow will be listening on for incoming content.
 updateFlowSource_ingestPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
 updateFlowSource_ingestPort = Lens.lens (\UpdateFlowSource' {ingestPort} -> ingestPort) (\s@UpdateFlowSource' {} a -> s {ingestPort = a} :: UpdateFlowSource)
 
--- | The range of IP addresses that should be allowed to contribute content
--- to your source. These IP addresses should be in the form of a Classless
--- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
-updateFlowSource_whitelistCidr :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
-updateFlowSource_whitelistCidr = Lens.lens (\UpdateFlowSource' {whitelistCidr} -> whitelistCidr) (\s@UpdateFlowSource' {} a -> s {whitelistCidr = a} :: UpdateFlowSource)
+-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+updateFlowSource_maxBitrate :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_maxBitrate = Lens.lens (\UpdateFlowSource' {maxBitrate} -> maxBitrate) (\s@UpdateFlowSource' {} a -> s {maxBitrate = a} :: UpdateFlowSource)
+
+-- | The maximum latency in milliseconds. This parameter applies only to
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
+updateFlowSource_maxLatency :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_maxLatency = Lens.lens (\UpdateFlowSource' {maxLatency} -> maxLatency) (\s@UpdateFlowSource' {} a -> s {maxLatency = a} :: UpdateFlowSource)
+
+-- | The size of the buffer (in milliseconds) to use to sync incoming source
+-- data.
+updateFlowSource_maxSyncBuffer :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_maxSyncBuffer = Lens.lens (\UpdateFlowSource' {maxSyncBuffer} -> maxSyncBuffer) (\s@UpdateFlowSource' {} a -> s {maxSyncBuffer = a} :: UpdateFlowSource)
+
+-- | The media streams that are associated with the source, and the
+-- parameters for those associations.
+updateFlowSource_mediaStreamSourceConfigurations :: Lens.Lens' UpdateFlowSource (Prelude.Maybe [MediaStreamSourceConfigurationRequest])
+updateFlowSource_mediaStreamSourceConfigurations = Lens.lens (\UpdateFlowSource' {mediaStreamSourceConfigurations} -> mediaStreamSourceConfigurations) (\s@UpdateFlowSource' {} a -> s {mediaStreamSourceConfigurations = a} :: UpdateFlowSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The minimum latency in milliseconds for SRT-based streams. In streams
 -- that use the SRT protocol, this value that you set on your MediaConnect
@@ -294,9 +261,42 @@ updateFlowSource_whitelistCidr = Lens.lens (\UpdateFlowSource' {whitelistCidr} -
 updateFlowSource_minLatency :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
 updateFlowSource_minLatency = Lens.lens (\UpdateFlowSource' {minLatency} -> minLatency) (\s@UpdateFlowSource' {} a -> s {minLatency = a} :: UpdateFlowSource)
 
+-- | The protocol that is used by the source.
+updateFlowSource_protocol :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Protocol)
+updateFlowSource_protocol = Lens.lens (\UpdateFlowSource' {protocol} -> protocol) (\s@UpdateFlowSource' {} a -> s {protocol = a} :: UpdateFlowSource)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+updateFlowSource_senderControlPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
+updateFlowSource_senderControlPort = Lens.lens (\UpdateFlowSource' {senderControlPort} -> senderControlPort) (\s@UpdateFlowSource' {} a -> s {senderControlPort = a} :: UpdateFlowSource)
+
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+updateFlowSource_senderIpAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_senderIpAddress = Lens.lens (\UpdateFlowSource' {senderIpAddress} -> senderIpAddress) (\s@UpdateFlowSource' {} a -> s {senderIpAddress = a} :: UpdateFlowSource)
+
+-- | Source IP or domain name for SRT-caller protocol.
+updateFlowSource_sourceListenerAddress :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_sourceListenerAddress = Lens.lens (\UpdateFlowSource' {sourceListenerAddress} -> sourceListenerAddress) (\s@UpdateFlowSource' {} a -> s {sourceListenerAddress = a} :: UpdateFlowSource)
+
 -- | Source port for SRT-caller protocol.
 updateFlowSource_sourceListenerPort :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Int)
 updateFlowSource_sourceListenerPort = Lens.lens (\UpdateFlowSource' {sourceListenerPort} -> sourceListenerPort) (\s@UpdateFlowSource' {} a -> s {sourceListenerPort = a} :: UpdateFlowSource)
+
+-- | The stream ID that you want to use for this transport. This parameter
+-- applies only to Zixi-based streams.
+updateFlowSource_streamId :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_streamId = Lens.lens (\UpdateFlowSource' {streamId} -> streamId) (\s@UpdateFlowSource' {} a -> s {streamId = a} :: UpdateFlowSource)
+
+-- | The name of the VPC interface to use for this source.
+updateFlowSource_vpcInterfaceName :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_vpcInterfaceName = Lens.lens (\UpdateFlowSource' {vpcInterfaceName} -> vpcInterfaceName) (\s@UpdateFlowSource' {} a -> s {vpcInterfaceName = a} :: UpdateFlowSource)
+
+-- | The range of IP addresses that should be allowed to contribute content
+-- to your source. These IP addresses should be in the form of a Classless
+-- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.
+updateFlowSource_whitelistCidr :: Lens.Lens' UpdateFlowSource (Prelude.Maybe Prelude.Text)
+updateFlowSource_whitelistCidr = Lens.lens (\UpdateFlowSource' {whitelistCidr} -> whitelistCidr) (\s@UpdateFlowSource' {} a -> s {whitelistCidr = a} :: UpdateFlowSource)
 
 -- | The flow that is associated with the source that you want to update.
 updateFlowSource_flowArn :: Lens.Lens' UpdateFlowSource Prelude.Text
@@ -316,52 +316,52 @@ instance Core.AWSRequest UpdateFlowSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowSourceResponse'
-            Prelude.<$> (x Data..?> "source")
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "source")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFlowSource where
   hashWithSalt _salt UpdateFlowSource' {..} =
-    _salt `Prelude.hashWithSalt` maxLatency
-      `Prelude.hashWithSalt` mediaStreamSourceConfigurations
-      `Prelude.hashWithSalt` entitlementArn
-      `Prelude.hashWithSalt` vpcInterfaceName
-      `Prelude.hashWithSalt` maxSyncBuffer
-      `Prelude.hashWithSalt` maxBitrate
-      `Prelude.hashWithSalt` streamId
-      `Prelude.hashWithSalt` senderIpAddress
-      `Prelude.hashWithSalt` decryption
+    _salt `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` sourceListenerAddress
-      `Prelude.hashWithSalt` senderControlPort
-      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` ingestPort
-      `Prelude.hashWithSalt` whitelistCidr
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` maxLatency
+      `Prelude.hashWithSalt` maxSyncBuffer
+      `Prelude.hashWithSalt` mediaStreamSourceConfigurations
       `Prelude.hashWithSalt` minLatency
+      `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` senderControlPort
+      `Prelude.hashWithSalt` senderIpAddress
+      `Prelude.hashWithSalt` sourceListenerAddress
       `Prelude.hashWithSalt` sourceListenerPort
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` vpcInterfaceName
+      `Prelude.hashWithSalt` whitelistCidr
       `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData UpdateFlowSource where
   rnf UpdateFlowSource' {..} =
-    Prelude.rnf maxLatency
-      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
-      `Prelude.seq` Prelude.rnf entitlementArn
-      `Prelude.seq` Prelude.rnf vpcInterfaceName
-      `Prelude.seq` Prelude.rnf maxSyncBuffer
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf senderIpAddress
-      `Prelude.seq` Prelude.rnf decryption
+    Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sourceListenerAddress
-      `Prelude.seq` Prelude.rnf senderControlPort
-      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf entitlementArn
       `Prelude.seq` Prelude.rnf ingestPort
-      `Prelude.seq` Prelude.rnf whitelistCidr
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf maxLatency
+      `Prelude.seq` Prelude.rnf maxSyncBuffer
+      `Prelude.seq` Prelude.rnf mediaStreamSourceConfigurations
       `Prelude.seq` Prelude.rnf minLatency
+      `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf senderControlPort
+      `Prelude.seq` Prelude.rnf senderIpAddress
+      `Prelude.seq` Prelude.rnf sourceListenerAddress
       `Prelude.seq` Prelude.rnf sourceListenerPort
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
+      `Prelude.seq` Prelude.rnf whitelistCidr
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf sourceArn
 
@@ -380,30 +380,30 @@ instance Data.ToJSON UpdateFlowSource where
   toJSON UpdateFlowSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maxLatency" Data..=) Prelude.<$> maxLatency,
-            ("mediaStreamSourceConfigurations" Data..=)
-              Prelude.<$> mediaStreamSourceConfigurations,
+          [ ("decryption" Data..=) Prelude.<$> decryption,
+            ("description" Data..=) Prelude.<$> description,
             ("entitlementArn" Data..=)
               Prelude.<$> entitlementArn,
-            ("vpcInterfaceName" Data..=)
-              Prelude.<$> vpcInterfaceName,
-            ("maxSyncBuffer" Data..=) Prelude.<$> maxSyncBuffer,
+            ("ingestPort" Data..=) Prelude.<$> ingestPort,
             ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
-            ("streamId" Data..=) Prelude.<$> streamId,
-            ("senderIpAddress" Data..=)
-              Prelude.<$> senderIpAddress,
-            ("decryption" Data..=) Prelude.<$> decryption,
-            ("description" Data..=) Prelude.<$> description,
-            ("sourceListenerAddress" Data..=)
-              Prelude.<$> sourceListenerAddress,
+            ("maxLatency" Data..=) Prelude.<$> maxLatency,
+            ("maxSyncBuffer" Data..=) Prelude.<$> maxSyncBuffer,
+            ("mediaStreamSourceConfigurations" Data..=)
+              Prelude.<$> mediaStreamSourceConfigurations,
+            ("minLatency" Data..=) Prelude.<$> minLatency,
+            ("protocol" Data..=) Prelude.<$> protocol,
             ("senderControlPort" Data..=)
               Prelude.<$> senderControlPort,
-            ("protocol" Data..=) Prelude.<$> protocol,
-            ("ingestPort" Data..=) Prelude.<$> ingestPort,
-            ("whitelistCidr" Data..=) Prelude.<$> whitelistCidr,
-            ("minLatency" Data..=) Prelude.<$> minLatency,
+            ("senderIpAddress" Data..=)
+              Prelude.<$> senderIpAddress,
+            ("sourceListenerAddress" Data..=)
+              Prelude.<$> sourceListenerAddress,
             ("sourceListenerPort" Data..=)
-              Prelude.<$> sourceListenerPort
+              Prelude.<$> sourceListenerPort,
+            ("streamId" Data..=) Prelude.<$> streamId,
+            ("vpcInterfaceName" Data..=)
+              Prelude.<$> vpcInterfaceName,
+            ("whitelistCidr" Data..=) Prelude.<$> whitelistCidr
           ]
       )
 
@@ -421,10 +421,10 @@ instance Data.ToQuery UpdateFlowSource where
 
 -- | /See:/ 'newUpdateFlowSourceResponse' smart constructor.
 data UpdateFlowSourceResponse = UpdateFlowSourceResponse'
-  { -- | The settings for the source of the flow.
-    source :: Prelude.Maybe Source,
-    -- | The ARN of the flow that you want to update.
+  { -- | The ARN of the flow that you want to update.
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The settings for the source of the flow.
+    source :: Prelude.Maybe Source,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -438,9 +438,9 @@ data UpdateFlowSourceResponse = UpdateFlowSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'updateFlowSourceResponse_source' - The settings for the source of the flow.
---
 -- 'flowArn', 'updateFlowSourceResponse_flowArn' - The ARN of the flow that you want to update.
+--
+-- 'source', 'updateFlowSourceResponse_source' - The settings for the source of the flow.
 --
 -- 'httpStatus', 'updateFlowSourceResponse_httpStatus' - The response's http status code.
 newUpdateFlowSourceResponse ::
@@ -449,18 +449,19 @@ newUpdateFlowSourceResponse ::
   UpdateFlowSourceResponse
 newUpdateFlowSourceResponse pHttpStatus_ =
   UpdateFlowSourceResponse'
-    { source = Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+    { flowArn =
+        Prelude.Nothing,
+      source = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The settings for the source of the flow.
-updateFlowSourceResponse_source :: Lens.Lens' UpdateFlowSourceResponse (Prelude.Maybe Source)
-updateFlowSourceResponse_source = Lens.lens (\UpdateFlowSourceResponse' {source} -> source) (\s@UpdateFlowSourceResponse' {} a -> s {source = a} :: UpdateFlowSourceResponse)
 
 -- | The ARN of the flow that you want to update.
 updateFlowSourceResponse_flowArn :: Lens.Lens' UpdateFlowSourceResponse (Prelude.Maybe Prelude.Text)
 updateFlowSourceResponse_flowArn = Lens.lens (\UpdateFlowSourceResponse' {flowArn} -> flowArn) (\s@UpdateFlowSourceResponse' {} a -> s {flowArn = a} :: UpdateFlowSourceResponse)
+
+-- | The settings for the source of the flow.
+updateFlowSourceResponse_source :: Lens.Lens' UpdateFlowSourceResponse (Prelude.Maybe Source)
+updateFlowSourceResponse_source = Lens.lens (\UpdateFlowSourceResponse' {source} -> source) (\s@UpdateFlowSourceResponse' {} a -> s {source = a} :: UpdateFlowSourceResponse)
 
 -- | The response's http status code.
 updateFlowSourceResponse_httpStatus :: Lens.Lens' UpdateFlowSourceResponse Prelude.Int
@@ -468,6 +469,6 @@ updateFlowSourceResponse_httpStatus = Lens.lens (\UpdateFlowSourceResponse' {htt
 
 instance Prelude.NFData UpdateFlowSourceResponse where
   rnf UpdateFlowSourceResponse' {..} =
-    Prelude.rnf source
-      `Prelude.seq` Prelude.rnf flowArn
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf httpStatus

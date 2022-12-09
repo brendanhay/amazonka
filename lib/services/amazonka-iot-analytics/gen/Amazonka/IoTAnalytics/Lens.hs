@@ -26,26 +26,26 @@ module Amazonka.IoTAnalytics.Lens
     cancelPipelineReprocessingResponse_httpStatus,
 
     -- ** CreateChannel
-    createChannel_tags,
     createChannel_channelStorage,
     createChannel_retentionPeriod,
+    createChannel_tags,
     createChannel_channelName,
-    createChannelResponse_channelName,
     createChannelResponse_channelArn,
+    createChannelResponse_channelName,
     createChannelResponse_retentionPeriod,
     createChannelResponse_httpStatus,
 
     -- ** CreateDataset
-    createDataset_tags,
-    createDataset_lateDataRules,
-    createDataset_versioningConfiguration,
-    createDataset_triggers,
     createDataset_contentDeliveryRules,
+    createDataset_lateDataRules,
     createDataset_retentionPeriod,
+    createDataset_tags,
+    createDataset_triggers,
+    createDataset_versioningConfiguration,
     createDataset_datasetName,
     createDataset_actions,
-    createDatasetResponse_datasetName,
     createDatasetResponse_datasetArn,
+    createDatasetResponse_datasetName,
     createDatasetResponse_retentionPeriod,
     createDatasetResponse_httpStatus,
 
@@ -56,11 +56,11 @@ module Amazonka.IoTAnalytics.Lens
     createDatasetContentResponse_httpStatus,
 
     -- ** CreateDatastore
-    createDatastore_tags,
+    createDatastore_datastorePartitions,
+    createDatastore_datastoreStorage,
     createDatastore_fileFormatConfiguration,
     createDatastore_retentionPeriod,
-    createDatastore_datastoreStorage,
-    createDatastore_datastorePartitions,
+    createDatastore_tags,
     createDatastore_datastoreName,
     createDatastoreResponse_datastoreArn,
     createDatastoreResponse_datastoreName,
@@ -94,8 +94,8 @@ module Amazonka.IoTAnalytics.Lens
     -- ** DescribeChannel
     describeChannel_includeStatistics,
     describeChannel_channelName,
-    describeChannelResponse_statistics,
     describeChannelResponse_channel,
+    describeChannelResponse_statistics,
     describeChannelResponse_httpStatus,
 
     -- ** DescribeDataset
@@ -106,8 +106,8 @@ module Amazonka.IoTAnalytics.Lens
     -- ** DescribeDatastore
     describeDatastore_includeStatistics,
     describeDatastore_datastoreName,
-    describeDatastoreResponse_statistics,
     describeDatastoreResponse_datastore,
+    describeDatastoreResponse_statistics,
     describeDatastoreResponse_httpStatus,
 
     -- ** DescribeLoggingOptions
@@ -122,45 +122,45 @@ module Amazonka.IoTAnalytics.Lens
     -- ** GetDatasetContent
     getDatasetContent_versionId,
     getDatasetContent_datasetName,
-    getDatasetContentResponse_timestamp,
-    getDatasetContentResponse_status,
     getDatasetContentResponse_entries,
+    getDatasetContentResponse_status,
+    getDatasetContentResponse_timestamp,
     getDatasetContentResponse_httpStatus,
 
     -- ** ListChannels
-    listChannels_nextToken,
     listChannels_maxResults,
-    listChannelsResponse_nextToken,
+    listChannels_nextToken,
     listChannelsResponse_channelSummaries,
+    listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
 
     -- ** ListDatasetContents
-    listDatasetContents_scheduledOnOrAfter,
-    listDatasetContents_nextToken,
     listDatasetContents_maxResults,
+    listDatasetContents_nextToken,
     listDatasetContents_scheduledBefore,
+    listDatasetContents_scheduledOnOrAfter,
     listDatasetContents_datasetName,
-    listDatasetContentsResponse_nextToken,
     listDatasetContentsResponse_datasetContentSummaries,
+    listDatasetContentsResponse_nextToken,
     listDatasetContentsResponse_httpStatus,
 
     -- ** ListDatasets
-    listDatasets_nextToken,
     listDatasets_maxResults,
-    listDatasetsResponse_nextToken,
+    listDatasets_nextToken,
     listDatasetsResponse_datasetSummaries,
+    listDatasetsResponse_nextToken,
     listDatasetsResponse_httpStatus,
 
     -- ** ListDatastores
-    listDatastores_nextToken,
     listDatastores_maxResults,
-    listDatastoresResponse_nextToken,
+    listDatastores_nextToken,
     listDatastoresResponse_datastoreSummaries,
+    listDatastoresResponse_nextToken,
     listDatastoresResponse_httpStatus,
 
     -- ** ListPipelines
-    listPipelines_nextToken,
     listPipelines_maxResults,
+    listPipelines_nextToken,
     listPipelinesResponse_nextToken,
     listPipelinesResponse_pipelineSummaries,
     listPipelinesResponse_httpStatus,
@@ -176,8 +176,8 @@ module Amazonka.IoTAnalytics.Lens
     -- ** RunPipelineActivity
     runPipelineActivity_pipelineActivity,
     runPipelineActivity_payloads,
-    runPipelineActivityResponse_payloads,
     runPipelineActivityResponse_logResult,
+    runPipelineActivityResponse_payloads,
     runPipelineActivityResponse_httpStatus,
 
     -- ** SampleChannelData
@@ -189,8 +189,8 @@ module Amazonka.IoTAnalytics.Lens
     sampleChannelDataResponse_httpStatus,
 
     -- ** StartPipelineReprocessing
-    startPipelineReprocessing_endTime,
     startPipelineReprocessing_channelMessages,
+    startPipelineReprocessing_endTime,
     startPipelineReprocessing_startTime,
     startPipelineReprocessing_pipelineName,
     startPipelineReprocessingResponse_reprocessingId,
@@ -212,18 +212,18 @@ module Amazonka.IoTAnalytics.Lens
     updateChannel_channelName,
 
     -- ** UpdateDataset
-    updateDataset_lateDataRules,
-    updateDataset_versioningConfiguration,
-    updateDataset_triggers,
     updateDataset_contentDeliveryRules,
+    updateDataset_lateDataRules,
     updateDataset_retentionPeriod,
+    updateDataset_triggers,
+    updateDataset_versioningConfiguration,
     updateDataset_datasetName,
     updateDataset_actions,
 
     -- ** UpdateDatastore
+    updateDatastore_datastoreStorage,
     updateDatastore_fileFormatConfiguration,
     updateDatastore_retentionPeriod,
-    updateDatastore_datastoreStorage,
     updateDatastore_datastoreName,
 
     -- ** UpdatePipeline
@@ -238,19 +238,19 @@ module Amazonka.IoTAnalytics.Lens
     addAttributesActivity_attributes,
 
     -- ** BatchPutMessageErrorEntry
+    batchPutMessageErrorEntry_errorCode,
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
-    batchPutMessageErrorEntry_errorCode,
 
     -- ** Channel
-    channel_name,
     channel_arn,
-    channel_storage,
-    channel_status,
-    channel_retentionPeriod,
     channel_creationTime,
-    channel_lastUpdateTime,
     channel_lastMessageArrivalTime,
+    channel_lastUpdateTime,
+    channel_name,
+    channel_retentionPeriod,
+    channel_status,
+    channel_storage,
 
     -- ** ChannelActivity
     channelActivity_next,
@@ -274,10 +274,10 @@ module Amazonka.IoTAnalytics.Lens
     -- ** ChannelSummary
     channelSummary_channelName,
     channelSummary_channelStorage,
-    channelSummary_status,
     channelSummary_creationTime,
-    channelSummary_lastUpdateTime,
     channelSummary_lastMessageArrivalTime,
+    channelSummary_lastUpdateTime,
+    channelSummary_status,
 
     -- ** Column
     column_name,
@@ -295,9 +295,9 @@ module Amazonka.IoTAnalytics.Lens
     customerManagedChannelS3Storage_roleArn,
 
     -- ** CustomerManagedChannelS3StorageSummary
-    customerManagedChannelS3StorageSummary_roleArn,
     customerManagedChannelS3StorageSummary_bucket,
     customerManagedChannelS3StorageSummary_keyPrefix,
+    customerManagedChannelS3StorageSummary_roleArn,
 
     -- ** CustomerManagedDatastoreS3Storage
     customerManagedDatastoreS3Storage_keyPrefix,
@@ -305,81 +305,81 @@ module Amazonka.IoTAnalytics.Lens
     customerManagedDatastoreS3Storage_roleArn,
 
     -- ** CustomerManagedDatastoreS3StorageSummary
-    customerManagedDatastoreS3StorageSummary_roleArn,
     customerManagedDatastoreS3StorageSummary_bucket,
     customerManagedDatastoreS3StorageSummary_keyPrefix,
+    customerManagedDatastoreS3StorageSummary_roleArn,
 
     -- ** Dataset
-    dataset_name,
-    dataset_lateDataRules,
-    dataset_versioningConfiguration,
+    dataset_actions,
     dataset_arn,
-    dataset_status,
-    dataset_triggers,
     dataset_contentDeliveryRules,
-    dataset_retentionPeriod,
     dataset_creationTime,
     dataset_lastUpdateTime,
-    dataset_actions,
+    dataset_lateDataRules,
+    dataset_name,
+    dataset_retentionPeriod,
+    dataset_status,
+    dataset_triggers,
+    dataset_versioningConfiguration,
 
     -- ** DatasetAction
-    datasetAction_queryAction,
     datasetAction_actionName,
     datasetAction_containerAction,
+    datasetAction_queryAction,
 
     -- ** DatasetActionSummary
     datasetActionSummary_actionName,
     datasetActionSummary_actionType,
 
     -- ** DatasetContentDeliveryDestination
-    datasetContentDeliveryDestination_s3DestinationConfiguration,
     datasetContentDeliveryDestination_iotEventsDestinationConfiguration,
+    datasetContentDeliveryDestination_s3DestinationConfiguration,
 
     -- ** DatasetContentDeliveryRule
     datasetContentDeliveryRule_entryName,
     datasetContentDeliveryRule_destination,
 
     -- ** DatasetContentStatus
-    datasetContentStatus_state,
     datasetContentStatus_reason,
+    datasetContentStatus_state,
 
     -- ** DatasetContentSummary
-    datasetContentSummary_status,
     datasetContentSummary_completionTime,
-    datasetContentSummary_scheduleTime,
     datasetContentSummary_creationTime,
+    datasetContentSummary_scheduleTime,
+    datasetContentSummary_status,
     datasetContentSummary_version,
 
     -- ** DatasetContentVersionValue
     datasetContentVersionValue_datasetName,
 
     -- ** DatasetEntry
-    datasetEntry_entryName,
     datasetEntry_dataURI,
+    datasetEntry_entryName,
 
     -- ** DatasetSummary
+    datasetSummary_actions,
+    datasetSummary_creationTime,
     datasetSummary_datasetName,
+    datasetSummary_lastUpdateTime,
     datasetSummary_status,
     datasetSummary_triggers,
-    datasetSummary_creationTime,
-    datasetSummary_lastUpdateTime,
-    datasetSummary_actions,
 
     -- ** DatasetTrigger
-    datasetTrigger_schedule,
     datasetTrigger_dataset,
+    datasetTrigger_schedule,
 
     -- ** Datastore
-    datastore_name,
     datastore_arn,
-    datastore_storage,
-    datastore_status,
-    datastore_fileFormatConfiguration,
-    datastore_retentionPeriod,
     datastore_creationTime,
-    datastore_lastUpdateTime,
-    datastore_lastMessageArrivalTime,
     datastore_datastorePartitions,
+    datastore_fileFormatConfiguration,
+    datastore_lastMessageArrivalTime,
+    datastore_lastUpdateTime,
+    datastore_name,
+    datastore_retentionPeriod,
+    datastore_status,
+    datastore_storage,
 
     -- ** DatastoreActivity
     datastoreActivity_name,
@@ -412,14 +412,14 @@ module Amazonka.IoTAnalytics.Lens
     datastoreStorageSummary_serviceManagedS3,
 
     -- ** DatastoreSummary
-    datastoreSummary_fileFormatType,
-    datastoreSummary_status,
-    datastoreSummary_datastoreName,
     datastoreSummary_creationTime,
-    datastoreSummary_lastUpdateTime,
-    datastoreSummary_datastoreStorage,
-    datastoreSummary_lastMessageArrivalTime,
+    datastoreSummary_datastoreName,
     datastoreSummary_datastorePartitions,
+    datastoreSummary_datastoreStorage,
+    datastoreSummary_fileFormatType,
+    datastoreSummary_lastMessageArrivalTime,
+    datastoreSummary_lastUpdateTime,
+    datastoreSummary_status,
 
     -- ** DeltaTime
     deltaTime_offsetSeconds,
@@ -443,12 +443,12 @@ module Amazonka.IoTAnalytics.Lens
     deviceShadowEnrichActivity_roleArn,
 
     -- ** EstimatedResourceSize
-    estimatedResourceSize_estimatedSizeInBytes,
     estimatedResourceSize_estimatedOn,
+    estimatedResourceSize_estimatedSizeInBytes,
 
     -- ** FileFormatConfiguration
-    fileFormatConfiguration_parquetConfiguration,
     fileFormatConfiguration_jsonConfiguration,
+    fileFormatConfiguration_parquetConfiguration,
 
     -- ** FilterActivity
     filterActivity_next,
@@ -511,30 +511,30 @@ module Amazonka.IoTAnalytics.Lens
     partition_attributeName,
 
     -- ** Pipeline
-    pipeline_name,
     pipeline_activities,
-    pipeline_reprocessingSummaries,
     pipeline_arn,
     pipeline_creationTime,
     pipeline_lastUpdateTime,
+    pipeline_name,
+    pipeline_reprocessingSummaries,
 
     -- ** PipelineActivity
-    pipelineActivity_deviceRegistryEnrich,
-    pipelineActivity_selectAttributes,
-    pipelineActivity_datastore,
     pipelineActivity_addAttributes,
     pipelineActivity_channel,
-    pipelineActivity_removeAttributes,
+    pipelineActivity_datastore,
+    pipelineActivity_deviceRegistryEnrich,
     pipelineActivity_deviceShadowEnrich,
     pipelineActivity_filter,
-    pipelineActivity_math,
     pipelineActivity_lambda,
+    pipelineActivity_math,
+    pipelineActivity_removeAttributes,
+    pipelineActivity_selectAttributes,
 
     -- ** PipelineSummary
-    pipelineSummary_reprocessingSummaries,
-    pipelineSummary_pipelineName,
     pipelineSummary_creationTime,
     pipelineSummary_lastUpdateTime,
+    pipelineSummary_pipelineName,
+    pipelineSummary_reprocessingSummaries,
 
     -- ** QueryFilter
     queryFilter_deltaTime,
@@ -545,9 +545,9 @@ module Amazonka.IoTAnalytics.Lens
     removeAttributesActivity_attributes,
 
     -- ** ReprocessingSummary
-    reprocessingSummary_status,
-    reprocessingSummary_id,
     reprocessingSummary_creationTime,
+    reprocessingSummary_id,
+    reprocessingSummary_status,
 
     -- ** ResourceConfiguration
     resourceConfiguration_computeType,
@@ -598,10 +598,10 @@ module Amazonka.IoTAnalytics.Lens
     triggeringDataset_name,
 
     -- ** Variable
-    variable_doubleValue,
-    variable_stringValue,
-    variable_outputFileUriValue,
     variable_datasetContentVersionValue,
+    variable_doubleValue,
+    variable_outputFileUriValue,
+    variable_stringValue,
     variable_name,
 
     -- ** VersioningConfiguration

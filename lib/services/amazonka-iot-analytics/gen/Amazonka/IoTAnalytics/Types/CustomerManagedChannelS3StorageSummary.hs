@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomerManagedChannelS3StorageSummary' smart constructor.
 data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSummary'
-  { -- | The ARN of the role that grants IoT Analytics permission to interact
-    -- with your Amazon S3 resources.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket in which channel data is stored.
+  { -- | The name of the S3 bucket in which channel data is stored.
     bucket :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The prefix used to create the keys of the channel data
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier within the bucket (each object in a bucket has exactly one
     -- key). The prefix must end with a forward slash (\/).
-    keyPrefix :: Prelude.Maybe Prelude.Text
+    keyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the role that grants IoT Analytics permission to interact
+    -- with your Amazon S3 resources.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,24 @@ data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSum
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'customerManagedChannelS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
--- with your Amazon S3 resources.
---
 -- 'bucket', 'customerManagedChannelS3StorageSummary_bucket' - The name of the S3 bucket in which channel data is stored.
 --
 -- 'keyPrefix', 'customerManagedChannelS3StorageSummary_keyPrefix' - (Optional) The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier within the bucket (each object in a bucket has exactly one
 -- key). The prefix must end with a forward slash (\/).
+--
+-- 'roleArn', 'customerManagedChannelS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 resources.
 newCustomerManagedChannelS3StorageSummary ::
   CustomerManagedChannelS3StorageSummary
 newCustomerManagedChannelS3StorageSummary =
   CustomerManagedChannelS3StorageSummary'
-    { roleArn =
+    { bucket =
         Prelude.Nothing,
-      bucket = Prelude.Nothing,
-      keyPrefix = Prelude.Nothing
+      keyPrefix = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The ARN of the role that grants IoT Analytics permission to interact
--- with your Amazon S3 resources.
-customerManagedChannelS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
-customerManagedChannelS3StorageSummary_roleArn = Lens.lens (\CustomerManagedChannelS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedChannelS3StorageSummary)
 
 -- | The name of the S3 bucket in which channel data is stored.
 customerManagedChannelS3StorageSummary_bucket :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
@@ -84,6 +79,11 @@ customerManagedChannelS3StorageSummary_bucket = Lens.lens (\CustomerManagedChann
 customerManagedChannelS3StorageSummary_keyPrefix :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedChannelS3StorageSummary' {keyPrefix} -> keyPrefix) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {keyPrefix = a} :: CustomerManagedChannelS3StorageSummary)
 
+-- | The ARN of the role that grants IoT Analytics permission to interact
+-- with your Amazon S3 resources.
+customerManagedChannelS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
+customerManagedChannelS3StorageSummary_roleArn = Lens.lens (\CustomerManagedChannelS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedChannelS3StorageSummary)
+
 instance
   Data.FromJSON
     CustomerManagedChannelS3StorageSummary
@@ -93,9 +93,9 @@ instance
       "CustomerManagedChannelS3StorageSummary"
       ( \x ->
           CustomerManagedChannelS3StorageSummary'
-            Prelude.<$> (x Data..:? "roleArn")
-            Prelude.<*> (x Data..:? "bucket")
+            Prelude.<$> (x Data..:? "bucket")
             Prelude.<*> (x Data..:? "keyPrefix")
+            Prelude.<*> (x Data..:? "roleArn")
       )
 
 instance
@@ -105,15 +105,15 @@ instance
   hashWithSalt
     _salt
     CustomerManagedChannelS3StorageSummary' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
-        `Prelude.hashWithSalt` bucket
+      _salt `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` keyPrefix
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CustomerManagedChannelS3StorageSummary
   where
   rnf CustomerManagedChannelS3StorageSummary' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf keyPrefix
+      `Prelude.seq` Prelude.rnf roleArn

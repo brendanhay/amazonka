@@ -36,8 +36,8 @@ module Amazonka.IoTAnalytics.RunPipelineActivity
     newRunPipelineActivityResponse,
 
     -- * Response Lenses
-    runPipelineActivityResponse_payloads,
     runPipelineActivityResponse_logResult,
+    runPipelineActivityResponse_payloads,
     runPipelineActivityResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest RunPipelineActivity where
     Response.receiveJSON
       ( \s h x ->
           RunPipelineActivityResponse'
-            Prelude.<$> (x Data..?> "payloads")
-            Prelude.<*> (x Data..?> "logResult")
+            Prelude.<$> (x Data..?> "logResult")
+            Prelude.<*> (x Data..?> "payloads")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,12 +152,12 @@ instance Data.ToQuery RunPipelineActivity where
 
 -- | /See:/ 'newRunPipelineActivityResponse' smart constructor.
 data RunPipelineActivityResponse = RunPipelineActivityResponse'
-  { -- | The enriched or transformed sample message payloads as base64-encoded
+  { -- | In case the pipeline activity fails, the log message that is generated.
+    logResult :: Prelude.Maybe Prelude.Text,
+    -- | The enriched or transformed sample message payloads as base64-encoded
     -- strings. (The results of running the pipeline activity on each input
     -- sample message payload, encoded in base64.)
     payloads :: Prelude.Maybe (Prelude.NonEmpty Data.Base64),
-    -- | In case the pipeline activity fails, the log message that is generated.
-    logResult :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,11 +171,11 @@ data RunPipelineActivityResponse = RunPipelineActivityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logResult', 'runPipelineActivityResponse_logResult' - In case the pipeline activity fails, the log message that is generated.
+--
 -- 'payloads', 'runPipelineActivityResponse_payloads' - The enriched or transformed sample message payloads as base64-encoded
 -- strings. (The results of running the pipeline activity on each input
 -- sample message payload, encoded in base64.)
---
--- 'logResult', 'runPipelineActivityResponse_logResult' - In case the pipeline activity fails, the log message that is generated.
 --
 -- 'httpStatus', 'runPipelineActivityResponse_httpStatus' - The response's http status code.
 newRunPipelineActivityResponse ::
@@ -184,11 +184,15 @@ newRunPipelineActivityResponse ::
   RunPipelineActivityResponse
 newRunPipelineActivityResponse pHttpStatus_ =
   RunPipelineActivityResponse'
-    { payloads =
+    { logResult =
         Prelude.Nothing,
-      logResult = Prelude.Nothing,
+      payloads = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | In case the pipeline activity fails, the log message that is generated.
+runPipelineActivityResponse_logResult :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe Prelude.Text)
+runPipelineActivityResponse_logResult = Lens.lens (\RunPipelineActivityResponse' {logResult} -> logResult) (\s@RunPipelineActivityResponse' {} a -> s {logResult = a} :: RunPipelineActivityResponse)
 
 -- | The enriched or transformed sample message payloads as base64-encoded
 -- strings. (The results of running the pipeline activity on each input
@@ -196,16 +200,12 @@ newRunPipelineActivityResponse pHttpStatus_ =
 runPipelineActivityResponse_payloads :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.ByteString))
 runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | In case the pipeline activity fails, the log message that is generated.
-runPipelineActivityResponse_logResult :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe Prelude.Text)
-runPipelineActivityResponse_logResult = Lens.lens (\RunPipelineActivityResponse' {logResult} -> logResult) (\s@RunPipelineActivityResponse' {} a -> s {logResult = a} :: RunPipelineActivityResponse)
-
 -- | The response's http status code.
 runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Prelude.Int
 runPipelineActivityResponse_httpStatus = Lens.lens (\RunPipelineActivityResponse' {httpStatus} -> httpStatus) (\s@RunPipelineActivityResponse' {} a -> s {httpStatus = a} :: RunPipelineActivityResponse)
 
 instance Prelude.NFData RunPipelineActivityResponse where
   rnf RunPipelineActivityResponse' {..} =
-    Prelude.rnf payloads
-      `Prelude.seq` Prelude.rnf logResult
+    Prelude.rnf logResult
+      `Prelude.seq` Prelude.rnf payloads
       `Prelude.seq` Prelude.rnf httpStatus

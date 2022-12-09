@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReprocessingSummary' smart constructor.
 data ReprocessingSummary = ReprocessingSummary'
-  { -- | The status of the pipeline reprocessing.
-    status :: Prelude.Maybe ReprocessingStatus,
+  { -- | The time the pipeline reprocessing was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The @reprocessingId@ returned by @StartPipelineReprocessing@.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The time the pipeline reprocessing was created.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The status of the pipeline reprocessing.
+    status :: Prelude.Maybe ReprocessingStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,32 @@ data ReprocessingSummary = ReprocessingSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'reprocessingSummary_status' - The status of the pipeline reprocessing.
+-- 'creationTime', 'reprocessingSummary_creationTime' - The time the pipeline reprocessing was created.
 --
 -- 'id', 'reprocessingSummary_id' - The @reprocessingId@ returned by @StartPipelineReprocessing@.
 --
--- 'creationTime', 'reprocessingSummary_creationTime' - The time the pipeline reprocessing was created.
+-- 'status', 'reprocessingSummary_status' - The status of the pipeline reprocessing.
 newReprocessingSummary ::
   ReprocessingSummary
 newReprocessingSummary =
   ReprocessingSummary'
-    { status = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
       id = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
--- | The status of the pipeline reprocessing.
-reprocessingSummary_status :: Lens.Lens' ReprocessingSummary (Prelude.Maybe ReprocessingStatus)
-reprocessingSummary_status = Lens.lens (\ReprocessingSummary' {status} -> status) (\s@ReprocessingSummary' {} a -> s {status = a} :: ReprocessingSummary)
+-- | The time the pipeline reprocessing was created.
+reprocessingSummary_creationTime :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.UTCTime)
+reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The @reprocessingId@ returned by @StartPipelineReprocessing@.
 reprocessingSummary_id :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.Text)
 reprocessingSummary_id = Lens.lens (\ReprocessingSummary' {id} -> id) (\s@ReprocessingSummary' {} a -> s {id = a} :: ReprocessingSummary)
 
--- | The time the pipeline reprocessing was created.
-reprocessingSummary_creationTime :: Lens.Lens' ReprocessingSummary (Prelude.Maybe Prelude.UTCTime)
-reprocessingSummary_creationTime = Lens.lens (\ReprocessingSummary' {creationTime} -> creationTime) (\s@ReprocessingSummary' {} a -> s {creationTime = a} :: ReprocessingSummary) Prelude.. Lens.mapping Data._Time
+-- | The status of the pipeline reprocessing.
+reprocessingSummary_status :: Lens.Lens' ReprocessingSummary (Prelude.Maybe ReprocessingStatus)
+reprocessingSummary_status = Lens.lens (\ReprocessingSummary' {status} -> status) (\s@ReprocessingSummary' {} a -> s {status = a} :: ReprocessingSummary)
 
 instance Data.FromJSON ReprocessingSummary where
   parseJSON =
@@ -78,19 +79,19 @@ instance Data.FromJSON ReprocessingSummary where
       "ReprocessingSummary"
       ( \x ->
           ReprocessingSummary'
-            Prelude.<$> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ReprocessingSummary where
   hashWithSalt _salt ReprocessingSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ReprocessingSummary where
   rnf ReprocessingSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf status

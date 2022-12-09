@@ -35,8 +35,8 @@ module Amazonka.IoTAnalytics.DescribeDatastore
     newDescribeDatastoreResponse,
 
     -- * Response Lenses
-    describeDatastoreResponse_statistics,
     describeDatastoreResponse_datastore,
+    describeDatastoreResponse_statistics,
     describeDatastoreResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest DescribeDatastore where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatastoreResponse'
-            Prelude.<$> (x Data..?> "statistics")
-            Prelude.<*> (x Data..?> "datastore")
+            Prelude.<$> (x Data..?> "datastore")
+            Prelude.<*> (x Data..?> "statistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,11 +134,11 @@ instance Data.ToQuery DescribeDatastore where
 
 -- | /See:/ 'newDescribeDatastoreResponse' smart constructor.
 data DescribeDatastoreResponse = DescribeDatastoreResponse'
-  { -- | Additional statistical information about the data store. Included if the
+  { -- | Information about the data store.
+    datastore :: Prelude.Maybe Datastore,
+    -- | Additional statistical information about the data store. Included if the
     -- @includeStatistics@ parameter is set to @true@ in the request.
     statistics :: Prelude.Maybe DatastoreStatistics,
-    -- | Information about the data store.
-    datastore :: Prelude.Maybe Datastore,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,10 +152,10 @@ data DescribeDatastoreResponse = DescribeDatastoreResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datastore', 'describeDatastoreResponse_datastore' - Information about the data store.
+--
 -- 'statistics', 'describeDatastoreResponse_statistics' - Additional statistical information about the data store. Included if the
 -- @includeStatistics@ parameter is set to @true@ in the request.
---
--- 'datastore', 'describeDatastoreResponse_datastore' - Information about the data store.
 --
 -- 'httpStatus', 'describeDatastoreResponse_httpStatus' - The response's http status code.
 newDescribeDatastoreResponse ::
@@ -164,20 +164,20 @@ newDescribeDatastoreResponse ::
   DescribeDatastoreResponse
 newDescribeDatastoreResponse pHttpStatus_ =
   DescribeDatastoreResponse'
-    { statistics =
+    { datastore =
         Prelude.Nothing,
-      datastore = Prelude.Nothing,
+      statistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the data store.
+describeDatastoreResponse_datastore :: Lens.Lens' DescribeDatastoreResponse (Prelude.Maybe Datastore)
+describeDatastoreResponse_datastore = Lens.lens (\DescribeDatastoreResponse' {datastore} -> datastore) (\s@DescribeDatastoreResponse' {} a -> s {datastore = a} :: DescribeDatastoreResponse)
 
 -- | Additional statistical information about the data store. Included if the
 -- @includeStatistics@ parameter is set to @true@ in the request.
 describeDatastoreResponse_statistics :: Lens.Lens' DescribeDatastoreResponse (Prelude.Maybe DatastoreStatistics)
 describeDatastoreResponse_statistics = Lens.lens (\DescribeDatastoreResponse' {statistics} -> statistics) (\s@DescribeDatastoreResponse' {} a -> s {statistics = a} :: DescribeDatastoreResponse)
-
--- | Information about the data store.
-describeDatastoreResponse_datastore :: Lens.Lens' DescribeDatastoreResponse (Prelude.Maybe Datastore)
-describeDatastoreResponse_datastore = Lens.lens (\DescribeDatastoreResponse' {datastore} -> datastore) (\s@DescribeDatastoreResponse' {} a -> s {datastore = a} :: DescribeDatastoreResponse)
 
 -- | The response's http status code.
 describeDatastoreResponse_httpStatus :: Lens.Lens' DescribeDatastoreResponse Prelude.Int
@@ -185,6 +185,6 @@ describeDatastoreResponse_httpStatus = Lens.lens (\DescribeDatastoreResponse' {h
 
 instance Prelude.NFData DescribeDatastoreResponse where
   rnf DescribeDatastoreResponse' {..} =
-    Prelude.rnf statistics
-      `Prelude.seq` Prelude.rnf datastore
+    Prelude.rnf datastore
+      `Prelude.seq` Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf httpStatus

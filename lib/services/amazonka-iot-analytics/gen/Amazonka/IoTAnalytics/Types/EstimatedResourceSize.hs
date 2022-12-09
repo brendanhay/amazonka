@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEstimatedResourceSize' smart constructor.
 data EstimatedResourceSize = EstimatedResourceSize'
-  { -- | The estimated size of the resource, in bytes.
-    estimatedSizeInBytes :: Prelude.Maybe Prelude.Double,
-    -- | The time when the estimate of the size of the resource was made.
-    estimatedOn :: Prelude.Maybe Data.POSIX
+  { -- | The time when the estimate of the size of the resource was made.
+    estimatedOn :: Prelude.Maybe Data.POSIX,
+    -- | The estimated size of the resource, in bytes.
+    estimatedSizeInBytes :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data EstimatedResourceSize = EstimatedResourceSize'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'estimatedSizeInBytes', 'estimatedResourceSize_estimatedSizeInBytes' - The estimated size of the resource, in bytes.
---
 -- 'estimatedOn', 'estimatedResourceSize_estimatedOn' - The time when the estimate of the size of the resource was made.
+--
+-- 'estimatedSizeInBytes', 'estimatedResourceSize_estimatedSizeInBytes' - The estimated size of the resource, in bytes.
 newEstimatedResourceSize ::
   EstimatedResourceSize
 newEstimatedResourceSize =
   EstimatedResourceSize'
-    { estimatedSizeInBytes =
+    { estimatedOn =
         Prelude.Nothing,
-      estimatedOn = Prelude.Nothing
+      estimatedSizeInBytes = Prelude.Nothing
     }
-
--- | The estimated size of the resource, in bytes.
-estimatedResourceSize_estimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.Double)
-estimatedResourceSize_estimatedSizeInBytes = Lens.lens (\EstimatedResourceSize' {estimatedSizeInBytes} -> estimatedSizeInBytes) (\s@EstimatedResourceSize' {} a -> s {estimatedSizeInBytes = a} :: EstimatedResourceSize)
 
 -- | The time when the estimate of the size of the resource was made.
 estimatedResourceSize_estimatedOn :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.UTCTime)
 estimatedResourceSize_estimatedOn = Lens.lens (\EstimatedResourceSize' {estimatedOn} -> estimatedOn) (\s@EstimatedResourceSize' {} a -> s {estimatedOn = a} :: EstimatedResourceSize) Prelude.. Lens.mapping Data._Time
+
+-- | The estimated size of the resource, in bytes.
+estimatedResourceSize_estimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Prelude.Maybe Prelude.Double)
+estimatedResourceSize_estimatedSizeInBytes = Lens.lens (\EstimatedResourceSize' {estimatedSizeInBytes} -> estimatedSizeInBytes) (\s@EstimatedResourceSize' {} a -> s {estimatedSizeInBytes = a} :: EstimatedResourceSize)
 
 instance Data.FromJSON EstimatedResourceSize where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON EstimatedResourceSize where
       "EstimatedResourceSize"
       ( \x ->
           EstimatedResourceSize'
-            Prelude.<$> (x Data..:? "estimatedSizeInBytes")
-            Prelude.<*> (x Data..:? "estimatedOn")
+            Prelude.<$> (x Data..:? "estimatedOn")
+            Prelude.<*> (x Data..:? "estimatedSizeInBytes")
       )
 
 instance Prelude.Hashable EstimatedResourceSize where
   hashWithSalt _salt EstimatedResourceSize' {..} =
-    _salt `Prelude.hashWithSalt` estimatedSizeInBytes
-      `Prelude.hashWithSalt` estimatedOn
+    _salt `Prelude.hashWithSalt` estimatedOn
+      `Prelude.hashWithSalt` estimatedSizeInBytes
 
 instance Prelude.NFData EstimatedResourceSize where
   rnf EstimatedResourceSize' {..} =
-    Prelude.rnf estimatedSizeInBytes
-      `Prelude.seq` Prelude.rnf estimatedOn
+    Prelude.rnf estimatedOn
+      `Prelude.seq` Prelude.rnf estimatedSizeInBytes

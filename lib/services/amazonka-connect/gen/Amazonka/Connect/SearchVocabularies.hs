@@ -30,11 +30,11 @@ module Amazonka.Connect.SearchVocabularies
     newSearchVocabularies,
 
     -- * Request Lenses
-    searchVocabularies_nextToken,
-    searchVocabularies_nameStartsWith,
-    searchVocabularies_state,
     searchVocabularies_languageCode,
     searchVocabularies_maxResults,
+    searchVocabularies_nameStartsWith,
+    searchVocabularies_nextToken,
+    searchVocabularies_state,
     searchVocabularies_instanceId,
 
     -- * Destructuring the Response
@@ -58,20 +58,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchVocabularies' smart constructor.
 data SearchVocabularies = SearchVocabularies'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The starting pattern of the name of the vocabulary.
-    nameStartsWith :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the custom vocabulary.
-    state :: Prelude.Maybe VocabularyState,
-    -- | The language code of the vocabulary entries. For a list of languages and
+  { -- | The language code of the vocabulary entries. For a list of languages and
     -- their corresponding language codes, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html What is Amazon Transcribe?>
     languageCode :: Prelude.Maybe VocabularyLanguageCode,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The starting pattern of the name of the vocabulary.
+    nameStartsWith :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the custom vocabulary.
+    state :: Prelude.Maybe VocabularyState,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -86,19 +86,19 @@ data SearchVocabularies = SearchVocabularies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchVocabularies_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- 'nameStartsWith', 'searchVocabularies_nameStartsWith' - The starting pattern of the name of the vocabulary.
---
--- 'state', 'searchVocabularies_state' - The current state of the custom vocabulary.
---
 -- 'languageCode', 'searchVocabularies_languageCode' - The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html What is Amazon Transcribe?>
 --
 -- 'maxResults', 'searchVocabularies_maxResults' - The maximum number of results to return per page.
+--
+-- 'nameStartsWith', 'searchVocabularies_nameStartsWith' - The starting pattern of the name of the vocabulary.
+--
+-- 'nextToken', 'searchVocabularies_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- 'state', 'searchVocabularies_state' - The current state of the custom vocabulary.
 --
 -- 'instanceId', 'searchVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -108,27 +108,13 @@ newSearchVocabularies ::
   SearchVocabularies
 newSearchVocabularies pInstanceId_ =
   SearchVocabularies'
-    { nextToken = Prelude.Nothing,
-      nameStartsWith = Prelude.Nothing,
-      state = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+    { languageCode = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nameStartsWith = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      state = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-searchVocabularies_nextToken :: Lens.Lens' SearchVocabularies (Prelude.Maybe Prelude.Text)
-searchVocabularies_nextToken = Lens.lens (\SearchVocabularies' {nextToken} -> nextToken) (\s@SearchVocabularies' {} a -> s {nextToken = a} :: SearchVocabularies)
-
--- | The starting pattern of the name of the vocabulary.
-searchVocabularies_nameStartsWith :: Lens.Lens' SearchVocabularies (Prelude.Maybe Prelude.Text)
-searchVocabularies_nameStartsWith = Lens.lens (\SearchVocabularies' {nameStartsWith} -> nameStartsWith) (\s@SearchVocabularies' {} a -> s {nameStartsWith = a} :: SearchVocabularies)
-
--- | The current state of the custom vocabulary.
-searchVocabularies_state :: Lens.Lens' SearchVocabularies (Prelude.Maybe VocabularyState)
-searchVocabularies_state = Lens.lens (\SearchVocabularies' {state} -> state) (\s@SearchVocabularies' {} a -> s {state = a} :: SearchVocabularies)
 
 -- | The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
@@ -139,6 +125,20 @@ searchVocabularies_languageCode = Lens.lens (\SearchVocabularies' {languageCode}
 -- | The maximum number of results to return per page.
 searchVocabularies_maxResults :: Lens.Lens' SearchVocabularies (Prelude.Maybe Prelude.Natural)
 searchVocabularies_maxResults = Lens.lens (\SearchVocabularies' {maxResults} -> maxResults) (\s@SearchVocabularies' {} a -> s {maxResults = a} :: SearchVocabularies)
+
+-- | The starting pattern of the name of the vocabulary.
+searchVocabularies_nameStartsWith :: Lens.Lens' SearchVocabularies (Prelude.Maybe Prelude.Text)
+searchVocabularies_nameStartsWith = Lens.lens (\SearchVocabularies' {nameStartsWith} -> nameStartsWith) (\s@SearchVocabularies' {} a -> s {nameStartsWith = a} :: SearchVocabularies)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+searchVocabularies_nextToken :: Lens.Lens' SearchVocabularies (Prelude.Maybe Prelude.Text)
+searchVocabularies_nextToken = Lens.lens (\SearchVocabularies' {nextToken} -> nextToken) (\s@SearchVocabularies' {} a -> s {nextToken = a} :: SearchVocabularies)
+
+-- | The current state of the custom vocabulary.
+searchVocabularies_state :: Lens.Lens' SearchVocabularies (Prelude.Maybe VocabularyState)
+searchVocabularies_state = Lens.lens (\SearchVocabularies' {state} -> state) (\s@SearchVocabularies' {} a -> s {state = a} :: SearchVocabularies)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -186,20 +186,20 @@ instance Core.AWSRequest SearchVocabularies where
 
 instance Prelude.Hashable SearchVocabularies where
   hashWithSalt _salt SearchVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` nameStartsWith
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` languageCode
+    _salt `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameStartsWith
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SearchVocabularies where
   rnf SearchVocabularies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nameStartsWith
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameStartsWith
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchVocabularies where
@@ -217,12 +217,12 @@ instance Data.ToJSON SearchVocabularies where
   toJSON SearchVocabularies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NameStartsWith" Data..=)
               Prelude.<$> nameStartsWith,
-            ("State" Data..=) Prelude.<$> state,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("State" Data..=) Prelude.<$> state
           ]
       )
 

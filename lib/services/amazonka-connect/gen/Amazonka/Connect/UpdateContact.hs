@@ -35,8 +35,8 @@ module Amazonka.Connect.UpdateContact
     newUpdateContact,
 
     -- * Request Lenses
-    updateContact_name,
     updateContact_description,
+    updateContact_name,
     updateContact_references,
     updateContact_instanceId,
     updateContact_contactId,
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContact' smart constructor.
 data UpdateContact = UpdateContact'
-  { -- | The name of the contact.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the contact.
+  { -- | The description of the contact.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the contact.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Well-formed data on contact, shown to agents on Contact Control Panel
     -- (CCP).
     references :: Prelude.Maybe (Prelude.HashMap Prelude.Text Reference),
@@ -84,9 +84,9 @@ data UpdateContact = UpdateContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateContact_name' - The name of the contact.
---
 -- 'description', 'updateContact_description' - The description of the contact.
+--
+-- 'name', 'updateContact_name' - The name of the contact.
 --
 -- 'references', 'updateContact_references' - Well-formed data on contact, shown to agents on Contact Control Panel
 -- (CCP).
@@ -104,20 +104,20 @@ newUpdateContact ::
   UpdateContact
 newUpdateContact pInstanceId_ pContactId_ =
   UpdateContact'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       references = Prelude.Nothing,
       instanceId = pInstanceId_,
       contactId = pContactId_
     }
 
--- | The name of the contact.
-updateContact_name :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
-updateContact_name = Lens.lens (\UpdateContact' {name} -> name) (\s@UpdateContact' {} a -> s {name = a} :: UpdateContact)
-
 -- | The description of the contact.
 updateContact_description :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
 updateContact_description = Lens.lens (\UpdateContact' {description} -> description) (\s@UpdateContact' {} a -> s {description = a} :: UpdateContact)
+
+-- | The name of the contact.
+updateContact_name :: Lens.Lens' UpdateContact (Prelude.Maybe Prelude.Text)
+updateContact_name = Lens.lens (\UpdateContact' {name} -> name) (\s@UpdateContact' {} a -> s {name = a} :: UpdateContact)
 
 -- | Well-formed data on contact, shown to agents on Contact Control Panel
 -- (CCP).
@@ -149,16 +149,16 @@ instance Core.AWSRequest UpdateContact where
 
 instance Prelude.Hashable UpdateContact where
   hashWithSalt _salt UpdateContact' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` references
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
 
 instance Prelude.NFData UpdateContact where
   rnf UpdateContact' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf references
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactId
@@ -178,8 +178,8 @@ instance Data.ToJSON UpdateContact where
   toJSON UpdateContact' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("References" Data..=) Prelude.<$> references
           ]
       )

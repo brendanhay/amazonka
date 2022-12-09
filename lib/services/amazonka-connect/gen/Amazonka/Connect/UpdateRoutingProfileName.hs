@@ -29,8 +29,8 @@ module Amazonka.Connect.UpdateRoutingProfileName
     newUpdateRoutingProfileName,
 
     -- * Request Lenses
-    updateRoutingProfileName_name,
     updateRoutingProfileName_description,
+    updateRoutingProfileName_name,
     updateRoutingProfileName_instanceId,
     updateRoutingProfileName_routingProfileId,
 
@@ -50,11 +50,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileName' smart constructor.
 data UpdateRoutingProfileName = UpdateRoutingProfileName'
-  { -- | The name of the routing profile. Must not be more than 127 characters.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the routing profile. Must not be more than 250
+  { -- | The description of the routing profile. Must not be more than 250
     -- characters.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the routing profile. Must not be more than 127 characters.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -71,10 +71,10 @@ data UpdateRoutingProfileName = UpdateRoutingProfileName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateRoutingProfileName_name' - The name of the routing profile. Must not be more than 127 characters.
---
 -- 'description', 'updateRoutingProfileName_description' - The description of the routing profile. Must not be more than 250
 -- characters.
+--
+-- 'name', 'updateRoutingProfileName_name' - The name of the routing profile. Must not be more than 127 characters.
 --
 -- 'instanceId', 'updateRoutingProfileName_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -90,20 +90,21 @@ newUpdateRoutingProfileName
   pInstanceId_
   pRoutingProfileId_ =
     UpdateRoutingProfileName'
-      { name = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
+        name = Prelude.Nothing,
         instanceId = pInstanceId_,
         routingProfileId = pRoutingProfileId_
       }
-
--- | The name of the routing profile. Must not be more than 127 characters.
-updateRoutingProfileName_name :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
-updateRoutingProfileName_name = Lens.lens (\UpdateRoutingProfileName' {name} -> name) (\s@UpdateRoutingProfileName' {} a -> s {name = a} :: UpdateRoutingProfileName)
 
 -- | The description of the routing profile. Must not be more than 250
 -- characters.
 updateRoutingProfileName_description :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
 updateRoutingProfileName_description = Lens.lens (\UpdateRoutingProfileName' {description} -> description) (\s@UpdateRoutingProfileName' {} a -> s {description = a} :: UpdateRoutingProfileName)
+
+-- | The name of the routing profile. Must not be more than 127 characters.
+updateRoutingProfileName_name :: Lens.Lens' UpdateRoutingProfileName (Prelude.Maybe Prelude.Text)
+updateRoutingProfileName_name = Lens.lens (\UpdateRoutingProfileName' {name} -> name) (\s@UpdateRoutingProfileName' {} a -> s {name = a} :: UpdateRoutingProfileName)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -126,15 +127,15 @@ instance Core.AWSRequest UpdateRoutingProfileName where
 
 instance Prelude.Hashable UpdateRoutingProfileName where
   hashWithSalt _salt UpdateRoutingProfileName' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` routingProfileId
 
 instance Prelude.NFData UpdateRoutingProfileName where
   rnf UpdateRoutingProfileName' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf routingProfileId
 
@@ -153,8 +154,8 @@ instance Data.ToJSON UpdateRoutingProfileName where
   toJSON UpdateRoutingProfileName' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

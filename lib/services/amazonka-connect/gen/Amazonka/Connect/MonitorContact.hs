@@ -29,8 +29,8 @@ module Amazonka.Connect.MonitorContact
     newMonitorContact,
 
     -- * Request Lenses
-    monitorContact_clientToken,
     monitorContact_allowedMonitorCapabilities,
+    monitorContact_clientToken,
     monitorContact_instanceId,
     monitorContact_contactId,
     monitorContact_userId,
@@ -40,8 +40,8 @@ module Amazonka.Connect.MonitorContact
     newMonitorContactResponse,
 
     -- * Response Lenses
-    monitorContactResponse_contactId,
     monitorContactResponse_contactArn,
+    monitorContactResponse_contactId,
     monitorContactResponse_httpStatus,
   )
 where
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newMonitorContact' smart constructor.
 data MonitorContact = MonitorContact'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | Specify which monitoring actions the user is allowed to take. For
+    -- example, whether the user is allowed to escalate from silent monitoring
+    -- to barge.
+    allowedMonitorCapabilities :: Prelude.Maybe [MonitorCapability],
+    -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify which monitoring actions the user is allowed to take. For
-    -- example, whether the user is allowed to escalate from silent monitoring
-    -- to barge.
-    allowedMonitorCapabilities :: Prelude.Maybe [MonitorCapability],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -83,14 +83,14 @@ data MonitorContact = MonitorContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowedMonitorCapabilities', 'monitorContact_allowedMonitorCapabilities' - Specify which monitoring actions the user is allowed to take. For
+-- example, whether the user is allowed to escalate from silent monitoring
+-- to barge.
+--
 -- 'clientToken', 'monitorContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
---
--- 'allowedMonitorCapabilities', 'monitorContact_allowedMonitorCapabilities' - Specify which monitoring actions the user is allowed to take. For
--- example, whether the user is allowed to escalate from silent monitoring
--- to barge.
 --
 -- 'instanceId', 'monitorContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -108,12 +108,19 @@ newMonitorContact ::
   MonitorContact
 newMonitorContact pInstanceId_ pContactId_ pUserId_ =
   MonitorContact'
-    { clientToken = Prelude.Nothing,
-      allowedMonitorCapabilities = Prelude.Nothing,
+    { allowedMonitorCapabilities =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       instanceId = pInstanceId_,
       contactId = pContactId_,
       userId = pUserId_
     }
+
+-- | Specify which monitoring actions the user is allowed to take. For
+-- example, whether the user is allowed to escalate from silent monitoring
+-- to barge.
+monitorContact_allowedMonitorCapabilities :: Lens.Lens' MonitorContact (Prelude.Maybe [MonitorCapability])
+monitorContact_allowedMonitorCapabilities = Lens.lens (\MonitorContact' {allowedMonitorCapabilities} -> allowedMonitorCapabilities) (\s@MonitorContact' {} a -> s {allowedMonitorCapabilities = a} :: MonitorContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
@@ -121,12 +128,6 @@ newMonitorContact pInstanceId_ pContactId_ pUserId_ =
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 monitorContact_clientToken :: Lens.Lens' MonitorContact (Prelude.Maybe Prelude.Text)
 monitorContact_clientToken = Lens.lens (\MonitorContact' {clientToken} -> clientToken) (\s@MonitorContact' {} a -> s {clientToken = a} :: MonitorContact)
-
--- | Specify which monitoring actions the user is allowed to take. For
--- example, whether the user is allowed to escalate from silent monitoring
--- to barge.
-monitorContact_allowedMonitorCapabilities :: Lens.Lens' MonitorContact (Prelude.Maybe [MonitorCapability])
-monitorContact_allowedMonitorCapabilities = Lens.lens (\MonitorContact' {allowedMonitorCapabilities} -> allowedMonitorCapabilities) (\s@MonitorContact' {} a -> s {allowedMonitorCapabilities = a} :: MonitorContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -151,23 +152,24 @@ instance Core.AWSRequest MonitorContact where
     Response.receiveJSON
       ( \s h x ->
           MonitorContactResponse'
-            Prelude.<$> (x Data..?> "ContactId")
-            Prelude.<*> (x Data..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactArn")
+            Prelude.<*> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable MonitorContact where
   hashWithSalt _salt MonitorContact' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
       `Prelude.hashWithSalt` allowedMonitorCapabilities
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData MonitorContact where
   rnf MonitorContact' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf allowedMonitorCapabilities
+    Prelude.rnf allowedMonitorCapabilities
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf userId
@@ -187,9 +189,9 @@ instance Data.ToJSON MonitorContact where
   toJSON MonitorContact' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("AllowedMonitorCapabilities" Data..=)
+          [ ("AllowedMonitorCapabilities" Data..=)
               Prelude.<$> allowedMonitorCapabilities,
+            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("InstanceId" Data..= instanceId),
             Prelude.Just ("ContactId" Data..= contactId),
             Prelude.Just ("UserId" Data..= userId)
@@ -204,10 +206,10 @@ instance Data.ToQuery MonitorContact where
 
 -- | /See:/ 'newMonitorContactResponse' smart constructor.
 data MonitorContactResponse = MonitorContactResponse'
-  { -- | The identifier of the contact.
-    contactId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the contact.
+  { -- | The ARN of the contact.
     contactArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the contact.
+    contactId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,9 +223,9 @@ data MonitorContactResponse = MonitorContactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contactId', 'monitorContactResponse_contactId' - The identifier of the contact.
---
 -- 'contactArn', 'monitorContactResponse_contactArn' - The ARN of the contact.
+--
+-- 'contactId', 'monitorContactResponse_contactId' - The identifier of the contact.
 --
 -- 'httpStatus', 'monitorContactResponse_httpStatus' - The response's http status code.
 newMonitorContactResponse ::
@@ -232,19 +234,19 @@ newMonitorContactResponse ::
   MonitorContactResponse
 newMonitorContactResponse pHttpStatus_ =
   MonitorContactResponse'
-    { contactId =
+    { contactArn =
         Prelude.Nothing,
-      contactArn = Prelude.Nothing,
+      contactId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the contact.
-monitorContactResponse_contactId :: Lens.Lens' MonitorContactResponse (Prelude.Maybe Prelude.Text)
-monitorContactResponse_contactId = Lens.lens (\MonitorContactResponse' {contactId} -> contactId) (\s@MonitorContactResponse' {} a -> s {contactId = a} :: MonitorContactResponse)
 
 -- | The ARN of the contact.
 monitorContactResponse_contactArn :: Lens.Lens' MonitorContactResponse (Prelude.Maybe Prelude.Text)
 monitorContactResponse_contactArn = Lens.lens (\MonitorContactResponse' {contactArn} -> contactArn) (\s@MonitorContactResponse' {} a -> s {contactArn = a} :: MonitorContactResponse)
+
+-- | The identifier of the contact.
+monitorContactResponse_contactId :: Lens.Lens' MonitorContactResponse (Prelude.Maybe Prelude.Text)
+monitorContactResponse_contactId = Lens.lens (\MonitorContactResponse' {contactId} -> contactId) (\s@MonitorContactResponse' {} a -> s {contactId = a} :: MonitorContactResponse)
 
 -- | The response's http status code.
 monitorContactResponse_httpStatus :: Lens.Lens' MonitorContactResponse Prelude.Int
@@ -252,6 +254,6 @@ monitorContactResponse_httpStatus = Lens.lens (\MonitorContactResponse' {httpSta
 
 instance Prelude.NFData MonitorContactResponse where
   rnf MonitorContactResponse' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf httpStatus

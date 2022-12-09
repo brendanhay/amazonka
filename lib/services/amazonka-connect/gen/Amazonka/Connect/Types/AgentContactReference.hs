@@ -37,12 +37,12 @@ data AgentContactReference = AgentContactReference'
   { -- | The
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html state of the contact>.
     agentContactState :: Prelude.Maybe ContactState,
-    -- | The identifier of the contact in this instance of Amazon Connect.
-    contactId :: Prelude.Maybe Prelude.Text,
     -- | The channel of the contact.
     channel :: Prelude.Maybe Channel,
     -- | The time at which the contact was connected to an agent.
     connectedToAgentTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the contact in this instance of Amazon Connect.
+    contactId :: Prelude.Maybe Prelude.Text,
     -- | How the contact was initiated.
     initiationMethod :: Prelude.Maybe ContactInitiationMethod,
     queue :: Prelude.Maybe QueueReference,
@@ -62,11 +62,11 @@ data AgentContactReference = AgentContactReference'
 -- 'agentContactState', 'agentContactReference_agentContactState' - The
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html state of the contact>.
 --
--- 'contactId', 'agentContactReference_contactId' - The identifier of the contact in this instance of Amazon Connect.
---
 -- 'channel', 'agentContactReference_channel' - The channel of the contact.
 --
 -- 'connectedToAgentTimestamp', 'agentContactReference_connectedToAgentTimestamp' - The time at which the contact was connected to an agent.
+--
+-- 'contactId', 'agentContactReference_contactId' - The identifier of the contact in this instance of Amazon Connect.
 --
 -- 'initiationMethod', 'agentContactReference_initiationMethod' - How the contact was initiated.
 --
@@ -79,9 +79,9 @@ newAgentContactReference =
   AgentContactReference'
     { agentContactState =
         Prelude.Nothing,
-      contactId = Prelude.Nothing,
       channel = Prelude.Nothing,
       connectedToAgentTimestamp = Prelude.Nothing,
+      contactId = Prelude.Nothing,
       initiationMethod = Prelude.Nothing,
       queue = Prelude.Nothing,
       stateStartTimestamp = Prelude.Nothing
@@ -92,10 +92,6 @@ newAgentContactReference =
 agentContactReference_agentContactState :: Lens.Lens' AgentContactReference (Prelude.Maybe ContactState)
 agentContactReference_agentContactState = Lens.lens (\AgentContactReference' {agentContactState} -> agentContactState) (\s@AgentContactReference' {} a -> s {agentContactState = a} :: AgentContactReference)
 
--- | The identifier of the contact in this instance of Amazon Connect.
-agentContactReference_contactId :: Lens.Lens' AgentContactReference (Prelude.Maybe Prelude.Text)
-agentContactReference_contactId = Lens.lens (\AgentContactReference' {contactId} -> contactId) (\s@AgentContactReference' {} a -> s {contactId = a} :: AgentContactReference)
-
 -- | The channel of the contact.
 agentContactReference_channel :: Lens.Lens' AgentContactReference (Prelude.Maybe Channel)
 agentContactReference_channel = Lens.lens (\AgentContactReference' {channel} -> channel) (\s@AgentContactReference' {} a -> s {channel = a} :: AgentContactReference)
@@ -103,6 +99,10 @@ agentContactReference_channel = Lens.lens (\AgentContactReference' {channel} -> 
 -- | The time at which the contact was connected to an agent.
 agentContactReference_connectedToAgentTimestamp :: Lens.Lens' AgentContactReference (Prelude.Maybe Prelude.UTCTime)
 agentContactReference_connectedToAgentTimestamp = Lens.lens (\AgentContactReference' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentContactReference' {} a -> s {connectedToAgentTimestamp = a} :: AgentContactReference) Prelude.. Lens.mapping Data._Time
+
+-- | The identifier of the contact in this instance of Amazon Connect.
+agentContactReference_contactId :: Lens.Lens' AgentContactReference (Prelude.Maybe Prelude.Text)
+agentContactReference_contactId = Lens.lens (\AgentContactReference' {contactId} -> contactId) (\s@AgentContactReference' {} a -> s {contactId = a} :: AgentContactReference)
 
 -- | How the contact was initiated.
 agentContactReference_initiationMethod :: Lens.Lens' AgentContactReference (Prelude.Maybe ContactInitiationMethod)
@@ -123,9 +123,9 @@ instance Data.FromJSON AgentContactReference where
       ( \x ->
           AgentContactReference'
             Prelude.<$> (x Data..:? "AgentContactState")
-            Prelude.<*> (x Data..:? "ContactId")
             Prelude.<*> (x Data..:? "Channel")
             Prelude.<*> (x Data..:? "ConnectedToAgentTimestamp")
+            Prelude.<*> (x Data..:? "ContactId")
             Prelude.<*> (x Data..:? "InitiationMethod")
             Prelude.<*> (x Data..:? "Queue")
             Prelude.<*> (x Data..:? "StateStartTimestamp")
@@ -134,9 +134,9 @@ instance Data.FromJSON AgentContactReference where
 instance Prelude.Hashable AgentContactReference where
   hashWithSalt _salt AgentContactReference' {..} =
     _salt `Prelude.hashWithSalt` agentContactState
-      `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` connectedToAgentTimestamp
+      `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initiationMethod
       `Prelude.hashWithSalt` queue
       `Prelude.hashWithSalt` stateStartTimestamp
@@ -144,9 +144,9 @@ instance Prelude.Hashable AgentContactReference where
 instance Prelude.NFData AgentContactReference where
   rnf AgentContactReference' {..} =
     Prelude.rnf agentContactState
-      `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf channel
       `Prelude.seq` Prelude.rnf connectedToAgentTimestamp
+      `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf initiationMethod
       `Prelude.seq` Prelude.rnf queue
       `Prelude.seq` Prelude.rnf stateStartTimestamp

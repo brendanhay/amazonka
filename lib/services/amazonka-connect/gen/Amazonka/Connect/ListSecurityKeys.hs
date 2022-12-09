@@ -33,8 +33,8 @@ module Amazonka.Connect.ListSecurityKeys
     newListSecurityKeys,
 
     -- * Request Lenses
-    listSecurityKeys_nextToken,
     listSecurityKeys_maxResults,
+    listSecurityKeys_nextToken,
     listSecurityKeys_instanceId,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSecurityKeys' smart constructor.
 data ListSecurityKeys = ListSecurityKeys'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -78,11 +78,11 @@ data ListSecurityKeys = ListSecurityKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSecurityKeys_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listSecurityKeys_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listSecurityKeys_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'listSecurityKeys_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -92,20 +92,20 @@ newListSecurityKeys ::
   ListSecurityKeys
 newListSecurityKeys pInstanceId_ =
   ListSecurityKeys'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page.
+listSecurityKeys_maxResults :: Lens.Lens' ListSecurityKeys (Prelude.Maybe Prelude.Natural)
+listSecurityKeys_maxResults = Lens.lens (\ListSecurityKeys' {maxResults} -> maxResults) (\s@ListSecurityKeys' {} a -> s {maxResults = a} :: ListSecurityKeys)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listSecurityKeys_nextToken :: Lens.Lens' ListSecurityKeys (Prelude.Maybe Prelude.Text)
 listSecurityKeys_nextToken = Lens.lens (\ListSecurityKeys' {nextToken} -> nextToken) (\s@ListSecurityKeys' {} a -> s {nextToken = a} :: ListSecurityKeys)
-
--- | The maximum number of results to return per page.
-listSecurityKeys_maxResults :: Lens.Lens' ListSecurityKeys (Prelude.Maybe Prelude.Natural)
-listSecurityKeys_maxResults = Lens.lens (\ListSecurityKeys' {maxResults} -> maxResults) (\s@ListSecurityKeys' {} a -> s {maxResults = a} :: ListSecurityKeys)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -151,14 +151,14 @@ instance Core.AWSRequest ListSecurityKeys where
 
 instance Prelude.Hashable ListSecurityKeys where
   hashWithSalt _salt ListSecurityKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListSecurityKeys where
   rnf ListSecurityKeys' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListSecurityKeys where
@@ -183,8 +183,8 @@ instance Data.ToPath ListSecurityKeys where
 instance Data.ToQuery ListSecurityKeys where
   toQuery ListSecurityKeys' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSecurityKeysResponse' smart constructor.

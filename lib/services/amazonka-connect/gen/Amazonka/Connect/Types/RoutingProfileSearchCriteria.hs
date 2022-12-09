@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoutingProfileSearchCriteria' smart constructor.
 data RoutingProfileSearchCriteria = RoutingProfileSearchCriteria'
-  { stringCondition :: Prelude.Maybe StringCondition,
+  { -- | A list of conditions which would be applied together with an AND
+    -- condition.
+    andConditions :: Prelude.Maybe [RoutingProfileSearchCriteria],
     -- | A list of conditions which would be applied together with an OR
     -- condition.
     orConditions :: Prelude.Maybe [RoutingProfileSearchCriteria],
-    -- | A list of conditions which would be applied together with an AND
-    -- condition.
-    andConditions :: Prelude.Maybe [RoutingProfileSearchCriteria]
+    stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,59 +51,59 @@ data RoutingProfileSearchCriteria = RoutingProfileSearchCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringCondition', 'routingProfileSearchCriteria_stringCondition' - Undocumented member.
+-- 'andConditions', 'routingProfileSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
+-- condition.
 --
 -- 'orConditions', 'routingProfileSearchCriteria_orConditions' - A list of conditions which would be applied together with an OR
 -- condition.
 --
--- 'andConditions', 'routingProfileSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
--- condition.
+-- 'stringCondition', 'routingProfileSearchCriteria_stringCondition' - Undocumented member.
 newRoutingProfileSearchCriteria ::
   RoutingProfileSearchCriteria
 newRoutingProfileSearchCriteria =
   RoutingProfileSearchCriteria'
-    { stringCondition =
+    { andConditions =
         Prelude.Nothing,
       orConditions = Prelude.Nothing,
-      andConditions = Prelude.Nothing
+      stringCondition = Prelude.Nothing
     }
-
--- | Undocumented member.
-routingProfileSearchCriteria_stringCondition :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe StringCondition)
-routingProfileSearchCriteria_stringCondition = Lens.lens (\RoutingProfileSearchCriteria' {stringCondition} -> stringCondition) (\s@RoutingProfileSearchCriteria' {} a -> s {stringCondition = a} :: RoutingProfileSearchCriteria)
-
--- | A list of conditions which would be applied together with an OR
--- condition.
-routingProfileSearchCriteria_orConditions :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe [RoutingProfileSearchCriteria])
-routingProfileSearchCriteria_orConditions = Lens.lens (\RoutingProfileSearchCriteria' {orConditions} -> orConditions) (\s@RoutingProfileSearchCriteria' {} a -> s {orConditions = a} :: RoutingProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of conditions which would be applied together with an AND
 -- condition.
 routingProfileSearchCriteria_andConditions :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe [RoutingProfileSearchCriteria])
 routingProfileSearchCriteria_andConditions = Lens.lens (\RoutingProfileSearchCriteria' {andConditions} -> andConditions) (\s@RoutingProfileSearchCriteria' {} a -> s {andConditions = a} :: RoutingProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of conditions which would be applied together with an OR
+-- condition.
+routingProfileSearchCriteria_orConditions :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe [RoutingProfileSearchCriteria])
+routingProfileSearchCriteria_orConditions = Lens.lens (\RoutingProfileSearchCriteria' {orConditions} -> orConditions) (\s@RoutingProfileSearchCriteria' {} a -> s {orConditions = a} :: RoutingProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+routingProfileSearchCriteria_stringCondition :: Lens.Lens' RoutingProfileSearchCriteria (Prelude.Maybe StringCondition)
+routingProfileSearchCriteria_stringCondition = Lens.lens (\RoutingProfileSearchCriteria' {stringCondition} -> stringCondition) (\s@RoutingProfileSearchCriteria' {} a -> s {stringCondition = a} :: RoutingProfileSearchCriteria)
+
 instance
   Prelude.Hashable
     RoutingProfileSearchCriteria
   where
   hashWithSalt _salt RoutingProfileSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` stringCondition
+    _salt `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
-      `Prelude.hashWithSalt` andConditions
+      `Prelude.hashWithSalt` stringCondition
 
 instance Prelude.NFData RoutingProfileSearchCriteria where
   rnf RoutingProfileSearchCriteria' {..} =
-    Prelude.rnf stringCondition
+    Prelude.rnf andConditions
       `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf andConditions
+      `Prelude.seq` Prelude.rnf stringCondition
 
 instance Data.ToJSON RoutingProfileSearchCriteria where
   toJSON RoutingProfileSearchCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StringCondition" Data..=)
-              Prelude.<$> stringCondition,
+          [ ("AndConditions" Data..=) Prelude.<$> andConditions,
             ("OrConditions" Data..=) Prelude.<$> orConditions,
-            ("AndConditions" Data..=) Prelude.<$> andConditions
+            ("StringCondition" Data..=)
+              Prelude.<$> stringCondition
           ]
       )

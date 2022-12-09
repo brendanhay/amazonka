@@ -27,8 +27,8 @@ module Amazonka.Connect.CreateQuickConnect
     newCreateQuickConnect,
 
     -- * Request Lenses
-    createQuickConnect_tags,
     createQuickConnect_description,
+    createQuickConnect_tags,
     createQuickConnect_instanceId,
     createQuickConnect_name,
     createQuickConnect_quickConnectConfig,
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQuickConnect' smart constructor.
 data CreateQuickConnect = CreateQuickConnect'
-  { -- | The tags used to organize, track, or control access for this resource.
+  { -- | The description of the quick connect.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the quick connect.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -77,10 +77,10 @@ data CreateQuickConnect = CreateQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createQuickConnect_description' - The description of the quick connect.
+--
 -- 'tags', 'createQuickConnect_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'description', 'createQuickConnect_description' - The description of the quick connect.
 --
 -- 'instanceId', 'createQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -101,21 +101,21 @@ newCreateQuickConnect
   pName_
   pQuickConnectConfig_ =
     CreateQuickConnect'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         quickConnectConfig = pQuickConnectConfig_
       }
 
+-- | The description of the quick connect.
+createQuickConnect_description :: Lens.Lens' CreateQuickConnect (Prelude.Maybe Prelude.Text)
+createQuickConnect_description = Lens.lens (\CreateQuickConnect' {description} -> description) (\s@CreateQuickConnect' {} a -> s {description = a} :: CreateQuickConnect)
+
 -- | The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createQuickConnect_tags :: Lens.Lens' CreateQuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createQuickConnect_tags = Lens.lens (\CreateQuickConnect' {tags} -> tags) (\s@CreateQuickConnect' {} a -> s {tags = a} :: CreateQuickConnect) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the quick connect.
-createQuickConnect_description :: Lens.Lens' CreateQuickConnect (Prelude.Maybe Prelude.Text)
-createQuickConnect_description = Lens.lens (\CreateQuickConnect' {description} -> description) (\s@CreateQuickConnect' {} a -> s {description = a} :: CreateQuickConnect)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -147,16 +147,16 @@ instance Core.AWSRequest CreateQuickConnect where
 
 instance Prelude.Hashable CreateQuickConnect where
   hashWithSalt _salt CreateQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` quickConnectConfig
 
 instance Prelude.NFData CreateQuickConnect where
   rnf CreateQuickConnect' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf quickConnectConfig
@@ -176,8 +176,8 @@ instance Data.ToJSON CreateQuickConnect where
   toJSON CreateQuickConnect' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("QuickConnectConfig" Data..= quickConnectConfig)

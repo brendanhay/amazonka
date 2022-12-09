@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUseCase' smart constructor.
 data UseCase = UseCase'
-  { -- | The type of use case to associate to the integration association. Each
-    -- integration association can have only one of each use case type.
-    useCaseType :: Prelude.Maybe UseCaseType,
-    -- | The Amazon Resource Name (ARN) for the use case.
+  { -- | The Amazon Resource Name (ARN) for the use case.
     useCaseArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the use case.
-    useCaseId :: Prelude.Maybe Prelude.Text
+    useCaseId :: Prelude.Maybe Prelude.Text,
+    -- | The type of use case to associate to the integration association. Each
+    -- integration association can have only one of each use case type.
+    useCaseType :: Prelude.Maybe UseCaseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data UseCase = UseCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useCaseType', 'useCase_useCaseType' - The type of use case to associate to the integration association. Each
--- integration association can have only one of each use case type.
---
 -- 'useCaseArn', 'useCase_useCaseArn' - The Amazon Resource Name (ARN) for the use case.
 --
 -- 'useCaseId', 'useCase_useCaseId' - The identifier for the use case.
+--
+-- 'useCaseType', 'useCase_useCaseType' - The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
 newUseCase ::
   UseCase
 newUseCase =
   UseCase'
-    { useCaseType = Prelude.Nothing,
-      useCaseArn = Prelude.Nothing,
-      useCaseId = Prelude.Nothing
+    { useCaseArn = Prelude.Nothing,
+      useCaseId = Prelude.Nothing,
+      useCaseType = Prelude.Nothing
     }
-
--- | The type of use case to associate to the integration association. Each
--- integration association can have only one of each use case type.
-useCase_useCaseType :: Lens.Lens' UseCase (Prelude.Maybe UseCaseType)
-useCase_useCaseType = Lens.lens (\UseCase' {useCaseType} -> useCaseType) (\s@UseCase' {} a -> s {useCaseType = a} :: UseCase)
 
 -- | The Amazon Resource Name (ARN) for the use case.
 useCase_useCaseArn :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
@@ -75,25 +70,30 @@ useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCas
 useCase_useCaseId :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
 useCase_useCaseId = Lens.lens (\UseCase' {useCaseId} -> useCaseId) (\s@UseCase' {} a -> s {useCaseId = a} :: UseCase)
 
+-- | The type of use case to associate to the integration association. Each
+-- integration association can have only one of each use case type.
+useCase_useCaseType :: Lens.Lens' UseCase (Prelude.Maybe UseCaseType)
+useCase_useCaseType = Lens.lens (\UseCase' {useCaseType} -> useCaseType) (\s@UseCase' {} a -> s {useCaseType = a} :: UseCase)
+
 instance Data.FromJSON UseCase where
   parseJSON =
     Data.withObject
       "UseCase"
       ( \x ->
           UseCase'
-            Prelude.<$> (x Data..:? "UseCaseType")
-            Prelude.<*> (x Data..:? "UseCaseArn")
+            Prelude.<$> (x Data..:? "UseCaseArn")
             Prelude.<*> (x Data..:? "UseCaseId")
+            Prelude.<*> (x Data..:? "UseCaseType")
       )
 
 instance Prelude.Hashable UseCase where
   hashWithSalt _salt UseCase' {..} =
-    _salt `Prelude.hashWithSalt` useCaseType
-      `Prelude.hashWithSalt` useCaseArn
+    _salt `Prelude.hashWithSalt` useCaseArn
       `Prelude.hashWithSalt` useCaseId
+      `Prelude.hashWithSalt` useCaseType
 
 instance Prelude.NFData UseCase where
   rnf UseCase' {..} =
-    Prelude.rnf useCaseType
-      `Prelude.seq` Prelude.rnf useCaseArn
+    Prelude.rnf useCaseArn
       `Prelude.seq` Prelude.rnf useCaseId
+      `Prelude.seq` Prelude.rnf useCaseType

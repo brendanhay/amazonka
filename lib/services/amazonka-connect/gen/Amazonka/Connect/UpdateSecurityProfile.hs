@@ -31,8 +31,8 @@ module Amazonka.Connect.UpdateSecurityProfile
 
     -- * Request Lenses
     updateSecurityProfile_allowedAccessControlTags,
-    updateSecurityProfile_permissions,
     updateSecurityProfile_description,
+    updateSecurityProfile_permissions,
     updateSecurityProfile_tagRestrictedResources,
     updateSecurityProfile_securityProfileId,
     updateSecurityProfile_instanceId,
@@ -56,12 +56,12 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
   { -- | The list of tags that a security profile uses to restrict access to
     -- resources in Amazon Connect.
     allowedAccessControlTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the security profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The permissions granted to a security profile. For a list of valid
     -- permissions, see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the security profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The list of resources that a security profile applies tag restrictions
     -- to in Amazon Connect.
     tagRestrictedResources :: Prelude.Maybe [Prelude.Text],
@@ -84,11 +84,11 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
 -- 'allowedAccessControlTags', 'updateSecurityProfile_allowedAccessControlTags' - The list of tags that a security profile uses to restrict access to
 -- resources in Amazon Connect.
 --
+-- 'description', 'updateSecurityProfile_description' - The description of the security profile.
+--
 -- 'permissions', 'updateSecurityProfile_permissions' - The permissions granted to a security profile. For a list of valid
 -- permissions, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
---
--- 'description', 'updateSecurityProfile_description' - The description of the security profile.
 --
 -- 'tagRestrictedResources', 'updateSecurityProfile_tagRestrictedResources' - The list of resources that a security profile applies tag restrictions
 -- to in Amazon Connect.
@@ -109,8 +109,8 @@ newUpdateSecurityProfile
     UpdateSecurityProfile'
       { allowedAccessControlTags =
           Prelude.Nothing,
-        permissions = Prelude.Nothing,
         description = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         tagRestrictedResources = Prelude.Nothing,
         securityProfileId = pSecurityProfileId_,
         instanceId = pInstanceId_
@@ -121,15 +121,15 @@ newUpdateSecurityProfile
 updateSecurityProfile_allowedAccessControlTags :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateSecurityProfile_allowedAccessControlTags = Lens.lens (\UpdateSecurityProfile' {allowedAccessControlTags} -> allowedAccessControlTags) (\s@UpdateSecurityProfile' {} a -> s {allowedAccessControlTags = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
+-- | The description of the security profile.
+updateSecurityProfile_description :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Text)
+updateSecurityProfile_description = Lens.lens (\UpdateSecurityProfile' {description} -> description) (\s@UpdateSecurityProfile' {} a -> s {description = a} :: UpdateSecurityProfile)
+
 -- | The permissions granted to a security profile. For a list of valid
 -- permissions, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 updateSecurityProfile_permissions :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [Prelude.Text])
 updateSecurityProfile_permissions = Lens.lens (\UpdateSecurityProfile' {permissions} -> permissions) (\s@UpdateSecurityProfile' {} a -> s {permissions = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the security profile.
-updateSecurityProfile_description :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Text)
-updateSecurityProfile_description = Lens.lens (\UpdateSecurityProfile' {description} -> description) (\s@UpdateSecurityProfile' {} a -> s {description = a} :: UpdateSecurityProfile)
 
 -- | The list of resources that a security profile applies tag restrictions
 -- to in Amazon Connect.
@@ -158,8 +158,8 @@ instance Prelude.Hashable UpdateSecurityProfile where
   hashWithSalt _salt UpdateSecurityProfile' {..} =
     _salt
       `Prelude.hashWithSalt` allowedAccessControlTags
-      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` tagRestrictedResources
       `Prelude.hashWithSalt` securityProfileId
       `Prelude.hashWithSalt` instanceId
@@ -167,8 +167,8 @@ instance Prelude.Hashable UpdateSecurityProfile where
 instance Prelude.NFData UpdateSecurityProfile where
   rnf UpdateSecurityProfile' {..} =
     Prelude.rnf allowedAccessControlTags
-      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf tagRestrictedResources
       `Prelude.seq` Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf instanceId
@@ -190,8 +190,8 @@ instance Data.ToJSON UpdateSecurityProfile where
       ( Prelude.catMaybes
           [ ("AllowedAccessControlTags" Data..=)
               Prelude.<$> allowedAccessControlTags,
-            ("Permissions" Data..=) Prelude.<$> permissions,
             ("Description" Data..=) Prelude.<$> description,
+            ("Permissions" Data..=) Prelude.<$> permissions,
             ("TagRestrictedResources" Data..=)
               Prelude.<$> tagRestrictedResources
           ]

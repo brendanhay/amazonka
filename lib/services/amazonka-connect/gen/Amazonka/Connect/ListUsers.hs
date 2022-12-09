@@ -30,8 +30,8 @@ module Amazonka.Connect.ListUsers
     newListUsers,
 
     -- * Request Lenses
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_instanceId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -76,12 +76,12 @@ data ListUsers = ListUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listUsers_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
 --
 -- 'instanceId', 'listUsers_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -91,21 +91,21 @@ newListUsers ::
   ListUsers
 newListUsers pInstanceId_ =
   ListUsers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
-
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
-listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -149,14 +149,14 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListUsers where
@@ -178,8 +178,8 @@ instance Data.ToPath ListUsers where
 instance Data.ToQuery ListUsers where
   toQuery ListUsers' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListUsersResponse' smart constructor.

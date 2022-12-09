@@ -29,10 +29,10 @@ module Amazonka.Connect.ListTaskTemplates
     newListTaskTemplates,
 
     -- * Request Lenses
+    listTaskTemplates_maxResults,
     listTaskTemplates_name,
     listTaskTemplates_nextToken,
     listTaskTemplates_status,
-    listTaskTemplates_maxResults,
     listTaskTemplates_instanceId,
 
     -- * Destructuring the Response
@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTaskTemplates' smart constructor.
 data ListTaskTemplates = ListTaskTemplates'
-  { -- | The name of the task template.
+  { -- | The maximum number of results to return per page.
+    --
+    -- It is not expected that you set this.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the task template.
     name :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -70,10 +74,6 @@ data ListTaskTemplates = ListTaskTemplates'
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | The maximum number of results to return per page.
-    --
-    -- It is not expected that you set this.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -87,6 +87,10 @@ data ListTaskTemplates = ListTaskTemplates'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listTaskTemplates_maxResults' - The maximum number of results to return per page.
+--
+-- It is not expected that you set this.
 --
 -- 'name', 'listTaskTemplates_name' - The name of the task template.
 --
@@ -102,10 +106,6 @@ data ListTaskTemplates = ListTaskTemplates'
 -- marked as @INACTIVE@, then a task that refers to this template cannot be
 -- created.
 --
--- 'maxResults', 'listTaskTemplates_maxResults' - The maximum number of results to return per page.
---
--- It is not expected that you set this.
---
 -- 'instanceId', 'listTaskTemplates_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 newListTaskTemplates ::
@@ -114,12 +114,18 @@ newListTaskTemplates ::
   ListTaskTemplates
 newListTaskTemplates pInstanceId_ =
   ListTaskTemplates'
-    { name = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page.
+--
+-- It is not expected that you set this.
+listTaskTemplates_maxResults :: Lens.Lens' ListTaskTemplates (Prelude.Maybe Prelude.Natural)
+listTaskTemplates_maxResults = Lens.lens (\ListTaskTemplates' {maxResults} -> maxResults) (\s@ListTaskTemplates' {} a -> s {maxResults = a} :: ListTaskTemplates)
 
 -- | The name of the task template.
 listTaskTemplates_name :: Lens.Lens' ListTaskTemplates (Prelude.Maybe Prelude.Text)
@@ -140,12 +146,6 @@ listTaskTemplates_nextToken = Lens.lens (\ListTaskTemplates' {nextToken} -> next
 -- created.
 listTaskTemplates_status :: Lens.Lens' ListTaskTemplates (Prelude.Maybe TaskTemplateStatus)
 listTaskTemplates_status = Lens.lens (\ListTaskTemplates' {status} -> status) (\s@ListTaskTemplates' {} a -> s {status = a} :: ListTaskTemplates)
-
--- | The maximum number of results to return per page.
---
--- It is not expected that you set this.
-listTaskTemplates_maxResults :: Lens.Lens' ListTaskTemplates (Prelude.Maybe Prelude.Natural)
-listTaskTemplates_maxResults = Lens.lens (\ListTaskTemplates' {maxResults} -> maxResults) (\s@ListTaskTemplates' {} a -> s {maxResults = a} :: ListTaskTemplates)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -191,18 +191,18 @@ instance Core.AWSRequest ListTaskTemplates where
 
 instance Prelude.Hashable ListTaskTemplates where
   hashWithSalt _salt ListTaskTemplates' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListTaskTemplates where
   rnf ListTaskTemplates' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListTaskTemplates where
@@ -227,10 +227,10 @@ instance Data.ToPath ListTaskTemplates where
 instance Data.ToQuery ListTaskTemplates where
   toQuery ListTaskTemplates' {..} =
     Prelude.mconcat
-      [ "name" Data.=: name,
+      [ "maxResults" Data.=: maxResults,
+        "name" Data.=: name,
         "nextToken" Data.=: nextToken,
-        "status" Data.=: status,
-        "maxResults" Data.=: maxResults
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListTaskTemplatesResponse' smart constructor.

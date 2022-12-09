@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskTemplateField' smart constructor.
 data TaskTemplateField = TaskTemplateField'
-  { -- | A list of options for a single select field.
+  { -- | The description of the field.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of options for a single select field.
     singleSelectOptions :: Prelude.Maybe [Prelude.Text],
     -- | Indicates the type of field.
     type' :: Prelude.Maybe TaskTemplateFieldType,
-    -- | The description of the field.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the field.
     id :: TaskTemplateFieldIdentifier
   }
@@ -49,11 +49,11 @@ data TaskTemplateField = TaskTemplateField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'taskTemplateField_description' - The description of the field.
+--
 -- 'singleSelectOptions', 'taskTemplateField_singleSelectOptions' - A list of options for a single select field.
 --
 -- 'type'', 'taskTemplateField_type' - Indicates the type of field.
---
--- 'description', 'taskTemplateField_description' - The description of the field.
 --
 -- 'id', 'taskTemplateField_id' - The unique identifier for the field.
 newTaskTemplateField ::
@@ -62,12 +62,15 @@ newTaskTemplateField ::
   TaskTemplateField
 newTaskTemplateField pId_ =
   TaskTemplateField'
-    { singleSelectOptions =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
+      singleSelectOptions = Prelude.Nothing,
       type' = Prelude.Nothing,
-      description = Prelude.Nothing,
       id = pId_
     }
+
+-- | The description of the field.
+taskTemplateField_description :: Lens.Lens' TaskTemplateField (Prelude.Maybe Prelude.Text)
+taskTemplateField_description = Lens.lens (\TaskTemplateField' {description} -> description) (\s@TaskTemplateField' {} a -> s {description = a} :: TaskTemplateField)
 
 -- | A list of options for a single select field.
 taskTemplateField_singleSelectOptions :: Lens.Lens' TaskTemplateField (Prelude.Maybe [Prelude.Text])
@@ -76,10 +79,6 @@ taskTemplateField_singleSelectOptions = Lens.lens (\TaskTemplateField' {singleSe
 -- | Indicates the type of field.
 taskTemplateField_type :: Lens.Lens' TaskTemplateField (Prelude.Maybe TaskTemplateFieldType)
 taskTemplateField_type = Lens.lens (\TaskTemplateField' {type'} -> type') (\s@TaskTemplateField' {} a -> s {type' = a} :: TaskTemplateField)
-
--- | The description of the field.
-taskTemplateField_description :: Lens.Lens' TaskTemplateField (Prelude.Maybe Prelude.Text)
-taskTemplateField_description = Lens.lens (\TaskTemplateField' {description} -> description) (\s@TaskTemplateField' {} a -> s {description = a} :: TaskTemplateField)
 
 -- | The unique identifier for the field.
 taskTemplateField_id :: Lens.Lens' TaskTemplateField TaskTemplateFieldIdentifier
@@ -91,36 +90,36 @@ instance Data.FromJSON TaskTemplateField where
       "TaskTemplateField"
       ( \x ->
           TaskTemplateField'
-            Prelude.<$> ( x Data..:? "SingleSelectOptions"
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> ( x Data..:? "SingleSelectOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable TaskTemplateField where
   hashWithSalt _salt TaskTemplateField' {..} =
-    _salt `Prelude.hashWithSalt` singleSelectOptions
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` singleSelectOptions
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData TaskTemplateField where
   rnf TaskTemplateField' {..} =
-    Prelude.rnf singleSelectOptions
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf singleSelectOptions
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToJSON TaskTemplateField where
   toJSON TaskTemplateField' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SingleSelectOptions" Data..=)
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("SingleSelectOptions" Data..=)
               Prelude.<$> singleSelectOptions,
             ("Type" Data..=) Prelude.<$> type',
-            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just ("Id" Data..= id)
           ]
       )

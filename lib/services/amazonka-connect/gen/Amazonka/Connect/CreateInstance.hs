@@ -39,8 +39,8 @@ module Amazonka.Connect.CreateInstance
     newCreateInstance,
 
     -- * Request Lenses
-    createInstance_directoryId,
     createInstance_clientToken,
+    createInstance_directoryId,
     createInstance_instanceAlias,
     createInstance_identityManagementType,
     createInstance_inboundCallsEnabled,
@@ -67,10 +67,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
-  { -- | The identifier for the directory.
-    directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The idempotency token.
+  { -- | The idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the directory.
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The name for your instance.
     instanceAlias :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The type of identity management for your Amazon Connect users.
@@ -90,9 +90,9 @@ data CreateInstance = CreateInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'createInstance_directoryId' - The identifier for the directory.
---
 -- 'clientToken', 'createInstance_clientToken' - The idempotency token.
+--
+-- 'directoryId', 'createInstance_directoryId' - The identifier for the directory.
 --
 -- 'instanceAlias', 'createInstance_instanceAlias' - The name for your instance.
 --
@@ -114,21 +114,21 @@ newCreateInstance
   pInboundCallsEnabled_
   pOutboundCallsEnabled_ =
     CreateInstance'
-      { directoryId = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        directoryId = Prelude.Nothing,
         instanceAlias = Prelude.Nothing,
         identityManagementType = pIdentityManagementType_,
         inboundCallsEnabled = pInboundCallsEnabled_,
         outboundCallsEnabled = pOutboundCallsEnabled_
       }
 
--- | The identifier for the directory.
-createInstance_directoryId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_directoryId = Lens.lens (\CreateInstance' {directoryId} -> directoryId) (\s@CreateInstance' {} a -> s {directoryId = a} :: CreateInstance)
-
 -- | The idempotency token.
 createInstance_clientToken :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_clientToken = Lens.lens (\CreateInstance' {clientToken} -> clientToken) (\s@CreateInstance' {} a -> s {clientToken = a} :: CreateInstance)
+
+-- | The identifier for the directory.
+createInstance_directoryId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_directoryId = Lens.lens (\CreateInstance' {directoryId} -> directoryId) (\s@CreateInstance' {} a -> s {directoryId = a} :: CreateInstance)
 
 -- | The name for your instance.
 createInstance_instanceAlias :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
@@ -163,8 +163,8 @@ instance Core.AWSRequest CreateInstance where
 
 instance Prelude.Hashable CreateInstance where
   hashWithSalt _salt CreateInstance' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` instanceAlias
       `Prelude.hashWithSalt` identityManagementType
       `Prelude.hashWithSalt` inboundCallsEnabled
@@ -172,8 +172,8 @@ instance Prelude.Hashable CreateInstance where
 
 instance Prelude.NFData CreateInstance where
   rnf CreateInstance' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf instanceAlias
       `Prelude.seq` Prelude.rnf identityManagementType
       `Prelude.seq` Prelude.rnf inboundCallsEnabled
@@ -194,8 +194,8 @@ instance Data.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("DirectoryId" Data..=) Prelude.<$> directoryId,
             ("InstanceAlias" Data..=) Prelude.<$> instanceAlias,
             Prelude.Just
               ( "IdentityManagementType"

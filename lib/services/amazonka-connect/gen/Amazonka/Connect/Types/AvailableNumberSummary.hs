@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailableNumberSummary' smart constructor.
 data AvailableNumberSummary = AvailableNumberSummary'
-  { -- | The ISO country code.
+  { -- | The phone number. Phone numbers are formatted
+    -- @[+] [country code] [subscriber number including area code]@.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The ISO country code.
     phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
     -- | The type of phone number.
-    phoneNumberType :: Prelude.Maybe PhoneNumberType,
-    -- | The phone number. Phone numbers are formatted
-    -- @[+] [country code] [subscriber number including area code]@.
-    phoneNumber :: Prelude.Maybe Prelude.Text
+    phoneNumberType :: Prelude.Maybe PhoneNumberType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,26 @@ data AvailableNumberSummary = AvailableNumberSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'phoneNumber', 'availableNumberSummary_phoneNumber' - The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
+--
 -- 'phoneNumberCountryCode', 'availableNumberSummary_phoneNumberCountryCode' - The ISO country code.
 --
 -- 'phoneNumberType', 'availableNumberSummary_phoneNumberType' - The type of phone number.
---
--- 'phoneNumber', 'availableNumberSummary_phoneNumber' - The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
 newAvailableNumberSummary ::
   AvailableNumberSummary
 newAvailableNumberSummary =
   AvailableNumberSummary'
-    { phoneNumberCountryCode =
+    { phoneNumber =
         Prelude.Nothing,
-      phoneNumberType = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing
+      phoneNumberCountryCode = Prelude.Nothing,
+      phoneNumberType = Prelude.Nothing
     }
+
+-- | The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
+availableNumberSummary_phoneNumber :: Lens.Lens' AvailableNumberSummary (Prelude.Maybe Prelude.Text)
+availableNumberSummary_phoneNumber = Lens.lens (\AvailableNumberSummary' {phoneNumber} -> phoneNumber) (\s@AvailableNumberSummary' {} a -> s {phoneNumber = a} :: AvailableNumberSummary)
 
 -- | The ISO country code.
 availableNumberSummary_phoneNumberCountryCode :: Lens.Lens' AvailableNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
@@ -72,30 +77,25 @@ availableNumberSummary_phoneNumberCountryCode = Lens.lens (\AvailableNumberSumma
 availableNumberSummary_phoneNumberType :: Lens.Lens' AvailableNumberSummary (Prelude.Maybe PhoneNumberType)
 availableNumberSummary_phoneNumberType = Lens.lens (\AvailableNumberSummary' {phoneNumberType} -> phoneNumberType) (\s@AvailableNumberSummary' {} a -> s {phoneNumberType = a} :: AvailableNumberSummary)
 
--- | The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
-availableNumberSummary_phoneNumber :: Lens.Lens' AvailableNumberSummary (Prelude.Maybe Prelude.Text)
-availableNumberSummary_phoneNumber = Lens.lens (\AvailableNumberSummary' {phoneNumber} -> phoneNumber) (\s@AvailableNumberSummary' {} a -> s {phoneNumber = a} :: AvailableNumberSummary)
-
 instance Data.FromJSON AvailableNumberSummary where
   parseJSON =
     Data.withObject
       "AvailableNumberSummary"
       ( \x ->
           AvailableNumberSummary'
-            Prelude.<$> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<$> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "PhoneNumberCountryCode")
             Prelude.<*> (x Data..:? "PhoneNumberType")
-            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable AvailableNumberSummary where
   hashWithSalt _salt AvailableNumberSummary' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberCountryCode
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` phoneNumberCountryCode
       `Prelude.hashWithSalt` phoneNumberType
-      `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData AvailableNumberSummary where
   rnf AvailableNumberSummary' {..} =
-    Prelude.rnf phoneNumberCountryCode
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
       `Prelude.seq` Prelude.rnf phoneNumberType
-      `Prelude.seq` Prelude.rnf phoneNumber

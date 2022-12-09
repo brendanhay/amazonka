@@ -37,14 +37,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlPlaneTagFilter' smart constructor.
 data ControlPlaneTagFilter = ControlPlaneTagFilter'
-  { -- | A list of conditions which would be applied together with an @OR@
+  { -- | A list of conditions which would be applied together with an @AND@
+    -- condition.
+    andConditions :: Prelude.Maybe [TagCondition],
+    -- | A list of conditions which would be applied together with an @OR@
     -- condition.
     orConditions :: Prelude.Maybe [[TagCondition]],
     -- | A leaf node condition which can be used to specify a tag condition.
-    tagCondition :: Prelude.Maybe TagCondition,
-    -- | A list of conditions which would be applied together with an @AND@
-    -- condition.
-    andConditions :: Prelude.Maybe [TagCondition]
+    tagCondition :: Prelude.Maybe TagCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,22 +56,27 @@ data ControlPlaneTagFilter = ControlPlaneTagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'andConditions', 'controlPlaneTagFilter_andConditions' - A list of conditions which would be applied together with an @AND@
+-- condition.
+--
 -- 'orConditions', 'controlPlaneTagFilter_orConditions' - A list of conditions which would be applied together with an @OR@
 -- condition.
 --
 -- 'tagCondition', 'controlPlaneTagFilter_tagCondition' - A leaf node condition which can be used to specify a tag condition.
---
--- 'andConditions', 'controlPlaneTagFilter_andConditions' - A list of conditions which would be applied together with an @AND@
--- condition.
 newControlPlaneTagFilter ::
   ControlPlaneTagFilter
 newControlPlaneTagFilter =
   ControlPlaneTagFilter'
-    { orConditions =
+    { andConditions =
         Prelude.Nothing,
-      tagCondition = Prelude.Nothing,
-      andConditions = Prelude.Nothing
+      orConditions = Prelude.Nothing,
+      tagCondition = Prelude.Nothing
     }
+
+-- | A list of conditions which would be applied together with an @AND@
+-- condition.
+controlPlaneTagFilter_andConditions :: Lens.Lens' ControlPlaneTagFilter (Prelude.Maybe [TagCondition])
+controlPlaneTagFilter_andConditions = Lens.lens (\ControlPlaneTagFilter' {andConditions} -> andConditions) (\s@ControlPlaneTagFilter' {} a -> s {andConditions = a} :: ControlPlaneTagFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of conditions which would be applied together with an @OR@
 -- condition.
@@ -82,29 +87,24 @@ controlPlaneTagFilter_orConditions = Lens.lens (\ControlPlaneTagFilter' {orCondi
 controlPlaneTagFilter_tagCondition :: Lens.Lens' ControlPlaneTagFilter (Prelude.Maybe TagCondition)
 controlPlaneTagFilter_tagCondition = Lens.lens (\ControlPlaneTagFilter' {tagCondition} -> tagCondition) (\s@ControlPlaneTagFilter' {} a -> s {tagCondition = a} :: ControlPlaneTagFilter)
 
--- | A list of conditions which would be applied together with an @AND@
--- condition.
-controlPlaneTagFilter_andConditions :: Lens.Lens' ControlPlaneTagFilter (Prelude.Maybe [TagCondition])
-controlPlaneTagFilter_andConditions = Lens.lens (\ControlPlaneTagFilter' {andConditions} -> andConditions) (\s@ControlPlaneTagFilter' {} a -> s {andConditions = a} :: ControlPlaneTagFilter) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable ControlPlaneTagFilter where
   hashWithSalt _salt ControlPlaneTagFilter' {..} =
-    _salt `Prelude.hashWithSalt` orConditions
+    _salt `Prelude.hashWithSalt` andConditions
+      `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` tagCondition
-      `Prelude.hashWithSalt` andConditions
 
 instance Prelude.NFData ControlPlaneTagFilter where
   rnf ControlPlaneTagFilter' {..} =
-    Prelude.rnf orConditions
+    Prelude.rnf andConditions
+      `Prelude.seq` Prelude.rnf orConditions
       `Prelude.seq` Prelude.rnf tagCondition
-      `Prelude.seq` Prelude.rnf andConditions
 
 instance Data.ToJSON ControlPlaneTagFilter where
   toJSON ControlPlaneTagFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrConditions" Data..=) Prelude.<$> orConditions,
-            ("TagCondition" Data..=) Prelude.<$> tagCondition,
-            ("AndConditions" Data..=) Prelude.<$> andConditions
+          [ ("AndConditions" Data..=) Prelude.<$> andConditions,
+            ("OrConditions" Data..=) Prelude.<$> orConditions,
+            ("TagCondition" Data..=) Prelude.<$> tagCondition
           ]
       )

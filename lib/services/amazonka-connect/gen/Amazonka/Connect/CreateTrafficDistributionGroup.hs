@@ -32,9 +32,9 @@ module Amazonka.Connect.CreateTrafficDistributionGroup
     newCreateTrafficDistributionGroup,
 
     -- * Request Lenses
-    createTrafficDistributionGroup_tags,
     createTrafficDistributionGroup_clientToken,
     createTrafficDistributionGroup_description,
+    createTrafficDistributionGroup_tags,
     createTrafficDistributionGroup_name,
     createTrafficDistributionGroup_instanceId,
 
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTrafficDistributionGroup' smart constructor.
 data CreateTrafficDistributionGroup = CreateTrafficDistributionGroup'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the traffic distribution group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the traffic distribution group.
     name :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance that has been replicated.
@@ -85,15 +85,15 @@ data CreateTrafficDistributionGroup = CreateTrafficDistributionGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTrafficDistributionGroup_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'clientToken', 'createTrafficDistributionGroup_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createTrafficDistributionGroup_description' - A description for the traffic distribution group.
+--
+-- 'tags', 'createTrafficDistributionGroup_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'createTrafficDistributionGroup_name' - The name for the traffic distribution group.
 --
@@ -107,18 +107,13 @@ newCreateTrafficDistributionGroup ::
   CreateTrafficDistributionGroup
 newCreateTrafficDistributionGroup pName_ pInstanceId_ =
   CreateTrafficDistributionGroup'
-    { tags =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       instanceId = pInstanceId_
     }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createTrafficDistributionGroup_tags :: Lens.Lens' CreateTrafficDistributionGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTrafficDistributionGroup_tags = Lens.lens (\CreateTrafficDistributionGroup' {tags} -> tags) (\s@CreateTrafficDistributionGroup' {} a -> s {tags = a} :: CreateTrafficDistributionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
@@ -130,6 +125,11 @@ createTrafficDistributionGroup_clientToken = Lens.lens (\CreateTrafficDistributi
 -- | A description for the traffic distribution group.
 createTrafficDistributionGroup_description :: Lens.Lens' CreateTrafficDistributionGroup (Prelude.Maybe Prelude.Text)
 createTrafficDistributionGroup_description = Lens.lens (\CreateTrafficDistributionGroup' {description} -> description) (\s@CreateTrafficDistributionGroup' {} a -> s {description = a} :: CreateTrafficDistributionGroup)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createTrafficDistributionGroup_tags :: Lens.Lens' CreateTrafficDistributionGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTrafficDistributionGroup_tags = Lens.lens (\CreateTrafficDistributionGroup' {tags} -> tags) (\s@CreateTrafficDistributionGroup' {} a -> s {tags = a} :: CreateTrafficDistributionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the traffic distribution group.
 createTrafficDistributionGroup_name :: Lens.Lens' CreateTrafficDistributionGroup Prelude.Text
@@ -165,9 +165,9 @@ instance
   hashWithSalt
     _salt
     CreateTrafficDistributionGroup' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` instanceId
 
@@ -176,9 +176,9 @@ instance
     CreateTrafficDistributionGroup
   where
   rnf CreateTrafficDistributionGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -200,9 +200,9 @@ instance Data.ToJSON CreateTrafficDistributionGroup where
   toJSON CreateTrafficDistributionGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]

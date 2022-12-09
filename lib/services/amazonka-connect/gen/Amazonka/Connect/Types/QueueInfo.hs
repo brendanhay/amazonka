@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueueInfo' smart constructor.
 data QueueInfo = QueueInfo'
-  { -- | The unique identifier for the queue.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the contact was added to the queue.
-    enqueueTimestamp :: Prelude.Maybe Data.POSIX
+  { -- | The timestamp when the contact was added to the queue.
+    enqueueTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier for the queue.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data QueueInfo = QueueInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'queueInfo_id' - The unique identifier for the queue.
---
 -- 'enqueueTimestamp', 'queueInfo_enqueueTimestamp' - The timestamp when the contact was added to the queue.
+--
+-- 'id', 'queueInfo_id' - The unique identifier for the queue.
 newQueueInfo ::
   QueueInfo
 newQueueInfo =
   QueueInfo'
-    { id = Prelude.Nothing,
-      enqueueTimestamp = Prelude.Nothing
+    { enqueueTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The unique identifier for the queue.
-queueInfo_id :: Lens.Lens' QueueInfo (Prelude.Maybe Prelude.Text)
-queueInfo_id = Lens.lens (\QueueInfo' {id} -> id) (\s@QueueInfo' {} a -> s {id = a} :: QueueInfo)
 
 -- | The timestamp when the contact was added to the queue.
 queueInfo_enqueueTimestamp :: Lens.Lens' QueueInfo (Prelude.Maybe Prelude.UTCTime)
 queueInfo_enqueueTimestamp = Lens.lens (\QueueInfo' {enqueueTimestamp} -> enqueueTimestamp) (\s@QueueInfo' {} a -> s {enqueueTimestamp = a} :: QueueInfo) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier for the queue.
+queueInfo_id :: Lens.Lens' QueueInfo (Prelude.Maybe Prelude.Text)
+queueInfo_id = Lens.lens (\QueueInfo' {id} -> id) (\s@QueueInfo' {} a -> s {id = a} :: QueueInfo)
 
 instance Data.FromJSON QueueInfo where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON QueueInfo where
       "QueueInfo"
       ( \x ->
           QueueInfo'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "EnqueueTimestamp")
+            Prelude.<$> (x Data..:? "EnqueueTimestamp")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable QueueInfo where
   hashWithSalt _salt QueueInfo' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` enqueueTimestamp
+    _salt `Prelude.hashWithSalt` enqueueTimestamp
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData QueueInfo where
   rnf QueueInfo' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf enqueueTimestamp
+    Prelude.rnf enqueueTimestamp
+      `Prelude.seq` Prelude.rnf id

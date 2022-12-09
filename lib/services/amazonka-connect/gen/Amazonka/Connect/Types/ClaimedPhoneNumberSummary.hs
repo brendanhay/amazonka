@@ -32,20 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClaimedPhoneNumberSummary' smart constructor.
 data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ISO country code.
-    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
+  { -- | The phone number. Phone numbers are formatted
+    -- @[+] [country code] [subscriber number including area code]@.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the phone number.
     phoneNumberArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of phone number.
-    phoneNumberType :: Prelude.Maybe PhoneNumberType,
+    -- | The ISO country code.
+    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
     -- | The description of the phone number.
     phoneNumberDescription :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
-    -- distribution groups that phone numbers are claimed to.
-    targetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the phone number.
+    phoneNumberId :: Prelude.Maybe Prelude.Text,
     -- | The status of the phone number.
     --
     -- -   @CLAIMED@ means the previous
@@ -78,11 +75,14 @@ data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
     -- You will not be billed for the phone number during the 1-day period if
     -- number claiming fails.
     phoneNumberStatus :: Prelude.Maybe PhoneNumberStatus,
-    -- | A unique identifier for the phone number.
-    phoneNumberId :: Prelude.Maybe Prelude.Text,
-    -- | The phone number. Phone numbers are formatted
-    -- @[+] [country code] [subscriber number including area code]@.
-    phoneNumber :: Prelude.Maybe Prelude.Text
+    -- | The type of phone number.
+    phoneNumberType :: Prelude.Maybe PhoneNumberType,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+    -- distribution groups that phone numbers are claimed to.
+    targetArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,19 +94,16 @@ data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'claimedPhoneNumberSummary_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'phoneNumberCountryCode', 'claimedPhoneNumberSummary_phoneNumberCountryCode' - The ISO country code.
+-- 'phoneNumber', 'claimedPhoneNumberSummary_phoneNumber' - The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
 --
 -- 'phoneNumberArn', 'claimedPhoneNumberSummary_phoneNumberArn' - The Amazon Resource Name (ARN) of the phone number.
 --
--- 'phoneNumberType', 'claimedPhoneNumberSummary_phoneNumberType' - The type of phone number.
+-- 'phoneNumberCountryCode', 'claimedPhoneNumberSummary_phoneNumberCountryCode' - The ISO country code.
 --
 -- 'phoneNumberDescription', 'claimedPhoneNumberSummary_phoneNumberDescription' - The description of the phone number.
 --
--- 'targetArn', 'claimedPhoneNumberSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
--- distribution groups that phone numbers are claimed to.
+-- 'phoneNumberId', 'claimedPhoneNumberSummary_phoneNumberId' - A unique identifier for the phone number.
 --
 -- 'phoneNumberStatus', 'claimedPhoneNumberSummary_phoneNumberStatus' - The status of the phone number.
 --
@@ -140,50 +137,49 @@ data ClaimedPhoneNumberSummary = ClaimedPhoneNumberSummary'
 -- You will not be billed for the phone number during the 1-day period if
 -- number claiming fails.
 --
--- 'phoneNumberId', 'claimedPhoneNumberSummary_phoneNumberId' - A unique identifier for the phone number.
+-- 'phoneNumberType', 'claimedPhoneNumberSummary_phoneNumberType' - The type of phone number.
 --
--- 'phoneNumber', 'claimedPhoneNumberSummary_phoneNumber' - The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
+-- 'tags', 'claimedPhoneNumberSummary_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+--
+-- 'targetArn', 'claimedPhoneNumberSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
 newClaimedPhoneNumberSummary ::
   ClaimedPhoneNumberSummary
 newClaimedPhoneNumberSummary =
   ClaimedPhoneNumberSummary'
-    { tags = Prelude.Nothing,
-      phoneNumberCountryCode = Prelude.Nothing,
+    { phoneNumber =
+        Prelude.Nothing,
       phoneNumberArn = Prelude.Nothing,
-      phoneNumberType = Prelude.Nothing,
+      phoneNumberCountryCode = Prelude.Nothing,
       phoneNumberDescription = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      phoneNumberStatus = Prelude.Nothing,
       phoneNumberId = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing
+      phoneNumberStatus = Prelude.Nothing,
+      phoneNumberType = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      targetArn = Prelude.Nothing
     }
 
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-claimedPhoneNumberSummary_tags :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-claimedPhoneNumberSummary_tags = Lens.lens (\ClaimedPhoneNumberSummary' {tags} -> tags) (\s@ClaimedPhoneNumberSummary' {} a -> s {tags = a} :: ClaimedPhoneNumberSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The ISO country code.
-claimedPhoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
-claimedPhoneNumberSummary_phoneNumberCountryCode = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberCountryCode = a} :: ClaimedPhoneNumberSummary)
+-- | The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
+claimedPhoneNumberSummary_phoneNumber :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
+claimedPhoneNumberSummary_phoneNumber = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumber = a} :: ClaimedPhoneNumberSummary)
 
 -- | The Amazon Resource Name (ARN) of the phone number.
 claimedPhoneNumberSummary_phoneNumberArn :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
 claimedPhoneNumberSummary_phoneNumberArn = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberArn} -> phoneNumberArn) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberArn = a} :: ClaimedPhoneNumberSummary)
 
--- | The type of phone number.
-claimedPhoneNumberSummary_phoneNumberType :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberType)
-claimedPhoneNumberSummary_phoneNumberType = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberType} -> phoneNumberType) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberType = a} :: ClaimedPhoneNumberSummary)
+-- | The ISO country code.
+claimedPhoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
+claimedPhoneNumberSummary_phoneNumberCountryCode = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberCountryCode = a} :: ClaimedPhoneNumberSummary)
 
 -- | The description of the phone number.
 claimedPhoneNumberSummary_phoneNumberDescription :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
 claimedPhoneNumberSummary_phoneNumberDescription = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberDescription} -> phoneNumberDescription) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberDescription = a} :: ClaimedPhoneNumberSummary)
 
--- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
--- distribution groups that phone numbers are claimed to.
-claimedPhoneNumberSummary_targetArn :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
-claimedPhoneNumberSummary_targetArn = Lens.lens (\ClaimedPhoneNumberSummary' {targetArn} -> targetArn) (\s@ClaimedPhoneNumberSummary' {} a -> s {targetArn = a} :: ClaimedPhoneNumberSummary)
+-- | A unique identifier for the phone number.
+claimedPhoneNumberSummary_phoneNumberId :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
+claimedPhoneNumberSummary_phoneNumberId = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberId} -> phoneNumberId) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberId = a} :: ClaimedPhoneNumberSummary)
 
 -- | The status of the phone number.
 --
@@ -219,14 +215,19 @@ claimedPhoneNumberSummary_targetArn = Lens.lens (\ClaimedPhoneNumberSummary' {ta
 claimedPhoneNumberSummary_phoneNumberStatus :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberStatus)
 claimedPhoneNumberSummary_phoneNumberStatus = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberStatus} -> phoneNumberStatus) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberStatus = a} :: ClaimedPhoneNumberSummary)
 
--- | A unique identifier for the phone number.
-claimedPhoneNumberSummary_phoneNumberId :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
-claimedPhoneNumberSummary_phoneNumberId = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberId} -> phoneNumberId) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberId = a} :: ClaimedPhoneNumberSummary)
+-- | The type of phone number.
+claimedPhoneNumberSummary_phoneNumberType :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe PhoneNumberType)
+claimedPhoneNumberSummary_phoneNumberType = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumberType} -> phoneNumberType) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumberType = a} :: ClaimedPhoneNumberSummary)
 
--- | The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
-claimedPhoneNumberSummary_phoneNumber :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
-claimedPhoneNumberSummary_phoneNumber = Lens.lens (\ClaimedPhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@ClaimedPhoneNumberSummary' {} a -> s {phoneNumber = a} :: ClaimedPhoneNumberSummary)
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+claimedPhoneNumberSummary_tags :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+claimedPhoneNumberSummary_tags = Lens.lens (\ClaimedPhoneNumberSummary' {tags} -> tags) (\s@ClaimedPhoneNumberSummary' {} a -> s {tags = a} :: ClaimedPhoneNumberSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
+-- distribution groups that phone numbers are claimed to.
+claimedPhoneNumberSummary_targetArn :: Lens.Lens' ClaimedPhoneNumberSummary (Prelude.Maybe Prelude.Text)
+claimedPhoneNumberSummary_targetArn = Lens.lens (\ClaimedPhoneNumberSummary' {targetArn} -> targetArn) (\s@ClaimedPhoneNumberSummary' {} a -> s {targetArn = a} :: ClaimedPhoneNumberSummary)
 
 instance Data.FromJSON ClaimedPhoneNumberSummary where
   parseJSON =
@@ -234,37 +235,37 @@ instance Data.FromJSON ClaimedPhoneNumberSummary where
       "ClaimedPhoneNumberSummary"
       ( \x ->
           ClaimedPhoneNumberSummary'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<$> (x Data..:? "PhoneNumber")
             Prelude.<*> (x Data..:? "PhoneNumberArn")
-            Prelude.<*> (x Data..:? "PhoneNumberType")
+            Prelude.<*> (x Data..:? "PhoneNumberCountryCode")
             Prelude.<*> (x Data..:? "PhoneNumberDescription")
-            Prelude.<*> (x Data..:? "TargetArn")
-            Prelude.<*> (x Data..:? "PhoneNumberStatus")
             Prelude.<*> (x Data..:? "PhoneNumberId")
-            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "PhoneNumberStatus")
+            Prelude.<*> (x Data..:? "PhoneNumberType")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TargetArn")
       )
 
 instance Prelude.Hashable ClaimedPhoneNumberSummary where
   hashWithSalt _salt ClaimedPhoneNumberSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` phoneNumberCountryCode
+    _salt `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` phoneNumberArn
-      `Prelude.hashWithSalt` phoneNumberType
+      `Prelude.hashWithSalt` phoneNumberCountryCode
       `Prelude.hashWithSalt` phoneNumberDescription
-      `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` phoneNumberStatus
       `Prelude.hashWithSalt` phoneNumberId
-      `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` phoneNumberStatus
+      `Prelude.hashWithSalt` phoneNumberType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetArn
 
 instance Prelude.NFData ClaimedPhoneNumberSummary where
   rnf ClaimedPhoneNumberSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
+    Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf phoneNumberArn
-      `Prelude.seq` Prelude.rnf phoneNumberType
+      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
       `Prelude.seq` Prelude.rnf phoneNumberDescription
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf phoneNumberStatus
       `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf phoneNumberStatus
+      `Prelude.seq` Prelude.rnf phoneNumberType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetArn

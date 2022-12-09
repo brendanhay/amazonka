@@ -31,8 +31,8 @@ module Amazonka.Connect.CreateVocabulary
     newCreateVocabulary,
 
     -- * Request Lenses
-    createVocabulary_tags,
     createVocabulary_clientToken,
+    createVocabulary_tags,
     createVocabulary_instanceId,
     createVocabulary_vocabularyName,
     createVocabulary_languageCode,
@@ -60,10 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVocabulary' smart constructor.
 data CreateVocabulary = CreateVocabulary'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
@@ -71,6 +68,9 @@ data CreateVocabulary = CreateVocabulary'
     -- subsequent requests return the previous response without creating a
     -- vocabulary again.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -98,9 +98,6 @@ data CreateVocabulary = CreateVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVocabulary_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'clientToken', 'createVocabulary_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
@@ -108,6 +105,9 @@ data CreateVocabulary = CreateVocabulary'
 -- If a create request is received more than once with same client token,
 -- subsequent requests return the previous response without creating a
 -- vocabulary again.
+--
+-- 'tags', 'createVocabulary_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'instanceId', 'createVocabulary_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -140,18 +140,13 @@ newCreateVocabulary
   pLanguageCode_
   pContent_ =
     CreateVocabulary'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         vocabularyName = pVocabularyName_,
         languageCode = pLanguageCode_,
         content = pContent_
       }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
@@ -162,6 +157,11 @@ createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@Create
 -- vocabulary again.
 createVocabulary_clientToken :: Lens.Lens' CreateVocabulary (Prelude.Maybe Prelude.Text)
 createVocabulary_clientToken = Lens.lens (\CreateVocabulary' {clientToken} -> clientToken) (\s@CreateVocabulary' {} a -> s {clientToken = a} :: CreateVocabulary)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createVocabulary_tags :: Lens.Lens' CreateVocabulary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createVocabulary_tags = Lens.lens (\CreateVocabulary' {tags} -> tags) (\s@CreateVocabulary' {} a -> s {tags = a} :: CreateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -205,8 +205,8 @@ instance Core.AWSRequest CreateVocabulary where
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode
@@ -214,8 +214,8 @@ instance Prelude.Hashable CreateVocabulary where
 
 instance Prelude.NFData CreateVocabulary where
   rnf CreateVocabulary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
@@ -236,8 +236,8 @@ instance Data.ToJSON CreateVocabulary where
   toJSON CreateVocabulary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("VocabularyName" Data..= vocabularyName),
             Prelude.Just ("LanguageCode" Data..= languageCode),

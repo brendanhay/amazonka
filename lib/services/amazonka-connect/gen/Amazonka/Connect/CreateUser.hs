@@ -32,11 +32,11 @@ module Amazonka.Connect.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_tags,
+    createUser_directoryUserId,
     createUser_hierarchyGroupId,
     createUser_identityInfo,
     createUser_password,
-    createUser_directoryUserId,
+    createUser_tags,
     createUser_username,
     createUser_phoneConfig,
     createUser_securityProfileIds,
@@ -64,18 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of the hierarchy group for the user.
-    hierarchyGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The information about the identity of the user.
-    identityInfo :: Prelude.Maybe UserIdentityInfo,
-    -- | The password for the user account. A password is required if you are
-    -- using Amazon Connect for identity management. Otherwise, it is an error
-    -- to include a password.
-    password :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the user account in the directory used for identity
+  { -- | The identifier of the user account in the directory used for identity
     -- management. If Amazon Connect cannot access the directory, you can
     -- specify this identifier to authenticate users. If you include the
     -- identifier, we assume that Amazon Connect cannot access the directory.
@@ -87,6 +76,17 @@ data CreateUser = CreateUser'
     -- your directory to authenticate users. If you are using SAML for identity
     -- management and include this parameter, an error is returned.
     directoryUserId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the hierarchy group for the user.
+    hierarchyGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The information about the identity of the user.
+    identityInfo :: Prelude.Maybe UserIdentityInfo,
+    -- | The password for the user account. A password is required if you are
+    -- using Amazon Connect for identity management. Otherwise, it is an error
+    -- to include a password.
+    password :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user name for the account. For instances not using SAML for identity
     -- management, the user name can include up to 20 characters. If you are
     -- using SAML for identity management, the user name can include up to 64
@@ -112,17 +112,6 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createUser_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'hierarchyGroupId', 'createUser_hierarchyGroupId' - The identifier of the hierarchy group for the user.
---
--- 'identityInfo', 'createUser_identityInfo' - The information about the identity of the user.
---
--- 'password', 'createUser_password' - The password for the user account. A password is required if you are
--- using Amazon Connect for identity management. Otherwise, it is an error
--- to include a password.
---
 -- 'directoryUserId', 'createUser_directoryUserId' - The identifier of the user account in the directory used for identity
 -- management. If Amazon Connect cannot access the directory, you can
 -- specify this identifier to authenticate users. If you include the
@@ -134,6 +123,17 @@ data CreateUser = CreateUser'
 -- identity management in Amazon Connect when Amazon Connect cannot access
 -- your directory to authenticate users. If you are using SAML for identity
 -- management and include this parameter, an error is returned.
+--
+-- 'hierarchyGroupId', 'createUser_hierarchyGroupId' - The identifier of the hierarchy group for the user.
+--
+-- 'identityInfo', 'createUser_identityInfo' - The information about the identity of the user.
+--
+-- 'password', 'createUser_password' - The password for the user account. A password is required if you are
+-- using Amazon Connect for identity management. Otherwise, it is an error
+-- to include a password.
+--
+-- 'tags', 'createUser_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'username', 'createUser_username' - The user name for the account. For instances not using SAML for identity
 -- management, the user name can include up to 20 characters. If you are
@@ -167,11 +167,11 @@ newCreateUser
   pRoutingProfileId_
   pInstanceId_ =
     CreateUser'
-      { tags = Prelude.Nothing,
+      { directoryUserId = Prelude.Nothing,
         hierarchyGroupId = Prelude.Nothing,
         identityInfo = Prelude.Nothing,
         password = Prelude.Nothing,
-        directoryUserId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         username = pUsername_,
         phoneConfig = pPhoneConfig_,
         securityProfileIds =
@@ -180,10 +180,19 @@ newCreateUser
         instanceId = pInstanceId_
       }
 
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
+-- | The identifier of the user account in the directory used for identity
+-- management. If Amazon Connect cannot access the directory, you can
+-- specify this identifier to authenticate users. If you include the
+-- identifier, we assume that Amazon Connect cannot access the directory.
+-- Otherwise, the identity information is used to authenticate users from
+-- your directory.
+--
+-- This parameter is required if you are using an existing directory for
+-- identity management in Amazon Connect when Amazon Connect cannot access
+-- your directory to authenticate users. If you are using SAML for identity
+-- management and include this parameter, an error is returned.
+createUser_directoryUserId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_directoryUserId = Lens.lens (\CreateUser' {directoryUserId} -> directoryUserId) (\s@CreateUser' {} a -> s {directoryUserId = a} :: CreateUser)
 
 -- | The identifier of the hierarchy group for the user.
 createUser_hierarchyGroupId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
@@ -199,19 +208,10 @@ createUser_identityInfo = Lens.lens (\CreateUser' {identityInfo} -> identityInfo
 createUser_password :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_password = Lens.lens (\CreateUser' {password} -> password) (\s@CreateUser' {} a -> s {password = a} :: CreateUser)
 
--- | The identifier of the user account in the directory used for identity
--- management. If Amazon Connect cannot access the directory, you can
--- specify this identifier to authenticate users. If you include the
--- identifier, we assume that Amazon Connect cannot access the directory.
--- Otherwise, the identity information is used to authenticate users from
--- your directory.
---
--- This parameter is required if you are using an existing directory for
--- identity management in Amazon Connect when Amazon Connect cannot access
--- your directory to authenticate users. If you are using SAML for identity
--- management and include this parameter, an error is returned.
-createUser_directoryUserId :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_directoryUserId = Lens.lens (\CreateUser' {directoryUserId} -> directoryUserId) (\s@CreateUser' {} a -> s {directoryUserId = a} :: CreateUser)
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user name for the account. For instances not using SAML for identity
 -- management, the user name can include up to 20 characters. If you are
@@ -252,11 +252,11 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` directoryUserId
       `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` identityInfo
       `Prelude.hashWithSalt` password
-      `Prelude.hashWithSalt` directoryUserId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` phoneConfig
       `Prelude.hashWithSalt` securityProfileIds
@@ -265,11 +265,11 @@ instance Prelude.Hashable CreateUser where
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf tags
+    Prelude.rnf directoryUserId
       `Prelude.seq` Prelude.rnf hierarchyGroupId
       `Prelude.seq` Prelude.rnf identityInfo
       `Prelude.seq` Prelude.rnf password
-      `Prelude.seq` Prelude.rnf directoryUserId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf phoneConfig
       `Prelude.seq` Prelude.rnf securityProfileIds
@@ -291,13 +291,13 @@ instance Data.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DirectoryUserId" Data..=)
+              Prelude.<$> directoryUserId,
             ("HierarchyGroupId" Data..=)
               Prelude.<$> hierarchyGroupId,
             ("IdentityInfo" Data..=) Prelude.<$> identityInfo,
             ("Password" Data..=) Prelude.<$> password,
-            ("DirectoryUserId" Data..=)
-              Prelude.<$> directoryUserId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Username" Data..= username),
             Prelude.Just ("PhoneConfig" Data..= phoneConfig),
             Prelude.Just

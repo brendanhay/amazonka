@@ -29,13 +29,13 @@ module Amazonka.Connect.UpdateTaskTemplate
     newUpdateTaskTemplate,
 
     -- * Request Lenses
-    updateTaskTemplate_name,
     updateTaskTemplate_constraints,
-    updateTaskTemplate_status,
-    updateTaskTemplate_fields,
-    updateTaskTemplate_description,
-    updateTaskTemplate_defaults,
     updateTaskTemplate_contactFlowId,
+    updateTaskTemplate_defaults,
+    updateTaskTemplate_description,
+    updateTaskTemplate_fields,
+    updateTaskTemplate_name,
+    updateTaskTemplate_status,
     updateTaskTemplate_taskTemplateId,
     updateTaskTemplate_instanceId,
 
@@ -44,18 +44,18 @@ module Amazonka.Connect.UpdateTaskTemplate
     newUpdateTaskTemplateResponse,
 
     -- * Response Lenses
-    updateTaskTemplateResponse_name,
-    updateTaskTemplateResponse_createdTime,
-    updateTaskTemplateResponse_constraints,
     updateTaskTemplateResponse_arn,
-    updateTaskTemplateResponse_status,
+    updateTaskTemplateResponse_constraints,
+    updateTaskTemplateResponse_contactFlowId,
+    updateTaskTemplateResponse_createdTime,
+    updateTaskTemplateResponse_defaults,
+    updateTaskTemplateResponse_description,
     updateTaskTemplateResponse_fields,
     updateTaskTemplateResponse_id,
-    updateTaskTemplateResponse_description,
-    updateTaskTemplateResponse_lastModifiedTime,
     updateTaskTemplateResponse_instanceId,
-    updateTaskTemplateResponse_defaults,
-    updateTaskTemplateResponse_contactFlowId,
+    updateTaskTemplateResponse_lastModifiedTime,
+    updateTaskTemplateResponse_name,
+    updateTaskTemplateResponse_status,
     updateTaskTemplateResponse_httpStatus,
   )
 where
@@ -70,25 +70,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTaskTemplate' smart constructor.
 data UpdateTaskTemplate = UpdateTaskTemplate'
-  { -- | The name of the task template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Constraints that are applicable to the fields listed.
+  { -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
+    -- | The identifier of the flow that runs by default when a task is created
+    -- by referencing this template.
+    contactFlowId :: Prelude.Maybe Prelude.Text,
+    -- | The default values for fields when a task is created by referencing this
+    -- template.
+    defaults :: Prelude.Maybe TaskTemplateDefaults,
+    -- | The description of the task template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Fields that are part of the template.
+    fields :: Prelude.Maybe [TaskTemplateField],
+    -- | The name of the task template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
     -- Tasks can only be created from @ACTIVE@ templates. If a template is
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | Fields that are part of the template.
-    fields :: Prelude.Maybe [TaskTemplateField],
-    -- | The description of the task template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The default values for fields when a task is created by referencing this
-    -- template.
-    defaults :: Prelude.Maybe TaskTemplateDefaults,
-    -- | The identifier of the flow that runs by default when a task is created
-    -- by referencing this template.
-    contactFlowId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the task template.
     taskTemplateId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -105,24 +105,24 @@ data UpdateTaskTemplate = UpdateTaskTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateTaskTemplate_name' - The name of the task template.
---
 -- 'constraints', 'updateTaskTemplate_constraints' - Constraints that are applicable to the fields listed.
+--
+-- 'contactFlowId', 'updateTaskTemplate_contactFlowId' - The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
+--
+-- 'defaults', 'updateTaskTemplate_defaults' - The default values for fields when a task is created by referencing this
+-- template.
+--
+-- 'description', 'updateTaskTemplate_description' - The description of the task template.
+--
+-- 'fields', 'updateTaskTemplate_fields' - Fields that are part of the template.
+--
+-- 'name', 'updateTaskTemplate_name' - The name of the task template.
 --
 -- 'status', 'updateTaskTemplate_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
 -- Tasks can only be created from @ACTIVE@ templates. If a template is
 -- marked as @INACTIVE@, then a task that refers to this template cannot be
 -- created.
---
--- 'fields', 'updateTaskTemplate_fields' - Fields that are part of the template.
---
--- 'description', 'updateTaskTemplate_description' - The description of the task template.
---
--- 'defaults', 'updateTaskTemplate_defaults' - The default values for fields when a task is created by referencing this
--- template.
---
--- 'contactFlowId', 'updateTaskTemplate_contactFlowId' - The identifier of the flow that runs by default when a task is created
--- by referencing this template.
 --
 -- 'taskTemplateId', 'updateTaskTemplate_taskTemplateId' - A unique identifier for the task template.
 --
@@ -136,24 +136,42 @@ newUpdateTaskTemplate ::
   UpdateTaskTemplate
 newUpdateTaskTemplate pTaskTemplateId_ pInstanceId_ =
   UpdateTaskTemplate'
-    { name = Prelude.Nothing,
-      constraints = Prelude.Nothing,
-      status = Prelude.Nothing,
-      fields = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaults = Prelude.Nothing,
+    { constraints = Prelude.Nothing,
       contactFlowId = Prelude.Nothing,
+      defaults = Prelude.Nothing,
+      description = Prelude.Nothing,
+      fields = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       taskTemplateId = pTaskTemplateId_,
       instanceId = pInstanceId_
     }
 
--- | The name of the task template.
-updateTaskTemplate_name :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
-updateTaskTemplate_name = Lens.lens (\UpdateTaskTemplate' {name} -> name) (\s@UpdateTaskTemplate' {} a -> s {name = a} :: UpdateTaskTemplate)
-
 -- | Constraints that are applicable to the fields listed.
 updateTaskTemplate_constraints :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe TaskTemplateConstraints)
 updateTaskTemplate_constraints = Lens.lens (\UpdateTaskTemplate' {constraints} -> constraints) (\s@UpdateTaskTemplate' {} a -> s {constraints = a} :: UpdateTaskTemplate)
+
+-- | The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
+updateTaskTemplate_contactFlowId :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
+updateTaskTemplate_contactFlowId = Lens.lens (\UpdateTaskTemplate' {contactFlowId} -> contactFlowId) (\s@UpdateTaskTemplate' {} a -> s {contactFlowId = a} :: UpdateTaskTemplate)
+
+-- | The default values for fields when a task is created by referencing this
+-- template.
+updateTaskTemplate_defaults :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe TaskTemplateDefaults)
+updateTaskTemplate_defaults = Lens.lens (\UpdateTaskTemplate' {defaults} -> defaults) (\s@UpdateTaskTemplate' {} a -> s {defaults = a} :: UpdateTaskTemplate)
+
+-- | The description of the task template.
+updateTaskTemplate_description :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
+updateTaskTemplate_description = Lens.lens (\UpdateTaskTemplate' {description} -> description) (\s@UpdateTaskTemplate' {} a -> s {description = a} :: UpdateTaskTemplate)
+
+-- | Fields that are part of the template.
+updateTaskTemplate_fields :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe [TaskTemplateField])
+updateTaskTemplate_fields = Lens.lens (\UpdateTaskTemplate' {fields} -> fields) (\s@UpdateTaskTemplate' {} a -> s {fields = a} :: UpdateTaskTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the task template.
+updateTaskTemplate_name :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
+updateTaskTemplate_name = Lens.lens (\UpdateTaskTemplate' {name} -> name) (\s@UpdateTaskTemplate' {} a -> s {name = a} :: UpdateTaskTemplate)
 
 -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
 -- Tasks can only be created from @ACTIVE@ templates. If a template is
@@ -161,24 +179,6 @@ updateTaskTemplate_constraints = Lens.lens (\UpdateTaskTemplate' {constraints} -
 -- created.
 updateTaskTemplate_status :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe TaskTemplateStatus)
 updateTaskTemplate_status = Lens.lens (\UpdateTaskTemplate' {status} -> status) (\s@UpdateTaskTemplate' {} a -> s {status = a} :: UpdateTaskTemplate)
-
--- | Fields that are part of the template.
-updateTaskTemplate_fields :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe [TaskTemplateField])
-updateTaskTemplate_fields = Lens.lens (\UpdateTaskTemplate' {fields} -> fields) (\s@UpdateTaskTemplate' {} a -> s {fields = a} :: UpdateTaskTemplate) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the task template.
-updateTaskTemplate_description :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
-updateTaskTemplate_description = Lens.lens (\UpdateTaskTemplate' {description} -> description) (\s@UpdateTaskTemplate' {} a -> s {description = a} :: UpdateTaskTemplate)
-
--- | The default values for fields when a task is created by referencing this
--- template.
-updateTaskTemplate_defaults :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe TaskTemplateDefaults)
-updateTaskTemplate_defaults = Lens.lens (\UpdateTaskTemplate' {defaults} -> defaults) (\s@UpdateTaskTemplate' {} a -> s {defaults = a} :: UpdateTaskTemplate)
-
--- | The identifier of the flow that runs by default when a task is created
--- by referencing this template.
-updateTaskTemplate_contactFlowId :: Lens.Lens' UpdateTaskTemplate (Prelude.Maybe Prelude.Text)
-updateTaskTemplate_contactFlowId = Lens.lens (\UpdateTaskTemplate' {contactFlowId} -> contactFlowId) (\s@UpdateTaskTemplate' {} a -> s {contactFlowId = a} :: UpdateTaskTemplate)
 
 -- | A unique identifier for the task template.
 updateTaskTemplate_taskTemplateId :: Lens.Lens' UpdateTaskTemplate Prelude.Text
@@ -199,42 +199,42 @@ instance Core.AWSRequest UpdateTaskTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateTaskTemplateResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "Constraints")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "ContactFlowId")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Defaults")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "InstanceId")
-            Prelude.<*> (x Data..?> "Defaults")
-            Prelude.<*> (x Data..?> "ContactFlowId")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateTaskTemplate where
   hashWithSalt _salt UpdateTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` constraints
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` fields
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` defaults
+    _salt `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` defaults
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` fields
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` taskTemplateId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData UpdateTaskTemplate where
   rnf UpdateTaskTemplate' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf defaults
+    Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf defaults
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf taskTemplateId
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -253,13 +253,13 @@ instance Data.ToJSON UpdateTaskTemplate where
   toJSON UpdateTaskTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Constraints" Data..=) Prelude.<$> constraints,
-            ("Status" Data..=) Prelude.<$> status,
-            ("Fields" Data..=) Prelude.<$> fields,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Constraints" Data..=) Prelude.<$> constraints,
+            ("ContactFlowId" Data..=) Prelude.<$> contactFlowId,
             ("Defaults" Data..=) Prelude.<$> defaults,
-            ("ContactFlowId" Data..=) Prelude.<$> contactFlowId
+            ("Description" Data..=) Prelude.<$> description,
+            ("Fields" Data..=) Prelude.<$> fields,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )
 
@@ -277,36 +277,36 @@ instance Data.ToQuery UpdateTaskTemplate where
 
 -- | /See:/ 'newUpdateTaskTemplateResponse' smart constructor.
 data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
-  { -- | The name of the task template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the task template was created.
-    createdTime :: Prelude.Maybe Data.POSIX,
+  { -- | The Amazon Resource Name (ARN) for the task template resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
-    -- | The Amazon Resource Name (ARN) for the task template resource.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the flow that runs by default when a task is created
+    -- by referencing this template.
+    contactFlowId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the task template was created.
+    createdTime :: Prelude.Maybe Data.POSIX,
+    -- | The default values for fields when a task is created by referencing this
+    -- template.
+    defaults :: Prelude.Maybe TaskTemplateDefaults,
+    -- | The description of the task template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Fields that are part of the template.
+    fields :: Prelude.Maybe [TaskTemplateField],
+    -- | The identifier of the task template resource.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the task template was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the task template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
     -- Tasks can only be created from @ACTIVE@ templates. If a template is
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | Fields that are part of the template.
-    fields :: Prelude.Maybe [TaskTemplateField],
-    -- | The identifier of the task template resource.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The description of the task template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the task template was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The default values for fields when a task is created by referencing this
-    -- template.
-    defaults :: Prelude.Maybe TaskTemplateDefaults,
-    -- | The identifier of the flow that runs by default when a task is created
-    -- by referencing this template.
-    contactFlowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -320,35 +320,35 @@ data UpdateTaskTemplateResponse = UpdateTaskTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateTaskTemplateResponse_name' - The name of the task template.
---
--- 'createdTime', 'updateTaskTemplateResponse_createdTime' - The timestamp when the task template was created.
+-- 'arn', 'updateTaskTemplateResponse_arn' - The Amazon Resource Name (ARN) for the task template resource.
 --
 -- 'constraints', 'updateTaskTemplateResponse_constraints' - Constraints that are applicable to the fields listed.
 --
--- 'arn', 'updateTaskTemplateResponse_arn' - The Amazon Resource Name (ARN) for the task template resource.
+-- 'contactFlowId', 'updateTaskTemplateResponse_contactFlowId' - The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
 --
--- 'status', 'updateTaskTemplateResponse_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
--- Tasks can only be created from @ACTIVE@ templates. If a template is
--- marked as @INACTIVE@, then a task that refers to this template cannot be
--- created.
+-- 'createdTime', 'updateTaskTemplateResponse_createdTime' - The timestamp when the task template was created.
+--
+-- 'defaults', 'updateTaskTemplateResponse_defaults' - The default values for fields when a task is created by referencing this
+-- template.
+--
+-- 'description', 'updateTaskTemplateResponse_description' - The description of the task template.
 --
 -- 'fields', 'updateTaskTemplateResponse_fields' - Fields that are part of the template.
 --
 -- 'id', 'updateTaskTemplateResponse_id' - The identifier of the task template resource.
 --
--- 'description', 'updateTaskTemplateResponse_description' - The description of the task template.
---
--- 'lastModifiedTime', 'updateTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
---
 -- 'instanceId', 'updateTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 --
--- 'defaults', 'updateTaskTemplateResponse_defaults' - The default values for fields when a task is created by referencing this
--- template.
+-- 'lastModifiedTime', 'updateTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
 --
--- 'contactFlowId', 'updateTaskTemplateResponse_contactFlowId' - The identifier of the flow that runs by default when a task is created
--- by referencing this template.
+-- 'name', 'updateTaskTemplateResponse_name' - The name of the task template.
+--
+-- 'status', 'updateTaskTemplateResponse_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
+-- Tasks can only be created from @ACTIVE@ templates. If a template is
+-- marked as @INACTIVE@, then a task that refers to this template cannot be
+-- created.
 --
 -- 'httpStatus', 'updateTaskTemplateResponse_httpStatus' - The response's http status code.
 newUpdateTaskTemplateResponse ::
@@ -357,43 +357,46 @@ newUpdateTaskTemplateResponse ::
   UpdateTaskTemplateResponse
 newUpdateTaskTemplateResponse pHttpStatus_ =
   UpdateTaskTemplateResponse'
-    { name = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       constraints = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      contactFlowId = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      defaults = Prelude.Nothing,
+      description = Prelude.Nothing,
       fields = Prelude.Nothing,
       id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      defaults = Prelude.Nothing,
-      contactFlowId = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the task template.
-updateTaskTemplateResponse_name :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-updateTaskTemplateResponse_name = Lens.lens (\UpdateTaskTemplateResponse' {name} -> name) (\s@UpdateTaskTemplateResponse' {} a -> s {name = a} :: UpdateTaskTemplateResponse)
-
--- | The timestamp when the task template was created.
-updateTaskTemplateResponse_createdTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-updateTaskTemplateResponse_createdTime = Lens.lens (\UpdateTaskTemplateResponse' {createdTime} -> createdTime) (\s@UpdateTaskTemplateResponse' {} a -> s {createdTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
-
--- | Constraints that are applicable to the fields listed.
-updateTaskTemplateResponse_constraints :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
-updateTaskTemplateResponse_constraints = Lens.lens (\UpdateTaskTemplateResponse' {constraints} -> constraints) (\s@UpdateTaskTemplateResponse' {} a -> s {constraints = a} :: UpdateTaskTemplateResponse)
 
 -- | The Amazon Resource Name (ARN) for the task template resource.
 updateTaskTemplateResponse_arn :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 updateTaskTemplateResponse_arn = Lens.lens (\UpdateTaskTemplateResponse' {arn} -> arn) (\s@UpdateTaskTemplateResponse' {} a -> s {arn = a} :: UpdateTaskTemplateResponse)
 
--- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
--- Tasks can only be created from @ACTIVE@ templates. If a template is
--- marked as @INACTIVE@, then a task that refers to this template cannot be
--- created.
-updateTaskTemplateResponse_status :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateStatus)
-updateTaskTemplateResponse_status = Lens.lens (\UpdateTaskTemplateResponse' {status} -> status) (\s@UpdateTaskTemplateResponse' {} a -> s {status = a} :: UpdateTaskTemplateResponse)
+-- | Constraints that are applicable to the fields listed.
+updateTaskTemplateResponse_constraints :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
+updateTaskTemplateResponse_constraints = Lens.lens (\UpdateTaskTemplateResponse' {constraints} -> constraints) (\s@UpdateTaskTemplateResponse' {} a -> s {constraints = a} :: UpdateTaskTemplateResponse)
+
+-- | The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
+updateTaskTemplateResponse_contactFlowId :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+updateTaskTemplateResponse_contactFlowId = Lens.lens (\UpdateTaskTemplateResponse' {contactFlowId} -> contactFlowId) (\s@UpdateTaskTemplateResponse' {} a -> s {contactFlowId = a} :: UpdateTaskTemplateResponse)
+
+-- | The timestamp when the task template was created.
+updateTaskTemplateResponse_createdTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+updateTaskTemplateResponse_createdTime = Lens.lens (\UpdateTaskTemplateResponse' {createdTime} -> createdTime) (\s@UpdateTaskTemplateResponse' {} a -> s {createdTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The default values for fields when a task is created by referencing this
+-- template.
+updateTaskTemplateResponse_defaults :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateDefaults)
+updateTaskTemplateResponse_defaults = Lens.lens (\UpdateTaskTemplateResponse' {defaults} -> defaults) (\s@UpdateTaskTemplateResponse' {} a -> s {defaults = a} :: UpdateTaskTemplateResponse)
+
+-- | The description of the task template.
+updateTaskTemplateResponse_description :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+updateTaskTemplateResponse_description = Lens.lens (\UpdateTaskTemplateResponse' {description} -> description) (\s@UpdateTaskTemplateResponse' {} a -> s {description = a} :: UpdateTaskTemplateResponse)
 
 -- | Fields that are part of the template.
 updateTaskTemplateResponse_fields :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe [TaskTemplateField])
@@ -403,28 +406,25 @@ updateTaskTemplateResponse_fields = Lens.lens (\UpdateTaskTemplateResponse' {fie
 updateTaskTemplateResponse_id :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 updateTaskTemplateResponse_id = Lens.lens (\UpdateTaskTemplateResponse' {id} -> id) (\s@UpdateTaskTemplateResponse' {} a -> s {id = a} :: UpdateTaskTemplateResponse)
 
--- | The description of the task template.
-updateTaskTemplateResponse_description :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-updateTaskTemplateResponse_description = Lens.lens (\UpdateTaskTemplateResponse' {description} -> description) (\s@UpdateTaskTemplateResponse' {} a -> s {description = a} :: UpdateTaskTemplateResponse)
-
--- | The timestamp when the task template was last modified.
-updateTaskTemplateResponse_lastModifiedTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-updateTaskTemplateResponse_lastModifiedTime = Lens.lens (\UpdateTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 updateTaskTemplateResponse_instanceId :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
 updateTaskTemplateResponse_instanceId = Lens.lens (\UpdateTaskTemplateResponse' {instanceId} -> instanceId) (\s@UpdateTaskTemplateResponse' {} a -> s {instanceId = a} :: UpdateTaskTemplateResponse)
 
--- | The default values for fields when a task is created by referencing this
--- template.
-updateTaskTemplateResponse_defaults :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateDefaults)
-updateTaskTemplateResponse_defaults = Lens.lens (\UpdateTaskTemplateResponse' {defaults} -> defaults) (\s@UpdateTaskTemplateResponse' {} a -> s {defaults = a} :: UpdateTaskTemplateResponse)
+-- | The timestamp when the task template was last modified.
+updateTaskTemplateResponse_lastModifiedTime :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+updateTaskTemplateResponse_lastModifiedTime = Lens.lens (\UpdateTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: UpdateTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
--- | The identifier of the flow that runs by default when a task is created
--- by referencing this template.
-updateTaskTemplateResponse_contactFlowId :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-updateTaskTemplateResponse_contactFlowId = Lens.lens (\UpdateTaskTemplateResponse' {contactFlowId} -> contactFlowId) (\s@UpdateTaskTemplateResponse' {} a -> s {contactFlowId = a} :: UpdateTaskTemplateResponse)
+-- | The name of the task template.
+updateTaskTemplateResponse_name :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+updateTaskTemplateResponse_name = Lens.lens (\UpdateTaskTemplateResponse' {name} -> name) (\s@UpdateTaskTemplateResponse' {} a -> s {name = a} :: UpdateTaskTemplateResponse)
+
+-- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
+-- Tasks can only be created from @ACTIVE@ templates. If a template is
+-- marked as @INACTIVE@, then a task that refers to this template cannot be
+-- created.
+updateTaskTemplateResponse_status :: Lens.Lens' UpdateTaskTemplateResponse (Prelude.Maybe TaskTemplateStatus)
+updateTaskTemplateResponse_status = Lens.lens (\UpdateTaskTemplateResponse' {status} -> status) (\s@UpdateTaskTemplateResponse' {} a -> s {status = a} :: UpdateTaskTemplateResponse)
 
 -- | The response's http status code.
 updateTaskTemplateResponse_httpStatus :: Lens.Lens' UpdateTaskTemplateResponse Prelude.Int
@@ -432,16 +432,16 @@ updateTaskTemplateResponse_httpStatus = Lens.lens (\UpdateTaskTemplateResponse' 
 
 instance Prelude.NFData UpdateTaskTemplateResponse where
   rnf UpdateTaskTemplateResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf defaults
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf defaults
-      `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

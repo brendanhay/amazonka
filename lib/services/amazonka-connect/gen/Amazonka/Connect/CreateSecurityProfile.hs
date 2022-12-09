@@ -30,11 +30,11 @@ module Amazonka.Connect.CreateSecurityProfile
     newCreateSecurityProfile,
 
     -- * Request Lenses
-    createSecurityProfile_tags,
     createSecurityProfile_allowedAccessControlTags,
-    createSecurityProfile_permissions,
     createSecurityProfile_description,
+    createSecurityProfile_permissions,
     createSecurityProfile_tagRestrictedResources,
+    createSecurityProfile_tags,
     createSecurityProfile_securityProfileName,
     createSecurityProfile_instanceId,
 
@@ -43,8 +43,8 @@ module Amazonka.Connect.CreateSecurityProfile
     newCreateSecurityProfileResponse,
 
     -- * Response Lenses
-    createSecurityProfileResponse_securityProfileId,
     createSecurityProfileResponse_securityProfileArn,
+    createSecurityProfileResponse_securityProfileId,
     createSecurityProfileResponse_httpStatus,
   )
 where
@@ -59,21 +59,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSecurityProfile' smart constructor.
 data CreateSecurityProfile = CreateSecurityProfile'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The list of tags that a security profile uses to restrict access to
+  { -- | The list of tags that a security profile uses to restrict access to
     -- resources in Amazon Connect.
     allowedAccessControlTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the security profile.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Permissions assigned to the security profile. For a list of valid
     -- permissions, see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
     permissions :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the security profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The list of resources that a security profile applies tag restrictions
     -- to in Amazon Connect.
     tagRestrictedResources :: Prelude.Maybe [Prelude.Text],
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the security profile.
     securityProfileName :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -90,20 +90,20 @@ data CreateSecurityProfile = CreateSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSecurityProfile_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'allowedAccessControlTags', 'createSecurityProfile_allowedAccessControlTags' - The list of tags that a security profile uses to restrict access to
 -- resources in Amazon Connect.
+--
+-- 'description', 'createSecurityProfile_description' - The description of the security profile.
 --
 -- 'permissions', 'createSecurityProfile_permissions' - Permissions assigned to the security profile. For a list of valid
 -- permissions, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html List of security profile permissions>.
 --
--- 'description', 'createSecurityProfile_description' - The description of the security profile.
---
 -- 'tagRestrictedResources', 'createSecurityProfile_tagRestrictedResources' - The list of resources that a security profile applies tag restrictions
 -- to in Amazon Connect.
+--
+-- 'tags', 'createSecurityProfile_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'securityProfileName', 'createSecurityProfile_securityProfileName' - The name of the security profile.
 --
@@ -119,24 +119,24 @@ newCreateSecurityProfile
   pSecurityProfileName_
   pInstanceId_ =
     CreateSecurityProfile'
-      { tags = Prelude.Nothing,
-        allowedAccessControlTags = Prelude.Nothing,
-        permissions = Prelude.Nothing,
+      { allowedAccessControlTags =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         tagRestrictedResources = Prelude.Nothing,
+        tags = Prelude.Nothing,
         securityProfileName = pSecurityProfileName_,
         instanceId = pInstanceId_
       }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createSecurityProfile_tags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) (\s@CreateSecurityProfile' {} a -> s {tags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of tags that a security profile uses to restrict access to
 -- resources in Amazon Connect.
 createSecurityProfile_allowedAccessControlTags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSecurityProfile_allowedAccessControlTags = Lens.lens (\CreateSecurityProfile' {allowedAccessControlTags} -> allowedAccessControlTags) (\s@CreateSecurityProfile' {} a -> s {allowedAccessControlTags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the security profile.
+createSecurityProfile_description :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe Prelude.Text)
+createSecurityProfile_description = Lens.lens (\CreateSecurityProfile' {description} -> description) (\s@CreateSecurityProfile' {} a -> s {description = a} :: CreateSecurityProfile)
 
 -- | Permissions assigned to the security profile. For a list of valid
 -- permissions, see
@@ -144,14 +144,15 @@ createSecurityProfile_allowedAccessControlTags = Lens.lens (\CreateSecurityProfi
 createSecurityProfile_permissions :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Prelude.Text])
 createSecurityProfile_permissions = Lens.lens (\CreateSecurityProfile' {permissions} -> permissions) (\s@CreateSecurityProfile' {} a -> s {permissions = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the security profile.
-createSecurityProfile_description :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe Prelude.Text)
-createSecurityProfile_description = Lens.lens (\CreateSecurityProfile' {description} -> description) (\s@CreateSecurityProfile' {} a -> s {description = a} :: CreateSecurityProfile)
-
 -- | The list of resources that a security profile applies tag restrictions
 -- to in Amazon Connect.
 createSecurityProfile_tagRestrictedResources :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe [Prelude.Text])
 createSecurityProfile_tagRestrictedResources = Lens.lens (\CreateSecurityProfile' {tagRestrictedResources} -> tagRestrictedResources) (\s@CreateSecurityProfile' {} a -> s {tagRestrictedResources = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createSecurityProfile_tags :: Lens.Lens' CreateSecurityProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSecurityProfile_tags = Lens.lens (\CreateSecurityProfile' {tags} -> tags) (\s@CreateSecurityProfile' {} a -> s {tags = a} :: CreateSecurityProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the security profile.
 createSecurityProfile_securityProfileName :: Lens.Lens' CreateSecurityProfile Prelude.Text
@@ -172,28 +173,29 @@ instance Core.AWSRequest CreateSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityProfileResponse'
-            Prelude.<$> (x Data..?> "SecurityProfileId")
-            Prelude.<*> (x Data..?> "SecurityProfileArn")
+            Prelude.<$> (x Data..?> "SecurityProfileArn")
+            Prelude.<*> (x Data..?> "SecurityProfileId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSecurityProfile where
   hashWithSalt _salt CreateSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` allowedAccessControlTags
-      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` tagRestrictedResources
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` securityProfileName
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData CreateSecurityProfile where
   rnf CreateSecurityProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf allowedAccessControlTags
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf allowedAccessControlTags
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf tagRestrictedResources
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf securityProfileName
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -212,13 +214,13 @@ instance Data.ToJSON CreateSecurityProfile where
   toJSON CreateSecurityProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AllowedAccessControlTags" Data..=)
+          [ ("AllowedAccessControlTags" Data..=)
               Prelude.<$> allowedAccessControlTags,
-            ("Permissions" Data..=) Prelude.<$> permissions,
             ("Description" Data..=) Prelude.<$> description,
+            ("Permissions" Data..=) Prelude.<$> permissions,
             ("TagRestrictedResources" Data..=)
               Prelude.<$> tagRestrictedResources,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("SecurityProfileName" Data..= securityProfileName)
           ]
@@ -234,10 +236,10 @@ instance Data.ToQuery CreateSecurityProfile where
 
 -- | /See:/ 'newCreateSecurityProfileResponse' smart constructor.
 data CreateSecurityProfileResponse = CreateSecurityProfileResponse'
-  { -- | The identifier for the security profle.
-    securityProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the security profile.
+  { -- | The Amazon Resource Name (ARN) for the security profile.
     securityProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the security profle.
+    securityProfileId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -251,9 +253,9 @@ data CreateSecurityProfileResponse = CreateSecurityProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityProfileId', 'createSecurityProfileResponse_securityProfileId' - The identifier for the security profle.
---
 -- 'securityProfileArn', 'createSecurityProfileResponse_securityProfileArn' - The Amazon Resource Name (ARN) for the security profile.
+--
+-- 'securityProfileId', 'createSecurityProfileResponse_securityProfileId' - The identifier for the security profle.
 --
 -- 'httpStatus', 'createSecurityProfileResponse_httpStatus' - The response's http status code.
 newCreateSecurityProfileResponse ::
@@ -262,19 +264,19 @@ newCreateSecurityProfileResponse ::
   CreateSecurityProfileResponse
 newCreateSecurityProfileResponse pHttpStatus_ =
   CreateSecurityProfileResponse'
-    { securityProfileId =
+    { securityProfileArn =
         Prelude.Nothing,
-      securityProfileArn = Prelude.Nothing,
+      securityProfileId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier for the security profle.
-createSecurityProfileResponse_securityProfileId :: Lens.Lens' CreateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
-createSecurityProfileResponse_securityProfileId = Lens.lens (\CreateSecurityProfileResponse' {securityProfileId} -> securityProfileId) (\s@CreateSecurityProfileResponse' {} a -> s {securityProfileId = a} :: CreateSecurityProfileResponse)
 
 -- | The Amazon Resource Name (ARN) for the security profile.
 createSecurityProfileResponse_securityProfileArn :: Lens.Lens' CreateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
 createSecurityProfileResponse_securityProfileArn = Lens.lens (\CreateSecurityProfileResponse' {securityProfileArn} -> securityProfileArn) (\s@CreateSecurityProfileResponse' {} a -> s {securityProfileArn = a} :: CreateSecurityProfileResponse)
+
+-- | The identifier for the security profle.
+createSecurityProfileResponse_securityProfileId :: Lens.Lens' CreateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+createSecurityProfileResponse_securityProfileId = Lens.lens (\CreateSecurityProfileResponse' {securityProfileId} -> securityProfileId) (\s@CreateSecurityProfileResponse' {} a -> s {securityProfileId = a} :: CreateSecurityProfileResponse)
 
 -- | The response's http status code.
 createSecurityProfileResponse_httpStatus :: Lens.Lens' CreateSecurityProfileResponse Prelude.Int
@@ -282,6 +284,6 @@ createSecurityProfileResponse_httpStatus = Lens.lens (\CreateSecurityProfileResp
 
 instance Prelude.NFData CreateSecurityProfileResponse where
   rnf CreateSecurityProfileResponse' {..} =
-    Prelude.rnf securityProfileId
-      `Prelude.seq` Prelude.rnf securityProfileArn
+    Prelude.rnf securityProfileArn
+      `Prelude.seq` Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf httpStatus

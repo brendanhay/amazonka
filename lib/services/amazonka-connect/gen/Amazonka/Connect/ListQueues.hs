@@ -39,8 +39,8 @@ module Amazonka.Connect.ListQueues
     newListQueues,
 
     -- * Request Lenses
-    listQueues_nextToken,
     listQueues_maxResults,
+    listQueues_nextToken,
     listQueues_queueTypes,
     listQueues_instanceId,
 
@@ -65,13 +65,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of queue.
     queueTypes :: Prelude.Maybe [QueueType],
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -88,12 +88,12 @@ data ListQueues = ListQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listQueues_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
 --
 -- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
 --
@@ -105,22 +105,22 @@ newListQueues ::
   ListQueues
 newListQueues pInstanceId_ =
   ListQueues'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queueTypes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
+listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
-
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
-listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
 
 -- | The type of queue.
 listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
@@ -168,15 +168,15 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueTypes
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListQueues where
   rnf ListQueues' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queueTypes
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -199,8 +199,8 @@ instance Data.ToPath ListQueues where
 instance Data.ToQuery ListQueues where
   toQuery ListQueues' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "queueTypes"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> queueTypes)

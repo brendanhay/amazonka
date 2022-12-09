@@ -28,10 +28,10 @@ module Amazonka.Connect.CreateIntegrationAssociation
     newCreateIntegrationAssociation,
 
     -- * Request Lenses
-    createIntegrationAssociation_tags,
-    createIntegrationAssociation_sourceType,
     createIntegrationAssociation_sourceApplicationName,
     createIntegrationAssociation_sourceApplicationUrl,
+    createIntegrationAssociation_sourceType,
+    createIntegrationAssociation_tags,
     createIntegrationAssociation_instanceId,
     createIntegrationAssociation_integrationType,
     createIntegrationAssociation_integrationArn,
@@ -57,18 +57,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIntegrationAssociation' smart constructor.
 data CreateIntegrationAssociation = CreateIntegrationAssociation'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The type of the data source. This field is only required for the EVENT
-    -- integration type.
-    sourceType :: Prelude.Maybe SourceType,
-    -- | The name of the external application. This field is only required for
+  { -- | The name of the external application. This field is only required for
     -- the EVENT integration type.
     sourceApplicationName :: Prelude.Maybe Prelude.Text,
     -- | The URL for the external application. This field is only required for
     -- the EVENT integration type.
     sourceApplicationUrl :: Prelude.Maybe Prelude.Text,
+    -- | The type of the data source. This field is only required for the EVENT
+    -- integration type.
+    sourceType :: Prelude.Maybe SourceType,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -90,17 +90,17 @@ data CreateIntegrationAssociation = CreateIntegrationAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIntegrationAssociation_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'sourceType', 'createIntegrationAssociation_sourceType' - The type of the data source. This field is only required for the EVENT
--- integration type.
---
 -- 'sourceApplicationName', 'createIntegrationAssociation_sourceApplicationName' - The name of the external application. This field is only required for
 -- the EVENT integration type.
 --
 -- 'sourceApplicationUrl', 'createIntegrationAssociation_sourceApplicationUrl' - The URL for the external application. This field is only required for
 -- the EVENT integration type.
+--
+-- 'sourceType', 'createIntegrationAssociation_sourceType' - The type of the data source. This field is only required for the EVENT
+-- integration type.
+--
+-- 'tags', 'createIntegrationAssociation_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'instanceId', 'createIntegrationAssociation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -124,25 +124,15 @@ newCreateIntegrationAssociation
   pIntegrationType_
   pIntegrationArn_ =
     CreateIntegrationAssociation'
-      { tags =
+      { sourceApplicationName =
           Prelude.Nothing,
-        sourceType = Prelude.Nothing,
-        sourceApplicationName = Prelude.Nothing,
         sourceApplicationUrl = Prelude.Nothing,
+        sourceType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         integrationType = pIntegrationType_,
         integrationArn = pIntegrationArn_
       }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
-
--- | The type of the data source. This field is only required for the EVENT
--- integration type.
-createIntegrationAssociation_sourceType :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe SourceType)
-createIntegrationAssociation_sourceType = Lens.lens (\CreateIntegrationAssociation' {sourceType} -> sourceType) (\s@CreateIntegrationAssociation' {} a -> s {sourceType = a} :: CreateIntegrationAssociation)
 
 -- | The name of the external application. This field is only required for
 -- the EVENT integration type.
@@ -153,6 +143,16 @@ createIntegrationAssociation_sourceApplicationName = Lens.lens (\CreateIntegrati
 -- the EVENT integration type.
 createIntegrationAssociation_sourceApplicationUrl :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe Prelude.Text)
 createIntegrationAssociation_sourceApplicationUrl = Lens.lens (\CreateIntegrationAssociation' {sourceApplicationUrl} -> sourceApplicationUrl) (\s@CreateIntegrationAssociation' {} a -> s {sourceApplicationUrl = a} :: CreateIntegrationAssociation)
+
+-- | The type of the data source. This field is only required for the EVENT
+-- integration type.
+createIntegrationAssociation_sourceType :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe SourceType)
+createIntegrationAssociation_sourceType = Lens.lens (\CreateIntegrationAssociation' {sourceType} -> sourceType) (\s@CreateIntegrationAssociation' {} a -> s {sourceType = a} :: CreateIntegrationAssociation)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createIntegrationAssociation_tags :: Lens.Lens' CreateIntegrationAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIntegrationAssociation_tags = Lens.lens (\CreateIntegrationAssociation' {tags} -> tags) (\s@CreateIntegrationAssociation' {} a -> s {tags = a} :: CreateIntegrationAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -190,20 +190,20 @@ instance
     CreateIntegrationAssociation
   where
   hashWithSalt _salt CreateIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` sourceApplicationName
+    _salt `Prelude.hashWithSalt` sourceApplicationName
       `Prelude.hashWithSalt` sourceApplicationUrl
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationType
       `Prelude.hashWithSalt` integrationArn
 
 instance Prelude.NFData CreateIntegrationAssociation where
   rnf CreateIntegrationAssociation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceApplicationName
+    Prelude.rnf sourceApplicationName
       `Prelude.seq` Prelude.rnf sourceApplicationUrl
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf integrationType
       `Prelude.seq` Prelude.rnf integrationArn
@@ -223,12 +223,12 @@ instance Data.ToJSON CreateIntegrationAssociation where
   toJSON CreateIntegrationAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SourceType" Data..=) Prelude.<$> sourceType,
-            ("SourceApplicationName" Data..=)
+          [ ("SourceApplicationName" Data..=)
               Prelude.<$> sourceApplicationName,
             ("SourceApplicationUrl" Data..=)
               Prelude.<$> sourceApplicationUrl,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("IntegrationType" Data..= integrationType),
             Prelude.Just

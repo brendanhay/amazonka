@@ -30,10 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVocabulary' smart constructor.
 data Vocabulary = Vocabulary'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The content of the custom vocabulary in plain-text format with a table
+  { -- | The content of the custom vocabulary in plain-text format with a table
     -- of values. Each row in the table represents a word or a phrase,
     -- described with @Phrase@, @IPA@, @SoundsLike@, and @DisplayAs@ fields.
     -- Separate the fields with TAB characters. For more information, see
@@ -41,6 +38,9 @@ data Vocabulary = Vocabulary'
     content :: Prelude.Maybe Prelude.Text,
     -- | The reason why the custom vocabulary was not created.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique name of the custom vocabulary.
     name :: Prelude.Text,
     -- | The identifier of the custom vocabulary.
@@ -66,9 +66,6 @@ data Vocabulary = Vocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'vocabulary_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'content', 'vocabulary_content' - The content of the custom vocabulary in plain-text format with a table
 -- of values. Each row in the table represents a word or a phrase,
 -- described with @Phrase@, @IPA@, @SoundsLike@, and @DisplayAs@ fields.
@@ -76,6 +73,9 @@ data Vocabulary = Vocabulary'
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table Create a custom vocabulary using a table>.
 --
 -- 'failureReason', 'vocabulary_failureReason' - The reason why the custom vocabulary was not created.
+--
+-- 'tags', 'vocabulary_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'vocabulary_name' - A unique name of the custom vocabulary.
 --
@@ -112,9 +112,9 @@ newVocabulary
   pState_
   pLastModifiedTime_ =
     Vocabulary'
-      { tags = Prelude.Nothing,
-        content = Prelude.Nothing,
+      { content = Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         id = pId_,
         arn = pArn_,
@@ -123,11 +123,6 @@ newVocabulary
         lastModifiedTime =
           Data._Time Lens.# pLastModifiedTime_
       }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-vocabulary_tags :: Lens.Lens' Vocabulary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-vocabulary_tags = Lens.lens (\Vocabulary' {tags} -> tags) (\s@Vocabulary' {} a -> s {tags = a} :: Vocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The content of the custom vocabulary in plain-text format with a table
 -- of values. Each row in the table represents a word or a phrase,
@@ -140,6 +135,11 @@ vocabulary_content = Lens.lens (\Vocabulary' {content} -> content) (\s@Vocabular
 -- | The reason why the custom vocabulary was not created.
 vocabulary_failureReason :: Lens.Lens' Vocabulary (Prelude.Maybe Prelude.Text)
 vocabulary_failureReason = Lens.lens (\Vocabulary' {failureReason} -> failureReason) (\s@Vocabulary' {} a -> s {failureReason = a} :: Vocabulary)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+vocabulary_tags :: Lens.Lens' Vocabulary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+vocabulary_tags = Lens.lens (\Vocabulary' {tags} -> tags) (\s@Vocabulary' {} a -> s {tags = a} :: Vocabulary) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique name of the custom vocabulary.
 vocabulary_name :: Lens.Lens' Vocabulary Prelude.Text
@@ -173,9 +173,9 @@ instance Data.FromJSON Vocabulary where
       "Vocabulary"
       ( \x ->
           Vocabulary'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Content")
+            Prelude.<$> (x Data..:? "Content")
             Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "Arn")
@@ -186,9 +186,9 @@ instance Data.FromJSON Vocabulary where
 
 instance Prelude.Hashable Vocabulary where
   hashWithSalt _salt Vocabulary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
@@ -198,9 +198,9 @@ instance Prelude.Hashable Vocabulary where
 
 instance Prelude.NFData Vocabulary where
   rnf Vocabulary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf content
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn

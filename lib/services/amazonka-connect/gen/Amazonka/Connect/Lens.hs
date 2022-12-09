@@ -19,8 +19,8 @@ module Amazonka.Connect.Lens
     associateApprovedOrigin_origin,
 
     -- ** AssociateBot
-    associateBot_lexV2Bot,
     associateBot_lexBot,
+    associateBot_lexV2Bot,
     associateBot_instanceId,
 
     -- ** AssociateDefaultVocabulary
@@ -66,9 +66,9 @@ module Amazonka.Connect.Lens
     associateSecurityKeyResponse_httpStatus,
 
     -- ** ClaimPhoneNumber
-    claimPhoneNumber_tags,
     claimPhoneNumber_clientToken,
     claimPhoneNumber_phoneNumberDescription,
+    claimPhoneNumber_tags,
     claimPhoneNumber_targetArn,
     claimPhoneNumber_phoneNumber,
     claimPhoneNumberResponse_phoneNumberArn,
@@ -76,19 +76,19 @@ module Amazonka.Connect.Lens
     claimPhoneNumberResponse_httpStatus,
 
     -- ** CreateAgentStatus
-    createAgentStatus_tags,
-    createAgentStatus_displayOrder,
     createAgentStatus_description,
+    createAgentStatus_displayOrder,
+    createAgentStatus_tags,
     createAgentStatus_instanceId,
     createAgentStatus_name,
     createAgentStatus_state,
-    createAgentStatusResponse_agentStatusId,
     createAgentStatusResponse_agentStatusARN,
+    createAgentStatusResponse_agentStatusId,
     createAgentStatusResponse_httpStatus,
 
     -- ** CreateContactFlow
-    createContactFlow_tags,
     createContactFlow_description,
+    createContactFlow_tags,
     createContactFlow_instanceId,
     createContactFlow_name,
     createContactFlow_type,
@@ -98,9 +98,9 @@ module Amazonka.Connect.Lens
     createContactFlowResponse_httpStatus,
 
     -- ** CreateContactFlowModule
-    createContactFlowModule_tags,
     createContactFlowModule_clientToken,
     createContactFlowModule_description,
+    createContactFlowModule_tags,
     createContactFlowModule_instanceId,
     createContactFlowModule_name,
     createContactFlowModule_content,
@@ -109,8 +109,8 @@ module Amazonka.Connect.Lens
     createContactFlowModuleResponse_httpStatus,
 
     -- ** CreateHoursOfOperation
-    createHoursOfOperation_tags,
     createHoursOfOperation_description,
+    createHoursOfOperation_tags,
     createHoursOfOperation_instanceId,
     createHoursOfOperation_name,
     createHoursOfOperation_timeZone,
@@ -120,8 +120,8 @@ module Amazonka.Connect.Lens
     createHoursOfOperationResponse_httpStatus,
 
     -- ** CreateInstance
-    createInstance_directoryId,
     createInstance_clientToken,
+    createInstance_directoryId,
     createInstance_instanceAlias,
     createInstance_identityManagementType,
     createInstance_inboundCallsEnabled,
@@ -131,10 +131,10 @@ module Amazonka.Connect.Lens
     createInstanceResponse_httpStatus,
 
     -- ** CreateIntegrationAssociation
-    createIntegrationAssociation_tags,
-    createIntegrationAssociation_sourceType,
     createIntegrationAssociation_sourceApplicationName,
     createIntegrationAssociation_sourceApplicationUrl,
+    createIntegrationAssociation_sourceType,
+    createIntegrationAssociation_tags,
     createIntegrationAssociation_instanceId,
     createIntegrationAssociation_integrationType,
     createIntegrationAssociation_integrationArn,
@@ -143,11 +143,11 @@ module Amazonka.Connect.Lens
     createIntegrationAssociationResponse_httpStatus,
 
     -- ** CreateQueue
-    createQueue_tags,
     createQueue_description,
-    createQueue_quickConnectIds,
     createQueue_maxContacts,
     createQueue_outboundCallerConfig,
+    createQueue_quickConnectIds,
+    createQueue_tags,
     createQueue_instanceId,
     createQueue_name,
     createQueue_hoursOfOperationId,
@@ -156,8 +156,8 @@ module Amazonka.Connect.Lens
     createQueueResponse_httpStatus,
 
     -- ** CreateQuickConnect
-    createQuickConnect_tags,
     createQuickConnect_description,
+    createQuickConnect_tags,
     createQuickConnect_instanceId,
     createQuickConnect_name,
     createQuickConnect_quickConnectConfig,
@@ -166,8 +166,8 @@ module Amazonka.Connect.Lens
     createQuickConnectResponse_httpStatus,
 
     -- ** CreateRoutingProfile
-    createRoutingProfile_tags,
     createRoutingProfile_queueConfigs,
+    createRoutingProfile_tags,
     createRoutingProfile_instanceId,
     createRoutingProfile_name,
     createRoutingProfile_description,
@@ -177,25 +177,37 @@ module Amazonka.Connect.Lens
     createRoutingProfileResponse_routingProfileId,
     createRoutingProfileResponse_httpStatus,
 
+    -- ** CreateRule
+    createRule_clientToken,
+    createRule_instanceId,
+    createRule_name,
+    createRule_triggerEventSource,
+    createRule_function,
+    createRule_actions,
+    createRule_publishStatus,
+    createRuleResponse_httpStatus,
+    createRuleResponse_ruleArn,
+    createRuleResponse_ruleId,
+
     -- ** CreateSecurityProfile
-    createSecurityProfile_tags,
     createSecurityProfile_allowedAccessControlTags,
-    createSecurityProfile_permissions,
     createSecurityProfile_description,
+    createSecurityProfile_permissions,
     createSecurityProfile_tagRestrictedResources,
+    createSecurityProfile_tags,
     createSecurityProfile_securityProfileName,
     createSecurityProfile_instanceId,
-    createSecurityProfileResponse_securityProfileId,
     createSecurityProfileResponse_securityProfileArn,
+    createSecurityProfileResponse_securityProfileId,
     createSecurityProfileResponse_httpStatus,
 
     -- ** CreateTaskTemplate
     createTaskTemplate_clientToken,
     createTaskTemplate_constraints,
-    createTaskTemplate_status,
-    createTaskTemplate_description,
-    createTaskTemplate_defaults,
     createTaskTemplate_contactFlowId,
+    createTaskTemplate_defaults,
+    createTaskTemplate_description,
+    createTaskTemplate_status,
     createTaskTemplate_instanceId,
     createTaskTemplate_name,
     createTaskTemplate_fields,
@@ -204,9 +216,9 @@ module Amazonka.Connect.Lens
     createTaskTemplateResponse_arn,
 
     -- ** CreateTrafficDistributionGroup
-    createTrafficDistributionGroup_tags,
     createTrafficDistributionGroup_clientToken,
     createTrafficDistributionGroup_description,
+    createTrafficDistributionGroup_tags,
     createTrafficDistributionGroup_name,
     createTrafficDistributionGroup_instanceId,
     createTrafficDistributionGroupResponse_arn,
@@ -223,11 +235,11 @@ module Amazonka.Connect.Lens
     createUseCaseResponse_httpStatus,
 
     -- ** CreateUser
-    createUser_tags,
+    createUser_directoryUserId,
     createUser_hierarchyGroupId,
     createUser_identityInfo,
     createUser_password,
-    createUser_directoryUserId,
+    createUser_tags,
     createUser_username,
     createUser_phoneConfig,
     createUser_securityProfileIds,
@@ -238,17 +250,17 @@ module Amazonka.Connect.Lens
     createUserResponse_httpStatus,
 
     -- ** CreateUserHierarchyGroup
-    createUserHierarchyGroup_tags,
     createUserHierarchyGroup_parentGroupId,
+    createUserHierarchyGroup_tags,
     createUserHierarchyGroup_name,
     createUserHierarchyGroup_instanceId,
-    createUserHierarchyGroupResponse_hierarchyGroupId,
     createUserHierarchyGroupResponse_hierarchyGroupArn,
+    createUserHierarchyGroupResponse_hierarchyGroupId,
     createUserHierarchyGroupResponse_httpStatus,
 
     -- ** CreateVocabulary
-    createVocabulary_tags,
     createVocabulary_clientToken,
+    createVocabulary_tags,
     createVocabulary_instanceId,
     createVocabulary_vocabularyName,
     createVocabulary_languageCode,
@@ -281,6 +293,10 @@ module Amazonka.Connect.Lens
     -- ** DeleteQuickConnect
     deleteQuickConnect_instanceId,
     deleteQuickConnect_quickConnectId,
+
+    -- ** DeleteRule
+    deleteRule_instanceId,
+    deleteRule_ruleId,
 
     -- ** DeleteSecurityProfile
     deleteSecurityProfile_instanceId,
@@ -387,6 +403,12 @@ module Amazonka.Connect.Lens
     describeRoutingProfileResponse_routingProfile,
     describeRoutingProfileResponse_httpStatus,
 
+    -- ** DescribeRule
+    describeRule_instanceId,
+    describeRule_ruleId,
+    describeRuleResponse_httpStatus,
+    describeRuleResponse_rule,
+
     -- ** DescribeSecurityProfile
     describeSecurityProfile_securityProfileId,
     describeSecurityProfile_instanceId,
@@ -426,8 +448,8 @@ module Amazonka.Connect.Lens
     disassociateApprovedOrigin_origin,
 
     -- ** DisassociateBot
-    disassociateBot_lexV2Bot,
     disassociateBot_lexBot,
+    disassociateBot_lexV2Bot,
     disassociateBot_instanceId,
 
     -- ** DisassociateInstanceStorageConfig
@@ -476,19 +498,19 @@ module Amazonka.Connect.Lens
 
     -- ** GetCurrentMetricData
     getCurrentMetricData_groupings,
-    getCurrentMetricData_nextToken,
     getCurrentMetricData_maxResults,
+    getCurrentMetricData_nextToken,
     getCurrentMetricData_instanceId,
     getCurrentMetricData_filters,
     getCurrentMetricData_currentMetrics,
-    getCurrentMetricDataResponse_nextToken,
     getCurrentMetricDataResponse_dataSnapshotTime,
     getCurrentMetricDataResponse_metricResults,
+    getCurrentMetricDataResponse_nextToken,
     getCurrentMetricDataResponse_httpStatus,
 
     -- ** GetCurrentUserData
-    getCurrentUserData_nextToken,
     getCurrentUserData_maxResults,
+    getCurrentUserData_nextToken,
     getCurrentUserData_instanceId,
     getCurrentUserData_filters,
     getCurrentUserDataResponse_nextToken,
@@ -497,39 +519,39 @@ module Amazonka.Connect.Lens
 
     -- ** GetFederationToken
     getFederationToken_instanceId,
+    getFederationTokenResponse_credentials,
     getFederationTokenResponse_signInUrl,
     getFederationTokenResponse_userArn,
-    getFederationTokenResponse_credentials,
     getFederationTokenResponse_userId,
     getFederationTokenResponse_httpStatus,
 
     -- ** GetMetricData
     getMetricData_groupings,
-    getMetricData_nextToken,
     getMetricData_maxResults,
+    getMetricData_nextToken,
     getMetricData_instanceId,
     getMetricData_startTime,
     getMetricData_endTime,
     getMetricData_filters,
     getMetricData_historicalMetrics,
-    getMetricDataResponse_nextToken,
     getMetricDataResponse_metricResults,
+    getMetricDataResponse_nextToken,
     getMetricDataResponse_httpStatus,
 
     -- ** GetTaskTemplate
     getTaskTemplate_snapshotVersion,
     getTaskTemplate_instanceId,
     getTaskTemplate_taskTemplateId,
-    getTaskTemplateResponse_tags,
-    getTaskTemplateResponse_createdTime,
     getTaskTemplateResponse_constraints,
-    getTaskTemplateResponse_status,
-    getTaskTemplateResponse_fields,
-    getTaskTemplateResponse_description,
-    getTaskTemplateResponse_lastModifiedTime,
-    getTaskTemplateResponse_instanceId,
-    getTaskTemplateResponse_defaults,
     getTaskTemplateResponse_contactFlowId,
+    getTaskTemplateResponse_createdTime,
+    getTaskTemplateResponse_defaults,
+    getTaskTemplateResponse_description,
+    getTaskTemplateResponse_fields,
+    getTaskTemplateResponse_instanceId,
+    getTaskTemplateResponse_lastModifiedTime,
+    getTaskTemplateResponse_status,
+    getTaskTemplateResponse_tags,
     getTaskTemplateResponse_httpStatus,
     getTaskTemplateResponse_id,
     getTaskTemplateResponse_arn,
@@ -543,25 +565,25 @@ module Amazonka.Connect.Lens
     getTrafficDistributionResponse_httpStatus,
 
     -- ** ListAgentStatuses
-    listAgentStatuses_nextToken,
     listAgentStatuses_agentStatusTypes,
     listAgentStatuses_maxResults,
+    listAgentStatuses_nextToken,
     listAgentStatuses_instanceId,
-    listAgentStatusesResponse_nextToken,
     listAgentStatusesResponse_agentStatusSummaryList,
+    listAgentStatusesResponse_nextToken,
     listAgentStatusesResponse_httpStatus,
 
     -- ** ListApprovedOrigins
-    listApprovedOrigins_nextToken,
     listApprovedOrigins_maxResults,
+    listApprovedOrigins_nextToken,
     listApprovedOrigins_instanceId,
     listApprovedOriginsResponse_nextToken,
     listApprovedOriginsResponse_origins,
     listApprovedOriginsResponse_httpStatus,
 
     -- ** ListBots
-    listBots_nextToken,
     listBots_maxResults,
+    listBots_nextToken,
     listBots_instanceId,
     listBots_lexVersion,
     listBotsResponse_lexBots,
@@ -569,21 +591,21 @@ module Amazonka.Connect.Lens
     listBotsResponse_httpStatus,
 
     -- ** ListContactFlowModules
-    listContactFlowModules_nextToken,
     listContactFlowModules_contactFlowModuleState,
     listContactFlowModules_maxResults,
+    listContactFlowModules_nextToken,
     listContactFlowModules_instanceId,
-    listContactFlowModulesResponse_nextToken,
     listContactFlowModulesResponse_contactFlowModulesSummaryList,
+    listContactFlowModulesResponse_nextToken,
     listContactFlowModulesResponse_httpStatus,
 
     -- ** ListContactFlows
-    listContactFlows_nextToken,
-    listContactFlows_maxResults,
     listContactFlows_contactFlowTypes,
+    listContactFlows_maxResults,
+    listContactFlows_nextToken,
     listContactFlows_instanceId,
-    listContactFlowsResponse_nextToken,
     listContactFlowsResponse_contactFlowSummaryList,
+    listContactFlowsResponse_nextToken,
     listContactFlowsResponse_httpStatus,
 
     -- ** ListContactReferences
@@ -596,33 +618,33 @@ module Amazonka.Connect.Lens
     listContactReferencesResponse_httpStatus,
 
     -- ** ListDefaultVocabularies
-    listDefaultVocabularies_nextToken,
     listDefaultVocabularies_languageCode,
     listDefaultVocabularies_maxResults,
+    listDefaultVocabularies_nextToken,
     listDefaultVocabularies_instanceId,
     listDefaultVocabulariesResponse_nextToken,
     listDefaultVocabulariesResponse_httpStatus,
     listDefaultVocabulariesResponse_defaultVocabularyList,
 
     -- ** ListHoursOfOperations
-    listHoursOfOperations_nextToken,
     listHoursOfOperations_maxResults,
+    listHoursOfOperations_nextToken,
     listHoursOfOperations_instanceId,
-    listHoursOfOperationsResponse_nextToken,
     listHoursOfOperationsResponse_hoursOfOperationSummaryList,
+    listHoursOfOperationsResponse_nextToken,
     listHoursOfOperationsResponse_httpStatus,
 
     -- ** ListInstanceAttributes
-    listInstanceAttributes_nextToken,
     listInstanceAttributes_maxResults,
+    listInstanceAttributes_nextToken,
     listInstanceAttributes_instanceId,
-    listInstanceAttributesResponse_nextToken,
     listInstanceAttributesResponse_attributes,
+    listInstanceAttributesResponse_nextToken,
     listInstanceAttributesResponse_httpStatus,
 
     -- ** ListInstanceStorageConfigs
-    listInstanceStorageConfigs_nextToken,
     listInstanceStorageConfigs_maxResults,
+    listInstanceStorageConfigs_nextToken,
     listInstanceStorageConfigs_instanceId,
     listInstanceStorageConfigs_resourceType,
     listInstanceStorageConfigsResponse_nextToken,
@@ -630,69 +652,69 @@ module Amazonka.Connect.Lens
     listInstanceStorageConfigsResponse_httpStatus,
 
     -- ** ListInstances
-    listInstances_nextToken,
     listInstances_maxResults,
-    listInstancesResponse_nextToken,
+    listInstances_nextToken,
     listInstancesResponse_instanceSummaryList,
+    listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
 
     -- ** ListIntegrationAssociations
-    listIntegrationAssociations_nextToken,
     listIntegrationAssociations_integrationType,
     listIntegrationAssociations_maxResults,
+    listIntegrationAssociations_nextToken,
     listIntegrationAssociations_instanceId,
-    listIntegrationAssociationsResponse_nextToken,
     listIntegrationAssociationsResponse_integrationAssociationSummaryList,
+    listIntegrationAssociationsResponse_nextToken,
     listIntegrationAssociationsResponse_httpStatus,
 
     -- ** ListLambdaFunctions
-    listLambdaFunctions_nextToken,
     listLambdaFunctions_maxResults,
+    listLambdaFunctions_nextToken,
     listLambdaFunctions_instanceId,
-    listLambdaFunctionsResponse_nextToken,
     listLambdaFunctionsResponse_lambdaFunctions,
+    listLambdaFunctionsResponse_nextToken,
     listLambdaFunctionsResponse_httpStatus,
 
     -- ** ListLexBots
-    listLexBots_nextToken,
     listLexBots_maxResults,
+    listLexBots_nextToken,
     listLexBots_instanceId,
     listLexBotsResponse_lexBots,
     listLexBotsResponse_nextToken,
     listLexBotsResponse_httpStatus,
 
     -- ** ListPhoneNumbers
-    listPhoneNumbers_nextToken,
     listPhoneNumbers_maxResults,
-    listPhoneNumbers_phoneNumberTypes,
+    listPhoneNumbers_nextToken,
     listPhoneNumbers_phoneNumberCountryCodes,
+    listPhoneNumbers_phoneNumberTypes,
     listPhoneNumbers_instanceId,
     listPhoneNumbersResponse_nextToken,
     listPhoneNumbersResponse_phoneNumberSummaryList,
     listPhoneNumbersResponse_httpStatus,
 
     -- ** ListPhoneNumbersV2
-    listPhoneNumbersV2_nextToken,
-    listPhoneNumbersV2_targetArn,
-    listPhoneNumbersV2_phoneNumberPrefix,
     listPhoneNumbersV2_maxResults,
-    listPhoneNumbersV2_phoneNumberTypes,
+    listPhoneNumbersV2_nextToken,
     listPhoneNumbersV2_phoneNumberCountryCodes,
-    listPhoneNumbersV2Response_nextToken,
+    listPhoneNumbersV2_phoneNumberPrefix,
+    listPhoneNumbersV2_phoneNumberTypes,
+    listPhoneNumbersV2_targetArn,
     listPhoneNumbersV2Response_listPhoneNumbersSummaryList,
+    listPhoneNumbersV2Response_nextToken,
     listPhoneNumbersV2Response_httpStatus,
 
     -- ** ListPrompts
-    listPrompts_nextToken,
     listPrompts_maxResults,
+    listPrompts_nextToken,
     listPrompts_instanceId,
     listPromptsResponse_nextToken,
     listPromptsResponse_promptSummaryList,
     listPromptsResponse_httpStatus,
 
     -- ** ListQueueQuickConnects
-    listQueueQuickConnects_nextToken,
     listQueueQuickConnects_maxResults,
+    listQueueQuickConnects_nextToken,
     listQueueQuickConnects_instanceId,
     listQueueQuickConnects_queueId,
     listQueueQuickConnectsResponse_nextToken,
@@ -700,8 +722,8 @@ module Amazonka.Connect.Lens
     listQueueQuickConnectsResponse_httpStatus,
 
     -- ** ListQueues
-    listQueues_nextToken,
     listQueues_maxResults,
+    listQueues_nextToken,
     listQueues_queueTypes,
     listQueues_instanceId,
     listQueuesResponse_nextToken,
@@ -709,17 +731,17 @@ module Amazonka.Connect.Lens
     listQueuesResponse_httpStatus,
 
     -- ** ListQuickConnects
+    listQuickConnects_maxResults,
     listQuickConnects_nextToken,
     listQuickConnects_quickConnectTypes,
-    listQuickConnects_maxResults,
     listQuickConnects_instanceId,
     listQuickConnectsResponse_nextToken,
     listQuickConnectsResponse_quickConnectSummaryList,
     listQuickConnectsResponse_httpStatus,
 
     -- ** ListRoutingProfileQueues
-    listRoutingProfileQueues_nextToken,
     listRoutingProfileQueues_maxResults,
+    listRoutingProfileQueues_nextToken,
     listRoutingProfileQueues_instanceId,
     listRoutingProfileQueues_routingProfileId,
     listRoutingProfileQueuesResponse_nextToken,
@@ -727,24 +749,34 @@ module Amazonka.Connect.Lens
     listRoutingProfileQueuesResponse_httpStatus,
 
     -- ** ListRoutingProfiles
-    listRoutingProfiles_nextToken,
     listRoutingProfiles_maxResults,
+    listRoutingProfiles_nextToken,
     listRoutingProfiles_instanceId,
     listRoutingProfilesResponse_nextToken,
     listRoutingProfilesResponse_routingProfileSummaryList,
     listRoutingProfilesResponse_httpStatus,
 
+    -- ** ListRules
+    listRules_eventSourceName,
+    listRules_maxResults,
+    listRules_nextToken,
+    listRules_publishStatus,
+    listRules_instanceId,
+    listRulesResponse_nextToken,
+    listRulesResponse_httpStatus,
+    listRulesResponse_ruleSummaryList,
+
     -- ** ListSecurityKeys
-    listSecurityKeys_nextToken,
     listSecurityKeys_maxResults,
+    listSecurityKeys_nextToken,
     listSecurityKeys_instanceId,
     listSecurityKeysResponse_nextToken,
     listSecurityKeysResponse_securityKeys,
     listSecurityKeysResponse_httpStatus,
 
     -- ** ListSecurityProfilePermissions
-    listSecurityProfilePermissions_nextToken,
     listSecurityProfilePermissions_maxResults,
+    listSecurityProfilePermissions_nextToken,
     listSecurityProfilePermissions_securityProfileId,
     listSecurityProfilePermissions_instanceId,
     listSecurityProfilePermissionsResponse_nextToken,
@@ -752,8 +784,8 @@ module Amazonka.Connect.Lens
     listSecurityProfilePermissionsResponse_httpStatus,
 
     -- ** ListSecurityProfiles
-    listSecurityProfiles_nextToken,
     listSecurityProfiles_maxResults,
+    listSecurityProfiles_nextToken,
     listSecurityProfiles_instanceId,
     listSecurityProfilesResponse_nextToken,
     listSecurityProfilesResponse_securityProfileSummaryList,
@@ -765,26 +797,26 @@ module Amazonka.Connect.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTaskTemplates
+    listTaskTemplates_maxResults,
     listTaskTemplates_name,
     listTaskTemplates_nextToken,
     listTaskTemplates_status,
-    listTaskTemplates_maxResults,
     listTaskTemplates_instanceId,
     listTaskTemplatesResponse_nextToken,
     listTaskTemplatesResponse_taskTemplates,
     listTaskTemplatesResponse_httpStatus,
 
     -- ** ListTrafficDistributionGroups
-    listTrafficDistributionGroups_nextToken,
     listTrafficDistributionGroups_instanceId,
     listTrafficDistributionGroups_maxResults,
+    listTrafficDistributionGroups_nextToken,
     listTrafficDistributionGroupsResponse_nextToken,
     listTrafficDistributionGroupsResponse_trafficDistributionGroupSummaryList,
     listTrafficDistributionGroupsResponse_httpStatus,
 
     -- ** ListUseCases
-    listUseCases_nextToken,
     listUseCases_maxResults,
+    listUseCases_nextToken,
     listUseCases_instanceId,
     listUseCases_integrationAssociationId,
     listUseCasesResponse_nextToken,
@@ -792,29 +824,29 @@ module Amazonka.Connect.Lens
     listUseCasesResponse_httpStatus,
 
     -- ** ListUserHierarchyGroups
-    listUserHierarchyGroups_nextToken,
     listUserHierarchyGroups_maxResults,
+    listUserHierarchyGroups_nextToken,
     listUserHierarchyGroups_instanceId,
     listUserHierarchyGroupsResponse_nextToken,
     listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
     listUserHierarchyGroupsResponse_httpStatus,
 
     -- ** ListUsers
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_instanceId,
     listUsersResponse_nextToken,
     listUsersResponse_userSummaryList,
     listUsersResponse_httpStatus,
 
     -- ** MonitorContact
-    monitorContact_clientToken,
     monitorContact_allowedMonitorCapabilities,
+    monitorContact_clientToken,
     monitorContact_instanceId,
     monitorContact_contactId,
     monitorContact_userId,
-    monitorContactResponse_contactId,
     monitorContactResponse_contactArn,
+    monitorContactResponse_contactId,
     monitorContactResponse_httpStatus,
 
     -- ** PutUserStatus
@@ -843,82 +875,82 @@ module Amazonka.Connect.Lens
     resumeContactRecordingResponse_httpStatus,
 
     -- ** SearchAvailablePhoneNumbers
+    searchAvailablePhoneNumbers_maxResults,
     searchAvailablePhoneNumbers_nextToken,
     searchAvailablePhoneNumbers_phoneNumberPrefix,
-    searchAvailablePhoneNumbers_maxResults,
     searchAvailablePhoneNumbers_targetArn,
     searchAvailablePhoneNumbers_phoneNumberCountryCode,
     searchAvailablePhoneNumbers_phoneNumberType,
-    searchAvailablePhoneNumbersResponse_nextToken,
     searchAvailablePhoneNumbersResponse_availableNumbersList,
+    searchAvailablePhoneNumbersResponse_nextToken,
     searchAvailablePhoneNumbersResponse_httpStatus,
 
     -- ** SearchQueues
+    searchQueues_maxResults,
     searchQueues_nextToken,
     searchQueues_searchCriteria,
     searchQueues_searchFilter,
-    searchQueues_maxResults,
     searchQueues_instanceId,
-    searchQueuesResponse_nextToken,
     searchQueuesResponse_approximateTotalCount,
+    searchQueuesResponse_nextToken,
     searchQueuesResponse_queues,
     searchQueuesResponse_httpStatus,
 
     -- ** SearchRoutingProfiles
+    searchRoutingProfiles_maxResults,
     searchRoutingProfiles_nextToken,
     searchRoutingProfiles_searchCriteria,
     searchRoutingProfiles_searchFilter,
-    searchRoutingProfiles_maxResults,
     searchRoutingProfiles_instanceId,
-    searchRoutingProfilesResponse_nextToken,
     searchRoutingProfilesResponse_approximateTotalCount,
+    searchRoutingProfilesResponse_nextToken,
     searchRoutingProfilesResponse_routingProfiles,
     searchRoutingProfilesResponse_httpStatus,
 
     -- ** SearchSecurityProfiles
+    searchSecurityProfiles_maxResults,
     searchSecurityProfiles_nextToken,
     searchSecurityProfiles_searchCriteria,
     searchSecurityProfiles_searchFilter,
-    searchSecurityProfiles_maxResults,
     searchSecurityProfiles_instanceId,
-    searchSecurityProfilesResponse_nextToken,
     searchSecurityProfilesResponse_approximateTotalCount,
+    searchSecurityProfilesResponse_nextToken,
     searchSecurityProfilesResponse_securityProfiles,
     searchSecurityProfilesResponse_httpStatus,
 
     -- ** SearchUsers
+    searchUsers_instanceId,
+    searchUsers_maxResults,
     searchUsers_nextToken,
     searchUsers_searchCriteria,
     searchUsers_searchFilter,
-    searchUsers_instanceId,
-    searchUsers_maxResults,
+    searchUsersResponse_approximateTotalCount,
     searchUsersResponse_nextToken,
     searchUsersResponse_users,
-    searchUsersResponse_approximateTotalCount,
     searchUsersResponse_httpStatus,
 
     -- ** SearchVocabularies
-    searchVocabularies_nextToken,
-    searchVocabularies_nameStartsWith,
-    searchVocabularies_state,
     searchVocabularies_languageCode,
     searchVocabularies_maxResults,
+    searchVocabularies_nameStartsWith,
+    searchVocabularies_nextToken,
+    searchVocabularies_state,
     searchVocabularies_instanceId,
     searchVocabulariesResponse_nextToken,
     searchVocabulariesResponse_vocabularySummaryList,
     searchVocabulariesResponse_httpStatus,
 
     -- ** StartChatContact
-    startChatContact_clientToken,
-    startChatContact_supportedMessagingContentTypes,
-    startChatContact_initialMessage,
     startChatContact_attributes,
     startChatContact_chatDurationInMinutes,
+    startChatContact_clientToken,
+    startChatContact_initialMessage,
+    startChatContact_supportedMessagingContentTypes,
     startChatContact_instanceId,
     startChatContact_contactFlowId,
     startChatContact_participantDetails,
-    startChatContactResponse_participantId,
     startChatContactResponse_contactId,
+    startChatContactResponse_participantId,
     startChatContactResponse_participantToken,
     startChatContactResponse_httpStatus,
 
@@ -938,13 +970,13 @@ module Amazonka.Connect.Lens
     startContactStreamingResponse_streamingId,
 
     -- ** StartOutboundVoiceContact
-    startOutboundVoiceContact_clientToken,
-    startOutboundVoiceContact_trafficType,
-    startOutboundVoiceContact_campaignId,
     startOutboundVoiceContact_answerMachineDetectionConfig,
+    startOutboundVoiceContact_attributes,
+    startOutboundVoiceContact_campaignId,
+    startOutboundVoiceContact_clientToken,
     startOutboundVoiceContact_queueId,
     startOutboundVoiceContact_sourcePhoneNumber,
-    startOutboundVoiceContact_attributes,
+    startOutboundVoiceContact_trafficType,
     startOutboundVoiceContact_destinationPhoneNumber,
     startOutboundVoiceContact_contactFlowId,
     startOutboundVoiceContact_instanceId,
@@ -952,15 +984,15 @@ module Amazonka.Connect.Lens
     startOutboundVoiceContactResponse_httpStatus,
 
     -- ** StartTaskContact
-    startTaskContact_clientToken,
-    startTaskContact_taskTemplateId,
-    startTaskContact_description,
-    startTaskContact_references,
-    startTaskContact_quickConnectId,
     startTaskContact_attributes,
-    startTaskContact_previousContactId,
+    startTaskContact_clientToken,
     startTaskContact_contactFlowId,
+    startTaskContact_description,
+    startTaskContact_previousContactId,
+    startTaskContact_quickConnectId,
+    startTaskContact_references,
     startTaskContact_scheduledTime,
+    startTaskContact_taskTemplateId,
     startTaskContact_instanceId,
     startTaskContact_name,
     startTaskContactResponse_contactId,
@@ -1000,8 +1032,8 @@ module Amazonka.Connect.Lens
     transferContact_instanceId,
     transferContact_contactId,
     transferContact_contactFlowId,
-    transferContactResponse_contactId,
     transferContactResponse_contactArn,
+    transferContactResponse_contactId,
     transferContactResponse_httpStatus,
 
     -- ** UntagResource
@@ -1009,17 +1041,17 @@ module Amazonka.Connect.Lens
     untagResource_tagKeys,
 
     -- ** UpdateAgentStatus
-    updateAgentStatus_name,
-    updateAgentStatus_displayOrder,
-    updateAgentStatus_state,
     updateAgentStatus_description,
+    updateAgentStatus_displayOrder,
+    updateAgentStatus_name,
     updateAgentStatus_resetOrderNumber,
+    updateAgentStatus_state,
     updateAgentStatus_instanceId,
     updateAgentStatus_agentStatusId,
 
     -- ** UpdateContact
-    updateContact_name,
     updateContact_description,
+    updateContact_name,
     updateContact_references,
     updateContact_instanceId,
     updateContact_contactId,
@@ -1037,9 +1069,9 @@ module Amazonka.Connect.Lens
     updateContactFlowContent_content,
 
     -- ** UpdateContactFlowMetadata
-    updateContactFlowMetadata_name,
     updateContactFlowMetadata_contactFlowState,
     updateContactFlowMetadata_description,
+    updateContactFlowMetadata_name,
     updateContactFlowMetadata_instanceId,
     updateContactFlowMetadata_contactFlowId,
 
@@ -1050,16 +1082,16 @@ module Amazonka.Connect.Lens
     updateContactFlowModuleContentResponse_httpStatus,
 
     -- ** UpdateContactFlowModuleMetadata
+    updateContactFlowModuleMetadata_description,
     updateContactFlowModuleMetadata_name,
     updateContactFlowModuleMetadata_state,
-    updateContactFlowModuleMetadata_description,
     updateContactFlowModuleMetadata_instanceId,
     updateContactFlowModuleMetadata_contactFlowModuleId,
     updateContactFlowModuleMetadataResponse_httpStatus,
 
     -- ** UpdateContactFlowName
-    updateContactFlowName_name,
     updateContactFlowName_description,
+    updateContactFlowName_name,
     updateContactFlowName_instanceId,
     updateContactFlowName_contactFlowId,
 
@@ -1070,10 +1102,10 @@ module Amazonka.Connect.Lens
     updateContactScheduleResponse_httpStatus,
 
     -- ** UpdateHoursOfOperation
+    updateHoursOfOperation_config,
+    updateHoursOfOperation_description,
     updateHoursOfOperation_name,
     updateHoursOfOperation_timeZone,
-    updateHoursOfOperation_description,
-    updateHoursOfOperation_config,
     updateHoursOfOperation_instanceId,
     updateHoursOfOperation_hoursOfOperationId,
 
@@ -1107,8 +1139,8 @@ module Amazonka.Connect.Lens
     updateQueueMaxContacts_queueId,
 
     -- ** UpdateQueueName
-    updateQueueName_name,
     updateQueueName_description,
+    updateQueueName_name,
     updateQueueName_instanceId,
     updateQueueName_queueId,
 
@@ -1128,8 +1160,8 @@ module Amazonka.Connect.Lens
     updateQuickConnectConfig_quickConnectConfig,
 
     -- ** UpdateQuickConnectName
-    updateQuickConnectName_name,
     updateQuickConnectName_description,
+    updateQuickConnectName_name,
     updateQuickConnectName_instanceId,
     updateQuickConnectName_quickConnectId,
 
@@ -1144,8 +1176,8 @@ module Amazonka.Connect.Lens
     updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId,
 
     -- ** UpdateRoutingProfileName
-    updateRoutingProfileName_name,
     updateRoutingProfileName_description,
+    updateRoutingProfileName_name,
     updateRoutingProfileName_instanceId,
     updateRoutingProfileName_routingProfileId,
 
@@ -1154,36 +1186,44 @@ module Amazonka.Connect.Lens
     updateRoutingProfileQueues_routingProfileId,
     updateRoutingProfileQueues_queueConfigs,
 
+    -- ** UpdateRule
+    updateRule_ruleId,
+    updateRule_instanceId,
+    updateRule_name,
+    updateRule_function,
+    updateRule_actions,
+    updateRule_publishStatus,
+
     -- ** UpdateSecurityProfile
     updateSecurityProfile_allowedAccessControlTags,
-    updateSecurityProfile_permissions,
     updateSecurityProfile_description,
+    updateSecurityProfile_permissions,
     updateSecurityProfile_tagRestrictedResources,
     updateSecurityProfile_securityProfileId,
     updateSecurityProfile_instanceId,
 
     -- ** UpdateTaskTemplate
-    updateTaskTemplate_name,
     updateTaskTemplate_constraints,
-    updateTaskTemplate_status,
-    updateTaskTemplate_fields,
-    updateTaskTemplate_description,
-    updateTaskTemplate_defaults,
     updateTaskTemplate_contactFlowId,
+    updateTaskTemplate_defaults,
+    updateTaskTemplate_description,
+    updateTaskTemplate_fields,
+    updateTaskTemplate_name,
+    updateTaskTemplate_status,
     updateTaskTemplate_taskTemplateId,
     updateTaskTemplate_instanceId,
-    updateTaskTemplateResponse_name,
-    updateTaskTemplateResponse_createdTime,
-    updateTaskTemplateResponse_constraints,
     updateTaskTemplateResponse_arn,
-    updateTaskTemplateResponse_status,
+    updateTaskTemplateResponse_constraints,
+    updateTaskTemplateResponse_contactFlowId,
+    updateTaskTemplateResponse_createdTime,
+    updateTaskTemplateResponse_defaults,
+    updateTaskTemplateResponse_description,
     updateTaskTemplateResponse_fields,
     updateTaskTemplateResponse_id,
-    updateTaskTemplateResponse_description,
-    updateTaskTemplateResponse_lastModifiedTime,
     updateTaskTemplateResponse_instanceId,
-    updateTaskTemplateResponse_defaults,
-    updateTaskTemplateResponse_contactFlowId,
+    updateTaskTemplateResponse_lastModifiedTime,
+    updateTaskTemplateResponse_name,
+    updateTaskTemplateResponse_status,
     updateTaskTemplateResponse_httpStatus,
 
     -- ** UpdateTrafficDistribution
@@ -1227,42 +1267,47 @@ module Amazonka.Connect.Lens
 
     -- * Types
 
+    -- ** ActionSummary
+    actionSummary_actionType,
+
     -- ** AgentContactReference
     agentContactReference_agentContactState,
-    agentContactReference_contactId,
     agentContactReference_channel,
     agentContactReference_connectedToAgentTimestamp,
+    agentContactReference_contactId,
     agentContactReference_initiationMethod,
     agentContactReference_queue,
     agentContactReference_stateStartTimestamp,
 
     -- ** AgentInfo
-    agentInfo_id,
     agentInfo_connectedToAgentTimestamp,
+    agentInfo_id,
 
     -- ** AgentStatus
-    agentStatus_tags,
-    agentStatus_name,
-    agentStatus_type,
-    agentStatus_displayOrder,
-    agentStatus_agentStatusId,
-    agentStatus_state,
-    agentStatus_description,
     agentStatus_agentStatusARN,
+    agentStatus_agentStatusId,
+    agentStatus_description,
+    agentStatus_displayOrder,
+    agentStatus_name,
+    agentStatus_state,
+    agentStatus_tags,
+    agentStatus_type,
 
     -- ** AgentStatusReference
     agentStatusReference_statusArn,
     agentStatusReference_statusStartTimestamp,
 
     -- ** AgentStatusSummary
-    agentStatusSummary_name,
-    agentStatusSummary_type,
     agentStatusSummary_arn,
     agentStatusSummary_id,
+    agentStatusSummary_name,
+    agentStatusSummary_type,
 
     -- ** AnswerMachineDetectionConfig
     answerMachineDetectionConfig_awaitAnswerMachinePrompt,
     answerMachineDetectionConfig_enableAnswerMachineDetection,
+
+    -- ** AssignContactCategoryActionDefinition
 
     -- ** AttachmentReference
     attachmentReference_name,
@@ -1274,9 +1319,9 @@ module Amazonka.Connect.Lens
     attribute_value,
 
     -- ** AvailableNumberSummary
+    availableNumberSummary_phoneNumber,
     availableNumberSummary_phoneNumberCountryCode,
     availableNumberSummary_phoneNumberType,
-    availableNumberSummary_phoneNumber,
 
     -- ** ChatMessage
     chatMessage_contentType,
@@ -1286,78 +1331,78 @@ module Amazonka.Connect.Lens
     chatStreamingConfiguration_streamingEndpointArn,
 
     -- ** ClaimedPhoneNumberSummary
-    claimedPhoneNumberSummary_tags,
-    claimedPhoneNumberSummary_phoneNumberCountryCode,
-    claimedPhoneNumberSummary_phoneNumberArn,
-    claimedPhoneNumberSummary_phoneNumberType,
-    claimedPhoneNumberSummary_phoneNumberDescription,
-    claimedPhoneNumberSummary_targetArn,
-    claimedPhoneNumberSummary_phoneNumberStatus,
-    claimedPhoneNumberSummary_phoneNumberId,
     claimedPhoneNumberSummary_phoneNumber,
+    claimedPhoneNumberSummary_phoneNumberArn,
+    claimedPhoneNumberSummary_phoneNumberCountryCode,
+    claimedPhoneNumberSummary_phoneNumberDescription,
+    claimedPhoneNumberSummary_phoneNumberId,
+    claimedPhoneNumberSummary_phoneNumberStatus,
+    claimedPhoneNumberSummary_phoneNumberType,
+    claimedPhoneNumberSummary_tags,
+    claimedPhoneNumberSummary_targetArn,
 
     -- ** Contact
-    contact_name,
-    contact_lastUpdateTimestamp,
-    contact_channel,
+    contact_agentInfo,
     contact_arn,
-    contact_id,
+    contact_channel,
     contact_description,
+    contact_disconnectTimestamp,
+    contact_id,
+    contact_initialContactId,
+    contact_initiationMethod,
+    contact_initiationTimestamp,
+    contact_lastUpdateTimestamp,
+    contact_name,
+    contact_previousContactId,
     contact_queueInfo,
     contact_scheduledTimestamp,
-    contact_initialContactId,
-    contact_initiationTimestamp,
-    contact_previousContactId,
-    contact_initiationMethod,
-    contact_disconnectTimestamp,
-    contact_agentInfo,
 
     -- ** ContactFilter
     contactFilter_contactStates,
 
     -- ** ContactFlow
-    contactFlow_tags,
-    contactFlow_name,
-    contactFlow_type,
     contactFlow_arn,
-    contactFlow_state,
-    contactFlow_id,
-    contactFlow_description,
     contactFlow_content,
+    contactFlow_description,
+    contactFlow_id,
+    contactFlow_name,
+    contactFlow_state,
+    contactFlow_tags,
+    contactFlow_type,
 
     -- ** ContactFlowModule
-    contactFlowModule_tags,
-    contactFlowModule_name,
     contactFlowModule_arn,
+    contactFlowModule_content,
+    contactFlowModule_description,
+    contactFlowModule_id,
+    contactFlowModule_name,
     contactFlowModule_state,
     contactFlowModule_status,
-    contactFlowModule_id,
-    contactFlowModule_description,
-    contactFlowModule_content,
+    contactFlowModule_tags,
 
     -- ** ContactFlowModuleSummary
-    contactFlowModuleSummary_name,
     contactFlowModuleSummary_arn,
-    contactFlowModuleSummary_state,
     contactFlowModuleSummary_id,
+    contactFlowModuleSummary_name,
+    contactFlowModuleSummary_state,
 
     -- ** ContactFlowSummary
-    contactFlowSummary_name,
-    contactFlowSummary_contactFlowState,
     contactFlowSummary_arn,
-    contactFlowSummary_id,
+    contactFlowSummary_contactFlowState,
     contactFlowSummary_contactFlowType,
+    contactFlowSummary_id,
+    contactFlowSummary_name,
 
     -- ** ControlPlaneTagFilter
+    controlPlaneTagFilter_andConditions,
     controlPlaneTagFilter_orConditions,
     controlPlaneTagFilter_tagCondition,
-    controlPlaneTagFilter_andConditions,
 
     -- ** Credentials
     credentials_accessToken,
     credentials_accessTokenExpiration,
-    credentials_refreshTokenExpiration,
     credentials_refreshToken,
+    credentials_refreshTokenExpiration,
 
     -- ** CurrentMetric
     currentMetric_name,
@@ -1397,71 +1442,74 @@ module Amazonka.Connect.Lens
     encryptionConfig_encryptionType,
     encryptionConfig_keyId,
 
+    -- ** EventBridgeActionDefinition
+    eventBridgeActionDefinition_name,
+
     -- ** Filters
     filters_channels,
     filters_queues,
 
     -- ** HierarchyGroup
-    hierarchyGroup_tags,
-    hierarchyGroup_name,
     hierarchyGroup_arn,
     hierarchyGroup_hierarchyPath,
     hierarchyGroup_id,
     hierarchyGroup_levelId,
+    hierarchyGroup_name,
+    hierarchyGroup_tags,
 
     -- ** HierarchyGroupCondition
     hierarchyGroupCondition_hierarchyGroupMatchType,
     hierarchyGroupCondition_value,
 
     -- ** HierarchyGroupSummary
-    hierarchyGroupSummary_name,
     hierarchyGroupSummary_arn,
     hierarchyGroupSummary_id,
+    hierarchyGroupSummary_name,
 
     -- ** HierarchyGroupSummaryReference
     hierarchyGroupSummaryReference_arn,
     hierarchyGroupSummaryReference_id,
 
     -- ** HierarchyLevel
-    hierarchyLevel_name,
     hierarchyLevel_arn,
     hierarchyLevel_id,
+    hierarchyLevel_name,
 
     -- ** HierarchyLevelUpdate
     hierarchyLevelUpdate_name,
 
     -- ** HierarchyPath
-    hierarchyPath_levelThree,
+    hierarchyPath_levelFive,
     hierarchyPath_levelFour,
     hierarchyPath_levelOne,
-    hierarchyPath_levelFive,
+    hierarchyPath_levelThree,
     hierarchyPath_levelTwo,
 
     -- ** HierarchyPathReference
-    hierarchyPathReference_levelThree,
+    hierarchyPathReference_levelFive,
     hierarchyPathReference_levelFour,
     hierarchyPathReference_levelOne,
-    hierarchyPathReference_levelFive,
+    hierarchyPathReference_levelThree,
     hierarchyPathReference_levelTwo,
 
     -- ** HierarchyStructure
-    hierarchyStructure_levelThree,
+    hierarchyStructure_levelFive,
     hierarchyStructure_levelFour,
     hierarchyStructure_levelOne,
-    hierarchyStructure_levelFive,
+    hierarchyStructure_levelThree,
     hierarchyStructure_levelTwo,
 
     -- ** HierarchyStructureUpdate
-    hierarchyStructureUpdate_levelThree,
+    hierarchyStructureUpdate_levelFive,
     hierarchyStructureUpdate_levelFour,
     hierarchyStructureUpdate_levelOne,
-    hierarchyStructureUpdate_levelFive,
+    hierarchyStructureUpdate_levelThree,
     hierarchyStructureUpdate_levelTwo,
 
     -- ** HistoricalMetric
     historicalMetric_name,
-    historicalMetric_threshold,
     historicalMetric_statistic,
+    historicalMetric_threshold,
     historicalMetric_unit,
 
     -- ** HistoricalMetricData
@@ -1473,13 +1521,13 @@ module Amazonka.Connect.Lens
     historicalMetricResult_dimensions,
 
     -- ** HoursOfOperation
-    hoursOfOperation_tags,
-    hoursOfOperation_name,
-    hoursOfOperation_timeZone,
+    hoursOfOperation_config,
     hoursOfOperation_description,
     hoursOfOperation_hoursOfOperationArn,
     hoursOfOperation_hoursOfOperationId,
-    hoursOfOperation_config,
+    hoursOfOperation_name,
+    hoursOfOperation_tags,
+    hoursOfOperation_timeZone,
 
     -- ** HoursOfOperationConfig
     hoursOfOperationConfig_day,
@@ -1487,57 +1535,57 @@ module Amazonka.Connect.Lens
     hoursOfOperationConfig_endTime,
 
     -- ** HoursOfOperationSummary
-    hoursOfOperationSummary_name,
     hoursOfOperationSummary_arn,
     hoursOfOperationSummary_id,
+    hoursOfOperationSummary_name,
 
     -- ** HoursOfOperationTimeSlice
     hoursOfOperationTimeSlice_hours,
     hoursOfOperationTimeSlice_minutes,
 
     -- ** Instance
-    instance_identityManagementType,
-    instance_createdTime,
-    instance_instanceStatus,
     instance_arn,
-    instance_statusReason,
+    instance_createdTime,
     instance_id,
-    instance_serviceRole,
+    instance_identityManagementType,
     instance_inboundCallsEnabled,
     instance_instanceAlias,
+    instance_instanceStatus,
     instance_outboundCallsEnabled,
+    instance_serviceRole,
+    instance_statusReason,
 
     -- ** InstanceStatusReason
     instanceStatusReason_message,
 
     -- ** InstanceStorageConfig
-    instanceStorageConfig_kinesisVideoStreamConfig,
-    instanceStorageConfig_kinesisFirehoseConfig,
-    instanceStorageConfig_s3Config,
     instanceStorageConfig_associationId,
+    instanceStorageConfig_kinesisFirehoseConfig,
     instanceStorageConfig_kinesisStreamConfig,
+    instanceStorageConfig_kinesisVideoStreamConfig,
+    instanceStorageConfig_s3Config,
     instanceStorageConfig_storageType,
 
     -- ** InstanceSummary
-    instanceSummary_identityManagementType,
-    instanceSummary_createdTime,
-    instanceSummary_instanceStatus,
     instanceSummary_arn,
+    instanceSummary_createdTime,
     instanceSummary_id,
-    instanceSummary_serviceRole,
+    instanceSummary_identityManagementType,
     instanceSummary_inboundCallsEnabled,
     instanceSummary_instanceAlias,
+    instanceSummary_instanceStatus,
     instanceSummary_outboundCallsEnabled,
+    instanceSummary_serviceRole,
 
     -- ** IntegrationAssociationSummary
-    integrationAssociationSummary_integrationAssociationArn,
-    integrationAssociationSummary_integrationArn,
-    integrationAssociationSummary_sourceType,
     integrationAssociationSummary_instanceId,
+    integrationAssociationSummary_integrationArn,
+    integrationAssociationSummary_integrationAssociationArn,
+    integrationAssociationSummary_integrationAssociationId,
     integrationAssociationSummary_integrationType,
     integrationAssociationSummary_sourceApplicationName,
     integrationAssociationSummary_sourceApplicationUrl,
-    integrationAssociationSummary_integrationAssociationId,
+    integrationAssociationSummary_sourceType,
 
     -- ** InvisibleFieldInfo
     invisibleFieldInfo_id,
@@ -1554,36 +1602,40 @@ module Amazonka.Connect.Lens
     kinesisVideoStreamConfig_encryptionConfig,
 
     -- ** LexBot
-    lexBot_name,
     lexBot_lexRegion,
+    lexBot_name,
 
     -- ** LexBotConfig
-    lexBotConfig_lexV2Bot,
     lexBotConfig_lexBot,
+    lexBotConfig_lexV2Bot,
 
     -- ** LexV2Bot
     lexV2Bot_aliasArn,
 
     -- ** ListPhoneNumbersSummary
-    listPhoneNumbersSummary_phoneNumberCountryCode,
+    listPhoneNumbersSummary_phoneNumber,
     listPhoneNumbersSummary_phoneNumberArn,
+    listPhoneNumbersSummary_phoneNumberCountryCode,
+    listPhoneNumbersSummary_phoneNumberId,
     listPhoneNumbersSummary_phoneNumberType,
     listPhoneNumbersSummary_targetArn,
-    listPhoneNumbersSummary_phoneNumberId,
-    listPhoneNumbersSummary_phoneNumber,
 
     -- ** MediaConcurrency
     mediaConcurrency_channel,
     mediaConcurrency_concurrency,
+
+    -- ** NotificationRecipientType
+    notificationRecipientType_userIds,
+    notificationRecipientType_userTags,
 
     -- ** NumberReference
     numberReference_name,
     numberReference_value,
 
     -- ** OutboundCallerConfig
-    outboundCallerConfig_outboundFlowId,
-    outboundCallerConfig_outboundCallerIdNumberId,
     outboundCallerConfig_outboundCallerIdName,
+    outboundCallerConfig_outboundCallerIdNumberId,
+    outboundCallerConfig_outboundFlowId,
 
     -- ** ParticipantDetails
     participantDetails_displayName,
@@ -1596,31 +1648,31 @@ module Amazonka.Connect.Lens
     phoneNumberStatus_status,
 
     -- ** PhoneNumberSummary
-    phoneNumberSummary_phoneNumberCountryCode,
-    phoneNumberSummary_phoneNumberType,
     phoneNumberSummary_arn,
     phoneNumberSummary_id,
     phoneNumberSummary_phoneNumber,
+    phoneNumberSummary_phoneNumberCountryCode,
+    phoneNumberSummary_phoneNumberType,
 
     -- ** PromptSummary
-    promptSummary_name,
     promptSummary_arn,
     promptSummary_id,
+    promptSummary_name,
 
     -- ** Queue
-    queue_tags,
-    queue_name,
-    queue_queueArn,
-    queue_status,
     queue_description,
-    queue_queueId,
     queue_hoursOfOperationId,
     queue_maxContacts,
+    queue_name,
     queue_outboundCallerConfig,
+    queue_queueArn,
+    queue_queueId,
+    queue_status,
+    queue_tags,
 
     -- ** QueueInfo
-    queueInfo_id,
     queueInfo_enqueueTimestamp,
+    queueInfo_id,
 
     -- ** QueueQuickConnectConfig
     queueQuickConnectConfig_queueId,
@@ -1631,39 +1683,39 @@ module Amazonka.Connect.Lens
     queueReference_id,
 
     -- ** QueueSearchCriteria
-    queueSearchCriteria_stringCondition,
-    queueSearchCriteria_orConditions,
     queueSearchCriteria_andConditions,
+    queueSearchCriteria_orConditions,
     queueSearchCriteria_queueTypeCondition,
+    queueSearchCriteria_stringCondition,
 
     -- ** QueueSearchFilter
     queueSearchFilter_tagFilter,
 
     -- ** QueueSummary
-    queueSummary_name,
     queueSummary_arn,
     queueSummary_id,
+    queueSummary_name,
     queueSummary_queueType,
 
     -- ** QuickConnect
-    quickConnect_tags,
-    quickConnect_name,
-    quickConnect_quickConnectConfig,
     quickConnect_description,
+    quickConnect_name,
     quickConnect_quickConnectARN,
+    quickConnect_quickConnectConfig,
     quickConnect_quickConnectId,
+    quickConnect_tags,
 
     -- ** QuickConnectConfig
-    quickConnectConfig_queueConfig,
     quickConnectConfig_phoneConfig,
+    quickConnectConfig_queueConfig,
     quickConnectConfig_userConfig,
     quickConnectConfig_quickConnectType,
 
     -- ** QuickConnectSummary
-    quickConnectSummary_name,
-    quickConnectSummary_quickConnectType,
     quickConnectSummary_arn,
     quickConnectSummary_id,
+    quickConnectSummary_name,
+    quickConnectSummary_quickConnectType,
 
     -- ** ReadOnlyFieldInfo
     readOnlyFieldInfo_id,
@@ -1673,10 +1725,10 @@ module Amazonka.Connect.Lens
     reference_type,
 
     -- ** ReferenceSummary
-    referenceSummary_number,
     referenceSummary_attachment,
-    referenceSummary_email,
     referenceSummary_date,
+    referenceSummary_email,
+    referenceSummary_number,
     referenceSummary_string,
     referenceSummary_url,
 
@@ -1684,16 +1736,16 @@ module Amazonka.Connect.Lens
     requiredFieldInfo_id,
 
     -- ** RoutingProfile
-    routingProfile_tags,
-    routingProfile_name,
-    routingProfile_numberOfAssociatedUsers,
-    routingProfile_description,
-    routingProfile_mediaConcurrencies,
-    routingProfile_routingProfileArn,
-    routingProfile_instanceId,
-    routingProfile_numberOfAssociatedQueues,
     routingProfile_defaultOutboundQueueId,
+    routingProfile_description,
+    routingProfile_instanceId,
+    routingProfile_mediaConcurrencies,
+    routingProfile_name,
+    routingProfile_numberOfAssociatedQueues,
+    routingProfile_numberOfAssociatedUsers,
+    routingProfile_routingProfileArn,
     routingProfile_routingProfileId,
+    routingProfile_tags,
 
     -- ** RoutingProfileQueueConfig
     routingProfileQueueConfig_queueReference,
@@ -1717,17 +1769,51 @@ module Amazonka.Connect.Lens
     routingProfileReference_id,
 
     -- ** RoutingProfileSearchCriteria
-    routingProfileSearchCriteria_stringCondition,
-    routingProfileSearchCriteria_orConditions,
     routingProfileSearchCriteria_andConditions,
+    routingProfileSearchCriteria_orConditions,
+    routingProfileSearchCriteria_stringCondition,
 
     -- ** RoutingProfileSearchFilter
     routingProfileSearchFilter_tagFilter,
 
     -- ** RoutingProfileSummary
-    routingProfileSummary_name,
     routingProfileSummary_arn,
     routingProfileSummary_id,
+    routingProfileSummary_name,
+
+    -- ** Rule
+    rule_tags,
+    rule_name,
+    rule_ruleId,
+    rule_ruleArn,
+    rule_triggerEventSource,
+    rule_function,
+    rule_actions,
+    rule_publishStatus,
+    rule_createdTime,
+    rule_lastUpdatedTime,
+    rule_lastUpdatedBy,
+
+    -- ** RuleAction
+    ruleAction_assignContactCategoryAction,
+    ruleAction_eventBridgeAction,
+    ruleAction_sendNotificationAction,
+    ruleAction_taskAction,
+    ruleAction_actionType,
+
+    -- ** RuleSummary
+    ruleSummary_name,
+    ruleSummary_ruleId,
+    ruleSummary_ruleArn,
+    ruleSummary_eventSourceName,
+    ruleSummary_publishStatus,
+    ruleSummary_actionSummaries,
+    ruleSummary_createdTime,
+    ruleSummary_lastUpdatedTime,
+
+    -- ** RuleTriggerEventSource
+    ruleTriggerEventSource_integrationAssociationId,
+    ruleTriggerEventSource_eventSourceName,
 
     -- ** S3Config
     s3Config_encryptionConfig,
@@ -1735,44 +1821,51 @@ module Amazonka.Connect.Lens
     s3Config_bucketPrefix,
 
     -- ** SecurityKey
-    securityKey_key,
-    securityKey_creationTime,
     securityKey_associationId,
+    securityKey_creationTime,
+    securityKey_key,
 
     -- ** SecurityProfile
-    securityProfile_tags,
     securityProfile_allowedAccessControlTags,
     securityProfile_arn,
-    securityProfile_id,
     securityProfile_description,
-    securityProfile_securityProfileName,
+    securityProfile_id,
     securityProfile_organizationResourceId,
+    securityProfile_securityProfileName,
     securityProfile_tagRestrictedResources,
+    securityProfile_tags,
 
     -- ** SecurityProfileSearchCriteria
-    securityProfileSearchCriteria_stringCondition,
-    securityProfileSearchCriteria_orConditions,
     securityProfileSearchCriteria_andConditions,
+    securityProfileSearchCriteria_orConditions,
+    securityProfileSearchCriteria_stringCondition,
 
     -- ** SecurityProfileSearchSummary
-    securityProfileSearchSummary_tags,
     securityProfileSearchSummary_arn,
-    securityProfileSearchSummary_id,
     securityProfileSearchSummary_description,
-    securityProfileSearchSummary_securityProfileName,
+    securityProfileSearchSummary_id,
     securityProfileSearchSummary_organizationResourceId,
+    securityProfileSearchSummary_securityProfileName,
+    securityProfileSearchSummary_tags,
 
     -- ** SecurityProfileSummary
-    securityProfileSummary_name,
     securityProfileSummary_arn,
     securityProfileSummary_id,
+    securityProfileSummary_name,
 
     -- ** SecurityProfilesSearchFilter
     securityProfilesSearchFilter_tagFilter,
 
+    -- ** SendNotificationActionDefinition
+    sendNotificationActionDefinition_subject,
+    sendNotificationActionDefinition_deliveryMethod,
+    sendNotificationActionDefinition_content,
+    sendNotificationActionDefinition_contentType,
+    sendNotificationActionDefinition_recipient,
+
     -- ** StringCondition
-    stringCondition_fieldName,
     stringCondition_comparisonType,
+    stringCondition_fieldName,
     stringCondition_value,
 
     -- ** StringReference
@@ -1780,8 +1873,14 @@ module Amazonka.Connect.Lens
     stringReference_value,
 
     -- ** TagCondition
-    tagCondition_tagValue,
     tagCondition_tagKey,
+    tagCondition_tagValue,
+
+    -- ** TaskActionDefinition
+    taskActionDefinition_description,
+    taskActionDefinition_references,
+    taskActionDefinition_name,
+    taskActionDefinition_contactFlowId,
 
     -- ** TaskTemplateConstraints
     taskTemplateConstraints_invisibleFields,
@@ -1796,96 +1895,96 @@ module Amazonka.Connect.Lens
     taskTemplateDefaults_defaultFieldValues,
 
     -- ** TaskTemplateField
+    taskTemplateField_description,
     taskTemplateField_singleSelectOptions,
     taskTemplateField_type,
-    taskTemplateField_description,
     taskTemplateField_id,
 
     -- ** TaskTemplateFieldIdentifier
     taskTemplateFieldIdentifier_name,
 
     -- ** TaskTemplateMetadata
-    taskTemplateMetadata_name,
-    taskTemplateMetadata_createdTime,
     taskTemplateMetadata_arn,
-    taskTemplateMetadata_status,
-    taskTemplateMetadata_id,
+    taskTemplateMetadata_createdTime,
     taskTemplateMetadata_description,
+    taskTemplateMetadata_id,
     taskTemplateMetadata_lastModifiedTime,
+    taskTemplateMetadata_name,
+    taskTemplateMetadata_status,
 
     -- ** TelephonyConfig
     telephonyConfig_distributions,
 
     -- ** Threshold
-    threshold_thresholdValue,
     threshold_comparison,
+    threshold_thresholdValue,
 
     -- ** TrafficDistributionGroup
-    trafficDistributionGroup_tags,
-    trafficDistributionGroup_name,
     trafficDistributionGroup_arn,
-    trafficDistributionGroup_status,
-    trafficDistributionGroup_id,
     trafficDistributionGroup_description,
+    trafficDistributionGroup_id,
     trafficDistributionGroup_instanceArn,
+    trafficDistributionGroup_name,
+    trafficDistributionGroup_status,
+    trafficDistributionGroup_tags,
 
     -- ** TrafficDistributionGroupSummary
-    trafficDistributionGroupSummary_name,
     trafficDistributionGroupSummary_arn,
-    trafficDistributionGroupSummary_status,
     trafficDistributionGroupSummary_id,
     trafficDistributionGroupSummary_instanceArn,
+    trafficDistributionGroupSummary_name,
+    trafficDistributionGroupSummary_status,
 
     -- ** UrlReference
     urlReference_name,
     urlReference_value,
 
     -- ** UseCase
-    useCase_useCaseType,
     useCase_useCaseArn,
     useCase_useCaseId,
+    useCase_useCaseType,
 
     -- ** User
-    user_tags,
-    user_hierarchyGroupId,
-    user_identityInfo,
-    user_username,
     user_arn,
-    user_securityProfileIds,
-    user_phoneConfig,
-    user_id,
     user_directoryUserId,
+    user_hierarchyGroupId,
+    user_id,
+    user_identityInfo,
+    user_phoneConfig,
     user_routingProfileId,
+    user_securityProfileIds,
+    user_tags,
+    user_username,
 
     -- ** UserData
+    userData_activeSlotsByChannel,
     userData_availableSlotsByChannel,
-    userData_user,
+    userData_contacts,
     userData_hierarchyPath,
+    userData_maxSlotsByChannel,
     userData_routingProfile,
     userData_status,
-    userData_activeSlotsByChannel,
-    userData_maxSlotsByChannel,
-    userData_contacts,
+    userData_user,
 
     -- ** UserDataFilters
     userDataFilters_contactFilter,
     userDataFilters_queues,
 
     -- ** UserIdentityInfo
-    userIdentityInfo_firstName,
     userIdentityInfo_email,
-    userIdentityInfo_secondaryEmail,
+    userIdentityInfo_firstName,
     userIdentityInfo_lastName,
     userIdentityInfo_mobile,
+    userIdentityInfo_secondaryEmail,
 
     -- ** UserIdentityInfoLite
     userIdentityInfoLite_firstName,
     userIdentityInfoLite_lastName,
 
     -- ** UserPhoneConfig
+    userPhoneConfig_afterContactWorkTimeLimit,
     userPhoneConfig_autoAccept,
     userPhoneConfig_deskPhoneNumber,
-    userPhoneConfig_afterContactWorkTimeLimit,
     userPhoneConfig_phoneType,
 
     -- ** UserQuickConnectConfig
@@ -1897,35 +1996,35 @@ module Amazonka.Connect.Lens
     userReference_id,
 
     -- ** UserSearchCriteria
-    userSearchCriteria_hierarchyGroupCondition,
-    userSearchCriteria_stringCondition,
-    userSearchCriteria_orConditions,
     userSearchCriteria_andConditions,
+    userSearchCriteria_hierarchyGroupCondition,
+    userSearchCriteria_orConditions,
+    userSearchCriteria_stringCondition,
 
     -- ** UserSearchFilter
     userSearchFilter_tagFilter,
 
     -- ** UserSearchSummary
-    userSearchSummary_tags,
-    userSearchSummary_hierarchyGroupId,
-    userSearchSummary_identityInfo,
-    userSearchSummary_username,
     userSearchSummary_arn,
-    userSearchSummary_securityProfileIds,
-    userSearchSummary_phoneConfig,
-    userSearchSummary_id,
     userSearchSummary_directoryUserId,
+    userSearchSummary_hierarchyGroupId,
+    userSearchSummary_id,
+    userSearchSummary_identityInfo,
+    userSearchSummary_phoneConfig,
     userSearchSummary_routingProfileId,
+    userSearchSummary_securityProfileIds,
+    userSearchSummary_tags,
+    userSearchSummary_username,
 
     -- ** UserSummary
-    userSummary_username,
     userSummary_arn,
     userSummary_id,
+    userSummary_username,
 
     -- ** Vocabulary
-    vocabulary_tags,
     vocabulary_content,
     vocabulary_failureReason,
+    vocabulary_tags,
     vocabulary_name,
     vocabulary_id,
     vocabulary_arn,
@@ -1967,6 +2066,7 @@ import Amazonka.Connect.CreateIntegrationAssociation
 import Amazonka.Connect.CreateQueue
 import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
+import Amazonka.Connect.CreateRule
 import Amazonka.Connect.CreateSecurityProfile
 import Amazonka.Connect.CreateTaskTemplate
 import Amazonka.Connect.CreateTrafficDistributionGroup
@@ -1980,6 +2080,7 @@ import Amazonka.Connect.DeleteHoursOfOperation
 import Amazonka.Connect.DeleteInstance
 import Amazonka.Connect.DeleteIntegrationAssociation
 import Amazonka.Connect.DeleteQuickConnect
+import Amazonka.Connect.DeleteRule
 import Amazonka.Connect.DeleteSecurityProfile
 import Amazonka.Connect.DeleteTaskTemplate
 import Amazonka.Connect.DeleteTrafficDistributionGroup
@@ -1999,6 +2100,7 @@ import Amazonka.Connect.DescribePhoneNumber
 import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
+import Amazonka.Connect.DescribeRule
 import Amazonka.Connect.DescribeSecurityProfile
 import Amazonka.Connect.DescribeTrafficDistributionGroup
 import Amazonka.Connect.DescribeUser
@@ -2044,6 +2146,7 @@ import Amazonka.Connect.ListQueues
 import Amazonka.Connect.ListQuickConnects
 import Amazonka.Connect.ListRoutingProfileQueues
 import Amazonka.Connect.ListRoutingProfiles
+import Amazonka.Connect.ListRules
 import Amazonka.Connect.ListSecurityKeys
 import Amazonka.Connect.ListSecurityProfilePermissions
 import Amazonka.Connect.ListSecurityProfiles
@@ -2075,12 +2178,14 @@ import Amazonka.Connect.StopContactStreaming
 import Amazonka.Connect.SuspendContactRecording
 import Amazonka.Connect.TagResource
 import Amazonka.Connect.TransferContact
+import Amazonka.Connect.Types.ActionSummary
 import Amazonka.Connect.Types.AgentContactReference
 import Amazonka.Connect.Types.AgentInfo
 import Amazonka.Connect.Types.AgentStatus
 import Amazonka.Connect.Types.AgentStatusReference
 import Amazonka.Connect.Types.AgentStatusSummary
 import Amazonka.Connect.Types.AnswerMachineDetectionConfig
+import Amazonka.Connect.Types.AssignContactCategoryActionDefinition
 import Amazonka.Connect.Types.AttachmentReference
 import Amazonka.Connect.Types.Attribute
 import Amazonka.Connect.Types.AvailableNumberSummary
@@ -2104,6 +2209,7 @@ import Amazonka.Connect.Types.Dimensions
 import Amazonka.Connect.Types.Distribution
 import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
+import Amazonka.Connect.Types.EventBridgeActionDefinition
 import Amazonka.Connect.Types.Filters
 import Amazonka.Connect.Types.HierarchyGroup
 import Amazonka.Connect.Types.HierarchyGroupCondition
@@ -2136,6 +2242,7 @@ import Amazonka.Connect.Types.LexBotConfig
 import Amazonka.Connect.Types.LexV2Bot
 import Amazonka.Connect.Types.ListPhoneNumbersSummary
 import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.NotificationRecipientType
 import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
@@ -2165,6 +2272,10 @@ import Amazonka.Connect.Types.RoutingProfileReference
 import Amazonka.Connect.Types.RoutingProfileSearchCriteria
 import Amazonka.Connect.Types.RoutingProfileSearchFilter
 import Amazonka.Connect.Types.RoutingProfileSummary
+import Amazonka.Connect.Types.Rule
+import Amazonka.Connect.Types.RuleAction
+import Amazonka.Connect.Types.RuleSummary
+import Amazonka.Connect.Types.RuleTriggerEventSource
 import Amazonka.Connect.Types.S3Config
 import Amazonka.Connect.Types.SecurityKey
 import Amazonka.Connect.Types.SecurityProfile
@@ -2172,9 +2283,11 @@ import Amazonka.Connect.Types.SecurityProfileSearchCriteria
 import Amazonka.Connect.Types.SecurityProfileSearchSummary
 import Amazonka.Connect.Types.SecurityProfileSummary
 import Amazonka.Connect.Types.SecurityProfilesSearchFilter
+import Amazonka.Connect.Types.SendNotificationActionDefinition
 import Amazonka.Connect.Types.StringCondition
 import Amazonka.Connect.Types.StringReference
 import Amazonka.Connect.Types.TagCondition
+import Amazonka.Connect.Types.TaskActionDefinition
 import Amazonka.Connect.Types.TaskTemplateConstraints
 import Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
 import Amazonka.Connect.Types.TaskTemplateDefaults
@@ -2227,6 +2340,7 @@ import Amazonka.Connect.UpdateRoutingProfileConcurrency
 import Amazonka.Connect.UpdateRoutingProfileDefaultOutboundQueue
 import Amazonka.Connect.UpdateRoutingProfileName
 import Amazonka.Connect.UpdateRoutingProfileQueues
+import Amazonka.Connect.UpdateRule
 import Amazonka.Connect.UpdateSecurityProfile
 import Amazonka.Connect.UpdateTaskTemplate
 import Amazonka.Connect.UpdateTrafficDistribution

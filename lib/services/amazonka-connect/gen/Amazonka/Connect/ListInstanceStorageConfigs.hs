@@ -33,8 +33,8 @@ module Amazonka.Connect.ListInstanceStorageConfigs
     newListInstanceStorageConfigs,
 
     -- * Request Lenses
-    listInstanceStorageConfigs_nextToken,
     listInstanceStorageConfigs_maxResults,
+    listInstanceStorageConfigs_nextToken,
     listInstanceStorageConfigs_instanceId,
     listInstanceStorageConfigs_resourceType,
 
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstanceStorageConfigs' smart constructor.
 data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -81,11 +81,11 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInstanceStorageConfigs_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listInstanceStorageConfigs_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listInstanceStorageConfigs_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'listInstanceStorageConfigs_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -101,22 +101,22 @@ newListInstanceStorageConfigs
   pInstanceId_
   pResourceType_ =
     ListInstanceStorageConfigs'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         instanceId = pInstanceId_,
         resourceType = pResourceType_
       }
+
+-- | The maximum number of results to return per page.
+listInstanceStorageConfigs_maxResults :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Natural)
+listInstanceStorageConfigs_maxResults = Lens.lens (\ListInstanceStorageConfigs' {maxResults} -> maxResults) (\s@ListInstanceStorageConfigs' {} a -> s {maxResults = a} :: ListInstanceStorageConfigs)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listInstanceStorageConfigs_nextToken :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Text)
 listInstanceStorageConfigs_nextToken = Lens.lens (\ListInstanceStorageConfigs' {nextToken} -> nextToken) (\s@ListInstanceStorageConfigs' {} a -> s {nextToken = a} :: ListInstanceStorageConfigs)
-
--- | The maximum number of results to return per page.
-listInstanceStorageConfigs_maxResults :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Natural)
-listInstanceStorageConfigs_maxResults = Lens.lens (\ListInstanceStorageConfigs' {maxResults} -> maxResults) (\s@ListInstanceStorageConfigs' {} a -> s {maxResults = a} :: ListInstanceStorageConfigs)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -166,15 +166,15 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
 
 instance Prelude.Hashable ListInstanceStorageConfigs where
   hashWithSalt _salt ListInstanceStorageConfigs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListInstanceStorageConfigs where
   rnf ListInstanceStorageConfigs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -200,8 +200,8 @@ instance Data.ToPath ListInstanceStorageConfigs where
 instance Data.ToQuery ListInstanceStorageConfigs where
   toQuery ListInstanceStorageConfigs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "resourceType" Data.=: resourceType
       ]
 

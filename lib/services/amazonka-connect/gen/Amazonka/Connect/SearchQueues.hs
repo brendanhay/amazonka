@@ -32,10 +32,10 @@ module Amazonka.Connect.SearchQueues
     newSearchQueues,
 
     -- * Request Lenses
+    searchQueues_maxResults,
     searchQueues_nextToken,
     searchQueues_searchCriteria,
     searchQueues_searchFilter,
-    searchQueues_maxResults,
     searchQueues_instanceId,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.Connect.SearchQueues
     newSearchQueuesResponse,
 
     -- * Response Lenses
-    searchQueuesResponse_nextToken,
     searchQueuesResponse_approximateTotalCount,
+    searchQueuesResponse_nextToken,
     searchQueuesResponse_queues,
     searchQueuesResponse_httpStatus,
   )
@@ -60,7 +60,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchQueues' smart constructor.
 data SearchQueues = SearchQueues'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -72,8 +74,6 @@ data SearchQueues = SearchQueues'
     searchCriteria :: Prelude.Maybe QueueSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe QueueSearchFilter,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -88,6 +88,8 @@ data SearchQueues = SearchQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchQueues_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'searchQueues_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
@@ -100,8 +102,6 @@ data SearchQueues = SearchQueues'
 --
 -- 'searchFilter', 'searchQueues_searchFilter' - Filters to be applied to search results.
 --
--- 'maxResults', 'searchQueues_maxResults' - The maximum number of results to return per page.
---
 -- 'instanceId', 'searchQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 newSearchQueues ::
@@ -110,12 +110,16 @@ newSearchQueues ::
   SearchQueues
 newSearchQueues pInstanceId_ =
   SearchQueues'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       searchCriteria = Prelude.Nothing,
       searchFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page.
+searchQueues_maxResults :: Lens.Lens' SearchQueues (Prelude.Maybe Prelude.Natural)
+searchQueues_maxResults = Lens.lens (\SearchQueues' {maxResults} -> maxResults) (\s@SearchQueues' {} a -> s {maxResults = a} :: SearchQueues)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -134,10 +138,6 @@ searchQueues_searchCriteria = Lens.lens (\SearchQueues' {searchCriteria} -> sear
 -- | Filters to be applied to search results.
 searchQueues_searchFilter :: Lens.Lens' SearchQueues (Prelude.Maybe QueueSearchFilter)
 searchQueues_searchFilter = Lens.lens (\SearchQueues' {searchFilter} -> searchFilter) (\s@SearchQueues' {} a -> s {searchFilter = a} :: SearchQueues)
-
--- | The maximum number of results to return per page.
-searchQueues_maxResults :: Lens.Lens' SearchQueues (Prelude.Maybe Prelude.Natural)
-searchQueues_maxResults = Lens.lens (\SearchQueues' {maxResults} -> maxResults) (\s@SearchQueues' {} a -> s {maxResults = a} :: SearchQueues)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -171,26 +171,26 @@ instance Core.AWSRequest SearchQueues where
     Response.receiveJSON
       ( \s h x ->
           SearchQueuesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<$> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Queues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchQueues where
   hashWithSalt _salt SearchQueues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SearchQueues where
   rnf SearchQueues' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf searchCriteria
       `Prelude.seq` Prelude.rnf searchFilter
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchQueues where
@@ -208,11 +208,11 @@ instance Data.ToJSON SearchQueues where
   toJSON SearchQueues' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
             ("SearchFilter" Data..=) Prelude.<$> searchFilter,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
@@ -225,11 +225,11 @@ instance Data.ToQuery SearchQueues where
 
 -- | /See:/ 'newSearchQueuesResponse' smart constructor.
 data SearchQueuesResponse = SearchQueuesResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The total number of queues which matched your search query.
+    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of queues which matched your search query.
-    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about the queues.
     queues :: Prelude.Maybe [Queue],
     -- | The response's http status code.
@@ -245,10 +245,10 @@ data SearchQueuesResponse = SearchQueuesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateTotalCount', 'searchQueuesResponse_approximateTotalCount' - The total number of queues which matched your search query.
+--
 -- 'nextToken', 'searchQueuesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'approximateTotalCount', 'searchQueuesResponse_approximateTotalCount' - The total number of queues which matched your search query.
 --
 -- 'queues', 'searchQueuesResponse_queues' - Information about the queues.
 --
@@ -259,20 +259,21 @@ newSearchQueuesResponse ::
   SearchQueuesResponse
 newSearchQueuesResponse pHttpStatus_ =
   SearchQueuesResponse'
-    { nextToken = Prelude.Nothing,
-      approximateTotalCount = Prelude.Nothing,
+    { approximateTotalCount =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The total number of queues which matched your search query.
+searchQueuesResponse_approximateTotalCount :: Lens.Lens' SearchQueuesResponse (Prelude.Maybe Prelude.Integer)
+searchQueuesResponse_approximateTotalCount = Lens.lens (\SearchQueuesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchQueuesResponse' {} a -> s {approximateTotalCount = a} :: SearchQueuesResponse)
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 searchQueuesResponse_nextToken :: Lens.Lens' SearchQueuesResponse (Prelude.Maybe Prelude.Text)
 searchQueuesResponse_nextToken = Lens.lens (\SearchQueuesResponse' {nextToken} -> nextToken) (\s@SearchQueuesResponse' {} a -> s {nextToken = a} :: SearchQueuesResponse)
-
--- | The total number of queues which matched your search query.
-searchQueuesResponse_approximateTotalCount :: Lens.Lens' SearchQueuesResponse (Prelude.Maybe Prelude.Integer)
-searchQueuesResponse_approximateTotalCount = Lens.lens (\SearchQueuesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchQueuesResponse' {} a -> s {approximateTotalCount = a} :: SearchQueuesResponse)
 
 -- | Information about the queues.
 searchQueuesResponse_queues :: Lens.Lens' SearchQueuesResponse (Prelude.Maybe [Queue])
@@ -284,7 +285,7 @@ searchQueuesResponse_httpStatus = Lens.lens (\SearchQueuesResponse' {httpStatus}
 
 instance Prelude.NFData SearchQueuesResponse where
   rnf SearchQueuesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf approximateTotalCount
+    Prelude.rnf approximateTotalCount
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queues
       `Prelude.seq` Prelude.rnf httpStatus

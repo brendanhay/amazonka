@@ -36,8 +36,8 @@ module Amazonka.Connect.ListRoutingProfiles
     newListRoutingProfiles,
 
     -- * Request Lenses
-    listRoutingProfiles_nextToken,
     listRoutingProfiles_maxResults,
+    listRoutingProfiles_nextToken,
     listRoutingProfiles_instanceId,
 
     -- * Destructuring the Response
@@ -61,13 +61,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRoutingProfiles' smart constructor.
 data ListRoutingProfiles = ListRoutingProfiles'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -82,12 +82,12 @@ data ListRoutingProfiles = ListRoutingProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listRoutingProfiles_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
 --
 -- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -97,21 +97,21 @@ newListRoutingProfiles ::
   ListRoutingProfiles
 newListRoutingProfiles pInstanceId_ =
   ListRoutingProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Natural)
+listRoutingProfiles_maxResults = Lens.lens (\ListRoutingProfiles' {maxResults} -> maxResults) (\s@ListRoutingProfiles' {} a -> s {maxResults = a} :: ListRoutingProfiles)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listRoutingProfiles_nextToken :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Text)
 listRoutingProfiles_nextToken = Lens.lens (\ListRoutingProfiles' {nextToken} -> nextToken) (\s@ListRoutingProfiles' {} a -> s {nextToken = a} :: ListRoutingProfiles)
-
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Natural)
-listRoutingProfiles_maxResults = Lens.lens (\ListRoutingProfiles' {maxResults} -> maxResults) (\s@ListRoutingProfiles' {} a -> s {maxResults = a} :: ListRoutingProfiles)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -159,14 +159,14 @@ instance Core.AWSRequest ListRoutingProfiles where
 
 instance Prelude.Hashable ListRoutingProfiles where
   hashWithSalt _salt ListRoutingProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListRoutingProfiles where
   rnf ListRoutingProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListRoutingProfiles where
@@ -188,8 +188,8 @@ instance Data.ToPath ListRoutingProfiles where
 instance Data.ToQuery ListRoutingProfiles where
   toQuery ListRoutingProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRoutingProfilesResponse' smart constructor.

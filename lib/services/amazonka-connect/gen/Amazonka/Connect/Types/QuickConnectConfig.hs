@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuickConnectConfig' smart constructor.
 data QuickConnectConfig = QuickConnectConfig'
-  { -- | The queue configuration. This is required only if QuickConnectType is
-    -- QUEUE.
-    queueConfig :: Prelude.Maybe QueueQuickConnectConfig,
-    -- | The phone configuration. This is required only if QuickConnectType is
+  { -- | The phone configuration. This is required only if QuickConnectType is
     -- PHONE_NUMBER.
     phoneConfig :: Prelude.Maybe PhoneNumberQuickConnectConfig,
+    -- | The queue configuration. This is required only if QuickConnectType is
+    -- QUEUE.
+    queueConfig :: Prelude.Maybe QueueQuickConnectConfig,
     -- | The user configuration. This is required only if QuickConnectType is
     -- USER.
     userConfig :: Prelude.Maybe UserQuickConnectConfig,
@@ -56,11 +56,11 @@ data QuickConnectConfig = QuickConnectConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queueConfig', 'quickConnectConfig_queueConfig' - The queue configuration. This is required only if QuickConnectType is
--- QUEUE.
---
 -- 'phoneConfig', 'quickConnectConfig_phoneConfig' - The phone configuration. This is required only if QuickConnectType is
 -- PHONE_NUMBER.
+--
+-- 'queueConfig', 'quickConnectConfig_queueConfig' - The queue configuration. This is required only if QuickConnectType is
+-- QUEUE.
 --
 -- 'userConfig', 'quickConnectConfig_userConfig' - The user configuration. This is required only if QuickConnectType is
 -- USER.
@@ -74,21 +74,21 @@ newQuickConnectConfig ::
   QuickConnectConfig
 newQuickConnectConfig pQuickConnectType_ =
   QuickConnectConfig'
-    { queueConfig = Prelude.Nothing,
-      phoneConfig = Prelude.Nothing,
+    { phoneConfig = Prelude.Nothing,
+      queueConfig = Prelude.Nothing,
       userConfig = Prelude.Nothing,
       quickConnectType = pQuickConnectType_
     }
-
--- | The queue configuration. This is required only if QuickConnectType is
--- QUEUE.
-quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe QueueQuickConnectConfig)
-quickConnectConfig_queueConfig = Lens.lens (\QuickConnectConfig' {queueConfig} -> queueConfig) (\s@QuickConnectConfig' {} a -> s {queueConfig = a} :: QuickConnectConfig)
 
 -- | The phone configuration. This is required only if QuickConnectType is
 -- PHONE_NUMBER.
 quickConnectConfig_phoneConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe PhoneNumberQuickConnectConfig)
 quickConnectConfig_phoneConfig = Lens.lens (\QuickConnectConfig' {phoneConfig} -> phoneConfig) (\s@QuickConnectConfig' {} a -> s {phoneConfig = a} :: QuickConnectConfig)
+
+-- | The queue configuration. This is required only if QuickConnectType is
+-- QUEUE.
+quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe QueueQuickConnectConfig)
+quickConnectConfig_queueConfig = Lens.lens (\QuickConnectConfig' {queueConfig} -> queueConfig) (\s@QuickConnectConfig' {} a -> s {queueConfig = a} :: QuickConnectConfig)
 
 -- | The user configuration. This is required only if QuickConnectType is
 -- USER.
@@ -107,23 +107,23 @@ instance Data.FromJSON QuickConnectConfig where
       "QuickConnectConfig"
       ( \x ->
           QuickConnectConfig'
-            Prelude.<$> (x Data..:? "QueueConfig")
-            Prelude.<*> (x Data..:? "PhoneConfig")
+            Prelude.<$> (x Data..:? "PhoneConfig")
+            Prelude.<*> (x Data..:? "QueueConfig")
             Prelude.<*> (x Data..:? "UserConfig")
             Prelude.<*> (x Data..: "QuickConnectType")
       )
 
 instance Prelude.Hashable QuickConnectConfig where
   hashWithSalt _salt QuickConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` queueConfig
-      `Prelude.hashWithSalt` phoneConfig
+    _salt `Prelude.hashWithSalt` phoneConfig
+      `Prelude.hashWithSalt` queueConfig
       `Prelude.hashWithSalt` userConfig
       `Prelude.hashWithSalt` quickConnectType
 
 instance Prelude.NFData QuickConnectConfig where
   rnf QuickConnectConfig' {..} =
-    Prelude.rnf queueConfig
-      `Prelude.seq` Prelude.rnf phoneConfig
+    Prelude.rnf phoneConfig
+      `Prelude.seq` Prelude.rnf queueConfig
       `Prelude.seq` Prelude.rnf userConfig
       `Prelude.seq` Prelude.rnf quickConnectType
 
@@ -131,8 +131,8 @@ instance Data.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QueueConfig" Data..=) Prelude.<$> queueConfig,
-            ("PhoneConfig" Data..=) Prelude.<$> phoneConfig,
+          [ ("PhoneConfig" Data..=) Prelude.<$> phoneConfig,
+            ("QueueConfig" Data..=) Prelude.<$> queueConfig,
             ("UserConfig" Data..=) Prelude.<$> userConfig,
             Prelude.Just
               ("QuickConnectType" Data..= quickConnectType)

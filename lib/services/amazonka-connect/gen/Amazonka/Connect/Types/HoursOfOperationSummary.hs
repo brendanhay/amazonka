@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHoursOfOperationSummary' smart constructor.
 data HoursOfOperationSummary = HoursOfOperationSummary'
-  { -- | The name of the hours of operation.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the hours of operation.
+  { -- | The Amazon Resource Name (ARN) of the hours of operation.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the hours of operation.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the hours of operation.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data HoursOfOperationSummary = HoursOfOperationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'hoursOfOperationSummary_name' - The name of the hours of operation.
---
 -- 'arn', 'hoursOfOperationSummary_arn' - The Amazon Resource Name (ARN) of the hours of operation.
 --
 -- 'id', 'hoursOfOperationSummary_id' - The identifier of the hours of operation.
+--
+-- 'name', 'hoursOfOperationSummary_name' - The name of the hours of operation.
 newHoursOfOperationSummary ::
   HoursOfOperationSummary
 newHoursOfOperationSummary =
   HoursOfOperationSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the hours of operation.
-hoursOfOperationSummary_name :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
-hoursOfOperationSummary_name = Lens.lens (\HoursOfOperationSummary' {name} -> name) (\s@HoursOfOperationSummary' {} a -> s {name = a} :: HoursOfOperationSummary)
 
 -- | The Amazon Resource Name (ARN) of the hours of operation.
 hoursOfOperationSummary_arn :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ hoursOfOperationSummary_arn = Lens.lens (\HoursOfOperationSummary' {arn} -> arn)
 hoursOfOperationSummary_id :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
 hoursOfOperationSummary_id = Lens.lens (\HoursOfOperationSummary' {id} -> id) (\s@HoursOfOperationSummary' {} a -> s {id = a} :: HoursOfOperationSummary)
 
+-- | The name of the hours of operation.
+hoursOfOperationSummary_name :: Lens.Lens' HoursOfOperationSummary (Prelude.Maybe Prelude.Text)
+hoursOfOperationSummary_name = Lens.lens (\HoursOfOperationSummary' {name} -> name) (\s@HoursOfOperationSummary' {} a -> s {name = a} :: HoursOfOperationSummary)
+
 instance Data.FromJSON HoursOfOperationSummary where
   parseJSON =
     Data.withObject
       "HoursOfOperationSummary"
       ( \x ->
           HoursOfOperationSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable HoursOfOperationSummary where
   hashWithSalt _salt HoursOfOperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData HoursOfOperationSummary where
   rnf HoursOfOperationSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

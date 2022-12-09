@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagCondition' smart constructor.
 data TagCondition = TagCondition'
-  { -- | The tag value in the tag condition.
-    tagValue :: Prelude.Maybe Prelude.Text,
-    -- | The tag key in the tag condition.
-    tagKey :: Prelude.Maybe Prelude.Text
+  { -- | The tag key in the tag condition.
+    tagKey :: Prelude.Maybe Prelude.Text,
+    -- | The tag value in the tag condition.
+    tagValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data TagCondition = TagCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValue', 'tagCondition_tagValue' - The tag value in the tag condition.
---
 -- 'tagKey', 'tagCondition_tagKey' - The tag key in the tag condition.
+--
+-- 'tagValue', 'tagCondition_tagValue' - The tag value in the tag condition.
 newTagCondition ::
   TagCondition
 newTagCondition =
   TagCondition'
-    { tagValue = Prelude.Nothing,
-      tagKey = Prelude.Nothing
+    { tagKey = Prelude.Nothing,
+      tagValue = Prelude.Nothing
     }
-
--- | The tag value in the tag condition.
-tagCondition_tagValue :: Lens.Lens' TagCondition (Prelude.Maybe Prelude.Text)
-tagCondition_tagValue = Lens.lens (\TagCondition' {tagValue} -> tagValue) (\s@TagCondition' {} a -> s {tagValue = a} :: TagCondition)
 
 -- | The tag key in the tag condition.
 tagCondition_tagKey :: Lens.Lens' TagCondition (Prelude.Maybe Prelude.Text)
 tagCondition_tagKey = Lens.lens (\TagCondition' {tagKey} -> tagKey) (\s@TagCondition' {} a -> s {tagKey = a} :: TagCondition)
 
+-- | The tag value in the tag condition.
+tagCondition_tagValue :: Lens.Lens' TagCondition (Prelude.Maybe Prelude.Text)
+tagCondition_tagValue = Lens.lens (\TagCondition' {tagValue} -> tagValue) (\s@TagCondition' {} a -> s {tagValue = a} :: TagCondition)
+
 instance Prelude.Hashable TagCondition where
   hashWithSalt _salt TagCondition' {..} =
-    _salt `Prelude.hashWithSalt` tagValue
-      `Prelude.hashWithSalt` tagKey
+    _salt `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData TagCondition where
   rnf TagCondition' {..} =
-    Prelude.rnf tagValue
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValue
 
 instance Data.ToJSON TagCondition where
   toJSON TagCondition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TagValue" Data..=) Prelude.<$> tagValue,
-            ("TagKey" Data..=) Prelude.<$> tagKey
+          [ ("TagKey" Data..=) Prelude.<$> tagKey,
+            ("TagValue" Data..=) Prelude.<$> tagValue
           ]
       )

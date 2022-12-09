@@ -27,9 +27,9 @@ module Amazonka.Connect.CreateContactFlowModule
     newCreateContactFlowModule,
 
     -- * Request Lenses
-    createContactFlowModule_tags,
     createContactFlowModule_clientToken,
     createContactFlowModule_description,
+    createContactFlowModule_tags,
     createContactFlowModule_instanceId,
     createContactFlowModule_name,
     createContactFlowModule_content,
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContactFlowModule' smart constructor.
 data CreateContactFlowModule = CreateContactFlowModule'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the flow module.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -83,15 +83,15 @@ data CreateContactFlowModule = CreateContactFlowModule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContactFlowModule_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'clientToken', 'createContactFlowModule_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createContactFlowModule_description' - The description of the flow module.
+--
+-- 'tags', 'createContactFlowModule_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'instanceId', 'createContactFlowModule_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -112,18 +112,14 @@ newCreateContactFlowModule
   pName_
   pContent_ =
     CreateContactFlowModule'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         content = pContent_
       }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-createContactFlowModule_tags :: Lens.Lens' CreateContactFlowModule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContactFlowModule_tags = Lens.lens (\CreateContactFlowModule' {tags} -> tags) (\s@CreateContactFlowModule' {} a -> s {tags = a} :: CreateContactFlowModule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
@@ -135,6 +131,11 @@ createContactFlowModule_clientToken = Lens.lens (\CreateContactFlowModule' {clie
 -- | The description of the flow module.
 createContactFlowModule_description :: Lens.Lens' CreateContactFlowModule (Prelude.Maybe Prelude.Text)
 createContactFlowModule_description = Lens.lens (\CreateContactFlowModule' {description} -> description) (\s@CreateContactFlowModule' {} a -> s {description = a} :: CreateContactFlowModule)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createContactFlowModule_tags :: Lens.Lens' CreateContactFlowModule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createContactFlowModule_tags = Lens.lens (\CreateContactFlowModule' {tags} -> tags) (\s@CreateContactFlowModule' {} a -> s {tags = a} :: CreateContactFlowModule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -166,18 +167,18 @@ instance Core.AWSRequest CreateContactFlowModule where
 
 instance Prelude.Hashable CreateContactFlowModule where
   hashWithSalt _salt CreateContactFlowModule' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData CreateContactFlowModule where
   rnf CreateContactFlowModule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf content
@@ -197,9 +198,9 @@ instance Data.ToJSON CreateContactFlowModule where
   toJSON CreateContactFlowModule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Content" Data..= content)
           ]

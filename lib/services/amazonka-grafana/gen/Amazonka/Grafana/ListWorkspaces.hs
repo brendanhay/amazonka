@@ -32,8 +32,8 @@ module Amazonka.Grafana.ListWorkspaces
     newListWorkspaces,
 
     -- * Request Lenses
-    listWorkspaces_nextToken,
     listWorkspaces_maxResults,
+    listWorkspaces_nextToken,
 
     -- * Destructuring the Response
     ListWorkspacesResponse (..),
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkspaces' smart constructor.
 data ListWorkspaces = ListWorkspaces'
-  { -- | The token for the next set of workspaces to return. (You receive this
+  { -- | The maximum number of workspaces to include in the results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of workspaces to return. (You receive this
     -- token from a previous @ListWorkspaces@ operation.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of workspaces to include in the results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,26 +72,26 @@ data ListWorkspaces = ListWorkspaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWorkspaces_maxResults' - The maximum number of workspaces to include in the results.
+--
 -- 'nextToken', 'listWorkspaces_nextToken' - The token for the next set of workspaces to return. (You receive this
 -- token from a previous @ListWorkspaces@ operation.)
---
--- 'maxResults', 'listWorkspaces_maxResults' - The maximum number of workspaces to include in the results.
 newListWorkspaces ::
   ListWorkspaces
 newListWorkspaces =
   ListWorkspaces'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of workspaces to include in the results.
+listWorkspaces_maxResults :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Natural)
+listWorkspaces_maxResults = Lens.lens (\ListWorkspaces' {maxResults} -> maxResults) (\s@ListWorkspaces' {} a -> s {maxResults = a} :: ListWorkspaces)
 
 -- | The token for the next set of workspaces to return. (You receive this
 -- token from a previous @ListWorkspaces@ operation.)
 listWorkspaces_nextToken :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Text)
 listWorkspaces_nextToken = Lens.lens (\ListWorkspaces' {nextToken} -> nextToken) (\s@ListWorkspaces' {} a -> s {nextToken = a} :: ListWorkspaces)
-
--- | The maximum number of workspaces to include in the results.
-listWorkspaces_maxResults :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Natural)
-listWorkspaces_maxResults = Lens.lens (\ListWorkspaces' {maxResults} -> maxResults) (\s@ListWorkspaces' {} a -> s {maxResults = a} :: ListWorkspaces)
 
 instance Core.AWSPager ListWorkspaces where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListWorkspaces where
 
 instance Prelude.Hashable ListWorkspaces where
   hashWithSalt _salt ListWorkspaces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkspaces where
   rnf ListWorkspaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkspaces where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToPath ListWorkspaces where
 instance Data.ToQuery ListWorkspaces where
   toQuery ListWorkspaces' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListWorkspacesResponse' smart constructor.

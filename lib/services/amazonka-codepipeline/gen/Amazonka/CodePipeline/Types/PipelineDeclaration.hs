@@ -31,7 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
-  { -- | A mapping of @artifactStore@ objects and their corresponding AWS
+  { -- | Represents information about the S3 bucket where artifacts are stored
+    -- for the pipeline.
+    --
+    -- You must include either @artifactStore@ or @artifactStores@ in your
+    -- pipeline, but you cannot use both. If you create a cross-region action
+    -- in your pipeline, you must use @artifactStores@.
+    artifactStore :: Prelude.Maybe ArtifactStore,
+    -- | A mapping of @artifactStore@ objects and their corresponding AWS
     -- Regions. There must be an artifact store for the pipeline Region and for
     -- each cross-region action in the pipeline.
     --
@@ -39,13 +46,6 @@ data PipelineDeclaration = PipelineDeclaration'
     -- pipeline, but you cannot use both. If you create a cross-region action
     -- in your pipeline, you must use @artifactStores@.
     artifactStores :: Prelude.Maybe (Prelude.HashMap Prelude.Text ArtifactStore),
-    -- | Represents information about the S3 bucket where artifacts are stored
-    -- for the pipeline.
-    --
-    -- You must include either @artifactStore@ or @artifactStores@ in your
-    -- pipeline, but you cannot use both. If you create a cross-region action
-    -- in your pipeline, you must use @artifactStores@.
-    artifactStore :: Prelude.Maybe ArtifactStore,
     -- | The version number of the pipeline. A new pipeline always has a version
     -- number of 1. This number is incremented when a pipeline is updated.
     version :: Prelude.Maybe Prelude.Natural,
@@ -68,16 +68,16 @@ data PipelineDeclaration = PipelineDeclaration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'artifactStores', 'pipelineDeclaration_artifactStores' - A mapping of @artifactStore@ objects and their corresponding AWS
--- Regions. There must be an artifact store for the pipeline Region and for
--- each cross-region action in the pipeline.
+-- 'artifactStore', 'pipelineDeclaration_artifactStore' - Represents information about the S3 bucket where artifacts are stored
+-- for the pipeline.
 --
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
 -- in your pipeline, you must use @artifactStores@.
 --
--- 'artifactStore', 'pipelineDeclaration_artifactStore' - Represents information about the S3 bucket where artifacts are stored
--- for the pipeline.
+-- 'artifactStores', 'pipelineDeclaration_artifactStores' - A mapping of @artifactStore@ objects and their corresponding AWS
+-- Regions. There must be an artifact store for the pipeline Region and for
+-- each cross-region action in the pipeline.
 --
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
@@ -101,14 +101,23 @@ newPipelineDeclaration ::
   PipelineDeclaration
 newPipelineDeclaration pName_ pRoleArn_ =
   PipelineDeclaration'
-    { artifactStores =
+    { artifactStore =
         Prelude.Nothing,
-      artifactStore = Prelude.Nothing,
+      artifactStores = Prelude.Nothing,
       version = Prelude.Nothing,
       name = pName_,
       roleArn = pRoleArn_,
       stages = Prelude.mempty
     }
+
+-- | Represents information about the S3 bucket where artifacts are stored
+-- for the pipeline.
+--
+-- You must include either @artifactStore@ or @artifactStores@ in your
+-- pipeline, but you cannot use both. If you create a cross-region action
+-- in your pipeline, you must use @artifactStores@.
+pipelineDeclaration_artifactStore :: Lens.Lens' PipelineDeclaration (Prelude.Maybe ArtifactStore)
+pipelineDeclaration_artifactStore = Lens.lens (\PipelineDeclaration' {artifactStore} -> artifactStore) (\s@PipelineDeclaration' {} a -> s {artifactStore = a} :: PipelineDeclaration)
 
 -- | A mapping of @artifactStore@ objects and their corresponding AWS
 -- Regions. There must be an artifact store for the pipeline Region and for
@@ -119,15 +128,6 @@ newPipelineDeclaration pName_ pRoleArn_ =
 -- in your pipeline, you must use @artifactStores@.
 pipelineDeclaration_artifactStores :: Lens.Lens' PipelineDeclaration (Prelude.Maybe (Prelude.HashMap Prelude.Text ArtifactStore))
 pipelineDeclaration_artifactStores = Lens.lens (\PipelineDeclaration' {artifactStores} -> artifactStores) (\s@PipelineDeclaration' {} a -> s {artifactStores = a} :: PipelineDeclaration) Prelude.. Lens.mapping Lens.coerced
-
--- | Represents information about the S3 bucket where artifacts are stored
--- for the pipeline.
---
--- You must include either @artifactStore@ or @artifactStores@ in your
--- pipeline, but you cannot use both. If you create a cross-region action
--- in your pipeline, you must use @artifactStores@.
-pipelineDeclaration_artifactStore :: Lens.Lens' PipelineDeclaration (Prelude.Maybe ArtifactStore)
-pipelineDeclaration_artifactStore = Lens.lens (\PipelineDeclaration' {artifactStore} -> artifactStore) (\s@PipelineDeclaration' {} a -> s {artifactStore = a} :: PipelineDeclaration)
 
 -- | The version number of the pipeline. A new pipeline always has a version
 -- number of 1. This number is incremented when a pipeline is updated.
@@ -154,8 +154,8 @@ instance Data.FromJSON PipelineDeclaration where
       "PipelineDeclaration"
       ( \x ->
           PipelineDeclaration'
-            Prelude.<$> (x Data..:? "artifactStores" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "artifactStore")
+            Prelude.<$> (x Data..:? "artifactStore")
+            Prelude.<*> (x Data..:? "artifactStores" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "version")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "roleArn")
@@ -164,8 +164,8 @@ instance Data.FromJSON PipelineDeclaration where
 
 instance Prelude.Hashable PipelineDeclaration where
   hashWithSalt _salt PipelineDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` artifactStores
-      `Prelude.hashWithSalt` artifactStore
+    _salt `Prelude.hashWithSalt` artifactStore
+      `Prelude.hashWithSalt` artifactStores
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
@@ -173,8 +173,8 @@ instance Prelude.Hashable PipelineDeclaration where
 
 instance Prelude.NFData PipelineDeclaration where
   rnf PipelineDeclaration' {..} =
-    Prelude.rnf artifactStores
-      `Prelude.seq` Prelude.rnf artifactStore
+    Prelude.rnf artifactStore
+      `Prelude.seq` Prelude.rnf artifactStores
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
@@ -184,9 +184,9 @@ instance Data.ToJSON PipelineDeclaration where
   toJSON PipelineDeclaration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("artifactStores" Data..=)
+          [ ("artifactStore" Data..=) Prelude.<$> artifactStore,
+            ("artifactStores" Data..=)
               Prelude.<$> artifactStores,
-            ("artifactStore" Data..=) Prelude.<$> artifactStore,
             ("version" Data..=) Prelude.<$> version,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("roleArn" Data..= roleArn),

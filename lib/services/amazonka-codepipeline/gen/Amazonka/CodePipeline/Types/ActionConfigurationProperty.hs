@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionConfigurationProperty' smart constructor.
 data ActionConfigurationProperty = ActionConfigurationProperty'
-  { -- | The type of the configuration property.
-    type' :: Prelude.Maybe ActionConfigurationPropertyType,
+  { -- | The description of the action configuration property that is displayed
+    -- to users.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates that the property is used with @PollForJobs@. When creating a
     -- custom action, an action can have up to one queryable property. If it
     -- has one, that property must be both required and not secret.
@@ -41,9 +42,8 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
     -- or equal to twenty (20) characters. The value can contain only
     -- alphanumeric characters, underscores, and hyphens.
     queryable :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the action configuration property that is displayed
-    -- to users.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The type of the configuration property.
+    type' :: Prelude.Maybe ActionConfigurationPropertyType,
     -- | The name of the action configuration property.
     name :: Prelude.Text,
     -- | Whether the configuration property is a required value.
@@ -68,7 +68,8 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'actionConfigurationProperty_type' - The type of the configuration property.
+-- 'description', 'actionConfigurationProperty_description' - The description of the action configuration property that is displayed
+-- to users.
 --
 -- 'queryable', 'actionConfigurationProperty_queryable' - Indicates that the property is used with @PollForJobs@. When creating a
 -- custom action, an action can have up to one queryable property. If it
@@ -80,8 +81,7 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 -- or equal to twenty (20) characters. The value can contain only
 -- alphanumeric characters, underscores, and hyphens.
 --
--- 'description', 'actionConfigurationProperty_description' - The description of the action configuration property that is displayed
--- to users.
+-- 'type'', 'actionConfigurationProperty_type' - The type of the configuration property.
 --
 -- 'name', 'actionConfigurationProperty_name' - The name of the action configuration property.
 --
@@ -111,19 +111,20 @@ newActionConfigurationProperty
   pKey_
   pSecret_ =
     ActionConfigurationProperty'
-      { type' =
+      { description =
           Prelude.Nothing,
         queryable = Prelude.Nothing,
-        description = Prelude.Nothing,
+        type' = Prelude.Nothing,
         name = pName_,
         required = pRequired_,
         key = pKey_,
         secret = pSecret_
       }
 
--- | The type of the configuration property.
-actionConfigurationProperty_type :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe ActionConfigurationPropertyType)
-actionConfigurationProperty_type = Lens.lens (\ActionConfigurationProperty' {type'} -> type') (\s@ActionConfigurationProperty' {} a -> s {type' = a} :: ActionConfigurationProperty)
+-- | The description of the action configuration property that is displayed
+-- to users.
+actionConfigurationProperty_description :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe Prelude.Text)
+actionConfigurationProperty_description = Lens.lens (\ActionConfigurationProperty' {description} -> description) (\s@ActionConfigurationProperty' {} a -> s {description = a} :: ActionConfigurationProperty)
 
 -- | Indicates that the property is used with @PollForJobs@. When creating a
 -- custom action, an action can have up to one queryable property. If it
@@ -137,10 +138,9 @@ actionConfigurationProperty_type = Lens.lens (\ActionConfigurationProperty' {typ
 actionConfigurationProperty_queryable :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe Prelude.Bool)
 actionConfigurationProperty_queryable = Lens.lens (\ActionConfigurationProperty' {queryable} -> queryable) (\s@ActionConfigurationProperty' {} a -> s {queryable = a} :: ActionConfigurationProperty)
 
--- | The description of the action configuration property that is displayed
--- to users.
-actionConfigurationProperty_description :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe Prelude.Text)
-actionConfigurationProperty_description = Lens.lens (\ActionConfigurationProperty' {description} -> description) (\s@ActionConfigurationProperty' {} a -> s {description = a} :: ActionConfigurationProperty)
+-- | The type of the configuration property.
+actionConfigurationProperty_type :: Lens.Lens' ActionConfigurationProperty (Prelude.Maybe ActionConfigurationPropertyType)
+actionConfigurationProperty_type = Lens.lens (\ActionConfigurationProperty' {type'} -> type') (\s@ActionConfigurationProperty' {} a -> s {type' = a} :: ActionConfigurationProperty)
 
 -- | The name of the action configuration property.
 actionConfigurationProperty_name :: Lens.Lens' ActionConfigurationProperty Prelude.Text
@@ -169,9 +169,9 @@ instance Data.FromJSON ActionConfigurationProperty where
       "ActionConfigurationProperty"
       ( \x ->
           ActionConfigurationProperty'
-            Prelude.<$> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "queryable")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "required")
             Prelude.<*> (x Data..: "key")
@@ -180,9 +180,9 @@ instance Data.FromJSON ActionConfigurationProperty where
 
 instance Prelude.Hashable ActionConfigurationProperty where
   hashWithSalt _salt ActionConfigurationProperty' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` queryable
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
       `Prelude.hashWithSalt` key
@@ -190,9 +190,9 @@ instance Prelude.Hashable ActionConfigurationProperty where
 
 instance Prelude.NFData ActionConfigurationProperty where
   rnf ActionConfigurationProperty' {..} =
-    Prelude.rnf type'
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf queryable
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf required
       `Prelude.seq` Prelude.rnf key
@@ -202,9 +202,9 @@ instance Data.ToJSON ActionConfigurationProperty where
   toJSON ActionConfigurationProperty' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
+          [ ("description" Data..=) Prelude.<$> description,
             ("queryable" Data..=) Prelude.<$> queryable,
-            ("description" Data..=) Prelude.<$> description,
+            ("type" Data..=) Prelude.<$> type',
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("required" Data..= required),
             Prelude.Just ("key" Data..= key),

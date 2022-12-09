@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionExecutionOutput' smart constructor.
 data ActionExecutionOutput = ActionExecutionOutput'
-  { -- | Details of output artifacts of the action that correspond to the action
-    -- execution.
-    outputArtifacts :: Prelude.Maybe [ArtifactDetail],
-    -- | Execution result information listed in the output details for an action
+  { -- | Execution result information listed in the output details for an action
     -- execution.
     executionResult :: Prelude.Maybe ActionExecutionResult,
+    -- | Details of output artifacts of the action that correspond to the action
+    -- execution.
+    outputArtifacts :: Prelude.Maybe [ArtifactDetail],
     -- | The outputVariables field shows the key-value pairs that were output as
     -- part of that execution.
     outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -51,10 +51,10 @@ data ActionExecutionOutput = ActionExecutionOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputArtifacts', 'actionExecutionOutput_outputArtifacts' - Details of output artifacts of the action that correspond to the action
+-- 'executionResult', 'actionExecutionOutput_executionResult' - Execution result information listed in the output details for an action
 -- execution.
 --
--- 'executionResult', 'actionExecutionOutput_executionResult' - Execution result information listed in the output details for an action
+-- 'outputArtifacts', 'actionExecutionOutput_outputArtifacts' - Details of output artifacts of the action that correspond to the action
 -- execution.
 --
 -- 'outputVariables', 'actionExecutionOutput_outputVariables' - The outputVariables field shows the key-value pairs that were output as
@@ -63,21 +63,21 @@ newActionExecutionOutput ::
   ActionExecutionOutput
 newActionExecutionOutput =
   ActionExecutionOutput'
-    { outputArtifacts =
+    { executionResult =
         Prelude.Nothing,
-      executionResult = Prelude.Nothing,
+      outputArtifacts = Prelude.Nothing,
       outputVariables = Prelude.Nothing
     }
-
--- | Details of output artifacts of the action that correspond to the action
--- execution.
-actionExecutionOutput_outputArtifacts :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe [ArtifactDetail])
-actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outputArtifacts} -> outputArtifacts) (\s@ActionExecutionOutput' {} a -> s {outputArtifacts = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | Execution result information listed in the output details for an action
 -- execution.
 actionExecutionOutput_executionResult :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe ActionExecutionResult)
 actionExecutionOutput_executionResult = Lens.lens (\ActionExecutionOutput' {executionResult} -> executionResult) (\s@ActionExecutionOutput' {} a -> s {executionResult = a} :: ActionExecutionOutput)
+
+-- | Details of output artifacts of the action that correspond to the action
+-- execution.
+actionExecutionOutput_outputArtifacts :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe [ArtifactDetail])
+actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outputArtifacts} -> outputArtifacts) (\s@ActionExecutionOutput' {} a -> s {outputArtifacts = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The outputVariables field shows the key-value pairs that were output as
 -- part of that execution.
@@ -90,10 +90,10 @@ instance Data.FromJSON ActionExecutionOutput where
       "ActionExecutionOutput"
       ( \x ->
           ActionExecutionOutput'
-            Prelude.<$> ( x Data..:? "outputArtifacts"
+            Prelude.<$> (x Data..:? "executionResult")
+            Prelude.<*> ( x Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "executionResult")
             Prelude.<*> ( x Data..:? "outputVariables"
                             Data..!= Prelude.mempty
                         )
@@ -101,12 +101,12 @@ instance Data.FromJSON ActionExecutionOutput where
 
 instance Prelude.Hashable ActionExecutionOutput where
   hashWithSalt _salt ActionExecutionOutput' {..} =
-    _salt `Prelude.hashWithSalt` outputArtifacts
-      `Prelude.hashWithSalt` executionResult
+    _salt `Prelude.hashWithSalt` executionResult
+      `Prelude.hashWithSalt` outputArtifacts
       `Prelude.hashWithSalt` outputVariables
 
 instance Prelude.NFData ActionExecutionOutput where
   rnf ActionExecutionOutput' {..} =
-    Prelude.rnf outputArtifacts
-      `Prelude.seq` Prelude.rnf executionResult
+    Prelude.rnf executionResult
+      `Prelude.seq` Prelude.rnf outputArtifacts
       `Prelude.seq` Prelude.rnf outputVariables

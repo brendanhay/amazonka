@@ -18,43 +18,43 @@ module Amazonka.CodePipeline.Types
     defaultService,
 
     -- * Errors
-    _InvalidTagsException,
-    _InvalidWebhookFilterPatternException,
-    _InvalidApprovalTokenException,
-    _ConcurrentModificationException,
-    _InvalidActionDeclarationException,
     _ActionNotFoundException,
-    _OutputVariablesSizeExceededException,
-    _NotLatestPipelineExecutionException,
-    _TooManyTagsException,
-    _StageNotRetryableException,
-    _InvalidJobStateException,
-    _RequestFailedException,
-    _InvalidNonceException,
-    _PipelineNotFoundException,
-    _ResourceNotFoundException,
-    _InvalidBlockerDeclarationException,
-    _LimitExceededException,
-    _InvalidJobException,
-    _InvalidClientTokenException,
-    _InvalidNextTokenException,
-    _StageNotFoundException,
-    _PipelineExecutionNotFoundException,
-    _ConflictException,
-    _PipelineVersionNotFoundException,
-    _PipelineNameInUseException,
-    _InvalidStructureException,
-    _InvalidArnException,
-    _InvalidStageDeclarationException,
-    _WebhookNotFoundException,
-    _ValidationException,
-    _PipelineExecutionNotStoppableException,
-    _ActionTypeNotFoundException,
-    _DuplicatedStopRequestException,
-    _ApprovalAlreadyCompletedException,
-    _InvalidWebhookAuthenticationParametersException,
-    _JobNotFoundException,
     _ActionTypeAlreadyExistsException,
+    _ActionTypeNotFoundException,
+    _ApprovalAlreadyCompletedException,
+    _ConcurrentModificationException,
+    _ConflictException,
+    _DuplicatedStopRequestException,
+    _InvalidActionDeclarationException,
+    _InvalidApprovalTokenException,
+    _InvalidArnException,
+    _InvalidBlockerDeclarationException,
+    _InvalidClientTokenException,
+    _InvalidJobException,
+    _InvalidJobStateException,
+    _InvalidNextTokenException,
+    _InvalidNonceException,
+    _InvalidStageDeclarationException,
+    _InvalidStructureException,
+    _InvalidTagsException,
+    _InvalidWebhookAuthenticationParametersException,
+    _InvalidWebhookFilterPatternException,
+    _JobNotFoundException,
+    _LimitExceededException,
+    _NotLatestPipelineExecutionException,
+    _OutputVariablesSizeExceededException,
+    _PipelineExecutionNotFoundException,
+    _PipelineExecutionNotStoppableException,
+    _PipelineNameInUseException,
+    _PipelineNotFoundException,
+    _PipelineVersionNotFoundException,
+    _RequestFailedException,
+    _ResourceNotFoundException,
+    _StageNotFoundException,
+    _StageNotRetryableException,
+    _TooManyTagsException,
+    _ValidationException,
+    _WebhookNotFoundException,
 
     -- * ActionCategory
     ActionCategory (..),
@@ -125,9 +125,9 @@ module Amazonka.CodePipeline.Types
     -- * ActionConfigurationProperty
     ActionConfigurationProperty (..),
     newActionConfigurationProperty,
-    actionConfigurationProperty_type,
-    actionConfigurationProperty_queryable,
     actionConfigurationProperty_description,
+    actionConfigurationProperty_queryable,
+    actionConfigurationProperty_type,
     actionConfigurationProperty_name,
     actionConfigurationProperty_required,
     actionConfigurationProperty_key,
@@ -136,49 +136,49 @@ module Amazonka.CodePipeline.Types
     -- * ActionContext
     ActionContext (..),
     newActionContext,
-    actionContext_name,
     actionContext_actionExecutionId,
+    actionContext_name,
 
     -- * ActionDeclaration
     ActionDeclaration (..),
     newActionDeclaration,
-    actionDeclaration_roleArn,
-    actionDeclaration_runOrder,
     actionDeclaration_configuration,
-    actionDeclaration_outputArtifacts,
-    actionDeclaration_region,
     actionDeclaration_inputArtifacts,
     actionDeclaration_namespace,
+    actionDeclaration_outputArtifacts,
+    actionDeclaration_region,
+    actionDeclaration_roleArn,
+    actionDeclaration_runOrder,
     actionDeclaration_name,
     actionDeclaration_actionTypeId,
 
     -- * ActionExecution
     ActionExecution (..),
     newActionExecution,
-    actionExecution_errorDetails,
     actionExecution_actionExecutionId,
-    actionExecution_summary,
-    actionExecution_status,
-    actionExecution_lastStatusChange,
+    actionExecution_errorDetails,
     actionExecution_externalExecutionId,
-    actionExecution_percentComplete,
     actionExecution_externalExecutionUrl,
+    actionExecution_lastStatusChange,
     actionExecution_lastUpdatedBy,
+    actionExecution_percentComplete,
+    actionExecution_status,
+    actionExecution_summary,
     actionExecution_token,
 
     -- * ActionExecutionDetail
     ActionExecutionDetail (..),
     newActionExecutionDetail,
-    actionExecutionDetail_actionName,
-    actionExecutionDetail_stageName,
-    actionExecutionDetail_pipelineExecutionId,
     actionExecutionDetail_actionExecutionId,
-    actionExecutionDetail_status,
+    actionExecutionDetail_actionName,
     actionExecutionDetail_input,
-    actionExecutionDetail_pipelineVersion,
-    actionExecutionDetail_output,
     actionExecutionDetail_lastUpdateTime,
+    actionExecutionDetail_output,
+    actionExecutionDetail_pipelineExecutionId,
+    actionExecutionDetail_pipelineVersion,
+    actionExecutionDetail_stageName,
     actionExecutionDetail_startTime,
+    actionExecutionDetail_status,
 
     -- * ActionExecutionFilter
     ActionExecutionFilter (..),
@@ -188,27 +188,27 @@ module Amazonka.CodePipeline.Types
     -- * ActionExecutionInput
     ActionExecutionInput (..),
     newActionExecutionInput,
-    actionExecutionInput_resolvedConfiguration,
-    actionExecutionInput_roleArn,
     actionExecutionInput_actionTypeId,
     actionExecutionInput_configuration,
-    actionExecutionInput_region,
     actionExecutionInput_inputArtifacts,
     actionExecutionInput_namespace,
+    actionExecutionInput_region,
+    actionExecutionInput_resolvedConfiguration,
+    actionExecutionInput_roleArn,
 
     -- * ActionExecutionOutput
     ActionExecutionOutput (..),
     newActionExecutionOutput,
-    actionExecutionOutput_outputArtifacts,
     actionExecutionOutput_executionResult,
+    actionExecutionOutput_outputArtifacts,
     actionExecutionOutput_outputVariables,
 
     -- * ActionExecutionResult
     ActionExecutionResult (..),
     newActionExecutionResult,
     actionExecutionResult_externalExecutionId,
-    actionExecutionResult_externalExecutionUrl,
     actionExecutionResult_externalExecutionSummary,
+    actionExecutionResult_externalExecutionUrl,
 
     -- * ActionRevision
     ActionRevision (..),
@@ -221,16 +221,16 @@ module Amazonka.CodePipeline.Types
     ActionState (..),
     newActionState,
     actionState_actionName,
-    actionState_entityUrl,
-    actionState_revisionUrl,
     actionState_currentRevision,
+    actionState_entityUrl,
     actionState_latestExecution,
+    actionState_revisionUrl,
 
     -- * ActionType
     ActionType (..),
     newActionType,
-    actionType_settings,
     actionType_actionConfigurationProperties,
+    actionType_settings,
     actionType_id,
     actionType_inputArtifactDetails,
     actionType_outputArtifactDetails,
@@ -244,9 +244,9 @@ module Amazonka.CodePipeline.Types
     -- * ActionTypeDeclaration
     ActionTypeDeclaration (..),
     newActionTypeDeclaration,
-    actionTypeDeclaration_properties,
-    actionTypeDeclaration_permissions,
     actionTypeDeclaration_description,
+    actionTypeDeclaration_permissions,
+    actionTypeDeclaration_properties,
     actionTypeDeclaration_urls,
     actionTypeDeclaration_executor,
     actionTypeDeclaration_id,
@@ -256,8 +256,8 @@ module Amazonka.CodePipeline.Types
     -- * ActionTypeExecutor
     ActionTypeExecutor (..),
     newActionTypeExecutor,
-    actionTypeExecutor_policyStatementsTemplate,
     actionTypeExecutor_jobTimeout,
+    actionTypeExecutor_policyStatementsTemplate,
     actionTypeExecutor_configuration,
     actionTypeExecutor_type,
 
@@ -285,8 +285,8 @@ module Amazonka.CodePipeline.Types
     -- * ActionTypeProperty
     ActionTypeProperty (..),
     newActionTypeProperty,
-    actionTypeProperty_queryable,
     actionTypeProperty_description,
+    actionTypeProperty_queryable,
     actionTypeProperty_name,
     actionTypeProperty_optional,
     actionTypeProperty_key,
@@ -295,18 +295,18 @@ module Amazonka.CodePipeline.Types
     -- * ActionTypeSettings
     ActionTypeSettings (..),
     newActionTypeSettings,
-    actionTypeSettings_thirdPartyConfigurationUrl,
-    actionTypeSettings_revisionUrlTemplate,
     actionTypeSettings_entityUrlTemplate,
     actionTypeSettings_executionUrlTemplate,
+    actionTypeSettings_revisionUrlTemplate,
+    actionTypeSettings_thirdPartyConfigurationUrl,
 
     -- * ActionTypeUrls
     ActionTypeUrls (..),
     newActionTypeUrls,
     actionTypeUrls_configurationUrl,
-    actionTypeUrls_revisionUrlTemplate,
     actionTypeUrls_entityUrlTemplate,
     actionTypeUrls_executionUrlTemplate,
+    actionTypeUrls_revisionUrlTemplate,
 
     -- * ApprovalResult
     ApprovalResult (..),
@@ -317,9 +317,9 @@ module Amazonka.CodePipeline.Types
     -- * Artifact
     Artifact (..),
     newArtifact,
+    artifact_location,
     artifact_name,
     artifact_revision,
-    artifact_location,
 
     -- * ArtifactDetail
     ArtifactDetail (..),
@@ -336,18 +336,18 @@ module Amazonka.CodePipeline.Types
     -- * ArtifactLocation
     ArtifactLocation (..),
     newArtifactLocation,
-    artifactLocation_type,
     artifactLocation_s3Location,
+    artifactLocation_type,
 
     -- * ArtifactRevision
     ArtifactRevision (..),
     newArtifactRevision,
-    artifactRevision_revisionChangeIdentifier,
-    artifactRevision_name,
     artifactRevision_created,
+    artifactRevision_name,
+    artifactRevision_revisionChangeIdentifier,
     artifactRevision_revisionId,
-    artifactRevision_revisionUrl,
     artifactRevision_revisionSummary,
+    artifactRevision_revisionUrl,
 
     -- * ArtifactStore
     ArtifactStore (..),
@@ -379,21 +379,21 @@ module Amazonka.CodePipeline.Types
     -- * ErrorDetails
     ErrorDetails (..),
     newErrorDetails,
-    errorDetails_message,
     errorDetails_code,
+    errorDetails_message,
 
     -- * ExecutionDetails
     ExecutionDetails (..),
     newExecutionDetails,
-    executionDetails_summary,
     executionDetails_externalExecutionId,
     executionDetails_percentComplete,
+    executionDetails_summary,
 
     -- * ExecutionTrigger
     ExecutionTrigger (..),
     newExecutionTrigger,
-    executionTrigger_triggerType,
     executionTrigger_triggerDetail,
+    executionTrigger_triggerType,
 
     -- * ExecutorConfiguration
     ExecutorConfiguration (..),
@@ -416,29 +416,29 @@ module Amazonka.CodePipeline.Types
     -- * Job
     Job (..),
     newJob,
-    job_nonce,
-    job_id,
     job_accountId,
     job_data,
+    job_id,
+    job_nonce,
 
     -- * JobData
     JobData (..),
     newJobData,
+    jobData_actionConfiguration,
     jobData_actionTypeId,
-    jobData_outputArtifacts,
     jobData_artifactCredentials,
     jobData_continuationToken,
-    jobData_actionConfiguration,
-    jobData_inputArtifacts,
     jobData_encryptionKey,
+    jobData_inputArtifacts,
+    jobData_outputArtifacts,
     jobData_pipelineContext,
 
     -- * JobDetails
     JobDetails (..),
     newJobDetails,
-    jobDetails_id,
     jobDetails_accountId,
     jobDetails_data,
+    jobDetails_id,
 
     -- * JobWorkerExecutorConfiguration
     JobWorkerExecutorConfiguration (..),
@@ -454,11 +454,11 @@ module Amazonka.CodePipeline.Types
     -- * ListWebhookItem
     ListWebhookItem (..),
     newListWebhookItem,
-    listWebhookItem_tags,
-    listWebhookItem_errorMessage,
     listWebhookItem_arn,
-    listWebhookItem_lastTriggered,
     listWebhookItem_errorCode,
+    listWebhookItem_errorMessage,
+    listWebhookItem_lastTriggered,
+    listWebhookItem_tags,
     listWebhookItem_definition,
     listWebhookItem_url,
 
@@ -470,17 +470,17 @@ module Amazonka.CodePipeline.Types
     -- * PipelineContext
     PipelineContext (..),
     newPipelineContext,
-    pipelineContext_pipelineExecutionId,
+    pipelineContext_action,
     pipelineContext_pipelineArn,
+    pipelineContext_pipelineExecutionId,
     pipelineContext_pipelineName,
     pipelineContext_stage,
-    pipelineContext_action,
 
     -- * PipelineDeclaration
     PipelineDeclaration (..),
     newPipelineDeclaration,
-    pipelineDeclaration_artifactStores,
     pipelineDeclaration_artifactStore,
+    pipelineDeclaration_artifactStores,
     pipelineDeclaration_version,
     pipelineDeclaration_name,
     pipelineDeclaration_roleArn,
@@ -489,37 +489,37 @@ module Amazonka.CodePipeline.Types
     -- * PipelineExecution
     PipelineExecution (..),
     newPipelineExecution,
-    pipelineExecution_pipelineExecutionId,
     pipelineExecution_artifactRevisions,
-    pipelineExecution_status,
-    pipelineExecution_pipelineVersion,
-    pipelineExecution_statusSummary,
+    pipelineExecution_pipelineExecutionId,
     pipelineExecution_pipelineName,
+    pipelineExecution_pipelineVersion,
+    pipelineExecution_status,
+    pipelineExecution_statusSummary,
 
     -- * PipelineExecutionSummary
     PipelineExecutionSummary (..),
     newPipelineExecutionSummary,
-    pipelineExecutionSummary_trigger,
-    pipelineExecutionSummary_pipelineExecutionId,
-    pipelineExecutionSummary_status,
-    pipelineExecutionSummary_sourceRevisions,
-    pipelineExecutionSummary_stopTrigger,
     pipelineExecutionSummary_lastUpdateTime,
+    pipelineExecutionSummary_pipelineExecutionId,
+    pipelineExecutionSummary_sourceRevisions,
     pipelineExecutionSummary_startTime,
+    pipelineExecutionSummary_status,
+    pipelineExecutionSummary_stopTrigger,
+    pipelineExecutionSummary_trigger,
 
     -- * PipelineMetadata
     PipelineMetadata (..),
     newPipelineMetadata,
-    pipelineMetadata_updated,
     pipelineMetadata_created,
     pipelineMetadata_pipelineArn,
+    pipelineMetadata_updated,
 
     -- * PipelineSummary
     PipelineSummary (..),
     newPipelineSummary,
+    pipelineSummary_created,
     pipelineSummary_name,
     pipelineSummary_updated,
-    pipelineSummary_created,
     pipelineSummary_version,
 
     -- * S3ArtifactLocation
@@ -531,15 +531,15 @@ module Amazonka.CodePipeline.Types
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_key,
     s3Location_bucket,
+    s3Location_key,
 
     -- * SourceRevision
     SourceRevision (..),
     newSourceRevision,
     sourceRevision_revisionId,
-    sourceRevision_revisionUrl,
     sourceRevision_revisionSummary,
+    sourceRevision_revisionUrl,
     sourceRevision_actionName,
 
     -- * StageContext
@@ -563,11 +563,11 @@ module Amazonka.CodePipeline.Types
     -- * StageState
     StageState (..),
     newStageState,
-    stageState_stageName,
-    stageState_inboundExecution,
     stageState_actionStates,
+    stageState_inboundExecution,
     stageState_inboundTransitionState,
     stageState_latestExecution,
+    stageState_stageName,
 
     -- * StopExecutionTrigger
     StopExecutionTrigger (..),
@@ -589,35 +589,35 @@ module Amazonka.CodePipeline.Types
     -- * ThirdPartyJobData
     ThirdPartyJobData (..),
     newThirdPartyJobData,
+    thirdPartyJobData_actionConfiguration,
     thirdPartyJobData_actionTypeId,
-    thirdPartyJobData_outputArtifacts,
     thirdPartyJobData_artifactCredentials,
     thirdPartyJobData_continuationToken,
-    thirdPartyJobData_actionConfiguration,
-    thirdPartyJobData_inputArtifacts,
     thirdPartyJobData_encryptionKey,
+    thirdPartyJobData_inputArtifacts,
+    thirdPartyJobData_outputArtifacts,
     thirdPartyJobData_pipelineContext,
 
     -- * ThirdPartyJobDetails
     ThirdPartyJobDetails (..),
     newThirdPartyJobDetails,
-    thirdPartyJobDetails_nonce,
-    thirdPartyJobDetails_id,
     thirdPartyJobDetails_data,
+    thirdPartyJobDetails_id,
+    thirdPartyJobDetails_nonce,
 
     -- * TransitionState
     TransitionState (..),
     newTransitionState,
-    transitionState_lastChangedAt,
     transitionState_disabledReason,
     transitionState_enabled,
+    transitionState_lastChangedAt,
     transitionState_lastChangedBy,
 
     -- * WebhookAuthConfiguration
     WebhookAuthConfiguration (..),
     newWebhookAuthConfiguration,
-    webhookAuthConfiguration_secretToken,
     webhookAuthConfiguration_allowedIPRange,
+    webhookAuthConfiguration_secretToken,
 
     -- * WebhookDefinition
     WebhookDefinition (..),
@@ -753,28 +753,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -782,13 +776,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -796,42 +794,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified resource tags are invalid.
-_InvalidTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTagsException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTagsException"
-
--- | The specified event filter rule is in an invalid format.
-_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidWebhookFilterPatternException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidWebhookFilterPatternException"
-
--- | The approval request already received a response or has expired.
-_InvalidApprovalTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidApprovalTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidApprovalTokenException"
-
--- | Unable to modify the tag due to a simultaneous update request.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | The action declaration was specified in an invalid format.
-_InvalidActionDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidActionDeclarationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidActionDeclarationException"
 
 -- | The specified action cannot be found.
 _ActionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -840,123 +805,33 @@ _ActionNotFoundException =
     defaultService
     "ActionNotFoundException"
 
--- | Exceeded the total size limit for all variables in the pipeline.
-_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OutputVariablesSizeExceededException =
+-- | The specified action type already exists with a different definition.
+_ActionTypeAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActionTypeAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "OutputVariablesSizeExceededException"
+    "ActionTypeAlreadyExistsException"
 
--- | The stage has failed in a later run of the pipeline and the
--- pipelineExecutionId associated with the request is out of date.
-_NotLatestPipelineExecutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotLatestPipelineExecutionException =
+-- | The specified action type cannot be found.
+_ActionTypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActionTypeNotFoundException =
   Core._MatchServiceError
     defaultService
-    "NotLatestPipelineExecutionException"
+    "ActionTypeNotFoundException"
 
--- | The tags limit for a resource has been exceeded.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | The approval action has already been approved or rejected.
+_ApprovalAlreadyCompletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ApprovalAlreadyCompletedException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "ApprovalAlreadyCompletedException"
 
--- | Unable to retry. The pipeline structure or stage state might have
--- changed while actions awaited retry, or the stage contains no failed
--- actions.
-_StageNotRetryableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StageNotRetryableException =
+-- | Unable to modify the tag due to a simultaneous update request.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "StageNotRetryableException"
-
--- | The job state was specified in an invalid format.
-_InvalidJobStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidJobStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidJobStateException"
-
--- | The request failed because of an unknown error, exception, or failure.
-_RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestFailedException =
-  Core._MatchServiceError
-    defaultService
-    "RequestFailedException"
-
--- | The nonce was specified in an invalid format.
-_InvalidNonceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNonceException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNonceException"
-
--- | The pipeline was specified in an invalid format or cannot be found.
-_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineNotFoundException"
-
--- | The resource was specified in an invalid format.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Reserved for future use.
-_InvalidBlockerDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidBlockerDeclarationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidBlockerDeclarationException"
-
--- | The number of pipelines associated with the AWS account has exceeded the
--- limit allowed for the account.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The job was specified in an invalid format or cannot be found.
-_InvalidJobException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidJobException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidJobException"
-
--- | The client token was specified in an invalid format
-_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClientTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidClientTokenException"
-
--- | The next token was specified in an invalid format. Make sure that the
--- next token you provide is the token returned by a previous call.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | The stage was specified in an invalid format or cannot be found.
-_StageNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StageNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "StageNotFoundException"
-
--- | The pipeline execution was specified in an invalid format or cannot be
--- found, or an execution ID does not belong to the specified pipeline.
-_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineExecutionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineExecutionNotFoundException"
+    "ConcurrentModificationException"
 
 -- | Your request cannot be handled because the pipeline is busy handling
 -- ongoing activities. Try again later.
@@ -965,72 +840,6 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
-
--- | The pipeline version was specified in an invalid format or cannot be
--- found.
-_PipelineVersionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineVersionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineVersionNotFoundException"
-
--- | The specified pipeline name is already in use.
-_PipelineNameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineNameInUseException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineNameInUseException"
-
--- | The structure was specified in an invalid format.
-_InvalidStructureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStructureException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidStructureException"
-
--- | The specified resource ARN is invalid.
-_InvalidArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArnException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidArnException"
-
--- | The stage declaration was specified in an invalid format.
-_InvalidStageDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStageDeclarationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidStageDeclarationException"
-
--- | The specified webhook was entered in an invalid format or cannot be
--- found.
-_WebhookNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WebhookNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "WebhookNotFoundException"
-
--- | The validation was specified in an invalid format.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-
--- | Unable to stop the pipeline execution. The execution might already be in
--- a @Stopped@ state, or it might no longer be in progress.
-_PipelineExecutionNotStoppableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineExecutionNotStoppableException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineExecutionNotStoppableException"
-
--- | The specified action type cannot be found.
-_ActionTypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActionTypeNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ActionTypeNotFoundException"
 
 -- | The pipeline execution is already in a @Stopping@ state. If you already
 -- chose to stop and wait, you cannot make that request again. You can
@@ -1043,12 +852,90 @@ _DuplicatedStopRequestException =
     defaultService
     "DuplicatedStopRequestException"
 
--- | The approval action has already been approved or rejected.
-_ApprovalAlreadyCompletedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ApprovalAlreadyCompletedException =
+-- | The action declaration was specified in an invalid format.
+_InvalidActionDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActionDeclarationException =
   Core._MatchServiceError
     defaultService
-    "ApprovalAlreadyCompletedException"
+    "InvalidActionDeclarationException"
+
+-- | The approval request already received a response or has expired.
+_InvalidApprovalTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidApprovalTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidApprovalTokenException"
+
+-- | The specified resource ARN is invalid.
+_InvalidArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArnException"
+
+-- | Reserved for future use.
+_InvalidBlockerDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBlockerDeclarationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidBlockerDeclarationException"
+
+-- | The client token was specified in an invalid format
+_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClientTokenException"
+
+-- | The job was specified in an invalid format or cannot be found.
+_InvalidJobException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidJobException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidJobException"
+
+-- | The job state was specified in an invalid format.
+_InvalidJobStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidJobStateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidJobStateException"
+
+-- | The next token was specified in an invalid format. Make sure that the
+-- next token you provide is the token returned by a previous call.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | The nonce was specified in an invalid format.
+_InvalidNonceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNonceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNonceException"
+
+-- | The stage declaration was specified in an invalid format.
+_InvalidStageDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStageDeclarationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidStageDeclarationException"
+
+-- | The structure was specified in an invalid format.
+_InvalidStructureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStructureException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidStructureException"
+
+-- | The specified resource tags are invalid.
+_InvalidTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTagsException"
 
 -- | The specified authentication type is in an invalid format.
 _InvalidWebhookAuthenticationParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1057,6 +944,13 @@ _InvalidWebhookAuthenticationParametersException =
     defaultService
     "InvalidWebhookAuthenticationParametersException"
 
+-- | The specified event filter rule is in an invalid format.
+_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidWebhookFilterPatternException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidWebhookFilterPatternException"
+
 -- | The job was specified in an invalid format or cannot be found.
 _JobNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _JobNotFoundException =
@@ -1064,9 +958,115 @@ _JobNotFoundException =
     defaultService
     "JobNotFoundException"
 
--- | The specified action type already exists with a different definition.
-_ActionTypeAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActionTypeAlreadyExistsException =
+-- | The number of pipelines associated with the AWS account has exceeded the
+-- limit allowed for the account.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "ActionTypeAlreadyExistsException"
+    "LimitExceededException"
+
+-- | The stage has failed in a later run of the pipeline and the
+-- pipelineExecutionId associated with the request is out of date.
+_NotLatestPipelineExecutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotLatestPipelineExecutionException =
+  Core._MatchServiceError
+    defaultService
+    "NotLatestPipelineExecutionException"
+
+-- | Exceeded the total size limit for all variables in the pipeline.
+_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OutputVariablesSizeExceededException =
+  Core._MatchServiceError
+    defaultService
+    "OutputVariablesSizeExceededException"
+
+-- | The pipeline execution was specified in an invalid format or cannot be
+-- found, or an execution ID does not belong to the specified pipeline.
+_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineExecutionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineExecutionNotFoundException"
+
+-- | Unable to stop the pipeline execution. The execution might already be in
+-- a @Stopped@ state, or it might no longer be in progress.
+_PipelineExecutionNotStoppableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineExecutionNotStoppableException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineExecutionNotStoppableException"
+
+-- | The specified pipeline name is already in use.
+_PipelineNameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineNameInUseException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineNameInUseException"
+
+-- | The pipeline was specified in an invalid format or cannot be found.
+_PipelineNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineNotFoundException"
+
+-- | The pipeline version was specified in an invalid format or cannot be
+-- found.
+_PipelineVersionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineVersionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineVersionNotFoundException"
+
+-- | The request failed because of an unknown error, exception, or failure.
+_RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestFailedException =
+  Core._MatchServiceError
+    defaultService
+    "RequestFailedException"
+
+-- | The resource was specified in an invalid format.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The stage was specified in an invalid format or cannot be found.
+_StageNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StageNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "StageNotFoundException"
+
+-- | Unable to retry. The pipeline structure or stage state might have
+-- changed while actions awaited retry, or the stage contains no failed
+-- actions.
+_StageNotRetryableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StageNotRetryableException =
+  Core._MatchServiceError
+    defaultService
+    "StageNotRetryableException"
+
+-- | The tags limit for a resource has been exceeded.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | The validation was specified in an invalid format.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+
+-- | The specified webhook was entered in an invalid format or cannot be
+-- found.
+_WebhookNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WebhookNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "WebhookNotFoundException"

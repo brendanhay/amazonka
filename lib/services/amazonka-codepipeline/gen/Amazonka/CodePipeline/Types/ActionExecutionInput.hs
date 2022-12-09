@@ -30,23 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionExecutionInput' smart constructor.
 data ActionExecutionInput = ActionExecutionInput'
-  { -- | Configuration data for an action execution with all variable references
-    -- replaced with their real values for the execution.
-    resolvedConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the IAM service role that performs the declared action. This
-    -- is assumed through the roleArn for the pipeline.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    actionTypeId :: Prelude.Maybe ActionTypeId,
+  { actionTypeId :: Prelude.Maybe ActionTypeId,
     -- | Configuration data for an action execution.
     configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The AWS Region for the action, such as us-east-1.
-    region :: Prelude.Maybe Prelude.Text,
     -- | Details of input artifacts of the action that correspond to the action
     -- execution.
     inputArtifacts :: Prelude.Maybe [ArtifactDetail],
     -- | The variable namespace associated with the action. All variables
     -- produced as output by this action fall under this namespace.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | The AWS Region for the action, such as us-east-1.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | Configuration data for an action execution with all variable references
+    -- replaced with their real values for the execution.
+    resolvedConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the IAM service role that performs the declared action. This
+    -- is assumed through the roleArn for the pipeline.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,46 +58,36 @@ data ActionExecutionInput = ActionExecutionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolvedConfiguration', 'actionExecutionInput_resolvedConfiguration' - Configuration data for an action execution with all variable references
--- replaced with their real values for the execution.
---
--- 'roleArn', 'actionExecutionInput_roleArn' - The ARN of the IAM service role that performs the declared action. This
--- is assumed through the roleArn for the pipeline.
---
 -- 'actionTypeId', 'actionExecutionInput_actionTypeId' - Undocumented member.
 --
 -- 'configuration', 'actionExecutionInput_configuration' - Configuration data for an action execution.
---
--- 'region', 'actionExecutionInput_region' - The AWS Region for the action, such as us-east-1.
 --
 -- 'inputArtifacts', 'actionExecutionInput_inputArtifacts' - Details of input artifacts of the action that correspond to the action
 -- execution.
 --
 -- 'namespace', 'actionExecutionInput_namespace' - The variable namespace associated with the action. All variables
 -- produced as output by this action fall under this namespace.
+--
+-- 'region', 'actionExecutionInput_region' - The AWS Region for the action, such as us-east-1.
+--
+-- 'resolvedConfiguration', 'actionExecutionInput_resolvedConfiguration' - Configuration data for an action execution with all variable references
+-- replaced with their real values for the execution.
+--
+-- 'roleArn', 'actionExecutionInput_roleArn' - The ARN of the IAM service role that performs the declared action. This
+-- is assumed through the roleArn for the pipeline.
 newActionExecutionInput ::
   ActionExecutionInput
 newActionExecutionInput =
   ActionExecutionInput'
-    { resolvedConfiguration =
+    { actionTypeId =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      actionTypeId = Prelude.Nothing,
       configuration = Prelude.Nothing,
-      region = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
-      namespace = Prelude.Nothing
+      namespace = Prelude.Nothing,
+      region = Prelude.Nothing,
+      resolvedConfiguration = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | Configuration data for an action execution with all variable references
--- replaced with their real values for the execution.
-actionExecutionInput_resolvedConfiguration :: Lens.Lens' ActionExecutionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-actionExecutionInput_resolvedConfiguration = Lens.lens (\ActionExecutionInput' {resolvedConfiguration} -> resolvedConfiguration) (\s@ActionExecutionInput' {} a -> s {resolvedConfiguration = a} :: ActionExecutionInput) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the IAM service role that performs the declared action. This
--- is assumed through the roleArn for the pipeline.
-actionExecutionInput_roleArn :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
-actionExecutionInput_roleArn = Lens.lens (\ActionExecutionInput' {roleArn} -> roleArn) (\s@ActionExecutionInput' {} a -> s {roleArn = a} :: ActionExecutionInput)
 
 -- | Undocumented member.
 actionExecutionInput_actionTypeId :: Lens.Lens' ActionExecutionInput (Prelude.Maybe ActionTypeId)
@@ -106,10 +96,6 @@ actionExecutionInput_actionTypeId = Lens.lens (\ActionExecutionInput' {actionTyp
 -- | Configuration data for an action execution.
 actionExecutionInput_configuration :: Lens.Lens' ActionExecutionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 actionExecutionInput_configuration = Lens.lens (\ActionExecutionInput' {configuration} -> configuration) (\s@ActionExecutionInput' {} a -> s {configuration = a} :: ActionExecutionInput) Prelude.. Lens.mapping Lens.coerced
-
--- | The AWS Region for the action, such as us-east-1.
-actionExecutionInput_region :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
-actionExecutionInput_region = Lens.lens (\ActionExecutionInput' {region} -> region) (\s@ActionExecutionInput' {} a -> s {region = a} :: ActionExecutionInput)
 
 -- | Details of input artifacts of the action that correspond to the action
 -- execution.
@@ -121,39 +107,53 @@ actionExecutionInput_inputArtifacts = Lens.lens (\ActionExecutionInput' {inputAr
 actionExecutionInput_namespace :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
 actionExecutionInput_namespace = Lens.lens (\ActionExecutionInput' {namespace} -> namespace) (\s@ActionExecutionInput' {} a -> s {namespace = a} :: ActionExecutionInput)
 
+-- | The AWS Region for the action, such as us-east-1.
+actionExecutionInput_region :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
+actionExecutionInput_region = Lens.lens (\ActionExecutionInput' {region} -> region) (\s@ActionExecutionInput' {} a -> s {region = a} :: ActionExecutionInput)
+
+-- | Configuration data for an action execution with all variable references
+-- replaced with their real values for the execution.
+actionExecutionInput_resolvedConfiguration :: Lens.Lens' ActionExecutionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionExecutionInput_resolvedConfiguration = Lens.lens (\ActionExecutionInput' {resolvedConfiguration} -> resolvedConfiguration) (\s@ActionExecutionInput' {} a -> s {resolvedConfiguration = a} :: ActionExecutionInput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the IAM service role that performs the declared action. This
+-- is assumed through the roleArn for the pipeline.
+actionExecutionInput_roleArn :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
+actionExecutionInput_roleArn = Lens.lens (\ActionExecutionInput' {roleArn} -> roleArn) (\s@ActionExecutionInput' {} a -> s {roleArn = a} :: ActionExecutionInput)
+
 instance Data.FromJSON ActionExecutionInput where
   parseJSON =
     Data.withObject
       "ActionExecutionInput"
       ( \x ->
           ActionExecutionInput'
-            Prelude.<$> ( x Data..:? "resolvedConfiguration"
+            Prelude.<$> (x Data..:? "actionTypeId")
+            Prelude.<*> (x Data..:? "configuration" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "region")
+            Prelude.<*> ( x Data..:? "resolvedConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "roleArn")
-            Prelude.<*> (x Data..:? "actionTypeId")
-            Prelude.<*> (x Data..:? "configuration" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "region")
-            Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "namespace")
       )
 
 instance Prelude.Hashable ActionExecutionInput where
   hashWithSalt _salt ActionExecutionInput' {..} =
-    _salt `Prelude.hashWithSalt` resolvedConfiguration
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` actionTypeId
+    _salt `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` resolvedConfiguration
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData ActionExecutionInput where
   rnf ActionExecutionInput' {..} =
-    Prelude.rnf resolvedConfiguration
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf actionTypeId
+    Prelude.rnf actionTypeId
       `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf inputArtifacts
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resolvedConfiguration
+      `Prelude.seq` Prelude.rnf roleArn

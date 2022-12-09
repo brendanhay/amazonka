@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionContext' smart constructor.
 data ActionContext = ActionContext'
-  { -- | The name of the action in the context of a job.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated unique ID that corresponds to an action\'s
+  { -- | The system-generated unique ID that corresponds to an action\'s
     -- execution.
-    actionExecutionId :: Prelude.Maybe Prelude.Text
+    actionExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the action in the context of a job.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data ActionContext = ActionContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'actionContext_name' - The name of the action in the context of a job.
---
 -- 'actionExecutionId', 'actionContext_actionExecutionId' - The system-generated unique ID that corresponds to an action\'s
 -- execution.
+--
+-- 'name', 'actionContext_name' - The name of the action in the context of a job.
 newActionContext ::
   ActionContext
 newActionContext =
   ActionContext'
-    { name = Prelude.Nothing,
-      actionExecutionId = Prelude.Nothing
+    { actionExecutionId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the action in the context of a job.
-actionContext_name :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
-actionContext_name = Lens.lens (\ActionContext' {name} -> name) (\s@ActionContext' {} a -> s {name = a} :: ActionContext)
 
 -- | The system-generated unique ID that corresponds to an action\'s
 -- execution.
 actionContext_actionExecutionId :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
 actionContext_actionExecutionId = Lens.lens (\ActionContext' {actionExecutionId} -> actionExecutionId) (\s@ActionContext' {} a -> s {actionExecutionId = a} :: ActionContext)
+
+-- | The name of the action in the context of a job.
+actionContext_name :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
+actionContext_name = Lens.lens (\ActionContext' {name} -> name) (\s@ActionContext' {} a -> s {name = a} :: ActionContext)
 
 instance Data.FromJSON ActionContext where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON ActionContext where
       "ActionContext"
       ( \x ->
           ActionContext'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "actionExecutionId")
+            Prelude.<$> (x Data..:? "actionExecutionId")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ActionContext where
   hashWithSalt _salt ActionContext' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` actionExecutionId
+    _salt `Prelude.hashWithSalt` actionExecutionId
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ActionContext where
   rnf ActionContext' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf actionExecutionId
+    Prelude.rnf actionExecutionId
+      `Prelude.seq` Prelude.rnf name

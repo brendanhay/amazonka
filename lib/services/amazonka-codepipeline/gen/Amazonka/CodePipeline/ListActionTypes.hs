@@ -30,9 +30,9 @@ module Amazonka.CodePipeline.ListActionTypes
     newListActionTypes,
 
     -- * Request Lenses
+    listActionTypes_actionOwnerFilter,
     listActionTypes_nextToken,
     listActionTypes_regionFilter,
-    listActionTypes_actionOwnerFilter,
 
     -- * Destructuring the Response
     ListActionTypesResponse (..),
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListActionTypes' smart constructor.
 data ListActionTypes = ListActionTypes'
-  { -- | An identifier that was returned from the previous list action types
+  { -- | Filters the list of action types to those created by a specified entity.
+    actionOwnerFilter :: Prelude.Maybe ActionOwner,
+    -- | An identifier that was returned from the previous list action types
     -- call, which can be used to return the next set of action types in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Region to filter on for the list of action types.
-    regionFilter :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of action types to those created by a specified entity.
-    actionOwnerFilter :: Prelude.Maybe ActionOwner
+    regionFilter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,21 +76,26 @@ data ListActionTypes = ListActionTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionOwnerFilter', 'listActionTypes_actionOwnerFilter' - Filters the list of action types to those created by a specified entity.
+--
 -- 'nextToken', 'listActionTypes_nextToken' - An identifier that was returned from the previous list action types
 -- call, which can be used to return the next set of action types in the
 -- list.
 --
 -- 'regionFilter', 'listActionTypes_regionFilter' - The Region to filter on for the list of action types.
---
--- 'actionOwnerFilter', 'listActionTypes_actionOwnerFilter' - Filters the list of action types to those created by a specified entity.
 newListActionTypes ::
   ListActionTypes
 newListActionTypes =
   ListActionTypes'
-    { nextToken = Prelude.Nothing,
-      regionFilter = Prelude.Nothing,
-      actionOwnerFilter = Prelude.Nothing
+    { actionOwnerFilter =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      regionFilter = Prelude.Nothing
     }
+
+-- | Filters the list of action types to those created by a specified entity.
+listActionTypes_actionOwnerFilter :: Lens.Lens' ListActionTypes (Prelude.Maybe ActionOwner)
+listActionTypes_actionOwnerFilter = Lens.lens (\ListActionTypes' {actionOwnerFilter} -> actionOwnerFilter) (\s@ListActionTypes' {} a -> s {actionOwnerFilter = a} :: ListActionTypes)
 
 -- | An identifier that was returned from the previous list action types
 -- call, which can be used to return the next set of action types in the
@@ -101,10 +106,6 @@ listActionTypes_nextToken = Lens.lens (\ListActionTypes' {nextToken} -> nextToke
 -- | The Region to filter on for the list of action types.
 listActionTypes_regionFilter :: Lens.Lens' ListActionTypes (Prelude.Maybe Prelude.Text)
 listActionTypes_regionFilter = Lens.lens (\ListActionTypes' {regionFilter} -> regionFilter) (\s@ListActionTypes' {} a -> s {regionFilter = a} :: ListActionTypes)
-
--- | Filters the list of action types to those created by a specified entity.
-listActionTypes_actionOwnerFilter :: Lens.Lens' ListActionTypes (Prelude.Maybe ActionOwner)
-listActionTypes_actionOwnerFilter = Lens.lens (\ListActionTypes' {actionOwnerFilter} -> actionOwnerFilter) (\s@ListActionTypes' {} a -> s {actionOwnerFilter = a} :: ListActionTypes)
 
 instance Core.AWSPager ListActionTypes where
   page rq rs
@@ -142,15 +143,15 @@ instance Core.AWSRequest ListActionTypes where
 
 instance Prelude.Hashable ListActionTypes where
   hashWithSalt _salt ListActionTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` actionOwnerFilter
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` regionFilter
-      `Prelude.hashWithSalt` actionOwnerFilter
 
 instance Prelude.NFData ListActionTypes where
   rnf ListActionTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf actionOwnerFilter
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf regionFilter
-      `Prelude.seq` Prelude.rnf actionOwnerFilter
 
 instance Data.ToHeaders ListActionTypes where
   toHeaders =
@@ -171,10 +172,10 @@ instance Data.ToJSON ListActionTypes where
   toJSON ListActionTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("regionFilter" Data..=) Prelude.<$> regionFilter,
-            ("actionOwnerFilter" Data..=)
-              Prelude.<$> actionOwnerFilter
+          [ ("actionOwnerFilter" Data..=)
+              Prelude.<$> actionOwnerFilter,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("regionFilter" Data..=) Prelude.<$> regionFilter
           ]
       )
 

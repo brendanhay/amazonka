@@ -30,19 +30,19 @@ import Amazonka.Route53RecoveryReadiness.Types.TargetResource
 --
 -- /See:/ 'newDNSTargetResource' smart constructor.
 data DNSTargetResource = DNSTargetResource'
-  { -- | The target resource of the DNS target resource.
-    targetResource :: Prelude.Maybe TargetResource,
+  { -- | The domain name that acts as an ingress point to a portion of the
+    -- customer application.
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | The hosted zone Amazon Resource Name (ARN) that contains the DNS record
     -- with the provided name of the target resource.
     hostedZoneArn :: Prelude.Maybe Prelude.Text,
-    -- | The domain name that acts as an ingress point to a portion of the
-    -- customer application.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | The Route 53 record set ID that uniquely identifies a DNS record, given
     -- a name and a type.
     recordSetId :: Prelude.Maybe Prelude.Text,
     -- | The type of DNS record of the target resource.
-    recordType :: Prelude.Maybe Prelude.Text
+    recordType :: Prelude.Maybe Prelude.Text,
+    -- | The target resource of the DNS target resource.
+    targetResource :: Prelude.Maybe TargetResource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,43 +54,38 @@ data DNSTargetResource = DNSTargetResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetResource', 'dNSTargetResource_targetResource' - The target resource of the DNS target resource.
+-- 'domainName', 'dNSTargetResource_domainName' - The domain name that acts as an ingress point to a portion of the
+-- customer application.
 --
 -- 'hostedZoneArn', 'dNSTargetResource_hostedZoneArn' - The hosted zone Amazon Resource Name (ARN) that contains the DNS record
 -- with the provided name of the target resource.
---
--- 'domainName', 'dNSTargetResource_domainName' - The domain name that acts as an ingress point to a portion of the
--- customer application.
 --
 -- 'recordSetId', 'dNSTargetResource_recordSetId' - The Route 53 record set ID that uniquely identifies a DNS record, given
 -- a name and a type.
 --
 -- 'recordType', 'dNSTargetResource_recordType' - The type of DNS record of the target resource.
+--
+-- 'targetResource', 'dNSTargetResource_targetResource' - The target resource of the DNS target resource.
 newDNSTargetResource ::
   DNSTargetResource
 newDNSTargetResource =
   DNSTargetResource'
-    { targetResource =
-        Prelude.Nothing,
+    { domainName = Prelude.Nothing,
       hostedZoneArn = Prelude.Nothing,
-      domainName = Prelude.Nothing,
       recordSetId = Prelude.Nothing,
-      recordType = Prelude.Nothing
+      recordType = Prelude.Nothing,
+      targetResource = Prelude.Nothing
     }
-
--- | The target resource of the DNS target resource.
-dNSTargetResource_targetResource :: Lens.Lens' DNSTargetResource (Prelude.Maybe TargetResource)
-dNSTargetResource_targetResource = Lens.lens (\DNSTargetResource' {targetResource} -> targetResource) (\s@DNSTargetResource' {} a -> s {targetResource = a} :: DNSTargetResource)
-
--- | The hosted zone Amazon Resource Name (ARN) that contains the DNS record
--- with the provided name of the target resource.
-dNSTargetResource_hostedZoneArn :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
-dNSTargetResource_hostedZoneArn = Lens.lens (\DNSTargetResource' {hostedZoneArn} -> hostedZoneArn) (\s@DNSTargetResource' {} a -> s {hostedZoneArn = a} :: DNSTargetResource)
 
 -- | The domain name that acts as an ingress point to a portion of the
 -- customer application.
 dNSTargetResource_domainName :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_domainName = Lens.lens (\DNSTargetResource' {domainName} -> domainName) (\s@DNSTargetResource' {} a -> s {domainName = a} :: DNSTargetResource)
+
+-- | The hosted zone Amazon Resource Name (ARN) that contains the DNS record
+-- with the provided name of the target resource.
+dNSTargetResource_hostedZoneArn :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
+dNSTargetResource_hostedZoneArn = Lens.lens (\DNSTargetResource' {hostedZoneArn} -> hostedZoneArn) (\s@DNSTargetResource' {} a -> s {hostedZoneArn = a} :: DNSTargetResource)
 
 -- | The Route 53 record set ID that uniquely identifies a DNS record, given
 -- a name and a type.
@@ -101,44 +96,48 @@ dNSTargetResource_recordSetId = Lens.lens (\DNSTargetResource' {recordSetId} -> 
 dNSTargetResource_recordType :: Lens.Lens' DNSTargetResource (Prelude.Maybe Prelude.Text)
 dNSTargetResource_recordType = Lens.lens (\DNSTargetResource' {recordType} -> recordType) (\s@DNSTargetResource' {} a -> s {recordType = a} :: DNSTargetResource)
 
+-- | The target resource of the DNS target resource.
+dNSTargetResource_targetResource :: Lens.Lens' DNSTargetResource (Prelude.Maybe TargetResource)
+dNSTargetResource_targetResource = Lens.lens (\DNSTargetResource' {targetResource} -> targetResource) (\s@DNSTargetResource' {} a -> s {targetResource = a} :: DNSTargetResource)
+
 instance Data.FromJSON DNSTargetResource where
   parseJSON =
     Data.withObject
       "DNSTargetResource"
       ( \x ->
           DNSTargetResource'
-            Prelude.<$> (x Data..:? "targetResource")
+            Prelude.<$> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "hostedZoneArn")
-            Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "recordSetId")
             Prelude.<*> (x Data..:? "recordType")
+            Prelude.<*> (x Data..:? "targetResource")
       )
 
 instance Prelude.Hashable DNSTargetResource where
   hashWithSalt _salt DNSTargetResource' {..} =
-    _salt `Prelude.hashWithSalt` targetResource
+    _salt `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` hostedZoneArn
-      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` recordSetId
       `Prelude.hashWithSalt` recordType
+      `Prelude.hashWithSalt` targetResource
 
 instance Prelude.NFData DNSTargetResource where
   rnf DNSTargetResource' {..} =
-    Prelude.rnf targetResource
+    Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf hostedZoneArn
-      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf recordSetId
       `Prelude.seq` Prelude.rnf recordType
+      `Prelude.seq` Prelude.rnf targetResource
 
 instance Data.ToJSON DNSTargetResource where
   toJSON DNSTargetResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetResource" Data..=)
-              Prelude.<$> targetResource,
+          [ ("domainName" Data..=) Prelude.<$> domainName,
             ("hostedZoneArn" Data..=) Prelude.<$> hostedZoneArn,
-            ("domainName" Data..=) Prelude.<$> domainName,
             ("recordSetId" Data..=) Prelude.<$> recordSetId,
-            ("recordType" Data..=) Prelude.<$> recordType
+            ("recordType" Data..=) Prelude.<$> recordType,
+            ("targetResource" Data..=)
+              Prelude.<$> targetResource
           ]
       )

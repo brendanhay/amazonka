@@ -29,8 +29,8 @@ module Amazonka.Route53RecoveryReadiness.ListReadinessChecks
     newListReadinessChecks,
 
     -- * Request Lenses
-    listReadinessChecks_nextToken,
     listReadinessChecks_maxResults,
+    listReadinessChecks_nextToken,
 
     -- * Destructuring the Response
     ListReadinessChecksResponse (..),
@@ -53,10 +53,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListReadinessChecks' smart constructor.
 data ListReadinessChecks = ListReadinessChecks'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListReadinessChecks = ListReadinessChecks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReadinessChecks_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listReadinessChecks_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listReadinessChecks_nextToken' - The token that identifies which batch of results you want to see.
 newListReadinessChecks ::
   ListReadinessChecks
 newListReadinessChecks =
   ListReadinessChecks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that identifies which batch of results you want to see.
-listReadinessChecks_nextToken :: Lens.Lens' ListReadinessChecks (Prelude.Maybe Prelude.Text)
-listReadinessChecks_nextToken = Lens.lens (\ListReadinessChecks' {nextToken} -> nextToken) (\s@ListReadinessChecks' {} a -> s {nextToken = a} :: ListReadinessChecks)
 
 -- | The number of objects that you want to return with this call.
 listReadinessChecks_maxResults :: Lens.Lens' ListReadinessChecks (Prelude.Maybe Prelude.Natural)
 listReadinessChecks_maxResults = Lens.lens (\ListReadinessChecks' {maxResults} -> maxResults) (\s@ListReadinessChecks' {} a -> s {maxResults = a} :: ListReadinessChecks)
+
+-- | The token that identifies which batch of results you want to see.
+listReadinessChecks_nextToken :: Lens.Lens' ListReadinessChecks (Prelude.Maybe Prelude.Text)
+listReadinessChecks_nextToken = Lens.lens (\ListReadinessChecks' {nextToken} -> nextToken) (\s@ListReadinessChecks' {} a -> s {nextToken = a} :: ListReadinessChecks)
 
 instance Core.AWSPager ListReadinessChecks where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListReadinessChecks where
 
 instance Prelude.Hashable ListReadinessChecks where
   hashWithSalt _salt ListReadinessChecks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReadinessChecks where
   rnf ListReadinessChecks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReadinessChecks where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToPath ListReadinessChecks where
 instance Data.ToQuery ListReadinessChecks where
   toQuery ListReadinessChecks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListReadinessChecksResponse' smart constructor.

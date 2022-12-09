@@ -30,8 +30,8 @@ module Amazonka.Route53RecoveryReadiness.ListCrossAccountAuthorizations
     newListCrossAccountAuthorizations,
 
     -- * Request Lenses
-    listCrossAccountAuthorizations_nextToken,
     listCrossAccountAuthorizations_maxResults,
+    listCrossAccountAuthorizations_nextToken,
 
     -- * Destructuring the Response
     ListCrossAccountAuthorizationsResponse (..),
@@ -54,10 +54,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListCrossAccountAuthorizations' smart constructor.
 data ListCrossAccountAuthorizations = ListCrossAccountAuthorizations'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,25 +69,25 @@ data ListCrossAccountAuthorizations = ListCrossAccountAuthorizations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCrossAccountAuthorizations_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listCrossAccountAuthorizations_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listCrossAccountAuthorizations_nextToken' - The token that identifies which batch of results you want to see.
 newListCrossAccountAuthorizations ::
   ListCrossAccountAuthorizations
 newListCrossAccountAuthorizations =
   ListCrossAccountAuthorizations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token that identifies which batch of results you want to see.
-listCrossAccountAuthorizations_nextToken :: Lens.Lens' ListCrossAccountAuthorizations (Prelude.Maybe Prelude.Text)
-listCrossAccountAuthorizations_nextToken = Lens.lens (\ListCrossAccountAuthorizations' {nextToken} -> nextToken) (\s@ListCrossAccountAuthorizations' {} a -> s {nextToken = a} :: ListCrossAccountAuthorizations)
 
 -- | The number of objects that you want to return with this call.
 listCrossAccountAuthorizations_maxResults :: Lens.Lens' ListCrossAccountAuthorizations (Prelude.Maybe Prelude.Natural)
 listCrossAccountAuthorizations_maxResults = Lens.lens (\ListCrossAccountAuthorizations' {maxResults} -> maxResults) (\s@ListCrossAccountAuthorizations' {} a -> s {maxResults = a} :: ListCrossAccountAuthorizations)
+
+-- | The token that identifies which batch of results you want to see.
+listCrossAccountAuthorizations_nextToken :: Lens.Lens' ListCrossAccountAuthorizations (Prelude.Maybe Prelude.Text)
+listCrossAccountAuthorizations_nextToken = Lens.lens (\ListCrossAccountAuthorizations' {nextToken} -> nextToken) (\s@ListCrossAccountAuthorizations' {} a -> s {nextToken = a} :: ListCrossAccountAuthorizations)
 
 instance Core.AWSPager ListCrossAccountAuthorizations where
   page rq rs
@@ -138,16 +138,16 @@ instance
   hashWithSalt
     _salt
     ListCrossAccountAuthorizations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListCrossAccountAuthorizations
   where
   rnf ListCrossAccountAuthorizations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -169,8 +169,8 @@ instance Data.ToPath ListCrossAccountAuthorizations where
 instance Data.ToQuery ListCrossAccountAuthorizations where
   toQuery ListCrossAccountAuthorizations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCrossAccountAuthorizationsResponse' smart constructor.

@@ -29,16 +29,16 @@ module Amazonka.Route53RecoveryReadiness.ListCells
     newListCells,
 
     -- * Request Lenses
-    listCells_nextToken,
     listCells_maxResults,
+    listCells_nextToken,
 
     -- * Destructuring the Response
     ListCellsResponse (..),
     newListCellsResponse,
 
     -- * Response Lenses
-    listCellsResponse_nextToken,
     listCellsResponse_cells,
+    listCellsResponse_nextToken,
     listCellsResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListCells' smart constructor.
 data ListCells = ListCells'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListCells = ListCells'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCells_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listCells_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listCells_nextToken' - The token that identifies which batch of results you want to see.
 newListCells ::
   ListCells
 newListCells =
   ListCells'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that identifies which batch of results you want to see.
-listCells_nextToken :: Lens.Lens' ListCells (Prelude.Maybe Prelude.Text)
-listCells_nextToken = Lens.lens (\ListCells' {nextToken} -> nextToken) (\s@ListCells' {} a -> s {nextToken = a} :: ListCells)
 
 -- | The number of objects that you want to return with this call.
 listCells_maxResults :: Lens.Lens' ListCells (Prelude.Maybe Prelude.Natural)
 listCells_maxResults = Lens.lens (\ListCells' {maxResults} -> maxResults) (\s@ListCells' {} a -> s {maxResults = a} :: ListCells)
+
+-- | The token that identifies which batch of results you want to see.
+listCells_nextToken :: Lens.Lens' ListCells (Prelude.Maybe Prelude.Text)
+listCells_nextToken = Lens.lens (\ListCells' {nextToken} -> nextToken) (\s@ListCells' {} a -> s {nextToken = a} :: ListCells)
 
 instance Core.AWSPager ListCells where
   page rq rs
@@ -114,20 +114,20 @@ instance Core.AWSRequest ListCells where
     Response.receiveJSON
       ( \s h x ->
           ListCellsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCells where
   hashWithSalt _salt ListCells' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCells where
   rnf ListCells' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCells where
   toHeaders =
@@ -146,16 +146,16 @@ instance Data.ToPath ListCells where
 instance Data.ToQuery ListCells where
   toQuery ListCells' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCellsResponse' smart constructor.
 data ListCellsResponse = ListCellsResponse'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of cells.
+  { -- | A list of cells.
     cells :: Prelude.Maybe [CellOutput],
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,9 +169,9 @@ data ListCellsResponse = ListCellsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCellsResponse_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'cells', 'listCellsResponse_cells' - A list of cells.
+--
+-- 'nextToken', 'listCellsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'httpStatus', 'listCellsResponse_httpStatus' - The response's http status code.
 newListCellsResponse ::
@@ -180,18 +180,18 @@ newListCellsResponse ::
   ListCellsResponse
 newListCellsResponse pHttpStatus_ =
   ListCellsResponse'
-    { nextToken = Prelude.Nothing,
-      cells = Prelude.Nothing,
+    { cells = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token that identifies which batch of results you want to see.
-listCellsResponse_nextToken :: Lens.Lens' ListCellsResponse (Prelude.Maybe Prelude.Text)
-listCellsResponse_nextToken = Lens.lens (\ListCellsResponse' {nextToken} -> nextToken) (\s@ListCellsResponse' {} a -> s {nextToken = a} :: ListCellsResponse)
 
 -- | A list of cells.
 listCellsResponse_cells :: Lens.Lens' ListCellsResponse (Prelude.Maybe [CellOutput])
 listCellsResponse_cells = Lens.lens (\ListCellsResponse' {cells} -> cells) (\s@ListCellsResponse' {} a -> s {cells = a} :: ListCellsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token that identifies which batch of results you want to see.
+listCellsResponse_nextToken :: Lens.Lens' ListCellsResponse (Prelude.Maybe Prelude.Text)
+listCellsResponse_nextToken = Lens.lens (\ListCellsResponse' {nextToken} -> nextToken) (\s@ListCellsResponse' {} a -> s {nextToken = a} :: ListCellsResponse)
 
 -- | The response's http status code.
 listCellsResponse_httpStatus :: Lens.Lens' ListCellsResponse Prelude.Int
@@ -199,6 +199,6 @@ listCellsResponse_httpStatus = Lens.lens (\ListCellsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListCellsResponse where
   rnf ListCellsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf cells
+    Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

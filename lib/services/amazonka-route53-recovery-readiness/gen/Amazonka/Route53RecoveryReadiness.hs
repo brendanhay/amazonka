@@ -22,14 +22,14 @@ module Amazonka.Route53RecoveryReadiness
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** ThrottlingException
     _ThrottlingException,

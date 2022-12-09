@@ -28,8 +28,8 @@ module Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
     newGetArchitectureRecommendations,
 
     -- * Request Lenses
-    getArchitectureRecommendations_nextToken,
     getArchitectureRecommendations_maxResults,
+    getArchitectureRecommendations_nextToken,
     getArchitectureRecommendations_recoveryGroupName,
 
     -- * Destructuring the Response
@@ -37,9 +37,9 @@ module Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
     newGetArchitectureRecommendationsResponse,
 
     -- * Response Lenses
+    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_nextToken,
     getArchitectureRecommendationsResponse_recommendations,
-    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetArchitectureRecommendations' smart constructor.
 data GetArchitectureRecommendations = GetArchitectureRecommendations'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
+  { -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data GetArchitectureRecommendations = GetArchitectureRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getArchitectureRecommendations_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'getArchitectureRecommendations_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'getArchitectureRecommendations_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'recoveryGroupName', 'getArchitectureRecommendations_recoveryGroupName' - The name of a recovery group.
 newGetArchitectureRecommendations ::
@@ -82,19 +82,19 @@ newGetArchitectureRecommendations ::
   GetArchitectureRecommendations
 newGetArchitectureRecommendations pRecoveryGroupName_ =
   GetArchitectureRecommendations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       recoveryGroupName = pRecoveryGroupName_
     }
-
--- | The token that identifies which batch of results you want to see.
-getArchitectureRecommendations_nextToken :: Lens.Lens' GetArchitectureRecommendations (Prelude.Maybe Prelude.Text)
-getArchitectureRecommendations_nextToken = Lens.lens (\GetArchitectureRecommendations' {nextToken} -> nextToken) (\s@GetArchitectureRecommendations' {} a -> s {nextToken = a} :: GetArchitectureRecommendations)
 
 -- | The number of objects that you want to return with this call.
 getArchitectureRecommendations_maxResults :: Lens.Lens' GetArchitectureRecommendations (Prelude.Maybe Prelude.Natural)
 getArchitectureRecommendations_maxResults = Lens.lens (\GetArchitectureRecommendations' {maxResults} -> maxResults) (\s@GetArchitectureRecommendations' {} a -> s {maxResults = a} :: GetArchitectureRecommendations)
+
+-- | The token that identifies which batch of results you want to see.
+getArchitectureRecommendations_nextToken :: Lens.Lens' GetArchitectureRecommendations (Prelude.Maybe Prelude.Text)
+getArchitectureRecommendations_nextToken = Lens.lens (\GetArchitectureRecommendations' {nextToken} -> nextToken) (\s@GetArchitectureRecommendations' {} a -> s {nextToken = a} :: GetArchitectureRecommendations)
 
 -- | The name of a recovery group.
 getArchitectureRecommendations_recoveryGroupName :: Lens.Lens' GetArchitectureRecommendations Prelude.Text
@@ -113,11 +113,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetArchitectureRecommendationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "lastAuditTimestamp")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> ( x Data..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "lastAuditTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,8 +128,8 @@ instance
   hashWithSalt
     _salt
     GetArchitectureRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` recoveryGroupName
 
 instance
@@ -137,8 +137,8 @@ instance
     GetArchitectureRecommendations
   where
   rnf GetArchitectureRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recoveryGroupName
 
 instance
@@ -166,19 +166,19 @@ instance Data.ToPath GetArchitectureRecommendations where
 instance Data.ToQuery GetArchitectureRecommendations where
   toQuery GetArchitectureRecommendations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetArchitectureRecommendationsResponse' smart constructor.
 data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResponse'
-  { -- | The token that identifies which batch of results you want to see.
+  { -- | The time that a recovery group was last assessed for recommendations, in
+    -- UTC ISO-8601 format.
+    lastAuditTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the recommendations for the customer\'s application.
     recommendations :: Prelude.Maybe [Recommendation],
-    -- | The time that a recovery group was last assessed for recommendations, in
-    -- UTC ISO-8601 format.
-    lastAuditTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,12 +192,12 @@ data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time that a recovery group was last assessed for recommendations, in
+-- UTC ISO-8601 format.
+--
 -- 'nextToken', 'getArchitectureRecommendationsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'recommendations', 'getArchitectureRecommendationsResponse_recommendations' - A list of the recommendations for the customer\'s application.
---
--- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time that a recovery group was last assessed for recommendations, in
--- UTC ISO-8601 format.
 --
 -- 'httpStatus', 'getArchitectureRecommendationsResponse_httpStatus' - The response's http status code.
 newGetArchitectureRecommendationsResponse ::
@@ -207,13 +207,17 @@ newGetArchitectureRecommendationsResponse ::
 newGetArchitectureRecommendationsResponse
   pHttpStatus_ =
     GetArchitectureRecommendationsResponse'
-      { nextToken =
+      { lastAuditTimestamp =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         recommendations = Prelude.Nothing,
-        lastAuditTimestamp =
-          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The time that a recovery group was last assessed for recommendations, in
+-- UTC ISO-8601 format.
+getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
+getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The token that identifies which batch of results you want to see.
 getArchitectureRecommendationsResponse_nextToken :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.Text)
@@ -222,11 +226,6 @@ getArchitectureRecommendationsResponse_nextToken = Lens.lens (\GetArchitectureRe
 -- | A list of the recommendations for the customer\'s application.
 getArchitectureRecommendationsResponse_recommendations :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe [Recommendation])
 getArchitectureRecommendationsResponse_recommendations = Lens.lens (\GetArchitectureRecommendationsResponse' {recommendations} -> recommendations) (\s@GetArchitectureRecommendationsResponse' {} a -> s {recommendations = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time that a recovery group was last assessed for recommendations, in
--- UTC ISO-8601 format.
-getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
-getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getArchitectureRecommendationsResponse_httpStatus :: Lens.Lens' GetArchitectureRecommendationsResponse Prelude.Int
@@ -237,7 +236,7 @@ instance
     GetArchitectureRecommendationsResponse
   where
   rnf GetArchitectureRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf lastAuditTimestamp
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recommendations
-      `Prelude.seq` Prelude.rnf lastAuditTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

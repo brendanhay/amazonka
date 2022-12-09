@@ -15,14 +15,14 @@ module Amazonka.Route53RecoveryReadiness.Lens
   ( -- * Operations
 
     -- ** CreateCell
-    createCell_tags,
     createCell_cells,
+    createCell_tags,
     createCell_cellName,
-    createCellResponse_tags,
-    createCellResponse_parentReadinessScopes,
     createCellResponse_cellArn,
     createCellResponse_cellName,
     createCellResponse_cells,
+    createCellResponse_parentReadinessScopes,
+    createCellResponse_tags,
     createCellResponse_httpStatus,
 
     -- ** CreateCrossAccountAuthorization
@@ -34,20 +34,20 @@ module Amazonka.Route53RecoveryReadiness.Lens
     createReadinessCheck_tags,
     createReadinessCheck_resourceSetName,
     createReadinessCheck_readinessCheckName,
-    createReadinessCheckResponse_tags,
-    createReadinessCheckResponse_resourceSet,
-    createReadinessCheckResponse_readinessCheckName,
     createReadinessCheckResponse_readinessCheckArn,
+    createReadinessCheckResponse_readinessCheckName,
+    createReadinessCheckResponse_resourceSet,
+    createReadinessCheckResponse_tags,
     createReadinessCheckResponse_httpStatus,
 
     -- ** CreateRecoveryGroup
-    createRecoveryGroup_tags,
     createRecoveryGroup_cells,
+    createRecoveryGroup_tags,
     createRecoveryGroup_recoveryGroupName,
-    createRecoveryGroupResponse_tags,
+    createRecoveryGroupResponse_cells,
     createRecoveryGroupResponse_recoveryGroupArn,
     createRecoveryGroupResponse_recoveryGroupName,
-    createRecoveryGroupResponse_cells,
+    createRecoveryGroupResponse_tags,
     createRecoveryGroupResponse_httpStatus,
 
     -- ** CreateResourceSet
@@ -55,11 +55,11 @@ module Amazonka.Route53RecoveryReadiness.Lens
     createResourceSet_resourceSetType,
     createResourceSet_resourceSetName,
     createResourceSet_resources,
-    createResourceSetResponse_tags,
-    createResourceSetResponse_resourceSetType,
-    createResourceSetResponse_resourceSetName,
-    createResourceSetResponse_resources,
     createResourceSetResponse_resourceSetArn,
+    createResourceSetResponse_resourceSetName,
+    createResourceSetResponse_resourceSetType,
+    createResourceSetResponse_resources,
+    createResourceSetResponse_tags,
     createResourceSetResponse_httpStatus,
 
     -- ** DeleteCell
@@ -79,26 +79,26 @@ module Amazonka.Route53RecoveryReadiness.Lens
     deleteResourceSet_resourceSetName,
 
     -- ** GetArchitectureRecommendations
-    getArchitectureRecommendations_nextToken,
     getArchitectureRecommendations_maxResults,
+    getArchitectureRecommendations_nextToken,
     getArchitectureRecommendations_recoveryGroupName,
+    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_nextToken,
     getArchitectureRecommendationsResponse_recommendations,
-    getArchitectureRecommendationsResponse_lastAuditTimestamp,
     getArchitectureRecommendationsResponse_httpStatus,
 
     -- ** GetCell
     getCell_cellName,
-    getCellResponse_tags,
-    getCellResponse_parentReadinessScopes,
     getCellResponse_cellArn,
     getCellResponse_cellName,
     getCellResponse_cells,
+    getCellResponse_parentReadinessScopes,
+    getCellResponse_tags,
     getCellResponse_httpStatus,
 
     -- ** GetCellReadinessSummary
-    getCellReadinessSummary_nextToken,
     getCellReadinessSummary_maxResults,
+    getCellReadinessSummary_nextToken,
     getCellReadinessSummary_cellName,
     getCellReadinessSummaryResponse_nextToken,
     getCellReadinessSummaryResponse_readiness,
@@ -107,15 +107,15 @@ module Amazonka.Route53RecoveryReadiness.Lens
 
     -- ** GetReadinessCheck
     getReadinessCheck_readinessCheckName,
-    getReadinessCheckResponse_tags,
-    getReadinessCheckResponse_resourceSet,
-    getReadinessCheckResponse_readinessCheckName,
     getReadinessCheckResponse_readinessCheckArn,
+    getReadinessCheckResponse_readinessCheckName,
+    getReadinessCheckResponse_resourceSet,
+    getReadinessCheckResponse_tags,
     getReadinessCheckResponse_httpStatus,
 
     -- ** GetReadinessCheckResourceStatus
-    getReadinessCheckResourceStatus_nextToken,
     getReadinessCheckResourceStatus_maxResults,
+    getReadinessCheckResourceStatus_nextToken,
     getReadinessCheckResourceStatus_readinessCheckName,
     getReadinessCheckResourceStatus_resourceIdentifier,
     getReadinessCheckResourceStatusResponse_nextToken,
@@ -124,26 +124,26 @@ module Amazonka.Route53RecoveryReadiness.Lens
     getReadinessCheckResourceStatusResponse_httpStatus,
 
     -- ** GetReadinessCheckStatus
-    getReadinessCheckStatus_nextToken,
     getReadinessCheckStatus_maxResults,
+    getReadinessCheckStatus_nextToken,
     getReadinessCheckStatus_readinessCheckName,
+    getReadinessCheckStatusResponse_messages,
     getReadinessCheckStatusResponse_nextToken,
     getReadinessCheckStatusResponse_readiness,
-    getReadinessCheckStatusResponse_messages,
     getReadinessCheckStatusResponse_resources,
     getReadinessCheckStatusResponse_httpStatus,
 
     -- ** GetRecoveryGroup
     getRecoveryGroup_recoveryGroupName,
-    getRecoveryGroupResponse_tags,
+    getRecoveryGroupResponse_cells,
     getRecoveryGroupResponse_recoveryGroupArn,
     getRecoveryGroupResponse_recoveryGroupName,
-    getRecoveryGroupResponse_cells,
+    getRecoveryGroupResponse_tags,
     getRecoveryGroupResponse_httpStatus,
 
     -- ** GetRecoveryGroupReadinessSummary
-    getRecoveryGroupReadinessSummary_nextToken,
     getRecoveryGroupReadinessSummary_maxResults,
+    getRecoveryGroupReadinessSummary_nextToken,
     getRecoveryGroupReadinessSummary_recoveryGroupName,
     getRecoveryGroupReadinessSummaryResponse_nextToken,
     getRecoveryGroupReadinessSummaryResponse_readiness,
@@ -152,52 +152,52 @@ module Amazonka.Route53RecoveryReadiness.Lens
 
     -- ** GetResourceSet
     getResourceSet_resourceSetName,
-    getResourceSetResponse_tags,
-    getResourceSetResponse_resourceSetType,
-    getResourceSetResponse_resourceSetName,
-    getResourceSetResponse_resources,
     getResourceSetResponse_resourceSetArn,
+    getResourceSetResponse_resourceSetName,
+    getResourceSetResponse_resourceSetType,
+    getResourceSetResponse_resources,
+    getResourceSetResponse_tags,
     getResourceSetResponse_httpStatus,
 
     -- ** ListCells
-    listCells_nextToken,
     listCells_maxResults,
-    listCellsResponse_nextToken,
+    listCells_nextToken,
     listCellsResponse_cells,
+    listCellsResponse_nextToken,
     listCellsResponse_httpStatus,
 
     -- ** ListCrossAccountAuthorizations
-    listCrossAccountAuthorizations_nextToken,
     listCrossAccountAuthorizations_maxResults,
+    listCrossAccountAuthorizations_nextToken,
     listCrossAccountAuthorizationsResponse_crossAccountAuthorizations,
     listCrossAccountAuthorizationsResponse_nextToken,
     listCrossAccountAuthorizationsResponse_httpStatus,
 
     -- ** ListReadinessChecks
-    listReadinessChecks_nextToken,
     listReadinessChecks_maxResults,
+    listReadinessChecks_nextToken,
     listReadinessChecksResponse_nextToken,
     listReadinessChecksResponse_readinessChecks,
     listReadinessChecksResponse_httpStatus,
 
     -- ** ListRecoveryGroups
-    listRecoveryGroups_nextToken,
     listRecoveryGroups_maxResults,
+    listRecoveryGroups_nextToken,
     listRecoveryGroupsResponse_nextToken,
     listRecoveryGroupsResponse_recoveryGroups,
     listRecoveryGroupsResponse_httpStatus,
 
     -- ** ListResourceSets
-    listResourceSets_nextToken,
     listResourceSets_maxResults,
+    listResourceSets_nextToken,
     listResourceSetsResponse_nextToken,
     listResourceSetsResponse_resourceSets,
     listResourceSetsResponse_httpStatus,
 
     -- ** ListRules
-    listRules_resourceType,
-    listRules_nextToken,
     listRules_maxResults,
+    listRules_nextToken,
+    listRules_resourceType,
     listRulesResponse_nextToken,
     listRulesResponse_rules,
     listRulesResponse_httpStatus,
@@ -219,40 +219,40 @@ module Amazonka.Route53RecoveryReadiness.Lens
     -- ** UpdateCell
     updateCell_cellName,
     updateCell_cells,
-    updateCellResponse_tags,
-    updateCellResponse_parentReadinessScopes,
     updateCellResponse_cellArn,
     updateCellResponse_cellName,
     updateCellResponse_cells,
+    updateCellResponse_parentReadinessScopes,
+    updateCellResponse_tags,
     updateCellResponse_httpStatus,
 
     -- ** UpdateReadinessCheck
     updateReadinessCheck_readinessCheckName,
     updateReadinessCheck_resourceSetName,
-    updateReadinessCheckResponse_tags,
-    updateReadinessCheckResponse_resourceSet,
-    updateReadinessCheckResponse_readinessCheckName,
     updateReadinessCheckResponse_readinessCheckArn,
+    updateReadinessCheckResponse_readinessCheckName,
+    updateReadinessCheckResponse_resourceSet,
+    updateReadinessCheckResponse_tags,
     updateReadinessCheckResponse_httpStatus,
 
     -- ** UpdateRecoveryGroup
     updateRecoveryGroup_recoveryGroupName,
     updateRecoveryGroup_cells,
-    updateRecoveryGroupResponse_tags,
+    updateRecoveryGroupResponse_cells,
     updateRecoveryGroupResponse_recoveryGroupArn,
     updateRecoveryGroupResponse_recoveryGroupName,
-    updateRecoveryGroupResponse_cells,
+    updateRecoveryGroupResponse_tags,
     updateRecoveryGroupResponse_httpStatus,
 
     -- ** UpdateResourceSet
     updateResourceSet_resourceSetName,
     updateResourceSet_resourceSetType,
     updateResourceSet_resources,
-    updateResourceSetResponse_tags,
-    updateResourceSetResponse_resourceSetType,
-    updateResourceSetResponse_resourceSetName,
-    updateResourceSetResponse_resources,
     updateResourceSetResponse_resourceSetArn,
+    updateResourceSetResponse_resourceSetName,
+    updateResourceSetResponse_resourceSetType,
+    updateResourceSetResponse_resources,
+    updateResourceSetResponse_tags,
     updateResourceSetResponse_httpStatus,
 
     -- * Types
@@ -265,11 +265,11 @@ module Amazonka.Route53RecoveryReadiness.Lens
     cellOutput_cells,
 
     -- ** DNSTargetResource
-    dNSTargetResource_targetResource,
-    dNSTargetResource_hostedZoneArn,
     dNSTargetResource_domainName,
+    dNSTargetResource_hostedZoneArn,
     dNSTargetResource_recordSetId,
     dNSTargetResource_recordType,
+    dNSTargetResource_targetResource,
 
     -- ** ListRulesOutput
     listRulesOutput_ruleDescription,
@@ -287,8 +287,8 @@ module Amazonka.Route53RecoveryReadiness.Lens
     r53ResourceRecord_recordSetId,
 
     -- ** ReadinessCheckOutput
-    readinessCheckOutput_tags,
     readinessCheckOutput_readinessCheckName,
+    readinessCheckOutput_tags,
     readinessCheckOutput_readinessCheckArn,
     readinessCheckOutput_resourceSet,
 
@@ -306,14 +306,14 @@ module Amazonka.Route53RecoveryReadiness.Lens
     recoveryGroupOutput_cells,
 
     -- ** Resource
-    resource_readinessScopes,
-    resource_dnsTargetResource,
-    resource_resourceArn,
     resource_componentId,
+    resource_dnsTargetResource,
+    resource_readinessScopes,
+    resource_resourceArn,
 
     -- ** ResourceResult
-    resourceResult_resourceArn,
     resourceResult_componentId,
+    resourceResult_resourceArn,
     resourceResult_readiness,
     resourceResult_lastCheckedTimestamp,
 

@@ -31,8 +31,8 @@ module Amazonka.Route53RecoveryReadiness.GetRecoveryGroupReadinessSummary
     newGetRecoveryGroupReadinessSummary,
 
     -- * Request Lenses
-    getRecoveryGroupReadinessSummary_nextToken,
     getRecoveryGroupReadinessSummary_maxResults,
+    getRecoveryGroupReadinessSummary_nextToken,
     getRecoveryGroupReadinessSummary_recoveryGroupName,
 
     -- * Destructuring the Response
@@ -57,10 +57,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetRecoveryGroupReadinessSummary' smart constructor.
 data GetRecoveryGroupReadinessSummary = GetRecoveryGroupReadinessSummary'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
+  { -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
@@ -74,9 +74,9 @@ data GetRecoveryGroupReadinessSummary = GetRecoveryGroupReadinessSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getRecoveryGroupReadinessSummary_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'getRecoveryGroupReadinessSummary_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'getRecoveryGroupReadinessSummary_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'recoveryGroupName', 'getRecoveryGroupReadinessSummary_recoveryGroupName' - The name of a recovery group.
 newGetRecoveryGroupReadinessSummary ::
@@ -86,19 +86,19 @@ newGetRecoveryGroupReadinessSummary ::
 newGetRecoveryGroupReadinessSummary
   pRecoveryGroupName_ =
     GetRecoveryGroupReadinessSummary'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         recoveryGroupName = pRecoveryGroupName_
       }
-
--- | The token that identifies which batch of results you want to see.
-getRecoveryGroupReadinessSummary_nextToken :: Lens.Lens' GetRecoveryGroupReadinessSummary (Prelude.Maybe Prelude.Text)
-getRecoveryGroupReadinessSummary_nextToken = Lens.lens (\GetRecoveryGroupReadinessSummary' {nextToken} -> nextToken) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {nextToken = a} :: GetRecoveryGroupReadinessSummary)
 
 -- | The number of objects that you want to return with this call.
 getRecoveryGroupReadinessSummary_maxResults :: Lens.Lens' GetRecoveryGroupReadinessSummary (Prelude.Maybe Prelude.Natural)
 getRecoveryGroupReadinessSummary_maxResults = Lens.lens (\GetRecoveryGroupReadinessSummary' {maxResults} -> maxResults) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {maxResults = a} :: GetRecoveryGroupReadinessSummary)
+
+-- | The token that identifies which batch of results you want to see.
+getRecoveryGroupReadinessSummary_nextToken :: Lens.Lens' GetRecoveryGroupReadinessSummary (Prelude.Maybe Prelude.Text)
+getRecoveryGroupReadinessSummary_nextToken = Lens.lens (\GetRecoveryGroupReadinessSummary' {nextToken} -> nextToken) (\s@GetRecoveryGroupReadinessSummary' {} a -> s {nextToken = a} :: GetRecoveryGroupReadinessSummary)
 
 -- | The name of a recovery group.
 getRecoveryGroupReadinessSummary_recoveryGroupName :: Lens.Lens' GetRecoveryGroupReadinessSummary Prelude.Text
@@ -157,8 +157,8 @@ instance
   hashWithSalt
     _salt
     GetRecoveryGroupReadinessSummary' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` recoveryGroupName
 
 instance
@@ -166,8 +166,8 @@ instance
     GetRecoveryGroupReadinessSummary
   where
   rnf GetRecoveryGroupReadinessSummary' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recoveryGroupName
 
 instance
@@ -197,8 +197,8 @@ instance
   where
   toQuery GetRecoveryGroupReadinessSummary' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetRecoveryGroupReadinessSummaryResponse' smart constructor.

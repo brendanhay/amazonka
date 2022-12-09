@@ -29,16 +29,16 @@ import Amazonka.Route53RecoveryReadiness.Types.DNSTargetResource
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that
-    -- this resource is contained within.
-    readinessScopes :: Prelude.Maybe [Prelude.Text],
+  { -- | The component identifier of the resource, generated when DNS target
+    -- resource is used.
+    componentId :: Prelude.Maybe Prelude.Text,
     -- | The DNS target resource.
     dnsTargetResource :: Prelude.Maybe DNSTargetResource,
+    -- | A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that
+    -- this resource is contained within.
+    readinessScopes :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the Amazon Web Services resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The component identifier of the resource, generated when DNS target
-    -- resource is used.
-    componentId :: Prelude.Maybe Prelude.Text
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,42 +50,42 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessScopes', 'resource_readinessScopes' - A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that
--- this resource is contained within.
+-- 'componentId', 'resource_componentId' - The component identifier of the resource, generated when DNS target
+-- resource is used.
 --
 -- 'dnsTargetResource', 'resource_dnsTargetResource' - The DNS target resource.
 --
--- 'resourceArn', 'resource_resourceArn' - The Amazon Resource Name (ARN) of the Amazon Web Services resource.
+-- 'readinessScopes', 'resource_readinessScopes' - A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that
+-- this resource is contained within.
 --
--- 'componentId', 'resource_componentId' - The component identifier of the resource, generated when DNS target
--- resource is used.
+-- 'resourceArn', 'resource_resourceArn' - The Amazon Resource Name (ARN) of the Amazon Web Services resource.
 newResource ::
   Resource
 newResource =
   Resource'
-    { readinessScopes = Prelude.Nothing,
+    { componentId = Prelude.Nothing,
       dnsTargetResource = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
-      componentId = Prelude.Nothing
+      readinessScopes = Prelude.Nothing,
+      resourceArn = Prelude.Nothing
     }
+
+-- | The component identifier of the resource, generated when DNS target
+-- resource is used.
+resource_componentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_componentId = Lens.lens (\Resource' {componentId} -> componentId) (\s@Resource' {} a -> s {componentId = a} :: Resource)
+
+-- | The DNS target resource.
+resource_dnsTargetResource :: Lens.Lens' Resource (Prelude.Maybe DNSTargetResource)
+resource_dnsTargetResource = Lens.lens (\Resource' {dnsTargetResource} -> dnsTargetResource) (\s@Resource' {} a -> s {dnsTargetResource = a} :: Resource)
 
 -- | A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that
 -- this resource is contained within.
 resource_readinessScopes :: Lens.Lens' Resource (Prelude.Maybe [Prelude.Text])
 resource_readinessScopes = Lens.lens (\Resource' {readinessScopes} -> readinessScopes) (\s@Resource' {} a -> s {readinessScopes = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
--- | The DNS target resource.
-resource_dnsTargetResource :: Lens.Lens' Resource (Prelude.Maybe DNSTargetResource)
-resource_dnsTargetResource = Lens.lens (\Resource' {dnsTargetResource} -> dnsTargetResource) (\s@Resource' {} a -> s {dnsTargetResource = a} :: Resource)
-
 -- | The Amazon Resource Name (ARN) of the Amazon Web Services resource.
 resource_resourceArn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceArn = Lens.lens (\Resource' {resourceArn} -> resourceArn) (\s@Resource' {} a -> s {resourceArn = a} :: Resource)
-
--- | The component identifier of the resource, generated when DNS target
--- resource is used.
-resource_componentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_componentId = Lens.lens (\Resource' {componentId} -> componentId) (\s@Resource' {} a -> s {componentId = a} :: Resource)
 
 instance Data.FromJSON Resource where
   parseJSON =
@@ -93,37 +93,37 @@ instance Data.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> ( x Data..:? "readinessScopes"
+            Prelude.<$> (x Data..:? "componentId")
+            Prelude.<*> (x Data..:? "dnsTargetResource")
+            Prelude.<*> ( x Data..:? "readinessScopes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "dnsTargetResource")
             Prelude.<*> (x Data..:? "resourceArn")
-            Prelude.<*> (x Data..:? "componentId")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` readinessScopes
+    _salt `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` dnsTargetResource
+      `Prelude.hashWithSalt` readinessScopes
       `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` componentId
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf readinessScopes
+    Prelude.rnf componentId
       `Prelude.seq` Prelude.rnf dnsTargetResource
+      `Prelude.seq` Prelude.rnf readinessScopes
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf componentId
 
 instance Data.ToJSON Resource where
   toJSON Resource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("readinessScopes" Data..=)
-              Prelude.<$> readinessScopes,
+          [ ("componentId" Data..=) Prelude.<$> componentId,
             ("dnsTargetResource" Data..=)
               Prelude.<$> dnsTargetResource,
-            ("resourceArn" Data..=) Prelude.<$> resourceArn,
-            ("componentId" Data..=) Prelude.<$> componentId
+            ("readinessScopes" Data..=)
+              Prelude.<$> readinessScopes,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn
           ]
       )

@@ -24,8 +24,8 @@ module Amazonka.DynamoDBStreams.Lens
     -- ** GetRecords
     getRecords_limit,
     getRecords_shardIterator,
-    getRecordsResponse_records,
     getRecordsResponse_nextShardIterator,
+    getRecordsResponse_records,
     getRecordsResponse_httpStatus,
 
     -- ** GetShardIterator
@@ -37,11 +37,11 @@ module Amazonka.DynamoDBStreams.Lens
     getShardIteratorResponse_httpStatus,
 
     -- ** ListStreams
-    listStreams_tableName,
     listStreams_exclusiveStartStreamArn,
     listStreams_limit,
-    listStreamsResponse_streams,
+    listStreams_tableName,
     listStreamsResponse_lastEvaluatedStreamArn,
+    listStreamsResponse_streams,
     listStreamsResponse_httpStatus,
 
     -- * Types
@@ -55,47 +55,47 @@ module Amazonka.DynamoDBStreams.Lens
     keySchemaElement_keyType,
 
     -- ** Record
-    record_userIdentity,
-    record_dynamodb,
-    record_eventVersion,
-    record_eventName,
-    record_eventID,
     record_awsRegion,
+    record_dynamodb,
+    record_eventID,
+    record_eventName,
     record_eventSource,
+    record_eventVersion,
+    record_userIdentity,
 
     -- ** SequenceNumberRange
     sequenceNumberRange_endingSequenceNumber,
     sequenceNumberRange_startingSequenceNumber,
 
     -- ** Shard
-    shard_sequenceNumberRange,
     shard_parentShardId,
+    shard_sequenceNumberRange,
     shard_shardId,
 
     -- ** Stream
-    stream_tableName,
-    stream_streamLabel,
     stream_streamArn,
+    stream_streamLabel,
+    stream_tableName,
 
     -- ** StreamDescription
-    streamDescription_tableName,
-    streamDescription_streamLabel,
     streamDescription_creationRequestDateTime,
-    streamDescription_streamViewType,
-    streamDescription_streamStatus,
     streamDescription_keySchema,
+    streamDescription_lastEvaluatedShardId,
     streamDescription_shards,
     streamDescription_streamArn,
-    streamDescription_lastEvaluatedShardId,
+    streamDescription_streamLabel,
+    streamDescription_streamStatus,
+    streamDescription_streamViewType,
+    streamDescription_tableName,
 
     -- ** StreamRecord
-    streamRecord_sizeBytes,
-    streamRecord_streamViewType,
-    streamRecord_oldImage,
     streamRecord_approximateCreationDateTime,
-    streamRecord_sequenceNumber,
     streamRecord_keys,
     streamRecord_newImage,
+    streamRecord_oldImage,
+    streamRecord_sequenceNumber,
+    streamRecord_sizeBytes,
+    streamRecord_streamViewType,
   )
 where
 

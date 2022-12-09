@@ -45,8 +45,8 @@ module Amazonka.DynamoDBStreams.GetRecords
     newGetRecordsResponse,
 
     -- * Response Lenses
-    getRecordsResponse_records,
     getRecordsResponse_nextShardIterator,
+    getRecordsResponse_records,
     getRecordsResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest GetRecords where
     Response.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Prelude.<$> (x Data..?> "Records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextShardIterator")
+            Prelude.<$> (x Data..?> "NextShardIterator")
+            Prelude.<*> (x Data..?> "Records" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,13 +166,13 @@ instance Data.ToQuery GetRecords where
 --
 -- /See:/ 'newGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { -- | The stream records from the shard, which were retrieved using the shard
-    -- iterator.
-    records :: Prelude.Maybe [Record],
-    -- | The next position in the shard from which to start sequentially reading
+  { -- | The next position in the shard from which to start sequentially reading
     -- stream records. If set to @null@, the shard has been closed and the
     -- requested iterator will not return any more data.
     nextShardIterator :: Prelude.Maybe Prelude.Text,
+    -- | The stream records from the shard, which were retrieved using the shard
+    -- iterator.
+    records :: Prelude.Maybe [Record],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,12 +186,12 @@ data GetRecordsResponse = GetRecordsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'getRecordsResponse_records' - The stream records from the shard, which were retrieved using the shard
--- iterator.
---
 -- 'nextShardIterator', 'getRecordsResponse_nextShardIterator' - The next position in the shard from which to start sequentially reading
 -- stream records. If set to @null@, the shard has been closed and the
 -- requested iterator will not return any more data.
+--
+-- 'records', 'getRecordsResponse_records' - The stream records from the shard, which were retrieved using the shard
+-- iterator.
 --
 -- 'httpStatus', 'getRecordsResponse_httpStatus' - The response's http status code.
 newGetRecordsResponse ::
@@ -200,15 +200,11 @@ newGetRecordsResponse ::
   GetRecordsResponse
 newGetRecordsResponse pHttpStatus_ =
   GetRecordsResponse'
-    { records = Prelude.Nothing,
-      nextShardIterator = Prelude.Nothing,
+    { nextShardIterator =
+        Prelude.Nothing,
+      records = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The stream records from the shard, which were retrieved using the shard
--- iterator.
-getRecordsResponse_records :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [Record])
-getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next position in the shard from which to start sequentially reading
 -- stream records. If set to @null@, the shard has been closed and the
@@ -216,12 +212,17 @@ getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> record
 getRecordsResponse_nextShardIterator :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Text)
 getRecordsResponse_nextShardIterator = Lens.lens (\GetRecordsResponse' {nextShardIterator} -> nextShardIterator) (\s@GetRecordsResponse' {} a -> s {nextShardIterator = a} :: GetRecordsResponse)
 
+-- | The stream records from the shard, which were retrieved using the shard
+-- iterator.
+getRecordsResponse_records :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [Record])
+getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getRecordsResponse_httpStatus :: Lens.Lens' GetRecordsResponse Prelude.Int
 getRecordsResponse_httpStatus = Lens.lens (\GetRecordsResponse' {httpStatus} -> httpStatus) (\s@GetRecordsResponse' {} a -> s {httpStatus = a} :: GetRecordsResponse)
 
 instance Prelude.NFData GetRecordsResponse where
   rnf GetRecordsResponse' {..} =
-    Prelude.rnf records
-      `Prelude.seq` Prelude.rnf nextShardIterator
+    Prelude.rnf nextShardIterator
+      `Prelude.seq` Prelude.rnf records
       `Prelude.seq` Prelude.rnf httpStatus

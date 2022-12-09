@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSection' smart constructor.
 data Section = Section'
-  { -- | The name of the section.
+  { -- | The content of a configuration section.
+    attributes :: Prelude.Maybe Document,
+    -- | The name of the section.
     name :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the section contents.
-    size :: Prelude.Maybe Prelude.Natural,
-    -- | The content of a configuration section.
-    attributes :: Prelude.Maybe Document
+    size :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data Section = Section'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributes', 'section_attributes' - The content of a configuration section.
+--
 -- 'name', 'section_name' - The name of the section.
 --
 -- 'size', 'section_size' - The size, in bytes, of the section contents.
---
--- 'attributes', 'section_attributes' - The content of a configuration section.
 newSection ::
   Section
 newSection =
   Section'
-    { name = Prelude.Nothing,
-      size = Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { attributes = Prelude.Nothing,
+      name = Prelude.Nothing,
+      size = Prelude.Nothing
     }
+
+-- | The content of a configuration section.
+section_attributes :: Lens.Lens' Section (Prelude.Maybe Document)
+section_attributes = Lens.lens (\Section' {attributes} -> attributes) (\s@Section' {} a -> s {attributes = a} :: Section)
 
 -- | The name of the section.
 section_name :: Lens.Lens' Section (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ section_name = Lens.lens (\Section' {name} -> name) (\s@Section' {} a -> s {name
 section_size :: Lens.Lens' Section (Prelude.Maybe Prelude.Natural)
 section_size = Lens.lens (\Section' {size} -> size) (\s@Section' {} a -> s {size = a} :: Section)
 
--- | The content of a configuration section.
-section_attributes :: Lens.Lens' Section (Prelude.Maybe Document)
-section_attributes = Lens.lens (\Section' {attributes} -> attributes) (\s@Section' {} a -> s {attributes = a} :: Section)
-
 instance Data.FromJSON Section where
   parseJSON =
     Data.withObject
       "Section"
       ( \x ->
           Section'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Attributes")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Size")
-            Prelude.<*> (x Data..:? "Attributes")
       )
 
 instance Prelude.Hashable Section where
   hashWithSalt _salt Section' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` size
-      `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData Section where
   rnf Section' {..} =
-    Prelude.rnf name
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf size
-      `Prelude.seq` Prelude.rnf attributes

@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGenerator' smart constructor.
 data Generator = Generator'
-  { -- | The platform that will be used to run the generated code.
-    targetPlatform :: Prelude.Maybe Prelude.Text,
-    -- | The target version of the GameSparks Game SDK.
+  { -- | The target version of the GameSparks Game SDK.
     gameSdkVersion :: Prelude.Maybe Prelude.Text,
     -- | The programming language for the generated code.
     --
@@ -38,7 +36,9 @@ data Generator = Generator'
     -- multiple languages are supported, this parameter specifies the language
     -- to be used. If this value is omitted, the default language for the
     -- target platform will be used.
-    language :: Prelude.Maybe Prelude.Text
+    language :: Prelude.Maybe Prelude.Text,
+    -- | The platform that will be used to run the generated code.
+    targetPlatform :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,8 +50,6 @@ data Generator = Generator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetPlatform', 'generator_targetPlatform' - The platform that will be used to run the generated code.
---
 -- 'gameSdkVersion', 'generator_gameSdkVersion' - The target version of the GameSparks Game SDK.
 --
 -- 'language', 'generator_language' - The programming language for the generated code.
@@ -60,18 +58,16 @@ data Generator = Generator'
 -- multiple languages are supported, this parameter specifies the language
 -- to be used. If this value is omitted, the default language for the
 -- target platform will be used.
+--
+-- 'targetPlatform', 'generator_targetPlatform' - The platform that will be used to run the generated code.
 newGenerator ::
   Generator
 newGenerator =
   Generator'
-    { targetPlatform = Prelude.Nothing,
-      gameSdkVersion = Prelude.Nothing,
-      language = Prelude.Nothing
+    { gameSdkVersion = Prelude.Nothing,
+      language = Prelude.Nothing,
+      targetPlatform = Prelude.Nothing
     }
-
--- | The platform that will be used to run the generated code.
-generator_targetPlatform :: Lens.Lens' Generator (Prelude.Maybe Prelude.Text)
-generator_targetPlatform = Lens.lens (\Generator' {targetPlatform} -> targetPlatform) (\s@Generator' {} a -> s {targetPlatform = a} :: Generator)
 
 -- | The target version of the GameSparks Game SDK.
 generator_gameSdkVersion :: Lens.Lens' Generator (Prelude.Maybe Prelude.Text)
@@ -86,26 +82,30 @@ generator_gameSdkVersion = Lens.lens (\Generator' {gameSdkVersion} -> gameSdkVer
 generator_language :: Lens.Lens' Generator (Prelude.Maybe Prelude.Text)
 generator_language = Lens.lens (\Generator' {language} -> language) (\s@Generator' {} a -> s {language = a} :: Generator)
 
+-- | The platform that will be used to run the generated code.
+generator_targetPlatform :: Lens.Lens' Generator (Prelude.Maybe Prelude.Text)
+generator_targetPlatform = Lens.lens (\Generator' {targetPlatform} -> targetPlatform) (\s@Generator' {} a -> s {targetPlatform = a} :: Generator)
+
 instance Prelude.Hashable Generator where
   hashWithSalt _salt Generator' {..} =
-    _salt `Prelude.hashWithSalt` targetPlatform
-      `Prelude.hashWithSalt` gameSdkVersion
+    _salt `Prelude.hashWithSalt` gameSdkVersion
       `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` targetPlatform
 
 instance Prelude.NFData Generator where
   rnf Generator' {..} =
-    Prelude.rnf targetPlatform
-      `Prelude.seq` Prelude.rnf gameSdkVersion
+    Prelude.rnf gameSdkVersion
       `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf targetPlatform
 
 instance Data.ToJSON Generator where
   toJSON Generator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetPlatform" Data..=)
-              Prelude.<$> targetPlatform,
-            ("GameSdkVersion" Data..=)
+          [ ("GameSdkVersion" Data..=)
               Prelude.<$> gameSdkVersion,
-            ("Language" Data..=) Prelude.<$> language
+            ("Language" Data..=) Prelude.<$> language,
+            ("TargetPlatform" Data..=)
+              Prelude.<$> targetPlatform
           ]
       )

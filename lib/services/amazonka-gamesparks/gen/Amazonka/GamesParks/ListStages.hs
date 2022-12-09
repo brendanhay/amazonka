@@ -29,8 +29,8 @@ module Amazonka.GamesParks.ListStages
     newListStages,
 
     -- * Request Lenses
-    listStages_nextToken,
     listStages_maxResults,
+    listStages_nextToken,
     listStages_gameName,
 
     -- * Destructuring the Response
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStages' smart constructor.
 data ListStages = ListStages'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The maximum number of results to return.
+    --
+    -- Use this parameter with NextToken to get results as a set of sequential
+    -- pages.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    --
-    -- Use this parameter with NextToken to get results as a set of sequential
-    -- pages.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the game.
     gameName :: Prelude.Text
   }
@@ -78,16 +78,16 @@ data ListStages = ListStages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStages_maxResults' - The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+--
 -- 'nextToken', 'listStages_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'maxResults', 'listStages_maxResults' - The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
 --
 -- 'gameName', 'listStages_gameName' - The name of the game.
 newListStages ::
@@ -96,10 +96,17 @@ newListStages ::
   ListStages
 newListStages pGameName_ =
   ListStages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       gameName = pGameName_
     }
+
+-- | The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+listStages_maxResults :: Lens.Lens' ListStages (Prelude.Maybe Prelude.Natural)
+listStages_maxResults = Lens.lens (\ListStages' {maxResults} -> maxResults) (\s@ListStages' {} a -> s {maxResults = a} :: ListStages)
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -108,13 +115,6 @@ newListStages pGameName_ =
 -- To start at the beginning of the result set, do not specify a value.
 listStages_nextToken :: Lens.Lens' ListStages (Prelude.Maybe Prelude.Text)
 listStages_nextToken = Lens.lens (\ListStages' {nextToken} -> nextToken) (\s@ListStages' {} a -> s {nextToken = a} :: ListStages)
-
--- | The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
-listStages_maxResults :: Lens.Lens' ListStages (Prelude.Maybe Prelude.Natural)
-listStages_maxResults = Lens.lens (\ListStages' {maxResults} -> maxResults) (\s@ListStages' {} a -> s {maxResults = a} :: ListStages)
 
 -- | The name of the game.
 listStages_gameName :: Lens.Lens' ListStages Prelude.Text
@@ -154,14 +154,14 @@ instance Core.AWSRequest ListStages where
 
 instance Prelude.Hashable ListStages where
   hashWithSalt _salt ListStages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameName
 
 instance Prelude.NFData ListStages where
   rnf ListStages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf gameName
 
 instance Data.ToHeaders ListStages where
@@ -183,8 +183,8 @@ instance Data.ToPath ListStages where
 instance Data.ToQuery ListStages where
   toQuery ListStages' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListStagesResponse' smart constructor.

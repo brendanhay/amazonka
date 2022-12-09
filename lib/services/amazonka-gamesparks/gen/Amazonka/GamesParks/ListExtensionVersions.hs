@@ -33,8 +33,8 @@ module Amazonka.GamesParks.ListExtensionVersions
     newListExtensionVersions,
 
     -- * Request Lenses
-    listExtensionVersions_nextToken,
     listExtensionVersions_maxResults,
+    listExtensionVersions_nextToken,
     listExtensionVersions_name,
     listExtensionVersions_namespace,
 
@@ -43,8 +43,8 @@ module Amazonka.GamesParks.ListExtensionVersions
     newListExtensionVersionsResponse,
 
     -- * Response Lenses
-    listExtensionVersionsResponse_nextToken,
     listExtensionVersionsResponse_extensionVersions,
+    listExtensionVersionsResponse_nextToken,
     listExtensionVersionsResponse_httpStatus,
   )
 where
@@ -59,17 +59,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExtensionVersions' smart constructor.
 data ListExtensionVersions = ListExtensionVersions'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The maximum number of results to return.
+    --
+    -- Use this parameter with NextToken to get results as a set of sequential
+    -- pages.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    --
-    -- Use this parameter with NextToken to get results as a set of sequential
-    -- pages.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the extension.
     name :: Prelude.Text,
     -- | The namespace (qualifier) of the extension.
@@ -85,16 +85,16 @@ data ListExtensionVersions = ListExtensionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listExtensionVersions_maxResults' - The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+--
 -- 'nextToken', 'listExtensionVersions_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'maxResults', 'listExtensionVersions_maxResults' - The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
 --
 -- 'name', 'listExtensionVersions_name' - The name of the extension.
 --
@@ -107,11 +107,19 @@ newListExtensionVersions ::
   ListExtensionVersions
 newListExtensionVersions pName_ pNamespace_ =
   ListExtensionVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_,
       namespace = pNamespace_
     }
+
+-- | The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+listExtensionVersions_maxResults :: Lens.Lens' ListExtensionVersions (Prelude.Maybe Prelude.Natural)
+listExtensionVersions_maxResults = Lens.lens (\ListExtensionVersions' {maxResults} -> maxResults) (\s@ListExtensionVersions' {} a -> s {maxResults = a} :: ListExtensionVersions)
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -120,13 +128,6 @@ newListExtensionVersions pName_ pNamespace_ =
 -- To start at the beginning of the result set, do not specify a value.
 listExtensionVersions_nextToken :: Lens.Lens' ListExtensionVersions (Prelude.Maybe Prelude.Text)
 listExtensionVersions_nextToken = Lens.lens (\ListExtensionVersions' {nextToken} -> nextToken) (\s@ListExtensionVersions' {} a -> s {nextToken = a} :: ListExtensionVersions)
-
--- | The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
-listExtensionVersions_maxResults :: Lens.Lens' ListExtensionVersions (Prelude.Maybe Prelude.Natural)
-listExtensionVersions_maxResults = Lens.lens (\ListExtensionVersions' {maxResults} -> maxResults) (\s@ListExtensionVersions' {} a -> s {maxResults = a} :: ListExtensionVersions)
 
 -- | The name of the extension.
 listExtensionVersions_name :: Lens.Lens' ListExtensionVersions Prelude.Text
@@ -168,24 +169,24 @@ instance Core.AWSRequest ListExtensionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListExtensionVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ExtensionVersions"
+            Prelude.<$> ( x Data..?> "ExtensionVersions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListExtensionVersions where
   hashWithSalt _salt ListExtensionVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData ListExtensionVersions where
   rnf ListExtensionVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespace
 
@@ -213,20 +214,20 @@ instance Data.ToPath ListExtensionVersions where
 instance Data.ToQuery ListExtensionVersions where
   toQuery ListExtensionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListExtensionVersionsResponse' smart constructor.
 data ListExtensionVersionsResponse = ListExtensionVersionsResponse'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The list of extension versions.
+    extensionVersions :: Prelude.Maybe [ExtensionVersionDetails],
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use this value when making the next call to this operation to continue
     -- where the last one finished.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of extension versions.
-    extensionVersions :: Prelude.Maybe [ExtensionVersionDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -240,13 +241,13 @@ data ListExtensionVersionsResponse = ListExtensionVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'extensionVersions', 'listExtensionVersionsResponse_extensionVersions' - The list of extension versions.
+--
 -- 'nextToken', 'listExtensionVersionsResponse_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use this value when making the next call to this operation to continue
 -- where the last one finished.
---
--- 'extensionVersions', 'listExtensionVersionsResponse_extensionVersions' - The list of extension versions.
 --
 -- 'httpStatus', 'listExtensionVersionsResponse_httpStatus' - The response's http status code.
 newListExtensionVersionsResponse ::
@@ -255,11 +256,15 @@ newListExtensionVersionsResponse ::
   ListExtensionVersionsResponse
 newListExtensionVersionsResponse pHttpStatus_ =
   ListExtensionVersionsResponse'
-    { nextToken =
+    { extensionVersions =
         Prelude.Nothing,
-      extensionVersions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of extension versions.
+listExtensionVersionsResponse_extensionVersions :: Lens.Lens' ListExtensionVersionsResponse (Prelude.Maybe [ExtensionVersionDetails])
+listExtensionVersionsResponse_extensionVersions = Lens.lens (\ListExtensionVersionsResponse' {extensionVersions} -> extensionVersions) (\s@ListExtensionVersionsResponse' {} a -> s {extensionVersions = a} :: ListExtensionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -269,16 +274,12 @@ newListExtensionVersionsResponse pHttpStatus_ =
 listExtensionVersionsResponse_nextToken :: Lens.Lens' ListExtensionVersionsResponse (Prelude.Maybe Prelude.Text)
 listExtensionVersionsResponse_nextToken = Lens.lens (\ListExtensionVersionsResponse' {nextToken} -> nextToken) (\s@ListExtensionVersionsResponse' {} a -> s {nextToken = a} :: ListExtensionVersionsResponse)
 
--- | The list of extension versions.
-listExtensionVersionsResponse_extensionVersions :: Lens.Lens' ListExtensionVersionsResponse (Prelude.Maybe [ExtensionVersionDetails])
-listExtensionVersionsResponse_extensionVersions = Lens.lens (\ListExtensionVersionsResponse' {extensionVersions} -> extensionVersions) (\s@ListExtensionVersionsResponse' {} a -> s {extensionVersions = a} :: ListExtensionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listExtensionVersionsResponse_httpStatus :: Lens.Lens' ListExtensionVersionsResponse Prelude.Int
 listExtensionVersionsResponse_httpStatus = Lens.lens (\ListExtensionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListExtensionVersionsResponse' {} a -> s {httpStatus = a} :: ListExtensionVersionsResponse)
 
 instance Prelude.NFData ListExtensionVersionsResponse where
   rnf ListExtensionVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf extensionVersions
+    Prelude.rnf extensionVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

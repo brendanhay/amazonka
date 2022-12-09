@@ -29,8 +29,8 @@ module Amazonka.GamesParks.ListSnapshots
     newListSnapshots,
 
     -- * Request Lenses
-    listSnapshots_nextToken,
     listSnapshots_maxResults,
+    listSnapshots_nextToken,
     listSnapshots_gameName,
 
     -- * Destructuring the Response
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSnapshots' smart constructor.
 data ListSnapshots = ListSnapshots'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The maximum number of results to return.
+    --
+    -- Use this parameter with NextToken to get results as a set of sequential
+    -- pages.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    --
-    -- Use this parameter with NextToken to get results as a set of sequential
-    -- pages.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the game.
     gameName :: Prelude.Text
   }
@@ -78,16 +78,16 @@ data ListSnapshots = ListSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSnapshots_maxResults' - The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+--
 -- 'nextToken', 'listSnapshots_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'maxResults', 'listSnapshots_maxResults' - The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
 --
 -- 'gameName', 'listSnapshots_gameName' - The name of the game.
 newListSnapshots ::
@@ -96,10 +96,17 @@ newListSnapshots ::
   ListSnapshots
 newListSnapshots pGameName_ =
   ListSnapshots'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       gameName = pGameName_
     }
+
+-- | The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+listSnapshots_maxResults :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Natural)
+listSnapshots_maxResults = Lens.lens (\ListSnapshots' {maxResults} -> maxResults) (\s@ListSnapshots' {} a -> s {maxResults = a} :: ListSnapshots)
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -108,13 +115,6 @@ newListSnapshots pGameName_ =
 -- To start at the beginning of the result set, do not specify a value.
 listSnapshots_nextToken :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Text)
 listSnapshots_nextToken = Lens.lens (\ListSnapshots' {nextToken} -> nextToken) (\s@ListSnapshots' {} a -> s {nextToken = a} :: ListSnapshots)
-
--- | The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
-listSnapshots_maxResults :: Lens.Lens' ListSnapshots (Prelude.Maybe Prelude.Natural)
-listSnapshots_maxResults = Lens.lens (\ListSnapshots' {maxResults} -> maxResults) (\s@ListSnapshots' {} a -> s {maxResults = a} :: ListSnapshots)
 
 -- | The name of the game.
 listSnapshots_gameName :: Lens.Lens' ListSnapshots Prelude.Text
@@ -156,14 +156,14 @@ instance Core.AWSRequest ListSnapshots where
 
 instance Prelude.Hashable ListSnapshots where
   hashWithSalt _salt ListSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameName
 
 instance Prelude.NFData ListSnapshots where
   rnf ListSnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf gameName
 
 instance Data.ToHeaders ListSnapshots where
@@ -185,8 +185,8 @@ instance Data.ToPath ListSnapshots where
 instance Data.ToQuery ListSnapshots where
   toQuery ListSnapshots' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSnapshotsResponse' smart constructor.

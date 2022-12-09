@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 data GameConfigurationDetails = GameConfigurationDetails'
   { -- | The date when the game was created.
     created :: Prelude.Maybe Data.POSIX,
-    -- | Configuration data, organized by section name.
-    sections :: Prelude.Maybe (Prelude.HashMap Prelude.Text Section),
     -- | The date when the game was last modified.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | Configuration data, organized by section name.
+    sections :: Prelude.Maybe (Prelude.HashMap Prelude.Text Section)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,30 @@ data GameConfigurationDetails = GameConfigurationDetails'
 --
 -- 'created', 'gameConfigurationDetails_created' - The date when the game was created.
 --
--- 'sections', 'gameConfigurationDetails_sections' - Configuration data, organized by section name.
---
 -- 'lastUpdated', 'gameConfigurationDetails_lastUpdated' - The date when the game was last modified.
+--
+-- 'sections', 'gameConfigurationDetails_sections' - Configuration data, organized by section name.
 newGameConfigurationDetails ::
   GameConfigurationDetails
 newGameConfigurationDetails =
   GameConfigurationDetails'
     { created =
         Prelude.Nothing,
-      sections = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing
+      lastUpdated = Prelude.Nothing,
+      sections = Prelude.Nothing
     }
 
 -- | The date when the game was created.
 gameConfigurationDetails_created :: Lens.Lens' GameConfigurationDetails (Prelude.Maybe Prelude.UTCTime)
 gameConfigurationDetails_created = Lens.lens (\GameConfigurationDetails' {created} -> created) (\s@GameConfigurationDetails' {} a -> s {created = a} :: GameConfigurationDetails) Prelude.. Lens.mapping Data._Time
 
--- | Configuration data, organized by section name.
-gameConfigurationDetails_sections :: Lens.Lens' GameConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Section))
-gameConfigurationDetails_sections = Lens.lens (\GameConfigurationDetails' {sections} -> sections) (\s@GameConfigurationDetails' {} a -> s {sections = a} :: GameConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The date when the game was last modified.
 gameConfigurationDetails_lastUpdated :: Lens.Lens' GameConfigurationDetails (Prelude.Maybe Prelude.UTCTime)
 gameConfigurationDetails_lastUpdated = Lens.lens (\GameConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@GameConfigurationDetails' {} a -> s {lastUpdated = a} :: GameConfigurationDetails) Prelude.. Lens.mapping Data._Time
+
+-- | Configuration data, organized by section name.
+gameConfigurationDetails_sections :: Lens.Lens' GameConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Section))
+gameConfigurationDetails_sections = Lens.lens (\GameConfigurationDetails' {sections} -> sections) (\s@GameConfigurationDetails' {} a -> s {sections = a} :: GameConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON GameConfigurationDetails where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON GameConfigurationDetails where
       ( \x ->
           GameConfigurationDetails'
             Prelude.<$> (x Data..:? "Created")
-            Prelude.<*> (x Data..:? "Sections" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Sections" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable GameConfigurationDetails where
   hashWithSalt _salt GameConfigurationDetails' {..} =
     _salt `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` sections
       `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` sections
 
 instance Prelude.NFData GameConfigurationDetails where
   rnf GameConfigurationDetails' {..} =
     Prelude.rnf created
-      `Prelude.seq` Prelude.rnf sections
       `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf sections

@@ -29,8 +29,8 @@ module Amazonka.GamesParks.ListStageDeployments
     newListStageDeployments,
 
     -- * Request Lenses
-    listStageDeployments_nextToken,
     listStageDeployments_maxResults,
+    listStageDeployments_nextToken,
     listStageDeployments_gameName,
     listStageDeployments_stageName,
 
@@ -39,8 +39,8 @@ module Amazonka.GamesParks.ListStageDeployments
     newListStageDeploymentsResponse,
 
     -- * Response Lenses
-    listStageDeploymentsResponse_stageDeployments,
     listStageDeploymentsResponse_nextToken,
+    listStageDeploymentsResponse_stageDeployments,
     listStageDeploymentsResponse_httpStatus,
   )
 where
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStageDeployments' smart constructor.
 data ListStageDeployments = ListStageDeployments'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The maximum number of results to return.
+    --
+    -- Use this parameter with NextToken to get results as a set of sequential
+    -- pages.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    --
-    -- Use this parameter with NextToken to get results as a set of sequential
-    -- pages.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the game.
     gameName :: Prelude.Text,
     -- | The name of the stage.
@@ -81,16 +81,16 @@ data ListStageDeployments = ListStageDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStageDeployments_maxResults' - The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+--
 -- 'nextToken', 'listStageDeployments_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'maxResults', 'listStageDeployments_maxResults' - The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
 --
 -- 'gameName', 'listStageDeployments_gameName' - The name of the game.
 --
@@ -103,11 +103,18 @@ newListStageDeployments ::
   ListStageDeployments
 newListStageDeployments pGameName_ pStageName_ =
   ListStageDeployments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       gameName = pGameName_,
       stageName = pStageName_
     }
+
+-- | The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+listStageDeployments_maxResults :: Lens.Lens' ListStageDeployments (Prelude.Maybe Prelude.Natural)
+listStageDeployments_maxResults = Lens.lens (\ListStageDeployments' {maxResults} -> maxResults) (\s@ListStageDeployments' {} a -> s {maxResults = a} :: ListStageDeployments)
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -116,13 +123,6 @@ newListStageDeployments pGameName_ pStageName_ =
 -- To start at the beginning of the result set, do not specify a value.
 listStageDeployments_nextToken :: Lens.Lens' ListStageDeployments (Prelude.Maybe Prelude.Text)
 listStageDeployments_nextToken = Lens.lens (\ListStageDeployments' {nextToken} -> nextToken) (\s@ListStageDeployments' {} a -> s {nextToken = a} :: ListStageDeployments)
-
--- | The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
-listStageDeployments_maxResults :: Lens.Lens' ListStageDeployments (Prelude.Maybe Prelude.Natural)
-listStageDeployments_maxResults = Lens.lens (\ListStageDeployments' {maxResults} -> maxResults) (\s@ListStageDeployments' {} a -> s {maxResults = a} :: ListStageDeployments)
 
 -- | The name of the game.
 listStageDeployments_gameName :: Lens.Lens' ListStageDeployments Prelude.Text
@@ -164,24 +164,24 @@ instance Core.AWSRequest ListStageDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListStageDeploymentsResponse'
-            Prelude.<$> ( x Data..?> "StageDeployments"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "StageDeployments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListStageDeployments where
   hashWithSalt _salt ListStageDeployments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData ListStageDeployments where
   rnf ListStageDeployments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf stageName
 
@@ -209,21 +209,21 @@ instance Data.ToPath ListStageDeployments where
 instance Data.ToQuery ListStageDeployments where
   toQuery ListStageDeployments' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListStageDeploymentsResponse' smart constructor.
 data ListStageDeploymentsResponse = ListStageDeploymentsResponse'
-  { -- | A list of stage deployment summaries. You can use the deployment IDs in
-    -- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
-    stageDeployments :: Prelude.Maybe [StageDeploymentSummary],
-    -- | The token that indicates the start of the next sequential page of
+  { -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use this value when making the next call to this operation to continue
     -- where the last one finished.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of stage deployment summaries. You can use the deployment IDs in
+    -- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
+    stageDeployments :: Prelude.Maybe [StageDeploymentSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,14 +237,14 @@ data ListStageDeploymentsResponse = ListStageDeploymentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageDeployments', 'listStageDeploymentsResponse_stageDeployments' - A list of stage deployment summaries. You can use the deployment IDs in
--- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
---
 -- 'nextToken', 'listStageDeploymentsResponse_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use this value when making the next call to this operation to continue
 -- where the last one finished.
+--
+-- 'stageDeployments', 'listStageDeploymentsResponse_stageDeployments' - A list of stage deployment summaries. You can use the deployment IDs in
+-- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
 --
 -- 'httpStatus', 'listStageDeploymentsResponse_httpStatus' - The response's http status code.
 newListStageDeploymentsResponse ::
@@ -253,16 +253,11 @@ newListStageDeploymentsResponse ::
   ListStageDeploymentsResponse
 newListStageDeploymentsResponse pHttpStatus_ =
   ListStageDeploymentsResponse'
-    { stageDeployments =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      stageDeployments = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of stage deployment summaries. You can use the deployment IDs in
--- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
-listStageDeploymentsResponse_stageDeployments :: Lens.Lens' ListStageDeploymentsResponse (Prelude.Maybe [StageDeploymentSummary])
-listStageDeploymentsResponse_stageDeployments = Lens.lens (\ListStageDeploymentsResponse' {stageDeployments} -> stageDeployments) (\s@ListStageDeploymentsResponse' {} a -> s {stageDeployments = a} :: ListStageDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -272,12 +267,17 @@ listStageDeploymentsResponse_stageDeployments = Lens.lens (\ListStageDeployments
 listStageDeploymentsResponse_nextToken :: Lens.Lens' ListStageDeploymentsResponse (Prelude.Maybe Prelude.Text)
 listStageDeploymentsResponse_nextToken = Lens.lens (\ListStageDeploymentsResponse' {nextToken} -> nextToken) (\s@ListStageDeploymentsResponse' {} a -> s {nextToken = a} :: ListStageDeploymentsResponse)
 
+-- | A list of stage deployment summaries. You can use the deployment IDs in
+-- the @UpdateStageDeployment@ and @GetStageDeployment@ actions.
+listStageDeploymentsResponse_stageDeployments :: Lens.Lens' ListStageDeploymentsResponse (Prelude.Maybe [StageDeploymentSummary])
+listStageDeploymentsResponse_stageDeployments = Lens.lens (\ListStageDeploymentsResponse' {stageDeployments} -> stageDeployments) (\s@ListStageDeploymentsResponse' {} a -> s {stageDeployments = a} :: ListStageDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listStageDeploymentsResponse_httpStatus :: Lens.Lens' ListStageDeploymentsResponse Prelude.Int
 listStageDeploymentsResponse_httpStatus = Lens.lens (\ListStageDeploymentsResponse' {httpStatus} -> httpStatus) (\s@ListStageDeploymentsResponse' {} a -> s {httpStatus = a} :: ListStageDeploymentsResponse)
 
 instance Prelude.NFData ListStageDeploymentsResponse where
   rnf ListStageDeploymentsResponse' {..} =
-    Prelude.rnf stageDeployments
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stageDeployments
       `Prelude.seq` Prelude.rnf httpStatus

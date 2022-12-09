@@ -35,13 +35,13 @@ module Amazonka.AppConfig.GetExtension
     newExtension,
 
     -- * Response Lenses
-    extension_name,
-    extension_arn,
-    extension_id,
-    extension_description,
-    extension_versionNumber,
     extension_actions,
+    extension_arn,
+    extension_description,
+    extension_id,
+    extension_name,
     extension_parameters,
+    extension_versionNumber,
   )
 where
 

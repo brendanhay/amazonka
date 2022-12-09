@@ -37,10 +37,10 @@ module Amazonka.AppConfig.CreateExtension
     newCreateExtension,
 
     -- * Request Lenses
-    createExtension_tags,
-    createExtension_latestVersionNumber,
     createExtension_description,
+    createExtension_latestVersionNumber,
     createExtension_parameters,
+    createExtension_tags,
     createExtension_name,
     createExtension_actions,
 
@@ -49,13 +49,13 @@ module Amazonka.AppConfig.CreateExtension
     newExtension,
 
     -- * Response Lenses
-    extension_name,
-    extension_arn,
-    extension_id,
-    extension_description,
-    extension_versionNumber,
     extension_actions,
+    extension_arn,
+    extension_description,
+    extension_id,
+    extension_name,
     extension_parameters,
+    extension_versionNumber,
   )
 where
 
@@ -69,22 +69,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExtension' smart constructor.
 data CreateExtension = CreateExtension'
-  { -- | Adds one or more tags for the specified extension. Tags are metadata
-    -- that help you categorize resources in different ways, for example, by
-    -- purpose, owner, or environment. Each tag consists of a key and an
-    -- optional value, both of which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Information about the extension.
+    description :: Prelude.Maybe Prelude.Text,
     -- | You can omit this field when you create an extension. When you create a
     -- new version, specify the most recent current version number. For
     -- example, you create version 3, enter 2 for this field.
     latestVersionNumber :: Prelude.Maybe Prelude.Int,
-    -- | Information about the extension.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The parameters accepted by the extension. You specify parameter values
     -- when you associate the extension to an AppConfig resource by using the
     -- @CreateExtensionAssociation@ API action. For Lambda extension actions,
     -- these parameters are included in the Lambda request object.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Parameter),
+    -- | Adds one or more tags for the specified extension. Tags are metadata
+    -- that help you categorize resources in different ways, for example, by
+    -- purpose, owner, or environment. Each tag consists of a key and an
+    -- optional value, both of which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the extension. Each extension name in your account must be
     -- unique. Extension versions use the same name.
     name :: Prelude.Text,
@@ -101,21 +101,21 @@ data CreateExtension = CreateExtension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createExtension_tags' - Adds one or more tags for the specified extension. Tags are metadata
--- that help you categorize resources in different ways, for example, by
--- purpose, owner, or environment. Each tag consists of a key and an
--- optional value, both of which you define.
+-- 'description', 'createExtension_description' - Information about the extension.
 --
 -- 'latestVersionNumber', 'createExtension_latestVersionNumber' - You can omit this field when you create an extension. When you create a
 -- new version, specify the most recent current version number. For
 -- example, you create version 3, enter 2 for this field.
 --
--- 'description', 'createExtension_description' - Information about the extension.
---
 -- 'parameters', 'createExtension_parameters' - The parameters accepted by the extension. You specify parameter values
 -- when you associate the extension to an AppConfig resource by using the
 -- @CreateExtensionAssociation@ API action. For Lambda extension actions,
 -- these parameters are included in the Lambda request object.
+--
+-- 'tags', 'createExtension_tags' - Adds one or more tags for the specified extension. Tags are metadata
+-- that help you categorize resources in different ways, for example, by
+-- purpose, owner, or environment. Each tag consists of a key and an
+-- optional value, both of which you define.
 --
 -- 'name', 'createExtension_name' - A name for the extension. Each extension name in your account must be
 -- unique. Extension versions use the same name.
@@ -127,20 +127,17 @@ newCreateExtension ::
   CreateExtension
 newCreateExtension pName_ =
   CreateExtension'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       latestVersionNumber = Prelude.Nothing,
-      description = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       actions = Prelude.mempty
     }
 
--- | Adds one or more tags for the specified extension. Tags are metadata
--- that help you categorize resources in different ways, for example, by
--- purpose, owner, or environment. Each tag consists of a key and an
--- optional value, both of which you define.
-createExtension_tags :: Lens.Lens' CreateExtension (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExtension_tags = Lens.lens (\CreateExtension' {tags} -> tags) (\s@CreateExtension' {} a -> s {tags = a} :: CreateExtension) Prelude.. Lens.mapping Lens.coerced
+-- | Information about the extension.
+createExtension_description :: Lens.Lens' CreateExtension (Prelude.Maybe Prelude.Text)
+createExtension_description = Lens.lens (\CreateExtension' {description} -> description) (\s@CreateExtension' {} a -> s {description = a} :: CreateExtension)
 
 -- | You can omit this field when you create an extension. When you create a
 -- new version, specify the most recent current version number. For
@@ -148,16 +145,19 @@ createExtension_tags = Lens.lens (\CreateExtension' {tags} -> tags) (\s@CreateEx
 createExtension_latestVersionNumber :: Lens.Lens' CreateExtension (Prelude.Maybe Prelude.Int)
 createExtension_latestVersionNumber = Lens.lens (\CreateExtension' {latestVersionNumber} -> latestVersionNumber) (\s@CreateExtension' {} a -> s {latestVersionNumber = a} :: CreateExtension)
 
--- | Information about the extension.
-createExtension_description :: Lens.Lens' CreateExtension (Prelude.Maybe Prelude.Text)
-createExtension_description = Lens.lens (\CreateExtension' {description} -> description) (\s@CreateExtension' {} a -> s {description = a} :: CreateExtension)
-
 -- | The parameters accepted by the extension. You specify parameter values
 -- when you associate the extension to an AppConfig resource by using the
 -- @CreateExtensionAssociation@ API action. For Lambda extension actions,
 -- these parameters are included in the Lambda request object.
 createExtension_parameters :: Lens.Lens' CreateExtension (Prelude.Maybe (Prelude.HashMap Prelude.Text Parameter))
 createExtension_parameters = Lens.lens (\CreateExtension' {parameters} -> parameters) (\s@CreateExtension' {} a -> s {parameters = a} :: CreateExtension) Prelude.. Lens.mapping Lens.coerced
+
+-- | Adds one or more tags for the specified extension. Tags are metadata
+-- that help you categorize resources in different ways, for example, by
+-- purpose, owner, or environment. Each tag consists of a key and an
+-- optional value, both of which you define.
+createExtension_tags :: Lens.Lens' CreateExtension (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExtension_tags = Lens.lens (\CreateExtension' {tags} -> tags) (\s@CreateExtension' {} a -> s {tags = a} :: CreateExtension) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the extension. Each extension name in your account must be
 -- unique. Extension versions use the same name.
@@ -178,19 +178,19 @@ instance Core.AWSRequest CreateExtension where
 
 instance Prelude.Hashable CreateExtension where
   hashWithSalt _salt CreateExtension' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestVersionNumber
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData CreateExtension where
   rnf CreateExtension' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf actions
 
@@ -206,9 +206,9 @@ instance Data.ToJSON CreateExtension where
   toJSON CreateExtension' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Actions" Data..= actions)
           ]

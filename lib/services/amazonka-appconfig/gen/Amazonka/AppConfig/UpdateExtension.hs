@@ -30,10 +30,10 @@ module Amazonka.AppConfig.UpdateExtension
     newUpdateExtension,
 
     -- * Request Lenses
-    updateExtension_description,
-    updateExtension_versionNumber,
     updateExtension_actions,
+    updateExtension_description,
     updateExtension_parameters,
+    updateExtension_versionNumber,
     updateExtension_extensionIdentifier,
 
     -- * Destructuring the Response
@@ -41,13 +41,13 @@ module Amazonka.AppConfig.UpdateExtension
     newExtension,
 
     -- * Response Lenses
-    extension_name,
-    extension_arn,
-    extension_id,
-    extension_description,
-    extension_versionNumber,
     extension_actions,
+    extension_arn,
+    extension_description,
+    extension_id,
+    extension_name,
     extension_parameters,
+    extension_versionNumber,
   )
 where
 
@@ -61,14 +61,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateExtension' smart constructor.
 data UpdateExtension = UpdateExtension'
-  { -- | Information about the extension.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The extension version number.
-    versionNumber :: Prelude.Maybe Prelude.Int,
-    -- | The actions defined in the extension.
+  { -- | The actions defined in the extension.
     actions :: Prelude.Maybe (Prelude.HashMap ActionPoint (Prelude.NonEmpty Action)),
+    -- | Information about the extension.
+    description :: Prelude.Maybe Prelude.Text,
     -- | One or more parameters for the actions called by the extension.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Parameter),
+    -- | The extension version number.
+    versionNumber :: Prelude.Maybe Prelude.Int,
     -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
     extensionIdentifier :: Prelude.Text
   }
@@ -82,13 +82,13 @@ data UpdateExtension = UpdateExtension'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateExtension_description' - Information about the extension.
---
--- 'versionNumber', 'updateExtension_versionNumber' - The extension version number.
---
 -- 'actions', 'updateExtension_actions' - The actions defined in the extension.
 --
+-- 'description', 'updateExtension_description' - Information about the extension.
+--
 -- 'parameters', 'updateExtension_parameters' - One or more parameters for the actions called by the extension.
+--
+-- 'versionNumber', 'updateExtension_versionNumber' - The extension version number.
 --
 -- 'extensionIdentifier', 'updateExtension_extensionIdentifier' - The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 newUpdateExtension ::
@@ -97,28 +97,28 @@ newUpdateExtension ::
   UpdateExtension
 newUpdateExtension pExtensionIdentifier_ =
   UpdateExtension'
-    { description = Prelude.Nothing,
-      versionNumber = Prelude.Nothing,
-      actions = Prelude.Nothing,
+    { actions = Prelude.Nothing,
+      description = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       extensionIdentifier = pExtensionIdentifier_
     }
-
--- | Information about the extension.
-updateExtension_description :: Lens.Lens' UpdateExtension (Prelude.Maybe Prelude.Text)
-updateExtension_description = Lens.lens (\UpdateExtension' {description} -> description) (\s@UpdateExtension' {} a -> s {description = a} :: UpdateExtension)
-
--- | The extension version number.
-updateExtension_versionNumber :: Lens.Lens' UpdateExtension (Prelude.Maybe Prelude.Int)
-updateExtension_versionNumber = Lens.lens (\UpdateExtension' {versionNumber} -> versionNumber) (\s@UpdateExtension' {} a -> s {versionNumber = a} :: UpdateExtension)
 
 -- | The actions defined in the extension.
 updateExtension_actions :: Lens.Lens' UpdateExtension (Prelude.Maybe (Prelude.HashMap ActionPoint (Prelude.NonEmpty Action)))
 updateExtension_actions = Lens.lens (\UpdateExtension' {actions} -> actions) (\s@UpdateExtension' {} a -> s {actions = a} :: UpdateExtension) Prelude.. Lens.mapping Lens.coerced
 
+-- | Information about the extension.
+updateExtension_description :: Lens.Lens' UpdateExtension (Prelude.Maybe Prelude.Text)
+updateExtension_description = Lens.lens (\UpdateExtension' {description} -> description) (\s@UpdateExtension' {} a -> s {description = a} :: UpdateExtension)
+
 -- | One or more parameters for the actions called by the extension.
 updateExtension_parameters :: Lens.Lens' UpdateExtension (Prelude.Maybe (Prelude.HashMap Prelude.Text Parameter))
 updateExtension_parameters = Lens.lens (\UpdateExtension' {parameters} -> parameters) (\s@UpdateExtension' {} a -> s {parameters = a} :: UpdateExtension) Prelude.. Lens.mapping Lens.coerced
+
+-- | The extension version number.
+updateExtension_versionNumber :: Lens.Lens' UpdateExtension (Prelude.Maybe Prelude.Int)
+updateExtension_versionNumber = Lens.lens (\UpdateExtension' {versionNumber} -> versionNumber) (\s@UpdateExtension' {} a -> s {versionNumber = a} :: UpdateExtension)
 
 -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 updateExtension_extensionIdentifier :: Lens.Lens' UpdateExtension Prelude.Text
@@ -134,18 +134,18 @@ instance Core.AWSRequest UpdateExtension where
 
 instance Prelude.Hashable UpdateExtension where
   hashWithSalt _salt UpdateExtension' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` versionNumber
-      `Prelude.hashWithSalt` actions
+    _salt `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` extensionIdentifier
 
 instance Prelude.NFData UpdateExtension where
   rnf UpdateExtension' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf extensionIdentifier
 
 instance Data.ToHeaders UpdateExtension where
@@ -163,10 +163,10 @@ instance Data.ToJSON UpdateExtension where
   toJSON UpdateExtension' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Description" Data..=) Prelude.<$> description,
-            ("VersionNumber" Data..=) Prelude.<$> versionNumber,
-            ("Actions" Data..=) Prelude.<$> actions,
-            ("Parameters" Data..=) Prelude.<$> parameters
+          [ ("Actions" Data..=) Prelude.<$> actions,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            ("VersionNumber" Data..=) Prelude.<$> versionNumber
           ]
       )
 

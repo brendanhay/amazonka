@@ -27,11 +27,11 @@ module Amazonka.AppConfig.UpdateDeploymentStrategy
     newUpdateDeploymentStrategy,
 
     -- * Request Lenses
-    updateDeploymentStrategy_growthType,
     updateDeploymentStrategy_deploymentDurationInMinutes,
     updateDeploymentStrategy_description,
     updateDeploymentStrategy_finalBakeTimeInMinutes,
     updateDeploymentStrategy_growthFactor,
+    updateDeploymentStrategy_growthType,
     updateDeploymentStrategy_deploymentStrategyId,
 
     -- * Destructuring the Response
@@ -39,14 +39,14 @@ module Amazonka.AppConfig.UpdateDeploymentStrategy
     newDeploymentStrategy,
 
     -- * Response Lenses
-    deploymentStrategy_name,
-    deploymentStrategy_growthType,
     deploymentStrategy_deploymentDurationInMinutes,
-    deploymentStrategy_id,
     deploymentStrategy_description,
     deploymentStrategy_finalBakeTimeInMinutes,
-    deploymentStrategy_replicateTo,
     deploymentStrategy_growthFactor,
+    deploymentStrategy_growthType,
+    deploymentStrategy_id,
+    deploymentStrategy_name,
+    deploymentStrategy_replicateTo,
   )
 where
 
@@ -60,7 +60,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDeploymentStrategy' smart constructor.
 data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
-  { -- | The algorithm used to define how percentage grows over time. AppConfig
+  { -- | Total amount of time for a deployment to last.
+    deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | A description of the deployment strategy.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time that AppConfig monitors for alarms before considering
+    -- the deployment to be complete and no longer eligible for automatic
+    -- rollback.
+    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of targets to receive a deployed configuration during
+    -- each interval.
+    growthFactor :: Prelude.Maybe Prelude.Double,
+    -- | The algorithm used to define how percentage grows over time. AppConfig
     -- supports the following growth types:
     --
     -- __Linear__: For this type, AppConfig processes the deployment by
@@ -88,17 +99,6 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
     -- targets, 4% of the targets, 8% of the targets, and continues until the
     -- configuration has been deployed to all targets.
     growthType :: Prelude.Maybe GrowthType,
-    -- | Total amount of time for a deployment to last.
-    deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | A description of the deployment strategy.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time that AppConfig monitors for alarms before considering
-    -- the deployment to be complete and no longer eligible for automatic
-    -- rollback.
-    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The percentage of targets to receive a deployed configuration during
-    -- each interval.
-    growthFactor :: Prelude.Maybe Prelude.Double,
     -- | The deployment strategy ID.
     deploymentStrategyId :: Prelude.Text
   }
@@ -111,6 +111,17 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deploymentDurationInMinutes', 'updateDeploymentStrategy_deploymentDurationInMinutes' - Total amount of time for a deployment to last.
+--
+-- 'description', 'updateDeploymentStrategy_description' - A description of the deployment strategy.
+--
+-- 'finalBakeTimeInMinutes', 'updateDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
+--
+-- 'growthFactor', 'updateDeploymentStrategy_growthFactor' - The percentage of targets to receive a deployed configuration during
+-- each interval.
 --
 -- 'growthType', 'updateDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AppConfig
 -- supports the following growth types:
@@ -140,17 +151,6 @@ data UpdateDeploymentStrategy = UpdateDeploymentStrategy'
 -- targets, 4% of the targets, 8% of the targets, and continues until the
 -- configuration has been deployed to all targets.
 --
--- 'deploymentDurationInMinutes', 'updateDeploymentStrategy_deploymentDurationInMinutes' - Total amount of time for a deployment to last.
---
--- 'description', 'updateDeploymentStrategy_description' - A description of the deployment strategy.
---
--- 'finalBakeTimeInMinutes', 'updateDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time that AppConfig monitors for alarms before considering
--- the deployment to be complete and no longer eligible for automatic
--- rollback.
---
--- 'growthFactor', 'updateDeploymentStrategy_growthFactor' - The percentage of targets to receive a deployed configuration during
--- each interval.
---
 -- 'deploymentStrategyId', 'updateDeploymentStrategy_deploymentStrategyId' - The deployment strategy ID.
 newUpdateDeploymentStrategy ::
   -- | 'deploymentStrategyId'
@@ -158,14 +158,33 @@ newUpdateDeploymentStrategy ::
   UpdateDeploymentStrategy
 newUpdateDeploymentStrategy pDeploymentStrategyId_ =
   UpdateDeploymentStrategy'
-    { growthType =
+    { deploymentDurationInMinutes =
         Prelude.Nothing,
-      deploymentDurationInMinutes = Prelude.Nothing,
       description = Prelude.Nothing,
       finalBakeTimeInMinutes = Prelude.Nothing,
       growthFactor = Prelude.Nothing,
+      growthType = Prelude.Nothing,
       deploymentStrategyId = pDeploymentStrategyId_
     }
+
+-- | Total amount of time for a deployment to last.
+updateDeploymentStrategy_deploymentDurationInMinutes :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
+updateDeploymentStrategy_deploymentDurationInMinutes = Lens.lens (\UpdateDeploymentStrategy' {deploymentDurationInMinutes} -> deploymentDurationInMinutes) (\s@UpdateDeploymentStrategy' {} a -> s {deploymentDurationInMinutes = a} :: UpdateDeploymentStrategy)
+
+-- | A description of the deployment strategy.
+updateDeploymentStrategy_description :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Text)
+updateDeploymentStrategy_description = Lens.lens (\UpdateDeploymentStrategy' {description} -> description) (\s@UpdateDeploymentStrategy' {} a -> s {description = a} :: UpdateDeploymentStrategy)
+
+-- | The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
+updateDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
+updateDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\UpdateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@UpdateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: UpdateDeploymentStrategy)
+
+-- | The percentage of targets to receive a deployed configuration during
+-- each interval.
+updateDeploymentStrategy_growthFactor :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Double)
+updateDeploymentStrategy_growthFactor = Lens.lens (\UpdateDeploymentStrategy' {growthFactor} -> growthFactor) (\s@UpdateDeploymentStrategy' {} a -> s {growthFactor = a} :: UpdateDeploymentStrategy)
 
 -- | The algorithm used to define how percentage grows over time. AppConfig
 -- supports the following growth types:
@@ -197,25 +216,6 @@ newUpdateDeploymentStrategy pDeploymentStrategyId_ =
 updateDeploymentStrategy_growthType :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe GrowthType)
 updateDeploymentStrategy_growthType = Lens.lens (\UpdateDeploymentStrategy' {growthType} -> growthType) (\s@UpdateDeploymentStrategy' {} a -> s {growthType = a} :: UpdateDeploymentStrategy)
 
--- | Total amount of time for a deployment to last.
-updateDeploymentStrategy_deploymentDurationInMinutes :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
-updateDeploymentStrategy_deploymentDurationInMinutes = Lens.lens (\UpdateDeploymentStrategy' {deploymentDurationInMinutes} -> deploymentDurationInMinutes) (\s@UpdateDeploymentStrategy' {} a -> s {deploymentDurationInMinutes = a} :: UpdateDeploymentStrategy)
-
--- | A description of the deployment strategy.
-updateDeploymentStrategy_description :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Text)
-updateDeploymentStrategy_description = Lens.lens (\UpdateDeploymentStrategy' {description} -> description) (\s@UpdateDeploymentStrategy' {} a -> s {description = a} :: UpdateDeploymentStrategy)
-
--- | The amount of time that AppConfig monitors for alarms before considering
--- the deployment to be complete and no longer eligible for automatic
--- rollback.
-updateDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
-updateDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\UpdateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@UpdateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: UpdateDeploymentStrategy)
-
--- | The percentage of targets to receive a deployed configuration during
--- each interval.
-updateDeploymentStrategy_growthFactor :: Lens.Lens' UpdateDeploymentStrategy (Prelude.Maybe Prelude.Double)
-updateDeploymentStrategy_growthFactor = Lens.lens (\UpdateDeploymentStrategy' {growthFactor} -> growthFactor) (\s@UpdateDeploymentStrategy' {} a -> s {growthFactor = a} :: UpdateDeploymentStrategy)
-
 -- | The deployment strategy ID.
 updateDeploymentStrategy_deploymentStrategyId :: Lens.Lens' UpdateDeploymentStrategy Prelude.Text
 updateDeploymentStrategy_deploymentStrategyId = Lens.lens (\UpdateDeploymentStrategy' {deploymentStrategyId} -> deploymentStrategyId) (\s@UpdateDeploymentStrategy' {} a -> s {deploymentStrategyId = a} :: UpdateDeploymentStrategy)
@@ -232,20 +232,21 @@ instance Core.AWSRequest UpdateDeploymentStrategy where
 
 instance Prelude.Hashable UpdateDeploymentStrategy where
   hashWithSalt _salt UpdateDeploymentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` growthType
+    _salt
       `Prelude.hashWithSalt` deploymentDurationInMinutes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` finalBakeTimeInMinutes
       `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` growthType
       `Prelude.hashWithSalt` deploymentStrategyId
 
 instance Prelude.NFData UpdateDeploymentStrategy where
   rnf UpdateDeploymentStrategy' {..} =
-    Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
+    Prelude.rnf deploymentDurationInMinutes
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
       `Prelude.seq` Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf growthType
       `Prelude.seq` Prelude.rnf deploymentStrategyId
 
 instance Data.ToHeaders UpdateDeploymentStrategy where
@@ -263,13 +264,13 @@ instance Data.ToJSON UpdateDeploymentStrategy where
   toJSON UpdateDeploymentStrategy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GrowthType" Data..=) Prelude.<$> growthType,
-            ("DeploymentDurationInMinutes" Data..=)
+          [ ("DeploymentDurationInMinutes" Data..=)
               Prelude.<$> deploymentDurationInMinutes,
             ("Description" Data..=) Prelude.<$> description,
             ("FinalBakeTimeInMinutes" Data..=)
               Prelude.<$> finalBakeTimeInMinutes,
-            ("GrowthFactor" Data..=) Prelude.<$> growthFactor
+            ("GrowthFactor" Data..=) Prelude.<$> growthFactor,
+            ("GrowthType" Data..=) Prelude.<$> growthType
           ]
       )
 

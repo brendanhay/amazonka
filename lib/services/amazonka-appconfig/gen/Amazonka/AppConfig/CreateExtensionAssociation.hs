@@ -40,9 +40,9 @@ module Amazonka.AppConfig.CreateExtensionAssociation
     newCreateExtensionAssociation,
 
     -- * Request Lenses
-    createExtensionAssociation_tags,
     createExtensionAssociation_extensionVersionNumber,
     createExtensionAssociation_parameters,
+    createExtensionAssociation_tags,
     createExtensionAssociation_extensionIdentifier,
     createExtensionAssociation_resourceIdentifier,
 
@@ -51,12 +51,12 @@ module Amazonka.AppConfig.CreateExtensionAssociation
     newExtensionAssociation,
 
     -- * Response Lenses
-    extensionAssociation_extensionVersionNumber,
     extensionAssociation_arn,
-    extensionAssociation_id,
-    extensionAssociation_resourceArn,
     extensionAssociation_extensionArn,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_id,
     extensionAssociation_parameters,
+    extensionAssociation_resourceArn,
   )
 where
 
@@ -70,17 +70,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExtensionAssociation' smart constructor.
 data CreateExtensionAssociation = CreateExtensionAssociation'
-  { -- | Adds one or more tags for the specified extension association. Tags are
-    -- metadata that help you categorize resources in different ways, for
-    -- example, by purpose, owner, or environment. Each tag consists of a key
-    -- and an optional value, both of which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The version number of the extension. If not specified, AppConfig uses
+  { -- | The version number of the extension. If not specified, AppConfig uses
     -- the maximum version of the extension.
     extensionVersionNumber :: Prelude.Maybe Prelude.Int,
     -- | The parameter names and values defined in the extensions. Extension
     -- parameters marked @Required@ must be entered for this field.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Adds one or more tags for the specified extension association. Tags are
+    -- metadata that help you categorize resources in different ways, for
+    -- example, by purpose, owner, or environment. Each tag consists of a key
+    -- and an optional value, both of which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
     extensionIdentifier :: Prelude.Text,
     -- | The ARN of an application, configuration profile, or environment.
@@ -96,16 +96,16 @@ data CreateExtensionAssociation = CreateExtensionAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createExtensionAssociation_tags' - Adds one or more tags for the specified extension association. Tags are
--- metadata that help you categorize resources in different ways, for
--- example, by purpose, owner, or environment. Each tag consists of a key
--- and an optional value, both of which you define.
---
 -- 'extensionVersionNumber', 'createExtensionAssociation_extensionVersionNumber' - The version number of the extension. If not specified, AppConfig uses
 -- the maximum version of the extension.
 --
 -- 'parameters', 'createExtensionAssociation_parameters' - The parameter names and values defined in the extensions. Extension
 -- parameters marked @Required@ must be entered for this field.
+--
+-- 'tags', 'createExtensionAssociation_tags' - Adds one or more tags for the specified extension association. Tags are
+-- metadata that help you categorize resources in different ways, for
+-- example, by purpose, owner, or environment. Each tag consists of a key
+-- and an optional value, both of which you define.
 --
 -- 'extensionIdentifier', 'createExtensionAssociation_extensionIdentifier' - The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 --
@@ -120,19 +120,13 @@ newCreateExtensionAssociation
   pExtensionIdentifier_
   pResourceIdentifier_ =
     CreateExtensionAssociation'
-      { tags = Prelude.Nothing,
-        extensionVersionNumber = Prelude.Nothing,
+      { extensionVersionNumber =
+          Prelude.Nothing,
         parameters = Prelude.Nothing,
+        tags = Prelude.Nothing,
         extensionIdentifier = pExtensionIdentifier_,
         resourceIdentifier = pResourceIdentifier_
       }
-
--- | Adds one or more tags for the specified extension association. Tags are
--- metadata that help you categorize resources in different ways, for
--- example, by purpose, owner, or environment. Each tag consists of a key
--- and an optional value, both of which you define.
-createExtensionAssociation_tags :: Lens.Lens' CreateExtensionAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExtensionAssociation_tags = Lens.lens (\CreateExtensionAssociation' {tags} -> tags) (\s@CreateExtensionAssociation' {} a -> s {tags = a} :: CreateExtensionAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version number of the extension. If not specified, AppConfig uses
 -- the maximum version of the extension.
@@ -143,6 +137,13 @@ createExtensionAssociation_extensionVersionNumber = Lens.lens (\CreateExtensionA
 -- parameters marked @Required@ must be entered for this field.
 createExtensionAssociation_parameters :: Lens.Lens' CreateExtensionAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExtensionAssociation_parameters = Lens.lens (\CreateExtensionAssociation' {parameters} -> parameters) (\s@CreateExtensionAssociation' {} a -> s {parameters = a} :: CreateExtensionAssociation) Prelude.. Lens.mapping Lens.coerced
+
+-- | Adds one or more tags for the specified extension association. Tags are
+-- metadata that help you categorize resources in different ways, for
+-- example, by purpose, owner, or environment. Each tag consists of a key
+-- and an optional value, both of which you define.
+createExtensionAssociation_tags :: Lens.Lens' CreateExtensionAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExtensionAssociation_tags = Lens.lens (\CreateExtensionAssociation' {tags} -> tags) (\s@CreateExtensionAssociation' {} a -> s {tags = a} :: CreateExtensionAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
 createExtensionAssociation_extensionIdentifier :: Lens.Lens' CreateExtensionAssociation Prelude.Text
@@ -164,17 +165,17 @@ instance Core.AWSRequest CreateExtensionAssociation where
 
 instance Prelude.Hashable CreateExtensionAssociation where
   hashWithSalt _salt CreateExtensionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` extensionVersionNumber
+    _salt `Prelude.hashWithSalt` extensionVersionNumber
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` extensionIdentifier
       `Prelude.hashWithSalt` resourceIdentifier
 
 instance Prelude.NFData CreateExtensionAssociation where
   rnf CreateExtensionAssociation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf extensionVersionNumber
+    Prelude.rnf extensionVersionNumber
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf extensionIdentifier
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
@@ -193,10 +194,10 @@ instance Data.ToJSON CreateExtensionAssociation where
   toJSON CreateExtensionAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ExtensionVersionNumber" Data..=)
+          [ ("ExtensionVersionNumber" Data..=)
               Prelude.<$> extensionVersionNumber,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ExtensionIdentifier" Data..= extensionIdentifier),
             Prelude.Just

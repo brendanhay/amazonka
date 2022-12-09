@@ -30,11 +30,11 @@ module Amazonka.AppConfig.ListExtensionAssociations
     newListExtensionAssociations,
 
     -- * Request Lenses
+    listExtensionAssociations_extensionIdentifier,
     listExtensionAssociations_extensionVersionNumber,
+    listExtensionAssociations_maxResults,
     listExtensionAssociations_nextToken,
     listExtensionAssociations_resourceIdentifier,
-    listExtensionAssociations_maxResults,
-    listExtensionAssociations_extensionIdentifier,
 
     -- * Destructuring the Response
     ListExtensionAssociationsResponse (..),
@@ -57,19 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExtensionAssociations' smart constructor.
 data ListExtensionAssociations = ListExtensionAssociations'
-  { -- | The version number for the extension defined in the association.
+  { -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+    extensionIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The version number for the extension defined in the association.
     extensionVersionNumber :: Prelude.Maybe Prelude.Int,
-    -- | A token to start the list. Use this token to get the next set of results
-    -- or pass null to get the first set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of an application, configuration profile, or environment.
-    resourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
-    extensionIdentifier :: Prelude.Maybe Prelude.Text
+    -- | A token to start the list. Use this token to get the next set of results
+    -- or pass null to get the first set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of an application, configuration profile, or environment.
+    resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,33 +81,43 @@ data ListExtensionAssociations = ListExtensionAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'extensionIdentifier', 'listExtensionAssociations_extensionIdentifier' - The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+--
 -- 'extensionVersionNumber', 'listExtensionAssociations_extensionVersionNumber' - The version number for the extension defined in the association.
---
--- 'nextToken', 'listExtensionAssociations_nextToken' - A token to start the list. Use this token to get the next set of results
--- or pass null to get the first set of results.
---
--- 'resourceIdentifier', 'listExtensionAssociations_resourceIdentifier' - The ARN of an application, configuration profile, or environment.
 --
 -- 'maxResults', 'listExtensionAssociations_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'extensionIdentifier', 'listExtensionAssociations_extensionIdentifier' - The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+-- 'nextToken', 'listExtensionAssociations_nextToken' - A token to start the list. Use this token to get the next set of results
+-- or pass null to get the first set of results.
+--
+-- 'resourceIdentifier', 'listExtensionAssociations_resourceIdentifier' - The ARN of an application, configuration profile, or environment.
 newListExtensionAssociations ::
   ListExtensionAssociations
 newListExtensionAssociations =
   ListExtensionAssociations'
-    { extensionVersionNumber =
+    { extensionIdentifier =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
+      extensionVersionNumber = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      extensionIdentifier = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing
     }
+
+-- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
+listExtensionAssociations_extensionIdentifier :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Text)
+listExtensionAssociations_extensionIdentifier = Lens.lens (\ListExtensionAssociations' {extensionIdentifier} -> extensionIdentifier) (\s@ListExtensionAssociations' {} a -> s {extensionIdentifier = a} :: ListExtensionAssociations)
 
 -- | The version number for the extension defined in the association.
 listExtensionAssociations_extensionVersionNumber :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Int)
 listExtensionAssociations_extensionVersionNumber = Lens.lens (\ListExtensionAssociations' {extensionVersionNumber} -> extensionVersionNumber) (\s@ListExtensionAssociations' {} a -> s {extensionVersionNumber = a} :: ListExtensionAssociations)
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+listExtensionAssociations_maxResults :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Natural)
+listExtensionAssociations_maxResults = Lens.lens (\ListExtensionAssociations' {maxResults} -> maxResults) (\s@ListExtensionAssociations' {} a -> s {maxResults = a} :: ListExtensionAssociations)
 
 -- | A token to start the list. Use this token to get the next set of results
 -- or pass null to get the first set of results.
@@ -117,16 +127,6 @@ listExtensionAssociations_nextToken = Lens.lens (\ListExtensionAssociations' {ne
 -- | The ARN of an application, configuration profile, or environment.
 listExtensionAssociations_resourceIdentifier :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Text)
 listExtensionAssociations_resourceIdentifier = Lens.lens (\ListExtensionAssociations' {resourceIdentifier} -> resourceIdentifier) (\s@ListExtensionAssociations' {} a -> s {resourceIdentifier = a} :: ListExtensionAssociations)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-listExtensionAssociations_maxResults :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Natural)
-listExtensionAssociations_maxResults = Lens.lens (\ListExtensionAssociations' {maxResults} -> maxResults) (\s@ListExtensionAssociations' {} a -> s {maxResults = a} :: ListExtensionAssociations)
-
--- | The name, the ID, or the Amazon Resource Name (ARN) of the extension.
-listExtensionAssociations_extensionIdentifier :: Lens.Lens' ListExtensionAssociations (Prelude.Maybe Prelude.Text)
-listExtensionAssociations_extensionIdentifier = Lens.lens (\ListExtensionAssociations' {extensionIdentifier} -> extensionIdentifier) (\s@ListExtensionAssociations' {} a -> s {extensionIdentifier = a} :: ListExtensionAssociations)
 
 instance Core.AWSRequest ListExtensionAssociations where
   type
@@ -145,19 +145,19 @@ instance Core.AWSRequest ListExtensionAssociations where
 
 instance Prelude.Hashable ListExtensionAssociations where
   hashWithSalt _salt ListExtensionAssociations' {..} =
-    _salt `Prelude.hashWithSalt` extensionVersionNumber
+    _salt `Prelude.hashWithSalt` extensionIdentifier
+      `Prelude.hashWithSalt` extensionVersionNumber
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceIdentifier
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` extensionIdentifier
 
 instance Prelude.NFData ListExtensionAssociations where
   rnf ListExtensionAssociations' {..} =
-    Prelude.rnf extensionVersionNumber
+    Prelude.rnf extensionIdentifier
+      `Prelude.seq` Prelude.rnf extensionVersionNumber
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf extensionIdentifier
 
 instance Data.ToHeaders ListExtensionAssociations where
   toHeaders =
@@ -176,12 +176,12 @@ instance Data.ToPath ListExtensionAssociations where
 instance Data.ToQuery ListExtensionAssociations where
   toQuery ListExtensionAssociations' {..} =
     Prelude.mconcat
-      [ "extension_version_number"
+      [ "extension_identifier" Data.=: extensionIdentifier,
+        "extension_version_number"
           Data.=: extensionVersionNumber,
-        "next_token" Data.=: nextToken,
-        "resource_identifier" Data.=: resourceIdentifier,
         "max_results" Data.=: maxResults,
-        "extension_identifier" Data.=: extensionIdentifier
+        "next_token" Data.=: nextToken,
+        "resource_identifier" Data.=: resourceIdentifier
       ]
 
 -- | /See:/ 'newListExtensionAssociationsResponse' smart constructor.

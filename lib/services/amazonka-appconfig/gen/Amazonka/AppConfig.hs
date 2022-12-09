@@ -61,23 +61,23 @@ module Amazonka.AppConfig
     -- * Errors
     -- $errors
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
     -- ** PayloadTooLargeException
     _PayloadTooLargeException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- * Waiters
     -- $waiters

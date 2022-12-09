@@ -47,8 +47,8 @@ module Amazonka.FSx.DeleteFileCache
     newDeleteFileCacheResponse,
 
     -- * Response Lenses
-    deleteFileCacheResponse_lifecycle,
     deleteFileCacheResponse_fileCacheId,
+    deleteFileCacheResponse_lifecycle,
     deleteFileCacheResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest DeleteFileCache where
     Response.receiveJSON
       ( \s h x ->
           DeleteFileCacheResponse'
-            Prelude.<$> (x Data..?> "Lifecycle")
-            Prelude.<*> (x Data..?> "FileCacheId")
+            Prelude.<$> (x Data..?> "FileCacheId")
+            Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance Data.ToQuery DeleteFileCache where
 
 -- | /See:/ 'newDeleteFileCacheResponse' smart constructor.
 data DeleteFileCacheResponse = DeleteFileCacheResponse'
-  { -- | The cache lifecycle for the deletion request. If the @DeleteFileCache@
+  { -- | The ID of the cache that\'s being deleted.
+    fileCacheId :: Prelude.Maybe Prelude.Text,
+    -- | The cache lifecycle for the deletion request. If the @DeleteFileCache@
     -- operation is successful, this status is @DELETING@.
     lifecycle :: Prelude.Maybe FileCacheLifecycle,
-    -- | The ID of the cache that\'s being deleted.
-    fileCacheId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data DeleteFileCacheResponse = DeleteFileCacheResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileCacheId', 'deleteFileCacheResponse_fileCacheId' - The ID of the cache that\'s being deleted.
+--
 -- 'lifecycle', 'deleteFileCacheResponse_lifecycle' - The cache lifecycle for the deletion request. If the @DeleteFileCache@
 -- operation is successful, this status is @DELETING@.
---
--- 'fileCacheId', 'deleteFileCacheResponse_fileCacheId' - The ID of the cache that\'s being deleted.
 --
 -- 'httpStatus', 'deleteFileCacheResponse_httpStatus' - The response's http status code.
 newDeleteFileCacheResponse ::
@@ -187,20 +187,20 @@ newDeleteFileCacheResponse ::
   DeleteFileCacheResponse
 newDeleteFileCacheResponse pHttpStatus_ =
   DeleteFileCacheResponse'
-    { lifecycle =
+    { fileCacheId =
         Prelude.Nothing,
-      fileCacheId = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the cache that\'s being deleted.
+deleteFileCacheResponse_fileCacheId :: Lens.Lens' DeleteFileCacheResponse (Prelude.Maybe Prelude.Text)
+deleteFileCacheResponse_fileCacheId = Lens.lens (\DeleteFileCacheResponse' {fileCacheId} -> fileCacheId) (\s@DeleteFileCacheResponse' {} a -> s {fileCacheId = a} :: DeleteFileCacheResponse)
 
 -- | The cache lifecycle for the deletion request. If the @DeleteFileCache@
 -- operation is successful, this status is @DELETING@.
 deleteFileCacheResponse_lifecycle :: Lens.Lens' DeleteFileCacheResponse (Prelude.Maybe FileCacheLifecycle)
 deleteFileCacheResponse_lifecycle = Lens.lens (\DeleteFileCacheResponse' {lifecycle} -> lifecycle) (\s@DeleteFileCacheResponse' {} a -> s {lifecycle = a} :: DeleteFileCacheResponse)
-
--- | The ID of the cache that\'s being deleted.
-deleteFileCacheResponse_fileCacheId :: Lens.Lens' DeleteFileCacheResponse (Prelude.Maybe Prelude.Text)
-deleteFileCacheResponse_fileCacheId = Lens.lens (\DeleteFileCacheResponse' {fileCacheId} -> fileCacheId) (\s@DeleteFileCacheResponse' {} a -> s {fileCacheId = a} :: DeleteFileCacheResponse)
 
 -- | The response's http status code.
 deleteFileCacheResponse_httpStatus :: Lens.Lens' DeleteFileCacheResponse Prelude.Int
@@ -208,6 +208,6 @@ deleteFileCacheResponse_httpStatus = Lens.lens (\DeleteFileCacheResponse' {httpS
 
 instance Prelude.NFData DeleteFileCacheResponse where
   rnf DeleteFileCacheResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf fileCacheId
+    Prelude.rnf fileCacheId
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf httpStatus

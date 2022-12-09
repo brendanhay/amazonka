@@ -30,7 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemLustreConfiguration' smart constructor.
 data DeleteFileSystemLustreConfiguration = DeleteFileSystemLustreConfiguration'
-  { -- | Set @SkipFinalBackup@ to false if you want to take a final backup of the
+  { -- | Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
+    -- array of tags to the final backup. If you have set the file system
+    -- property @CopyTagsToBackups@ to true, and you specify one or more
+    -- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
+    -- any existing file system tags to the backup.
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Set @SkipFinalBackup@ to false if you want to take a final backup of the
     -- file system you are deleting. By default, Amazon FSx will not take a
     -- final backup on your behalf when the @DeleteFileSystem@ operation is
     -- invoked. (Default = true)
@@ -38,13 +44,7 @@ data DeleteFileSystemLustreConfiguration = DeleteFileSystemLustreConfiguration'
     -- The @fsx:CreateBackup@ permission is required if you set
     -- @SkipFinalBackup@ to @false@ in order to delete the file system and take
     -- a final backup.
-    skipFinalBackup :: Prelude.Maybe Prelude.Bool,
-    -- | Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
-    -- array of tags to the final backup. If you have set the file system
-    -- property @CopyTagsToBackups@ to true, and you specify one or more
-    -- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
-    -- any existing file system tags to the backup.
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+    skipFinalBackup :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,12 @@ data DeleteFileSystemLustreConfiguration = DeleteFileSystemLustreConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'finalBackupTags', 'deleteFileSystemLustreConfiguration_finalBackupTags' - Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
+-- array of tags to the final backup. If you have set the file system
+-- property @CopyTagsToBackups@ to true, and you specify one or more
+-- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
+-- any existing file system tags to the backup.
+--
 -- 'skipFinalBackup', 'deleteFileSystemLustreConfiguration_skipFinalBackup' - Set @SkipFinalBackup@ to false if you want to take a final backup of the
 -- file system you are deleting. By default, Amazon FSx will not take a
 -- final backup on your behalf when the @DeleteFileSystem@ operation is
@@ -64,20 +70,22 @@ data DeleteFileSystemLustreConfiguration = DeleteFileSystemLustreConfiguration'
 -- The @fsx:CreateBackup@ permission is required if you set
 -- @SkipFinalBackup@ to @false@ in order to delete the file system and take
 -- a final backup.
---
--- 'finalBackupTags', 'deleteFileSystemLustreConfiguration_finalBackupTags' - Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
--- array of tags to the final backup. If you have set the file system
--- property @CopyTagsToBackups@ to true, and you specify one or more
--- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
--- any existing file system tags to the backup.
 newDeleteFileSystemLustreConfiguration ::
   DeleteFileSystemLustreConfiguration
 newDeleteFileSystemLustreConfiguration =
   DeleteFileSystemLustreConfiguration'
-    { skipFinalBackup =
+    { finalBackupTags =
         Prelude.Nothing,
-      finalBackupTags = Prelude.Nothing
+      skipFinalBackup = Prelude.Nothing
     }
+
+-- | Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
+-- array of tags to the final backup. If you have set the file system
+-- property @CopyTagsToBackups@ to true, and you specify one or more
+-- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
+-- any existing file system tags to the backup.
+deleteFileSystemLustreConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemLustreConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemLustreConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemLustreConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemLustreConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemLustreConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set @SkipFinalBackup@ to false if you want to take a final backup of the
 -- file system you are deleting. By default, Amazon FSx will not take a
@@ -90,14 +98,6 @@ newDeleteFileSystemLustreConfiguration =
 deleteFileSystemLustreConfiguration_skipFinalBackup :: Lens.Lens' DeleteFileSystemLustreConfiguration (Prelude.Maybe Prelude.Bool)
 deleteFileSystemLustreConfiguration_skipFinalBackup = Lens.lens (\DeleteFileSystemLustreConfiguration' {skipFinalBackup} -> skipFinalBackup) (\s@DeleteFileSystemLustreConfiguration' {} a -> s {skipFinalBackup = a} :: DeleteFileSystemLustreConfiguration)
 
--- | Use if @SkipFinalBackup@ is set to @false@, and you want to apply an
--- array of tags to the final backup. If you have set the file system
--- property @CopyTagsToBackups@ to true, and you specify one or more
--- @FinalBackupTags@ when deleting a file system, Amazon FSx will not copy
--- any existing file system tags to the backup.
-deleteFileSystemLustreConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemLustreConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemLustreConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemLustreConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemLustreConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemLustreConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Prelude.Hashable
     DeleteFileSystemLustreConfiguration
@@ -105,16 +105,16 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemLustreConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` skipFinalBackup
-        `Prelude.hashWithSalt` finalBackupTags
+      _salt `Prelude.hashWithSalt` finalBackupTags
+        `Prelude.hashWithSalt` skipFinalBackup
 
 instance
   Prelude.NFData
     DeleteFileSystemLustreConfiguration
   where
   rnf DeleteFileSystemLustreConfiguration' {..} =
-    Prelude.rnf skipFinalBackup
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupTags
+      `Prelude.seq` Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON
@@ -123,9 +123,9 @@ instance
   toJSON DeleteFileSystemLustreConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Data..=)
-              Prelude.<$> skipFinalBackup,
-            ("FinalBackupTags" Data..=)
-              Prelude.<$> finalBackupTags
+          [ ("FinalBackupTags" Data..=)
+              Prelude.<$> finalBackupTags,
+            ("SkipFinalBackup" Data..=)
+              Prelude.<$> skipFinalBackup
           ]
       )

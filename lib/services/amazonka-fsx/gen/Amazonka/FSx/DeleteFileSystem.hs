@@ -54,9 +54,9 @@ module Amazonka.FSx.DeleteFileSystem
 
     -- * Request Lenses
     deleteFileSystem_clientRequestToken,
+    deleteFileSystem_lustreConfiguration,
     deleteFileSystem_openZFSConfiguration,
     deleteFileSystem_windowsConfiguration,
-    deleteFileSystem_lustreConfiguration,
     deleteFileSystem_fileSystemId,
 
     -- * Destructuring the Response
@@ -64,11 +64,11 @@ module Amazonka.FSx.DeleteFileSystem
     newDeleteFileSystemResponse,
 
     -- * Response Lenses
-    deleteFileSystemResponse_openZFSResponse,
-    deleteFileSystemResponse_lifecycle,
-    deleteFileSystemResponse_windowsResponse,
     deleteFileSystemResponse_fileSystemId,
+    deleteFileSystemResponse_lifecycle,
     deleteFileSystemResponse_lustreResponse,
+    deleteFileSystemResponse_openZFSResponse,
+    deleteFileSystemResponse_windowsResponse,
     deleteFileSystemResponse_httpStatus,
   )
 where
@@ -90,11 +90,11 @@ data DeleteFileSystem = DeleteFileSystem'
     -- when using the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    lustreConfiguration :: Prelude.Maybe DeleteFileSystemLustreConfiguration,
     -- | The configuration object for the OpenZFS file system used in the
     -- @DeleteFileSystem@ operation.
     openZFSConfiguration :: Prelude.Maybe DeleteFileSystemOpenZFSConfiguration,
     windowsConfiguration :: Prelude.Maybe DeleteFileSystemWindowsConfiguration,
-    lustreConfiguration :: Prelude.Maybe DeleteFileSystemLustreConfiguration,
     -- | The ID of the file system that you want to delete.
     fileSystemId :: Prelude.Text
   }
@@ -113,12 +113,12 @@ data DeleteFileSystem = DeleteFileSystem'
 -- when using the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
 --
+-- 'lustreConfiguration', 'deleteFileSystem_lustreConfiguration' - Undocumented member.
+--
 -- 'openZFSConfiguration', 'deleteFileSystem_openZFSConfiguration' - The configuration object for the OpenZFS file system used in the
 -- @DeleteFileSystem@ operation.
 --
 -- 'windowsConfiguration', 'deleteFileSystem_windowsConfiguration' - Undocumented member.
---
--- 'lustreConfiguration', 'deleteFileSystem_lustreConfiguration' - Undocumented member.
 --
 -- 'fileSystemId', 'deleteFileSystem_fileSystemId' - The ID of the file system that you want to delete.
 newDeleteFileSystem ::
@@ -129,9 +129,9 @@ newDeleteFileSystem pFileSystemId_ =
   DeleteFileSystem'
     { clientRequestToken =
         Prelude.Nothing,
+      lustreConfiguration = Prelude.Nothing,
       openZFSConfiguration = Prelude.Nothing,
       windowsConfiguration = Prelude.Nothing,
-      lustreConfiguration = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
 
@@ -142,6 +142,10 @@ newDeleteFileSystem pFileSystemId_ =
 deleteFileSystem_clientRequestToken :: Lens.Lens' DeleteFileSystem (Prelude.Maybe Prelude.Text)
 deleteFileSystem_clientRequestToken = Lens.lens (\DeleteFileSystem' {clientRequestToken} -> clientRequestToken) (\s@DeleteFileSystem' {} a -> s {clientRequestToken = a} :: DeleteFileSystem)
 
+-- | Undocumented member.
+deleteFileSystem_lustreConfiguration :: Lens.Lens' DeleteFileSystem (Prelude.Maybe DeleteFileSystemLustreConfiguration)
+deleteFileSystem_lustreConfiguration = Lens.lens (\DeleteFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@DeleteFileSystem' {} a -> s {lustreConfiguration = a} :: DeleteFileSystem)
+
 -- | The configuration object for the OpenZFS file system used in the
 -- @DeleteFileSystem@ operation.
 deleteFileSystem_openZFSConfiguration :: Lens.Lens' DeleteFileSystem (Prelude.Maybe DeleteFileSystemOpenZFSConfiguration)
@@ -150,10 +154,6 @@ deleteFileSystem_openZFSConfiguration = Lens.lens (\DeleteFileSystem' {openZFSCo
 -- | Undocumented member.
 deleteFileSystem_windowsConfiguration :: Lens.Lens' DeleteFileSystem (Prelude.Maybe DeleteFileSystemWindowsConfiguration)
 deleteFileSystem_windowsConfiguration = Lens.lens (\DeleteFileSystem' {windowsConfiguration} -> windowsConfiguration) (\s@DeleteFileSystem' {} a -> s {windowsConfiguration = a} :: DeleteFileSystem)
-
--- | Undocumented member.
-deleteFileSystem_lustreConfiguration :: Lens.Lens' DeleteFileSystem (Prelude.Maybe DeleteFileSystemLustreConfiguration)
-deleteFileSystem_lustreConfiguration = Lens.lens (\DeleteFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@DeleteFileSystem' {} a -> s {lustreConfiguration = a} :: DeleteFileSystem)
 
 -- | The ID of the file system that you want to delete.
 deleteFileSystem_fileSystemId :: Lens.Lens' DeleteFileSystem Prelude.Text
@@ -169,28 +169,28 @@ instance Core.AWSRequest DeleteFileSystem where
     Response.receiveJSON
       ( \s h x ->
           DeleteFileSystemResponse'
-            Prelude.<$> (x Data..?> "OpenZFSResponse")
+            Prelude.<$> (x Data..?> "FileSystemId")
             Prelude.<*> (x Data..?> "Lifecycle")
-            Prelude.<*> (x Data..?> "WindowsResponse")
-            Prelude.<*> (x Data..?> "FileSystemId")
             Prelude.<*> (x Data..?> "LustreResponse")
+            Prelude.<*> (x Data..?> "OpenZFSResponse")
+            Prelude.<*> (x Data..?> "WindowsResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` windowsConfiguration
-      `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData DeleteFileSystem where
   rnf DeleteFileSystem' {..} =
     Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf openZFSConfiguration
       `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Data.ToHeaders DeleteFileSystem where
@@ -214,12 +214,12 @@ instance Data.ToJSON DeleteFileSystem where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("LustreConfiguration" Data..=)
+              Prelude.<$> lustreConfiguration,
             ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
             ("WindowsConfiguration" Data..=)
               Prelude.<$> windowsConfiguration,
-            ("LustreConfiguration" Data..=)
-              Prelude.<$> lustreConfiguration,
             Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
@@ -234,16 +234,16 @@ instance Data.ToQuery DeleteFileSystem where
 --
 -- /See:/ 'newDeleteFileSystemResponse' smart constructor.
 data DeleteFileSystemResponse = DeleteFileSystemResponse'
-  { -- | The response object for the OpenZFS file system that\'s being deleted in
-    -- the @DeleteFileSystem@ operation.
-    openZFSResponse :: Prelude.Maybe DeleteFileSystemOpenZFSResponse,
+  { -- | The ID of the file system that\'s being deleted.
+    fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | The file system lifecycle for the deletion request. If the
     -- @DeleteFileSystem@ operation is successful, this status is @DELETING@.
     lifecycle :: Prelude.Maybe FileSystemLifecycle,
-    windowsResponse :: Prelude.Maybe DeleteFileSystemWindowsResponse,
-    -- | The ID of the file system that\'s being deleted.
-    fileSystemId :: Prelude.Maybe Prelude.Text,
     lustreResponse :: Prelude.Maybe DeleteFileSystemLustreResponse,
+    -- | The response object for the OpenZFS file system that\'s being deleted in
+    -- the @DeleteFileSystem@ operation.
+    openZFSResponse :: Prelude.Maybe DeleteFileSystemOpenZFSResponse,
+    windowsResponse :: Prelude.Maybe DeleteFileSystemWindowsResponse,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,17 +257,17 @@ data DeleteFileSystemResponse = DeleteFileSystemResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openZFSResponse', 'deleteFileSystemResponse_openZFSResponse' - The response object for the OpenZFS file system that\'s being deleted in
--- the @DeleteFileSystem@ operation.
+-- 'fileSystemId', 'deleteFileSystemResponse_fileSystemId' - The ID of the file system that\'s being deleted.
 --
 -- 'lifecycle', 'deleteFileSystemResponse_lifecycle' - The file system lifecycle for the deletion request. If the
 -- @DeleteFileSystem@ operation is successful, this status is @DELETING@.
 --
--- 'windowsResponse', 'deleteFileSystemResponse_windowsResponse' - Undocumented member.
---
--- 'fileSystemId', 'deleteFileSystemResponse_fileSystemId' - The ID of the file system that\'s being deleted.
---
 -- 'lustreResponse', 'deleteFileSystemResponse_lustreResponse' - Undocumented member.
+--
+-- 'openZFSResponse', 'deleteFileSystemResponse_openZFSResponse' - The response object for the OpenZFS file system that\'s being deleted in
+-- the @DeleteFileSystem@ operation.
+--
+-- 'windowsResponse', 'deleteFileSystemResponse_windowsResponse' - Undocumented member.
 --
 -- 'httpStatus', 'deleteFileSystemResponse_httpStatus' - The response's http status code.
 newDeleteFileSystemResponse ::
@@ -276,19 +276,18 @@ newDeleteFileSystemResponse ::
   DeleteFileSystemResponse
 newDeleteFileSystemResponse pHttpStatus_ =
   DeleteFileSystemResponse'
-    { openZFSResponse =
+    { fileSystemId =
         Prelude.Nothing,
       lifecycle = Prelude.Nothing,
-      windowsResponse = Prelude.Nothing,
-      fileSystemId = Prelude.Nothing,
       lustreResponse = Prelude.Nothing,
+      openZFSResponse = Prelude.Nothing,
+      windowsResponse = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The response object for the OpenZFS file system that\'s being deleted in
--- the @DeleteFileSystem@ operation.
-deleteFileSystemResponse_openZFSResponse :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe DeleteFileSystemOpenZFSResponse)
-deleteFileSystemResponse_openZFSResponse = Lens.lens (\DeleteFileSystemResponse' {openZFSResponse} -> openZFSResponse) (\s@DeleteFileSystemResponse' {} a -> s {openZFSResponse = a} :: DeleteFileSystemResponse)
+-- | The ID of the file system that\'s being deleted.
+deleteFileSystemResponse_fileSystemId :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe Prelude.Text)
+deleteFileSystemResponse_fileSystemId = Lens.lens (\DeleteFileSystemResponse' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystemResponse' {} a -> s {fileSystemId = a} :: DeleteFileSystemResponse)
 
 -- | The file system lifecycle for the deletion request. If the
 -- @DeleteFileSystem@ operation is successful, this status is @DELETING@.
@@ -296,16 +295,17 @@ deleteFileSystemResponse_lifecycle :: Lens.Lens' DeleteFileSystemResponse (Prelu
 deleteFileSystemResponse_lifecycle = Lens.lens (\DeleteFileSystemResponse' {lifecycle} -> lifecycle) (\s@DeleteFileSystemResponse' {} a -> s {lifecycle = a} :: DeleteFileSystemResponse)
 
 -- | Undocumented member.
-deleteFileSystemResponse_windowsResponse :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe DeleteFileSystemWindowsResponse)
-deleteFileSystemResponse_windowsResponse = Lens.lens (\DeleteFileSystemResponse' {windowsResponse} -> windowsResponse) (\s@DeleteFileSystemResponse' {} a -> s {windowsResponse = a} :: DeleteFileSystemResponse)
-
--- | The ID of the file system that\'s being deleted.
-deleteFileSystemResponse_fileSystemId :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe Prelude.Text)
-deleteFileSystemResponse_fileSystemId = Lens.lens (\DeleteFileSystemResponse' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystemResponse' {} a -> s {fileSystemId = a} :: DeleteFileSystemResponse)
-
--- | Undocumented member.
 deleteFileSystemResponse_lustreResponse :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe DeleteFileSystemLustreResponse)
 deleteFileSystemResponse_lustreResponse = Lens.lens (\DeleteFileSystemResponse' {lustreResponse} -> lustreResponse) (\s@DeleteFileSystemResponse' {} a -> s {lustreResponse = a} :: DeleteFileSystemResponse)
+
+-- | The response object for the OpenZFS file system that\'s being deleted in
+-- the @DeleteFileSystem@ operation.
+deleteFileSystemResponse_openZFSResponse :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe DeleteFileSystemOpenZFSResponse)
+deleteFileSystemResponse_openZFSResponse = Lens.lens (\DeleteFileSystemResponse' {openZFSResponse} -> openZFSResponse) (\s@DeleteFileSystemResponse' {} a -> s {openZFSResponse = a} :: DeleteFileSystemResponse)
+
+-- | Undocumented member.
+deleteFileSystemResponse_windowsResponse :: Lens.Lens' DeleteFileSystemResponse (Prelude.Maybe DeleteFileSystemWindowsResponse)
+deleteFileSystemResponse_windowsResponse = Lens.lens (\DeleteFileSystemResponse' {windowsResponse} -> windowsResponse) (\s@DeleteFileSystemResponse' {} a -> s {windowsResponse = a} :: DeleteFileSystemResponse)
 
 -- | The response's http status code.
 deleteFileSystemResponse_httpStatus :: Lens.Lens' DeleteFileSystemResponse Prelude.Int
@@ -313,9 +313,9 @@ deleteFileSystemResponse_httpStatus = Lens.lens (\DeleteFileSystemResponse' {htt
 
 instance Prelude.NFData DeleteFileSystemResponse where
   rnf DeleteFileSystemResponse' {..} =
-    Prelude.rnf openZFSResponse
+    Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf windowsResponse
-      `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf lustreResponse
+      `Prelude.seq` Prelude.rnf openZFSResponse
+      `Prelude.seq` Prelude.rnf windowsResponse
       `Prelude.seq` Prelude.rnf httpStatus

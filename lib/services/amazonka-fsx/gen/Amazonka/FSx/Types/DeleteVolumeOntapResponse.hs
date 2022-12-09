@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteVolumeOntapResponse' smart constructor.
 data DeleteVolumeOntapResponse = DeleteVolumeOntapResponse'
-  { finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    finalBackupId :: Prelude.Maybe Prelude.Text
+  { finalBackupId :: Prelude.Maybe Prelude.Text,
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data DeleteVolumeOntapResponse = DeleteVolumeOntapResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalBackupTags', 'deleteVolumeOntapResponse_finalBackupTags' - Undocumented member.
---
 -- 'finalBackupId', 'deleteVolumeOntapResponse_finalBackupId' - Undocumented member.
+--
+-- 'finalBackupTags', 'deleteVolumeOntapResponse_finalBackupTags' - Undocumented member.
 newDeleteVolumeOntapResponse ::
   DeleteVolumeOntapResponse
 newDeleteVolumeOntapResponse =
   DeleteVolumeOntapResponse'
-    { finalBackupTags =
+    { finalBackupId =
         Prelude.Nothing,
-      finalBackupId = Prelude.Nothing
+      finalBackupTags = Prelude.Nothing
     }
-
--- | Undocumented member.
-deleteVolumeOntapResponse_finalBackupTags :: Lens.Lens' DeleteVolumeOntapResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteVolumeOntapResponse_finalBackupTags = Lens.lens (\DeleteVolumeOntapResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteVolumeOntapResponse' {} a -> s {finalBackupTags = a} :: DeleteVolumeOntapResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 deleteVolumeOntapResponse_finalBackupId :: Lens.Lens' DeleteVolumeOntapResponse (Prelude.Maybe Prelude.Text)
 deleteVolumeOntapResponse_finalBackupId = Lens.lens (\DeleteVolumeOntapResponse' {finalBackupId} -> finalBackupId) (\s@DeleteVolumeOntapResponse' {} a -> s {finalBackupId = a} :: DeleteVolumeOntapResponse)
+
+-- | Undocumented member.
+deleteVolumeOntapResponse_finalBackupTags :: Lens.Lens' DeleteVolumeOntapResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteVolumeOntapResponse_finalBackupTags = Lens.lens (\DeleteVolumeOntapResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteVolumeOntapResponse' {} a -> s {finalBackupTags = a} :: DeleteVolumeOntapResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON DeleteVolumeOntapResponse where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON DeleteVolumeOntapResponse where
       "DeleteVolumeOntapResponse"
       ( \x ->
           DeleteVolumeOntapResponse'
-            Prelude.<$> (x Data..:? "FinalBackupTags")
-            Prelude.<*> (x Data..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupId")
+            Prelude.<*> (x Data..:? "FinalBackupTags")
       )
 
 instance Prelude.Hashable DeleteVolumeOntapResponse where
   hashWithSalt _salt DeleteVolumeOntapResponse' {..} =
-    _salt `Prelude.hashWithSalt` finalBackupTags
-      `Prelude.hashWithSalt` finalBackupId
+    _salt `Prelude.hashWithSalt` finalBackupId
+      `Prelude.hashWithSalt` finalBackupTags
 
 instance Prelude.NFData DeleteVolumeOntapResponse where
   rnf DeleteVolumeOntapResponse' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf finalBackupId
+    Prelude.rnf finalBackupId
+      `Prelude.seq` Prelude.rnf finalBackupTags

@@ -42,9 +42,9 @@ module Amazonka.FSx.DeleteDataRepositoryAssociation
     newDeleteDataRepositoryAssociationResponse,
 
     -- * Response Lenses
-    deleteDataRepositoryAssociationResponse_lifecycle,
-    deleteDataRepositoryAssociationResponse_deleteDataInFileSystem,
     deleteDataRepositoryAssociationResponse_associationId,
+    deleteDataRepositoryAssociationResponse_deleteDataInFileSystem,
+    deleteDataRepositoryAssociationResponse_lifecycle,
     deleteDataRepositoryAssociationResponse_httpStatus,
   )
 where
@@ -120,9 +120,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteDataRepositoryAssociationResponse'
-            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<$> (x Data..?> "AssociationId")
             Prelude.<*> (x Data..?> "DeleteDataInFileSystem")
-            Prelude.<*> (x Data..?> "AssociationId")
+            Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,14 +185,14 @@ instance Data.ToQuery DeleteDataRepositoryAssociation where
 
 -- | /See:/ 'newDeleteDataRepositoryAssociationResponse' smart constructor.
 data DeleteDataRepositoryAssociationResponse = DeleteDataRepositoryAssociationResponse'
-  { -- | Describes the lifecycle state of the data repository association being
-    -- deleted.
-    lifecycle :: Prelude.Maybe DataRepositoryLifecycle,
+  { -- | The ID of the data repository association being deleted.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether data in the file system that corresponds to the data
     -- repository association is being deleted. Default is @false@.
     deleteDataInFileSystem :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the data repository association being deleted.
-    associationId :: Prelude.Maybe Prelude.Text,
+    -- | Describes the lifecycle state of the data repository association being
+    -- deleted.
+    lifecycle :: Prelude.Maybe DataRepositoryLifecycle,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,13 +206,13 @@ data DeleteDataRepositoryAssociationResponse = DeleteDataRepositoryAssociationRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycle', 'deleteDataRepositoryAssociationResponse_lifecycle' - Describes the lifecycle state of the data repository association being
--- deleted.
+-- 'associationId', 'deleteDataRepositoryAssociationResponse_associationId' - The ID of the data repository association being deleted.
 --
 -- 'deleteDataInFileSystem', 'deleteDataRepositoryAssociationResponse_deleteDataInFileSystem' - Indicates whether data in the file system that corresponds to the data
 -- repository association is being deleted. Default is @false@.
 --
--- 'associationId', 'deleteDataRepositoryAssociationResponse_associationId' - The ID of the data repository association being deleted.
+-- 'lifecycle', 'deleteDataRepositoryAssociationResponse_lifecycle' - Describes the lifecycle state of the data repository association being
+-- deleted.
 --
 -- 'httpStatus', 'deleteDataRepositoryAssociationResponse_httpStatus' - The response's http status code.
 newDeleteDataRepositoryAssociationResponse ::
@@ -222,27 +222,27 @@ newDeleteDataRepositoryAssociationResponse ::
 newDeleteDataRepositoryAssociationResponse
   pHttpStatus_ =
     DeleteDataRepositoryAssociationResponse'
-      { lifecycle =
+      { associationId =
           Prelude.Nothing,
         deleteDataInFileSystem =
           Prelude.Nothing,
-        associationId = Prelude.Nothing,
+        lifecycle = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | Describes the lifecycle state of the data repository association being
--- deleted.
-deleteDataRepositoryAssociationResponse_lifecycle :: Lens.Lens' DeleteDataRepositoryAssociationResponse (Prelude.Maybe DataRepositoryLifecycle)
-deleteDataRepositoryAssociationResponse_lifecycle = Lens.lens (\DeleteDataRepositoryAssociationResponse' {lifecycle} -> lifecycle) (\s@DeleteDataRepositoryAssociationResponse' {} a -> s {lifecycle = a} :: DeleteDataRepositoryAssociationResponse)
+-- | The ID of the data repository association being deleted.
+deleteDataRepositoryAssociationResponse_associationId :: Lens.Lens' DeleteDataRepositoryAssociationResponse (Prelude.Maybe Prelude.Text)
+deleteDataRepositoryAssociationResponse_associationId = Lens.lens (\DeleteDataRepositoryAssociationResponse' {associationId} -> associationId) (\s@DeleteDataRepositoryAssociationResponse' {} a -> s {associationId = a} :: DeleteDataRepositoryAssociationResponse)
 
 -- | Indicates whether data in the file system that corresponds to the data
 -- repository association is being deleted. Default is @false@.
 deleteDataRepositoryAssociationResponse_deleteDataInFileSystem :: Lens.Lens' DeleteDataRepositoryAssociationResponse (Prelude.Maybe Prelude.Bool)
 deleteDataRepositoryAssociationResponse_deleteDataInFileSystem = Lens.lens (\DeleteDataRepositoryAssociationResponse' {deleteDataInFileSystem} -> deleteDataInFileSystem) (\s@DeleteDataRepositoryAssociationResponse' {} a -> s {deleteDataInFileSystem = a} :: DeleteDataRepositoryAssociationResponse)
 
--- | The ID of the data repository association being deleted.
-deleteDataRepositoryAssociationResponse_associationId :: Lens.Lens' DeleteDataRepositoryAssociationResponse (Prelude.Maybe Prelude.Text)
-deleteDataRepositoryAssociationResponse_associationId = Lens.lens (\DeleteDataRepositoryAssociationResponse' {associationId} -> associationId) (\s@DeleteDataRepositoryAssociationResponse' {} a -> s {associationId = a} :: DeleteDataRepositoryAssociationResponse)
+-- | Describes the lifecycle state of the data repository association being
+-- deleted.
+deleteDataRepositoryAssociationResponse_lifecycle :: Lens.Lens' DeleteDataRepositoryAssociationResponse (Prelude.Maybe DataRepositoryLifecycle)
+deleteDataRepositoryAssociationResponse_lifecycle = Lens.lens (\DeleteDataRepositoryAssociationResponse' {lifecycle} -> lifecycle) (\s@DeleteDataRepositoryAssociationResponse' {} a -> s {lifecycle = a} :: DeleteDataRepositoryAssociationResponse)
 
 -- | The response's http status code.
 deleteDataRepositoryAssociationResponse_httpStatus :: Lens.Lens' DeleteDataRepositoryAssociationResponse Prelude.Int
@@ -253,7 +253,7 @@ instance
     DeleteDataRepositoryAssociationResponse
   where
   rnf DeleteDataRepositoryAssociationResponse' {..} =
-    Prelude.rnf lifecycle
+    Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf deleteDataInFileSystem
-      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf httpStatus

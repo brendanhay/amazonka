@@ -41,18 +41,18 @@ module Amazonka.FSx.DescribeDataRepositoryTasks
     newDescribeDataRepositoryTasks,
 
     -- * Request Lenses
-    describeDataRepositoryTasks_nextToken,
     describeDataRepositoryTasks_filters,
-    describeDataRepositoryTasks_taskIds,
     describeDataRepositoryTasks_maxResults,
+    describeDataRepositoryTasks_nextToken,
+    describeDataRepositoryTasks_taskIds,
 
     -- * Destructuring the Response
     DescribeDataRepositoryTasksResponse (..),
     newDescribeDataRepositoryTasksResponse,
 
     -- * Response Lenses
-    describeDataRepositoryTasksResponse_nextToken,
     describeDataRepositoryTasksResponse_dataRepositoryTasks,
+    describeDataRepositoryTasksResponse_nextToken,
     describeDataRepositoryTasksResponse_httpStatus,
   )
 where
@@ -67,15 +67,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataRepositoryTasks' smart constructor.
 data DescribeDataRepositoryTasks = DescribeDataRepositoryTasks'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) You can use filters to narrow the
+  { -- | (Optional) You can use filters to narrow the
     -- @DescribeDataRepositoryTasks@ response to include just tasks for
     -- specific file systems, or tasks in a specific lifecycle state.
     filters :: Prelude.Maybe [DataRepositoryTaskFilter],
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) IDs of the tasks whose descriptions you want to retrieve
     -- (String).
-    taskIds :: Prelude.Maybe [Prelude.Text],
-    maxResults :: Prelude.Maybe Prelude.Natural
+    taskIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,30 +87,26 @@ data DescribeDataRepositoryTasks = DescribeDataRepositoryTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDataRepositoryTasks_nextToken' - Undocumented member.
---
 -- 'filters', 'describeDataRepositoryTasks_filters' - (Optional) You can use filters to narrow the
 -- @DescribeDataRepositoryTasks@ response to include just tasks for
 -- specific file systems, or tasks in a specific lifecycle state.
 --
+-- 'maxResults', 'describeDataRepositoryTasks_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeDataRepositoryTasks_nextToken' - Undocumented member.
+--
 -- 'taskIds', 'describeDataRepositoryTasks_taskIds' - (Optional) IDs of the tasks whose descriptions you want to retrieve
 -- (String).
---
--- 'maxResults', 'describeDataRepositoryTasks_maxResults' - Undocumented member.
 newDescribeDataRepositoryTasks ::
   DescribeDataRepositoryTasks
 newDescribeDataRepositoryTasks =
   DescribeDataRepositoryTasks'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      taskIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      taskIds = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeDataRepositoryTasks_nextToken :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe Prelude.Text)
-describeDataRepositoryTasks_nextToken = Lens.lens (\DescribeDataRepositoryTasks' {nextToken} -> nextToken) (\s@DescribeDataRepositoryTasks' {} a -> s {nextToken = a} :: DescribeDataRepositoryTasks)
 
 -- | (Optional) You can use filters to narrow the
 -- @DescribeDataRepositoryTasks@ response to include just tasks for
@@ -118,14 +114,18 @@ describeDataRepositoryTasks_nextToken = Lens.lens (\DescribeDataRepositoryTasks'
 describeDataRepositoryTasks_filters :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe [DataRepositoryTaskFilter])
 describeDataRepositoryTasks_filters = Lens.lens (\DescribeDataRepositoryTasks' {filters} -> filters) (\s@DescribeDataRepositoryTasks' {} a -> s {filters = a} :: DescribeDataRepositoryTasks) Prelude.. Lens.mapping Lens.coerced
 
+-- | Undocumented member.
+describeDataRepositoryTasks_maxResults :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe Prelude.Natural)
+describeDataRepositoryTasks_maxResults = Lens.lens (\DescribeDataRepositoryTasks' {maxResults} -> maxResults) (\s@DescribeDataRepositoryTasks' {} a -> s {maxResults = a} :: DescribeDataRepositoryTasks)
+
+-- | Undocumented member.
+describeDataRepositoryTasks_nextToken :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe Prelude.Text)
+describeDataRepositoryTasks_nextToken = Lens.lens (\DescribeDataRepositoryTasks' {nextToken} -> nextToken) (\s@DescribeDataRepositoryTasks' {} a -> s {nextToken = a} :: DescribeDataRepositoryTasks)
+
 -- | (Optional) IDs of the tasks whose descriptions you want to retrieve
 -- (String).
 describeDataRepositoryTasks_taskIds :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe [Prelude.Text])
 describeDataRepositoryTasks_taskIds = Lens.lens (\DescribeDataRepositoryTasks' {taskIds} -> taskIds) (\s@DescribeDataRepositoryTasks' {} a -> s {taskIds = a} :: DescribeDataRepositoryTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-describeDataRepositoryTasks_maxResults :: Lens.Lens' DescribeDataRepositoryTasks (Prelude.Maybe Prelude.Natural)
-describeDataRepositoryTasks_maxResults = Lens.lens (\DescribeDataRepositoryTasks' {maxResults} -> maxResults) (\s@DescribeDataRepositoryTasks' {} a -> s {maxResults = a} :: DescribeDataRepositoryTasks)
 
 instance Core.AWSRequest DescribeDataRepositoryTasks where
   type
@@ -137,26 +137,26 @@ instance Core.AWSRequest DescribeDataRepositoryTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataRepositoryTasksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DataRepositoryTasks"
+            Prelude.<$> ( x Data..?> "DataRepositoryTasks"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDataRepositoryTasks where
   hashWithSalt _salt DescribeDataRepositoryTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` taskIds
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` taskIds
 
 instance Prelude.NFData DescribeDataRepositoryTasks where
   rnf DescribeDataRepositoryTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf taskIds
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf taskIds
 
 instance Data.ToHeaders DescribeDataRepositoryTasks where
   toHeaders =
@@ -177,10 +177,10 @@ instance Data.ToJSON DescribeDataRepositoryTasks where
   toJSON DescribeDataRepositoryTasks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("TaskIds" Data..=) Prelude.<$> taskIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("TaskIds" Data..=) Prelude.<$> taskIds
           ]
       )
 
@@ -192,9 +192,9 @@ instance Data.ToQuery DescribeDataRepositoryTasks where
 
 -- | /See:/ 'newDescribeDataRepositoryTasksResponse' smart constructor.
 data DescribeDataRepositoryTasksResponse = DescribeDataRepositoryTasksResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The collection of data repository task descriptions returned.
+  { -- | The collection of data repository task descriptions returned.
     dataRepositoryTasks :: Prelude.Maybe [DataRepositoryTask],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,9 +208,9 @@ data DescribeDataRepositoryTasksResponse = DescribeDataRepositoryTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDataRepositoryTasksResponse_nextToken' - Undocumented member.
---
 -- 'dataRepositoryTasks', 'describeDataRepositoryTasksResponse_dataRepositoryTasks' - The collection of data repository task descriptions returned.
+--
+-- 'nextToken', 'describeDataRepositoryTasksResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeDataRepositoryTasksResponse_httpStatus' - The response's http status code.
 newDescribeDataRepositoryTasksResponse ::
@@ -219,19 +219,19 @@ newDescribeDataRepositoryTasksResponse ::
   DescribeDataRepositoryTasksResponse
 newDescribeDataRepositoryTasksResponse pHttpStatus_ =
   DescribeDataRepositoryTasksResponse'
-    { nextToken =
+    { dataRepositoryTasks =
         Prelude.Nothing,
-      dataRepositoryTasks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeDataRepositoryTasksResponse_nextToken :: Lens.Lens' DescribeDataRepositoryTasksResponse (Prelude.Maybe Prelude.Text)
-describeDataRepositoryTasksResponse_nextToken = Lens.lens (\DescribeDataRepositoryTasksResponse' {nextToken} -> nextToken) (\s@DescribeDataRepositoryTasksResponse' {} a -> s {nextToken = a} :: DescribeDataRepositoryTasksResponse)
 
 -- | The collection of data repository task descriptions returned.
 describeDataRepositoryTasksResponse_dataRepositoryTasks :: Lens.Lens' DescribeDataRepositoryTasksResponse (Prelude.Maybe [DataRepositoryTask])
 describeDataRepositoryTasksResponse_dataRepositoryTasks = Lens.lens (\DescribeDataRepositoryTasksResponse' {dataRepositoryTasks} -> dataRepositoryTasks) (\s@DescribeDataRepositoryTasksResponse' {} a -> s {dataRepositoryTasks = a} :: DescribeDataRepositoryTasksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeDataRepositoryTasksResponse_nextToken :: Lens.Lens' DescribeDataRepositoryTasksResponse (Prelude.Maybe Prelude.Text)
+describeDataRepositoryTasksResponse_nextToken = Lens.lens (\DescribeDataRepositoryTasksResponse' {nextToken} -> nextToken) (\s@DescribeDataRepositoryTasksResponse' {} a -> s {nextToken = a} :: DescribeDataRepositoryTasksResponse)
 
 -- | The response's http status code.
 describeDataRepositoryTasksResponse_httpStatus :: Lens.Lens' DescribeDataRepositoryTasksResponse Prelude.Int
@@ -242,6 +242,6 @@ instance
     DescribeDataRepositoryTasksResponse
   where
   rnf DescribeDataRepositoryTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataRepositoryTasks
+    Prelude.rnf dataRepositoryTasks
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

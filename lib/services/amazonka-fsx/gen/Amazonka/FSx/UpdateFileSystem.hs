@@ -95,11 +95,11 @@ module Amazonka.FSx.UpdateFileSystem
 
     -- * Request Lenses
     updateFileSystem_clientRequestToken,
+    updateFileSystem_lustreConfiguration,
+    updateFileSystem_ontapConfiguration,
     updateFileSystem_openZFSConfiguration,
     updateFileSystem_storageCapacity,
-    updateFileSystem_ontapConfiguration,
     updateFileSystem_windowsConfiguration,
-    updateFileSystem_lustreConfiguration,
     updateFileSystem_fileSystemId,
 
     -- * Destructuring the Response
@@ -129,6 +129,8 @@ data UpdateFileSystem = UpdateFileSystem'
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    lustreConfiguration :: Prelude.Maybe UpdateFileSystemLustreConfiguration,
+    ontapConfiguration :: Prelude.Maybe UpdateFileSystemOntapConfiguration,
     -- | The configuration updates for an Amazon FSx for OpenZFS file system.
     openZFSConfiguration :: Prelude.Maybe UpdateFileSystemOpenZFSConfiguration,
     -- | Use this parameter to increase the storage capacity of an Amazon FSx for
@@ -172,11 +174,9 @@ data UpdateFileSystem = UpdateFileSystem'
     -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html Managing storage capacity and provisioned IOPS>
     -- in the /Amazon FSx for NetApp ONTAP User Guide/.
     storageCapacity :: Prelude.Maybe Prelude.Natural,
-    ontapConfiguration :: Prelude.Maybe UpdateFileSystemOntapConfiguration,
     -- | The configuration updates for an Amazon FSx for Windows File Server file
     -- system.
     windowsConfiguration :: Prelude.Maybe UpdateFileSystemWindowsConfiguration,
-    lustreConfiguration :: Prelude.Maybe UpdateFileSystemLustreConfiguration,
     -- | The ID of the file system that you are updating.
     fileSystemId :: Prelude.Text
   }
@@ -194,6 +194,10 @@ data UpdateFileSystem = UpdateFileSystem'
 -- idempotent updates. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
 -- SDK.
+--
+-- 'lustreConfiguration', 'updateFileSystem_lustreConfiguration' - Undocumented member.
+--
+-- 'ontapConfiguration', 'updateFileSystem_ontapConfiguration' - Undocumented member.
 --
 -- 'openZFSConfiguration', 'updateFileSystem_openZFSConfiguration' - The configuration updates for an Amazon FSx for OpenZFS file system.
 --
@@ -238,12 +242,8 @@ data UpdateFileSystem = UpdateFileSystem'
 -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html Managing storage capacity and provisioned IOPS>
 -- in the /Amazon FSx for NetApp ONTAP User Guide/.
 --
--- 'ontapConfiguration', 'updateFileSystem_ontapConfiguration' - Undocumented member.
---
 -- 'windowsConfiguration', 'updateFileSystem_windowsConfiguration' - The configuration updates for an Amazon FSx for Windows File Server file
 -- system.
---
--- 'lustreConfiguration', 'updateFileSystem_lustreConfiguration' - Undocumented member.
 --
 -- 'fileSystemId', 'updateFileSystem_fileSystemId' - The ID of the file system that you are updating.
 newUpdateFileSystem ::
@@ -254,11 +254,11 @@ newUpdateFileSystem pFileSystemId_ =
   UpdateFileSystem'
     { clientRequestToken =
         Prelude.Nothing,
+      lustreConfiguration = Prelude.Nothing,
+      ontapConfiguration = Prelude.Nothing,
       openZFSConfiguration = Prelude.Nothing,
       storageCapacity = Prelude.Nothing,
-      ontapConfiguration = Prelude.Nothing,
       windowsConfiguration = Prelude.Nothing,
-      lustreConfiguration = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
 
@@ -268,6 +268,14 @@ newUpdateFileSystem pFileSystemId_ =
 -- SDK.
 updateFileSystem_clientRequestToken :: Lens.Lens' UpdateFileSystem (Prelude.Maybe Prelude.Text)
 updateFileSystem_clientRequestToken = Lens.lens (\UpdateFileSystem' {clientRequestToken} -> clientRequestToken) (\s@UpdateFileSystem' {} a -> s {clientRequestToken = a} :: UpdateFileSystem)
+
+-- | Undocumented member.
+updateFileSystem_lustreConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemLustreConfiguration)
+updateFileSystem_lustreConfiguration = Lens.lens (\UpdateFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@UpdateFileSystem' {} a -> s {lustreConfiguration = a} :: UpdateFileSystem)
+
+-- | Undocumented member.
+updateFileSystem_ontapConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemOntapConfiguration)
+updateFileSystem_ontapConfiguration = Lens.lens (\UpdateFileSystem' {ontapConfiguration} -> ontapConfiguration) (\s@UpdateFileSystem' {} a -> s {ontapConfiguration = a} :: UpdateFileSystem)
 
 -- | The configuration updates for an Amazon FSx for OpenZFS file system.
 updateFileSystem_openZFSConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemOpenZFSConfiguration)
@@ -316,18 +324,10 @@ updateFileSystem_openZFSConfiguration = Lens.lens (\UpdateFileSystem' {openZFSCo
 updateFileSystem_storageCapacity :: Lens.Lens' UpdateFileSystem (Prelude.Maybe Prelude.Natural)
 updateFileSystem_storageCapacity = Lens.lens (\UpdateFileSystem' {storageCapacity} -> storageCapacity) (\s@UpdateFileSystem' {} a -> s {storageCapacity = a} :: UpdateFileSystem)
 
--- | Undocumented member.
-updateFileSystem_ontapConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemOntapConfiguration)
-updateFileSystem_ontapConfiguration = Lens.lens (\UpdateFileSystem' {ontapConfiguration} -> ontapConfiguration) (\s@UpdateFileSystem' {} a -> s {ontapConfiguration = a} :: UpdateFileSystem)
-
 -- | The configuration updates for an Amazon FSx for Windows File Server file
 -- system.
 updateFileSystem_windowsConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemWindowsConfiguration)
 updateFileSystem_windowsConfiguration = Lens.lens (\UpdateFileSystem' {windowsConfiguration} -> windowsConfiguration) (\s@UpdateFileSystem' {} a -> s {windowsConfiguration = a} :: UpdateFileSystem)
-
--- | Undocumented member.
-updateFileSystem_lustreConfiguration :: Lens.Lens' UpdateFileSystem (Prelude.Maybe UpdateFileSystemLustreConfiguration)
-updateFileSystem_lustreConfiguration = Lens.lens (\UpdateFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@UpdateFileSystem' {} a -> s {lustreConfiguration = a} :: UpdateFileSystem)
 
 -- | The ID of the file system that you are updating.
 updateFileSystem_fileSystemId :: Lens.Lens' UpdateFileSystem Prelude.Text
@@ -350,21 +350,21 @@ instance Core.AWSRequest UpdateFileSystem where
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` lustreConfiguration
+      `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` storageCapacity
-      `Prelude.hashWithSalt` ontapConfiguration
       `Prelude.hashWithSalt` windowsConfiguration
-      `Prelude.hashWithSalt` lustreConfiguration
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData UpdateFileSystem where
   rnf UpdateFileSystem' {..} =
     Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf lustreConfiguration
+      `Prelude.seq` Prelude.rnf ontapConfiguration
       `Prelude.seq` Prelude.rnf openZFSConfiguration
       `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf ontapConfiguration
       `Prelude.seq` Prelude.rnf windowsConfiguration
-      `Prelude.seq` Prelude.rnf lustreConfiguration
       `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Data.ToHeaders UpdateFileSystem where
@@ -388,16 +388,16 @@ instance Data.ToJSON UpdateFileSystem where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("LustreConfiguration" Data..=)
+              Prelude.<$> lustreConfiguration,
+            ("OntapConfiguration" Data..=)
+              Prelude.<$> ontapConfiguration,
             ("OpenZFSConfiguration" Data..=)
               Prelude.<$> openZFSConfiguration,
             ("StorageCapacity" Data..=)
               Prelude.<$> storageCapacity,
-            ("OntapConfiguration" Data..=)
-              Prelude.<$> ontapConfiguration,
             ("WindowsConfiguration" Data..=)
               Prelude.<$> windowsConfiguration,
-            ("LustreConfiguration" Data..=)
-              Prelude.<$> lustreConfiguration,
             Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )

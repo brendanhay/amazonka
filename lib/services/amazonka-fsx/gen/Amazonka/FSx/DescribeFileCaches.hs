@@ -52,17 +52,17 @@ module Amazonka.FSx.DescribeFileCaches
     newDescribeFileCaches,
 
     -- * Request Lenses
-    describeFileCaches_nextToken,
     describeFileCaches_fileCacheIds,
     describeFileCaches_maxResults,
+    describeFileCaches_nextToken,
 
     -- * Destructuring the Response
     DescribeFileCachesResponse (..),
     newDescribeFileCachesResponse,
 
     -- * Response Lenses
-    describeFileCachesResponse_nextToken,
     describeFileCachesResponse_fileCaches,
+    describeFileCachesResponse_nextToken,
     describeFileCachesResponse_httpStatus,
   )
 where
@@ -77,10 +77,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFileCaches' smart constructor.
 data DescribeFileCaches = DescribeFileCaches'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | IDs of the caches whose descriptions you want to retrieve (String).
+  { -- | IDs of the caches whose descriptions you want to retrieve (String).
     fileCacheIds :: Prelude.Maybe [Prelude.Text],
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,23 +92,19 @@ data DescribeFileCaches = DescribeFileCaches'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFileCaches_nextToken' - Undocumented member.
---
 -- 'fileCacheIds', 'describeFileCaches_fileCacheIds' - IDs of the caches whose descriptions you want to retrieve (String).
 --
 -- 'maxResults', 'describeFileCaches_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeFileCaches_nextToken' - Undocumented member.
 newDescribeFileCaches ::
   DescribeFileCaches
 newDescribeFileCaches =
   DescribeFileCaches'
-    { nextToken = Prelude.Nothing,
-      fileCacheIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { fileCacheIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeFileCaches_nextToken :: Lens.Lens' DescribeFileCaches (Prelude.Maybe Prelude.Text)
-describeFileCaches_nextToken = Lens.lens (\DescribeFileCaches' {nextToken} -> nextToken) (\s@DescribeFileCaches' {} a -> s {nextToken = a} :: DescribeFileCaches)
 
 -- | IDs of the caches whose descriptions you want to retrieve (String).
 describeFileCaches_fileCacheIds :: Lens.Lens' DescribeFileCaches (Prelude.Maybe [Prelude.Text])
@@ -117,6 +113,10 @@ describeFileCaches_fileCacheIds = Lens.lens (\DescribeFileCaches' {fileCacheIds}
 -- | Undocumented member.
 describeFileCaches_maxResults :: Lens.Lens' DescribeFileCaches (Prelude.Maybe Prelude.Natural)
 describeFileCaches_maxResults = Lens.lens (\DescribeFileCaches' {maxResults} -> maxResults) (\s@DescribeFileCaches' {} a -> s {maxResults = a} :: DescribeFileCaches)
+
+-- | Undocumented member.
+describeFileCaches_nextToken :: Lens.Lens' DescribeFileCaches (Prelude.Maybe Prelude.Text)
+describeFileCaches_nextToken = Lens.lens (\DescribeFileCaches' {nextToken} -> nextToken) (\s@DescribeFileCaches' {} a -> s {nextToken = a} :: DescribeFileCaches)
 
 instance Core.AWSRequest DescribeFileCaches where
   type
@@ -128,22 +128,22 @@ instance Core.AWSRequest DescribeFileCaches where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileCachesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "FileCaches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FileCaches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFileCaches where
   hashWithSalt _salt DescribeFileCaches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` fileCacheIds
+    _salt `Prelude.hashWithSalt` fileCacheIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeFileCaches where
   rnf DescribeFileCaches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fileCacheIds
+    Prelude.rnf fileCacheIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFileCaches where
   toHeaders =
@@ -164,9 +164,9 @@ instance Data.ToJSON DescribeFileCaches where
   toJSON DescribeFileCaches' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FileCacheIds" Data..=) Prelude.<$> fileCacheIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("FileCacheIds" Data..=) Prelude.<$> fileCacheIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -178,9 +178,9 @@ instance Data.ToQuery DescribeFileCaches where
 
 -- | /See:/ 'newDescribeFileCachesResponse' smart constructor.
 data DescribeFileCachesResponse = DescribeFileCachesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The response object for the @DescribeFileCaches@ operation.
+  { -- | The response object for the @DescribeFileCaches@ operation.
     fileCaches :: Prelude.Maybe [FileCache],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,9 +194,9 @@ data DescribeFileCachesResponse = DescribeFileCachesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFileCachesResponse_nextToken' - Undocumented member.
---
 -- 'fileCaches', 'describeFileCachesResponse_fileCaches' - The response object for the @DescribeFileCaches@ operation.
+--
+-- 'nextToken', 'describeFileCachesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeFileCachesResponse_httpStatus' - The response's http status code.
 newDescribeFileCachesResponse ::
@@ -205,19 +205,19 @@ newDescribeFileCachesResponse ::
   DescribeFileCachesResponse
 newDescribeFileCachesResponse pHttpStatus_ =
   DescribeFileCachesResponse'
-    { nextToken =
+    { fileCaches =
         Prelude.Nothing,
-      fileCaches = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeFileCachesResponse_nextToken :: Lens.Lens' DescribeFileCachesResponse (Prelude.Maybe Prelude.Text)
-describeFileCachesResponse_nextToken = Lens.lens (\DescribeFileCachesResponse' {nextToken} -> nextToken) (\s@DescribeFileCachesResponse' {} a -> s {nextToken = a} :: DescribeFileCachesResponse)
 
 -- | The response object for the @DescribeFileCaches@ operation.
 describeFileCachesResponse_fileCaches :: Lens.Lens' DescribeFileCachesResponse (Prelude.Maybe [FileCache])
 describeFileCachesResponse_fileCaches = Lens.lens (\DescribeFileCachesResponse' {fileCaches} -> fileCaches) (\s@DescribeFileCachesResponse' {} a -> s {fileCaches = a} :: DescribeFileCachesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeFileCachesResponse_nextToken :: Lens.Lens' DescribeFileCachesResponse (Prelude.Maybe Prelude.Text)
+describeFileCachesResponse_nextToken = Lens.lens (\DescribeFileCachesResponse' {nextToken} -> nextToken) (\s@DescribeFileCachesResponse' {} a -> s {nextToken = a} :: DescribeFileCachesResponse)
 
 -- | The response's http status code.
 describeFileCachesResponse_httpStatus :: Lens.Lens' DescribeFileCachesResponse Prelude.Int
@@ -225,6 +225,6 @@ describeFileCachesResponse_httpStatus = Lens.lens (\DescribeFileCachesResponse' 
 
 instance Prelude.NFData DescribeFileCachesResponse where
   rnf DescribeFileCachesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fileCaches
+    Prelude.rnf fileCaches
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

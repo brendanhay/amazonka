@@ -50,18 +50,18 @@ module Amazonka.FSx.DescribeDataRepositoryAssociations
     newDescribeDataRepositoryAssociations,
 
     -- * Request Lenses
-    describeDataRepositoryAssociations_nextToken,
+    describeDataRepositoryAssociations_associationIds,
     describeDataRepositoryAssociations_filters,
     describeDataRepositoryAssociations_maxResults,
-    describeDataRepositoryAssociations_associationIds,
+    describeDataRepositoryAssociations_nextToken,
 
     -- * Destructuring the Response
     DescribeDataRepositoryAssociationsResponse (..),
     newDescribeDataRepositoryAssociationsResponse,
 
     -- * Response Lenses
-    describeDataRepositoryAssociationsResponse_nextToken,
     describeDataRepositoryAssociationsResponse_associations,
+    describeDataRepositoryAssociationsResponse_nextToken,
     describeDataRepositoryAssociationsResponse_httpStatus,
   )
 where
@@ -76,14 +76,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataRepositoryAssociations' smart constructor.
 data DescribeDataRepositoryAssociations = DescribeDataRepositoryAssociations'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | IDs of the data repository associations whose descriptions you want to
+    -- retrieve (String).
+    associationIds :: Prelude.Maybe [Prelude.Text],
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of resources to return in the response. This value
     -- must be an integer greater than zero.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | IDs of the data repository associations whose descriptions you want to
-    -- retrieve (String).
-    associationIds :: Prelude.Maybe [Prelude.Text]
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,29 +95,30 @@ data DescribeDataRepositoryAssociations = DescribeDataRepositoryAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDataRepositoryAssociations_nextToken' - Undocumented member.
+-- 'associationIds', 'describeDataRepositoryAssociations_associationIds' - IDs of the data repository associations whose descriptions you want to
+-- retrieve (String).
 --
 -- 'filters', 'describeDataRepositoryAssociations_filters' - Undocumented member.
 --
 -- 'maxResults', 'describeDataRepositoryAssociations_maxResults' - The maximum number of resources to return in the response. This value
 -- must be an integer greater than zero.
 --
--- 'associationIds', 'describeDataRepositoryAssociations_associationIds' - IDs of the data repository associations whose descriptions you want to
--- retrieve (String).
+-- 'nextToken', 'describeDataRepositoryAssociations_nextToken' - Undocumented member.
 newDescribeDataRepositoryAssociations ::
   DescribeDataRepositoryAssociations
 newDescribeDataRepositoryAssociations =
   DescribeDataRepositoryAssociations'
-    { nextToken =
+    { associationIds =
         Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      associationIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | Undocumented member.
-describeDataRepositoryAssociations_nextToken :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe Prelude.Text)
-describeDataRepositoryAssociations_nextToken = Lens.lens (\DescribeDataRepositoryAssociations' {nextToken} -> nextToken) (\s@DescribeDataRepositoryAssociations' {} a -> s {nextToken = a} :: DescribeDataRepositoryAssociations)
+-- | IDs of the data repository associations whose descriptions you want to
+-- retrieve (String).
+describeDataRepositoryAssociations_associationIds :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe [Prelude.Text])
+describeDataRepositoryAssociations_associationIds = Lens.lens (\DescribeDataRepositoryAssociations' {associationIds} -> associationIds) (\s@DescribeDataRepositoryAssociations' {} a -> s {associationIds = a} :: DescribeDataRepositoryAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeDataRepositoryAssociations_filters :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe [Filter])
@@ -128,10 +129,9 @@ describeDataRepositoryAssociations_filters = Lens.lens (\DescribeDataRepositoryA
 describeDataRepositoryAssociations_maxResults :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe Prelude.Natural)
 describeDataRepositoryAssociations_maxResults = Lens.lens (\DescribeDataRepositoryAssociations' {maxResults} -> maxResults) (\s@DescribeDataRepositoryAssociations' {} a -> s {maxResults = a} :: DescribeDataRepositoryAssociations)
 
--- | IDs of the data repository associations whose descriptions you want to
--- retrieve (String).
-describeDataRepositoryAssociations_associationIds :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe [Prelude.Text])
-describeDataRepositoryAssociations_associationIds = Lens.lens (\DescribeDataRepositoryAssociations' {associationIds} -> associationIds) (\s@DescribeDataRepositoryAssociations' {} a -> s {associationIds = a} :: DescribeDataRepositoryAssociations) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+describeDataRepositoryAssociations_nextToken :: Lens.Lens' DescribeDataRepositoryAssociations (Prelude.Maybe Prelude.Text)
+describeDataRepositoryAssociations_nextToken = Lens.lens (\DescribeDataRepositoryAssociations' {nextToken} -> nextToken) (\s@DescribeDataRepositoryAssociations' {} a -> s {nextToken = a} :: DescribeDataRepositoryAssociations)
 
 instance
   Core.AWSRequest
@@ -146,8 +146,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataRepositoryAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Associations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Associations" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,20 +158,20 @@ instance
   hashWithSalt
     _salt
     DescribeDataRepositoryAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` associationIds
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` associationIds
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeDataRepositoryAssociations
   where
   rnf DescribeDataRepositoryAssociations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf associationIds
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf associationIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -198,11 +198,11 @@ instance
   toJSON DescribeDataRepositoryAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("AssociationIds" Data..=)
+              Prelude.<$> associationIds,
             ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("AssociationIds" Data..=)
-              Prelude.<$> associationIds
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -220,9 +220,9 @@ instance
 
 -- | /See:/ 'newDescribeDataRepositoryAssociationsResponse' smart constructor.
 data DescribeDataRepositoryAssociationsResponse = DescribeDataRepositoryAssociationsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of one or more data repository association descriptions.
+  { -- | An array of one or more data repository association descriptions.
     associations :: Prelude.Maybe [DataRepositoryAssociation],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,9 +236,9 @@ data DescribeDataRepositoryAssociationsResponse = DescribeDataRepositoryAssociat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDataRepositoryAssociationsResponse_nextToken' - Undocumented member.
---
 -- 'associations', 'describeDataRepositoryAssociationsResponse_associations' - An array of one or more data repository association descriptions.
+--
+-- 'nextToken', 'describeDataRepositoryAssociationsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeDataRepositoryAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeDataRepositoryAssociationsResponse ::
@@ -248,19 +248,19 @@ newDescribeDataRepositoryAssociationsResponse ::
 newDescribeDataRepositoryAssociationsResponse
   pHttpStatus_ =
     DescribeDataRepositoryAssociationsResponse'
-      { nextToken =
+      { associations =
           Prelude.Nothing,
-        associations = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Undocumented member.
-describeDataRepositoryAssociationsResponse_nextToken :: Lens.Lens' DescribeDataRepositoryAssociationsResponse (Prelude.Maybe Prelude.Text)
-describeDataRepositoryAssociationsResponse_nextToken = Lens.lens (\DescribeDataRepositoryAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeDataRepositoryAssociationsResponse' {} a -> s {nextToken = a} :: DescribeDataRepositoryAssociationsResponse)
 
 -- | An array of one or more data repository association descriptions.
 describeDataRepositoryAssociationsResponse_associations :: Lens.Lens' DescribeDataRepositoryAssociationsResponse (Prelude.Maybe [DataRepositoryAssociation])
 describeDataRepositoryAssociationsResponse_associations = Lens.lens (\DescribeDataRepositoryAssociationsResponse' {associations} -> associations) (\s@DescribeDataRepositoryAssociationsResponse' {} a -> s {associations = a} :: DescribeDataRepositoryAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeDataRepositoryAssociationsResponse_nextToken :: Lens.Lens' DescribeDataRepositoryAssociationsResponse (Prelude.Maybe Prelude.Text)
+describeDataRepositoryAssociationsResponse_nextToken = Lens.lens (\DescribeDataRepositoryAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeDataRepositoryAssociationsResponse' {} a -> s {nextToken = a} :: DescribeDataRepositoryAssociationsResponse)
 
 -- | The response's http status code.
 describeDataRepositoryAssociationsResponse_httpStatus :: Lens.Lens' DescribeDataRepositoryAssociationsResponse Prelude.Int
@@ -271,6 +271,6 @@ instance
     DescribeDataRepositoryAssociationsResponse
   where
   rnf DescribeDataRepositoryAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associations
+    Prelude.rnf associations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

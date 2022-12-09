@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteVolumeOntapConfiguration' smart constructor.
 data DeleteVolumeOntapConfiguration = DeleteVolumeOntapConfiguration'
-  { -- | Set to true if you want to skip taking a final backup of the volume you
+  { finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Set to true if you want to skip taking a final backup of the volume you
     -- are deleting.
-    skipFinalBackup :: Prelude.Maybe Prelude.Bool,
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+    skipFinalBackup :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data DeleteVolumeOntapConfiguration = DeleteVolumeOntapConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'finalBackupTags', 'deleteVolumeOntapConfiguration_finalBackupTags' - Undocumented member.
+--
 -- 'skipFinalBackup', 'deleteVolumeOntapConfiguration_skipFinalBackup' - Set to true if you want to skip taking a final backup of the volume you
 -- are deleting.
---
--- 'finalBackupTags', 'deleteVolumeOntapConfiguration_finalBackupTags' - Undocumented member.
 newDeleteVolumeOntapConfiguration ::
   DeleteVolumeOntapConfiguration
 newDeleteVolumeOntapConfiguration =
   DeleteVolumeOntapConfiguration'
-    { skipFinalBackup =
+    { finalBackupTags =
         Prelude.Nothing,
-      finalBackupTags = Prelude.Nothing
+      skipFinalBackup = Prelude.Nothing
     }
+
+-- | Undocumented member.
+deleteVolumeOntapConfiguration_finalBackupTags :: Lens.Lens' DeleteVolumeOntapConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteVolumeOntapConfiguration_finalBackupTags = Lens.lens (\DeleteVolumeOntapConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteVolumeOntapConfiguration' {} a -> s {finalBackupTags = a} :: DeleteVolumeOntapConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set to true if you want to skip taking a final backup of the volume you
 -- are deleting.
 deleteVolumeOntapConfiguration_skipFinalBackup :: Lens.Lens' DeleteVolumeOntapConfiguration (Prelude.Maybe Prelude.Bool)
 deleteVolumeOntapConfiguration_skipFinalBackup = Lens.lens (\DeleteVolumeOntapConfiguration' {skipFinalBackup} -> skipFinalBackup) (\s@DeleteVolumeOntapConfiguration' {} a -> s {skipFinalBackup = a} :: DeleteVolumeOntapConfiguration)
-
--- | Undocumented member.
-deleteVolumeOntapConfiguration_finalBackupTags :: Lens.Lens' DeleteVolumeOntapConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteVolumeOntapConfiguration_finalBackupTags = Lens.lens (\DeleteVolumeOntapConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteVolumeOntapConfiguration' {} a -> s {finalBackupTags = a} :: DeleteVolumeOntapConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -74,24 +74,24 @@ instance
   hashWithSalt
     _salt
     DeleteVolumeOntapConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` skipFinalBackup
-        `Prelude.hashWithSalt` finalBackupTags
+      _salt `Prelude.hashWithSalt` finalBackupTags
+        `Prelude.hashWithSalt` skipFinalBackup
 
 instance
   Prelude.NFData
     DeleteVolumeOntapConfiguration
   where
   rnf DeleteVolumeOntapConfiguration' {..} =
-    Prelude.rnf skipFinalBackup
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupTags
+      `Prelude.seq` Prelude.rnf skipFinalBackup
 
 instance Data.ToJSON DeleteVolumeOntapConfiguration where
   toJSON DeleteVolumeOntapConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Data..=)
-              Prelude.<$> skipFinalBackup,
-            ("FinalBackupTags" Data..=)
-              Prelude.<$> finalBackupTags
+          [ ("FinalBackupTags" Data..=)
+              Prelude.<$> finalBackupTags,
+            ("SkipFinalBackup" Data..=)
+              Prelude.<$> skipFinalBackup
           ]
       )

@@ -27,10 +27,10 @@ module Amazonka.FSx.CreateVolume
     newCreateVolume,
 
     -- * Request Lenses
-    createVolume_tags,
     createVolume_clientRequestToken,
-    createVolume_openZFSConfiguration,
     createVolume_ontapConfiguration,
+    createVolume_openZFSConfiguration,
+    createVolume_tags,
     createVolume_volumeType,
     createVolume_name,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVolume' smart constructor.
 data CreateVolume = CreateVolume'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the configuration to use when creating the OpenZFS volume.
-    openZFSConfiguration :: Prelude.Maybe CreateOpenZFSVolumeConfiguration,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the configuration to use when creating the ONTAP volume.
     ontapConfiguration :: Prelude.Maybe CreateOntapVolumeConfiguration,
+    -- | Specifies the configuration to use when creating the OpenZFS volume.
+    openZFSConfiguration :: Prelude.Maybe CreateOpenZFSVolumeConfiguration,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies the type of volume to create; @ONTAP@ and @OPENZFS@ are the
     -- only valid volume types.
     volumeType :: VolumeType,
@@ -76,13 +76,13 @@ data CreateVolume = CreateVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVolume_tags' - Undocumented member.
---
 -- 'clientRequestToken', 'createVolume_clientRequestToken' - Undocumented member.
+--
+-- 'ontapConfiguration', 'createVolume_ontapConfiguration' - Specifies the configuration to use when creating the ONTAP volume.
 --
 -- 'openZFSConfiguration', 'createVolume_openZFSConfiguration' - Specifies the configuration to use when creating the OpenZFS volume.
 --
--- 'ontapConfiguration', 'createVolume_ontapConfiguration' - Specifies the configuration to use when creating the ONTAP volume.
+-- 'tags', 'createVolume_tags' - Undocumented member.
 --
 -- 'volumeType', 'createVolume_volumeType' - Specifies the type of volume to create; @ONTAP@ and @OPENZFS@ are the
 -- only valid volume types.
@@ -96,29 +96,29 @@ newCreateVolume ::
   CreateVolume
 newCreateVolume pVolumeType_ pName_ =
   CreateVolume'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      openZFSConfiguration = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       ontapConfiguration = Prelude.Nothing,
+      openZFSConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       volumeType = pVolumeType_,
       name = pName_
     }
 
 -- | Undocumented member.
-createVolume_tags :: Lens.Lens' CreateVolume (Prelude.Maybe (Prelude.NonEmpty Tag))
-createVolume_tags = Lens.lens (\CreateVolume' {tags} -> tags) (\s@CreateVolume' {} a -> s {tags = a} :: CreateVolume) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 createVolume_clientRequestToken :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
 createVolume_clientRequestToken = Lens.lens (\CreateVolume' {clientRequestToken} -> clientRequestToken) (\s@CreateVolume' {} a -> s {clientRequestToken = a} :: CreateVolume)
+
+-- | Specifies the configuration to use when creating the ONTAP volume.
+createVolume_ontapConfiguration :: Lens.Lens' CreateVolume (Prelude.Maybe CreateOntapVolumeConfiguration)
+createVolume_ontapConfiguration = Lens.lens (\CreateVolume' {ontapConfiguration} -> ontapConfiguration) (\s@CreateVolume' {} a -> s {ontapConfiguration = a} :: CreateVolume)
 
 -- | Specifies the configuration to use when creating the OpenZFS volume.
 createVolume_openZFSConfiguration :: Lens.Lens' CreateVolume (Prelude.Maybe CreateOpenZFSVolumeConfiguration)
 createVolume_openZFSConfiguration = Lens.lens (\CreateVolume' {openZFSConfiguration} -> openZFSConfiguration) (\s@CreateVolume' {} a -> s {openZFSConfiguration = a} :: CreateVolume)
 
--- | Specifies the configuration to use when creating the ONTAP volume.
-createVolume_ontapConfiguration :: Lens.Lens' CreateVolume (Prelude.Maybe CreateOntapVolumeConfiguration)
-createVolume_ontapConfiguration = Lens.lens (\CreateVolume' {ontapConfiguration} -> ontapConfiguration) (\s@CreateVolume' {} a -> s {ontapConfiguration = a} :: CreateVolume)
+-- | Undocumented member.
+createVolume_tags :: Lens.Lens' CreateVolume (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVolume_tags = Lens.lens (\CreateVolume' {tags} -> tags) (\s@CreateVolume' {} a -> s {tags = a} :: CreateVolume) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the type of volume to create; @ONTAP@ and @OPENZFS@ are the
 -- only valid volume types.
@@ -143,19 +143,19 @@ instance Core.AWSRequest CreateVolume where
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` openZFSConfiguration
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` ontapConfiguration
+      `Prelude.hashWithSalt` openZFSConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateVolume where
   rnf CreateVolume' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf ontapConfiguration
+      `Prelude.seq` Prelude.rnf openZFSConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf name
 
@@ -178,13 +178,13 @@ instance Data.ToJSON CreateVolume where
   toJSON CreateVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Data..=)
-              Prelude.<$> openZFSConfiguration,
             ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
+            ("OpenZFSConfiguration" Data..=)
+              Prelude.<$> openZFSConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("VolumeType" Data..= volumeType),
             Prelude.Just ("Name" Data..= name)
           ]

@@ -50,8 +50,8 @@ module Amazonka.FSx.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
 
     -- * Destructuring the Response
@@ -59,8 +59,8 @@ module Amazonka.FSx.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -77,16 +77,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | Opaque pagination token returned from a previous @ListTagsForResource@
-    -- operation (String). If a token present, the action continues the list
-    -- from where the returning call left off.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of tags to return in the response (integer). This
+  { -- | Maximum number of tags to return in the response (integer). This
     -- parameter value must be greater than 0. The number of items that Amazon
     -- FSx returns is the minimum of the @MaxResults@ parameter specified in
     -- the request and the service\'s internal maximum number of items per
     -- page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Opaque pagination token returned from a previous @ListTagsForResource@
+    -- operation (String). If a token present, the action continues the list
+    -- from where the returning call left off.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon FSx resource that will have its tags listed.
     resourceARN :: Prelude.Text
   }
@@ -100,15 +100,15 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - Opaque pagination token returned from a previous @ListTagsForResource@
--- operation (String). If a token present, the action continues the list
--- from where the returning call left off.
---
 -- 'maxResults', 'listTagsForResource_maxResults' - Maximum number of tags to return in the response (integer). This
 -- parameter value must be greater than 0. The number of items that Amazon
 -- FSx returns is the minimum of the @MaxResults@ parameter specified in
 -- the request and the service\'s internal maximum number of items per
 -- page.
+--
+-- 'nextToken', 'listTagsForResource_nextToken' - Opaque pagination token returned from a previous @ListTagsForResource@
+-- operation (String). If a token present, the action continues the list
+-- from where the returning call left off.
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The ARN of the Amazon FSx resource that will have its tags listed.
 newListTagsForResource ::
@@ -117,16 +117,10 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
-
--- | Opaque pagination token returned from a previous @ListTagsForResource@
--- operation (String). If a token present, the action continues the list
--- from where the returning call left off.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | Maximum number of tags to return in the response (integer). This
 -- parameter value must be greater than 0. The number of items that Amazon
@@ -135,6 +129,12 @@ listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> 
 -- page.
 listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
+
+-- | Opaque pagination token returned from a previous @ListTagsForResource@
+-- operation (String). If a token present, the action continues the list
+-- from where the returning call left off.
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The ARN of the Amazon FSx resource that will have its tags listed.
 listTagsForResource_resourceARN :: Lens.Lens' ListTagsForResource Prelude.Text
@@ -172,21 +172,21 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "Tags")
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceARN
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceARN
 
 instance Data.ToHeaders ListTagsForResource where
@@ -208,8 +208,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceARN" Data..= resourceARN)
           ]
       )
@@ -224,12 +224,12 @@ instance Data.ToQuery ListTagsForResource where
 --
 -- /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | A list of tags on the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | This is present if there are more tags than returned in the response
+  { -- | This is present if there are more tags than returned in the response
     -- (String). You can use the @NextToken@ value in the later request to
     -- fetch the tags.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags on the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,11 +243,11 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - A list of tags on the resource.
---
 -- 'nextToken', 'listTagsForResourceResponse_nextToken' - This is present if there are more tags than returned in the response
 -- (String). You can use the @NextToken@ value in the later request to
 -- fetch the tags.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - A list of tags on the resource.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -256,15 +256,11 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of tags on the resource.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | This is present if there are more tags than returned in the response
 -- (String). You can use the @NextToken@ value in the later request to
@@ -272,12 +268,16 @@ listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tag
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
+-- | A list of tags on the resource.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

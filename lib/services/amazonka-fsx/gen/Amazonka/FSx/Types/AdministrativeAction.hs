@@ -35,10 +35,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdministrativeAction' smart constructor.
 data AdministrativeAction = AdministrativeAction'
-  { -- | Describes the target value for the administration action, provided in
-    -- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
-    -- administrative actions.
-    targetFileSystemValues :: Prelude.Maybe FileSystem,
+  { administrativeActionType :: Prelude.Maybe AdministrativeActionType,
+    failureDetails :: Prelude.Maybe AdministrativeActionFailureDetails,
+    -- | The percentage-complete status of a @STORAGE_OPTIMIZATION@
+    -- administrative action. Does not apply to any other administrative action
+    -- type.
+    progressPercent :: Prelude.Maybe Prelude.Natural,
     -- | The time that the administrative action request was received.
     requestTime :: Prelude.Maybe Data.POSIX,
     -- | Describes the status of the administrative action, as follows:
@@ -58,14 +60,12 @@ data AdministrativeAction = AdministrativeAction'
     --     Amazon FSx has updated the file system with the new storage
     --     capacity, and is now performing the storage-optimization process.
     status :: Prelude.Maybe Status,
-    targetVolumeValues :: Prelude.Maybe Volume,
-    failureDetails :: Prelude.Maybe AdministrativeActionFailureDetails,
+    -- | Describes the target value for the administration action, provided in
+    -- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
+    -- administrative actions.
+    targetFileSystemValues :: Prelude.Maybe FileSystem,
     targetSnapshotValues :: Prelude.Maybe Snapshot,
-    -- | The percentage-complete status of a @STORAGE_OPTIMIZATION@
-    -- administrative action. Does not apply to any other administrative action
-    -- type.
-    progressPercent :: Prelude.Maybe Prelude.Natural,
-    administrativeActionType :: Prelude.Maybe AdministrativeActionType
+    targetVolumeValues :: Prelude.Maybe Volume
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,9 +77,13 @@ data AdministrativeAction = AdministrativeAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetFileSystemValues', 'administrativeAction_targetFileSystemValues' - Describes the target value for the administration action, provided in
--- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
--- administrative actions.
+-- 'administrativeActionType', 'administrativeAction_administrativeActionType' - Undocumented member.
+--
+-- 'failureDetails', 'administrativeAction_failureDetails' - Undocumented member.
+--
+-- 'progressPercent', 'administrativeAction_progressPercent' - The percentage-complete status of a @STORAGE_OPTIMIZATION@
+-- administrative action. Does not apply to any other administrative action
+-- type.
 --
 -- 'requestTime', 'administrativeAction_requestTime' - The time that the administrative action request was received.
 --
@@ -100,37 +104,41 @@ data AdministrativeAction = AdministrativeAction'
 --     Amazon FSx has updated the file system with the new storage
 --     capacity, and is now performing the storage-optimization process.
 --
--- 'targetVolumeValues', 'administrativeAction_targetVolumeValues' - Undocumented member.
---
--- 'failureDetails', 'administrativeAction_failureDetails' - Undocumented member.
+-- 'targetFileSystemValues', 'administrativeAction_targetFileSystemValues' - Describes the target value for the administration action, provided in
+-- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
+-- administrative actions.
 --
 -- 'targetSnapshotValues', 'administrativeAction_targetSnapshotValues' - Undocumented member.
 --
--- 'progressPercent', 'administrativeAction_progressPercent' - The percentage-complete status of a @STORAGE_OPTIMIZATION@
--- administrative action. Does not apply to any other administrative action
--- type.
---
--- 'administrativeActionType', 'administrativeAction_administrativeActionType' - Undocumented member.
+-- 'targetVolumeValues', 'administrativeAction_targetVolumeValues' - Undocumented member.
 newAdministrativeAction ::
   AdministrativeAction
 newAdministrativeAction =
   AdministrativeAction'
-    { targetFileSystemValues =
+    { administrativeActionType =
         Prelude.Nothing,
+      failureDetails = Prelude.Nothing,
+      progressPercent = Prelude.Nothing,
       requestTime = Prelude.Nothing,
       status = Prelude.Nothing,
-      targetVolumeValues = Prelude.Nothing,
-      failureDetails = Prelude.Nothing,
+      targetFileSystemValues = Prelude.Nothing,
       targetSnapshotValues = Prelude.Nothing,
-      progressPercent = Prelude.Nothing,
-      administrativeActionType = Prelude.Nothing
+      targetVolumeValues = Prelude.Nothing
     }
 
--- | Describes the target value for the administration action, provided in
--- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
--- administrative actions.
-administrativeAction_targetFileSystemValues :: Lens.Lens' AdministrativeAction (Prelude.Maybe FileSystem)
-administrativeAction_targetFileSystemValues = Lens.lens (\AdministrativeAction' {targetFileSystemValues} -> targetFileSystemValues) (\s@AdministrativeAction' {} a -> s {targetFileSystemValues = a} :: AdministrativeAction)
+-- | Undocumented member.
+administrativeAction_administrativeActionType :: Lens.Lens' AdministrativeAction (Prelude.Maybe AdministrativeActionType)
+administrativeAction_administrativeActionType = Lens.lens (\AdministrativeAction' {administrativeActionType} -> administrativeActionType) (\s@AdministrativeAction' {} a -> s {administrativeActionType = a} :: AdministrativeAction)
+
+-- | Undocumented member.
+administrativeAction_failureDetails :: Lens.Lens' AdministrativeAction (Prelude.Maybe AdministrativeActionFailureDetails)
+administrativeAction_failureDetails = Lens.lens (\AdministrativeAction' {failureDetails} -> failureDetails) (\s@AdministrativeAction' {} a -> s {failureDetails = a} :: AdministrativeAction)
+
+-- | The percentage-complete status of a @STORAGE_OPTIMIZATION@
+-- administrative action. Does not apply to any other administrative action
+-- type.
+administrativeAction_progressPercent :: Lens.Lens' AdministrativeAction (Prelude.Maybe Prelude.Natural)
+administrativeAction_progressPercent = Lens.lens (\AdministrativeAction' {progressPercent} -> progressPercent) (\s@AdministrativeAction' {} a -> s {progressPercent = a} :: AdministrativeAction)
 
 -- | The time that the administrative action request was received.
 administrativeAction_requestTime :: Lens.Lens' AdministrativeAction (Prelude.Maybe Prelude.UTCTime)
@@ -155,27 +163,19 @@ administrativeAction_requestTime = Lens.lens (\AdministrativeAction' {requestTim
 administrativeAction_status :: Lens.Lens' AdministrativeAction (Prelude.Maybe Status)
 administrativeAction_status = Lens.lens (\AdministrativeAction' {status} -> status) (\s@AdministrativeAction' {} a -> s {status = a} :: AdministrativeAction)
 
--- | Undocumented member.
-administrativeAction_targetVolumeValues :: Lens.Lens' AdministrativeAction (Prelude.Maybe Volume)
-administrativeAction_targetVolumeValues = Lens.lens (\AdministrativeAction' {targetVolumeValues} -> targetVolumeValues) (\s@AdministrativeAction' {} a -> s {targetVolumeValues = a} :: AdministrativeAction)
-
--- | Undocumented member.
-administrativeAction_failureDetails :: Lens.Lens' AdministrativeAction (Prelude.Maybe AdministrativeActionFailureDetails)
-administrativeAction_failureDetails = Lens.lens (\AdministrativeAction' {failureDetails} -> failureDetails) (\s@AdministrativeAction' {} a -> s {failureDetails = a} :: AdministrativeAction)
+-- | Describes the target value for the administration action, provided in
+-- the @UpdateFileSystem@ operation. Returned for @FILE_SYSTEM_UPDATE@
+-- administrative actions.
+administrativeAction_targetFileSystemValues :: Lens.Lens' AdministrativeAction (Prelude.Maybe FileSystem)
+administrativeAction_targetFileSystemValues = Lens.lens (\AdministrativeAction' {targetFileSystemValues} -> targetFileSystemValues) (\s@AdministrativeAction' {} a -> s {targetFileSystemValues = a} :: AdministrativeAction)
 
 -- | Undocumented member.
 administrativeAction_targetSnapshotValues :: Lens.Lens' AdministrativeAction (Prelude.Maybe Snapshot)
 administrativeAction_targetSnapshotValues = Lens.lens (\AdministrativeAction' {targetSnapshotValues} -> targetSnapshotValues) (\s@AdministrativeAction' {} a -> s {targetSnapshotValues = a} :: AdministrativeAction)
 
--- | The percentage-complete status of a @STORAGE_OPTIMIZATION@
--- administrative action. Does not apply to any other administrative action
--- type.
-administrativeAction_progressPercent :: Lens.Lens' AdministrativeAction (Prelude.Maybe Prelude.Natural)
-administrativeAction_progressPercent = Lens.lens (\AdministrativeAction' {progressPercent} -> progressPercent) (\s@AdministrativeAction' {} a -> s {progressPercent = a} :: AdministrativeAction)
-
 -- | Undocumented member.
-administrativeAction_administrativeActionType :: Lens.Lens' AdministrativeAction (Prelude.Maybe AdministrativeActionType)
-administrativeAction_administrativeActionType = Lens.lens (\AdministrativeAction' {administrativeActionType} -> administrativeActionType) (\s@AdministrativeAction' {} a -> s {administrativeActionType = a} :: AdministrativeAction)
+administrativeAction_targetVolumeValues :: Lens.Lens' AdministrativeAction (Prelude.Maybe Volume)
+administrativeAction_targetVolumeValues = Lens.lens (\AdministrativeAction' {targetVolumeValues} -> targetVolumeValues) (\s@AdministrativeAction' {} a -> s {targetVolumeValues = a} :: AdministrativeAction)
 
 instance Data.FromJSON AdministrativeAction where
   parseJSON =
@@ -183,34 +183,35 @@ instance Data.FromJSON AdministrativeAction where
       "AdministrativeAction"
       ( \x ->
           AdministrativeAction'
-            Prelude.<$> (x Data..:? "TargetFileSystemValues")
+            Prelude.<$> (x Data..:? "AdministrativeActionType")
+            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "ProgressPercent")
             Prelude.<*> (x Data..:? "RequestTime")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "TargetVolumeValues")
-            Prelude.<*> (x Data..:? "FailureDetails")
+            Prelude.<*> (x Data..:? "TargetFileSystemValues")
             Prelude.<*> (x Data..:? "TargetSnapshotValues")
-            Prelude.<*> (x Data..:? "ProgressPercent")
-            Prelude.<*> (x Data..:? "AdministrativeActionType")
+            Prelude.<*> (x Data..:? "TargetVolumeValues")
       )
 
 instance Prelude.Hashable AdministrativeAction where
   hashWithSalt _salt AdministrativeAction' {..} =
-    _salt `Prelude.hashWithSalt` targetFileSystemValues
+    _salt
+      `Prelude.hashWithSalt` administrativeActionType
+      `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` progressPercent
       `Prelude.hashWithSalt` requestTime
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` targetVolumeValues
-      `Prelude.hashWithSalt` failureDetails
+      `Prelude.hashWithSalt` targetFileSystemValues
       `Prelude.hashWithSalt` targetSnapshotValues
-      `Prelude.hashWithSalt` progressPercent
-      `Prelude.hashWithSalt` administrativeActionType
+      `Prelude.hashWithSalt` targetVolumeValues
 
 instance Prelude.NFData AdministrativeAction where
   rnf AdministrativeAction' {..} =
-    Prelude.rnf targetFileSystemValues
+    Prelude.rnf administrativeActionType
+      `Prelude.seq` Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf progressPercent
       `Prelude.seq` Prelude.rnf requestTime
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetVolumeValues
-      `Prelude.seq` Prelude.rnf failureDetails
+      `Prelude.seq` Prelude.rnf targetFileSystemValues
       `Prelude.seq` Prelude.rnf targetSnapshotValues
-      `Prelude.seq` Prelude.rnf progressPercent
-      `Prelude.seq` Prelude.rnf administrativeActionType
+      `Prelude.seq` Prelude.rnf targetVolumeValues

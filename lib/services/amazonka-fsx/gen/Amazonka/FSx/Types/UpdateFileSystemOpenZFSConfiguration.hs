@@ -29,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateFileSystemOpenZFSConfiguration' smart constructor.
 data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration'
-  { -- | A Boolean value indicating whether tags for the file system should be
+  { automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
+    -- | A Boolean value indicating whether tags for the file system should be
     -- copied to backups. This value defaults to @false@. If it\'s set to
     -- @true@, all tags for the file system are copied to all automatic and
     -- user-initiated backups where the user doesn\'t specify tags. If this
@@ -38,14 +39,6 @@ data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration
     -- creating a user-initiated backup, no tags are copied from the file
     -- system, regardless of this value.
     copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
-    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text,
-    -- | The throughput of an Amazon FSx file system, measured in megabytes per
-    -- second (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or
-    -- 4096 MB\/s.
-    throughputCapacity :: Prelude.Maybe Prelude.Natural,
-    automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
-    diskIopsConfiguration :: Prelude.Maybe DiskIopsConfiguration,
-    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether tags for the volume should be copied
     -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
     -- all tags for the volume are copied to snapshots where the user doesn\'t
@@ -53,7 +46,20 @@ data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration
     -- only the specified tags are copied to snapshots. If you specify one or
     -- more tags when creating the snapshot, no tags are copied from the
     -- volume, regardless of this value.
-    copyTagsToVolumes :: Prelude.Maybe Prelude.Bool
+    copyTagsToVolumes :: Prelude.Maybe Prelude.Bool,
+    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
+    diskIopsConfiguration :: Prelude.Maybe DiskIopsConfiguration,
+    -- | The throughput of an Amazon FSx for OpenZFS file system, measured in
+    -- megabytes per second  (MB\/s). Valid values depend on the DeploymentType
+    -- you choose, as follows:
+    --
+    -- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
+    --     3072, or 4096 MB\/s.
+    --
+    -- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
+    --     5120, 7680, or 10240 MB\/s.
+    throughputCapacity :: Prelude.Maybe Prelude.Natural,
+    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,6 +71,8 @@ data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'automaticBackupRetentionDays', 'updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays' - Undocumented member.
+--
 -- 'copyTagsToBackups', 'updateFileSystemOpenZFSConfiguration_copyTagsToBackups' - A Boolean value indicating whether tags for the file system should be
 -- copied to backups. This value defaults to @false@. If it\'s set to
 -- @true@, all tags for the file system are copied to all automatic and
@@ -74,18 +82,6 @@ data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration
 -- creating a user-initiated backup, no tags are copied from the file
 -- system, regardless of this value.
 --
--- 'weeklyMaintenanceStartTime', 'updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime' - Undocumented member.
---
--- 'throughputCapacity', 'updateFileSystemOpenZFSConfiguration_throughputCapacity' - The throughput of an Amazon FSx file system, measured in megabytes per
--- second (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or
--- 4096 MB\/s.
---
--- 'automaticBackupRetentionDays', 'updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays' - Undocumented member.
---
--- 'diskIopsConfiguration', 'updateFileSystemOpenZFSConfiguration_diskIopsConfiguration' - Undocumented member.
---
--- 'dailyAutomaticBackupStartTime', 'updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
---
 -- 'copyTagsToVolumes', 'updateFileSystemOpenZFSConfiguration_copyTagsToVolumes' - A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
 -- all tags for the volume are copied to snapshots where the user doesn\'t
@@ -93,23 +89,42 @@ data UpdateFileSystemOpenZFSConfiguration = UpdateFileSystemOpenZFSConfiguration
 -- only the specified tags are copied to snapshots. If you specify one or
 -- more tags when creating the snapshot, no tags are copied from the
 -- volume, regardless of this value.
+--
+-- 'dailyAutomaticBackupStartTime', 'updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
+--
+-- 'diskIopsConfiguration', 'updateFileSystemOpenZFSConfiguration_diskIopsConfiguration' - Undocumented member.
+--
+-- 'throughputCapacity', 'updateFileSystemOpenZFSConfiguration_throughputCapacity' - The throughput of an Amazon FSx for OpenZFS file system, measured in
+-- megabytes per second  (MB\/s). Valid values depend on the DeploymentType
+-- you choose, as follows:
+--
+-- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
+--     3072, or 4096 MB\/s.
+--
+-- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
+--     5120, 7680, or 10240 MB\/s.
+--
+-- 'weeklyMaintenanceStartTime', 'updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime' - Undocumented member.
 newUpdateFileSystemOpenZFSConfiguration ::
   UpdateFileSystemOpenZFSConfiguration
 newUpdateFileSystemOpenZFSConfiguration =
   UpdateFileSystemOpenZFSConfiguration'
-    { copyTagsToBackups =
+    { automaticBackupRetentionDays =
         Prelude.Nothing,
-      weeklyMaintenanceStartTime =
-        Prelude.Nothing,
-      throughputCapacity = Prelude.Nothing,
-      automaticBackupRetentionDays =
+      copyTagsToBackups = Prelude.Nothing,
+      copyTagsToVolumes = Prelude.Nothing,
+      dailyAutomaticBackupStartTime =
         Prelude.Nothing,
       diskIopsConfiguration =
         Prelude.Nothing,
-      dailyAutomaticBackupStartTime =
-        Prelude.Nothing,
-      copyTagsToVolumes = Prelude.Nothing
+      throughputCapacity = Prelude.Nothing,
+      weeklyMaintenanceStartTime =
+        Prelude.Nothing
     }
+
+-- | Undocumented member.
+updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Natural)
+updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemOpenZFSConfiguration)
 
 -- | A Boolean value indicating whether tags for the file system should be
 -- copied to backups. This value defaults to @false@. If it\'s set to
@@ -122,28 +137,6 @@ newUpdateFileSystemOpenZFSConfiguration =
 updateFileSystemOpenZFSConfiguration_copyTagsToBackups :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Bool)
 updateFileSystemOpenZFSConfiguration_copyTagsToBackups = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {copyTagsToBackups = a} :: UpdateFileSystemOpenZFSConfiguration)
 
--- | Undocumented member.
-updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemOpenZFSConfiguration)
-
--- | The throughput of an Amazon FSx file system, measured in megabytes per
--- second (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or
--- 4096 MB\/s.
-updateFileSystemOpenZFSConfiguration_throughputCapacity :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Natural)
-updateFileSystemOpenZFSConfiguration_throughputCapacity = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {throughputCapacity} -> throughputCapacity) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {throughputCapacity = a} :: UpdateFileSystemOpenZFSConfiguration)
-
--- | Undocumented member.
-updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Natural)
-updateFileSystemOpenZFSConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemOpenZFSConfiguration)
-
--- | Undocumented member.
-updateFileSystemOpenZFSConfiguration_diskIopsConfiguration :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe DiskIopsConfiguration)
-updateFileSystemOpenZFSConfiguration_diskIopsConfiguration = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {diskIopsConfiguration} -> diskIopsConfiguration) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {diskIopsConfiguration = a} :: UpdateFileSystemOpenZFSConfiguration)
-
--- | Undocumented member.
-updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemOpenZFSConfiguration)
-
 -- | A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
 -- all tags for the volume are copied to snapshots where the user doesn\'t
@@ -154,6 +147,30 @@ updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime = Lens.lens (
 updateFileSystemOpenZFSConfiguration_copyTagsToVolumes :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Bool)
 updateFileSystemOpenZFSConfiguration_copyTagsToVolumes = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {copyTagsToVolumes} -> copyTagsToVolumes) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {copyTagsToVolumes = a} :: UpdateFileSystemOpenZFSConfiguration)
 
+-- | Undocumented member.
+updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemOpenZFSConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemOpenZFSConfiguration)
+
+-- | Undocumented member.
+updateFileSystemOpenZFSConfiguration_diskIopsConfiguration :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe DiskIopsConfiguration)
+updateFileSystemOpenZFSConfiguration_diskIopsConfiguration = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {diskIopsConfiguration} -> diskIopsConfiguration) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {diskIopsConfiguration = a} :: UpdateFileSystemOpenZFSConfiguration)
+
+-- | The throughput of an Amazon FSx for OpenZFS file system, measured in
+-- megabytes per second  (MB\/s). Valid values depend on the DeploymentType
+-- you choose, as follows:
+--
+-- -   For @SINGLE_AZ_1@, valid values are 64, 128, 256, 512, 1024, 2048,
+--     3072, or 4096 MB\/s.
+--
+-- -   For @SINGLE_AZ_2@, valid values are 160, 320, 640, 1280, 2560, 3840,
+--     5120, 7680, or 10240 MB\/s.
+updateFileSystemOpenZFSConfiguration_throughputCapacity :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Natural)
+updateFileSystemOpenZFSConfiguration_throughputCapacity = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {throughputCapacity} -> throughputCapacity) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {throughputCapacity = a} :: UpdateFileSystemOpenZFSConfiguration)
+
+-- | Undocumented member.
+updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemOpenZFSConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemOpenZFSConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemOpenZFSConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemOpenZFSConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemOpenZFSConfiguration)
+
 instance
   Prelude.Hashable
     UpdateFileSystemOpenZFSConfiguration
@@ -161,26 +178,27 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemOpenZFSConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToBackups
-        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
-        `Prelude.hashWithSalt` throughputCapacity
+      _salt
         `Prelude.hashWithSalt` automaticBackupRetentionDays
-        `Prelude.hashWithSalt` diskIopsConfiguration
-        `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
+        `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` copyTagsToVolumes
+        `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
+        `Prelude.hashWithSalt` diskIopsConfiguration
+        `Prelude.hashWithSalt` throughputCapacity
+        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
 
 instance
   Prelude.NFData
     UpdateFileSystemOpenZFSConfiguration
   where
   rnf UpdateFileSystemOpenZFSConfiguration' {..} =
-    Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf throughputCapacity
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
+    Prelude.rnf automaticBackupRetentionDays
+      `Prelude.seq` Prelude.rnf copyTagsToBackups
       `Prelude.seq` Prelude.rnf copyTagsToVolumes
+      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
+      `Prelude.seq` Prelude.rnf diskIopsConfiguration
+      `Prelude.seq` Prelude.rnf throughputCapacity
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON
@@ -189,19 +207,19 @@ instance
   toJSON UpdateFileSystemOpenZFSConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Data..=)
-              Prelude.<$> copyTagsToBackups,
-            ("WeeklyMaintenanceStartTime" Data..=)
-              Prelude.<$> weeklyMaintenanceStartTime,
-            ("ThroughputCapacity" Data..=)
-              Prelude.<$> throughputCapacity,
-            ("AutomaticBackupRetentionDays" Data..=)
+          [ ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("DiskIopsConfiguration" Data..=)
-              Prelude.<$> diskIopsConfiguration,
+            ("CopyTagsToBackups" Data..=)
+              Prelude.<$> copyTagsToBackups,
+            ("CopyTagsToVolumes" Data..=)
+              Prelude.<$> copyTagsToVolumes,
             ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
-            ("CopyTagsToVolumes" Data..=)
-              Prelude.<$> copyTagsToVolumes
+            ("DiskIopsConfiguration" Data..=)
+              Prelude.<$> diskIopsConfiguration,
+            ("ThroughputCapacity" Data..=)
+              Prelude.<$> throughputCapacity,
+            ("WeeklyMaintenanceStartTime" Data..=)
+              Prelude.<$> weeklyMaintenanceStartTime
           ]
       )

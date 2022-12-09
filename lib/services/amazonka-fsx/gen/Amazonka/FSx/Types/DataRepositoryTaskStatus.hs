@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataRepositoryTaskStatus' smart constructor.
 data DataRepositoryTaskStatus = DataRepositoryTaskStatus'
-  { -- | A running total of the number of files that the task has successfully
-    -- processed.
-    succeededCount :: Prelude.Maybe Prelude.Integer,
-    -- | A running total of the number of files that the task failed to process.
+  { -- | A running total of the number of files that the task failed to process.
     failedCount :: Prelude.Maybe Prelude.Integer,
     -- | The time at which the task status was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The total amount of data, in GiB, released by an Amazon File Cache
     -- AUTO_RELEASE_DATA task that automatically releases files from the cache.
     releasedCapacity :: Prelude.Maybe Prelude.Integer,
+    -- | A running total of the number of files that the task has successfully
+    -- processed.
+    succeededCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of files that the task will process. While a task is
     -- executing, the sum of @SucceededCount@ plus @FailedCount@ may not equal
     -- @TotalCount@. When the task is complete, @TotalCount@ equals the sum of
@@ -56,15 +56,15 @@ data DataRepositoryTaskStatus = DataRepositoryTaskStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'succeededCount', 'dataRepositoryTaskStatus_succeededCount' - A running total of the number of files that the task has successfully
--- processed.
---
 -- 'failedCount', 'dataRepositoryTaskStatus_failedCount' - A running total of the number of files that the task failed to process.
 --
 -- 'lastUpdatedTime', 'dataRepositoryTaskStatus_lastUpdatedTime' - The time at which the task status was last updated.
 --
 -- 'releasedCapacity', 'dataRepositoryTaskStatus_releasedCapacity' - The total amount of data, in GiB, released by an Amazon File Cache
 -- AUTO_RELEASE_DATA task that automatically releases files from the cache.
+--
+-- 'succeededCount', 'dataRepositoryTaskStatus_succeededCount' - A running total of the number of files that the task has successfully
+-- processed.
 --
 -- 'totalCount', 'dataRepositoryTaskStatus_totalCount' - The total number of files that the task will process. While a task is
 -- executing, the sum of @SucceededCount@ plus @FailedCount@ may not equal
@@ -74,18 +74,13 @@ newDataRepositoryTaskStatus ::
   DataRepositoryTaskStatus
 newDataRepositoryTaskStatus =
   DataRepositoryTaskStatus'
-    { succeededCount =
+    { failedCount =
         Prelude.Nothing,
-      failedCount = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       releasedCapacity = Prelude.Nothing,
+      succeededCount = Prelude.Nothing,
       totalCount = Prelude.Nothing
     }
-
--- | A running total of the number of files that the task has successfully
--- processed.
-dataRepositoryTaskStatus_succeededCount :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.Integer)
-dataRepositoryTaskStatus_succeededCount = Lens.lens (\DataRepositoryTaskStatus' {succeededCount} -> succeededCount) (\s@DataRepositoryTaskStatus' {} a -> s {succeededCount = a} :: DataRepositoryTaskStatus)
 
 -- | A running total of the number of files that the task failed to process.
 dataRepositoryTaskStatus_failedCount :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.Integer)
@@ -100,6 +95,11 @@ dataRepositoryTaskStatus_lastUpdatedTime = Lens.lens (\DataRepositoryTaskStatus'
 dataRepositoryTaskStatus_releasedCapacity :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.Integer)
 dataRepositoryTaskStatus_releasedCapacity = Lens.lens (\DataRepositoryTaskStatus' {releasedCapacity} -> releasedCapacity) (\s@DataRepositoryTaskStatus' {} a -> s {releasedCapacity = a} :: DataRepositoryTaskStatus)
 
+-- | A running total of the number of files that the task has successfully
+-- processed.
+dataRepositoryTaskStatus_succeededCount :: Lens.Lens' DataRepositoryTaskStatus (Prelude.Maybe Prelude.Integer)
+dataRepositoryTaskStatus_succeededCount = Lens.lens (\DataRepositoryTaskStatus' {succeededCount} -> succeededCount) (\s@DataRepositoryTaskStatus' {} a -> s {succeededCount = a} :: DataRepositoryTaskStatus)
+
 -- | The total number of files that the task will process. While a task is
 -- executing, the sum of @SucceededCount@ plus @FailedCount@ may not equal
 -- @TotalCount@. When the task is complete, @TotalCount@ equals the sum of
@@ -113,25 +113,25 @@ instance Data.FromJSON DataRepositoryTaskStatus where
       "DataRepositoryTaskStatus"
       ( \x ->
           DataRepositoryTaskStatus'
-            Prelude.<$> (x Data..:? "SucceededCount")
-            Prelude.<*> (x Data..:? "FailedCount")
+            Prelude.<$> (x Data..:? "FailedCount")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "ReleasedCapacity")
+            Prelude.<*> (x Data..:? "SucceededCount")
             Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable DataRepositoryTaskStatus where
   hashWithSalt _salt DataRepositoryTaskStatus' {..} =
-    _salt `Prelude.hashWithSalt` succeededCount
-      `Prelude.hashWithSalt` failedCount
+    _salt `Prelude.hashWithSalt` failedCount
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` releasedCapacity
+      `Prelude.hashWithSalt` succeededCount
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData DataRepositoryTaskStatus where
   rnf DataRepositoryTaskStatus' {..} =
-    Prelude.rnf succeededCount
-      `Prelude.seq` Prelude.rnf failedCount
+    Prelude.rnf failedCount
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf releasedCapacity
+      `Prelude.seq` Prelude.rnf succeededCount
       `Prelude.seq` Prelude.rnf totalCount

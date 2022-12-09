@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides detailed information about the data respository if its
+-- | Provides detailed information about the data repository if its
 -- @Lifecycle@ is set to @MISCONFIGURED@ or @FAILED@.
 --
 -- /See:/ 'newDataRepositoryFailureDetails' smart constructor.

@@ -46,7 +46,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTieringPolicy' smart constructor.
 data TieringPolicy = TieringPolicy'
-  { -- | Specifies the tiering policy used to transition data. Default value is
+  { -- | Specifies the number of days that user data in a volume must remain
+    -- inactive before it is considered \"cold\" and moved to the capacity
+    -- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
+    -- whole number between 2 and 183. Default values are 31 days for @AUTO@
+    -- and 2 days for @SNAPSHOT_ONLY@.
+    coolingPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the tiering policy used to transition data. Default value is
     -- @SNAPSHOT_ONLY@.
     --
     -- -   @SNAPSHOT_ONLY@ - moves cold snapshots to the capacity pool storage
@@ -60,13 +66,7 @@ data TieringPolicy = TieringPolicy'
     --
     -- -   @NONE@ - keeps a volume\'s data in the primary storage tier,
     --     preventing it from being moved to the capacity pool tier.
-    name :: Prelude.Maybe TieringPolicyName,
-    -- | Specifies the number of days that user data in a volume must remain
-    -- inactive before it is considered \"cold\" and moved to the capacity
-    -- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
-    -- whole number between 2 and 183. Default values are 31 days for @AUTO@
-    -- and 2 days for @SNAPSHOT_ONLY@.
-    coolingPeriod :: Prelude.Maybe Prelude.Natural
+    name :: Prelude.Maybe TieringPolicyName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,12 @@ data TieringPolicy = TieringPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'coolingPeriod', 'tieringPolicy_coolingPeriod' - Specifies the number of days that user data in a volume must remain
+-- inactive before it is considered \"cold\" and moved to the capacity
+-- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
+-- whole number between 2 and 183. Default values are 31 days for @AUTO@
+-- and 2 days for @SNAPSHOT_ONLY@.
 --
 -- 'name', 'tieringPolicy_name' - Specifies the tiering policy used to transition data. Default value is
 -- @SNAPSHOT_ONLY@.
@@ -92,19 +98,21 @@ data TieringPolicy = TieringPolicy'
 --
 -- -   @NONE@ - keeps a volume\'s data in the primary storage tier,
 --     preventing it from being moved to the capacity pool tier.
---
--- 'coolingPeriod', 'tieringPolicy_coolingPeriod' - Specifies the number of days that user data in a volume must remain
--- inactive before it is considered \"cold\" and moved to the capacity
--- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
--- whole number between 2 and 183. Default values are 31 days for @AUTO@
--- and 2 days for @SNAPSHOT_ONLY@.
 newTieringPolicy ::
   TieringPolicy
 newTieringPolicy =
   TieringPolicy'
-    { name = Prelude.Nothing,
-      coolingPeriod = Prelude.Nothing
+    { coolingPeriod = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | Specifies the number of days that user data in a volume must remain
+-- inactive before it is considered \"cold\" and moved to the capacity
+-- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
+-- whole number between 2 and 183. Default values are 31 days for @AUTO@
+-- and 2 days for @SNAPSHOT_ONLY@.
+tieringPolicy_coolingPeriod :: Lens.Lens' TieringPolicy (Prelude.Maybe Prelude.Natural)
+tieringPolicy_coolingPeriod = Lens.lens (\TieringPolicy' {coolingPeriod} -> coolingPeriod) (\s@TieringPolicy' {} a -> s {coolingPeriod = a} :: TieringPolicy)
 
 -- | Specifies the tiering policy used to transition data. Default value is
 -- @SNAPSHOT_ONLY@.
@@ -123,39 +131,31 @@ newTieringPolicy =
 tieringPolicy_name :: Lens.Lens' TieringPolicy (Prelude.Maybe TieringPolicyName)
 tieringPolicy_name = Lens.lens (\TieringPolicy' {name} -> name) (\s@TieringPolicy' {} a -> s {name = a} :: TieringPolicy)
 
--- | Specifies the number of days that user data in a volume must remain
--- inactive before it is considered \"cold\" and moved to the capacity
--- pool. Used with the @AUTO@ and @SNAPSHOT_ONLY@ tiering policies. Enter a
--- whole number between 2 and 183. Default values are 31 days for @AUTO@
--- and 2 days for @SNAPSHOT_ONLY@.
-tieringPolicy_coolingPeriod :: Lens.Lens' TieringPolicy (Prelude.Maybe Prelude.Natural)
-tieringPolicy_coolingPeriod = Lens.lens (\TieringPolicy' {coolingPeriod} -> coolingPeriod) (\s@TieringPolicy' {} a -> s {coolingPeriod = a} :: TieringPolicy)
-
 instance Data.FromJSON TieringPolicy where
   parseJSON =
     Data.withObject
       "TieringPolicy"
       ( \x ->
           TieringPolicy'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CoolingPeriod")
+            Prelude.<$> (x Data..:? "CoolingPeriod")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable TieringPolicy where
   hashWithSalt _salt TieringPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` coolingPeriod
+    _salt `Prelude.hashWithSalt` coolingPeriod
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TieringPolicy where
   rnf TieringPolicy' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf coolingPeriod
+    Prelude.rnf coolingPeriod
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON TieringPolicy where
   toJSON TieringPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("CoolingPeriod" Data..=) Prelude.<$> coolingPeriod
+          [ ("CoolingPeriod" Data..=) Prelude.<$> coolingPeriod,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )

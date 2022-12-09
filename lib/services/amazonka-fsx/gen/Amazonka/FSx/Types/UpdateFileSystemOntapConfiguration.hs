@@ -30,14 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateFileSystemOntapConfiguration' smart constructor.
 data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
-  { weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the throughput of an FSx for NetApp ONTAP file system,
-    -- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
-    -- 1024, or 2048 MB\/s.
-    throughputCapacity :: Prelude.Maybe Prelude.Natural,
+  { -- | (Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route
+    -- tables to associate (add) with your Amazon FSx for NetApp ONTAP file
+    -- system.
+    addRouteTableIds :: Prelude.Maybe [Prelude.Text],
     automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
-    -- | The ONTAP administrative password for the @fsxadmin@ user.
-    fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
     -- | The SSD IOPS (input\/output operations per second) configuration for an
     -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
     -- storage capacity, but you can provision additional IOPS per GB of
@@ -45,7 +43,18 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
     -- @USER_PROVISIONED@), and in the case of @USER_PROVISIONED@ IOPS, the
     -- total number of SSD IOPS provisioned.
     diskIopsConfiguration :: Prelude.Maybe DiskIopsConfiguration,
-    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text
+    -- | The ONTAP administrative password for the @fsxadmin@ user.
+    fsxAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | (Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
+    -- route tables to disassociate (remove) from your Amazon FSx for NetApp
+    -- ONTAP file system. You can use the API operation to retrieve the list of
+    -- VPC route table IDs for a file system.
+    removeRouteTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies the throughput of an FSx for NetApp ONTAP file system,
+    -- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
+    -- 1024, 2048, and 4096 MBps.
+    throughputCapacity :: Prelude.Maybe Prelude.Natural,
+    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,15 +66,13 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'weeklyMaintenanceStartTime', 'updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime' - Undocumented member.
---
--- 'throughputCapacity', 'updateFileSystemOntapConfiguration_throughputCapacity' - Specifies the throughput of an FSx for NetApp ONTAP file system,
--- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
--- 1024, or 2048 MB\/s.
+-- 'addRouteTableIds', 'updateFileSystemOntapConfiguration_addRouteTableIds' - (Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route
+-- tables to associate (add) with your Amazon FSx for NetApp ONTAP file
+-- system.
 --
 -- 'automaticBackupRetentionDays', 'updateFileSystemOntapConfiguration_automaticBackupRetentionDays' - Undocumented member.
 --
--- 'fsxAdminPassword', 'updateFileSystemOntapConfiguration_fsxAdminPassword' - The ONTAP administrative password for the @fsxadmin@ user.
+-- 'dailyAutomaticBackupStartTime', 'updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
 --
 -- 'diskIopsConfiguration', 'updateFileSystemOntapConfiguration_diskIopsConfiguration' - The SSD IOPS (input\/output operations per second) configuration for an
 -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
@@ -74,39 +81,49 @@ data UpdateFileSystemOntapConfiguration = UpdateFileSystemOntapConfiguration'
 -- @USER_PROVISIONED@), and in the case of @USER_PROVISIONED@ IOPS, the
 -- total number of SSD IOPS provisioned.
 --
--- 'dailyAutomaticBackupStartTime', 'updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
+-- 'fsxAdminPassword', 'updateFileSystemOntapConfiguration_fsxAdminPassword' - The ONTAP administrative password for the @fsxadmin@ user.
+--
+-- 'removeRouteTableIds', 'updateFileSystemOntapConfiguration_removeRouteTableIds' - (Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
+-- route tables to disassociate (remove) from your Amazon FSx for NetApp
+-- ONTAP file system. You can use the API operation to retrieve the list of
+-- VPC route table IDs for a file system.
+--
+-- 'throughputCapacity', 'updateFileSystemOntapConfiguration_throughputCapacity' - Specifies the throughput of an FSx for NetApp ONTAP file system,
+-- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
+-- 1024, 2048, and 4096 MBps.
+--
+-- 'weeklyMaintenanceStartTime', 'updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime' - Undocumented member.
 newUpdateFileSystemOntapConfiguration ::
   UpdateFileSystemOntapConfiguration
 newUpdateFileSystemOntapConfiguration =
   UpdateFileSystemOntapConfiguration'
-    { weeklyMaintenanceStartTime =
+    { addRouteTableIds =
         Prelude.Nothing,
-      throughputCapacity = Prelude.Nothing,
       automaticBackupRetentionDays =
         Prelude.Nothing,
-      fsxAdminPassword = Prelude.Nothing,
-      diskIopsConfiguration = Prelude.Nothing,
       dailyAutomaticBackupStartTime =
+        Prelude.Nothing,
+      diskIopsConfiguration = Prelude.Nothing,
+      fsxAdminPassword = Prelude.Nothing,
+      removeRouteTableIds = Prelude.Nothing,
+      throughputCapacity = Prelude.Nothing,
+      weeklyMaintenanceStartTime =
         Prelude.Nothing
     }
 
--- | Undocumented member.
-updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemOntapConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemOntapConfiguration)
-
--- | Specifies the throughput of an FSx for NetApp ONTAP file system,
--- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
--- 1024, or 2048 MB\/s.
-updateFileSystemOntapConfiguration_throughputCapacity :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Natural)
-updateFileSystemOntapConfiguration_throughputCapacity = Lens.lens (\UpdateFileSystemOntapConfiguration' {throughputCapacity} -> throughputCapacity) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {throughputCapacity = a} :: UpdateFileSystemOntapConfiguration)
+-- | (Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route
+-- tables to associate (add) with your Amazon FSx for NetApp ONTAP file
+-- system.
+updateFileSystemOntapConfiguration_addRouteTableIds :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe [Prelude.Text])
+updateFileSystemOntapConfiguration_addRouteTableIds = Lens.lens (\UpdateFileSystemOntapConfiguration' {addRouteTableIds} -> addRouteTableIds) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {addRouteTableIds = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateFileSystemOntapConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Natural)
 updateFileSystemOntapConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemOntapConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemOntapConfiguration)
 
--- | The ONTAP administrative password for the @fsxadmin@ user.
-updateFileSystemOntapConfiguration_fsxAdminPassword :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Data._Sensitive
+-- | Undocumented member.
+updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemOntapConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemOntapConfiguration)
 
 -- | The SSD IOPS (input\/output operations per second) configuration for an
 -- Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of
@@ -117,9 +134,26 @@ updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSyst
 updateFileSystemOntapConfiguration_diskIopsConfiguration :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe DiskIopsConfiguration)
 updateFileSystemOntapConfiguration_diskIopsConfiguration = Lens.lens (\UpdateFileSystemOntapConfiguration' {diskIopsConfiguration} -> diskIopsConfiguration) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {diskIopsConfiguration = a} :: UpdateFileSystemOntapConfiguration)
 
+-- | The ONTAP administrative password for the @fsxadmin@ user.
+updateFileSystemOntapConfiguration_fsxAdminPassword :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemOntapConfiguration_fsxAdminPassword = Lens.lens (\UpdateFileSystemOntapConfiguration' {fsxAdminPassword} -> fsxAdminPassword) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {fsxAdminPassword = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Data._Sensitive
+
+-- | (Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
+-- route tables to disassociate (remove) from your Amazon FSx for NetApp
+-- ONTAP file system. You can use the API operation to retrieve the list of
+-- VPC route table IDs for a file system.
+updateFileSystemOntapConfiguration_removeRouteTableIds :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe [Prelude.Text])
+updateFileSystemOntapConfiguration_removeRouteTableIds = Lens.lens (\UpdateFileSystemOntapConfiguration' {removeRouteTableIds} -> removeRouteTableIds) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {removeRouteTableIds = a} :: UpdateFileSystemOntapConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the throughput of an FSx for NetApp ONTAP file system,
+-- measured in megabytes per second (MBps). Valid values are 128, 256, 512,
+-- 1024, 2048, and 4096 MBps.
+updateFileSystemOntapConfiguration_throughputCapacity :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Natural)
+updateFileSystemOntapConfiguration_throughputCapacity = Lens.lens (\UpdateFileSystemOntapConfiguration' {throughputCapacity} -> throughputCapacity) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {throughputCapacity = a} :: UpdateFileSystemOntapConfiguration)
+
 -- | Undocumented member.
-updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemOntapConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemOntapConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemOntapConfiguration)
+updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemOntapConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemOntapConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemOntapConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemOntapConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemOntapConfiguration)
 
 instance
   Prelude.Hashable
@@ -128,25 +162,28 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemOntapConfiguration' {..} =
-      _salt
-        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
-        `Prelude.hashWithSalt` throughputCapacity
+      _salt `Prelude.hashWithSalt` addRouteTableIds
         `Prelude.hashWithSalt` automaticBackupRetentionDays
-        `Prelude.hashWithSalt` fsxAdminPassword
-        `Prelude.hashWithSalt` diskIopsConfiguration
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
+        `Prelude.hashWithSalt` diskIopsConfiguration
+        `Prelude.hashWithSalt` fsxAdminPassword
+        `Prelude.hashWithSalt` removeRouteTableIds
+        `Prelude.hashWithSalt` throughputCapacity
+        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
 
 instance
   Prelude.NFData
     UpdateFileSystemOntapConfiguration
   where
   rnf UpdateFileSystemOntapConfiguration' {..} =
-    Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf throughputCapacity
+    Prelude.rnf addRouteTableIds
       `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf fsxAdminPassword
-      `Prelude.seq` Prelude.rnf diskIopsConfiguration
       `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
+      `Prelude.seq` Prelude.rnf diskIopsConfiguration
+      `Prelude.seq` Prelude.rnf fsxAdminPassword
+      `Prelude.seq` Prelude.rnf removeRouteTableIds
+      `Prelude.seq` Prelude.rnf throughputCapacity
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON
@@ -155,17 +192,21 @@ instance
   toJSON UpdateFileSystemOntapConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Data..=)
-              Prelude.<$> weeklyMaintenanceStartTime,
-            ("ThroughputCapacity" Data..=)
-              Prelude.<$> throughputCapacity,
+          [ ("AddRouteTableIds" Data..=)
+              Prelude.<$> addRouteTableIds,
             ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("FsxAdminPassword" Data..=)
-              Prelude.<$> fsxAdminPassword,
+            ("DailyAutomaticBackupStartTime" Data..=)
+              Prelude.<$> dailyAutomaticBackupStartTime,
             ("DiskIopsConfiguration" Data..=)
               Prelude.<$> diskIopsConfiguration,
-            ("DailyAutomaticBackupStartTime" Data..=)
-              Prelude.<$> dailyAutomaticBackupStartTime
+            ("FsxAdminPassword" Data..=)
+              Prelude.<$> fsxAdminPassword,
+            ("RemoveRouteTableIds" Data..=)
+              Prelude.<$> removeRouteTableIds,
+            ("ThroughputCapacity" Data..=)
+              Prelude.<$> throughputCapacity,
+            ("WeeklyMaintenanceStartTime" Data..=)
+              Prelude.<$> weeklyMaintenanceStartTime
           ]
       )

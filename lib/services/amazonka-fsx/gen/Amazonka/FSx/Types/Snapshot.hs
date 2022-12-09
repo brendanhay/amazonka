@@ -32,9 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The name of the snapshot.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A list of administrative actions for the file system that are in process
+    -- or waiting to be processed. Administrative actions describe changes to
+    -- the Amazon FSx system.
+    administrativeActions :: Prelude.Maybe [AdministrativeAction],
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The lifecycle status of the snapshot.
     --
     -- -   @PENDING@ - Amazon FSx hasn\'t started creating the snapshot.
@@ -45,17 +47,15 @@ data Snapshot = Snapshot'
     --
     -- -   @AVAILABLE@ - The snapshot is fully available.
     lifecycle :: Prelude.Maybe SnapshotLifecycle,
-    -- | A list of administrative actions for the file system that are in process
-    -- or waiting to be processed. Administrative actions describe changes to
-    -- the Amazon FSx system.
-    administrativeActions :: Prelude.Maybe [AdministrativeAction],
+    lifecycleTransitionReason :: Prelude.Maybe LifecycleTransitionReason,
+    -- | The name of the snapshot.
+    name :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    creationTime :: Prelude.Maybe Data.POSIX,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the volume that the snapshot is of.
-    volumeId :: Prelude.Maybe Prelude.Text,
-    resourceARN :: Prelude.Maybe Prelude.Text,
-    lifecycleTransitionReason :: Prelude.Maybe LifecycleTransitionReason
+    volumeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,9 +67,11 @@ data Snapshot = Snapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'snapshot_tags' - Undocumented member.
+-- 'administrativeActions', 'snapshot_administrativeActions' - A list of administrative actions for the file system that are in process
+-- or waiting to be processed. Administrative actions describe changes to
+-- the Amazon FSx system.
 --
--- 'name', 'snapshot_name' - The name of the snapshot.
+-- 'creationTime', 'snapshot_creationTime' - Undocumented member.
 --
 -- 'lifecycle', 'snapshot_lifecycle' - The lifecycle status of the snapshot.
 --
@@ -81,41 +83,41 @@ data Snapshot = Snapshot'
 --
 -- -   @AVAILABLE@ - The snapshot is fully available.
 --
--- 'administrativeActions', 'snapshot_administrativeActions' - A list of administrative actions for the file system that are in process
--- or waiting to be processed. Administrative actions describe changes to
--- the Amazon FSx system.
+-- 'lifecycleTransitionReason', 'snapshot_lifecycleTransitionReason' - Undocumented member.
 --
--- 'snapshotId', 'snapshot_snapshotId' - The ID of the snapshot.
---
--- 'creationTime', 'snapshot_creationTime' - Undocumented member.
---
--- 'volumeId', 'snapshot_volumeId' - The ID of the volume that the snapshot is of.
+-- 'name', 'snapshot_name' - The name of the snapshot.
 --
 -- 'resourceARN', 'snapshot_resourceARN' - Undocumented member.
 --
--- 'lifecycleTransitionReason', 'snapshot_lifecycleTransitionReason' - Undocumented member.
+-- 'snapshotId', 'snapshot_snapshotId' - The ID of the snapshot.
+--
+-- 'tags', 'snapshot_tags' - Undocumented member.
+--
+-- 'volumeId', 'snapshot_volumeId' - The ID of the volume that the snapshot is of.
 newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lifecycle = Prelude.Nothing,
-      administrativeActions = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
+    { administrativeActions = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      volumeId = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
+      lifecycleTransitionReason = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceARN = Prelude.Nothing,
-      lifecycleTransitionReason = Prelude.Nothing
+      snapshotId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      volumeId = Prelude.Nothing
     }
 
--- | Undocumented member.
-snapshot_tags :: Lens.Lens' Snapshot (Prelude.Maybe (Prelude.NonEmpty Tag))
-snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
+-- | A list of administrative actions for the file system that are in process
+-- or waiting to be processed. Administrative actions describe changes to
+-- the Amazon FSx system.
+snapshot_administrativeActions :: Lens.Lens' Snapshot (Prelude.Maybe [AdministrativeAction])
+snapshot_administrativeActions = Lens.lens (\Snapshot' {administrativeActions} -> administrativeActions) (\s@Snapshot' {} a -> s {administrativeActions = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the snapshot.
-snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
+-- | Undocumented member.
+snapshot_creationTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
+snapshot_creationTime = Lens.lens (\Snapshot' {creationTime} -> creationTime) (\s@Snapshot' {} a -> s {creationTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The lifecycle status of the snapshot.
 --
@@ -129,31 +131,29 @@ snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {n
 snapshot_lifecycle :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotLifecycle)
 snapshot_lifecycle = Lens.lens (\Snapshot' {lifecycle} -> lifecycle) (\s@Snapshot' {} a -> s {lifecycle = a} :: Snapshot)
 
--- | A list of administrative actions for the file system that are in process
--- or waiting to be processed. Administrative actions describe changes to
--- the Amazon FSx system.
-snapshot_administrativeActions :: Lens.Lens' Snapshot (Prelude.Maybe [AdministrativeAction])
-snapshot_administrativeActions = Lens.lens (\Snapshot' {administrativeActions} -> administrativeActions) (\s@Snapshot' {} a -> s {administrativeActions = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+snapshot_lifecycleTransitionReason :: Lens.Lens' Snapshot (Prelude.Maybe LifecycleTransitionReason)
+snapshot_lifecycleTransitionReason = Lens.lens (\Snapshot' {lifecycleTransitionReason} -> lifecycleTransitionReason) (\s@Snapshot' {} a -> s {lifecycleTransitionReason = a} :: Snapshot)
+
+-- | The name of the snapshot.
+snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
+
+-- | Undocumented member.
+snapshot_resourceARN :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_resourceARN = Lens.lens (\Snapshot' {resourceARN} -> resourceARN) (\s@Snapshot' {} a -> s {resourceARN = a} :: Snapshot)
 
 -- | The ID of the snapshot.
 snapshot_snapshotId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snapshot' {} a -> s {snapshotId = a} :: Snapshot)
 
 -- | Undocumented member.
-snapshot_creationTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_creationTime = Lens.lens (\Snapshot' {creationTime} -> creationTime) (\s@Snapshot' {} a -> s {creationTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
+snapshot_tags :: Lens.Lens' Snapshot (Prelude.Maybe (Prelude.NonEmpty Tag))
+snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the volume that the snapshot is of.
 snapshot_volumeId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_volumeId = Lens.lens (\Snapshot' {volumeId} -> volumeId) (\s@Snapshot' {} a -> s {volumeId = a} :: Snapshot)
-
--- | Undocumented member.
-snapshot_resourceARN :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_resourceARN = Lens.lens (\Snapshot' {resourceARN} -> resourceARN) (\s@Snapshot' {} a -> s {resourceARN = a} :: Snapshot)
-
--- | Undocumented member.
-snapshot_lifecycleTransitionReason :: Lens.Lens' Snapshot (Prelude.Maybe LifecycleTransitionReason)
-snapshot_lifecycleTransitionReason = Lens.lens (\Snapshot' {lifecycleTransitionReason} -> lifecycleTransitionReason) (\s@Snapshot' {} a -> s {lifecycleTransitionReason = a} :: Snapshot)
 
 instance Data.FromJSON Snapshot where
   parseJSON =
@@ -161,39 +161,39 @@ instance Data.FromJSON Snapshot where
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Lifecycle")
-            Prelude.<*> ( x Data..:? "AdministrativeActions"
+            Prelude.<$> ( x Data..:? "AdministrativeActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "SnapshotId")
             Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "VolumeId")
-            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "Lifecycle")
             Prelude.<*> (x Data..:? "LifecycleTransitionReason")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "VolumeId")
       )
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` administrativeActions
-      `Prelude.hashWithSalt` snapshotId
+    _salt `Prelude.hashWithSalt` administrativeActions
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` volumeId
-      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` lifecycleTransitionReason
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf administrativeActions
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf administrativeActions
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf lifecycleTransitionReason
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf volumeId

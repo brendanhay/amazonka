@@ -32,24 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateFileSystemWindowsConfiguration' smart constructor.
 data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration'
-  { -- | A boolean flag indicating whether tags for the file system should be
-    -- copied to backups. This value defaults to false. If it\'s set to true,
-    -- all tags for the file system are copied to all automatic and
-    -- user-initiated backups where the user doesn\'t specify tags. If this
-    -- value is true, and you specify one or more tags, only the specified tags
-    -- are copied to backups. If you specify one or more tags when creating a
-    -- user-initiated backup, no tags are copied from the file system,
-    -- regardless of this value.
-    copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
-    -- | The preferred start time to perform weekly maintenance, formatted
-    -- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
-    -- through 7, beginning with Monday and ending with Sunday.
-    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text,
-    -- | The number of days to retain automatic backups. The default is to retain
-    -- backups for 7 days. Setting this value to 0 disables the creation of
-    -- automatic backups. The maximum retention period for backups is 90 days.
-    automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
-    -- | The ID for an existing Amazon Web Services Managed Microsoft Active
+  { -- | The ID for an existing Amazon Web Services Managed Microsoft Active
     -- Directory (AD) instance that the file system should join when it\'s
     -- created.
     activeDirectoryId :: Prelude.Maybe Prelude.Text,
@@ -87,6 +70,26 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
     -- uppercase letters, lowercase letters, or the corresponding letters in
     -- escape codes.
     aliases :: Prelude.Maybe [Prelude.Text],
+    -- | The configuration that Amazon FSx for Windows File Server uses to audit
+    -- and log user accesses of files, folders, and file shares on the Amazon
+    -- FSx for Windows File Server file system.
+    auditLogConfiguration :: Prelude.Maybe WindowsAuditLogCreateConfiguration,
+    -- | The number of days to retain automatic backups. The default is to retain
+    -- backups for 7 days. Setting this value to 0 disables the creation of
+    -- automatic backups. The maximum retention period for backups is 90 days.
+    automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
+    -- | A boolean flag indicating whether tags for the file system should be
+    -- copied to backups. This value defaults to false. If it\'s set to true,
+    -- all tags for the file system are copied to all automatic and
+    -- user-initiated backups where the user doesn\'t specify tags. If this
+    -- value is true, and you specify one or more tags, only the specified tags
+    -- are copied to backups. If you specify one or more tags when creating a
+    -- user-initiated backup, no tags are copied from the file system,
+    -- regardless of this value.
+    copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
+    -- | The preferred time to take daily automatic backups, formatted HH:MM in
+    -- the UTC time zone.
+    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
     -- | Specifies the file system deployment type, valid values are the
     -- following:
     --
@@ -106,20 +109,17 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
     -- For more information, see
     -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html Availability and Durability: Single-AZ and Multi-AZ File Systems>.
     deploymentType :: Prelude.Maybe WindowsDeploymentType,
-    -- | The preferred time to take daily automatic backups, formatted HH:MM in
-    -- the UTC time zone.
-    dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
-    selfManagedActiveDirectoryConfiguration :: Prelude.Maybe SelfManagedActiveDirectoryConfiguration,
-    -- | The configuration that Amazon FSx for Windows File Server uses to audit
-    -- and log user accesses of files, folders, and file shares on the Amazon
-    -- FSx for Windows File Server file system.
-    auditLogConfiguration :: Prelude.Maybe WindowsAuditLogCreateConfiguration,
     -- | Required when @DeploymentType@ is set to @MULTI_AZ_1@. This specifies
     -- the subnet in which you want the preferred file server to be located.
     -- For in-Amazon Web Services applications, we recommend that you launch
     -- your clients in the same Availability Zone (AZ) as your preferred file
     -- server to reduce cross-AZ data transfer costs and minimize latency.
     preferredSubnetId :: Prelude.Maybe Prelude.Text,
+    selfManagedActiveDirectoryConfiguration :: Prelude.Maybe SelfManagedActiveDirectoryConfiguration,
+    -- | The preferred start time to perform weekly maintenance, formatted
+    -- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
+    -- through 7, beginning with Monday and ending with Sunday.
+    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text,
     -- | Sets the throughput capacity of an Amazon FSx file system, measured in
     -- megabytes per second (MB\/s), in 2 to the /n/th increments, between 2^3
     -- (8) and 2^11 (2048).
@@ -134,23 +134,6 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'copyTagsToBackups', 'createFileSystemWindowsConfiguration_copyTagsToBackups' - A boolean flag indicating whether tags for the file system should be
--- copied to backups. This value defaults to false. If it\'s set to true,
--- all tags for the file system are copied to all automatic and
--- user-initiated backups where the user doesn\'t specify tags. If this
--- value is true, and you specify one or more tags, only the specified tags
--- are copied to backups. If you specify one or more tags when creating a
--- user-initiated backup, no tags are copied from the file system,
--- regardless of this value.
---
--- 'weeklyMaintenanceStartTime', 'createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime' - The preferred start time to perform weekly maintenance, formatted
--- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
--- through 7, beginning with Monday and ending with Sunday.
---
--- 'automaticBackupRetentionDays', 'createFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. The default is to retain
--- backups for 7 days. Setting this value to 0 disables the creation of
--- automatic backups. The maximum retention period for backups is 90 days.
 --
 -- 'activeDirectoryId', 'createFileSystemWindowsConfiguration_activeDirectoryId' - The ID for an existing Amazon Web Services Managed Microsoft Active
 -- Directory (AD) instance that the file system should join when it\'s
@@ -190,6 +173,26 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
 -- uppercase letters, lowercase letters, or the corresponding letters in
 -- escape codes.
 --
+-- 'auditLogConfiguration', 'createFileSystemWindowsConfiguration_auditLogConfiguration' - The configuration that Amazon FSx for Windows File Server uses to audit
+-- and log user accesses of files, folders, and file shares on the Amazon
+-- FSx for Windows File Server file system.
+--
+-- 'automaticBackupRetentionDays', 'createFileSystemWindowsConfiguration_automaticBackupRetentionDays' - The number of days to retain automatic backups. The default is to retain
+-- backups for 7 days. Setting this value to 0 disables the creation of
+-- automatic backups. The maximum retention period for backups is 90 days.
+--
+-- 'copyTagsToBackups', 'createFileSystemWindowsConfiguration_copyTagsToBackups' - A boolean flag indicating whether tags for the file system should be
+-- copied to backups. This value defaults to false. If it\'s set to true,
+-- all tags for the file system are copied to all automatic and
+-- user-initiated backups where the user doesn\'t specify tags. If this
+-- value is true, and you specify one or more tags, only the specified tags
+-- are copied to backups. If you specify one or more tags when creating a
+-- user-initiated backup, no tags are copied from the file system,
+-- regardless of this value.
+--
+-- 'dailyAutomaticBackupStartTime', 'createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime' - The preferred time to take daily automatic backups, formatted HH:MM in
+-- the UTC time zone.
+--
 -- 'deploymentType', 'createFileSystemWindowsConfiguration_deploymentType' - Specifies the file system deployment type, valid values are the
 -- following:
 --
@@ -209,20 +212,17 @@ data CreateFileSystemWindowsConfiguration = CreateFileSystemWindowsConfiguration
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html Availability and Durability: Single-AZ and Multi-AZ File Systems>.
 --
--- 'dailyAutomaticBackupStartTime', 'createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime' - The preferred time to take daily automatic backups, formatted HH:MM in
--- the UTC time zone.
---
--- 'selfManagedActiveDirectoryConfiguration', 'createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration' - Undocumented member.
---
--- 'auditLogConfiguration', 'createFileSystemWindowsConfiguration_auditLogConfiguration' - The configuration that Amazon FSx for Windows File Server uses to audit
--- and log user accesses of files, folders, and file shares on the Amazon
--- FSx for Windows File Server file system.
---
 -- 'preferredSubnetId', 'createFileSystemWindowsConfiguration_preferredSubnetId' - Required when @DeploymentType@ is set to @MULTI_AZ_1@. This specifies
 -- the subnet in which you want the preferred file server to be located.
 -- For in-Amazon Web Services applications, we recommend that you launch
 -- your clients in the same Availability Zone (AZ) as your preferred file
 -- server to reduce cross-AZ data transfer costs and minimize latency.
+--
+-- 'selfManagedActiveDirectoryConfiguration', 'createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration' - Undocumented member.
+--
+-- 'weeklyMaintenanceStartTime', 'createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime' - The preferred start time to perform weekly maintenance, formatted
+-- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
+-- through 7, beginning with Monday and ending with Sunday.
 --
 -- 'throughputCapacity', 'createFileSystemWindowsConfiguration_throughputCapacity' - Sets the throughput capacity of an Amazon FSx file system, measured in
 -- megabytes per second (MB\/s), in 2 to the /n/th increments, between 2^3
@@ -234,48 +234,25 @@ newCreateFileSystemWindowsConfiguration ::
 newCreateFileSystemWindowsConfiguration
   pThroughputCapacity_ =
     CreateFileSystemWindowsConfiguration'
-      { copyTagsToBackups =
+      { activeDirectoryId =
           Prelude.Nothing,
-        weeklyMaintenanceStartTime =
+        aliases = Prelude.Nothing,
+        auditLogConfiguration =
           Prelude.Nothing,
         automaticBackupRetentionDays =
           Prelude.Nothing,
-        activeDirectoryId = Prelude.Nothing,
-        aliases = Prelude.Nothing,
-        deploymentType = Prelude.Nothing,
+        copyTagsToBackups = Prelude.Nothing,
         dailyAutomaticBackupStartTime =
           Prelude.Nothing,
+        deploymentType = Prelude.Nothing,
+        preferredSubnetId = Prelude.Nothing,
         selfManagedActiveDirectoryConfiguration =
           Prelude.Nothing,
-        auditLogConfiguration =
+        weeklyMaintenanceStartTime =
           Prelude.Nothing,
-        preferredSubnetId = Prelude.Nothing,
         throughputCapacity =
           pThroughputCapacity_
       }
-
--- | A boolean flag indicating whether tags for the file system should be
--- copied to backups. This value defaults to false. If it\'s set to true,
--- all tags for the file system are copied to all automatic and
--- user-initiated backups where the user doesn\'t specify tags. If this
--- value is true, and you specify one or more tags, only the specified tags
--- are copied to backups. If you specify one or more tags when creating a
--- user-initiated backup, no tags are copied from the file system,
--- regardless of this value.
-createFileSystemWindowsConfiguration_copyTagsToBackups :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Bool)
-createFileSystemWindowsConfiguration_copyTagsToBackups = Lens.lens (\CreateFileSystemWindowsConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {copyTagsToBackups = a} :: CreateFileSystemWindowsConfiguration)
-
--- | The preferred start time to perform weekly maintenance, formatted
--- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
--- through 7, beginning with Monday and ending with Sunday.
-createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Text)
-createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime = Lens.lens (\CreateFileSystemWindowsConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: CreateFileSystemWindowsConfiguration)
-
--- | The number of days to retain automatic backups. The default is to retain
--- backups for 7 days. Setting this value to 0 disables the creation of
--- automatic backups. The maximum retention period for backups is 90 days.
-createFileSystemWindowsConfiguration_automaticBackupRetentionDays :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Natural)
-createFileSystemWindowsConfiguration_automaticBackupRetentionDays = Lens.lens (\CreateFileSystemWindowsConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: CreateFileSystemWindowsConfiguration)
 
 -- | The ID for an existing Amazon Web Services Managed Microsoft Active
 -- Directory (AD) instance that the file system should join when it\'s
@@ -319,6 +296,34 @@ createFileSystemWindowsConfiguration_activeDirectoryId = Lens.lens (\CreateFileS
 createFileSystemWindowsConfiguration_aliases :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe [Prelude.Text])
 createFileSystemWindowsConfiguration_aliases = Lens.lens (\CreateFileSystemWindowsConfiguration' {aliases} -> aliases) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {aliases = a} :: CreateFileSystemWindowsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | The configuration that Amazon FSx for Windows File Server uses to audit
+-- and log user accesses of files, folders, and file shares on the Amazon
+-- FSx for Windows File Server file system.
+createFileSystemWindowsConfiguration_auditLogConfiguration :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe WindowsAuditLogCreateConfiguration)
+createFileSystemWindowsConfiguration_auditLogConfiguration = Lens.lens (\CreateFileSystemWindowsConfiguration' {auditLogConfiguration} -> auditLogConfiguration) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {auditLogConfiguration = a} :: CreateFileSystemWindowsConfiguration)
+
+-- | The number of days to retain automatic backups. The default is to retain
+-- backups for 7 days. Setting this value to 0 disables the creation of
+-- automatic backups. The maximum retention period for backups is 90 days.
+createFileSystemWindowsConfiguration_automaticBackupRetentionDays :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Natural)
+createFileSystemWindowsConfiguration_automaticBackupRetentionDays = Lens.lens (\CreateFileSystemWindowsConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: CreateFileSystemWindowsConfiguration)
+
+-- | A boolean flag indicating whether tags for the file system should be
+-- copied to backups. This value defaults to false. If it\'s set to true,
+-- all tags for the file system are copied to all automatic and
+-- user-initiated backups where the user doesn\'t specify tags. If this
+-- value is true, and you specify one or more tags, only the specified tags
+-- are copied to backups. If you specify one or more tags when creating a
+-- user-initiated backup, no tags are copied from the file system,
+-- regardless of this value.
+createFileSystemWindowsConfiguration_copyTagsToBackups :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Bool)
+createFileSystemWindowsConfiguration_copyTagsToBackups = Lens.lens (\CreateFileSystemWindowsConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {copyTagsToBackups = a} :: CreateFileSystemWindowsConfiguration)
+
+-- | The preferred time to take daily automatic backups, formatted HH:MM in
+-- the UTC time zone.
+createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Text)
+createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\CreateFileSystemWindowsConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: CreateFileSystemWindowsConfiguration)
+
 -- | Specifies the file system deployment type, valid values are the
 -- following:
 --
@@ -340,21 +345,6 @@ createFileSystemWindowsConfiguration_aliases = Lens.lens (\CreateFileSystemWindo
 createFileSystemWindowsConfiguration_deploymentType :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe WindowsDeploymentType)
 createFileSystemWindowsConfiguration_deploymentType = Lens.lens (\CreateFileSystemWindowsConfiguration' {deploymentType} -> deploymentType) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {deploymentType = a} :: CreateFileSystemWindowsConfiguration)
 
--- | The preferred time to take daily automatic backups, formatted HH:MM in
--- the UTC time zone.
-createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Text)
-createFileSystemWindowsConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\CreateFileSystemWindowsConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: CreateFileSystemWindowsConfiguration)
-
--- | Undocumented member.
-createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe SelfManagedActiveDirectoryConfiguration)
-createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration = Lens.lens (\CreateFileSystemWindowsConfiguration' {selfManagedActiveDirectoryConfiguration} -> selfManagedActiveDirectoryConfiguration) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {selfManagedActiveDirectoryConfiguration = a} :: CreateFileSystemWindowsConfiguration)
-
--- | The configuration that Amazon FSx for Windows File Server uses to audit
--- and log user accesses of files, folders, and file shares on the Amazon
--- FSx for Windows File Server file system.
-createFileSystemWindowsConfiguration_auditLogConfiguration :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe WindowsAuditLogCreateConfiguration)
-createFileSystemWindowsConfiguration_auditLogConfiguration = Lens.lens (\CreateFileSystemWindowsConfiguration' {auditLogConfiguration} -> auditLogConfiguration) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {auditLogConfiguration = a} :: CreateFileSystemWindowsConfiguration)
-
 -- | Required when @DeploymentType@ is set to @MULTI_AZ_1@. This specifies
 -- the subnet in which you want the preferred file server to be located.
 -- For in-Amazon Web Services applications, we recommend that you launch
@@ -362,6 +352,16 @@ createFileSystemWindowsConfiguration_auditLogConfiguration = Lens.lens (\CreateF
 -- server to reduce cross-AZ data transfer costs and minimize latency.
 createFileSystemWindowsConfiguration_preferredSubnetId :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Text)
 createFileSystemWindowsConfiguration_preferredSubnetId = Lens.lens (\CreateFileSystemWindowsConfiguration' {preferredSubnetId} -> preferredSubnetId) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {preferredSubnetId = a} :: CreateFileSystemWindowsConfiguration)
+
+-- | Undocumented member.
+createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe SelfManagedActiveDirectoryConfiguration)
+createFileSystemWindowsConfiguration_selfManagedActiveDirectoryConfiguration = Lens.lens (\CreateFileSystemWindowsConfiguration' {selfManagedActiveDirectoryConfiguration} -> selfManagedActiveDirectoryConfiguration) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {selfManagedActiveDirectoryConfiguration = a} :: CreateFileSystemWindowsConfiguration)
+
+-- | The preferred start time to perform weekly maintenance, formatted
+-- d:HH:MM in the UTC time zone, where d is the weekday number, from 1
+-- through 7, beginning with Monday and ending with Sunday.
+createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' CreateFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Text)
+createFileSystemWindowsConfiguration_weeklyMaintenanceStartTime = Lens.lens (\CreateFileSystemWindowsConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@CreateFileSystemWindowsConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: CreateFileSystemWindowsConfiguration)
 
 -- | Sets the throughput capacity of an Amazon FSx file system, measured in
 -- megabytes per second (MB\/s), in 2 to the /n/th increments, between 2^3
@@ -376,16 +376,16 @@ instance
   hashWithSalt
     _salt
     CreateFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` copyTagsToBackups
-        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
-        `Prelude.hashWithSalt` automaticBackupRetentionDays
-        `Prelude.hashWithSalt` activeDirectoryId
+      _salt `Prelude.hashWithSalt` activeDirectoryId
         `Prelude.hashWithSalt` aliases
-        `Prelude.hashWithSalt` deploymentType
-        `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
-        `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration
         `Prelude.hashWithSalt` auditLogConfiguration
+        `Prelude.hashWithSalt` automaticBackupRetentionDays
+        `Prelude.hashWithSalt` copyTagsToBackups
+        `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
+        `Prelude.hashWithSalt` deploymentType
         `Prelude.hashWithSalt` preferredSubnetId
+        `Prelude.hashWithSalt` selfManagedActiveDirectoryConfiguration
+        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
         `Prelude.hashWithSalt` throughputCapacity
 
 instance
@@ -393,16 +393,16 @@ instance
     CreateFileSystemWindowsConfiguration
   where
   rnf CreateFileSystemWindowsConfiguration' {..} =
-    Prelude.rnf copyTagsToBackups
-      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf activeDirectoryId
+    Prelude.rnf activeDirectoryId
       `Prelude.seq` Prelude.rnf aliases
-      `Prelude.seq` Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
-      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
       `Prelude.seq` Prelude.rnf auditLogConfiguration
+      `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
+      `Prelude.seq` Prelude.rnf copyTagsToBackups
+      `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
+      `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf preferredSubnetId
+      `Prelude.seq` Prelude.rnf selfManagedActiveDirectoryConfiguration
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
       `Prelude.seq` Prelude.rnf throughputCapacity
 
 instance
@@ -412,25 +412,25 @@ instance
   toJSON CreateFileSystemWindowsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CopyTagsToBackups" Data..=)
-              Prelude.<$> copyTagsToBackups,
-            ("WeeklyMaintenanceStartTime" Data..=)
-              Prelude.<$> weeklyMaintenanceStartTime,
-            ("AutomaticBackupRetentionDays" Data..=)
-              Prelude.<$> automaticBackupRetentionDays,
-            ("ActiveDirectoryId" Data..=)
+          [ ("ActiveDirectoryId" Data..=)
               Prelude.<$> activeDirectoryId,
             ("Aliases" Data..=) Prelude.<$> aliases,
-            ("DeploymentType" Data..=)
-              Prelude.<$> deploymentType,
-            ("DailyAutomaticBackupStartTime" Data..=)
-              Prelude.<$> dailyAutomaticBackupStartTime,
-            ("SelfManagedActiveDirectoryConfiguration" Data..=)
-              Prelude.<$> selfManagedActiveDirectoryConfiguration,
             ("AuditLogConfiguration" Data..=)
               Prelude.<$> auditLogConfiguration,
+            ("AutomaticBackupRetentionDays" Data..=)
+              Prelude.<$> automaticBackupRetentionDays,
+            ("CopyTagsToBackups" Data..=)
+              Prelude.<$> copyTagsToBackups,
+            ("DailyAutomaticBackupStartTime" Data..=)
+              Prelude.<$> dailyAutomaticBackupStartTime,
+            ("DeploymentType" Data..=)
+              Prelude.<$> deploymentType,
             ("PreferredSubnetId" Data..=)
               Prelude.<$> preferredSubnetId,
+            ("SelfManagedActiveDirectoryConfiguration" Data..=)
+              Prelude.<$> selfManagedActiveDirectoryConfiguration,
+            ("WeeklyMaintenanceStartTime" Data..=)
+              Prelude.<$> weeklyMaintenanceStartTime,
             Prelude.Just
               ("ThroughputCapacity" Data..= throughputCapacity)
           ]

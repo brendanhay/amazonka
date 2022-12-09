@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemWindowsConfiguration' smart constructor.
 data DeleteFileSystemWindowsConfiguration = DeleteFileSystemWindowsConfiguration'
-  { -- | By default, Amazon FSx for Windows takes a final backup on your behalf
+  { -- | A set of tags for your final backup.
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | By default, Amazon FSx for Windows takes a final backup on your behalf
     -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
     -- protect you from data loss, and we highly recommend taking the final
     -- backup. If you want to skip this backup, use this flag to do so.
-    skipFinalBackup :: Prelude.Maybe Prelude.Bool,
-    -- | A set of tags for your final backup.
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+    skipFinalBackup :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data DeleteFileSystemWindowsConfiguration = DeleteFileSystemWindowsConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'finalBackupTags', 'deleteFileSystemWindowsConfiguration_finalBackupTags' - A set of tags for your final backup.
+--
 -- 'skipFinalBackup', 'deleteFileSystemWindowsConfiguration_skipFinalBackup' - By default, Amazon FSx for Windows takes a final backup on your behalf
 -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
 -- protect you from data loss, and we highly recommend taking the final
 -- backup. If you want to skip this backup, use this flag to do so.
---
--- 'finalBackupTags', 'deleteFileSystemWindowsConfiguration_finalBackupTags' - A set of tags for your final backup.
 newDeleteFileSystemWindowsConfiguration ::
   DeleteFileSystemWindowsConfiguration
 newDeleteFileSystemWindowsConfiguration =
   DeleteFileSystemWindowsConfiguration'
-    { skipFinalBackup =
+    { finalBackupTags =
         Prelude.Nothing,
-      finalBackupTags = Prelude.Nothing
+      skipFinalBackup = Prelude.Nothing
     }
+
+-- | A set of tags for your final backup.
+deleteFileSystemWindowsConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemWindowsConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemWindowsConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemWindowsConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemWindowsConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemWindowsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | By default, Amazon FSx for Windows takes a final backup on your behalf
 -- when the @DeleteFileSystem@ operation is invoked. Doing this helps
@@ -70,10 +74,6 @@ newDeleteFileSystemWindowsConfiguration =
 deleteFileSystemWindowsConfiguration_skipFinalBackup :: Lens.Lens' DeleteFileSystemWindowsConfiguration (Prelude.Maybe Prelude.Bool)
 deleteFileSystemWindowsConfiguration_skipFinalBackup = Lens.lens (\DeleteFileSystemWindowsConfiguration' {skipFinalBackup} -> skipFinalBackup) (\s@DeleteFileSystemWindowsConfiguration' {} a -> s {skipFinalBackup = a} :: DeleteFileSystemWindowsConfiguration)
 
--- | A set of tags for your final backup.
-deleteFileSystemWindowsConfiguration_finalBackupTags :: Lens.Lens' DeleteFileSystemWindowsConfiguration (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemWindowsConfiguration_finalBackupTags = Lens.lens (\DeleteFileSystemWindowsConfiguration' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemWindowsConfiguration' {} a -> s {finalBackupTags = a} :: DeleteFileSystemWindowsConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Prelude.Hashable
     DeleteFileSystemWindowsConfiguration
@@ -81,16 +81,16 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemWindowsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` skipFinalBackup
-        `Prelude.hashWithSalt` finalBackupTags
+      _salt `Prelude.hashWithSalt` finalBackupTags
+        `Prelude.hashWithSalt` skipFinalBackup
 
 instance
   Prelude.NFData
     DeleteFileSystemWindowsConfiguration
   where
   rnf DeleteFileSystemWindowsConfiguration' {..} =
-    Prelude.rnf skipFinalBackup
-      `Prelude.seq` Prelude.rnf finalBackupTags
+    Prelude.rnf finalBackupTags
+      `Prelude.seq` Prelude.rnf skipFinalBackup
 
 instance
   Data.ToJSON
@@ -99,9 +99,9 @@ instance
   toJSON DeleteFileSystemWindowsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkipFinalBackup" Data..=)
-              Prelude.<$> skipFinalBackup,
-            ("FinalBackupTags" Data..=)
-              Prelude.<$> finalBackupTags
+          [ ("FinalBackupTags" Data..=)
+              Prelude.<$> finalBackupTags,
+            ("SkipFinalBackup" Data..=)
+              Prelude.<$> skipFinalBackup
           ]
       )

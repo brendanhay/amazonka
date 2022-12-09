@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSvmEndpoints' smart constructor.
 data SvmEndpoints = SvmEndpoints'
-  { -- | An endpoint for connecting using the Server Message Block (SMB)
-    -- protocol.
-    smb :: Prelude.Maybe SvmEndpoint,
-    -- | An endpoint for connecting using the Internet Small Computer Systems
+  { -- | An endpoint for connecting using the Internet Small Computer Systems
     -- Interface (iSCSI) protocol.
     iscsi :: Prelude.Maybe SvmEndpoint,
-    -- | An endpoint for connecting using the Network File System (NFS) protocol.
-    nfs :: Prelude.Maybe SvmEndpoint,
     -- | An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP
     -- API, or NetApp CloudManager.
-    management :: Prelude.Maybe SvmEndpoint
+    management :: Prelude.Maybe SvmEndpoint,
+    -- | An endpoint for connecting using the Network File System (NFS) protocol.
+    nfs :: Prelude.Maybe SvmEndpoint,
+    -- | An endpoint for connecting using the Server Message Block (SMB)
+    -- protocol.
+    smb :: Prelude.Maybe SvmEndpoint
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,44 +53,44 @@ data SvmEndpoints = SvmEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'smb', 'svmEndpoints_smb' - An endpoint for connecting using the Server Message Block (SMB)
--- protocol.
---
 -- 'iscsi', 'svmEndpoints_iscsi' - An endpoint for connecting using the Internet Small Computer Systems
 -- Interface (iSCSI) protocol.
 --
--- 'nfs', 'svmEndpoints_nfs' - An endpoint for connecting using the Network File System (NFS) protocol.
---
 -- 'management', 'svmEndpoints_management' - An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP
 -- API, or NetApp CloudManager.
+--
+-- 'nfs', 'svmEndpoints_nfs' - An endpoint for connecting using the Network File System (NFS) protocol.
+--
+-- 'smb', 'svmEndpoints_smb' - An endpoint for connecting using the Server Message Block (SMB)
+-- protocol.
 newSvmEndpoints ::
   SvmEndpoints
 newSvmEndpoints =
   SvmEndpoints'
-    { smb = Prelude.Nothing,
-      iscsi = Prelude.Nothing,
+    { iscsi = Prelude.Nothing,
+      management = Prelude.Nothing,
       nfs = Prelude.Nothing,
-      management = Prelude.Nothing
+      smb = Prelude.Nothing
     }
-
--- | An endpoint for connecting using the Server Message Block (SMB)
--- protocol.
-svmEndpoints_smb :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
-svmEndpoints_smb = Lens.lens (\SvmEndpoints' {smb} -> smb) (\s@SvmEndpoints' {} a -> s {smb = a} :: SvmEndpoints)
 
 -- | An endpoint for connecting using the Internet Small Computer Systems
 -- Interface (iSCSI) protocol.
 svmEndpoints_iscsi :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
 svmEndpoints_iscsi = Lens.lens (\SvmEndpoints' {iscsi} -> iscsi) (\s@SvmEndpoints' {} a -> s {iscsi = a} :: SvmEndpoints)
 
--- | An endpoint for connecting using the Network File System (NFS) protocol.
-svmEndpoints_nfs :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
-svmEndpoints_nfs = Lens.lens (\SvmEndpoints' {nfs} -> nfs) (\s@SvmEndpoints' {} a -> s {nfs = a} :: SvmEndpoints)
-
 -- | An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP
 -- API, or NetApp CloudManager.
 svmEndpoints_management :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
 svmEndpoints_management = Lens.lens (\SvmEndpoints' {management} -> management) (\s@SvmEndpoints' {} a -> s {management = a} :: SvmEndpoints)
+
+-- | An endpoint for connecting using the Network File System (NFS) protocol.
+svmEndpoints_nfs :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
+svmEndpoints_nfs = Lens.lens (\SvmEndpoints' {nfs} -> nfs) (\s@SvmEndpoints' {} a -> s {nfs = a} :: SvmEndpoints)
+
+-- | An endpoint for connecting using the Server Message Block (SMB)
+-- protocol.
+svmEndpoints_smb :: Lens.Lens' SvmEndpoints (Prelude.Maybe SvmEndpoint)
+svmEndpoints_smb = Lens.lens (\SvmEndpoints' {smb} -> smb) (\s@SvmEndpoints' {} a -> s {smb = a} :: SvmEndpoints)
 
 instance Data.FromJSON SvmEndpoints where
   parseJSON =
@@ -98,22 +98,22 @@ instance Data.FromJSON SvmEndpoints where
       "SvmEndpoints"
       ( \x ->
           SvmEndpoints'
-            Prelude.<$> (x Data..:? "Smb")
-            Prelude.<*> (x Data..:? "Iscsi")
-            Prelude.<*> (x Data..:? "Nfs")
+            Prelude.<$> (x Data..:? "Iscsi")
             Prelude.<*> (x Data..:? "Management")
+            Prelude.<*> (x Data..:? "Nfs")
+            Prelude.<*> (x Data..:? "Smb")
       )
 
 instance Prelude.Hashable SvmEndpoints where
   hashWithSalt _salt SvmEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` smb
-      `Prelude.hashWithSalt` iscsi
-      `Prelude.hashWithSalt` nfs
+    _salt `Prelude.hashWithSalt` iscsi
       `Prelude.hashWithSalt` management
+      `Prelude.hashWithSalt` nfs
+      `Prelude.hashWithSalt` smb
 
 instance Prelude.NFData SvmEndpoints where
   rnf SvmEndpoints' {..} =
-    Prelude.rnf smb
-      `Prelude.seq` Prelude.rnf iscsi
-      `Prelude.seq` Prelude.rnf nfs
+    Prelude.rnf iscsi
       `Prelude.seq` Prelude.rnf management
+      `Prelude.seq` Prelude.rnf nfs
+      `Prelude.seq` Prelude.rnf smb

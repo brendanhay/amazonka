@@ -20,11 +20,89 @@ module Amazonka.FSx
     -- * Errors
     -- $errors
 
-    -- ** VolumeNotFound
-    _VolumeNotFound,
+    -- ** ActiveDirectoryError
+    _ActiveDirectoryError,
+
+    -- ** BackupBeingCopied
+    _BackupBeingCopied,
+
+    -- ** BackupInProgress
+    _BackupInProgress,
+
+    -- ** BackupNotFound
+    _BackupNotFound,
+
+    -- ** BackupRestoring
+    _BackupRestoring,
+
+    -- ** BadRequest
+    _BadRequest,
+
+    -- ** DataRepositoryAssociationNotFound
+    _DataRepositoryAssociationNotFound,
+
+    -- ** DataRepositoryTaskEnded
+    _DataRepositoryTaskEnded,
+
+    -- ** DataRepositoryTaskExecuting
+    _DataRepositoryTaskExecuting,
+
+    -- ** DataRepositoryTaskNotFound
+    _DataRepositoryTaskNotFound,
+
+    -- ** FileCacheNotFound
+    _FileCacheNotFound,
+
+    -- ** FileSystemNotFound
+    _FileSystemNotFound,
+
+    -- ** IncompatibleParameterError
+    _IncompatibleParameterError,
+
+    -- ** IncompatibleRegionForMultiAZ
+    _IncompatibleRegionForMultiAZ,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** InvalidDataRepositoryType
+    _InvalidDataRepositoryType,
+
+    -- ** InvalidDestinationKmsKey
+    _InvalidDestinationKmsKey,
+
+    -- ** InvalidExportPath
+    _InvalidExportPath,
+
+    -- ** InvalidImportPath
+    _InvalidImportPath,
+
+    -- ** InvalidNetworkSettings
+    _InvalidNetworkSettings,
+
+    -- ** InvalidPerUnitStorageThroughput
+    _InvalidPerUnitStorageThroughput,
+
+    -- ** InvalidRegion
+    _InvalidRegion,
+
+    -- ** InvalidSourceKmsKey
+    _InvalidSourceKmsKey,
+
+    -- ** MissingFileCacheConfiguration
+    _MissingFileCacheConfiguration,
+
+    -- ** MissingFileSystemConfiguration
+    _MissingFileSystemConfiguration,
 
     -- ** MissingVolumeConfiguration
     _MissingVolumeConfiguration,
+
+    -- ** NotServiceResourceError
+    _NotServiceResourceError,
+
+    -- ** ResourceDoesNotSupportTagging
+    _ResourceDoesNotSupportTagging,
 
     -- ** ResourceNotFound
     _ResourceNotFound,
@@ -35,95 +113,17 @@ module Amazonka.FSx
     -- ** SnapshotNotFound
     _SnapshotNotFound,
 
-    -- ** DataRepositoryAssociationNotFound
-    _DataRepositoryAssociationNotFound,
-
-    -- ** ResourceDoesNotSupportTagging
-    _ResourceDoesNotSupportTagging,
-
-    -- ** InvalidNetworkSettings
-    _InvalidNetworkSettings,
-
-    -- ** BackupInProgress
-    _BackupInProgress,
-
-    -- ** IncompatibleRegionForMultiAZ
-    _IncompatibleRegionForMultiAZ,
-
-    -- ** BadRequest
-    _BadRequest,
-
-    -- ** IncompatibleParameterError
-    _IncompatibleParameterError,
-
-    -- ** FileSystemNotFound
-    _FileSystemNotFound,
-
-    -- ** InvalidExportPath
-    _InvalidExportPath,
-
-    -- ** BackupRestoring
-    _BackupRestoring,
-
-    -- ** InvalidPerUnitStorageThroughput
-    _InvalidPerUnitStorageThroughput,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** InvalidDataRepositoryType
-    _InvalidDataRepositoryType,
-
-    -- ** ActiveDirectoryError
-    _ActiveDirectoryError,
-
-    -- ** InvalidDestinationKmsKey
-    _InvalidDestinationKmsKey,
-
-    -- ** NotServiceResourceError
-    _NotServiceResourceError,
-
-    -- ** MissingFileCacheConfiguration
-    _MissingFileCacheConfiguration,
+    -- ** SourceBackupUnavailable
+    _SourceBackupUnavailable,
 
     -- ** StorageVirtualMachineNotFound
     _StorageVirtualMachineNotFound,
 
-    -- ** DataRepositoryTaskNotFound
-    _DataRepositoryTaskNotFound,
-
-    -- ** FileCacheNotFound
-    _FileCacheNotFound,
-
-    -- ** InvalidImportPath
-    _InvalidImportPath,
-
-    -- ** BackupNotFound
-    _BackupNotFound,
-
-    -- ** DataRepositoryTaskEnded
-    _DataRepositoryTaskEnded,
-
     -- ** UnsupportedOperation
     _UnsupportedOperation,
 
-    -- ** DataRepositoryTaskExecuting
-    _DataRepositoryTaskExecuting,
-
-    -- ** SourceBackupUnavailable
-    _SourceBackupUnavailable,
-
-    -- ** MissingFileSystemConfiguration
-    _MissingFileSystemConfiguration,
-
-    -- ** InvalidRegion
-    _InvalidRegion,
-
-    -- ** BackupBeingCopied
-    _BackupBeingCopied,
-
-    -- ** InvalidSourceKmsKey
-    _InvalidSourceKmsKey,
+    -- ** VolumeNotFound
+    _VolumeNotFound,
 
     -- * Waiters
     -- $waiters
@@ -448,6 +448,9 @@ module Amazonka.FSx
     -- ** FlexCacheEndpointType
     FlexCacheEndpointType (..),
 
+    -- ** InputOntapVolumeType
+    InputOntapVolumeType (..),
+
     -- ** LustreAccessAuditLogLevel
     LustreAccessAuditLogLevel (..),
 
@@ -510,9 +513,6 @@ module Amazonka.FSx
 
     -- ** StorageVirtualMachineRootVolumeSecurityStyle
     StorageVirtualMachineRootVolumeSecurityStyle (..),
-
-    -- ** StorageVirtualMachineSubtype
-    StorageVirtualMachineSubtype (..),
 
     -- ** TieringPolicyName
     TieringPolicyName (..),

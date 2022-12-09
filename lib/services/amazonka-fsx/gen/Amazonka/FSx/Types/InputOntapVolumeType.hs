@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.FSx.Types.OpenZFSDeploymentType
+-- Module      : Amazonka.FSx.Types.InputOntapVolumeType
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.FSx.Types.OpenZFSDeploymentType
-  ( OpenZFSDeploymentType
+module Amazonka.FSx.Types.InputOntapVolumeType
+  ( InputOntapVolumeType
       ( ..,
-        OpenZFSDeploymentType_SINGLE_AZ_1,
-        OpenZFSDeploymentType_SINGLE_AZ_2
+        InputOntapVolumeType_DP,
+        InputOntapVolumeType_RW
       ),
   )
 where
@@ -30,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype OpenZFSDeploymentType = OpenZFSDeploymentType'
-  { fromOpenZFSDeploymentType ::
+newtype InputOntapVolumeType = InputOntapVolumeType'
+  { fromInputOntapVolumeType ::
       Data.Text
   }
   deriving stock
@@ -58,14 +58,14 @@ newtype OpenZFSDeploymentType = OpenZFSDeploymentType'
       Data.ToXML
     )
 
-pattern OpenZFSDeploymentType_SINGLE_AZ_1 :: OpenZFSDeploymentType
-pattern OpenZFSDeploymentType_SINGLE_AZ_1 = OpenZFSDeploymentType' "SINGLE_AZ_1"
+pattern InputOntapVolumeType_DP :: InputOntapVolumeType
+pattern InputOntapVolumeType_DP = InputOntapVolumeType' "DP"
 
-pattern OpenZFSDeploymentType_SINGLE_AZ_2 :: OpenZFSDeploymentType
-pattern OpenZFSDeploymentType_SINGLE_AZ_2 = OpenZFSDeploymentType' "SINGLE_AZ_2"
+pattern InputOntapVolumeType_RW :: InputOntapVolumeType
+pattern InputOntapVolumeType_RW = InputOntapVolumeType' "RW"
 
 {-# COMPLETE
-  OpenZFSDeploymentType_SINGLE_AZ_1,
-  OpenZFSDeploymentType_SINGLE_AZ_2,
-  OpenZFSDeploymentType'
+  InputOntapVolumeType_DP,
+  InputOntapVolumeType_RW,
+  InputOntapVolumeType'
   #-}

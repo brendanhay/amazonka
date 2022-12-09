@@ -62,16 +62,16 @@ module Amazonka.FSx.CreateFileSystemFromBackup
     newCreateFileSystemFromBackup,
 
     -- * Request Lenses
-    createFileSystemFromBackup_tags,
     createFileSystemFromBackup_clientRequestToken,
     createFileSystemFromBackup_fileSystemTypeVersion,
-    createFileSystemFromBackup_securityGroupIds,
-    createFileSystemFromBackup_openZFSConfiguration,
-    createFileSystemFromBackup_storageCapacity,
-    createFileSystemFromBackup_storageType,
-    createFileSystemFromBackup_windowsConfiguration,
     createFileSystemFromBackup_kmsKeyId,
     createFileSystemFromBackup_lustreConfiguration,
+    createFileSystemFromBackup_openZFSConfiguration,
+    createFileSystemFromBackup_securityGroupIds,
+    createFileSystemFromBackup_storageCapacity,
+    createFileSystemFromBackup_storageType,
+    createFileSystemFromBackup_tags,
+    createFileSystemFromBackup_windowsConfiguration,
     createFileSystemFromBackup_backupId,
     createFileSystemFromBackup_subnetIds,
 
@@ -97,11 +97,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateFileSystemFromBackup' smart constructor.
 data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
-  { -- | The tags to be applied to the file system at file system creation. The
-    -- key value of the @Name@ tag appears in the console as the file system
-    -- name.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
     -- idempotent creation. This string is automatically filled on your behalf
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
@@ -114,13 +110,15 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
     -- choose to specify @FileSystemTypeVersion@ when creating from backup, the
     -- value must match the backup\'s @FileSystemTypeVersion@ setting.
     fileSystemTypeVersion :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    lustreConfiguration :: Prelude.Maybe CreateFileSystemLustreConfiguration,
+    -- | The OpenZFS configuration for the file system that\'s being created.
+    openZFSConfiguration :: Prelude.Maybe CreateFileSystemOpenZFSConfiguration,
     -- | A list of IDs for the security groups that apply to the specified
     -- network interfaces created for file system access. These security groups
     -- apply to all network interfaces. This value isn\'t returned in later
     -- @DescribeFileSystem@ requests.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The OpenZFS configuration for the file system that\'s being created.
-    openZFSConfiguration :: Prelude.Maybe CreateFileSystemOpenZFSConfiguration,
     -- | Sets the storage capacity of the OpenZFS file system that you\'re
     -- creating from a backup, in gibibytes (GiB). Valid values are from 64 GiB
     -- up to 524,288 GiB (512 TiB). However, the value that you specify must be
@@ -150,10 +148,12 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
     -- HDD storage from a backup of a file system that used SSD storage if the
     -- original SSD file system had a storage capacity of at least 2000 GiB.
     storageType :: Prelude.Maybe StorageType,
+    -- | The tags to be applied to the file system at file system creation. The
+    -- key value of the @Name@ tag appears in the console as the file system
+    -- name.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The configuration for this Microsoft Windows file system.
     windowsConfiguration :: Prelude.Maybe CreateFileSystemWindowsConfiguration,
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    lustreConfiguration :: Prelude.Maybe CreateFileSystemLustreConfiguration,
     backupId :: Prelude.Text,
     -- | Specifies the IDs of the subnets that the file system will be accessible
     -- from. For Windows @MULTI_AZ_1@ file system deployment types, provide
@@ -177,10 +177,6 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFileSystemFromBackup_tags' - The tags to be applied to the file system at file system creation. The
--- key value of the @Name@ tag appears in the console as the file system
--- name.
---
 -- 'clientRequestToken', 'createFileSystemFromBackup_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
@@ -194,12 +190,16 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
 -- choose to specify @FileSystemTypeVersion@ when creating from backup, the
 -- value must match the backup\'s @FileSystemTypeVersion@ setting.
 --
+-- 'kmsKeyId', 'createFileSystemFromBackup_kmsKeyId' - Undocumented member.
+--
+-- 'lustreConfiguration', 'createFileSystemFromBackup_lustreConfiguration' - Undocumented member.
+--
+-- 'openZFSConfiguration', 'createFileSystemFromBackup_openZFSConfiguration' - The OpenZFS configuration for the file system that\'s being created.
+--
 -- 'securityGroupIds', 'createFileSystemFromBackup_securityGroupIds' - A list of IDs for the security groups that apply to the specified
 -- network interfaces created for file system access. These security groups
 -- apply to all network interfaces. This value isn\'t returned in later
 -- @DescribeFileSystem@ requests.
---
--- 'openZFSConfiguration', 'createFileSystemFromBackup_openZFSConfiguration' - The OpenZFS configuration for the file system that\'s being created.
 --
 -- 'storageCapacity', 'createFileSystemFromBackup_storageCapacity' - Sets the storage capacity of the OpenZFS file system that you\'re
 -- creating from a backup, in gibibytes (GiB). Valid values are from 64 GiB
@@ -230,11 +230,11 @@ data CreateFileSystemFromBackup = CreateFileSystemFromBackup'
 -- HDD storage from a backup of a file system that used SSD storage if the
 -- original SSD file system had a storage capacity of at least 2000 GiB.
 --
+-- 'tags', 'createFileSystemFromBackup_tags' - The tags to be applied to the file system at file system creation. The
+-- key value of the @Name@ tag appears in the console as the file system
+-- name.
+--
 -- 'windowsConfiguration', 'createFileSystemFromBackup_windowsConfiguration' - The configuration for this Microsoft Windows file system.
---
--- 'kmsKeyId', 'createFileSystemFromBackup_kmsKeyId' - Undocumented member.
---
--- 'lustreConfiguration', 'createFileSystemFromBackup_lustreConfiguration' - Undocumented member.
 --
 -- 'backupId', 'createFileSystemFromBackup_backupId' - Undocumented member.
 --
@@ -254,25 +254,20 @@ newCreateFileSystemFromBackup ::
   CreateFileSystemFromBackup
 newCreateFileSystemFromBackup pBackupId_ =
   CreateFileSystemFromBackup'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       fileSystemTypeVersion = Prelude.Nothing,
-      securityGroupIds = Prelude.Nothing,
-      openZFSConfiguration = Prelude.Nothing,
-      storageCapacity = Prelude.Nothing,
-      storageType = Prelude.Nothing,
-      windowsConfiguration = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       lustreConfiguration = Prelude.Nothing,
+      openZFSConfiguration = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      storageCapacity = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      windowsConfiguration = Prelude.Nothing,
       backupId = pBackupId_,
       subnetIds = Prelude.mempty
     }
-
--- | The tags to be applied to the file system at file system creation. The
--- key value of the @Name@ tag appears in the console as the file system
--- name.
-createFileSystemFromBackup_tags :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFileSystemFromBackup_tags = Lens.lens (\CreateFileSystemFromBackup' {tags} -> tags) (\s@CreateFileSystemFromBackup' {} a -> s {tags = a} :: CreateFileSystemFromBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
@@ -291,16 +286,24 @@ createFileSystemFromBackup_clientRequestToken = Lens.lens (\CreateFileSystemFrom
 createFileSystemFromBackup_fileSystemTypeVersion :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe Prelude.Text)
 createFileSystemFromBackup_fileSystemTypeVersion = Lens.lens (\CreateFileSystemFromBackup' {fileSystemTypeVersion} -> fileSystemTypeVersion) (\s@CreateFileSystemFromBackup' {} a -> s {fileSystemTypeVersion = a} :: CreateFileSystemFromBackup)
 
+-- | Undocumented member.
+createFileSystemFromBackup_kmsKeyId :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe Prelude.Text)
+createFileSystemFromBackup_kmsKeyId = Lens.lens (\CreateFileSystemFromBackup' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystemFromBackup' {} a -> s {kmsKeyId = a} :: CreateFileSystemFromBackup)
+
+-- | Undocumented member.
+createFileSystemFromBackup_lustreConfiguration :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe CreateFileSystemLustreConfiguration)
+createFileSystemFromBackup_lustreConfiguration = Lens.lens (\CreateFileSystemFromBackup' {lustreConfiguration} -> lustreConfiguration) (\s@CreateFileSystemFromBackup' {} a -> s {lustreConfiguration = a} :: CreateFileSystemFromBackup)
+
+-- | The OpenZFS configuration for the file system that\'s being created.
+createFileSystemFromBackup_openZFSConfiguration :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe CreateFileSystemOpenZFSConfiguration)
+createFileSystemFromBackup_openZFSConfiguration = Lens.lens (\CreateFileSystemFromBackup' {openZFSConfiguration} -> openZFSConfiguration) (\s@CreateFileSystemFromBackup' {} a -> s {openZFSConfiguration = a} :: CreateFileSystemFromBackup)
+
 -- | A list of IDs for the security groups that apply to the specified
 -- network interfaces created for file system access. These security groups
 -- apply to all network interfaces. This value isn\'t returned in later
 -- @DescribeFileSystem@ requests.
 createFileSystemFromBackup_securityGroupIds :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe [Prelude.Text])
 createFileSystemFromBackup_securityGroupIds = Lens.lens (\CreateFileSystemFromBackup' {securityGroupIds} -> securityGroupIds) (\s@CreateFileSystemFromBackup' {} a -> s {securityGroupIds = a} :: CreateFileSystemFromBackup) Prelude.. Lens.mapping Lens.coerced
-
--- | The OpenZFS configuration for the file system that\'s being created.
-createFileSystemFromBackup_openZFSConfiguration :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe CreateFileSystemOpenZFSConfiguration)
-createFileSystemFromBackup_openZFSConfiguration = Lens.lens (\CreateFileSystemFromBackup' {openZFSConfiguration} -> openZFSConfiguration) (\s@CreateFileSystemFromBackup' {} a -> s {openZFSConfiguration = a} :: CreateFileSystemFromBackup)
 
 -- | Sets the storage capacity of the OpenZFS file system that you\'re
 -- creating from a backup, in gibibytes (GiB). Valid values are from 64 GiB
@@ -335,17 +338,15 @@ createFileSystemFromBackup_storageCapacity = Lens.lens (\CreateFileSystemFromBac
 createFileSystemFromBackup_storageType :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe StorageType)
 createFileSystemFromBackup_storageType = Lens.lens (\CreateFileSystemFromBackup' {storageType} -> storageType) (\s@CreateFileSystemFromBackup' {} a -> s {storageType = a} :: CreateFileSystemFromBackup)
 
+-- | The tags to be applied to the file system at file system creation. The
+-- key value of the @Name@ tag appears in the console as the file system
+-- name.
+createFileSystemFromBackup_tags :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFileSystemFromBackup_tags = Lens.lens (\CreateFileSystemFromBackup' {tags} -> tags) (\s@CreateFileSystemFromBackup' {} a -> s {tags = a} :: CreateFileSystemFromBackup) Prelude.. Lens.mapping Lens.coerced
+
 -- | The configuration for this Microsoft Windows file system.
 createFileSystemFromBackup_windowsConfiguration :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe CreateFileSystemWindowsConfiguration)
 createFileSystemFromBackup_windowsConfiguration = Lens.lens (\CreateFileSystemFromBackup' {windowsConfiguration} -> windowsConfiguration) (\s@CreateFileSystemFromBackup' {} a -> s {windowsConfiguration = a} :: CreateFileSystemFromBackup)
-
--- | Undocumented member.
-createFileSystemFromBackup_kmsKeyId :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe Prelude.Text)
-createFileSystemFromBackup_kmsKeyId = Lens.lens (\CreateFileSystemFromBackup' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystemFromBackup' {} a -> s {kmsKeyId = a} :: CreateFileSystemFromBackup)
-
--- | Undocumented member.
-createFileSystemFromBackup_lustreConfiguration :: Lens.Lens' CreateFileSystemFromBackup (Prelude.Maybe CreateFileSystemLustreConfiguration)
-createFileSystemFromBackup_lustreConfiguration = Lens.lens (\CreateFileSystemFromBackup' {lustreConfiguration} -> lustreConfiguration) (\s@CreateFileSystemFromBackup' {} a -> s {lustreConfiguration = a} :: CreateFileSystemFromBackup)
 
 -- | Undocumented member.
 createFileSystemFromBackup_backupId :: Lens.Lens' CreateFileSystemFromBackup Prelude.Text
@@ -380,31 +381,31 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
 
 instance Prelude.Hashable CreateFileSystemFromBackup where
   hashWithSalt _salt CreateFileSystemFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemTypeVersion
-      `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` openZFSConfiguration
-      `Prelude.hashWithSalt` storageCapacity
-      `Prelude.hashWithSalt` storageType
-      `Prelude.hashWithSalt` windowsConfiguration
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration
+      `Prelude.hashWithSalt` openZFSConfiguration
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` storageCapacity
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` windowsConfiguration
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData CreateFileSystemFromBackup where
   rnf CreateFileSystemFromBackup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf fileSystemTypeVersion
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf storageCapacity
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf windowsConfiguration
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf lustreConfiguration
+      `Prelude.seq` Prelude.rnf openZFSConfiguration
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf storageCapacity
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf windowsConfiguration
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf subnetIds
 
@@ -427,23 +428,23 @@ instance Data.ToJSON CreateFileSystemFromBackup where
   toJSON CreateFileSystemFromBackup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("FileSystemTypeVersion" Data..=)
               Prelude.<$> fileSystemTypeVersion,
-            ("SecurityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("OpenZFSConfiguration" Data..=)
-              Prelude.<$> openZFSConfiguration,
-            ("StorageCapacity" Data..=)
-              Prelude.<$> storageCapacity,
-            ("StorageType" Data..=) Prelude.<$> storageType,
-            ("WindowsConfiguration" Data..=)
-              Prelude.<$> windowsConfiguration,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
+            ("OpenZFSConfiguration" Data..=)
+              Prelude.<$> openZFSConfiguration,
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
+            ("StorageCapacity" Data..=)
+              Prelude.<$> storageCapacity,
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("WindowsConfiguration" Data..=)
+              Prelude.<$> windowsConfiguration,
             Prelude.Just ("BackupId" Data..= backupId),
             Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]

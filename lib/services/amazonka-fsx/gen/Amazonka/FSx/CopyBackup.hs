@@ -60,11 +60,11 @@ module Amazonka.FSx.CopyBackup
     newCopyBackup,
 
     -- * Request Lenses
-    copyBackup_tags,
-    copyBackup_sourceRegion,
     copyBackup_clientRequestToken,
     copyBackup_copyTags,
     copyBackup_kmsKeyId,
+    copyBackup_sourceRegion,
+    copyBackup_tags,
     copyBackup_sourceBackupId,
 
     -- * Destructuring the Response
@@ -87,14 +87,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCopyBackup' smart constructor.
 data CopyBackup = CopyBackup'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The source Amazon Web Services Region of the backup. Specifies the
-    -- Amazon Web Services Region from which the backup is being copied. The
-    -- source and destination Regions must be in the same Amazon Web Services
-    -- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
-    -- the Region where the request is sent from (in-Region copy).
-    sourceRegion :: Prelude.Maybe Prelude.Text,
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | A Boolean flag indicating whether tags from the source backup should be
     -- copied to the backup copy. This value defaults to @false@.
     --
@@ -106,6 +99,13 @@ data CopyBackup = CopyBackup'
     -- @Tags@ parameter take precedence.
     copyTags :: Prelude.Maybe Prelude.Bool,
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The source Amazon Web Services Region of the backup. Specifies the
+    -- Amazon Web Services Region from which the backup is being copied. The
+    -- source and destination Regions must be in the same Amazon Web Services
+    -- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
+    -- the Region where the request is sent from (in-Region copy).
+    sourceRegion :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the source backup. Specifies the ID of the backup that\'s
     -- being copied.
     sourceBackupId :: Prelude.Text
@@ -119,14 +119,6 @@ data CopyBackup = CopyBackup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'copyBackup_tags' - Undocumented member.
---
--- 'sourceRegion', 'copyBackup_sourceRegion' - The source Amazon Web Services Region of the backup. Specifies the
--- Amazon Web Services Region from which the backup is being copied. The
--- source and destination Regions must be in the same Amazon Web Services
--- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
--- the Region where the request is sent from (in-Region copy).
 --
 -- 'clientRequestToken', 'copyBackup_clientRequestToken' - Undocumented member.
 --
@@ -142,6 +134,14 @@ data CopyBackup = CopyBackup'
 --
 -- 'kmsKeyId', 'copyBackup_kmsKeyId' - Undocumented member.
 --
+-- 'sourceRegion', 'copyBackup_sourceRegion' - The source Amazon Web Services Region of the backup. Specifies the
+-- Amazon Web Services Region from which the backup is being copied. The
+-- source and destination Regions must be in the same Amazon Web Services
+-- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
+-- the Region where the request is sent from (in-Region copy).
+--
+-- 'tags', 'copyBackup_tags' - Undocumented member.
+--
 -- 'sourceBackupId', 'copyBackup_sourceBackupId' - The ID of the source backup. Specifies the ID of the backup that\'s
 -- being copied.
 newCopyBackup ::
@@ -150,25 +150,13 @@ newCopyBackup ::
   CopyBackup
 newCopyBackup pSourceBackupId_ =
   CopyBackup'
-    { tags = Prelude.Nothing,
-      sourceRegion = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       copyTags = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      sourceRegion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       sourceBackupId = pSourceBackupId_
     }
-
--- | Undocumented member.
-copyBackup_tags :: Lens.Lens' CopyBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
-copyBackup_tags = Lens.lens (\CopyBackup' {tags} -> tags) (\s@CopyBackup' {} a -> s {tags = a} :: CopyBackup) Prelude.. Lens.mapping Lens.coerced
-
--- | The source Amazon Web Services Region of the backup. Specifies the
--- Amazon Web Services Region from which the backup is being copied. The
--- source and destination Regions must be in the same Amazon Web Services
--- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
--- the Region where the request is sent from (in-Region copy).
-copyBackup_sourceRegion :: Lens.Lens' CopyBackup (Prelude.Maybe Prelude.Text)
-copyBackup_sourceRegion = Lens.lens (\CopyBackup' {sourceRegion} -> sourceRegion) (\s@CopyBackup' {} a -> s {sourceRegion = a} :: CopyBackup)
 
 -- | Undocumented member.
 copyBackup_clientRequestToken :: Lens.Lens' CopyBackup (Prelude.Maybe Prelude.Text)
@@ -190,6 +178,18 @@ copyBackup_copyTags = Lens.lens (\CopyBackup' {copyTags} -> copyTags) (\s@CopyBa
 copyBackup_kmsKeyId :: Lens.Lens' CopyBackup (Prelude.Maybe Prelude.Text)
 copyBackup_kmsKeyId = Lens.lens (\CopyBackup' {kmsKeyId} -> kmsKeyId) (\s@CopyBackup' {} a -> s {kmsKeyId = a} :: CopyBackup)
 
+-- | The source Amazon Web Services Region of the backup. Specifies the
+-- Amazon Web Services Region from which the backup is being copied. The
+-- source and destination Regions must be in the same Amazon Web Services
+-- partition. If you don\'t specify a Region, @SourceRegion@ defaults to
+-- the Region where the request is sent from (in-Region copy).
+copyBackup_sourceRegion :: Lens.Lens' CopyBackup (Prelude.Maybe Prelude.Text)
+copyBackup_sourceRegion = Lens.lens (\CopyBackup' {sourceRegion} -> sourceRegion) (\s@CopyBackup' {} a -> s {sourceRegion = a} :: CopyBackup)
+
+-- | Undocumented member.
+copyBackup_tags :: Lens.Lens' CopyBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
+copyBackup_tags = Lens.lens (\CopyBackup' {tags} -> tags) (\s@CopyBackup' {} a -> s {tags = a} :: CopyBackup) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the source backup. Specifies the ID of the backup that\'s
 -- being copied.
 copyBackup_sourceBackupId :: Lens.Lens' CopyBackup Prelude.Text
@@ -209,20 +209,20 @@ instance Core.AWSRequest CopyBackup where
 
 instance Prelude.Hashable CopyBackup where
   hashWithSalt _salt CopyBackup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sourceRegion
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` sourceRegion
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceBackupId
 
 instance Prelude.NFData CopyBackup where
   rnf CopyBackup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceRegion
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf sourceRegion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceBackupId
 
 instance Data.ToHeaders CopyBackup where
@@ -244,12 +244,12 @@ instance Data.ToJSON CopyBackup where
   toJSON CopyBackup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SourceRegion" Data..=) Prelude.<$> sourceRegion,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("CopyTags" Data..=) Prelude.<$> copyTags,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("SourceRegion" Data..=) Prelude.<$> sourceRegion,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("SourceBackupId" Data..= sourceBackupId)
           ]

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemWindowsResponse' smart constructor.
 data DeleteFileSystemWindowsResponse = DeleteFileSystemWindowsResponse'
-  { -- | The set of tags applied to the final backup.
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The ID of the final backup for this file system.
-    finalBackupId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the final backup for this file system.
+    finalBackupId :: Prelude.Maybe Prelude.Text,
+    -- | The set of tags applied to the final backup.
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data DeleteFileSystemWindowsResponse = DeleteFileSystemWindowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalBackupTags', 'deleteFileSystemWindowsResponse_finalBackupTags' - The set of tags applied to the final backup.
---
 -- 'finalBackupId', 'deleteFileSystemWindowsResponse_finalBackupId' - The ID of the final backup for this file system.
+--
+-- 'finalBackupTags', 'deleteFileSystemWindowsResponse_finalBackupTags' - The set of tags applied to the final backup.
 newDeleteFileSystemWindowsResponse ::
   DeleteFileSystemWindowsResponse
 newDeleteFileSystemWindowsResponse =
   DeleteFileSystemWindowsResponse'
-    { finalBackupTags =
+    { finalBackupId =
         Prelude.Nothing,
-      finalBackupId = Prelude.Nothing
+      finalBackupTags = Prelude.Nothing
     }
-
--- | The set of tags applied to the final backup.
-deleteFileSystemWindowsResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemWindowsResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemWindowsResponse_finalBackupTags = Lens.lens (\DeleteFileSystemWindowsResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemWindowsResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the final backup for this file system.
 deleteFileSystemWindowsResponse_finalBackupId :: Lens.Lens' DeleteFileSystemWindowsResponse (Prelude.Maybe Prelude.Text)
 deleteFileSystemWindowsResponse_finalBackupId = Lens.lens (\DeleteFileSystemWindowsResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemWindowsResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemWindowsResponse)
+
+-- | The set of tags applied to the final backup.
+deleteFileSystemWindowsResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemWindowsResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemWindowsResponse_finalBackupTags = Lens.lens (\DeleteFileSystemWindowsResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemWindowsResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemWindowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -74,8 +74,8 @@ instance
       "DeleteFileSystemWindowsResponse"
       ( \x ->
           DeleteFileSystemWindowsResponse'
-            Prelude.<$> (x Data..:? "FinalBackupTags")
-            Prelude.<*> (x Data..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupId")
+            Prelude.<*> (x Data..:? "FinalBackupTags")
       )
 
 instance
@@ -85,13 +85,13 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemWindowsResponse' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupTags
-        `Prelude.hashWithSalt` finalBackupId
+      _salt `Prelude.hashWithSalt` finalBackupId
+        `Prelude.hashWithSalt` finalBackupTags
 
 instance
   Prelude.NFData
     DeleteFileSystemWindowsResponse
   where
   rnf DeleteFileSystemWindowsResponse' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf finalBackupId
+    Prelude.rnf finalBackupId
+      `Prelude.seq` Prelude.rnf finalBackupTags

@@ -38,6 +38,7 @@ module Amazonka.FSx.RestoreVolumeFromSnapshot
     newRestoreVolumeFromSnapshotResponse,
 
     -- * Response Lenses
+    restoreVolumeFromSnapshotResponse_administrativeActions,
     restoreVolumeFromSnapshotResponse_lifecycle,
     restoreVolumeFromSnapshotResponse_volumeId,
     restoreVolumeFromSnapshotResponse_httpStatus,
@@ -153,7 +154,10 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
     Response.receiveJSON
       ( \s h x ->
           RestoreVolumeFromSnapshotResponse'
-            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<$> ( x Data..?> "AdministrativeActions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "Lifecycle")
             Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -207,7 +211,11 @@ instance Data.ToQuery RestoreVolumeFromSnapshot where
 
 -- | /See:/ 'newRestoreVolumeFromSnapshotResponse' smart constructor.
 data RestoreVolumeFromSnapshotResponse = RestoreVolumeFromSnapshotResponse'
-  { -- | The lifecycle state of the volume being restored.
+  { -- | A list of administrative actions for the file system that are in process
+    -- or waiting to be processed. Administrative actions describe changes to
+    -- the Amazon FSx system.
+    administrativeActions :: Prelude.Maybe [AdministrativeAction],
+    -- | The lifecycle state of the volume being restored.
     lifecycle :: Prelude.Maybe VolumeLifecycle,
     -- | The ID of the volume that you restored.
     volumeId :: Prelude.Maybe Prelude.Text,
@@ -224,6 +232,10 @@ data RestoreVolumeFromSnapshotResponse = RestoreVolumeFromSnapshotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'administrativeActions', 'restoreVolumeFromSnapshotResponse_administrativeActions' - A list of administrative actions for the file system that are in process
+-- or waiting to be processed. Administrative actions describe changes to
+-- the Amazon FSx system.
+--
 -- 'lifecycle', 'restoreVolumeFromSnapshotResponse_lifecycle' - The lifecycle state of the volume being restored.
 --
 -- 'volumeId', 'restoreVolumeFromSnapshotResponse_volumeId' - The ID of the volume that you restored.
@@ -235,11 +247,18 @@ newRestoreVolumeFromSnapshotResponse ::
   RestoreVolumeFromSnapshotResponse
 newRestoreVolumeFromSnapshotResponse pHttpStatus_ =
   RestoreVolumeFromSnapshotResponse'
-    { lifecycle =
+    { administrativeActions =
         Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
       volumeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of administrative actions for the file system that are in process
+-- or waiting to be processed. Administrative actions describe changes to
+-- the Amazon FSx system.
+restoreVolumeFromSnapshotResponse_administrativeActions :: Lens.Lens' RestoreVolumeFromSnapshotResponse (Prelude.Maybe [AdministrativeAction])
+restoreVolumeFromSnapshotResponse_administrativeActions = Lens.lens (\RestoreVolumeFromSnapshotResponse' {administrativeActions} -> administrativeActions) (\s@RestoreVolumeFromSnapshotResponse' {} a -> s {administrativeActions = a} :: RestoreVolumeFromSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The lifecycle state of the volume being restored.
 restoreVolumeFromSnapshotResponse_lifecycle :: Lens.Lens' RestoreVolumeFromSnapshotResponse (Prelude.Maybe VolumeLifecycle)
@@ -258,6 +277,7 @@ instance
     RestoreVolumeFromSnapshotResponse
   where
   rnf RestoreVolumeFromSnapshotResponse' {..} =
-    Prelude.rnf lifecycle
+    Prelude.rnf administrativeActions
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf httpStatus

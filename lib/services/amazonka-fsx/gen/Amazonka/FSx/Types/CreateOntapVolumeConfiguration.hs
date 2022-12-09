@@ -22,6 +22,7 @@ module Amazonka.FSx.Types.CreateOntapVolumeConfiguration where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.FSx.Types.InputOntapVolumeType
 import Amazonka.FSx.Types.SecurityStyle
 import Amazonka.FSx.Types.TieringPolicy
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateOntapVolumeConfiguration' smart constructor.
 data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
-  { tieringPolicy :: Prelude.Maybe TieringPolicy,
+  { -- | A boolean flag indicating whether tags for the volume should be copied
+    -- to backups. This value defaults to false. If it\'s set to true, all tags
+    -- for the volume are copied to all automatic and user-initiated backups
+    -- where the user doesn\'t specify tags. If this value is true, and you
+    -- specify one or more tags, only the specified tags are copied to backups.
+    -- If you specify one or more tags when creating a user-initiated backup,
+    -- no tags are copied from the volume, regardless of this value.
+    copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the location in the SVM\'s namespace where the volume is
+    -- mounted. The @JunctionPath@ must have a leading forward slash, such as
+    -- @\/vol3@.
+    junctionPath :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the type of volume you are creating. Valid values are the
+    -- following:
+    --
+    -- -   @RW@ specifies a read\/write volume. @RW@ is the default.
+    --
+    -- -   @DP@ specifies a data-protection volume. A @DP@ volume is read-only
+    --     and can be used as the destination of a NetApp SnapMirror
+    --     relationship.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types Volume types>
+    -- in the /Amazon FSx for NetApp ONTAP User Guide/.
+    ontapVolumeType :: Prelude.Maybe InputOntapVolumeType,
     -- | Specifies the security style for the volume. If a volume\'s security
     -- style is not specified, it is automatically set to the root volume\'s
     -- security style. The security style determines the type of permissions
@@ -51,16 +76,35 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
     -- -   @MIXED@ if the file system is managed by both UNIX and Windows
     --     administrators and users consist of both NFS and SMB clients.
     securityStyle :: Prelude.Maybe SecurityStyle,
-    -- | Specifies the location in the SVM\'s namespace where the volume is
-    -- mounted. The @JunctionPath@ must have a leading forward slash, such as
-    -- @\/vol3@.
-    junctionPath :: Prelude.Text,
+    -- | Specifies the snapshot policy for the volume. There are three built-in
+    -- snapshot policies:
+    --
+    -- -   @default@: This is the default policy. A maximum of six hourly
+    --     snapshots taken five minutes past the hour. A maximum of two daily
+    --     snapshots taken Monday through Saturday at 10 minutes after
+    --     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+    --     minutes after midnight.
+    --
+    -- -   @default-1weekly@: This policy is the same as the @default@ policy
+    --     except that it only retains one snapshot from the weekly schedule.
+    --
+    -- -   @none@: This policy does not take any snapshots. This policy can be
+    --     assigned to volumes to prevent automatic snapshots from being taken.
+    --
+    -- You can also provide the name of a custom policy that you created with
+    -- the ONTAP CLI or REST API.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+    -- in the /Amazon FSx for NetApp ONTAP User Guide/.
+    snapshotPolicy :: Prelude.Maybe Prelude.Text,
+    -- | Set to true to enable deduplication, compression, and compaction storage
+    -- efficiency features on the volume.
+    storageEfficiencyEnabled :: Prelude.Maybe Prelude.Bool,
+    tieringPolicy :: Prelude.Maybe TieringPolicy,
     -- | Specifies the size of the volume, in megabytes (MB), that you are
     -- creating.
     sizeInMegabytes :: Prelude.Natural,
-    -- | Set to true to enable deduplication, compression, and compaction storage
-    -- efficiency features on the volume.
-    storageEfficiencyEnabled :: Prelude.Bool,
     -- | Specifies the ONTAP SVM in which to create the volume.
     storageVirtualMachineId :: Prelude.Text
   }
@@ -74,7 +118,30 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tieringPolicy', 'createOntapVolumeConfiguration_tieringPolicy' - Undocumented member.
+-- 'copyTagsToBackups', 'createOntapVolumeConfiguration_copyTagsToBackups' - A boolean flag indicating whether tags for the volume should be copied
+-- to backups. This value defaults to false. If it\'s set to true, all tags
+-- for the volume are copied to all automatic and user-initiated backups
+-- where the user doesn\'t specify tags. If this value is true, and you
+-- specify one or more tags, only the specified tags are copied to backups.
+-- If you specify one or more tags when creating a user-initiated backup,
+-- no tags are copied from the volume, regardless of this value.
+--
+-- 'junctionPath', 'createOntapVolumeConfiguration_junctionPath' - Specifies the location in the SVM\'s namespace where the volume is
+-- mounted. The @JunctionPath@ must have a leading forward slash, such as
+-- @\/vol3@.
+--
+-- 'ontapVolumeType', 'createOntapVolumeConfiguration_ontapVolumeType' - Specifies the type of volume you are creating. Valid values are the
+-- following:
+--
+-- -   @RW@ specifies a read\/write volume. @RW@ is the default.
+--
+-- -   @DP@ specifies a data-protection volume. A @DP@ volume is read-only
+--     and can be used as the destination of a NetApp SnapMirror
+--     relationship.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types Volume types>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
 --
 -- 'securityStyle', 'createOntapVolumeConfiguration_securityStyle' - Specifies the security style for the volume. If a volume\'s security
 -- style is not specified, it is automatically set to the root volume\'s
@@ -96,47 +163,90 @@ data CreateOntapVolumeConfiguration = CreateOntapVolumeConfiguration'
 -- -   @MIXED@ if the file system is managed by both UNIX and Windows
 --     administrators and users consist of both NFS and SMB clients.
 --
--- 'junctionPath', 'createOntapVolumeConfiguration_junctionPath' - Specifies the location in the SVM\'s namespace where the volume is
--- mounted. The @JunctionPath@ must have a leading forward slash, such as
--- @\/vol3@.
+-- 'snapshotPolicy', 'createOntapVolumeConfiguration_snapshotPolicy' - Specifies the snapshot policy for the volume. There are three built-in
+-- snapshot policies:
 --
--- 'sizeInMegabytes', 'createOntapVolumeConfiguration_sizeInMegabytes' - Specifies the size of the volume, in megabytes (MB), that you are
--- creating.
+-- -   @default@: This is the default policy. A maximum of six hourly
+--     snapshots taken five minutes past the hour. A maximum of two daily
+--     snapshots taken Monday through Saturday at 10 minutes after
+--     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+--     minutes after midnight.
+--
+-- -   @default-1weekly@: This policy is the same as the @default@ policy
+--     except that it only retains one snapshot from the weekly schedule.
+--
+-- -   @none@: This policy does not take any snapshots. This policy can be
+--     assigned to volumes to prevent automatic snapshots from being taken.
+--
+-- You can also provide the name of a custom policy that you created with
+-- the ONTAP CLI or REST API.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
 --
 -- 'storageEfficiencyEnabled', 'createOntapVolumeConfiguration_storageEfficiencyEnabled' - Set to true to enable deduplication, compression, and compaction storage
 -- efficiency features on the volume.
 --
+-- 'tieringPolicy', 'createOntapVolumeConfiguration_tieringPolicy' - Undocumented member.
+--
+-- 'sizeInMegabytes', 'createOntapVolumeConfiguration_sizeInMegabytes' - Specifies the size of the volume, in megabytes (MB), that you are
+-- creating.
+--
 -- 'storageVirtualMachineId', 'createOntapVolumeConfiguration_storageVirtualMachineId' - Specifies the ONTAP SVM in which to create the volume.
 newCreateOntapVolumeConfiguration ::
-  -- | 'junctionPath'
-  Prelude.Text ->
   -- | 'sizeInMegabytes'
   Prelude.Natural ->
-  -- | 'storageEfficiencyEnabled'
-  Prelude.Bool ->
   -- | 'storageVirtualMachineId'
   Prelude.Text ->
   CreateOntapVolumeConfiguration
 newCreateOntapVolumeConfiguration
-  pJunctionPath_
   pSizeInMegabytes_
-  pStorageEfficiencyEnabled_
   pStorageVirtualMachineId_ =
     CreateOntapVolumeConfiguration'
-      { tieringPolicy =
+      { copyTagsToBackups =
           Prelude.Nothing,
+        junctionPath = Prelude.Nothing,
+        ontapVolumeType = Prelude.Nothing,
         securityStyle = Prelude.Nothing,
-        junctionPath = pJunctionPath_,
+        snapshotPolicy = Prelude.Nothing,
+        storageEfficiencyEnabled = Prelude.Nothing,
+        tieringPolicy = Prelude.Nothing,
         sizeInMegabytes = pSizeInMegabytes_,
-        storageEfficiencyEnabled =
-          pStorageEfficiencyEnabled_,
         storageVirtualMachineId =
           pStorageVirtualMachineId_
       }
 
--- | Undocumented member.
-createOntapVolumeConfiguration_tieringPolicy :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe TieringPolicy)
-createOntapVolumeConfiguration_tieringPolicy = Lens.lens (\CreateOntapVolumeConfiguration' {tieringPolicy} -> tieringPolicy) (\s@CreateOntapVolumeConfiguration' {} a -> s {tieringPolicy = a} :: CreateOntapVolumeConfiguration)
+-- | A boolean flag indicating whether tags for the volume should be copied
+-- to backups. This value defaults to false. If it\'s set to true, all tags
+-- for the volume are copied to all automatic and user-initiated backups
+-- where the user doesn\'t specify tags. If this value is true, and you
+-- specify one or more tags, only the specified tags are copied to backups.
+-- If you specify one or more tags when creating a user-initiated backup,
+-- no tags are copied from the volume, regardless of this value.
+createOntapVolumeConfiguration_copyTagsToBackups :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+createOntapVolumeConfiguration_copyTagsToBackups = Lens.lens (\CreateOntapVolumeConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@CreateOntapVolumeConfiguration' {} a -> s {copyTagsToBackups = a} :: CreateOntapVolumeConfiguration)
+
+-- | Specifies the location in the SVM\'s namespace where the volume is
+-- mounted. The @JunctionPath@ must have a leading forward slash, such as
+-- @\/vol3@.
+createOntapVolumeConfiguration_junctionPath :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
+createOntapVolumeConfiguration_junctionPath = Lens.lens (\CreateOntapVolumeConfiguration' {junctionPath} -> junctionPath) (\s@CreateOntapVolumeConfiguration' {} a -> s {junctionPath = a} :: CreateOntapVolumeConfiguration)
+
+-- | Specifies the type of volume you are creating. Valid values are the
+-- following:
+--
+-- -   @RW@ specifies a read\/write volume. @RW@ is the default.
+--
+-- -   @DP@ specifies a data-protection volume. A @DP@ volume is read-only
+--     and can be used as the destination of a NetApp SnapMirror
+--     relationship.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types Volume types>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
+createOntapVolumeConfiguration_ontapVolumeType :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe InputOntapVolumeType)
+createOntapVolumeConfiguration_ontapVolumeType = Lens.lens (\CreateOntapVolumeConfiguration' {ontapVolumeType} -> ontapVolumeType) (\s@CreateOntapVolumeConfiguration' {} a -> s {ontapVolumeType = a} :: CreateOntapVolumeConfiguration)
 
 -- | Specifies the security style for the volume. If a volume\'s security
 -- style is not specified, it is automatically set to the root volume\'s
@@ -160,21 +270,43 @@ createOntapVolumeConfiguration_tieringPolicy = Lens.lens (\CreateOntapVolumeConf
 createOntapVolumeConfiguration_securityStyle :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe SecurityStyle)
 createOntapVolumeConfiguration_securityStyle = Lens.lens (\CreateOntapVolumeConfiguration' {securityStyle} -> securityStyle) (\s@CreateOntapVolumeConfiguration' {} a -> s {securityStyle = a} :: CreateOntapVolumeConfiguration)
 
--- | Specifies the location in the SVM\'s namespace where the volume is
--- mounted. The @JunctionPath@ must have a leading forward slash, such as
--- @\/vol3@.
-createOntapVolumeConfiguration_junctionPath :: Lens.Lens' CreateOntapVolumeConfiguration Prelude.Text
-createOntapVolumeConfiguration_junctionPath = Lens.lens (\CreateOntapVolumeConfiguration' {junctionPath} -> junctionPath) (\s@CreateOntapVolumeConfiguration' {} a -> s {junctionPath = a} :: CreateOntapVolumeConfiguration)
+-- | Specifies the snapshot policy for the volume. There are three built-in
+-- snapshot policies:
+--
+-- -   @default@: This is the default policy. A maximum of six hourly
+--     snapshots taken five minutes past the hour. A maximum of two daily
+--     snapshots taken Monday through Saturday at 10 minutes after
+--     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+--     minutes after midnight.
+--
+-- -   @default-1weekly@: This policy is the same as the @default@ policy
+--     except that it only retains one snapshot from the weekly schedule.
+--
+-- -   @none@: This policy does not take any snapshots. This policy can be
+--     assigned to volumes to prevent automatic snapshots from being taken.
+--
+-- You can also provide the name of a custom policy that you created with
+-- the ONTAP CLI or REST API.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
+createOntapVolumeConfiguration_snapshotPolicy :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
+createOntapVolumeConfiguration_snapshotPolicy = Lens.lens (\CreateOntapVolumeConfiguration' {snapshotPolicy} -> snapshotPolicy) (\s@CreateOntapVolumeConfiguration' {} a -> s {snapshotPolicy = a} :: CreateOntapVolumeConfiguration)
+
+-- | Set to true to enable deduplication, compression, and compaction storage
+-- efficiency features on the volume.
+createOntapVolumeConfiguration_storageEfficiencyEnabled :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+createOntapVolumeConfiguration_storageEfficiencyEnabled = Lens.lens (\CreateOntapVolumeConfiguration' {storageEfficiencyEnabled} -> storageEfficiencyEnabled) (\s@CreateOntapVolumeConfiguration' {} a -> s {storageEfficiencyEnabled = a} :: CreateOntapVolumeConfiguration)
+
+-- | Undocumented member.
+createOntapVolumeConfiguration_tieringPolicy :: Lens.Lens' CreateOntapVolumeConfiguration (Prelude.Maybe TieringPolicy)
+createOntapVolumeConfiguration_tieringPolicy = Lens.lens (\CreateOntapVolumeConfiguration' {tieringPolicy} -> tieringPolicy) (\s@CreateOntapVolumeConfiguration' {} a -> s {tieringPolicy = a} :: CreateOntapVolumeConfiguration)
 
 -- | Specifies the size of the volume, in megabytes (MB), that you are
 -- creating.
 createOntapVolumeConfiguration_sizeInMegabytes :: Lens.Lens' CreateOntapVolumeConfiguration Prelude.Natural
 createOntapVolumeConfiguration_sizeInMegabytes = Lens.lens (\CreateOntapVolumeConfiguration' {sizeInMegabytes} -> sizeInMegabytes) (\s@CreateOntapVolumeConfiguration' {} a -> s {sizeInMegabytes = a} :: CreateOntapVolumeConfiguration)
-
--- | Set to true to enable deduplication, compression, and compaction storage
--- efficiency features on the volume.
-createOntapVolumeConfiguration_storageEfficiencyEnabled :: Lens.Lens' CreateOntapVolumeConfiguration Prelude.Bool
-createOntapVolumeConfiguration_storageEfficiencyEnabled = Lens.lens (\CreateOntapVolumeConfiguration' {storageEfficiencyEnabled} -> storageEfficiencyEnabled) (\s@CreateOntapVolumeConfiguration' {} a -> s {storageEfficiencyEnabled = a} :: CreateOntapVolumeConfiguration)
 
 -- | Specifies the ONTAP SVM in which to create the volume.
 createOntapVolumeConfiguration_storageVirtualMachineId :: Lens.Lens' CreateOntapVolumeConfiguration Prelude.Text
@@ -187,11 +319,14 @@ instance
   hashWithSalt
     _salt
     CreateOntapVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` tieringPolicy
-        `Prelude.hashWithSalt` securityStyle
+      _salt `Prelude.hashWithSalt` copyTagsToBackups
         `Prelude.hashWithSalt` junctionPath
-        `Prelude.hashWithSalt` sizeInMegabytes
+        `Prelude.hashWithSalt` ontapVolumeType
+        `Prelude.hashWithSalt` securityStyle
+        `Prelude.hashWithSalt` snapshotPolicy
         `Prelude.hashWithSalt` storageEfficiencyEnabled
+        `Prelude.hashWithSalt` tieringPolicy
+        `Prelude.hashWithSalt` sizeInMegabytes
         `Prelude.hashWithSalt` storageVirtualMachineId
 
 instance
@@ -199,26 +334,33 @@ instance
     CreateOntapVolumeConfiguration
   where
   rnf CreateOntapVolumeConfiguration' {..} =
-    Prelude.rnf tieringPolicy
-      `Prelude.seq` Prelude.rnf securityStyle
+    Prelude.rnf copyTagsToBackups
       `Prelude.seq` Prelude.rnf junctionPath
-      `Prelude.seq` Prelude.rnf sizeInMegabytes
+      `Prelude.seq` Prelude.rnf ontapVolumeType
+      `Prelude.seq` Prelude.rnf securityStyle
+      `Prelude.seq` Prelude.rnf snapshotPolicy
       `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
+      `Prelude.seq` Prelude.rnf tieringPolicy
+      `Prelude.seq` Prelude.rnf sizeInMegabytes
       `Prelude.seq` Prelude.rnf storageVirtualMachineId
 
 instance Data.ToJSON CreateOntapVolumeConfiguration where
   toJSON CreateOntapVolumeConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy,
+          [ ("CopyTagsToBackups" Data..=)
+              Prelude.<$> copyTagsToBackups,
+            ("JunctionPath" Data..=) Prelude.<$> junctionPath,
+            ("OntapVolumeType" Data..=)
+              Prelude.<$> ontapVolumeType,
             ("SecurityStyle" Data..=) Prelude.<$> securityStyle,
-            Prelude.Just ("JunctionPath" Data..= junctionPath),
+            ("SnapshotPolicy" Data..=)
+              Prelude.<$> snapshotPolicy,
+            ("StorageEfficiencyEnabled" Data..=)
+              Prelude.<$> storageEfficiencyEnabled,
+            ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy,
             Prelude.Just
               ("SizeInMegabytes" Data..= sizeInMegabytes),
-            Prelude.Just
-              ( "StorageEfficiencyEnabled"
-                  Data..= storageEfficiencyEnabled
-              ),
             Prelude.Just
               ( "StorageVirtualMachineId"
                   Data..= storageVirtualMachineId

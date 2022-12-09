@@ -32,31 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOpenZFSVolumeConfiguration' smart constructor.
 data OpenZFSVolumeConfiguration = OpenZFSVolumeConfiguration'
-  { -- | The configuration object that specifies the snapshot to use as the
-    -- origin of the data for the volume.
-    originSnapshot :: Prelude.Maybe OpenZFSOriginSnapshotConfiguration,
-    -- | The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
-    -- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
-    -- KiB. Most workloads should use the default record size. For guidance on
-    -- when to set a custom record size, see the /Amazon FSx for OpenZFS User
-    -- Guide/.
-    recordSizeKiB :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of storage in gibibytes (GiB) to reserve from the parent
-    -- volume. You can\'t reserve more storage than the parent volume has
-    -- reserved.
-    storageCapacityReservationGiB :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the parent volume.
-    parentVolumeId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum amount of storage in gibibtyes (GiB) that the volume can use
-    -- from its parent. You can specify a quota larger than the storage on the
-    -- parent volume.
-    storageCapacityQuotaGiB :: Prelude.Maybe Prelude.Natural,
-    -- | A Boolean value indicating whether the volume is read-only.
-    readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The configuration object for mounting a Network File System (NFS) file
-    -- system.
-    nfsExports :: Prelude.Maybe [OpenZFSNfsExport],
-    -- | A Boolean value indicating whether tags for the volume should be copied
+  { -- | A Boolean value indicating whether tags for the volume should be copied
     -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
     -- all tags for the volume are copied to snapshots where the user doesn\'t
     -- specify tags. If this value is @true@ and you specify one or more tags,
@@ -78,6 +54,40 @@ data OpenZFSVolumeConfiguration = OpenZFSVolumeConfiguration'
     --     algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and
     --     delivers higher write throughput speeds.
     dataCompressionType :: Prelude.Maybe OpenZFSDataCompressionType,
+    -- | A Boolean value indicating whether dependent clone volumes created from
+    -- intermediate snapshots should be deleted when a volume is restored from
+    -- snapshot.
+    deleteClonedVolumes :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value indicating whether snapshots between the current state
+    -- and the specified snapshot should be deleted when a volume is restored
+    -- from snapshot.
+    deleteIntermediateSnaphots :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration object for mounting a Network File System (NFS) file
+    -- system.
+    nfsExports :: Prelude.Maybe [OpenZFSNfsExport],
+    -- | The configuration object that specifies the snapshot to use as the
+    -- origin of the data for the volume.
+    originSnapshot :: Prelude.Maybe OpenZFSOriginSnapshotConfiguration,
+    -- | The ID of the parent volume.
+    parentVolumeId :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value indicating whether the volume is read-only.
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
+    -- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
+    -- KiB. Most workloads should use the default record size. For guidance on
+    -- when to set a custom record size, see the /Amazon FSx for OpenZFS User
+    -- Guide/.
+    recordSizeKiB :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the ID of the snapshot to which the volume was restored.
+    restoreToSnapshot :: Prelude.Maybe Prelude.Text,
+    -- | The maximum amount of storage in gibibtyes (GiB) that the volume can use
+    -- from its parent. You can specify a quota larger than the storage on the
+    -- parent volume.
+    storageCapacityQuotaGiB :: Prelude.Maybe Prelude.Natural,
+    -- | The amount of storage in gibibytes (GiB) to reserve from the parent
+    -- volume. You can\'t reserve more storage than the parent volume has
+    -- reserved.
+    storageCapacityReservationGiB :: Prelude.Maybe Prelude.Natural,
     -- | An object specifying how much storage users or groups can use on the
     -- volume.
     userAndGroupQuotas :: Prelude.Maybe [OpenZFSUserOrGroupQuota],
@@ -94,30 +104,6 @@ data OpenZFSVolumeConfiguration = OpenZFSVolumeConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'originSnapshot', 'openZFSVolumeConfiguration_originSnapshot' - The configuration object that specifies the snapshot to use as the
--- origin of the data for the volume.
---
--- 'recordSizeKiB', 'openZFSVolumeConfiguration_recordSizeKiB' - The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
--- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
--- KiB. Most workloads should use the default record size. For guidance on
--- when to set a custom record size, see the /Amazon FSx for OpenZFS User
--- Guide/.
---
--- 'storageCapacityReservationGiB', 'openZFSVolumeConfiguration_storageCapacityReservationGiB' - The amount of storage in gibibytes (GiB) to reserve from the parent
--- volume. You can\'t reserve more storage than the parent volume has
--- reserved.
---
--- 'parentVolumeId', 'openZFSVolumeConfiguration_parentVolumeId' - The ID of the parent volume.
---
--- 'storageCapacityQuotaGiB', 'openZFSVolumeConfiguration_storageCapacityQuotaGiB' - The maximum amount of storage in gibibtyes (GiB) that the volume can use
--- from its parent. You can specify a quota larger than the storage on the
--- parent volume.
---
--- 'readOnly', 'openZFSVolumeConfiguration_readOnly' - A Boolean value indicating whether the volume is read-only.
---
--- 'nfsExports', 'openZFSVolumeConfiguration_nfsExports' - The configuration object for mounting a Network File System (NFS) file
--- system.
 --
 -- 'copyTagsToSnapshots', 'openZFSVolumeConfiguration_copyTagsToSnapshots' - A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
@@ -141,6 +127,40 @@ data OpenZFSVolumeConfiguration = OpenZFSVolumeConfiguration'
 --     algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and
 --     delivers higher write throughput speeds.
 --
+-- 'deleteClonedVolumes', 'openZFSVolumeConfiguration_deleteClonedVolumes' - A Boolean value indicating whether dependent clone volumes created from
+-- intermediate snapshots should be deleted when a volume is restored from
+-- snapshot.
+--
+-- 'deleteIntermediateSnaphots', 'openZFSVolumeConfiguration_deleteIntermediateSnaphots' - A Boolean value indicating whether snapshots between the current state
+-- and the specified snapshot should be deleted when a volume is restored
+-- from snapshot.
+--
+-- 'nfsExports', 'openZFSVolumeConfiguration_nfsExports' - The configuration object for mounting a Network File System (NFS) file
+-- system.
+--
+-- 'originSnapshot', 'openZFSVolumeConfiguration_originSnapshot' - The configuration object that specifies the snapshot to use as the
+-- origin of the data for the volume.
+--
+-- 'parentVolumeId', 'openZFSVolumeConfiguration_parentVolumeId' - The ID of the parent volume.
+--
+-- 'readOnly', 'openZFSVolumeConfiguration_readOnly' - A Boolean value indicating whether the volume is read-only.
+--
+-- 'recordSizeKiB', 'openZFSVolumeConfiguration_recordSizeKiB' - The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
+-- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
+-- KiB. Most workloads should use the default record size. For guidance on
+-- when to set a custom record size, see the /Amazon FSx for OpenZFS User
+-- Guide/.
+--
+-- 'restoreToSnapshot', 'openZFSVolumeConfiguration_restoreToSnapshot' - Specifies the ID of the snapshot to which the volume was restored.
+--
+-- 'storageCapacityQuotaGiB', 'openZFSVolumeConfiguration_storageCapacityQuotaGiB' - The maximum amount of storage in gibibtyes (GiB) that the volume can use
+-- from its parent. You can specify a quota larger than the storage on the
+-- parent volume.
+--
+-- 'storageCapacityReservationGiB', 'openZFSVolumeConfiguration_storageCapacityReservationGiB' - The amount of storage in gibibytes (GiB) to reserve from the parent
+-- volume. You can\'t reserve more storage than the parent volume has
+-- reserved.
+--
 -- 'userAndGroupQuotas', 'openZFSVolumeConfiguration_userAndGroupQuotas' - An object specifying how much storage users or groups can use on the
 -- volume.
 --
@@ -150,57 +170,22 @@ newOpenZFSVolumeConfiguration ::
   OpenZFSVolumeConfiguration
 newOpenZFSVolumeConfiguration =
   OpenZFSVolumeConfiguration'
-    { originSnapshot =
+    { copyTagsToSnapshots =
         Prelude.Nothing,
-      recordSizeKiB = Prelude.Nothing,
-      storageCapacityReservationGiB = Prelude.Nothing,
-      parentVolumeId = Prelude.Nothing,
-      storageCapacityQuotaGiB = Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      nfsExports = Prelude.Nothing,
-      copyTagsToSnapshots = Prelude.Nothing,
       dataCompressionType = Prelude.Nothing,
+      deleteClonedVolumes = Prelude.Nothing,
+      deleteIntermediateSnaphots = Prelude.Nothing,
+      nfsExports = Prelude.Nothing,
+      originSnapshot = Prelude.Nothing,
+      parentVolumeId = Prelude.Nothing,
+      readOnly = Prelude.Nothing,
+      recordSizeKiB = Prelude.Nothing,
+      restoreToSnapshot = Prelude.Nothing,
+      storageCapacityQuotaGiB = Prelude.Nothing,
+      storageCapacityReservationGiB = Prelude.Nothing,
       userAndGroupQuotas = Prelude.Nothing,
       volumePath = Prelude.Nothing
     }
-
--- | The configuration object that specifies the snapshot to use as the
--- origin of the data for the volume.
-openZFSVolumeConfiguration_originSnapshot :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe OpenZFSOriginSnapshotConfiguration)
-openZFSVolumeConfiguration_originSnapshot = Lens.lens (\OpenZFSVolumeConfiguration' {originSnapshot} -> originSnapshot) (\s@OpenZFSVolumeConfiguration' {} a -> s {originSnapshot = a} :: OpenZFSVolumeConfiguration)
-
--- | The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
--- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
--- KiB. Most workloads should use the default record size. For guidance on
--- when to set a custom record size, see the /Amazon FSx for OpenZFS User
--- Guide/.
-openZFSVolumeConfiguration_recordSizeKiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
-openZFSVolumeConfiguration_recordSizeKiB = Lens.lens (\OpenZFSVolumeConfiguration' {recordSizeKiB} -> recordSizeKiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {recordSizeKiB = a} :: OpenZFSVolumeConfiguration)
-
--- | The amount of storage in gibibytes (GiB) to reserve from the parent
--- volume. You can\'t reserve more storage than the parent volume has
--- reserved.
-openZFSVolumeConfiguration_storageCapacityReservationGiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
-openZFSVolumeConfiguration_storageCapacityReservationGiB = Lens.lens (\OpenZFSVolumeConfiguration' {storageCapacityReservationGiB} -> storageCapacityReservationGiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {storageCapacityReservationGiB = a} :: OpenZFSVolumeConfiguration)
-
--- | The ID of the parent volume.
-openZFSVolumeConfiguration_parentVolumeId :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
-openZFSVolumeConfiguration_parentVolumeId = Lens.lens (\OpenZFSVolumeConfiguration' {parentVolumeId} -> parentVolumeId) (\s@OpenZFSVolumeConfiguration' {} a -> s {parentVolumeId = a} :: OpenZFSVolumeConfiguration)
-
--- | The maximum amount of storage in gibibtyes (GiB) that the volume can use
--- from its parent. You can specify a quota larger than the storage on the
--- parent volume.
-openZFSVolumeConfiguration_storageCapacityQuotaGiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
-openZFSVolumeConfiguration_storageCapacityQuotaGiB = Lens.lens (\OpenZFSVolumeConfiguration' {storageCapacityQuotaGiB} -> storageCapacityQuotaGiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {storageCapacityQuotaGiB = a} :: OpenZFSVolumeConfiguration)
-
--- | A Boolean value indicating whether the volume is read-only.
-openZFSVolumeConfiguration_readOnly :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Bool)
-openZFSVolumeConfiguration_readOnly = Lens.lens (\OpenZFSVolumeConfiguration' {readOnly} -> readOnly) (\s@OpenZFSVolumeConfiguration' {} a -> s {readOnly = a} :: OpenZFSVolumeConfiguration)
-
--- | The configuration object for mounting a Network File System (NFS) file
--- system.
-openZFSVolumeConfiguration_nfsExports :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe [OpenZFSNfsExport])
-openZFSVolumeConfiguration_nfsExports = Lens.lens (\OpenZFSVolumeConfiguration' {nfsExports} -> nfsExports) (\s@OpenZFSVolumeConfiguration' {} a -> s {nfsExports = a} :: OpenZFSVolumeConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots. This value defaults to @false@. If it\'s set to @true@,
@@ -228,6 +213,60 @@ openZFSVolumeConfiguration_copyTagsToSnapshots = Lens.lens (\OpenZFSVolumeConfig
 openZFSVolumeConfiguration_dataCompressionType :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe OpenZFSDataCompressionType)
 openZFSVolumeConfiguration_dataCompressionType = Lens.lens (\OpenZFSVolumeConfiguration' {dataCompressionType} -> dataCompressionType) (\s@OpenZFSVolumeConfiguration' {} a -> s {dataCompressionType = a} :: OpenZFSVolumeConfiguration)
 
+-- | A Boolean value indicating whether dependent clone volumes created from
+-- intermediate snapshots should be deleted when a volume is restored from
+-- snapshot.
+openZFSVolumeConfiguration_deleteClonedVolumes :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+openZFSVolumeConfiguration_deleteClonedVolumes = Lens.lens (\OpenZFSVolumeConfiguration' {deleteClonedVolumes} -> deleteClonedVolumes) (\s@OpenZFSVolumeConfiguration' {} a -> s {deleteClonedVolumes = a} :: OpenZFSVolumeConfiguration)
+
+-- | A Boolean value indicating whether snapshots between the current state
+-- and the specified snapshot should be deleted when a volume is restored
+-- from snapshot.
+openZFSVolumeConfiguration_deleteIntermediateSnaphots :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+openZFSVolumeConfiguration_deleteIntermediateSnaphots = Lens.lens (\OpenZFSVolumeConfiguration' {deleteIntermediateSnaphots} -> deleteIntermediateSnaphots) (\s@OpenZFSVolumeConfiguration' {} a -> s {deleteIntermediateSnaphots = a} :: OpenZFSVolumeConfiguration)
+
+-- | The configuration object for mounting a Network File System (NFS) file
+-- system.
+openZFSVolumeConfiguration_nfsExports :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe [OpenZFSNfsExport])
+openZFSVolumeConfiguration_nfsExports = Lens.lens (\OpenZFSVolumeConfiguration' {nfsExports} -> nfsExports) (\s@OpenZFSVolumeConfiguration' {} a -> s {nfsExports = a} :: OpenZFSVolumeConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The configuration object that specifies the snapshot to use as the
+-- origin of the data for the volume.
+openZFSVolumeConfiguration_originSnapshot :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe OpenZFSOriginSnapshotConfiguration)
+openZFSVolumeConfiguration_originSnapshot = Lens.lens (\OpenZFSVolumeConfiguration' {originSnapshot} -> originSnapshot) (\s@OpenZFSVolumeConfiguration' {} a -> s {originSnapshot = a} :: OpenZFSVolumeConfiguration)
+
+-- | The ID of the parent volume.
+openZFSVolumeConfiguration_parentVolumeId :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
+openZFSVolumeConfiguration_parentVolumeId = Lens.lens (\OpenZFSVolumeConfiguration' {parentVolumeId} -> parentVolumeId) (\s@OpenZFSVolumeConfiguration' {} a -> s {parentVolumeId = a} :: OpenZFSVolumeConfiguration)
+
+-- | A Boolean value indicating whether the volume is read-only.
+openZFSVolumeConfiguration_readOnly :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+openZFSVolumeConfiguration_readOnly = Lens.lens (\OpenZFSVolumeConfiguration' {readOnly} -> readOnly) (\s@OpenZFSVolumeConfiguration' {} a -> s {readOnly = a} :: OpenZFSVolumeConfiguration)
+
+-- | The record size of an OpenZFS volume, in kibibytes (KiB). Valid values
+-- are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128
+-- KiB. Most workloads should use the default record size. For guidance on
+-- when to set a custom record size, see the /Amazon FSx for OpenZFS User
+-- Guide/.
+openZFSVolumeConfiguration_recordSizeKiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
+openZFSVolumeConfiguration_recordSizeKiB = Lens.lens (\OpenZFSVolumeConfiguration' {recordSizeKiB} -> recordSizeKiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {recordSizeKiB = a} :: OpenZFSVolumeConfiguration)
+
+-- | Specifies the ID of the snapshot to which the volume was restored.
+openZFSVolumeConfiguration_restoreToSnapshot :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
+openZFSVolumeConfiguration_restoreToSnapshot = Lens.lens (\OpenZFSVolumeConfiguration' {restoreToSnapshot} -> restoreToSnapshot) (\s@OpenZFSVolumeConfiguration' {} a -> s {restoreToSnapshot = a} :: OpenZFSVolumeConfiguration)
+
+-- | The maximum amount of storage in gibibtyes (GiB) that the volume can use
+-- from its parent. You can specify a quota larger than the storage on the
+-- parent volume.
+openZFSVolumeConfiguration_storageCapacityQuotaGiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
+openZFSVolumeConfiguration_storageCapacityQuotaGiB = Lens.lens (\OpenZFSVolumeConfiguration' {storageCapacityQuotaGiB} -> storageCapacityQuotaGiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {storageCapacityQuotaGiB = a} :: OpenZFSVolumeConfiguration)
+
+-- | The amount of storage in gibibytes (GiB) to reserve from the parent
+-- volume. You can\'t reserve more storage than the parent volume has
+-- reserved.
+openZFSVolumeConfiguration_storageCapacityReservationGiB :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe Prelude.Natural)
+openZFSVolumeConfiguration_storageCapacityReservationGiB = Lens.lens (\OpenZFSVolumeConfiguration' {storageCapacityReservationGiB} -> storageCapacityReservationGiB) (\s@OpenZFSVolumeConfiguration' {} a -> s {storageCapacityReservationGiB = a} :: OpenZFSVolumeConfiguration)
+
 -- | An object specifying how much storage users or groups can use on the
 -- volume.
 openZFSVolumeConfiguration_userAndGroupQuotas :: Lens.Lens' OpenZFSVolumeConfiguration (Prelude.Maybe [OpenZFSUserOrGroupQuota])
@@ -244,15 +283,18 @@ instance Data.FromJSON OpenZFSVolumeConfiguration where
       "OpenZFSVolumeConfiguration"
       ( \x ->
           OpenZFSVolumeConfiguration'
-            Prelude.<$> (x Data..:? "OriginSnapshot")
-            Prelude.<*> (x Data..:? "RecordSizeKiB")
-            Prelude.<*> (x Data..:? "StorageCapacityReservationGiB")
-            Prelude.<*> (x Data..:? "ParentVolumeId")
-            Prelude.<*> (x Data..:? "StorageCapacityQuotaGiB")
-            Prelude.<*> (x Data..:? "ReadOnly")
-            Prelude.<*> (x Data..:? "NfsExports" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CopyTagsToSnapshots")
+            Prelude.<$> (x Data..:? "CopyTagsToSnapshots")
             Prelude.<*> (x Data..:? "DataCompressionType")
+            Prelude.<*> (x Data..:? "DeleteClonedVolumes")
+            Prelude.<*> (x Data..:? "DeleteIntermediateSnaphots")
+            Prelude.<*> (x Data..:? "NfsExports" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OriginSnapshot")
+            Prelude.<*> (x Data..:? "ParentVolumeId")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "RecordSizeKiB")
+            Prelude.<*> (x Data..:? "RestoreToSnapshot")
+            Prelude.<*> (x Data..:? "StorageCapacityQuotaGiB")
+            Prelude.<*> (x Data..:? "StorageCapacityReservationGiB")
             Prelude.<*> ( x Data..:? "UserAndGroupQuotas"
                             Data..!= Prelude.mempty
                         )
@@ -261,28 +303,34 @@ instance Data.FromJSON OpenZFSVolumeConfiguration where
 
 instance Prelude.Hashable OpenZFSVolumeConfiguration where
   hashWithSalt _salt OpenZFSVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` originSnapshot
-      `Prelude.hashWithSalt` recordSizeKiB
-      `Prelude.hashWithSalt` storageCapacityReservationGiB
-      `Prelude.hashWithSalt` parentVolumeId
-      `Prelude.hashWithSalt` storageCapacityQuotaGiB
-      `Prelude.hashWithSalt` readOnly
-      `Prelude.hashWithSalt` nfsExports
-      `Prelude.hashWithSalt` copyTagsToSnapshots
+    _salt `Prelude.hashWithSalt` copyTagsToSnapshots
       `Prelude.hashWithSalt` dataCompressionType
+      `Prelude.hashWithSalt` deleteClonedVolumes
+      `Prelude.hashWithSalt` deleteIntermediateSnaphots
+      `Prelude.hashWithSalt` nfsExports
+      `Prelude.hashWithSalt` originSnapshot
+      `Prelude.hashWithSalt` parentVolumeId
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` recordSizeKiB
+      `Prelude.hashWithSalt` restoreToSnapshot
+      `Prelude.hashWithSalt` storageCapacityQuotaGiB
+      `Prelude.hashWithSalt` storageCapacityReservationGiB
       `Prelude.hashWithSalt` userAndGroupQuotas
       `Prelude.hashWithSalt` volumePath
 
 instance Prelude.NFData OpenZFSVolumeConfiguration where
   rnf OpenZFSVolumeConfiguration' {..} =
-    Prelude.rnf originSnapshot
-      `Prelude.seq` Prelude.rnf recordSizeKiB
-      `Prelude.seq` Prelude.rnf storageCapacityReservationGiB
-      `Prelude.seq` Prelude.rnf parentVolumeId
-      `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf nfsExports
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshots
+    Prelude.rnf copyTagsToSnapshots
       `Prelude.seq` Prelude.rnf dataCompressionType
+      `Prelude.seq` Prelude.rnf deleteClonedVolumes
+      `Prelude.seq` Prelude.rnf deleteIntermediateSnaphots
+      `Prelude.seq` Prelude.rnf nfsExports
+      `Prelude.seq` Prelude.rnf originSnapshot
+      `Prelude.seq` Prelude.rnf parentVolumeId
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf recordSizeKiB
+      `Prelude.seq` Prelude.rnf restoreToSnapshot
+      `Prelude.seq` Prelude.rnf storageCapacityQuotaGiB
+      `Prelude.seq` Prelude.rnf storageCapacityReservationGiB
       `Prelude.seq` Prelude.rnf userAndGroupQuotas
       `Prelude.seq` Prelude.rnf volumePath

@@ -77,9 +77,9 @@ module Amazonka.FSx.CreateBackup
     newCreateBackup,
 
     -- * Request Lenses
-    createBackup_tags,
     createBackup_clientRequestToken,
     createBackup_fileSystemId,
+    createBackup_tags,
     createBackup_volumeId,
 
     -- * Destructuring the Response
@@ -104,19 +104,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { -- | (Optional) The tags to apply to the backup at backup creation. The key
-    -- value of the @Name@ tag appears in the console as the backup name. If
-    -- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
-    -- tags using the @CreateBackup@ operation, no existing file system tags
-    -- are copied from the file system to the backup.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
+  { -- | (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
     -- ensure idempotent creation. This string is automatically filled on your
     -- behalf when you use the Command Line Interface (CLI) or an Amazon Web
     -- Services SDK.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the file system to back up.
     fileSystemId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The tags to apply to the backup at backup creation. The key
+    -- value of the @Name@ tag appears in the console as the backup name. If
+    -- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
+    -- tags using the @CreateBackup@ operation, no existing file system tags
+    -- are copied from the file system to the backup.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | (Optional) The ID of the FSx for ONTAP volume to back up.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -130,12 +130,6 @@ data CreateBackup = CreateBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBackup_tags' - (Optional) The tags to apply to the backup at backup creation. The key
--- value of the @Name@ tag appears in the console as the backup name. If
--- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
--- tags using the @CreateBackup@ operation, no existing file system tags
--- are copied from the file system to the backup.
---
 -- 'clientRequestToken', 'createBackup_clientRequestToken' - (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
 -- ensure idempotent creation. This string is automatically filled on your
 -- behalf when you use the Command Line Interface (CLI) or an Amazon Web
@@ -143,24 +137,22 @@ data CreateBackup = CreateBackup'
 --
 -- 'fileSystemId', 'createBackup_fileSystemId' - The ID of the file system to back up.
 --
+-- 'tags', 'createBackup_tags' - (Optional) The tags to apply to the backup at backup creation. The key
+-- value of the @Name@ tag appears in the console as the backup name. If
+-- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
+-- tags using the @CreateBackup@ operation, no existing file system tags
+-- are copied from the file system to the backup.
+--
 -- 'volumeId', 'createBackup_volumeId' - (Optional) The ID of the FSx for ONTAP volume to back up.
 newCreateBackup ::
   CreateBackup
 newCreateBackup =
   CreateBackup'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       fileSystemId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       volumeId = Prelude.Nothing
     }
-
--- | (Optional) The tags to apply to the backup at backup creation. The key
--- value of the @Name@ tag appears in the console as the backup name. If
--- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
--- tags using the @CreateBackup@ operation, no existing file system tags
--- are copied from the file system to the backup.
-createBackup_tags :: Lens.Lens' CreateBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) A string of up to 64 ASCII characters that Amazon FSx uses to
 -- ensure idempotent creation. This string is automatically filled on your
@@ -172,6 +164,14 @@ createBackup_clientRequestToken = Lens.lens (\CreateBackup' {clientRequestToken}
 -- | The ID of the file system to back up.
 createBackup_fileSystemId :: Lens.Lens' CreateBackup (Prelude.Maybe Prelude.Text)
 createBackup_fileSystemId = Lens.lens (\CreateBackup' {fileSystemId} -> fileSystemId) (\s@CreateBackup' {} a -> s {fileSystemId = a} :: CreateBackup)
+
+-- | (Optional) The tags to apply to the backup at backup creation. The key
+-- value of the @Name@ tag appears in the console as the backup name. If
+-- you have set @CopyTagsToBackups@ to @true@, and you specify one or more
+-- tags using the @CreateBackup@ operation, no existing file system tags
+-- are copied from the file system to the backup.
+createBackup_tags :: Lens.Lens' CreateBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The ID of the FSx for ONTAP volume to back up.
 createBackup_volumeId :: Lens.Lens' CreateBackup (Prelude.Maybe Prelude.Text)
@@ -191,16 +191,16 @@ instance Core.AWSRequest CreateBackup where
 
 instance Prelude.Hashable CreateBackup where
   hashWithSalt _salt CreateBackup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData CreateBackup where
   rnf CreateBackup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Data.ToHeaders CreateBackup where
@@ -222,10 +222,10 @@ instance Data.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("FileSystemId" Data..=) Prelude.<$> fileSystemId,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("VolumeId" Data..=) Prelude.<$> volumeId
           ]
       )

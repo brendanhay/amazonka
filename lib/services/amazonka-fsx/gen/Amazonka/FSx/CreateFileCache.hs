@@ -46,13 +46,13 @@ module Amazonka.FSx.CreateFileCache
     newCreateFileCache,
 
     -- * Request Lenses
-    createFileCache_tags,
     createFileCache_clientRequestToken,
-    createFileCache_securityGroupIds,
     createFileCache_copyTagsToDataRepositoryAssociations,
-    createFileCache_kmsKeyId,
     createFileCache_dataRepositoryAssociations,
+    createFileCache_kmsKeyId,
     createFileCache_lustreConfiguration,
+    createFileCache_securityGroupIds,
+    createFileCache_tags,
     createFileCache_fileCacheType,
     createFileCache_fileCacheTypeVersion,
     createFileCache_storageCapacity,
@@ -78,8 +78,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFileCache' smart constructor.
 data CreateFileCache = CreateFileCache'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | An idempotency token for resource creation, in a string of up to 64
+  { -- | An idempotency token for resource creation, in a string of up to 64
     -- ASCII characters. This token is automatically filled on your behalf when
     -- you use the Command Line Interface (CLI) or an Amazon Web Services SDK.
     --
@@ -91,20 +90,9 @@ data CreateFileCache = CreateFileCache'
     -- request token and the initial call created a cache, the client receives
     -- success as long as the parameters are the same.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of IDs specifying the security groups to apply to all network
-    -- interfaces created for Amazon File Cache access. This list isn\'t
-    -- returned in later requests to describe the cache.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A boolean flag indicating whether tags for the cache should be copied to
     -- data repository associations. This value defaults to false.
     copyTagsToDataRepositoryAssociations :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the ID of the Key Management Service (KMS) key to use for
-    -- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
-    -- specified, the Amazon FSx-managed KMS key for your account is used. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
-    -- in the /Key Management Service API Reference/.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 8 configurations for data repository associations (DRAs)
     -- to be created during the cache creation. The DRAs link the cache to
     -- either an Amazon S3 data repository or a Network File System (NFS) data
@@ -121,8 +109,20 @@ data CreateFileCache = CreateFileCache'
     --
     -- DRA automatic import and automatic export is not supported.
     dataRepositoryAssociations :: Prelude.Maybe [FileCacheDataRepositoryAssociation],
+    -- | Specifies the ID of the Key Management Service (KMS) key to use for
+    -- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
+    -- specified, the Amazon FSx-managed KMS key for your account is used. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
+    -- in the /Key Management Service API Reference/.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The configuration for the Amazon File Cache resource being created.
     lustreConfiguration :: Prelude.Maybe CreateFileCacheLustreConfiguration,
+    -- | A list of IDs specifying the security groups to apply to all network
+    -- interfaces created for Amazon File Cache access. This list isn\'t
+    -- returned in later requests to describe the cache.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The type of cache that you\'re creating, which must be @LUSTRE@.
     fileCacheType :: FileCacheType,
     -- | Sets the Lustre version for the cache that you\'re creating, which must
@@ -143,8 +143,6 @@ data CreateFileCache = CreateFileCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFileCache_tags' - Undocumented member.
---
 -- 'clientRequestToken', 'createFileCache_clientRequestToken' - An idempotency token for resource creation, in a string of up to 64
 -- ASCII characters. This token is automatically filled on your behalf when
 -- you use the Command Line Interface (CLI) or an Amazon Web Services SDK.
@@ -157,19 +155,8 @@ data CreateFileCache = CreateFileCache'
 -- request token and the initial call created a cache, the client receives
 -- success as long as the parameters are the same.
 --
--- 'securityGroupIds', 'createFileCache_securityGroupIds' - A list of IDs specifying the security groups to apply to all network
--- interfaces created for Amazon File Cache access. This list isn\'t
--- returned in later requests to describe the cache.
---
 -- 'copyTagsToDataRepositoryAssociations', 'createFileCache_copyTagsToDataRepositoryAssociations' - A boolean flag indicating whether tags for the cache should be copied to
 -- data repository associations. This value defaults to false.
---
--- 'kmsKeyId', 'createFileCache_kmsKeyId' - Specifies the ID of the Key Management Service (KMS) key to use for
--- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
--- specified, the Amazon FSx-managed KMS key for your account is used. For
--- more information, see
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
--- in the /Key Management Service API Reference/.
 --
 -- 'dataRepositoryAssociations', 'createFileCache_dataRepositoryAssociations' - A list of up to 8 configurations for data repository associations (DRAs)
 -- to be created during the cache creation. The DRAs link the cache to
@@ -187,7 +174,20 @@ data CreateFileCache = CreateFileCache'
 --
 -- DRA automatic import and automatic export is not supported.
 --
+-- 'kmsKeyId', 'createFileCache_kmsKeyId' - Specifies the ID of the Key Management Service (KMS) key to use for
+-- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
+-- specified, the Amazon FSx-managed KMS key for your account is used. For
+-- more information, see
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
+-- in the /Key Management Service API Reference/.
+--
 -- 'lustreConfiguration', 'createFileCache_lustreConfiguration' - The configuration for the Amazon File Cache resource being created.
+--
+-- 'securityGroupIds', 'createFileCache_securityGroupIds' - A list of IDs specifying the security groups to apply to all network
+-- interfaces created for Amazon File Cache access. This list isn\'t
+-- returned in later requests to describe the cache.
+--
+-- 'tags', 'createFileCache_tags' - Undocumented member.
 --
 -- 'fileCacheType', 'createFileCache_fileCacheType' - The type of cache that you\'re creating, which must be @LUSTRE@.
 --
@@ -211,23 +211,20 @@ newCreateFileCache
   pFileCacheTypeVersion_
   pStorageCapacity_ =
     CreateFileCache'
-      { tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        securityGroupIds = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         copyTagsToDataRepositoryAssociations =
           Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         dataRepositoryAssociations = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         lustreConfiguration = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
+        tags = Prelude.Nothing,
         fileCacheType = pFileCacheType_,
         fileCacheTypeVersion = pFileCacheTypeVersion_,
         storageCapacity = pStorageCapacity_,
         subnetIds = Prelude.mempty
       }
-
--- | Undocumented member.
-createFileCache_tags :: Lens.Lens' CreateFileCache (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFileCache_tags = Lens.lens (\CreateFileCache' {tags} -> tags) (\s@CreateFileCache' {} a -> s {tags = a} :: CreateFileCache) Prelude.. Lens.mapping Lens.coerced
 
 -- | An idempotency token for resource creation, in a string of up to 64
 -- ASCII characters. This token is automatically filled on your behalf when
@@ -243,25 +240,10 @@ createFileCache_tags = Lens.lens (\CreateFileCache' {tags} -> tags) (\s@CreateFi
 createFileCache_clientRequestToken :: Lens.Lens' CreateFileCache (Prelude.Maybe Prelude.Text)
 createFileCache_clientRequestToken = Lens.lens (\CreateFileCache' {clientRequestToken} -> clientRequestToken) (\s@CreateFileCache' {} a -> s {clientRequestToken = a} :: CreateFileCache)
 
--- | A list of IDs specifying the security groups to apply to all network
--- interfaces created for Amazon File Cache access. This list isn\'t
--- returned in later requests to describe the cache.
-createFileCache_securityGroupIds :: Lens.Lens' CreateFileCache (Prelude.Maybe [Prelude.Text])
-createFileCache_securityGroupIds = Lens.lens (\CreateFileCache' {securityGroupIds} -> securityGroupIds) (\s@CreateFileCache' {} a -> s {securityGroupIds = a} :: CreateFileCache) Prelude.. Lens.mapping Lens.coerced
-
 -- | A boolean flag indicating whether tags for the cache should be copied to
 -- data repository associations. This value defaults to false.
 createFileCache_copyTagsToDataRepositoryAssociations :: Lens.Lens' CreateFileCache (Prelude.Maybe Prelude.Bool)
 createFileCache_copyTagsToDataRepositoryAssociations = Lens.lens (\CreateFileCache' {copyTagsToDataRepositoryAssociations} -> copyTagsToDataRepositoryAssociations) (\s@CreateFileCache' {} a -> s {copyTagsToDataRepositoryAssociations = a} :: CreateFileCache)
-
--- | Specifies the ID of the Key Management Service (KMS) key to use for
--- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
--- specified, the Amazon FSx-managed KMS key for your account is used. For
--- more information, see
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
--- in the /Key Management Service API Reference/.
-createFileCache_kmsKeyId :: Lens.Lens' CreateFileCache (Prelude.Maybe Prelude.Text)
-createFileCache_kmsKeyId = Lens.lens (\CreateFileCache' {kmsKeyId} -> kmsKeyId) (\s@CreateFileCache' {} a -> s {kmsKeyId = a} :: CreateFileCache)
 
 -- | A list of up to 8 configurations for data repository associations (DRAs)
 -- to be created during the cache creation. The DRAs link the cache to
@@ -281,9 +263,28 @@ createFileCache_kmsKeyId = Lens.lens (\CreateFileCache' {kmsKeyId} -> kmsKeyId) 
 createFileCache_dataRepositoryAssociations :: Lens.Lens' CreateFileCache (Prelude.Maybe [FileCacheDataRepositoryAssociation])
 createFileCache_dataRepositoryAssociations = Lens.lens (\CreateFileCache' {dataRepositoryAssociations} -> dataRepositoryAssociations) (\s@CreateFileCache' {} a -> s {dataRepositoryAssociations = a} :: CreateFileCache) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies the ID of the Key Management Service (KMS) key to use for
+-- encrypting data on an Amazon File Cache. If a @KmsKeyId@ isn\'t
+-- specified, the Amazon FSx-managed KMS key for your account is used. For
+-- more information, see
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html Encrypt>
+-- in the /Key Management Service API Reference/.
+createFileCache_kmsKeyId :: Lens.Lens' CreateFileCache (Prelude.Maybe Prelude.Text)
+createFileCache_kmsKeyId = Lens.lens (\CreateFileCache' {kmsKeyId} -> kmsKeyId) (\s@CreateFileCache' {} a -> s {kmsKeyId = a} :: CreateFileCache)
+
 -- | The configuration for the Amazon File Cache resource being created.
 createFileCache_lustreConfiguration :: Lens.Lens' CreateFileCache (Prelude.Maybe CreateFileCacheLustreConfiguration)
 createFileCache_lustreConfiguration = Lens.lens (\CreateFileCache' {lustreConfiguration} -> lustreConfiguration) (\s@CreateFileCache' {} a -> s {lustreConfiguration = a} :: CreateFileCache)
+
+-- | A list of IDs specifying the security groups to apply to all network
+-- interfaces created for Amazon File Cache access. This list isn\'t
+-- returned in later requests to describe the cache.
+createFileCache_securityGroupIds :: Lens.Lens' CreateFileCache (Prelude.Maybe [Prelude.Text])
+createFileCache_securityGroupIds = Lens.lens (\CreateFileCache' {securityGroupIds} -> securityGroupIds) (\s@CreateFileCache' {} a -> s {securityGroupIds = a} :: CreateFileCache) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createFileCache_tags :: Lens.Lens' CreateFileCache (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFileCache_tags = Lens.lens (\CreateFileCache' {tags} -> tags) (\s@CreateFileCache' {} a -> s {tags = a} :: CreateFileCache) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of cache that you\'re creating, which must be @LUSTRE@.
 createFileCache_fileCacheType :: Lens.Lens' CreateFileCache FileCacheType
@@ -319,13 +320,13 @@ instance Core.AWSRequest CreateFileCache where
 
 instance Prelude.Hashable CreateFileCache where
   hashWithSalt _salt CreateFileCache' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` securityGroupIds
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` copyTagsToDataRepositoryAssociations
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` dataRepositoryAssociations
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fileCacheType
       `Prelude.hashWithSalt` fileCacheTypeVersion
       `Prelude.hashWithSalt` storageCapacity
@@ -333,13 +334,13 @@ instance Prelude.Hashable CreateFileCache where
 
 instance Prelude.NFData CreateFileCache where
   rnf CreateFileCache' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf securityGroupIds
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf copyTagsToDataRepositoryAssociations
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf dataRepositoryAssociations
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf lustreConfiguration
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fileCacheType
       `Prelude.seq` Prelude.rnf fileCacheTypeVersion
       `Prelude.seq` Prelude.rnf storageCapacity
@@ -364,18 +365,18 @@ instance Data.ToJSON CreateFileCache where
   toJSON CreateFileCache' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("SecurityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
             ("CopyTagsToDataRepositoryAssociations" Data..=)
               Prelude.<$> copyTagsToDataRepositoryAssociations,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("DataRepositoryAssociations" Data..=)
               Prelude.<$> dataRepositoryAssociations,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("FileCacheType" Data..= fileCacheType),
             Prelude.Just
               ( "FileCacheTypeVersion"

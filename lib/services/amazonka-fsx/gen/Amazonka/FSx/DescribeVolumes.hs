@@ -30,10 +30,10 @@ module Amazonka.FSx.DescribeVolumes
     newDescribeVolumes,
 
     -- * Request Lenses
-    describeVolumes_nextToken,
-    describeVolumes_volumeIds,
     describeVolumes_filters,
     describeVolumes_maxResults,
+    describeVolumes_nextToken,
+    describeVolumes_volumeIds,
 
     -- * Destructuring the Response
     DescribeVolumesResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the volumes whose descriptions you want to retrieve.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | Enter a filter @Name@ and @Values@ pair to view a select set of volumes.
+  { -- | Enter a filter @Name@ and @Values@ pair to view a select set of volumes.
     filters :: Prelude.Maybe [VolumeFilter],
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the volumes whose descriptions you want to retrieve.
+    volumeIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,30 +73,22 @@ data DescribeVolumes = DescribeVolumes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVolumes_nextToken' - Undocumented member.
---
--- 'volumeIds', 'describeVolumes_volumeIds' - The IDs of the volumes whose descriptions you want to retrieve.
---
 -- 'filters', 'describeVolumes_filters' - Enter a filter @Name@ and @Values@ pair to view a select set of volumes.
 --
 -- 'maxResults', 'describeVolumes_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeVolumes_nextToken' - Undocumented member.
+--
+-- 'volumeIds', 'describeVolumes_volumeIds' - The IDs of the volumes whose descriptions you want to retrieve.
 newDescribeVolumes ::
   DescribeVolumes
 newDescribeVolumes =
   DescribeVolumes'
-    { nextToken = Prelude.Nothing,
-      volumeIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      volumeIds = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
-describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
-
--- | The IDs of the volumes whose descriptions you want to retrieve.
-describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
-describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enter a filter @Name@ and @Values@ pair to view a select set of volumes.
 describeVolumes_filters :: Lens.Lens' DescribeVolumes (Prelude.Maybe [VolumeFilter])
@@ -105,6 +97,14 @@ describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s
 -- | Undocumented member.
 describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Natural)
 describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxResults) (\s@DescribeVolumes' {} a -> s {maxResults = a} :: DescribeVolumes)
+
+-- | Undocumented member.
+describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
+describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
+
+-- | The IDs of the volumes whose descriptions you want to retrieve.
+describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
+describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeVolumes where
   page rq rs
@@ -144,17 +144,17 @@ instance Core.AWSRequest DescribeVolumes where
 
 instance Prelude.Hashable DescribeVolumes where
   hashWithSalt _salt DescribeVolumes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` volumeIds
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` volumeIds
 
 instance Prelude.NFData DescribeVolumes where
   rnf DescribeVolumes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf volumeIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf volumeIds
 
 instance Data.ToHeaders DescribeVolumes where
   toHeaders =
@@ -175,10 +175,10 @@ instance Data.ToJSON DescribeVolumes where
   toJSON DescribeVolumes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("VolumeIds" Data..=) Prelude.<$> volumeIds,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("VolumeIds" Data..=) Prelude.<$> volumeIds
           ]
       )
 

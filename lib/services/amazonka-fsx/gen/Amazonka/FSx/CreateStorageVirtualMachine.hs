@@ -28,11 +28,11 @@ module Amazonka.FSx.CreateStorageVirtualMachine
     newCreateStorageVirtualMachine,
 
     -- * Request Lenses
-    createStorageVirtualMachine_tags,
     createStorageVirtualMachine_activeDirectoryConfiguration,
     createStorageVirtualMachine_clientRequestToken,
     createStorageVirtualMachine_rootVolumeSecurityStyle,
     createStorageVirtualMachine_svmAdminPassword,
+    createStorageVirtualMachine_tags,
     createStorageVirtualMachine_fileSystemId,
     createStorageVirtualMachine_name,
 
@@ -56,8 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStorageVirtualMachine' smart constructor.
 data CreateStorageVirtualMachine = CreateStorageVirtualMachine'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Describes the self-managed Microsoft Active Directory to which you want
+  { -- | Describes the self-managed Microsoft Active Directory to which you want
     -- to join the SVM. Joining an Active Directory provides user
     -- authentication and access control for SMB clients, including Microsoft
     -- Windows and macOS client accessing the file system.
@@ -81,6 +80,7 @@ data CreateStorageVirtualMachine = CreateStorageVirtualMachine'
     -- REST API. If you do not specify a password, you can still use the file
     -- system\'s @fsxadmin@ user to manage the SVM.
     svmAdminPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     fileSystemId :: Prelude.Text,
     -- | The name of the SVM.
     name :: Prelude.Text
@@ -94,8 +94,6 @@ data CreateStorageVirtualMachine = CreateStorageVirtualMachine'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createStorageVirtualMachine_tags' - Undocumented member.
 --
 -- 'activeDirectoryConfiguration', 'createStorageVirtualMachine_activeDirectoryConfiguration' - Describes the self-managed Microsoft Active Directory to which you want
 -- to join the SVM. Joining an Active Directory provides user
@@ -122,6 +120,8 @@ data CreateStorageVirtualMachine = CreateStorageVirtualMachine'
 -- REST API. If you do not specify a password, you can still use the file
 -- system\'s @fsxadmin@ user to manage the SVM.
 --
+-- 'tags', 'createStorageVirtualMachine_tags' - Undocumented member.
+--
 -- 'fileSystemId', 'createStorageVirtualMachine_fileSystemId' - Undocumented member.
 --
 -- 'name', 'createStorageVirtualMachine_name' - The name of the SVM.
@@ -133,19 +133,15 @@ newCreateStorageVirtualMachine ::
   CreateStorageVirtualMachine
 newCreateStorageVirtualMachine pFileSystemId_ pName_ =
   CreateStorageVirtualMachine'
-    { tags =
+    { activeDirectoryConfiguration =
         Prelude.Nothing,
-      activeDirectoryConfiguration = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       rootVolumeSecurityStyle = Prelude.Nothing,
       svmAdminPassword = Prelude.Nothing,
+      tags = Prelude.Nothing,
       fileSystemId = pFileSystemId_,
       name = pName_
     }
-
--- | Undocumented member.
-createStorageVirtualMachine_tags :: Lens.Lens' CreateStorageVirtualMachine (Prelude.Maybe (Prelude.NonEmpty Tag))
-createStorageVirtualMachine_tags = Lens.lens (\CreateStorageVirtualMachine' {tags} -> tags) (\s@CreateStorageVirtualMachine' {} a -> s {tags = a} :: CreateStorageVirtualMachine) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes the self-managed Microsoft Active Directory to which you want
 -- to join the SVM. Joining an Active Directory provides user
@@ -181,6 +177,10 @@ createStorageVirtualMachine_svmAdminPassword :: Lens.Lens' CreateStorageVirtualM
 createStorageVirtualMachine_svmAdminPassword = Lens.lens (\CreateStorageVirtualMachine' {svmAdminPassword} -> svmAdminPassword) (\s@CreateStorageVirtualMachine' {} a -> s {svmAdminPassword = a} :: CreateStorageVirtualMachine) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Undocumented member.
+createStorageVirtualMachine_tags :: Lens.Lens' CreateStorageVirtualMachine (Prelude.Maybe (Prelude.NonEmpty Tag))
+createStorageVirtualMachine_tags = Lens.lens (\CreateStorageVirtualMachine' {tags} -> tags) (\s@CreateStorageVirtualMachine' {} a -> s {tags = a} :: CreateStorageVirtualMachine) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 createStorageVirtualMachine_fileSystemId :: Lens.Lens' CreateStorageVirtualMachine Prelude.Text
 createStorageVirtualMachine_fileSystemId = Lens.lens (\CreateStorageVirtualMachine' {fileSystemId} -> fileSystemId) (\s@CreateStorageVirtualMachine' {} a -> s {fileSystemId = a} :: CreateStorageVirtualMachine)
 
@@ -204,21 +204,22 @@ instance Core.AWSRequest CreateStorageVirtualMachine where
 
 instance Prelude.Hashable CreateStorageVirtualMachine where
   hashWithSalt _salt CreateStorageVirtualMachine' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` activeDirectoryConfiguration
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` rootVolumeSecurityStyle
       `Prelude.hashWithSalt` svmAdminPassword
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateStorageVirtualMachine where
   rnf CreateStorageVirtualMachine' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf activeDirectoryConfiguration
+    Prelude.rnf activeDirectoryConfiguration
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf rootVolumeSecurityStyle
       `Prelude.seq` Prelude.rnf svmAdminPassword
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf name
 
@@ -241,8 +242,7 @@ instance Data.ToJSON CreateStorageVirtualMachine where
   toJSON CreateStorageVirtualMachine' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ActiveDirectoryConfiguration" Data..=)
+          [ ("ActiveDirectoryConfiguration" Data..=)
               Prelude.<$> activeDirectoryConfiguration,
             ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
@@ -250,6 +250,7 @@ instance Data.ToJSON CreateStorageVirtualMachine where
               Prelude.<$> rootVolumeSecurityStyle,
             ("SvmAdminPassword" Data..=)
               Prelude.<$> svmAdminPassword,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just ("Name" Data..= name)
           ]

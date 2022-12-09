@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemOpenZFSResponse' smart constructor.
 data DeleteFileSystemOpenZFSResponse = DeleteFileSystemOpenZFSResponse'
-  { finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    finalBackupId :: Prelude.Maybe Prelude.Text
+  { finalBackupId :: Prelude.Maybe Prelude.Text,
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data DeleteFileSystemOpenZFSResponse = DeleteFileSystemOpenZFSResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalBackupTags', 'deleteFileSystemOpenZFSResponse_finalBackupTags' - Undocumented member.
---
 -- 'finalBackupId', 'deleteFileSystemOpenZFSResponse_finalBackupId' - Undocumented member.
+--
+-- 'finalBackupTags', 'deleteFileSystemOpenZFSResponse_finalBackupTags' - Undocumented member.
 newDeleteFileSystemOpenZFSResponse ::
   DeleteFileSystemOpenZFSResponse
 newDeleteFileSystemOpenZFSResponse =
   DeleteFileSystemOpenZFSResponse'
-    { finalBackupTags =
+    { finalBackupId =
         Prelude.Nothing,
-      finalBackupId = Prelude.Nothing
+      finalBackupTags = Prelude.Nothing
     }
-
--- | Undocumented member.
-deleteFileSystemOpenZFSResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemOpenZFSResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemOpenZFSResponse_finalBackupTags = Lens.lens (\DeleteFileSystemOpenZFSResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemOpenZFSResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemOpenZFSResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 deleteFileSystemOpenZFSResponse_finalBackupId :: Lens.Lens' DeleteFileSystemOpenZFSResponse (Prelude.Maybe Prelude.Text)
 deleteFileSystemOpenZFSResponse_finalBackupId = Lens.lens (\DeleteFileSystemOpenZFSResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemOpenZFSResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemOpenZFSResponse)
+
+-- | Undocumented member.
+deleteFileSystemOpenZFSResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemOpenZFSResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemOpenZFSResponse_finalBackupTags = Lens.lens (\DeleteFileSystemOpenZFSResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemOpenZFSResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemOpenZFSResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "DeleteFileSystemOpenZFSResponse"
       ( \x ->
           DeleteFileSystemOpenZFSResponse'
-            Prelude.<$> (x Data..:? "FinalBackupTags")
-            Prelude.<*> (x Data..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupId")
+            Prelude.<*> (x Data..:? "FinalBackupTags")
       )
 
 instance
@@ -83,13 +83,13 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemOpenZFSResponse' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupTags
-        `Prelude.hashWithSalt` finalBackupId
+      _salt `Prelude.hashWithSalt` finalBackupId
+        `Prelude.hashWithSalt` finalBackupTags
 
 instance
   Prelude.NFData
     DeleteFileSystemOpenZFSResponse
   where
   rnf DeleteFileSystemOpenZFSResponse' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf finalBackupId
+    Prelude.rnf finalBackupId
+      `Prelude.seq` Prelude.rnf finalBackupTags

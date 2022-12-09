@@ -31,9 +31,9 @@ module Amazonka.FSx.DescribeFileSystemAliases
     newDescribeFileSystemAliases,
 
     -- * Request Lenses
-    describeFileSystemAliases_nextToken,
     describeFileSystemAliases_clientRequestToken,
     describeFileSystemAliases_maxResults,
+    describeFileSystemAliases_nextToken,
     describeFileSystemAliases_fileSystemId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.FSx.DescribeFileSystemAliases
     newDescribeFileSystemAliasesResponse,
 
     -- * Response Lenses
-    describeFileSystemAliasesResponse_nextToken,
     describeFileSystemAliasesResponse_aliases,
+    describeFileSystemAliasesResponse_nextToken,
     describeFileSystemAliasesResponse_httpStatus,
   )
 where
@@ -59,18 +59,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeFileSystemAliases' smart constructor.
 data DescribeFileSystemAliases = DescribeFileSystemAliases'
-  { -- | Opaque pagination token returned from a previous
-    -- @DescribeFileSystemAliases@ operation (String). If a token is included
-    -- in the request, the action continues the list from where the previous
-    -- returning call left off.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of DNS aliases to return in the response (integer). This
     -- parameter value must be greater than 0. The number of items that Amazon
     -- FSx returns is the minimum of the @MaxResults@ parameter specified in
     -- the request and the service\'s internal maximum number of items per
     -- page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Opaque pagination token returned from a previous
+    -- @DescribeFileSystemAliases@ operation (String). If a token is included
+    -- in the request, the action continues the list from where the previous
+    -- returning call left off.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the file system to return the associated DNS aliases for
     -- (String).
     fileSystemId :: Prelude.Text
@@ -85,11 +85,6 @@ data DescribeFileSystemAliases = DescribeFileSystemAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFileSystemAliases_nextToken' - Opaque pagination token returned from a previous
--- @DescribeFileSystemAliases@ operation (String). If a token is included
--- in the request, the action continues the list from where the previous
--- returning call left off.
---
 -- 'clientRequestToken', 'describeFileSystemAliases_clientRequestToken' - Undocumented member.
 --
 -- 'maxResults', 'describeFileSystemAliases_maxResults' - Maximum number of DNS aliases to return in the response (integer). This
@@ -97,6 +92,11 @@ data DescribeFileSystemAliases = DescribeFileSystemAliases'
 -- FSx returns is the minimum of the @MaxResults@ parameter specified in
 -- the request and the service\'s internal maximum number of items per
 -- page.
+--
+-- 'nextToken', 'describeFileSystemAliases_nextToken' - Opaque pagination token returned from a previous
+-- @DescribeFileSystemAliases@ operation (String). If a token is included
+-- in the request, the action continues the list from where the previous
+-- returning call left off.
 --
 -- 'fileSystemId', 'describeFileSystemAliases_fileSystemId' - The ID of the file system to return the associated DNS aliases for
 -- (String).
@@ -106,19 +106,12 @@ newDescribeFileSystemAliases ::
   DescribeFileSystemAliases
 newDescribeFileSystemAliases pFileSystemId_ =
   DescribeFileSystemAliases'
-    { nextToken =
+    { clientRequestToken =
         Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       fileSystemId = pFileSystemId_
     }
-
--- | Opaque pagination token returned from a previous
--- @DescribeFileSystemAliases@ operation (String). If a token is included
--- in the request, the action continues the list from where the previous
--- returning call left off.
-describeFileSystemAliases_nextToken :: Lens.Lens' DescribeFileSystemAliases (Prelude.Maybe Prelude.Text)
-describeFileSystemAliases_nextToken = Lens.lens (\DescribeFileSystemAliases' {nextToken} -> nextToken) (\s@DescribeFileSystemAliases' {} a -> s {nextToken = a} :: DescribeFileSystemAliases)
 
 -- | Undocumented member.
 describeFileSystemAliases_clientRequestToken :: Lens.Lens' DescribeFileSystemAliases (Prelude.Maybe Prelude.Text)
@@ -131,6 +124,13 @@ describeFileSystemAliases_clientRequestToken = Lens.lens (\DescribeFileSystemAli
 -- page.
 describeFileSystemAliases_maxResults :: Lens.Lens' DescribeFileSystemAliases (Prelude.Maybe Prelude.Natural)
 describeFileSystemAliases_maxResults = Lens.lens (\DescribeFileSystemAliases' {maxResults} -> maxResults) (\s@DescribeFileSystemAliases' {} a -> s {maxResults = a} :: DescribeFileSystemAliases)
+
+-- | Opaque pagination token returned from a previous
+-- @DescribeFileSystemAliases@ operation (String). If a token is included
+-- in the request, the action continues the list from where the previous
+-- returning call left off.
+describeFileSystemAliases_nextToken :: Lens.Lens' DescribeFileSystemAliases (Prelude.Maybe Prelude.Text)
+describeFileSystemAliases_nextToken = Lens.lens (\DescribeFileSystemAliases' {nextToken} -> nextToken) (\s@DescribeFileSystemAliases' {} a -> s {nextToken = a} :: DescribeFileSystemAliases)
 
 -- | The ID of the file system to return the associated DNS aliases for
 -- (String).
@@ -147,23 +147,23 @@ instance Core.AWSRequest DescribeFileSystemAliases where
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemAliasesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFileSystemAliases where
   hashWithSalt _salt DescribeFileSystemAliases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData DescribeFileSystemAliases where
   rnf DescribeFileSystemAliases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf fileSystemId
 
 instance Data.ToHeaders DescribeFileSystemAliases where
@@ -185,10 +185,10 @@ instance Data.ToJSON DescribeFileSystemAliases where
   toJSON DescribeFileSystemAliases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]
       )
@@ -203,13 +203,13 @@ instance Data.ToQuery DescribeFileSystemAliases where
 --
 -- /See:/ 'newDescribeFileSystemAliasesResponse' smart constructor.
 data DescribeFileSystemAliasesResponse = DescribeFileSystemAliasesResponse'
-  { -- | Present if there are more DNS aliases than returned in the response
+  { -- | An array of one or more DNS aliases currently associated with the
+    -- specified file system.
+    aliases :: Prelude.Maybe [Alias],
+    -- | Present if there are more DNS aliases than returned in the response
     -- (String). You can use the @NextToken@ value in a later request to fetch
     -- additional descriptions.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of one or more DNS aliases currently associated with the
-    -- specified file system.
-    aliases :: Prelude.Maybe [Alias],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,12 +223,12 @@ data DescribeFileSystemAliasesResponse = DescribeFileSystemAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliases', 'describeFileSystemAliasesResponse_aliases' - An array of one or more DNS aliases currently associated with the
+-- specified file system.
+--
 -- 'nextToken', 'describeFileSystemAliasesResponse_nextToken' - Present if there are more DNS aliases than returned in the response
 -- (String). You can use the @NextToken@ value in a later request to fetch
 -- additional descriptions.
---
--- 'aliases', 'describeFileSystemAliasesResponse_aliases' - An array of one or more DNS aliases currently associated with the
--- specified file system.
 --
 -- 'httpStatus', 'describeFileSystemAliasesResponse_httpStatus' - The response's http status code.
 newDescribeFileSystemAliasesResponse ::
@@ -237,22 +237,22 @@ newDescribeFileSystemAliasesResponse ::
   DescribeFileSystemAliasesResponse
 newDescribeFileSystemAliasesResponse pHttpStatus_ =
   DescribeFileSystemAliasesResponse'
-    { nextToken =
+    { aliases =
         Prelude.Nothing,
-      aliases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of one or more DNS aliases currently associated with the
+-- specified file system.
+describeFileSystemAliasesResponse_aliases :: Lens.Lens' DescribeFileSystemAliasesResponse (Prelude.Maybe [Alias])
+describeFileSystemAliasesResponse_aliases = Lens.lens (\DescribeFileSystemAliasesResponse' {aliases} -> aliases) (\s@DescribeFileSystemAliasesResponse' {} a -> s {aliases = a} :: DescribeFileSystemAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Present if there are more DNS aliases than returned in the response
 -- (String). You can use the @NextToken@ value in a later request to fetch
 -- additional descriptions.
 describeFileSystemAliasesResponse_nextToken :: Lens.Lens' DescribeFileSystemAliasesResponse (Prelude.Maybe Prelude.Text)
 describeFileSystemAliasesResponse_nextToken = Lens.lens (\DescribeFileSystemAliasesResponse' {nextToken} -> nextToken) (\s@DescribeFileSystemAliasesResponse' {} a -> s {nextToken = a} :: DescribeFileSystemAliasesResponse)
-
--- | An array of one or more DNS aliases currently associated with the
--- specified file system.
-describeFileSystemAliasesResponse_aliases :: Lens.Lens' DescribeFileSystemAliasesResponse (Prelude.Maybe [Alias])
-describeFileSystemAliasesResponse_aliases = Lens.lens (\DescribeFileSystemAliasesResponse' {aliases} -> aliases) (\s@DescribeFileSystemAliasesResponse' {} a -> s {aliases = a} :: DescribeFileSystemAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFileSystemAliasesResponse_httpStatus :: Lens.Lens' DescribeFileSystemAliasesResponse Prelude.Int
@@ -263,6 +263,6 @@ instance
     DescribeFileSystemAliasesResponse
   where
   rnf DescribeFileSystemAliasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aliases
+    Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -52,10 +52,10 @@ module Amazonka.FSx.DescribeSnapshots
     newDescribeSnapshots,
 
     -- * Request Lenses
-    describeSnapshots_nextToken,
     describeSnapshots_filters,
-    describeSnapshots_snapshotIds,
     describeSnapshots_maxResults,
+    describeSnapshots_nextToken,
+    describeSnapshots_snapshotIds,
 
     -- * Destructuring the Response
     DescribeSnapshotsResponse (..),
@@ -78,15 +78,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters structure. The supported names are @file-system-id@ or
+  { -- | The filters structure. The supported names are @file-system-id@ or
     -- @volume-id@.
     filters :: Prelude.Maybe [SnapshotFilter],
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the snapshots that you want to retrieve. This parameter value
     -- overrides any filters. If any IDs aren\'t found, a @SnapshotNotFound@
     -- error occurs.
-    snapshotIds :: Prelude.Maybe [Prelude.Text],
-    maxResults :: Prelude.Maybe Prelude.Natural
+    snapshotIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,44 +98,44 @@ data DescribeSnapshots = DescribeSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSnapshots_nextToken' - Undocumented member.
---
 -- 'filters', 'describeSnapshots_filters' - The filters structure. The supported names are @file-system-id@ or
 -- @volume-id@.
+--
+-- 'maxResults', 'describeSnapshots_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeSnapshots_nextToken' - Undocumented member.
 --
 -- 'snapshotIds', 'describeSnapshots_snapshotIds' - The IDs of the snapshots that you want to retrieve. This parameter value
 -- overrides any filters. If any IDs aren\'t found, a @SnapshotNotFound@
 -- error occurs.
---
--- 'maxResults', 'describeSnapshots_maxResults' - Undocumented member.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
   DescribeSnapshots'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      snapshotIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      snapshotIds = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeSnapshots_nextToken :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> nextToken) (\s@DescribeSnapshots' {} a -> s {nextToken = a} :: DescribeSnapshots)
 
 -- | The filters structure. The supported names are @file-system-id@ or
 -- @volume-id@.
 describeSnapshots_filters :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [SnapshotFilter])
 describeSnapshots_filters = Lens.lens (\DescribeSnapshots' {filters} -> filters) (\s@DescribeSnapshots' {} a -> s {filters = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens.coerced
 
+-- | Undocumented member.
+describeSnapshots_maxResults :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Natural)
+describeSnapshots_maxResults = Lens.lens (\DescribeSnapshots' {maxResults} -> maxResults) (\s@DescribeSnapshots' {} a -> s {maxResults = a} :: DescribeSnapshots)
+
+-- | Undocumented member.
+describeSnapshots_nextToken :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> nextToken) (\s@DescribeSnapshots' {} a -> s {nextToken = a} :: DescribeSnapshots)
+
 -- | The IDs of the snapshots that you want to retrieve. This parameter value
 -- overrides any filters. If any IDs aren\'t found, a @SnapshotNotFound@
 -- error occurs.
 describeSnapshots_snapshotIds :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Prelude.Text])
 describeSnapshots_snapshotIds = Lens.lens (\DescribeSnapshots' {snapshotIds} -> snapshotIds) (\s@DescribeSnapshots' {} a -> s {snapshotIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-describeSnapshots_maxResults :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Natural)
-describeSnapshots_maxResults = Lens.lens (\DescribeSnapshots' {maxResults} -> maxResults) (\s@DescribeSnapshots' {} a -> s {maxResults = a} :: DescribeSnapshots)
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -154,17 +154,17 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` snapshotIds
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` snapshotIds
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf snapshotIds
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf snapshotIds
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -185,10 +185,10 @@ instance Data.ToJSON DescribeSnapshots where
   toJSON DescribeSnapshots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("SnapshotIds" Data..=) Prelude.<$> snapshotIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SnapshotIds" Data..=) Prelude.<$> snapshotIds
           ]
       )
 

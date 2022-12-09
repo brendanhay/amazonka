@@ -19,10 +19,10 @@ module Amazonka.LookoutEquipment.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -74,11 +74,11 @@ module Amazonka.LookoutEquipment.Types
     -- * DataIngestionJobSummary
     DataIngestionJobSummary (..),
     newDataIngestionJobSummary,
+    dataIngestionJobSummary_datasetArn,
     dataIngestionJobSummary_datasetName,
+    dataIngestionJobSummary_ingestionInputConfiguration,
     dataIngestionJobSummary_jobId,
     dataIngestionJobSummary_status,
-    dataIngestionJobSummary_datasetArn,
-    dataIngestionJobSummary_ingestionInputConfiguration,
 
     -- * DataPreProcessingConfiguration
     DataPreProcessingConfiguration (..),
@@ -102,10 +102,10 @@ module Amazonka.LookoutEquipment.Types
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
+    datasetSummary_createdAt,
+    datasetSummary_datasetArn,
     datasetSummary_datasetName,
     datasetSummary_status,
-    datasetSummary_datasetArn,
-    datasetSummary_createdAt,
 
     -- * DuplicateTimestamps
     DuplicateTimestamps (..),
@@ -115,35 +115,35 @@ module Amazonka.LookoutEquipment.Types
     -- * InferenceEventSummary
     InferenceEventSummary (..),
     newInferenceEventSummary,
-    inferenceEventSummary_inferenceSchedulerName,
-    inferenceEventSummary_eventEndTime,
-    inferenceEventSummary_eventDurationInSeconds,
     inferenceEventSummary_diagnostics,
-    inferenceEventSummary_inferenceSchedulerArn,
+    inferenceEventSummary_eventDurationInSeconds,
+    inferenceEventSummary_eventEndTime,
     inferenceEventSummary_eventStartTime,
+    inferenceEventSummary_inferenceSchedulerArn,
+    inferenceEventSummary_inferenceSchedulerName,
 
     -- * InferenceExecutionSummary
     InferenceExecutionSummary (..),
     newInferenceExecutionSummary,
-    inferenceExecutionSummary_inferenceSchedulerName,
-    inferenceExecutionSummary_scheduledStartTime,
+    inferenceExecutionSummary_customerResultObject,
+    inferenceExecutionSummary_dataEndTime,
+    inferenceExecutionSummary_dataInputConfiguration,
+    inferenceExecutionSummary_dataOutputConfiguration,
     inferenceExecutionSummary_dataStartTime,
     inferenceExecutionSummary_failedReason,
-    inferenceExecutionSummary_dataOutputConfiguration,
-    inferenceExecutionSummary_dataEndTime,
-    inferenceExecutionSummary_customerResultObject,
-    inferenceExecutionSummary_status,
+    inferenceExecutionSummary_inferenceSchedulerArn,
+    inferenceExecutionSummary_inferenceSchedulerName,
     inferenceExecutionSummary_modelArn,
     inferenceExecutionSummary_modelName,
-    inferenceExecutionSummary_inferenceSchedulerArn,
-    inferenceExecutionSummary_dataInputConfiguration,
+    inferenceExecutionSummary_scheduledStartTime,
+    inferenceExecutionSummary_status,
 
     -- * InferenceInputConfiguration
     InferenceInputConfiguration (..),
     newInferenceInputConfiguration,
+    inferenceInputConfiguration_inferenceInputNameConfiguration,
     inferenceInputConfiguration_inputTimeZoneOffset,
     inferenceInputConfiguration_s3InputConfiguration,
-    inferenceInputConfiguration_inferenceInputNameConfiguration,
 
     -- * InferenceInputNameConfiguration
     InferenceInputNameConfiguration (..),
@@ -172,14 +172,14 @@ module Amazonka.LookoutEquipment.Types
     -- * InferenceSchedulerSummary
     InferenceSchedulerSummary (..),
     newInferenceSchedulerSummary,
-    inferenceSchedulerSummary_inferenceSchedulerName,
     inferenceSchedulerSummary_dataDelayOffsetInMinutes,
-    inferenceSchedulerSummary_status,
-    inferenceSchedulerSummary_modelArn,
-    inferenceSchedulerSummary_latestInferenceResult,
-    inferenceSchedulerSummary_modelName,
     inferenceSchedulerSummary_dataUploadFrequency,
     inferenceSchedulerSummary_inferenceSchedulerArn,
+    inferenceSchedulerSummary_inferenceSchedulerName,
+    inferenceSchedulerSummary_latestInferenceResult,
+    inferenceSchedulerSummary_modelArn,
+    inferenceSchedulerSummary_modelName,
+    inferenceSchedulerSummary_status,
 
     -- * IngestedFilesSummary
     IngestedFilesSummary (..),
@@ -215,29 +215,29 @@ module Amazonka.LookoutEquipment.Types
     -- * LabelGroupSummary
     LabelGroupSummary (..),
     newLabelGroupSummary,
-    labelGroupSummary_labelGroupArn,
     labelGroupSummary_createdAt,
-    labelGroupSummary_updatedAt,
+    labelGroupSummary_labelGroupArn,
     labelGroupSummary_labelGroupName,
+    labelGroupSummary_updatedAt,
 
     -- * LabelSummary
     LabelSummary (..),
     newLabelSummary,
-    labelSummary_equipment,
-    labelSummary_labelId,
+    labelSummary_createdAt,
     labelSummary_endTime,
+    labelSummary_equipment,
     labelSummary_faultCode,
     labelSummary_labelGroupArn,
-    labelSummary_rating,
-    labelSummary_createdAt,
-    labelSummary_startTime,
     labelSummary_labelGroupName,
+    labelSummary_labelId,
+    labelSummary_rating,
+    labelSummary_startTime,
 
     -- * LabelsInputConfiguration
     LabelsInputConfiguration (..),
     newLabelsInputConfiguration,
-    labelsInputConfiguration_s3InputConfiguration,
     labelsInputConfiguration_labelGroupName,
+    labelsInputConfiguration_s3InputConfiguration,
 
     -- * LabelsS3InputConfiguration
     LabelsS3InputConfiguration (..),
@@ -266,12 +266,12 @@ module Amazonka.LookoutEquipment.Types
     -- * ModelSummary
     ModelSummary (..),
     newModelSummary,
-    modelSummary_datasetName,
-    modelSummary_status,
+    modelSummary_createdAt,
     modelSummary_datasetArn,
+    modelSummary_datasetName,
     modelSummary_modelArn,
     modelSummary_modelName,
-    modelSummary_createdAt,
+    modelSummary_status,
 
     -- * MonotonicValues
     MonotonicValues (..),
@@ -293,18 +293,18 @@ module Amazonka.LookoutEquipment.Types
     -- * SensorStatisticsSummary
     SensorStatisticsSummary (..),
     newSensorStatisticsSummary,
-    sensorStatisticsSummary_dataStartTime,
-    sensorStatisticsSummary_multipleOperatingModes,
     sensorStatisticsSummary_categoricalValues,
-    sensorStatisticsSummary_dataExists,
-    sensorStatisticsSummary_invalidValues,
-    sensorStatisticsSummary_missingValues,
-    sensorStatisticsSummary_dataEndTime,
     sensorStatisticsSummary_componentName,
+    sensorStatisticsSummary_dataEndTime,
+    sensorStatisticsSummary_dataExists,
+    sensorStatisticsSummary_dataStartTime,
     sensorStatisticsSummary_duplicateTimestamps,
-    sensorStatisticsSummary_largeTimestampGaps,
-    sensorStatisticsSummary_monotonicValues,
     sensorStatisticsSummary_invalidDateEntries,
+    sensorStatisticsSummary_invalidValues,
+    sensorStatisticsSummary_largeTimestampGaps,
+    sensorStatisticsSummary_missingValues,
+    sensorStatisticsSummary_monotonicValues,
+    sensorStatisticsSummary_multipleOperatingModes,
     sensorStatisticsSummary_sensorName,
 
     -- * SensorsWithShortDateRange
@@ -402,28 +402,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -431,13 +425,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -445,6 +443,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request could not be completed because you do not have access to the
@@ -455,6 +455,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
+-- | The request could not be completed due to a conflict with the current
+-- state of the target resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
 -- | Processing of the request has failed because of an unknown error,
 -- exception or failure.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -462,13 +470,6 @@ _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
-
--- | Resource limitations have been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
 
 -- | The resource requested could not be found. Verify the resource ID and
 -- retry your request.
@@ -478,13 +479,12 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | The request could not be completed due to a conflict with the current
--- state of the target resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | Resource limitations have been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
+    "ServiceQuotaExceededException"
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelGroupSummary' smart constructor.
 data LabelGroupSummary = LabelGroupSummary'
-  { -- | The ARN of the label group.
-    labelGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the label group was created.
+  { -- | The time at which the label group was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The time at which the label group was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the label group.
+    labelGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the label group.
-    labelGroupName :: Prelude.Maybe Prelude.Text
+    labelGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the label group was updated.
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data LabelGroupSummary = LabelGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labelGroupArn', 'labelGroupSummary_labelGroupArn' - The ARN of the label group.
---
 -- 'createdAt', 'labelGroupSummary_createdAt' - The time at which the label group was created.
 --
--- 'updatedAt', 'labelGroupSummary_updatedAt' - The time at which the label group was updated.
+-- 'labelGroupArn', 'labelGroupSummary_labelGroupArn' - The ARN of the label group.
 --
 -- 'labelGroupName', 'labelGroupSummary_labelGroupName' - The name of the label group.
+--
+-- 'updatedAt', 'labelGroupSummary_updatedAt' - The time at which the label group was updated.
 newLabelGroupSummary ::
   LabelGroupSummary
 newLabelGroupSummary =
   LabelGroupSummary'
-    { labelGroupArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      labelGroupName = Prelude.Nothing
+    { createdAt = Prelude.Nothing,
+      labelGroupArn = Prelude.Nothing,
+      labelGroupName = Prelude.Nothing,
+      updatedAt = Prelude.Nothing
     }
-
--- | The ARN of the label group.
-labelGroupSummary_labelGroupArn :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.Text)
-labelGroupSummary_labelGroupArn = Lens.lens (\LabelGroupSummary' {labelGroupArn} -> labelGroupArn) (\s@LabelGroupSummary' {} a -> s {labelGroupArn = a} :: LabelGroupSummary)
 
 -- | The time at which the label group was created.
 labelGroupSummary_createdAt :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.UTCTime)
 labelGroupSummary_createdAt = Lens.lens (\LabelGroupSummary' {createdAt} -> createdAt) (\s@LabelGroupSummary' {} a -> s {createdAt = a} :: LabelGroupSummary) Prelude.. Lens.mapping Data._Time
 
--- | The time at which the label group was updated.
-labelGroupSummary_updatedAt :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.UTCTime)
-labelGroupSummary_updatedAt = Lens.lens (\LabelGroupSummary' {updatedAt} -> updatedAt) (\s@LabelGroupSummary' {} a -> s {updatedAt = a} :: LabelGroupSummary) Prelude.. Lens.mapping Data._Time
+-- | The ARN of the label group.
+labelGroupSummary_labelGroupArn :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.Text)
+labelGroupSummary_labelGroupArn = Lens.lens (\LabelGroupSummary' {labelGroupArn} -> labelGroupArn) (\s@LabelGroupSummary' {} a -> s {labelGroupArn = a} :: LabelGroupSummary)
 
 -- | The name of the label group.
 labelGroupSummary_labelGroupName :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.Text)
 labelGroupSummary_labelGroupName = Lens.lens (\LabelGroupSummary' {labelGroupName} -> labelGroupName) (\s@LabelGroupSummary' {} a -> s {labelGroupName = a} :: LabelGroupSummary)
+
+-- | The time at which the label group was updated.
+labelGroupSummary_updatedAt :: Lens.Lens' LabelGroupSummary (Prelude.Maybe Prelude.UTCTime)
+labelGroupSummary_updatedAt = Lens.lens (\LabelGroupSummary' {updatedAt} -> updatedAt) (\s@LabelGroupSummary' {} a -> s {updatedAt = a} :: LabelGroupSummary) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON LabelGroupSummary where
   parseJSON =
@@ -86,22 +86,22 @@ instance Data.FromJSON LabelGroupSummary where
       "LabelGroupSummary"
       ( \x ->
           LabelGroupSummary'
-            Prelude.<$> (x Data..:? "LabelGroupArn")
-            Prelude.<*> (x Data..:? "CreatedAt")
-            Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<$> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "LabelGroupArn")
             Prelude.<*> (x Data..:? "LabelGroupName")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LabelGroupSummary where
   hashWithSalt _salt LabelGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` labelGroupArn
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` updatedAt
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` labelGroupArn
       `Prelude.hashWithSalt` labelGroupName
+      `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData LabelGroupSummary where
   rnf LabelGroupSummary' {..} =
-    Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf labelGroupArn
       `Prelude.seq` Prelude.rnf labelGroupName
+      `Prelude.seq` Prelude.rnf updatedAt

@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceInputConfiguration' smart constructor.
 data InferenceInputConfiguration = InferenceInputConfiguration'
-  { -- | Indicates the difference between your time zone and Coordinated
+  { -- | Specifies configuration information for the input data for the
+    -- inference, including timestamp format and delimiter.
+    inferenceInputNameConfiguration :: Prelude.Maybe InferenceInputNameConfiguration,
+    -- | Indicates the difference between your time zone and Coordinated
     -- Universal Time (UTC).
     inputTimeZoneOffset :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration information for the input data for the
     -- inference, including Amazon S3 location of input data.
-    s3InputConfiguration :: Prelude.Maybe InferenceS3InputConfiguration,
-    -- | Specifies configuration information for the input data for the
-    -- inference, including timestamp format and delimiter.
-    inferenceInputNameConfiguration :: Prelude.Maybe InferenceInputNameConfiguration
+    s3InputConfiguration :: Prelude.Maybe InferenceS3InputConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,28 @@ data InferenceInputConfiguration = InferenceInputConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inferenceInputNameConfiguration', 'inferenceInputConfiguration_inferenceInputNameConfiguration' - Specifies configuration information for the input data for the
+-- inference, including timestamp format and delimiter.
+--
 -- 'inputTimeZoneOffset', 'inferenceInputConfiguration_inputTimeZoneOffset' - Indicates the difference between your time zone and Coordinated
 -- Universal Time (UTC).
 --
 -- 's3InputConfiguration', 'inferenceInputConfiguration_s3InputConfiguration' - Specifies configuration information for the input data for the
 -- inference, including Amazon S3 location of input data.
---
--- 'inferenceInputNameConfiguration', 'inferenceInputConfiguration_inferenceInputNameConfiguration' - Specifies configuration information for the input data for the
--- inference, including timestamp format and delimiter.
 newInferenceInputConfiguration ::
   InferenceInputConfiguration
 newInferenceInputConfiguration =
   InferenceInputConfiguration'
-    { inputTimeZoneOffset =
+    { inferenceInputNameConfiguration =
         Prelude.Nothing,
-      s3InputConfiguration = Prelude.Nothing,
-      inferenceInputNameConfiguration =
-        Prelude.Nothing
+      inputTimeZoneOffset = Prelude.Nothing,
+      s3InputConfiguration = Prelude.Nothing
     }
+
+-- | Specifies configuration information for the input data for the
+-- inference, including timestamp format and delimiter.
+inferenceInputConfiguration_inferenceInputNameConfiguration :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe InferenceInputNameConfiguration)
+inferenceInputConfiguration_inferenceInputNameConfiguration = Lens.lens (\InferenceInputConfiguration' {inferenceInputNameConfiguration} -> inferenceInputNameConfiguration) (\s@InferenceInputConfiguration' {} a -> s {inferenceInputNameConfiguration = a} :: InferenceInputConfiguration)
 
 -- | Indicates the difference between your time zone and Coordinated
 -- Universal Time (UTC).
@@ -80,43 +84,39 @@ inferenceInputConfiguration_inputTimeZoneOffset = Lens.lens (\InferenceInputConf
 inferenceInputConfiguration_s3InputConfiguration :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe InferenceS3InputConfiguration)
 inferenceInputConfiguration_s3InputConfiguration = Lens.lens (\InferenceInputConfiguration' {s3InputConfiguration} -> s3InputConfiguration) (\s@InferenceInputConfiguration' {} a -> s {s3InputConfiguration = a} :: InferenceInputConfiguration)
 
--- | Specifies configuration information for the input data for the
--- inference, including timestamp format and delimiter.
-inferenceInputConfiguration_inferenceInputNameConfiguration :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe InferenceInputNameConfiguration)
-inferenceInputConfiguration_inferenceInputNameConfiguration = Lens.lens (\InferenceInputConfiguration' {inferenceInputNameConfiguration} -> inferenceInputNameConfiguration) (\s@InferenceInputConfiguration' {} a -> s {inferenceInputNameConfiguration = a} :: InferenceInputConfiguration)
-
 instance Data.FromJSON InferenceInputConfiguration where
   parseJSON =
     Data.withObject
       "InferenceInputConfiguration"
       ( \x ->
           InferenceInputConfiguration'
-            Prelude.<$> (x Data..:? "InputTimeZoneOffset")
+            Prelude.<$> (x Data..:? "InferenceInputNameConfiguration")
+            Prelude.<*> (x Data..:? "InputTimeZoneOffset")
             Prelude.<*> (x Data..:? "S3InputConfiguration")
-            Prelude.<*> (x Data..:? "InferenceInputNameConfiguration")
       )
 
 instance Prelude.Hashable InferenceInputConfiguration where
   hashWithSalt _salt InferenceInputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputTimeZoneOffset
-      `Prelude.hashWithSalt` s3InputConfiguration
+    _salt
       `Prelude.hashWithSalt` inferenceInputNameConfiguration
+      `Prelude.hashWithSalt` inputTimeZoneOffset
+      `Prelude.hashWithSalt` s3InputConfiguration
 
 instance Prelude.NFData InferenceInputConfiguration where
   rnf InferenceInputConfiguration' {..} =
-    Prelude.rnf inputTimeZoneOffset
+    Prelude.rnf inferenceInputNameConfiguration
+      `Prelude.seq` Prelude.rnf inputTimeZoneOffset
       `Prelude.seq` Prelude.rnf s3InputConfiguration
-      `Prelude.seq` Prelude.rnf inferenceInputNameConfiguration
 
 instance Data.ToJSON InferenceInputConfiguration where
   toJSON InferenceInputConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InputTimeZoneOffset" Data..=)
+          [ ("InferenceInputNameConfiguration" Data..=)
+              Prelude.<$> inferenceInputNameConfiguration,
+            ("InputTimeZoneOffset" Data..=)
               Prelude.<$> inputTimeZoneOffset,
             ("S3InputConfiguration" Data..=)
-              Prelude.<$> s3InputConfiguration,
-            ("InferenceInputNameConfiguration" Data..=)
-              Prelude.<$> inferenceInputNameConfiguration
+              Prelude.<$> s3InputConfiguration
           ]
       )

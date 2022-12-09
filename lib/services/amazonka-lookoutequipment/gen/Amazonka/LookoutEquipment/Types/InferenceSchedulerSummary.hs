@@ -32,9 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceSchedulerSummary' smart constructor.
 data InferenceSchedulerSummary = InferenceSchedulerSummary'
-  { -- | The name of the inference scheduler.
-    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
-    -- | A period of time (in minutes) by which inference on the data is delayed
+  { -- | A period of time (in minutes) by which inference on the data is delayed
     -- after the data starts. For instance, if an offset delay time of five
     -- minutes was selected, inference will not begin on the data until the
     -- first data measurement after the five minute mark. For example, if five
@@ -44,17 +42,6 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
     -- frequency and they don\'t need to stop and restart the scheduler when
     -- uploading new data.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates the status of the inference scheduler.
-    status :: Prelude.Maybe InferenceSchedulerStatus,
-    -- | The Amazon Resource Name (ARN) of the ML model used by the inference
-    -- scheduler.
-    modelArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the latest execution for the inference scheduler was
-    -- Anomalous (anomalous events found) or Normal (no anomalous events
-    -- found).
-    latestInferenceResult :: Prelude.Maybe LatestInferenceResult,
-    -- | The name of the ML model used for the inference scheduler.
-    modelName :: Prelude.Maybe Prelude.Text,
     -- | How often data is uploaded to the source S3 bucket for the input data.
     -- This value is the length of time between data uploads. For instance, if
     -- you select 5 minutes, Amazon Lookout for Equipment will upload the
@@ -64,7 +51,20 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
     -- 5 minutes.
     dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
     -- | The Amazon Resource Name (ARN) of the inference scheduler.
-    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text
+    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the inference scheduler.
+    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the latest execution for the inference scheduler was
+    -- Anomalous (anomalous events found) or Normal (no anomalous events
+    -- found).
+    latestInferenceResult :: Prelude.Maybe LatestInferenceResult,
+    -- | The Amazon Resource Name (ARN) of the ML model used by the inference
+    -- scheduler.
+    modelArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ML model used for the inference scheduler.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the inference scheduler.
+    status :: Prelude.Maybe InferenceSchedulerStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,8 +76,6 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSchedulerName', 'inferenceSchedulerSummary_inferenceSchedulerName' - The name of the inference scheduler.
---
 -- 'dataDelayOffsetInMinutes', 'inferenceSchedulerSummary_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if an offset delay time of five
 -- minutes was selected, inference will not begin on the data until the
@@ -88,17 +86,6 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
 -- frequency and they don\'t need to stop and restart the scheduler when
 -- uploading new data.
 --
--- 'status', 'inferenceSchedulerSummary_status' - Indicates the status of the inference scheduler.
---
--- 'modelArn', 'inferenceSchedulerSummary_modelArn' - The Amazon Resource Name (ARN) of the ML model used by the inference
--- scheduler.
---
--- 'latestInferenceResult', 'inferenceSchedulerSummary_latestInferenceResult' - Indicates whether the latest execution for the inference scheduler was
--- Anomalous (anomalous events found) or Normal (no anomalous events
--- found).
---
--- 'modelName', 'inferenceSchedulerSummary_modelName' - The name of the ML model used for the inference scheduler.
---
 -- 'dataUploadFrequency', 'inferenceSchedulerSummary_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.
 -- This value is the length of time between data uploads. For instance, if
 -- you select 5 minutes, Amazon Lookout for Equipment will upload the
@@ -108,24 +95,33 @@ data InferenceSchedulerSummary = InferenceSchedulerSummary'
 -- 5 minutes.
 --
 -- 'inferenceSchedulerArn', 'inferenceSchedulerSummary_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler.
+--
+-- 'inferenceSchedulerName', 'inferenceSchedulerSummary_inferenceSchedulerName' - The name of the inference scheduler.
+--
+-- 'latestInferenceResult', 'inferenceSchedulerSummary_latestInferenceResult' - Indicates whether the latest execution for the inference scheduler was
+-- Anomalous (anomalous events found) or Normal (no anomalous events
+-- found).
+--
+-- 'modelArn', 'inferenceSchedulerSummary_modelArn' - The Amazon Resource Name (ARN) of the ML model used by the inference
+-- scheduler.
+--
+-- 'modelName', 'inferenceSchedulerSummary_modelName' - The name of the ML model used for the inference scheduler.
+--
+-- 'status', 'inferenceSchedulerSummary_status' - Indicates the status of the inference scheduler.
 newInferenceSchedulerSummary ::
   InferenceSchedulerSummary
 newInferenceSchedulerSummary =
   InferenceSchedulerSummary'
-    { inferenceSchedulerName =
+    { dataDelayOffsetInMinutes =
         Prelude.Nothing,
-      dataDelayOffsetInMinutes = Prelude.Nothing,
-      status = Prelude.Nothing,
-      modelArn = Prelude.Nothing,
-      latestInferenceResult = Prelude.Nothing,
-      modelName = Prelude.Nothing,
       dataUploadFrequency = Prelude.Nothing,
-      inferenceSchedulerArn = Prelude.Nothing
+      inferenceSchedulerArn = Prelude.Nothing,
+      inferenceSchedulerName = Prelude.Nothing,
+      latestInferenceResult = Prelude.Nothing,
+      modelArn = Prelude.Nothing,
+      modelName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the inference scheduler.
-inferenceSchedulerSummary_inferenceSchedulerName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
-inferenceSchedulerSummary_inferenceSchedulerName = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceSchedulerSummary)
 
 -- | A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if an offset delay time of five
@@ -138,25 +134,6 @@ inferenceSchedulerSummary_inferenceSchedulerName = Lens.lens (\InferenceSchedule
 -- uploading new data.
 inferenceSchedulerSummary_dataDelayOffsetInMinutes :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Natural)
 inferenceSchedulerSummary_dataDelayOffsetInMinutes = Lens.lens (\InferenceSchedulerSummary' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@InferenceSchedulerSummary' {} a -> s {dataDelayOffsetInMinutes = a} :: InferenceSchedulerSummary)
-
--- | Indicates the status of the inference scheduler.
-inferenceSchedulerSummary_status :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe InferenceSchedulerStatus)
-inferenceSchedulerSummary_status = Lens.lens (\InferenceSchedulerSummary' {status} -> status) (\s@InferenceSchedulerSummary' {} a -> s {status = a} :: InferenceSchedulerSummary)
-
--- | The Amazon Resource Name (ARN) of the ML model used by the inference
--- scheduler.
-inferenceSchedulerSummary_modelArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
-inferenceSchedulerSummary_modelArn = Lens.lens (\InferenceSchedulerSummary' {modelArn} -> modelArn) (\s@InferenceSchedulerSummary' {} a -> s {modelArn = a} :: InferenceSchedulerSummary)
-
--- | Indicates whether the latest execution for the inference scheduler was
--- Anomalous (anomalous events found) or Normal (no anomalous events
--- found).
-inferenceSchedulerSummary_latestInferenceResult :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe LatestInferenceResult)
-inferenceSchedulerSummary_latestInferenceResult = Lens.lens (\InferenceSchedulerSummary' {latestInferenceResult} -> latestInferenceResult) (\s@InferenceSchedulerSummary' {} a -> s {latestInferenceResult = a} :: InferenceSchedulerSummary)
-
--- | The name of the ML model used for the inference scheduler.
-inferenceSchedulerSummary_modelName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
-inferenceSchedulerSummary_modelName = Lens.lens (\InferenceSchedulerSummary' {modelName} -> modelName) (\s@InferenceSchedulerSummary' {} a -> s {modelName = a} :: InferenceSchedulerSummary)
 
 -- | How often data is uploaded to the source S3 bucket for the input data.
 -- This value is the length of time between data uploads. For instance, if
@@ -172,40 +149,64 @@ inferenceSchedulerSummary_dataUploadFrequency = Lens.lens (\InferenceSchedulerSu
 inferenceSchedulerSummary_inferenceSchedulerArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
 inferenceSchedulerSummary_inferenceSchedulerArn = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerArn = a} :: InferenceSchedulerSummary)
 
+-- | The name of the inference scheduler.
+inferenceSchedulerSummary_inferenceSchedulerName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
+inferenceSchedulerSummary_inferenceSchedulerName = Lens.lens (\InferenceSchedulerSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceSchedulerSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceSchedulerSummary)
+
+-- | Indicates whether the latest execution for the inference scheduler was
+-- Anomalous (anomalous events found) or Normal (no anomalous events
+-- found).
+inferenceSchedulerSummary_latestInferenceResult :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe LatestInferenceResult)
+inferenceSchedulerSummary_latestInferenceResult = Lens.lens (\InferenceSchedulerSummary' {latestInferenceResult} -> latestInferenceResult) (\s@InferenceSchedulerSummary' {} a -> s {latestInferenceResult = a} :: InferenceSchedulerSummary)
+
+-- | The Amazon Resource Name (ARN) of the ML model used by the inference
+-- scheduler.
+inferenceSchedulerSummary_modelArn :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
+inferenceSchedulerSummary_modelArn = Lens.lens (\InferenceSchedulerSummary' {modelArn} -> modelArn) (\s@InferenceSchedulerSummary' {} a -> s {modelArn = a} :: InferenceSchedulerSummary)
+
+-- | The name of the ML model used for the inference scheduler.
+inferenceSchedulerSummary_modelName :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe Prelude.Text)
+inferenceSchedulerSummary_modelName = Lens.lens (\InferenceSchedulerSummary' {modelName} -> modelName) (\s@InferenceSchedulerSummary' {} a -> s {modelName = a} :: InferenceSchedulerSummary)
+
+-- | Indicates the status of the inference scheduler.
+inferenceSchedulerSummary_status :: Lens.Lens' InferenceSchedulerSummary (Prelude.Maybe InferenceSchedulerStatus)
+inferenceSchedulerSummary_status = Lens.lens (\InferenceSchedulerSummary' {status} -> status) (\s@InferenceSchedulerSummary' {} a -> s {status = a} :: InferenceSchedulerSummary)
+
 instance Data.FromJSON InferenceSchedulerSummary where
   parseJSON =
     Data.withObject
       "InferenceSchedulerSummary"
       ( \x ->
           InferenceSchedulerSummary'
-            Prelude.<$> (x Data..:? "InferenceSchedulerName")
-            Prelude.<*> (x Data..:? "DataDelayOffsetInMinutes")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ModelArn")
-            Prelude.<*> (x Data..:? "LatestInferenceResult")
-            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<$> (x Data..:? "DataDelayOffsetInMinutes")
             Prelude.<*> (x Data..:? "DataUploadFrequency")
             Prelude.<*> (x Data..:? "InferenceSchedulerArn")
+            Prelude.<*> (x Data..:? "InferenceSchedulerName")
+            Prelude.<*> (x Data..:? "LatestInferenceResult")
+            Prelude.<*> (x Data..:? "ModelArn")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable InferenceSchedulerSummary where
   hashWithSalt _salt InferenceSchedulerSummary' {..} =
-    _salt `Prelude.hashWithSalt` inferenceSchedulerName
+    _salt
       `Prelude.hashWithSalt` dataDelayOffsetInMinutes
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` modelArn
-      `Prelude.hashWithSalt` latestInferenceResult
-      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` dataUploadFrequency
       `Prelude.hashWithSalt` inferenceSchedulerArn
+      `Prelude.hashWithSalt` inferenceSchedulerName
+      `Prelude.hashWithSalt` latestInferenceResult
+      `Prelude.hashWithSalt` modelArn
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData InferenceSchedulerSummary where
   rnf InferenceSchedulerSummary' {..} =
-    Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf modelArn
-      `Prelude.seq` Prelude.rnf latestInferenceResult
-      `Prelude.seq` Prelude.rnf modelName
+    Prelude.rnf dataDelayOffsetInMinutes
       `Prelude.seq` Prelude.rnf dataUploadFrequency
       `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
+      `Prelude.seq` Prelude.rnf latestInferenceResult
+      `Prelude.seq` Prelude.rnf modelArn
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf status

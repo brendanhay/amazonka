@@ -34,11 +34,11 @@ module Amazonka.LookoutEquipment.DescribeLabelGroup
     newDescribeLabelGroupResponse,
 
     -- * Response Lenses
+    describeLabelGroupResponse_createdAt,
     describeLabelGroupResponse_faultCodes,
     describeLabelGroupResponse_labelGroupArn,
-    describeLabelGroupResponse_createdAt,
-    describeLabelGroupResponse_updatedAt,
     describeLabelGroupResponse_labelGroupName,
+    describeLabelGroupResponse_updatedAt,
     describeLabelGroupResponse_httpStatus,
   )
 where
@@ -91,11 +91,11 @@ instance Core.AWSRequest DescribeLabelGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeLabelGroupResponse'
-            Prelude.<$> (x Data..?> "FaultCodes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "FaultCodes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "LabelGroupArn")
-            Prelude.<*> (x Data..?> "CreatedAt")
-            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (x Data..?> "LabelGroupName")
+            Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,17 +139,17 @@ instance Data.ToQuery DescribeLabelGroup where
 
 -- | /See:/ 'newDescribeLabelGroupResponse' smart constructor.
 data DescribeLabelGroupResponse = DescribeLabelGroupResponse'
-  { -- | Codes indicating the type of anomaly associated with the labels in the
+  { -- | The time at which the label group was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Codes indicating the type of anomaly associated with the labels in the
     -- lagbel group.
     faultCodes :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of the label group.
     labelGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the label group was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The time at which the label group was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the label group.
     labelGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the label group was updated.
+    updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,16 +163,16 @@ data DescribeLabelGroupResponse = DescribeLabelGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'describeLabelGroupResponse_createdAt' - The time at which the label group was created.
+--
 -- 'faultCodes', 'describeLabelGroupResponse_faultCodes' - Codes indicating the type of anomaly associated with the labels in the
 -- lagbel group.
 --
 -- 'labelGroupArn', 'describeLabelGroupResponse_labelGroupArn' - The ARN of the label group.
 --
--- 'createdAt', 'describeLabelGroupResponse_createdAt' - The time at which the label group was created.
+-- 'labelGroupName', 'describeLabelGroupResponse_labelGroupName' - The name of the label group.
 --
 -- 'updatedAt', 'describeLabelGroupResponse_updatedAt' - The time at which the label group was updated.
---
--- 'labelGroupName', 'describeLabelGroupResponse_labelGroupName' - The name of the label group.
 --
 -- 'httpStatus', 'describeLabelGroupResponse_httpStatus' - The response's http status code.
 newDescribeLabelGroupResponse ::
@@ -181,14 +181,18 @@ newDescribeLabelGroupResponse ::
   DescribeLabelGroupResponse
 newDescribeLabelGroupResponse pHttpStatus_ =
   DescribeLabelGroupResponse'
-    { faultCodes =
+    { createdAt =
         Prelude.Nothing,
+      faultCodes = Prelude.Nothing,
       labelGroupArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
       labelGroupName = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time at which the label group was created.
+describeLabelGroupResponse_createdAt :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeLabelGroupResponse_createdAt = Lens.lens (\DescribeLabelGroupResponse' {createdAt} -> createdAt) (\s@DescribeLabelGroupResponse' {} a -> s {createdAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Codes indicating the type of anomaly associated with the labels in the
 -- lagbel group.
@@ -199,17 +203,13 @@ describeLabelGroupResponse_faultCodes = Lens.lens (\DescribeLabelGroupResponse' 
 describeLabelGroupResponse_labelGroupArn :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.Text)
 describeLabelGroupResponse_labelGroupArn = Lens.lens (\DescribeLabelGroupResponse' {labelGroupArn} -> labelGroupArn) (\s@DescribeLabelGroupResponse' {} a -> s {labelGroupArn = a} :: DescribeLabelGroupResponse)
 
--- | The time at which the label group was created.
-describeLabelGroupResponse_createdAt :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLabelGroupResponse_createdAt = Lens.lens (\DescribeLabelGroupResponse' {createdAt} -> createdAt) (\s@DescribeLabelGroupResponse' {} a -> s {createdAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Data._Time
+-- | The name of the label group.
+describeLabelGroupResponse_labelGroupName :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.Text)
+describeLabelGroupResponse_labelGroupName = Lens.lens (\DescribeLabelGroupResponse' {labelGroupName} -> labelGroupName) (\s@DescribeLabelGroupResponse' {} a -> s {labelGroupName = a} :: DescribeLabelGroupResponse)
 
 -- | The time at which the label group was updated.
 describeLabelGroupResponse_updatedAt :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.UTCTime)
 describeLabelGroupResponse_updatedAt = Lens.lens (\DescribeLabelGroupResponse' {updatedAt} -> updatedAt) (\s@DescribeLabelGroupResponse' {} a -> s {updatedAt = a} :: DescribeLabelGroupResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name of the label group.
-describeLabelGroupResponse_labelGroupName :: Lens.Lens' DescribeLabelGroupResponse (Prelude.Maybe Prelude.Text)
-describeLabelGroupResponse_labelGroupName = Lens.lens (\DescribeLabelGroupResponse' {labelGroupName} -> labelGroupName) (\s@DescribeLabelGroupResponse' {} a -> s {labelGroupName = a} :: DescribeLabelGroupResponse)
 
 -- | The response's http status code.
 describeLabelGroupResponse_httpStatus :: Lens.Lens' DescribeLabelGroupResponse Prelude.Int
@@ -217,9 +217,9 @@ describeLabelGroupResponse_httpStatus = Lens.lens (\DescribeLabelGroupResponse' 
 
 instance Prelude.NFData DescribeLabelGroupResponse where
   rnf DescribeLabelGroupResponse' {..} =
-    Prelude.rnf faultCodes
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf faultCodes
       `Prelude.seq` Prelude.rnf labelGroupArn
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf labelGroupName
+      `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

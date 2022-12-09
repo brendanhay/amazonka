@@ -30,8 +30,8 @@ module Amazonka.LookoutEquipment.ListSensorStatistics
 
     -- * Request Lenses
     listSensorStatistics_ingestionJobId,
-    listSensorStatistics_nextToken,
     listSensorStatistics_maxResults,
+    listSensorStatistics_nextToken,
     listSensorStatistics_datasetName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.LookoutEquipment.ListSensorStatistics
     newListSensorStatisticsResponse,
 
     -- * Response Lenses
-    listSensorStatisticsResponse_sensorStatisticsSummaries,
     listSensorStatisticsResponse_nextToken,
+    listSensorStatisticsResponse_sensorStatisticsSummaries,
     listSensorStatisticsResponse_httpStatus,
   )
 where
@@ -59,12 +59,12 @@ data ListSensorStatistics = ListSensorStatistics'
     -- get sensor statistics for a particular ingestion job id, both dataset
     -- name and ingestion job id must be submitted as inputs.
     ingestionJobId :: Prelude.Maybe Prelude.Text,
-    -- | An opaque pagination token indicating where to continue the listing of
-    -- sensor statistics.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum number of sensors for which to retrieve
     -- statistics.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque pagination token indicating where to continue the listing of
+    -- sensor statistics.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the dataset associated with the list of Sensor Statistics.
     datasetName :: Prelude.Text
   }
@@ -82,11 +82,11 @@ data ListSensorStatistics = ListSensorStatistics'
 -- get sensor statistics for a particular ingestion job id, both dataset
 -- name and ingestion job id must be submitted as inputs.
 --
--- 'nextToken', 'listSensorStatistics_nextToken' - An opaque pagination token indicating where to continue the listing of
--- sensor statistics.
---
 -- 'maxResults', 'listSensorStatistics_maxResults' - Specifies the maximum number of sensors for which to retrieve
 -- statistics.
+--
+-- 'nextToken', 'listSensorStatistics_nextToken' - An opaque pagination token indicating where to continue the listing of
+-- sensor statistics.
 --
 -- 'datasetName', 'listSensorStatistics_datasetName' - The name of the dataset associated with the list of Sensor Statistics.
 newListSensorStatistics ::
@@ -97,8 +97,8 @@ newListSensorStatistics pDatasetName_ =
   ListSensorStatistics'
     { ingestionJobId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       datasetName = pDatasetName_
     }
 
@@ -108,15 +108,15 @@ newListSensorStatistics pDatasetName_ =
 listSensorStatistics_ingestionJobId :: Lens.Lens' ListSensorStatistics (Prelude.Maybe Prelude.Text)
 listSensorStatistics_ingestionJobId = Lens.lens (\ListSensorStatistics' {ingestionJobId} -> ingestionJobId) (\s@ListSensorStatistics' {} a -> s {ingestionJobId = a} :: ListSensorStatistics)
 
--- | An opaque pagination token indicating where to continue the listing of
--- sensor statistics.
-listSensorStatistics_nextToken :: Lens.Lens' ListSensorStatistics (Prelude.Maybe Prelude.Text)
-listSensorStatistics_nextToken = Lens.lens (\ListSensorStatistics' {nextToken} -> nextToken) (\s@ListSensorStatistics' {} a -> s {nextToken = a} :: ListSensorStatistics)
-
 -- | Specifies the maximum number of sensors for which to retrieve
 -- statistics.
 listSensorStatistics_maxResults :: Lens.Lens' ListSensorStatistics (Prelude.Maybe Prelude.Natural)
 listSensorStatistics_maxResults = Lens.lens (\ListSensorStatistics' {maxResults} -> maxResults) (\s@ListSensorStatistics' {} a -> s {maxResults = a} :: ListSensorStatistics)
+
+-- | An opaque pagination token indicating where to continue the listing of
+-- sensor statistics.
+listSensorStatistics_nextToken :: Lens.Lens' ListSensorStatistics (Prelude.Maybe Prelude.Text)
+listSensorStatistics_nextToken = Lens.lens (\ListSensorStatistics' {nextToken} -> nextToken) (\s@ListSensorStatistics' {} a -> s {nextToken = a} :: ListSensorStatistics)
 
 -- | The name of the dataset associated with the list of Sensor Statistics.
 listSensorStatistics_datasetName :: Lens.Lens' ListSensorStatistics Prelude.Text
@@ -132,25 +132,25 @@ instance Core.AWSRequest ListSensorStatistics where
     Response.receiveJSON
       ( \s h x ->
           ListSensorStatisticsResponse'
-            Prelude.<$> ( x Data..?> "SensorStatisticsSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SensorStatisticsSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSensorStatistics where
   hashWithSalt _salt ListSensorStatistics' {..} =
     _salt `Prelude.hashWithSalt` ingestionJobId
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` datasetName
 
 instance Prelude.NFData ListSensorStatistics where
   rnf ListSensorStatistics' {..} =
     Prelude.rnf ingestionJobId
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf datasetName
 
 instance Data.ToHeaders ListSensorStatistics where
@@ -174,8 +174,8 @@ instance Data.ToJSON ListSensorStatistics where
       ( Prelude.catMaybes
           [ ("IngestionJobId" Data..=)
               Prelude.<$> ingestionJobId,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DatasetName" Data..= datasetName)
           ]
       )
@@ -188,14 +188,14 @@ instance Data.ToQuery ListSensorStatistics where
 
 -- | /See:/ 'newListSensorStatisticsResponse' smart constructor.
 data ListSensorStatisticsResponse = ListSensorStatisticsResponse'
-  { -- | Provides ingestion-based statistics regarding the specified sensor with
+  { -- | An opaque pagination token indicating where to continue the listing of
+    -- sensor statistics.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Provides ingestion-based statistics regarding the specified sensor with
     -- respect to various validation types, such as whether data exists, the
     -- number and percentage of missing values, and the number and percentage
     -- of duplicate timestamps.
     sensorStatisticsSummaries :: Prelude.Maybe [SensorStatisticsSummary],
-    -- | An opaque pagination token indicating where to continue the listing of
-    -- sensor statistics.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,13 +209,13 @@ data ListSensorStatisticsResponse = ListSensorStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listSensorStatisticsResponse_nextToken' - An opaque pagination token indicating where to continue the listing of
+-- sensor statistics.
+--
 -- 'sensorStatisticsSummaries', 'listSensorStatisticsResponse_sensorStatisticsSummaries' - Provides ingestion-based statistics regarding the specified sensor with
 -- respect to various validation types, such as whether data exists, the
 -- number and percentage of missing values, and the number and percentage
 -- of duplicate timestamps.
---
--- 'nextToken', 'listSensorStatisticsResponse_nextToken' - An opaque pagination token indicating where to continue the listing of
--- sensor statistics.
 --
 -- 'httpStatus', 'listSensorStatisticsResponse_httpStatus' - The response's http status code.
 newListSensorStatisticsResponse ::
@@ -224,11 +224,16 @@ newListSensorStatisticsResponse ::
   ListSensorStatisticsResponse
 newListSensorStatisticsResponse pHttpStatus_ =
   ListSensorStatisticsResponse'
-    { sensorStatisticsSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sensorStatisticsSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An opaque pagination token indicating where to continue the listing of
+-- sensor statistics.
+listSensorStatisticsResponse_nextToken :: Lens.Lens' ListSensorStatisticsResponse (Prelude.Maybe Prelude.Text)
+listSensorStatisticsResponse_nextToken = Lens.lens (\ListSensorStatisticsResponse' {nextToken} -> nextToken) (\s@ListSensorStatisticsResponse' {} a -> s {nextToken = a} :: ListSensorStatisticsResponse)
 
 -- | Provides ingestion-based statistics regarding the specified sensor with
 -- respect to various validation types, such as whether data exists, the
@@ -237,17 +242,12 @@ newListSensorStatisticsResponse pHttpStatus_ =
 listSensorStatisticsResponse_sensorStatisticsSummaries :: Lens.Lens' ListSensorStatisticsResponse (Prelude.Maybe [SensorStatisticsSummary])
 listSensorStatisticsResponse_sensorStatisticsSummaries = Lens.lens (\ListSensorStatisticsResponse' {sensorStatisticsSummaries} -> sensorStatisticsSummaries) (\s@ListSensorStatisticsResponse' {} a -> s {sensorStatisticsSummaries = a} :: ListSensorStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An opaque pagination token indicating where to continue the listing of
--- sensor statistics.
-listSensorStatisticsResponse_nextToken :: Lens.Lens' ListSensorStatisticsResponse (Prelude.Maybe Prelude.Text)
-listSensorStatisticsResponse_nextToken = Lens.lens (\ListSensorStatisticsResponse' {nextToken} -> nextToken) (\s@ListSensorStatisticsResponse' {} a -> s {nextToken = a} :: ListSensorStatisticsResponse)
-
 -- | The response's http status code.
 listSensorStatisticsResponse_httpStatus :: Lens.Lens' ListSensorStatisticsResponse Prelude.Int
 listSensorStatisticsResponse_httpStatus = Lens.lens (\ListSensorStatisticsResponse' {httpStatus} -> httpStatus) (\s@ListSensorStatisticsResponse' {} a -> s {httpStatus = a} :: ListSensorStatisticsResponse)
 
 instance Prelude.NFData ListSensorStatisticsResponse where
   rnf ListSensorStatisticsResponse' {..} =
-    Prelude.rnf sensorStatisticsSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sensorStatisticsSummaries
       `Prelude.seq` Prelude.rnf httpStatus

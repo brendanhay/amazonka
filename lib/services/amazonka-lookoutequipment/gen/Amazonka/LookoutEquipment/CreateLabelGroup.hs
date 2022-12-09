@@ -27,8 +27,8 @@ module Amazonka.LookoutEquipment.CreateLabelGroup
     newCreateLabelGroup,
 
     -- * Request Lenses
-    createLabelGroup_tags,
     createLabelGroup_faultCodes,
+    createLabelGroup_tags,
     createLabelGroup_labelGroupName,
     createLabelGroup_clientToken,
 
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLabelGroup' smart constructor.
 data CreateLabelGroup = CreateLabelGroup'
-  { -- | Tags that provide metadata about the label group you are creating.
-    --
-    -- Data in this field will be retained for service usage. Follow best
-    -- practices for the security of your data.
-    tags :: Prelude.Maybe [Tag],
-    -- | The acceptable fault codes (indicating the type of anomaly associated
+  { -- | The acceptable fault codes (indicating the type of anomaly associated
     -- with the label) that can be used with this label group.
     --
     -- Data in this field will be retained for service usage. Follow best
     -- practices for the security of your data.
     faultCodes :: Prelude.Maybe [Prelude.Text],
+    -- | Tags that provide metadata about the label group you are creating.
+    --
+    -- Data in this field will be retained for service usage. Follow best
+    -- practices for the security of your data.
+    tags :: Prelude.Maybe [Tag],
     -- | Names a group of labels.
     --
     -- Data in this field will be retained for service usage. Follow best
@@ -83,13 +83,13 @@ data CreateLabelGroup = CreateLabelGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLabelGroup_tags' - Tags that provide metadata about the label group you are creating.
+-- 'faultCodes', 'createLabelGroup_faultCodes' - The acceptable fault codes (indicating the type of anomaly associated
+-- with the label) that can be used with this label group.
 --
 -- Data in this field will be retained for service usage. Follow best
 -- practices for the security of your data.
 --
--- 'faultCodes', 'createLabelGroup_faultCodes' - The acceptable fault codes (indicating the type of anomaly associated
--- with the label) that can be used with this label group.
+-- 'tags', 'createLabelGroup_tags' - Tags that provide metadata about the label group you are creating.
 --
 -- Data in this field will be retained for service usage. Follow best
 -- practices for the security of your data.
@@ -109,18 +109,11 @@ newCreateLabelGroup ::
   CreateLabelGroup
 newCreateLabelGroup pLabelGroupName_ pClientToken_ =
   CreateLabelGroup'
-    { tags = Prelude.Nothing,
-      faultCodes = Prelude.Nothing,
+    { faultCodes = Prelude.Nothing,
+      tags = Prelude.Nothing,
       labelGroupName = pLabelGroupName_,
       clientToken = pClientToken_
     }
-
--- | Tags that provide metadata about the label group you are creating.
---
--- Data in this field will be retained for service usage. Follow best
--- practices for the security of your data.
-createLabelGroup_tags :: Lens.Lens' CreateLabelGroup (Prelude.Maybe [Tag])
-createLabelGroup_tags = Lens.lens (\CreateLabelGroup' {tags} -> tags) (\s@CreateLabelGroup' {} a -> s {tags = a} :: CreateLabelGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The acceptable fault codes (indicating the type of anomaly associated
 -- with the label) that can be used with this label group.
@@ -129,6 +122,13 @@ createLabelGroup_tags = Lens.lens (\CreateLabelGroup' {tags} -> tags) (\s@Create
 -- practices for the security of your data.
 createLabelGroup_faultCodes :: Lens.Lens' CreateLabelGroup (Prelude.Maybe [Prelude.Text])
 createLabelGroup_faultCodes = Lens.lens (\CreateLabelGroup' {faultCodes} -> faultCodes) (\s@CreateLabelGroup' {} a -> s {faultCodes = a} :: CreateLabelGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Tags that provide metadata about the label group you are creating.
+--
+-- Data in this field will be retained for service usage. Follow best
+-- practices for the security of your data.
+createLabelGroup_tags :: Lens.Lens' CreateLabelGroup (Prelude.Maybe [Tag])
+createLabelGroup_tags = Lens.lens (\CreateLabelGroup' {tags} -> tags) (\s@CreateLabelGroup' {} a -> s {tags = a} :: CreateLabelGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Names a group of labels.
 --
@@ -159,15 +159,15 @@ instance Core.AWSRequest CreateLabelGroup where
 
 instance Prelude.Hashable CreateLabelGroup where
   hashWithSalt _salt CreateLabelGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` faultCodes
+    _salt `Prelude.hashWithSalt` faultCodes
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` labelGroupName
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateLabelGroup where
   rnf CreateLabelGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf faultCodes
+    Prelude.rnf faultCodes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf labelGroupName
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -190,8 +190,8 @@ instance Data.ToJSON CreateLabelGroup where
   toJSON CreateLabelGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("FaultCodes" Data..=) Prelude.<$> faultCodes,
+          [ ("FaultCodes" Data..=) Prelude.<$> faultCodes,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("LabelGroupName" Data..= labelGroupName),
             Prelude.Just ("ClientToken" Data..= clientToken)

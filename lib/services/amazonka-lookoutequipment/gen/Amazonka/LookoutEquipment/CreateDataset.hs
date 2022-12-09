@@ -31,9 +31,9 @@ module Amazonka.LookoutEquipment.CreateDataset
     newCreateDataset,
 
     -- * Request Lenses
-    createDataset_tags,
-    createDataset_serverSideKmsKeyId,
     createDataset_datasetSchema,
+    createDataset_serverSideKmsKeyId,
+    createDataset_tags,
     createDataset_datasetName,
     createDataset_clientToken,
 
@@ -42,9 +42,9 @@ module Amazonka.LookoutEquipment.CreateDataset
     newCreateDatasetResponse,
 
     -- * Response Lenses
+    createDatasetResponse_datasetArn,
     createDatasetResponse_datasetName,
     createDatasetResponse_status,
-    createDatasetResponse_datasetArn,
     createDatasetResponse_httpStatus,
   )
 where
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { -- | Any tags associated with the ingested data described in the dataset.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A JSON description of the data that is in each time series dataset,
+    -- including names, column names, and data types.
+    datasetSchema :: Prelude.Maybe DatasetSchema,
     -- | Provides the identifier of the KMS key used to encrypt dataset data by
     -- Amazon Lookout for Equipment.
     serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A JSON description of the data that is in each time series dataset,
-    -- including names, column names, and data types.
-    datasetSchema :: Prelude.Maybe DatasetSchema,
+    -- | Any tags associated with the ingested data described in the dataset.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the dataset being created.
     datasetName :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
@@ -83,13 +83,13 @@ data CreateDataset = CreateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDataset_tags' - Any tags associated with the ingested data described in the dataset.
+-- 'datasetSchema', 'createDataset_datasetSchema' - A JSON description of the data that is in each time series dataset,
+-- including names, column names, and data types.
 --
 -- 'serverSideKmsKeyId', 'createDataset_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
 --
--- 'datasetSchema', 'createDataset_datasetSchema' - A JSON description of the data that is in each time series dataset,
--- including names, column names, and data types.
+-- 'tags', 'createDataset_tags' - Any tags associated with the ingested data described in the dataset.
 --
 -- 'datasetName', 'createDataset_datasetName' - The name of the dataset being created.
 --
@@ -103,26 +103,26 @@ newCreateDataset ::
   CreateDataset
 newCreateDataset pDatasetName_ pClientToken_ =
   CreateDataset'
-    { tags = Prelude.Nothing,
+    { datasetSchema = Prelude.Nothing,
       serverSideKmsKeyId = Prelude.Nothing,
-      datasetSchema = Prelude.Nothing,
+      tags = Prelude.Nothing,
       datasetName = pDatasetName_,
       clientToken = pClientToken_
     }
 
--- | Any tags associated with the ingested data described in the dataset.
-createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
-createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
+-- | A JSON description of the data that is in each time series dataset,
+-- including names, column names, and data types.
+createDataset_datasetSchema :: Lens.Lens' CreateDataset (Prelude.Maybe DatasetSchema)
+createDataset_datasetSchema = Lens.lens (\CreateDataset' {datasetSchema} -> datasetSchema) (\s@CreateDataset' {} a -> s {datasetSchema = a} :: CreateDataset)
 
 -- | Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
 createDataset_serverSideKmsKeyId :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
 createDataset_serverSideKmsKeyId = Lens.lens (\CreateDataset' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@CreateDataset' {} a -> s {serverSideKmsKeyId = a} :: CreateDataset)
 
--- | A JSON description of the data that is in each time series dataset,
--- including names, column names, and data types.
-createDataset_datasetSchema :: Lens.Lens' CreateDataset (Prelude.Maybe DatasetSchema)
-createDataset_datasetSchema = Lens.lens (\CreateDataset' {datasetSchema} -> datasetSchema) (\s@CreateDataset' {} a -> s {datasetSchema = a} :: CreateDataset)
+-- | Any tags associated with the ingested data described in the dataset.
+createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
+createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the dataset being created.
 createDataset_datasetName :: Lens.Lens' CreateDataset Prelude.Text
@@ -143,25 +143,25 @@ instance Core.AWSRequest CreateDataset where
     Response.receiveJSON
       ( \s h x ->
           CreateDatasetResponse'
-            Prelude.<$> (x Data..?> "DatasetName")
+            Prelude.<$> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "DatasetName")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "DatasetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` datasetSchema
       `Prelude.hashWithSalt` serverSideKmsKeyId
-      `Prelude.hashWithSalt` datasetSchema
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf tags
+    Prelude.rnf datasetSchema
       `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf datasetSchema
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -184,10 +184,10 @@ instance Data.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DatasetSchema" Data..=) Prelude.<$> datasetSchema,
             ("ServerSideKmsKeyId" Data..=)
               Prelude.<$> serverSideKmsKeyId,
-            ("DatasetSchema" Data..=) Prelude.<$> datasetSchema,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DatasetName" Data..= datasetName),
             Prelude.Just ("ClientToken" Data..= clientToken)
           ]
@@ -201,12 +201,12 @@ instance Data.ToQuery CreateDataset where
 
 -- | /See:/ 'newCreateDatasetResponse' smart constructor.
 data CreateDatasetResponse = CreateDatasetResponse'
-  { -- | The name of the dataset being created.
+  { -- | The Amazon Resource Name (ARN) of the dataset being created.
+    datasetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dataset being created.
     datasetName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the @CreateDataset@ operation.
     status :: Prelude.Maybe DatasetStatus,
-    -- | The Amazon Resource Name (ARN) of the dataset being created.
-    datasetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,11 +220,11 @@ data CreateDatasetResponse = CreateDatasetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'datasetArn', 'createDatasetResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset being created.
+--
 -- 'datasetName', 'createDatasetResponse_datasetName' - The name of the dataset being created.
 --
 -- 'status', 'createDatasetResponse_status' - Indicates the status of the @CreateDataset@ operation.
---
--- 'datasetArn', 'createDatasetResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset being created.
 --
 -- 'httpStatus', 'createDatasetResponse_httpStatus' - The response's http status code.
 newCreateDatasetResponse ::
@@ -233,12 +233,16 @@ newCreateDatasetResponse ::
   CreateDatasetResponse
 newCreateDatasetResponse pHttpStatus_ =
   CreateDatasetResponse'
-    { datasetName =
+    { datasetArn =
         Prelude.Nothing,
+      datasetName = Prelude.Nothing,
       status = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the dataset being created.
+createDatasetResponse_datasetArn :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
+createDatasetResponse_datasetArn = Lens.lens (\CreateDatasetResponse' {datasetArn} -> datasetArn) (\s@CreateDatasetResponse' {} a -> s {datasetArn = a} :: CreateDatasetResponse)
 
 -- | The name of the dataset being created.
 createDatasetResponse_datasetName :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
@@ -248,17 +252,13 @@ createDatasetResponse_datasetName = Lens.lens (\CreateDatasetResponse' {datasetN
 createDatasetResponse_status :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe DatasetStatus)
 createDatasetResponse_status = Lens.lens (\CreateDatasetResponse' {status} -> status) (\s@CreateDatasetResponse' {} a -> s {status = a} :: CreateDatasetResponse)
 
--- | The Amazon Resource Name (ARN) of the dataset being created.
-createDatasetResponse_datasetArn :: Lens.Lens' CreateDatasetResponse (Prelude.Maybe Prelude.Text)
-createDatasetResponse_datasetArn = Lens.lens (\CreateDatasetResponse' {datasetArn} -> datasetArn) (\s@CreateDatasetResponse' {} a -> s {datasetArn = a} :: CreateDatasetResponse)
-
 -- | The response's http status code.
 createDatasetResponse_httpStatus :: Lens.Lens' CreateDatasetResponse Prelude.Int
 createDatasetResponse_httpStatus = Lens.lens (\CreateDatasetResponse' {httpStatus} -> httpStatus) (\s@CreateDatasetResponse' {} a -> s {httpStatus = a} :: CreateDatasetResponse)
 
 instance Prelude.NFData CreateDatasetResponse where
   rnf CreateDatasetResponse' {..} =
-    Prelude.rnf datasetName
+    Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf httpStatus

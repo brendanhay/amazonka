@@ -19,12 +19,12 @@ module Amazonka.LookoutMetrics.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
-    _ValidationException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _TooManyRequestsException,
+    _ValidationException,
 
     -- * AggregationFunction
     AggregationFunction (..),
@@ -77,17 +77,17 @@ module Amazonka.LookoutMetrics.Types
     -- * Alert
     Alert (..),
     newAlert,
-    alert_lastModificationTime,
-    alert_anomalyDetectorArn,
-    alert_alertDescription,
-    alert_alertSensitivityThreshold,
     alert_action,
-    alert_creationTime,
-    alert_alertName,
     alert_alertArn,
+    alert_alertDescription,
+    alert_alertFilters,
+    alert_alertName,
+    alert_alertSensitivityThreshold,
     alert_alertStatus,
     alert_alertType,
-    alert_alertFilters,
+    alert_anomalyDetectorArn,
+    alert_creationTime,
+    alert_lastModificationTime,
 
     -- * AlertFilters
     AlertFilters (..),
@@ -98,15 +98,15 @@ module Amazonka.LookoutMetrics.Types
     -- * AlertSummary
     AlertSummary (..),
     newAlertSummary,
-    alertSummary_lastModificationTime,
-    alertSummary_tags,
-    alertSummary_anomalyDetectorArn,
-    alertSummary_alertSensitivityThreshold,
-    alertSummary_creationTime,
-    alertSummary_alertName,
     alertSummary_alertArn,
+    alertSummary_alertName,
+    alertSummary_alertSensitivityThreshold,
     alertSummary_alertStatus,
     alertSummary_alertType,
+    alertSummary_anomalyDetectorArn,
+    alertSummary_creationTime,
+    alertSummary_lastModificationTime,
+    alertSummary_tags,
 
     -- * AnomalyDetectorConfig
     AnomalyDetectorConfig (..),
@@ -121,29 +121,29 @@ module Amazonka.LookoutMetrics.Types
     -- * AnomalyDetectorDataQualityMetric
     AnomalyDetectorDataQualityMetric (..),
     newAnomalyDetectorDataQualityMetric,
-    anomalyDetectorDataQualityMetric_startTimestamp,
     anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList,
+    anomalyDetectorDataQualityMetric_startTimestamp,
 
     -- * AnomalyDetectorSummary
     AnomalyDetectorSummary (..),
     newAnomalyDetectorSummary,
-    anomalyDetectorSummary_lastModificationTime,
-    anomalyDetectorSummary_tags,
     anomalyDetectorSummary_anomalyDetectorArn,
-    anomalyDetectorSummary_status,
-    anomalyDetectorSummary_anomalyDetectorName,
     anomalyDetectorSummary_anomalyDetectorDescription,
+    anomalyDetectorSummary_anomalyDetectorName,
     anomalyDetectorSummary_creationTime,
+    anomalyDetectorSummary_lastModificationTime,
+    anomalyDetectorSummary_status,
+    anomalyDetectorSummary_tags,
 
     -- * AnomalyGroup
     AnomalyGroup (..),
     newAnomalyGroup,
-    anomalyGroup_anomalyGroupScore,
-    anomalyGroup_metricLevelImpactList,
-    anomalyGroup_endTime,
     anomalyGroup_anomalyGroupId,
-    anomalyGroup_startTime,
+    anomalyGroup_anomalyGroupScore,
+    anomalyGroup_endTime,
+    anomalyGroup_metricLevelImpactList,
     anomalyGroup_primaryMetricName,
+    anomalyGroup_startTime,
 
     -- * AnomalyGroupStatistics
     AnomalyGroupStatistics (..),
@@ -155,11 +155,11 @@ module Amazonka.LookoutMetrics.Types
     -- * AnomalyGroupSummary
     AnomalyGroupSummary (..),
     newAnomalyGroupSummary,
+    anomalyGroupSummary_anomalyGroupId,
     anomalyGroupSummary_anomalyGroupScore,
     anomalyGroupSummary_endTime,
-    anomalyGroupSummary_anomalyGroupId,
-    anomalyGroupSummary_startTime,
     anomalyGroupSummary_primaryMetricName,
+    anomalyGroupSummary_startTime,
 
     -- * AnomalyGroupTimeSeries
     AnomalyGroupTimeSeries (..),
@@ -177,29 +177,29 @@ module Amazonka.LookoutMetrics.Types
     -- * AppFlowConfig
     AppFlowConfig (..),
     newAppFlowConfig,
-    appFlowConfig_roleArn,
     appFlowConfig_flowName,
+    appFlowConfig_roleArn,
 
     -- * AthenaSourceConfig
     AthenaSourceConfig (..),
     newAthenaSourceConfig,
-    athenaSourceConfig_tableName,
-    athenaSourceConfig_roleArn,
+    athenaSourceConfig_backTestConfiguration,
     athenaSourceConfig_dataCatalog,
     athenaSourceConfig_databaseName,
-    athenaSourceConfig_backTestConfiguration,
+    athenaSourceConfig_roleArn,
     athenaSourceConfig_s3ResultsPath,
+    athenaSourceConfig_tableName,
     athenaSourceConfig_workGroupName,
 
     -- * AttributeValue
     AttributeValue (..),
     newAttributeValue,
-    attributeValue_ss,
-    attributeValue_ns,
     attributeValue_b,
-    attributeValue_s,
     attributeValue_bs,
     attributeValue_n,
+    attributeValue_ns,
+    attributeValue_s,
+    attributeValue_ss,
 
     -- * AutoDetectionMetricSource
     AutoDetectionMetricSource (..),
@@ -209,8 +209,8 @@ module Amazonka.LookoutMetrics.Types
     -- * AutoDetectionS3SourceConfig
     AutoDetectionS3SourceConfig (..),
     newAutoDetectionS3SourceConfig,
-    autoDetectionS3SourceConfig_templatedPathList,
     autoDetectionS3SourceConfig_historicalDataPathList,
+    autoDetectionS3SourceConfig_templatedPathList,
 
     -- * BackTestConfiguration
     BackTestConfiguration (..),
@@ -220,8 +220,8 @@ module Amazonka.LookoutMetrics.Types
     -- * CloudWatchConfig
     CloudWatchConfig (..),
     newCloudWatchConfig,
-    cloudWatchConfig_roleArn,
     cloudWatchConfig_backTestConfiguration,
+    cloudWatchConfig_roleArn,
 
     -- * ContributionMatrix
     ContributionMatrix (..),
@@ -231,56 +231,56 @@ module Amazonka.LookoutMetrics.Types
     -- * CsvFormatDescriptor
     CsvFormatDescriptor (..),
     newCsvFormatDescriptor,
-    csvFormatDescriptor_quoteSymbol,
+    csvFormatDescriptor_charset,
     csvFormatDescriptor_containsHeader,
     csvFormatDescriptor_delimiter,
-    csvFormatDescriptor_headerList,
     csvFormatDescriptor_fileCompression,
-    csvFormatDescriptor_charset,
+    csvFormatDescriptor_headerList,
+    csvFormatDescriptor_quoteSymbol,
 
     -- * DataQualityMetric
     DataQualityMetric (..),
     newDataQualityMetric,
+    dataQualityMetric_metricDescription,
+    dataQualityMetric_metricType,
     dataQualityMetric_metricValue,
     dataQualityMetric_relatedColumnName,
-    dataQualityMetric_metricType,
-    dataQualityMetric_metricDescription,
 
     -- * DetectedCsvFormatDescriptor
     DetectedCsvFormatDescriptor (..),
     newDetectedCsvFormatDescriptor,
-    detectedCsvFormatDescriptor_quoteSymbol,
+    detectedCsvFormatDescriptor_charset,
     detectedCsvFormatDescriptor_containsHeader,
     detectedCsvFormatDescriptor_delimiter,
-    detectedCsvFormatDescriptor_headerList,
     detectedCsvFormatDescriptor_fileCompression,
-    detectedCsvFormatDescriptor_charset,
+    detectedCsvFormatDescriptor_headerList,
+    detectedCsvFormatDescriptor_quoteSymbol,
 
     -- * DetectedField
     DetectedField (..),
     newDetectedField,
-    detectedField_message,
     detectedField_confidence,
+    detectedField_message,
     detectedField_value,
 
     -- * DetectedFileFormatDescriptor
     DetectedFileFormatDescriptor (..),
     newDetectedFileFormatDescriptor,
-    detectedFileFormatDescriptor_jsonFormatDescriptor,
     detectedFileFormatDescriptor_csvFormatDescriptor,
+    detectedFileFormatDescriptor_jsonFormatDescriptor,
 
     -- * DetectedJsonFormatDescriptor
     DetectedJsonFormatDescriptor (..),
     newDetectedJsonFormatDescriptor,
-    detectedJsonFormatDescriptor_fileCompression,
     detectedJsonFormatDescriptor_charset,
+    detectedJsonFormatDescriptor_fileCompression,
 
     -- * DetectedMetricSetConfig
     DetectedMetricSetConfig (..),
     newDetectedMetricSetConfig,
-    detectedMetricSetConfig_offset,
-    detectedMetricSetConfig_metricSource,
     detectedMetricSetConfig_metricSetFrequency,
+    detectedMetricSetConfig_metricSource,
+    detectedMetricSetConfig_offset,
 
     -- * DetectedMetricSource
     DetectedMetricSource (..),
@@ -301,8 +301,8 @@ module Amazonka.LookoutMetrics.Types
     -- * DimensionFilter
     DimensionFilter (..),
     newDimensionFilter,
-    dimensionFilter_dimensionValueList,
     dimensionFilter_dimensionName,
+    dimensionFilter_dimensionValueList,
 
     -- * DimensionNameValue
     DimensionNameValue (..),
@@ -313,21 +313,21 @@ module Amazonka.LookoutMetrics.Types
     -- * DimensionValueContribution
     DimensionValueContribution (..),
     newDimensionValueContribution,
-    dimensionValueContribution_dimensionValue,
     dimensionValueContribution_contributionScore,
+    dimensionValueContribution_dimensionValue,
 
     -- * ExecutionStatus
     ExecutionStatus (..),
     newExecutionStatus,
-    executionStatus_timestamp,
-    executionStatus_status,
     executionStatus_failureReason,
+    executionStatus_status,
+    executionStatus_timestamp,
 
     -- * FileFormatDescriptor
     FileFormatDescriptor (..),
     newFileFormatDescriptor,
-    fileFormatDescriptor_jsonFormatDescriptor,
     fileFormatDescriptor_csvFormatDescriptor,
+    fileFormatDescriptor_jsonFormatDescriptor,
 
     -- * Filter
     Filter (..),
@@ -339,21 +339,21 @@ module Amazonka.LookoutMetrics.Types
     InterMetricImpactDetails (..),
     newInterMetricImpactDetails,
     interMetricImpactDetails_anomalyGroupId,
-    interMetricImpactDetails_relationshipType,
-    interMetricImpactDetails_metricName,
     interMetricImpactDetails_contributionPercentage,
+    interMetricImpactDetails_metricName,
+    interMetricImpactDetails_relationshipType,
 
     -- * ItemizedMetricStats
     ItemizedMetricStats (..),
     newItemizedMetricStats,
-    itemizedMetricStats_occurrenceCount,
     itemizedMetricStats_metricName,
+    itemizedMetricStats_occurrenceCount,
 
     -- * JsonFormatDescriptor
     JsonFormatDescriptor (..),
     newJsonFormatDescriptor,
-    jsonFormatDescriptor_fileCompression,
     jsonFormatDescriptor_charset,
+    jsonFormatDescriptor_fileCompression,
 
     -- * LambdaConfiguration
     LambdaConfiguration (..),
@@ -372,8 +372,8 @@ module Amazonka.LookoutMetrics.Types
     MetricLevelImpact (..),
     newMetricLevelImpact,
     metricLevelImpact_contributionMatrix,
-    metricLevelImpact_numTimeSeries,
     metricLevelImpact_metricName,
+    metricLevelImpact_numTimeSeries,
 
     -- * MetricSetDataQualityMetric
     MetricSetDataQualityMetric (..),
@@ -384,61 +384,61 @@ module Amazonka.LookoutMetrics.Types
     -- * MetricSetDimensionFilter
     MetricSetDimensionFilter (..),
     newMetricSetDimensionFilter,
-    metricSetDimensionFilter_name,
     metricSetDimensionFilter_filterList,
+    metricSetDimensionFilter_name,
 
     -- * MetricSetSummary
     MetricSetSummary (..),
     newMetricSetSummary,
-    metricSetSummary_lastModificationTime,
-    metricSetSummary_tags,
-    metricSetSummary_metricSetDescription,
     metricSetSummary_anomalyDetectorArn,
-    metricSetSummary_metricSetName,
-    metricSetSummary_metricSetArn,
     metricSetSummary_creationTime,
+    metricSetSummary_lastModificationTime,
+    metricSetSummary_metricSetArn,
+    metricSetSummary_metricSetDescription,
+    metricSetSummary_metricSetName,
+    metricSetSummary_tags,
 
     -- * MetricSource
     MetricSource (..),
     newMetricSource,
-    metricSource_s3SourceConfig,
-    metricSource_cloudWatchConfig,
     metricSource_appFlowConfig,
     metricSource_athenaSourceConfig,
+    metricSource_cloudWatchConfig,
     metricSource_rDSSourceConfig,
     metricSource_redshiftSourceConfig,
+    metricSource_s3SourceConfig,
 
     -- * RDSSourceConfig
     RDSSourceConfig (..),
     newRDSSourceConfig,
-    rDSSourceConfig_vpcConfiguration,
-    rDSSourceConfig_tableName,
-    rDSSourceConfig_roleArn,
     rDSSourceConfig_dbInstanceIdentifier,
-    rDSSourceConfig_databaseName,
     rDSSourceConfig_databaseHost,
+    rDSSourceConfig_databaseName,
     rDSSourceConfig_databasePort,
+    rDSSourceConfig_roleArn,
     rDSSourceConfig_secretManagerArn,
+    rDSSourceConfig_tableName,
+    rDSSourceConfig_vpcConfiguration,
 
     -- * RedshiftSourceConfig
     RedshiftSourceConfig (..),
     newRedshiftSourceConfig,
-    redshiftSourceConfig_vpcConfiguration,
-    redshiftSourceConfig_tableName,
     redshiftSourceConfig_clusterIdentifier,
-    redshiftSourceConfig_roleArn,
-    redshiftSourceConfig_databaseName,
     redshiftSourceConfig_databaseHost,
+    redshiftSourceConfig_databaseName,
     redshiftSourceConfig_databasePort,
+    redshiftSourceConfig_roleArn,
     redshiftSourceConfig_secretManagerArn,
+    redshiftSourceConfig_tableName,
+    redshiftSourceConfig_vpcConfiguration,
 
     -- * S3SourceConfig
     S3SourceConfig (..),
     newS3SourceConfig,
-    s3SourceConfig_roleArn,
     s3SourceConfig_fileFormatDescriptor,
-    s3SourceConfig_templatedPathList,
     s3SourceConfig_historicalDataPathList,
+    s3SourceConfig_roleArn,
+    s3SourceConfig_templatedPathList,
 
     -- * SNSConfiguration
     SNSConfiguration (..),
@@ -450,8 +450,8 @@ module Amazonka.LookoutMetrics.Types
     -- * SampleDataS3SourceConfig
     SampleDataS3SourceConfig (..),
     newSampleDataS3SourceConfig,
-    sampleDataS3SourceConfig_templatedPathList,
     sampleDataS3SourceConfig_historicalDataPathList,
+    sampleDataS3SourceConfig_templatedPathList,
     sampleDataS3SourceConfig_roleArn,
     sampleDataS3SourceConfig_fileFormatDescriptor,
 
@@ -471,8 +471,8 @@ module Amazonka.LookoutMetrics.Types
     -- * TimestampColumn
     TimestampColumn (..),
     newTimestampColumn,
-    timestampColumn_columnName,
     timestampColumn_columnFormat,
+    timestampColumn_columnName,
 
     -- * VpcConfiguration
     VpcConfiguration (..),
@@ -582,28 +582,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -611,13 +605,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -625,6 +623,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
@@ -635,6 +635,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | There was a conflict processing the request. Try your request again.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The request processing has failed because of an unknown error,
 -- exception, or failure.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -643,15 +651,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The request exceeded the service\'s quotas. Check the service quotas and
--- try again.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The specified resource cannot be found. Check the ARN of the resource
 -- and try again.
@@ -662,22 +661,14 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 400
 
--- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request exceeded the service\'s quotas. Check the service quotas and
+-- try again.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The input fails to satisfy the constraints specified by the AWS service.
--- Check your input values and try again.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to too many requests being submitted at the
 -- same time.
@@ -687,3 +678,12 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | The input fails to satisfy the constraints specified by the AWS service.
+-- Check your input values and try again.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

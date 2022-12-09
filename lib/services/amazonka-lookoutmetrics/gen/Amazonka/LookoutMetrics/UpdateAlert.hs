@@ -27,10 +27,10 @@ module Amazonka.LookoutMetrics.UpdateAlert
     newUpdateAlert,
 
     -- * Request Lenses
-    updateAlert_alertDescription,
-    updateAlert_alertSensitivityThreshold,
     updateAlert_action,
+    updateAlert_alertDescription,
     updateAlert_alertFilters,
+    updateAlert_alertSensitivityThreshold,
     updateAlert_alertArn,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAlert' smart constructor.
 data UpdateAlert = UpdateAlert'
-  { -- | A description of the alert.
-    alertDescription :: Prelude.Maybe Prelude.Text,
-    -- | An integer from 0 to 100 specifying the alert sensitivity threshold.
-    alertSensitivityThreshold :: Prelude.Maybe Prelude.Natural,
-    -- | Action that will be triggered when there is an alert.
+  { -- | Action that will be triggered when there is an alert.
     action :: Prelude.Maybe Action,
+    -- | A description of the alert.
+    alertDescription :: Prelude.Maybe Prelude.Text,
     -- | The configuration of the alert filters, containing MetricList and
     -- DimensionFilterList.
     alertFilters :: Prelude.Maybe AlertFilters,
+    -- | An integer from 0 to 100 specifying the alert sensitivity threshold.
+    alertSensitivityThreshold :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the alert to update.
     alertArn :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data UpdateAlert = UpdateAlert'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alertDescription', 'updateAlert_alertDescription' - A description of the alert.
---
--- 'alertSensitivityThreshold', 'updateAlert_alertSensitivityThreshold' - An integer from 0 to 100 specifying the alert sensitivity threshold.
---
 -- 'action', 'updateAlert_action' - Action that will be triggered when there is an alert.
+--
+-- 'alertDescription', 'updateAlert_alertDescription' - A description of the alert.
 --
 -- 'alertFilters', 'updateAlert_alertFilters' - The configuration of the alert filters, containing MetricList and
 -- DimensionFilterList.
+--
+-- 'alertSensitivityThreshold', 'updateAlert_alertSensitivityThreshold' - An integer from 0 to 100 specifying the alert sensitivity threshold.
 --
 -- 'alertArn', 'updateAlert_alertArn' - The ARN of the alert to update.
 newUpdateAlert ::
@@ -91,29 +91,29 @@ newUpdateAlert ::
   UpdateAlert
 newUpdateAlert pAlertArn_ =
   UpdateAlert'
-    { alertDescription = Prelude.Nothing,
-      alertSensitivityThreshold = Prelude.Nothing,
-      action = Prelude.Nothing,
+    { action = Prelude.Nothing,
+      alertDescription = Prelude.Nothing,
       alertFilters = Prelude.Nothing,
+      alertSensitivityThreshold = Prelude.Nothing,
       alertArn = pAlertArn_
     }
-
--- | A description of the alert.
-updateAlert_alertDescription :: Lens.Lens' UpdateAlert (Prelude.Maybe Prelude.Text)
-updateAlert_alertDescription = Lens.lens (\UpdateAlert' {alertDescription} -> alertDescription) (\s@UpdateAlert' {} a -> s {alertDescription = a} :: UpdateAlert)
-
--- | An integer from 0 to 100 specifying the alert sensitivity threshold.
-updateAlert_alertSensitivityThreshold :: Lens.Lens' UpdateAlert (Prelude.Maybe Prelude.Natural)
-updateAlert_alertSensitivityThreshold = Lens.lens (\UpdateAlert' {alertSensitivityThreshold} -> alertSensitivityThreshold) (\s@UpdateAlert' {} a -> s {alertSensitivityThreshold = a} :: UpdateAlert)
 
 -- | Action that will be triggered when there is an alert.
 updateAlert_action :: Lens.Lens' UpdateAlert (Prelude.Maybe Action)
 updateAlert_action = Lens.lens (\UpdateAlert' {action} -> action) (\s@UpdateAlert' {} a -> s {action = a} :: UpdateAlert)
 
+-- | A description of the alert.
+updateAlert_alertDescription :: Lens.Lens' UpdateAlert (Prelude.Maybe Prelude.Text)
+updateAlert_alertDescription = Lens.lens (\UpdateAlert' {alertDescription} -> alertDescription) (\s@UpdateAlert' {} a -> s {alertDescription = a} :: UpdateAlert)
+
 -- | The configuration of the alert filters, containing MetricList and
 -- DimensionFilterList.
 updateAlert_alertFilters :: Lens.Lens' UpdateAlert (Prelude.Maybe AlertFilters)
 updateAlert_alertFilters = Lens.lens (\UpdateAlert' {alertFilters} -> alertFilters) (\s@UpdateAlert' {} a -> s {alertFilters = a} :: UpdateAlert)
+
+-- | An integer from 0 to 100 specifying the alert sensitivity threshold.
+updateAlert_alertSensitivityThreshold :: Lens.Lens' UpdateAlert (Prelude.Maybe Prelude.Natural)
+updateAlert_alertSensitivityThreshold = Lens.lens (\UpdateAlert' {alertSensitivityThreshold} -> alertSensitivityThreshold) (\s@UpdateAlert' {} a -> s {alertSensitivityThreshold = a} :: UpdateAlert)
 
 -- | The ARN of the alert to update.
 updateAlert_alertArn :: Lens.Lens' UpdateAlert Prelude.Text
@@ -133,18 +133,18 @@ instance Core.AWSRequest UpdateAlert where
 
 instance Prelude.Hashable UpdateAlert where
   hashWithSalt _salt UpdateAlert' {..} =
-    _salt `Prelude.hashWithSalt` alertDescription
-      `Prelude.hashWithSalt` alertSensitivityThreshold
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` alertDescription
       `Prelude.hashWithSalt` alertFilters
+      `Prelude.hashWithSalt` alertSensitivityThreshold
       `Prelude.hashWithSalt` alertArn
 
 instance Prelude.NFData UpdateAlert where
   rnf UpdateAlert' {..} =
-    Prelude.rnf alertDescription
-      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf alertDescription
       `Prelude.seq` Prelude.rnf alertFilters
+      `Prelude.seq` Prelude.rnf alertSensitivityThreshold
       `Prelude.seq` Prelude.rnf alertArn
 
 instance Data.ToHeaders UpdateAlert where
@@ -162,12 +162,12 @@ instance Data.ToJSON UpdateAlert where
   toJSON UpdateAlert' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AlertDescription" Data..=)
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("AlertDescription" Data..=)
               Prelude.<$> alertDescription,
+            ("AlertFilters" Data..=) Prelude.<$> alertFilters,
             ("AlertSensitivityThreshold" Data..=)
               Prelude.<$> alertSensitivityThreshold,
-            ("Action" Data..=) Prelude.<$> action,
-            ("AlertFilters" Data..=) Prelude.<$> alertFilters,
             Prelude.Just ("AlertArn" Data..= alertArn)
           ]
       )

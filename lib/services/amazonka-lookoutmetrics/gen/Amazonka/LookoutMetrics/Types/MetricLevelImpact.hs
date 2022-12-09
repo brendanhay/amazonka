@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data MetricLevelImpact = MetricLevelImpact'
   { -- | Details about the dimensions that contributed to the anomaly.
     contributionMatrix :: Prelude.Maybe ContributionMatrix,
-    -- | The number of anomalous metrics for the measure.
-    numTimeSeries :: Prelude.Maybe Prelude.Int,
     -- | The name of the measure.
-    metricName :: Prelude.Maybe Prelude.Text
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The number of anomalous metrics for the measure.
+    numTimeSeries :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,30 @@ data MetricLevelImpact = MetricLevelImpact'
 --
 -- 'contributionMatrix', 'metricLevelImpact_contributionMatrix' - Details about the dimensions that contributed to the anomaly.
 --
--- 'numTimeSeries', 'metricLevelImpact_numTimeSeries' - The number of anomalous metrics for the measure.
---
 -- 'metricName', 'metricLevelImpact_metricName' - The name of the measure.
+--
+-- 'numTimeSeries', 'metricLevelImpact_numTimeSeries' - The number of anomalous metrics for the measure.
 newMetricLevelImpact ::
   MetricLevelImpact
 newMetricLevelImpact =
   MetricLevelImpact'
     { contributionMatrix =
         Prelude.Nothing,
-      numTimeSeries = Prelude.Nothing,
-      metricName = Prelude.Nothing
+      metricName = Prelude.Nothing,
+      numTimeSeries = Prelude.Nothing
     }
 
 -- | Details about the dimensions that contributed to the anomaly.
 metricLevelImpact_contributionMatrix :: Lens.Lens' MetricLevelImpact (Prelude.Maybe ContributionMatrix)
 metricLevelImpact_contributionMatrix = Lens.lens (\MetricLevelImpact' {contributionMatrix} -> contributionMatrix) (\s@MetricLevelImpact' {} a -> s {contributionMatrix = a} :: MetricLevelImpact)
 
--- | The number of anomalous metrics for the measure.
-metricLevelImpact_numTimeSeries :: Lens.Lens' MetricLevelImpact (Prelude.Maybe Prelude.Int)
-metricLevelImpact_numTimeSeries = Lens.lens (\MetricLevelImpact' {numTimeSeries} -> numTimeSeries) (\s@MetricLevelImpact' {} a -> s {numTimeSeries = a} :: MetricLevelImpact)
-
 -- | The name of the measure.
 metricLevelImpact_metricName :: Lens.Lens' MetricLevelImpact (Prelude.Maybe Prelude.Text)
 metricLevelImpact_metricName = Lens.lens (\MetricLevelImpact' {metricName} -> metricName) (\s@MetricLevelImpact' {} a -> s {metricName = a} :: MetricLevelImpact)
+
+-- | The number of anomalous metrics for the measure.
+metricLevelImpact_numTimeSeries :: Lens.Lens' MetricLevelImpact (Prelude.Maybe Prelude.Int)
+metricLevelImpact_numTimeSeries = Lens.lens (\MetricLevelImpact' {numTimeSeries} -> numTimeSeries) (\s@MetricLevelImpact' {} a -> s {numTimeSeries = a} :: MetricLevelImpact)
 
 instance Data.FromJSON MetricLevelImpact where
   parseJSON =
@@ -80,18 +80,18 @@ instance Data.FromJSON MetricLevelImpact where
       ( \x ->
           MetricLevelImpact'
             Prelude.<$> (x Data..:? "ContributionMatrix")
-            Prelude.<*> (x Data..:? "NumTimeSeries")
             Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "NumTimeSeries")
       )
 
 instance Prelude.Hashable MetricLevelImpact where
   hashWithSalt _salt MetricLevelImpact' {..} =
     _salt `Prelude.hashWithSalt` contributionMatrix
-      `Prelude.hashWithSalt` numTimeSeries
       `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` numTimeSeries
 
 instance Prelude.NFData MetricLevelImpact where
   rnf MetricLevelImpact' {..} =
     Prelude.rnf contributionMatrix
-      `Prelude.seq` Prelude.rnf numTimeSeries
       `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf numTimeSeries

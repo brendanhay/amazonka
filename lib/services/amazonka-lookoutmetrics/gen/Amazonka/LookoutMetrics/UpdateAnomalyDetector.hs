@@ -28,9 +28,9 @@ module Amazonka.LookoutMetrics.UpdateAnomalyDetector
     newUpdateAnomalyDetector,
 
     -- * Request Lenses
-    updateAnomalyDetector_kmsKeyArn,
-    updateAnomalyDetector_anomalyDetectorDescription,
     updateAnomalyDetector_anomalyDetectorConfig,
+    updateAnomalyDetector_anomalyDetectorDescription,
+    updateAnomalyDetector_kmsKeyArn,
     updateAnomalyDetector_anomalyDetectorArn,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAnomalyDetector' smart constructor.
 data UpdateAnomalyDetector = UpdateAnomalyDetector'
-  { -- | The Amazon Resource Name (ARN) of an AWS KMS encryption key.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The updated detector description.
-    anomalyDetectorDescription :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the configuration to which the detector will
+  { -- | Contains information about the configuration to which the detector will
     -- be updated.
     anomalyDetectorConfig :: Prelude.Maybe AnomalyDetectorConfig,
+    -- | The updated detector description.
+    anomalyDetectorDescription :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an AWS KMS encryption key.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the detector to update.
     anomalyDetectorArn :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data UpdateAnomalyDetector = UpdateAnomalyDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'updateAnomalyDetector_kmsKeyArn' - The Amazon Resource Name (ARN) of an AWS KMS encryption key.
+-- 'anomalyDetectorConfig', 'updateAnomalyDetector_anomalyDetectorConfig' - Contains information about the configuration to which the detector will
+-- be updated.
 --
 -- 'anomalyDetectorDescription', 'updateAnomalyDetector_anomalyDetectorDescription' - The updated detector description.
 --
--- 'anomalyDetectorConfig', 'updateAnomalyDetector_anomalyDetectorConfig' - Contains information about the configuration to which the detector will
--- be updated.
+-- 'kmsKeyArn', 'updateAnomalyDetector_kmsKeyArn' - The Amazon Resource Name (ARN) of an AWS KMS encryption key.
 --
 -- 'anomalyDetectorArn', 'updateAnomalyDetector_anomalyDetectorArn' - The ARN of the detector to update.
 newUpdateAnomalyDetector ::
@@ -87,24 +87,25 @@ newUpdateAnomalyDetector ::
   UpdateAnomalyDetector
 newUpdateAnomalyDetector pAnomalyDetectorArn_ =
   UpdateAnomalyDetector'
-    { kmsKeyArn = Prelude.Nothing,
+    { anomalyDetectorConfig =
+        Prelude.Nothing,
       anomalyDetectorDescription = Prelude.Nothing,
-      anomalyDetectorConfig = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
       anomalyDetectorArn = pAnomalyDetectorArn_
     }
-
--- | The Amazon Resource Name (ARN) of an AWS KMS encryption key.
-updateAnomalyDetector_kmsKeyArn :: Lens.Lens' UpdateAnomalyDetector (Prelude.Maybe Prelude.Text)
-updateAnomalyDetector_kmsKeyArn = Lens.lens (\UpdateAnomalyDetector' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateAnomalyDetector' {} a -> s {kmsKeyArn = a} :: UpdateAnomalyDetector)
-
--- | The updated detector description.
-updateAnomalyDetector_anomalyDetectorDescription :: Lens.Lens' UpdateAnomalyDetector (Prelude.Maybe Prelude.Text)
-updateAnomalyDetector_anomalyDetectorDescription = Lens.lens (\UpdateAnomalyDetector' {anomalyDetectorDescription} -> anomalyDetectorDescription) (\s@UpdateAnomalyDetector' {} a -> s {anomalyDetectorDescription = a} :: UpdateAnomalyDetector)
 
 -- | Contains information about the configuration to which the detector will
 -- be updated.
 updateAnomalyDetector_anomalyDetectorConfig :: Lens.Lens' UpdateAnomalyDetector (Prelude.Maybe AnomalyDetectorConfig)
 updateAnomalyDetector_anomalyDetectorConfig = Lens.lens (\UpdateAnomalyDetector' {anomalyDetectorConfig} -> anomalyDetectorConfig) (\s@UpdateAnomalyDetector' {} a -> s {anomalyDetectorConfig = a} :: UpdateAnomalyDetector)
+
+-- | The updated detector description.
+updateAnomalyDetector_anomalyDetectorDescription :: Lens.Lens' UpdateAnomalyDetector (Prelude.Maybe Prelude.Text)
+updateAnomalyDetector_anomalyDetectorDescription = Lens.lens (\UpdateAnomalyDetector' {anomalyDetectorDescription} -> anomalyDetectorDescription) (\s@UpdateAnomalyDetector' {} a -> s {anomalyDetectorDescription = a} :: UpdateAnomalyDetector)
+
+-- | The Amazon Resource Name (ARN) of an AWS KMS encryption key.
+updateAnomalyDetector_kmsKeyArn :: Lens.Lens' UpdateAnomalyDetector (Prelude.Maybe Prelude.Text)
+updateAnomalyDetector_kmsKeyArn = Lens.lens (\UpdateAnomalyDetector' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateAnomalyDetector' {} a -> s {kmsKeyArn = a} :: UpdateAnomalyDetector)
 
 -- | The ARN of the detector to update.
 updateAnomalyDetector_anomalyDetectorArn :: Lens.Lens' UpdateAnomalyDetector Prelude.Text
@@ -126,16 +127,16 @@ instance Core.AWSRequest UpdateAnomalyDetector where
 
 instance Prelude.Hashable UpdateAnomalyDetector where
   hashWithSalt _salt UpdateAnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt `Prelude.hashWithSalt` anomalyDetectorConfig
       `Prelude.hashWithSalt` anomalyDetectorDescription
-      `Prelude.hashWithSalt` anomalyDetectorConfig
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` anomalyDetectorArn
 
 instance Prelude.NFData UpdateAnomalyDetector where
   rnf UpdateAnomalyDetector' {..} =
-    Prelude.rnf kmsKeyArn
+    Prelude.rnf anomalyDetectorConfig
       `Prelude.seq` Prelude.rnf anomalyDetectorDescription
-      `Prelude.seq` Prelude.rnf anomalyDetectorConfig
+      `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
 
 instance Data.ToHeaders UpdateAnomalyDetector where
@@ -153,11 +154,11 @@ instance Data.ToJSON UpdateAnomalyDetector where
   toJSON UpdateAnomalyDetector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+          [ ("AnomalyDetectorConfig" Data..=)
+              Prelude.<$> anomalyDetectorConfig,
             ("AnomalyDetectorDescription" Data..=)
               Prelude.<$> anomalyDetectorDescription,
-            ("AnomalyDetectorConfig" Data..=)
-              Prelude.<$> anomalyDetectorConfig,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             Prelude.Just
               ("AnomalyDetectorArn" Data..= anomalyDetectorArn)
           ]

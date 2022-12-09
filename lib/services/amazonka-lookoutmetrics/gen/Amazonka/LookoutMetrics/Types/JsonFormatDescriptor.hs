@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJsonFormatDescriptor' smart constructor.
 data JsonFormatDescriptor = JsonFormatDescriptor'
-  { -- | The level of compression of the source CSV file.
-    fileCompression :: Prelude.Maybe JsonFileCompression,
-    -- | The character set in which the source JSON file is written.
-    charset :: Prelude.Maybe Prelude.Text
+  { -- | The character set in which the source JSON file is written.
+    charset :: Prelude.Maybe Prelude.Text,
+    -- | The level of compression of the source CSV file.
+    fileCompression :: Prelude.Maybe JsonFileCompression
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,24 @@ data JsonFormatDescriptor = JsonFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileCompression', 'jsonFormatDescriptor_fileCompression' - The level of compression of the source CSV file.
---
 -- 'charset', 'jsonFormatDescriptor_charset' - The character set in which the source JSON file is written.
+--
+-- 'fileCompression', 'jsonFormatDescriptor_fileCompression' - The level of compression of the source CSV file.
 newJsonFormatDescriptor ::
   JsonFormatDescriptor
 newJsonFormatDescriptor =
   JsonFormatDescriptor'
-    { fileCompression =
-        Prelude.Nothing,
-      charset = Prelude.Nothing
+    { charset = Prelude.Nothing,
+      fileCompression = Prelude.Nothing
     }
-
--- | The level of compression of the source CSV file.
-jsonFormatDescriptor_fileCompression :: Lens.Lens' JsonFormatDescriptor (Prelude.Maybe JsonFileCompression)
-jsonFormatDescriptor_fileCompression = Lens.lens (\JsonFormatDescriptor' {fileCompression} -> fileCompression) (\s@JsonFormatDescriptor' {} a -> s {fileCompression = a} :: JsonFormatDescriptor)
 
 -- | The character set in which the source JSON file is written.
 jsonFormatDescriptor_charset :: Lens.Lens' JsonFormatDescriptor (Prelude.Maybe Prelude.Text)
 jsonFormatDescriptor_charset = Lens.lens (\JsonFormatDescriptor' {charset} -> charset) (\s@JsonFormatDescriptor' {} a -> s {charset = a} :: JsonFormatDescriptor)
+
+-- | The level of compression of the source CSV file.
+jsonFormatDescriptor_fileCompression :: Lens.Lens' JsonFormatDescriptor (Prelude.Maybe JsonFileCompression)
+jsonFormatDescriptor_fileCompression = Lens.lens (\JsonFormatDescriptor' {fileCompression} -> fileCompression) (\s@JsonFormatDescriptor' {} a -> s {fileCompression = a} :: JsonFormatDescriptor)
 
 instance Data.FromJSON JsonFormatDescriptor where
   parseJSON =
@@ -71,26 +70,26 @@ instance Data.FromJSON JsonFormatDescriptor where
       "JsonFormatDescriptor"
       ( \x ->
           JsonFormatDescriptor'
-            Prelude.<$> (x Data..:? "FileCompression")
-            Prelude.<*> (x Data..:? "Charset")
+            Prelude.<$> (x Data..:? "Charset")
+            Prelude.<*> (x Data..:? "FileCompression")
       )
 
 instance Prelude.Hashable JsonFormatDescriptor where
   hashWithSalt _salt JsonFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` fileCompression
-      `Prelude.hashWithSalt` charset
+    _salt `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` fileCompression
 
 instance Prelude.NFData JsonFormatDescriptor where
   rnf JsonFormatDescriptor' {..} =
-    Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf charset
+    Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf fileCompression
 
 instance Data.ToJSON JsonFormatDescriptor where
   toJSON JsonFormatDescriptor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FileCompression" Data..=)
-              Prelude.<$> fileCompression,
-            ("Charset" Data..=) Prelude.<$> charset
+          [ ("Charset" Data..=) Prelude.<$> charset,
+            ("FileCompression" Data..=)
+              Prelude.<$> fileCompression
           ]
       )

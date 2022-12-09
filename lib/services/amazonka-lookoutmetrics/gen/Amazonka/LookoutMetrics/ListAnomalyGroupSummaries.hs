@@ -27,8 +27,8 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
     newListAnomalyGroupSummaries,
 
     -- * Request Lenses
-    listAnomalyGroupSummaries_nextToken,
     listAnomalyGroupSummaries_maxResults,
+    listAnomalyGroupSummaries_nextToken,
     listAnomalyGroupSummaries_anomalyDetectorArn,
     listAnomalyGroupSummaries_sensitivityThreshold,
 
@@ -37,9 +37,9 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
     newListAnomalyGroupSummariesResponse,
 
     -- * Response Lenses
+    listAnomalyGroupSummariesResponse_anomalyGroupStatistics,
     listAnomalyGroupSummariesResponse_anomalyGroupSummaryList,
     listAnomalyGroupSummariesResponse_nextToken,
-    listAnomalyGroupSummariesResponse_anomalyGroupStatistics,
     listAnomalyGroupSummariesResponse_httpStatus,
   )
 where
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAnomalyGroupSummaries' smart constructor.
 data ListAnomalyGroupSummaries = ListAnomalyGroupSummaries'
-  { -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the anomaly detector.
     anomalyDetectorArn :: Prelude.Text,
     -- | The minimum severity score for inclusion in the output.
@@ -74,10 +74,10 @@ data ListAnomalyGroupSummaries = ListAnomalyGroupSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAnomalyGroupSummaries_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listAnomalyGroupSummaries_nextToken' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
---
--- 'maxResults', 'listAnomalyGroupSummaries_maxResults' - The maximum number of results to return.
 --
 -- 'anomalyDetectorArn', 'listAnomalyGroupSummaries_anomalyDetectorArn' - The Amazon Resource Name (ARN) of the anomaly detector.
 --
@@ -92,21 +92,21 @@ newListAnomalyGroupSummaries
   pAnomalyDetectorArn_
   pSensitivityThreshold_ =
     ListAnomalyGroupSummaries'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         anomalyDetectorArn = pAnomalyDetectorArn_,
         sensitivityThreshold = pSensitivityThreshold_
       }
+
+-- | The maximum number of results to return.
+listAnomalyGroupSummaries_maxResults :: Lens.Lens' ListAnomalyGroupSummaries (Prelude.Maybe Prelude.Natural)
+listAnomalyGroupSummaries_maxResults = Lens.lens (\ListAnomalyGroupSummaries' {maxResults} -> maxResults) (\s@ListAnomalyGroupSummaries' {} a -> s {maxResults = a} :: ListAnomalyGroupSummaries)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listAnomalyGroupSummaries_nextToken :: Lens.Lens' ListAnomalyGroupSummaries (Prelude.Maybe Prelude.Text)
 listAnomalyGroupSummaries_nextToken = Lens.lens (\ListAnomalyGroupSummaries' {nextToken} -> nextToken) (\s@ListAnomalyGroupSummaries' {} a -> s {nextToken = a} :: ListAnomalyGroupSummaries)
-
--- | The maximum number of results to return.
-listAnomalyGroupSummaries_maxResults :: Lens.Lens' ListAnomalyGroupSummaries (Prelude.Maybe Prelude.Natural)
-listAnomalyGroupSummaries_maxResults = Lens.lens (\ListAnomalyGroupSummaries' {maxResults} -> maxResults) (\s@ListAnomalyGroupSummaries' {} a -> s {maxResults = a} :: ListAnomalyGroupSummaries)
 
 -- | The Amazon Resource Name (ARN) of the anomaly detector.
 listAnomalyGroupSummaries_anomalyDetectorArn :: Lens.Lens' ListAnomalyGroupSummaries Prelude.Text
@@ -126,25 +126,25 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupSummariesResponse'
-            Prelude.<$> ( x Data..?> "AnomalyGroupSummaryList"
+            Prelude.<$> (x Data..?> "AnomalyGroupStatistics")
+            Prelude.<*> ( x Data..?> "AnomalyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AnomalyGroupStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAnomalyGroupSummaries where
   hashWithSalt _salt ListAnomalyGroupSummaries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` sensitivityThreshold
 
 instance Prelude.NFData ListAnomalyGroupSummaries where
   rnf ListAnomalyGroupSummaries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf sensitivityThreshold
 
@@ -163,8 +163,8 @@ instance Data.ToJSON ListAnomalyGroupSummaries where
   toJSON ListAnomalyGroupSummaries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
@@ -182,12 +182,12 @@ instance Data.ToQuery ListAnomalyGroupSummaries where
 
 -- | /See:/ 'newListAnomalyGroupSummariesResponse' smart constructor.
 data ListAnomalyGroupSummariesResponse = ListAnomalyGroupSummariesResponse'
-  { -- | A list of anomaly group summaries.
+  { -- | Aggregated details about the anomaly groups.
+    anomalyGroupStatistics :: Prelude.Maybe AnomalyGroupStatistics,
+    -- | A list of anomaly group summaries.
     anomalyGroupSummaryList :: Prelude.Maybe [AnomalyGroupSummary],
     -- | The pagination token that\'s included if more results are available.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Aggregated details about the anomaly groups.
-    anomalyGroupStatistics :: Prelude.Maybe AnomalyGroupStatistics,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,11 +201,11 @@ data ListAnomalyGroupSummariesResponse = ListAnomalyGroupSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'anomalyGroupStatistics', 'listAnomalyGroupSummariesResponse_anomalyGroupStatistics' - Aggregated details about the anomaly groups.
+--
 -- 'anomalyGroupSummaryList', 'listAnomalyGroupSummariesResponse_anomalyGroupSummaryList' - A list of anomaly group summaries.
 --
 -- 'nextToken', 'listAnomalyGroupSummariesResponse_nextToken' - The pagination token that\'s included if more results are available.
---
--- 'anomalyGroupStatistics', 'listAnomalyGroupSummariesResponse_anomalyGroupStatistics' - Aggregated details about the anomaly groups.
 --
 -- 'httpStatus', 'listAnomalyGroupSummariesResponse_httpStatus' - The response's http status code.
 newListAnomalyGroupSummariesResponse ::
@@ -214,12 +214,17 @@ newListAnomalyGroupSummariesResponse ::
   ListAnomalyGroupSummariesResponse
 newListAnomalyGroupSummariesResponse pHttpStatus_ =
   ListAnomalyGroupSummariesResponse'
-    { anomalyGroupSummaryList =
+    { anomalyGroupStatistics =
+        Prelude.Nothing,
+      anomalyGroupSummaryList =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      anomalyGroupStatistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Aggregated details about the anomaly groups.
+listAnomalyGroupSummariesResponse_anomalyGroupStatistics :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe AnomalyGroupStatistics)
+listAnomalyGroupSummariesResponse_anomalyGroupStatistics = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupStatistics} -> anomalyGroupStatistics) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupStatistics = a} :: ListAnomalyGroupSummariesResponse)
 
 -- | A list of anomaly group summaries.
 listAnomalyGroupSummariesResponse_anomalyGroupSummaryList :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe [AnomalyGroupSummary])
@@ -228,10 +233,6 @@ listAnomalyGroupSummariesResponse_anomalyGroupSummaryList = Lens.lens (\ListAnom
 -- | The pagination token that\'s included if more results are available.
 listAnomalyGroupSummariesResponse_nextToken :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe Prelude.Text)
 listAnomalyGroupSummariesResponse_nextToken = Lens.lens (\ListAnomalyGroupSummariesResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupSummariesResponse)
-
--- | Aggregated details about the anomaly groups.
-listAnomalyGroupSummariesResponse_anomalyGroupStatistics :: Lens.Lens' ListAnomalyGroupSummariesResponse (Prelude.Maybe AnomalyGroupStatistics)
-listAnomalyGroupSummariesResponse_anomalyGroupStatistics = Lens.lens (\ListAnomalyGroupSummariesResponse' {anomalyGroupStatistics} -> anomalyGroupStatistics) (\s@ListAnomalyGroupSummariesResponse' {} a -> s {anomalyGroupStatistics = a} :: ListAnomalyGroupSummariesResponse)
 
 -- | The response's http status code.
 listAnomalyGroupSummariesResponse_httpStatus :: Lens.Lens' ListAnomalyGroupSummariesResponse Prelude.Int
@@ -242,7 +243,7 @@ instance
     ListAnomalyGroupSummariesResponse
   where
   rnf ListAnomalyGroupSummariesResponse' {..} =
-    Prelude.rnf anomalyGroupSummaryList
+    Prelude.rnf anomalyGroupStatistics
+      `Prelude.seq` Prelude.rnf anomalyGroupSummaryList
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyGroupStatistics
       `Prelude.seq` Prelude.rnf httpStatus

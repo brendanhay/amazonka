@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newItemizedMetricStats' smart constructor.
 data ItemizedMetricStats = ItemizedMetricStats'
-  { -- | The number of times that the measure appears.
-    occurrenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The name of the measure.
-    metricName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the measure.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The number of times that the measure appears.
+    occurrenceCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data ItemizedMetricStats = ItemizedMetricStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'occurrenceCount', 'itemizedMetricStats_occurrenceCount' - The number of times that the measure appears.
---
 -- 'metricName', 'itemizedMetricStats_metricName' - The name of the measure.
+--
+-- 'occurrenceCount', 'itemizedMetricStats_occurrenceCount' - The number of times that the measure appears.
 newItemizedMetricStats ::
   ItemizedMetricStats
 newItemizedMetricStats =
   ItemizedMetricStats'
-    { occurrenceCount =
-        Prelude.Nothing,
-      metricName = Prelude.Nothing
+    { metricName = Prelude.Nothing,
+      occurrenceCount = Prelude.Nothing
     }
-
--- | The number of times that the measure appears.
-itemizedMetricStats_occurrenceCount :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Int)
-itemizedMetricStats_occurrenceCount = Lens.lens (\ItemizedMetricStats' {occurrenceCount} -> occurrenceCount) (\s@ItemizedMetricStats' {} a -> s {occurrenceCount = a} :: ItemizedMetricStats)
 
 -- | The name of the measure.
 itemizedMetricStats_metricName :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Text)
 itemizedMetricStats_metricName = Lens.lens (\ItemizedMetricStats' {metricName} -> metricName) (\s@ItemizedMetricStats' {} a -> s {metricName = a} :: ItemizedMetricStats)
+
+-- | The number of times that the measure appears.
+itemizedMetricStats_occurrenceCount :: Lens.Lens' ItemizedMetricStats (Prelude.Maybe Prelude.Int)
+itemizedMetricStats_occurrenceCount = Lens.lens (\ItemizedMetricStats' {occurrenceCount} -> occurrenceCount) (\s@ItemizedMetricStats' {} a -> s {occurrenceCount = a} :: ItemizedMetricStats)
 
 instance Data.FromJSON ItemizedMetricStats where
   parseJSON =
@@ -69,16 +68,16 @@ instance Data.FromJSON ItemizedMetricStats where
       "ItemizedMetricStats"
       ( \x ->
           ItemizedMetricStats'
-            Prelude.<$> (x Data..:? "OccurrenceCount")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "OccurrenceCount")
       )
 
 instance Prelude.Hashable ItemizedMetricStats where
   hashWithSalt _salt ItemizedMetricStats' {..} =
-    _salt `Prelude.hashWithSalt` occurrenceCount
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` occurrenceCount
 
 instance Prelude.NFData ItemizedMetricStats where
   rnf ItemizedMetricStats' {..} =
-    Prelude.rnf occurrenceCount
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf occurrenceCount

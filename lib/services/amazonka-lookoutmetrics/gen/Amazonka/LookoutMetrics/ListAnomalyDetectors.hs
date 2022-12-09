@@ -32,16 +32,16 @@ module Amazonka.LookoutMetrics.ListAnomalyDetectors
     newListAnomalyDetectors,
 
     -- * Request Lenses
-    listAnomalyDetectors_nextToken,
     listAnomalyDetectors_maxResults,
+    listAnomalyDetectors_nextToken,
 
     -- * Destructuring the Response
     ListAnomalyDetectorsResponse (..),
     newListAnomalyDetectorsResponse,
 
     -- * Response Lenses
-    listAnomalyDetectorsResponse_nextToken,
     listAnomalyDetectorsResponse_anomalyDetectorSummaryList,
+    listAnomalyDetectorsResponse_nextToken,
     listAnomalyDetectorsResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAnomalyDetectors' smart constructor.
 data ListAnomalyDetectors = ListAnomalyDetectors'
-  { -- | If the result of the previous request was truncated, the response
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
     -- includes a @NextToken@. To retrieve the next set of results, use the
     -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,28 +73,28 @@ data ListAnomalyDetectors = ListAnomalyDetectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAnomalyDetectors_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listAnomalyDetectors_nextToken' - If the result of the previous request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
---
--- 'maxResults', 'listAnomalyDetectors_maxResults' - The maximum number of results to return.
 newListAnomalyDetectors ::
   ListAnomalyDetectors
 newListAnomalyDetectors =
   ListAnomalyDetectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return.
+listAnomalyDetectors_maxResults :: Lens.Lens' ListAnomalyDetectors (Prelude.Maybe Prelude.Natural)
+listAnomalyDetectors_maxResults = Lens.lens (\ListAnomalyDetectors' {maxResults} -> maxResults) (\s@ListAnomalyDetectors' {} a -> s {maxResults = a} :: ListAnomalyDetectors)
 
 -- | If the result of the previous request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of results, use the
 -- token in the next request. Tokens expire after 24 hours.
 listAnomalyDetectors_nextToken :: Lens.Lens' ListAnomalyDetectors (Prelude.Maybe Prelude.Text)
 listAnomalyDetectors_nextToken = Lens.lens (\ListAnomalyDetectors' {nextToken} -> nextToken) (\s@ListAnomalyDetectors' {} a -> s {nextToken = a} :: ListAnomalyDetectors)
-
--- | The maximum number of results to return.
-listAnomalyDetectors_maxResults :: Lens.Lens' ListAnomalyDetectors (Prelude.Maybe Prelude.Natural)
-listAnomalyDetectors_maxResults = Lens.lens (\ListAnomalyDetectors' {maxResults} -> maxResults) (\s@ListAnomalyDetectors' {} a -> s {maxResults = a} :: ListAnomalyDetectors)
 
 instance Core.AWSRequest ListAnomalyDetectors where
   type
@@ -106,22 +106,22 @@ instance Core.AWSRequest ListAnomalyDetectors where
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyDetectorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AnomalyDetectorSummaryList"
+            Prelude.<$> ( x Data..?> "AnomalyDetectorSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAnomalyDetectors where
   hashWithSalt _salt ListAnomalyDetectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAnomalyDetectors where
   rnf ListAnomalyDetectors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAnomalyDetectors where
   toHeaders =
@@ -138,8 +138,8 @@ instance Data.ToJSON ListAnomalyDetectors where
   toJSON ListAnomalyDetectors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -151,11 +151,11 @@ instance Data.ToQuery ListAnomalyDetectors where
 
 -- | /See:/ 'newListAnomalyDetectorsResponse' smart constructor.
 data ListAnomalyDetectorsResponse = ListAnomalyDetectorsResponse'
-  { -- | If the response is truncated, the service returns this token. To
+  { -- | A list of anomaly detectors in the account in the current region.
+    anomalyDetectorSummaryList :: Prelude.Maybe [AnomalyDetectorSummary],
+    -- | If the response is truncated, the service returns this token. To
     -- retrieve the next set of results, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of anomaly detectors in the account in the current region.
-    anomalyDetectorSummaryList :: Prelude.Maybe [AnomalyDetectorSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,10 +169,10 @@ data ListAnomalyDetectorsResponse = ListAnomalyDetectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'anomalyDetectorSummaryList', 'listAnomalyDetectorsResponse_anomalyDetectorSummaryList' - A list of anomaly detectors in the account in the current region.
+--
 -- 'nextToken', 'listAnomalyDetectorsResponse_nextToken' - If the response is truncated, the service returns this token. To
 -- retrieve the next set of results, use the token in the next request.
---
--- 'anomalyDetectorSummaryList', 'listAnomalyDetectorsResponse_anomalyDetectorSummaryList' - A list of anomaly detectors in the account in the current region.
 --
 -- 'httpStatus', 'listAnomalyDetectorsResponse_httpStatus' - The response's http status code.
 newListAnomalyDetectorsResponse ::
@@ -181,20 +181,20 @@ newListAnomalyDetectorsResponse ::
   ListAnomalyDetectorsResponse
 newListAnomalyDetectorsResponse pHttpStatus_ =
   ListAnomalyDetectorsResponse'
-    { nextToken =
+    { anomalyDetectorSummaryList =
         Prelude.Nothing,
-      anomalyDetectorSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of anomaly detectors in the account in the current region.
+listAnomalyDetectorsResponse_anomalyDetectorSummaryList :: Lens.Lens' ListAnomalyDetectorsResponse (Prelude.Maybe [AnomalyDetectorSummary])
+listAnomalyDetectorsResponse_anomalyDetectorSummaryList = Lens.lens (\ListAnomalyDetectorsResponse' {anomalyDetectorSummaryList} -> anomalyDetectorSummaryList) (\s@ListAnomalyDetectorsResponse' {} a -> s {anomalyDetectorSummaryList = a} :: ListAnomalyDetectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, the service returns this token. To
 -- retrieve the next set of results, use the token in the next request.
 listAnomalyDetectorsResponse_nextToken :: Lens.Lens' ListAnomalyDetectorsResponse (Prelude.Maybe Prelude.Text)
 listAnomalyDetectorsResponse_nextToken = Lens.lens (\ListAnomalyDetectorsResponse' {nextToken} -> nextToken) (\s@ListAnomalyDetectorsResponse' {} a -> s {nextToken = a} :: ListAnomalyDetectorsResponse)
-
--- | A list of anomaly detectors in the account in the current region.
-listAnomalyDetectorsResponse_anomalyDetectorSummaryList :: Lens.Lens' ListAnomalyDetectorsResponse (Prelude.Maybe [AnomalyDetectorSummary])
-listAnomalyDetectorsResponse_anomalyDetectorSummaryList = Lens.lens (\ListAnomalyDetectorsResponse' {anomalyDetectorSummaryList} -> anomalyDetectorSummaryList) (\s@ListAnomalyDetectorsResponse' {} a -> s {anomalyDetectorSummaryList = a} :: ListAnomalyDetectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAnomalyDetectorsResponse_httpStatus :: Lens.Lens' ListAnomalyDetectorsResponse Prelude.Int
@@ -202,6 +202,6 @@ listAnomalyDetectorsResponse_httpStatus = Lens.lens (\ListAnomalyDetectorsRespon
 
 instance Prelude.NFData ListAnomalyDetectorsResponse where
   rnf ListAnomalyDetectorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyDetectorSummaryList
+    Prelude.rnf anomalyDetectorSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

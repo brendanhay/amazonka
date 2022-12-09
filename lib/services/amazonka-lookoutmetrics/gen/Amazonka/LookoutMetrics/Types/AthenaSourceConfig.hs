@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAthenaSourceConfig' smart constructor.
 data AthenaSourceConfig = AthenaSourceConfig'
-  { -- | The database\'s table name.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | An IAM role that gives Amazon Lookout for Metrics permission to access
-    -- the data.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | Settings for backtest mode.
+    backTestConfiguration :: Prelude.Maybe BackTestConfiguration,
     -- | The database\'s data catalog.
     dataCatalog :: Prelude.Maybe Prelude.Text,
     -- | The database\'s name.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | Settings for backtest mode.
-    backTestConfiguration :: Prelude.Maybe BackTestConfiguration,
+    -- | An IAM role that gives Amazon Lookout for Metrics permission to access
+    -- the data.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The database\'s results path.
     s3ResultsPath :: Prelude.Maybe Prelude.Text,
+    -- | The database\'s table name.
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The database\'s work group name.
     workGroupName :: Prelude.Maybe Prelude.Text
   }
@@ -55,41 +55,37 @@ data AthenaSourceConfig = AthenaSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'athenaSourceConfig_tableName' - The database\'s table name.
---
--- 'roleArn', 'athenaSourceConfig_roleArn' - An IAM role that gives Amazon Lookout for Metrics permission to access
--- the data.
+-- 'backTestConfiguration', 'athenaSourceConfig_backTestConfiguration' - Settings for backtest mode.
 --
 -- 'dataCatalog', 'athenaSourceConfig_dataCatalog' - The database\'s data catalog.
 --
 -- 'databaseName', 'athenaSourceConfig_databaseName' - The database\'s name.
 --
--- 'backTestConfiguration', 'athenaSourceConfig_backTestConfiguration' - Settings for backtest mode.
+-- 'roleArn', 'athenaSourceConfig_roleArn' - An IAM role that gives Amazon Lookout for Metrics permission to access
+-- the data.
 --
 -- 's3ResultsPath', 'athenaSourceConfig_s3ResultsPath' - The database\'s results path.
+--
+-- 'tableName', 'athenaSourceConfig_tableName' - The database\'s table name.
 --
 -- 'workGroupName', 'athenaSourceConfig_workGroupName' - The database\'s work group name.
 newAthenaSourceConfig ::
   AthenaSourceConfig
 newAthenaSourceConfig =
   AthenaSourceConfig'
-    { tableName = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { backTestConfiguration =
+        Prelude.Nothing,
       dataCatalog = Prelude.Nothing,
       databaseName = Prelude.Nothing,
-      backTestConfiguration = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       s3ResultsPath = Prelude.Nothing,
+      tableName = Prelude.Nothing,
       workGroupName = Prelude.Nothing
     }
 
--- | The database\'s table name.
-athenaSourceConfig_tableName :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
-athenaSourceConfig_tableName = Lens.lens (\AthenaSourceConfig' {tableName} -> tableName) (\s@AthenaSourceConfig' {} a -> s {tableName = a} :: AthenaSourceConfig)
-
--- | An IAM role that gives Amazon Lookout for Metrics permission to access
--- the data.
-athenaSourceConfig_roleArn :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
-athenaSourceConfig_roleArn = Lens.lens (\AthenaSourceConfig' {roleArn} -> roleArn) (\s@AthenaSourceConfig' {} a -> s {roleArn = a} :: AthenaSourceConfig)
+-- | Settings for backtest mode.
+athenaSourceConfig_backTestConfiguration :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe BackTestConfiguration)
+athenaSourceConfig_backTestConfiguration = Lens.lens (\AthenaSourceConfig' {backTestConfiguration} -> backTestConfiguration) (\s@AthenaSourceConfig' {} a -> s {backTestConfiguration = a} :: AthenaSourceConfig)
 
 -- | The database\'s data catalog.
 athenaSourceConfig_dataCatalog :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
@@ -99,13 +95,18 @@ athenaSourceConfig_dataCatalog = Lens.lens (\AthenaSourceConfig' {dataCatalog} -
 athenaSourceConfig_databaseName :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
 athenaSourceConfig_databaseName = Lens.lens (\AthenaSourceConfig' {databaseName} -> databaseName) (\s@AthenaSourceConfig' {} a -> s {databaseName = a} :: AthenaSourceConfig)
 
--- | Settings for backtest mode.
-athenaSourceConfig_backTestConfiguration :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe BackTestConfiguration)
-athenaSourceConfig_backTestConfiguration = Lens.lens (\AthenaSourceConfig' {backTestConfiguration} -> backTestConfiguration) (\s@AthenaSourceConfig' {} a -> s {backTestConfiguration = a} :: AthenaSourceConfig)
+-- | An IAM role that gives Amazon Lookout for Metrics permission to access
+-- the data.
+athenaSourceConfig_roleArn :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
+athenaSourceConfig_roleArn = Lens.lens (\AthenaSourceConfig' {roleArn} -> roleArn) (\s@AthenaSourceConfig' {} a -> s {roleArn = a} :: AthenaSourceConfig)
 
 -- | The database\'s results path.
 athenaSourceConfig_s3ResultsPath :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
 athenaSourceConfig_s3ResultsPath = Lens.lens (\AthenaSourceConfig' {s3ResultsPath} -> s3ResultsPath) (\s@AthenaSourceConfig' {} a -> s {s3ResultsPath = a} :: AthenaSourceConfig)
+
+-- | The database\'s table name.
+athenaSourceConfig_tableName :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
+athenaSourceConfig_tableName = Lens.lens (\AthenaSourceConfig' {tableName} -> tableName) (\s@AthenaSourceConfig' {} a -> s {tableName = a} :: AthenaSourceConfig)
 
 -- | The database\'s work group name.
 athenaSourceConfig_workGroupName :: Lens.Lens' AthenaSourceConfig (Prelude.Maybe Prelude.Text)
@@ -117,46 +118,46 @@ instance Data.FromJSON AthenaSourceConfig where
       "AthenaSourceConfig"
       ( \x ->
           AthenaSourceConfig'
-            Prelude.<$> (x Data..:? "TableName")
-            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<$> (x Data..:? "BackTestConfiguration")
             Prelude.<*> (x Data..:? "DataCatalog")
             Prelude.<*> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "BackTestConfiguration")
+            Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "S3ResultsPath")
+            Prelude.<*> (x Data..:? "TableName")
             Prelude.<*> (x Data..:? "WorkGroupName")
       )
 
 instance Prelude.Hashable AthenaSourceConfig where
   hashWithSalt _salt AthenaSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` backTestConfiguration
       `Prelude.hashWithSalt` dataCatalog
       `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` backTestConfiguration
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` s3ResultsPath
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` workGroupName
 
 instance Prelude.NFData AthenaSourceConfig where
   rnf AthenaSourceConfig' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf backTestConfiguration
       `Prelude.seq` Prelude.rnf dataCatalog
       `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf backTestConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf s3ResultsPath
+      `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf workGroupName
 
 instance Data.ToJSON AthenaSourceConfig where
   toJSON AthenaSourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Data..=) Prelude.<$> tableName,
-            ("RoleArn" Data..=) Prelude.<$> roleArn,
+          [ ("BackTestConfiguration" Data..=)
+              Prelude.<$> backTestConfiguration,
             ("DataCatalog" Data..=) Prelude.<$> dataCatalog,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("BackTestConfiguration" Data..=)
-              Prelude.<$> backTestConfiguration,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("S3ResultsPath" Data..=) Prelude.<$> s3ResultsPath,
+            ("TableName" Data..=) Prelude.<$> tableName,
             ("WorkGroupName" Data..=) Prelude.<$> workGroupName
           ]
       )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoDetectionS3SourceConfig' smart constructor.
 data AutoDetectionS3SourceConfig = AutoDetectionS3SourceConfig'
-  { -- | The config\'s templated path list.
-    templatedPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The config\'s historical data path list.
-    historicalDataPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+  { -- | The config\'s historical data path list.
+    historicalDataPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The config\'s templated path list.
+    templatedPathList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,43 +43,43 @@ data AutoDetectionS3SourceConfig = AutoDetectionS3SourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templatedPathList', 'autoDetectionS3SourceConfig_templatedPathList' - The config\'s templated path list.
---
 -- 'historicalDataPathList', 'autoDetectionS3SourceConfig_historicalDataPathList' - The config\'s historical data path list.
+--
+-- 'templatedPathList', 'autoDetectionS3SourceConfig_templatedPathList' - The config\'s templated path list.
 newAutoDetectionS3SourceConfig ::
   AutoDetectionS3SourceConfig
 newAutoDetectionS3SourceConfig =
   AutoDetectionS3SourceConfig'
-    { templatedPathList =
+    { historicalDataPathList =
         Prelude.Nothing,
-      historicalDataPathList = Prelude.Nothing
+      templatedPathList = Prelude.Nothing
     }
-
--- | The config\'s templated path list.
-autoDetectionS3SourceConfig_templatedPathList :: Lens.Lens' AutoDetectionS3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-autoDetectionS3SourceConfig_templatedPathList = Lens.lens (\AutoDetectionS3SourceConfig' {templatedPathList} -> templatedPathList) (\s@AutoDetectionS3SourceConfig' {} a -> s {templatedPathList = a} :: AutoDetectionS3SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The config\'s historical data path list.
 autoDetectionS3SourceConfig_historicalDataPathList :: Lens.Lens' AutoDetectionS3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 autoDetectionS3SourceConfig_historicalDataPathList = Lens.lens (\AutoDetectionS3SourceConfig' {historicalDataPathList} -> historicalDataPathList) (\s@AutoDetectionS3SourceConfig' {} a -> s {historicalDataPathList = a} :: AutoDetectionS3SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | The config\'s templated path list.
+autoDetectionS3SourceConfig_templatedPathList :: Lens.Lens' AutoDetectionS3SourceConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+autoDetectionS3SourceConfig_templatedPathList = Lens.lens (\AutoDetectionS3SourceConfig' {templatedPathList} -> templatedPathList) (\s@AutoDetectionS3SourceConfig' {} a -> s {templatedPathList = a} :: AutoDetectionS3SourceConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable AutoDetectionS3SourceConfig where
   hashWithSalt _salt AutoDetectionS3SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` templatedPathList
-      `Prelude.hashWithSalt` historicalDataPathList
+    _salt `Prelude.hashWithSalt` historicalDataPathList
+      `Prelude.hashWithSalt` templatedPathList
 
 instance Prelude.NFData AutoDetectionS3SourceConfig where
   rnf AutoDetectionS3SourceConfig' {..} =
-    Prelude.rnf templatedPathList
-      `Prelude.seq` Prelude.rnf historicalDataPathList
+    Prelude.rnf historicalDataPathList
+      `Prelude.seq` Prelude.rnf templatedPathList
 
 instance Data.ToJSON AutoDetectionS3SourceConfig where
   toJSON AutoDetectionS3SourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TemplatedPathList" Data..=)
-              Prelude.<$> templatedPathList,
-            ("HistoricalDataPathList" Data..=)
-              Prelude.<$> historicalDataPathList
+          [ ("HistoricalDataPathList" Data..=)
+              Prelude.<$> historicalDataPathList,
+            ("TemplatedPathList" Data..=)
+              Prelude.<$> templatedPathList
           ]
       )

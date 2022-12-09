@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataQualityMetric' smart constructor.
 data DataQualityMetric = DataQualityMetric'
-  { -- | The value of the data quality metric.
-    metricValue :: Prelude.Maybe Prelude.Double,
-    -- | The column that is being monitored.
-    relatedColumnName :: Prelude.Maybe Prelude.Text,
+  { -- | A description of the data quality metric.
+    metricDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the data quality metric.
     metricType :: Prelude.Maybe DataQualityMetricType,
-    -- | A description of the data quality metric.
-    metricDescription :: Prelude.Maybe Prelude.Text
+    -- | The value of the data quality metric.
+    metricValue :: Prelude.Maybe Prelude.Double,
+    -- | The column that is being monitored.
+    relatedColumnName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,31 @@ data DataQualityMetric = DataQualityMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricValue', 'dataQualityMetric_metricValue' - The value of the data quality metric.
---
--- 'relatedColumnName', 'dataQualityMetric_relatedColumnName' - The column that is being monitored.
+-- 'metricDescription', 'dataQualityMetric_metricDescription' - A description of the data quality metric.
 --
 -- 'metricType', 'dataQualityMetric_metricType' - The name of the data quality metric.
 --
--- 'metricDescription', 'dataQualityMetric_metricDescription' - A description of the data quality metric.
+-- 'metricValue', 'dataQualityMetric_metricValue' - The value of the data quality metric.
+--
+-- 'relatedColumnName', 'dataQualityMetric_relatedColumnName' - The column that is being monitored.
 newDataQualityMetric ::
   DataQualityMetric
 newDataQualityMetric =
   DataQualityMetric'
-    { metricValue = Prelude.Nothing,
-      relatedColumnName = Prelude.Nothing,
+    { metricDescription =
+        Prelude.Nothing,
       metricType = Prelude.Nothing,
-      metricDescription = Prelude.Nothing
+      metricValue = Prelude.Nothing,
+      relatedColumnName = Prelude.Nothing
     }
+
+-- | A description of the data quality metric.
+dataQualityMetric_metricDescription :: Lens.Lens' DataQualityMetric (Prelude.Maybe Prelude.Text)
+dataQualityMetric_metricDescription = Lens.lens (\DataQualityMetric' {metricDescription} -> metricDescription) (\s@DataQualityMetric' {} a -> s {metricDescription = a} :: DataQualityMetric)
+
+-- | The name of the data quality metric.
+dataQualityMetric_metricType :: Lens.Lens' DataQualityMetric (Prelude.Maybe DataQualityMetricType)
+dataQualityMetric_metricType = Lens.lens (\DataQualityMetric' {metricType} -> metricType) (\s@DataQualityMetric' {} a -> s {metricType = a} :: DataQualityMetric)
 
 -- | The value of the data quality metric.
 dataQualityMetric_metricValue :: Lens.Lens' DataQualityMetric (Prelude.Maybe Prelude.Double)
@@ -75,36 +84,28 @@ dataQualityMetric_metricValue = Lens.lens (\DataQualityMetric' {metricValue} -> 
 dataQualityMetric_relatedColumnName :: Lens.Lens' DataQualityMetric (Prelude.Maybe Prelude.Text)
 dataQualityMetric_relatedColumnName = Lens.lens (\DataQualityMetric' {relatedColumnName} -> relatedColumnName) (\s@DataQualityMetric' {} a -> s {relatedColumnName = a} :: DataQualityMetric)
 
--- | The name of the data quality metric.
-dataQualityMetric_metricType :: Lens.Lens' DataQualityMetric (Prelude.Maybe DataQualityMetricType)
-dataQualityMetric_metricType = Lens.lens (\DataQualityMetric' {metricType} -> metricType) (\s@DataQualityMetric' {} a -> s {metricType = a} :: DataQualityMetric)
-
--- | A description of the data quality metric.
-dataQualityMetric_metricDescription :: Lens.Lens' DataQualityMetric (Prelude.Maybe Prelude.Text)
-dataQualityMetric_metricDescription = Lens.lens (\DataQualityMetric' {metricDescription} -> metricDescription) (\s@DataQualityMetric' {} a -> s {metricDescription = a} :: DataQualityMetric)
-
 instance Data.FromJSON DataQualityMetric where
   parseJSON =
     Data.withObject
       "DataQualityMetric"
       ( \x ->
           DataQualityMetric'
-            Prelude.<$> (x Data..:? "MetricValue")
-            Prelude.<*> (x Data..:? "RelatedColumnName")
+            Prelude.<$> (x Data..:? "MetricDescription")
             Prelude.<*> (x Data..:? "MetricType")
-            Prelude.<*> (x Data..:? "MetricDescription")
+            Prelude.<*> (x Data..:? "MetricValue")
+            Prelude.<*> (x Data..:? "RelatedColumnName")
       )
 
 instance Prelude.Hashable DataQualityMetric where
   hashWithSalt _salt DataQualityMetric' {..} =
-    _salt `Prelude.hashWithSalt` metricValue
-      `Prelude.hashWithSalt` relatedColumnName
+    _salt `Prelude.hashWithSalt` metricDescription
       `Prelude.hashWithSalt` metricType
-      `Prelude.hashWithSalt` metricDescription
+      `Prelude.hashWithSalt` metricValue
+      `Prelude.hashWithSalt` relatedColumnName
 
 instance Prelude.NFData DataQualityMetric where
   rnf DataQualityMetric' {..} =
-    Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf relatedColumnName
+    Prelude.rnf metricDescription
       `Prelude.seq` Prelude.rnf metricType
-      `Prelude.seq` Prelude.rnf metricDescription
+      `Prelude.seq` Prelude.rnf metricValue
+      `Prelude.seq` Prelude.rnf relatedColumnName

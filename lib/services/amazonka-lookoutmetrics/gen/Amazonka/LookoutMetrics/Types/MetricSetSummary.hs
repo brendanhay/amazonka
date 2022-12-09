@@ -28,21 +28,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricSetSummary' smart constructor.
 data MetricSetSummary = MetricSetSummary'
-  { -- | The time at which the dataset was last modified.
-    lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | The dataset\'s
-    -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the dataset.
-    metricSetDescription :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the detector to which the dataset belongs.
+  { -- | The ARN of the detector to which the dataset belongs.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset.
-    metricSetName :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the dataset was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time at which the dataset was last modified.
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the dataset.
     metricSetArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the dataset was created.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The description of the dataset.
+    metricSetDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dataset.
+    metricSetName :: Prelude.Maybe Prelude.Text,
+    -- | The dataset\'s
+    -- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,62 +54,62 @@ data MetricSetSummary = MetricSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModificationTime', 'metricSetSummary_lastModificationTime' - The time at which the dataset was last modified.
---
--- 'tags', 'metricSetSummary_tags' - The dataset\'s
--- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
---
--- 'metricSetDescription', 'metricSetSummary_metricSetDescription' - The description of the dataset.
---
 -- 'anomalyDetectorArn', 'metricSetSummary_anomalyDetectorArn' - The ARN of the detector to which the dataset belongs.
 --
--- 'metricSetName', 'metricSetSummary_metricSetName' - The name of the dataset.
+-- 'creationTime', 'metricSetSummary_creationTime' - The time at which the dataset was created.
+--
+-- 'lastModificationTime', 'metricSetSummary_lastModificationTime' - The time at which the dataset was last modified.
 --
 -- 'metricSetArn', 'metricSetSummary_metricSetArn' - The ARN of the dataset.
 --
--- 'creationTime', 'metricSetSummary_creationTime' - The time at which the dataset was created.
+-- 'metricSetDescription', 'metricSetSummary_metricSetDescription' - The description of the dataset.
+--
+-- 'metricSetName', 'metricSetSummary_metricSetName' - The name of the dataset.
+--
+-- 'tags', 'metricSetSummary_tags' - The dataset\'s
+-- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
 newMetricSetSummary ::
   MetricSetSummary
 newMetricSetSummary =
   MetricSetSummary'
-    { lastModificationTime =
+    { anomalyDetectorArn =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
-      metricSetDescription = Prelude.Nothing,
-      anomalyDetectorArn = Prelude.Nothing,
-      metricSetName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
       metricSetArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      metricSetDescription = Prelude.Nothing,
+      metricSetName = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The time at which the dataset was last modified.
-metricSetSummary_lastModificationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
-metricSetSummary_lastModificationTime = Lens.lens (\MetricSetSummary' {lastModificationTime} -> lastModificationTime) (\s@MetricSetSummary' {} a -> s {lastModificationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
-
--- | The dataset\'s
--- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
-metricSetSummary_tags :: Lens.Lens' MetricSetSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricSetSummary_tags = Lens.lens (\MetricSetSummary' {tags} -> tags) (\s@MetricSetSummary' {} a -> s {tags = a} :: MetricSetSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the dataset.
-metricSetSummary_metricSetDescription :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
-metricSetSummary_metricSetDescription = Lens.lens (\MetricSetSummary' {metricSetDescription} -> metricSetDescription) (\s@MetricSetSummary' {} a -> s {metricSetDescription = a} :: MetricSetSummary)
 
 -- | The ARN of the detector to which the dataset belongs.
 metricSetSummary_anomalyDetectorArn :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
 metricSetSummary_anomalyDetectorArn = Lens.lens (\MetricSetSummary' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@MetricSetSummary' {} a -> s {anomalyDetectorArn = a} :: MetricSetSummary)
 
--- | The name of the dataset.
-metricSetSummary_metricSetName :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
-metricSetSummary_metricSetName = Lens.lens (\MetricSetSummary' {metricSetName} -> metricSetName) (\s@MetricSetSummary' {} a -> s {metricSetName = a} :: MetricSetSummary)
+-- | The time at which the dataset was created.
+metricSetSummary_creationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
+metricSetSummary_creationTime = Lens.lens (\MetricSetSummary' {creationTime} -> creationTime) (\s@MetricSetSummary' {} a -> s {creationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The time at which the dataset was last modified.
+metricSetSummary_lastModificationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
+metricSetSummary_lastModificationTime = Lens.lens (\MetricSetSummary' {lastModificationTime} -> lastModificationTime) (\s@MetricSetSummary' {} a -> s {lastModificationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the dataset.
 metricSetSummary_metricSetArn :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
 metricSetSummary_metricSetArn = Lens.lens (\MetricSetSummary' {metricSetArn} -> metricSetArn) (\s@MetricSetSummary' {} a -> s {metricSetArn = a} :: MetricSetSummary)
 
--- | The time at which the dataset was created.
-metricSetSummary_creationTime :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.UTCTime)
-metricSetSummary_creationTime = Lens.lens (\MetricSetSummary' {creationTime} -> creationTime) (\s@MetricSetSummary' {} a -> s {creationTime = a} :: MetricSetSummary) Prelude.. Lens.mapping Data._Time
+-- | The description of the dataset.
+metricSetSummary_metricSetDescription :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
+metricSetSummary_metricSetDescription = Lens.lens (\MetricSetSummary' {metricSetDescription} -> metricSetDescription) (\s@MetricSetSummary' {} a -> s {metricSetDescription = a} :: MetricSetSummary)
+
+-- | The name of the dataset.
+metricSetSummary_metricSetName :: Lens.Lens' MetricSetSummary (Prelude.Maybe Prelude.Text)
+metricSetSummary_metricSetName = Lens.lens (\MetricSetSummary' {metricSetName} -> metricSetName) (\s@MetricSetSummary' {} a -> s {metricSetName = a} :: MetricSetSummary)
+
+-- | The dataset\'s
+-- <https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags>.
+metricSetSummary_tags :: Lens.Lens' MetricSetSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricSetSummary_tags = Lens.lens (\MetricSetSummary' {tags} -> tags) (\s@MetricSetSummary' {} a -> s {tags = a} :: MetricSetSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON MetricSetSummary where
   parseJSON =
@@ -117,31 +117,31 @@ instance Data.FromJSON MetricSetSummary where
       "MetricSetSummary"
       ( \x ->
           MetricSetSummary'
-            Prelude.<$> (x Data..:? "LastModificationTime")
-            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "MetricSetDescription")
-            Prelude.<*> (x Data..:? "AnomalyDetectorArn")
-            Prelude.<*> (x Data..:? "MetricSetName")
-            Prelude.<*> (x Data..:? "MetricSetArn")
+            Prelude.<$> (x Data..:? "AnomalyDetectorArn")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "MetricSetArn")
+            Prelude.<*> (x Data..:? "MetricSetDescription")
+            Prelude.<*> (x Data..:? "MetricSetName")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MetricSetSummary where
   hashWithSalt _salt MetricSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModificationTime
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` metricSetDescription
-      `Prelude.hashWithSalt` anomalyDetectorArn
-      `Prelude.hashWithSalt` metricSetName
-      `Prelude.hashWithSalt` metricSetArn
+    _salt `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` metricSetArn
+      `Prelude.hashWithSalt` metricSetDescription
+      `Prelude.hashWithSalt` metricSetName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData MetricSetSummary where
   rnf MetricSetSummary' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf metricSetName
-      `Prelude.seq` Prelude.rnf metricSetArn
+    Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetName
+      `Prelude.seq` Prelude.rnf tags

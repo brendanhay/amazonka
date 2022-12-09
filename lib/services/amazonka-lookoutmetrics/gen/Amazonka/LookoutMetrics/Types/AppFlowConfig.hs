@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppFlowConfig' smart constructor.
 data AppFlowConfig = AppFlowConfig'
-  { -- | An IAM role that gives Amazon Lookout for Metrics permission to access
+  { -- | name of the flow.
+    flowName :: Prelude.Maybe Prelude.Text,
+    -- | An IAM role that gives Amazon Lookout for Metrics permission to access
     -- the flow.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | name of the flow.
-    flowName :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data AppFlowConfig = AppFlowConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'flowName', 'appFlowConfig_flowName' - name of the flow.
+--
 -- 'roleArn', 'appFlowConfig_roleArn' - An IAM role that gives Amazon Lookout for Metrics permission to access
 -- the flow.
---
--- 'flowName', 'appFlowConfig_flowName' - name of the flow.
 newAppFlowConfig ::
   AppFlowConfig
 newAppFlowConfig =
   AppFlowConfig'
-    { roleArn = Prelude.Nothing,
-      flowName = Prelude.Nothing
+    { flowName = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
+
+-- | name of the flow.
+appFlowConfig_flowName :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
+appFlowConfig_flowName = Lens.lens (\AppFlowConfig' {flowName} -> flowName) (\s@AppFlowConfig' {} a -> s {flowName = a} :: AppFlowConfig)
 
 -- | An IAM role that gives Amazon Lookout for Metrics permission to access
 -- the flow.
 appFlowConfig_roleArn :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
 appFlowConfig_roleArn = Lens.lens (\AppFlowConfig' {roleArn} -> roleArn) (\s@AppFlowConfig' {} a -> s {roleArn = a} :: AppFlowConfig)
-
--- | name of the flow.
-appFlowConfig_flowName :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
-appFlowConfig_flowName = Lens.lens (\AppFlowConfig' {flowName} -> flowName) (\s@AppFlowConfig' {} a -> s {flowName = a} :: AppFlowConfig)
 
 instance Data.FromJSON AppFlowConfig where
   parseJSON =
@@ -71,25 +71,25 @@ instance Data.FromJSON AppFlowConfig where
       "AppFlowConfig"
       ( \x ->
           AppFlowConfig'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "FlowName")
+            Prelude.<$> (x Data..:? "FlowName")
+            Prelude.<*> (x Data..:? "RoleArn")
       )
 
 instance Prelude.Hashable AppFlowConfig where
   hashWithSalt _salt AppFlowConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` flowName
+    _salt `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData AppFlowConfig where
   rnf AppFlowConfig' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf flowName
+    Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Data.ToJSON AppFlowConfig where
   toJSON AppFlowConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("FlowName" Data..=) Prelude.<$> flowName
+          [ ("FlowName" Data..=) Prelude.<$> flowName,
+            ("RoleArn" Data..=) Prelude.<$> roleArn
           ]
       )

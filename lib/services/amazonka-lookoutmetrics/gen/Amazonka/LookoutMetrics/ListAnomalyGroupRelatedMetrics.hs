@@ -28,8 +28,8 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupRelatedMetrics
     newListAnomalyGroupRelatedMetrics,
 
     -- * Request Lenses
-    listAnomalyGroupRelatedMetrics_nextToken,
     listAnomalyGroupRelatedMetrics_maxResults,
+    listAnomalyGroupRelatedMetrics_nextToken,
     listAnomalyGroupRelatedMetrics_relationshipTypeFilter,
     listAnomalyGroupRelatedMetrics_anomalyDetectorArn,
     listAnomalyGroupRelatedMetrics_anomalyGroupId,
@@ -39,8 +39,8 @@ module Amazonka.LookoutMetrics.ListAnomalyGroupRelatedMetrics
     newListAnomalyGroupRelatedMetricsResponse,
 
     -- * Response Lenses
-    listAnomalyGroupRelatedMetricsResponse_nextToken,
     listAnomalyGroupRelatedMetricsResponse_interMetricImpactList,
+    listAnomalyGroupRelatedMetricsResponse_nextToken,
     listAnomalyGroupRelatedMetricsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAnomalyGroupRelatedMetrics' smart constructor.
 data ListAnomalyGroupRelatedMetrics = ListAnomalyGroupRelatedMetrics'
-  { -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filter for potential causes (@CAUSE_OF_INPUT_ANOMALY_GROUP@) or
     -- downstream effects (@EFFECT_OF_INPUT_ANOMALY_GROUP@) of the anomaly
     -- group.
@@ -79,10 +79,10 @@ data ListAnomalyGroupRelatedMetrics = ListAnomalyGroupRelatedMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAnomalyGroupRelatedMetrics_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listAnomalyGroupRelatedMetrics_nextToken' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
---
--- 'maxResults', 'listAnomalyGroupRelatedMetrics_maxResults' - The maximum number of results to return.
 --
 -- 'relationshipTypeFilter', 'listAnomalyGroupRelatedMetrics_relationshipTypeFilter' - Filter for potential causes (@CAUSE_OF_INPUT_ANOMALY_GROUP@) or
 -- downstream effects (@EFFECT_OF_INPUT_ANOMALY_GROUP@) of the anomaly
@@ -101,22 +101,22 @@ newListAnomalyGroupRelatedMetrics
   pAnomalyDetectorArn_
   pAnomalyGroupId_ =
     ListAnomalyGroupRelatedMetrics'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         relationshipTypeFilter = Prelude.Nothing,
         anomalyDetectorArn = pAnomalyDetectorArn_,
         anomalyGroupId = pAnomalyGroupId_
       }
 
+-- | The maximum number of results to return.
+listAnomalyGroupRelatedMetrics_maxResults :: Lens.Lens' ListAnomalyGroupRelatedMetrics (Prelude.Maybe Prelude.Natural)
+listAnomalyGroupRelatedMetrics_maxResults = Lens.lens (\ListAnomalyGroupRelatedMetrics' {maxResults} -> maxResults) (\s@ListAnomalyGroupRelatedMetrics' {} a -> s {maxResults = a} :: ListAnomalyGroupRelatedMetrics)
+
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listAnomalyGroupRelatedMetrics_nextToken :: Lens.Lens' ListAnomalyGroupRelatedMetrics (Prelude.Maybe Prelude.Text)
 listAnomalyGroupRelatedMetrics_nextToken = Lens.lens (\ListAnomalyGroupRelatedMetrics' {nextToken} -> nextToken) (\s@ListAnomalyGroupRelatedMetrics' {} a -> s {nextToken = a} :: ListAnomalyGroupRelatedMetrics)
-
--- | The maximum number of results to return.
-listAnomalyGroupRelatedMetrics_maxResults :: Lens.Lens' ListAnomalyGroupRelatedMetrics (Prelude.Maybe Prelude.Natural)
-listAnomalyGroupRelatedMetrics_maxResults = Lens.lens (\ListAnomalyGroupRelatedMetrics' {maxResults} -> maxResults) (\s@ListAnomalyGroupRelatedMetrics' {} a -> s {maxResults = a} :: ListAnomalyGroupRelatedMetrics)
 
 -- | Filter for potential causes (@CAUSE_OF_INPUT_ANOMALY_GROUP@) or
 -- downstream effects (@EFFECT_OF_INPUT_ANOMALY_GROUP@) of the anomaly
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAnomalyGroupRelatedMetricsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "InterMetricImpactList"
+            Prelude.<$> ( x Data..?> "InterMetricImpactList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ListAnomalyGroupRelatedMetrics' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` relationshipTypeFilter
         `Prelude.hashWithSalt` anomalyDetectorArn
         `Prelude.hashWithSalt` anomalyGroupId
@@ -170,8 +170,8 @@ instance
     ListAnomalyGroupRelatedMetrics
   where
   rnf ListAnomalyGroupRelatedMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf relationshipTypeFilter
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf anomalyGroupId
@@ -194,8 +194,8 @@ instance Data.ToJSON ListAnomalyGroupRelatedMetrics where
   toJSON ListAnomalyGroupRelatedMetrics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("RelationshipTypeFilter" Data..=)
               Prelude.<$> relationshipTypeFilter,
             Prelude.Just
@@ -214,11 +214,11 @@ instance Data.ToQuery ListAnomalyGroupRelatedMetrics where
 
 -- | /See:/ 'newListAnomalyGroupRelatedMetricsResponse' smart constructor.
 data ListAnomalyGroupRelatedMetricsResponse = ListAnomalyGroupRelatedMetricsResponse'
-  { -- | The pagination token that\'s included if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Aggregated details about the measures contributing to the anomaly group,
+  { -- | Aggregated details about the measures contributing to the anomaly group,
     -- and the measures potentially impacted by the anomaly group.
     interMetricImpactList :: Prelude.Maybe [InterMetricImpactDetails],
+    -- | The pagination token that\'s included if more results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,10 +232,10 @@ data ListAnomalyGroupRelatedMetricsResponse = ListAnomalyGroupRelatedMetricsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAnomalyGroupRelatedMetricsResponse_nextToken' - The pagination token that\'s included if more results are available.
---
 -- 'interMetricImpactList', 'listAnomalyGroupRelatedMetricsResponse_interMetricImpactList' - Aggregated details about the measures contributing to the anomaly group,
 -- and the measures potentially impacted by the anomaly group.
+--
+-- 'nextToken', 'listAnomalyGroupRelatedMetricsResponse_nextToken' - The pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'listAnomalyGroupRelatedMetricsResponse_httpStatus' - The response's http status code.
 newListAnomalyGroupRelatedMetricsResponse ::
@@ -245,21 +245,20 @@ newListAnomalyGroupRelatedMetricsResponse ::
 newListAnomalyGroupRelatedMetricsResponse
   pHttpStatus_ =
     ListAnomalyGroupRelatedMetricsResponse'
-      { nextToken =
+      { interMetricImpactList =
           Prelude.Nothing,
-        interMetricImpactList =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pagination token that\'s included if more results are available.
-listAnomalyGroupRelatedMetricsResponse_nextToken :: Lens.Lens' ListAnomalyGroupRelatedMetricsResponse (Prelude.Maybe Prelude.Text)
-listAnomalyGroupRelatedMetricsResponse_nextToken = Lens.lens (\ListAnomalyGroupRelatedMetricsResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupRelatedMetricsResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupRelatedMetricsResponse)
 
 -- | Aggregated details about the measures contributing to the anomaly group,
 -- and the measures potentially impacted by the anomaly group.
 listAnomalyGroupRelatedMetricsResponse_interMetricImpactList :: Lens.Lens' ListAnomalyGroupRelatedMetricsResponse (Prelude.Maybe [InterMetricImpactDetails])
 listAnomalyGroupRelatedMetricsResponse_interMetricImpactList = Lens.lens (\ListAnomalyGroupRelatedMetricsResponse' {interMetricImpactList} -> interMetricImpactList) (\s@ListAnomalyGroupRelatedMetricsResponse' {} a -> s {interMetricImpactList = a} :: ListAnomalyGroupRelatedMetricsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s included if more results are available.
+listAnomalyGroupRelatedMetricsResponse_nextToken :: Lens.Lens' ListAnomalyGroupRelatedMetricsResponse (Prelude.Maybe Prelude.Text)
+listAnomalyGroupRelatedMetricsResponse_nextToken = Lens.lens (\ListAnomalyGroupRelatedMetricsResponse' {nextToken} -> nextToken) (\s@ListAnomalyGroupRelatedMetricsResponse' {} a -> s {nextToken = a} :: ListAnomalyGroupRelatedMetricsResponse)
 
 -- | The response's http status code.
 listAnomalyGroupRelatedMetricsResponse_httpStatus :: Lens.Lens' ListAnomalyGroupRelatedMetricsResponse Prelude.Int
@@ -270,6 +269,6 @@ instance
     ListAnomalyGroupRelatedMetricsResponse
   where
   rnf ListAnomalyGroupRelatedMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf interMetricImpactList
+    Prelude.rnf interMetricImpactList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

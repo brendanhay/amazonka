@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectedMetricSetConfig' smart constructor.
 data DetectedMetricSetConfig = DetectedMetricSetConfig'
-  { -- | The dataset\'s offset.
-    offset :: Prelude.Maybe DetectedField,
+  { -- | The dataset\'s interval.
+    metricSetFrequency :: Prelude.Maybe DetectedField,
     -- | The dataset\'s data source.
     metricSource :: Prelude.Maybe DetectedMetricSource,
-    -- | The dataset\'s interval.
-    metricSetFrequency :: Prelude.Maybe DetectedField
+    -- | The dataset\'s offset.
+    offset :: Prelude.Maybe DetectedField
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,32 @@ data DetectedMetricSetConfig = DetectedMetricSetConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'offset', 'detectedMetricSetConfig_offset' - The dataset\'s offset.
+-- 'metricSetFrequency', 'detectedMetricSetConfig_metricSetFrequency' - The dataset\'s interval.
 --
 -- 'metricSource', 'detectedMetricSetConfig_metricSource' - The dataset\'s data source.
 --
--- 'metricSetFrequency', 'detectedMetricSetConfig_metricSetFrequency' - The dataset\'s interval.
+-- 'offset', 'detectedMetricSetConfig_offset' - The dataset\'s offset.
 newDetectedMetricSetConfig ::
   DetectedMetricSetConfig
 newDetectedMetricSetConfig =
   DetectedMetricSetConfig'
-    { offset = Prelude.Nothing,
+    { metricSetFrequency =
+        Prelude.Nothing,
       metricSource = Prelude.Nothing,
-      metricSetFrequency = Prelude.Nothing
+      offset = Prelude.Nothing
     }
 
--- | The dataset\'s offset.
-detectedMetricSetConfig_offset :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedField)
-detectedMetricSetConfig_offset = Lens.lens (\DetectedMetricSetConfig' {offset} -> offset) (\s@DetectedMetricSetConfig' {} a -> s {offset = a} :: DetectedMetricSetConfig)
+-- | The dataset\'s interval.
+detectedMetricSetConfig_metricSetFrequency :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedField)
+detectedMetricSetConfig_metricSetFrequency = Lens.lens (\DetectedMetricSetConfig' {metricSetFrequency} -> metricSetFrequency) (\s@DetectedMetricSetConfig' {} a -> s {metricSetFrequency = a} :: DetectedMetricSetConfig)
 
 -- | The dataset\'s data source.
 detectedMetricSetConfig_metricSource :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedMetricSource)
 detectedMetricSetConfig_metricSource = Lens.lens (\DetectedMetricSetConfig' {metricSource} -> metricSource) (\s@DetectedMetricSetConfig' {} a -> s {metricSource = a} :: DetectedMetricSetConfig)
 
--- | The dataset\'s interval.
-detectedMetricSetConfig_metricSetFrequency :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedField)
-detectedMetricSetConfig_metricSetFrequency = Lens.lens (\DetectedMetricSetConfig' {metricSetFrequency} -> metricSetFrequency) (\s@DetectedMetricSetConfig' {} a -> s {metricSetFrequency = a} :: DetectedMetricSetConfig)
+-- | The dataset\'s offset.
+detectedMetricSetConfig_offset :: Lens.Lens' DetectedMetricSetConfig (Prelude.Maybe DetectedField)
+detectedMetricSetConfig_offset = Lens.lens (\DetectedMetricSetConfig' {offset} -> offset) (\s@DetectedMetricSetConfig' {} a -> s {offset = a} :: DetectedMetricSetConfig)
 
 instance Data.FromJSON DetectedMetricSetConfig where
   parseJSON =
@@ -79,19 +80,19 @@ instance Data.FromJSON DetectedMetricSetConfig where
       "DetectedMetricSetConfig"
       ( \x ->
           DetectedMetricSetConfig'
-            Prelude.<$> (x Data..:? "Offset")
+            Prelude.<$> (x Data..:? "MetricSetFrequency")
             Prelude.<*> (x Data..:? "MetricSource")
-            Prelude.<*> (x Data..:? "MetricSetFrequency")
+            Prelude.<*> (x Data..:? "Offset")
       )
 
 instance Prelude.Hashable DetectedMetricSetConfig where
   hashWithSalt _salt DetectedMetricSetConfig' {..} =
-    _salt `Prelude.hashWithSalt` offset
+    _salt `Prelude.hashWithSalt` metricSetFrequency
       `Prelude.hashWithSalt` metricSource
-      `Prelude.hashWithSalt` metricSetFrequency
+      `Prelude.hashWithSalt` offset
 
 instance Prelude.NFData DetectedMetricSetConfig where
   rnf DetectedMetricSetConfig' {..} =
-    Prelude.rnf offset
+    Prelude.rnf metricSetFrequency
       `Prelude.seq` Prelude.rnf metricSource
-      `Prelude.seq` Prelude.rnf metricSetFrequency
+      `Prelude.seq` Prelude.rnf offset

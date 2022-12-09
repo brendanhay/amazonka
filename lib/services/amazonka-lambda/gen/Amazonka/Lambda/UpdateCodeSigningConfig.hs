@@ -29,9 +29,9 @@ module Amazonka.Lambda.UpdateCodeSigningConfig
     newUpdateCodeSigningConfig,
 
     -- * Request Lenses
-    updateCodeSigningConfig_description,
     updateCodeSigningConfig_allowedPublishers,
     updateCodeSigningConfig_codeSigningPolicies,
+    updateCodeSigningConfig_description,
     updateCodeSigningConfig_codeSigningConfigArn,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCodeSigningConfig' smart constructor.
 data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
-  { -- | Descriptive name for this code signing configuration.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Signing profiles for this code signing configuration.
+  { -- | Signing profiles for this code signing configuration.
     allowedPublishers :: Prelude.Maybe AllowedPublishers,
     -- | The code signing policy.
     codeSigningPolicies :: Prelude.Maybe CodeSigningPolicies,
+    -- | Descriptive name for this code signing configuration.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
     codeSigningConfigArn :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateCodeSigningConfig_description' - Descriptive name for this code signing configuration.
---
 -- 'allowedPublishers', 'updateCodeSigningConfig_allowedPublishers' - Signing profiles for this code signing configuration.
 --
 -- 'codeSigningPolicies', 'updateCodeSigningConfig_codeSigningPolicies' - The code signing policy.
+--
+-- 'description', 'updateCodeSigningConfig_description' - Descriptive name for this code signing configuration.
 --
 -- 'codeSigningConfigArn', 'updateCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newUpdateCodeSigningConfig ::
@@ -86,16 +86,12 @@ newUpdateCodeSigningConfig ::
   UpdateCodeSigningConfig
 newUpdateCodeSigningConfig pCodeSigningConfigArn_ =
   UpdateCodeSigningConfig'
-    { description =
+    { allowedPublishers =
         Prelude.Nothing,
-      allowedPublishers = Prelude.Nothing,
       codeSigningPolicies = Prelude.Nothing,
+      description = Prelude.Nothing,
       codeSigningConfigArn = pCodeSigningConfigArn_
     }
-
--- | Descriptive name for this code signing configuration.
-updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe Prelude.Text)
-updateCodeSigningConfig_description = Lens.lens (\UpdateCodeSigningConfig' {description} -> description) (\s@UpdateCodeSigningConfig' {} a -> s {description = a} :: UpdateCodeSigningConfig)
 
 -- | Signing profiles for this code signing configuration.
 updateCodeSigningConfig_allowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe AllowedPublishers)
@@ -104,6 +100,10 @@ updateCodeSigningConfig_allowedPublishers = Lens.lens (\UpdateCodeSigningConfig'
 -- | The code signing policy.
 updateCodeSigningConfig_codeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe CodeSigningPolicies)
 updateCodeSigningConfig_codeSigningPolicies = Lens.lens (\UpdateCodeSigningConfig' {codeSigningPolicies} -> codeSigningPolicies) (\s@UpdateCodeSigningConfig' {} a -> s {codeSigningPolicies = a} :: UpdateCodeSigningConfig)
+
+-- | Descriptive name for this code signing configuration.
+updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe Prelude.Text)
+updateCodeSigningConfig_description = Lens.lens (\UpdateCodeSigningConfig' {description} -> description) (\s@UpdateCodeSigningConfig' {} a -> s {description = a} :: UpdateCodeSigningConfig)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 updateCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' UpdateCodeSigningConfig Prelude.Text
@@ -125,16 +125,16 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
 
 instance Prelude.Hashable UpdateCodeSigningConfig where
   hashWithSalt _salt UpdateCodeSigningConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` allowedPublishers
+    _salt `Prelude.hashWithSalt` allowedPublishers
       `Prelude.hashWithSalt` codeSigningPolicies
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` codeSigningConfigArn
 
 instance Prelude.NFData UpdateCodeSigningConfig where
   rnf UpdateCodeSigningConfig' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf allowedPublishers
+    Prelude.rnf allowedPublishers
       `Prelude.seq` Prelude.rnf codeSigningPolicies
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf codeSigningConfigArn
 
 instance Data.ToHeaders UpdateCodeSigningConfig where
@@ -144,11 +144,11 @@ instance Data.ToJSON UpdateCodeSigningConfig where
   toJSON UpdateCodeSigningConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Description" Data..=) Prelude.<$> description,
-            ("AllowedPublishers" Data..=)
+          [ ("AllowedPublishers" Data..=)
               Prelude.<$> allowedPublishers,
             ("CodeSigningPolicies" Data..=)
-              Prelude.<$> codeSigningPolicies
+              Prelude.<$> codeSigningPolicies,
+            ("Description" Data..=) Prelude.<$> description
           ]
       )
 

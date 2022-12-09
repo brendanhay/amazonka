@@ -26,8 +26,8 @@ import Amazonka.Lambda.Types.EnvironmentError
 import qualified Amazonka.Prelude as Prelude
 
 -- | The results of an operation to update or read environment variables. If
--- the operation is successful, the response contains the environment
--- variables. If it failed, the response contains details about the error.
+-- the operation succeeds, the response contains the environment variables.
+-- If it fails, the response contains details about the error.
 --
 -- /See:/ 'newEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'

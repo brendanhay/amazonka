@@ -153,6 +153,10 @@ library
     Amazonka.Lambda.Types.Runtime
     Amazonka.Lambda.Types.SelfManagedEventSource
     Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
+    Amazonka.Lambda.Types.SnapStart
+    Amazonka.Lambda.Types.SnapStartApplyOn
+    Amazonka.Lambda.Types.SnapStartOptimizationStatus
+    Amazonka.Lambda.Types.SnapStartResponse
     Amazonka.Lambda.Types.SourceAccessConfiguration
     Amazonka.Lambda.Types.SourceAccessType
     Amazonka.Lambda.Types.State

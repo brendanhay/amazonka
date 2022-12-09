@@ -27,9 +27,9 @@ module Amazonka.Lambda.UpdateFunctionUrlConfig
     newUpdateFunctionUrlConfig,
 
     -- * Request Lenses
+    updateFunctionUrlConfig_authType,
     updateFunctionUrlConfig_cors,
     updateFunctionUrlConfig_qualifier,
-    updateFunctionUrlConfig_authType,
     updateFunctionUrlConfig_functionName,
 
     -- * Destructuring the Response
@@ -57,28 +57,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFunctionUrlConfig' smart constructor.
 data UpdateFunctionUrlConfig = UpdateFunctionUrlConfig'
-  { -- | The
+  { -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
+    -- if you want to restrict access to authenticated IAM users only. Set to
+    -- @NONE@ if you want to bypass IAM authentication to create a public
+    -- endpoint. For more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+    authType :: Prelude.Maybe FunctionUrlAuthType,
+    -- | The
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
     -- settings for your function URL.
     cors :: Prelude.Maybe Cors,
     -- | The alias name.
     qualifier :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated @IAM@ users only. Set to
-    -- @NONE@ if you want to bypass IAM authentication to create a public
-    -- endpoint. For more information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
-    authType :: Prelude.Maybe FunctionUrlAuthType,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
     --
-    -- -   __Function name__ - @my-function@.
+    -- -   __Function name__ – @my-function@.
     --
-    -- -   __Function ARN__ -
+    -- -   __Function ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
     --
-    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    -- -   __Partial ARN__ – @123456789012:function:my-function@.
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
@@ -94,28 +94,28 @@ data UpdateFunctionUrlConfig = UpdateFunctionUrlConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authType', 'updateFunctionUrlConfig_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
+-- if you want to restrict access to authenticated IAM users only. Set to
+-- @NONE@ if you want to bypass IAM authentication to create a public
+-- endpoint. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+--
 -- 'cors', 'updateFunctionUrlConfig_cors' - The
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
 -- settings for your function URL.
 --
 -- 'qualifier', 'updateFunctionUrlConfig_qualifier' - The alias name.
 --
--- 'authType', 'updateFunctionUrlConfig_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
--- @NONE@ if you want to bypass IAM authentication to create a public
--- endpoint. For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
---
 -- 'functionName', 'updateFunctionUrlConfig_functionName' - The name of the Lambda function.
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@.
+-- -   __Function name__ – @my-function@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
@@ -125,11 +125,20 @@ newUpdateFunctionUrlConfig ::
   UpdateFunctionUrlConfig
 newUpdateFunctionUrlConfig pFunctionName_ =
   UpdateFunctionUrlConfig'
-    { cors = Prelude.Nothing,
+    { authType =
+        Prelude.Nothing,
+      cors = Prelude.Nothing,
       qualifier = Prelude.Nothing,
-      authType = Prelude.Nothing,
       functionName = pFunctionName_
     }
+
+-- | The type of authentication that your function URL uses. Set to @AWS_IAM@
+-- if you want to restrict access to authenticated IAM users only. Set to
+-- @NONE@ if you want to bypass IAM authentication to create a public
+-- endpoint. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+updateFunctionUrlConfig_authType :: Lens.Lens' UpdateFunctionUrlConfig (Prelude.Maybe FunctionUrlAuthType)
+updateFunctionUrlConfig_authType = Lens.lens (\UpdateFunctionUrlConfig' {authType} -> authType) (\s@UpdateFunctionUrlConfig' {} a -> s {authType = a} :: UpdateFunctionUrlConfig)
 
 -- | The
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS cross-origin resource sharing (CORS)>
@@ -141,24 +150,16 @@ updateFunctionUrlConfig_cors = Lens.lens (\UpdateFunctionUrlConfig' {cors} -> co
 updateFunctionUrlConfig_qualifier :: Lens.Lens' UpdateFunctionUrlConfig (Prelude.Maybe Prelude.Text)
 updateFunctionUrlConfig_qualifier = Lens.lens (\UpdateFunctionUrlConfig' {qualifier} -> qualifier) (\s@UpdateFunctionUrlConfig' {} a -> s {qualifier = a} :: UpdateFunctionUrlConfig)
 
--- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
--- @NONE@ if you want to bypass IAM authentication to create a public
--- endpoint. For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
-updateFunctionUrlConfig_authType :: Lens.Lens' UpdateFunctionUrlConfig (Prelude.Maybe FunctionUrlAuthType)
-updateFunctionUrlConfig_authType = Lens.lens (\UpdateFunctionUrlConfig' {authType} -> authType) (\s@UpdateFunctionUrlConfig' {} a -> s {authType = a} :: UpdateFunctionUrlConfig)
-
 -- | The name of the Lambda function.
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@.
+-- -   __Function name__ – @my-function@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
@@ -186,16 +187,16 @@ instance Core.AWSRequest UpdateFunctionUrlConfig where
 
 instance Prelude.Hashable UpdateFunctionUrlConfig where
   hashWithSalt _salt UpdateFunctionUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` cors
+    _salt `Prelude.hashWithSalt` authType
+      `Prelude.hashWithSalt` cors
       `Prelude.hashWithSalt` qualifier
-      `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData UpdateFunctionUrlConfig where
   rnf UpdateFunctionUrlConfig' {..} =
-    Prelude.rnf cors
+    Prelude.rnf authType
+      `Prelude.seq` Prelude.rnf cors
       `Prelude.seq` Prelude.rnf qualifier
-      `Prelude.seq` Prelude.rnf authType
       `Prelude.seq` Prelude.rnf functionName
 
 instance Data.ToHeaders UpdateFunctionUrlConfig where
@@ -205,8 +206,8 @@ instance Data.ToJSON UpdateFunctionUrlConfig where
   toJSON UpdateFunctionUrlConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Cors" Data..=) Prelude.<$> cors,
-            ("AuthType" Data..=) Prelude.<$> authType
+          [ ("AuthType" Data..=) Prelude.<$> authType,
+            ("Cors" Data..=) Prelude.<$> cors
           ]
       )
 
@@ -235,7 +236,7 @@ data UpdateFunctionUrlConfigResponse = UpdateFunctionUrlConfigResponse'
     -- | The Amazon Resource Name (ARN) of your function.
     functionArn :: Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated @IAM@ users only. Set to
+    -- if you want to restrict access to authenticated IAM users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -270,7 +271,7 @@ data UpdateFunctionUrlConfigResponse = UpdateFunctionUrlConfigResponse'
 -- 'functionArn', 'updateFunctionUrlConfigResponse_functionArn' - The Amazon Resource Name (ARN) of your function.
 --
 -- 'authType', 'updateFunctionUrlConfigResponse_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -333,7 +334,7 @@ updateFunctionUrlConfigResponse_functionArn :: Lens.Lens' UpdateFunctionUrlConfi
 updateFunctionUrlConfigResponse_functionArn = Lens.lens (\UpdateFunctionUrlConfigResponse' {functionArn} -> functionArn) (\s@UpdateFunctionUrlConfigResponse' {} a -> s {functionArn = a} :: UpdateFunctionUrlConfigResponse)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.

@@ -40,39 +40,40 @@ module Amazonka.Lambda.GetFunctionConfiguration
     newFunctionConfiguration,
 
     -- * Response Lenses
-    functionConfiguration_tracingConfig,
-    functionConfiguration_fileSystemConfigs,
-    functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_masterArn,
-    functionConfiguration_functionArn,
-    functionConfiguration_timeout,
-    functionConfiguration_ephemeralStorage,
-    functionConfiguration_memorySize,
-    functionConfiguration_codeSha256,
-    functionConfiguration_environment,
-    functionConfiguration_vpcConfig,
-    functionConfiguration_state,
-    functionConfiguration_functionName,
-    functionConfiguration_runtime,
-    functionConfiguration_signingProfileVersionArn,
-    functionConfiguration_description,
-    functionConfiguration_kmsKeyArn,
-    functionConfiguration_handler,
-    functionConfiguration_layers,
-    functionConfiguration_stateReasonCode,
-    functionConfiguration_packageType,
-    functionConfiguration_lastUpdateStatusReasonCode,
-    functionConfiguration_revisionId,
-    functionConfiguration_signingJobArn,
-    functionConfiguration_imageConfigResponse,
-    functionConfiguration_lastUpdateStatus,
-    functionConfiguration_lastModified,
-    functionConfiguration_role,
     functionConfiguration_architectures,
-    functionConfiguration_stateReason,
-    functionConfiguration_version,
-    functionConfiguration_deadLetterConfig,
+    functionConfiguration_codeSha256,
     functionConfiguration_codeSize,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_description,
+    functionConfiguration_environment,
+    functionConfiguration_ephemeralStorage,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_functionArn,
+    functionConfiguration_functionName,
+    functionConfiguration_handler,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_kmsKeyArn,
+    functionConfiguration_lastModified,
+    functionConfiguration_lastUpdateStatus,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_lastUpdateStatusReasonCode,
+    functionConfiguration_layers,
+    functionConfiguration_masterArn,
+    functionConfiguration_memorySize,
+    functionConfiguration_packageType,
+    functionConfiguration_revisionId,
+    functionConfiguration_role,
+    functionConfiguration_runtime,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_signingProfileVersionArn,
+    functionConfiguration_snapStart,
+    functionConfiguration_state,
+    functionConfiguration_stateReason,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_timeout,
+    functionConfiguration_tracingConfig,
+    functionConfiguration_version,
+    functionConfiguration_vpcConfig,
   )
 where
 
@@ -93,13 +94,13 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
     --
     -- __Name formats__
     --
-    -- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+    -- -   __Function name__ – @my-function@ (name-only), @my-function:v1@
     --     (with alias).
     --
-    -- -   __Function ARN__ -
+    -- -   __Function ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
     --
-    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    -- -   __Partial ARN__ – @123456789012:function:my-function@.
     --
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
@@ -123,13 +124,13 @@ data GetFunctionConfiguration = GetFunctionConfiguration'
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+-- -   __Function name__ – @my-function@ (name-only), @my-function:v1@
 --     (with alias).
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
@@ -154,13 +155,13 @@ getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qual
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+-- -   __Function name__ – @my-function@ (name-only), @my-function:v1@
 --     (with alias).
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the

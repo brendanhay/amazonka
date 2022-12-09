@@ -31,8 +31,8 @@ module Amazonka.Lambda.ListAliases
     newListAliases,
 
     -- * Request Lenses
-    listAliases_marker,
     listAliases_functionVersion,
+    listAliases_marker,
     listAliases_maxItems,
     listAliases_functionName,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | Specify the pagination token that\'s returned by a previous request to
-    -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Specify a function version to only list aliases that invoke that
+  { -- | Specify a function version to only list aliases that invoke that
     -- version.
     functionVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specify the pagination token that\'s returned by a previous request to
+    -- retrieve the next page of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Limit the number of aliases returned.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Lambda function.
@@ -90,11 +90,11 @@ data ListAliases = ListAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
---
 -- 'functionVersion', 'listAliases_functionVersion' - Specify a function version to only list aliases that invoke that
 -- version.
+--
+-- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
 --
 -- 'maxItems', 'listAliases_maxItems' - Limit the number of aliases returned.
 --
@@ -117,21 +117,21 @@ newListAliases ::
   ListAliases
 newListAliases pFunctionName_ =
   ListAliases'
-    { marker = Prelude.Nothing,
-      functionVersion = Prelude.Nothing,
+    { functionVersion = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
       functionName = pFunctionName_
     }
-
--- | Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
 -- | Specify a function version to only list aliases that invoke that
 -- version.
 listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
+
+-- | Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
 -- | Limit the number of aliases returned.
 listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
@@ -187,15 +187,15 @@ instance Core.AWSRequest ListAliases where
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` functionVersion
+    _salt `Prelude.hashWithSalt` functionVersion
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf functionVersion
+    Prelude.rnf functionVersion
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf functionName
 
@@ -213,8 +213,8 @@ instance Data.ToPath ListAliases where
 instance Data.ToQuery ListAliases where
   toQuery ListAliases' {..} =
     Prelude.mconcat
-      [ "Marker" Data.=: marker,
-        "FunctionVersion" Data.=: functionVersion,
+      [ "FunctionVersion" Data.=: functionVersion,
+        "Marker" Data.=: marker,
         "MaxItems" Data.=: maxItems
       ]
 

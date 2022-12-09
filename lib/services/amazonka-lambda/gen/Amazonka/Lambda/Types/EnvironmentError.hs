@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-  { -- | The error message.
-    message :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    message :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data EnvironmentError = EnvironmentError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'environmentError_message' - The error message.
---
 -- 'errorCode', 'environmentError_errorCode' - The error code.
+--
+-- 'message', 'environmentError_message' - The error message.
 newEnvironmentError ::
   EnvironmentError
 newEnvironmentError =
   EnvironmentError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message.
-environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
-environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The error code.
 environmentError_errorCode :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
 environmentError_errorCode = Lens.lens (\EnvironmentError' {errorCode} -> errorCode) (\s@EnvironmentError' {} a -> s {errorCode = a} :: EnvironmentError)
+
+-- | The error message.
+environmentError_message :: Lens.Lens' EnvironmentError (Prelude.Maybe Prelude.Text)
+environmentError_message = Lens.lens (\EnvironmentError' {message} -> message) (\s@EnvironmentError' {} a -> s {message = a} :: EnvironmentError) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON EnvironmentError where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON EnvironmentError where
       "EnvironmentError"
       ( \x ->
           EnvironmentError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable EnvironmentError where
   hashWithSalt _salt EnvironmentError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData EnvironmentError where
   rnf EnvironmentError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message

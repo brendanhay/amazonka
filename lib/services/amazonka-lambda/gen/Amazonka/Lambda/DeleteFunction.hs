@@ -25,9 +25,9 @@
 -- deleted.
 --
 -- To delete Lambda event source mappings that invoke a function, use
--- DeleteEventSourceMapping. For Amazon Web Services services and resources
--- that invoke your function directly, delete the trigger in the service
--- where you originally configured it.
+-- DeleteEventSourceMapping. For Amazon Web Services and resources that
+-- invoke your function directly, delete the trigger in the service where
+-- you originally configured it.
 module Amazonka.Lambda.DeleteFunction
   ( -- * Creating a Request
     DeleteFunction (..),
@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
-  { -- | Specify a version to delete. You can\'t delete a version that\'s
-    -- referenced by an alias.
+  { -- | Specify a version to delete. You can\'t delete a version that an alias
+    -- references.
     qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function or version.
     --
     -- __Name formats__
     --
-    -- -   __Function name__ - @my-function@ (name-only), @my-function:1@ (with
+    -- -   __Function name__ – @my-function@ (name-only), @my-function:1@ (with
     --     version).
     --
-    -- -   __Function ARN__ -
+    -- -   __Function ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
     --
-    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    -- -   __Partial ARN__ – @123456789012:function:my-function@.
     --
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
@@ -83,20 +83,20 @@ data DeleteFunction = DeleteFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'qualifier', 'deleteFunction_qualifier' - Specify a version to delete. You can\'t delete a version that\'s
--- referenced by an alias.
+-- 'qualifier', 'deleteFunction_qualifier' - Specify a version to delete. You can\'t delete a version that an alias
+-- references.
 --
 -- 'functionName', 'deleteFunction_functionName' - The name of the Lambda function or version.
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@ (name-only), @my-function:1@ (with
+-- -   __Function name__ – @my-function@ (name-only), @my-function:1@ (with
 --     version).
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
@@ -111,8 +111,8 @@ newDeleteFunction pFunctionName_ =
       functionName = pFunctionName_
     }
 
--- | Specify a version to delete. You can\'t delete a version that\'s
--- referenced by an alias.
+-- | Specify a version to delete. You can\'t delete a version that an alias
+-- references.
 deleteFunction_qualifier :: Lens.Lens' DeleteFunction (Prelude.Maybe Prelude.Text)
 deleteFunction_qualifier = Lens.lens (\DeleteFunction' {qualifier} -> qualifier) (\s@DeleteFunction' {} a -> s {qualifier = a} :: DeleteFunction)
 
@@ -120,13 +120,13 @@ deleteFunction_qualifier = Lens.lens (\DeleteFunction' {qualifier} -> qualifier)
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@ (name-only), @my-function:1@ (with
+-- -   __Function name__ – @my-function@ (name-only), @my-function:1@ (with
 --     version).
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the

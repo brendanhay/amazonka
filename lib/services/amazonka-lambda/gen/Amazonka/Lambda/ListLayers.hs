@@ -37,9 +37,9 @@ module Amazonka.Lambda.ListLayers
 
     -- * Request Lenses
     listLayers_compatibleArchitecture,
+    listLayers_compatibleRuntime,
     listLayers_marker,
     listLayers_maxItems,
-    listLayers_compatibleRuntime,
 
     -- * Destructuring the Response
     ListLayersResponse (..),
@@ -65,12 +65,12 @@ data ListLayers = ListLayers'
   { -- | The compatible
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
     compatibleArchitecture :: Prelude.Maybe Architecture,
+    -- | A runtime identifier. For example, @go1.x@.
+    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of layers to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Prelude.Maybe Runtime
+    maxItems :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,26 +85,30 @@ data ListLayers = ListLayers'
 -- 'compatibleArchitecture', 'listLayers_compatibleArchitecture' - The compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 --
+-- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
+--
 -- 'marker', 'listLayers_marker' - A pagination token returned by a previous call.
 --
 -- 'maxItems', 'listLayers_maxItems' - The maximum number of layers to return.
---
--- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 newListLayers ::
   ListLayers
 newListLayers =
   ListLayers'
     { compatibleArchitecture =
         Prelude.Nothing,
+      compatibleRuntime = Prelude.Nothing,
       marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      compatibleRuntime = Prelude.Nothing
+      maxItems = Prelude.Nothing
     }
 
 -- | The compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 listLayers_compatibleArchitecture :: Lens.Lens' ListLayers (Prelude.Maybe Architecture)
 listLayers_compatibleArchitecture = Lens.lens (\ListLayers' {compatibleArchitecture} -> compatibleArchitecture) (\s@ListLayers' {} a -> s {compatibleArchitecture = a} :: ListLayers)
+
+-- | A runtime identifier. For example, @go1.x@.
+listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
+listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
 
 -- | A pagination token returned by a previous call.
 listLayers_marker :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Text)
@@ -113,10 +117,6 @@ listLayers_marker = Lens.lens (\ListLayers' {marker} -> marker) (\s@ListLayers' 
 -- | The maximum number of layers to return.
 listLayers_maxItems :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Natural)
 listLayers_maxItems = Lens.lens (\ListLayers' {maxItems} -> maxItems) (\s@ListLayers' {} a -> s {maxItems = a} :: ListLayers)
-
--- | A runtime identifier. For example, @go1.x@.
-listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
-listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
 
 instance Core.AWSPager ListLayers where
   page rq rs
@@ -153,16 +153,16 @@ instance Core.AWSRequest ListLayers where
 instance Prelude.Hashable ListLayers where
   hashWithSalt _salt ListLayers' {..} =
     _salt `Prelude.hashWithSalt` compatibleArchitecture
+      `Prelude.hashWithSalt` compatibleRuntime
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
-      `Prelude.hashWithSalt` compatibleRuntime
 
 instance Prelude.NFData ListLayers where
   rnf ListLayers' {..} =
     Prelude.rnf compatibleArchitecture
+      `Prelude.seq` Prelude.rnf compatibleRuntime
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf compatibleRuntime
 
 instance Data.ToHeaders ListLayers where
   toHeaders = Prelude.const Prelude.mempty
@@ -175,9 +175,9 @@ instance Data.ToQuery ListLayers where
     Prelude.mconcat
       [ "CompatibleArchitecture"
           Data.=: compatibleArchitecture,
+        "CompatibleRuntime" Data.=: compatibleRuntime,
         "Marker" Data.=: marker,
-        "MaxItems" Data.=: maxItems,
-        "CompatibleRuntime" Data.=: compatibleRuntime
+        "MaxItems" Data.=: maxItems
       ]
 
 -- | /See:/ 'newListLayersResponse' smart constructor.

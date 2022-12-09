@@ -24,12 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The size of the function’s \/tmp directory in MB. The default value is
--- 512, but can be any whole number between 512 and 10240 MB.
+-- | The size of the function\'s @\/tmp@ directory in MB. The default value
+-- is 512, but it can be any whole number between 512 and 10,240 MB.
 --
 -- /See:/ 'newEphemeralStorage' smart constructor.
 data EphemeralStorage = EphemeralStorage'
-  { -- | The size of the function’s \/tmp directory.
+  { -- | The size of the function\'s @\/tmp@ directory.
     size :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +42,7 @@ data EphemeralStorage = EphemeralStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'size', 'ephemeralStorage_size' - The size of the function’s \/tmp directory.
+-- 'size', 'ephemeralStorage_size' - The size of the function\'s @\/tmp@ directory.
 newEphemeralStorage ::
   -- | 'size'
   Prelude.Natural ->
@@ -50,7 +50,7 @@ newEphemeralStorage ::
 newEphemeralStorage pSize_ =
   EphemeralStorage' {size = pSize_}
 
--- | The size of the function’s \/tmp directory.
+-- | The size of the function\'s @\/tmp@ directory.
 ephemeralStorage_size :: Lens.Lens' EphemeralStorage Prelude.Natural
 ephemeralStorage_size = Lens.lens (\EphemeralStorage' {size} -> size) (\s@EphemeralStorage' {} a -> s {size = a} :: EphemeralStorage)
 

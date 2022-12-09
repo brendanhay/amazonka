@@ -39,11 +39,11 @@ module Amazonka.Lambda.GetFunctionEventInvokeConfig
     newFunctionEventInvokeConfig,
 
     -- * Response Lenses
-    functionEventInvokeConfig_functionArn,
-    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_destinationConfig,
-    functionEventInvokeConfig_maximumRetryAttempts,
+    functionEventInvokeConfig_functionArn,
     functionEventInvokeConfig_lastModified,
+    functionEventInvokeConfig_maximumEventAgeInSeconds,
+    functionEventInvokeConfig_maximumRetryAttempts,
   )
 where
 

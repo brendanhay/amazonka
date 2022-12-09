@@ -61,12 +61,12 @@ data GetFunctionUrlConfig = GetFunctionUrlConfig'
     --
     -- __Name formats__
     --
-    -- -   __Function name__ - @my-function@.
+    -- -   __Function name__ – @my-function@.
     --
-    -- -   __Function ARN__ -
+    -- -   __Function ARN__ –
     --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
     --
-    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    -- -   __Partial ARN__ – @123456789012:function:my-function@.
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
@@ -88,12 +88,12 @@ data GetFunctionUrlConfig = GetFunctionUrlConfig'
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@.
+-- -   __Function name__ – @my-function@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
@@ -115,12 +115,12 @@ getFunctionUrlConfig_qualifier = Lens.lens (\GetFunctionUrlConfig' {qualifier} -
 --
 -- __Name formats__
 --
--- -   __Function name__ - @my-function@.
+-- -   __Function name__ – @my-function@.
 --
--- -   __Function ARN__ -
+-- -   __Function ARN__ –
 --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
 --
--- -   __Partial ARN__ - @123456789012:function:my-function@.
+-- -   __Partial ARN__ – @123456789012:function:my-function@.
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
@@ -184,7 +184,7 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
     -- | The Amazon Resource Name (ARN) of your function.
     functionArn :: Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated @IAM@ users only. Set to
+    -- if you want to restrict access to authenticated IAM users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -219,7 +219,7 @@ data GetFunctionUrlConfigResponse = GetFunctionUrlConfigResponse'
 -- 'functionArn', 'getFunctionUrlConfigResponse_functionArn' - The Amazon Resource Name (ARN) of your function.
 --
 -- 'authType', 'getFunctionUrlConfigResponse_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -282,7 +282,7 @@ getFunctionUrlConfigResponse_functionArn :: Lens.Lens' GetFunctionUrlConfigRespo
 getFunctionUrlConfigResponse_functionArn = Lens.lens (\GetFunctionUrlConfigResponse' {functionArn} -> functionArn) (\s@GetFunctionUrlConfigResponse' {} a -> s {functionArn = a} :: GetFunctionUrlConfigResponse)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.

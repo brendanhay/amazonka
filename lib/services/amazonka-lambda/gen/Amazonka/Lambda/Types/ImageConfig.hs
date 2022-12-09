@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration values that override the container image Dockerfile
--- settings. See
--- <https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms Container settings>.
+-- settings. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms Container image settings>.
 --
 -- /See:/ 'newImageConfig' smart constructor.
 data ImageConfig = ImageConfig'

@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountUsage' smart constructor.
 data AccountUsage = AccountUsage'
-  { -- | The amount of storage space, in bytes, that\'s being used by deployment
+  { -- | The number of Lambda functions.
+    functionCount :: Prelude.Maybe Prelude.Integer,
+    -- | The amount of storage space, in bytes, that\'s being used by deployment
     -- packages and layer archives.
-    totalCodeSize :: Prelude.Maybe Prelude.Integer,
-    -- | The number of Lambda functions.
-    functionCount :: Prelude.Maybe Prelude.Integer
+    totalCodeSize :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data AccountUsage = AccountUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'functionCount', 'accountUsage_functionCount' - The number of Lambda functions.
+--
 -- 'totalCodeSize', 'accountUsage_totalCodeSize' - The amount of storage space, in bytes, that\'s being used by deployment
 -- packages and layer archives.
---
--- 'functionCount', 'accountUsage_functionCount' - The number of Lambda functions.
 newAccountUsage ::
   AccountUsage
 newAccountUsage =
   AccountUsage'
-    { totalCodeSize = Prelude.Nothing,
-      functionCount = Prelude.Nothing
+    { functionCount = Prelude.Nothing,
+      totalCodeSize = Prelude.Nothing
     }
+
+-- | The number of Lambda functions.
+accountUsage_functionCount :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
+accountUsage_functionCount = Lens.lens (\AccountUsage' {functionCount} -> functionCount) (\s@AccountUsage' {} a -> s {functionCount = a} :: AccountUsage)
 
 -- | The amount of storage space, in bytes, that\'s being used by deployment
 -- packages and layer archives.
 accountUsage_totalCodeSize :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
 accountUsage_totalCodeSize = Lens.lens (\AccountUsage' {totalCodeSize} -> totalCodeSize) (\s@AccountUsage' {} a -> s {totalCodeSize = a} :: AccountUsage)
-
--- | The number of Lambda functions.
-accountUsage_functionCount :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
-accountUsage_functionCount = Lens.lens (\AccountUsage' {functionCount} -> functionCount) (\s@AccountUsage' {} a -> s {functionCount = a} :: AccountUsage)
 
 instance Data.FromJSON AccountUsage where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON AccountUsage where
       "AccountUsage"
       ( \x ->
           AccountUsage'
-            Prelude.<$> (x Data..:? "TotalCodeSize")
-            Prelude.<*> (x Data..:? "FunctionCount")
+            Prelude.<$> (x Data..:? "FunctionCount")
+            Prelude.<*> (x Data..:? "TotalCodeSize")
       )
 
 instance Prelude.Hashable AccountUsage where
   hashWithSalt _salt AccountUsage' {..} =
-    _salt `Prelude.hashWithSalt` totalCodeSize
-      `Prelude.hashWithSalt` functionCount
+    _salt `Prelude.hashWithSalt` functionCount
+      `Prelude.hashWithSalt` totalCodeSize
 
 instance Prelude.NFData AccountUsage where
   rnf AccountUsage' {..} =
-    Prelude.rnf totalCodeSize
-      `Prelude.seq` Prelude.rnf functionCount
+    Prelude.rnf functionCount
+      `Prelude.seq` Prelude.rnf totalCodeSize

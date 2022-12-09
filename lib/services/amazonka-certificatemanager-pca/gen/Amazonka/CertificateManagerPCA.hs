@@ -43,23 +43,44 @@ module Amazonka.CertificateManagerPCA
     -- * Errors
     -- $errors
 
-    -- ** LockoutPreventedException
-    _LockoutPreventedException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
+    -- ** CertificateMismatchException
+    _CertificateMismatchException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** InvalidArgsException
+    _InvalidArgsException,
 
-    -- ** RequestFailedException
-    _RequestFailedException,
+    -- ** InvalidArnException
+    _InvalidArnException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** LockoutPreventedException
+    _LockoutPreventedException,
+
+    -- ** MalformedCSRException
+    _MalformedCSRException,
+
+    -- ** MalformedCertificateException
+    _MalformedCertificateException,
 
     -- ** PermissionAlreadyExistsException
     _PermissionAlreadyExistsException,
@@ -67,38 +88,17 @@ module Amazonka.CertificateManagerPCA
     -- ** RequestAlreadyProcessedException
     _RequestAlreadyProcessedException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** MalformedCertificateException
-    _MalformedCertificateException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** InvalidArgsException
-    _InvalidArgsException,
-
-    -- ** InvalidTagException
-    _InvalidTagException,
+    -- ** RequestFailedException
+    _RequestFailedException,
 
     -- ** RequestInProgressException
     _RequestInProgressException,
 
-    -- ** MalformedCSRException
-    _MalformedCSRException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
-    -- ** CertificateMismatchException
-    _CertificateMismatchException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** InvalidPolicyException
-    _InvalidPolicyException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters
@@ -106,11 +106,11 @@ module Amazonka.CertificateManagerPCA
     -- ** AuditReportCreated
     newAuditReportCreated,
 
-    -- ** CertificateIssued
-    newCertificateIssued,
-
     -- ** CertificateAuthorityCSRCreated
     newCertificateAuthorityCSRCreated,
+
+    -- ** CertificateIssued
+    newCertificateIssued,
 
     -- * Operations
     -- $operations

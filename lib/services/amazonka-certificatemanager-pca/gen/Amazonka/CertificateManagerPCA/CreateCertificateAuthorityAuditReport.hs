@@ -54,8 +54,8 @@ module Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
     newCreateCertificateAuthorityAuditReportResponse,
 
     -- * Response Lenses
-    createCertificateAuthorityAuditReportResponse_s3Key,
     createCertificateAuthorityAuditReportResponse_auditReportId,
+    createCertificateAuthorityAuditReportResponse_s3Key,
     createCertificateAuthorityAuditReportResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateAuthorityAuditReportResponse'
-            Prelude.<$> (x Data..?> "S3Key")
-              Prelude.<*> (x Data..?> "AuditReportId")
+            Prelude.<$> (x Data..?> "AuditReportId")
+              Prelude.<*> (x Data..?> "S3Key")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,10 +227,10 @@ instance
 
 -- | /See:/ 'newCreateCertificateAuthorityAuditReportResponse' smart constructor.
 data CreateCertificateAuthorityAuditReportResponse = CreateCertificateAuthorityAuditReportResponse'
-  { -- | The __key__ that uniquely identifies the report file in your S3 bucket.
-    s3Key :: Prelude.Maybe Prelude.Text,
-    -- | An alphanumeric string that contains a report identifier.
+  { -- | An alphanumeric string that contains a report identifier.
     auditReportId :: Prelude.Maybe Prelude.Text,
+    -- | The __key__ that uniquely identifies the report file in your S3 bucket.
+    s3Key :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,9 +244,9 @@ data CreateCertificateAuthorityAuditReportResponse = CreateCertificateAuthorityA
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 'createCertificateAuthorityAuditReportResponse_s3Key' - The __key__ that uniquely identifies the report file in your S3 bucket.
---
 -- 'auditReportId', 'createCertificateAuthorityAuditReportResponse_auditReportId' - An alphanumeric string that contains a report identifier.
+--
+-- 's3Key', 'createCertificateAuthorityAuditReportResponse_s3Key' - The __key__ that uniquely identifies the report file in your S3 bucket.
 --
 -- 'httpStatus', 'createCertificateAuthorityAuditReportResponse_httpStatus' - The response's http status code.
 newCreateCertificateAuthorityAuditReportResponse ::
@@ -256,20 +256,19 @@ newCreateCertificateAuthorityAuditReportResponse ::
 newCreateCertificateAuthorityAuditReportResponse
   pHttpStatus_ =
     CreateCertificateAuthorityAuditReportResponse'
-      { s3Key =
+      { auditReportId =
           Prelude.Nothing,
-        auditReportId =
-          Prelude.Nothing,
+        s3Key = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The __key__ that uniquely identifies the report file in your S3 bucket.
-createCertificateAuthorityAuditReportResponse_s3Key :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
-createCertificateAuthorityAuditReportResponse_s3Key = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {s3Key} -> s3Key) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {s3Key = a} :: CreateCertificateAuthorityAuditReportResponse)
 
 -- | An alphanumeric string that contains a report identifier.
 createCertificateAuthorityAuditReportResponse_auditReportId :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
 createCertificateAuthorityAuditReportResponse_auditReportId = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {auditReportId} -> auditReportId) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {auditReportId = a} :: CreateCertificateAuthorityAuditReportResponse)
+
+-- | The __key__ that uniquely identifies the report file in your S3 bucket.
+createCertificateAuthorityAuditReportResponse_s3Key :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
+createCertificateAuthorityAuditReportResponse_s3Key = Lens.lens (\CreateCertificateAuthorityAuditReportResponse' {s3Key} -> s3Key) (\s@CreateCertificateAuthorityAuditReportResponse' {} a -> s {s3Key = a} :: CreateCertificateAuthorityAuditReportResponse)
 
 -- | The response's http status code.
 createCertificateAuthorityAuditReportResponse_httpStatus :: Lens.Lens' CreateCertificateAuthorityAuditReportResponse Prelude.Int
@@ -281,6 +280,6 @@ instance
   where
   rnf
     CreateCertificateAuthorityAuditReportResponse' {..} =
-      Prelude.rnf s3Key
-        `Prelude.seq` Prelude.rnf auditReportId
+      Prelude.rnf auditReportId
+        `Prelude.seq` Prelude.rnf s3Key
         `Prelude.seq` Prelude.rnf httpStatus

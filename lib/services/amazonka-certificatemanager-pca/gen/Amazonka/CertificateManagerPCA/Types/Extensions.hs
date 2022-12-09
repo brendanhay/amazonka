@@ -33,11 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExtensions' smart constructor.
 data Extensions = Extensions'
-  { -- | Specifies additional purposes for which the certified public key may be
-    -- used other than basic purposes indicated in the @KeyUsage@ extension.
-    extendedKeyUsage :: Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage),
-    keyUsage :: Prelude.Maybe KeyUsage,
-    -- | Contains a sequence of one or more policy information terms, each of
+  { -- | Contains a sequence of one or more policy information terms, each of
     -- which consists of an object identifier (OID) and optional qualifiers.
     -- For more information, see NIST\'s definition of
     -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
@@ -52,6 +48,10 @@ data Extensions = Extensions'
     -- critical flag. For more information, see the
     -- <https://oidref.com/2.5.29 Global OID reference database.>
     customExtensions :: Prelude.Maybe (Prelude.NonEmpty CustomExtension),
+    -- | Specifies additional purposes for which the certified public key may be
+    -- used other than basic purposes indicated in the @KeyUsage@ extension.
+    extendedKeyUsage :: Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage),
+    keyUsage :: Prelude.Maybe KeyUsage,
     -- | The subject alternative name extension allows identities to be bound to
     -- the subject of the certificate. These identities may be included in
     -- addition to or in place of the identity in the subject field of the
@@ -68,11 +68,6 @@ data Extensions = Extensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extendedKeyUsage', 'extensions_extendedKeyUsage' - Specifies additional purposes for which the certified public key may be
--- used other than basic purposes indicated in the @KeyUsage@ extension.
---
--- 'keyUsage', 'extensions_keyUsage' - Undocumented member.
---
 -- 'certificatePolicies', 'extensions_certificatePolicies' - Contains a sequence of one or more policy information terms, each of
 -- which consists of an object identifier (OID) and optional qualifiers.
 -- For more information, see NIST\'s definition of
@@ -88,6 +83,11 @@ data Extensions = Extensions'
 -- critical flag. For more information, see the
 -- <https://oidref.com/2.5.29 Global OID reference database.>
 --
+-- 'extendedKeyUsage', 'extensions_extendedKeyUsage' - Specifies additional purposes for which the certified public key may be
+-- used other than basic purposes indicated in the @KeyUsage@ extension.
+--
+-- 'keyUsage', 'extensions_keyUsage' - Undocumented member.
+--
 -- 'subjectAlternativeNames', 'extensions_subjectAlternativeNames' - The subject alternative name extension allows identities to be bound to
 -- the subject of the certificate. These identities may be included in
 -- addition to or in place of the identity in the subject field of the
@@ -96,21 +96,12 @@ newExtensions ::
   Extensions
 newExtensions =
   Extensions'
-    { extendedKeyUsage = Prelude.Nothing,
-      keyUsage = Prelude.Nothing,
-      certificatePolicies = Prelude.Nothing,
+    { certificatePolicies = Prelude.Nothing,
       customExtensions = Prelude.Nothing,
+      extendedKeyUsage = Prelude.Nothing,
+      keyUsage = Prelude.Nothing,
       subjectAlternativeNames = Prelude.Nothing
     }
-
--- | Specifies additional purposes for which the certified public key may be
--- used other than basic purposes indicated in the @KeyUsage@ extension.
-extensions_extendedKeyUsage :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage))
-extensions_extendedKeyUsage = Lens.lens (\Extensions' {extendedKeyUsage} -> extendedKeyUsage) (\s@Extensions' {} a -> s {extendedKeyUsage = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-extensions_keyUsage :: Lens.Lens' Extensions (Prelude.Maybe KeyUsage)
-extensions_keyUsage = Lens.lens (\Extensions' {keyUsage} -> keyUsage) (\s@Extensions' {} a -> s {keyUsage = a} :: Extensions)
 
 -- | Contains a sequence of one or more policy information terms, each of
 -- which consists of an object identifier (OID) and optional qualifiers.
@@ -131,6 +122,15 @@ extensions_certificatePolicies = Lens.lens (\Extensions' {certificatePolicies} -
 extensions_customExtensions :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty CustomExtension))
 extensions_customExtensions = Lens.lens (\Extensions' {customExtensions} -> customExtensions) (\s@Extensions' {} a -> s {customExtensions = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies additional purposes for which the certified public key may be
+-- used other than basic purposes indicated in the @KeyUsage@ extension.
+extensions_extendedKeyUsage :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty ExtendedKeyUsage))
+extensions_extendedKeyUsage = Lens.lens (\Extensions' {extendedKeyUsage} -> extendedKeyUsage) (\s@Extensions' {} a -> s {extendedKeyUsage = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+extensions_keyUsage :: Lens.Lens' Extensions (Prelude.Maybe KeyUsage)
+extensions_keyUsage = Lens.lens (\Extensions' {keyUsage} -> keyUsage) (\s@Extensions' {} a -> s {keyUsage = a} :: Extensions)
+
 -- | The subject alternative name extension allows identities to be bound to
 -- the subject of the certificate. These identities may be included in
 -- addition to or in place of the identity in the subject field of the
@@ -140,31 +140,31 @@ extensions_subjectAlternativeNames = Lens.lens (\Extensions' {subjectAlternative
 
 instance Prelude.Hashable Extensions where
   hashWithSalt _salt Extensions' {..} =
-    _salt `Prelude.hashWithSalt` extendedKeyUsage
-      `Prelude.hashWithSalt` keyUsage
-      `Prelude.hashWithSalt` certificatePolicies
+    _salt `Prelude.hashWithSalt` certificatePolicies
       `Prelude.hashWithSalt` customExtensions
+      `Prelude.hashWithSalt` extendedKeyUsage
+      `Prelude.hashWithSalt` keyUsage
       `Prelude.hashWithSalt` subjectAlternativeNames
 
 instance Prelude.NFData Extensions where
   rnf Extensions' {..} =
-    Prelude.rnf extendedKeyUsage
-      `Prelude.seq` Prelude.rnf keyUsage
-      `Prelude.seq` Prelude.rnf certificatePolicies
+    Prelude.rnf certificatePolicies
       `Prelude.seq` Prelude.rnf customExtensions
+      `Prelude.seq` Prelude.rnf extendedKeyUsage
+      `Prelude.seq` Prelude.rnf keyUsage
       `Prelude.seq` Prelude.rnf subjectAlternativeNames
 
 instance Data.ToJSON Extensions where
   toJSON Extensions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExtendedKeyUsage" Data..=)
-              Prelude.<$> extendedKeyUsage,
-            ("KeyUsage" Data..=) Prelude.<$> keyUsage,
-            ("CertificatePolicies" Data..=)
+          [ ("CertificatePolicies" Data..=)
               Prelude.<$> certificatePolicies,
             ("CustomExtensions" Data..=)
               Prelude.<$> customExtensions,
+            ("ExtendedKeyUsage" Data..=)
+              Prelude.<$> extendedKeyUsage,
+            ("KeyUsage" Data..=) Prelude.<$> keyUsage,
             ("SubjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames
           ]

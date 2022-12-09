@@ -43,10 +43,10 @@ module Amazonka.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
     newDescribeCertificateAuthorityAuditReportResponse,
 
     -- * Response Lenses
+    describeCertificateAuthorityAuditReportResponse_auditReportStatus,
+    describeCertificateAuthorityAuditReportResponse_createdAt,
     describeCertificateAuthorityAuditReportResponse_s3BucketName,
     describeCertificateAuthorityAuditReportResponse_s3Key,
-    describeCertificateAuthorityAuditReportResponse_createdAt,
-    describeCertificateAuthorityAuditReportResponse_auditReportStatus,
     describeCertificateAuthorityAuditReportResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateAuthorityAuditReportResponse'
-            Prelude.<$> (x Data..?> "S3BucketName")
-              Prelude.<*> (x Data..?> "S3Key")
+            Prelude.<$> (x Data..?> "AuditReportStatus")
               Prelude.<*> (x Data..?> "CreatedAt")
-              Prelude.<*> (x Data..?> "AuditReportStatus")
+              Prelude.<*> (x Data..?> "S3BucketName")
+              Prelude.<*> (x Data..?> "S3Key")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,15 +205,15 @@ instance
 
 -- | /See:/ 'newDescribeCertificateAuthorityAuditReportResponse' smart constructor.
 data DescribeCertificateAuthorityAuditReportResponse = DescribeCertificateAuthorityAuditReportResponse'
-  { -- | Name of the S3 bucket that contains the report.
+  { -- | Specifies whether report creation is in progress, has succeeded, or has
+    -- failed.
+    auditReportStatus :: Prelude.Maybe AuditReportStatus,
+    -- | The date and time at which the report was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Name of the S3 bucket that contains the report.
     s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
     s3Key :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the report was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | Specifies whether report creation is in progress, has succeeded, or has
-    -- failed.
-    auditReportStatus :: Prelude.Maybe AuditReportStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,14 +227,14 @@ data DescribeCertificateAuthorityAuditReportResponse = DescribeCertificateAuthor
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3BucketName', 'describeCertificateAuthorityAuditReportResponse_s3BucketName' - Name of the S3 bucket that contains the report.
---
--- 's3Key', 'describeCertificateAuthorityAuditReportResponse_s3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.
+-- 'auditReportStatus', 'describeCertificateAuthorityAuditReportResponse_auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has
+-- failed.
 --
 -- 'createdAt', 'describeCertificateAuthorityAuditReportResponse_createdAt' - The date and time at which the report was created.
 --
--- 'auditReportStatus', 'describeCertificateAuthorityAuditReportResponse_auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has
--- failed.
+-- 's3BucketName', 'describeCertificateAuthorityAuditReportResponse_s3BucketName' - Name of the S3 bucket that contains the report.
+--
+-- 's3Key', 'describeCertificateAuthorityAuditReportResponse_s3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.
 --
 -- 'httpStatus', 'describeCertificateAuthorityAuditReportResponse_httpStatus' - The response's http status code.
 newDescribeCertificateAuthorityAuditReportResponse ::
@@ -244,15 +244,24 @@ newDescribeCertificateAuthorityAuditReportResponse ::
 newDescribeCertificateAuthorityAuditReportResponse
   pHttpStatus_ =
     DescribeCertificateAuthorityAuditReportResponse'
-      { s3BucketName =
+      { auditReportStatus =
           Prelude.Nothing,
-        s3Key = Prelude.Nothing,
         createdAt =
           Prelude.Nothing,
-        auditReportStatus =
+        s3BucketName =
           Prelude.Nothing,
+        s3Key = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Specifies whether report creation is in progress, has succeeded, or has
+-- failed.
+describeCertificateAuthorityAuditReportResponse_auditReportStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe AuditReportStatus)
+describeCertificateAuthorityAuditReportResponse_auditReportStatus = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {auditReportStatus} -> auditReportStatus) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {auditReportStatus = a} :: DescribeCertificateAuthorityAuditReportResponse)
+
+-- | The date and time at which the report was created.
+describeCertificateAuthorityAuditReportResponse_createdAt :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.UTCTime)
+describeCertificateAuthorityAuditReportResponse_createdAt = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {createdAt} -> createdAt) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {createdAt = a} :: DescribeCertificateAuthorityAuditReportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Name of the S3 bucket that contains the report.
 describeCertificateAuthorityAuditReportResponse_s3BucketName :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
@@ -261,15 +270,6 @@ describeCertificateAuthorityAuditReportResponse_s3BucketName = Lens.lens (\Descr
 -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
 describeCertificateAuthorityAuditReportResponse_s3Key :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.Text)
 describeCertificateAuthorityAuditReportResponse_s3Key = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {s3Key} -> s3Key) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {s3Key = a} :: DescribeCertificateAuthorityAuditReportResponse)
-
--- | The date and time at which the report was created.
-describeCertificateAuthorityAuditReportResponse_createdAt :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe Prelude.UTCTime)
-describeCertificateAuthorityAuditReportResponse_createdAt = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {createdAt} -> createdAt) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {createdAt = a} :: DescribeCertificateAuthorityAuditReportResponse) Prelude.. Lens.mapping Data._Time
-
--- | Specifies whether report creation is in progress, has succeeded, or has
--- failed.
-describeCertificateAuthorityAuditReportResponse_auditReportStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse (Prelude.Maybe AuditReportStatus)
-describeCertificateAuthorityAuditReportResponse_auditReportStatus = Lens.lens (\DescribeCertificateAuthorityAuditReportResponse' {auditReportStatus} -> auditReportStatus) (\s@DescribeCertificateAuthorityAuditReportResponse' {} a -> s {auditReportStatus = a} :: DescribeCertificateAuthorityAuditReportResponse)
 
 -- | The response's http status code.
 describeCertificateAuthorityAuditReportResponse_httpStatus :: Lens.Lens' DescribeCertificateAuthorityAuditReportResponse Prelude.Int
@@ -281,8 +281,8 @@ instance
   where
   rnf
     DescribeCertificateAuthorityAuditReportResponse' {..} =
-      Prelude.rnf s3BucketName
-        `Prelude.seq` Prelude.rnf s3Key
+      Prelude.rnf auditReportStatus
         `Prelude.seq` Prelude.rnf createdAt
-        `Prelude.seq` Prelude.rnf auditReportStatus
+        `Prelude.seq` Prelude.rnf s3BucketName
+        `Prelude.seq` Prelude.rnf s3Key
         `Prelude.seq` Prelude.rnf httpStatus

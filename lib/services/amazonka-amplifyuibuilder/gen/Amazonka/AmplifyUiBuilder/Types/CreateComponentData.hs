@@ -35,22 +35,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateComponentData' smart constructor.
 data CreateComponentData = CreateComponentData'
-  { -- | One or more key-value pairs to use when tagging the component data.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The unique ID of the component in its original source system, such as
-    -- Figma.
-    sourceId :: Prelude.Maybe Prelude.Text,
-    -- | A list of child components that are instances of the main component.
+  { -- | A list of child components that are instances of the main component.
     children :: Prelude.Maybe [ComponentChild],
+    -- | The data binding configuration for customizing a component\'s
+    -- properties. Use this for a collection component.
+    collectionProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration),
     -- | The event configuration for the component. Use for the workflow feature
     -- in Amplify Studio that allows you to bind events and actions to
     -- components.
     events :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent),
     -- | The schema version of the component when it was imported.
     schemaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The data binding configuration for customizing a component\'s
-    -- properties. Use this for a collection component.
-    collectionProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration),
+    -- | The unique ID of the component in its original source system, such as
+    -- Figma.
+    sourceId :: Prelude.Maybe Prelude.Text,
+    -- | One or more key-value pairs to use when tagging the component data.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The data binding information for the component\'s properties.
     bindingProperties :: Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue,
     -- | The component type. This can be an Amplify custom UI component or
@@ -76,12 +76,10 @@ data CreateComponentData = CreateComponentData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createComponentData_tags' - One or more key-value pairs to use when tagging the component data.
---
--- 'sourceId', 'createComponentData_sourceId' - The unique ID of the component in its original source system, such as
--- Figma.
---
 -- 'children', 'createComponentData_children' - A list of child components that are instances of the main component.
+--
+-- 'collectionProperties', 'createComponentData_collectionProperties' - The data binding configuration for customizing a component\'s
+-- properties. Use this for a collection component.
 --
 -- 'events', 'createComponentData_events' - The event configuration for the component. Use for the workflow feature
 -- in Amplify Studio that allows you to bind events and actions to
@@ -89,8 +87,10 @@ data CreateComponentData = CreateComponentData'
 --
 -- 'schemaVersion', 'createComponentData_schemaVersion' - The schema version of the component when it was imported.
 --
--- 'collectionProperties', 'createComponentData_collectionProperties' - The data binding configuration for customizing a component\'s
--- properties. Use this for a collection component.
+-- 'sourceId', 'createComponentData_sourceId' - The unique ID of the component in its original source system, such as
+-- Figma.
+--
+-- 'tags', 'createComponentData_tags' - One or more key-value pairs to use when tagging the component data.
 --
 -- 'bindingProperties', 'createComponentData_bindingProperties' - The data binding information for the component\'s properties.
 --
@@ -113,12 +113,12 @@ newCreateComponentData ::
   CreateComponentData
 newCreateComponentData pComponentType_ pName_ =
   CreateComponentData'
-    { tags = Prelude.Nothing,
-      sourceId = Prelude.Nothing,
-      children = Prelude.Nothing,
+    { children = Prelude.Nothing,
+      collectionProperties = Prelude.Nothing,
       events = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
-      collectionProperties = Prelude.Nothing,
+      sourceId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       bindingProperties = Prelude.mempty,
       componentType = pComponentType_,
       name = pName_,
@@ -127,18 +127,14 @@ newCreateComponentData pComponentType_ pName_ =
       variants = Prelude.mempty
     }
 
--- | One or more key-value pairs to use when tagging the component data.
-createComponentData_tags :: Lens.Lens' CreateComponentData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComponentData_tags = Lens.lens (\CreateComponentData' {tags} -> tags) (\s@CreateComponentData' {} a -> s {tags = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
-
--- | The unique ID of the component in its original source system, such as
--- Figma.
-createComponentData_sourceId :: Lens.Lens' CreateComponentData (Prelude.Maybe Prelude.Text)
-createComponentData_sourceId = Lens.lens (\CreateComponentData' {sourceId} -> sourceId) (\s@CreateComponentData' {} a -> s {sourceId = a} :: CreateComponentData)
-
 -- | A list of child components that are instances of the main component.
 createComponentData_children :: Lens.Lens' CreateComponentData (Prelude.Maybe [ComponentChild])
 createComponentData_children = Lens.lens (\CreateComponentData' {children} -> children) (\s@CreateComponentData' {} a -> s {children = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
+
+-- | The data binding configuration for customizing a component\'s
+-- properties. Use this for a collection component.
+createComponentData_collectionProperties :: Lens.Lens' CreateComponentData (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration))
+createComponentData_collectionProperties = Lens.lens (\CreateComponentData' {collectionProperties} -> collectionProperties) (\s@CreateComponentData' {} a -> s {collectionProperties = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The event configuration for the component. Use for the workflow feature
 -- in Amplify Studio that allows you to bind events and actions to
@@ -150,10 +146,14 @@ createComponentData_events = Lens.lens (\CreateComponentData' {events} -> events
 createComponentData_schemaVersion :: Lens.Lens' CreateComponentData (Prelude.Maybe Prelude.Text)
 createComponentData_schemaVersion = Lens.lens (\CreateComponentData' {schemaVersion} -> schemaVersion) (\s@CreateComponentData' {} a -> s {schemaVersion = a} :: CreateComponentData)
 
--- | The data binding configuration for customizing a component\'s
--- properties. Use this for a collection component.
-createComponentData_collectionProperties :: Lens.Lens' CreateComponentData (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration))
-createComponentData_collectionProperties = Lens.lens (\CreateComponentData' {collectionProperties} -> collectionProperties) (\s@CreateComponentData' {} a -> s {collectionProperties = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
+-- | The unique ID of the component in its original source system, such as
+-- Figma.
+createComponentData_sourceId :: Lens.Lens' CreateComponentData (Prelude.Maybe Prelude.Text)
+createComponentData_sourceId = Lens.lens (\CreateComponentData' {sourceId} -> sourceId) (\s@CreateComponentData' {} a -> s {sourceId = a} :: CreateComponentData)
+
+-- | One or more key-value pairs to use when tagging the component data.
+createComponentData_tags :: Lens.Lens' CreateComponentData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComponentData_tags = Lens.lens (\CreateComponentData' {tags} -> tags) (\s@CreateComponentData' {} a -> s {tags = a} :: CreateComponentData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data binding information for the component\'s properties.
 createComponentData_bindingProperties :: Lens.Lens' CreateComponentData (Prelude.HashMap Prelude.Text ComponentBindingPropertiesValue)
@@ -183,12 +183,12 @@ createComponentData_variants = Lens.lens (\CreateComponentData' {variants} -> va
 
 instance Prelude.Hashable CreateComponentData where
   hashWithSalt _salt CreateComponentData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sourceId
-      `Prelude.hashWithSalt` children
+    _salt `Prelude.hashWithSalt` children
+      `Prelude.hashWithSalt` collectionProperties
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` schemaVersion
-      `Prelude.hashWithSalt` collectionProperties
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bindingProperties
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` name
@@ -198,12 +198,12 @@ instance Prelude.Hashable CreateComponentData where
 
 instance Prelude.NFData CreateComponentData where
   rnf CreateComponentData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf children
+    Prelude.rnf children
+      `Prelude.seq` Prelude.rnf collectionProperties
       `Prelude.seq` Prelude.rnf events
       `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf collectionProperties
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf bindingProperties
       `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf name
@@ -215,13 +215,13 @@ instance Data.ToJSON CreateComponentData where
   toJSON CreateComponentData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("sourceId" Data..=) Prelude.<$> sourceId,
-            ("children" Data..=) Prelude.<$> children,
-            ("events" Data..=) Prelude.<$> events,
-            ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
+          [ ("children" Data..=) Prelude.<$> children,
             ("collectionProperties" Data..=)
               Prelude.<$> collectionProperties,
+            ("events" Data..=) Prelude.<$> events,
+            ("schemaVersion" Data..=) Prelude.<$> schemaVersion,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("bindingProperties" Data..= bindingProperties),
             Prelude.Just ("componentType" Data..= componentType),

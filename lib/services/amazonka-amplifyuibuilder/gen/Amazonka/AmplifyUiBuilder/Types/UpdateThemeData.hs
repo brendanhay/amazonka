@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateThemeData' smart constructor.
 data UpdateThemeData = UpdateThemeData'
-  { -- | The name of the theme to update.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the theme to update.
+  { -- | The unique ID of the theme to update.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the theme to update.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Describes the properties that can be overriden to customize the theme.
     overrides :: Prelude.Maybe [ThemeValues],
     -- | A list of key-value pairs that define the theme\'s properties.
@@ -48,9 +48,9 @@ data UpdateThemeData = UpdateThemeData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateThemeData_name' - The name of the theme to update.
---
 -- 'id', 'updateThemeData_id' - The unique ID of the theme to update.
+--
+-- 'name', 'updateThemeData_name' - The name of the theme to update.
 --
 -- 'overrides', 'updateThemeData_overrides' - Describes the properties that can be overriden to customize the theme.
 --
@@ -59,19 +59,19 @@ newUpdateThemeData ::
   UpdateThemeData
 newUpdateThemeData =
   UpdateThemeData'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
       overrides = Prelude.Nothing,
       values = Prelude.mempty
     }
 
--- | The name of the theme to update.
-updateThemeData_name :: Lens.Lens' UpdateThemeData (Prelude.Maybe Prelude.Text)
-updateThemeData_name = Lens.lens (\UpdateThemeData' {name} -> name) (\s@UpdateThemeData' {} a -> s {name = a} :: UpdateThemeData)
-
 -- | The unique ID of the theme to update.
 updateThemeData_id :: Lens.Lens' UpdateThemeData (Prelude.Maybe Prelude.Text)
 updateThemeData_id = Lens.lens (\UpdateThemeData' {id} -> id) (\s@UpdateThemeData' {} a -> s {id = a} :: UpdateThemeData)
+
+-- | The name of the theme to update.
+updateThemeData_name :: Lens.Lens' UpdateThemeData (Prelude.Maybe Prelude.Text)
+updateThemeData_name = Lens.lens (\UpdateThemeData' {name} -> name) (\s@UpdateThemeData' {} a -> s {name = a} :: UpdateThemeData)
 
 -- | Describes the properties that can be overriden to customize the theme.
 updateThemeData_overrides :: Lens.Lens' UpdateThemeData (Prelude.Maybe [ThemeValues])
@@ -83,15 +83,15 @@ updateThemeData_values = Lens.lens (\UpdateThemeData' {values} -> values) (\s@Up
 
 instance Prelude.Hashable UpdateThemeData where
   hashWithSalt _salt UpdateThemeData' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData UpdateThemeData where
   rnf UpdateThemeData' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf overrides
       `Prelude.seq` Prelude.rnf values
 
@@ -99,8 +99,8 @@ instance Data.ToJSON UpdateThemeData where
   toJSON UpdateThemeData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("id" Data..=) Prelude.<$> id,
+          [ ("id" Data..=) Prelude.<$> id,
+            ("name" Data..=) Prelude.<$> name,
             ("overrides" Data..=) Prelude.<$> overrides,
             Prelude.Just ("values" Data..= values)
           ]

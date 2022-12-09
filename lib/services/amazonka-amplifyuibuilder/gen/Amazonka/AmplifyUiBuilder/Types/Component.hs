@@ -38,25 +38,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponent' smart constructor.
 data Component = Component'
-  { -- | One or more key-value pairs to use when tagging the component.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The time that the component was modified.
-    modifiedAt :: Prelude.Maybe Data.POSIX,
-    -- | The unique ID of the component in its original source system, such as
-    -- Figma.
-    sourceId :: Prelude.Maybe Prelude.Text,
-    -- | A list of the component\'s @ComponentChild@ instances.
+  { -- | A list of the component\'s @ComponentChild@ instances.
     children :: Prelude.Maybe [ComponentChild],
-    -- | Describes the events that can be raised on the component. Use for the
-    -- workflow feature in Amplify Studio that allows you to bind events and
-    -- actions to components.
-    events :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent),
-    -- | The schema version of the component when it was imported.
-    schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The data binding configuration for the component\'s properties. Use this
     -- for a collection component. You can\'t specify @tags@ as a valid
     -- property for @collectionProperties@.
     collectionProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration),
+    -- | Describes the events that can be raised on the component. Use for the
+    -- workflow feature in Amplify Studio that allows you to bind events and
+    -- actions to components.
+    events :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent),
+    -- | The time that the component was modified.
+    modifiedAt :: Prelude.Maybe Data.POSIX,
+    -- | The schema version of the component when it was imported.
+    schemaVersion :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the component in its original source system, such as
+    -- Figma.
+    sourceId :: Prelude.Maybe Prelude.Text,
+    -- | One or more key-value pairs to use when tagging the component.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID of the Amplify app associated with the component.
     appId :: Prelude.Text,
     -- | The information to connect a component\'s properties to data at runtime.
@@ -94,24 +94,24 @@ data Component = Component'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'component_tags' - One or more key-value pairs to use when tagging the component.
---
--- 'modifiedAt', 'component_modifiedAt' - The time that the component was modified.
---
--- 'sourceId', 'component_sourceId' - The unique ID of the component in its original source system, such as
--- Figma.
---
 -- 'children', 'component_children' - A list of the component\'s @ComponentChild@ instances.
+--
+-- 'collectionProperties', 'component_collectionProperties' - The data binding configuration for the component\'s properties. Use this
+-- for a collection component. You can\'t specify @tags@ as a valid
+-- property for @collectionProperties@.
 --
 -- 'events', 'component_events' - Describes the events that can be raised on the component. Use for the
 -- workflow feature in Amplify Studio that allows you to bind events and
 -- actions to components.
 --
+-- 'modifiedAt', 'component_modifiedAt' - The time that the component was modified.
+--
 -- 'schemaVersion', 'component_schemaVersion' - The schema version of the component when it was imported.
 --
--- 'collectionProperties', 'component_collectionProperties' - The data binding configuration for the component\'s properties. Use this
--- for a collection component. You can\'t specify @tags@ as a valid
--- property for @collectionProperties@.
+-- 'sourceId', 'component_sourceId' - The unique ID of the component in its original source system, such as
+-- Figma.
+--
+-- 'tags', 'component_tags' - One or more key-value pairs to use when tagging the component.
 --
 -- 'appId', 'component_appId' - The unique ID of the Amplify app associated with the component.
 --
@@ -160,13 +160,13 @@ newComponent
   pId_
   pName_ =
     Component'
-      { tags = Prelude.Nothing,
-        modifiedAt = Prelude.Nothing,
-        sourceId = Prelude.Nothing,
-        children = Prelude.Nothing,
-        events = Prelude.Nothing,
-        schemaVersion = Prelude.Nothing,
+      { children = Prelude.Nothing,
         collectionProperties = Prelude.Nothing,
+        events = Prelude.Nothing,
+        modifiedAt = Prelude.Nothing,
+        schemaVersion = Prelude.Nothing,
+        sourceId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         appId = pAppId_,
         bindingProperties = Prelude.mempty,
         componentType = pComponentType_,
@@ -179,22 +179,15 @@ newComponent
         variants = Prelude.mempty
       }
 
--- | One or more key-value pairs to use when tagging the component.
-component_tags :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-component_tags = Lens.lens (\Component' {tags} -> tags) (\s@Component' {} a -> s {tags = a} :: Component) Prelude.. Lens.mapping Lens.coerced
-
--- | The time that the component was modified.
-component_modifiedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
-component_modifiedAt = Lens.lens (\Component' {modifiedAt} -> modifiedAt) (\s@Component' {} a -> s {modifiedAt = a} :: Component) Prelude.. Lens.mapping Data._Time
-
--- | The unique ID of the component in its original source system, such as
--- Figma.
-component_sourceId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
-component_sourceId = Lens.lens (\Component' {sourceId} -> sourceId) (\s@Component' {} a -> s {sourceId = a} :: Component)
-
 -- | A list of the component\'s @ComponentChild@ instances.
 component_children :: Lens.Lens' Component (Prelude.Maybe [ComponentChild])
 component_children = Lens.lens (\Component' {children} -> children) (\s@Component' {} a -> s {children = a} :: Component) Prelude.. Lens.mapping Lens.coerced
+
+-- | The data binding configuration for the component\'s properties. Use this
+-- for a collection component. You can\'t specify @tags@ as a valid
+-- property for @collectionProperties@.
+component_collectionProperties :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration))
+component_collectionProperties = Lens.lens (\Component' {collectionProperties} -> collectionProperties) (\s@Component' {} a -> s {collectionProperties = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes the events that can be raised on the component. Use for the
 -- workflow feature in Amplify Studio that allows you to bind events and
@@ -202,15 +195,22 @@ component_children = Lens.lens (\Component' {children} -> children) (\s@Componen
 component_events :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent))
 component_events = Lens.lens (\Component' {events} -> events) (\s@Component' {} a -> s {events = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
+-- | The time that the component was modified.
+component_modifiedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
+component_modifiedAt = Lens.lens (\Component' {modifiedAt} -> modifiedAt) (\s@Component' {} a -> s {modifiedAt = a} :: Component) Prelude.. Lens.mapping Data._Time
+
 -- | The schema version of the component when it was imported.
 component_schemaVersion :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_schemaVersion = Lens.lens (\Component' {schemaVersion} -> schemaVersion) (\s@Component' {} a -> s {schemaVersion = a} :: Component)
 
--- | The data binding configuration for the component\'s properties. Use this
--- for a collection component. You can\'t specify @tags@ as a valid
--- property for @collectionProperties@.
-component_collectionProperties :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentDataConfiguration))
-component_collectionProperties = Lens.lens (\Component' {collectionProperties} -> collectionProperties) (\s@Component' {} a -> s {collectionProperties = a} :: Component) Prelude.. Lens.mapping Lens.coerced
+-- | The unique ID of the component in its original source system, such as
+-- Figma.
+component_sourceId :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_sourceId = Lens.lens (\Component' {sourceId} -> sourceId) (\s@Component' {} a -> s {sourceId = a} :: Component)
+
+-- | One or more key-value pairs to use when tagging the component.
+component_tags :: Lens.Lens' Component (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+component_tags = Lens.lens (\Component' {tags} -> tags) (\s@Component' {} a -> s {tags = a} :: Component) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the Amplify app associated with the component.
 component_appId :: Lens.Lens' Component Prelude.Text
@@ -264,15 +264,15 @@ instance Data.FromJSON Component where
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "modifiedAt")
-            Prelude.<*> (x Data..:? "sourceId")
-            Prelude.<*> (x Data..:? "children" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<$> (x Data..:? "children" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "collectionProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<*> (x Data..:? "schemaVersion")
+            Prelude.<*> (x Data..:? "sourceId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
             Prelude.<*> ( x Data..:? "bindingProperties"
                             Data..!= Prelude.mempty
@@ -289,13 +289,13 @@ instance Data.FromJSON Component where
 
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` modifiedAt
-      `Prelude.hashWithSalt` sourceId
-      `Prelude.hashWithSalt` children
-      `Prelude.hashWithSalt` events
-      `Prelude.hashWithSalt` schemaVersion
+    _salt `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` collectionProperties
+      `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` modifiedAt
+      `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` bindingProperties
       `Prelude.hashWithSalt` componentType
@@ -309,13 +309,13 @@ instance Prelude.Hashable Component where
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modifiedAt
-      `Prelude.seq` Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf children
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf schemaVersion
+    Prelude.rnf children
       `Prelude.seq` Prelude.rnf collectionProperties
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf modifiedAt
+      `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf bindingProperties
       `Prelude.seq` Prelude.rnf componentType

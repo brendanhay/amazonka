@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentVariant' smart constructor.
 data ComponentVariant = ComponentVariant'
-  { -- | The combination of variants that comprise this variant. You can\'t
-    -- specify @tags@ as a valid property for @variantValues@.
-    variantValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The properties of the component variant that can be overriden when
+  { -- | The properties of the component variant that can be overriden when
     -- customizing an instance of the component. You can\'t specify @tags@ as a
     -- valid property for @overrides@.
-    overrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text))
+    overrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The combination of variants that comprise this variant. You can\'t
+    -- specify @tags@ as a valid property for @variantValues@.
+    variantValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,19 @@ data ComponentVariant = ComponentVariant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variantValues', 'componentVariant_variantValues' - The combination of variants that comprise this variant. You can\'t
--- specify @tags@ as a valid property for @variantValues@.
---
 -- 'overrides', 'componentVariant_overrides' - The properties of the component variant that can be overriden when
 -- customizing an instance of the component. You can\'t specify @tags@ as a
 -- valid property for @overrides@.
+--
+-- 'variantValues', 'componentVariant_variantValues' - The combination of variants that comprise this variant. You can\'t
+-- specify @tags@ as a valid property for @variantValues@.
 newComponentVariant ::
   ComponentVariant
 newComponentVariant =
   ComponentVariant'
-    { variantValues = Prelude.Nothing,
-      overrides = Prelude.Nothing
+    { overrides = Prelude.Nothing,
+      variantValues = Prelude.Nothing
     }
-
--- | The combination of variants that comprise this variant. You can\'t
--- specify @tags@ as a valid property for @variantValues@.
-componentVariant_variantValues :: Lens.Lens' ComponentVariant (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-componentVariant_variantValues = Lens.lens (\ComponentVariant' {variantValues} -> variantValues) (\s@ComponentVariant' {} a -> s {variantValues = a} :: ComponentVariant) Prelude.. Lens.mapping Lens.coerced
 
 -- | The properties of the component variant that can be overriden when
 -- customizing an instance of the component. You can\'t specify @tags@ as a
@@ -72,31 +67,36 @@ componentVariant_variantValues = Lens.lens (\ComponentVariant' {variantValues} -
 componentVariant_overrides :: Lens.Lens' ComponentVariant (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)))
 componentVariant_overrides = Lens.lens (\ComponentVariant' {overrides} -> overrides) (\s@ComponentVariant' {} a -> s {overrides = a} :: ComponentVariant) Prelude.. Lens.mapping Lens.coerced
 
+-- | The combination of variants that comprise this variant. You can\'t
+-- specify @tags@ as a valid property for @variantValues@.
+componentVariant_variantValues :: Lens.Lens' ComponentVariant (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+componentVariant_variantValues = Lens.lens (\ComponentVariant' {variantValues} -> variantValues) (\s@ComponentVariant' {} a -> s {variantValues = a} :: ComponentVariant) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ComponentVariant where
   parseJSON =
     Data.withObject
       "ComponentVariant"
       ( \x ->
           ComponentVariant'
-            Prelude.<$> (x Data..:? "variantValues" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "variantValues" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ComponentVariant where
   hashWithSalt _salt ComponentVariant' {..} =
-    _salt `Prelude.hashWithSalt` variantValues
-      `Prelude.hashWithSalt` overrides
+    _salt `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` variantValues
 
 instance Prelude.NFData ComponentVariant where
   rnf ComponentVariant' {..} =
-    Prelude.rnf variantValues
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf variantValues
 
 instance Data.ToJSON ComponentVariant where
   toJSON ComponentVariant' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("variantValues" Data..=) Prelude.<$> variantValues,
-            ("overrides" Data..=) Prelude.<$> overrides
+          [ ("overrides" Data..=) Prelude.<$> overrides,
+            ("variantValues" Data..=) Prelude.<$> variantValues
           ]
       )

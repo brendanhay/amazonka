@@ -113,8 +113,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     getThemeResponse_httpStatus,
 
     -- ** ListComponents
-    listComponents_nextToken,
     listComponents_maxResults,
+    listComponents_nextToken,
     listComponents_appId,
     listComponents_environmentName,
     listComponentsResponse_nextToken,
@@ -122,8 +122,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     listComponentsResponse_entities,
 
     -- ** ListForms
-    listForms_nextToken,
     listForms_maxResults,
+    listForms_nextToken,
     listForms_appId,
     listForms_environmentName,
     listFormsResponse_nextToken,
@@ -131,8 +131,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     listFormsResponse_entities,
 
     -- ** ListThemes
-    listThemes_nextToken,
     listThemes_maxResults,
+    listThemes_nextToken,
     listThemes_appId,
     listThemes_environmentName,
     listThemesResponse_nextToken,
@@ -182,24 +182,24 @@ module Amazonka.AmplifyUiBuilder.Lens
     -- * Types
 
     -- ** ActionParameters
-    actionParameters_type,
+    actionParameters_anchor,
+    actionParameters_fields,
+    actionParameters_global,
+    actionParameters_id,
     actionParameters_model,
     actionParameters_state,
-    actionParameters_url,
     actionParameters_target,
-    actionParameters_fields,
-    actionParameters_id,
-    actionParameters_global,
-    actionParameters_anchor,
+    actionParameters_type,
+    actionParameters_url,
 
     -- ** Component
-    component_tags,
-    component_modifiedAt,
-    component_sourceId,
     component_children,
-    component_events,
-    component_schemaVersion,
     component_collectionProperties,
+    component_events,
+    component_modifiedAt,
+    component_schemaVersion,
+    component_sourceId,
+    component_tags,
     component_appId,
     component_bindingProperties,
     component_componentType,
@@ -212,63 +212,63 @@ module Amazonka.AmplifyUiBuilder.Lens
     component_variants,
 
     -- ** ComponentBindingPropertiesValue
-    componentBindingPropertiesValue_type,
-    componentBindingPropertiesValue_defaultValue,
     componentBindingPropertiesValue_bindingProperties,
+    componentBindingPropertiesValue_defaultValue,
+    componentBindingPropertiesValue_type,
 
     -- ** ComponentBindingPropertiesValueProperties
-    componentBindingPropertiesValueProperties_key,
-    componentBindingPropertiesValueProperties_slotName,
-    componentBindingPropertiesValueProperties_model,
     componentBindingPropertiesValueProperties_bucket,
-    componentBindingPropertiesValueProperties_predicates,
-    componentBindingPropertiesValueProperties_userAttribute,
     componentBindingPropertiesValueProperties_defaultValue,
     componentBindingPropertiesValueProperties_field,
+    componentBindingPropertiesValueProperties_key,
+    componentBindingPropertiesValueProperties_model,
+    componentBindingPropertiesValueProperties_predicates,
+    componentBindingPropertiesValueProperties_slotName,
+    componentBindingPropertiesValueProperties_userAttribute,
 
     -- ** ComponentChild
-    componentChild_sourceId,
     componentChild_children,
     componentChild_events,
+    componentChild_sourceId,
     componentChild_componentType,
     componentChild_name,
     componentChild_properties,
 
     -- ** ComponentConditionProperty
-    componentConditionProperty_operand,
     componentConditionProperty_else,
-    componentConditionProperty_then,
-    componentConditionProperty_operandType,
     componentConditionProperty_field,
-    componentConditionProperty_property,
+    componentConditionProperty_operand,
+    componentConditionProperty_operandType,
     componentConditionProperty_operator,
+    componentConditionProperty_property,
+    componentConditionProperty_then,
 
     -- ** ComponentDataConfiguration
+    componentDataConfiguration_identifiers,
     componentDataConfiguration_predicate,
     componentDataConfiguration_sort,
-    componentDataConfiguration_identifiers,
     componentDataConfiguration_model,
 
     -- ** ComponentEvent
-    componentEvent_bindingEvent,
     componentEvent_action,
+    componentEvent_bindingEvent,
     componentEvent_parameters,
 
     -- ** ComponentProperty
-    componentProperty_configured,
-    componentProperty_type,
-    componentProperty_model,
-    componentProperty_importedValue,
-    componentProperty_concat,
-    componentProperty_collectionBindingProperties,
-    componentProperty_userAttribute,
-    componentProperty_componentName,
-    componentProperty_defaultValue,
-    componentProperty_bindings,
     componentProperty_bindingProperties,
-    componentProperty_property,
+    componentProperty_bindings,
+    componentProperty_collectionBindingProperties,
+    componentProperty_componentName,
+    componentProperty_concat,
     componentProperty_condition,
+    componentProperty_configured,
+    componentProperty_defaultValue,
     componentProperty_event,
+    componentProperty_importedValue,
+    componentProperty_model,
+    componentProperty_property,
+    componentProperty_type,
+    componentProperty_userAttribute,
     componentProperty_value,
 
     -- ** ComponentPropertyBindingProperties
@@ -283,16 +283,16 @@ module Amazonka.AmplifyUiBuilder.Lens
     componentSummary_name,
 
     -- ** ComponentVariant
-    componentVariant_variantValues,
     componentVariant_overrides,
+    componentVariant_variantValues,
 
     -- ** CreateComponentData
-    createComponentData_tags,
-    createComponentData_sourceId,
     createComponentData_children,
+    createComponentData_collectionProperties,
     createComponentData_events,
     createComponentData_schemaVersion,
-    createComponentData_collectionProperties,
+    createComponentData_sourceId,
+    createComponentData_tags,
     createComponentData_bindingProperties,
     createComponentData_componentType,
     createComponentData_name,
@@ -301,8 +301,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     createComponentData_variants,
 
     -- ** CreateFormData
-    createFormData_tags,
     createFormData_cta,
+    createFormData_tags,
     createFormData_dataType,
     createFormData_fields,
     createFormData_formActionType,
@@ -312,8 +312,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     createFormData_style,
 
     -- ** CreateThemeData
-    createThemeData_tags,
     createThemeData_overrides,
+    createThemeData_tags,
     createThemeData_name,
     createThemeData_values,
 
@@ -322,33 +322,33 @@ module Amazonka.AmplifyUiBuilder.Lens
     exchangeCodeForTokenRequestBody_redirectUri,
 
     -- ** FieldConfig
-    fieldConfig_label,
-    fieldConfig_validations,
-    fieldConfig_inputType,
-    fieldConfig_position,
     fieldConfig_excluded,
+    fieldConfig_inputType,
+    fieldConfig_label,
+    fieldConfig_position,
+    fieldConfig_validations,
 
     -- ** FieldInputConfig
-    fieldInputConfig_name,
-    fieldInputConfig_descriptiveText,
-    fieldInputConfig_required,
-    fieldInputConfig_defaultValue,
-    fieldInputConfig_minValue,
-    fieldInputConfig_readOnly,
-    fieldInputConfig_isArray,
-    fieldInputConfig_step,
-    fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultChecked,
-    fieldInputConfig_placeholder,
+    fieldInputConfig_defaultCountryCode,
+    fieldInputConfig_defaultValue,
+    fieldInputConfig_descriptiveText,
+    fieldInputConfig_isArray,
     fieldInputConfig_maxValue,
-    fieldInputConfig_valueMappings,
+    fieldInputConfig_minValue,
+    fieldInputConfig_name,
+    fieldInputConfig_placeholder,
+    fieldInputConfig_readOnly,
+    fieldInputConfig_required,
+    fieldInputConfig_step,
     fieldInputConfig_value,
+    fieldInputConfig_valueMappings,
     fieldInputConfig_type,
 
     -- ** FieldPosition
+    fieldPosition_below,
     fieldPosition_fixed,
     fieldPosition_rightOf,
-    fieldPosition_below,
 
     -- ** FieldValidationConfiguration
     fieldValidationConfiguration_numValues,
@@ -357,8 +357,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     fieldValidationConfiguration_type,
 
     -- ** Form
-    form_tags,
     form_cta,
+    form_tags,
     form_appId,
     form_dataType,
     form_environmentName,
@@ -376,14 +376,14 @@ module Amazonka.AmplifyUiBuilder.Lens
 
     -- ** FormButton
     formButton_children,
-    formButton_position,
     formButton_excluded,
+    formButton_position,
 
     -- ** FormCTA
-    formCTA_clear,
-    formCTA_submit,
-    formCTA_position,
     formCTA_cancel,
+    formCTA_clear,
+    formCTA_position,
+    formCTA_submit,
 
     -- ** FormDataTypeConfig
     formDataTypeConfig_dataSourceType,
@@ -393,9 +393,9 @@ module Amazonka.AmplifyUiBuilder.Lens
     formInputValueProperty_value,
 
     -- ** FormStyle
-    formStyle_verticalGap,
     formStyle_horizontalGap,
     formStyle_outerPadding,
+    formStyle_verticalGap,
 
     -- ** FormStyleConfig
     formStyleConfig_tokenReference,
@@ -415,11 +415,11 @@ module Amazonka.AmplifyUiBuilder.Lens
     mutationActionSetStateParameter_set,
 
     -- ** Predicate
-    predicate_operand,
-    predicate_field,
-    predicate_or,
-    predicate_operator,
     predicate_and,
+    predicate_field,
+    predicate_operand,
+    predicate_operator,
+    predicate_or,
 
     -- ** PutMetadataFlagBody
     putMetadataFlagBody_newValue,
@@ -428,8 +428,8 @@ module Amazonka.AmplifyUiBuilder.Lens
     refreshTokenRequestBody_token,
 
     -- ** SectionalElement
-    sectionalElement_orientation,
     sectionalElement_level,
+    sectionalElement_orientation,
     sectionalElement_position,
     sectionalElement_text,
     sectionalElement_type,
@@ -439,9 +439,9 @@ module Amazonka.AmplifyUiBuilder.Lens
     sortProperty_field,
 
     -- ** Theme
-    theme_tags,
     theme_modifiedAt,
     theme_overrides,
+    theme_tags,
     theme_appId,
     theme_createdAt,
     theme_environmentName,
@@ -464,32 +464,32 @@ module Amazonka.AmplifyUiBuilder.Lens
     themeValues_value,
 
     -- ** UpdateComponentData
-    updateComponentData_name,
-    updateComponentData_variants,
-    updateComponentData_sourceId,
-    updateComponentData_properties,
     updateComponentData_bindingProperties,
-    updateComponentData_id,
     updateComponentData_children,
-    updateComponentData_events,
-    updateComponentData_schemaVersion,
     updateComponentData_collectionProperties,
     updateComponentData_componentType,
+    updateComponentData_events,
+    updateComponentData_id,
+    updateComponentData_name,
     updateComponentData_overrides,
+    updateComponentData_properties,
+    updateComponentData_schemaVersion,
+    updateComponentData_sourceId,
+    updateComponentData_variants,
 
     -- ** UpdateFormData
-    updateFormData_name,
-    updateFormData_sectionalElements,
-    updateFormData_style,
+    updateFormData_cta,
+    updateFormData_dataType,
     updateFormData_fields,
     updateFormData_formActionType,
-    updateFormData_cta,
+    updateFormData_name,
     updateFormData_schemaVersion,
-    updateFormData_dataType,
+    updateFormData_sectionalElements,
+    updateFormData_style,
 
     -- ** UpdateThemeData
-    updateThemeData_name,
     updateThemeData_id,
+    updateThemeData_name,
     updateThemeData_overrides,
     updateThemeData_values,
 

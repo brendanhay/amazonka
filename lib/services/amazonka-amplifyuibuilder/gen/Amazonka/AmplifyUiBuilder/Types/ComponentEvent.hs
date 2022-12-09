@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentEvent' smart constructor.
 data ComponentEvent = ComponentEvent'
-  { -- | Binds an event to an action on a component. When you specify a
+  { -- | The action to perform when a specific event is raised.
+    action :: Prelude.Maybe Prelude.Text,
+    -- | Binds an event to an action on a component. When you specify a
     -- @bindingEvent@, the event is called when the action is performed.
     bindingEvent :: Prelude.Maybe Prelude.Text,
-    -- | The action to perform when a specific event is raised.
-    action :: Prelude.Maybe Prelude.Text,
     -- | Describes information about the action.
     parameters :: Prelude.Maybe ActionParameters
   }
@@ -49,29 +49,29 @@ data ComponentEvent = ComponentEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'componentEvent_action' - The action to perform when a specific event is raised.
+--
 -- 'bindingEvent', 'componentEvent_bindingEvent' - Binds an event to an action on a component. When you specify a
 -- @bindingEvent@, the event is called when the action is performed.
---
--- 'action', 'componentEvent_action' - The action to perform when a specific event is raised.
 --
 -- 'parameters', 'componentEvent_parameters' - Describes information about the action.
 newComponentEvent ::
   ComponentEvent
 newComponentEvent =
   ComponentEvent'
-    { bindingEvent = Prelude.Nothing,
-      action = Prelude.Nothing,
+    { action = Prelude.Nothing,
+      bindingEvent = Prelude.Nothing,
       parameters = Prelude.Nothing
     }
+
+-- | The action to perform when a specific event is raised.
+componentEvent_action :: Lens.Lens' ComponentEvent (Prelude.Maybe Prelude.Text)
+componentEvent_action = Lens.lens (\ComponentEvent' {action} -> action) (\s@ComponentEvent' {} a -> s {action = a} :: ComponentEvent)
 
 -- | Binds an event to an action on a component. When you specify a
 -- @bindingEvent@, the event is called when the action is performed.
 componentEvent_bindingEvent :: Lens.Lens' ComponentEvent (Prelude.Maybe Prelude.Text)
 componentEvent_bindingEvent = Lens.lens (\ComponentEvent' {bindingEvent} -> bindingEvent) (\s@ComponentEvent' {} a -> s {bindingEvent = a} :: ComponentEvent)
-
--- | The action to perform when a specific event is raised.
-componentEvent_action :: Lens.Lens' ComponentEvent (Prelude.Maybe Prelude.Text)
-componentEvent_action = Lens.lens (\ComponentEvent' {action} -> action) (\s@ComponentEvent' {} a -> s {action = a} :: ComponentEvent)
 
 -- | Describes information about the action.
 componentEvent_parameters :: Lens.Lens' ComponentEvent (Prelude.Maybe ActionParameters)
@@ -83,29 +83,29 @@ instance Data.FromJSON ComponentEvent where
       "ComponentEvent"
       ( \x ->
           ComponentEvent'
-            Prelude.<$> (x Data..:? "bindingEvent")
-            Prelude.<*> (x Data..:? "action")
+            Prelude.<$> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "bindingEvent")
             Prelude.<*> (x Data..:? "parameters")
       )
 
 instance Prelude.Hashable ComponentEvent where
   hashWithSalt _salt ComponentEvent' {..} =
-    _salt `Prelude.hashWithSalt` bindingEvent
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` bindingEvent
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData ComponentEvent where
   rnf ComponentEvent' {..} =
-    Prelude.rnf bindingEvent
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf bindingEvent
       `Prelude.seq` Prelude.rnf parameters
 
 instance Data.ToJSON ComponentEvent where
   toJSON ComponentEvent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("bindingEvent" Data..=) Prelude.<$> bindingEvent,
-            ("action" Data..=) Prelude.<$> action,
+          [ ("action" Data..=) Prelude.<$> action,
+            ("bindingEvent" Data..=) Prelude.<$> bindingEvent,
             ("parameters" Data..=) Prelude.<$> parameters
           ]
       )

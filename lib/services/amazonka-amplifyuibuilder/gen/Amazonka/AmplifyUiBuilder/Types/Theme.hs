@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTheme' smart constructor.
 data Theme = Theme'
-  { -- | One or more key-value pairs to use when tagging the theme.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The time that the theme was modified.
+  { -- | The time that the theme was modified.
     modifiedAt :: Prelude.Maybe Data.POSIX,
     -- | Describes the properties that can be overriden to customize a theme.
     overrides :: Prelude.Maybe [ThemeValues],
+    -- | One or more key-value pairs to use when tagging the theme.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID for the Amplify app associated with the theme.
     appId :: Prelude.Text,
     -- | The time that the theme was created.
@@ -59,11 +59,11 @@ data Theme = Theme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'theme_tags' - One or more key-value pairs to use when tagging the theme.
---
 -- 'modifiedAt', 'theme_modifiedAt' - The time that the theme was modified.
 --
 -- 'overrides', 'theme_overrides' - Describes the properties that can be overriden to customize a theme.
+--
+-- 'tags', 'theme_tags' - One or more key-value pairs to use when tagging the theme.
 --
 -- 'appId', 'theme_appId' - The unique ID for the Amplify app associated with the theme.
 --
@@ -95,9 +95,9 @@ newTheme
   pId_
   pName_ =
     Theme'
-      { tags = Prelude.Nothing,
-        modifiedAt = Prelude.Nothing,
+      { modifiedAt = Prelude.Nothing,
         overrides = Prelude.Nothing,
+        tags = Prelude.Nothing,
         appId = pAppId_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         environmentName = pEnvironmentName_,
@@ -106,10 +106,6 @@ newTheme
         values = Prelude.mempty
       }
 
--- | One or more key-value pairs to use when tagging the theme.
-theme_tags :: Lens.Lens' Theme (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-theme_tags = Lens.lens (\Theme' {tags} -> tags) (\s@Theme' {} a -> s {tags = a} :: Theme) Prelude.. Lens.mapping Lens.coerced
-
 -- | The time that the theme was modified.
 theme_modifiedAt :: Lens.Lens' Theme (Prelude.Maybe Prelude.UTCTime)
 theme_modifiedAt = Lens.lens (\Theme' {modifiedAt} -> modifiedAt) (\s@Theme' {} a -> s {modifiedAt = a} :: Theme) Prelude.. Lens.mapping Data._Time
@@ -117,6 +113,10 @@ theme_modifiedAt = Lens.lens (\Theme' {modifiedAt} -> modifiedAt) (\s@Theme' {} 
 -- | Describes the properties that can be overriden to customize a theme.
 theme_overrides :: Lens.Lens' Theme (Prelude.Maybe [ThemeValues])
 theme_overrides = Lens.lens (\Theme' {overrides} -> overrides) (\s@Theme' {} a -> s {overrides = a} :: Theme) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more key-value pairs to use when tagging the theme.
+theme_tags :: Lens.Lens' Theme (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+theme_tags = Lens.lens (\Theme' {tags} -> tags) (\s@Theme' {} a -> s {tags = a} :: Theme) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID for the Amplify app associated with the theme.
 theme_appId :: Lens.Lens' Theme Prelude.Text
@@ -148,9 +148,9 @@ instance Data.FromJSON Theme where
       "Theme"
       ( \x ->
           Theme'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "modifiedAt")
+            Prelude.<$> (x Data..:? "modifiedAt")
             Prelude.<*> (x Data..:? "overrides" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "environmentName")
@@ -161,9 +161,9 @@ instance Data.FromJSON Theme where
 
 instance Prelude.Hashable Theme where
   hashWithSalt _salt Theme' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` modifiedAt
+    _salt `Prelude.hashWithSalt` modifiedAt
       `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` environmentName
@@ -173,9 +173,9 @@ instance Prelude.Hashable Theme where
 
 instance Prelude.NFData Theme where
   rnf Theme' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modifiedAt
+    Prelude.rnf modifiedAt
       `Prelude.seq` Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf environmentName

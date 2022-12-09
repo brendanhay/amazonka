@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldConfig' smart constructor.
 data FieldConfig = FieldConfig'
-  { -- | The label for the field.
-    label :: Prelude.Maybe Prelude.Text,
-    -- | The validations to perform on the value in the field.
-    validations :: Prelude.Maybe [FieldValidationConfiguration],
+  { -- | Specifies whether to hide a field.
+    excluded :: Prelude.Maybe Prelude.Bool,
     -- | Describes the configuration for the default input value to display for a
     -- field.
     inputType :: Prelude.Maybe FieldInputConfig,
+    -- | The label for the field.
+    label :: Prelude.Maybe Prelude.Text,
     -- | Specifies the field position.
     position :: Prelude.Maybe FieldPosition,
-    -- | Specifies whether to hide a field.
-    excluded :: Prelude.Maybe Prelude.Bool
+    -- | The validations to perform on the value in the field.
+    validations :: Prelude.Maybe [FieldValidationConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,47 +53,47 @@ data FieldConfig = FieldConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'label', 'fieldConfig_label' - The label for the field.
---
--- 'validations', 'fieldConfig_validations' - The validations to perform on the value in the field.
+-- 'excluded', 'fieldConfig_excluded' - Specifies whether to hide a field.
 --
 -- 'inputType', 'fieldConfig_inputType' - Describes the configuration for the default input value to display for a
 -- field.
 --
+-- 'label', 'fieldConfig_label' - The label for the field.
+--
 -- 'position', 'fieldConfig_position' - Specifies the field position.
 --
--- 'excluded', 'fieldConfig_excluded' - Specifies whether to hide a field.
+-- 'validations', 'fieldConfig_validations' - The validations to perform on the value in the field.
 newFieldConfig ::
   FieldConfig
 newFieldConfig =
   FieldConfig'
-    { label = Prelude.Nothing,
-      validations = Prelude.Nothing,
+    { excluded = Prelude.Nothing,
       inputType = Prelude.Nothing,
+      label = Prelude.Nothing,
       position = Prelude.Nothing,
-      excluded = Prelude.Nothing
+      validations = Prelude.Nothing
     }
 
--- | The label for the field.
-fieldConfig_label :: Lens.Lens' FieldConfig (Prelude.Maybe Prelude.Text)
-fieldConfig_label = Lens.lens (\FieldConfig' {label} -> label) (\s@FieldConfig' {} a -> s {label = a} :: FieldConfig)
-
--- | The validations to perform on the value in the field.
-fieldConfig_validations :: Lens.Lens' FieldConfig (Prelude.Maybe [FieldValidationConfiguration])
-fieldConfig_validations = Lens.lens (\FieldConfig' {validations} -> validations) (\s@FieldConfig' {} a -> s {validations = a} :: FieldConfig) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether to hide a field.
+fieldConfig_excluded :: Lens.Lens' FieldConfig (Prelude.Maybe Prelude.Bool)
+fieldConfig_excluded = Lens.lens (\FieldConfig' {excluded} -> excluded) (\s@FieldConfig' {} a -> s {excluded = a} :: FieldConfig)
 
 -- | Describes the configuration for the default input value to display for a
 -- field.
 fieldConfig_inputType :: Lens.Lens' FieldConfig (Prelude.Maybe FieldInputConfig)
 fieldConfig_inputType = Lens.lens (\FieldConfig' {inputType} -> inputType) (\s@FieldConfig' {} a -> s {inputType = a} :: FieldConfig)
 
+-- | The label for the field.
+fieldConfig_label :: Lens.Lens' FieldConfig (Prelude.Maybe Prelude.Text)
+fieldConfig_label = Lens.lens (\FieldConfig' {label} -> label) (\s@FieldConfig' {} a -> s {label = a} :: FieldConfig)
+
 -- | Specifies the field position.
 fieldConfig_position :: Lens.Lens' FieldConfig (Prelude.Maybe FieldPosition)
 fieldConfig_position = Lens.lens (\FieldConfig' {position} -> position) (\s@FieldConfig' {} a -> s {position = a} :: FieldConfig)
 
--- | Specifies whether to hide a field.
-fieldConfig_excluded :: Lens.Lens' FieldConfig (Prelude.Maybe Prelude.Bool)
-fieldConfig_excluded = Lens.lens (\FieldConfig' {excluded} -> excluded) (\s@FieldConfig' {} a -> s {excluded = a} :: FieldConfig)
+-- | The validations to perform on the value in the field.
+fieldConfig_validations :: Lens.Lens' FieldConfig (Prelude.Maybe [FieldValidationConfiguration])
+fieldConfig_validations = Lens.lens (\FieldConfig' {validations} -> validations) (\s@FieldConfig' {} a -> s {validations = a} :: FieldConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON FieldConfig where
   parseJSON =
@@ -101,37 +101,37 @@ instance Data.FromJSON FieldConfig where
       "FieldConfig"
       ( \x ->
           FieldConfig'
-            Prelude.<$> (x Data..:? "label")
-            Prelude.<*> (x Data..:? "validations" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "excluded")
             Prelude.<*> (x Data..:? "inputType")
+            Prelude.<*> (x Data..:? "label")
             Prelude.<*> (x Data..:? "position")
-            Prelude.<*> (x Data..:? "excluded")
+            Prelude.<*> (x Data..:? "validations" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FieldConfig where
   hashWithSalt _salt FieldConfig' {..} =
-    _salt `Prelude.hashWithSalt` label
-      `Prelude.hashWithSalt` validations
+    _salt `Prelude.hashWithSalt` excluded
       `Prelude.hashWithSalt` inputType
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` position
-      `Prelude.hashWithSalt` excluded
+      `Prelude.hashWithSalt` validations
 
 instance Prelude.NFData FieldConfig where
   rnf FieldConfig' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf validations
+    Prelude.rnf excluded
       `Prelude.seq` Prelude.rnf inputType
+      `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf excluded
+      `Prelude.seq` Prelude.rnf validations
 
 instance Data.ToJSON FieldConfig where
   toJSON FieldConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("label" Data..=) Prelude.<$> label,
-            ("validations" Data..=) Prelude.<$> validations,
+          [ ("excluded" Data..=) Prelude.<$> excluded,
             ("inputType" Data..=) Prelude.<$> inputType,
+            ("label" Data..=) Prelude.<$> label,
             ("position" Data..=) Prelude.<$> position,
-            ("excluded" Data..=) Prelude.<$> excluded
+            ("validations" Data..=) Prelude.<$> validations
           ]
       )

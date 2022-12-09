@@ -30,8 +30,8 @@ module Amazonka.AmplifyUiBuilder.ListForms
     newListForms,
 
     -- * Request Lenses
-    listForms_nextToken,
     listForms_maxResults,
+    listForms_nextToken,
     listForms_appId,
     listForms_environmentName,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListForms' smart constructor.
 data ListForms = ListForms'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of forms to retrieve.
+  { -- | The maximum number of forms to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for the Amplify app.
     appId :: Prelude.Text,
     -- | The name of the backend environment that is a part of the Amplify app.
@@ -75,9 +75,9 @@ data ListForms = ListForms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listForms_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listForms_maxResults' - The maximum number of forms to retrieve.
+--
+-- 'nextToken', 'listForms_nextToken' - The token to request the next page of results.
 --
 -- 'appId', 'listForms_appId' - The unique ID for the Amplify app.
 --
@@ -90,19 +90,19 @@ newListForms ::
   ListForms
 newListForms pAppId_ pEnvironmentName_ =
   ListForms'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_,
       environmentName = pEnvironmentName_
     }
 
--- | The token to request the next page of results.
-listForms_nextToken :: Lens.Lens' ListForms (Prelude.Maybe Prelude.Text)
-listForms_nextToken = Lens.lens (\ListForms' {nextToken} -> nextToken) (\s@ListForms' {} a -> s {nextToken = a} :: ListForms)
-
 -- | The maximum number of forms to retrieve.
 listForms_maxResults :: Lens.Lens' ListForms (Prelude.Maybe Prelude.Natural)
 listForms_maxResults = Lens.lens (\ListForms' {maxResults} -> maxResults) (\s@ListForms' {} a -> s {maxResults = a} :: ListForms)
+
+-- | The token to request the next page of results.
+listForms_nextToken :: Lens.Lens' ListForms (Prelude.Maybe Prelude.Text)
+listForms_nextToken = Lens.lens (\ListForms' {nextToken} -> nextToken) (\s@ListForms' {} a -> s {nextToken = a} :: ListForms)
 
 -- | The unique ID for the Amplify app.
 listForms_appId :: Lens.Lens' ListForms Prelude.Text
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListForms where
 
 instance Prelude.Hashable ListForms where
   hashWithSalt _salt ListForms' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData ListForms where
   rnf ListForms' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
@@ -179,8 +179,8 @@ instance Data.ToPath ListForms where
 instance Data.ToQuery ListForms where
   toQuery ListForms' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFormsResponse' smart constructor.

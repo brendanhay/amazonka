@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data FormButton = FormButton'
   { -- | Describes the button\'s properties.
     children :: Prelude.Maybe Prelude.Text,
-    -- | The position of the button.
-    position :: Prelude.Maybe FieldPosition,
     -- | Specifies whether the button is visible on the form.
-    excluded :: Prelude.Maybe Prelude.Bool
+    excluded :: Prelude.Maybe Prelude.Bool,
+    -- | The position of the button.
+    position :: Prelude.Maybe FieldPosition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data FormButton = FormButton'
 --
 -- 'children', 'formButton_children' - Describes the button\'s properties.
 --
--- 'position', 'formButton_position' - The position of the button.
---
 -- 'excluded', 'formButton_excluded' - Specifies whether the button is visible on the form.
+--
+-- 'position', 'formButton_position' - The position of the button.
 newFormButton ::
   FormButton
 newFormButton =
   FormButton'
     { children = Prelude.Nothing,
-      position = Prelude.Nothing,
-      excluded = Prelude.Nothing
+      excluded = Prelude.Nothing,
+      position = Prelude.Nothing
     }
 
 -- | Describes the button\'s properties.
 formButton_children :: Lens.Lens' FormButton (Prelude.Maybe Prelude.Text)
 formButton_children = Lens.lens (\FormButton' {children} -> children) (\s@FormButton' {} a -> s {children = a} :: FormButton)
 
--- | The position of the button.
-formButton_position :: Lens.Lens' FormButton (Prelude.Maybe FieldPosition)
-formButton_position = Lens.lens (\FormButton' {position} -> position) (\s@FormButton' {} a -> s {position = a} :: FormButton)
-
 -- | Specifies whether the button is visible on the form.
 formButton_excluded :: Lens.Lens' FormButton (Prelude.Maybe Prelude.Bool)
 formButton_excluded = Lens.lens (\FormButton' {excluded} -> excluded) (\s@FormButton' {} a -> s {excluded = a} :: FormButton)
+
+-- | The position of the button.
+formButton_position :: Lens.Lens' FormButton (Prelude.Maybe FieldPosition)
+formButton_position = Lens.lens (\FormButton' {position} -> position) (\s@FormButton' {} a -> s {position = a} :: FormButton)
 
 instance Data.FromJSON FormButton where
   parseJSON =
@@ -80,28 +80,28 @@ instance Data.FromJSON FormButton where
       ( \x ->
           FormButton'
             Prelude.<$> (x Data..:? "children")
-            Prelude.<*> (x Data..:? "position")
             Prelude.<*> (x Data..:? "excluded")
+            Prelude.<*> (x Data..:? "position")
       )
 
 instance Prelude.Hashable FormButton where
   hashWithSalt _salt FormButton' {..} =
     _salt `Prelude.hashWithSalt` children
-      `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` excluded
+      `Prelude.hashWithSalt` position
 
 instance Prelude.NFData FormButton where
   rnf FormButton' {..} =
     Prelude.rnf children
-      `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf excluded
+      `Prelude.seq` Prelude.rnf position
 
 instance Data.ToJSON FormButton where
   toJSON FormButton' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("children" Data..=) Prelude.<$> children,
-            ("position" Data..=) Prelude.<$> position,
-            ("excluded" Data..=) Prelude.<$> excluded
+            ("excluded" Data..=) Prelude.<$> excluded,
+            ("position" Data..=) Prelude.<$> position
           ]
       )

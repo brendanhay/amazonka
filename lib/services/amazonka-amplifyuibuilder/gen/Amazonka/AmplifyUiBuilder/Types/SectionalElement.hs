@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSectionalElement' smart constructor.
 data SectionalElement = SectionalElement'
-  { -- | Specifies the orientation for a @Divider@ sectional element. Valid
-    -- values are @horizontal@ or @vertical@.
-    orientation :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the size of the font for a @Heading@ sectional element. Valid
+  { -- | Specifies the size of the font for a @Heading@ sectional element. Valid
     -- values are @1 | 2 | 3 | 4 | 5 | 6@.
     level :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the orientation for a @Divider@ sectional element. Valid
+    -- values are @horizontal@ or @vertical@.
+    orientation :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position of the text in a field for a @Text@ sectional
     -- element.
     position :: Prelude.Maybe FieldPosition,
@@ -56,11 +56,11 @@ data SectionalElement = SectionalElement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orientation', 'sectionalElement_orientation' - Specifies the orientation for a @Divider@ sectional element. Valid
--- values are @horizontal@ or @vertical@.
---
 -- 'level', 'sectionalElement_level' - Specifies the size of the font for a @Heading@ sectional element. Valid
 -- values are @1 | 2 | 3 | 4 | 5 | 6@.
+--
+-- 'orientation', 'sectionalElement_orientation' - Specifies the orientation for a @Divider@ sectional element. Valid
+-- values are @horizontal@ or @vertical@.
 --
 -- 'position', 'sectionalElement_position' - Specifies the position of the text in a field for a @Text@ sectional
 -- element.
@@ -75,22 +75,22 @@ newSectionalElement ::
   SectionalElement
 newSectionalElement pType_ =
   SectionalElement'
-    { orientation = Prelude.Nothing,
-      level = Prelude.Nothing,
+    { level = Prelude.Nothing,
+      orientation = Prelude.Nothing,
       position = Prelude.Nothing,
       text = Prelude.Nothing,
       type' = pType_
     }
 
--- | Specifies the orientation for a @Divider@ sectional element. Valid
--- values are @horizontal@ or @vertical@.
-sectionalElement_orientation :: Lens.Lens' SectionalElement (Prelude.Maybe Prelude.Text)
-sectionalElement_orientation = Lens.lens (\SectionalElement' {orientation} -> orientation) (\s@SectionalElement' {} a -> s {orientation = a} :: SectionalElement)
-
 -- | Specifies the size of the font for a @Heading@ sectional element. Valid
 -- values are @1 | 2 | 3 | 4 | 5 | 6@.
 sectionalElement_level :: Lens.Lens' SectionalElement (Prelude.Maybe Prelude.Int)
 sectionalElement_level = Lens.lens (\SectionalElement' {level} -> level) (\s@SectionalElement' {} a -> s {level = a} :: SectionalElement)
+
+-- | Specifies the orientation for a @Divider@ sectional element. Valid
+-- values are @horizontal@ or @vertical@.
+sectionalElement_orientation :: Lens.Lens' SectionalElement (Prelude.Maybe Prelude.Text)
+sectionalElement_orientation = Lens.lens (\SectionalElement' {orientation} -> orientation) (\s@SectionalElement' {} a -> s {orientation = a} :: SectionalElement)
 
 -- | Specifies the position of the text in a field for a @Text@ sectional
 -- element.
@@ -112,8 +112,8 @@ instance Data.FromJSON SectionalElement where
       "SectionalElement"
       ( \x ->
           SectionalElement'
-            Prelude.<$> (x Data..:? "orientation")
-            Prelude.<*> (x Data..:? "level")
+            Prelude.<$> (x Data..:? "level")
+            Prelude.<*> (x Data..:? "orientation")
             Prelude.<*> (x Data..:? "position")
             Prelude.<*> (x Data..:? "text")
             Prelude.<*> (x Data..: "type")
@@ -121,16 +121,16 @@ instance Data.FromJSON SectionalElement where
 
 instance Prelude.Hashable SectionalElement where
   hashWithSalt _salt SectionalElement' {..} =
-    _salt `Prelude.hashWithSalt` orientation
-      `Prelude.hashWithSalt` level
+    _salt `Prelude.hashWithSalt` level
+      `Prelude.hashWithSalt` orientation
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SectionalElement where
   rnf SectionalElement' {..} =
-    Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf level
+    Prelude.rnf level
+      `Prelude.seq` Prelude.rnf orientation
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf type'
@@ -139,8 +139,8 @@ instance Data.ToJSON SectionalElement where
   toJSON SectionalElement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("orientation" Data..=) Prelude.<$> orientation,
-            ("level" Data..=) Prelude.<$> level,
+          [ ("level" Data..=) Prelude.<$> level,
+            ("orientation" Data..=) Prelude.<$> orientation,
             ("position" Data..=) Prelude.<$> position,
             ("text" Data..=) Prelude.<$> text,
             Prelude.Just ("type" Data..= type')

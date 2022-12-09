@@ -37,10 +37,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newForm' smart constructor.
 data Form = Form'
-  { -- | One or more key-value pairs to use when tagging the form.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Stores the call to action configuration for the form.
+  { -- | Stores the call to action configuration for the form.
     cta :: Prelude.Maybe FormCTA,
+    -- | One or more key-value pairs to use when tagging the form.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID of the Amplify app associated with the form.
     appId :: Prelude.Text,
     -- | The type of data source to use to create the form.
@@ -73,9 +73,9 @@ data Form = Form'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'form_tags' - One or more key-value pairs to use when tagging the form.
---
 -- 'cta', 'form_cta' - Stores the call to action configuration for the form.
+--
+-- 'tags', 'form_tags' - One or more key-value pairs to use when tagging the form.
 --
 -- 'appId', 'form_appId' - The unique ID of the Amplify app associated with the form.
 --
@@ -125,8 +125,8 @@ newForm
   pSchemaVersion_
   pStyle_ =
     Form'
-      { tags = Prelude.Nothing,
-        cta = Prelude.Nothing,
+      { cta = Prelude.Nothing,
+        tags = Prelude.Nothing,
         appId = pAppId_,
         dataType = pDataType_,
         environmentName = pEnvironmentName_,
@@ -139,13 +139,13 @@ newForm
         style = pStyle_
       }
 
--- | One or more key-value pairs to use when tagging the form.
-form_tags :: Lens.Lens' Form (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-form_tags = Lens.lens (\Form' {tags} -> tags) (\s@Form' {} a -> s {tags = a} :: Form) Prelude.. Lens.mapping Lens.coerced
-
 -- | Stores the call to action configuration for the form.
 form_cta :: Lens.Lens' Form (Prelude.Maybe FormCTA)
 form_cta = Lens.lens (\Form' {cta} -> cta) (\s@Form' {} a -> s {cta = a} :: Form)
+
+-- | One or more key-value pairs to use when tagging the form.
+form_tags :: Lens.Lens' Form (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+form_tags = Lens.lens (\Form' {tags} -> tags) (\s@Form' {} a -> s {tags = a} :: Form) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the Amplify app associated with the form.
 form_appId :: Lens.Lens' Form Prelude.Text
@@ -194,8 +194,8 @@ instance Data.FromJSON Form where
       "Form"
       ( \x ->
           Form'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "cta")
+            Prelude.<$> (x Data..:? "cta")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "appId")
             Prelude.<*> (x Data..: "dataType")
             Prelude.<*> (x Data..: "environmentName")
@@ -212,8 +212,8 @@ instance Data.FromJSON Form where
 
 instance Prelude.Hashable Form where
   hashWithSalt _salt Form' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` cta
+    _salt `Prelude.hashWithSalt` cta
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` environmentName
@@ -227,8 +227,8 @@ instance Prelude.Hashable Form where
 
 instance Prelude.NFData Form where
   rnf Form' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cta
+    Prelude.rnf cta
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf environmentName

@@ -30,36 +30,36 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldInputConfig' smart constructor.
 data FieldInputConfig = FieldInputConfig'
-  { -- | The name of the field.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The text to display to describe the field.
-    descriptiveText :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a field that requires input.
-    required :: Prelude.Maybe Prelude.Bool,
+  { -- | Specifies whether a field has a default value.
+    defaultChecked :: Prelude.Maybe Prelude.Bool,
+    -- | The default country code for a phone number.
+    defaultCountryCode :: Prelude.Maybe Prelude.Text,
     -- | The default value for the field.
     defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | The minimum value to display for the field.
-    minValue :: Prelude.Maybe Prelude.Double,
-    -- | Specifies a read only field.
-    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The text to display to describe the field.
+    descriptiveText :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to render the field as an array. This property is
     -- ignored if the @dataSourceType@ for the form is a Data Store.
     isArray :: Prelude.Maybe Prelude.Bool,
-    -- | The stepping increment for a numeric value in a field.
-    step :: Prelude.Maybe Prelude.Double,
-    -- | The default country code for a phone number.
-    defaultCountryCode :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether a field has a default value.
-    defaultChecked :: Prelude.Maybe Prelude.Bool,
-    -- | The text to display as a placeholder for the field.
-    placeholder :: Prelude.Maybe Prelude.Text,
     -- | The maximum value to display for the field.
     maxValue :: Prelude.Maybe Prelude.Double,
+    -- | The minimum value to display for the field.
+    minValue :: Prelude.Maybe Prelude.Double,
+    -- | The name of the field.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The text to display as a placeholder for the field.
+    placeholder :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a read only field.
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies a field that requires input.
+    required :: Prelude.Maybe Prelude.Bool,
+    -- | The stepping increment for a numeric value in a field.
+    step :: Prelude.Maybe Prelude.Double,
+    -- | The value for the field.
+    value :: Prelude.Maybe Prelude.Text,
     -- | The information to use to customize the input fields with data at
     -- runtime.
     valueMappings :: Prelude.Maybe ValueMappings,
-    -- | The value for the field.
-    value :: Prelude.Maybe Prelude.Text,
     -- | The input type for the field.
     type' :: Prelude.Text
   }
@@ -73,35 +73,35 @@ data FieldInputConfig = FieldInputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'fieldInputConfig_name' - The name of the field.
+-- 'defaultChecked', 'fieldInputConfig_defaultChecked' - Specifies whether a field has a default value.
 --
--- 'descriptiveText', 'fieldInputConfig_descriptiveText' - The text to display to describe the field.
---
--- 'required', 'fieldInputConfig_required' - Specifies a field that requires input.
+-- 'defaultCountryCode', 'fieldInputConfig_defaultCountryCode' - The default country code for a phone number.
 --
 -- 'defaultValue', 'fieldInputConfig_defaultValue' - The default value for the field.
 --
--- 'minValue', 'fieldInputConfig_minValue' - The minimum value to display for the field.
---
--- 'readOnly', 'fieldInputConfig_readOnly' - Specifies a read only field.
+-- 'descriptiveText', 'fieldInputConfig_descriptiveText' - The text to display to describe the field.
 --
 -- 'isArray', 'fieldInputConfig_isArray' - Specifies whether to render the field as an array. This property is
 -- ignored if the @dataSourceType@ for the form is a Data Store.
 --
--- 'step', 'fieldInputConfig_step' - The stepping increment for a numeric value in a field.
+-- 'maxValue', 'fieldInputConfig_maxValue' - The maximum value to display for the field.
 --
--- 'defaultCountryCode', 'fieldInputConfig_defaultCountryCode' - The default country code for a phone number.
+-- 'minValue', 'fieldInputConfig_minValue' - The minimum value to display for the field.
 --
--- 'defaultChecked', 'fieldInputConfig_defaultChecked' - Specifies whether a field has a default value.
+-- 'name', 'fieldInputConfig_name' - The name of the field.
 --
 -- 'placeholder', 'fieldInputConfig_placeholder' - The text to display as a placeholder for the field.
 --
--- 'maxValue', 'fieldInputConfig_maxValue' - The maximum value to display for the field.
+-- 'readOnly', 'fieldInputConfig_readOnly' - Specifies a read only field.
+--
+-- 'required', 'fieldInputConfig_required' - Specifies a field that requires input.
+--
+-- 'step', 'fieldInputConfig_step' - The stepping increment for a numeric value in a field.
+--
+-- 'value', 'fieldInputConfig_value' - The value for the field.
 --
 -- 'valueMappings', 'fieldInputConfig_valueMappings' - The information to use to customize the input fields with data at
 -- runtime.
---
--- 'value', 'fieldInputConfig_value' - The value for the field.
 --
 -- 'type'', 'fieldInputConfig_type' - The input type for the field.
 newFieldInputConfig ::
@@ -110,80 +110,80 @@ newFieldInputConfig ::
   FieldInputConfig
 newFieldInputConfig pType_ =
   FieldInputConfig'
-    { name = Prelude.Nothing,
-      descriptiveText = Prelude.Nothing,
-      required = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      minValue = Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      isArray = Prelude.Nothing,
-      step = Prelude.Nothing,
+    { defaultChecked = Prelude.Nothing,
       defaultCountryCode = Prelude.Nothing,
-      defaultChecked = Prelude.Nothing,
-      placeholder = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
+      descriptiveText = Prelude.Nothing,
+      isArray = Prelude.Nothing,
       maxValue = Prelude.Nothing,
-      valueMappings = Prelude.Nothing,
+      minValue = Prelude.Nothing,
+      name = Prelude.Nothing,
+      placeholder = Prelude.Nothing,
+      readOnly = Prelude.Nothing,
+      required = Prelude.Nothing,
+      step = Prelude.Nothing,
       value = Prelude.Nothing,
+      valueMappings = Prelude.Nothing,
       type' = pType_
     }
 
--- | The name of the field.
-fieldInputConfig_name :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
-fieldInputConfig_name = Lens.lens (\FieldInputConfig' {name} -> name) (\s@FieldInputConfig' {} a -> s {name = a} :: FieldInputConfig)
+-- | Specifies whether a field has a default value.
+fieldInputConfig_defaultChecked :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
+fieldInputConfig_defaultChecked = Lens.lens (\FieldInputConfig' {defaultChecked} -> defaultChecked) (\s@FieldInputConfig' {} a -> s {defaultChecked = a} :: FieldInputConfig)
 
--- | The text to display to describe the field.
-fieldInputConfig_descriptiveText :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
-fieldInputConfig_descriptiveText = Lens.lens (\FieldInputConfig' {descriptiveText} -> descriptiveText) (\s@FieldInputConfig' {} a -> s {descriptiveText = a} :: FieldInputConfig)
-
--- | Specifies a field that requires input.
-fieldInputConfig_required :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
-fieldInputConfig_required = Lens.lens (\FieldInputConfig' {required} -> required) (\s@FieldInputConfig' {} a -> s {required = a} :: FieldInputConfig)
+-- | The default country code for a phone number.
+fieldInputConfig_defaultCountryCode :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
+fieldInputConfig_defaultCountryCode = Lens.lens (\FieldInputConfig' {defaultCountryCode} -> defaultCountryCode) (\s@FieldInputConfig' {} a -> s {defaultCountryCode = a} :: FieldInputConfig)
 
 -- | The default value for the field.
 fieldInputConfig_defaultValue :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
 fieldInputConfig_defaultValue = Lens.lens (\FieldInputConfig' {defaultValue} -> defaultValue) (\s@FieldInputConfig' {} a -> s {defaultValue = a} :: FieldInputConfig)
 
--- | The minimum value to display for the field.
-fieldInputConfig_minValue :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
-fieldInputConfig_minValue = Lens.lens (\FieldInputConfig' {minValue} -> minValue) (\s@FieldInputConfig' {} a -> s {minValue = a} :: FieldInputConfig)
-
--- | Specifies a read only field.
-fieldInputConfig_readOnly :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
-fieldInputConfig_readOnly = Lens.lens (\FieldInputConfig' {readOnly} -> readOnly) (\s@FieldInputConfig' {} a -> s {readOnly = a} :: FieldInputConfig)
+-- | The text to display to describe the field.
+fieldInputConfig_descriptiveText :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
+fieldInputConfig_descriptiveText = Lens.lens (\FieldInputConfig' {descriptiveText} -> descriptiveText) (\s@FieldInputConfig' {} a -> s {descriptiveText = a} :: FieldInputConfig)
 
 -- | Specifies whether to render the field as an array. This property is
 -- ignored if the @dataSourceType@ for the form is a Data Store.
 fieldInputConfig_isArray :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
 fieldInputConfig_isArray = Lens.lens (\FieldInputConfig' {isArray} -> isArray) (\s@FieldInputConfig' {} a -> s {isArray = a} :: FieldInputConfig)
 
--- | The stepping increment for a numeric value in a field.
-fieldInputConfig_step :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
-fieldInputConfig_step = Lens.lens (\FieldInputConfig' {step} -> step) (\s@FieldInputConfig' {} a -> s {step = a} :: FieldInputConfig)
+-- | The maximum value to display for the field.
+fieldInputConfig_maxValue :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
+fieldInputConfig_maxValue = Lens.lens (\FieldInputConfig' {maxValue} -> maxValue) (\s@FieldInputConfig' {} a -> s {maxValue = a} :: FieldInputConfig)
 
--- | The default country code for a phone number.
-fieldInputConfig_defaultCountryCode :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
-fieldInputConfig_defaultCountryCode = Lens.lens (\FieldInputConfig' {defaultCountryCode} -> defaultCountryCode) (\s@FieldInputConfig' {} a -> s {defaultCountryCode = a} :: FieldInputConfig)
+-- | The minimum value to display for the field.
+fieldInputConfig_minValue :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
+fieldInputConfig_minValue = Lens.lens (\FieldInputConfig' {minValue} -> minValue) (\s@FieldInputConfig' {} a -> s {minValue = a} :: FieldInputConfig)
 
--- | Specifies whether a field has a default value.
-fieldInputConfig_defaultChecked :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
-fieldInputConfig_defaultChecked = Lens.lens (\FieldInputConfig' {defaultChecked} -> defaultChecked) (\s@FieldInputConfig' {} a -> s {defaultChecked = a} :: FieldInputConfig)
+-- | The name of the field.
+fieldInputConfig_name :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
+fieldInputConfig_name = Lens.lens (\FieldInputConfig' {name} -> name) (\s@FieldInputConfig' {} a -> s {name = a} :: FieldInputConfig)
 
 -- | The text to display as a placeholder for the field.
 fieldInputConfig_placeholder :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
 fieldInputConfig_placeholder = Lens.lens (\FieldInputConfig' {placeholder} -> placeholder) (\s@FieldInputConfig' {} a -> s {placeholder = a} :: FieldInputConfig)
 
--- | The maximum value to display for the field.
-fieldInputConfig_maxValue :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
-fieldInputConfig_maxValue = Lens.lens (\FieldInputConfig' {maxValue} -> maxValue) (\s@FieldInputConfig' {} a -> s {maxValue = a} :: FieldInputConfig)
+-- | Specifies a read only field.
+fieldInputConfig_readOnly :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
+fieldInputConfig_readOnly = Lens.lens (\FieldInputConfig' {readOnly} -> readOnly) (\s@FieldInputConfig' {} a -> s {readOnly = a} :: FieldInputConfig)
+
+-- | Specifies a field that requires input.
+fieldInputConfig_required :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Bool)
+fieldInputConfig_required = Lens.lens (\FieldInputConfig' {required} -> required) (\s@FieldInputConfig' {} a -> s {required = a} :: FieldInputConfig)
+
+-- | The stepping increment for a numeric value in a field.
+fieldInputConfig_step :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Double)
+fieldInputConfig_step = Lens.lens (\FieldInputConfig' {step} -> step) (\s@FieldInputConfig' {} a -> s {step = a} :: FieldInputConfig)
+
+-- | The value for the field.
+fieldInputConfig_value :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
+fieldInputConfig_value = Lens.lens (\FieldInputConfig' {value} -> value) (\s@FieldInputConfig' {} a -> s {value = a} :: FieldInputConfig)
 
 -- | The information to use to customize the input fields with data at
 -- runtime.
 fieldInputConfig_valueMappings :: Lens.Lens' FieldInputConfig (Prelude.Maybe ValueMappings)
 fieldInputConfig_valueMappings = Lens.lens (\FieldInputConfig' {valueMappings} -> valueMappings) (\s@FieldInputConfig' {} a -> s {valueMappings = a} :: FieldInputConfig)
-
--- | The value for the field.
-fieldInputConfig_value :: Lens.Lens' FieldInputConfig (Prelude.Maybe Prelude.Text)
-fieldInputConfig_value = Lens.lens (\FieldInputConfig' {value} -> value) (\s@FieldInputConfig' {} a -> s {value = a} :: FieldInputConfig)
 
 -- | The input type for the field.
 fieldInputConfig_type :: Lens.Lens' FieldInputConfig Prelude.Text
@@ -195,80 +195,80 @@ instance Data.FromJSON FieldInputConfig where
       "FieldInputConfig"
       ( \x ->
           FieldInputConfig'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "descriptiveText")
-            Prelude.<*> (x Data..:? "required")
-            Prelude.<*> (x Data..:? "defaultValue")
-            Prelude.<*> (x Data..:? "minValue")
-            Prelude.<*> (x Data..:? "readOnly")
-            Prelude.<*> (x Data..:? "isArray")
-            Prelude.<*> (x Data..:? "step")
+            Prelude.<$> (x Data..:? "defaultChecked")
             Prelude.<*> (x Data..:? "defaultCountryCode")
-            Prelude.<*> (x Data..:? "defaultChecked")
-            Prelude.<*> (x Data..:? "placeholder")
+            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "descriptiveText")
+            Prelude.<*> (x Data..:? "isArray")
             Prelude.<*> (x Data..:? "maxValue")
-            Prelude.<*> (x Data..:? "valueMappings")
+            Prelude.<*> (x Data..:? "minValue")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "placeholder")
+            Prelude.<*> (x Data..:? "readOnly")
+            Prelude.<*> (x Data..:? "required")
+            Prelude.<*> (x Data..:? "step")
             Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..:? "valueMappings")
             Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FieldInputConfig where
   hashWithSalt _salt FieldInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` descriptiveText
-      `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` defaultValue
-      `Prelude.hashWithSalt` minValue
-      `Prelude.hashWithSalt` readOnly
-      `Prelude.hashWithSalt` isArray
-      `Prelude.hashWithSalt` step
+    _salt `Prelude.hashWithSalt` defaultChecked
       `Prelude.hashWithSalt` defaultCountryCode
-      `Prelude.hashWithSalt` defaultChecked
-      `Prelude.hashWithSalt` placeholder
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` descriptiveText
+      `Prelude.hashWithSalt` isArray
       `Prelude.hashWithSalt` maxValue
-      `Prelude.hashWithSalt` valueMappings
+      `Prelude.hashWithSalt` minValue
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` placeholder
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` required
+      `Prelude.hashWithSalt` step
       `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` valueMappings
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FieldInputConfig where
   rnf FieldInputConfig' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf descriptiveText
-      `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf isArray
-      `Prelude.seq` Prelude.rnf step
+    Prelude.rnf defaultChecked
       `Prelude.seq` Prelude.rnf defaultCountryCode
-      `Prelude.seq` Prelude.rnf defaultChecked
-      `Prelude.seq` Prelude.rnf placeholder
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf descriptiveText
+      `Prelude.seq` Prelude.rnf isArray
       `Prelude.seq` Prelude.rnf maxValue
-      `Prelude.seq` Prelude.rnf valueMappings
+      `Prelude.seq` Prelude.rnf minValue
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf placeholder
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf required
+      `Prelude.seq` Prelude.rnf step
       `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf valueMappings
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON FieldInputConfig where
   toJSON FieldInputConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("descriptiveText" Data..=)
-              Prelude.<$> descriptiveText,
-            ("required" Data..=) Prelude.<$> required,
-            ("defaultValue" Data..=) Prelude.<$> defaultValue,
-            ("minValue" Data..=) Prelude.<$> minValue,
-            ("readOnly" Data..=) Prelude.<$> readOnly,
-            ("isArray" Data..=) Prelude.<$> isArray,
-            ("step" Data..=) Prelude.<$> step,
+          [ ("defaultChecked" Data..=)
+              Prelude.<$> defaultChecked,
             ("defaultCountryCode" Data..=)
               Prelude.<$> defaultCountryCode,
-            ("defaultChecked" Data..=)
-              Prelude.<$> defaultChecked,
-            ("placeholder" Data..=) Prelude.<$> placeholder,
+            ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("descriptiveText" Data..=)
+              Prelude.<$> descriptiveText,
+            ("isArray" Data..=) Prelude.<$> isArray,
             ("maxValue" Data..=) Prelude.<$> maxValue,
-            ("valueMappings" Data..=) Prelude.<$> valueMappings,
+            ("minValue" Data..=) Prelude.<$> minValue,
+            ("name" Data..=) Prelude.<$> name,
+            ("placeholder" Data..=) Prelude.<$> placeholder,
+            ("readOnly" Data..=) Prelude.<$> readOnly,
+            ("required" Data..=) Prelude.<$> required,
+            ("step" Data..=) Prelude.<$> step,
             ("value" Data..=) Prelude.<$> value,
+            ("valueMappings" Data..=) Prelude.<$> valueMappings,
             Prelude.Just ("type" Data..= type')
           ]
       )

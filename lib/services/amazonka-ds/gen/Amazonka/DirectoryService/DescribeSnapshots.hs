@@ -39,9 +39,9 @@ module Amazonka.DirectoryService.DescribeSnapshots
 
     -- * Request Lenses
     describeSnapshots_directoryId,
+    describeSnapshots_limit,
     describeSnapshots_nextToken,
     describeSnapshots_snapshotIds,
-    describeSnapshots_limit,
 
     -- * Destructuring the Response
     DescribeSnapshotsResponse (..),
@@ -69,15 +69,15 @@ data DescribeSnapshots = DescribeSnapshots'
   { -- | The identifier of the directory for which to retrieve snapshot
     -- information.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of objects to return.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
     -- DescribeSnapshots. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of identifiers of the snapshots to obtain the information for. If
     -- this member is null or empty, all snapshots are returned using the
     -- /Limit/ and /NextToken/ members.
-    snapshotIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of objects to return.
-    limit :: Prelude.Maybe Prelude.Natural
+    snapshotIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,28 +92,32 @@ data DescribeSnapshots = DescribeSnapshots'
 -- 'directoryId', 'describeSnapshots_directoryId' - The identifier of the directory for which to retrieve snapshot
 -- information.
 --
+-- 'limit', 'describeSnapshots_limit' - The maximum number of objects to return.
+--
 -- 'nextToken', 'describeSnapshots_nextToken' - The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
 --
 -- 'snapshotIds', 'describeSnapshots_snapshotIds' - A list of identifiers of the snapshots to obtain the information for. If
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
---
--- 'limit', 'describeSnapshots_limit' - The maximum number of objects to return.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
   DescribeSnapshots'
     { directoryId = Prelude.Nothing,
+      limit = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      snapshotIds = Prelude.Nothing,
-      limit = Prelude.Nothing
+      snapshotIds = Prelude.Nothing
     }
 
 -- | The identifier of the directory for which to retrieve snapshot
 -- information.
 describeSnapshots_directoryId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_directoryId = Lens.lens (\DescribeSnapshots' {directoryId} -> directoryId) (\s@DescribeSnapshots' {} a -> s {directoryId = a} :: DescribeSnapshots)
+
+-- | The maximum number of objects to return.
+describeSnapshots_limit :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Natural)
+describeSnapshots_limit = Lens.lens (\DescribeSnapshots' {limit} -> limit) (\s@DescribeSnapshots' {} a -> s {limit = a} :: DescribeSnapshots)
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
@@ -125,10 +129,6 @@ describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> next
 -- /Limit/ and /NextToken/ members.
 describeSnapshots_snapshotIds :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Prelude.Text])
 describeSnapshots_snapshotIds = Lens.lens (\DescribeSnapshots' {snapshotIds} -> snapshotIds) (\s@DescribeSnapshots' {} a -> s {snapshotIds = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of objects to return.
-describeSnapshots_limit :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Natural)
-describeSnapshots_limit = Lens.lens (\DescribeSnapshots' {limit} -> limit) (\s@DescribeSnapshots' {} a -> s {limit = a} :: DescribeSnapshots)
 
 instance Core.AWSPager DescribeSnapshots where
   page rq rs
@@ -170,16 +170,16 @@ instance Core.AWSRequest DescribeSnapshots where
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
     _salt `Prelude.hashWithSalt` directoryId
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` snapshotIds
-      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
     Prelude.rnf directoryId
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf snapshotIds
-      `Prelude.seq` Prelude.rnf limit
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders =
@@ -201,9 +201,9 @@ instance Data.ToJSON DescribeSnapshots where
     Data.object
       ( Prelude.catMaybes
           [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SnapshotIds" Data..=) Prelude.<$> snapshotIds,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("SnapshotIds" Data..=) Prelude.<$> snapshotIds
           ]
       )
 

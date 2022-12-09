@@ -29,8 +29,8 @@ module Amazonka.DirectoryService.ListIpRoutes
     newListIpRoutes,
 
     -- * Request Lenses
-    listIpRoutes_nextToken,
     listIpRoutes_limit,
+    listIpRoutes_nextToken,
     listIpRoutes_directoryId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.DirectoryService.ListIpRoutes
     newListIpRoutesResponse,
 
     -- * Response Lenses
-    listIpRoutesResponse_nextToken,
     listIpRoutesResponse_ipRoutesInfo,
+    listIpRoutesResponse_nextToken,
     listIpRoutesResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIpRoutes' smart constructor.
 data ListIpRoutes = ListIpRoutes'
-  { -- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
-    -- Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of items to return. If this value is zero, the maximum
+  { -- | Maximum number of items to return. If this value is zero, the maximum
     -- number of items is specified by the limitations of the operation.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
+    -- Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Identifier (ID) of the directory for which you want to retrieve the IP
     -- addresses.
     directoryId :: Prelude.Text
@@ -74,11 +74,11 @@ data ListIpRoutes = ListIpRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIpRoutes_nextToken' - The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
--- Pass null if this is the first call.
---
 -- 'limit', 'listIpRoutes_limit' - Maximum number of items to return. If this value is zero, the maximum
 -- number of items is specified by the limitations of the operation.
+--
+-- 'nextToken', 'listIpRoutes_nextToken' - The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
+-- Pass null if this is the first call.
 --
 -- 'directoryId', 'listIpRoutes_directoryId' - Identifier (ID) of the directory for which you want to retrieve the IP
 -- addresses.
@@ -88,20 +88,20 @@ newListIpRoutes ::
   ListIpRoutes
 newListIpRoutes pDirectoryId_ =
   ListIpRoutes'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
-
--- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
--- Pass null if this is the first call.
-listIpRoutes_nextToken :: Lens.Lens' ListIpRoutes (Prelude.Maybe Prelude.Text)
-listIpRoutes_nextToken = Lens.lens (\ListIpRoutes' {nextToken} -> nextToken) (\s@ListIpRoutes' {} a -> s {nextToken = a} :: ListIpRoutes)
 
 -- | Maximum number of items to return. If this value is zero, the maximum
 -- number of items is specified by the limitations of the operation.
 listIpRoutes_limit :: Lens.Lens' ListIpRoutes (Prelude.Maybe Prelude.Natural)
 listIpRoutes_limit = Lens.lens (\ListIpRoutes' {limit} -> limit) (\s@ListIpRoutes' {} a -> s {limit = a} :: ListIpRoutes)
+
+-- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
+-- Pass null if this is the first call.
+listIpRoutes_nextToken :: Lens.Lens' ListIpRoutes (Prelude.Maybe Prelude.Text)
+listIpRoutes_nextToken = Lens.lens (\ListIpRoutes' {nextToken} -> nextToken) (\s@ListIpRoutes' {} a -> s {nextToken = a} :: ListIpRoutes)
 
 -- | Identifier (ID) of the directory for which you want to retrieve the IP
 -- addresses.
@@ -136,21 +136,21 @@ instance Core.AWSRequest ListIpRoutes where
     Response.receiveJSON
       ( \s h x ->
           ListIpRoutesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIpRoutes where
   hashWithSalt _salt ListIpRoutes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData ListIpRoutes where
   rnf ListIpRoutes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Data.ToHeaders ListIpRoutes where
@@ -172,8 +172,8 @@ instance Data.ToJSON ListIpRoutes where
   toJSON ListIpRoutes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
@@ -186,12 +186,12 @@ instance Data.ToQuery ListIpRoutes where
 
 -- | /See:/ 'newListIpRoutesResponse' smart constructor.
 data ListIpRoutesResponse = ListIpRoutesResponse'
-  { -- | If not null, more results are available. Pass this value for the
+  { -- | A list of IpRoutes.
+    ipRoutesInfo :: Prelude.Maybe [IpRouteInfo],
+    -- | If not null, more results are available. Pass this value for the
     -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
     -- the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of IpRoutes.
-    ipRoutesInfo :: Prelude.Maybe [IpRouteInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,11 +205,11 @@ data ListIpRoutesResponse = ListIpRoutesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipRoutesInfo', 'listIpRoutesResponse_ipRoutesInfo' - A list of IpRoutes.
+--
 -- 'nextToken', 'listIpRoutesResponse_nextToken' - If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
 -- the next set of items.
---
--- 'ipRoutesInfo', 'listIpRoutesResponse_ipRoutesInfo' - A list of IpRoutes.
 --
 -- 'httpStatus', 'listIpRoutesResponse_httpStatus' - The response's http status code.
 newListIpRoutesResponse ::
@@ -218,10 +218,15 @@ newListIpRoutesResponse ::
   ListIpRoutesResponse
 newListIpRoutesResponse pHttpStatus_ =
   ListIpRoutesResponse'
-    { nextToken = Prelude.Nothing,
-      ipRoutesInfo = Prelude.Nothing,
+    { ipRoutesInfo =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of IpRoutes.
+listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe [IpRouteInfo])
+listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
@@ -229,16 +234,12 @@ newListIpRoutesResponse pHttpStatus_ =
 listIpRoutesResponse_nextToken :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe Prelude.Text)
 listIpRoutesResponse_nextToken = Lens.lens (\ListIpRoutesResponse' {nextToken} -> nextToken) (\s@ListIpRoutesResponse' {} a -> s {nextToken = a} :: ListIpRoutesResponse)
 
--- | A list of IpRoutes.
-listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe [IpRouteInfo])
-listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listIpRoutesResponse_httpStatus :: Lens.Lens' ListIpRoutesResponse Prelude.Int
 listIpRoutesResponse_httpStatus = Lens.lens (\ListIpRoutesResponse' {httpStatus} -> httpStatus) (\s@ListIpRoutesResponse' {} a -> s {httpStatus = a} :: ListIpRoutesResponse)
 
 instance Prelude.NFData ListIpRoutesResponse where
   rnf ListIpRoutesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipRoutesInfo
+    Prelude.rnf ipRoutesInfo
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,9 +36,9 @@ module Amazonka.DirectoryService.CreateTrust
     newCreateTrust,
 
     -- * Request Lenses
-    createTrust_trustType,
-    createTrust_selectiveAuth,
     createTrust_conditionalForwarderIpAddrs,
+    createTrust_selectiveAuth,
+    createTrust_trustType,
     createTrust_directoryId,
     createTrust_remoteDomainName,
     createTrust_trustPassword,
@@ -74,13 +74,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateTrust' smart constructor.
 data CreateTrust = CreateTrust'
-  { -- | The trust relationship type. @Forest@ is the default.
-    trustType :: Prelude.Maybe TrustType,
-    -- | Optional parameter to enable selective authentication for the trust.
-    selectiveAuth :: Prelude.Maybe SelectiveAuth,
-    -- | The IP addresses of the remote DNS server associated with
+  { -- | The IP addresses of the remote DNS server associated with
     -- RemoteDomainName.
     conditionalForwarderIpAddrs :: Prelude.Maybe [Prelude.Text],
+    -- | Optional parameter to enable selective authentication for the trust.
+    selectiveAuth :: Prelude.Maybe SelectiveAuth,
+    -- | The trust relationship type. @Forest@ is the default.
+    trustType :: Prelude.Maybe TrustType,
     -- | The Directory ID of the Managed Microsoft AD directory for which to
     -- establish the trust relationship.
     directoryId :: Prelude.Text,
@@ -103,12 +103,12 @@ data CreateTrust = CreateTrust'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trustType', 'createTrust_trustType' - The trust relationship type. @Forest@ is the default.
+-- 'conditionalForwarderIpAddrs', 'createTrust_conditionalForwarderIpAddrs' - The IP addresses of the remote DNS server associated with
+-- RemoteDomainName.
 --
 -- 'selectiveAuth', 'createTrust_selectiveAuth' - Optional parameter to enable selective authentication for the trust.
 --
--- 'conditionalForwarderIpAddrs', 'createTrust_conditionalForwarderIpAddrs' - The IP addresses of the remote DNS server associated with
--- RemoteDomainName.
+-- 'trustType', 'createTrust_trustType' - The trust relationship type. @Forest@ is the default.
 --
 -- 'directoryId', 'createTrust_directoryId' - The Directory ID of the Managed Microsoft AD directory for which to
 -- establish the trust relationship.
@@ -136,9 +136,10 @@ newCreateTrust
   pTrustPassword_
   pTrustDirection_ =
     CreateTrust'
-      { trustType = Prelude.Nothing,
+      { conditionalForwarderIpAddrs =
+          Prelude.Nothing,
         selectiveAuth = Prelude.Nothing,
-        conditionalForwarderIpAddrs = Prelude.Nothing,
+        trustType = Prelude.Nothing,
         directoryId = pDirectoryId_,
         remoteDomainName = pRemoteDomainName_,
         trustPassword =
@@ -146,18 +147,18 @@ newCreateTrust
         trustDirection = pTrustDirection_
       }
 
--- | The trust relationship type. @Forest@ is the default.
-createTrust_trustType :: Lens.Lens' CreateTrust (Prelude.Maybe TrustType)
-createTrust_trustType = Lens.lens (\CreateTrust' {trustType} -> trustType) (\s@CreateTrust' {} a -> s {trustType = a} :: CreateTrust)
+-- | The IP addresses of the remote DNS server associated with
+-- RemoteDomainName.
+createTrust_conditionalForwarderIpAddrs :: Lens.Lens' CreateTrust (Prelude.Maybe [Prelude.Text])
+createTrust_conditionalForwarderIpAddrs = Lens.lens (\CreateTrust' {conditionalForwarderIpAddrs} -> conditionalForwarderIpAddrs) (\s@CreateTrust' {} a -> s {conditionalForwarderIpAddrs = a} :: CreateTrust) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional parameter to enable selective authentication for the trust.
 createTrust_selectiveAuth :: Lens.Lens' CreateTrust (Prelude.Maybe SelectiveAuth)
 createTrust_selectiveAuth = Lens.lens (\CreateTrust' {selectiveAuth} -> selectiveAuth) (\s@CreateTrust' {} a -> s {selectiveAuth = a} :: CreateTrust)
 
--- | The IP addresses of the remote DNS server associated with
--- RemoteDomainName.
-createTrust_conditionalForwarderIpAddrs :: Lens.Lens' CreateTrust (Prelude.Maybe [Prelude.Text])
-createTrust_conditionalForwarderIpAddrs = Lens.lens (\CreateTrust' {conditionalForwarderIpAddrs} -> conditionalForwarderIpAddrs) (\s@CreateTrust' {} a -> s {conditionalForwarderIpAddrs = a} :: CreateTrust) Prelude.. Lens.mapping Lens.coerced
+-- | The trust relationship type. @Forest@ is the default.
+createTrust_trustType :: Lens.Lens' CreateTrust (Prelude.Maybe TrustType)
+createTrust_trustType = Lens.lens (\CreateTrust' {trustType} -> trustType) (\s@CreateTrust' {} a -> s {trustType = a} :: CreateTrust)
 
 -- | The Directory ID of the Managed Microsoft AD directory for which to
 -- establish the trust relationship.
@@ -192,9 +193,10 @@ instance Core.AWSRequest CreateTrust where
 
 instance Prelude.Hashable CreateTrust where
   hashWithSalt _salt CreateTrust' {..} =
-    _salt `Prelude.hashWithSalt` trustType
-      `Prelude.hashWithSalt` selectiveAuth
+    _salt
       `Prelude.hashWithSalt` conditionalForwarderIpAddrs
+      `Prelude.hashWithSalt` selectiveAuth
+      `Prelude.hashWithSalt` trustType
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` remoteDomainName
       `Prelude.hashWithSalt` trustPassword
@@ -202,9 +204,9 @@ instance Prelude.Hashable CreateTrust where
 
 instance Prelude.NFData CreateTrust where
   rnf CreateTrust' {..} =
-    Prelude.rnf trustType
+    Prelude.rnf conditionalForwarderIpAddrs
       `Prelude.seq` Prelude.rnf selectiveAuth
-      `Prelude.seq` Prelude.rnf conditionalForwarderIpAddrs
+      `Prelude.seq` Prelude.rnf trustType
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf remoteDomainName
       `Prelude.seq` Prelude.rnf trustPassword
@@ -229,10 +231,10 @@ instance Data.ToJSON CreateTrust where
   toJSON CreateTrust' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TrustType" Data..=) Prelude.<$> trustType,
-            ("SelectiveAuth" Data..=) Prelude.<$> selectiveAuth,
-            ("ConditionalForwarderIpAddrs" Data..=)
+          [ ("ConditionalForwarderIpAddrs" Data..=)
               Prelude.<$> conditionalForwarderIpAddrs,
+            ("SelectiveAuth" Data..=) Prelude.<$> selectiveAuth,
+            ("TrustType" Data..=) Prelude.<$> trustType,
             Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
               ("RemoteDomainName" Data..= remoteDomainName),

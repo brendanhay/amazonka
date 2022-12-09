@@ -29,8 +29,8 @@ module Amazonka.DirectoryService.ListSchemaExtensions
     newListSchemaExtensions,
 
     -- * Request Lenses
-    listSchemaExtensions_nextToken,
     listSchemaExtensions_limit,
+    listSchemaExtensions_nextToken,
     listSchemaExtensions_directoryId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemaExtensions' smart constructor.
 data ListSchemaExtensions = ListSchemaExtensions'
-  { -- | The @ListSchemaExtensions.NextToken@ value from a previous call to
+  { -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @ListSchemaExtensions.NextToken@ value from a previous call to
     -- @ListSchemaExtensions@. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the directory from which to retrieve the schema
     -- extension information.
     directoryId :: Prelude.Text
@@ -73,10 +73,10 @@ data ListSchemaExtensions = ListSchemaExtensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSchemaExtensions_limit' - The maximum number of items to return.
+--
 -- 'nextToken', 'listSchemaExtensions_nextToken' - The @ListSchemaExtensions.NextToken@ value from a previous call to
 -- @ListSchemaExtensions@. Pass null if this is the first call.
---
--- 'limit', 'listSchemaExtensions_limit' - The maximum number of items to return.
 --
 -- 'directoryId', 'listSchemaExtensions_directoryId' - The identifier of the directory from which to retrieve the schema
 -- extension information.
@@ -86,19 +86,19 @@ newListSchemaExtensions ::
   ListSchemaExtensions
 newListSchemaExtensions pDirectoryId_ =
   ListSchemaExtensions'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
+
+-- | The maximum number of items to return.
+listSchemaExtensions_limit :: Lens.Lens' ListSchemaExtensions (Prelude.Maybe Prelude.Natural)
+listSchemaExtensions_limit = Lens.lens (\ListSchemaExtensions' {limit} -> limit) (\s@ListSchemaExtensions' {} a -> s {limit = a} :: ListSchemaExtensions)
 
 -- | The @ListSchemaExtensions.NextToken@ value from a previous call to
 -- @ListSchemaExtensions@. Pass null if this is the first call.
 listSchemaExtensions_nextToken :: Lens.Lens' ListSchemaExtensions (Prelude.Maybe Prelude.Text)
 listSchemaExtensions_nextToken = Lens.lens (\ListSchemaExtensions' {nextToken} -> nextToken) (\s@ListSchemaExtensions' {} a -> s {nextToken = a} :: ListSchemaExtensions)
-
--- | The maximum number of items to return.
-listSchemaExtensions_limit :: Lens.Lens' ListSchemaExtensions (Prelude.Maybe Prelude.Natural)
-listSchemaExtensions_limit = Lens.lens (\ListSchemaExtensions' {limit} -> limit) (\s@ListSchemaExtensions' {} a -> s {limit = a} :: ListSchemaExtensions)
 
 -- | The identifier of the directory from which to retrieve the schema
 -- extension information.
@@ -146,14 +146,14 @@ instance Core.AWSRequest ListSchemaExtensions where
 
 instance Prelude.Hashable ListSchemaExtensions where
   hashWithSalt _salt ListSchemaExtensions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData ListSchemaExtensions where
   rnf ListSchemaExtensions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Data.ToHeaders ListSchemaExtensions where
@@ -175,8 +175,8 @@ instance Data.ToJSON ListSchemaExtensions where
   toJSON ListSchemaExtensions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )

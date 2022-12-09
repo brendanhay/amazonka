@@ -42,17 +42,17 @@ module Amazonka.DirectoryService.DescribeDirectories
     newDescribeDirectories,
 
     -- * Request Lenses
-    describeDirectories_nextToken,
     describeDirectories_directoryIds,
     describeDirectories_limit,
+    describeDirectories_nextToken,
 
     -- * Destructuring the Response
     DescribeDirectoriesResponse (..),
     newDescribeDirectoriesResponse,
 
     -- * Response Lenses
-    describeDirectoriesResponse_nextToken,
     describeDirectoriesResponse_directoryDescriptions,
+    describeDirectoriesResponse_nextToken,
     describeDirectoriesResponse_httpStatus,
   )
 where
@@ -69,10 +69,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDirectories' smart constructor.
 data DescribeDirectories = DescribeDirectories'
-  { -- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to
-    -- DescribeDirectories. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of identifiers of the directories for which to obtain the
+  { -- | A list of identifiers of the directories for which to obtain the
     -- information. If this member is null, all directories that belong to the
     -- current account are returned.
     --
@@ -81,7 +78,10 @@ data DescribeDirectories = DescribeDirectories'
     -- | The maximum number of items to return. If this value is zero, the
     -- maximum number of items is specified by the limitations of the
     -- operation.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to
+    -- DescribeDirectories. Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,9 +93,6 @@ data DescribeDirectories = DescribeDirectories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDirectories_nextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to
--- DescribeDirectories. Pass null if this is the first call.
---
 -- 'directoryIds', 'describeDirectories_directoryIds' - A list of identifiers of the directories for which to obtain the
 -- information. If this member is null, all directories that belong to the
 -- current account are returned.
@@ -105,19 +102,18 @@ data DescribeDirectories = DescribeDirectories'
 -- 'limit', 'describeDirectories_limit' - The maximum number of items to return. If this value is zero, the
 -- maximum number of items is specified by the limitations of the
 -- operation.
+--
+-- 'nextToken', 'describeDirectories_nextToken' - The @DescribeDirectoriesResult.NextToken@ value from a previous call to
+-- DescribeDirectories. Pass null if this is the first call.
 newDescribeDirectories ::
   DescribeDirectories
 newDescribeDirectories =
   DescribeDirectories'
-    { nextToken = Prelude.Nothing,
-      directoryIds = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { directoryIds =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to
--- DescribeDirectories. Pass null if this is the first call.
-describeDirectories_nextToken :: Lens.Lens' DescribeDirectories (Prelude.Maybe Prelude.Text)
-describeDirectories_nextToken = Lens.lens (\DescribeDirectories' {nextToken} -> nextToken) (\s@DescribeDirectories' {} a -> s {nextToken = a} :: DescribeDirectories)
 
 -- | A list of identifiers of the directories for which to obtain the
 -- information. If this member is null, all directories that belong to the
@@ -132,6 +128,11 @@ describeDirectories_directoryIds = Lens.lens (\DescribeDirectories' {directoryId
 -- operation.
 describeDirectories_limit :: Lens.Lens' DescribeDirectories (Prelude.Maybe Prelude.Natural)
 describeDirectories_limit = Lens.lens (\DescribeDirectories' {limit} -> limit) (\s@DescribeDirectories' {} a -> s {limit = a} :: DescribeDirectories)
+
+-- | The @DescribeDirectoriesResult.NextToken@ value from a previous call to
+-- DescribeDirectories. Pass null if this is the first call.
+describeDirectories_nextToken :: Lens.Lens' DescribeDirectories (Prelude.Maybe Prelude.Text)
+describeDirectories_nextToken = Lens.lens (\DescribeDirectories' {nextToken} -> nextToken) (\s@DescribeDirectories' {} a -> s {nextToken = a} :: DescribeDirectories)
 
 instance Core.AWSPager DescribeDirectories where
   page rq rs
@@ -165,24 +166,24 @@ instance Core.AWSRequest DescribeDirectories where
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectoriesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DirectoryDescriptions"
+            Prelude.<$> ( x Data..?> "DirectoryDescriptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDirectories where
   hashWithSalt _salt DescribeDirectories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` directoryIds
+    _salt `Prelude.hashWithSalt` directoryIds
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeDirectories where
   rnf DescribeDirectories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryIds
+    Prelude.rnf directoryIds
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDirectories where
   toHeaders =
@@ -203,9 +204,9 @@ instance Data.ToJSON DescribeDirectories where
   toJSON DescribeDirectories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -219,17 +220,17 @@ instance Data.ToQuery DescribeDirectories where
 --
 -- /See:/ 'newDescribeDirectoriesResponse' smart constructor.
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-  { -- | If not null, more results are available. Pass this value for the
-    -- @NextToken@ parameter in a subsequent call to DescribeDirectories to
-    -- retrieve the next set of items.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of DirectoryDescription objects that were retrieved.
+  { -- | The list of DirectoryDescription objects that were retrieved.
     --
     -- It is possible that this list contains less than the number of items
     -- specified in the @Limit@ member of the request. This occurs if there are
     -- less than the requested number of items left to retrieve, or if the
     -- limitations of the operation have been exceeded.
     directoryDescriptions :: Prelude.Maybe [DirectoryDescription],
+    -- | If not null, more results are available. Pass this value for the
+    -- @NextToken@ parameter in a subsequent call to DescribeDirectories to
+    -- retrieve the next set of items.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,16 +244,16 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDirectoriesResponse_nextToken' - If not null, more results are available. Pass this value for the
--- @NextToken@ parameter in a subsequent call to DescribeDirectories to
--- retrieve the next set of items.
---
 -- 'directoryDescriptions', 'describeDirectoriesResponse_directoryDescriptions' - The list of DirectoryDescription objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items
 -- specified in the @Limit@ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
+--
+-- 'nextToken', 'describeDirectoriesResponse_nextToken' - If not null, more results are available. Pass this value for the
+-- @NextToken@ parameter in a subsequent call to DescribeDirectories to
+-- retrieve the next set of items.
 --
 -- 'httpStatus', 'describeDirectoriesResponse_httpStatus' - The response's http status code.
 newDescribeDirectoriesResponse ::
@@ -261,17 +262,11 @@ newDescribeDirectoriesResponse ::
   DescribeDirectoriesResponse
 newDescribeDirectoriesResponse pHttpStatus_ =
   DescribeDirectoriesResponse'
-    { nextToken =
+    { directoryDescriptions =
         Prelude.Nothing,
-      directoryDescriptions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If not null, more results are available. Pass this value for the
--- @NextToken@ parameter in a subsequent call to DescribeDirectories to
--- retrieve the next set of items.
-describeDirectoriesResponse_nextToken :: Lens.Lens' DescribeDirectoriesResponse (Prelude.Maybe Prelude.Text)
-describeDirectoriesResponse_nextToken = Lens.lens (\DescribeDirectoriesResponse' {nextToken} -> nextToken) (\s@DescribeDirectoriesResponse' {} a -> s {nextToken = a} :: DescribeDirectoriesResponse)
 
 -- | The list of DirectoryDescription objects that were retrieved.
 --
@@ -282,12 +277,18 @@ describeDirectoriesResponse_nextToken = Lens.lens (\DescribeDirectoriesResponse'
 describeDirectoriesResponse_directoryDescriptions :: Lens.Lens' DescribeDirectoriesResponse (Prelude.Maybe [DirectoryDescription])
 describeDirectoriesResponse_directoryDescriptions = Lens.lens (\DescribeDirectoriesResponse' {directoryDescriptions} -> directoryDescriptions) (\s@DescribeDirectoriesResponse' {} a -> s {directoryDescriptions = a} :: DescribeDirectoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | If not null, more results are available. Pass this value for the
+-- @NextToken@ parameter in a subsequent call to DescribeDirectories to
+-- retrieve the next set of items.
+describeDirectoriesResponse_nextToken :: Lens.Lens' DescribeDirectoriesResponse (Prelude.Maybe Prelude.Text)
+describeDirectoriesResponse_nextToken = Lens.lens (\DescribeDirectoriesResponse' {nextToken} -> nextToken) (\s@DescribeDirectoriesResponse' {} a -> s {nextToken = a} :: DescribeDirectoriesResponse)
+
 -- | The response's http status code.
 describeDirectoriesResponse_httpStatus :: Lens.Lens' DescribeDirectoriesResponse Prelude.Int
 describeDirectoriesResponse_httpStatus = Lens.lens (\DescribeDirectoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeDirectoriesResponse' {} a -> s {httpStatus = a} :: DescribeDirectoriesResponse)
 
 instance Prelude.NFData DescribeDirectoriesResponse where
   rnf DescribeDirectoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryDescriptions
+    Prelude.rnf directoryDescriptions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

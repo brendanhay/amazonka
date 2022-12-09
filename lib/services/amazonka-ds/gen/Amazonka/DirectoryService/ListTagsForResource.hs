@@ -29,8 +29,8 @@ module Amazonka.DirectoryService.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_limit,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.DirectoryService.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Identifier (ID) of the directory for which you want to retrieve tags.
     resourceId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - Reserved for future use.
---
 -- 'limit', 'listTagsForResource_limit' - Reserved for future use.
+--
+-- 'nextToken', 'listTagsForResource_nextToken' - Reserved for future use.
 --
 -- 'resourceId', 'listTagsForResource_resourceId' - Identifier (ID) of the directory for which you want to retrieve tags.
 newListTagsForResource ::
@@ -82,18 +82,18 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceId_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
 -- | Reserved for future use.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
-
--- | Reserved for future use.
 listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
+
+-- | Reserved for future use.
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | Identifier (ID) of the directory for which you want to retrieve tags.
 listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Prelude.Text
@@ -131,21 +131,21 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders ListTagsForResource where
@@ -167,8 +167,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
@@ -181,10 +181,10 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | List of tags returned by the ListTagsForResource operation.
-    tags :: Prelude.Maybe [Tag],
-    -- | Reserved for future use.
+  { -- | Reserved for future use.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of tags returned by the ListTagsForResource operation.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,9 +198,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - List of tags returned by the ListTagsForResource operation.
---
 -- 'nextToken', 'listTagsForResourceResponse_nextToken' - Reserved for future use.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - List of tags returned by the ListTagsForResource operation.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -209,19 +209,19 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of tags returned by the ListTagsForResource operation.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Reserved for future use.
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
+
+-- | List of tags returned by the ListTagsForResource operation.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -229,6 +229,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.DirectoryService.DescribeDomainControllers
     newDescribeDomainControllers,
 
     -- * Request Lenses
-    describeDomainControllers_nextToken,
-    describeDomainControllers_limit,
     describeDomainControllers_domainControllerIds,
+    describeDomainControllers_limit,
+    describeDomainControllers_nextToken,
     describeDomainControllers_directoryId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.DirectoryService.DescribeDomainControllers
     newDescribeDomainControllersResponse,
 
     -- * Response Lenses
-    describeDomainControllersResponse_nextToken,
     describeDomainControllersResponse_domainControllers,
+    describeDomainControllersResponse_nextToken,
     describeDomainControllersResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDomainControllers' smart constructor.
 data DescribeDomainControllers = DescribeDomainControllers'
-  { -- | The /DescribeDomainControllers.NextToken/ value from a previous call to
-    -- DescribeDomainControllers. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | A list of identifiers for the domain controllers whose information will
+  { -- | A list of identifiers for the domain controllers whose information will
     -- be provided.
     domainControllerIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of items to return.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The /DescribeDomainControllers.NextToken/ value from a previous call to
+    -- DescribeDomainControllers. Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Identifier of the directory for which to retrieve the domain controller
     -- information.
     directoryId :: Prelude.Text
@@ -77,13 +77,13 @@ data DescribeDomainControllers = DescribeDomainControllers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDomainControllers_nextToken' - The /DescribeDomainControllers.NextToken/ value from a previous call to
--- DescribeDomainControllers. Pass null if this is the first call.
+-- 'domainControllerIds', 'describeDomainControllers_domainControllerIds' - A list of identifiers for the domain controllers whose information will
+-- be provided.
 --
 -- 'limit', 'describeDomainControllers_limit' - The maximum number of items to return.
 --
--- 'domainControllerIds', 'describeDomainControllers_domainControllerIds' - A list of identifiers for the domain controllers whose information will
--- be provided.
+-- 'nextToken', 'describeDomainControllers_nextToken' - The /DescribeDomainControllers.NextToken/ value from a previous call to
+-- DescribeDomainControllers. Pass null if this is the first call.
 --
 -- 'directoryId', 'describeDomainControllers_directoryId' - Identifier of the directory for which to retrieve the domain controller
 -- information.
@@ -93,26 +93,26 @@ newDescribeDomainControllers ::
   DescribeDomainControllers
 newDescribeDomainControllers pDirectoryId_ =
   DescribeDomainControllers'
-    { nextToken =
+    { domainControllerIds =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      domainControllerIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       directoryId = pDirectoryId_
     }
-
--- | The /DescribeDomainControllers.NextToken/ value from a previous call to
--- DescribeDomainControllers. Pass null if this is the first call.
-describeDomainControllers_nextToken :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Text)
-describeDomainControllers_nextToken = Lens.lens (\DescribeDomainControllers' {nextToken} -> nextToken) (\s@DescribeDomainControllers' {} a -> s {nextToken = a} :: DescribeDomainControllers)
-
--- | The maximum number of items to return.
-describeDomainControllers_limit :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Natural)
-describeDomainControllers_limit = Lens.lens (\DescribeDomainControllers' {limit} -> limit) (\s@DescribeDomainControllers' {} a -> s {limit = a} :: DescribeDomainControllers)
 
 -- | A list of identifiers for the domain controllers whose information will
 -- be provided.
 describeDomainControllers_domainControllerIds :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe [Prelude.Text])
 describeDomainControllers_domainControllerIds = Lens.lens (\DescribeDomainControllers' {domainControllerIds} -> domainControllerIds) (\s@DescribeDomainControllers' {} a -> s {domainControllerIds = a} :: DescribeDomainControllers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to return.
+describeDomainControllers_limit :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Natural)
+describeDomainControllers_limit = Lens.lens (\DescribeDomainControllers' {limit} -> limit) (\s@DescribeDomainControllers' {} a -> s {limit = a} :: DescribeDomainControllers)
+
+-- | The /DescribeDomainControllers.NextToken/ value from a previous call to
+-- DescribeDomainControllers. Pass null if this is the first call.
+describeDomainControllers_nextToken :: Lens.Lens' DescribeDomainControllers (Prelude.Maybe Prelude.Text)
+describeDomainControllers_nextToken = Lens.lens (\DescribeDomainControllers' {nextToken} -> nextToken) (\s@DescribeDomainControllers' {} a -> s {nextToken = a} :: DescribeDomainControllers)
 
 -- | Identifier of the directory for which to retrieve the domain controller
 -- information.
@@ -151,25 +151,25 @@ instance Core.AWSRequest DescribeDomainControllers where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainControllersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DomainControllers"
+            Prelude.<$> ( x Data..?> "DomainControllers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDomainControllers where
   hashWithSalt _salt DescribeDomainControllers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` domainControllerIds
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` domainControllerIds
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryId
 
 instance Prelude.NFData DescribeDomainControllers where
   rnf DescribeDomainControllers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf domainControllerIds
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf domainControllerIds
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryId
 
 instance Data.ToHeaders DescribeDomainControllers where
@@ -191,10 +191,10 @@ instance Data.ToJSON DescribeDomainControllers where
   toJSON DescribeDomainControllers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
-            ("DomainControllerIds" Data..=)
+          [ ("DomainControllerIds" Data..=)
               Prelude.<$> domainControllerIds,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DirectoryId" Data..= directoryId)
           ]
       )
@@ -207,12 +207,12 @@ instance Data.ToQuery DescribeDomainControllers where
 
 -- | /See:/ 'newDescribeDomainControllersResponse' smart constructor.
 data DescribeDomainControllersResponse = DescribeDomainControllersResponse'
-  { -- | If not null, more results are available. Pass this value for the
+  { -- | List of the DomainController objects that were retrieved.
+    domainControllers :: Prelude.Maybe [DomainController],
+    -- | If not null, more results are available. Pass this value for the
     -- @NextToken@ parameter in a subsequent call to DescribeDomainControllers
     -- retrieve the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of the DomainController objects that were retrieved.
-    domainControllers :: Prelude.Maybe [DomainController],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,11 +226,11 @@ data DescribeDomainControllersResponse = DescribeDomainControllersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainControllers', 'describeDomainControllersResponse_domainControllers' - List of the DomainController objects that were retrieved.
+--
 -- 'nextToken', 'describeDomainControllersResponse_nextToken' - If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to DescribeDomainControllers
 -- retrieve the next set of items.
---
--- 'domainControllers', 'describeDomainControllersResponse_domainControllers' - List of the DomainController objects that were retrieved.
 --
 -- 'httpStatus', 'describeDomainControllersResponse_httpStatus' - The response's http status code.
 newDescribeDomainControllersResponse ::
@@ -239,21 +239,21 @@ newDescribeDomainControllersResponse ::
   DescribeDomainControllersResponse
 newDescribeDomainControllersResponse pHttpStatus_ =
   DescribeDomainControllersResponse'
-    { nextToken =
+    { domainControllers =
         Prelude.Nothing,
-      domainControllers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of the DomainController objects that were retrieved.
+describeDomainControllersResponse_domainControllers :: Lens.Lens' DescribeDomainControllersResponse (Prelude.Maybe [DomainController])
+describeDomainControllersResponse_domainControllers = Lens.lens (\DescribeDomainControllersResponse' {domainControllers} -> domainControllers) (\s@DescribeDomainControllersResponse' {} a -> s {domainControllers = a} :: DescribeDomainControllersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to DescribeDomainControllers
 -- retrieve the next set of items.
 describeDomainControllersResponse_nextToken :: Lens.Lens' DescribeDomainControllersResponse (Prelude.Maybe Prelude.Text)
 describeDomainControllersResponse_nextToken = Lens.lens (\DescribeDomainControllersResponse' {nextToken} -> nextToken) (\s@DescribeDomainControllersResponse' {} a -> s {nextToken = a} :: DescribeDomainControllersResponse)
-
--- | List of the DomainController objects that were retrieved.
-describeDomainControllersResponse_domainControllers :: Lens.Lens' DescribeDomainControllersResponse (Prelude.Maybe [DomainController])
-describeDomainControllersResponse_domainControllers = Lens.lens (\DescribeDomainControllersResponse' {domainControllers} -> domainControllers) (\s@DescribeDomainControllersResponse' {} a -> s {domainControllers = a} :: DescribeDomainControllersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDomainControllersResponse_httpStatus :: Lens.Lens' DescribeDomainControllersResponse Prelude.Int
@@ -264,6 +264,6 @@ instance
     DescribeDomainControllersResponse
   where
   rnf DescribeDomainControllersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainControllers
+    Prelude.rnf domainControllers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

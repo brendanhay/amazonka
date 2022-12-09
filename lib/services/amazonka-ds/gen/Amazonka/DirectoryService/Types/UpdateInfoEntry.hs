@@ -33,20 +33,20 @@ data UpdateInfoEntry = UpdateInfoEntry'
   { -- | This specifies if the update was initiated by the customer or by the
     -- service team.
     initiatedBy :: Prelude.Maybe Prelude.Text,
-    -- | The old value of the target setting.
-    previousValue :: Prelude.Maybe UpdateValue,
-    -- | The reason for the current status of the update type activity.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the update performed on the directory.
-    status :: Prelude.Maybe UpdateStatus,
-    -- | The name of the Region.
-    region :: Prelude.Maybe Prelude.Text,
+    -- | The last updated date and time of a particular directory setting.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The new value of the target setting.
     newValue' :: Prelude.Maybe UpdateValue,
+    -- | The old value of the target setting.
+    previousValue :: Prelude.Maybe UpdateValue,
+    -- | The name of the Region.
+    region :: Prelude.Maybe Prelude.Text,
     -- | The start time of the @UpdateDirectorySetup@ for the particular type.
     startTime :: Prelude.Maybe Data.POSIX,
-    -- | The last updated date and time of a particular directory setting.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    -- | The status of the update performed on the directory.
+    status :: Prelude.Maybe UpdateStatus,
+    -- | The reason for the current status of the update type activity.
+    statusReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,31 +61,31 @@ data UpdateInfoEntry = UpdateInfoEntry'
 -- 'initiatedBy', 'updateInfoEntry_initiatedBy' - This specifies if the update was initiated by the customer or by the
 -- service team.
 --
--- 'previousValue', 'updateInfoEntry_previousValue' - The old value of the target setting.
---
--- 'statusReason', 'updateInfoEntry_statusReason' - The reason for the current status of the update type activity.
---
--- 'status', 'updateInfoEntry_status' - The status of the update performed on the directory.
---
--- 'region', 'updateInfoEntry_region' - The name of the Region.
+-- 'lastUpdatedDateTime', 'updateInfoEntry_lastUpdatedDateTime' - The last updated date and time of a particular directory setting.
 --
 -- 'newValue'', 'updateInfoEntry_newValue' - The new value of the target setting.
 --
+-- 'previousValue', 'updateInfoEntry_previousValue' - The old value of the target setting.
+--
+-- 'region', 'updateInfoEntry_region' - The name of the Region.
+--
 -- 'startTime', 'updateInfoEntry_startTime' - The start time of the @UpdateDirectorySetup@ for the particular type.
 --
--- 'lastUpdatedDateTime', 'updateInfoEntry_lastUpdatedDateTime' - The last updated date and time of a particular directory setting.
+-- 'status', 'updateInfoEntry_status' - The status of the update performed on the directory.
+--
+-- 'statusReason', 'updateInfoEntry_statusReason' - The reason for the current status of the update type activity.
 newUpdateInfoEntry ::
   UpdateInfoEntry
 newUpdateInfoEntry =
   UpdateInfoEntry'
     { initiatedBy = Prelude.Nothing,
-      previousValue = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      status = Prelude.Nothing,
-      region = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
       newValue' = Prelude.Nothing,
+      previousValue = Prelude.Nothing,
+      region = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
 
 -- | This specifies if the update was initiated by the customer or by the
@@ -93,33 +93,33 @@ newUpdateInfoEntry =
 updateInfoEntry_initiatedBy :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.Text)
 updateInfoEntry_initiatedBy = Lens.lens (\UpdateInfoEntry' {initiatedBy} -> initiatedBy) (\s@UpdateInfoEntry' {} a -> s {initiatedBy = a} :: UpdateInfoEntry)
 
--- | The old value of the target setting.
-updateInfoEntry_previousValue :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe UpdateValue)
-updateInfoEntry_previousValue = Lens.lens (\UpdateInfoEntry' {previousValue} -> previousValue) (\s@UpdateInfoEntry' {} a -> s {previousValue = a} :: UpdateInfoEntry)
-
--- | The reason for the current status of the update type activity.
-updateInfoEntry_statusReason :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.Text)
-updateInfoEntry_statusReason = Lens.lens (\UpdateInfoEntry' {statusReason} -> statusReason) (\s@UpdateInfoEntry' {} a -> s {statusReason = a} :: UpdateInfoEntry)
-
--- | The status of the update performed on the directory.
-updateInfoEntry_status :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe UpdateStatus)
-updateInfoEntry_status = Lens.lens (\UpdateInfoEntry' {status} -> status) (\s@UpdateInfoEntry' {} a -> s {status = a} :: UpdateInfoEntry)
-
--- | The name of the Region.
-updateInfoEntry_region :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.Text)
-updateInfoEntry_region = Lens.lens (\UpdateInfoEntry' {region} -> region) (\s@UpdateInfoEntry' {} a -> s {region = a} :: UpdateInfoEntry)
+-- | The last updated date and time of a particular directory setting.
+updateInfoEntry_lastUpdatedDateTime :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.UTCTime)
+updateInfoEntry_lastUpdatedDateTime = Lens.lens (\UpdateInfoEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateInfoEntry' {} a -> s {lastUpdatedDateTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Data._Time
 
 -- | The new value of the target setting.
 updateInfoEntry_newValue :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe UpdateValue)
 updateInfoEntry_newValue = Lens.lens (\UpdateInfoEntry' {newValue'} -> newValue') (\s@UpdateInfoEntry' {} a -> s {newValue' = a} :: UpdateInfoEntry)
 
+-- | The old value of the target setting.
+updateInfoEntry_previousValue :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe UpdateValue)
+updateInfoEntry_previousValue = Lens.lens (\UpdateInfoEntry' {previousValue} -> previousValue) (\s@UpdateInfoEntry' {} a -> s {previousValue = a} :: UpdateInfoEntry)
+
+-- | The name of the Region.
+updateInfoEntry_region :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.Text)
+updateInfoEntry_region = Lens.lens (\UpdateInfoEntry' {region} -> region) (\s@UpdateInfoEntry' {} a -> s {region = a} :: UpdateInfoEntry)
+
 -- | The start time of the @UpdateDirectorySetup@ for the particular type.
 updateInfoEntry_startTime :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.UTCTime)
 updateInfoEntry_startTime = Lens.lens (\UpdateInfoEntry' {startTime} -> startTime) (\s@UpdateInfoEntry' {} a -> s {startTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Data._Time
 
--- | The last updated date and time of a particular directory setting.
-updateInfoEntry_lastUpdatedDateTime :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.UTCTime)
-updateInfoEntry_lastUpdatedDateTime = Lens.lens (\UpdateInfoEntry' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateInfoEntry' {} a -> s {lastUpdatedDateTime = a} :: UpdateInfoEntry) Prelude.. Lens.mapping Data._Time
+-- | The status of the update performed on the directory.
+updateInfoEntry_status :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe UpdateStatus)
+updateInfoEntry_status = Lens.lens (\UpdateInfoEntry' {status} -> status) (\s@UpdateInfoEntry' {} a -> s {status = a} :: UpdateInfoEntry)
+
+-- | The reason for the current status of the update type activity.
+updateInfoEntry_statusReason :: Lens.Lens' UpdateInfoEntry (Prelude.Maybe Prelude.Text)
+updateInfoEntry_statusReason = Lens.lens (\UpdateInfoEntry' {statusReason} -> statusReason) (\s@UpdateInfoEntry' {} a -> s {statusReason = a} :: UpdateInfoEntry)
 
 instance Data.FromJSON UpdateInfoEntry where
   parseJSON =
@@ -128,33 +128,33 @@ instance Data.FromJSON UpdateInfoEntry where
       ( \x ->
           UpdateInfoEntry'
             Prelude.<$> (x Data..:? "InitiatedBy")
-            Prelude.<*> (x Data..:? "PreviousValue")
-            Prelude.<*> (x Data..:? "StatusReason")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Region")
-            Prelude.<*> (x Data..:? "NewValue")
-            Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "LastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "NewValue")
+            Prelude.<*> (x Data..:? "PreviousValue")
+            Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusReason")
       )
 
 instance Prelude.Hashable UpdateInfoEntry where
   hashWithSalt _salt UpdateInfoEntry' {..} =
     _salt `Prelude.hashWithSalt` initiatedBy
-      `Prelude.hashWithSalt` previousValue
-      `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` newValue'
-      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` newValue'
+      `Prelude.hashWithSalt` previousValue
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
 
 instance Prelude.NFData UpdateInfoEntry where
   rnf UpdateInfoEntry' {..} =
     Prelude.rnf initiatedBy
-      `Prelude.seq` Prelude.rnf previousValue
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf newValue'
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf newValue'
+      `Prelude.seq` Prelude.rnf previousValue
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason

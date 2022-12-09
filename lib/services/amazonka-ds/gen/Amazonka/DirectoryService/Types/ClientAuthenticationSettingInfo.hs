@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientAuthenticationSettingInfo' smart constructor.
 data ClientAuthenticationSettingInfo = ClientAuthenticationSettingInfo'
-  { -- | The type of client authentication for the specified directory. If no
-    -- type is specified, a list of all client authentication types that are
-    -- supported for the directory is retrieved.
-    type' :: Prelude.Maybe ClientAuthenticationType,
+  { -- | The date and time when the status of the client authentication type was
+    -- last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | Whether the client authentication type is enabled or disabled for the
     -- specified directory.
     status :: Prelude.Maybe ClientAuthenticationStatus,
-    -- | The date and time when the status of the client authentication type was
-    -- last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    -- | The type of client authentication for the specified directory. If no
+    -- type is specified, a list of all client authentication types that are
+    -- supported for the directory is retrieved.
+    type' :: Prelude.Maybe ClientAuthenticationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,40 +52,40 @@ data ClientAuthenticationSettingInfo = ClientAuthenticationSettingInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'clientAuthenticationSettingInfo_type' - The type of client authentication for the specified directory. If no
--- type is specified, a list of all client authentication types that are
--- supported for the directory is retrieved.
+-- 'lastUpdatedDateTime', 'clientAuthenticationSettingInfo_lastUpdatedDateTime' - The date and time when the status of the client authentication type was
+-- last updated.
 --
 -- 'status', 'clientAuthenticationSettingInfo_status' - Whether the client authentication type is enabled or disabled for the
 -- specified directory.
 --
--- 'lastUpdatedDateTime', 'clientAuthenticationSettingInfo_lastUpdatedDateTime' - The date and time when the status of the client authentication type was
--- last updated.
+-- 'type'', 'clientAuthenticationSettingInfo_type' - The type of client authentication for the specified directory. If no
+-- type is specified, a list of all client authentication types that are
+-- supported for the directory is retrieved.
 newClientAuthenticationSettingInfo ::
   ClientAuthenticationSettingInfo
 newClientAuthenticationSettingInfo =
   ClientAuthenticationSettingInfo'
-    { type' =
+    { lastUpdatedDateTime =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of client authentication for the specified directory. If no
--- type is specified, a list of all client authentication types that are
--- supported for the directory is retrieved.
-clientAuthenticationSettingInfo_type :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe ClientAuthenticationType)
-clientAuthenticationSettingInfo_type = Lens.lens (\ClientAuthenticationSettingInfo' {type'} -> type') (\s@ClientAuthenticationSettingInfo' {} a -> s {type' = a} :: ClientAuthenticationSettingInfo)
+-- | The date and time when the status of the client authentication type was
+-- last updated.
+clientAuthenticationSettingInfo_lastUpdatedDateTime :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe Prelude.UTCTime)
+clientAuthenticationSettingInfo_lastUpdatedDateTime = Lens.lens (\ClientAuthenticationSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ClientAuthenticationSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: ClientAuthenticationSettingInfo) Prelude.. Lens.mapping Data._Time
 
 -- | Whether the client authentication type is enabled or disabled for the
 -- specified directory.
 clientAuthenticationSettingInfo_status :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe ClientAuthenticationStatus)
 clientAuthenticationSettingInfo_status = Lens.lens (\ClientAuthenticationSettingInfo' {status} -> status) (\s@ClientAuthenticationSettingInfo' {} a -> s {status = a} :: ClientAuthenticationSettingInfo)
 
--- | The date and time when the status of the client authentication type was
--- last updated.
-clientAuthenticationSettingInfo_lastUpdatedDateTime :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe Prelude.UTCTime)
-clientAuthenticationSettingInfo_lastUpdatedDateTime = Lens.lens (\ClientAuthenticationSettingInfo' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@ClientAuthenticationSettingInfo' {} a -> s {lastUpdatedDateTime = a} :: ClientAuthenticationSettingInfo) Prelude.. Lens.mapping Data._Time
+-- | The type of client authentication for the specified directory. If no
+-- type is specified, a list of all client authentication types that are
+-- supported for the directory is retrieved.
+clientAuthenticationSettingInfo_type :: Lens.Lens' ClientAuthenticationSettingInfo (Prelude.Maybe ClientAuthenticationType)
+clientAuthenticationSettingInfo_type = Lens.lens (\ClientAuthenticationSettingInfo' {type'} -> type') (\s@ClientAuthenticationSettingInfo' {} a -> s {type' = a} :: ClientAuthenticationSettingInfo)
 
 instance
   Data.FromJSON
@@ -96,9 +96,9 @@ instance
       "ClientAuthenticationSettingInfo"
       ( \x ->
           ClientAuthenticationSettingInfo'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "LastUpdatedDateTime")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "LastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -108,15 +108,15 @@ instance
   hashWithSalt
     _salt
     ClientAuthenticationSettingInfo' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` lastUpdatedDateTime
         `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` lastUpdatedDateTime
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ClientAuthenticationSettingInfo
   where
   rnf ClientAuthenticationSettingInfo' {..} =
-    Prelude.rnf type'
+    Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf type'

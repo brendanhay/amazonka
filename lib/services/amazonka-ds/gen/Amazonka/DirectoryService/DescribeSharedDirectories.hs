@@ -29,8 +29,8 @@ module Amazonka.DirectoryService.DescribeSharedDirectories
     newDescribeSharedDirectories,
 
     -- * Request Lenses
-    describeSharedDirectories_nextToken,
     describeSharedDirectories_limit,
+    describeSharedDirectories_nextToken,
     describeSharedDirectories_sharedDirectoryIds,
     describeSharedDirectories_ownerDirectoryId,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSharedDirectories' smart constructor.
 data DescribeSharedDirectories = DescribeSharedDirectories'
-  { -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous
+  { -- | The number of shared directories to return in the response object.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous
     -- call to DescribeSharedDirectories. Pass null if this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of shared directories to return in the response object.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A list of identifiers of all shared directories in your account.
     sharedDirectoryIds :: Prelude.Maybe [Prelude.Text],
     -- | Returns the identifier of the directory in the directory owner account.
@@ -75,10 +75,10 @@ data DescribeSharedDirectories = DescribeSharedDirectories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeSharedDirectories_limit' - The number of shared directories to return in the response object.
+--
 -- 'nextToken', 'describeSharedDirectories_nextToken' - The @DescribeSharedDirectoriesResult.NextToken@ value from a previous
 -- call to DescribeSharedDirectories. Pass null if this is the first call.
---
--- 'limit', 'describeSharedDirectories_limit' - The number of shared directories to return in the response object.
 --
 -- 'sharedDirectoryIds', 'describeSharedDirectories_sharedDirectoryIds' - A list of identifiers of all shared directories in your account.
 --
@@ -89,21 +89,20 @@ newDescribeSharedDirectories ::
   DescribeSharedDirectories
 newDescribeSharedDirectories pOwnerDirectoryId_ =
   DescribeSharedDirectories'
-    { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sharedDirectoryIds = Prelude.Nothing,
       ownerDirectoryId = pOwnerDirectoryId_
     }
+
+-- | The number of shared directories to return in the response object.
+describeSharedDirectories_limit :: Lens.Lens' DescribeSharedDirectories (Prelude.Maybe Prelude.Natural)
+describeSharedDirectories_limit = Lens.lens (\DescribeSharedDirectories' {limit} -> limit) (\s@DescribeSharedDirectories' {} a -> s {limit = a} :: DescribeSharedDirectories)
 
 -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous
 -- call to DescribeSharedDirectories. Pass null if this is the first call.
 describeSharedDirectories_nextToken :: Lens.Lens' DescribeSharedDirectories (Prelude.Maybe Prelude.Text)
 describeSharedDirectories_nextToken = Lens.lens (\DescribeSharedDirectories' {nextToken} -> nextToken) (\s@DescribeSharedDirectories' {} a -> s {nextToken = a} :: DescribeSharedDirectories)
-
--- | The number of shared directories to return in the response object.
-describeSharedDirectories_limit :: Lens.Lens' DescribeSharedDirectories (Prelude.Maybe Prelude.Natural)
-describeSharedDirectories_limit = Lens.lens (\DescribeSharedDirectories' {limit} -> limit) (\s@DescribeSharedDirectories' {} a -> s {limit = a} :: DescribeSharedDirectories)
 
 -- | A list of identifiers of all shared directories in your account.
 describeSharedDirectories_sharedDirectoryIds :: Lens.Lens' DescribeSharedDirectories (Prelude.Maybe [Prelude.Text])
@@ -154,15 +153,15 @@ instance Core.AWSRequest DescribeSharedDirectories where
 
 instance Prelude.Hashable DescribeSharedDirectories where
   hashWithSalt _salt DescribeSharedDirectories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedDirectoryIds
       `Prelude.hashWithSalt` ownerDirectoryId
 
 instance Prelude.NFData DescribeSharedDirectories where
   rnf DescribeSharedDirectories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sharedDirectoryIds
       `Prelude.seq` Prelude.rnf ownerDirectoryId
 
@@ -185,8 +184,8 @@ instance Data.ToJSON DescribeSharedDirectories where
   toJSON DescribeSharedDirectories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SharedDirectoryIds" Data..=)
               Prelude.<$> sharedDirectoryIds,
             Prelude.Just

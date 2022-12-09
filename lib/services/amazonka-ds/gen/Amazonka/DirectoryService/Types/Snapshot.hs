@@ -34,14 +34,14 @@ data Snapshot = Snapshot'
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The descriptive name of the snapshot.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The snapshot type.
-    type' :: Prelude.Maybe SnapshotType,
     -- | The snapshot identifier.
     snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the snapshot was taken.
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The snapshot status.
     status :: Prelude.Maybe SnapshotStatus,
-    -- | The date and time that the snapshot was taken.
-    startTime :: Prelude.Maybe Data.POSIX
+    -- | The snapshot type.
+    type' :: Prelude.Maybe SnapshotType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,23 +57,23 @@ data Snapshot = Snapshot'
 --
 -- 'name', 'snapshot_name' - The descriptive name of the snapshot.
 --
--- 'type'', 'snapshot_type' - The snapshot type.
---
 -- 'snapshotId', 'snapshot_snapshotId' - The snapshot identifier.
+--
+-- 'startTime', 'snapshot_startTime' - The date and time that the snapshot was taken.
 --
 -- 'status', 'snapshot_status' - The snapshot status.
 --
--- 'startTime', 'snapshot_startTime' - The date and time that the snapshot was taken.
+-- 'type'', 'snapshot_type' - The snapshot type.
 newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
     { directoryId = Prelude.Nothing,
       name = Prelude.Nothing,
-      type' = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       status = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
 -- | The directory identifier.
@@ -84,21 +84,21 @@ snapshot_directoryId = Lens.lens (\Snapshot' {directoryId} -> directoryId) (\s@S
 snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
 
--- | The snapshot type.
-snapshot_type :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotType)
-snapshot_type = Lens.lens (\Snapshot' {type'} -> type') (\s@Snapshot' {} a -> s {type' = a} :: Snapshot)
-
 -- | The snapshot identifier.
 snapshot_snapshotId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snapshot' {} a -> s {snapshotId = a} :: Snapshot)
+
+-- | The date and time that the snapshot was taken.
+snapshot_startTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
+snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
 -- | The snapshot status.
 snapshot_status :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotStatus)
 snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -> s {status = a} :: Snapshot)
 
--- | The date and time that the snapshot was taken.
-snapshot_startTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
+-- | The snapshot type.
+snapshot_type :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotType)
+snapshot_type = Lens.lens (\Snapshot' {type'} -> type') (\s@Snapshot' {} a -> s {type' = a} :: Snapshot)
 
 instance Data.FromJSON Snapshot where
   parseJSON =
@@ -108,26 +108,26 @@ instance Data.FromJSON Snapshot where
           Snapshot'
             Prelude.<$> (x Data..:? "DirectoryId")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "SnapshotId")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
     _salt `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` snapshotId
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
     Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

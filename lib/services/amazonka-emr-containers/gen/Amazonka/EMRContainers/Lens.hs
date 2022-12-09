@@ -22,30 +22,30 @@ module Amazonka.EMRContainers.Lens
     cancelJobRunResponse_httpStatus,
 
     -- ** CreateJobTemplate
-    createJobTemplate_tags,
     createJobTemplate_kmsKeyArn,
+    createJobTemplate_tags,
     createJobTemplate_name,
     createJobTemplate_clientToken,
     createJobTemplate_jobTemplateData,
-    createJobTemplateResponse_name,
     createJobTemplateResponse_arn,
-    createJobTemplateResponse_id,
     createJobTemplateResponse_createdAt,
+    createJobTemplateResponse_id,
+    createJobTemplateResponse_name,
     createJobTemplateResponse_httpStatus,
 
     -- ** CreateManagedEndpoint
-    createManagedEndpoint_tags,
     createManagedEndpoint_certificateArn,
     createManagedEndpoint_configurationOverrides,
+    createManagedEndpoint_tags,
     createManagedEndpoint_name,
     createManagedEndpoint_virtualClusterId,
     createManagedEndpoint_type,
     createManagedEndpoint_releaseLabel,
     createManagedEndpoint_executionRoleArn,
     createManagedEndpoint_clientToken,
-    createManagedEndpointResponse_name,
     createManagedEndpointResponse_arn,
     createManagedEndpointResponse_id,
+    createManagedEndpointResponse_name,
     createManagedEndpointResponse_virtualClusterId,
     createManagedEndpointResponse_httpStatus,
 
@@ -54,9 +54,9 @@ module Amazonka.EMRContainers.Lens
     createVirtualCluster_name,
     createVirtualCluster_containerProvider,
     createVirtualCluster_clientToken,
-    createVirtualClusterResponse_name,
     createVirtualClusterResponse_arn,
     createVirtualClusterResponse_id,
+    createVirtualClusterResponse_name,
     createVirtualClusterResponse_httpStatus,
 
     -- ** DeleteJobTemplate
@@ -99,36 +99,36 @@ module Amazonka.EMRContainers.Lens
     describeVirtualClusterResponse_httpStatus,
 
     -- ** ListJobRuns
-    listJobRuns_name,
-    listJobRuns_nextToken,
+    listJobRuns_createdAfter,
     listJobRuns_createdBefore,
     listJobRuns_maxResults,
-    listJobRuns_createdAfter,
+    listJobRuns_name,
+    listJobRuns_nextToken,
     listJobRuns_states,
     listJobRuns_virtualClusterId,
-    listJobRunsResponse_nextToken,
     listJobRunsResponse_jobRuns,
+    listJobRunsResponse_nextToken,
     listJobRunsResponse_httpStatus,
 
     -- ** ListJobTemplates
-    listJobTemplates_nextToken,
+    listJobTemplates_createdAfter,
     listJobTemplates_createdBefore,
     listJobTemplates_maxResults,
-    listJobTemplates_createdAfter,
+    listJobTemplates_nextToken,
     listJobTemplatesResponse_nextToken,
     listJobTemplatesResponse_templates,
     listJobTemplatesResponse_httpStatus,
 
     -- ** ListManagedEndpoints
-    listManagedEndpoints_nextToken,
-    listManagedEndpoints_createdBefore,
-    listManagedEndpoints_types,
-    listManagedEndpoints_maxResults,
     listManagedEndpoints_createdAfter,
+    listManagedEndpoints_createdBefore,
+    listManagedEndpoints_maxResults,
+    listManagedEndpoints_nextToken,
     listManagedEndpoints_states,
+    listManagedEndpoints_types,
     listManagedEndpoints_virtualClusterId,
-    listManagedEndpointsResponse_nextToken,
     listManagedEndpointsResponse_endpoints,
+    listManagedEndpointsResponse_nextToken,
     listManagedEndpointsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -137,31 +137,31 @@ module Amazonka.EMRContainers.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListVirtualClusters
-    listVirtualClusters_nextToken,
-    listVirtualClusters_createdBefore,
-    listVirtualClusters_containerProviderType,
-    listVirtualClusters_maxResults,
     listVirtualClusters_containerProviderId,
+    listVirtualClusters_containerProviderType,
     listVirtualClusters_createdAfter,
+    listVirtualClusters_createdBefore,
+    listVirtualClusters_maxResults,
+    listVirtualClusters_nextToken,
     listVirtualClusters_states,
     listVirtualClustersResponse_nextToken,
     listVirtualClustersResponse_virtualClusters,
     listVirtualClustersResponse_httpStatus,
 
     -- ** StartJobRun
-    startJobRun_tags,
-    startJobRun_name,
-    startJobRun_jobDriver,
-    startJobRun_releaseLabel,
-    startJobRun_jobTemplateId,
-    startJobRun_jobTemplateParameters,
     startJobRun_configurationOverrides,
     startJobRun_executionRoleArn,
+    startJobRun_jobDriver,
+    startJobRun_jobTemplateId,
+    startJobRun_jobTemplateParameters,
+    startJobRun_name,
+    startJobRun_releaseLabel,
+    startJobRun_tags,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
-    startJobRunResponse_name,
     startJobRunResponse_arn,
     startJobRunResponse_id,
+    startJobRunResponse_name,
     startJobRunResponse_virtualClusterId,
     startJobRunResponse_httpStatus,
 
@@ -186,8 +186,8 @@ module Amazonka.EMRContainers.Lens
     cloudWatchMonitoringConfiguration_logGroupName,
 
     -- ** Configuration
-    configuration_properties,
     configuration_configurations,
+    configuration_properties,
     configuration_classification,
 
     -- ** ConfigurationOverrides
@@ -206,83 +206,83 @@ module Amazonka.EMRContainers.Lens
     eksInfo_namespace,
 
     -- ** Endpoint
-    endpoint_tags,
-    endpoint_name,
-    endpoint_type,
-    endpoint_stateDetails,
-    endpoint_securityGroup,
-    endpoint_releaseLabel,
     endpoint_arn,
-    endpoint_state,
-    endpoint_serverUrl,
-    endpoint_id,
     endpoint_certificateArn,
-    endpoint_configurationOverrides,
     endpoint_certificateAuthority,
-    endpoint_virtualClusterId,
-    endpoint_executionRoleArn,
-    endpoint_subnetIds,
+    endpoint_configurationOverrides,
     endpoint_createdAt,
+    endpoint_executionRoleArn,
     endpoint_failureReason,
+    endpoint_id,
+    endpoint_name,
+    endpoint_releaseLabel,
+    endpoint_securityGroup,
+    endpoint_serverUrl,
+    endpoint_state,
+    endpoint_stateDetails,
+    endpoint_subnetIds,
+    endpoint_tags,
+    endpoint_type,
+    endpoint_virtualClusterId,
 
     -- ** JobDriver
     jobDriver_sparkSqlJobDriver,
     jobDriver_sparkSubmitJobDriver,
 
     -- ** JobRun
-    jobRun_tags,
-    jobRun_name,
-    jobRun_clientToken,
-    jobRun_stateDetails,
-    jobRun_finishedAt,
-    jobRun_jobDriver,
-    jobRun_releaseLabel,
     jobRun_arn,
-    jobRun_state,
-    jobRun_id,
+    jobRun_clientToken,
     jobRun_configurationOverrides,
-    jobRun_virtualClusterId,
-    jobRun_executionRoleArn,
-    jobRun_createdBy,
     jobRun_createdAt,
+    jobRun_createdBy,
+    jobRun_executionRoleArn,
     jobRun_failureReason,
+    jobRun_finishedAt,
+    jobRun_id,
+    jobRun_jobDriver,
+    jobRun_name,
+    jobRun_releaseLabel,
+    jobRun_state,
+    jobRun_stateDetails,
+    jobRun_tags,
+    jobRun_virtualClusterId,
 
     -- ** JobTemplate
-    jobTemplate_tags,
-    jobTemplate_name,
     jobTemplate_arn,
+    jobTemplate_createdAt,
+    jobTemplate_createdBy,
+    jobTemplate_decryptionError,
     jobTemplate_id,
     jobTemplate_kmsKeyArn,
-    jobTemplate_createdBy,
-    jobTemplate_createdAt,
-    jobTemplate_decryptionError,
+    jobTemplate_name,
+    jobTemplate_tags,
     jobTemplate_jobTemplateData,
 
     -- ** JobTemplateData
-    jobTemplateData_jobTags,
     jobTemplateData_configurationOverrides,
+    jobTemplateData_jobTags,
     jobTemplateData_parameterConfiguration,
     jobTemplateData_executionRoleArn,
     jobTemplateData_releaseLabel,
     jobTemplateData_jobDriver,
 
     -- ** MonitoringConfiguration
+    monitoringConfiguration_cloudWatchMonitoringConfiguration,
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
-    monitoringConfiguration_cloudWatchMonitoringConfiguration,
 
     -- ** ParametricCloudWatchMonitoringConfiguration
-    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
     parametricCloudWatchMonitoringConfiguration_logGroupName,
+    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
 
     -- ** ParametricConfigurationOverrides
     parametricConfigurationOverrides_applicationConfiguration,
     parametricConfigurationOverrides_monitoringConfiguration,
 
     -- ** ParametricMonitoringConfiguration
+    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
     parametricMonitoringConfiguration_persistentAppUI,
     parametricMonitoringConfiguration_s3MonitoringConfiguration,
-    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
 
     -- ** ParametricS3MonitoringConfiguration
     parametricS3MonitoringConfiguration_logUri,
@@ -300,17 +300,17 @@ module Amazonka.EMRContainers.Lens
     sparkSubmitJobDriver_entryPoint,
 
     -- ** TemplateParameterConfiguration
-    templateParameterConfiguration_type,
     templateParameterConfiguration_defaultValue,
+    templateParameterConfiguration_type,
 
     -- ** VirtualCluster
-    virtualCluster_tags,
-    virtualCluster_name,
-    virtualCluster_containerProvider,
     virtualCluster_arn,
-    virtualCluster_state,
-    virtualCluster_id,
+    virtualCluster_containerProvider,
     virtualCluster_createdAt,
+    virtualCluster_id,
+    virtualCluster_name,
+    virtualCluster_state,
+    virtualCluster_tags,
   )
 where
 

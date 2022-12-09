@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParametricMonitoringConfiguration' smart constructor.
 data ParametricMonitoringConfiguration = ParametricMonitoringConfiguration'
-  { -- | Monitoring configurations for the persistent application UI.
+  { -- | Monitoring configurations for CloudWatch.
+    cloudWatchMonitoringConfiguration :: Prelude.Maybe ParametricCloudWatchMonitoringConfiguration,
+    -- | Monitoring configurations for the persistent application UI.
     persistentAppUI :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 configuration for monitoring log publishing.
-    s3MonitoringConfiguration :: Prelude.Maybe ParametricS3MonitoringConfiguration,
-    -- | Monitoring configurations for CloudWatch.
-    cloudWatchMonitoringConfiguration :: Prelude.Maybe ParametricCloudWatchMonitoringConfiguration
+    s3MonitoringConfiguration :: Prelude.Maybe ParametricS3MonitoringConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,25 @@ data ParametricMonitoringConfiguration = ParametricMonitoringConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cloudWatchMonitoringConfiguration', 'parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration' - Monitoring configurations for CloudWatch.
+--
 -- 'persistentAppUI', 'parametricMonitoringConfiguration_persistentAppUI' - Monitoring configurations for the persistent application UI.
 --
 -- 's3MonitoringConfiguration', 'parametricMonitoringConfiguration_s3MonitoringConfiguration' - Amazon S3 configuration for monitoring log publishing.
---
--- 'cloudWatchMonitoringConfiguration', 'parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration' - Monitoring configurations for CloudWatch.
 newParametricMonitoringConfiguration ::
   ParametricMonitoringConfiguration
 newParametricMonitoringConfiguration =
   ParametricMonitoringConfiguration'
-    { persistentAppUI =
+    { cloudWatchMonitoringConfiguration =
         Prelude.Nothing,
+      persistentAppUI = Prelude.Nothing,
       s3MonitoringConfiguration =
-        Prelude.Nothing,
-      cloudWatchMonitoringConfiguration =
         Prelude.Nothing
     }
+
+-- | Monitoring configurations for CloudWatch.
+parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration :: Lens.Lens' ParametricMonitoringConfiguration (Prelude.Maybe ParametricCloudWatchMonitoringConfiguration)
+parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration = Lens.lens (\ParametricMonitoringConfiguration' {cloudWatchMonitoringConfiguration} -> cloudWatchMonitoringConfiguration) (\s@ParametricMonitoringConfiguration' {} a -> s {cloudWatchMonitoringConfiguration = a} :: ParametricMonitoringConfiguration)
 
 -- | Monitoring configurations for the persistent application UI.
 parametricMonitoringConfiguration_persistentAppUI :: Lens.Lens' ParametricMonitoringConfiguration (Prelude.Maybe Prelude.Text)
@@ -72,10 +75,6 @@ parametricMonitoringConfiguration_persistentAppUI = Lens.lens (\ParametricMonito
 -- | Amazon S3 configuration for monitoring log publishing.
 parametricMonitoringConfiguration_s3MonitoringConfiguration :: Lens.Lens' ParametricMonitoringConfiguration (Prelude.Maybe ParametricS3MonitoringConfiguration)
 parametricMonitoringConfiguration_s3MonitoringConfiguration = Lens.lens (\ParametricMonitoringConfiguration' {s3MonitoringConfiguration} -> s3MonitoringConfiguration) (\s@ParametricMonitoringConfiguration' {} a -> s {s3MonitoringConfiguration = a} :: ParametricMonitoringConfiguration)
-
--- | Monitoring configurations for CloudWatch.
-parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration :: Lens.Lens' ParametricMonitoringConfiguration (Prelude.Maybe ParametricCloudWatchMonitoringConfiguration)
-parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration = Lens.lens (\ParametricMonitoringConfiguration' {cloudWatchMonitoringConfiguration} -> cloudWatchMonitoringConfiguration) (\s@ParametricMonitoringConfiguration' {} a -> s {cloudWatchMonitoringConfiguration = a} :: ParametricMonitoringConfiguration)
 
 instance
   Data.FromJSON
@@ -86,9 +85,9 @@ instance
       "ParametricMonitoringConfiguration"
       ( \x ->
           ParametricMonitoringConfiguration'
-            Prelude.<$> (x Data..:? "persistentAppUI")
+            Prelude.<$> (x Data..:? "cloudWatchMonitoringConfiguration")
+            Prelude.<*> (x Data..:? "persistentAppUI")
             Prelude.<*> (x Data..:? "s3MonitoringConfiguration")
-            Prelude.<*> (x Data..:? "cloudWatchMonitoringConfiguration")
       )
 
 instance
@@ -98,18 +97,19 @@ instance
   hashWithSalt
     _salt
     ParametricMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` persistentAppUI
-        `Prelude.hashWithSalt` s3MonitoringConfiguration
+      _salt
         `Prelude.hashWithSalt` cloudWatchMonitoringConfiguration
+        `Prelude.hashWithSalt` persistentAppUI
+        `Prelude.hashWithSalt` s3MonitoringConfiguration
 
 instance
   Prelude.NFData
     ParametricMonitoringConfiguration
   where
   rnf ParametricMonitoringConfiguration' {..} =
-    Prelude.rnf persistentAppUI
+    Prelude.rnf cloudWatchMonitoringConfiguration
+      `Prelude.seq` Prelude.rnf persistentAppUI
       `Prelude.seq` Prelude.rnf s3MonitoringConfiguration
-      `Prelude.seq` Prelude.rnf cloudWatchMonitoringConfiguration
 
 instance
   Data.ToJSON
@@ -118,11 +118,11 @@ instance
   toJSON ParametricMonitoringConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("persistentAppUI" Data..=)
+          [ ("cloudWatchMonitoringConfiguration" Data..=)
+              Prelude.<$> cloudWatchMonitoringConfiguration,
+            ("persistentAppUI" Data..=)
               Prelude.<$> persistentAppUI,
             ("s3MonitoringConfiguration" Data..=)
-              Prelude.<$> s3MonitoringConfiguration,
-            ("cloudWatchMonitoringConfiguration" Data..=)
-              Prelude.<$> cloudWatchMonitoringConfiguration
+              Prelude.<$> s3MonitoringConfiguration
           ]
       )

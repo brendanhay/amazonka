@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParametricCloudWatchMonitoringConfiguration' smart constructor.
 data ParametricCloudWatchMonitoringConfiguration = ParametricCloudWatchMonitoringConfiguration'
-  { -- | The specified name prefix for log streams.
-    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the log group for log publishing.
-    logGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the log group for log publishing.
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The specified name prefix for log streams.
+    logStreamNamePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,26 @@ data ParametricCloudWatchMonitoringConfiguration = ParametricCloudWatchMonitorin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logStreamNamePrefix', 'parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix' - The specified name prefix for log streams.
---
 -- 'logGroupName', 'parametricCloudWatchMonitoringConfiguration_logGroupName' - The name of the log group for log publishing.
+--
+-- 'logStreamNamePrefix', 'parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix' - The specified name prefix for log streams.
 newParametricCloudWatchMonitoringConfiguration ::
   ParametricCloudWatchMonitoringConfiguration
 newParametricCloudWatchMonitoringConfiguration =
   ParametricCloudWatchMonitoringConfiguration'
-    { logStreamNamePrefix =
+    { logGroupName =
         Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logStreamNamePrefix =
+        Prelude.Nothing
     }
-
--- | The specified name prefix for log streams.
-parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix :: Lens.Lens' ParametricCloudWatchMonitoringConfiguration (Prelude.Maybe Prelude.Text)
-parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix = Lens.lens (\ParametricCloudWatchMonitoringConfiguration' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@ParametricCloudWatchMonitoringConfiguration' {} a -> s {logStreamNamePrefix = a} :: ParametricCloudWatchMonitoringConfiguration)
 
 -- | The name of the log group for log publishing.
 parametricCloudWatchMonitoringConfiguration_logGroupName :: Lens.Lens' ParametricCloudWatchMonitoringConfiguration (Prelude.Maybe Prelude.Text)
 parametricCloudWatchMonitoringConfiguration_logGroupName = Lens.lens (\ParametricCloudWatchMonitoringConfiguration' {logGroupName} -> logGroupName) (\s@ParametricCloudWatchMonitoringConfiguration' {} a -> s {logGroupName = a} :: ParametricCloudWatchMonitoringConfiguration)
+
+-- | The specified name prefix for log streams.
+parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix :: Lens.Lens' ParametricCloudWatchMonitoringConfiguration (Prelude.Maybe Prelude.Text)
+parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix = Lens.lens (\ParametricCloudWatchMonitoringConfiguration' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@ParametricCloudWatchMonitoringConfiguration' {} a -> s {logStreamNamePrefix = a} :: ParametricCloudWatchMonitoringConfiguration)
 
 instance
   Data.FromJSON
@@ -74,8 +75,8 @@ instance
       "ParametricCloudWatchMonitoringConfiguration"
       ( \x ->
           ParametricCloudWatchMonitoringConfiguration'
-            Prelude.<$> (x Data..:? "logStreamNamePrefix")
-              Prelude.<*> (x Data..:? "logGroupName")
+            Prelude.<$> (x Data..:? "logGroupName")
+              Prelude.<*> (x Data..:? "logStreamNamePrefix")
       )
 
 instance
@@ -85,16 +86,16 @@ instance
   hashWithSalt
     _salt
     ParametricCloudWatchMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` logStreamNamePrefix
-        `Prelude.hashWithSalt` logGroupName
+      _salt `Prelude.hashWithSalt` logGroupName
+        `Prelude.hashWithSalt` logStreamNamePrefix
 
 instance
   Prelude.NFData
     ParametricCloudWatchMonitoringConfiguration
   where
   rnf ParametricCloudWatchMonitoringConfiguration' {..} =
-    Prelude.rnf logStreamNamePrefix
-      `Prelude.seq` Prelude.rnf logGroupName
+    Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamNamePrefix
 
 instance
   Data.ToJSON
@@ -104,8 +105,8 @@ instance
     ParametricCloudWatchMonitoringConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("logStreamNamePrefix" Data..=)
-                Prelude.<$> logStreamNamePrefix,
-              ("logGroupName" Data..=) Prelude.<$> logGroupName
+            [ ("logGroupName" Data..=) Prelude.<$> logGroupName,
+              ("logStreamNamePrefix" Data..=)
+                Prelude.<$> logStreamNamePrefix
             ]
         )

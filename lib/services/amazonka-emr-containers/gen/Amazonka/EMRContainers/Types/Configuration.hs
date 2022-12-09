@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
-  { -- | A set of properties specified within a configuration classification.
-    properties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | A list of additional configurations to apply within a configuration
+  { -- | A list of additional configurations to apply within a configuration
     -- object.
     configurations :: Prelude.Maybe [Configuration],
+    -- | A set of properties specified within a configuration classification.
+    properties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The classification within a configuration.
     classification :: Prelude.Text
   }
@@ -51,10 +51,10 @@ data Configuration = Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'configuration_properties' - A set of properties specified within a configuration classification.
---
 -- 'configurations', 'configuration_configurations' - A list of additional configurations to apply within a configuration
 -- object.
+--
+-- 'properties', 'configuration_properties' - A set of properties specified within a configuration classification.
 --
 -- 'classification', 'configuration_classification' - The classification within a configuration.
 newConfiguration ::
@@ -63,19 +63,19 @@ newConfiguration ::
   Configuration
 newConfiguration pClassification_ =
   Configuration'
-    { properties = Prelude.Nothing,
-      configurations = Prelude.Nothing,
+    { configurations = Prelude.Nothing,
+      properties = Prelude.Nothing,
       classification = pClassification_
     }
-
--- | A set of properties specified within a configuration classification.
-configuration_properties :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | A list of additional configurations to apply within a configuration
 -- object.
 configuration_configurations :: Lens.Lens' Configuration (Prelude.Maybe [Configuration])
 configuration_configurations = Lens.lens (\Configuration' {configurations} -> configurations) (\s@Configuration' {} a -> s {configurations = a} :: Configuration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A set of properties specified within a configuration classification.
+configuration_properties :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The classification within a configuration.
 configuration_classification :: Lens.Lens' Configuration Prelude.Text
@@ -87,30 +87,30 @@ instance Data.FromJSON Configuration where
       "Configuration"
       ( \x ->
           Configuration'
-            Prelude.<$> (x Data..:? "properties" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "configurations" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "configurations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "classification")
       )
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` properties
-      `Prelude.hashWithSalt` configurations
+    _salt `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` classification
 
 instance Prelude.NFData Configuration where
   rnf Configuration' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf configurations
+    Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf classification
 
 instance Data.ToJSON Configuration where
   toJSON Configuration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("properties" Data..=) Prelude.<$> properties,
-            ("configurations" Data..=)
+          [ ("configurations" Data..=)
               Prelude.<$> configurations,
+            ("properties" Data..=) Prelude.<$> properties,
             Prelude.Just
               ("classification" Data..= classification)
           ]

@@ -29,9 +29,9 @@ module Amazonka.EMRContainers.CreateManagedEndpoint
     newCreateManagedEndpoint,
 
     -- * Request Lenses
-    createManagedEndpoint_tags,
     createManagedEndpoint_certificateArn,
     createManagedEndpoint_configurationOverrides,
+    createManagedEndpoint_tags,
     createManagedEndpoint_name,
     createManagedEndpoint_virtualClusterId,
     createManagedEndpoint_type,
@@ -44,9 +44,9 @@ module Amazonka.EMRContainers.CreateManagedEndpoint
     newCreateManagedEndpointResponse,
 
     -- * Response Lenses
-    createManagedEndpointResponse_name,
     createManagedEndpointResponse_arn,
     createManagedEndpointResponse_id,
+    createManagedEndpointResponse_name,
     createManagedEndpointResponse_virtualClusterId,
     createManagedEndpointResponse_httpStatus,
   )
@@ -62,14 +62,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateManagedEndpoint' smart constructor.
 data CreateManagedEndpoint = CreateManagedEndpoint'
-  { -- | The tags of the managed endpoint.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The certificate ARN provided by users for the managed endpoint. This
+  { -- | The certificate ARN provided by users for the managed endpoint. This
     -- field is under deprecation and will be removed in future releases.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration settings that will be used to override existing
     -- configurations.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
+    -- | The tags of the managed endpoint.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the managed endpoint.
     name :: Prelude.Text,
     -- | The ID of the virtual cluster for which a managed endpoint is created.
@@ -83,7 +83,7 @@ data CreateManagedEndpoint = CreateManagedEndpoint'
     -- | The client idempotency token for this create call.
     clientToken :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateManagedEndpoint' with all optional fields omitted.
@@ -93,13 +93,13 @@ data CreateManagedEndpoint = CreateManagedEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createManagedEndpoint_tags' - The tags of the managed endpoint.
---
 -- 'certificateArn', 'createManagedEndpoint_certificateArn' - The certificate ARN provided by users for the managed endpoint. This
 -- field is under deprecation and will be removed in future releases.
 --
 -- 'configurationOverrides', 'createManagedEndpoint_configurationOverrides' - The configuration settings that will be used to override existing
 -- configurations.
+--
+-- 'tags', 'createManagedEndpoint_tags' - The tags of the managed endpoint.
 --
 -- 'name', 'createManagedEndpoint_name' - The name of the managed endpoint.
 --
@@ -134,9 +134,10 @@ newCreateManagedEndpoint
   pExecutionRoleArn_
   pClientToken_ =
     CreateManagedEndpoint'
-      { tags = Prelude.Nothing,
-        certificateArn = Prelude.Nothing,
+      { certificateArn =
+          Prelude.Nothing,
         configurationOverrides = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         virtualClusterId = pVirtualClusterId_,
         type' = pType_,
@@ -144,10 +145,6 @@ newCreateManagedEndpoint
         executionRoleArn = pExecutionRoleArn_,
         clientToken = pClientToken_
       }
-
--- | The tags of the managed endpoint.
-createManagedEndpoint_tags :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createManagedEndpoint_tags = Lens.lens (\CreateManagedEndpoint' {tags} -> tags) (\s@CreateManagedEndpoint' {} a -> s {tags = a} :: CreateManagedEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The certificate ARN provided by users for the managed endpoint. This
 -- field is under deprecation and will be removed in future releases.
@@ -158,6 +155,10 @@ createManagedEndpoint_certificateArn = Lens.lens (\CreateManagedEndpoint' {certi
 -- configurations.
 createManagedEndpoint_configurationOverrides :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe ConfigurationOverrides)
 createManagedEndpoint_configurationOverrides = Lens.lens (\CreateManagedEndpoint' {configurationOverrides} -> configurationOverrides) (\s@CreateManagedEndpoint' {} a -> s {configurationOverrides = a} :: CreateManagedEndpoint)
+
+-- | The tags of the managed endpoint.
+createManagedEndpoint_tags :: Lens.Lens' CreateManagedEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createManagedEndpoint_tags = Lens.lens (\CreateManagedEndpoint' {tags} -> tags) (\s@CreateManagedEndpoint' {} a -> s {tags = a} :: CreateManagedEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the managed endpoint.
 createManagedEndpoint_name :: Lens.Lens' CreateManagedEndpoint Prelude.Text
@@ -193,18 +194,18 @@ instance Core.AWSRequest CreateManagedEndpoint where
     Response.receiveJSON
       ( \s h x ->
           CreateManagedEndpointResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateManagedEndpoint where
   hashWithSalt _salt CreateManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` virtualClusterId
       `Prelude.hashWithSalt` type'
@@ -214,9 +215,9 @@ instance Prelude.Hashable CreateManagedEndpoint where
 
 instance Prelude.NFData CreateManagedEndpoint where
   rnf CreateManagedEndpoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf virtualClusterId
       `Prelude.seq` Prelude.rnf type'
@@ -239,11 +240,11 @@ instance Data.ToJSON CreateManagedEndpoint where
   toJSON CreateManagedEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("certificateArn" Data..=)
+          [ ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
             ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("type" Data..= type'),
             Prelude.Just ("releaseLabel" Data..= releaseLabel),
@@ -266,12 +267,12 @@ instance Data.ToQuery CreateManagedEndpoint where
 
 -- | /See:/ 'newCreateManagedEndpointResponse' smart constructor.
 data CreateManagedEndpointResponse = CreateManagedEndpointResponse'
-  { -- | The output contains the name of the managed endpoint.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The output contains the ARN of the managed endpoint.
+  { -- | The output contains the ARN of the managed endpoint.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The output contains the ID of the managed endpoint.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The output contains the name of the managed endpoint.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The output contains the ID of the virtual cluster.
     virtualClusterId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -287,11 +288,11 @@ data CreateManagedEndpointResponse = CreateManagedEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createManagedEndpointResponse_name' - The output contains the name of the managed endpoint.
---
 -- 'arn', 'createManagedEndpointResponse_arn' - The output contains the ARN of the managed endpoint.
 --
 -- 'id', 'createManagedEndpointResponse_id' - The output contains the ID of the managed endpoint.
+--
+-- 'name', 'createManagedEndpointResponse_name' - The output contains the name of the managed endpoint.
 --
 -- 'virtualClusterId', 'createManagedEndpointResponse_virtualClusterId' - The output contains the ID of the virtual cluster.
 --
@@ -302,17 +303,13 @@ newCreateManagedEndpointResponse ::
   CreateManagedEndpointResponse
 newCreateManagedEndpointResponse pHttpStatus_ =
   CreateManagedEndpointResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      name = Prelude.Nothing,
       virtualClusterId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The output contains the name of the managed endpoint.
-createManagedEndpointResponse_name :: Lens.Lens' CreateManagedEndpointResponse (Prelude.Maybe Prelude.Text)
-createManagedEndpointResponse_name = Lens.lens (\CreateManagedEndpointResponse' {name} -> name) (\s@CreateManagedEndpointResponse' {} a -> s {name = a} :: CreateManagedEndpointResponse)
 
 -- | The output contains the ARN of the managed endpoint.
 createManagedEndpointResponse_arn :: Lens.Lens' CreateManagedEndpointResponse (Prelude.Maybe Prelude.Text)
@@ -321,6 +318,10 @@ createManagedEndpointResponse_arn = Lens.lens (\CreateManagedEndpointResponse' {
 -- | The output contains the ID of the managed endpoint.
 createManagedEndpointResponse_id :: Lens.Lens' CreateManagedEndpointResponse (Prelude.Maybe Prelude.Text)
 createManagedEndpointResponse_id = Lens.lens (\CreateManagedEndpointResponse' {id} -> id) (\s@CreateManagedEndpointResponse' {} a -> s {id = a} :: CreateManagedEndpointResponse)
+
+-- | The output contains the name of the managed endpoint.
+createManagedEndpointResponse_name :: Lens.Lens' CreateManagedEndpointResponse (Prelude.Maybe Prelude.Text)
+createManagedEndpointResponse_name = Lens.lens (\CreateManagedEndpointResponse' {name} -> name) (\s@CreateManagedEndpointResponse' {} a -> s {name = a} :: CreateManagedEndpointResponse)
 
 -- | The output contains the ID of the virtual cluster.
 createManagedEndpointResponse_virtualClusterId :: Lens.Lens' CreateManagedEndpointResponse (Prelude.Maybe Prelude.Text)
@@ -332,8 +333,8 @@ createManagedEndpointResponse_httpStatus = Lens.lens (\CreateManagedEndpointResp
 
 instance Prelude.NFData CreateManagedEndpointResponse where
   rnf CreateManagedEndpointResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf virtualClusterId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateParameterConfiguration' smart constructor.
 data TemplateParameterConfiguration = TemplateParameterConfiguration'
-  { -- | The type of the job template parameter. Allowed values are: ‘String’,
+  { -- | The default value for the job template parameter.
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The type of the job template parameter. Allowed values are: ‘String’,
     -- ‘Number’.
-    type' :: Prelude.Maybe TemplateParameterDataType,
-    -- | The default value for the job template parameter.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe TemplateParameterDataType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data TemplateParameterConfiguration = TemplateParameterConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultValue', 'templateParameterConfiguration_defaultValue' - The default value for the job template parameter.
+--
 -- 'type'', 'templateParameterConfiguration_type' - The type of the job template parameter. Allowed values are: ‘String’,
 -- ‘Number’.
---
--- 'defaultValue', 'templateParameterConfiguration_defaultValue' - The default value for the job template parameter.
 newTemplateParameterConfiguration ::
   TemplateParameterConfiguration
 newTemplateParameterConfiguration =
   TemplateParameterConfiguration'
-    { type' =
+    { defaultValue =
         Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      type' = Prelude.Nothing
     }
+
+-- | The default value for the job template parameter.
+templateParameterConfiguration_defaultValue :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe Prelude.Text)
+templateParameterConfiguration_defaultValue = Lens.lens (\TemplateParameterConfiguration' {defaultValue} -> defaultValue) (\s@TemplateParameterConfiguration' {} a -> s {defaultValue = a} :: TemplateParameterConfiguration)
 
 -- | The type of the job template parameter. Allowed values are: ‘String’,
 -- ‘Number’.
 templateParameterConfiguration_type :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe TemplateParameterDataType)
 templateParameterConfiguration_type = Lens.lens (\TemplateParameterConfiguration' {type'} -> type') (\s@TemplateParameterConfiguration' {} a -> s {type' = a} :: TemplateParameterConfiguration)
-
--- | The default value for the job template parameter.
-templateParameterConfiguration_defaultValue :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe Prelude.Text)
-templateParameterConfiguration_defaultValue = Lens.lens (\TemplateParameterConfiguration' {defaultValue} -> defaultValue) (\s@TemplateParameterConfiguration' {} a -> s {defaultValue = a} :: TemplateParameterConfiguration)
 
 instance Data.FromJSON TemplateParameterConfiguration where
   parseJSON =
@@ -73,8 +73,8 @@ instance Data.FromJSON TemplateParameterConfiguration where
       "TemplateParameterConfiguration"
       ( \x ->
           TemplateParameterConfiguration'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<$> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance
@@ -84,22 +84,22 @@ instance
   hashWithSalt
     _salt
     TemplateParameterConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` defaultValue
+      _salt `Prelude.hashWithSalt` defaultValue
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     TemplateParameterConfiguration
   where
   rnf TemplateParameterConfiguration' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf defaultValue
+    Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON TemplateParameterConfiguration where
   toJSON TemplateParameterConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
-            ("defaultValue" Data..=) Prelude.<$> defaultValue
+          [ ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

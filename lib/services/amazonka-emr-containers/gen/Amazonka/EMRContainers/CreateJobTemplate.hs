@@ -30,8 +30,8 @@ module Amazonka.EMRContainers.CreateJobTemplate
     newCreateJobTemplate,
 
     -- * Request Lenses
-    createJobTemplate_tags,
     createJobTemplate_kmsKeyArn,
+    createJobTemplate_tags,
     createJobTemplate_name,
     createJobTemplate_clientToken,
     createJobTemplate_jobTemplateData,
@@ -41,10 +41,10 @@ module Amazonka.EMRContainers.CreateJobTemplate
     newCreateJobTemplateResponse,
 
     -- * Response Lenses
-    createJobTemplateResponse_name,
     createJobTemplateResponse_arn,
-    createJobTemplateResponse_id,
     createJobTemplateResponse_createdAt,
+    createJobTemplateResponse_id,
+    createJobTemplateResponse_name,
     createJobTemplateResponse_httpStatus,
   )
 where
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateJobTemplate' smart constructor.
 data CreateJobTemplate = CreateJobTemplate'
-  { -- | The tags that are associated with the job template.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The KMS key ARN used to encrypt the job template.
+  { -- | The KMS key ARN used to encrypt the job template.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The tags that are associated with the job template.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The specified name of the job template.
     name :: Prelude.Text,
     -- | The client token of the job template.
@@ -80,9 +80,9 @@ data CreateJobTemplate = CreateJobTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createJobTemplate_tags' - The tags that are associated with the job template.
---
 -- 'kmsKeyArn', 'createJobTemplate_kmsKeyArn' - The KMS key ARN used to encrypt the job template.
+--
+-- 'tags', 'createJobTemplate_tags' - The tags that are associated with the job template.
 --
 -- 'name', 'createJobTemplate_name' - The specified name of the job template.
 --
@@ -102,20 +102,20 @@ newCreateJobTemplate
   pClientToken_
   pJobTemplateData_ =
     CreateJobTemplate'
-      { tags = Prelude.Nothing,
-        kmsKeyArn = Prelude.Nothing,
+      { kmsKeyArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         clientToken = pClientToken_,
         jobTemplateData = pJobTemplateData_
       }
 
--- | The tags that are associated with the job template.
-createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
-
 -- | The KMS key ARN used to encrypt the job template.
 createJobTemplate_kmsKeyArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_kmsKeyArn = Lens.lens (\CreateJobTemplate' {kmsKeyArn} -> kmsKeyArn) (\s@CreateJobTemplate' {} a -> s {kmsKeyArn = a} :: CreateJobTemplate)
+
+-- | The tags that are associated with the job template.
+createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The specified name of the job template.
 createJobTemplate_name :: Lens.Lens' CreateJobTemplate Prelude.Text
@@ -139,25 +139,25 @@ instance Core.AWSRequest CreateJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateJobTemplateResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "id")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` kmsKeyArn
+    _salt `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` jobTemplateData
 
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kmsKeyArn
+    Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf jobTemplateData
@@ -177,8 +177,8 @@ instance Data.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just
@@ -194,15 +194,15 @@ instance Data.ToQuery CreateJobTemplate where
 
 -- | /See:/ 'newCreateJobTemplateResponse' smart constructor.
 data CreateJobTemplateResponse = CreateJobTemplateResponse'
-  { -- | This output displays the name of the created job template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | This output display the ARN of the created job template.
+  { -- | This output display the ARN of the created job template.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | This output display the created job template ID.
-    id :: Prelude.Maybe Prelude.Text,
     -- | This output displays the date and time when the job template was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | This output display the created job template ID.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | This output displays the name of the created job template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,14 +216,14 @@ data CreateJobTemplateResponse = CreateJobTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createJobTemplateResponse_name' - This output displays the name of the created job template.
---
 -- 'arn', 'createJobTemplateResponse_arn' - This output display the ARN of the created job template.
---
--- 'id', 'createJobTemplateResponse_id' - This output display the created job template ID.
 --
 -- 'createdAt', 'createJobTemplateResponse_createdAt' - This output displays the date and time when the job template was
 -- created.
+--
+-- 'id', 'createJobTemplateResponse_id' - This output display the created job template ID.
+--
+-- 'name', 'createJobTemplateResponse_name' - This output displays the name of the created job template.
 --
 -- 'httpStatus', 'createJobTemplateResponse_httpStatus' - The response's http status code.
 newCreateJobTemplateResponse ::
@@ -232,29 +232,29 @@ newCreateJobTemplateResponse ::
   CreateJobTemplateResponse
 newCreateJobTemplateResponse pHttpStatus_ =
   CreateJobTemplateResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | This output displays the name of the created job template.
-createJobTemplateResponse_name :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
-createJobTemplateResponse_name = Lens.lens (\CreateJobTemplateResponse' {name} -> name) (\s@CreateJobTemplateResponse' {} a -> s {name = a} :: CreateJobTemplateResponse)
 
 -- | This output display the ARN of the created job template.
 createJobTemplateResponse_arn :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
 createJobTemplateResponse_arn = Lens.lens (\CreateJobTemplateResponse' {arn} -> arn) (\s@CreateJobTemplateResponse' {} a -> s {arn = a} :: CreateJobTemplateResponse)
 
--- | This output display the created job template ID.
-createJobTemplateResponse_id :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
-createJobTemplateResponse_id = Lens.lens (\CreateJobTemplateResponse' {id} -> id) (\s@CreateJobTemplateResponse' {} a -> s {id = a} :: CreateJobTemplateResponse)
-
 -- | This output displays the date and time when the job template was
 -- created.
 createJobTemplateResponse_createdAt :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.UTCTime)
 createJobTemplateResponse_createdAt = Lens.lens (\CreateJobTemplateResponse' {createdAt} -> createdAt) (\s@CreateJobTemplateResponse' {} a -> s {createdAt = a} :: CreateJobTemplateResponse) Prelude.. Lens.mapping Data._Time
+
+-- | This output display the created job template ID.
+createJobTemplateResponse_id :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
+createJobTemplateResponse_id = Lens.lens (\CreateJobTemplateResponse' {id} -> id) (\s@CreateJobTemplateResponse' {} a -> s {id = a} :: CreateJobTemplateResponse)
+
+-- | This output displays the name of the created job template.
+createJobTemplateResponse_name :: Lens.Lens' CreateJobTemplateResponse (Prelude.Maybe Prelude.Text)
+createJobTemplateResponse_name = Lens.lens (\CreateJobTemplateResponse' {name} -> name) (\s@CreateJobTemplateResponse' {} a -> s {name = a} :: CreateJobTemplateResponse)
 
 -- | The response's http status code.
 createJobTemplateResponse_httpStatus :: Lens.Lens' CreateJobTemplateResponse Prelude.Int
@@ -262,8 +262,8 @@ createJobTemplateResponse_httpStatus = Lens.lens (\CreateJobTemplateResponse' {h
 
 instance Prelude.NFData CreateJobTemplateResponse where
   rnf CreateJobTemplateResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

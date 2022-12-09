@@ -31,12 +31,12 @@ module Amazonka.EMRContainers.ListManagedEndpoints
     newListManagedEndpoints,
 
     -- * Request Lenses
-    listManagedEndpoints_nextToken,
-    listManagedEndpoints_createdBefore,
-    listManagedEndpoints_types,
-    listManagedEndpoints_maxResults,
     listManagedEndpoints_createdAfter,
+    listManagedEndpoints_createdBefore,
+    listManagedEndpoints_maxResults,
+    listManagedEndpoints_nextToken,
     listManagedEndpoints_states,
+    listManagedEndpoints_types,
     listManagedEndpoints_virtualClusterId,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.EMRContainers.ListManagedEndpoints
     newListManagedEndpointsResponse,
 
     -- * Response Lenses
-    listManagedEndpointsResponse_nextToken,
     listManagedEndpointsResponse_endpoints,
+    listManagedEndpointsResponse_nextToken,
     listManagedEndpointsResponse_httpStatus,
   )
 where
@@ -60,18 +60,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListManagedEndpoints' smart constructor.
 data ListManagedEndpoints = ListManagedEndpoints'
-  { -- | The token for the next set of managed endpoints to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time after which the endpoints are created.
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | The date and time before which the endpoints are created.
     createdBefore :: Prelude.Maybe Data.POSIX,
-    -- | The types of the managed endpoints.
-    types :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of managed endpoints that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The date and time after which the endpoints are created.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    -- | The token for the next set of managed endpoints to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The states of the managed endpoints.
     states :: Prelude.Maybe [EndpointState],
+    -- | The types of the managed endpoints.
+    types :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the virtual cluster.
     virtualClusterId :: Prelude.Text
   }
@@ -85,17 +85,17 @@ data ListManagedEndpoints = ListManagedEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listManagedEndpoints_nextToken' - The token for the next set of managed endpoints to return.
+-- 'createdAfter', 'listManagedEndpoints_createdAfter' - The date and time after which the endpoints are created.
 --
 -- 'createdBefore', 'listManagedEndpoints_createdBefore' - The date and time before which the endpoints are created.
 --
--- 'types', 'listManagedEndpoints_types' - The types of the managed endpoints.
---
 -- 'maxResults', 'listManagedEndpoints_maxResults' - The maximum number of managed endpoints that can be listed.
 --
--- 'createdAfter', 'listManagedEndpoints_createdAfter' - The date and time after which the endpoints are created.
+-- 'nextToken', 'listManagedEndpoints_nextToken' - The token for the next set of managed endpoints to return.
 --
 -- 'states', 'listManagedEndpoints_states' - The states of the managed endpoints.
+--
+-- 'types', 'listManagedEndpoints_types' - The types of the managed endpoints.
 --
 -- 'virtualClusterId', 'listManagedEndpoints_virtualClusterId' - The ID of the virtual cluster.
 newListManagedEndpoints ::
@@ -104,38 +104,39 @@ newListManagedEndpoints ::
   ListManagedEndpoints
 newListManagedEndpoints pVirtualClusterId_ =
   ListManagedEndpoints'
-    { nextToken = Prelude.Nothing,
+    { createdAfter =
+        Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      types = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       states = Prelude.Nothing,
+      types = Prelude.Nothing,
       virtualClusterId = pVirtualClusterId_
     }
-
--- | The token for the next set of managed endpoints to return.
-listManagedEndpoints_nextToken :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Text)
-listManagedEndpoints_nextToken = Lens.lens (\ListManagedEndpoints' {nextToken} -> nextToken) (\s@ListManagedEndpoints' {} a -> s {nextToken = a} :: ListManagedEndpoints)
-
--- | The date and time before which the endpoints are created.
-listManagedEndpoints_createdBefore :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
-listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Data._Time
-
--- | The types of the managed endpoints.
-listManagedEndpoints_types :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [Prelude.Text])
-listManagedEndpoints_types = Lens.lens (\ListManagedEndpoints' {types} -> types) (\s@ListManagedEndpoints' {} a -> s {types = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of managed endpoints that can be listed.
-listManagedEndpoints_maxResults :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Int)
-listManagedEndpoints_maxResults = Lens.lens (\ListManagedEndpoints' {maxResults} -> maxResults) (\s@ListManagedEndpoints' {} a -> s {maxResults = a} :: ListManagedEndpoints)
 
 -- | The date and time after which the endpoints are created.
 listManagedEndpoints_createdAfter :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
 listManagedEndpoints_createdAfter = Lens.lens (\ListManagedEndpoints' {createdAfter} -> createdAfter) (\s@ListManagedEndpoints' {} a -> s {createdAfter = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Data._Time
 
+-- | The date and time before which the endpoints are created.
+listManagedEndpoints_createdBefore :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.UTCTime)
+listManagedEndpoints_createdBefore = Lens.lens (\ListManagedEndpoints' {createdBefore} -> createdBefore) (\s@ListManagedEndpoints' {} a -> s {createdBefore = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of managed endpoints that can be listed.
+listManagedEndpoints_maxResults :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Int)
+listManagedEndpoints_maxResults = Lens.lens (\ListManagedEndpoints' {maxResults} -> maxResults) (\s@ListManagedEndpoints' {} a -> s {maxResults = a} :: ListManagedEndpoints)
+
+-- | The token for the next set of managed endpoints to return.
+listManagedEndpoints_nextToken :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe Prelude.Text)
+listManagedEndpoints_nextToken = Lens.lens (\ListManagedEndpoints' {nextToken} -> nextToken) (\s@ListManagedEndpoints' {} a -> s {nextToken = a} :: ListManagedEndpoints)
+
 -- | The states of the managed endpoints.
 listManagedEndpoints_states :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [EndpointState])
 listManagedEndpoints_states = Lens.lens (\ListManagedEndpoints' {states} -> states) (\s@ListManagedEndpoints' {} a -> s {states = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
+
+-- | The types of the managed endpoints.
+listManagedEndpoints_types :: Lens.Lens' ListManagedEndpoints (Prelude.Maybe [Prelude.Text])
+listManagedEndpoints_types = Lens.lens (\ListManagedEndpoints' {types} -> types) (\s@ListManagedEndpoints' {} a -> s {types = a} :: ListManagedEndpoints) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the virtual cluster.
 listManagedEndpoints_virtualClusterId :: Lens.Lens' ListManagedEndpoints Prelude.Text
@@ -173,29 +174,29 @@ instance Core.AWSRequest ListManagedEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListManagedEndpointsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListManagedEndpoints where
   hashWithSalt _salt ListManagedEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` types
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
+      `Prelude.hashWithSalt` types
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData ListManagedEndpoints where
   rnf ListManagedEndpoints' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf types
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf states
+      `Prelude.seq` Prelude.rnf types
       `Prelude.seq` Prelude.rnf virtualClusterId
 
 instance Data.ToHeaders ListManagedEndpoints where
@@ -220,28 +221,28 @@ instance Data.ToPath ListManagedEndpoints where
 instance Data.ToQuery ListManagedEndpoints where
   toQuery ListManagedEndpoints' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "createdAfter" Data.=: createdAfter,
         "createdBefore" Data.=: createdBefore,
-        "types"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> types),
         "maxResults" Data.=: maxResults,
-        "createdAfter" Data.=: createdAfter,
+        "nextToken" Data.=: nextToken,
         "states"
           Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> states)
+            (Data.toQueryList "member" Prelude.<$> states),
+        "types"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> types)
       ]
 
 -- | /See:/ 'newListManagedEndpointsResponse' smart constructor.
 data ListManagedEndpointsResponse = ListManagedEndpointsResponse'
-  { -- | The token for the next set of endpoints to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The managed endpoints to be listed.
+  { -- | The managed endpoints to be listed.
     endpoints :: Prelude.Maybe [Endpoint],
+    -- | The token for the next set of endpoints to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListManagedEndpointsResponse' with all optional fields omitted.
@@ -251,9 +252,9 @@ data ListManagedEndpointsResponse = ListManagedEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listManagedEndpointsResponse_nextToken' - The token for the next set of endpoints to return.
---
 -- 'endpoints', 'listManagedEndpointsResponse_endpoints' - The managed endpoints to be listed.
+--
+-- 'nextToken', 'listManagedEndpointsResponse_nextToken' - The token for the next set of endpoints to return.
 --
 -- 'httpStatus', 'listManagedEndpointsResponse_httpStatus' - The response's http status code.
 newListManagedEndpointsResponse ::
@@ -262,19 +263,19 @@ newListManagedEndpointsResponse ::
   ListManagedEndpointsResponse
 newListManagedEndpointsResponse pHttpStatus_ =
   ListManagedEndpointsResponse'
-    { nextToken =
+    { endpoints =
         Prelude.Nothing,
-      endpoints = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of endpoints to return.
-listManagedEndpointsResponse_nextToken :: Lens.Lens' ListManagedEndpointsResponse (Prelude.Maybe Prelude.Text)
-listManagedEndpointsResponse_nextToken = Lens.lens (\ListManagedEndpointsResponse' {nextToken} -> nextToken) (\s@ListManagedEndpointsResponse' {} a -> s {nextToken = a} :: ListManagedEndpointsResponse)
 
 -- | The managed endpoints to be listed.
 listManagedEndpointsResponse_endpoints :: Lens.Lens' ListManagedEndpointsResponse (Prelude.Maybe [Endpoint])
 listManagedEndpointsResponse_endpoints = Lens.lens (\ListManagedEndpointsResponse' {endpoints} -> endpoints) (\s@ListManagedEndpointsResponse' {} a -> s {endpoints = a} :: ListManagedEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of endpoints to return.
+listManagedEndpointsResponse_nextToken :: Lens.Lens' ListManagedEndpointsResponse (Prelude.Maybe Prelude.Text)
+listManagedEndpointsResponse_nextToken = Lens.lens (\ListManagedEndpointsResponse' {nextToken} -> nextToken) (\s@ListManagedEndpointsResponse' {} a -> s {nextToken = a} :: ListManagedEndpointsResponse)
 
 -- | The response's http status code.
 listManagedEndpointsResponse_httpStatus :: Lens.Lens' ListManagedEndpointsResponse Prelude.Int
@@ -282,6 +283,6 @@ listManagedEndpointsResponse_httpStatus = Lens.lens (\ListManagedEndpointsRespon
 
 instance Prelude.NFData ListManagedEndpointsResponse where
   rnf ListManagedEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

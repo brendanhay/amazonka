@@ -33,22 +33,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobTemplate' smart constructor.
 data JobTemplate = JobTemplate'
-  { -- | The tags assigned to the job template.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the job template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the job template.
+  { -- | The ARN of the job template.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the job template was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The user who created the job template.
+    createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The error message in case the decryption of job template fails.
+    decryptionError :: Prelude.Maybe Prelude.Text,
     -- | The ID of the job template.
     id :: Prelude.Maybe Prelude.Text,
     -- | The KMS key ARN used to encrypt the job template.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The user who created the job template.
-    createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the job template was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The error message in case the decryption of job template fails.
-    decryptionError :: Prelude.Maybe Prelude.Text,
+    -- | The name of the job template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the job template.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The job template data which holds values of StartJobRun API request.
     jobTemplateData :: JobTemplateData
   }
@@ -62,21 +62,21 @@ data JobTemplate = JobTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'jobTemplate_tags' - The tags assigned to the job template.
---
--- 'name', 'jobTemplate_name' - The name of the job template.
---
 -- 'arn', 'jobTemplate_arn' - The ARN of the job template.
+--
+-- 'createdAt', 'jobTemplate_createdAt' - The date and time when the job template was created.
+--
+-- 'createdBy', 'jobTemplate_createdBy' - The user who created the job template.
+--
+-- 'decryptionError', 'jobTemplate_decryptionError' - The error message in case the decryption of job template fails.
 --
 -- 'id', 'jobTemplate_id' - The ID of the job template.
 --
 -- 'kmsKeyArn', 'jobTemplate_kmsKeyArn' - The KMS key ARN used to encrypt the job template.
 --
--- 'createdBy', 'jobTemplate_createdBy' - The user who created the job template.
+-- 'name', 'jobTemplate_name' - The name of the job template.
 --
--- 'createdAt', 'jobTemplate_createdAt' - The date and time when the job template was created.
---
--- 'decryptionError', 'jobTemplate_decryptionError' - The error message in case the decryption of job template fails.
+-- 'tags', 'jobTemplate_tags' - The tags assigned to the job template.
 --
 -- 'jobTemplateData', 'jobTemplate_jobTemplateData' - The job template data which holds values of StartJobRun API request.
 newJobTemplate ::
@@ -85,28 +85,32 @@ newJobTemplate ::
   JobTemplate
 newJobTemplate pJobTemplateData_ =
   JobTemplate'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      decryptionError = Prelude.Nothing,
       id = Prelude.Nothing,
       kmsKeyArn = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      decryptionError = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
       jobTemplateData = pJobTemplateData_
     }
-
--- | The tags assigned to the job template.
-jobTemplate_tags :: Lens.Lens' JobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobTemplate_tags = Lens.lens (\JobTemplate' {tags} -> tags) (\s@JobTemplate' {} a -> s {tags = a} :: JobTemplate) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the job template.
-jobTemplate_name :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
-jobTemplate_name = Lens.lens (\JobTemplate' {name} -> name) (\s@JobTemplate' {} a -> s {name = a} :: JobTemplate)
 
 -- | The ARN of the job template.
 jobTemplate_arn :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
 jobTemplate_arn = Lens.lens (\JobTemplate' {arn} -> arn) (\s@JobTemplate' {} a -> s {arn = a} :: JobTemplate)
+
+-- | The date and time when the job template was created.
+jobTemplate_createdAt :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
+jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Data._Time
+
+-- | The user who created the job template.
+jobTemplate_createdBy :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
+jobTemplate_createdBy = Lens.lens (\JobTemplate' {createdBy} -> createdBy) (\s@JobTemplate' {} a -> s {createdBy = a} :: JobTemplate)
+
+-- | The error message in case the decryption of job template fails.
+jobTemplate_decryptionError :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
+jobTemplate_decryptionError = Lens.lens (\JobTemplate' {decryptionError} -> decryptionError) (\s@JobTemplate' {} a -> s {decryptionError = a} :: JobTemplate)
 
 -- | The ID of the job template.
 jobTemplate_id :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
@@ -116,17 +120,13 @@ jobTemplate_id = Lens.lens (\JobTemplate' {id} -> id) (\s@JobTemplate' {} a -> s
 jobTemplate_kmsKeyArn :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
 jobTemplate_kmsKeyArn = Lens.lens (\JobTemplate' {kmsKeyArn} -> kmsKeyArn) (\s@JobTemplate' {} a -> s {kmsKeyArn = a} :: JobTemplate)
 
--- | The user who created the job template.
-jobTemplate_createdBy :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
-jobTemplate_createdBy = Lens.lens (\JobTemplate' {createdBy} -> createdBy) (\s@JobTemplate' {} a -> s {createdBy = a} :: JobTemplate)
+-- | The name of the job template.
+jobTemplate_name :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
+jobTemplate_name = Lens.lens (\JobTemplate' {name} -> name) (\s@JobTemplate' {} a -> s {name = a} :: JobTemplate)
 
--- | The date and time when the job template was created.
-jobTemplate_createdAt :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
-jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Data._Time
-
--- | The error message in case the decryption of job template fails.
-jobTemplate_decryptionError :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
-jobTemplate_decryptionError = Lens.lens (\JobTemplate' {decryptionError} -> decryptionError) (\s@JobTemplate' {} a -> s {decryptionError = a} :: JobTemplate)
+-- | The tags assigned to the job template.
+jobTemplate_tags :: Lens.Lens' JobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobTemplate_tags = Lens.lens (\JobTemplate' {tags} -> tags) (\s@JobTemplate' {} a -> s {tags = a} :: JobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The job template data which holds values of StartJobRun API request.
 jobTemplate_jobTemplateData :: Lens.Lens' JobTemplate JobTemplateData
@@ -138,37 +138,37 @@ instance Data.FromJSON JobTemplate where
       "JobTemplate"
       ( \x ->
           JobTemplate'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "createdBy")
+            Prelude.<*> (x Data..:? "decryptionError")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "kmsKeyArn")
-            Prelude.<*> (x Data..:? "createdBy")
-            Prelude.<*> (x Data..:? "createdAt")
-            Prelude.<*> (x Data..:? "decryptionError")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "jobTemplateData")
       )
 
 instance Prelude.Hashable JobTemplate where
   hashWithSalt _salt JobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` decryptionError
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` decryptionError
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobTemplateData
 
 instance Prelude.NFData JobTemplate where
   rnf JobTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf decryptionError
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf decryptionError
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobTemplateData

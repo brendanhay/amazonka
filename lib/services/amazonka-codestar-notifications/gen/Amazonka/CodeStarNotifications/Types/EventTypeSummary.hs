@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventTypeSummary' smart constructor.
 data EventTypeSummary = EventTypeSummary'
-  { -- | The resource type of the event.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event.
-    eventTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated ID of the event. For a complete list of event types
+  { -- | The system-generated ID of the event. For a complete list of event types
     -- and IDs, see
     -- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
     -- in the /Developer Tools Console User Guide/.
     eventTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event.
+    eventTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The resource type of the event.
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the service for which the event applies.
     serviceName :: Prelude.Maybe Prelude.Text
   }
@@ -51,33 +51,25 @@ data EventTypeSummary = EventTypeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'eventTypeSummary_resourceType' - The resource type of the event.
---
--- 'eventTypeName', 'eventTypeSummary_eventTypeName' - The name of the event.
---
 -- 'eventTypeId', 'eventTypeSummary_eventTypeId' - The system-generated ID of the event. For a complete list of event types
 -- and IDs, see
 -- <https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api Notification concepts>
 -- in the /Developer Tools Console User Guide/.
+--
+-- 'eventTypeName', 'eventTypeSummary_eventTypeName' - The name of the event.
+--
+-- 'resourceType', 'eventTypeSummary_resourceType' - The resource type of the event.
 --
 -- 'serviceName', 'eventTypeSummary_serviceName' - The name of the service for which the event applies.
 newEventTypeSummary ::
   EventTypeSummary
 newEventTypeSummary =
   EventTypeSummary'
-    { resourceType = Prelude.Nothing,
+    { eventTypeId = Prelude.Nothing,
       eventTypeName = Prelude.Nothing,
-      eventTypeId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       serviceName = Prelude.Nothing
     }
-
--- | The resource type of the event.
-eventTypeSummary_resourceType :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
-eventTypeSummary_resourceType = Lens.lens (\EventTypeSummary' {resourceType} -> resourceType) (\s@EventTypeSummary' {} a -> s {resourceType = a} :: EventTypeSummary)
-
--- | The name of the event.
-eventTypeSummary_eventTypeName :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
-eventTypeSummary_eventTypeName = Lens.lens (\EventTypeSummary' {eventTypeName} -> eventTypeName) (\s@EventTypeSummary' {} a -> s {eventTypeName = a} :: EventTypeSummary)
 
 -- | The system-generated ID of the event. For a complete list of event types
 -- and IDs, see
@@ -85,6 +77,14 @@ eventTypeSummary_eventTypeName = Lens.lens (\EventTypeSummary' {eventTypeName} -
 -- in the /Developer Tools Console User Guide/.
 eventTypeSummary_eventTypeId :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
 eventTypeSummary_eventTypeId = Lens.lens (\EventTypeSummary' {eventTypeId} -> eventTypeId) (\s@EventTypeSummary' {} a -> s {eventTypeId = a} :: EventTypeSummary)
+
+-- | The name of the event.
+eventTypeSummary_eventTypeName :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
+eventTypeSummary_eventTypeName = Lens.lens (\EventTypeSummary' {eventTypeName} -> eventTypeName) (\s@EventTypeSummary' {} a -> s {eventTypeName = a} :: EventTypeSummary)
+
+-- | The resource type of the event.
+eventTypeSummary_resourceType :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
+eventTypeSummary_resourceType = Lens.lens (\EventTypeSummary' {resourceType} -> resourceType) (\s@EventTypeSummary' {} a -> s {resourceType = a} :: EventTypeSummary)
 
 -- | The name of the service for which the event applies.
 eventTypeSummary_serviceName :: Lens.Lens' EventTypeSummary (Prelude.Maybe Prelude.Text)
@@ -96,22 +96,22 @@ instance Data.FromJSON EventTypeSummary where
       "EventTypeSummary"
       ( \x ->
           EventTypeSummary'
-            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<$> (x Data..:? "EventTypeId")
             Prelude.<*> (x Data..:? "EventTypeName")
-            Prelude.<*> (x Data..:? "EventTypeId")
+            Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "ServiceName")
       )
 
 instance Prelude.Hashable EventTypeSummary where
   hashWithSalt _salt EventTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` eventTypeId
       `Prelude.hashWithSalt` eventTypeName
-      `Prelude.hashWithSalt` eventTypeId
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData EventTypeSummary where
   rnf EventTypeSummary' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf eventTypeId
       `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf eventTypeId
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf serviceName

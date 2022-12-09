@@ -18,13 +18,13 @@ module Amazonka.CodeStarNotifications.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _ConfigurationException,
-    _ConcurrentModificationException,
     _AccessDeniedException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
+    _ConcurrentModificationException,
+    _ConfigurationException,
     _InvalidNextTokenException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
     _ValidationException,
 
     -- * DetailType
@@ -48,9 +48,9 @@ module Amazonka.CodeStarNotifications.Types
     -- * EventTypeSummary
     EventTypeSummary (..),
     newEventTypeSummary,
-    eventTypeSummary_resourceType,
-    eventTypeSummary_eventTypeName,
     eventTypeSummary_eventTypeId,
+    eventTypeSummary_eventTypeName,
+    eventTypeSummary_resourceType,
     eventTypeSummary_serviceName,
 
     -- * ListEventTypesFilter
@@ -87,8 +87,8 @@ module Amazonka.CodeStarNotifications.Types
     TargetSummary (..),
     newTargetSummary,
     targetSummary_targetAddress,
-    targetSummary_targetType,
     targetSummary_targetStatus,
+    targetSummary_targetType,
   )
 where
 
@@ -136,28 +136,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -165,13 +159,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -179,24 +177,18 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | A resource with the same name or ID already exists. Notification rule
--- names must be unique in your Amazon Web Services account.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | AWS CodeStar Notifications can\'t create the notification rule because
+-- you do not have sufficient permissions.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | Some or all of the configuration is incomplete, missing, or not valid.
-_ConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "ConfigurationException"
-    Prelude.. Core.hasStatus 400
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
 
 -- | AWS CodeStar Notifications can\'t complete the request because the
 -- resource is being modified by another process. Wait a few minutes and
@@ -208,23 +200,22 @@ _ConcurrentModificationException =
     "ConcurrentModificationException"
     Prelude.. Core.hasStatus 400
 
--- | AWS CodeStar Notifications can\'t create the notification rule because
--- you do not have sufficient permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | Some or all of the configuration is incomplete, missing, or not valid.
+_ConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConfigurationException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
-    Prelude.. Core.hasStatus 403
+    "ConfigurationException"
+    Prelude.. Core.hasStatus 400
 
--- | AWS CodeStar Notifications can\'t find a resource that matches the
--- provided ARN.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The value for the enumeration token used in the request to return the
+-- next batch of the results is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "InvalidNextTokenException"
+    Prelude.. Core.hasStatus 400
 
 -- | One of the AWS CodeStar Notifications limits has been exceeded. Limits
 -- apply to accounts, notification rules, notifications, resources, and
@@ -236,14 +227,23 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | The value for the enumeration token used in the request to return the
--- next batch of the results is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
+-- | A resource with the same name or ID already exists. Notification rule
+-- names must be unique in your Amazon Web Services account.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidNextTokenException"
-    Prelude.. Core.hasStatus 400
+    "ResourceAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | AWS CodeStar Notifications can\'t find a resource that matches the
+-- provided ARN.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | One or more parameter values are not valid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

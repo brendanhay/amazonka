@@ -30,8 +30,8 @@ module Amazonka.ControlTower.ListEnabledControls
     newListEnabledControls,
 
     -- * Request Lenses
-    listEnabledControls_nextToken,
     listEnabledControls_maxResults,
+    listEnabledControls_nextToken,
     listEnabledControls_targetIdentifier,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnabledControls' smart constructor.
 data ListEnabledControls = ListEnabledControls'
-  { -- | The token to continue the list from a previous API call with the same
+  { -- | How many results to return per API call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to continue the list from a previous API call with the same
     -- parameters.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | How many results to return per API call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the organizational unit.
     targetIdentifier :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListEnabledControls = ListEnabledControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEnabledControls_maxResults' - How many results to return per API call.
+--
 -- 'nextToken', 'listEnabledControls_nextToken' - The token to continue the list from a previous API call with the same
 -- parameters.
---
--- 'maxResults', 'listEnabledControls_maxResults' - How many results to return per API call.
 --
 -- 'targetIdentifier', 'listEnabledControls_targetIdentifier' - The ARN of the organizational unit.
 newListEnabledControls ::
@@ -85,19 +85,19 @@ newListEnabledControls ::
   ListEnabledControls
 newListEnabledControls pTargetIdentifier_ =
   ListEnabledControls'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       targetIdentifier = pTargetIdentifier_
     }
+
+-- | How many results to return per API call.
+listEnabledControls_maxResults :: Lens.Lens' ListEnabledControls (Prelude.Maybe Prelude.Natural)
+listEnabledControls_maxResults = Lens.lens (\ListEnabledControls' {maxResults} -> maxResults) (\s@ListEnabledControls' {} a -> s {maxResults = a} :: ListEnabledControls)
 
 -- | The token to continue the list from a previous API call with the same
 -- parameters.
 listEnabledControls_nextToken :: Lens.Lens' ListEnabledControls (Prelude.Maybe Prelude.Text)
 listEnabledControls_nextToken = Lens.lens (\ListEnabledControls' {nextToken} -> nextToken) (\s@ListEnabledControls' {} a -> s {nextToken = a} :: ListEnabledControls)
-
--- | How many results to return per API call.
-listEnabledControls_maxResults :: Lens.Lens' ListEnabledControls (Prelude.Maybe Prelude.Natural)
-listEnabledControls_maxResults = Lens.lens (\ListEnabledControls' {maxResults} -> maxResults) (\s@ListEnabledControls' {} a -> s {maxResults = a} :: ListEnabledControls)
 
 -- | The ARN of the organizational unit.
 listEnabledControls_targetIdentifier :: Lens.Lens' ListEnabledControls Prelude.Text
@@ -143,14 +143,14 @@ instance Core.AWSRequest ListEnabledControls where
 
 instance Prelude.Hashable ListEnabledControls where
   hashWithSalt _salt ListEnabledControls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetIdentifier
 
 instance Prelude.NFData ListEnabledControls where
   rnf ListEnabledControls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf targetIdentifier
 
 instance Data.ToHeaders ListEnabledControls where
@@ -168,8 +168,8 @@ instance Data.ToJSON ListEnabledControls where
   toJSON ListEnabledControls' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("targetIdentifier" Data..= targetIdentifier)
           ]

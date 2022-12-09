@@ -44,32 +44,32 @@ module Amazonka.Signer
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
+
     -- ** NotFoundException
     _NotFoundException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
-
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** InternalServiceErrorException
-    _InternalServiceErrorException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters

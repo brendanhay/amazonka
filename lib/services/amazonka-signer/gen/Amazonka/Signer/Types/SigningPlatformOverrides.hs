@@ -31,16 +31,16 @@ import Amazonka.Signer.Types.SigningConfigurationOverrides
 --
 -- /See:/ 'newSigningPlatformOverrides' smart constructor.
 data SigningPlatformOverrides = SigningPlatformOverrides'
-  { -- | A signed image is a JSON object. When overriding the default signing
+  { -- | A signing configuration that overrides the default encryption or hash
+    -- algorithm of a signing job.
+    signingConfiguration :: Prelude.Maybe SigningConfigurationOverrides,
+    -- | A signed image is a JSON object. When overriding the default signing
     -- platform configuration, a customer can select either of two signing
     -- formats, @JSONEmbedded@ or @JSONDetached@. (A third format value,
     -- @JSON@, is reserved for future use.) With @JSONEmbedded@, the signing
     -- image has the payload embedded in it. With @JSONDetached@, the payload
     -- is not be embedded in the signing image.
-    signingImageFormat :: Prelude.Maybe ImageFormat,
-    -- | A signing configuration that overrides the default encryption or hash
-    -- algorithm of a signing job.
-    signingConfiguration :: Prelude.Maybe SigningConfigurationOverrides
+    signingImageFormat :: Prelude.Maybe ImageFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,23 +52,28 @@ data SigningPlatformOverrides = SigningPlatformOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'signingConfiguration', 'signingPlatformOverrides_signingConfiguration' - A signing configuration that overrides the default encryption or hash
+-- algorithm of a signing job.
+--
 -- 'signingImageFormat', 'signingPlatformOverrides_signingImageFormat' - A signed image is a JSON object. When overriding the default signing
 -- platform configuration, a customer can select either of two signing
 -- formats, @JSONEmbedded@ or @JSONDetached@. (A third format value,
 -- @JSON@, is reserved for future use.) With @JSONEmbedded@, the signing
 -- image has the payload embedded in it. With @JSONDetached@, the payload
 -- is not be embedded in the signing image.
---
--- 'signingConfiguration', 'signingPlatformOverrides_signingConfiguration' - A signing configuration that overrides the default encryption or hash
--- algorithm of a signing job.
 newSigningPlatformOverrides ::
   SigningPlatformOverrides
 newSigningPlatformOverrides =
   SigningPlatformOverrides'
-    { signingImageFormat =
+    { signingConfiguration =
         Prelude.Nothing,
-      signingConfiguration = Prelude.Nothing
+      signingImageFormat = Prelude.Nothing
     }
+
+-- | A signing configuration that overrides the default encryption or hash
+-- algorithm of a signing job.
+signingPlatformOverrides_signingConfiguration :: Lens.Lens' SigningPlatformOverrides (Prelude.Maybe SigningConfigurationOverrides)
+signingPlatformOverrides_signingConfiguration = Lens.lens (\SigningPlatformOverrides' {signingConfiguration} -> signingConfiguration) (\s@SigningPlatformOverrides' {} a -> s {signingConfiguration = a} :: SigningPlatformOverrides)
 
 -- | A signed image is a JSON object. When overriding the default signing
 -- platform configuration, a customer can select either of two signing
@@ -79,38 +84,33 @@ newSigningPlatformOverrides =
 signingPlatformOverrides_signingImageFormat :: Lens.Lens' SigningPlatformOverrides (Prelude.Maybe ImageFormat)
 signingPlatformOverrides_signingImageFormat = Lens.lens (\SigningPlatformOverrides' {signingImageFormat} -> signingImageFormat) (\s@SigningPlatformOverrides' {} a -> s {signingImageFormat = a} :: SigningPlatformOverrides)
 
--- | A signing configuration that overrides the default encryption or hash
--- algorithm of a signing job.
-signingPlatformOverrides_signingConfiguration :: Lens.Lens' SigningPlatformOverrides (Prelude.Maybe SigningConfigurationOverrides)
-signingPlatformOverrides_signingConfiguration = Lens.lens (\SigningPlatformOverrides' {signingConfiguration} -> signingConfiguration) (\s@SigningPlatformOverrides' {} a -> s {signingConfiguration = a} :: SigningPlatformOverrides)
-
 instance Data.FromJSON SigningPlatformOverrides where
   parseJSON =
     Data.withObject
       "SigningPlatformOverrides"
       ( \x ->
           SigningPlatformOverrides'
-            Prelude.<$> (x Data..:? "signingImageFormat")
-            Prelude.<*> (x Data..:? "signingConfiguration")
+            Prelude.<$> (x Data..:? "signingConfiguration")
+            Prelude.<*> (x Data..:? "signingImageFormat")
       )
 
 instance Prelude.Hashable SigningPlatformOverrides where
   hashWithSalt _salt SigningPlatformOverrides' {..} =
-    _salt `Prelude.hashWithSalt` signingImageFormat
-      `Prelude.hashWithSalt` signingConfiguration
+    _salt `Prelude.hashWithSalt` signingConfiguration
+      `Prelude.hashWithSalt` signingImageFormat
 
 instance Prelude.NFData SigningPlatformOverrides where
   rnf SigningPlatformOverrides' {..} =
-    Prelude.rnf signingImageFormat
-      `Prelude.seq` Prelude.rnf signingConfiguration
+    Prelude.rnf signingConfiguration
+      `Prelude.seq` Prelude.rnf signingImageFormat
 
 instance Data.ToJSON SigningPlatformOverrides where
   toJSON SigningPlatformOverrides' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("signingImageFormat" Data..=)
-              Prelude.<$> signingImageFormat,
-            ("signingConfiguration" Data..=)
-              Prelude.<$> signingConfiguration
+          [ ("signingConfiguration" Data..=)
+              Prelude.<$> signingConfiguration,
+            ("signingImageFormat" Data..=)
+              Prelude.<$> signingImageFormat
           ]
       )

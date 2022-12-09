@@ -34,15 +34,15 @@ module Amazonka.Signer.GetSigningPlatform
     newGetSigningPlatformResponse,
 
     -- * Response Lenses
-    getSigningPlatformResponse_signingImageFormat,
-    getSigningPlatformResponse_partner,
-    getSigningPlatformResponse_signingConfiguration,
-    getSigningPlatformResponse_displayName,
-    getSigningPlatformResponse_target,
     getSigningPlatformResponse_category,
-    getSigningPlatformResponse_revocationSupported,
-    getSigningPlatformResponse_platformId,
+    getSigningPlatformResponse_displayName,
     getSigningPlatformResponse_maxSizeInMB,
+    getSigningPlatformResponse_partner,
+    getSigningPlatformResponse_platformId,
+    getSigningPlatformResponse_revocationSupported,
+    getSigningPlatformResponse_signingConfiguration,
+    getSigningPlatformResponse_signingImageFormat,
+    getSigningPlatformResponse_target,
     getSigningPlatformResponse_httpStatus,
   )
 where
@@ -92,15 +92,15 @@ instance Core.AWSRequest GetSigningPlatform where
     Response.receiveJSON
       ( \s h x ->
           GetSigningPlatformResponse'
-            Prelude.<$> (x Data..?> "signingImageFormat")
-            Prelude.<*> (x Data..?> "partner")
-            Prelude.<*> (x Data..?> "signingConfiguration")
+            Prelude.<$> (x Data..?> "category")
             Prelude.<*> (x Data..?> "displayName")
-            Prelude.<*> (x Data..?> "target")
-            Prelude.<*> (x Data..?> "category")
-            Prelude.<*> (x Data..?> "revocationSupported")
-            Prelude.<*> (x Data..?> "platformId")
             Prelude.<*> (x Data..?> "maxSizeInMB")
+            Prelude.<*> (x Data..?> "partner")
+            Prelude.<*> (x Data..?> "platformId")
+            Prelude.<*> (x Data..?> "revocationSupported")
+            Prelude.<*> (x Data..?> "signingConfiguration")
+            Prelude.<*> (x Data..?> "signingImageFormat")
+            Prelude.<*> (x Data..?> "target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,26 +132,26 @@ instance Data.ToQuery GetSigningPlatform where
 
 -- | /See:/ 'newGetSigningPlatformResponse' smart constructor.
 data GetSigningPlatformResponse = GetSigningPlatformResponse'
-  { -- | The format of the target platform\'s signing image.
-    signingImageFormat :: Prelude.Maybe SigningImageFormat,
-    -- | A list of partner entities that use the target signing platform.
-    partner :: Prelude.Maybe Prelude.Text,
-    -- | A list of configurations applied to the target platform at signing.
-    signingConfiguration :: Prelude.Maybe SigningConfiguration,
+  { -- | The category type of the target signing platform.
+    category :: Prelude.Maybe Category,
     -- | The display name of the target signing platform.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The validation template that is used by the target signing platform.
-    target :: Prelude.Maybe Prelude.Text,
-    -- | The category type of the target signing platform.
-    category :: Prelude.Maybe Category,
-    -- | A flag indicating whether signatures generated for the signing platform
-    -- can be revoked.
-    revocationSupported :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the target signing platform.
-    platformId :: Prelude.Maybe Prelude.Text,
     -- | The maximum size (in MB) of the payload that can be signed by the target
     -- platform.
     maxSizeInMB :: Prelude.Maybe Prelude.Int,
+    -- | A list of partner entities that use the target signing platform.
+    partner :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the target signing platform.
+    platformId :: Prelude.Maybe Prelude.Text,
+    -- | A flag indicating whether signatures generated for the signing platform
+    -- can be revoked.
+    revocationSupported :: Prelude.Maybe Prelude.Bool,
+    -- | A list of configurations applied to the target platform at signing.
+    signingConfiguration :: Prelude.Maybe SigningConfiguration,
+    -- | The format of the target platform\'s signing image.
+    signingImageFormat :: Prelude.Maybe SigningImageFormat,
+    -- | The validation template that is used by the target signing platform.
+    target :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,25 +165,25 @@ data GetSigningPlatformResponse = GetSigningPlatformResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signingImageFormat', 'getSigningPlatformResponse_signingImageFormat' - The format of the target platform\'s signing image.
---
--- 'partner', 'getSigningPlatformResponse_partner' - A list of partner entities that use the target signing platform.
---
--- 'signingConfiguration', 'getSigningPlatformResponse_signingConfiguration' - A list of configurations applied to the target platform at signing.
+-- 'category', 'getSigningPlatformResponse_category' - The category type of the target signing platform.
 --
 -- 'displayName', 'getSigningPlatformResponse_displayName' - The display name of the target signing platform.
 --
--- 'target', 'getSigningPlatformResponse_target' - The validation template that is used by the target signing platform.
+-- 'maxSizeInMB', 'getSigningPlatformResponse_maxSizeInMB' - The maximum size (in MB) of the payload that can be signed by the target
+-- platform.
 --
--- 'category', 'getSigningPlatformResponse_category' - The category type of the target signing platform.
+-- 'partner', 'getSigningPlatformResponse_partner' - A list of partner entities that use the target signing platform.
+--
+-- 'platformId', 'getSigningPlatformResponse_platformId' - The ID of the target signing platform.
 --
 -- 'revocationSupported', 'getSigningPlatformResponse_revocationSupported' - A flag indicating whether signatures generated for the signing platform
 -- can be revoked.
 --
--- 'platformId', 'getSigningPlatformResponse_platformId' - The ID of the target signing platform.
+-- 'signingConfiguration', 'getSigningPlatformResponse_signingConfiguration' - A list of configurations applied to the target platform at signing.
 --
--- 'maxSizeInMB', 'getSigningPlatformResponse_maxSizeInMB' - The maximum size (in MB) of the payload that can be signed by the target
--- platform.
+-- 'signingImageFormat', 'getSigningPlatformResponse_signingImageFormat' - The format of the target platform\'s signing image.
+--
+-- 'target', 'getSigningPlatformResponse_target' - The validation template that is used by the target signing platform.
 --
 -- 'httpStatus', 'getSigningPlatformResponse_httpStatus' - The response's http status code.
 newGetSigningPlatformResponse ::
@@ -192,56 +192,56 @@ newGetSigningPlatformResponse ::
   GetSigningPlatformResponse
 newGetSigningPlatformResponse pHttpStatus_ =
   GetSigningPlatformResponse'
-    { signingImageFormat =
+    { category =
         Prelude.Nothing,
-      partner = Prelude.Nothing,
-      signingConfiguration = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      target = Prelude.Nothing,
-      category = Prelude.Nothing,
-      revocationSupported = Prelude.Nothing,
-      platformId = Prelude.Nothing,
       maxSizeInMB = Prelude.Nothing,
+      partner = Prelude.Nothing,
+      platformId = Prelude.Nothing,
+      revocationSupported = Prelude.Nothing,
+      signingConfiguration = Prelude.Nothing,
+      signingImageFormat = Prelude.Nothing,
+      target = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The format of the target platform\'s signing image.
-getSigningPlatformResponse_signingImageFormat :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe SigningImageFormat)
-getSigningPlatformResponse_signingImageFormat = Lens.lens (\GetSigningPlatformResponse' {signingImageFormat} -> signingImageFormat) (\s@GetSigningPlatformResponse' {} a -> s {signingImageFormat = a} :: GetSigningPlatformResponse)
-
--- | A list of partner entities that use the target signing platform.
-getSigningPlatformResponse_partner :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
-getSigningPlatformResponse_partner = Lens.lens (\GetSigningPlatformResponse' {partner} -> partner) (\s@GetSigningPlatformResponse' {} a -> s {partner = a} :: GetSigningPlatformResponse)
-
--- | A list of configurations applied to the target platform at signing.
-getSigningPlatformResponse_signingConfiguration :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe SigningConfiguration)
-getSigningPlatformResponse_signingConfiguration = Lens.lens (\GetSigningPlatformResponse' {signingConfiguration} -> signingConfiguration) (\s@GetSigningPlatformResponse' {} a -> s {signingConfiguration = a} :: GetSigningPlatformResponse)
+-- | The category type of the target signing platform.
+getSigningPlatformResponse_category :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Category)
+getSigningPlatformResponse_category = Lens.lens (\GetSigningPlatformResponse' {category} -> category) (\s@GetSigningPlatformResponse' {} a -> s {category = a} :: GetSigningPlatformResponse)
 
 -- | The display name of the target signing platform.
 getSigningPlatformResponse_displayName :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
 getSigningPlatformResponse_displayName = Lens.lens (\GetSigningPlatformResponse' {displayName} -> displayName) (\s@GetSigningPlatformResponse' {} a -> s {displayName = a} :: GetSigningPlatformResponse)
 
--- | The validation template that is used by the target signing platform.
-getSigningPlatformResponse_target :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
-getSigningPlatformResponse_target = Lens.lens (\GetSigningPlatformResponse' {target} -> target) (\s@GetSigningPlatformResponse' {} a -> s {target = a} :: GetSigningPlatformResponse)
+-- | The maximum size (in MB) of the payload that can be signed by the target
+-- platform.
+getSigningPlatformResponse_maxSizeInMB :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Int)
+getSigningPlatformResponse_maxSizeInMB = Lens.lens (\GetSigningPlatformResponse' {maxSizeInMB} -> maxSizeInMB) (\s@GetSigningPlatformResponse' {} a -> s {maxSizeInMB = a} :: GetSigningPlatformResponse)
 
--- | The category type of the target signing platform.
-getSigningPlatformResponse_category :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Category)
-getSigningPlatformResponse_category = Lens.lens (\GetSigningPlatformResponse' {category} -> category) (\s@GetSigningPlatformResponse' {} a -> s {category = a} :: GetSigningPlatformResponse)
+-- | A list of partner entities that use the target signing platform.
+getSigningPlatformResponse_partner :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
+getSigningPlatformResponse_partner = Lens.lens (\GetSigningPlatformResponse' {partner} -> partner) (\s@GetSigningPlatformResponse' {} a -> s {partner = a} :: GetSigningPlatformResponse)
+
+-- | The ID of the target signing platform.
+getSigningPlatformResponse_platformId :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
+getSigningPlatformResponse_platformId = Lens.lens (\GetSigningPlatformResponse' {platformId} -> platformId) (\s@GetSigningPlatformResponse' {} a -> s {platformId = a} :: GetSigningPlatformResponse)
 
 -- | A flag indicating whether signatures generated for the signing platform
 -- can be revoked.
 getSigningPlatformResponse_revocationSupported :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Bool)
 getSigningPlatformResponse_revocationSupported = Lens.lens (\GetSigningPlatformResponse' {revocationSupported} -> revocationSupported) (\s@GetSigningPlatformResponse' {} a -> s {revocationSupported = a} :: GetSigningPlatformResponse)
 
--- | The ID of the target signing platform.
-getSigningPlatformResponse_platformId :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
-getSigningPlatformResponse_platformId = Lens.lens (\GetSigningPlatformResponse' {platformId} -> platformId) (\s@GetSigningPlatformResponse' {} a -> s {platformId = a} :: GetSigningPlatformResponse)
+-- | A list of configurations applied to the target platform at signing.
+getSigningPlatformResponse_signingConfiguration :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe SigningConfiguration)
+getSigningPlatformResponse_signingConfiguration = Lens.lens (\GetSigningPlatformResponse' {signingConfiguration} -> signingConfiguration) (\s@GetSigningPlatformResponse' {} a -> s {signingConfiguration = a} :: GetSigningPlatformResponse)
 
--- | The maximum size (in MB) of the payload that can be signed by the target
--- platform.
-getSigningPlatformResponse_maxSizeInMB :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Int)
-getSigningPlatformResponse_maxSizeInMB = Lens.lens (\GetSigningPlatformResponse' {maxSizeInMB} -> maxSizeInMB) (\s@GetSigningPlatformResponse' {} a -> s {maxSizeInMB = a} :: GetSigningPlatformResponse)
+-- | The format of the target platform\'s signing image.
+getSigningPlatformResponse_signingImageFormat :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe SigningImageFormat)
+getSigningPlatformResponse_signingImageFormat = Lens.lens (\GetSigningPlatformResponse' {signingImageFormat} -> signingImageFormat) (\s@GetSigningPlatformResponse' {} a -> s {signingImageFormat = a} :: GetSigningPlatformResponse)
+
+-- | The validation template that is used by the target signing platform.
+getSigningPlatformResponse_target :: Lens.Lens' GetSigningPlatformResponse (Prelude.Maybe Prelude.Text)
+getSigningPlatformResponse_target = Lens.lens (\GetSigningPlatformResponse' {target} -> target) (\s@GetSigningPlatformResponse' {} a -> s {target = a} :: GetSigningPlatformResponse)
 
 -- | The response's http status code.
 getSigningPlatformResponse_httpStatus :: Lens.Lens' GetSigningPlatformResponse Prelude.Int
@@ -249,13 +249,13 @@ getSigningPlatformResponse_httpStatus = Lens.lens (\GetSigningPlatformResponse' 
 
 instance Prelude.NFData GetSigningPlatformResponse where
   rnf GetSigningPlatformResponse' {..} =
-    Prelude.rnf signingImageFormat
-      `Prelude.seq` Prelude.rnf partner
-      `Prelude.seq` Prelude.rnf signingConfiguration
+    Prelude.rnf category
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf revocationSupported
-      `Prelude.seq` Prelude.rnf platformId
       `Prelude.seq` Prelude.rnf maxSizeInMB
+      `Prelude.seq` Prelude.rnf partner
+      `Prelude.seq` Prelude.rnf platformId
+      `Prelude.seq` Prelude.rnf revocationSupported
+      `Prelude.seq` Prelude.rnf signingConfiguration
+      `Prelude.seq` Prelude.rnf signingImageFormat
+      `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf httpStatus

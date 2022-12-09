@@ -35,11 +35,11 @@ module Amazonka.Signer.ListSigningPlatforms
     newListSigningPlatforms,
 
     -- * Request Lenses
-    listSigningPlatforms_partner,
-    listSigningPlatforms_nextToken,
-    listSigningPlatforms_target,
-    listSigningPlatforms_maxResults,
     listSigningPlatforms_category,
+    listSigningPlatforms_maxResults,
+    listSigningPlatforms_nextToken,
+    listSigningPlatforms_partner,
+    listSigningPlatforms_target,
 
     -- * Destructuring the Response
     ListSigningPlatformsResponse (..),
@@ -62,19 +62,19 @@ import Amazonka.Signer.Types
 
 -- | /See:/ 'newListSigningPlatforms' smart constructor.
 data ListSigningPlatforms = ListSigningPlatforms'
-  { -- | Any partner entities connected to a signing platform.
-    partner :: Prelude.Maybe Prelude.Text,
+  { -- | The category type of a signing platform.
+    category :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned by this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Value for specifying the next set of paginated results to return. After
     -- you receive a response with truncated results, use this parameter in a
     -- subsequent request. Set it to the value of @nextToken@ from the response
     -- that you just received.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Any partner entities connected to a signing platform.
+    partner :: Prelude.Maybe Prelude.Text,
     -- | The validation template that is used by the target signing platform.
-    target :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned by this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The category type of a signing platform.
-    category :: Prelude.Maybe Prelude.Text
+    target :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,32 +86,36 @@ data ListSigningPlatforms = ListSigningPlatforms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partner', 'listSigningPlatforms_partner' - Any partner entities connected to a signing platform.
+-- 'category', 'listSigningPlatforms_category' - The category type of a signing platform.
+--
+-- 'maxResults', 'listSigningPlatforms_maxResults' - The maximum number of results to be returned by this operation.
 --
 -- 'nextToken', 'listSigningPlatforms_nextToken' - Value for specifying the next set of paginated results to return. After
 -- you receive a response with truncated results, use this parameter in a
 -- subsequent request. Set it to the value of @nextToken@ from the response
 -- that you just received.
 --
+-- 'partner', 'listSigningPlatforms_partner' - Any partner entities connected to a signing platform.
+--
 -- 'target', 'listSigningPlatforms_target' - The validation template that is used by the target signing platform.
---
--- 'maxResults', 'listSigningPlatforms_maxResults' - The maximum number of results to be returned by this operation.
---
--- 'category', 'listSigningPlatforms_category' - The category type of a signing platform.
 newListSigningPlatforms ::
   ListSigningPlatforms
 newListSigningPlatforms =
   ListSigningPlatforms'
-    { partner = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      target = Prelude.Nothing,
+    { category = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      category = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      partner = Prelude.Nothing,
+      target = Prelude.Nothing
     }
 
--- | Any partner entities connected to a signing platform.
-listSigningPlatforms_partner :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
-listSigningPlatforms_partner = Lens.lens (\ListSigningPlatforms' {partner} -> partner) (\s@ListSigningPlatforms' {} a -> s {partner = a} :: ListSigningPlatforms)
+-- | The category type of a signing platform.
+listSigningPlatforms_category :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
+listSigningPlatforms_category = Lens.lens (\ListSigningPlatforms' {category} -> category) (\s@ListSigningPlatforms' {} a -> s {category = a} :: ListSigningPlatforms)
+
+-- | The maximum number of results to be returned by this operation.
+listSigningPlatforms_maxResults :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Natural)
+listSigningPlatforms_maxResults = Lens.lens (\ListSigningPlatforms' {maxResults} -> maxResults) (\s@ListSigningPlatforms' {} a -> s {maxResults = a} :: ListSigningPlatforms)
 
 -- | Value for specifying the next set of paginated results to return. After
 -- you receive a response with truncated results, use this parameter in a
@@ -120,17 +124,13 @@ listSigningPlatforms_partner = Lens.lens (\ListSigningPlatforms' {partner} -> pa
 listSigningPlatforms_nextToken :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
 listSigningPlatforms_nextToken = Lens.lens (\ListSigningPlatforms' {nextToken} -> nextToken) (\s@ListSigningPlatforms' {} a -> s {nextToken = a} :: ListSigningPlatforms)
 
+-- | Any partner entities connected to a signing platform.
+listSigningPlatforms_partner :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
+listSigningPlatforms_partner = Lens.lens (\ListSigningPlatforms' {partner} -> partner) (\s@ListSigningPlatforms' {} a -> s {partner = a} :: ListSigningPlatforms)
+
 -- | The validation template that is used by the target signing platform.
 listSigningPlatforms_target :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
 listSigningPlatforms_target = Lens.lens (\ListSigningPlatforms' {target} -> target) (\s@ListSigningPlatforms' {} a -> s {target = a} :: ListSigningPlatforms)
-
--- | The maximum number of results to be returned by this operation.
-listSigningPlatforms_maxResults :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Natural)
-listSigningPlatforms_maxResults = Lens.lens (\ListSigningPlatforms' {maxResults} -> maxResults) (\s@ListSigningPlatforms' {} a -> s {maxResults = a} :: ListSigningPlatforms)
-
--- | The category type of a signing platform.
-listSigningPlatforms_category :: Lens.Lens' ListSigningPlatforms (Prelude.Maybe Prelude.Text)
-listSigningPlatforms_category = Lens.lens (\ListSigningPlatforms' {category} -> category) (\s@ListSigningPlatforms' {} a -> s {category = a} :: ListSigningPlatforms)
 
 instance Core.AWSPager ListSigningPlatforms where
   page rq rs
@@ -171,19 +171,19 @@ instance Core.AWSRequest ListSigningPlatforms where
 
 instance Prelude.Hashable ListSigningPlatforms where
   hashWithSalt _salt ListSigningPlatforms' {..} =
-    _salt `Prelude.hashWithSalt` partner
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` target
+    _salt `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` partner
+      `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ListSigningPlatforms where
   rnf ListSigningPlatforms' {..} =
-    Prelude.rnf partner
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf target
+    Prelude.rnf category
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf partner
+      `Prelude.seq` Prelude.rnf target
 
 instance Data.ToHeaders ListSigningPlatforms where
   toHeaders =
@@ -202,11 +202,11 @@ instance Data.ToPath ListSigningPlatforms where
 instance Data.ToQuery ListSigningPlatforms where
   toQuery ListSigningPlatforms' {..} =
     Prelude.mconcat
-      [ "partner" Data.=: partner,
-        "nextToken" Data.=: nextToken,
-        "target" Data.=: target,
+      [ "category" Data.=: category,
         "maxResults" Data.=: maxResults,
-        "category" Data.=: category
+        "nextToken" Data.=: nextToken,
+        "partner" Data.=: partner,
+        "target" Data.=: target
       ]
 
 -- | /See:/ 'newListSigningPlatformsResponse' smart constructor.

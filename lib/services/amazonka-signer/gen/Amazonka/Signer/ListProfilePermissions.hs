@@ -37,8 +37,8 @@ module Amazonka.Signer.ListProfilePermissions
     -- * Response Lenses
     listProfilePermissionsResponse_nextToken,
     listProfilePermissionsResponse_permissions,
-    listProfilePermissionsResponse_revisionId,
     listProfilePermissionsResponse_policySizeBytes,
+    listProfilePermissionsResponse_revisionId,
     listProfilePermissionsResponse_httpStatus,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest ListProfilePermissions where
           ListProfilePermissionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "permissions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (x Data..?> "policySizeBytes")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,10 +146,10 @@ data ListProfilePermissionsResponse = ListProfilePermissionsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | List of permissions associated with the Signing Profile.
     permissions :: Prelude.Maybe [Permission],
-    -- | The identifier for the current revision of profile permissions.
-    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Total size of the policy associated with the Signing Profile in bytes.
     policySizeBytes :: Prelude.Maybe Prelude.Int,
+    -- | The identifier for the current revision of profile permissions.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data ListProfilePermissionsResponse = ListProfilePermissionsResponse'
 --
 -- 'permissions', 'listProfilePermissionsResponse_permissions' - List of permissions associated with the Signing Profile.
 --
--- 'revisionId', 'listProfilePermissionsResponse_revisionId' - The identifier for the current revision of profile permissions.
---
 -- 'policySizeBytes', 'listProfilePermissionsResponse_policySizeBytes' - Total size of the policy associated with the Signing Profile in bytes.
+--
+-- 'revisionId', 'listProfilePermissionsResponse_revisionId' - The identifier for the current revision of profile permissions.
 --
 -- 'httpStatus', 'listProfilePermissionsResponse_httpStatus' - The response's http status code.
 newListProfilePermissionsResponse ::
@@ -181,8 +181,8 @@ newListProfilePermissionsResponse pHttpStatus_ =
     { nextToken =
         Prelude.Nothing,
       permissions = Prelude.Nothing,
-      revisionId = Prelude.Nothing,
       policySizeBytes = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -194,13 +194,13 @@ listProfilePermissionsResponse_nextToken = Lens.lens (\ListProfilePermissionsRes
 listProfilePermissionsResponse_permissions :: Lens.Lens' ListProfilePermissionsResponse (Prelude.Maybe [Permission])
 listProfilePermissionsResponse_permissions = Lens.lens (\ListProfilePermissionsResponse' {permissions} -> permissions) (\s@ListProfilePermissionsResponse' {} a -> s {permissions = a} :: ListProfilePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier for the current revision of profile permissions.
-listProfilePermissionsResponse_revisionId :: Lens.Lens' ListProfilePermissionsResponse (Prelude.Maybe Prelude.Text)
-listProfilePermissionsResponse_revisionId = Lens.lens (\ListProfilePermissionsResponse' {revisionId} -> revisionId) (\s@ListProfilePermissionsResponse' {} a -> s {revisionId = a} :: ListProfilePermissionsResponse)
-
 -- | Total size of the policy associated with the Signing Profile in bytes.
 listProfilePermissionsResponse_policySizeBytes :: Lens.Lens' ListProfilePermissionsResponse (Prelude.Maybe Prelude.Int)
 listProfilePermissionsResponse_policySizeBytes = Lens.lens (\ListProfilePermissionsResponse' {policySizeBytes} -> policySizeBytes) (\s@ListProfilePermissionsResponse' {} a -> s {policySizeBytes = a} :: ListProfilePermissionsResponse)
+
+-- | The identifier for the current revision of profile permissions.
+listProfilePermissionsResponse_revisionId :: Lens.Lens' ListProfilePermissionsResponse (Prelude.Maybe Prelude.Text)
+listProfilePermissionsResponse_revisionId = Lens.lens (\ListProfilePermissionsResponse' {revisionId} -> revisionId) (\s@ListProfilePermissionsResponse' {} a -> s {revisionId = a} :: ListProfilePermissionsResponse)
 
 -- | The response's http status code.
 listProfilePermissionsResponse_httpStatus :: Lens.Lens' ListProfilePermissionsResponse Prelude.Int
@@ -213,6 +213,6 @@ instance
   rnf ListProfilePermissionsResponse' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf policySizeBytes
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf httpStatus

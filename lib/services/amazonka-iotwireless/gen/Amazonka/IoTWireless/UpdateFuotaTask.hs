@@ -27,11 +27,11 @@ module Amazonka.IoTWireless.UpdateFuotaTask
     newUpdateFuotaTask,
 
     -- * Request Lenses
-    updateFuotaTask_name,
-    updateFuotaTask_loRaWAN,
     updateFuotaTask_description,
-    updateFuotaTask_firmwareUpdateRole,
     updateFuotaTask_firmwareUpdateImage,
+    updateFuotaTask_firmwareUpdateRole,
+    updateFuotaTask_loRaWAN,
+    updateFuotaTask_name,
     updateFuotaTask_id,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFuotaTask' smart constructor.
 data UpdateFuotaTask = UpdateFuotaTask'
-  { name :: Prelude.Maybe Prelude.Text,
-    loRaWAN :: Prelude.Maybe LoRaWANFuotaTask,
-    description :: Prelude.Maybe Prelude.Text,
-    firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
+  { description :: Prelude.Maybe Prelude.Text,
     firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
+    firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
+    loRaWAN :: Prelude.Maybe LoRaWANFuotaTask,
+    name :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,15 +70,15 @@ data UpdateFuotaTask = UpdateFuotaTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateFuotaTask_name' - Undocumented member.
---
--- 'loRaWAN', 'updateFuotaTask_loRaWAN' - Undocumented member.
---
 -- 'description', 'updateFuotaTask_description' - Undocumented member.
+--
+-- 'firmwareUpdateImage', 'updateFuotaTask_firmwareUpdateImage' - Undocumented member.
 --
 -- 'firmwareUpdateRole', 'updateFuotaTask_firmwareUpdateRole' - Undocumented member.
 --
--- 'firmwareUpdateImage', 'updateFuotaTask_firmwareUpdateImage' - Undocumented member.
+-- 'loRaWAN', 'updateFuotaTask_loRaWAN' - Undocumented member.
+--
+-- 'name', 'updateFuotaTask_name' - Undocumented member.
 --
 -- 'id', 'updateFuotaTask_id' - Undocumented member.
 newUpdateFuotaTask ::
@@ -87,33 +87,33 @@ newUpdateFuotaTask ::
   UpdateFuotaTask
 newUpdateFuotaTask pId_ =
   UpdateFuotaTask'
-    { name = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
-      description = Prelude.Nothing,
-      firmwareUpdateRole = Prelude.Nothing,
+    { description = Prelude.Nothing,
       firmwareUpdateImage = Prelude.Nothing,
+      firmwareUpdateRole = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
+      name = Prelude.Nothing,
       id = pId_
     }
-
--- | Undocumented member.
-updateFuotaTask_name :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
-updateFuotaTask_name = Lens.lens (\UpdateFuotaTask' {name} -> name) (\s@UpdateFuotaTask' {} a -> s {name = a} :: UpdateFuotaTask)
-
--- | Undocumented member.
-updateFuotaTask_loRaWAN :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe LoRaWANFuotaTask)
-updateFuotaTask_loRaWAN = Lens.lens (\UpdateFuotaTask' {loRaWAN} -> loRaWAN) (\s@UpdateFuotaTask' {} a -> s {loRaWAN = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
 updateFuotaTask_description :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
 updateFuotaTask_description = Lens.lens (\UpdateFuotaTask' {description} -> description) (\s@UpdateFuotaTask' {} a -> s {description = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
+updateFuotaTask_firmwareUpdateImage :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
+updateFuotaTask_firmwareUpdateImage = Lens.lens (\UpdateFuotaTask' {firmwareUpdateImage} -> firmwareUpdateImage) (\s@UpdateFuotaTask' {} a -> s {firmwareUpdateImage = a} :: UpdateFuotaTask)
+
+-- | Undocumented member.
 updateFuotaTask_firmwareUpdateRole :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
 updateFuotaTask_firmwareUpdateRole = Lens.lens (\UpdateFuotaTask' {firmwareUpdateRole} -> firmwareUpdateRole) (\s@UpdateFuotaTask' {} a -> s {firmwareUpdateRole = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
-updateFuotaTask_firmwareUpdateImage :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
-updateFuotaTask_firmwareUpdateImage = Lens.lens (\UpdateFuotaTask' {firmwareUpdateImage} -> firmwareUpdateImage) (\s@UpdateFuotaTask' {} a -> s {firmwareUpdateImage = a} :: UpdateFuotaTask)
+updateFuotaTask_loRaWAN :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe LoRaWANFuotaTask)
+updateFuotaTask_loRaWAN = Lens.lens (\UpdateFuotaTask' {loRaWAN} -> loRaWAN) (\s@UpdateFuotaTask' {} a -> s {loRaWAN = a} :: UpdateFuotaTask)
+
+-- | Undocumented member.
+updateFuotaTask_name :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
+updateFuotaTask_name = Lens.lens (\UpdateFuotaTask' {name} -> name) (\s@UpdateFuotaTask' {} a -> s {name = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
 updateFuotaTask_id :: Lens.Lens' UpdateFuotaTask Prelude.Text
@@ -134,20 +134,20 @@ instance Core.AWSRequest UpdateFuotaTask where
 
 instance Prelude.Hashable UpdateFuotaTask where
   hashWithSalt _salt UpdateFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` loRaWAN
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` firmwareUpdateRole
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firmwareUpdateImage
+      `Prelude.hashWithSalt` firmwareUpdateRole
+      `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateFuotaTask where
   rnf UpdateFuotaTask' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firmwareUpdateRole
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
+      `Prelude.seq` Prelude.rnf firmwareUpdateRole
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateFuotaTask where
@@ -157,13 +157,13 @@ instance Data.ToJSON UpdateFuotaTask where
   toJSON UpdateFuotaTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("FirmwareUpdateImage" Data..=)
+              Prelude.<$> firmwareUpdateImage,
             ("FirmwareUpdateRole" Data..=)
               Prelude.<$> firmwareUpdateRole,
-            ("FirmwareUpdateImage" Data..=)
-              Prelude.<$> firmwareUpdateImage
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

@@ -28,8 +28,8 @@ module Amazonka.IoTWireless.ListEventConfigurations
     newListEventConfigurations,
 
     -- * Request Lenses
-    listEventConfigurations_nextToken,
     listEventConfigurations_maxResults,
+    listEventConfigurations_nextToken,
     listEventConfigurations_resourceType,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.IoTWireless.ListEventConfigurations
     newListEventConfigurationsResponse,
 
     -- * Response Lenses
-    listEventConfigurationsResponse_nextToken,
     listEventConfigurationsResponse_eventConfigurationsList,
+    listEventConfigurationsResponse_nextToken,
     listEventConfigurationsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventConfigurations' smart constructor.
 data ListEventConfigurations = ListEventConfigurations'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Resource type to filter event configurations.
     resourceType :: EventNotificationResourceType
   }
@@ -71,11 +71,11 @@ data ListEventConfigurations = ListEventConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEventConfigurations_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listEventConfigurations_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listEventConfigurations_maxResults' - Undocumented member.
 --
 -- 'resourceType', 'listEventConfigurations_resourceType' - Resource type to filter event configurations.
 newListEventConfigurations ::
@@ -84,21 +84,21 @@ newListEventConfigurations ::
   ListEventConfigurations
 newListEventConfigurations pResourceType_ =
   ListEventConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceType = pResourceType_
     }
+
+-- | Undocumented member.
+listEventConfigurations_maxResults :: Lens.Lens' ListEventConfigurations (Prelude.Maybe Prelude.Natural)
+listEventConfigurations_maxResults = Lens.lens (\ListEventConfigurations' {maxResults} -> maxResults) (\s@ListEventConfigurations' {} a -> s {maxResults = a} :: ListEventConfigurations)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listEventConfigurations_nextToken :: Lens.Lens' ListEventConfigurations (Prelude.Maybe Prelude.Text)
 listEventConfigurations_nextToken = Lens.lens (\ListEventConfigurations' {nextToken} -> nextToken) (\s@ListEventConfigurations' {} a -> s {nextToken = a} :: ListEventConfigurations)
-
--- | Undocumented member.
-listEventConfigurations_maxResults :: Lens.Lens' ListEventConfigurations (Prelude.Maybe Prelude.Natural)
-listEventConfigurations_maxResults = Lens.lens (\ListEventConfigurations' {maxResults} -> maxResults) (\s@ListEventConfigurations' {} a -> s {maxResults = a} :: ListEventConfigurations)
 
 -- | Resource type to filter event configurations.
 listEventConfigurations_resourceType :: Lens.Lens' ListEventConfigurations EventNotificationResourceType
@@ -114,23 +114,23 @@ instance Core.AWSRequest ListEventConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListEventConfigurationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "EventConfigurationsList"
+            Prelude.<$> ( x Data..?> "EventConfigurationsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventConfigurations where
   hashWithSalt _salt ListEventConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListEventConfigurations where
   rnf ListEventConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListEventConfigurations where
@@ -142,19 +142,19 @@ instance Data.ToPath ListEventConfigurations where
 instance Data.ToQuery ListEventConfigurations where
   toQuery ListEventConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newListEventConfigurationsResponse' smart constructor.
 data ListEventConfigurationsResponse = ListEventConfigurationsResponse'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | Event configurations of all events for a single resource.
+    eventConfigurationsList :: Prelude.Maybe [EventConfigurationItem],
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Event configurations of all events for a single resource.
-    eventConfigurationsList :: Prelude.Maybe [EventConfigurationItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,11 +168,11 @@ data ListEventConfigurationsResponse = ListEventConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventConfigurationsList', 'listEventConfigurationsResponse_eventConfigurationsList' - Event configurations of all events for a single resource.
+--
 -- 'nextToken', 'listEventConfigurationsResponse_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'eventConfigurationsList', 'listEventConfigurationsResponse_eventConfigurationsList' - Event configurations of all events for a single resource.
 --
 -- 'httpStatus', 'listEventConfigurationsResponse_httpStatus' - The response's http status code.
 newListEventConfigurationsResponse ::
@@ -181,21 +181,21 @@ newListEventConfigurationsResponse ::
   ListEventConfigurationsResponse
 newListEventConfigurationsResponse pHttpStatus_ =
   ListEventConfigurationsResponse'
-    { nextToken =
+    { eventConfigurationsList =
         Prelude.Nothing,
-      eventConfigurationsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Event configurations of all events for a single resource.
+listEventConfigurationsResponse_eventConfigurationsList :: Lens.Lens' ListEventConfigurationsResponse (Prelude.Maybe [EventConfigurationItem])
+listEventConfigurationsResponse_eventConfigurationsList = Lens.lens (\ListEventConfigurationsResponse' {eventConfigurationsList} -> eventConfigurationsList) (\s@ListEventConfigurationsResponse' {} a -> s {eventConfigurationsList = a} :: ListEventConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listEventConfigurationsResponse_nextToken :: Lens.Lens' ListEventConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listEventConfigurationsResponse_nextToken = Lens.lens (\ListEventConfigurationsResponse' {nextToken} -> nextToken) (\s@ListEventConfigurationsResponse' {} a -> s {nextToken = a} :: ListEventConfigurationsResponse)
-
--- | Event configurations of all events for a single resource.
-listEventConfigurationsResponse_eventConfigurationsList :: Lens.Lens' ListEventConfigurationsResponse (Prelude.Maybe [EventConfigurationItem])
-listEventConfigurationsResponse_eventConfigurationsList = Lens.lens (\ListEventConfigurationsResponse' {eventConfigurationsList} -> eventConfigurationsList) (\s@ListEventConfigurationsResponse' {} a -> s {eventConfigurationsList = a} :: ListEventConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEventConfigurationsResponse_httpStatus :: Lens.Lens' ListEventConfigurationsResponse Prelude.Int
@@ -206,6 +206,6 @@ instance
     ListEventConfigurationsResponse
   where
   rnf ListEventConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventConfigurationsList
+    Prelude.rnf eventConfigurationsList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

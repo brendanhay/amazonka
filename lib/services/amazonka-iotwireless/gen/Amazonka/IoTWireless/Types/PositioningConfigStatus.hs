@@ -11,16 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IoTWireless.Types.PositionSolverType
+-- Module      : Amazonka.IoTWireless.Types.PositioningConfigStatus
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IoTWireless.Types.PositionSolverType
-  ( PositionSolverType
+module Amazonka.IoTWireless.Types.PositioningConfigStatus
+  ( PositioningConfigStatus
       ( ..,
-        PositionSolverType_GNSS
+        PositioningConfigStatus_Disabled,
+        PositioningConfigStatus_Enabled
       ),
   )
 where
@@ -29,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype PositionSolverType = PositionSolverType'
-  { fromPositionSolverType ::
+newtype PositioningConfigStatus = PositioningConfigStatus'
+  { fromPositioningConfigStatus ::
       Data.Text
   }
   deriving stock
@@ -57,10 +58,14 @@ newtype PositionSolverType = PositionSolverType'
       Data.ToXML
     )
 
-pattern PositionSolverType_GNSS :: PositionSolverType
-pattern PositionSolverType_GNSS = PositionSolverType' "GNSS"
+pattern PositioningConfigStatus_Disabled :: PositioningConfigStatus
+pattern PositioningConfigStatus_Disabled = PositioningConfigStatus' "Disabled"
+
+pattern PositioningConfigStatus_Enabled :: PositioningConfigStatus
+pattern PositioningConfigStatus_Enabled = PositioningConfigStatus' "Enabled"
 
 {-# COMPLETE
-  PositionSolverType_GNSS,
-  PositionSolverType'
+  PositioningConfigStatus_Disabled,
+  PositioningConfigStatus_Enabled,
+  PositioningConfigStatus'
   #-}

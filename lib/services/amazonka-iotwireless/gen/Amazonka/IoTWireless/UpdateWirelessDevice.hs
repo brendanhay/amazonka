@@ -27,10 +27,11 @@ module Amazonka.IoTWireless.UpdateWirelessDevice
     newUpdateWirelessDevice,
 
     -- * Request Lenses
-    updateWirelessDevice_name,
-    updateWirelessDevice_loRaWAN,
-    updateWirelessDevice_destinationName,
     updateWirelessDevice_description,
+    updateWirelessDevice_destinationName,
+    updateWirelessDevice_loRaWAN,
+    updateWirelessDevice_name,
+    updateWirelessDevice_positioning,
     updateWirelessDevice_id,
 
     -- * Destructuring the Response
@@ -52,14 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWirelessDevice' smart constructor.
 data UpdateWirelessDevice = UpdateWirelessDevice'
-  { -- | The new name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The updated wireless device\'s configuration.
-    loRaWAN :: Prelude.Maybe LoRaWANUpdateDevice,
+  { -- | A new description of the resource.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the new destination for the device.
     destinationName :: Prelude.Maybe Prelude.Text,
-    -- | A new description of the resource.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The updated wireless device\'s configuration.
+    loRaWAN :: Prelude.Maybe LoRaWANUpdateDevice,
+    -- | The new name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | FPort values for the GNSS, stream, and ClockSync functions of the
+    -- positioning information.
+    positioning :: Prelude.Maybe PositioningConfigStatus,
     -- | The ID of the resource to update.
     id :: Prelude.Text
   }
@@ -73,13 +77,16 @@ data UpdateWirelessDevice = UpdateWirelessDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateWirelessDevice_name' - The new name of the resource.
---
--- 'loRaWAN', 'updateWirelessDevice_loRaWAN' - The updated wireless device\'s configuration.
+-- 'description', 'updateWirelessDevice_description' - A new description of the resource.
 --
 -- 'destinationName', 'updateWirelessDevice_destinationName' - The name of the new destination for the device.
 --
--- 'description', 'updateWirelessDevice_description' - A new description of the resource.
+-- 'loRaWAN', 'updateWirelessDevice_loRaWAN' - The updated wireless device\'s configuration.
+--
+-- 'name', 'updateWirelessDevice_name' - The new name of the resource.
+--
+-- 'positioning', 'updateWirelessDevice_positioning' - FPort values for the GNSS, stream, and ClockSync functions of the
+-- positioning information.
 --
 -- 'id', 'updateWirelessDevice_id' - The ID of the resource to update.
 newUpdateWirelessDevice ::
@@ -88,28 +95,35 @@ newUpdateWirelessDevice ::
   UpdateWirelessDevice
 newUpdateWirelessDevice pId_ =
   UpdateWirelessDevice'
-    { name = Prelude.Nothing,
-      loRaWAN = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       destinationName = Prelude.Nothing,
-      description = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing,
+      name = Prelude.Nothing,
+      positioning = Prelude.Nothing,
       id = pId_
     }
 
--- | The new name of the resource.
-updateWirelessDevice_name :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
-updateWirelessDevice_name = Lens.lens (\UpdateWirelessDevice' {name} -> name) (\s@UpdateWirelessDevice' {} a -> s {name = a} :: UpdateWirelessDevice)
-
--- | The updated wireless device\'s configuration.
-updateWirelessDevice_loRaWAN :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe LoRaWANUpdateDevice)
-updateWirelessDevice_loRaWAN = Lens.lens (\UpdateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessDevice' {} a -> s {loRaWAN = a} :: UpdateWirelessDevice)
+-- | A new description of the resource.
+updateWirelessDevice_description :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
+updateWirelessDevice_description = Lens.lens (\UpdateWirelessDevice' {description} -> description) (\s@UpdateWirelessDevice' {} a -> s {description = a} :: UpdateWirelessDevice)
 
 -- | The name of the new destination for the device.
 updateWirelessDevice_destinationName :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
 updateWirelessDevice_destinationName = Lens.lens (\UpdateWirelessDevice' {destinationName} -> destinationName) (\s@UpdateWirelessDevice' {} a -> s {destinationName = a} :: UpdateWirelessDevice)
 
--- | A new description of the resource.
-updateWirelessDevice_description :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
-updateWirelessDevice_description = Lens.lens (\UpdateWirelessDevice' {description} -> description) (\s@UpdateWirelessDevice' {} a -> s {description = a} :: UpdateWirelessDevice)
+-- | The updated wireless device\'s configuration.
+updateWirelessDevice_loRaWAN :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe LoRaWANUpdateDevice)
+updateWirelessDevice_loRaWAN = Lens.lens (\UpdateWirelessDevice' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessDevice' {} a -> s {loRaWAN = a} :: UpdateWirelessDevice)
+
+-- | The new name of the resource.
+updateWirelessDevice_name :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe Prelude.Text)
+updateWirelessDevice_name = Lens.lens (\UpdateWirelessDevice' {name} -> name) (\s@UpdateWirelessDevice' {} a -> s {name = a} :: UpdateWirelessDevice)
+
+-- | FPort values for the GNSS, stream, and ClockSync functions of the
+-- positioning information.
+updateWirelessDevice_positioning :: Lens.Lens' UpdateWirelessDevice (Prelude.Maybe PositioningConfigStatus)
+updateWirelessDevice_positioning = Lens.lens (\UpdateWirelessDevice' {positioning} -> positioning) (\s@UpdateWirelessDevice' {} a -> s {positioning = a} :: UpdateWirelessDevice)
 
 -- | The ID of the resource to update.
 updateWirelessDevice_id :: Lens.Lens' UpdateWirelessDevice Prelude.Text
@@ -130,18 +144,20 @@ instance Core.AWSRequest UpdateWirelessDevice where
 
 instance Prelude.Hashable UpdateWirelessDevice where
   hashWithSalt _salt UpdateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` positioning
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWirelessDevice where
   rnf UpdateWirelessDevice' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf destinationName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf positioning
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateWirelessDevice where
@@ -151,11 +167,12 @@ instance Data.ToJSON UpdateWirelessDevice where
   toJSON UpdateWirelessDevice' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DestinationName" Data..=)
               Prelude.<$> destinationName,
-            ("Description" Data..=) Prelude.<$> description
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Positioning" Data..=) Prelude.<$> positioning
           ]
       )
 

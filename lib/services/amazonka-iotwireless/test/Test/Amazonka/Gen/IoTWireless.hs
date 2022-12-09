@@ -162,17 +162,17 @@ import Test.Tasty
 --         , requestGetPartnerAccount $
 --             newGetPartnerAccount
 --
---         , requestGetPosition $
---             newGetPosition
---
---         , requestGetPositionConfiguration $
---             newGetPositionConfiguration
+--         , requestGetPositionEstimate $
+--             newGetPositionEstimate
 --
 --         , requestGetResourceEventConfiguration $
 --             newGetResourceEventConfiguration
 --
 --         , requestGetResourceLogLevel $
 --             newGetResourceLogLevel
+--
+--         , requestGetResourcePosition $
+--             newGetResourcePosition
 --
 --         , requestGetServiceEndpoint $
 --             newGetServiceEndpoint
@@ -228,9 +228,6 @@ import Test.Tasty
 --         , requestListPartnerAccounts $
 --             newListPartnerAccounts
 --
---         , requestListPositionConfigurations $
---             newListPositionConfigurations
---
 --         , requestListQueuedMessages $
 --             newListQueuedMessages
 --
@@ -248,9 +245,6 @@ import Test.Tasty
 --
 --         , requestListWirelessGateways $
 --             newListWirelessGateways
---
---         , requestPutPositionConfiguration $
---             newPutPositionConfiguration
 --
 --         , requestPutResourceLogLevel $
 --             newPutResourceLogLevel
@@ -309,11 +303,11 @@ import Test.Tasty
 --         , requestUpdatePartnerAccount $
 --             newUpdatePartnerAccount
 --
---         , requestUpdatePosition $
---             newUpdatePosition
---
 --         , requestUpdateResourceEventConfiguration $
 --             newUpdateResourceEventConfiguration
+--
+--         , requestUpdateResourcePosition $
+--             newUpdateResourcePosition
 --
 --         , requestUpdateWirelessDevice $
 --             newUpdateWirelessDevice
@@ -459,17 +453,17 @@ import Test.Tasty
 --         , responseGetPartnerAccount $
 --             newGetPartnerAccountResponse
 --
---         , responseGetPosition $
---             newGetPositionResponse
---
---         , responseGetPositionConfiguration $
---             newGetPositionConfigurationResponse
+--         , responseGetPositionEstimate $
+--             newGetPositionEstimateResponse
 --
 --         , responseGetResourceEventConfiguration $
 --             newGetResourceEventConfigurationResponse
 --
 --         , responseGetResourceLogLevel $
 --             newGetResourceLogLevelResponse
+--
+--         , responseGetResourcePosition $
+--             newGetResourcePositionResponse
 --
 --         , responseGetServiceEndpoint $
 --             newGetServiceEndpointResponse
@@ -525,9 +519,6 @@ import Test.Tasty
 --         , responseListPartnerAccounts $
 --             newListPartnerAccountsResponse
 --
---         , responseListPositionConfigurations $
---             newListPositionConfigurationsResponse
---
 --         , responseListQueuedMessages $
 --             newListQueuedMessagesResponse
 --
@@ -545,9 +536,6 @@ import Test.Tasty
 --
 --         , responseListWirelessGateways $
 --             newListWirelessGatewaysResponse
---
---         , responsePutPositionConfiguration $
---             newPutPositionConfigurationResponse
 --
 --         , responsePutResourceLogLevel $
 --             newPutResourceLogLevelResponse
@@ -606,11 +594,11 @@ import Test.Tasty
 --         , responseUpdatePartnerAccount $
 --             newUpdatePartnerAccountResponse
 --
---         , responseUpdatePosition $
---             newUpdatePositionResponse
---
 --         , responseUpdateResourceEventConfiguration $
 --             newUpdateResourceEventConfigurationResponse
+--
+--         , responseUpdateResourcePosition $
+--             newUpdateResourcePositionResponse
 --
 --         , responseUpdateWirelessDevice $
 --             newUpdateWirelessDeviceResponse
@@ -893,17 +881,11 @@ requestGetPartnerAccount =
     "GetPartnerAccount"
     "fixture/GetPartnerAccount.yaml"
 
-requestGetPosition :: GetPosition -> TestTree
-requestGetPosition =
+requestGetPositionEstimate :: GetPositionEstimate -> TestTree
+requestGetPositionEstimate =
   req
-    "GetPosition"
-    "fixture/GetPosition.yaml"
-
-requestGetPositionConfiguration :: GetPositionConfiguration -> TestTree
-requestGetPositionConfiguration =
-  req
-    "GetPositionConfiguration"
-    "fixture/GetPositionConfiguration.yaml"
+    "GetPositionEstimate"
+    "fixture/GetPositionEstimate.yaml"
 
 requestGetResourceEventConfiguration :: GetResourceEventConfiguration -> TestTree
 requestGetResourceEventConfiguration =
@@ -916,6 +898,12 @@ requestGetResourceLogLevel =
   req
     "GetResourceLogLevel"
     "fixture/GetResourceLogLevel.yaml"
+
+requestGetResourcePosition :: GetResourcePosition -> TestTree
+requestGetResourcePosition =
+  req
+    "GetResourcePosition"
+    "fixture/GetResourcePosition.yaml"
 
 requestGetServiceEndpoint :: GetServiceEndpoint -> TestTree
 requestGetServiceEndpoint =
@@ -1025,12 +1013,6 @@ requestListPartnerAccounts =
     "ListPartnerAccounts"
     "fixture/ListPartnerAccounts.yaml"
 
-requestListPositionConfigurations :: ListPositionConfigurations -> TestTree
-requestListPositionConfigurations =
-  req
-    "ListPositionConfigurations"
-    "fixture/ListPositionConfigurations.yaml"
-
 requestListQueuedMessages :: ListQueuedMessages -> TestTree
 requestListQueuedMessages =
   req
@@ -1066,12 +1048,6 @@ requestListWirelessGateways =
   req
     "ListWirelessGateways"
     "fixture/ListWirelessGateways.yaml"
-
-requestPutPositionConfiguration :: PutPositionConfiguration -> TestTree
-requestPutPositionConfiguration =
-  req
-    "PutPositionConfiguration"
-    "fixture/PutPositionConfiguration.yaml"
 
 requestPutResourceLogLevel :: PutResourceLogLevel -> TestTree
 requestPutResourceLogLevel =
@@ -1187,17 +1163,17 @@ requestUpdatePartnerAccount =
     "UpdatePartnerAccount"
     "fixture/UpdatePartnerAccount.yaml"
 
-requestUpdatePosition :: UpdatePosition -> TestTree
-requestUpdatePosition =
-  req
-    "UpdatePosition"
-    "fixture/UpdatePosition.yaml"
-
 requestUpdateResourceEventConfiguration :: UpdateResourceEventConfiguration -> TestTree
 requestUpdateResourceEventConfiguration =
   req
     "UpdateResourceEventConfiguration"
     "fixture/UpdateResourceEventConfiguration.yaml"
+
+requestUpdateResourcePosition :: UpdateResourcePosition -> TestTree
+requestUpdateResourcePosition =
+  req
+    "UpdateResourcePosition"
+    "fixture/UpdateResourcePosition.yaml"
 
 requestUpdateWirelessDevice :: UpdateWirelessDevice -> TestTree
 requestUpdateWirelessDevice =
@@ -1573,21 +1549,13 @@ responseGetPartnerAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetPartnerAccount)
 
-responseGetPosition :: GetPositionResponse -> TestTree
-responseGetPosition =
+responseGetPositionEstimate :: GetPositionEstimateResponse -> TestTree
+responseGetPositionEstimate =
   res
-    "GetPositionResponse"
-    "fixture/GetPositionResponse.proto"
+    "GetPositionEstimateResponse"
+    "fixture/GetPositionEstimateResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPosition)
-
-responseGetPositionConfiguration :: GetPositionConfigurationResponse -> TestTree
-responseGetPositionConfiguration =
-  res
-    "GetPositionConfigurationResponse"
-    "fixture/GetPositionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetPositionConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy GetPositionEstimate)
 
 responseGetResourceEventConfiguration :: GetResourceEventConfigurationResponse -> TestTree
 responseGetResourceEventConfiguration =
@@ -1604,6 +1572,14 @@ responseGetResourceLogLevel =
     "fixture/GetResourceLogLevelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceLogLevel)
+
+responseGetResourcePosition :: GetResourcePositionResponse -> TestTree
+responseGetResourcePosition =
+  res
+    "GetResourcePositionResponse"
+    "fixture/GetResourcePositionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePosition)
 
 responseGetServiceEndpoint :: GetServiceEndpointResponse -> TestTree
 responseGetServiceEndpoint =
@@ -1749,14 +1725,6 @@ responseListPartnerAccounts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPartnerAccounts)
 
-responseListPositionConfigurations :: ListPositionConfigurationsResponse -> TestTree
-responseListPositionConfigurations =
-  res
-    "ListPositionConfigurationsResponse"
-    "fixture/ListPositionConfigurationsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListPositionConfigurations)
-
 responseListQueuedMessages :: ListQueuedMessagesResponse -> TestTree
 responseListQueuedMessages =
   res
@@ -1804,14 +1772,6 @@ responseListWirelessGateways =
     "fixture/ListWirelessGatewaysResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWirelessGateways)
-
-responsePutPositionConfiguration :: PutPositionConfigurationResponse -> TestTree
-responsePutPositionConfiguration =
-  res
-    "PutPositionConfigurationResponse"
-    "fixture/PutPositionConfigurationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy PutPositionConfiguration)
 
 responsePutResourceLogLevel :: PutResourceLogLevelResponse -> TestTree
 responsePutResourceLogLevel =
@@ -1965,14 +1925,6 @@ responseUpdatePartnerAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePartnerAccount)
 
-responseUpdatePosition :: UpdatePositionResponse -> TestTree
-responseUpdatePosition =
-  res
-    "UpdatePositionResponse"
-    "fixture/UpdatePositionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdatePosition)
-
 responseUpdateResourceEventConfiguration :: UpdateResourceEventConfigurationResponse -> TestTree
 responseUpdateResourceEventConfiguration =
   res
@@ -1980,6 +1932,14 @@ responseUpdateResourceEventConfiguration =
     "fixture/UpdateResourceEventConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResourceEventConfiguration)
+
+responseUpdateResourcePosition :: UpdateResourcePositionResponse -> TestTree
+responseUpdateResourcePosition =
+  res
+    "UpdateResourcePositionResponse"
+    "fixture/UpdateResourcePositionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourcePosition)
 
 responseUpdateWirelessDevice :: UpdateWirelessDeviceResponse -> TestTree
 responseUpdateWirelessDevice =

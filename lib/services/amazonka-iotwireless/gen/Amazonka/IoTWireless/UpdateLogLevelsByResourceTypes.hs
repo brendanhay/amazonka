@@ -29,9 +29,9 @@ module Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
     newUpdateLogLevelsByResourceTypes,
 
     -- * Request Lenses
-    updateLogLevelsByResourceTypes_wirelessGatewayLogOptions,
-    updateLogLevelsByResourceTypes_wirelessDeviceLogOptions,
     updateLogLevelsByResourceTypes_defaultLogLevel,
+    updateLogLevelsByResourceTypes_wirelessDeviceLogOptions,
+    updateLogLevelsByResourceTypes_wirelessGatewayLogOptions,
 
     -- * Destructuring the Response
     UpdateLogLevelsByResourceTypesResponse (..),
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLogLevelsByResourceTypes' smart constructor.
 data UpdateLogLevelsByResourceTypes = UpdateLogLevelsByResourceTypes'
-  { wirelessGatewayLogOptions :: Prelude.Maybe [WirelessGatewayLogOption],
+  { defaultLogLevel :: Prelude.Maybe LogLevel,
     wirelessDeviceLogOptions :: Prelude.Maybe [WirelessDeviceLogOption],
-    defaultLogLevel :: Prelude.Maybe LogLevel
+    wirelessGatewayLogOptions :: Prelude.Maybe [WirelessGatewayLogOption]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,32 +66,32 @@ data UpdateLogLevelsByResourceTypes = UpdateLogLevelsByResourceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessGatewayLogOptions', 'updateLogLevelsByResourceTypes_wirelessGatewayLogOptions' - Undocumented member.
+-- 'defaultLogLevel', 'updateLogLevelsByResourceTypes_defaultLogLevel' - Undocumented member.
 --
 -- 'wirelessDeviceLogOptions', 'updateLogLevelsByResourceTypes_wirelessDeviceLogOptions' - Undocumented member.
 --
--- 'defaultLogLevel', 'updateLogLevelsByResourceTypes_defaultLogLevel' - Undocumented member.
+-- 'wirelessGatewayLogOptions', 'updateLogLevelsByResourceTypes_wirelessGatewayLogOptions' - Undocumented member.
 newUpdateLogLevelsByResourceTypes ::
   UpdateLogLevelsByResourceTypes
 newUpdateLogLevelsByResourceTypes =
   UpdateLogLevelsByResourceTypes'
-    { wirelessGatewayLogOptions =
+    { defaultLogLevel =
         Prelude.Nothing,
       wirelessDeviceLogOptions = Prelude.Nothing,
-      defaultLogLevel = Prelude.Nothing
+      wirelessGatewayLogOptions = Prelude.Nothing
     }
 
 -- | Undocumented member.
-updateLogLevelsByResourceTypes_wirelessGatewayLogOptions :: Lens.Lens' UpdateLogLevelsByResourceTypes (Prelude.Maybe [WirelessGatewayLogOption])
-updateLogLevelsByResourceTypes_wirelessGatewayLogOptions = Lens.lens (\UpdateLogLevelsByResourceTypes' {wirelessGatewayLogOptions} -> wirelessGatewayLogOptions) (\s@UpdateLogLevelsByResourceTypes' {} a -> s {wirelessGatewayLogOptions = a} :: UpdateLogLevelsByResourceTypes) Prelude.. Lens.mapping Lens.coerced
+updateLogLevelsByResourceTypes_defaultLogLevel :: Lens.Lens' UpdateLogLevelsByResourceTypes (Prelude.Maybe LogLevel)
+updateLogLevelsByResourceTypes_defaultLogLevel = Lens.lens (\UpdateLogLevelsByResourceTypes' {defaultLogLevel} -> defaultLogLevel) (\s@UpdateLogLevelsByResourceTypes' {} a -> s {defaultLogLevel = a} :: UpdateLogLevelsByResourceTypes)
 
 -- | Undocumented member.
 updateLogLevelsByResourceTypes_wirelessDeviceLogOptions :: Lens.Lens' UpdateLogLevelsByResourceTypes (Prelude.Maybe [WirelessDeviceLogOption])
 updateLogLevelsByResourceTypes_wirelessDeviceLogOptions = Lens.lens (\UpdateLogLevelsByResourceTypes' {wirelessDeviceLogOptions} -> wirelessDeviceLogOptions) (\s@UpdateLogLevelsByResourceTypes' {} a -> s {wirelessDeviceLogOptions = a} :: UpdateLogLevelsByResourceTypes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-updateLogLevelsByResourceTypes_defaultLogLevel :: Lens.Lens' UpdateLogLevelsByResourceTypes (Prelude.Maybe LogLevel)
-updateLogLevelsByResourceTypes_defaultLogLevel = Lens.lens (\UpdateLogLevelsByResourceTypes' {defaultLogLevel} -> defaultLogLevel) (\s@UpdateLogLevelsByResourceTypes' {} a -> s {defaultLogLevel = a} :: UpdateLogLevelsByResourceTypes)
+updateLogLevelsByResourceTypes_wirelessGatewayLogOptions :: Lens.Lens' UpdateLogLevelsByResourceTypes (Prelude.Maybe [WirelessGatewayLogOption])
+updateLogLevelsByResourceTypes_wirelessGatewayLogOptions = Lens.lens (\UpdateLogLevelsByResourceTypes' {wirelessGatewayLogOptions} -> wirelessGatewayLogOptions) (\s@UpdateLogLevelsByResourceTypes' {} a -> s {wirelessGatewayLogOptions = a} :: UpdateLogLevelsByResourceTypes) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -116,19 +116,18 @@ instance
   hashWithSalt
     _salt
     UpdateLogLevelsByResourceTypes' {..} =
-      _salt
-        `Prelude.hashWithSalt` wirelessGatewayLogOptions
+      _salt `Prelude.hashWithSalt` defaultLogLevel
         `Prelude.hashWithSalt` wirelessDeviceLogOptions
-        `Prelude.hashWithSalt` defaultLogLevel
+        `Prelude.hashWithSalt` wirelessGatewayLogOptions
 
 instance
   Prelude.NFData
     UpdateLogLevelsByResourceTypes
   where
   rnf UpdateLogLevelsByResourceTypes' {..} =
-    Prelude.rnf wirelessGatewayLogOptions
+    Prelude.rnf defaultLogLevel
       `Prelude.seq` Prelude.rnf wirelessDeviceLogOptions
-      `Prelude.seq` Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf wirelessGatewayLogOptions
 
 instance
   Data.ToHeaders
@@ -140,12 +139,12 @@ instance Data.ToJSON UpdateLogLevelsByResourceTypes where
   toJSON UpdateLogLevelsByResourceTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WirelessGatewayLogOptions" Data..=)
-              Prelude.<$> wirelessGatewayLogOptions,
+          [ ("DefaultLogLevel" Data..=)
+              Prelude.<$> defaultLogLevel,
             ("WirelessDeviceLogOptions" Data..=)
               Prelude.<$> wirelessDeviceLogOptions,
-            ("DefaultLogLevel" Data..=)
-              Prelude.<$> defaultLogLevel
+            ("WirelessGatewayLogOptions" Data..=)
+              Prelude.<$> wirelessGatewayLogOptions
           ]
       )
 

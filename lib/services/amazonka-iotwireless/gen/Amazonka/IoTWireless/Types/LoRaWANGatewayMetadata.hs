@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANGatewayMetadata' smart constructor.
 data LoRaWANGatewayMetadata = LoRaWANGatewayMetadata'
-  { -- | The SNR value.
-    snr :: Prelude.Maybe Prelude.Double,
-    -- | The gateway\'s EUI value.
+  { -- | The gateway\'s EUI value.
     gatewayEui :: Prelude.Maybe Prelude.Text,
     -- | The RSSI value.
-    rssi :: Prelude.Maybe Prelude.Double
+    rssi :: Prelude.Maybe Prelude.Double,
+    -- | The SNR value.
+    snr :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,20 @@ data LoRaWANGatewayMetadata = LoRaWANGatewayMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snr', 'loRaWANGatewayMetadata_snr' - The SNR value.
---
 -- 'gatewayEui', 'loRaWANGatewayMetadata_gatewayEui' - The gateway\'s EUI value.
 --
 -- 'rssi', 'loRaWANGatewayMetadata_rssi' - The RSSI value.
+--
+-- 'snr', 'loRaWANGatewayMetadata_snr' - The SNR value.
 newLoRaWANGatewayMetadata ::
   LoRaWANGatewayMetadata
 newLoRaWANGatewayMetadata =
   LoRaWANGatewayMetadata'
-    { snr = Prelude.Nothing,
-      gatewayEui = Prelude.Nothing,
-      rssi = Prelude.Nothing
+    { gatewayEui =
+        Prelude.Nothing,
+      rssi = Prelude.Nothing,
+      snr = Prelude.Nothing
     }
-
--- | The SNR value.
-loRaWANGatewayMetadata_snr :: Lens.Lens' LoRaWANGatewayMetadata (Prelude.Maybe Prelude.Double)
-loRaWANGatewayMetadata_snr = Lens.lens (\LoRaWANGatewayMetadata' {snr} -> snr) (\s@LoRaWANGatewayMetadata' {} a -> s {snr = a} :: LoRaWANGatewayMetadata)
 
 -- | The gateway\'s EUI value.
 loRaWANGatewayMetadata_gatewayEui :: Lens.Lens' LoRaWANGatewayMetadata (Prelude.Maybe Prelude.Text)
@@ -71,25 +68,29 @@ loRaWANGatewayMetadata_gatewayEui = Lens.lens (\LoRaWANGatewayMetadata' {gateway
 loRaWANGatewayMetadata_rssi :: Lens.Lens' LoRaWANGatewayMetadata (Prelude.Maybe Prelude.Double)
 loRaWANGatewayMetadata_rssi = Lens.lens (\LoRaWANGatewayMetadata' {rssi} -> rssi) (\s@LoRaWANGatewayMetadata' {} a -> s {rssi = a} :: LoRaWANGatewayMetadata)
 
+-- | The SNR value.
+loRaWANGatewayMetadata_snr :: Lens.Lens' LoRaWANGatewayMetadata (Prelude.Maybe Prelude.Double)
+loRaWANGatewayMetadata_snr = Lens.lens (\LoRaWANGatewayMetadata' {snr} -> snr) (\s@LoRaWANGatewayMetadata' {} a -> s {snr = a} :: LoRaWANGatewayMetadata)
+
 instance Data.FromJSON LoRaWANGatewayMetadata where
   parseJSON =
     Data.withObject
       "LoRaWANGatewayMetadata"
       ( \x ->
           LoRaWANGatewayMetadata'
-            Prelude.<$> (x Data..:? "Snr")
-            Prelude.<*> (x Data..:? "GatewayEui")
+            Prelude.<$> (x Data..:? "GatewayEui")
             Prelude.<*> (x Data..:? "Rssi")
+            Prelude.<*> (x Data..:? "Snr")
       )
 
 instance Prelude.Hashable LoRaWANGatewayMetadata where
   hashWithSalt _salt LoRaWANGatewayMetadata' {..} =
-    _salt `Prelude.hashWithSalt` snr
-      `Prelude.hashWithSalt` gatewayEui
+    _salt `Prelude.hashWithSalt` gatewayEui
       `Prelude.hashWithSalt` rssi
+      `Prelude.hashWithSalt` snr
 
 instance Prelude.NFData LoRaWANGatewayMetadata where
   rnf LoRaWANGatewayMetadata' {..} =
-    Prelude.rnf snr
-      `Prelude.seq` Prelude.rnf gatewayEui
+    Prelude.rnf gatewayEui
       `Prelude.seq` Prelude.rnf rssi
+      `Prelude.seq` Prelude.rnf snr

@@ -31,10 +31,10 @@ module Amazonka.IoTWireless.GetEventConfigurationByResourceTypes
     newGetEventConfigurationByResourceTypesResponse,
 
     -- * Response Lenses
-    getEventConfigurationByResourceTypesResponse_deviceRegistrationState,
     getEventConfigurationByResourceTypesResponse_connectionStatus,
-    getEventConfigurationByResourceTypesResponse_messageDeliveryStatus,
+    getEventConfigurationByResourceTypesResponse_deviceRegistrationState,
     getEventConfigurationByResourceTypesResponse_join,
+    getEventConfigurationByResourceTypesResponse_messageDeliveryStatus,
     getEventConfigurationByResourceTypesResponse_proximity,
     getEventConfigurationByResourceTypesResponse_httpStatus,
   )
@@ -76,10 +76,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEventConfigurationByResourceTypesResponse'
-            Prelude.<$> (x Data..?> "DeviceRegistrationState")
-              Prelude.<*> (x Data..?> "ConnectionStatus")
-              Prelude.<*> (x Data..?> "MessageDeliveryStatus")
+            Prelude.<$> (x Data..?> "ConnectionStatus")
+              Prelude.<*> (x Data..?> "DeviceRegistrationState")
               Prelude.<*> (x Data..?> "Join")
+              Prelude.<*> (x Data..?> "MessageDeliveryStatus")
               Prelude.<*> (x Data..?> "Proximity")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -119,16 +119,16 @@ instance
 
 -- | /See:/ 'newGetEventConfigurationByResourceTypesResponse' smart constructor.
 data GetEventConfigurationByResourceTypesResponse = GetEventConfigurationByResourceTypesResponse'
-  { -- | Resource type event configuration for the device registration state
+  { -- | Resource type event configuration for the connection status event.
+    connectionStatus :: Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration,
+    -- | Resource type event configuration for the device registration state
     -- event.
     deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration,
-    -- | Resource type event configuration for the connection status event.
-    connectionStatus :: Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration,
+    -- | Resource type event configuration for the join event.
+    join :: Prelude.Maybe JoinResourceTypeEventConfiguration,
     -- | Resource type event configuration object for the message delivery status
     -- event.
     messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration,
-    -- | Resource type event configuration for the join event.
-    join :: Prelude.Maybe JoinResourceTypeEventConfiguration,
     -- | Resource type event configuration for the proximity event.
     proximity :: Prelude.Maybe ProximityResourceTypeEventConfiguration,
     -- | The response's http status code.
@@ -144,15 +144,15 @@ data GetEventConfigurationByResourceTypesResponse = GetEventConfigurationByResou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionStatus', 'getEventConfigurationByResourceTypesResponse_connectionStatus' - Resource type event configuration for the connection status event.
+--
 -- 'deviceRegistrationState', 'getEventConfigurationByResourceTypesResponse_deviceRegistrationState' - Resource type event configuration for the device registration state
 -- event.
 --
--- 'connectionStatus', 'getEventConfigurationByResourceTypesResponse_connectionStatus' - Resource type event configuration for the connection status event.
+-- 'join', 'getEventConfigurationByResourceTypesResponse_join' - Resource type event configuration for the join event.
 --
 -- 'messageDeliveryStatus', 'getEventConfigurationByResourceTypesResponse_messageDeliveryStatus' - Resource type event configuration object for the message delivery status
 -- event.
---
--- 'join', 'getEventConfigurationByResourceTypesResponse_join' - Resource type event configuration for the join event.
 --
 -- 'proximity', 'getEventConfigurationByResourceTypesResponse_proximity' - Resource type event configuration for the proximity event.
 --
@@ -164,34 +164,34 @@ newGetEventConfigurationByResourceTypesResponse ::
 newGetEventConfigurationByResourceTypesResponse
   pHttpStatus_ =
     GetEventConfigurationByResourceTypesResponse'
-      { deviceRegistrationState =
+      { connectionStatus =
           Prelude.Nothing,
-        connectionStatus =
-          Prelude.Nothing,
-        messageDeliveryStatus =
+        deviceRegistrationState =
           Prelude.Nothing,
         join = Prelude.Nothing,
+        messageDeliveryStatus =
+          Prelude.Nothing,
         proximity = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Resource type event configuration for the connection status event.
+getEventConfigurationByResourceTypesResponse_connectionStatus :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration)
+getEventConfigurationByResourceTypesResponse_connectionStatus = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {connectionStatus} -> connectionStatus) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {connectionStatus = a} :: GetEventConfigurationByResourceTypesResponse)
 
 -- | Resource type event configuration for the device registration state
 -- event.
 getEventConfigurationByResourceTypesResponse_deviceRegistrationState :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration)
 getEventConfigurationByResourceTypesResponse_deviceRegistrationState = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {deviceRegistrationState} -> deviceRegistrationState) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {deviceRegistrationState = a} :: GetEventConfigurationByResourceTypesResponse)
 
--- | Resource type event configuration for the connection status event.
-getEventConfigurationByResourceTypesResponse_connectionStatus :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration)
-getEventConfigurationByResourceTypesResponse_connectionStatus = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {connectionStatus} -> connectionStatus) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {connectionStatus = a} :: GetEventConfigurationByResourceTypesResponse)
+-- | Resource type event configuration for the join event.
+getEventConfigurationByResourceTypesResponse_join :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe JoinResourceTypeEventConfiguration)
+getEventConfigurationByResourceTypesResponse_join = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {join} -> join) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {join = a} :: GetEventConfigurationByResourceTypesResponse)
 
 -- | Resource type event configuration object for the message delivery status
 -- event.
 getEventConfigurationByResourceTypesResponse_messageDeliveryStatus :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration)
 getEventConfigurationByResourceTypesResponse_messageDeliveryStatus = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {messageDeliveryStatus = a} :: GetEventConfigurationByResourceTypesResponse)
-
--- | Resource type event configuration for the join event.
-getEventConfigurationByResourceTypesResponse_join :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe JoinResourceTypeEventConfiguration)
-getEventConfigurationByResourceTypesResponse_join = Lens.lens (\GetEventConfigurationByResourceTypesResponse' {join} -> join) (\s@GetEventConfigurationByResourceTypesResponse' {} a -> s {join = a} :: GetEventConfigurationByResourceTypesResponse)
 
 -- | Resource type event configuration for the proximity event.
 getEventConfigurationByResourceTypesResponse_proximity :: Lens.Lens' GetEventConfigurationByResourceTypesResponse (Prelude.Maybe ProximityResourceTypeEventConfiguration)
@@ -206,9 +206,9 @@ instance
     GetEventConfigurationByResourceTypesResponse
   where
   rnf GetEventConfigurationByResourceTypesResponse' {..} =
-    Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceRegistrationState
       `Prelude.seq` Prelude.rnf join
+      `Prelude.seq` Prelude.rnf messageDeliveryStatus
       `Prelude.seq` Prelude.rnf proximity
       `Prelude.seq` Prelude.rnf httpStatus

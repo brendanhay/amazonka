@@ -38,20 +38,20 @@ module Amazonka.IoTWireless
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,
@@ -332,17 +332,11 @@ module Amazonka.IoTWireless
     GetPartnerAccountResponse (GetPartnerAccountResponse'),
     newGetPartnerAccountResponse,
 
-    -- ** GetPosition
-    GetPosition (GetPosition'),
-    newGetPosition,
-    GetPositionResponse (GetPositionResponse'),
-    newGetPositionResponse,
-
-    -- ** GetPositionConfiguration
-    GetPositionConfiguration (GetPositionConfiguration'),
-    newGetPositionConfiguration,
-    GetPositionConfigurationResponse (GetPositionConfigurationResponse'),
-    newGetPositionConfigurationResponse,
+    -- ** GetPositionEstimate
+    GetPositionEstimate (GetPositionEstimate'),
+    newGetPositionEstimate,
+    GetPositionEstimateResponse (GetPositionEstimateResponse'),
+    newGetPositionEstimateResponse,
 
     -- ** GetResourceEventConfiguration
     GetResourceEventConfiguration (GetResourceEventConfiguration'),
@@ -355,6 +349,12 @@ module Amazonka.IoTWireless
     newGetResourceLogLevel,
     GetResourceLogLevelResponse (GetResourceLogLevelResponse'),
     newGetResourceLogLevelResponse,
+
+    -- ** GetResourcePosition
+    GetResourcePosition (GetResourcePosition'),
+    newGetResourcePosition,
+    GetResourcePositionResponse (GetResourcePositionResponse'),
+    newGetResourcePositionResponse,
 
     -- ** GetServiceEndpoint
     GetServiceEndpoint (GetServiceEndpoint'),
@@ -464,12 +464,6 @@ module Amazonka.IoTWireless
     ListPartnerAccountsResponse (ListPartnerAccountsResponse'),
     newListPartnerAccountsResponse,
 
-    -- ** ListPositionConfigurations
-    ListPositionConfigurations (ListPositionConfigurations'),
-    newListPositionConfigurations,
-    ListPositionConfigurationsResponse (ListPositionConfigurationsResponse'),
-    newListPositionConfigurationsResponse,
-
     -- ** ListQueuedMessages
     ListQueuedMessages (ListQueuedMessages'),
     newListQueuedMessages,
@@ -505,12 +499,6 @@ module Amazonka.IoTWireless
     newListWirelessGateways,
     ListWirelessGatewaysResponse (ListWirelessGatewaysResponse'),
     newListWirelessGatewaysResponse,
-
-    -- ** PutPositionConfiguration
-    PutPositionConfiguration (PutPositionConfiguration'),
-    newPutPositionConfiguration,
-    PutPositionConfigurationResponse (PutPositionConfigurationResponse'),
-    newPutPositionConfigurationResponse,
 
     -- ** PutResourceLogLevel
     PutResourceLogLevel (PutResourceLogLevel'),
@@ -626,17 +614,17 @@ module Amazonka.IoTWireless
     UpdatePartnerAccountResponse (UpdatePartnerAccountResponse'),
     newUpdatePartnerAccountResponse,
 
-    -- ** UpdatePosition
-    UpdatePosition (UpdatePosition'),
-    newUpdatePosition,
-    UpdatePositionResponse (UpdatePositionResponse'),
-    newUpdatePositionResponse,
-
     -- ** UpdateResourceEventConfiguration
     UpdateResourceEventConfiguration (UpdateResourceEventConfiguration'),
     newUpdateResourceEventConfiguration,
     UpdateResourceEventConfigurationResponse (UpdateResourceEventConfigurationResponse'),
     newUpdateResourceEventConfigurationResponse,
+
+    -- ** UpdateResourcePosition
+    UpdateResourcePosition (UpdateResourcePosition'),
+    newUpdateResourcePosition,
+    UpdateResourcePositionResponse (UpdateResourcePositionResponse'),
+    newUpdateResourcePositionResponse,
 
     -- ** UpdateWirelessDevice
     UpdateWirelessDevice (UpdateWirelessDevice'),
@@ -651,6 +639,9 @@ module Amazonka.IoTWireless
     newUpdateWirelessGatewayResponse,
 
     -- * Types
+
+    -- ** ApplicationConfigType
+    ApplicationConfigType (..),
 
     -- ** BatteryLevel
     BatteryLevel (..),
@@ -700,20 +691,11 @@ module Amazonka.IoTWireless
     -- ** PartnerType
     PartnerType (..),
 
-    -- ** PositionConfigurationFec
-    PositionConfigurationFec (..),
-
-    -- ** PositionConfigurationStatus
-    PositionConfigurationStatus (..),
-
     -- ** PositionResourceType
     PositionResourceType (..),
 
-    -- ** PositionSolverProvider
-    PositionSolverProvider (..),
-
-    -- ** PositionSolverType
-    PositionSolverType (..),
+    -- ** PositioningConfigStatus
+    PositioningConfigStatus (..),
 
     -- ** SigningAlg
     SigningAlg (..),
@@ -759,13 +741,29 @@ module Amazonka.IoTWireless
     AbpV1_1 (AbpV1_1'),
     newAbpV1_1,
 
-    -- ** Accuracy
-    Accuracy (Accuracy'),
-    newAccuracy,
+    -- ** ApplicationConfig
+    ApplicationConfig (ApplicationConfig'),
+    newApplicationConfig,
 
     -- ** Beaconing
     Beaconing (Beaconing'),
     newBeaconing,
+
+    -- ** CdmaLocalId
+    CdmaLocalId (CdmaLocalId'),
+    newCdmaLocalId,
+
+    -- ** CdmaNmrObj
+    CdmaNmrObj (CdmaNmrObj'),
+    newCdmaNmrObj,
+
+    -- ** CdmaObj
+    CdmaObj (CdmaObj'),
+    newCdmaObj,
+
+    -- ** CellTowers
+    CellTowers (CellTowers'),
+    newCellTowers,
 
     -- ** CertificateList
     CertificateList (CertificateList'),
@@ -818,6 +816,30 @@ module Amazonka.IoTWireless
     -- ** GatewayListItem
     GatewayListItem (GatewayListItem'),
     newGatewayListItem,
+
+    -- ** GlobalIdentity
+    GlobalIdentity (GlobalIdentity'),
+    newGlobalIdentity,
+
+    -- ** Gnss
+    Gnss (Gnss'),
+    newGnss,
+
+    -- ** GsmLocalId
+    GsmLocalId (GsmLocalId'),
+    newGsmLocalId,
+
+    -- ** GsmNmrObj
+    GsmNmrObj (GsmNmrObj'),
+    newGsmNmrObj,
+
+    -- ** GsmObj
+    GsmObj (GsmObj'),
+    newGsmObj,
+
+    -- ** Ip
+    Ip (Ip'),
+    newIp,
 
     -- ** JoinEventConfiguration
     JoinEventConfiguration (JoinEventConfiguration'),
@@ -927,6 +949,18 @@ module Amazonka.IoTWireless
     LoRaWANUpdateGatewayTaskEntry (LoRaWANUpdateGatewayTaskEntry'),
     newLoRaWANUpdateGatewayTaskEntry,
 
+    -- ** LteLocalId
+    LteLocalId (LteLocalId'),
+    newLteLocalId,
+
+    -- ** LteNmrObj
+    LteNmrObj (LteNmrObj'),
+    newLteNmrObj,
+
+    -- ** LteObj
+    LteObj (LteObj'),
+    newLteObj,
+
     -- ** MessageDeliveryStatusEventConfiguration
     MessageDeliveryStatusEventConfiguration (MessageDeliveryStatusEventConfiguration'),
     newMessageDeliveryStatusEventConfiguration,
@@ -963,18 +997,6 @@ module Amazonka.IoTWireless
     ParticipatingGateways (ParticipatingGateways'),
     newParticipatingGateways,
 
-    -- ** PositionConfigurationItem
-    PositionConfigurationItem (PositionConfigurationItem'),
-    newPositionConfigurationItem,
-
-    -- ** PositionSolverConfigurations
-    PositionSolverConfigurations (PositionSolverConfigurations'),
-    newPositionSolverConfigurations,
-
-    -- ** PositionSolverDetails
-    PositionSolverDetails (PositionSolverDetails'),
-    newPositionSolverDetails,
-
     -- ** Positioning
     Positioning (Positioning'),
     newPositioning,
@@ -986,14 +1008,6 @@ module Amazonka.IoTWireless
     -- ** ProximityResourceTypeEventConfiguration
     ProximityResourceTypeEventConfiguration (ProximityResourceTypeEventConfiguration'),
     newProximityResourceTypeEventConfiguration,
-
-    -- ** SemtechGnssConfiguration
-    SemtechGnssConfiguration (SemtechGnssConfiguration'),
-    newSemtechGnssConfiguration,
-
-    -- ** SemtechGnssDetail
-    SemtechGnssDetail (SemtechGnssDetail'),
-    newSemtechGnssDetail,
 
     -- ** ServiceProfile
     ServiceProfile (ServiceProfile'),
@@ -1047,6 +1061,18 @@ module Amazonka.IoTWireless
     Tag (Tag'),
     newTag,
 
+    -- ** TdscdmaLocalId
+    TdscdmaLocalId (TdscdmaLocalId'),
+    newTdscdmaLocalId,
+
+    -- ** TdscdmaNmrObj
+    TdscdmaNmrObj (TdscdmaNmrObj'),
+    newTdscdmaNmrObj,
+
+    -- ** TdscdmaObj
+    TdscdmaObj (TdscdmaObj'),
+    newTdscdmaObj,
+
     -- ** TraceContent
     TraceContent (TraceContent'),
     newTraceContent,
@@ -1070,6 +1096,22 @@ module Amazonka.IoTWireless
     -- ** UpdateWirelessGatewayTaskEntry
     UpdateWirelessGatewayTaskEntry (UpdateWirelessGatewayTaskEntry'),
     newUpdateWirelessGatewayTaskEntry,
+
+    -- ** WcdmaLocalId
+    WcdmaLocalId (WcdmaLocalId'),
+    newWcdmaLocalId,
+
+    -- ** WcdmaNmrObj
+    WcdmaNmrObj (WcdmaNmrObj'),
+    newWcdmaNmrObj,
+
+    -- ** WcdmaObj
+    WcdmaObj (WcdmaObj'),
+    newWcdmaObj,
+
+    -- ** WiFiAccessPoint
+    WiFiAccessPoint (WiFiAccessPoint'),
+    newWiFiAccessPoint,
 
     -- ** WirelessDeviceEventLogOption
     WirelessDeviceEventLogOption (WirelessDeviceEventLogOption'),
@@ -1146,10 +1188,10 @@ import Amazonka.IoTWireless.GetMulticastGroup
 import Amazonka.IoTWireless.GetMulticastGroupSession
 import Amazonka.IoTWireless.GetNetworkAnalyzerConfiguration
 import Amazonka.IoTWireless.GetPartnerAccount
-import Amazonka.IoTWireless.GetPosition
-import Amazonka.IoTWireless.GetPositionConfiguration
+import Amazonka.IoTWireless.GetPositionEstimate
 import Amazonka.IoTWireless.GetResourceEventConfiguration
 import Amazonka.IoTWireless.GetResourceLogLevel
+import Amazonka.IoTWireless.GetResourcePosition
 import Amazonka.IoTWireless.GetServiceEndpoint
 import Amazonka.IoTWireless.GetServiceProfile
 import Amazonka.IoTWireless.GetWirelessDevice
@@ -1169,14 +1211,12 @@ import Amazonka.IoTWireless.ListMulticastGroups
 import Amazonka.IoTWireless.ListMulticastGroupsByFuotaTask
 import Amazonka.IoTWireless.ListNetworkAnalyzerConfigurations
 import Amazonka.IoTWireless.ListPartnerAccounts
-import Amazonka.IoTWireless.ListPositionConfigurations
 import Amazonka.IoTWireless.ListQueuedMessages
 import Amazonka.IoTWireless.ListServiceProfiles
 import Amazonka.IoTWireless.ListTagsForResource
 import Amazonka.IoTWireless.ListWirelessDevices
 import Amazonka.IoTWireless.ListWirelessGatewayTaskDefinitions
 import Amazonka.IoTWireless.ListWirelessGateways
-import Amazonka.IoTWireless.PutPositionConfiguration
 import Amazonka.IoTWireless.PutResourceLogLevel
 import Amazonka.IoTWireless.ResetAllResourceLogLevels
 import Amazonka.IoTWireless.ResetResourceLogLevel
@@ -1197,8 +1237,8 @@ import Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
 import Amazonka.IoTWireless.UpdateMulticastGroup
 import Amazonka.IoTWireless.UpdateNetworkAnalyzerConfiguration
 import Amazonka.IoTWireless.UpdatePartnerAccount
-import Amazonka.IoTWireless.UpdatePosition
 import Amazonka.IoTWireless.UpdateResourceEventConfiguration
+import Amazonka.IoTWireless.UpdateResourcePosition
 import Amazonka.IoTWireless.UpdateWirelessDevice
 import Amazonka.IoTWireless.UpdateWirelessGateway
 import Amazonka.IoTWireless.Waiters

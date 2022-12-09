@@ -27,9 +27,9 @@ module Amazonka.IoTWireless.UpdateMulticastGroup
     newUpdateMulticastGroup,
 
     -- * Request Lenses
-    updateMulticastGroup_name,
-    updateMulticastGroup_loRaWAN,
     updateMulticastGroup_description,
+    updateMulticastGroup_loRaWAN,
+    updateMulticastGroup_name,
     updateMulticastGroup_id,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMulticastGroup' smart constructor.
 data UpdateMulticastGroup = UpdateMulticastGroup'
-  { name :: Prelude.Maybe Prelude.Text,
+  { description :: Prelude.Maybe Prelude.Text,
     loRaWAN :: Prelude.Maybe LoRaWANMulticast,
-    description :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +66,11 @@ data UpdateMulticastGroup = UpdateMulticastGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateMulticastGroup_name' - Undocumented member.
+-- 'description', 'updateMulticastGroup_description' - Undocumented member.
 --
 -- 'loRaWAN', 'updateMulticastGroup_loRaWAN' - Undocumented member.
 --
--- 'description', 'updateMulticastGroup_description' - Undocumented member.
+-- 'name', 'updateMulticastGroup_name' - Undocumented member.
 --
 -- 'id', 'updateMulticastGroup_id' - Undocumented member.
 newUpdateMulticastGroup ::
@@ -79,23 +79,24 @@ newUpdateMulticastGroup ::
   UpdateMulticastGroup
 newUpdateMulticastGroup pId_ =
   UpdateMulticastGroup'
-    { name = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
-      description = Prelude.Nothing,
+      name = Prelude.Nothing,
       id = pId_
     }
 
 -- | Undocumented member.
-updateMulticastGroup_name :: Lens.Lens' UpdateMulticastGroup (Prelude.Maybe Prelude.Text)
-updateMulticastGroup_name = Lens.lens (\UpdateMulticastGroup' {name} -> name) (\s@UpdateMulticastGroup' {} a -> s {name = a} :: UpdateMulticastGroup)
+updateMulticastGroup_description :: Lens.Lens' UpdateMulticastGroup (Prelude.Maybe Prelude.Text)
+updateMulticastGroup_description = Lens.lens (\UpdateMulticastGroup' {description} -> description) (\s@UpdateMulticastGroup' {} a -> s {description = a} :: UpdateMulticastGroup)
 
 -- | Undocumented member.
 updateMulticastGroup_loRaWAN :: Lens.Lens' UpdateMulticastGroup (Prelude.Maybe LoRaWANMulticast)
 updateMulticastGroup_loRaWAN = Lens.lens (\UpdateMulticastGroup' {loRaWAN} -> loRaWAN) (\s@UpdateMulticastGroup' {} a -> s {loRaWAN = a} :: UpdateMulticastGroup)
 
 -- | Undocumented member.
-updateMulticastGroup_description :: Lens.Lens' UpdateMulticastGroup (Prelude.Maybe Prelude.Text)
-updateMulticastGroup_description = Lens.lens (\UpdateMulticastGroup' {description} -> description) (\s@UpdateMulticastGroup' {} a -> s {description = a} :: UpdateMulticastGroup)
+updateMulticastGroup_name :: Lens.Lens' UpdateMulticastGroup (Prelude.Maybe Prelude.Text)
+updateMulticastGroup_name = Lens.lens (\UpdateMulticastGroup' {name} -> name) (\s@UpdateMulticastGroup' {} a -> s {name = a} :: UpdateMulticastGroup)
 
 -- | Undocumented member.
 updateMulticastGroup_id :: Lens.Lens' UpdateMulticastGroup Prelude.Text
@@ -116,16 +117,16 @@ instance Core.AWSRequest UpdateMulticastGroup where
 
 instance Prelude.Hashable UpdateMulticastGroup where
   hashWithSalt _salt UpdateMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loRaWAN
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateMulticastGroup where
   rnf UpdateMulticastGroup' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateMulticastGroup where
@@ -135,9 +136,9 @@ instance Data.ToJSON UpdateMulticastGroup where
   toJSON UpdateMulticastGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
-            ("Description" Data..=) Prelude.<$> description
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

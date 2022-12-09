@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMulticastGroup' smart constructor.
 data MulticastGroup = MulticastGroup'
-  { name :: Prelude.Maybe Prelude.Text,
-    arn :: Prelude.Maybe Prelude.Text,
-    id :: Prelude.Maybe Prelude.Text
+  { arn :: Prelude.Maybe Prelude.Text,
+    id :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,23 +42,19 @@ data MulticastGroup = MulticastGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'multicastGroup_name' - Undocumented member.
---
 -- 'arn', 'multicastGroup_arn' - Undocumented member.
 --
 -- 'id', 'multicastGroup_id' - Undocumented member.
+--
+-- 'name', 'multicastGroup_name' - Undocumented member.
 newMulticastGroup ::
   MulticastGroup
 newMulticastGroup =
   MulticastGroup'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Undocumented member.
-multicastGroup_name :: Lens.Lens' MulticastGroup (Prelude.Maybe Prelude.Text)
-multicastGroup_name = Lens.lens (\MulticastGroup' {name} -> name) (\s@MulticastGroup' {} a -> s {name = a} :: MulticastGroup)
 
 -- | Undocumented member.
 multicastGroup_arn :: Lens.Lens' MulticastGroup (Prelude.Maybe Prelude.Text)
@@ -68,25 +64,29 @@ multicastGroup_arn = Lens.lens (\MulticastGroup' {arn} -> arn) (\s@MulticastGrou
 multicastGroup_id :: Lens.Lens' MulticastGroup (Prelude.Maybe Prelude.Text)
 multicastGroup_id = Lens.lens (\MulticastGroup' {id} -> id) (\s@MulticastGroup' {} a -> s {id = a} :: MulticastGroup)
 
+-- | Undocumented member.
+multicastGroup_name :: Lens.Lens' MulticastGroup (Prelude.Maybe Prelude.Text)
+multicastGroup_name = Lens.lens (\MulticastGroup' {name} -> name) (\s@MulticastGroup' {} a -> s {name = a} :: MulticastGroup)
+
 instance Data.FromJSON MulticastGroup where
   parseJSON =
     Data.withObject
       "MulticastGroup"
       ( \x ->
           MulticastGroup'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable MulticastGroup where
   hashWithSalt _salt MulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MulticastGroup where
   rnf MulticastGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

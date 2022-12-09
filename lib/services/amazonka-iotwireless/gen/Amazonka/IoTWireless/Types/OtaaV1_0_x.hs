@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOtaaV1_0_x' smart constructor.
 data OtaaV1_0_x = OtaaV1_0_x'
-  { -- | The GenAppKey value.
-    genAppKey :: Prelude.Maybe Prelude.Text,
+  { -- | The AppEUI value.
+    appEui :: Prelude.Maybe Prelude.Text,
     -- | The AppKey value.
     appKey :: Prelude.Maybe Prelude.Text,
-    -- | The AppEUI value.
-    appEui :: Prelude.Maybe Prelude.Text
+    -- | The GenAppKey value.
+    genAppKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data OtaaV1_0_x = OtaaV1_0_x'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'genAppKey', 'otaaV1_0_x_genAppKey' - The GenAppKey value.
+-- 'appEui', 'otaaV1_0_x_appEui' - The AppEUI value.
 --
 -- 'appKey', 'otaaV1_0_x_appKey' - The AppKey value.
 --
--- 'appEui', 'otaaV1_0_x_appEui' - The AppEUI value.
+-- 'genAppKey', 'otaaV1_0_x_genAppKey' - The GenAppKey value.
 newOtaaV1_0_x ::
   OtaaV1_0_x
 newOtaaV1_0_x =
   OtaaV1_0_x'
-    { genAppKey = Prelude.Nothing,
+    { appEui = Prelude.Nothing,
       appKey = Prelude.Nothing,
-      appEui = Prelude.Nothing
+      genAppKey = Prelude.Nothing
     }
 
--- | The GenAppKey value.
-otaaV1_0_x_genAppKey :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
-otaaV1_0_x_genAppKey = Lens.lens (\OtaaV1_0_x' {genAppKey} -> genAppKey) (\s@OtaaV1_0_x' {} a -> s {genAppKey = a} :: OtaaV1_0_x)
+-- | The AppEUI value.
+otaaV1_0_x_appEui :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
+otaaV1_0_x_appEui = Lens.lens (\OtaaV1_0_x' {appEui} -> appEui) (\s@OtaaV1_0_x' {} a -> s {appEui = a} :: OtaaV1_0_x)
 
 -- | The AppKey value.
 otaaV1_0_x_appKey :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
 otaaV1_0_x_appKey = Lens.lens (\OtaaV1_0_x' {appKey} -> appKey) (\s@OtaaV1_0_x' {} a -> s {appKey = a} :: OtaaV1_0_x)
 
--- | The AppEUI value.
-otaaV1_0_x_appEui :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
-otaaV1_0_x_appEui = Lens.lens (\OtaaV1_0_x' {appEui} -> appEui) (\s@OtaaV1_0_x' {} a -> s {appEui = a} :: OtaaV1_0_x)
+-- | The GenAppKey value.
+otaaV1_0_x_genAppKey :: Lens.Lens' OtaaV1_0_x (Prelude.Maybe Prelude.Text)
+otaaV1_0_x_genAppKey = Lens.lens (\OtaaV1_0_x' {genAppKey} -> genAppKey) (\s@OtaaV1_0_x' {} a -> s {genAppKey = a} :: OtaaV1_0_x)
 
 instance Data.FromJSON OtaaV1_0_x where
   parseJSON =
@@ -77,29 +77,29 @@ instance Data.FromJSON OtaaV1_0_x where
       "OtaaV1_0_x"
       ( \x ->
           OtaaV1_0_x'
-            Prelude.<$> (x Data..:? "GenAppKey")
+            Prelude.<$> (x Data..:? "AppEui")
             Prelude.<*> (x Data..:? "AppKey")
-            Prelude.<*> (x Data..:? "AppEui")
+            Prelude.<*> (x Data..:? "GenAppKey")
       )
 
 instance Prelude.Hashable OtaaV1_0_x where
   hashWithSalt _salt OtaaV1_0_x' {..} =
-    _salt `Prelude.hashWithSalt` genAppKey
+    _salt `Prelude.hashWithSalt` appEui
       `Prelude.hashWithSalt` appKey
-      `Prelude.hashWithSalt` appEui
+      `Prelude.hashWithSalt` genAppKey
 
 instance Prelude.NFData OtaaV1_0_x where
   rnf OtaaV1_0_x' {..} =
-    Prelude.rnf genAppKey
+    Prelude.rnf appEui
       `Prelude.seq` Prelude.rnf appKey
-      `Prelude.seq` Prelude.rnf appEui
+      `Prelude.seq` Prelude.rnf genAppKey
 
 instance Data.ToJSON OtaaV1_0_x where
   toJSON OtaaV1_0_x' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GenAppKey" Data..=) Prelude.<$> genAppKey,
+          [ ("AppEui" Data..=) Prelude.<$> appEui,
             ("AppKey" Data..=) Prelude.<$> appKey,
-            ("AppEui" Data..=) Prelude.<$> appEui
+            ("GenAppKey" Data..=) Prelude.<$> genAppKey
           ]
       )

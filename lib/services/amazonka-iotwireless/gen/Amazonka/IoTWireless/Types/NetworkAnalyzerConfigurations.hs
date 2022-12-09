@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkAnalyzerConfigurations' smart constructor.
 data NetworkAnalyzerConfigurations = NetworkAnalyzerConfigurations'
-  { name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the new resource.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name of the new resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data NetworkAnalyzerConfigurations = NetworkAnalyzerConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'networkAnalyzerConfigurations_name' - Undocumented member.
---
 -- 'arn', 'networkAnalyzerConfigurations_arn' - The Amazon Resource Name of the new resource.
+--
+-- 'name', 'networkAnalyzerConfigurations_name' - Undocumented member.
 newNetworkAnalyzerConfigurations ::
   NetworkAnalyzerConfigurations
 newNetworkAnalyzerConfigurations =
   NetworkAnalyzerConfigurations'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | Undocumented member.
-networkAnalyzerConfigurations_name :: Lens.Lens' NetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Text)
-networkAnalyzerConfigurations_name = Lens.lens (\NetworkAnalyzerConfigurations' {name} -> name) (\s@NetworkAnalyzerConfigurations' {} a -> s {name = a} :: NetworkAnalyzerConfigurations)
 
 -- | The Amazon Resource Name of the new resource.
 networkAnalyzerConfigurations_arn :: Lens.Lens' NetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Text)
 networkAnalyzerConfigurations_arn = Lens.lens (\NetworkAnalyzerConfigurations' {arn} -> arn) (\s@NetworkAnalyzerConfigurations' {} a -> s {arn = a} :: NetworkAnalyzerConfigurations)
+
+-- | Undocumented member.
+networkAnalyzerConfigurations_name :: Lens.Lens' NetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Text)
+networkAnalyzerConfigurations_name = Lens.lens (\NetworkAnalyzerConfigurations' {name} -> name) (\s@NetworkAnalyzerConfigurations' {} a -> s {name = a} :: NetworkAnalyzerConfigurations)
 
 instance Data.FromJSON NetworkAnalyzerConfigurations where
   parseJSON =
@@ -68,7 +68,7 @@ instance Data.FromJSON NetworkAnalyzerConfigurations where
       "NetworkAnalyzerConfigurations"
       ( \x ->
           NetworkAnalyzerConfigurations'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -76,9 +76,9 @@ instance
     NetworkAnalyzerConfigurations
   where
   hashWithSalt _salt NetworkAnalyzerConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData NetworkAnalyzerConfigurations where
   rnf NetworkAnalyzerConfigurations' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

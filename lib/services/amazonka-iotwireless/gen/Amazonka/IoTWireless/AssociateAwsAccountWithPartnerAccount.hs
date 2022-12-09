@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.AssociateAwsAccountWithPartnerAccount
     newAssociateAwsAccountWithPartnerAccount,
 
     -- * Request Lenses
-    associateAwsAccountWithPartnerAccount_tags,
     associateAwsAccountWithPartnerAccount_clientRequestToken,
+    associateAwsAccountWithPartnerAccount_tags,
     associateAwsAccountWithPartnerAccount_sidewalk,
 
     -- * Destructuring the Response
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateAwsAccountWithPartnerAccount' smart constructor.
 data AssociateAwsAccountWithPartnerAccount = AssociateAwsAccountWithPartnerAccount'
-  { -- | The tags to attach to the specified resource. Tags are metadata that you
-    -- can use to manage a resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | Each resource must have a unique client request token. If you try to
+  { -- | Each resource must have a unique client request token. If you try to
     -- create a new resource with the same token as a resource that already
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to attach to the specified resource. Tags are metadata that you
+    -- can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The Sidewalk account credentials.
     sidewalk :: SidewalkAccountInfo
   }
@@ -73,13 +73,13 @@ data AssociateAwsAccountWithPartnerAccount = AssociateAwsAccountWithPartnerAccou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'associateAwsAccountWithPartnerAccount_tags' - The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
---
 -- 'clientRequestToken', 'associateAwsAccountWithPartnerAccount_clientRequestToken' - Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
+--
+-- 'tags', 'associateAwsAccountWithPartnerAccount_tags' - The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
 --
 -- 'sidewalk', 'associateAwsAccountWithPartnerAccount_sidewalk' - The Sidewalk account credentials.
 newAssociateAwsAccountWithPartnerAccount ::
@@ -88,16 +88,11 @@ newAssociateAwsAccountWithPartnerAccount ::
   AssociateAwsAccountWithPartnerAccount
 newAssociateAwsAccountWithPartnerAccount pSidewalk_ =
   AssociateAwsAccountWithPartnerAccount'
-    { tags =
+    { clientRequestToken =
         Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       sidewalk = pSidewalk_
     }
-
--- | The tags to attach to the specified resource. Tags are metadata that you
--- can use to manage a resource.
-associateAwsAccountWithPartnerAccount_tags :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe [Tag])
-associateAwsAccountWithPartnerAccount_tags = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {tags} -> tags) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {tags = a} :: AssociateAwsAccountWithPartnerAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
@@ -105,6 +100,11 @@ associateAwsAccountWithPartnerAccount_tags = Lens.lens (\AssociateAwsAccountWith
 -- automatically generate a unique client request.
 associateAwsAccountWithPartnerAccount_clientRequestToken :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe Prelude.Text)
 associateAwsAccountWithPartnerAccount_clientRequestToken = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {clientRequestToken} -> clientRequestToken) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {clientRequestToken = a} :: AssociateAwsAccountWithPartnerAccount)
+
+-- | The tags to attach to the specified resource. Tags are metadata that you
+-- can use to manage a resource.
+associateAwsAccountWithPartnerAccount_tags :: Lens.Lens' AssociateAwsAccountWithPartnerAccount (Prelude.Maybe [Tag])
+associateAwsAccountWithPartnerAccount_tags = Lens.lens (\AssociateAwsAccountWithPartnerAccount' {tags} -> tags) (\s@AssociateAwsAccountWithPartnerAccount' {} a -> s {tags = a} :: AssociateAwsAccountWithPartnerAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Sidewalk account credentials.
 associateAwsAccountWithPartnerAccount_sidewalk :: Lens.Lens' AssociateAwsAccountWithPartnerAccount SidewalkAccountInfo
@@ -136,8 +136,8 @@ instance
   hashWithSalt
     _salt
     AssociateAwsAccountWithPartnerAccount' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientRequestToken
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sidewalk
 
 instance
@@ -145,8 +145,8 @@ instance
     AssociateAwsAccountWithPartnerAccount
   where
   rnf AssociateAwsAccountWithPartnerAccount' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sidewalk
 
 instance
@@ -162,9 +162,9 @@ instance
   toJSON AssociateAwsAccountWithPartnerAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Sidewalk" Data..= sidewalk)
           ]
       )

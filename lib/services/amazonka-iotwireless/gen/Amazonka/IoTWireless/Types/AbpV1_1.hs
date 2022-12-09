@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAbpV1_1' smart constructor.
 data AbpV1_1 = AbpV1_1'
-  { -- | Session keys for ABP v1.1
-    sessionKeys :: Prelude.Maybe SessionKeysAbpV1_1,
+  { -- | The DevAddr value.
+    devAddr :: Prelude.Maybe Prelude.Text,
     -- | The FCnt init value.
     fCntStart :: Prelude.Maybe Prelude.Natural,
-    -- | The DevAddr value.
-    devAddr :: Prelude.Maybe Prelude.Text
+    -- | Session keys for ABP v1.1
+    sessionKeys :: Prelude.Maybe SessionKeysAbpV1_1
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data AbpV1_1 = AbpV1_1'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionKeys', 'abpV1_1_sessionKeys' - Session keys for ABP v1.1
+-- 'devAddr', 'abpV1_1_devAddr' - The DevAddr value.
 --
 -- 'fCntStart', 'abpV1_1_fCntStart' - The FCnt init value.
 --
--- 'devAddr', 'abpV1_1_devAddr' - The DevAddr value.
+-- 'sessionKeys', 'abpV1_1_sessionKeys' - Session keys for ABP v1.1
 newAbpV1_1 ::
   AbpV1_1
 newAbpV1_1 =
   AbpV1_1'
-    { sessionKeys = Prelude.Nothing,
+    { devAddr = Prelude.Nothing,
       fCntStart = Prelude.Nothing,
-      devAddr = Prelude.Nothing
+      sessionKeys = Prelude.Nothing
     }
 
--- | Session keys for ABP v1.1
-abpV1_1_sessionKeys :: Lens.Lens' AbpV1_1 (Prelude.Maybe SessionKeysAbpV1_1)
-abpV1_1_sessionKeys = Lens.lens (\AbpV1_1' {sessionKeys} -> sessionKeys) (\s@AbpV1_1' {} a -> s {sessionKeys = a} :: AbpV1_1)
+-- | The DevAddr value.
+abpV1_1_devAddr :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Text)
+abpV1_1_devAddr = Lens.lens (\AbpV1_1' {devAddr} -> devAddr) (\s@AbpV1_1' {} a -> s {devAddr = a} :: AbpV1_1)
 
 -- | The FCnt init value.
 abpV1_1_fCntStart :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Natural)
 abpV1_1_fCntStart = Lens.lens (\AbpV1_1' {fCntStart} -> fCntStart) (\s@AbpV1_1' {} a -> s {fCntStart = a} :: AbpV1_1)
 
--- | The DevAddr value.
-abpV1_1_devAddr :: Lens.Lens' AbpV1_1 (Prelude.Maybe Prelude.Text)
-abpV1_1_devAddr = Lens.lens (\AbpV1_1' {devAddr} -> devAddr) (\s@AbpV1_1' {} a -> s {devAddr = a} :: AbpV1_1)
+-- | Session keys for ABP v1.1
+abpV1_1_sessionKeys :: Lens.Lens' AbpV1_1 (Prelude.Maybe SessionKeysAbpV1_1)
+abpV1_1_sessionKeys = Lens.lens (\AbpV1_1' {sessionKeys} -> sessionKeys) (\s@AbpV1_1' {} a -> s {sessionKeys = a} :: AbpV1_1)
 
 instance Data.FromJSON AbpV1_1 where
   parseJSON =
@@ -78,29 +78,29 @@ instance Data.FromJSON AbpV1_1 where
       "AbpV1_1"
       ( \x ->
           AbpV1_1'
-            Prelude.<$> (x Data..:? "SessionKeys")
+            Prelude.<$> (x Data..:? "DevAddr")
             Prelude.<*> (x Data..:? "FCntStart")
-            Prelude.<*> (x Data..:? "DevAddr")
+            Prelude.<*> (x Data..:? "SessionKeys")
       )
 
 instance Prelude.Hashable AbpV1_1 where
   hashWithSalt _salt AbpV1_1' {..} =
-    _salt `Prelude.hashWithSalt` sessionKeys
+    _salt `Prelude.hashWithSalt` devAddr
       `Prelude.hashWithSalt` fCntStart
-      `Prelude.hashWithSalt` devAddr
+      `Prelude.hashWithSalt` sessionKeys
 
 instance Prelude.NFData AbpV1_1 where
   rnf AbpV1_1' {..} =
-    Prelude.rnf sessionKeys
+    Prelude.rnf devAddr
       `Prelude.seq` Prelude.rnf fCntStart
-      `Prelude.seq` Prelude.rnf devAddr
+      `Prelude.seq` Prelude.rnf sessionKeys
 
 instance Data.ToJSON AbpV1_1 where
   toJSON AbpV1_1' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SessionKeys" Data..=) Prelude.<$> sessionKeys,
+          [ ("DevAddr" Data..=) Prelude.<$> devAddr,
             ("FCntStart" Data..=) Prelude.<$> fCntStart,
-            ("DevAddr" Data..=) Prelude.<$> devAddr
+            ("SessionKeys" Data..=) Prelude.<$> sessionKeys
           ]
       )

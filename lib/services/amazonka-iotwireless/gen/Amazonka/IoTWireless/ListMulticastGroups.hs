@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.ListMulticastGroups
     newListMulticastGroups,
 
     -- * Request Lenses
-    listMulticastGroups_nextToken,
     listMulticastGroups_maxResults,
+    listMulticastGroups_nextToken,
 
     -- * Destructuring the Response
     ListMulticastGroupsResponse (..),
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMulticastGroups' smart constructor.
 data ListMulticastGroups = ListMulticastGroups'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,28 +67,28 @@ data ListMulticastGroups = ListMulticastGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMulticastGroups_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listMulticastGroups_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listMulticastGroups_maxResults' - Undocumented member.
 newListMulticastGroups ::
   ListMulticastGroups
 newListMulticastGroups =
   ListMulticastGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listMulticastGroups_maxResults :: Lens.Lens' ListMulticastGroups (Prelude.Maybe Prelude.Natural)
+listMulticastGroups_maxResults = Lens.lens (\ListMulticastGroups' {maxResults} -> maxResults) (\s@ListMulticastGroups' {} a -> s {maxResults = a} :: ListMulticastGroups)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listMulticastGroups_nextToken :: Lens.Lens' ListMulticastGroups (Prelude.Maybe Prelude.Text)
 listMulticastGroups_nextToken = Lens.lens (\ListMulticastGroups' {nextToken} -> nextToken) (\s@ListMulticastGroups' {} a -> s {nextToken = a} :: ListMulticastGroups)
-
--- | Undocumented member.
-listMulticastGroups_maxResults :: Lens.Lens' ListMulticastGroups (Prelude.Maybe Prelude.Natural)
-listMulticastGroups_maxResults = Lens.lens (\ListMulticastGroups' {maxResults} -> maxResults) (\s@ListMulticastGroups' {} a -> s {maxResults = a} :: ListMulticastGroups)
 
 instance Core.AWSRequest ListMulticastGroups where
   type
@@ -109,13 +109,13 @@ instance Core.AWSRequest ListMulticastGroups where
 
 instance Prelude.Hashable ListMulticastGroups where
   hashWithSalt _salt ListMulticastGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMulticastGroups where
   rnf ListMulticastGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMulticastGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -126,8 +126,8 @@ instance Data.ToPath ListMulticastGroups where
 instance Data.ToQuery ListMulticastGroups where
   toQuery ListMulticastGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListMulticastGroupsResponse' smart constructor.

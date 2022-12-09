@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data OtaaV1_1 = OtaaV1_1'
   { -- | The AppKey value.
     appKey :: Prelude.Maybe Prelude.Text,
-    -- | The NwkKey value.
-    nwkKey :: Prelude.Maybe Prelude.Text,
     -- | The JoinEUI value.
-    joinEui :: Prelude.Maybe Prelude.Text
+    joinEui :: Prelude.Maybe Prelude.Text,
+    -- | The NwkKey value.
+    nwkKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data OtaaV1_1 = OtaaV1_1'
 --
 -- 'appKey', 'otaaV1_1_appKey' - The AppKey value.
 --
--- 'nwkKey', 'otaaV1_1_nwkKey' - The NwkKey value.
---
 -- 'joinEui', 'otaaV1_1_joinEui' - The JoinEUI value.
+--
+-- 'nwkKey', 'otaaV1_1_nwkKey' - The NwkKey value.
 newOtaaV1_1 ::
   OtaaV1_1
 newOtaaV1_1 =
   OtaaV1_1'
     { appKey = Prelude.Nothing,
-      nwkKey = Prelude.Nothing,
-      joinEui = Prelude.Nothing
+      joinEui = Prelude.Nothing,
+      nwkKey = Prelude.Nothing
     }
 
 -- | The AppKey value.
 otaaV1_1_appKey :: Lens.Lens' OtaaV1_1 (Prelude.Maybe Prelude.Text)
 otaaV1_1_appKey = Lens.lens (\OtaaV1_1' {appKey} -> appKey) (\s@OtaaV1_1' {} a -> s {appKey = a} :: OtaaV1_1)
 
--- | The NwkKey value.
-otaaV1_1_nwkKey :: Lens.Lens' OtaaV1_1 (Prelude.Maybe Prelude.Text)
-otaaV1_1_nwkKey = Lens.lens (\OtaaV1_1' {nwkKey} -> nwkKey) (\s@OtaaV1_1' {} a -> s {nwkKey = a} :: OtaaV1_1)
-
 -- | The JoinEUI value.
 otaaV1_1_joinEui :: Lens.Lens' OtaaV1_1 (Prelude.Maybe Prelude.Text)
 otaaV1_1_joinEui = Lens.lens (\OtaaV1_1' {joinEui} -> joinEui) (\s@OtaaV1_1' {} a -> s {joinEui = a} :: OtaaV1_1)
+
+-- | The NwkKey value.
+otaaV1_1_nwkKey :: Lens.Lens' OtaaV1_1 (Prelude.Maybe Prelude.Text)
+otaaV1_1_nwkKey = Lens.lens (\OtaaV1_1' {nwkKey} -> nwkKey) (\s@OtaaV1_1' {} a -> s {nwkKey = a} :: OtaaV1_1)
 
 instance Data.FromJSON OtaaV1_1 where
   parseJSON =
@@ -78,28 +78,28 @@ instance Data.FromJSON OtaaV1_1 where
       ( \x ->
           OtaaV1_1'
             Prelude.<$> (x Data..:? "AppKey")
-            Prelude.<*> (x Data..:? "NwkKey")
             Prelude.<*> (x Data..:? "JoinEui")
+            Prelude.<*> (x Data..:? "NwkKey")
       )
 
 instance Prelude.Hashable OtaaV1_1 where
   hashWithSalt _salt OtaaV1_1' {..} =
     _salt `Prelude.hashWithSalt` appKey
-      `Prelude.hashWithSalt` nwkKey
       `Prelude.hashWithSalt` joinEui
+      `Prelude.hashWithSalt` nwkKey
 
 instance Prelude.NFData OtaaV1_1 where
   rnf OtaaV1_1' {..} =
     Prelude.rnf appKey
-      `Prelude.seq` Prelude.rnf nwkKey
       `Prelude.seq` Prelude.rnf joinEui
+      `Prelude.seq` Prelude.rnf nwkKey
 
 instance Data.ToJSON OtaaV1_1 where
   toJSON OtaaV1_1' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("AppKey" Data..=) Prelude.<$> appKey,
-            ("NwkKey" Data..=) Prelude.<$> nwkKey,
-            ("JoinEui" Data..=) Prelude.<$> joinEui
+            ("JoinEui" Data..=) Prelude.<$> joinEui,
+            ("NwkKey" Data..=) Prelude.<$> nwkKey
           ]
       )

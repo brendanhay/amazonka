@@ -27,9 +27,9 @@ module Amazonka.IoTWireless.CreateDestination
     newCreateDestination,
 
     -- * Request Lenses
-    createDestination_tags,
     createDestination_clientRequestToken,
     createDestination_description,
+    createDestination_tags,
     createDestination_name,
     createDestination_expressionType,
     createDestination_expression,
@@ -40,8 +40,8 @@ module Amazonka.IoTWireless.CreateDestination
     newCreateDestinationResponse,
 
     -- * Response Lenses
-    createDestinationResponse_name,
     createDestinationResponse_arn,
+    createDestinationResponse_name,
     createDestinationResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDestination' smart constructor.
 data CreateDestination = CreateDestination'
-  { -- | The tags to attach to the new destination. Tags are metadata that you
-    -- can use to manage a resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | Each resource must have a unique client request token. If you try to
+  { -- | Each resource must have a unique client request token. If you try to
     -- create a new resource with the same token as a resource that already
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the new resource.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to attach to the new destination. Tags are metadata that you
+    -- can use to manage a resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new resource.
     name :: Prelude.Text,
     -- | The type of value in @Expression@.
@@ -85,15 +85,15 @@ data CreateDestination = CreateDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDestination_tags' - The tags to attach to the new destination. Tags are metadata that you
--- can use to manage a resource.
---
 -- 'clientRequestToken', 'createDestination_clientRequestToken' - Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
 --
 -- 'description', 'createDestination_description' - The description of the new resource.
+--
+-- 'tags', 'createDestination_tags' - The tags to attach to the new destination. Tags are metadata that you
+-- can use to manage a resource.
 --
 -- 'name', 'createDestination_name' - The name of the new resource.
 --
@@ -118,19 +118,15 @@ newCreateDestination
   pExpression_
   pRoleArn_ =
     CreateDestination'
-      { tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         expressionType = pExpressionType_,
         expression = pExpression_,
         roleArn = pRoleArn_
       }
-
--- | The tags to attach to the new destination. Tags are metadata that you
--- can use to manage a resource.
-createDestination_tags :: Lens.Lens' CreateDestination (Prelude.Maybe [Tag])
-createDestination_tags = Lens.lens (\CreateDestination' {tags} -> tags) (\s@CreateDestination' {} a -> s {tags = a} :: CreateDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
@@ -142,6 +138,11 @@ createDestination_clientRequestToken = Lens.lens (\CreateDestination' {clientReq
 -- | The description of the new resource.
 createDestination_description :: Lens.Lens' CreateDestination (Prelude.Maybe Prelude.Text)
 createDestination_description = Lens.lens (\CreateDestination' {description} -> description) (\s@CreateDestination' {} a -> s {description = a} :: CreateDestination)
+
+-- | The tags to attach to the new destination. Tags are metadata that you
+-- can use to manage a resource.
+createDestination_tags :: Lens.Lens' CreateDestination (Prelude.Maybe [Tag])
+createDestination_tags = Lens.lens (\CreateDestination' {tags} -> tags) (\s@CreateDestination' {} a -> s {tags = a} :: CreateDestination) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new resource.
 createDestination_name :: Lens.Lens' CreateDestination Prelude.Text
@@ -169,16 +170,16 @@ instance Core.AWSRequest CreateDestination where
     Response.receiveJSON
       ( \s h x ->
           CreateDestinationResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDestination where
   hashWithSalt _salt CreateDestination' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` expressionType
       `Prelude.hashWithSalt` expression
@@ -186,9 +187,9 @@ instance Prelude.Hashable CreateDestination where
 
 instance Prelude.NFData CreateDestination where
   rnf CreateDestination' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf expressionType
       `Prelude.seq` Prelude.rnf expression
@@ -201,10 +202,10 @@ instance Data.ToJSON CreateDestination where
   toJSON CreateDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ExpressionType" Data..= expressionType),
@@ -221,10 +222,10 @@ instance Data.ToQuery CreateDestination where
 
 -- | /See:/ 'newCreateDestinationResponse' smart constructor.
 data CreateDestinationResponse = CreateDestinationResponse'
-  { -- | The name of the new resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the new resource.
+  { -- | The Amazon Resource Name of the new resource.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the new resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,9 +239,9 @@ data CreateDestinationResponse = CreateDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createDestinationResponse_name' - The name of the new resource.
---
 -- 'arn', 'createDestinationResponse_arn' - The Amazon Resource Name of the new resource.
+--
+-- 'name', 'createDestinationResponse_name' - The name of the new resource.
 --
 -- 'httpStatus', 'createDestinationResponse_httpStatus' - The response's http status code.
 newCreateDestinationResponse ::
@@ -249,18 +250,18 @@ newCreateDestinationResponse ::
   CreateDestinationResponse
 newCreateDestinationResponse pHttpStatus_ =
   CreateDestinationResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the new resource.
-createDestinationResponse_name :: Lens.Lens' CreateDestinationResponse (Prelude.Maybe Prelude.Text)
-createDestinationResponse_name = Lens.lens (\CreateDestinationResponse' {name} -> name) (\s@CreateDestinationResponse' {} a -> s {name = a} :: CreateDestinationResponse)
 
 -- | The Amazon Resource Name of the new resource.
 createDestinationResponse_arn :: Lens.Lens' CreateDestinationResponse (Prelude.Maybe Prelude.Text)
 createDestinationResponse_arn = Lens.lens (\CreateDestinationResponse' {arn} -> arn) (\s@CreateDestinationResponse' {} a -> s {arn = a} :: CreateDestinationResponse)
+
+-- | The name of the new resource.
+createDestinationResponse_name :: Lens.Lens' CreateDestinationResponse (Prelude.Maybe Prelude.Text)
+createDestinationResponse_name = Lens.lens (\CreateDestinationResponse' {name} -> name) (\s@CreateDestinationResponse' {} a -> s {name = a} :: CreateDestinationResponse)
 
 -- | The response's http status code.
 createDestinationResponse_httpStatus :: Lens.Lens' CreateDestinationResponse Prelude.Int
@@ -268,6 +269,6 @@ createDestinationResponse_httpStatus = Lens.lens (\CreateDestinationResponse' {h
 
 instance Prelude.NFData CreateDestinationResponse where
   rnf CreateDestinationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

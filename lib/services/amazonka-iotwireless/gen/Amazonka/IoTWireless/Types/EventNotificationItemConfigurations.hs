@@ -33,16 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventNotificationItemConfigurations' smart constructor.
 data EventNotificationItemConfigurations = EventNotificationItemConfigurations'
-  { -- | Device registration state event configuration for an event configuration
+  { -- | Connection status event configuration for an event configuration item.
+    connectionStatus :: Prelude.Maybe ConnectionStatusEventConfiguration,
+    -- | Device registration state event configuration for an event configuration
     -- item.
     deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateEventConfiguration,
-    -- | Connection status event configuration for an event configuration item.
-    connectionStatus :: Prelude.Maybe ConnectionStatusEventConfiguration,
+    -- | Join event configuration for an event configuration item.
+    join :: Prelude.Maybe JoinEventConfiguration,
     -- | Message delivery status event configuration for an event configuration
     -- item.
     messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusEventConfiguration,
-    -- | Join event configuration for an event configuration item.
-    join :: Prelude.Maybe JoinEventConfiguration,
     -- | Proximity event configuration for an event configuration item.
     proximity :: Prelude.Maybe ProximityEventConfiguration
   }
@@ -56,47 +56,48 @@ data EventNotificationItemConfigurations = EventNotificationItemConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionStatus', 'eventNotificationItemConfigurations_connectionStatus' - Connection status event configuration for an event configuration item.
+--
 -- 'deviceRegistrationState', 'eventNotificationItemConfigurations_deviceRegistrationState' - Device registration state event configuration for an event configuration
 -- item.
 --
--- 'connectionStatus', 'eventNotificationItemConfigurations_connectionStatus' - Connection status event configuration for an event configuration item.
+-- 'join', 'eventNotificationItemConfigurations_join' - Join event configuration for an event configuration item.
 --
 -- 'messageDeliveryStatus', 'eventNotificationItemConfigurations_messageDeliveryStatus' - Message delivery status event configuration for an event configuration
 -- item.
---
--- 'join', 'eventNotificationItemConfigurations_join' - Join event configuration for an event configuration item.
 --
 -- 'proximity', 'eventNotificationItemConfigurations_proximity' - Proximity event configuration for an event configuration item.
 newEventNotificationItemConfigurations ::
   EventNotificationItemConfigurations
 newEventNotificationItemConfigurations =
   EventNotificationItemConfigurations'
-    { deviceRegistrationState =
+    { connectionStatus =
         Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
-      messageDeliveryStatus =
+      deviceRegistrationState =
         Prelude.Nothing,
       join = Prelude.Nothing,
+      messageDeliveryStatus =
+        Prelude.Nothing,
       proximity = Prelude.Nothing
     }
+
+-- | Connection status event configuration for an event configuration item.
+eventNotificationItemConfigurations_connectionStatus :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe ConnectionStatusEventConfiguration)
+eventNotificationItemConfigurations_connectionStatus = Lens.lens (\EventNotificationItemConfigurations' {connectionStatus} -> connectionStatus) (\s@EventNotificationItemConfigurations' {} a -> s {connectionStatus = a} :: EventNotificationItemConfigurations)
 
 -- | Device registration state event configuration for an event configuration
 -- item.
 eventNotificationItemConfigurations_deviceRegistrationState :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe DeviceRegistrationStateEventConfiguration)
 eventNotificationItemConfigurations_deviceRegistrationState = Lens.lens (\EventNotificationItemConfigurations' {deviceRegistrationState} -> deviceRegistrationState) (\s@EventNotificationItemConfigurations' {} a -> s {deviceRegistrationState = a} :: EventNotificationItemConfigurations)
 
--- | Connection status event configuration for an event configuration item.
-eventNotificationItemConfigurations_connectionStatus :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe ConnectionStatusEventConfiguration)
-eventNotificationItemConfigurations_connectionStatus = Lens.lens (\EventNotificationItemConfigurations' {connectionStatus} -> connectionStatus) (\s@EventNotificationItemConfigurations' {} a -> s {connectionStatus = a} :: EventNotificationItemConfigurations)
+-- | Join event configuration for an event configuration item.
+eventNotificationItemConfigurations_join :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe JoinEventConfiguration)
+eventNotificationItemConfigurations_join = Lens.lens (\EventNotificationItemConfigurations' {join} -> join) (\s@EventNotificationItemConfigurations' {} a -> s {join = a} :: EventNotificationItemConfigurations)
 
 -- | Message delivery status event configuration for an event configuration
 -- item.
 eventNotificationItemConfigurations_messageDeliveryStatus :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe MessageDeliveryStatusEventConfiguration)
 eventNotificationItemConfigurations_messageDeliveryStatus = Lens.lens (\EventNotificationItemConfigurations' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@EventNotificationItemConfigurations' {} a -> s {messageDeliveryStatus = a} :: EventNotificationItemConfigurations)
-
--- | Join event configuration for an event configuration item.
-eventNotificationItemConfigurations_join :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe JoinEventConfiguration)
-eventNotificationItemConfigurations_join = Lens.lens (\EventNotificationItemConfigurations' {join} -> join) (\s@EventNotificationItemConfigurations' {} a -> s {join = a} :: EventNotificationItemConfigurations)
 
 -- | Proximity event configuration for an event configuration item.
 eventNotificationItemConfigurations_proximity :: Lens.Lens' EventNotificationItemConfigurations (Prelude.Maybe ProximityEventConfiguration)
@@ -111,10 +112,10 @@ instance
       "EventNotificationItemConfigurations"
       ( \x ->
           EventNotificationItemConfigurations'
-            Prelude.<$> (x Data..:? "DeviceRegistrationState")
-            Prelude.<*> (x Data..:? "ConnectionStatus")
-            Prelude.<*> (x Data..:? "MessageDeliveryStatus")
+            Prelude.<$> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "DeviceRegistrationState")
             Prelude.<*> (x Data..:? "Join")
+            Prelude.<*> (x Data..:? "MessageDeliveryStatus")
             Prelude.<*> (x Data..:? "Proximity")
       )
 
@@ -125,11 +126,10 @@ instance
   hashWithSalt
     _salt
     EventNotificationItemConfigurations' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` deviceRegistrationState
-        `Prelude.hashWithSalt` connectionStatus
-        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` join
+        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` proximity
 
 instance
@@ -137,8 +137,8 @@ instance
     EventNotificationItemConfigurations
   where
   rnf EventNotificationItemConfigurations' {..} =
-    Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceRegistrationState
       `Prelude.seq` Prelude.rnf join
+      `Prelude.seq` Prelude.rnf messageDeliveryStatus
       `Prelude.seq` Prelude.rnf proximity

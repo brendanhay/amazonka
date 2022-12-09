@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageDeliveryStatusEventConfiguration' smart constructor.
 data MessageDeliveryStatusEventConfiguration = MessageDeliveryStatusEventConfiguration'
-  { -- | Denotes whether the wireless device ID device registration state event
+  { sidewalk :: Prelude.Maybe SidewalkEventNotificationConfigurations,
+    -- | Denotes whether the wireless device ID message delivery status event
     -- topic is enabled or disabled.
-    wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus,
-    sidewalk :: Prelude.Maybe SidewalkEventNotificationConfigurations
+    wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,28 @@ data MessageDeliveryStatusEventConfiguration = MessageDeliveryStatusEventConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceIdEventTopic', 'messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID device registration state event
--- topic is enabled or disabled.
---
 -- 'sidewalk', 'messageDeliveryStatusEventConfiguration_sidewalk' - Undocumented member.
+--
+-- 'wirelessDeviceIdEventTopic', 'messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID message delivery status event
+-- topic is enabled or disabled.
 newMessageDeliveryStatusEventConfiguration ::
   MessageDeliveryStatusEventConfiguration
 newMessageDeliveryStatusEventConfiguration =
   MessageDeliveryStatusEventConfiguration'
-    { wirelessDeviceIdEventTopic =
+    { sidewalk =
         Prelude.Nothing,
-      sidewalk = Prelude.Nothing
+      wirelessDeviceIdEventTopic =
+        Prelude.Nothing
     }
-
--- | Denotes whether the wireless device ID device registration state event
--- topic is enabled or disabled.
-messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' MessageDeliveryStatusEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
-messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\MessageDeliveryStatusEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@MessageDeliveryStatusEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: MessageDeliveryStatusEventConfiguration)
 
 -- | Undocumented member.
 messageDeliveryStatusEventConfiguration_sidewalk :: Lens.Lens' MessageDeliveryStatusEventConfiguration (Prelude.Maybe SidewalkEventNotificationConfigurations)
 messageDeliveryStatusEventConfiguration_sidewalk = Lens.lens (\MessageDeliveryStatusEventConfiguration' {sidewalk} -> sidewalk) (\s@MessageDeliveryStatusEventConfiguration' {} a -> s {sidewalk = a} :: MessageDeliveryStatusEventConfiguration)
+
+-- | Denotes whether the wireless device ID message delivery status event
+-- topic is enabled or disabled.
+messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' MessageDeliveryStatusEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
+messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\MessageDeliveryStatusEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@MessageDeliveryStatusEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: MessageDeliveryStatusEventConfiguration)
 
 instance
   Data.FromJSON
@@ -77,8 +78,8 @@ instance
       "MessageDeliveryStatusEventConfiguration"
       ( \x ->
           MessageDeliveryStatusEventConfiguration'
-            Prelude.<$> (x Data..:? "WirelessDeviceIdEventTopic")
-            Prelude.<*> (x Data..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "Sidewalk")
+            Prelude.<*> (x Data..:? "WirelessDeviceIdEventTopic")
       )
 
 instance
@@ -88,17 +89,16 @@ instance
   hashWithSalt
     _salt
     MessageDeliveryStatusEventConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` sidewalk
         `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
-        `Prelude.hashWithSalt` sidewalk
 
 instance
   Prelude.NFData
     MessageDeliveryStatusEventConfiguration
   where
   rnf MessageDeliveryStatusEventConfiguration' {..} =
-    Prelude.rnf wirelessDeviceIdEventTopic
-      `Prelude.seq` Prelude.rnf sidewalk
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
 
 instance
   Data.ToJSON
@@ -107,8 +107,8 @@ instance
   toJSON MessageDeliveryStatusEventConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceIdEventTopic" Data..=)
-              Prelude.<$> wirelessDeviceIdEventTopic,
-            ("Sidewalk" Data..=) Prelude.<$> sidewalk
+          [ ("Sidewalk" Data..=) Prelude.<$> sidewalk,
+            ("WirelessDeviceIdEventTopic" Data..=)
+              Prelude.<$> wirelessDeviceIdEventTopic
           ]
       )

@@ -36,8 +36,8 @@ module Amazonka.IoTWireless.GetServiceEndpoint
 
     -- * Response Lenses
     getServiceEndpointResponse_serverTrust,
-    getServiceEndpointResponse_serviceType,
     getServiceEndpointResponse_serviceEndpoint,
+    getServiceEndpointResponse_serviceType,
     getServiceEndpointResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest GetServiceEndpoint where
       ( \s h x ->
           GetServiceEndpointResponse'
             Prelude.<$> (x Data..?> "ServerTrust")
-            Prelude.<*> (x Data..?> "ServiceType")
             Prelude.<*> (x Data..?> "ServiceEndpoint")
+            Prelude.<*> (x Data..?> "ServiceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,10 +118,10 @@ instance Data.ToQuery GetServiceEndpoint where
 data GetServiceEndpointResponse = GetServiceEndpointResponse'
   { -- | The Root CA of the server trust certificate.
     serverTrust :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint\'s service type.
-    serviceType :: Prelude.Maybe WirelessGatewayServiceType,
     -- | The service endpoint value.
     serviceEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint\'s service type.
+    serviceType :: Prelude.Maybe WirelessGatewayServiceType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data GetServiceEndpointResponse = GetServiceEndpointResponse'
 --
 -- 'serverTrust', 'getServiceEndpointResponse_serverTrust' - The Root CA of the server trust certificate.
 --
--- 'serviceType', 'getServiceEndpointResponse_serviceType' - The endpoint\'s service type.
---
 -- 'serviceEndpoint', 'getServiceEndpointResponse_serviceEndpoint' - The service endpoint value.
+--
+-- 'serviceType', 'getServiceEndpointResponse_serviceType' - The endpoint\'s service type.
 --
 -- 'httpStatus', 'getServiceEndpointResponse_httpStatus' - The response's http status code.
 newGetServiceEndpointResponse ::
@@ -150,8 +150,8 @@ newGetServiceEndpointResponse pHttpStatus_ =
   GetServiceEndpointResponse'
     { serverTrust =
         Prelude.Nothing,
-      serviceType = Prelude.Nothing,
       serviceEndpoint = Prelude.Nothing,
+      serviceType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -159,13 +159,13 @@ newGetServiceEndpointResponse pHttpStatus_ =
 getServiceEndpointResponse_serverTrust :: Lens.Lens' GetServiceEndpointResponse (Prelude.Maybe Prelude.Text)
 getServiceEndpointResponse_serverTrust = Lens.lens (\GetServiceEndpointResponse' {serverTrust} -> serverTrust) (\s@GetServiceEndpointResponse' {} a -> s {serverTrust = a} :: GetServiceEndpointResponse)
 
--- | The endpoint\'s service type.
-getServiceEndpointResponse_serviceType :: Lens.Lens' GetServiceEndpointResponse (Prelude.Maybe WirelessGatewayServiceType)
-getServiceEndpointResponse_serviceType = Lens.lens (\GetServiceEndpointResponse' {serviceType} -> serviceType) (\s@GetServiceEndpointResponse' {} a -> s {serviceType = a} :: GetServiceEndpointResponse)
-
 -- | The service endpoint value.
 getServiceEndpointResponse_serviceEndpoint :: Lens.Lens' GetServiceEndpointResponse (Prelude.Maybe Prelude.Text)
 getServiceEndpointResponse_serviceEndpoint = Lens.lens (\GetServiceEndpointResponse' {serviceEndpoint} -> serviceEndpoint) (\s@GetServiceEndpointResponse' {} a -> s {serviceEndpoint = a} :: GetServiceEndpointResponse)
+
+-- | The endpoint\'s service type.
+getServiceEndpointResponse_serviceType :: Lens.Lens' GetServiceEndpointResponse (Prelude.Maybe WirelessGatewayServiceType)
+getServiceEndpointResponse_serviceType = Lens.lens (\GetServiceEndpointResponse' {serviceType} -> serviceType) (\s@GetServiceEndpointResponse' {} a -> s {serviceType = a} :: GetServiceEndpointResponse)
 
 -- | The response's http status code.
 getServiceEndpointResponse_httpStatus :: Lens.Lens' GetServiceEndpointResponse Prelude.Int
@@ -174,6 +174,6 @@ getServiceEndpointResponse_httpStatus = Lens.lens (\GetServiceEndpointResponse' 
 instance Prelude.NFData GetServiceEndpointResponse where
   rnf GetServiceEndpointResponse' {..} =
     Prelude.rnf serverTrust
-      `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf serviceEndpoint
+      `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf httpStatus

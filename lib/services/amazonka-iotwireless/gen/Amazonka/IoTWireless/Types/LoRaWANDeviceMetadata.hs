@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANDeviceMetadata' smart constructor.
 data LoRaWANDeviceMetadata = LoRaWANDeviceMetadata'
-  { -- | The FPort value.
+  { -- | The DataRate value.
+    dataRate :: Prelude.Maybe Prelude.Int,
+    -- | The DevEUI value.
+    devEui :: Prelude.Maybe Prelude.Text,
+    -- | The FPort value.
     fPort :: Prelude.Maybe Prelude.Int,
     -- | The device\'s channel frequency in Hz.
     frequency :: Prelude.Maybe Prelude.Int,
     -- | Information about the gateways accessed by the device.
     gateways :: Prelude.Maybe [LoRaWANGatewayMetadata],
     -- | The date and time of the metadata.
-    timestamp :: Prelude.Maybe Prelude.Text,
-    -- | The DataRate value.
-    dataRate :: Prelude.Maybe Prelude.Int,
-    -- | The DevEUI value.
-    devEui :: Prelude.Maybe Prelude.Text
+    timestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,10 @@ data LoRaWANDeviceMetadata = LoRaWANDeviceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataRate', 'loRaWANDeviceMetadata_dataRate' - The DataRate value.
+--
+-- 'devEui', 'loRaWANDeviceMetadata_devEui' - The DevEUI value.
+--
 -- 'fPort', 'loRaWANDeviceMetadata_fPort' - The FPort value.
 --
 -- 'frequency', 'loRaWANDeviceMetadata_frequency' - The device\'s channel frequency in Hz.
@@ -59,21 +63,25 @@ data LoRaWANDeviceMetadata = LoRaWANDeviceMetadata'
 -- 'gateways', 'loRaWANDeviceMetadata_gateways' - Information about the gateways accessed by the device.
 --
 -- 'timestamp', 'loRaWANDeviceMetadata_timestamp' - The date and time of the metadata.
---
--- 'dataRate', 'loRaWANDeviceMetadata_dataRate' - The DataRate value.
---
--- 'devEui', 'loRaWANDeviceMetadata_devEui' - The DevEUI value.
 newLoRaWANDeviceMetadata ::
   LoRaWANDeviceMetadata
 newLoRaWANDeviceMetadata =
   LoRaWANDeviceMetadata'
-    { fPort = Prelude.Nothing,
+    { dataRate = Prelude.Nothing,
+      devEui = Prelude.Nothing,
+      fPort = Prelude.Nothing,
       frequency = Prelude.Nothing,
       gateways = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      dataRate = Prelude.Nothing,
-      devEui = Prelude.Nothing
+      timestamp = Prelude.Nothing
     }
+
+-- | The DataRate value.
+loRaWANDeviceMetadata_dataRate :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Int)
+loRaWANDeviceMetadata_dataRate = Lens.lens (\LoRaWANDeviceMetadata' {dataRate} -> dataRate) (\s@LoRaWANDeviceMetadata' {} a -> s {dataRate = a} :: LoRaWANDeviceMetadata)
+
+-- | The DevEUI value.
+loRaWANDeviceMetadata_devEui :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Text)
+loRaWANDeviceMetadata_devEui = Lens.lens (\LoRaWANDeviceMetadata' {devEui} -> devEui) (\s@LoRaWANDeviceMetadata' {} a -> s {devEui = a} :: LoRaWANDeviceMetadata)
 
 -- | The FPort value.
 loRaWANDeviceMetadata_fPort :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Int)
@@ -91,42 +99,34 @@ loRaWANDeviceMetadata_gateways = Lens.lens (\LoRaWANDeviceMetadata' {gateways} -
 loRaWANDeviceMetadata_timestamp :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Text)
 loRaWANDeviceMetadata_timestamp = Lens.lens (\LoRaWANDeviceMetadata' {timestamp} -> timestamp) (\s@LoRaWANDeviceMetadata' {} a -> s {timestamp = a} :: LoRaWANDeviceMetadata)
 
--- | The DataRate value.
-loRaWANDeviceMetadata_dataRate :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Int)
-loRaWANDeviceMetadata_dataRate = Lens.lens (\LoRaWANDeviceMetadata' {dataRate} -> dataRate) (\s@LoRaWANDeviceMetadata' {} a -> s {dataRate = a} :: LoRaWANDeviceMetadata)
-
--- | The DevEUI value.
-loRaWANDeviceMetadata_devEui :: Lens.Lens' LoRaWANDeviceMetadata (Prelude.Maybe Prelude.Text)
-loRaWANDeviceMetadata_devEui = Lens.lens (\LoRaWANDeviceMetadata' {devEui} -> devEui) (\s@LoRaWANDeviceMetadata' {} a -> s {devEui = a} :: LoRaWANDeviceMetadata)
-
 instance Data.FromJSON LoRaWANDeviceMetadata where
   parseJSON =
     Data.withObject
       "LoRaWANDeviceMetadata"
       ( \x ->
           LoRaWANDeviceMetadata'
-            Prelude.<$> (x Data..:? "FPort")
+            Prelude.<$> (x Data..:? "DataRate")
+            Prelude.<*> (x Data..:? "DevEui")
+            Prelude.<*> (x Data..:? "FPort")
             Prelude.<*> (x Data..:? "Frequency")
             Prelude.<*> (x Data..:? "Gateways" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "DataRate")
-            Prelude.<*> (x Data..:? "DevEui")
       )
 
 instance Prelude.Hashable LoRaWANDeviceMetadata where
   hashWithSalt _salt LoRaWANDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` fPort
+    _salt `Prelude.hashWithSalt` dataRate
+      `Prelude.hashWithSalt` devEui
+      `Prelude.hashWithSalt` fPort
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` gateways
       `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` dataRate
-      `Prelude.hashWithSalt` devEui
 
 instance Prelude.NFData LoRaWANDeviceMetadata where
   rnf LoRaWANDeviceMetadata' {..} =
-    Prelude.rnf fPort
+    Prelude.rnf dataRate
+      `Prelude.seq` Prelude.rnf devEui
+      `Prelude.seq` Prelude.rnf fPort
       `Prelude.seq` Prelude.rnf frequency
       `Prelude.seq` Prelude.rnf gateways
       `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf dataRate
-      `Prelude.seq` Prelude.rnf devEui

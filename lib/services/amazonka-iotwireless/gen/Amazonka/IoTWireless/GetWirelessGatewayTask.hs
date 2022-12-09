@@ -35,9 +35,9 @@ module Amazonka.IoTWireless.GetWirelessGatewayTask
 
     -- * Response Lenses
     getWirelessGatewayTaskResponse_lastUplinkReceivedAt,
-    getWirelessGatewayTaskResponse_wirelessGatewayId,
     getWirelessGatewayTaskResponse_status,
     getWirelessGatewayTaskResponse_taskCreatedAt,
+    getWirelessGatewayTaskResponse_wirelessGatewayId,
     getWirelessGatewayTaskResponse_wirelessGatewayTaskDefinitionId,
     getWirelessGatewayTaskResponse_httpStatus,
   )
@@ -89,9 +89,9 @@ instance Core.AWSRequest GetWirelessGatewayTask where
       ( \s h x ->
           GetWirelessGatewayTaskResponse'
             Prelude.<$> (x Data..?> "LastUplinkReceivedAt")
-            Prelude.<*> (x Data..?> "WirelessGatewayId")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TaskCreatedAt")
+            Prelude.<*> (x Data..?> "WirelessGatewayId")
             Prelude.<*> (x Data..?> "WirelessGatewayTaskDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -118,12 +118,12 @@ instance Data.ToQuery GetWirelessGatewayTask where
 data GetWirelessGatewayTaskResponse = GetWirelessGatewayTaskResponse'
   { -- | The date and time when the most recent uplink was received.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the wireless gateway.
-    wirelessGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The status of the request.
     status :: Prelude.Maybe WirelessGatewayTaskStatus,
     -- | The date and time when the task was created.
     taskCreatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the wireless gateway.
+    wirelessGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the WirelessGatewayTask.
     wirelessGatewayTaskDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -141,11 +141,11 @@ data GetWirelessGatewayTaskResponse = GetWirelessGatewayTaskResponse'
 --
 -- 'lastUplinkReceivedAt', 'getWirelessGatewayTaskResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
 --
--- 'wirelessGatewayId', 'getWirelessGatewayTaskResponse_wirelessGatewayId' - The ID of the wireless gateway.
---
 -- 'status', 'getWirelessGatewayTaskResponse_status' - The status of the request.
 --
 -- 'taskCreatedAt', 'getWirelessGatewayTaskResponse_taskCreatedAt' - The date and time when the task was created.
+--
+-- 'wirelessGatewayId', 'getWirelessGatewayTaskResponse_wirelessGatewayId' - The ID of the wireless gateway.
 --
 -- 'wirelessGatewayTaskDefinitionId', 'getWirelessGatewayTaskResponse_wirelessGatewayTaskDefinitionId' - The ID of the WirelessGatewayTask.
 --
@@ -158,9 +158,9 @@ newGetWirelessGatewayTaskResponse pHttpStatus_ =
   GetWirelessGatewayTaskResponse'
     { lastUplinkReceivedAt =
         Prelude.Nothing,
-      wirelessGatewayId = Prelude.Nothing,
       status = Prelude.Nothing,
       taskCreatedAt = Prelude.Nothing,
+      wirelessGatewayId = Prelude.Nothing,
       wirelessGatewayTaskDefinitionId =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -170,10 +170,6 @@ newGetWirelessGatewayTaskResponse pHttpStatus_ =
 getWirelessGatewayTaskResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayTaskResponse_lastUplinkReceivedAt = Lens.lens (\GetWirelessGatewayTaskResponse' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@GetWirelessGatewayTaskResponse' {} a -> s {lastUplinkReceivedAt = a} :: GetWirelessGatewayTaskResponse)
 
--- | The ID of the wireless gateway.
-getWirelessGatewayTaskResponse_wirelessGatewayId :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
-getWirelessGatewayTaskResponse_wirelessGatewayId = Lens.lens (\GetWirelessGatewayTaskResponse' {wirelessGatewayId} -> wirelessGatewayId) (\s@GetWirelessGatewayTaskResponse' {} a -> s {wirelessGatewayId = a} :: GetWirelessGatewayTaskResponse)
-
 -- | The status of the request.
 getWirelessGatewayTaskResponse_status :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe WirelessGatewayTaskStatus)
 getWirelessGatewayTaskResponse_status = Lens.lens (\GetWirelessGatewayTaskResponse' {status} -> status) (\s@GetWirelessGatewayTaskResponse' {} a -> s {status = a} :: GetWirelessGatewayTaskResponse)
@@ -181,6 +177,10 @@ getWirelessGatewayTaskResponse_status = Lens.lens (\GetWirelessGatewayTaskRespon
 -- | The date and time when the task was created.
 getWirelessGatewayTaskResponse_taskCreatedAt :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayTaskResponse_taskCreatedAt = Lens.lens (\GetWirelessGatewayTaskResponse' {taskCreatedAt} -> taskCreatedAt) (\s@GetWirelessGatewayTaskResponse' {} a -> s {taskCreatedAt = a} :: GetWirelessGatewayTaskResponse)
+
+-- | The ID of the wireless gateway.
+getWirelessGatewayTaskResponse_wirelessGatewayId :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
+getWirelessGatewayTaskResponse_wirelessGatewayId = Lens.lens (\GetWirelessGatewayTaskResponse' {wirelessGatewayId} -> wirelessGatewayId) (\s@GetWirelessGatewayTaskResponse' {} a -> s {wirelessGatewayId = a} :: GetWirelessGatewayTaskResponse)
 
 -- | The ID of the WirelessGatewayTask.
 getWirelessGatewayTaskResponse_wirelessGatewayTaskDefinitionId :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
@@ -196,8 +196,8 @@ instance
   where
   rnf GetWirelessGatewayTaskResponse' {..} =
     Prelude.rnf lastUplinkReceivedAt
-      `Prelude.seq` Prelude.rnf wirelessGatewayId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf taskCreatedAt
+      `Prelude.seq` Prelude.rnf wirelessGatewayId
       `Prelude.seq` Prelude.rnf wirelessGatewayTaskDefinitionId
       `Prelude.seq` Prelude.rnf httpStatus

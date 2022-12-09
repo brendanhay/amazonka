@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.ListMulticastGroupsByFuotaTask
     newListMulticastGroupsByFuotaTask,
 
     -- * Request Lenses
-    listMulticastGroupsByFuotaTask_nextToken,
     listMulticastGroupsByFuotaTask_maxResults,
+    listMulticastGroupsByFuotaTask_nextToken,
     listMulticastGroupsByFuotaTask_id,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMulticastGroupsByFuotaTask' smart constructor.
 data ListMulticastGroupsByFuotaTask = ListMulticastGroupsByFuotaTask'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +69,11 @@ data ListMulticastGroupsByFuotaTask = ListMulticastGroupsByFuotaTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMulticastGroupsByFuotaTask_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listMulticastGroupsByFuotaTask_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listMulticastGroupsByFuotaTask_maxResults' - Undocumented member.
 --
 -- 'id', 'listMulticastGroupsByFuotaTask_id' - Undocumented member.
 newListMulticastGroupsByFuotaTask ::
@@ -82,21 +82,21 @@ newListMulticastGroupsByFuotaTask ::
   ListMulticastGroupsByFuotaTask
 newListMulticastGroupsByFuotaTask pId_ =
   ListMulticastGroupsByFuotaTask'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       id = pId_
     }
+
+-- | Undocumented member.
+listMulticastGroupsByFuotaTask_maxResults :: Lens.Lens' ListMulticastGroupsByFuotaTask (Prelude.Maybe Prelude.Natural)
+listMulticastGroupsByFuotaTask_maxResults = Lens.lens (\ListMulticastGroupsByFuotaTask' {maxResults} -> maxResults) (\s@ListMulticastGroupsByFuotaTask' {} a -> s {maxResults = a} :: ListMulticastGroupsByFuotaTask)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listMulticastGroupsByFuotaTask_nextToken :: Lens.Lens' ListMulticastGroupsByFuotaTask (Prelude.Maybe Prelude.Text)
 listMulticastGroupsByFuotaTask_nextToken = Lens.lens (\ListMulticastGroupsByFuotaTask' {nextToken} -> nextToken) (\s@ListMulticastGroupsByFuotaTask' {} a -> s {nextToken = a} :: ListMulticastGroupsByFuotaTask)
-
--- | Undocumented member.
-listMulticastGroupsByFuotaTask_maxResults :: Lens.Lens' ListMulticastGroupsByFuotaTask (Prelude.Maybe Prelude.Natural)
-listMulticastGroupsByFuotaTask_maxResults = Lens.lens (\ListMulticastGroupsByFuotaTask' {maxResults} -> maxResults) (\s@ListMulticastGroupsByFuotaTask' {} a -> s {maxResults = a} :: ListMulticastGroupsByFuotaTask)
 
 -- | Undocumented member.
 listMulticastGroupsByFuotaTask_id :: Lens.Lens' ListMulticastGroupsByFuotaTask Prelude.Text
@@ -129,8 +129,8 @@ instance
   hashWithSalt
     _salt
     ListMulticastGroupsByFuotaTask' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` id
 
 instance
@@ -138,8 +138,8 @@ instance
     ListMulticastGroupsByFuotaTask
   where
   rnf ListMulticastGroupsByFuotaTask' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf id
 
 instance
@@ -156,8 +156,8 @@ instance Data.ToPath ListMulticastGroupsByFuotaTask where
 instance Data.ToQuery ListMulticastGroupsByFuotaTask where
   toQuery ListMulticastGroupsByFuotaTask' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListMulticastGroupsByFuotaTaskResponse' smart constructor.

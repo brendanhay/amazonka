@@ -11,17 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IoTWireless.Types.PositionConfigurationStatus
+-- Module      : Amazonka.IoTWireless.Types.ApplicationConfigType
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IoTWireless.Types.PositionConfigurationStatus
-  ( PositionConfigurationStatus
+module Amazonka.IoTWireless.Types.ApplicationConfigType
+  ( ApplicationConfigType
       ( ..,
-        PositionConfigurationStatus_Disabled,
-        PositionConfigurationStatus_Enabled
+        ApplicationConfigType_SemtechGeolocation
       ),
   )
 where
@@ -30,8 +29,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype PositionConfigurationStatus = PositionConfigurationStatus'
-  { fromPositionConfigurationStatus ::
+newtype ApplicationConfigType = ApplicationConfigType'
+  { fromApplicationConfigType ::
       Data.Text
   }
   deriving stock
@@ -58,14 +57,10 @@ newtype PositionConfigurationStatus = PositionConfigurationStatus'
       Data.ToXML
     )
 
-pattern PositionConfigurationStatus_Disabled :: PositionConfigurationStatus
-pattern PositionConfigurationStatus_Disabled = PositionConfigurationStatus' "Disabled"
-
-pattern PositionConfigurationStatus_Enabled :: PositionConfigurationStatus
-pattern PositionConfigurationStatus_Enabled = PositionConfigurationStatus' "Enabled"
+pattern ApplicationConfigType_SemtechGeolocation :: ApplicationConfigType
+pattern ApplicationConfigType_SemtechGeolocation = ApplicationConfigType' "SemtechGeolocation"
 
 {-# COMPLETE
-  PositionConfigurationStatus_Disabled,
-  PositionConfigurationStatus_Enabled,
-  PositionConfigurationStatus'
+  ApplicationConfigType_SemtechGeolocation,
+  ApplicationConfigType'
   #-}

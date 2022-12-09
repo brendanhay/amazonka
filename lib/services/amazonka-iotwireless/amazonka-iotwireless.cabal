@@ -89,10 +89,10 @@ library
     Amazonka.IoTWireless.GetMulticastGroupSession
     Amazonka.IoTWireless.GetNetworkAnalyzerConfiguration
     Amazonka.IoTWireless.GetPartnerAccount
-    Amazonka.IoTWireless.GetPosition
-    Amazonka.IoTWireless.GetPositionConfiguration
+    Amazonka.IoTWireless.GetPositionEstimate
     Amazonka.IoTWireless.GetResourceEventConfiguration
     Amazonka.IoTWireless.GetResourceLogLevel
+    Amazonka.IoTWireless.GetResourcePosition
     Amazonka.IoTWireless.GetServiceEndpoint
     Amazonka.IoTWireless.GetServiceProfile
     Amazonka.IoTWireless.GetWirelessDevice
@@ -112,14 +112,12 @@ library
     Amazonka.IoTWireless.ListMulticastGroupsByFuotaTask
     Amazonka.IoTWireless.ListNetworkAnalyzerConfigurations
     Amazonka.IoTWireless.ListPartnerAccounts
-    Amazonka.IoTWireless.ListPositionConfigurations
     Amazonka.IoTWireless.ListQueuedMessages
     Amazonka.IoTWireless.ListServiceProfiles
     Amazonka.IoTWireless.ListTagsForResource
     Amazonka.IoTWireless.ListWirelessDevices
     Amazonka.IoTWireless.ListWirelessGateways
     Amazonka.IoTWireless.ListWirelessGatewayTaskDefinitions
-    Amazonka.IoTWireless.PutPositionConfiguration
     Amazonka.IoTWireless.PutResourceLogLevel
     Amazonka.IoTWireless.ResetAllResourceLogLevels
     Amazonka.IoTWireless.ResetResourceLogLevel
@@ -134,9 +132,14 @@ library
     Amazonka.IoTWireless.Types
     Amazonka.IoTWireless.Types.AbpV1_0_x
     Amazonka.IoTWireless.Types.AbpV1_1
-    Amazonka.IoTWireless.Types.Accuracy
+    Amazonka.IoTWireless.Types.ApplicationConfig
+    Amazonka.IoTWireless.Types.ApplicationConfigType
     Amazonka.IoTWireless.Types.BatteryLevel
     Amazonka.IoTWireless.Types.Beaconing
+    Amazonka.IoTWireless.Types.CdmaLocalId
+    Amazonka.IoTWireless.Types.CdmaNmrObj
+    Amazonka.IoTWireless.Types.CdmaObj
+    Amazonka.IoTWireless.Types.CellTowers
     Amazonka.IoTWireless.Types.CertificateList
     Amazonka.IoTWireless.Types.ConnectionStatus
     Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
@@ -161,7 +164,13 @@ library
     Amazonka.IoTWireless.Types.FuotaTask
     Amazonka.IoTWireless.Types.FuotaTaskStatus
     Amazonka.IoTWireless.Types.GatewayListItem
+    Amazonka.IoTWireless.Types.GlobalIdentity
+    Amazonka.IoTWireless.Types.Gnss
+    Amazonka.IoTWireless.Types.GsmLocalId
+    Amazonka.IoTWireless.Types.GsmNmrObj
+    Amazonka.IoTWireless.Types.GsmObj
     Amazonka.IoTWireless.Types.IdentifierType
+    Amazonka.IoTWireless.Types.Ip
     Amazonka.IoTWireless.Types.JoinEventConfiguration
     Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.LogLevel
@@ -190,6 +199,9 @@ library
     Amazonka.IoTWireless.Types.LoRaWANUpdateDevice
     Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
     Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
+    Amazonka.IoTWireless.Types.LteLocalId
+    Amazonka.IoTWireless.Types.LteNmrObj
+    Amazonka.IoTWireless.Types.LteObj
     Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
     Amazonka.IoTWireless.Types.MessageDeliveryStatusResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.MessageType
@@ -201,19 +213,11 @@ library
     Amazonka.IoTWireless.Types.OtaaV1_1
     Amazonka.IoTWireless.Types.ParticipatingGateways
     Amazonka.IoTWireless.Types.PartnerType
-    Amazonka.IoTWireless.Types.PositionConfigurationFec
-    Amazonka.IoTWireless.Types.PositionConfigurationItem
-    Amazonka.IoTWireless.Types.PositionConfigurationStatus
     Amazonka.IoTWireless.Types.Positioning
+    Amazonka.IoTWireless.Types.PositioningConfigStatus
     Amazonka.IoTWireless.Types.PositionResourceType
-    Amazonka.IoTWireless.Types.PositionSolverConfigurations
-    Amazonka.IoTWireless.Types.PositionSolverDetails
-    Amazonka.IoTWireless.Types.PositionSolverProvider
-    Amazonka.IoTWireless.Types.PositionSolverType
     Amazonka.IoTWireless.Types.ProximityEventConfiguration
     Amazonka.IoTWireless.Types.ProximityResourceTypeEventConfiguration
-    Amazonka.IoTWireless.Types.SemtechGnssConfiguration
-    Amazonka.IoTWireless.Types.SemtechGnssDetail
     Amazonka.IoTWireless.Types.ServiceProfile
     Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x
     Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
@@ -229,12 +233,19 @@ library
     Amazonka.IoTWireless.Types.SigningAlg
     Amazonka.IoTWireless.Types.SupportedRfRegion
     Amazonka.IoTWireless.Types.Tag
+    Amazonka.IoTWireless.Types.TdscdmaLocalId
+    Amazonka.IoTWireless.Types.TdscdmaNmrObj
+    Amazonka.IoTWireless.Types.TdscdmaObj
     Amazonka.IoTWireless.Types.TraceContent
     Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
     Amazonka.IoTWireless.Types.UpdateAbpV1_1
     Amazonka.IoTWireless.Types.UpdateFPorts
     Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
     Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
+    Amazonka.IoTWireless.Types.WcdmaLocalId
+    Amazonka.IoTWireless.Types.WcdmaNmrObj
+    Amazonka.IoTWireless.Types.WcdmaObj
+    Amazonka.IoTWireless.Types.WiFiAccessPoint
     Amazonka.IoTWireless.Types.WirelessDeviceEvent
     Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
     Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
@@ -260,8 +271,8 @@ library
     Amazonka.IoTWireless.UpdateMulticastGroup
     Amazonka.IoTWireless.UpdateNetworkAnalyzerConfiguration
     Amazonka.IoTWireless.UpdatePartnerAccount
-    Amazonka.IoTWireless.UpdatePosition
     Amazonka.IoTWireless.UpdateResourceEventConfiguration
+    Amazonka.IoTWireless.UpdateResourcePosition
     Amazonka.IoTWireless.UpdateWirelessDevice
     Amazonka.IoTWireless.UpdateWirelessGateway
     Amazonka.IoTWireless.Waiters

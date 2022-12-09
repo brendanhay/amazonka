@@ -29,12 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkSendDataToDevice' smart constructor.
 data SidewalkSendDataToDevice = SidewalkSendDataToDevice'
-  { -- | The sequence number.
-    seq :: Prelude.Maybe Prelude.Natural,
+  { -- | The duration of time in seconds to retry sending the ACK.
+    ackModeRetryDurationSecs :: Prelude.Maybe Prelude.Natural,
     messageType :: Prelude.Maybe MessageType,
-    -- | The duration of time in seconds for which you want to retry sending the
-    -- ACK.
-    ackModeRetryDurationSecs :: Prelude.Maybe Prelude.Natural
+    -- | The sequence number.
+    seq :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,53 +45,53 @@ data SidewalkSendDataToDevice = SidewalkSendDataToDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'seq', 'sidewalkSendDataToDevice_seq' - The sequence number.
+-- 'ackModeRetryDurationSecs', 'sidewalkSendDataToDevice_ackModeRetryDurationSecs' - The duration of time in seconds to retry sending the ACK.
 --
 -- 'messageType', 'sidewalkSendDataToDevice_messageType' - Undocumented member.
 --
--- 'ackModeRetryDurationSecs', 'sidewalkSendDataToDevice_ackModeRetryDurationSecs' - The duration of time in seconds for which you want to retry sending the
--- ACK.
+-- 'seq', 'sidewalkSendDataToDevice_seq' - The sequence number.
 newSidewalkSendDataToDevice ::
   SidewalkSendDataToDevice
 newSidewalkSendDataToDevice =
   SidewalkSendDataToDevice'
-    { seq = Prelude.Nothing,
+    { ackModeRetryDurationSecs =
+        Prelude.Nothing,
       messageType = Prelude.Nothing,
-      ackModeRetryDurationSecs = Prelude.Nothing
+      seq = Prelude.Nothing
     }
 
--- | The sequence number.
-sidewalkSendDataToDevice_seq :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
-sidewalkSendDataToDevice_seq = Lens.lens (\SidewalkSendDataToDevice' {seq} -> seq) (\s@SidewalkSendDataToDevice' {} a -> s {seq = a} :: SidewalkSendDataToDevice)
+-- | The duration of time in seconds to retry sending the ACK.
+sidewalkSendDataToDevice_ackModeRetryDurationSecs :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
+sidewalkSendDataToDevice_ackModeRetryDurationSecs = Lens.lens (\SidewalkSendDataToDevice' {ackModeRetryDurationSecs} -> ackModeRetryDurationSecs) (\s@SidewalkSendDataToDevice' {} a -> s {ackModeRetryDurationSecs = a} :: SidewalkSendDataToDevice)
 
 -- | Undocumented member.
 sidewalkSendDataToDevice_messageType :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe MessageType)
 sidewalkSendDataToDevice_messageType = Lens.lens (\SidewalkSendDataToDevice' {messageType} -> messageType) (\s@SidewalkSendDataToDevice' {} a -> s {messageType = a} :: SidewalkSendDataToDevice)
 
--- | The duration of time in seconds for which you want to retry sending the
--- ACK.
-sidewalkSendDataToDevice_ackModeRetryDurationSecs :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
-sidewalkSendDataToDevice_ackModeRetryDurationSecs = Lens.lens (\SidewalkSendDataToDevice' {ackModeRetryDurationSecs} -> ackModeRetryDurationSecs) (\s@SidewalkSendDataToDevice' {} a -> s {ackModeRetryDurationSecs = a} :: SidewalkSendDataToDevice)
+-- | The sequence number.
+sidewalkSendDataToDevice_seq :: Lens.Lens' SidewalkSendDataToDevice (Prelude.Maybe Prelude.Natural)
+sidewalkSendDataToDevice_seq = Lens.lens (\SidewalkSendDataToDevice' {seq} -> seq) (\s@SidewalkSendDataToDevice' {} a -> s {seq = a} :: SidewalkSendDataToDevice)
 
 instance Prelude.Hashable SidewalkSendDataToDevice where
   hashWithSalt _salt SidewalkSendDataToDevice' {..} =
-    _salt `Prelude.hashWithSalt` seq
-      `Prelude.hashWithSalt` messageType
+    _salt
       `Prelude.hashWithSalt` ackModeRetryDurationSecs
+      `Prelude.hashWithSalt` messageType
+      `Prelude.hashWithSalt` seq
 
 instance Prelude.NFData SidewalkSendDataToDevice where
   rnf SidewalkSendDataToDevice' {..} =
-    Prelude.rnf seq
+    Prelude.rnf ackModeRetryDurationSecs
       `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf ackModeRetryDurationSecs
+      `Prelude.seq` Prelude.rnf seq
 
 instance Data.ToJSON SidewalkSendDataToDevice where
   toJSON SidewalkSendDataToDevice' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Seq" Data..=) Prelude.<$> seq,
+          [ ("AckModeRetryDurationSecs" Data..=)
+              Prelude.<$> ackModeRetryDurationSecs,
             ("MessageType" Data..=) Prelude.<$> messageType,
-            ("AckModeRetryDurationSecs" Data..=)
-              Prelude.<$> ackModeRetryDurationSecs
+            ("Seq" Data..=) Prelude.<$> seq
           ]
       )

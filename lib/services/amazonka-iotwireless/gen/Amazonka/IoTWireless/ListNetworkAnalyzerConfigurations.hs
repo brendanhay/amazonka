@@ -27,16 +27,16 @@ module Amazonka.IoTWireless.ListNetworkAnalyzerConfigurations
     newListNetworkAnalyzerConfigurations,
 
     -- * Request Lenses
-    listNetworkAnalyzerConfigurations_nextToken,
     listNetworkAnalyzerConfigurations_maxResults,
+    listNetworkAnalyzerConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListNetworkAnalyzerConfigurationsResponse (..),
     newListNetworkAnalyzerConfigurationsResponse,
 
     -- * Response Lenses
-    listNetworkAnalyzerConfigurationsResponse_nextToken,
     listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList,
+    listNetworkAnalyzerConfigurationsResponse_nextToken,
     listNetworkAnalyzerConfigurationsResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNetworkAnalyzerConfigurations' smart constructor.
 data ListNetworkAnalyzerConfigurations = ListNetworkAnalyzerConfigurations'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,29 +67,29 @@ data ListNetworkAnalyzerConfigurations = ListNetworkAnalyzerConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listNetworkAnalyzerConfigurations_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listNetworkAnalyzerConfigurations_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listNetworkAnalyzerConfigurations_maxResults' - Undocumented member.
 newListNetworkAnalyzerConfigurations ::
   ListNetworkAnalyzerConfigurations
 newListNetworkAnalyzerConfigurations =
   ListNetworkAnalyzerConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listNetworkAnalyzerConfigurations_maxResults :: Lens.Lens' ListNetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Natural)
+listNetworkAnalyzerConfigurations_maxResults = Lens.lens (\ListNetworkAnalyzerConfigurations' {maxResults} -> maxResults) (\s@ListNetworkAnalyzerConfigurations' {} a -> s {maxResults = a} :: ListNetworkAnalyzerConfigurations)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listNetworkAnalyzerConfigurations_nextToken :: Lens.Lens' ListNetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Text)
 listNetworkAnalyzerConfigurations_nextToken = Lens.lens (\ListNetworkAnalyzerConfigurations' {nextToken} -> nextToken) (\s@ListNetworkAnalyzerConfigurations' {} a -> s {nextToken = a} :: ListNetworkAnalyzerConfigurations)
-
--- | Undocumented member.
-listNetworkAnalyzerConfigurations_maxResults :: Lens.Lens' ListNetworkAnalyzerConfigurations (Prelude.Maybe Prelude.Natural)
-listNetworkAnalyzerConfigurations_maxResults = Lens.lens (\ListNetworkAnalyzerConfigurations' {maxResults} -> maxResults) (\s@ListNetworkAnalyzerConfigurations' {} a -> s {maxResults = a} :: ListNetworkAnalyzerConfigurations)
 
 instance
   Core.AWSRequest
@@ -104,10 +104,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListNetworkAnalyzerConfigurationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "NetworkAnalyzerConfigurationList"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "NetworkAnalyzerConfigurationList"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,16 +118,16 @@ instance
   hashWithSalt
     _salt
     ListNetworkAnalyzerConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListNetworkAnalyzerConfigurations
   where
   rnf ListNetworkAnalyzerConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -148,17 +148,17 @@ instance
   where
   toQuery ListNetworkAnalyzerConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListNetworkAnalyzerConfigurationsResponse' smart constructor.
 data ListNetworkAnalyzerConfigurationsResponse = ListNetworkAnalyzerConfigurationsResponse'
-  { -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The list of network analyzer configurations.
+    networkAnalyzerConfigurationList :: Prelude.Maybe [NetworkAnalyzerConfigurations],
+    -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of network analyzer configurations.
-    networkAnalyzerConfigurationList :: Prelude.Maybe [NetworkAnalyzerConfigurations],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,10 +172,10 @@ data ListNetworkAnalyzerConfigurationsResponse = ListNetworkAnalyzerConfiguratio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkAnalyzerConfigurationList', 'listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList' - The list of network analyzer configurations.
+--
 -- 'nextToken', 'listNetworkAnalyzerConfigurationsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
---
--- 'networkAnalyzerConfigurationList', 'listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList' - The list of network analyzer configurations.
 --
 -- 'httpStatus', 'listNetworkAnalyzerConfigurationsResponse_httpStatus' - The response's http status code.
 newListNetworkAnalyzerConfigurationsResponse ::
@@ -185,21 +185,20 @@ newListNetworkAnalyzerConfigurationsResponse ::
 newListNetworkAnalyzerConfigurationsResponse
   pHttpStatus_ =
     ListNetworkAnalyzerConfigurationsResponse'
-      { nextToken =
+      { networkAnalyzerConfigurationList =
           Prelude.Nothing,
-        networkAnalyzerConfigurationList =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The list of network analyzer configurations.
+listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList :: Lens.Lens' ListNetworkAnalyzerConfigurationsResponse (Prelude.Maybe [NetworkAnalyzerConfigurations])
+listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList = Lens.lens (\ListNetworkAnalyzerConfigurationsResponse' {networkAnalyzerConfigurationList} -> networkAnalyzerConfigurationList) (\s@ListNetworkAnalyzerConfigurationsResponse' {} a -> s {networkAnalyzerConfigurationList = a} :: ListNetworkAnalyzerConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listNetworkAnalyzerConfigurationsResponse_nextToken :: Lens.Lens' ListNetworkAnalyzerConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listNetworkAnalyzerConfigurationsResponse_nextToken = Lens.lens (\ListNetworkAnalyzerConfigurationsResponse' {nextToken} -> nextToken) (\s@ListNetworkAnalyzerConfigurationsResponse' {} a -> s {nextToken = a} :: ListNetworkAnalyzerConfigurationsResponse)
-
--- | The list of network analyzer configurations.
-listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList :: Lens.Lens' ListNetworkAnalyzerConfigurationsResponse (Prelude.Maybe [NetworkAnalyzerConfigurations])
-listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList = Lens.lens (\ListNetworkAnalyzerConfigurationsResponse' {networkAnalyzerConfigurationList} -> networkAnalyzerConfigurationList) (\s@ListNetworkAnalyzerConfigurationsResponse' {} a -> s {networkAnalyzerConfigurationList = a} :: ListNetworkAnalyzerConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listNetworkAnalyzerConfigurationsResponse_httpStatus :: Lens.Lens' ListNetworkAnalyzerConfigurationsResponse Prelude.Int
@@ -210,6 +209,6 @@ instance
     ListNetworkAnalyzerConfigurationsResponse
   where
   rnf ListNetworkAnalyzerConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkAnalyzerConfigurationList
+    Prelude.rnf networkAnalyzerConfigurationList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

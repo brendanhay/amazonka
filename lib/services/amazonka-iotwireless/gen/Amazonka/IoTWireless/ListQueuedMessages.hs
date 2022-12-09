@@ -27,9 +27,9 @@ module Amazonka.IoTWireless.ListQueuedMessages
     newListQueuedMessages,
 
     -- * Request Lenses
+    listQueuedMessages_maxResults,
     listQueuedMessages_nextToken,
     listQueuedMessages_wirelessDeviceType,
-    listQueuedMessages_maxResults,
     listQueuedMessages_id,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.IoTWireless.ListQueuedMessages
     newListQueuedMessagesResponse,
 
     -- * Response Lenses
-    listQueuedMessagesResponse_nextToken,
     listQueuedMessagesResponse_downlinkQueueMessagesList,
+    listQueuedMessagesResponse_nextToken,
     listQueuedMessagesResponse_httpStatus,
   )
 where
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQueuedMessages' smart constructor.
 data ListQueuedMessages = ListQueuedMessages'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The wireless device type, whic can be either Sidewalk or LoRaWAN.
     wirelessDeviceType :: Prelude.Maybe WirelessDeviceType,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of a given wireless device which the downlink message packets are
     -- being sent.
     id :: Prelude.Text
@@ -75,13 +75,13 @@ data ListQueuedMessages = ListQueuedMessages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQueuedMessages_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listQueuedMessages_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
 -- 'wirelessDeviceType', 'listQueuedMessages_wirelessDeviceType' - The wireless device type, whic can be either Sidewalk or LoRaWAN.
---
--- 'maxResults', 'listQueuedMessages_maxResults' - The maximum number of results to return in this operation.
 --
 -- 'id', 'listQueuedMessages_id' - The ID of a given wireless device which the downlink message packets are
 -- being sent.
@@ -91,11 +91,15 @@ newListQueuedMessages ::
   ListQueuedMessages
 newListQueuedMessages pId_ =
   ListQueuedMessages'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       wirelessDeviceType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       id = pId_
     }
+
+-- | The maximum number of results to return in this operation.
+listQueuedMessages_maxResults :: Lens.Lens' ListQueuedMessages (Prelude.Maybe Prelude.Natural)
+listQueuedMessages_maxResults = Lens.lens (\ListQueuedMessages' {maxResults} -> maxResults) (\s@ListQueuedMessages' {} a -> s {maxResults = a} :: ListQueuedMessages)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -106,10 +110,6 @@ listQueuedMessages_nextToken = Lens.lens (\ListQueuedMessages' {nextToken} -> ne
 -- | The wireless device type, whic can be either Sidewalk or LoRaWAN.
 listQueuedMessages_wirelessDeviceType :: Lens.Lens' ListQueuedMessages (Prelude.Maybe WirelessDeviceType)
 listQueuedMessages_wirelessDeviceType = Lens.lens (\ListQueuedMessages' {wirelessDeviceType} -> wirelessDeviceType) (\s@ListQueuedMessages' {} a -> s {wirelessDeviceType = a} :: ListQueuedMessages)
-
--- | The maximum number of results to return in this operation.
-listQueuedMessages_maxResults :: Lens.Lens' ListQueuedMessages (Prelude.Maybe Prelude.Natural)
-listQueuedMessages_maxResults = Lens.lens (\ListQueuedMessages' {maxResults} -> maxResults) (\s@ListQueuedMessages' {} a -> s {maxResults = a} :: ListQueuedMessages)
 
 -- | The ID of a given wireless device which the downlink message packets are
 -- being sent.
@@ -126,25 +126,25 @@ instance Core.AWSRequest ListQueuedMessages where
     Response.receiveJSON
       ( \s h x ->
           ListQueuedMessagesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DownlinkQueueMessagesList"
+            Prelude.<$> ( x Data..?> "DownlinkQueueMessagesList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListQueuedMessages where
   hashWithSalt _salt ListQueuedMessages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` wirelessDeviceType
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ListQueuedMessages where
   rnf ListQueuedMessages' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf wirelessDeviceType
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders ListQueuedMessages where
@@ -158,19 +158,19 @@ instance Data.ToPath ListQueuedMessages where
 instance Data.ToQuery ListQueuedMessages where
   toQuery ListQueuedMessages' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "WirelessDeviceType" Data.=: wirelessDeviceType,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "WirelessDeviceType" Data.=: wirelessDeviceType
       ]
 
 -- | /See:/ 'newListQueuedMessagesResponse' smart constructor.
 data ListQueuedMessagesResponse = ListQueuedMessagesResponse'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The messages in the downlink queue.
+    downlinkQueueMessagesList :: Prelude.Maybe [DownlinkQueueMessage],
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The messages in the downlink queue.
-    downlinkQueueMessagesList :: Prelude.Maybe [DownlinkQueueMessage],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,11 +184,11 @@ data ListQueuedMessagesResponse = ListQueuedMessagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'downlinkQueueMessagesList', 'listQueuedMessagesResponse_downlinkQueueMessagesList' - The messages in the downlink queue.
+--
 -- 'nextToken', 'listQueuedMessagesResponse_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'downlinkQueueMessagesList', 'listQueuedMessagesResponse_downlinkQueueMessagesList' - The messages in the downlink queue.
 --
 -- 'httpStatus', 'listQueuedMessagesResponse_httpStatus' - The response's http status code.
 newListQueuedMessagesResponse ::
@@ -197,11 +197,15 @@ newListQueuedMessagesResponse ::
   ListQueuedMessagesResponse
 newListQueuedMessagesResponse pHttpStatus_ =
   ListQueuedMessagesResponse'
-    { nextToken =
+    { downlinkQueueMessagesList =
         Prelude.Nothing,
-      downlinkQueueMessagesList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The messages in the downlink queue.
+listQueuedMessagesResponse_downlinkQueueMessagesList :: Lens.Lens' ListQueuedMessagesResponse (Prelude.Maybe [DownlinkQueueMessage])
+listQueuedMessagesResponse_downlinkQueueMessagesList = Lens.lens (\ListQueuedMessagesResponse' {downlinkQueueMessagesList} -> downlinkQueueMessagesList) (\s@ListQueuedMessagesResponse' {} a -> s {downlinkQueueMessagesList = a} :: ListQueuedMessagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -209,16 +213,12 @@ newListQueuedMessagesResponse pHttpStatus_ =
 listQueuedMessagesResponse_nextToken :: Lens.Lens' ListQueuedMessagesResponse (Prelude.Maybe Prelude.Text)
 listQueuedMessagesResponse_nextToken = Lens.lens (\ListQueuedMessagesResponse' {nextToken} -> nextToken) (\s@ListQueuedMessagesResponse' {} a -> s {nextToken = a} :: ListQueuedMessagesResponse)
 
--- | The messages in the downlink queue.
-listQueuedMessagesResponse_downlinkQueueMessagesList :: Lens.Lens' ListQueuedMessagesResponse (Prelude.Maybe [DownlinkQueueMessage])
-listQueuedMessagesResponse_downlinkQueueMessagesList = Lens.lens (\ListQueuedMessagesResponse' {downlinkQueueMessagesList} -> downlinkQueueMessagesList) (\s@ListQueuedMessagesResponse' {} a -> s {downlinkQueueMessagesList = a} :: ListQueuedMessagesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listQueuedMessagesResponse_httpStatus :: Lens.Lens' ListQueuedMessagesResponse Prelude.Int
 listQueuedMessagesResponse_httpStatus = Lens.lens (\ListQueuedMessagesResponse' {httpStatus} -> httpStatus) (\s@ListQueuedMessagesResponse' {} a -> s {httpStatus = a} :: ListQueuedMessagesResponse)
 
 instance Prelude.NFData ListQueuedMessagesResponse where
   rnf ListQueuedMessagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf downlinkQueueMessagesList
+    Prelude.rnf downlinkQueueMessagesList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

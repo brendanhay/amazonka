@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompatibleKafkaVersion' smart constructor.
 data CompatibleKafkaVersion = CompatibleKafkaVersion'
-  { -- | A list of Apache Kafka versions.
-    targetVersions :: Prelude.Maybe [Prelude.Text],
-    -- | An Apache Kafka version.
-    sourceVersion :: Prelude.Maybe Prelude.Text
+  { -- | An Apache Kafka version.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | A list of Apache Kafka versions.
+    targetVersions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CompatibleKafkaVersion = CompatibleKafkaVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetVersions', 'compatibleKafkaVersion_targetVersions' - A list of Apache Kafka versions.
---
 -- 'sourceVersion', 'compatibleKafkaVersion_sourceVersion' - An Apache Kafka version.
+--
+-- 'targetVersions', 'compatibleKafkaVersion_targetVersions' - A list of Apache Kafka versions.
 newCompatibleKafkaVersion ::
   CompatibleKafkaVersion
 newCompatibleKafkaVersion =
   CompatibleKafkaVersion'
-    { targetVersions =
+    { sourceVersion =
         Prelude.Nothing,
-      sourceVersion = Prelude.Nothing
+      targetVersions = Prelude.Nothing
     }
-
--- | A list of Apache Kafka versions.
-compatibleKafkaVersion_targetVersions :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe [Prelude.Text])
-compatibleKafkaVersion_targetVersions = Lens.lens (\CompatibleKafkaVersion' {targetVersions} -> targetVersions) (\s@CompatibleKafkaVersion' {} a -> s {targetVersions = a} :: CompatibleKafkaVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Apache Kafka version.
 compatibleKafkaVersion_sourceVersion :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe Prelude.Text)
 compatibleKafkaVersion_sourceVersion = Lens.lens (\CompatibleKafkaVersion' {sourceVersion} -> sourceVersion) (\s@CompatibleKafkaVersion' {} a -> s {sourceVersion = a} :: CompatibleKafkaVersion)
+
+-- | A list of Apache Kafka versions.
+compatibleKafkaVersion_targetVersions :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe [Prelude.Text])
+compatibleKafkaVersion_targetVersions = Lens.lens (\CompatibleKafkaVersion' {targetVersions} -> targetVersions) (\s@CompatibleKafkaVersion' {} a -> s {targetVersions = a} :: CompatibleKafkaVersion) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON CompatibleKafkaVersion where
   parseJSON =
@@ -70,16 +70,18 @@ instance Data.FromJSON CompatibleKafkaVersion where
       "CompatibleKafkaVersion"
       ( \x ->
           CompatibleKafkaVersion'
-            Prelude.<$> (x Data..:? "targetVersions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "sourceVersion")
+            Prelude.<$> (x Data..:? "sourceVersion")
+            Prelude.<*> ( x Data..:? "targetVersions"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable CompatibleKafkaVersion where
   hashWithSalt _salt CompatibleKafkaVersion' {..} =
-    _salt `Prelude.hashWithSalt` targetVersions
-      `Prelude.hashWithSalt` sourceVersion
+    _salt `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` targetVersions
 
 instance Prelude.NFData CompatibleKafkaVersion where
   rnf CompatibleKafkaVersion' {..} =
-    Prelude.rnf targetVersions
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf targetVersions

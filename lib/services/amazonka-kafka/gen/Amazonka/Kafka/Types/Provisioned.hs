@@ -36,27 +36,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisioned' smart constructor.
 data Provisioned = Provisioned'
-  { -- | The settings for open monitoring.
-    openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
-    -- | This controls storage mode for supported storage tiers.
-    storageMode :: Prelude.Maybe StorageMode,
-    -- | Includes all encryption-related information.
-    encryptionInfo :: Prelude.Maybe EncryptionInfo,
-    -- | Includes all client authentication information.
+  { -- | Includes all client authentication information.
     clientAuthentication :: Prelude.Maybe ClientAuthentication,
-    -- | The connection string to use to connect to the Apache ZooKeeper cluster.
-    zookeeperConnectString :: Prelude.Maybe Prelude.Text,
-    -- | Log delivery information for the cluster.
-    loggingInfo :: Prelude.Maybe LoggingInfo,
     -- | Information about the Apache Kafka version deployed on the brokers.
     currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo,
-    -- | The connection string to use to connect to the Apache ZooKeeper cluster
-    -- on a TLS port.
-    zookeeperConnectStringTls :: Prelude.Maybe Prelude.Text,
+    -- | Includes all encryption-related information.
+    encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | Specifies the level of monitoring for the MSK cluster. The possible
     -- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
     -- PER_TOPIC_PER_PARTITION.
     enhancedMonitoring :: Prelude.Maybe EnhancedMonitoring,
+    -- | Log delivery information for the cluster.
+    loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | The settings for open monitoring.
+    openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
+    -- | The connection string to use to connect to the Apache ZooKeeper cluster.
+    zookeeperConnectString :: Prelude.Maybe Prelude.Text,
+    -- | The connection string to use to connect to the Apache ZooKeeper cluster
+    -- on a TLS port.
+    zookeeperConnectStringTls :: Prelude.Maybe Prelude.Text,
     -- | Information about the brokers.
     brokerNodeGroupInfo :: BrokerNodeGroupInfo,
     -- | The number of broker nodes in the cluster.
@@ -72,26 +72,26 @@ data Provisioned = Provisioned'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openMonitoring', 'provisioned_openMonitoring' - The settings for open monitoring.
---
--- 'storageMode', 'provisioned_storageMode' - This controls storage mode for supported storage tiers.
---
--- 'encryptionInfo', 'provisioned_encryptionInfo' - Includes all encryption-related information.
---
 -- 'clientAuthentication', 'provisioned_clientAuthentication' - Includes all client authentication information.
---
--- 'zookeeperConnectString', 'provisioned_zookeeperConnectString' - The connection string to use to connect to the Apache ZooKeeper cluster.
---
--- 'loggingInfo', 'provisioned_loggingInfo' - Log delivery information for the cluster.
 --
 -- 'currentBrokerSoftwareInfo', 'provisioned_currentBrokerSoftwareInfo' - Information about the Apache Kafka version deployed on the brokers.
 --
--- 'zookeeperConnectStringTls', 'provisioned_zookeeperConnectStringTls' - The connection string to use to connect to the Apache ZooKeeper cluster
--- on a TLS port.
+-- 'encryptionInfo', 'provisioned_encryptionInfo' - Includes all encryption-related information.
 --
 -- 'enhancedMonitoring', 'provisioned_enhancedMonitoring' - Specifies the level of monitoring for the MSK cluster. The possible
 -- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
 -- PER_TOPIC_PER_PARTITION.
+--
+-- 'loggingInfo', 'provisioned_loggingInfo' - Log delivery information for the cluster.
+--
+-- 'openMonitoring', 'provisioned_openMonitoring' - The settings for open monitoring.
+--
+-- 'storageMode', 'provisioned_storageMode' - This controls storage mode for supported storage tiers.
+--
+-- 'zookeeperConnectString', 'provisioned_zookeeperConnectString' - The connection string to use to connect to the Apache ZooKeeper cluster.
+--
+-- 'zookeeperConnectStringTls', 'provisioned_zookeeperConnectStringTls' - The connection string to use to connect to the Apache ZooKeeper cluster
+-- on a TLS port.
 --
 -- 'brokerNodeGroupInfo', 'provisioned_brokerNodeGroupInfo' - Information about the brokers.
 --
@@ -106,18 +106,41 @@ newProvisioned
   pBrokerNodeGroupInfo_
   pNumberOfBrokerNodes_ =
     Provisioned'
-      { openMonitoring = Prelude.Nothing,
-        storageMode = Prelude.Nothing,
-        encryptionInfo = Prelude.Nothing,
-        clientAuthentication = Prelude.Nothing,
-        zookeeperConnectString = Prelude.Nothing,
-        loggingInfo = Prelude.Nothing,
+      { clientAuthentication =
+          Prelude.Nothing,
         currentBrokerSoftwareInfo = Prelude.Nothing,
-        zookeeperConnectStringTls = Prelude.Nothing,
+        encryptionInfo = Prelude.Nothing,
         enhancedMonitoring = Prelude.Nothing,
+        loggingInfo = Prelude.Nothing,
+        openMonitoring = Prelude.Nothing,
+        storageMode = Prelude.Nothing,
+        zookeeperConnectString = Prelude.Nothing,
+        zookeeperConnectStringTls = Prelude.Nothing,
         brokerNodeGroupInfo = pBrokerNodeGroupInfo_,
         numberOfBrokerNodes = pNumberOfBrokerNodes_
       }
+
+-- | Includes all client authentication information.
+provisioned_clientAuthentication :: Lens.Lens' Provisioned (Prelude.Maybe ClientAuthentication)
+provisioned_clientAuthentication = Lens.lens (\Provisioned' {clientAuthentication} -> clientAuthentication) (\s@Provisioned' {} a -> s {clientAuthentication = a} :: Provisioned)
+
+-- | Information about the Apache Kafka version deployed on the brokers.
+provisioned_currentBrokerSoftwareInfo :: Lens.Lens' Provisioned (Prelude.Maybe BrokerSoftwareInfo)
+provisioned_currentBrokerSoftwareInfo = Lens.lens (\Provisioned' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@Provisioned' {} a -> s {currentBrokerSoftwareInfo = a} :: Provisioned)
+
+-- | Includes all encryption-related information.
+provisioned_encryptionInfo :: Lens.Lens' Provisioned (Prelude.Maybe EncryptionInfo)
+provisioned_encryptionInfo = Lens.lens (\Provisioned' {encryptionInfo} -> encryptionInfo) (\s@Provisioned' {} a -> s {encryptionInfo = a} :: Provisioned)
+
+-- | Specifies the level of monitoring for the MSK cluster. The possible
+-- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
+-- PER_TOPIC_PER_PARTITION.
+provisioned_enhancedMonitoring :: Lens.Lens' Provisioned (Prelude.Maybe EnhancedMonitoring)
+provisioned_enhancedMonitoring = Lens.lens (\Provisioned' {enhancedMonitoring} -> enhancedMonitoring) (\s@Provisioned' {} a -> s {enhancedMonitoring = a} :: Provisioned)
+
+-- | Log delivery information for the cluster.
+provisioned_loggingInfo :: Lens.Lens' Provisioned (Prelude.Maybe LoggingInfo)
+provisioned_loggingInfo = Lens.lens (\Provisioned' {loggingInfo} -> loggingInfo) (\s@Provisioned' {} a -> s {loggingInfo = a} :: Provisioned)
 
 -- | The settings for open monitoring.
 provisioned_openMonitoring :: Lens.Lens' Provisioned (Prelude.Maybe OpenMonitoringInfo)
@@ -127,36 +150,14 @@ provisioned_openMonitoring = Lens.lens (\Provisioned' {openMonitoring} -> openMo
 provisioned_storageMode :: Lens.Lens' Provisioned (Prelude.Maybe StorageMode)
 provisioned_storageMode = Lens.lens (\Provisioned' {storageMode} -> storageMode) (\s@Provisioned' {} a -> s {storageMode = a} :: Provisioned)
 
--- | Includes all encryption-related information.
-provisioned_encryptionInfo :: Lens.Lens' Provisioned (Prelude.Maybe EncryptionInfo)
-provisioned_encryptionInfo = Lens.lens (\Provisioned' {encryptionInfo} -> encryptionInfo) (\s@Provisioned' {} a -> s {encryptionInfo = a} :: Provisioned)
-
--- | Includes all client authentication information.
-provisioned_clientAuthentication :: Lens.Lens' Provisioned (Prelude.Maybe ClientAuthentication)
-provisioned_clientAuthentication = Lens.lens (\Provisioned' {clientAuthentication} -> clientAuthentication) (\s@Provisioned' {} a -> s {clientAuthentication = a} :: Provisioned)
-
 -- | The connection string to use to connect to the Apache ZooKeeper cluster.
 provisioned_zookeeperConnectString :: Lens.Lens' Provisioned (Prelude.Maybe Prelude.Text)
 provisioned_zookeeperConnectString = Lens.lens (\Provisioned' {zookeeperConnectString} -> zookeeperConnectString) (\s@Provisioned' {} a -> s {zookeeperConnectString = a} :: Provisioned)
-
--- | Log delivery information for the cluster.
-provisioned_loggingInfo :: Lens.Lens' Provisioned (Prelude.Maybe LoggingInfo)
-provisioned_loggingInfo = Lens.lens (\Provisioned' {loggingInfo} -> loggingInfo) (\s@Provisioned' {} a -> s {loggingInfo = a} :: Provisioned)
-
--- | Information about the Apache Kafka version deployed on the brokers.
-provisioned_currentBrokerSoftwareInfo :: Lens.Lens' Provisioned (Prelude.Maybe BrokerSoftwareInfo)
-provisioned_currentBrokerSoftwareInfo = Lens.lens (\Provisioned' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@Provisioned' {} a -> s {currentBrokerSoftwareInfo = a} :: Provisioned)
 
 -- | The connection string to use to connect to the Apache ZooKeeper cluster
 -- on a TLS port.
 provisioned_zookeeperConnectStringTls :: Lens.Lens' Provisioned (Prelude.Maybe Prelude.Text)
 provisioned_zookeeperConnectStringTls = Lens.lens (\Provisioned' {zookeeperConnectStringTls} -> zookeeperConnectStringTls) (\s@Provisioned' {} a -> s {zookeeperConnectStringTls = a} :: Provisioned)
-
--- | Specifies the level of monitoring for the MSK cluster. The possible
--- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
--- PER_TOPIC_PER_PARTITION.
-provisioned_enhancedMonitoring :: Lens.Lens' Provisioned (Prelude.Maybe EnhancedMonitoring)
-provisioned_enhancedMonitoring = Lens.lens (\Provisioned' {enhancedMonitoring} -> enhancedMonitoring) (\s@Provisioned' {} a -> s {enhancedMonitoring = a} :: Provisioned)
 
 -- | Information about the brokers.
 provisioned_brokerNodeGroupInfo :: Lens.Lens' Provisioned BrokerNodeGroupInfo
@@ -172,43 +173,43 @@ instance Data.FromJSON Provisioned where
       "Provisioned"
       ( \x ->
           Provisioned'
-            Prelude.<$> (x Data..:? "openMonitoring")
-            Prelude.<*> (x Data..:? "storageMode")
-            Prelude.<*> (x Data..:? "encryptionInfo")
-            Prelude.<*> (x Data..:? "clientAuthentication")
-            Prelude.<*> (x Data..:? "zookeeperConnectString")
-            Prelude.<*> (x Data..:? "loggingInfo")
+            Prelude.<$> (x Data..:? "clientAuthentication")
             Prelude.<*> (x Data..:? "currentBrokerSoftwareInfo")
-            Prelude.<*> (x Data..:? "zookeeperConnectStringTls")
+            Prelude.<*> (x Data..:? "encryptionInfo")
             Prelude.<*> (x Data..:? "enhancedMonitoring")
+            Prelude.<*> (x Data..:? "loggingInfo")
+            Prelude.<*> (x Data..:? "openMonitoring")
+            Prelude.<*> (x Data..:? "storageMode")
+            Prelude.<*> (x Data..:? "zookeeperConnectString")
+            Prelude.<*> (x Data..:? "zookeeperConnectStringTls")
             Prelude.<*> (x Data..: "brokerNodeGroupInfo")
             Prelude.<*> (x Data..: "numberOfBrokerNodes")
       )
 
 instance Prelude.Hashable Provisioned where
   hashWithSalt _salt Provisioned' {..} =
-    _salt `Prelude.hashWithSalt` openMonitoring
-      `Prelude.hashWithSalt` storageMode
-      `Prelude.hashWithSalt` encryptionInfo
-      `Prelude.hashWithSalt` clientAuthentication
-      `Prelude.hashWithSalt` zookeeperConnectString
-      `Prelude.hashWithSalt` loggingInfo
+    _salt `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` currentBrokerSoftwareInfo
-      `Prelude.hashWithSalt` zookeeperConnectStringTls
+      `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
+      `Prelude.hashWithSalt` zookeeperConnectString
+      `Prelude.hashWithSalt` zookeeperConnectStringTls
       `Prelude.hashWithSalt` brokerNodeGroupInfo
       `Prelude.hashWithSalt` numberOfBrokerNodes
 
 instance Prelude.NFData Provisioned where
   rnf Provisioned' {..} =
-    Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf zookeeperConnectString
-      `Prelude.seq` Prelude.rnf loggingInfo
+    Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf currentBrokerSoftwareInfo
-      `Prelude.seq` Prelude.rnf zookeeperConnectStringTls
+      `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
+      `Prelude.seq` Prelude.rnf zookeeperConnectString
+      `Prelude.seq` Prelude.rnf zookeeperConnectStringTls
       `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes

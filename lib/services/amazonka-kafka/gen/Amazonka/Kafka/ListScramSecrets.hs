@@ -30,8 +30,8 @@ module Amazonka.Kafka.ListScramSecrets
     newListScramSecrets,
 
     -- * Request Lenses
-    listScramSecrets_nextToken,
     listScramSecrets_maxResults,
+    listScramSecrets_nextToken,
     listScramSecrets_clusterArn,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListScramSecrets' smart constructor.
 data ListScramSecrets = ListScramSecrets'
-  { -- | The nextToken of the query.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maxResults of the query.
+  { -- | The maxResults of the query.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken of the query.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The arn of the cluster.
     clusterArn :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ListScramSecrets = ListScramSecrets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listScramSecrets_nextToken' - The nextToken of the query.
---
 -- 'maxResults', 'listScramSecrets_maxResults' - The maxResults of the query.
+--
+-- 'nextToken', 'listScramSecrets_nextToken' - The nextToken of the query.
 --
 -- 'clusterArn', 'listScramSecrets_clusterArn' - The arn of the cluster.
 newListScramSecrets ::
@@ -83,18 +83,18 @@ newListScramSecrets ::
   ListScramSecrets
 newListScramSecrets pClusterArn_ =
   ListScramSecrets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       clusterArn = pClusterArn_
     }
-
--- | The nextToken of the query.
-listScramSecrets_nextToken :: Lens.Lens' ListScramSecrets (Prelude.Maybe Prelude.Text)
-listScramSecrets_nextToken = Lens.lens (\ListScramSecrets' {nextToken} -> nextToken) (\s@ListScramSecrets' {} a -> s {nextToken = a} :: ListScramSecrets)
 
 -- | The maxResults of the query.
 listScramSecrets_maxResults :: Lens.Lens' ListScramSecrets (Prelude.Maybe Prelude.Natural)
 listScramSecrets_maxResults = Lens.lens (\ListScramSecrets' {maxResults} -> maxResults) (\s@ListScramSecrets' {} a -> s {maxResults = a} :: ListScramSecrets)
+
+-- | The nextToken of the query.
+listScramSecrets_nextToken :: Lens.Lens' ListScramSecrets (Prelude.Maybe Prelude.Text)
+listScramSecrets_nextToken = Lens.lens (\ListScramSecrets' {nextToken} -> nextToken) (\s@ListScramSecrets' {} a -> s {nextToken = a} :: ListScramSecrets)
 
 -- | The arn of the cluster.
 listScramSecrets_clusterArn :: Lens.Lens' ListScramSecrets Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListScramSecrets where
 
 instance Prelude.Hashable ListScramSecrets where
   hashWithSalt _salt ListScramSecrets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterArn
 
 instance Prelude.NFData ListScramSecrets where
   rnf ListScramSecrets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clusterArn
 
 instance Data.ToHeaders ListScramSecrets where
@@ -171,8 +171,8 @@ instance Data.ToPath ListScramSecrets where
 instance Data.ToQuery ListScramSecrets where
   toQuery ListScramSecrets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListScramSecretsResponse' smart constructor.

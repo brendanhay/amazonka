@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSasl' smart constructor.
 data Sasl = Sasl'
-  { -- | Details for SASL\/SCRAM client authentication.
-    scram :: Prelude.Maybe Scram,
-    -- | Indicates whether IAM access control is enabled.
-    iam :: Prelude.Maybe Iam
+  { -- | Indicates whether IAM access control is enabled.
+    iam :: Prelude.Maybe Iam,
+    -- | Details for SASL\/SCRAM client authentication.
+    scram :: Prelude.Maybe Scram
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Sasl = Sasl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scram', 'sasl_scram' - Details for SASL\/SCRAM client authentication.
---
 -- 'iam', 'sasl_iam' - Indicates whether IAM access control is enabled.
+--
+-- 'scram', 'sasl_scram' - Details for SASL\/SCRAM client authentication.
 newSasl ::
   Sasl
 newSasl =
   Sasl'
-    { scram = Prelude.Nothing,
-      iam = Prelude.Nothing
+    { iam = Prelude.Nothing,
+      scram = Prelude.Nothing
     }
-
--- | Details for SASL\/SCRAM client authentication.
-sasl_scram :: Lens.Lens' Sasl (Prelude.Maybe Scram)
-sasl_scram = Lens.lens (\Sasl' {scram} -> scram) (\s@Sasl' {} a -> s {scram = a} :: Sasl)
 
 -- | Indicates whether IAM access control is enabled.
 sasl_iam :: Lens.Lens' Sasl (Prelude.Maybe Iam)
 sasl_iam = Lens.lens (\Sasl' {iam} -> iam) (\s@Sasl' {} a -> s {iam = a} :: Sasl)
+
+-- | Details for SASL\/SCRAM client authentication.
+sasl_scram :: Lens.Lens' Sasl (Prelude.Maybe Scram)
+sasl_scram = Lens.lens (\Sasl' {scram} -> scram) (\s@Sasl' {} a -> s {scram = a} :: Sasl)
 
 instance Data.FromJSON Sasl where
   parseJSON =
@@ -70,23 +70,23 @@ instance Data.FromJSON Sasl where
       "Sasl"
       ( \x ->
           Sasl'
-            Prelude.<$> (x Data..:? "scram") Prelude.<*> (x Data..:? "iam")
+            Prelude.<$> (x Data..:? "iam") Prelude.<*> (x Data..:? "scram")
       )
 
 instance Prelude.Hashable Sasl where
   hashWithSalt _salt Sasl' {..} =
-    _salt `Prelude.hashWithSalt` scram
-      `Prelude.hashWithSalt` iam
+    _salt `Prelude.hashWithSalt` iam
+      `Prelude.hashWithSalt` scram
 
 instance Prelude.NFData Sasl where
   rnf Sasl' {..} =
-    Prelude.rnf scram `Prelude.seq` Prelude.rnf iam
+    Prelude.rnf iam `Prelude.seq` Prelude.rnf scram
 
 instance Data.ToJSON Sasl where
   toJSON Sasl' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("scram" Data..=) Prelude.<$> scram,
-            ("iam" Data..=) Prelude.<$> iam
+          [ ("iam" Data..=) Prelude.<$> iam,
+            ("scram" Data..=) Prelude.<$> scram
           ]
       )

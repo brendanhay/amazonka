@@ -29,10 +29,10 @@ module Amazonka.Kafka.ListClustersV2
     newListClustersV2,
 
     -- * Request Lenses
-    listClustersV2_clusterTypeFilter,
-    listClustersV2_nextToken,
-    listClustersV2_maxResults,
     listClustersV2_clusterNameFilter,
+    listClustersV2_clusterTypeFilter,
+    listClustersV2_maxResults,
+    listClustersV2_nextToken,
 
     -- * Destructuring the Response
     ListClustersV2Response (..),
@@ -55,18 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListClustersV2' smart constructor.
 data ListClustersV2 = ListClustersV2'
-  { -- | Specify either PROVISIONED or SERVERLESS.
+  { -- | Specify a prefix of the names of the clusters that you want to list. The
+    -- service lists all the clusters whose names start with this prefix.
+    clusterNameFilter :: Prelude.Maybe Prelude.Text,
+    -- | Specify either PROVISIONED or SERVERLESS.
     clusterTypeFilter :: Prelude.Maybe Prelude.Text,
-    -- | The paginated results marker. When the result of the operation is
-    -- truncated, the call returns NextToken in the response. To get the next
-    -- batch, provide this token in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response. If there are
     -- more results, the response includes a NextToken parameter.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specify a prefix of the names of the clusters that you want to list. The
-    -- service lists all the clusters whose names start with this prefix.
-    clusterNameFilter :: Prelude.Maybe Prelude.Text
+    -- | The paginated results marker. When the result of the operation is
+    -- truncated, the call returns NextToken in the response. To get the next
+    -- batch, provide this token in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,47 +78,47 @@ data ListClustersV2 = ListClustersV2'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterTypeFilter', 'listClustersV2_clusterTypeFilter' - Specify either PROVISIONED or SERVERLESS.
+-- 'clusterNameFilter', 'listClustersV2_clusterNameFilter' - Specify a prefix of the names of the clusters that you want to list. The
+-- service lists all the clusters whose names start with this prefix.
 --
--- 'nextToken', 'listClustersV2_nextToken' - The paginated results marker. When the result of the operation is
--- truncated, the call returns NextToken in the response. To get the next
--- batch, provide this token in your next request.
+-- 'clusterTypeFilter', 'listClustersV2_clusterTypeFilter' - Specify either PROVISIONED or SERVERLESS.
 --
 -- 'maxResults', 'listClustersV2_maxResults' - The maximum number of results to return in the response. If there are
 -- more results, the response includes a NextToken parameter.
 --
--- 'clusterNameFilter', 'listClustersV2_clusterNameFilter' - Specify a prefix of the names of the clusters that you want to list. The
--- service lists all the clusters whose names start with this prefix.
+-- 'nextToken', 'listClustersV2_nextToken' - The paginated results marker. When the result of the operation is
+-- truncated, the call returns NextToken in the response. To get the next
+-- batch, provide this token in your next request.
 newListClustersV2 ::
   ListClustersV2
 newListClustersV2 =
   ListClustersV2'
-    { clusterTypeFilter =
+    { clusterNameFilter =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      clusterTypeFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      clusterNameFilter = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Specify a prefix of the names of the clusters that you want to list. The
+-- service lists all the clusters whose names start with this prefix.
+listClustersV2_clusterNameFilter :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Text)
+listClustersV2_clusterNameFilter = Lens.lens (\ListClustersV2' {clusterNameFilter} -> clusterNameFilter) (\s@ListClustersV2' {} a -> s {clusterNameFilter = a} :: ListClustersV2)
 
 -- | Specify either PROVISIONED or SERVERLESS.
 listClustersV2_clusterTypeFilter :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Text)
 listClustersV2_clusterTypeFilter = Lens.lens (\ListClustersV2' {clusterTypeFilter} -> clusterTypeFilter) (\s@ListClustersV2' {} a -> s {clusterTypeFilter = a} :: ListClustersV2)
-
--- | The paginated results marker. When the result of the operation is
--- truncated, the call returns NextToken in the response. To get the next
--- batch, provide this token in your next request.
-listClustersV2_nextToken :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Text)
-listClustersV2_nextToken = Lens.lens (\ListClustersV2' {nextToken} -> nextToken) (\s@ListClustersV2' {} a -> s {nextToken = a} :: ListClustersV2)
 
 -- | The maximum number of results to return in the response. If there are
 -- more results, the response includes a NextToken parameter.
 listClustersV2_maxResults :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Natural)
 listClustersV2_maxResults = Lens.lens (\ListClustersV2' {maxResults} -> maxResults) (\s@ListClustersV2' {} a -> s {maxResults = a} :: ListClustersV2)
 
--- | Specify a prefix of the names of the clusters that you want to list. The
--- service lists all the clusters whose names start with this prefix.
-listClustersV2_clusterNameFilter :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Text)
-listClustersV2_clusterNameFilter = Lens.lens (\ListClustersV2' {clusterNameFilter} -> clusterNameFilter) (\s@ListClustersV2' {} a -> s {clusterNameFilter = a} :: ListClustersV2)
+-- | The paginated results marker. When the result of the operation is
+-- truncated, the call returns NextToken in the response. To get the next
+-- batch, provide this token in your next request.
+listClustersV2_nextToken :: Lens.Lens' ListClustersV2 (Prelude.Maybe Prelude.Text)
+listClustersV2_nextToken = Lens.lens (\ListClustersV2' {nextToken} -> nextToken) (\s@ListClustersV2' {} a -> s {nextToken = a} :: ListClustersV2)
 
 instance Core.AWSPager ListClustersV2 where
   page rq rs
@@ -160,17 +160,17 @@ instance Core.AWSRequest ListClustersV2 where
 
 instance Prelude.Hashable ListClustersV2 where
   hashWithSalt _salt ListClustersV2' {..} =
-    _salt `Prelude.hashWithSalt` clusterTypeFilter
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` clusterNameFilter
+      `Prelude.hashWithSalt` clusterTypeFilter
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` clusterNameFilter
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListClustersV2 where
   rnf ListClustersV2' {..} =
-    Prelude.rnf clusterTypeFilter
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf clusterNameFilter
+      `Prelude.seq` Prelude.rnf clusterTypeFilter
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf clusterNameFilter
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListClustersV2 where
   toHeaders =
@@ -189,10 +189,10 @@ instance Data.ToPath ListClustersV2 where
 instance Data.ToQuery ListClustersV2 where
   toQuery ListClustersV2' {..} =
     Prelude.mconcat
-      [ "clusterTypeFilter" Data.=: clusterTypeFilter,
-        "nextToken" Data.=: nextToken,
+      [ "clusterNameFilter" Data.=: clusterNameFilter,
+        "clusterTypeFilter" Data.=: clusterTypeFilter,
         "maxResults" Data.=: maxResults,
-        "clusterNameFilter" Data.=: clusterNameFilter
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListClustersV2Response' smart constructor.

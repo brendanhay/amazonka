@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClusterOperationStep' smart constructor.
 data ClusterOperationStep = ClusterOperationStep'
-  { -- | The name of the step.
-    stepName :: Prelude.Maybe Prelude.Text,
-    -- | Information about the step and its status.
-    stepInfo :: Prelude.Maybe ClusterOperationStepInfo
+  { -- | Information about the step and its status.
+    stepInfo :: Prelude.Maybe ClusterOperationStepInfo,
+    -- | The name of the step.
+    stepName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ClusterOperationStep = ClusterOperationStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stepName', 'clusterOperationStep_stepName' - The name of the step.
---
 -- 'stepInfo', 'clusterOperationStep_stepInfo' - Information about the step and its status.
+--
+-- 'stepName', 'clusterOperationStep_stepName' - The name of the step.
 newClusterOperationStep ::
   ClusterOperationStep
 newClusterOperationStep =
   ClusterOperationStep'
-    { stepName = Prelude.Nothing,
-      stepInfo = Prelude.Nothing
+    { stepInfo = Prelude.Nothing,
+      stepName = Prelude.Nothing
     }
-
--- | The name of the step.
-clusterOperationStep_stepName :: Lens.Lens' ClusterOperationStep (Prelude.Maybe Prelude.Text)
-clusterOperationStep_stepName = Lens.lens (\ClusterOperationStep' {stepName} -> stepName) (\s@ClusterOperationStep' {} a -> s {stepName = a} :: ClusterOperationStep)
 
 -- | Information about the step and its status.
 clusterOperationStep_stepInfo :: Lens.Lens' ClusterOperationStep (Prelude.Maybe ClusterOperationStepInfo)
 clusterOperationStep_stepInfo = Lens.lens (\ClusterOperationStep' {stepInfo} -> stepInfo) (\s@ClusterOperationStep' {} a -> s {stepInfo = a} :: ClusterOperationStep)
+
+-- | The name of the step.
+clusterOperationStep_stepName :: Lens.Lens' ClusterOperationStep (Prelude.Maybe Prelude.Text)
+clusterOperationStep_stepName = Lens.lens (\ClusterOperationStep' {stepName} -> stepName) (\s@ClusterOperationStep' {} a -> s {stepName = a} :: ClusterOperationStep)
 
 instance Data.FromJSON ClusterOperationStep where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON ClusterOperationStep where
       "ClusterOperationStep"
       ( \x ->
           ClusterOperationStep'
-            Prelude.<$> (x Data..:? "stepName")
-            Prelude.<*> (x Data..:? "stepInfo")
+            Prelude.<$> (x Data..:? "stepInfo")
+            Prelude.<*> (x Data..:? "stepName")
       )
 
 instance Prelude.Hashable ClusterOperationStep where
   hashWithSalt _salt ClusterOperationStep' {..} =
-    _salt `Prelude.hashWithSalt` stepName
-      `Prelude.hashWithSalt` stepInfo
+    _salt `Prelude.hashWithSalt` stepInfo
+      `Prelude.hashWithSalt` stepName
 
 instance Prelude.NFData ClusterOperationStep where
   rnf ClusterOperationStep' {..} =
-    Prelude.rnf stepName
-      `Prelude.seq` Prelude.rnf stepInfo
+    Prelude.rnf stepInfo
+      `Prelude.seq` Prelude.rnf stepName

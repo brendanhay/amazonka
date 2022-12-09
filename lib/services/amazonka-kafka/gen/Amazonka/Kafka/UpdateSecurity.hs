@@ -28,8 +28,8 @@ module Amazonka.Kafka.UpdateSecurity
     newUpdateSecurity,
 
     -- * Request Lenses
-    updateSecurity_encryptionInfo,
     updateSecurity_clientAuthentication,
+    updateSecurity_encryptionInfo,
     updateSecurity_clusterArn,
     updateSecurity_currentVersion,
 
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSecurity' smart constructor.
 data UpdateSecurity = UpdateSecurity'
-  { -- | Includes all encryption-related information.
-    encryptionInfo :: Prelude.Maybe EncryptionInfo,
-    -- | Includes all client authentication related information.
+  { -- | Includes all client authentication related information.
     clientAuthentication :: Prelude.Maybe ClientAuthentication,
+    -- | Includes all encryption-related information.
+    encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     clusterArn :: Prelude.Text,
     -- | The version of the MSK cluster to update. Cluster versions aren\'t
@@ -76,9 +76,9 @@ data UpdateSecurity = UpdateSecurity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionInfo', 'updateSecurity_encryptionInfo' - Includes all encryption-related information.
---
 -- 'clientAuthentication', 'updateSecurity_clientAuthentication' - Includes all client authentication related information.
+--
+-- 'encryptionInfo', 'updateSecurity_encryptionInfo' - Includes all encryption-related information.
 --
 -- 'clusterArn', 'updateSecurity_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 --
@@ -94,19 +94,20 @@ newUpdateSecurity ::
   UpdateSecurity
 newUpdateSecurity pClusterArn_ pCurrentVersion_ =
   UpdateSecurity'
-    { encryptionInfo = Prelude.Nothing,
-      clientAuthentication = Prelude.Nothing,
+    { clientAuthentication =
+        Prelude.Nothing,
+      encryptionInfo = Prelude.Nothing,
       clusterArn = pClusterArn_,
       currentVersion = pCurrentVersion_
     }
 
--- | Includes all encryption-related information.
-updateSecurity_encryptionInfo :: Lens.Lens' UpdateSecurity (Prelude.Maybe EncryptionInfo)
-updateSecurity_encryptionInfo = Lens.lens (\UpdateSecurity' {encryptionInfo} -> encryptionInfo) (\s@UpdateSecurity' {} a -> s {encryptionInfo = a} :: UpdateSecurity)
-
 -- | Includes all client authentication related information.
 updateSecurity_clientAuthentication :: Lens.Lens' UpdateSecurity (Prelude.Maybe ClientAuthentication)
 updateSecurity_clientAuthentication = Lens.lens (\UpdateSecurity' {clientAuthentication} -> clientAuthentication) (\s@UpdateSecurity' {} a -> s {clientAuthentication = a} :: UpdateSecurity)
+
+-- | Includes all encryption-related information.
+updateSecurity_encryptionInfo :: Lens.Lens' UpdateSecurity (Prelude.Maybe EncryptionInfo)
+updateSecurity_encryptionInfo = Lens.lens (\UpdateSecurity' {encryptionInfo} -> encryptionInfo) (\s@UpdateSecurity' {} a -> s {encryptionInfo = a} :: UpdateSecurity)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 updateSecurity_clusterArn :: Lens.Lens' UpdateSecurity Prelude.Text
@@ -136,15 +137,15 @@ instance Core.AWSRequest UpdateSecurity where
 
 instance Prelude.Hashable UpdateSecurity where
   hashWithSalt _salt UpdateSecurity' {..} =
-    _salt `Prelude.hashWithSalt` encryptionInfo
-      `Prelude.hashWithSalt` clientAuthentication
+    _salt `Prelude.hashWithSalt` clientAuthentication
+      `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion
 
 instance Prelude.NFData UpdateSecurity where
   rnf UpdateSecurity' {..} =
-    Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf clientAuthentication
+    Prelude.rnf clientAuthentication
+      `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf currentVersion
 
@@ -163,10 +164,10 @@ instance Data.ToJSON UpdateSecurity where
   toJSON UpdateSecurity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("encryptionInfo" Data..=)
-              Prelude.<$> encryptionInfo,
-            ("clientAuthentication" Data..=)
+          [ ("clientAuthentication" Data..=)
               Prelude.<$> clientAuthentication,
+            ("encryptionInfo" Data..=)
+              Prelude.<$> encryptionInfo,
             Prelude.Just
               ("currentVersion" Data..= currentVersion)
           ]

@@ -29,44 +29,44 @@ module Amazonka.Kafka.Lens
     batchDisassociateScramSecretResponse_httpStatus,
 
     -- ** CreateCluster
-    createCluster_tags,
+    createCluster_clientAuthentication,
+    createCluster_configurationInfo,
+    createCluster_encryptionInfo,
+    createCluster_enhancedMonitoring,
+    createCluster_loggingInfo,
     createCluster_openMonitoring,
     createCluster_storageMode,
-    createCluster_encryptionInfo,
-    createCluster_clientAuthentication,
-    createCluster_loggingInfo,
-    createCluster_configurationInfo,
-    createCluster_enhancedMonitoring,
+    createCluster_tags,
     createCluster_brokerNodeGroupInfo,
     createCluster_kafkaVersion,
     createCluster_numberOfBrokerNodes,
     createCluster_clusterName,
     createClusterResponse_clusterArn,
-    createClusterResponse_state,
     createClusterResponse_clusterName,
+    createClusterResponse_state,
     createClusterResponse_httpStatus,
 
     -- ** CreateClusterV2
-    createClusterV2_tags,
-    createClusterV2_serverless,
     createClusterV2_provisioned,
+    createClusterV2_serverless,
+    createClusterV2_tags,
     createClusterV2_clusterName,
     createClusterV2Response_clusterArn,
-    createClusterV2Response_state,
-    createClusterV2Response_clusterType,
     createClusterV2Response_clusterName,
+    createClusterV2Response_clusterType,
+    createClusterV2Response_state,
     createClusterV2Response_httpStatus,
 
     -- ** CreateConfiguration
-    createConfiguration_kafkaVersions,
     createConfiguration_description,
+    createConfiguration_kafkaVersions,
     createConfiguration_serverProperties,
     createConfiguration_name,
+    createConfigurationResponse_arn,
+    createConfigurationResponse_creationTime,
     createConfigurationResponse_latestRevision,
     createConfigurationResponse_name,
-    createConfigurationResponse_arn,
     createConfigurationResponse_state,
-    createConfigurationResponse_creationTime,
     createConfigurationResponse_httpStatus,
 
     -- ** DeleteCluster
@@ -99,34 +99,34 @@ module Amazonka.Kafka.Lens
 
     -- ** DescribeConfiguration
     describeConfiguration_arn,
+    describeConfigurationResponse_arn,
+    describeConfigurationResponse_creationTime,
+    describeConfigurationResponse_description,
+    describeConfigurationResponse_kafkaVersions,
     describeConfigurationResponse_latestRevision,
     describeConfigurationResponse_name,
-    describeConfigurationResponse_kafkaVersions,
-    describeConfigurationResponse_arn,
     describeConfigurationResponse_state,
-    describeConfigurationResponse_description,
-    describeConfigurationResponse_creationTime,
     describeConfigurationResponse_httpStatus,
 
     -- ** DescribeConfigurationRevision
     describeConfigurationRevision_revision,
     describeConfigurationRevision_arn,
-    describeConfigurationRevisionResponse_revision,
     describeConfigurationRevisionResponse_arn,
-    describeConfigurationRevisionResponse_description,
     describeConfigurationRevisionResponse_creationTime,
+    describeConfigurationRevisionResponse_description,
+    describeConfigurationRevisionResponse_revision,
     describeConfigurationRevisionResponse_serverProperties,
     describeConfigurationRevisionResponse_httpStatus,
 
     -- ** GetBootstrapBrokers
     getBootstrapBrokers_clusterArn,
-    getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram,
     getBootstrapBrokersResponse_bootstrapBrokerString,
-    getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls,
-    getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram,
     getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslIam,
-    getBootstrapBrokersResponse_bootstrapBrokerStringTls,
+    getBootstrapBrokersResponse_bootstrapBrokerStringPublicSaslScram,
+    getBootstrapBrokersResponse_bootstrapBrokerStringPublicTls,
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam,
+    getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram,
+    getBootstrapBrokersResponse_bootstrapBrokerStringTls,
     getBootstrapBrokersResponse_httpStatus,
 
     -- ** GetCompatibleKafkaVersions
@@ -135,63 +135,63 @@ module Amazonka.Kafka.Lens
     getCompatibleKafkaVersionsResponse_httpStatus,
 
     -- ** ListClusterOperations
-    listClusterOperations_nextToken,
     listClusterOperations_maxResults,
+    listClusterOperations_nextToken,
     listClusterOperations_clusterArn,
-    listClusterOperationsResponse_nextToken,
     listClusterOperationsResponse_clusterOperationInfoList,
+    listClusterOperationsResponse_nextToken,
     listClusterOperationsResponse_httpStatus,
 
     -- ** ListClusters
-    listClusters_nextToken,
-    listClusters_maxResults,
     listClusters_clusterNameFilter,
+    listClusters_maxResults,
+    listClusters_nextToken,
     listClustersResponse_clusterInfoList,
     listClustersResponse_nextToken,
     listClustersResponse_httpStatus,
 
     -- ** ListClustersV2
-    listClustersV2_clusterTypeFilter,
-    listClustersV2_nextToken,
-    listClustersV2_maxResults,
     listClustersV2_clusterNameFilter,
+    listClustersV2_clusterTypeFilter,
+    listClustersV2_maxResults,
+    listClustersV2_nextToken,
     listClustersV2Response_clusterInfoList,
     listClustersV2Response_nextToken,
     listClustersV2Response_httpStatus,
 
     -- ** ListConfigurationRevisions
-    listConfigurationRevisions_nextToken,
     listConfigurationRevisions_maxResults,
+    listConfigurationRevisions_nextToken,
     listConfigurationRevisions_arn,
     listConfigurationRevisionsResponse_nextToken,
     listConfigurationRevisionsResponse_revisions,
     listConfigurationRevisionsResponse_httpStatus,
 
     -- ** ListConfigurations
-    listConfigurations_nextToken,
     listConfigurations_maxResults,
-    listConfigurationsResponse_nextToken,
+    listConfigurations_nextToken,
     listConfigurationsResponse_configurations,
+    listConfigurationsResponse_nextToken,
     listConfigurationsResponse_httpStatus,
 
     -- ** ListKafkaVersions
-    listKafkaVersions_nextToken,
     listKafkaVersions_maxResults,
-    listKafkaVersionsResponse_nextToken,
+    listKafkaVersions_nextToken,
     listKafkaVersionsResponse_kafkaVersions,
+    listKafkaVersionsResponse_nextToken,
     listKafkaVersionsResponse_httpStatus,
 
     -- ** ListNodes
-    listNodes_nextToken,
     listNodes_maxResults,
+    listNodes_nextToken,
     listNodes_clusterArn,
     listNodesResponse_nextToken,
     listNodesResponse_nodeInfoList,
     listNodesResponse_httpStatus,
 
     -- ** ListScramSecrets
-    listScramSecrets_nextToken,
     listScramSecrets_maxResults,
+    listScramSecrets_nextToken,
     listScramSecrets_clusterArn,
     listScramSecretsResponse_nextToken,
     listScramSecretsResponse_secretArnList,
@@ -262,8 +262,8 @@ module Amazonka.Kafka.Lens
     updateConfiguration_description,
     updateConfiguration_arn,
     updateConfiguration_serverProperties,
-    updateConfigurationResponse_latestRevision,
     updateConfigurationResponse_arn,
+    updateConfigurationResponse_latestRevision,
     updateConfigurationResponse_httpStatus,
 
     -- ** UpdateConnectivity
@@ -275,9 +275,9 @@ module Amazonka.Kafka.Lens
     updateConnectivityResponse_httpStatus,
 
     -- ** UpdateMonitoring
-    updateMonitoring_openMonitoring,
-    updateMonitoring_loggingInfo,
     updateMonitoring_enhancedMonitoring,
+    updateMonitoring_loggingInfo,
+    updateMonitoring_openMonitoring,
     updateMonitoring_clusterArn,
     updateMonitoring_currentVersion,
     updateMonitoringResponse_clusterArn,
@@ -285,8 +285,8 @@ module Amazonka.Kafka.Lens
     updateMonitoringResponse_httpStatus,
 
     -- ** UpdateSecurity
-    updateSecurity_encryptionInfo,
     updateSecurity_clientAuthentication,
+    updateSecurity_encryptionInfo,
     updateSecurity_clusterArn,
     updateSecurity_currentVersion,
     updateSecurityResponse_clusterArn,
@@ -294,8 +294,8 @@ module Amazonka.Kafka.Lens
     updateSecurityResponse_httpStatus,
 
     -- ** UpdateStorage
-    updateStorage_storageMode,
     updateStorage_provisionedThroughput,
+    updateStorage_storageMode,
     updateStorage_volumeSizeGB,
     updateStorage_clusterArn,
     updateStorage_currentVersion,
@@ -316,25 +316,25 @@ module Amazonka.Kafka.Lens
     brokerLogs_s3,
 
     -- ** BrokerNodeGroupInfo
-    brokerNodeGroupInfo_storageInfo,
+    brokerNodeGroupInfo_brokerAZDistribution,
     brokerNodeGroupInfo_connectivityInfo,
     brokerNodeGroupInfo_securityGroups,
-    brokerNodeGroupInfo_brokerAZDistribution,
+    brokerNodeGroupInfo_storageInfo,
     brokerNodeGroupInfo_clientSubnets,
     brokerNodeGroupInfo_instanceType,
 
     -- ** BrokerNodeInfo
-    brokerNodeInfo_clientSubnet,
-    brokerNodeInfo_endpoints,
-    brokerNodeInfo_brokerId,
-    brokerNodeInfo_clientVpcIpAddress,
     brokerNodeInfo_attachedENIId,
+    brokerNodeInfo_brokerId,
+    brokerNodeInfo_clientSubnet,
+    brokerNodeInfo_clientVpcIpAddress,
     brokerNodeInfo_currentBrokerSoftwareInfo,
+    brokerNodeInfo_endpoints,
 
     -- ** BrokerSoftwareInfo
     brokerSoftwareInfo_configurationArn,
-    brokerSoftwareInfo_kafkaVersion,
     brokerSoftwareInfo_configurationRevision,
+    brokerSoftwareInfo_kafkaVersion,
 
     -- ** ClientAuthentication
     clientAuthentication_sasl,
@@ -346,62 +346,62 @@ module Amazonka.Kafka.Lens
     cloudWatchLogs_enabled,
 
     -- ** Cluster
+    cluster_activeOperationArn,
     cluster_clusterArn,
-    cluster_tags,
-    cluster_serverless,
-    cluster_stateInfo,
-    cluster_state,
+    cluster_clusterName,
+    cluster_clusterType,
+    cluster_creationTime,
     cluster_currentVersion,
     cluster_provisioned,
-    cluster_creationTime,
-    cluster_activeOperationArn,
-    cluster_clusterType,
-    cluster_clusterName,
+    cluster_serverless,
+    cluster_state,
+    cluster_stateInfo,
+    cluster_tags,
 
     -- ** ClusterInfo
-    clusterInfo_clusterArn,
-    clusterInfo_tags,
-    clusterInfo_openMonitoring,
-    clusterInfo_storageMode,
-    clusterInfo_encryptionInfo,
-    clusterInfo_stateInfo,
-    clusterInfo_brokerNodeGroupInfo,
-    clusterInfo_numberOfBrokerNodes,
-    clusterInfo_state,
-    clusterInfo_clientAuthentication,
-    clusterInfo_currentVersion,
-    clusterInfo_zookeeperConnectString,
-    clusterInfo_creationTime,
     clusterInfo_activeOperationArn,
-    clusterInfo_loggingInfo,
-    clusterInfo_currentBrokerSoftwareInfo,
+    clusterInfo_brokerNodeGroupInfo,
+    clusterInfo_clientAuthentication,
+    clusterInfo_clusterArn,
     clusterInfo_clusterName,
-    clusterInfo_zookeeperConnectStringTls,
+    clusterInfo_creationTime,
+    clusterInfo_currentBrokerSoftwareInfo,
+    clusterInfo_currentVersion,
+    clusterInfo_encryptionInfo,
     clusterInfo_enhancedMonitoring,
+    clusterInfo_loggingInfo,
+    clusterInfo_numberOfBrokerNodes,
+    clusterInfo_openMonitoring,
+    clusterInfo_state,
+    clusterInfo_stateInfo,
+    clusterInfo_storageMode,
+    clusterInfo_tags,
+    clusterInfo_zookeeperConnectString,
+    clusterInfo_zookeeperConnectStringTls,
 
     -- ** ClusterOperationInfo
+    clusterOperationInfo_clientRequestId,
     clusterOperationInfo_clusterArn,
-    clusterOperationInfo_operationType,
-    clusterOperationInfo_operationArn,
+    clusterOperationInfo_creationTime,
     clusterOperationInfo_endTime,
+    clusterOperationInfo_errorInfo,
+    clusterOperationInfo_operationArn,
+    clusterOperationInfo_operationState,
+    clusterOperationInfo_operationSteps,
+    clusterOperationInfo_operationType,
     clusterOperationInfo_sourceClusterInfo,
     clusterOperationInfo_targetClusterInfo,
-    clusterOperationInfo_clientRequestId,
-    clusterOperationInfo_creationTime,
-    clusterOperationInfo_operationState,
-    clusterOperationInfo_errorInfo,
-    clusterOperationInfo_operationSteps,
 
     -- ** ClusterOperationStep
-    clusterOperationStep_stepName,
     clusterOperationStep_stepInfo,
+    clusterOperationStep_stepName,
 
     -- ** ClusterOperationStepInfo
     clusterOperationStepInfo_stepStatus,
 
     -- ** CompatibleKafkaVersion
-    compatibleKafkaVersion_targetVersions,
     compatibleKafkaVersion_sourceVersion,
+    compatibleKafkaVersion_targetVersions,
 
     -- ** Configuration
     configuration_description,
@@ -432,16 +432,16 @@ module Amazonka.Kafka.Lens
     encryptionAtRest_dataVolumeKMSKeyId,
 
     -- ** EncryptionInTransit
-    encryptionInTransit_inCluster,
     encryptionInTransit_clientBroker,
+    encryptionInTransit_inCluster,
 
     -- ** EncryptionInfo
-    encryptionInfo_encryptionInTransit,
     encryptionInfo_encryptionAtRest,
+    encryptionInfo_encryptionInTransit,
 
     -- ** ErrorInfo
-    errorInfo_errorString,
     errorInfo_errorCode,
+    errorInfo_errorString,
 
     -- ** Firehose
     firehose_deliveryStream,
@@ -464,18 +464,18 @@ module Amazonka.Kafka.Lens
     loggingInfo_brokerLogs,
 
     -- ** MutableClusterInfo
-    mutableClusterInfo_openMonitoring,
-    mutableClusterInfo_connectivityInfo,
-    mutableClusterInfo_storageMode,
-    mutableClusterInfo_encryptionInfo,
-    mutableClusterInfo_numberOfBrokerNodes,
-    mutableClusterInfo_clientAuthentication,
-    mutableClusterInfo_instanceType,
     mutableClusterInfo_brokerEBSVolumeInfo,
-    mutableClusterInfo_loggingInfo,
+    mutableClusterInfo_clientAuthentication,
     mutableClusterInfo_configurationInfo,
-    mutableClusterInfo_kafkaVersion,
+    mutableClusterInfo_connectivityInfo,
+    mutableClusterInfo_encryptionInfo,
     mutableClusterInfo_enhancedMonitoring,
+    mutableClusterInfo_instanceType,
+    mutableClusterInfo_kafkaVersion,
+    mutableClusterInfo_loggingInfo,
+    mutableClusterInfo_numberOfBrokerNodes,
+    mutableClusterInfo_openMonitoring,
+    mutableClusterInfo_storageMode,
 
     -- ** NodeExporter
     nodeExporter_enabledInBroker,
@@ -484,12 +484,12 @@ module Amazonka.Kafka.Lens
     nodeExporterInfo_enabledInBroker,
 
     -- ** NodeInfo
-    nodeInfo_brokerNodeInfo,
-    nodeInfo_zookeeperNodeInfo,
-    nodeInfo_nodeType,
-    nodeInfo_nodeARN,
-    nodeInfo_instanceType,
     nodeInfo_addedToClusterTime,
+    nodeInfo_brokerNodeInfo,
+    nodeInfo_instanceType,
+    nodeInfo_nodeARN,
+    nodeInfo_nodeType,
+    nodeInfo_zookeeperNodeInfo,
 
     -- ** OpenMonitoring
     openMonitoring_prometheus,
@@ -506,26 +506,26 @@ module Amazonka.Kafka.Lens
     prometheusInfo_nodeExporter,
 
     -- ** Provisioned
+    provisioned_clientAuthentication,
+    provisioned_currentBrokerSoftwareInfo,
+    provisioned_encryptionInfo,
+    provisioned_enhancedMonitoring,
+    provisioned_loggingInfo,
     provisioned_openMonitoring,
     provisioned_storageMode,
-    provisioned_encryptionInfo,
-    provisioned_clientAuthentication,
     provisioned_zookeeperConnectString,
-    provisioned_loggingInfo,
-    provisioned_currentBrokerSoftwareInfo,
     provisioned_zookeeperConnectStringTls,
-    provisioned_enhancedMonitoring,
     provisioned_brokerNodeGroupInfo,
     provisioned_numberOfBrokerNodes,
 
     -- ** ProvisionedRequest
+    provisionedRequest_clientAuthentication,
+    provisionedRequest_configurationInfo,
+    provisionedRequest_encryptionInfo,
+    provisionedRequest_enhancedMonitoring,
+    provisionedRequest_loggingInfo,
     provisionedRequest_openMonitoring,
     provisionedRequest_storageMode,
-    provisionedRequest_encryptionInfo,
-    provisionedRequest_clientAuthentication,
-    provisionedRequest_loggingInfo,
-    provisionedRequest_configurationInfo,
-    provisionedRequest_enhancedMonitoring,
     provisionedRequest_brokerNodeGroupInfo,
     provisionedRequest_kafkaVersion,
     provisionedRequest_numberOfBrokerNodes,
@@ -543,8 +543,8 @@ module Amazonka.Kafka.Lens
     s3_enabled,
 
     -- ** Sasl
-    sasl_scram,
     sasl_iam,
+    sasl_scram,
 
     -- ** Scram
     scram_enabled,
@@ -564,8 +564,8 @@ module Amazonka.Kafka.Lens
     serverlessSasl_iam,
 
     -- ** StateInfo
-    stateInfo_message,
     stateInfo_code,
+    stateInfo_message,
 
     -- ** StorageInfo
     storageInfo_ebsStorageInfo,
@@ -578,20 +578,20 @@ module Amazonka.Kafka.Lens
     unauthenticated_enabled,
 
     -- ** UnprocessedScramSecret
+    unprocessedScramSecret_errorCode,
     unprocessedScramSecret_errorMessage,
     unprocessedScramSecret_secretArn,
-    unprocessedScramSecret_errorCode,
 
     -- ** VpcConfig
     vpcConfig_securityGroupIds,
     vpcConfig_subnetIds,
 
     -- ** ZookeeperNodeInfo
-    zookeeperNodeInfo_endpoints,
-    zookeeperNodeInfo_zookeeperVersion,
-    zookeeperNodeInfo_clientVpcIpAddress,
     zookeeperNodeInfo_attachedENIId,
+    zookeeperNodeInfo_clientVpcIpAddress,
+    zookeeperNodeInfo_endpoints,
     zookeeperNodeInfo_zookeeperId,
+    zookeeperNodeInfo_zookeeperVersion,
   )
 where
 

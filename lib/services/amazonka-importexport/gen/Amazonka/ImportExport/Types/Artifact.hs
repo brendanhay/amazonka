@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
-  { url :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text
+  { description :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,37 +42,37 @@ data Artifact = Artifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'artifact_url' - Undocumented member.
---
 -- 'description', 'artifact_description' - Undocumented member.
+--
+-- 'url', 'artifact_url' - Undocumented member.
 newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { url = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | Undocumented member.
-artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
-artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
 
 -- | Undocumented member.
 artifact_description :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
 artifact_description = Lens.lens (\Artifact' {description} -> description) (\s@Artifact' {} a -> s {description = a} :: Artifact)
 
+-- | Undocumented member.
+artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
+
 instance Data.FromXML Artifact where
   parseXML x =
     Artifact'
-      Prelude.<$> (x Data..@? "URL")
-      Prelude.<*> (x Data..@? "Description")
+      Prelude.<$> (x Data..@? "Description")
+      Prelude.<*> (x Data..@? "URL")
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Artifact where
   rnf Artifact' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf url

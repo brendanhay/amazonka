@@ -30,8 +30,8 @@ module Amazonka.WorkMail.ListMailboxPermissions
     newListMailboxPermissions,
 
     -- * Request Lenses
-    listMailboxPermissions_nextToken,
     listMailboxPermissions_maxResults,
+    listMailboxPermissions_nextToken,
     listMailboxPermissions_organizationId,
     listMailboxPermissions_entityId,
 
@@ -56,11 +56,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMailboxPermissions' smart constructor.
 data ListMailboxPermissions = ListMailboxPermissions'
-  { -- | The token to use to retrieve the next page of results. The first call
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the organization under which the user, group, or
     -- resource exists.
     organizationId :: Prelude.Text,
@@ -78,10 +78,10 @@ data ListMailboxPermissions = ListMailboxPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMailboxPermissions_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listMailboxPermissions_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
---
--- 'maxResults', 'listMailboxPermissions_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'organizationId', 'listMailboxPermissions_organizationId' - The identifier of the organization under which the user, group, or
 -- resource exists.
@@ -96,21 +96,21 @@ newListMailboxPermissions ::
   ListMailboxPermissions
 newListMailboxPermissions pOrganizationId_ pEntityId_ =
   ListMailboxPermissions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_,
       entityId = pEntityId_
     }
+
+-- | The maximum number of results to return in a single call.
+listMailboxPermissions_maxResults :: Lens.Lens' ListMailboxPermissions (Prelude.Maybe Prelude.Natural)
+listMailboxPermissions_maxResults = Lens.lens (\ListMailboxPermissions' {maxResults} -> maxResults) (\s@ListMailboxPermissions' {} a -> s {maxResults = a} :: ListMailboxPermissions)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
 listMailboxPermissions_nextToken :: Lens.Lens' ListMailboxPermissions (Prelude.Maybe Prelude.Text)
 listMailboxPermissions_nextToken = Lens.lens (\ListMailboxPermissions' {nextToken} -> nextToken) (\s@ListMailboxPermissions' {} a -> s {nextToken = a} :: ListMailboxPermissions)
-
--- | The maximum number of results to return in a single call.
-listMailboxPermissions_maxResults :: Lens.Lens' ListMailboxPermissions (Prelude.Maybe Prelude.Natural)
-listMailboxPermissions_maxResults = Lens.lens (\ListMailboxPermissions' {maxResults} -> maxResults) (\s@ListMailboxPermissions' {} a -> s {maxResults = a} :: ListMailboxPermissions)
 
 -- | The identifier of the organization under which the user, group, or
 -- resource exists.
@@ -161,15 +161,15 @@ instance Core.AWSRequest ListMailboxPermissions where
 
 instance Prelude.Hashable ListMailboxPermissions where
   hashWithSalt _salt ListMailboxPermissions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData ListMailboxPermissions where
   rnf ListMailboxPermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf entityId
 
@@ -192,8 +192,8 @@ instance Data.ToJSON ListMailboxPermissions where
   toJSON ListMailboxPermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("EntityId" Data..= entityId)

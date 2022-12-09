@@ -29,15 +29,15 @@ module Amazonka.WorkMail.CreateMobileDeviceAccessRule
 
     -- * Request Lenses
     createMobileDeviceAccessRule_clientToken,
-    createMobileDeviceAccessRule_deviceTypes,
-    createMobileDeviceAccessRule_notDeviceUserAgents,
-    createMobileDeviceAccessRule_deviceUserAgents,
-    createMobileDeviceAccessRule_notDeviceModels,
     createMobileDeviceAccessRule_description,
     createMobileDeviceAccessRule_deviceModels,
-    createMobileDeviceAccessRule_notDeviceTypes,
     createMobileDeviceAccessRule_deviceOperatingSystems,
+    createMobileDeviceAccessRule_deviceTypes,
+    createMobileDeviceAccessRule_deviceUserAgents,
+    createMobileDeviceAccessRule_notDeviceModels,
     createMobileDeviceAccessRule_notDeviceOperatingSystems,
+    createMobileDeviceAccessRule_notDeviceTypes,
+    createMobileDeviceAccessRule_notDeviceUserAgents,
     createMobileDeviceAccessRule_organizationId,
     createMobileDeviceAccessRule_name,
     createMobileDeviceAccessRule_effect,
@@ -64,28 +64,28 @@ import Amazonka.WorkMail.Types
 data CreateMobileDeviceAccessRule = CreateMobileDeviceAccessRule'
   { -- | The idempotency token for the client request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Device models that the rule will match.
+    deviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device operating systems that the rule will match.
+    deviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Device types that the rule will match.
     deviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device user agents that the rule __will not__ match. All other device
-    -- user agents will match.
-    notDeviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Device user agents that the rule will match.
     deviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Device models that the rule __will not__ match. All other device models
     -- will match.
     notDeviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The rule description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Device models that the rule will match.
-    deviceModels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device types that the rule __will not__ match. All other device types
-    -- will match.
-    notDeviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Device operating systems that the rule will match.
-    deviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Device operating systems that the rule __will not__ match. All other
     -- device operating systems will match.
     notDeviceOperatingSystems :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device types that the rule __will not__ match. All other device types
+    -- will match.
+    notDeviceTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Device user agents that the rule __will not__ match. All other device
+    -- user agents will match.
+    notDeviceUserAgents :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The WorkMail organization under which the rule will be created.
     organizationId :: Prelude.Text,
     -- | The rule name.
@@ -106,27 +106,27 @@ data CreateMobileDeviceAccessRule = CreateMobileDeviceAccessRule'
 --
 -- 'clientToken', 'createMobileDeviceAccessRule_clientToken' - The idempotency token for the client request.
 --
--- 'deviceTypes', 'createMobileDeviceAccessRule_deviceTypes' - Device types that the rule will match.
+-- 'description', 'createMobileDeviceAccessRule_description' - The rule description.
 --
--- 'notDeviceUserAgents', 'createMobileDeviceAccessRule_notDeviceUserAgents' - Device user agents that the rule __will not__ match. All other device
--- user agents will match.
+-- 'deviceModels', 'createMobileDeviceAccessRule_deviceModels' - Device models that the rule will match.
+--
+-- 'deviceOperatingSystems', 'createMobileDeviceAccessRule_deviceOperatingSystems' - Device operating systems that the rule will match.
+--
+-- 'deviceTypes', 'createMobileDeviceAccessRule_deviceTypes' - Device types that the rule will match.
 --
 -- 'deviceUserAgents', 'createMobileDeviceAccessRule_deviceUserAgents' - Device user agents that the rule will match.
 --
 -- 'notDeviceModels', 'createMobileDeviceAccessRule_notDeviceModels' - Device models that the rule __will not__ match. All other device models
 -- will match.
 --
--- 'description', 'createMobileDeviceAccessRule_description' - The rule description.
---
--- 'deviceModels', 'createMobileDeviceAccessRule_deviceModels' - Device models that the rule will match.
+-- 'notDeviceOperatingSystems', 'createMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the rule __will not__ match. All other
+-- device operating systems will match.
 --
 -- 'notDeviceTypes', 'createMobileDeviceAccessRule_notDeviceTypes' - Device types that the rule __will not__ match. All other device types
 -- will match.
 --
--- 'deviceOperatingSystems', 'createMobileDeviceAccessRule_deviceOperatingSystems' - Device operating systems that the rule will match.
---
--- 'notDeviceOperatingSystems', 'createMobileDeviceAccessRule_notDeviceOperatingSystems' - Device operating systems that the rule __will not__ match. All other
--- device operating systems will match.
+-- 'notDeviceUserAgents', 'createMobileDeviceAccessRule_notDeviceUserAgents' - Device user agents that the rule __will not__ match. All other device
+-- user agents will match.
 --
 -- 'organizationId', 'createMobileDeviceAccessRule_organizationId' - The WorkMail organization under which the rule will be created.
 --
@@ -149,15 +149,15 @@ newCreateMobileDeviceAccessRule
     CreateMobileDeviceAccessRule'
       { clientToken =
           Prelude.Nothing,
-        deviceTypes = Prelude.Nothing,
-        notDeviceUserAgents = Prelude.Nothing,
-        deviceUserAgents = Prelude.Nothing,
-        notDeviceModels = Prelude.Nothing,
         description = Prelude.Nothing,
         deviceModels = Prelude.Nothing,
-        notDeviceTypes = Prelude.Nothing,
         deviceOperatingSystems = Prelude.Nothing,
+        deviceTypes = Prelude.Nothing,
+        deviceUserAgents = Prelude.Nothing,
+        notDeviceModels = Prelude.Nothing,
         notDeviceOperatingSystems = Prelude.Nothing,
+        notDeviceTypes = Prelude.Nothing,
+        notDeviceUserAgents = Prelude.Nothing,
         organizationId = pOrganizationId_,
         name = pName_,
         effect = pEffect_
@@ -167,14 +167,21 @@ newCreateMobileDeviceAccessRule
 createMobileDeviceAccessRule_clientToken :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe Prelude.Text)
 createMobileDeviceAccessRule_clientToken = Lens.lens (\CreateMobileDeviceAccessRule' {clientToken} -> clientToken) (\s@CreateMobileDeviceAccessRule' {} a -> s {clientToken = a} :: CreateMobileDeviceAccessRule)
 
+-- | The rule description.
+createMobileDeviceAccessRule_description :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe Prelude.Text)
+createMobileDeviceAccessRule_description = Lens.lens (\CreateMobileDeviceAccessRule' {description} -> description) (\s@CreateMobileDeviceAccessRule' {} a -> s {description = a} :: CreateMobileDeviceAccessRule)
+
+-- | Device models that the rule will match.
+createMobileDeviceAccessRule_deviceModels :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createMobileDeviceAccessRule_deviceModels = Lens.lens (\CreateMobileDeviceAccessRule' {deviceModels} -> deviceModels) (\s@CreateMobileDeviceAccessRule' {} a -> s {deviceModels = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Device operating systems that the rule will match.
+createMobileDeviceAccessRule_deviceOperatingSystems :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\CreateMobileDeviceAccessRule' {deviceOperatingSystems} -> deviceOperatingSystems) (\s@CreateMobileDeviceAccessRule' {} a -> s {deviceOperatingSystems = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | Device types that the rule will match.
 createMobileDeviceAccessRule_deviceTypes :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMobileDeviceAccessRule_deviceTypes = Lens.lens (\CreateMobileDeviceAccessRule' {deviceTypes} -> deviceTypes) (\s@CreateMobileDeviceAccessRule' {} a -> s {deviceTypes = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device user agents that the rule __will not__ match. All other device
--- user agents will match.
-createMobileDeviceAccessRule_notDeviceUserAgents :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createMobileDeviceAccessRule_notDeviceUserAgents = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceUserAgents} -> notDeviceUserAgents) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceUserAgents = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Device user agents that the rule will match.
 createMobileDeviceAccessRule_deviceUserAgents :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -185,27 +192,20 @@ createMobileDeviceAccessRule_deviceUserAgents = Lens.lens (\CreateMobileDeviceAc
 createMobileDeviceAccessRule_notDeviceModels :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMobileDeviceAccessRule_notDeviceModels = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceModels} -> notDeviceModels) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceModels = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The rule description.
-createMobileDeviceAccessRule_description :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe Prelude.Text)
-createMobileDeviceAccessRule_description = Lens.lens (\CreateMobileDeviceAccessRule' {description} -> description) (\s@CreateMobileDeviceAccessRule' {} a -> s {description = a} :: CreateMobileDeviceAccessRule)
-
--- | Device models that the rule will match.
-createMobileDeviceAccessRule_deviceModels :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createMobileDeviceAccessRule_deviceModels = Lens.lens (\CreateMobileDeviceAccessRule' {deviceModels} -> deviceModels) (\s@CreateMobileDeviceAccessRule' {} a -> s {deviceModels = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+-- | Device operating systems that the rule __will not__ match. All other
+-- device operating systems will match.
+createMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Device types that the rule __will not__ match. All other device types
 -- will match.
 createMobileDeviceAccessRule_notDeviceTypes :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMobileDeviceAccessRule_notDeviceTypes = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceTypes} -> notDeviceTypes) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceTypes = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
--- | Device operating systems that the rule will match.
-createMobileDeviceAccessRule_deviceOperatingSystems :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createMobileDeviceAccessRule_deviceOperatingSystems = Lens.lens (\CreateMobileDeviceAccessRule' {deviceOperatingSystems} -> deviceOperatingSystems) (\s@CreateMobileDeviceAccessRule' {} a -> s {deviceOperatingSystems = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
-
--- | Device operating systems that the rule __will not__ match. All other
--- device operating systems will match.
-createMobileDeviceAccessRule_notDeviceOperatingSystems :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createMobileDeviceAccessRule_notDeviceOperatingSystems = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceOperatingSystems} -> notDeviceOperatingSystems) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceOperatingSystems = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
+-- | Device user agents that the rule __will not__ match. All other device
+-- user agents will match.
+createMobileDeviceAccessRule_notDeviceUserAgents :: Lens.Lens' CreateMobileDeviceAccessRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createMobileDeviceAccessRule_notDeviceUserAgents = Lens.lens (\CreateMobileDeviceAccessRule' {notDeviceUserAgents} -> notDeviceUserAgents) (\s@CreateMobileDeviceAccessRule' {} a -> s {notDeviceUserAgents = a} :: CreateMobileDeviceAccessRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The WorkMail organization under which the rule will be created.
 createMobileDeviceAccessRule_organizationId :: Lens.Lens' CreateMobileDeviceAccessRule Prelude.Text
@@ -240,15 +240,15 @@ instance
   where
   hashWithSalt _salt CreateMobileDeviceAccessRule' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` deviceTypes
-      `Prelude.hashWithSalt` notDeviceUserAgents
-      `Prelude.hashWithSalt` deviceUserAgents
-      `Prelude.hashWithSalt` notDeviceModels
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceModels
-      `Prelude.hashWithSalt` notDeviceTypes
       `Prelude.hashWithSalt` deviceOperatingSystems
+      `Prelude.hashWithSalt` deviceTypes
+      `Prelude.hashWithSalt` deviceUserAgents
+      `Prelude.hashWithSalt` notDeviceModels
       `Prelude.hashWithSalt` notDeviceOperatingSystems
+      `Prelude.hashWithSalt` notDeviceTypes
+      `Prelude.hashWithSalt` notDeviceUserAgents
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` effect
@@ -256,15 +256,15 @@ instance
 instance Prelude.NFData CreateMobileDeviceAccessRule where
   rnf CreateMobileDeviceAccessRule' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf deviceTypes
-      `Prelude.seq` Prelude.rnf notDeviceUserAgents
-      `Prelude.seq` Prelude.rnf deviceUserAgents
-      `Prelude.seq` Prelude.rnf notDeviceModels
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf deviceModels
-      `Prelude.seq` Prelude.rnf notDeviceTypes
       `Prelude.seq` Prelude.rnf deviceOperatingSystems
+      `Prelude.seq` Prelude.rnf deviceTypes
+      `Prelude.seq` Prelude.rnf deviceUserAgents
+      `Prelude.seq` Prelude.rnf notDeviceModels
       `Prelude.seq` Prelude.rnf notDeviceOperatingSystems
+      `Prelude.seq` Prelude.rnf notDeviceTypes
+      `Prelude.seq` Prelude.rnf notDeviceUserAgents
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf effect
@@ -289,21 +289,21 @@ instance Data.ToJSON CreateMobileDeviceAccessRule where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DeviceModels" Data..=) Prelude.<$> deviceModels,
+            ("DeviceOperatingSystems" Data..=)
+              Prelude.<$> deviceOperatingSystems,
             ("DeviceTypes" Data..=) Prelude.<$> deviceTypes,
-            ("NotDeviceUserAgents" Data..=)
-              Prelude.<$> notDeviceUserAgents,
             ("DeviceUserAgents" Data..=)
               Prelude.<$> deviceUserAgents,
             ("NotDeviceModels" Data..=)
               Prelude.<$> notDeviceModels,
-            ("Description" Data..=) Prelude.<$> description,
-            ("DeviceModels" Data..=) Prelude.<$> deviceModels,
-            ("NotDeviceTypes" Data..=)
-              Prelude.<$> notDeviceTypes,
-            ("DeviceOperatingSystems" Data..=)
-              Prelude.<$> deviceOperatingSystems,
             ("NotDeviceOperatingSystems" Data..=)
               Prelude.<$> notDeviceOperatingSystems,
+            ("NotDeviceTypes" Data..=)
+              Prelude.<$> notDeviceTypes,
+            ("NotDeviceUserAgents" Data..=)
+              Prelude.<$> notDeviceUserAgents,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("Name" Data..= name),

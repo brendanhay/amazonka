@@ -30,8 +30,8 @@ module Amazonka.WorkMail.ListAvailabilityConfigurations
     newListAvailabilityConfigurations,
 
     -- * Request Lenses
-    listAvailabilityConfigurations_nextToken,
     listAvailabilityConfigurations_maxResults,
+    listAvailabilityConfigurations_nextToken,
     listAvailabilityConfigurations_organizationId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.WorkMail.ListAvailabilityConfigurations
     newListAvailabilityConfigurationsResponse,
 
     -- * Response Lenses
-    listAvailabilityConfigurationsResponse_nextToken,
     listAvailabilityConfigurationsResponse_availabilityConfigurations,
+    listAvailabilityConfigurationsResponse_nextToken,
     listAvailabilityConfigurationsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListAvailabilityConfigurations' smart constructor.
 data ListAvailabilityConfigurations = ListAvailabilityConfigurations'
-  { -- | The token to use to retrieve the next page of results. The first call
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results. The first call
     -- does not require a token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The WorkMail organization for which the @AvailabilityConfiguration@\'s
     -- will be listed.
     organizationId :: Prelude.Text
@@ -74,10 +74,10 @@ data ListAvailabilityConfigurations = ListAvailabilityConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAvailabilityConfigurations_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listAvailabilityConfigurations_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not require a token.
---
--- 'maxResults', 'listAvailabilityConfigurations_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'organizationId', 'listAvailabilityConfigurations_organizationId' - The WorkMail organization for which the @AvailabilityConfiguration@\'s
 -- will be listed.
@@ -87,20 +87,20 @@ newListAvailabilityConfigurations ::
   ListAvailabilityConfigurations
 newListAvailabilityConfigurations pOrganizationId_ =
   ListAvailabilityConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
+
+-- | The maximum number of results to return in a single call.
+listAvailabilityConfigurations_maxResults :: Lens.Lens' ListAvailabilityConfigurations (Prelude.Maybe Prelude.Natural)
+listAvailabilityConfigurations_maxResults = Lens.lens (\ListAvailabilityConfigurations' {maxResults} -> maxResults) (\s@ListAvailabilityConfigurations' {} a -> s {maxResults = a} :: ListAvailabilityConfigurations)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not require a token.
 listAvailabilityConfigurations_nextToken :: Lens.Lens' ListAvailabilityConfigurations (Prelude.Maybe Prelude.Text)
 listAvailabilityConfigurations_nextToken = Lens.lens (\ListAvailabilityConfigurations' {nextToken} -> nextToken) (\s@ListAvailabilityConfigurations' {} a -> s {nextToken = a} :: ListAvailabilityConfigurations)
-
--- | The maximum number of results to return in a single call.
-listAvailabilityConfigurations_maxResults :: Lens.Lens' ListAvailabilityConfigurations (Prelude.Maybe Prelude.Natural)
-listAvailabilityConfigurations_maxResults = Lens.lens (\ListAvailabilityConfigurations' {maxResults} -> maxResults) (\s@ListAvailabilityConfigurations' {} a -> s {maxResults = a} :: ListAvailabilityConfigurations)
 
 -- | The WorkMail organization for which the @AvailabilityConfiguration@\'s
 -- will be listed.
@@ -142,10 +142,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailabilityConfigurationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AvailabilityConfigurations"
+            Prelude.<$> ( x Data..?> "AvailabilityConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,8 +156,8 @@ instance
   hashWithSalt
     _salt
     ListAvailabilityConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationId
 
 instance
@@ -165,8 +165,8 @@ instance
     ListAvailabilityConfigurations
   where
   rnf ListAvailabilityConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
@@ -191,8 +191,8 @@ instance Data.ToJSON ListAvailabilityConfigurations where
   toJSON ListAvailabilityConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId)
           ]
@@ -206,12 +206,12 @@ instance Data.ToQuery ListAvailabilityConfigurations where
 
 -- | /See:/ 'newListAvailabilityConfigurationsResponse' smart constructor.
 data ListAvailabilityConfigurationsResponse = ListAvailabilityConfigurationsResponse'
-  { -- | The token to use to retrieve the next page of results. The value is
-    -- @null@ when there are no further results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of @AvailabilityConfiguration@\'s that exist for the specified
+  { -- | The list of @AvailabilityConfiguration@\'s that exist for the specified
     -- WorkMail organization.
     availabilityConfigurations :: Prelude.Maybe [AvailabilityConfiguration],
+    -- | The token to use to retrieve the next page of results. The value is
+    -- @null@ when there are no further results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,11 +225,11 @@ data ListAvailabilityConfigurationsResponse = ListAvailabilityConfigurationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAvailabilityConfigurationsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
--- @null@ when there are no further results to return.
---
 -- 'availabilityConfigurations', 'listAvailabilityConfigurationsResponse_availabilityConfigurations' - The list of @AvailabilityConfiguration@\'s that exist for the specified
 -- WorkMail organization.
+--
+-- 'nextToken', 'listAvailabilityConfigurationsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
+-- @null@ when there are no further results to return.
 --
 -- 'httpStatus', 'listAvailabilityConfigurationsResponse_httpStatus' - The response's http status code.
 newListAvailabilityConfigurationsResponse ::
@@ -239,22 +239,21 @@ newListAvailabilityConfigurationsResponse ::
 newListAvailabilityConfigurationsResponse
   pHttpStatus_ =
     ListAvailabilityConfigurationsResponse'
-      { nextToken =
+      { availabilityConfigurations =
           Prelude.Nothing,
-        availabilityConfigurations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The token to use to retrieve the next page of results. The value is
--- @null@ when there are no further results to return.
-listAvailabilityConfigurationsResponse_nextToken :: Lens.Lens' ListAvailabilityConfigurationsResponse (Prelude.Maybe Prelude.Text)
-listAvailabilityConfigurationsResponse_nextToken = Lens.lens (\ListAvailabilityConfigurationsResponse' {nextToken} -> nextToken) (\s@ListAvailabilityConfigurationsResponse' {} a -> s {nextToken = a} :: ListAvailabilityConfigurationsResponse)
 
 -- | The list of @AvailabilityConfiguration@\'s that exist for the specified
 -- WorkMail organization.
 listAvailabilityConfigurationsResponse_availabilityConfigurations :: Lens.Lens' ListAvailabilityConfigurationsResponse (Prelude.Maybe [AvailabilityConfiguration])
 listAvailabilityConfigurationsResponse_availabilityConfigurations = Lens.lens (\ListAvailabilityConfigurationsResponse' {availabilityConfigurations} -> availabilityConfigurations) (\s@ListAvailabilityConfigurationsResponse' {} a -> s {availabilityConfigurations = a} :: ListAvailabilityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results. The value is
+-- @null@ when there are no further results to return.
+listAvailabilityConfigurationsResponse_nextToken :: Lens.Lens' ListAvailabilityConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listAvailabilityConfigurationsResponse_nextToken = Lens.lens (\ListAvailabilityConfigurationsResponse' {nextToken} -> nextToken) (\s@ListAvailabilityConfigurationsResponse' {} a -> s {nextToken = a} :: ListAvailabilityConfigurationsResponse)
 
 -- | The response's http status code.
 listAvailabilityConfigurationsResponse_httpStatus :: Lens.Lens' ListAvailabilityConfigurationsResponse Prelude.Int
@@ -265,6 +264,6 @@ instance
     ListAvailabilityConfigurationsResponse
   where
   rnf ListAvailabilityConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf availabilityConfigurations
+    Prelude.rnf availabilityConfigurations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

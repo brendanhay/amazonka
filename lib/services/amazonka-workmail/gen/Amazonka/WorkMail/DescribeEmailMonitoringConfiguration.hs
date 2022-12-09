@@ -35,8 +35,8 @@ module Amazonka.WorkMail.DescribeEmailMonitoringConfiguration
     newDescribeEmailMonitoringConfigurationResponse,
 
     -- * Response Lenses
-    describeEmailMonitoringConfigurationResponse_roleArn,
     describeEmailMonitoringConfigurationResponse_logGroupArn,
+    describeEmailMonitoringConfigurationResponse_roleArn,
     describeEmailMonitoringConfigurationResponse_httpStatus,
   )
 where
@@ -96,8 +96,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEmailMonitoringConfigurationResponse'
-            Prelude.<$> (x Data..?> "RoleArn")
-              Prelude.<*> (x Data..?> "LogGroupArn")
+            Prelude.<$> (x Data..?> "LogGroupArn")
+              Prelude.<*> (x Data..?> "RoleArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance
 
 -- | /See:/ 'newDescribeEmailMonitoringConfigurationResponse' smart constructor.
 data DescribeEmailMonitoringConfigurationResponse = DescribeEmailMonitoringConfigurationResponse'
-  { -- | The Amazon Resource Name (ARN) of the IAM Role associated with the email
-    -- monitoring configuration.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the CloudWatch Log group associated
+  { -- | The Amazon Resource Name (ARN) of the CloudWatch Log group associated
     -- with the email monitoring configuration.
     logGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM Role associated with the email
+    -- monitoring configuration.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data DescribeEmailMonitoringConfigurationResponse = DescribeEmailMonitoringConfi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeEmailMonitoringConfigurationResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM Role associated with the email
--- monitoring configuration.
---
 -- 'logGroupArn', 'describeEmailMonitoringConfigurationResponse_logGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch Log group associated
 -- with the email monitoring configuration.
+--
+-- 'roleArn', 'describeEmailMonitoringConfigurationResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM Role associated with the email
+-- monitoring configuration.
 --
 -- 'httpStatus', 'describeEmailMonitoringConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeEmailMonitoringConfigurationResponse ::
@@ -194,21 +194,21 @@ newDescribeEmailMonitoringConfigurationResponse ::
 newDescribeEmailMonitoringConfigurationResponse
   pHttpStatus_ =
     DescribeEmailMonitoringConfigurationResponse'
-      { roleArn =
+      { logGroupArn =
           Prelude.Nothing,
-        logGroupArn = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The Amazon Resource Name (ARN) of the IAM Role associated with the email
--- monitoring configuration.
-describeEmailMonitoringConfigurationResponse_roleArn :: Lens.Lens' DescribeEmailMonitoringConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeEmailMonitoringConfigurationResponse_roleArn = Lens.lens (\DescribeEmailMonitoringConfigurationResponse' {roleArn} -> roleArn) (\s@DescribeEmailMonitoringConfigurationResponse' {} a -> s {roleArn = a} :: DescribeEmailMonitoringConfigurationResponse)
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Log group associated
 -- with the email monitoring configuration.
 describeEmailMonitoringConfigurationResponse_logGroupArn :: Lens.Lens' DescribeEmailMonitoringConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeEmailMonitoringConfigurationResponse_logGroupArn = Lens.lens (\DescribeEmailMonitoringConfigurationResponse' {logGroupArn} -> logGroupArn) (\s@DescribeEmailMonitoringConfigurationResponse' {} a -> s {logGroupArn = a} :: DescribeEmailMonitoringConfigurationResponse)
+
+-- | The Amazon Resource Name (ARN) of the IAM Role associated with the email
+-- monitoring configuration.
+describeEmailMonitoringConfigurationResponse_roleArn :: Lens.Lens' DescribeEmailMonitoringConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeEmailMonitoringConfigurationResponse_roleArn = Lens.lens (\DescribeEmailMonitoringConfigurationResponse' {roleArn} -> roleArn) (\s@DescribeEmailMonitoringConfigurationResponse' {} a -> s {roleArn = a} :: DescribeEmailMonitoringConfigurationResponse)
 
 -- | The response's http status code.
 describeEmailMonitoringConfigurationResponse_httpStatus :: Lens.Lens' DescribeEmailMonitoringConfigurationResponse Prelude.Int
@@ -219,6 +219,6 @@ instance
     DescribeEmailMonitoringConfigurationResponse
   where
   rnf DescribeEmailMonitoringConfigurationResponse' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf logGroupArn
+    Prelude.rnf logGroupArn
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

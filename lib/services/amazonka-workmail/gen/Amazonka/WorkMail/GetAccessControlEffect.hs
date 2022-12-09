@@ -31,8 +31,8 @@ module Amazonka.WorkMail.GetAccessControlEffect
     newGetAccessControlEffect,
 
     -- * Request Lenses
-    getAccessControlEffect_userId,
     getAccessControlEffect_impersonationRoleId,
+    getAccessControlEffect_userId,
     getAccessControlEffect_organizationId,
     getAccessControlEffect_ipAddress,
     getAccessControlEffect_action,
@@ -58,10 +58,10 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetAccessControlEffect' smart constructor.
 data GetAccessControlEffect = GetAccessControlEffect'
-  { -- | The user ID.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The impersonation role ID.
+  { -- | The impersonation role ID.
     impersonationRoleId :: Prelude.Maybe Prelude.Text,
+    -- | The user ID.
+    userId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the organization.
     organizationId :: Prelude.Text,
     -- | The IPv4 address.
@@ -80,9 +80,9 @@ data GetAccessControlEffect = GetAccessControlEffect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userId', 'getAccessControlEffect_userId' - The user ID.
---
 -- 'impersonationRoleId', 'getAccessControlEffect_impersonationRoleId' - The impersonation role ID.
+--
+-- 'userId', 'getAccessControlEffect_userId' - The user ID.
 --
 -- 'organizationId', 'getAccessControlEffect_organizationId' - The identifier for the organization.
 --
@@ -103,20 +103,21 @@ newGetAccessControlEffect
   pIpAddress_
   pAction_ =
     GetAccessControlEffect'
-      { userId = Prelude.Nothing,
-        impersonationRoleId = Prelude.Nothing,
+      { impersonationRoleId =
+          Prelude.Nothing,
+        userId = Prelude.Nothing,
         organizationId = pOrganizationId_,
         ipAddress = pIpAddress_,
         action = pAction_
       }
 
--- | The user ID.
-getAccessControlEffect_userId :: Lens.Lens' GetAccessControlEffect (Prelude.Maybe Prelude.Text)
-getAccessControlEffect_userId = Lens.lens (\GetAccessControlEffect' {userId} -> userId) (\s@GetAccessControlEffect' {} a -> s {userId = a} :: GetAccessControlEffect)
-
 -- | The impersonation role ID.
 getAccessControlEffect_impersonationRoleId :: Lens.Lens' GetAccessControlEffect (Prelude.Maybe Prelude.Text)
 getAccessControlEffect_impersonationRoleId = Lens.lens (\GetAccessControlEffect' {impersonationRoleId} -> impersonationRoleId) (\s@GetAccessControlEffect' {} a -> s {impersonationRoleId = a} :: GetAccessControlEffect)
+
+-- | The user ID.
+getAccessControlEffect_userId :: Lens.Lens' GetAccessControlEffect (Prelude.Maybe Prelude.Text)
+getAccessControlEffect_userId = Lens.lens (\GetAccessControlEffect' {userId} -> userId) (\s@GetAccessControlEffect' {} a -> s {userId = a} :: GetAccessControlEffect)
 
 -- | The identifier for the organization.
 getAccessControlEffect_organizationId :: Lens.Lens' GetAccessControlEffect Prelude.Text
@@ -148,16 +149,16 @@ instance Core.AWSRequest GetAccessControlEffect where
 
 instance Prelude.Hashable GetAccessControlEffect where
   hashWithSalt _salt GetAccessControlEffect' {..} =
-    _salt `Prelude.hashWithSalt` userId
-      `Prelude.hashWithSalt` impersonationRoleId
+    _salt `Prelude.hashWithSalt` impersonationRoleId
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData GetAccessControlEffect where
   rnf GetAccessControlEffect' {..} =
-    Prelude.rnf userId
-      `Prelude.seq` Prelude.rnf impersonationRoleId
+    Prelude.rnf impersonationRoleId
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf action
@@ -181,9 +182,9 @@ instance Data.ToJSON GetAccessControlEffect where
   toJSON GetAccessControlEffect' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UserId" Data..=) Prelude.<$> userId,
-            ("ImpersonationRoleId" Data..=)
+          [ ("ImpersonationRoleId" Data..=)
               Prelude.<$> impersonationRoleId,
+            ("UserId" Data..=) Prelude.<$> userId,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("IpAddress" Data..= ipAddress),

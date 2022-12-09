@@ -30,8 +30,8 @@ module Amazonka.WorkMail.UpdateResource
     newUpdateResource,
 
     -- * Request Lenses
-    updateResource_name,
     updateResource_bookingOptions,
+    updateResource_name,
     updateResource_organizationId,
     updateResource_resourceId,
 
@@ -54,10 +54,10 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { -- | The name of the resource to be updated.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The resource\'s booking options to be updated.
+  { -- | The resource\'s booking options to be updated.
     bookingOptions :: Prelude.Maybe BookingOptions,
+    -- | The name of the resource to be updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier associated with the organization for which the resource
     -- is updated.
     organizationId :: Prelude.Text,
@@ -74,9 +74,9 @@ data UpdateResource = UpdateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateResource_name' - The name of the resource to be updated.
---
 -- 'bookingOptions', 'updateResource_bookingOptions' - The resource\'s booking options to be updated.
+--
+-- 'name', 'updateResource_name' - The name of the resource to be updated.
 --
 -- 'organizationId', 'updateResource_organizationId' - The identifier associated with the organization for which the resource
 -- is updated.
@@ -90,19 +90,19 @@ newUpdateResource ::
   UpdateResource
 newUpdateResource pOrganizationId_ pResourceId_ =
   UpdateResource'
-    { name = Prelude.Nothing,
-      bookingOptions = Prelude.Nothing,
+    { bookingOptions = Prelude.Nothing,
+      name = Prelude.Nothing,
       organizationId = pOrganizationId_,
       resourceId = pResourceId_
     }
 
--- | The name of the resource to be updated.
-updateResource_name :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.Text)
-updateResource_name = Lens.lens (\UpdateResource' {name} -> name) (\s@UpdateResource' {} a -> s {name = a} :: UpdateResource)
-
 -- | The resource\'s booking options to be updated.
 updateResource_bookingOptions :: Lens.Lens' UpdateResource (Prelude.Maybe BookingOptions)
 updateResource_bookingOptions = Lens.lens (\UpdateResource' {bookingOptions} -> bookingOptions) (\s@UpdateResource' {} a -> s {bookingOptions = a} :: UpdateResource)
+
+-- | The name of the resource to be updated.
+updateResource_name :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.Text)
+updateResource_name = Lens.lens (\UpdateResource' {name} -> name) (\s@UpdateResource' {} a -> s {name = a} :: UpdateResource)
 
 -- | The identifier associated with the organization for which the resource
 -- is updated.
@@ -128,15 +128,15 @@ instance Core.AWSRequest UpdateResource where
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` bookingOptions
+    _salt `Prelude.hashWithSalt` bookingOptions
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData UpdateResource where
   rnf UpdateResource' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf bookingOptions
+    Prelude.rnf bookingOptions
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf resourceId
 
@@ -159,9 +159,9 @@ instance Data.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("BookingOptions" Data..=)
+          [ ("BookingOptions" Data..=)
               Prelude.<$> bookingOptions,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("ResourceId" Data..= resourceId)

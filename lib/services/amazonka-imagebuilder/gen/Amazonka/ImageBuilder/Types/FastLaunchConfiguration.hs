@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFastLaunchConfiguration' smart constructor.
 data FastLaunchConfiguration = FastLaunchConfiguration'
-  { -- | The launch template that the fast-launch enabled Windows AMI uses when
+  { -- | The owner account ID for the fast-launch enabled Windows AMI.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The launch template that the fast-launch enabled Windows AMI uses when
     -- it launches Windows instances to create pre-provisioned snapshots.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecification,
+    -- | The maximum number of parallel instances that are launched for creating
+    -- resources.
+    maxParallelLaunches :: Prelude.Maybe Prelude.Natural,
     -- | Configuration settings for managing the number of snapshots that are
     -- created from pre-provisioned instances for the Windows AMI when faster
     -- launching is enabled.
     snapshotConfiguration :: Prelude.Maybe FastLaunchSnapshotConfiguration,
-    -- | The owner account ID for the fast-launch enabled Windows AMI.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of parallel instances that are launched for creating
-    -- resources.
-    maxParallelLaunches :: Prelude.Maybe Prelude.Natural,
     -- | A Boolean that represents the current state of faster launching for the
     -- Windows AMI. Set to @true@ to start using Windows faster launching, or
     -- @false@ to stop using it.
@@ -57,17 +57,17 @@ data FastLaunchConfiguration = FastLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'fastLaunchConfiguration_accountId' - The owner account ID for the fast-launch enabled Windows AMI.
+--
 -- 'launchTemplate', 'fastLaunchConfiguration_launchTemplate' - The launch template that the fast-launch enabled Windows AMI uses when
 -- it launches Windows instances to create pre-provisioned snapshots.
+--
+-- 'maxParallelLaunches', 'fastLaunchConfiguration_maxParallelLaunches' - The maximum number of parallel instances that are launched for creating
+-- resources.
 --
 -- 'snapshotConfiguration', 'fastLaunchConfiguration_snapshotConfiguration' - Configuration settings for managing the number of snapshots that are
 -- created from pre-provisioned instances for the Windows AMI when faster
 -- launching is enabled.
---
--- 'accountId', 'fastLaunchConfiguration_accountId' - The owner account ID for the fast-launch enabled Windows AMI.
---
--- 'maxParallelLaunches', 'fastLaunchConfiguration_maxParallelLaunches' - The maximum number of parallel instances that are launched for creating
--- resources.
 --
 -- 'enabled', 'fastLaunchConfiguration_enabled' - A Boolean that represents the current state of faster launching for the
 -- Windows AMI. Set to @true@ to start using Windows faster launching, or
@@ -78,33 +78,33 @@ newFastLaunchConfiguration ::
   FastLaunchConfiguration
 newFastLaunchConfiguration pEnabled_ =
   FastLaunchConfiguration'
-    { launchTemplate =
+    { accountId =
         Prelude.Nothing,
-      snapshotConfiguration = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+      launchTemplate = Prelude.Nothing,
       maxParallelLaunches = Prelude.Nothing,
+      snapshotConfiguration = Prelude.Nothing,
       enabled = pEnabled_
     }
+
+-- | The owner account ID for the fast-launch enabled Windows AMI.
+fastLaunchConfiguration_accountId :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe Prelude.Text)
+fastLaunchConfiguration_accountId = Lens.lens (\FastLaunchConfiguration' {accountId} -> accountId) (\s@FastLaunchConfiguration' {} a -> s {accountId = a} :: FastLaunchConfiguration)
 
 -- | The launch template that the fast-launch enabled Windows AMI uses when
 -- it launches Windows instances to create pre-provisioned snapshots.
 fastLaunchConfiguration_launchTemplate :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe FastLaunchLaunchTemplateSpecification)
 fastLaunchConfiguration_launchTemplate = Lens.lens (\FastLaunchConfiguration' {launchTemplate} -> launchTemplate) (\s@FastLaunchConfiguration' {} a -> s {launchTemplate = a} :: FastLaunchConfiguration)
 
+-- | The maximum number of parallel instances that are launched for creating
+-- resources.
+fastLaunchConfiguration_maxParallelLaunches :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe Prelude.Natural)
+fastLaunchConfiguration_maxParallelLaunches = Lens.lens (\FastLaunchConfiguration' {maxParallelLaunches} -> maxParallelLaunches) (\s@FastLaunchConfiguration' {} a -> s {maxParallelLaunches = a} :: FastLaunchConfiguration)
+
 -- | Configuration settings for managing the number of snapshots that are
 -- created from pre-provisioned instances for the Windows AMI when faster
 -- launching is enabled.
 fastLaunchConfiguration_snapshotConfiguration :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe FastLaunchSnapshotConfiguration)
 fastLaunchConfiguration_snapshotConfiguration = Lens.lens (\FastLaunchConfiguration' {snapshotConfiguration} -> snapshotConfiguration) (\s@FastLaunchConfiguration' {} a -> s {snapshotConfiguration = a} :: FastLaunchConfiguration)
-
--- | The owner account ID for the fast-launch enabled Windows AMI.
-fastLaunchConfiguration_accountId :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe Prelude.Text)
-fastLaunchConfiguration_accountId = Lens.lens (\FastLaunchConfiguration' {accountId} -> accountId) (\s@FastLaunchConfiguration' {} a -> s {accountId = a} :: FastLaunchConfiguration)
-
--- | The maximum number of parallel instances that are launched for creating
--- resources.
-fastLaunchConfiguration_maxParallelLaunches :: Lens.Lens' FastLaunchConfiguration (Prelude.Maybe Prelude.Natural)
-fastLaunchConfiguration_maxParallelLaunches = Lens.lens (\FastLaunchConfiguration' {maxParallelLaunches} -> maxParallelLaunches) (\s@FastLaunchConfiguration' {} a -> s {maxParallelLaunches = a} :: FastLaunchConfiguration)
 
 -- | A Boolean that represents the current state of faster launching for the
 -- Windows AMI. Set to @true@ to start using Windows faster launching, or
@@ -118,40 +118,40 @@ instance Data.FromJSON FastLaunchConfiguration where
       "FastLaunchConfiguration"
       ( \x ->
           FastLaunchConfiguration'
-            Prelude.<$> (x Data..:? "launchTemplate")
-            Prelude.<*> (x Data..:? "snapshotConfiguration")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "launchTemplate")
             Prelude.<*> (x Data..:? "maxParallelLaunches")
+            Prelude.<*> (x Data..:? "snapshotConfiguration")
             Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable FastLaunchConfiguration where
   hashWithSalt _salt FastLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplate
-      `Prelude.hashWithSalt` snapshotConfiguration
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` maxParallelLaunches
+      `Prelude.hashWithSalt` snapshotConfiguration
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData FastLaunchConfiguration where
   rnf FastLaunchConfiguration' {..} =
-    Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf snapshotConfiguration
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf launchTemplate
       `Prelude.seq` Prelude.rnf maxParallelLaunches
+      `Prelude.seq` Prelude.rnf snapshotConfiguration
       `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToJSON FastLaunchConfiguration where
   toJSON FastLaunchConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("launchTemplate" Data..=)
+          [ ("accountId" Data..=) Prelude.<$> accountId,
+            ("launchTemplate" Data..=)
               Prelude.<$> launchTemplate,
-            ("snapshotConfiguration" Data..=)
-              Prelude.<$> snapshotConfiguration,
-            ("accountId" Data..=) Prelude.<$> accountId,
             ("maxParallelLaunches" Data..=)
               Prelude.<$> maxParallelLaunches,
+            ("snapshotConfiguration" Data..=)
+              Prelude.<$> snapshotConfiguration,
             Prelude.Just ("enabled" Data..= enabled)
           ]
       )

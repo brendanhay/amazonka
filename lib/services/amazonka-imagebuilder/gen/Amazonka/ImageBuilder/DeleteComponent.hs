@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.DeleteComponent
     newDeleteComponentResponse,
 
     -- * Response Lenses
-    deleteComponentResponse_requestId,
     deleteComponentResponse_componentBuildVersionArn,
+    deleteComponentResponse_requestId,
     deleteComponentResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest DeleteComponent where
     Response.receiveJSON
       ( \s h x ->
           DeleteComponentResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "componentBuildVersionArn")
+            Prelude.<$> (x Data..?> "componentBuildVersionArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,11 +125,11 @@ instance Data.ToQuery DeleteComponent where
 
 -- | /See:/ 'newDeleteComponentResponse' smart constructor.
 data DeleteComponentResponse = DeleteComponentResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the component build version that was
+  { -- | The Amazon Resource Name (ARN) of the component build version that was
     -- deleted.
     componentBuildVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,10 +143,10 @@ data DeleteComponentResponse = DeleteComponentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteComponentResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'componentBuildVersionArn', 'deleteComponentResponse_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component build version that was
 -- deleted.
+--
+-- 'requestId', 'deleteComponentResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'deleteComponentResponse_httpStatus' - The response's http status code.
 newDeleteComponentResponse ::
@@ -155,20 +155,20 @@ newDeleteComponentResponse ::
   DeleteComponentResponse
 newDeleteComponentResponse pHttpStatus_ =
   DeleteComponentResponse'
-    { requestId =
+    { componentBuildVersionArn =
         Prelude.Nothing,
-      componentBuildVersionArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-deleteComponentResponse_requestId :: Lens.Lens' DeleteComponentResponse (Prelude.Maybe Prelude.Text)
-deleteComponentResponse_requestId = Lens.lens (\DeleteComponentResponse' {requestId} -> requestId) (\s@DeleteComponentResponse' {} a -> s {requestId = a} :: DeleteComponentResponse)
 
 -- | The Amazon Resource Name (ARN) of the component build version that was
 -- deleted.
 deleteComponentResponse_componentBuildVersionArn :: Lens.Lens' DeleteComponentResponse (Prelude.Maybe Prelude.Text)
 deleteComponentResponse_componentBuildVersionArn = Lens.lens (\DeleteComponentResponse' {componentBuildVersionArn} -> componentBuildVersionArn) (\s@DeleteComponentResponse' {} a -> s {componentBuildVersionArn = a} :: DeleteComponentResponse)
+
+-- | The request ID that uniquely identifies this request.
+deleteComponentResponse_requestId :: Lens.Lens' DeleteComponentResponse (Prelude.Maybe Prelude.Text)
+deleteComponentResponse_requestId = Lens.lens (\DeleteComponentResponse' {requestId} -> requestId) (\s@DeleteComponentResponse' {} a -> s {requestId = a} :: DeleteComponentResponse)
 
 -- | The response's http status code.
 deleteComponentResponse_httpStatus :: Lens.Lens' DeleteComponentResponse Prelude.Int
@@ -176,6 +176,6 @@ deleteComponentResponse_httpStatus = Lens.lens (\DeleteComponentResponse' {httpS
 
 instance Prelude.NFData DeleteComponentResponse where
   rnf DeleteComponentResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf componentBuildVersionArn
+    Prelude.rnf componentBuildVersionArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetImageRecipe
     newGetImageRecipeResponse,
 
     -- * Response Lenses
-    getImageRecipeResponse_requestId,
     getImageRecipeResponse_imageRecipe,
+    getImageRecipeResponse_requestId,
     getImageRecipeResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest GetImageRecipe where
     Response.receiveJSON
       ( \s h x ->
           GetImageRecipeResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imageRecipe")
+            Prelude.<$> (x Data..?> "imageRecipe")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,10 +121,10 @@ instance Data.ToQuery GetImageRecipe where
 
 -- | /See:/ 'newGetImageRecipeResponse' smart constructor.
 data GetImageRecipeResponse = GetImageRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The image recipe object.
+  { -- | The image recipe object.
     imageRecipe :: Prelude.Maybe ImageRecipe,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -138,9 +138,9 @@ data GetImageRecipeResponse = GetImageRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageRecipe', 'getImageRecipeResponse_imageRecipe' - The image recipe object.
+--
+-- 'requestId', 'getImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getImageRecipeResponse_httpStatus' - The response's http status code.
 newGetImageRecipeResponse ::
@@ -149,19 +149,19 @@ newGetImageRecipeResponse ::
   GetImageRecipeResponse
 newGetImageRecipeResponse pHttpStatus_ =
   GetImageRecipeResponse'
-    { requestId =
+    { imageRecipe =
         Prelude.Nothing,
-      imageRecipe = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getImageRecipeResponse_requestId :: Lens.Lens' GetImageRecipeResponse (Prelude.Maybe Prelude.Text)
-getImageRecipeResponse_requestId = Lens.lens (\GetImageRecipeResponse' {requestId} -> requestId) (\s@GetImageRecipeResponse' {} a -> s {requestId = a} :: GetImageRecipeResponse)
 
 -- | The image recipe object.
 getImageRecipeResponse_imageRecipe :: Lens.Lens' GetImageRecipeResponse (Prelude.Maybe ImageRecipe)
 getImageRecipeResponse_imageRecipe = Lens.lens (\GetImageRecipeResponse' {imageRecipe} -> imageRecipe) (\s@GetImageRecipeResponse' {} a -> s {imageRecipe = a} :: GetImageRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+getImageRecipeResponse_requestId :: Lens.Lens' GetImageRecipeResponse (Prelude.Maybe Prelude.Text)
+getImageRecipeResponse_requestId = Lens.lens (\GetImageRecipeResponse' {requestId} -> requestId) (\s@GetImageRecipeResponse' {} a -> s {requestId = a} :: GetImageRecipeResponse)
 
 -- | The response's http status code.
 getImageRecipeResponse_httpStatus :: Lens.Lens' GetImageRecipeResponse Prelude.Int
@@ -169,6 +169,6 @@ getImageRecipeResponse_httpStatus = Lens.lens (\GetImageRecipeResponse' {httpSta
 
 instance Prelude.NFData GetImageRecipeResponse where
   rnf GetImageRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageRecipe
+    Prelude.rnf imageRecipe
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

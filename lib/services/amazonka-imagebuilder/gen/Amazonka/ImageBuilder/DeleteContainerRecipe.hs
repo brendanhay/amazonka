@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.DeleteContainerRecipe
     newDeleteContainerRecipeResponse,
 
     -- * Response Lenses
-    deleteContainerRecipeResponse_requestId,
     deleteContainerRecipeResponse_containerRecipeArn,
+    deleteContainerRecipeResponse_requestId,
     deleteContainerRecipeResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest DeleteContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           DeleteContainerRecipeResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "containerRecipeArn")
+            Prelude.<$> (x Data..?> "containerRecipeArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Data.ToQuery DeleteContainerRecipe where
 
 -- | /See:/ 'newDeleteContainerRecipeResponse' smart constructor.
 data DeleteContainerRecipeResponse = DeleteContainerRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the container recipe that was deleted.
+  { -- | The Amazon Resource Name (ARN) of the container recipe that was deleted.
     containerRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data DeleteContainerRecipeResponse = DeleteContainerRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'containerRecipeArn', 'deleteContainerRecipeResponse_containerRecipeArn' - The Amazon Resource Name (ARN) of the container recipe that was deleted.
+--
+-- 'requestId', 'deleteContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'deleteContainerRecipeResponse_httpStatus' - The response's http status code.
 newDeleteContainerRecipeResponse ::
@@ -150,19 +150,19 @@ newDeleteContainerRecipeResponse ::
   DeleteContainerRecipeResponse
 newDeleteContainerRecipeResponse pHttpStatus_ =
   DeleteContainerRecipeResponse'
-    { requestId =
+    { containerRecipeArn =
         Prelude.Nothing,
-      containerRecipeArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-deleteContainerRecipeResponse_requestId :: Lens.Lens' DeleteContainerRecipeResponse (Prelude.Maybe Prelude.Text)
-deleteContainerRecipeResponse_requestId = Lens.lens (\DeleteContainerRecipeResponse' {requestId} -> requestId) (\s@DeleteContainerRecipeResponse' {} a -> s {requestId = a} :: DeleteContainerRecipeResponse)
 
 -- | The Amazon Resource Name (ARN) of the container recipe that was deleted.
 deleteContainerRecipeResponse_containerRecipeArn :: Lens.Lens' DeleteContainerRecipeResponse (Prelude.Maybe Prelude.Text)
 deleteContainerRecipeResponse_containerRecipeArn = Lens.lens (\DeleteContainerRecipeResponse' {containerRecipeArn} -> containerRecipeArn) (\s@DeleteContainerRecipeResponse' {} a -> s {containerRecipeArn = a} :: DeleteContainerRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+deleteContainerRecipeResponse_requestId :: Lens.Lens' DeleteContainerRecipeResponse (Prelude.Maybe Prelude.Text)
+deleteContainerRecipeResponse_requestId = Lens.lens (\DeleteContainerRecipeResponse' {requestId} -> requestId) (\s@DeleteContainerRecipeResponse' {} a -> s {requestId = a} :: DeleteContainerRecipeResponse)
 
 -- | The response's http status code.
 deleteContainerRecipeResponse_httpStatus :: Lens.Lens' DeleteContainerRecipeResponse Prelude.Int
@@ -170,6 +170,6 @@ deleteContainerRecipeResponse_httpStatus = Lens.lens (\DeleteContainerRecipeResp
 
 instance Prelude.NFData DeleteContainerRecipeResponse where
   rnf DeleteContainerRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf containerRecipeArn
+    Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

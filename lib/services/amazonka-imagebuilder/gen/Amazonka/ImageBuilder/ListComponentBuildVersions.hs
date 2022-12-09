@@ -38,8 +38,8 @@ module Amazonka.ImageBuilder.ListComponentBuildVersions
     newListComponentBuildVersions,
 
     -- * Request Lenses
-    listComponentBuildVersions_nextToken,
     listComponentBuildVersions_maxResults,
+    listComponentBuildVersions_nextToken,
     listComponentBuildVersions_componentVersionArn,
 
     -- * Destructuring the Response
@@ -64,11 +64,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponentBuildVersions' smart constructor.
 data ListComponentBuildVersions = ListComponentBuildVersions'
-  { -- | A token to specify where to start paginating. This is the NextToken from
+  { -- | The maximum items to return in a request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
     -- a previously truncated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The component version Amazon Resource Name (ARN) whose versions you want
     -- to list.
     componentVersionArn :: Prelude.Text
@@ -83,10 +83,10 @@ data ListComponentBuildVersions = ListComponentBuildVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listComponentBuildVersions_maxResults' - The maximum items to return in a request.
+--
 -- 'nextToken', 'listComponentBuildVersions_nextToken' - A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
---
--- 'maxResults', 'listComponentBuildVersions_maxResults' - The maximum items to return in a request.
 --
 -- 'componentVersionArn', 'listComponentBuildVersions_componentVersionArn' - The component version Amazon Resource Name (ARN) whose versions you want
 -- to list.
@@ -96,20 +96,20 @@ newListComponentBuildVersions ::
   ListComponentBuildVersions
 newListComponentBuildVersions pComponentVersionArn_ =
   ListComponentBuildVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       componentVersionArn = pComponentVersionArn_
     }
+
+-- | The maximum items to return in a request.
+listComponentBuildVersions_maxResults :: Lens.Lens' ListComponentBuildVersions (Prelude.Maybe Prelude.Natural)
+listComponentBuildVersions_maxResults = Lens.lens (\ListComponentBuildVersions' {maxResults} -> maxResults) (\s@ListComponentBuildVersions' {} a -> s {maxResults = a} :: ListComponentBuildVersions)
 
 -- | A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
 listComponentBuildVersions_nextToken :: Lens.Lens' ListComponentBuildVersions (Prelude.Maybe Prelude.Text)
 listComponentBuildVersions_nextToken = Lens.lens (\ListComponentBuildVersions' {nextToken} -> nextToken) (\s@ListComponentBuildVersions' {} a -> s {nextToken = a} :: ListComponentBuildVersions)
-
--- | The maximum items to return in a request.
-listComponentBuildVersions_maxResults :: Lens.Lens' ListComponentBuildVersions (Prelude.Maybe Prelude.Natural)
-listComponentBuildVersions_maxResults = Lens.lens (\ListComponentBuildVersions' {maxResults} -> maxResults) (\s@ListComponentBuildVersions' {} a -> s {maxResults = a} :: ListComponentBuildVersions)
 
 -- | The component version Amazon Resource Name (ARN) whose versions you want
 -- to list.
@@ -136,14 +136,14 @@ instance Core.AWSRequest ListComponentBuildVersions where
 
 instance Prelude.Hashable ListComponentBuildVersions where
   hashWithSalt _salt ListComponentBuildVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` componentVersionArn
 
 instance Prelude.NFData ListComponentBuildVersions where
   rnf ListComponentBuildVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf componentVersionArn
 
 instance Data.ToHeaders ListComponentBuildVersions where
@@ -161,8 +161,8 @@ instance Data.ToJSON ListComponentBuildVersions where
   toJSON ListComponentBuildVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("componentVersionArn" Data..= componentVersionArn)
           ]

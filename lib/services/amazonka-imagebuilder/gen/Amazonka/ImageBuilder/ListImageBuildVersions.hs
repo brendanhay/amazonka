@@ -27,9 +27,9 @@ module Amazonka.ImageBuilder.ListImageBuildVersions
     newListImageBuildVersions,
 
     -- * Request Lenses
-    listImageBuildVersions_nextToken,
     listImageBuildVersions_filters,
     listImageBuildVersions_maxResults,
+    listImageBuildVersions_nextToken,
     listImageBuildVersions_imageVersionArn,
 
     -- * Destructuring the Response
@@ -37,9 +37,9 @@ module Amazonka.ImageBuilder.ListImageBuildVersions
     newListImageBuildVersionsResponse,
 
     -- * Response Lenses
+    listImageBuildVersionsResponse_imageSummaryList,
     listImageBuildVersionsResponse_nextToken,
     listImageBuildVersionsResponse_requestId,
-    listImageBuildVersionsResponse_imageSummaryList,
     listImageBuildVersionsResponse_httpStatus,
   )
 where
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImageBuildVersions' smart constructor.
 data ListImageBuildVersions = ListImageBuildVersions'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Use the following filters to streamline results:
+  { -- | Use the following filters to streamline results:
     --
     -- -   @name@
     --
@@ -71,6 +68,9 @@ data ListImageBuildVersions = ListImageBuildVersions'
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | The maximum items to return in a request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image whose build versions you
     -- want to retrieve.
     imageVersionArn :: Prelude.Text
@@ -84,9 +84,6 @@ data ListImageBuildVersions = ListImageBuildVersions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listImageBuildVersions_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'filters', 'listImageBuildVersions_filters' - Use the following filters to streamline results:
 --
@@ -102,6 +99,9 @@ data ListImageBuildVersions = ListImageBuildVersions'
 --
 -- 'maxResults', 'listImageBuildVersions_maxResults' - The maximum items to return in a request.
 --
+-- 'nextToken', 'listImageBuildVersions_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+--
 -- 'imageVersionArn', 'listImageBuildVersions_imageVersionArn' - The Amazon Resource Name (ARN) of the image whose build versions you
 -- want to retrieve.
 newListImageBuildVersions ::
@@ -110,17 +110,11 @@ newListImageBuildVersions ::
   ListImageBuildVersions
 newListImageBuildVersions pImageVersionArn_ =
   ListImageBuildVersions'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       imageVersionArn = pImageVersionArn_
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listImageBuildVersions_nextToken :: Lens.Lens' ListImageBuildVersions (Prelude.Maybe Prelude.Text)
-listImageBuildVersions_nextToken = Lens.lens (\ListImageBuildVersions' {nextToken} -> nextToken) (\s@ListImageBuildVersions' {} a -> s {nextToken = a} :: ListImageBuildVersions)
 
 -- | Use the following filters to streamline results:
 --
@@ -140,6 +134,11 @@ listImageBuildVersions_filters = Lens.lens (\ListImageBuildVersions' {filters} -
 listImageBuildVersions_maxResults :: Lens.Lens' ListImageBuildVersions (Prelude.Maybe Prelude.Natural)
 listImageBuildVersions_maxResults = Lens.lens (\ListImageBuildVersions' {maxResults} -> maxResults) (\s@ListImageBuildVersions' {} a -> s {maxResults = a} :: ListImageBuildVersions)
 
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listImageBuildVersions_nextToken :: Lens.Lens' ListImageBuildVersions (Prelude.Maybe Prelude.Text)
+listImageBuildVersions_nextToken = Lens.lens (\ListImageBuildVersions' {nextToken} -> nextToken) (\s@ListImageBuildVersions' {} a -> s {nextToken = a} :: ListImageBuildVersions)
+
 -- | The Amazon Resource Name (ARN) of the image whose build versions you
 -- want to retrieve.
 listImageBuildVersions_imageVersionArn :: Lens.Lens' ListImageBuildVersions Prelude.Text
@@ -155,26 +154,26 @@ instance Core.AWSRequest ListImageBuildVersions where
     Response.receiveJSON
       ( \s h x ->
           ListImageBuildVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "requestId")
-            Prelude.<*> ( x Data..?> "imageSummaryList"
+            Prelude.<$> ( x Data..?> "imageSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImageBuildVersions where
   hashWithSalt _salt ListImageBuildVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` imageVersionArn
 
 instance Prelude.NFData ListImageBuildVersions where
   rnf ListImageBuildVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf imageVersionArn
 
 instance Data.ToHeaders ListImageBuildVersions where
@@ -192,9 +191,9 @@ instance Data.ToJSON ListImageBuildVersions where
   toJSON ListImageBuildVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("imageVersionArn" Data..= imageVersionArn)
           ]
@@ -208,15 +207,15 @@ instance Data.ToQuery ListImageBuildVersions where
 
 -- | /See:/ 'newListImageBuildVersionsResponse' smart constructor.
 data ListImageBuildVersionsResponse = ListImageBuildVersionsResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
+  { -- | The list of image build versions.
+    imageSummaryList :: Prelude.Maybe [ImageSummary],
+    -- | The next token used for paginated responses. When this is not empty,
     -- there are additional elements that the service has not included in this
     -- request. Use this token with the next request to retrieve additional
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The list of image build versions.
-    imageSummaryList :: Prelude.Maybe [ImageSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,14 +229,14 @@ data ListImageBuildVersionsResponse = ListImageBuildVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageSummaryList', 'listImageBuildVersionsResponse_imageSummaryList' - The list of image build versions.
+--
 -- 'nextToken', 'listImageBuildVersionsResponse_nextToken' - The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
 -- request. Use this token with the next request to retrieve additional
 -- objects.
 --
 -- 'requestId', 'listImageBuildVersionsResponse_requestId' - The request ID that uniquely identifies this request.
---
--- 'imageSummaryList', 'listImageBuildVersionsResponse_imageSummaryList' - The list of image build versions.
 --
 -- 'httpStatus', 'listImageBuildVersionsResponse_httpStatus' - The response's http status code.
 newListImageBuildVersionsResponse ::
@@ -246,12 +245,16 @@ newListImageBuildVersionsResponse ::
   ListImageBuildVersionsResponse
 newListImageBuildVersionsResponse pHttpStatus_ =
   ListImageBuildVersionsResponse'
-    { nextToken =
+    { imageSummaryList =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      imageSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of image build versions.
+listImageBuildVersionsResponse_imageSummaryList :: Lens.Lens' ListImageBuildVersionsResponse (Prelude.Maybe [ImageSummary])
+listImageBuildVersionsResponse_imageSummaryList = Lens.lens (\ListImageBuildVersionsResponse' {imageSummaryList} -> imageSummaryList) (\s@ListImageBuildVersionsResponse' {} a -> s {imageSummaryList = a} :: ListImageBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
@@ -264,10 +267,6 @@ listImageBuildVersionsResponse_nextToken = Lens.lens (\ListImageBuildVersionsRes
 listImageBuildVersionsResponse_requestId :: Lens.Lens' ListImageBuildVersionsResponse (Prelude.Maybe Prelude.Text)
 listImageBuildVersionsResponse_requestId = Lens.lens (\ListImageBuildVersionsResponse' {requestId} -> requestId) (\s@ListImageBuildVersionsResponse' {} a -> s {requestId = a} :: ListImageBuildVersionsResponse)
 
--- | The list of image build versions.
-listImageBuildVersionsResponse_imageSummaryList :: Lens.Lens' ListImageBuildVersionsResponse (Prelude.Maybe [ImageSummary])
-listImageBuildVersionsResponse_imageSummaryList = Lens.lens (\ListImageBuildVersionsResponse' {imageSummaryList} -> imageSummaryList) (\s@ListImageBuildVersionsResponse' {} a -> s {imageSummaryList = a} :: ListImageBuildVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listImageBuildVersionsResponse_httpStatus :: Lens.Lens' ListImageBuildVersionsResponse Prelude.Int
 listImageBuildVersionsResponse_httpStatus = Lens.lens (\ListImageBuildVersionsResponse' {httpStatus} -> httpStatus) (\s@ListImageBuildVersionsResponse' {} a -> s {httpStatus = a} :: ListImageBuildVersionsResponse)
@@ -277,7 +276,7 @@ instance
     ListImageBuildVersionsResponse
   where
   rnf ListImageBuildVersionsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf imageSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

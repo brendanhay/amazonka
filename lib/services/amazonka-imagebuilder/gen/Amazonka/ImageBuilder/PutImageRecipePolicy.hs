@@ -42,8 +42,8 @@ module Amazonka.ImageBuilder.PutImageRecipePolicy
     newPutImageRecipePolicyResponse,
 
     -- * Response Lenses
-    putImageRecipePolicyResponse_requestId,
     putImageRecipePolicyResponse_imageRecipeArn,
+    putImageRecipePolicyResponse_requestId,
     putImageRecipePolicyResponse_httpStatus,
   )
 where
@@ -110,8 +110,8 @@ instance Core.AWSRequest PutImageRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutImageRecipePolicyResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imageRecipeArn")
+            Prelude.<$> (x Data..?> "imageRecipeArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,11 +154,11 @@ instance Data.ToQuery PutImageRecipePolicy where
 
 -- | /See:/ 'newPutImageRecipePolicyResponse' smart constructor.
 data PutImageRecipePolicyResponse = PutImageRecipePolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image recipe that this policy was
+  { -- | The Amazon Resource Name (ARN) of the image recipe that this policy was
     -- applied to.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,10 +172,10 @@ data PutImageRecipePolicyResponse = PutImageRecipePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'putImageRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageRecipeArn', 'putImageRecipePolicyResponse_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that this policy was
 -- applied to.
+--
+-- 'requestId', 'putImageRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'putImageRecipePolicyResponse_httpStatus' - The response's http status code.
 newPutImageRecipePolicyResponse ::
@@ -184,20 +184,20 @@ newPutImageRecipePolicyResponse ::
   PutImageRecipePolicyResponse
 newPutImageRecipePolicyResponse pHttpStatus_ =
   PutImageRecipePolicyResponse'
-    { requestId =
+    { imageRecipeArn =
         Prelude.Nothing,
-      imageRecipeArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-putImageRecipePolicyResponse_requestId :: Lens.Lens' PutImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
-putImageRecipePolicyResponse_requestId = Lens.lens (\PutImageRecipePolicyResponse' {requestId} -> requestId) (\s@PutImageRecipePolicyResponse' {} a -> s {requestId = a} :: PutImageRecipePolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the image recipe that this policy was
 -- applied to.
 putImageRecipePolicyResponse_imageRecipeArn :: Lens.Lens' PutImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
 putImageRecipePolicyResponse_imageRecipeArn = Lens.lens (\PutImageRecipePolicyResponse' {imageRecipeArn} -> imageRecipeArn) (\s@PutImageRecipePolicyResponse' {} a -> s {imageRecipeArn = a} :: PutImageRecipePolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+putImageRecipePolicyResponse_requestId :: Lens.Lens' PutImageRecipePolicyResponse (Prelude.Maybe Prelude.Text)
+putImageRecipePolicyResponse_requestId = Lens.lens (\PutImageRecipePolicyResponse' {requestId} -> requestId) (\s@PutImageRecipePolicyResponse' {} a -> s {requestId = a} :: PutImageRecipePolicyResponse)
 
 -- | The response's http status code.
 putImageRecipePolicyResponse_httpStatus :: Lens.Lens' PutImageRecipePolicyResponse Prelude.Int
@@ -205,6 +205,6 @@ putImageRecipePolicyResponse_httpStatus = Lens.lens (\PutImageRecipePolicyRespon
 
 instance Prelude.NFData PutImageRecipePolicyResponse where
   rnf PutImageRecipePolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageRecipeArn
+    Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

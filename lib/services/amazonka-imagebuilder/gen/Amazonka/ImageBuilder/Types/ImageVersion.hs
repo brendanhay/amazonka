@@ -32,11 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageVersion' smart constructor.
 data ImageVersion = ImageVersion'
-  { -- | The name of this specific version of an Image Builder image.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether this image is an AMI or a container image.
-    type' :: Prelude.Maybe ImageType,
-    -- | The Amazon Resource Name (ARN) of a specific version of an Image Builder
+  { -- | The Amazon Resource Name (ARN) of a specific version of an Image Builder
     -- image.
     --
     -- Semantic versioning is included in each object\'s Amazon Resource Name
@@ -52,16 +48,6 @@ data ImageVersion = ImageVersion'
     -- 3.  Build version ARNs have all four nodes, and point to a specific
     --     build for a specific version of an object.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The operating system version of the Amazon EC2 build instance. For
-    -- example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
-    osVersion :: Prelude.Maybe Prelude.Text,
-    -- | The owner of the image version.
-    owner :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the image version, for example \"Windows\" or \"Linux\".
-    platform :: Prelude.Maybe Platform,
-    -- | The date on which this specific version of the Image Builder image was
-    -- created.
-    dateCreated :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of build that created this image. The build can be
     -- initiated in the following ways:
     --
@@ -73,6 +59,20 @@ data ImageVersion = ImageVersion'
     -- -   __IMPORT__ – A VM import created the image to use as the base image
     --     for the recipe.
     buildType :: Prelude.Maybe BuildType,
+    -- | The date on which this specific version of the Image Builder image was
+    -- created.
+    dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | The name of this specific version of an Image Builder image.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The operating system version of the Amazon EC2 build instance. For
+    -- example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
+    osVersion :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the image version.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The platform of the image version, for example \"Windows\" or \"Linux\".
+    platform :: Prelude.Maybe Platform,
+    -- | Specifies whether this image is an AMI or a container image.
+    type' :: Prelude.Maybe ImageType,
     -- | Details for a specific version of an Image Builder image. This version
     -- follows the semantic version syntax.
     --
@@ -107,10 +107,6 @@ data ImageVersion = ImageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'imageVersion_name' - The name of this specific version of an Image Builder image.
---
--- 'type'', 'imageVersion_type' - Specifies whether this image is an AMI or a container image.
---
 -- 'arn', 'imageVersion_arn' - The Amazon Resource Name (ARN) of a specific version of an Image Builder
 -- image.
 --
@@ -127,16 +123,6 @@ data ImageVersion = ImageVersion'
 -- 3.  Build version ARNs have all four nodes, and point to a specific
 --     build for a specific version of an object.
 --
--- 'osVersion', 'imageVersion_osVersion' - The operating system version of the Amazon EC2 build instance. For
--- example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
---
--- 'owner', 'imageVersion_owner' - The owner of the image version.
---
--- 'platform', 'imageVersion_platform' - The platform of the image version, for example \"Windows\" or \"Linux\".
---
--- 'dateCreated', 'imageVersion_dateCreated' - The date on which this specific version of the Image Builder image was
--- created.
---
 -- 'buildType', 'imageVersion_buildType' - Indicates the type of build that created this image. The build can be
 -- initiated in the following ways:
 --
@@ -147,6 +133,20 @@ data ImageVersion = ImageVersion'
 --
 -- -   __IMPORT__ – A VM import created the image to use as the base image
 --     for the recipe.
+--
+-- 'dateCreated', 'imageVersion_dateCreated' - The date on which this specific version of the Image Builder image was
+-- created.
+--
+-- 'name', 'imageVersion_name' - The name of this specific version of an Image Builder image.
+--
+-- 'osVersion', 'imageVersion_osVersion' - The operating system version of the Amazon EC2 build instance. For
+-- example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
+--
+-- 'owner', 'imageVersion_owner' - The owner of the image version.
+--
+-- 'platform', 'imageVersion_platform' - The platform of the image version, for example \"Windows\" or \"Linux\".
+--
+-- 'type'', 'imageVersion_type' - Specifies whether this image is an AMI or a container image.
 --
 -- 'version', 'imageVersion_version' - Details for a specific version of an Image Builder image. This version
 -- follows the semantic version syntax.
@@ -174,24 +174,16 @@ newImageVersion ::
   ImageVersion
 newImageVersion =
   ImageVersion'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      buildType = Prelude.Nothing,
+      dateCreated = Prelude.Nothing,
+      name = Prelude.Nothing,
       osVersion = Prelude.Nothing,
       owner = Prelude.Nothing,
       platform = Prelude.Nothing,
-      dateCreated = Prelude.Nothing,
-      buildType = Prelude.Nothing,
+      type' = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of this specific version of an Image Builder image.
-imageVersion_name :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
-imageVersion_name = Lens.lens (\ImageVersion' {name} -> name) (\s@ImageVersion' {} a -> s {name = a} :: ImageVersion)
-
--- | Specifies whether this image is an AMI or a container image.
-imageVersion_type :: Lens.Lens' ImageVersion (Prelude.Maybe ImageType)
-imageVersion_type = Lens.lens (\ImageVersion' {type'} -> type') (\s@ImageVersion' {} a -> s {type' = a} :: ImageVersion)
 
 -- | The Amazon Resource Name (ARN) of a specific version of an Image Builder
 -- image.
@@ -211,6 +203,28 @@ imageVersion_type = Lens.lens (\ImageVersion' {type'} -> type') (\s@ImageVersion
 imageVersion_arn :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
 imageVersion_arn = Lens.lens (\ImageVersion' {arn} -> arn) (\s@ImageVersion' {} a -> s {arn = a} :: ImageVersion)
 
+-- | Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+imageVersion_buildType :: Lens.Lens' ImageVersion (Prelude.Maybe BuildType)
+imageVersion_buildType = Lens.lens (\ImageVersion' {buildType} -> buildType) (\s@ImageVersion' {} a -> s {buildType = a} :: ImageVersion)
+
+-- | The date on which this specific version of the Image Builder image was
+-- created.
+imageVersion_dateCreated :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
+imageVersion_dateCreated = Lens.lens (\ImageVersion' {dateCreated} -> dateCreated) (\s@ImageVersion' {} a -> s {dateCreated = a} :: ImageVersion)
+
+-- | The name of this specific version of an Image Builder image.
+imageVersion_name :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
+imageVersion_name = Lens.lens (\ImageVersion' {name} -> name) (\s@ImageVersion' {} a -> s {name = a} :: ImageVersion)
+
 -- | The operating system version of the Amazon EC2 build instance. For
 -- example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019.
 imageVersion_osVersion :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
@@ -224,23 +238,9 @@ imageVersion_owner = Lens.lens (\ImageVersion' {owner} -> owner) (\s@ImageVersio
 imageVersion_platform :: Lens.Lens' ImageVersion (Prelude.Maybe Platform)
 imageVersion_platform = Lens.lens (\ImageVersion' {platform} -> platform) (\s@ImageVersion' {} a -> s {platform = a} :: ImageVersion)
 
--- | The date on which this specific version of the Image Builder image was
--- created.
-imageVersion_dateCreated :: Lens.Lens' ImageVersion (Prelude.Maybe Prelude.Text)
-imageVersion_dateCreated = Lens.lens (\ImageVersion' {dateCreated} -> dateCreated) (\s@ImageVersion' {} a -> s {dateCreated = a} :: ImageVersion)
-
--- | Indicates the type of build that created this image. The build can be
--- initiated in the following ways:
---
--- -   __USER_INITIATED__ – A manual pipeline build request.
---
--- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
---     the Image Builder pipeline, or from EventBridge.
---
--- -   __IMPORT__ – A VM import created the image to use as the base image
---     for the recipe.
-imageVersion_buildType :: Lens.Lens' ImageVersion (Prelude.Maybe BuildType)
-imageVersion_buildType = Lens.lens (\ImageVersion' {buildType} -> buildType) (\s@ImageVersion' {} a -> s {buildType = a} :: ImageVersion)
+-- | Specifies whether this image is an AMI or a container image.
+imageVersion_type :: Lens.Lens' ImageVersion (Prelude.Maybe ImageType)
+imageVersion_type = Lens.lens (\ImageVersion' {type'} -> type') (\s@ImageVersion' {} a -> s {type' = a} :: ImageVersion)
 
 -- | Details for a specific version of an Image Builder image. This version
 -- follows the semantic version syntax.
@@ -273,37 +273,37 @@ instance Data.FromJSON ImageVersion where
       "ImageVersion"
       ( \x ->
           ImageVersion'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "osVersion")
             Prelude.<*> (x Data..:? "owner")
             Prelude.<*> (x Data..:? "platform")
-            Prelude.<*> (x Data..:? "dateCreated")
-            Prelude.<*> (x Data..:? "buildType")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ImageVersion where
   hashWithSalt _salt ImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` osVersion
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` dateCreated
-      `Prelude.hashWithSalt` buildType
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ImageVersion where
   rnf ImageVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf osVersion
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf buildType
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf version

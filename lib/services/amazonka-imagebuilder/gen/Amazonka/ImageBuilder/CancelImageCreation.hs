@@ -37,8 +37,8 @@ module Amazonka.ImageBuilder.CancelImageCreation
 
     -- * Response Lenses
     cancelImageCreationResponse_clientToken,
-    cancelImageCreationResponse_requestId,
     cancelImageCreationResponse_imageBuildVersionArn,
+    cancelImageCreationResponse_requestId,
     cancelImageCreationResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest CancelImageCreation where
       ( \s h x ->
           CancelImageCreationResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (x Data..?> "imageBuildVersionArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,11 +165,11 @@ instance Data.ToQuery CancelImageCreation where
 data CancelImageCreationResponse = CancelImageCreationResponse'
   { -- | The idempotency token that was used for this request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image whose creation has been
     -- cancelled.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data CancelImageCreationResponse = CancelImageCreationResponse'
 --
 -- 'clientToken', 'cancelImageCreationResponse_clientToken' - The idempotency token that was used for this request.
 --
--- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageBuildVersionArn', 'cancelImageCreationResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image whose creation has been
 -- cancelled.
+--
+-- 'requestId', 'cancelImageCreationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'cancelImageCreationResponse_httpStatus' - The response's http status code.
 newCancelImageCreationResponse ::
@@ -199,8 +199,8 @@ newCancelImageCreationResponse pHttpStatus_ =
   CancelImageCreationResponse'
     { clientToken =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
       imageBuildVersionArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -208,14 +208,14 @@ newCancelImageCreationResponse pHttpStatus_ =
 cancelImageCreationResponse_clientToken :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_clientToken = Lens.lens (\CancelImageCreationResponse' {clientToken} -> clientToken) (\s@CancelImageCreationResponse' {} a -> s {clientToken = a} :: CancelImageCreationResponse)
 
--- | The request ID that uniquely identifies this request.
-cancelImageCreationResponse_requestId :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
-cancelImageCreationResponse_requestId = Lens.lens (\CancelImageCreationResponse' {requestId} -> requestId) (\s@CancelImageCreationResponse' {} a -> s {requestId = a} :: CancelImageCreationResponse)
-
 -- | The Amazon Resource Name (ARN) of the image whose creation has been
 -- cancelled.
 cancelImageCreationResponse_imageBuildVersionArn :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
 cancelImageCreationResponse_imageBuildVersionArn = Lens.lens (\CancelImageCreationResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@CancelImageCreationResponse' {} a -> s {imageBuildVersionArn = a} :: CancelImageCreationResponse)
+
+-- | The request ID that uniquely identifies this request.
+cancelImageCreationResponse_requestId :: Lens.Lens' CancelImageCreationResponse (Prelude.Maybe Prelude.Text)
+cancelImageCreationResponse_requestId = Lens.lens (\CancelImageCreationResponse' {requestId} -> requestId) (\s@CancelImageCreationResponse' {} a -> s {requestId = a} :: CancelImageCreationResponse)
 
 -- | The response's http status code.
 cancelImageCreationResponse_httpStatus :: Lens.Lens' CancelImageCreationResponse Prelude.Int
@@ -224,6 +224,6 @@ cancelImageCreationResponse_httpStatus = Lens.lens (\CancelImageCreationResponse
 instance Prelude.NFData CancelImageCreationResponse where
   rnf CancelImageCreationResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageBuildVersionArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

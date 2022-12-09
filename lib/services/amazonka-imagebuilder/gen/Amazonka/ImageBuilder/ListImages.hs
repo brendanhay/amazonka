@@ -27,20 +27,20 @@ module Amazonka.ImageBuilder.ListImages
     newListImages,
 
     -- * Request Lenses
-    listImages_nextToken,
     listImages_byName,
     listImages_filters,
-    listImages_owner,
-    listImages_maxResults,
     listImages_includeDeprecated,
+    listImages_maxResults,
+    listImages_nextToken,
+    listImages_owner,
 
     -- * Destructuring the Response
     ListImagesResponse (..),
     newListImagesResponse,
 
     -- * Response Lenses
-    listImagesResponse_nextToken,
     listImagesResponse_imageVersionList,
+    listImagesResponse_nextToken,
     listImagesResponse_requestId,
     listImagesResponse_httpStatus,
   )
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImages' smart constructor.
 data ListImages = ListImages'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Requests a list of images with a specific recipe name.
+  { -- | Requests a list of images with a specific recipe name.
     byName :: Prelude.Maybe Prelude.Bool,
     -- | Use the following filters to streamline results:
     --
@@ -73,16 +70,19 @@ data ListImages = ListImages'
     --
     -- -   @version@
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
+    -- | Includes deprecated images in the response list.
+    includeDeprecated :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum items to return in a request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The owner defines which images you want to list. By default, this
     -- request will only show images owned by your account. You can use this
     -- field to specify if you want to view images owned by yourself, by
     -- Amazon, or those images that have been shared with you by other
     -- customers.
-    owner :: Prelude.Maybe Ownership,
-    -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Includes deprecated images in the response list.
-    includeDeprecated :: Prelude.Maybe Prelude.Bool
+    owner :: Prelude.Maybe Ownership
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,9 +93,6 @@ data ListImages = ListImages'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listImages_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'byName', 'listImages_byName' - Requests a list of images with a specific recipe name.
 --
@@ -111,31 +108,29 @@ data ListImages = ListImages'
 --
 -- -   @version@
 --
+-- 'includeDeprecated', 'listImages_includeDeprecated' - Includes deprecated images in the response list.
+--
+-- 'maxResults', 'listImages_maxResults' - The maximum items to return in a request.
+--
+-- 'nextToken', 'listImages_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+--
 -- 'owner', 'listImages_owner' - The owner defines which images you want to list. By default, this
 -- request will only show images owned by your account. You can use this
 -- field to specify if you want to view images owned by yourself, by
 -- Amazon, or those images that have been shared with you by other
 -- customers.
---
--- 'maxResults', 'listImages_maxResults' - The maximum items to return in a request.
---
--- 'includeDeprecated', 'listImages_includeDeprecated' - Includes deprecated images in the response list.
 newListImages ::
   ListImages
 newListImages =
   ListImages'
-    { nextToken = Prelude.Nothing,
-      byName = Prelude.Nothing,
+    { byName = Prelude.Nothing,
       filters = Prelude.Nothing,
-      owner = Prelude.Nothing,
+      includeDeprecated = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      includeDeprecated = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      owner = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listImages_nextToken :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
-listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@ListImages' {} a -> s {nextToken = a} :: ListImages)
 
 -- | Requests a list of images with a specific recipe name.
 listImages_byName :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Bool)
@@ -155,6 +150,19 @@ listImages_byName = Lens.lens (\ListImages' {byName} -> byName) (\s@ListImages' 
 listImages_filters :: Lens.Lens' ListImages (Prelude.Maybe (Prelude.NonEmpty Filter))
 listImages_filters = Lens.lens (\ListImages' {filters} -> filters) (\s@ListImages' {} a -> s {filters = a} :: ListImages) Prelude.. Lens.mapping Lens.coerced
 
+-- | Includes deprecated images in the response list.
+listImages_includeDeprecated :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Bool)
+listImages_includeDeprecated = Lens.lens (\ListImages' {includeDeprecated} -> includeDeprecated) (\s@ListImages' {} a -> s {includeDeprecated = a} :: ListImages)
+
+-- | The maximum items to return in a request.
+listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
+listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listImages_nextToken :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
+listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@ListImages' {} a -> s {nextToken = a} :: ListImages)
+
 -- | The owner defines which images you want to list. By default, this
 -- request will only show images owned by your account. You can use this
 -- field to specify if you want to view images owned by yourself, by
@@ -162,14 +170,6 @@ listImages_filters = Lens.lens (\ListImages' {filters} -> filters) (\s@ListImage
 -- customers.
 listImages_owner :: Lens.Lens' ListImages (Prelude.Maybe Ownership)
 listImages_owner = Lens.lens (\ListImages' {owner} -> owner) (\s@ListImages' {} a -> s {owner = a} :: ListImages)
-
--- | The maximum items to return in a request.
-listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
-listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
-
--- | Includes deprecated images in the response list.
-listImages_includeDeprecated :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Bool)
-listImages_includeDeprecated = Lens.lens (\ListImages' {includeDeprecated} -> includeDeprecated) (\s@ListImages' {} a -> s {includeDeprecated = a} :: ListImages)
 
 instance Core.AWSRequest ListImages where
   type AWSResponse ListImages = ListImagesResponse
@@ -179,31 +179,31 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "imageVersionList"
+            Prelude.<$> ( x Data..?> "imageVersionList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImages where
   hashWithSalt _salt ListImages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` byName
+    _salt `Prelude.hashWithSalt` byName
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` includeDeprecated
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData ListImages where
   rnf ListImages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf byName
+    Prelude.rnf byName
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf includeDeprecated
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Data.ToHeaders ListImages where
   toHeaders =
@@ -220,13 +220,13 @@ instance Data.ToJSON ListImages where
   toJSON ListImages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("byName" Data..=) Prelude.<$> byName,
+          [ ("byName" Data..=) Prelude.<$> byName,
             ("filters" Data..=) Prelude.<$> filters,
-            ("owner" Data..=) Prelude.<$> owner,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("includeDeprecated" Data..=)
-              Prelude.<$> includeDeprecated
+              Prelude.<$> includeDeprecated,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("owner" Data..=) Prelude.<$> owner
           ]
       )
 
@@ -238,12 +238,7 @@ instance Data.ToQuery ListImages where
 
 -- | /See:/ 'newListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
-    -- there are additional elements that the service has not included in this
-    -- request. Use this token with the next request to retrieve additional
-    -- objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of image semantic versions.
+  { -- | The list of image semantic versions.
     --
     -- The semantic version has four nodes:
     -- \<major>.\<minor>.\<patch>\/\<build>. You can assign values for the
@@ -255,6 +250,11 @@ data ListImagesResponse = ListImagesResponse'
     -- wildcard in any node, all nodes to the right of the first wildcard must
     -- also be wildcards.
     imageVersionList :: Prelude.Maybe [ImageVersion],
+    -- | The next token used for paginated responses. When this is not empty,
+    -- there are additional elements that the service has not included in this
+    -- request. Use this token with the next request to retrieve additional
+    -- objects.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -270,11 +270,6 @@ data ListImagesResponse = ListImagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImagesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
---
 -- 'imageVersionList', 'listImagesResponse_imageVersionList' - The list of image semantic versions.
 --
 -- The semantic version has four nodes:
@@ -287,6 +282,11 @@ data ListImagesResponse = ListImagesResponse'
 -- wildcard in any node, all nodes to the right of the first wildcard must
 -- also be wildcards.
 --
+-- 'nextToken', 'listImagesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
+-- there are additional elements that the service has not included in this
+-- request. Use this token with the next request to retrieve additional
+-- objects.
+--
 -- 'requestId', 'listImagesResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'listImagesResponse_httpStatus' - The response's http status code.
@@ -296,18 +296,12 @@ newListImagesResponse ::
   ListImagesResponse
 newListImagesResponse pHttpStatus_ =
   ListImagesResponse'
-    { nextToken = Prelude.Nothing,
-      imageVersionList = Prelude.Nothing,
+    { imageVersionList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token used for paginated responses. When this is not empty,
--- there are additional elements that the service has not included in this
--- request. Use this token with the next request to retrieve additional
--- objects.
-listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
-listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> nextToken) (\s@ListImagesResponse' {} a -> s {nextToken = a} :: ListImagesResponse)
 
 -- | The list of image semantic versions.
 --
@@ -323,6 +317,13 @@ listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> ne
 listImagesResponse_imageVersionList :: Lens.Lens' ListImagesResponse (Prelude.Maybe [ImageVersion])
 listImagesResponse_imageVersionList = Lens.lens (\ListImagesResponse' {imageVersionList} -> imageVersionList) (\s@ListImagesResponse' {} a -> s {imageVersionList = a} :: ListImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The next token used for paginated responses. When this is not empty,
+-- there are additional elements that the service has not included in this
+-- request. Use this token with the next request to retrieve additional
+-- objects.
+listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
+listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> nextToken) (\s@ListImagesResponse' {} a -> s {nextToken = a} :: ListImagesResponse)
+
 -- | The request ID that uniquely identifies this request.
 listImagesResponse_requestId :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
 listImagesResponse_requestId = Lens.lens (\ListImagesResponse' {requestId} -> requestId) (\s@ListImagesResponse' {} a -> s {requestId = a} :: ListImagesResponse)
@@ -333,7 +334,7 @@ listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListImagesResponse where
   rnf ListImagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageVersionList
+    Prelude.rnf imageVersionList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

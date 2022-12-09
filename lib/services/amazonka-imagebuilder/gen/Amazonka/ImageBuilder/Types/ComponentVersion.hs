@@ -31,12 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentVersion' smart constructor.
 data ComponentVersion = ComponentVersion'
-  { -- | The name of the component.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the component denotes whether the component is used to build
-    -- the image or only to test it.
-    type' :: Prelude.Maybe ComponentType,
-    -- | The Amazon Resource Name (ARN) of the component.
+  { -- | The Amazon Resource Name (ARN) of the component.
     --
     -- Semantic versioning is included in each object\'s Amazon Resource Name
     -- (ARN), at the level that applies to that object as follows:
@@ -51,18 +46,23 @@ data ComponentVersion = ComponentVersion'
     -- 3.  Build version ARNs have all four nodes, and point to a specific
     --     build for a specific version of an object.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The owner of the component.
-    owner :: Prelude.Maybe Prelude.Text,
-    -- | The description of the component.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the component.
-    platform :: Prelude.Maybe Platform,
     -- | The date that the component was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | The description of the component.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the component.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the component.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The platform of the component.
+    platform :: Prelude.Maybe Platform,
     -- | he operating system (OS) version supported by the component. If the OS
     -- information is available, a prefix match is performed against the base
     -- image OS version during image recipe creation.
     supportedOsVersions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The type of the component denotes whether the component is used to build
+    -- the image or only to test it.
+    type' :: Prelude.Maybe ComponentType,
     -- | The semantic version of the component.
     --
     -- The semantic version has four nodes:
@@ -96,11 +96,6 @@ data ComponentVersion = ComponentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'componentVersion_name' - The name of the component.
---
--- 'type'', 'componentVersion_type' - The type of the component denotes whether the component is used to build
--- the image or only to test it.
---
 -- 'arn', 'componentVersion_arn' - The Amazon Resource Name (ARN) of the component.
 --
 -- Semantic versioning is included in each object\'s Amazon Resource Name
@@ -116,17 +111,22 @@ data ComponentVersion = ComponentVersion'
 -- 3.  Build version ARNs have all four nodes, and point to a specific
 --     build for a specific version of an object.
 --
--- 'owner', 'componentVersion_owner' - The owner of the component.
+-- 'dateCreated', 'componentVersion_dateCreated' - The date that the component was created.
 --
 -- 'description', 'componentVersion_description' - The description of the component.
 --
--- 'platform', 'componentVersion_platform' - The platform of the component.
+-- 'name', 'componentVersion_name' - The name of the component.
 --
--- 'dateCreated', 'componentVersion_dateCreated' - The date that the component was created.
+-- 'owner', 'componentVersion_owner' - The owner of the component.
+--
+-- 'platform', 'componentVersion_platform' - The platform of the component.
 --
 -- 'supportedOsVersions', 'componentVersion_supportedOsVersions' - he operating system (OS) version supported by the component. If the OS
 -- information is available, a prefix match is performed against the base
 -- image OS version during image recipe creation.
+--
+-- 'type'', 'componentVersion_type' - The type of the component denotes whether the component is used to build
+-- the image or only to test it.
 --
 -- 'version', 'componentVersion_version' - The semantic version of the component.
 --
@@ -153,25 +153,16 @@ newComponentVersion ::
   ComponentVersion
 newComponentVersion =
   ComponentVersion'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      description = Prelude.Nothing,
-      platform = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
+      description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      platform = Prelude.Nothing,
       supportedOsVersions = Prelude.Nothing,
+      type' = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the component.
-componentVersion_name :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
-componentVersion_name = Lens.lens (\ComponentVersion' {name} -> name) (\s@ComponentVersion' {} a -> s {name = a} :: ComponentVersion)
-
--- | The type of the component denotes whether the component is used to build
--- the image or only to test it.
-componentVersion_type :: Lens.Lens' ComponentVersion (Prelude.Maybe ComponentType)
-componentVersion_type = Lens.lens (\ComponentVersion' {type'} -> type') (\s@ComponentVersion' {} a -> s {type' = a} :: ComponentVersion)
 
 -- | The Amazon Resource Name (ARN) of the component.
 --
@@ -190,27 +181,36 @@ componentVersion_type = Lens.lens (\ComponentVersion' {type'} -> type') (\s@Comp
 componentVersion_arn :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
 componentVersion_arn = Lens.lens (\ComponentVersion' {arn} -> arn) (\s@ComponentVersion' {} a -> s {arn = a} :: ComponentVersion)
 
--- | The owner of the component.
-componentVersion_owner :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
-componentVersion_owner = Lens.lens (\ComponentVersion' {owner} -> owner) (\s@ComponentVersion' {} a -> s {owner = a} :: ComponentVersion)
+-- | The date that the component was created.
+componentVersion_dateCreated :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
+componentVersion_dateCreated = Lens.lens (\ComponentVersion' {dateCreated} -> dateCreated) (\s@ComponentVersion' {} a -> s {dateCreated = a} :: ComponentVersion)
 
 -- | The description of the component.
 componentVersion_description :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
 componentVersion_description = Lens.lens (\ComponentVersion' {description} -> description) (\s@ComponentVersion' {} a -> s {description = a} :: ComponentVersion)
 
+-- | The name of the component.
+componentVersion_name :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
+componentVersion_name = Lens.lens (\ComponentVersion' {name} -> name) (\s@ComponentVersion' {} a -> s {name = a} :: ComponentVersion)
+
+-- | The owner of the component.
+componentVersion_owner :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
+componentVersion_owner = Lens.lens (\ComponentVersion' {owner} -> owner) (\s@ComponentVersion' {} a -> s {owner = a} :: ComponentVersion)
+
 -- | The platform of the component.
 componentVersion_platform :: Lens.Lens' ComponentVersion (Prelude.Maybe Platform)
 componentVersion_platform = Lens.lens (\ComponentVersion' {platform} -> platform) (\s@ComponentVersion' {} a -> s {platform = a} :: ComponentVersion)
-
--- | The date that the component was created.
-componentVersion_dateCreated :: Lens.Lens' ComponentVersion (Prelude.Maybe Prelude.Text)
-componentVersion_dateCreated = Lens.lens (\ComponentVersion' {dateCreated} -> dateCreated) (\s@ComponentVersion' {} a -> s {dateCreated = a} :: ComponentVersion)
 
 -- | he operating system (OS) version supported by the component. If the OS
 -- information is available, a prefix match is performed against the base
 -- image OS version during image recipe creation.
 componentVersion_supportedOsVersions :: Lens.Lens' ComponentVersion (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 componentVersion_supportedOsVersions = Lens.lens (\ComponentVersion' {supportedOsVersions} -> supportedOsVersions) (\s@ComponentVersion' {} a -> s {supportedOsVersions = a} :: ComponentVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of the component denotes whether the component is used to build
+-- the image or only to test it.
+componentVersion_type :: Lens.Lens' ComponentVersion (Prelude.Maybe ComponentType)
+componentVersion_type = Lens.lens (\ComponentVersion' {type'} -> type') (\s@ComponentVersion' {} a -> s {type' = a} :: ComponentVersion)
 
 -- | The semantic version of the component.
 --
@@ -242,37 +242,37 @@ instance Data.FromJSON ComponentVersion where
       "ComponentVersion"
       ( \x ->
           ComponentVersion'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "owner")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "platform")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "platform")
             Prelude.<*> (x Data..:? "supportedOsVersions")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable ComponentVersion where
   hashWithSalt _salt ComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` platform
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ComponentVersion where
   rnf ComponentVersion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf version

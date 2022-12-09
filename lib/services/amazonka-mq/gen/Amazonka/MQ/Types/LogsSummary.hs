@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogsSummary' smart constructor.
 data LogsSummary = LogsSummary'
-  { -- | The location of the CloudWatch Logs log group where audit logs are sent.
-    auditLogGroup :: Prelude.Maybe Prelude.Text,
-    -- | Enables audit logging. Every user management action made using JMX or
+  { -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged.
     audit :: Prelude.Maybe Prelude.Bool,
+    -- | The location of the CloudWatch Logs log group where audit logs are sent.
+    auditLogGroup :: Prelude.Maybe Prelude.Text,
     -- | The list of information about logs pending to be deployed for the
     -- specified broker.
     pending :: Prelude.Maybe PendingLogs,
@@ -54,10 +54,10 @@ data LogsSummary = LogsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'auditLogGroup', 'logsSummary_auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
---
 -- 'audit', 'logsSummary_audit' - Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
+--
+-- 'auditLogGroup', 'logsSummary_auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
 --
 -- 'pending', 'logsSummary_pending' - The list of information about logs pending to be deployed for the
 -- specified broker.
@@ -74,21 +74,21 @@ newLogsSummary ::
   LogsSummary
 newLogsSummary pGeneralLogGroup_ pGeneral_ =
   LogsSummary'
-    { auditLogGroup = Prelude.Nothing,
-      audit = Prelude.Nothing,
+    { audit = Prelude.Nothing,
+      auditLogGroup = Prelude.Nothing,
       pending = Prelude.Nothing,
       generalLogGroup = pGeneralLogGroup_,
       general = pGeneral_
     }
 
--- | The location of the CloudWatch Logs log group where audit logs are sent.
-logsSummary_auditLogGroup :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Text)
-logsSummary_auditLogGroup = Lens.lens (\LogsSummary' {auditLogGroup} -> auditLogGroup) (\s@LogsSummary' {} a -> s {auditLogGroup = a} :: LogsSummary)
-
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
 logsSummary_audit :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Bool)
 logsSummary_audit = Lens.lens (\LogsSummary' {audit} -> audit) (\s@LogsSummary' {} a -> s {audit = a} :: LogsSummary)
+
+-- | The location of the CloudWatch Logs log group where audit logs are sent.
+logsSummary_auditLogGroup :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Text)
+logsSummary_auditLogGroup = Lens.lens (\LogsSummary' {auditLogGroup} -> auditLogGroup) (\s@LogsSummary' {} a -> s {auditLogGroup = a} :: LogsSummary)
 
 -- | The list of information about logs pending to be deployed for the
 -- specified broker.
@@ -110,8 +110,8 @@ instance Data.FromJSON LogsSummary where
       "LogsSummary"
       ( \x ->
           LogsSummary'
-            Prelude.<$> (x Data..:? "auditLogGroup")
-            Prelude.<*> (x Data..:? "audit")
+            Prelude.<$> (x Data..:? "audit")
+            Prelude.<*> (x Data..:? "auditLogGroup")
             Prelude.<*> (x Data..:? "pending")
             Prelude.<*> (x Data..: "generalLogGroup")
             Prelude.<*> (x Data..: "general")
@@ -119,16 +119,16 @@ instance Data.FromJSON LogsSummary where
 
 instance Prelude.Hashable LogsSummary where
   hashWithSalt _salt LogsSummary' {..} =
-    _salt `Prelude.hashWithSalt` auditLogGroup
-      `Prelude.hashWithSalt` audit
+    _salt `Prelude.hashWithSalt` audit
+      `Prelude.hashWithSalt` auditLogGroup
       `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` generalLogGroup
       `Prelude.hashWithSalt` general
 
 instance Prelude.NFData LogsSummary where
   rnf LogsSummary' {..} =
-    Prelude.rnf auditLogGroup
-      `Prelude.seq` Prelude.rnf audit
+    Prelude.rnf audit
+      `Prelude.seq` Prelude.rnf auditLogGroup
       `Prelude.seq` Prelude.rnf pending
       `Prelude.seq` Prelude.rnf generalLogGroup
       `Prelude.seq` Prelude.rnf general

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogs' smart constructor.
 data Logs = Logs'
-  { -- | Enables general logging.
-    general :: Prelude.Maybe Prelude.Bool,
-    -- | Enables audit logging. Every user management action made using JMX or
+  { -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
-    audit :: Prelude.Maybe Prelude.Bool
+    audit :: Prelude.Maybe Prelude.Bool,
+    -- | Enables general logging.
+    general :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data Logs = Logs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'general', 'logs_general' - Enables general logging.
---
 -- 'audit', 'logs_audit' - Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
+--
+-- 'general', 'logs_general' - Enables general logging.
 newLogs ::
   Logs
 newLogs =
   Logs'
-    { general = Prelude.Nothing,
-      audit = Prelude.Nothing
+    { audit = Prelude.Nothing,
+      general = Prelude.Nothing
     }
-
--- | Enables general logging.
-logs_general :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
-logs_general = Lens.lens (\Logs' {general} -> general) (\s@Logs' {} a -> s {general = a} :: Logs)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
 logs_audit :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
 logs_audit = Lens.lens (\Logs' {audit} -> audit) (\s@Logs' {} a -> s {audit = a} :: Logs)
+
+-- | Enables general logging.
+logs_general :: Lens.Lens' Logs (Prelude.Maybe Prelude.Bool)
+logs_general = Lens.lens (\Logs' {general} -> general) (\s@Logs' {} a -> s {general = a} :: Logs)
 
 instance Data.FromJSON Logs where
   parseJSON =
@@ -72,24 +72,24 @@ instance Data.FromJSON Logs where
       "Logs"
       ( \x ->
           Logs'
-            Prelude.<$> (x Data..:? "general")
-            Prelude.<*> (x Data..:? "audit")
+            Prelude.<$> (x Data..:? "audit")
+            Prelude.<*> (x Data..:? "general")
       )
 
 instance Prelude.Hashable Logs where
   hashWithSalt _salt Logs' {..} =
-    _salt `Prelude.hashWithSalt` general
-      `Prelude.hashWithSalt` audit
+    _salt `Prelude.hashWithSalt` audit
+      `Prelude.hashWithSalt` general
 
 instance Prelude.NFData Logs where
   rnf Logs' {..} =
-    Prelude.rnf general `Prelude.seq` Prelude.rnf audit
+    Prelude.rnf audit `Prelude.seq` Prelude.rnf general
 
 instance Data.ToJSON Logs where
   toJSON Logs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("general" Data..=) Prelude.<$> general,
-            ("audit" Data..=) Prelude.<$> audit
+          [ ("audit" Data..=) Prelude.<$> audit,
+            ("general" Data..=) Prelude.<$> general
           ]
       )

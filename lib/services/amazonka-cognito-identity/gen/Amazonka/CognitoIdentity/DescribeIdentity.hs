@@ -37,10 +37,10 @@ module Amazonka.CognitoIdentity.DescribeIdentity
     newIdentityDescription,
 
     -- * Response Lenses
-    identityDescription_logins,
-    identityDescription_lastModifiedDate,
     identityDescription_creationDate,
     identityDescription_identityId,
+    identityDescription_lastModifiedDate,
+    identityDescription_logins,
   )
 where
 

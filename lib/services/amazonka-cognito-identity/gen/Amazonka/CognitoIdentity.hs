@@ -42,35 +42,35 @@ module Amazonka.CognitoIdentity
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InternalErrorException
-    _InternalErrorException,
-
     -- ** DeveloperUserAlreadyRegisteredException
     _DeveloperUserAlreadyRegisteredException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
 
     -- ** ExternalServiceException
     _ExternalServiceException,
 
+    -- ** InternalErrorException
+    _InternalErrorException,
+
     -- ** InvalidIdentityPoolConfigurationException
     _InvalidIdentityPoolConfigurationException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,
 
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** TooManyRequestsException
     _TooManyRequestsException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters

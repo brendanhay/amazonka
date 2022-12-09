@@ -39,8 +39,8 @@ module Amazonka.CognitoIdentity.ListIdentityPools
     newListIdentityPoolsResponse,
 
     -- * Response Lenses
-    listIdentityPoolsResponse_nextToken,
     listIdentityPoolsResponse_identityPools,
+    listIdentityPoolsResponse_nextToken,
     listIdentityPoolsResponse_httpStatus,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest ListIdentityPools where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityPoolsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "IdentityPools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "IdentityPools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,10 +174,10 @@ instance Data.ToQuery ListIdentityPools where
 --
 -- /See:/ 'newListIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-  { -- | A pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identity pools returned by the ListIdentityPools action.
+  { -- | The identity pools returned by the ListIdentityPools action.
     identityPools :: Prelude.Maybe [IdentityPoolShortDescription],
+    -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentityPoolsResponse_nextToken' - A pagination token.
---
 -- 'identityPools', 'listIdentityPoolsResponse_identityPools' - The identity pools returned by the ListIdentityPools action.
+--
+-- 'nextToken', 'listIdentityPoolsResponse_nextToken' - A pagination token.
 --
 -- 'httpStatus', 'listIdentityPoolsResponse_httpStatus' - The response's http status code.
 newListIdentityPoolsResponse ::
@@ -202,19 +202,19 @@ newListIdentityPoolsResponse ::
   ListIdentityPoolsResponse
 newListIdentityPoolsResponse pHttpStatus_ =
   ListIdentityPoolsResponse'
-    { nextToken =
+    { identityPools =
         Prelude.Nothing,
-      identityPools = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pagination token.
-listIdentityPoolsResponse_nextToken :: Lens.Lens' ListIdentityPoolsResponse (Prelude.Maybe Prelude.Text)
-listIdentityPoolsResponse_nextToken = Lens.lens (\ListIdentityPoolsResponse' {nextToken} -> nextToken) (\s@ListIdentityPoolsResponse' {} a -> s {nextToken = a} :: ListIdentityPoolsResponse)
 
 -- | The identity pools returned by the ListIdentityPools action.
 listIdentityPoolsResponse_identityPools :: Lens.Lens' ListIdentityPoolsResponse (Prelude.Maybe [IdentityPoolShortDescription])
 listIdentityPoolsResponse_identityPools = Lens.lens (\ListIdentityPoolsResponse' {identityPools} -> identityPools) (\s@ListIdentityPoolsResponse' {} a -> s {identityPools = a} :: ListIdentityPoolsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A pagination token.
+listIdentityPoolsResponse_nextToken :: Lens.Lens' ListIdentityPoolsResponse (Prelude.Maybe Prelude.Text)
+listIdentityPoolsResponse_nextToken = Lens.lens (\ListIdentityPoolsResponse' {nextToken} -> nextToken) (\s@ListIdentityPoolsResponse' {} a -> s {nextToken = a} :: ListIdentityPoolsResponse)
 
 -- | The response's http status code.
 listIdentityPoolsResponse_httpStatus :: Lens.Lens' ListIdentityPoolsResponse Prelude.Int
@@ -222,6 +222,6 @@ listIdentityPoolsResponse_httpStatus = Lens.lens (\ListIdentityPoolsResponse' {h
 
 instance Prelude.NFData ListIdentityPoolsResponse where
   rnf ListIdentityPoolsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityPools
+    Prelude.rnf identityPools
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,12 +38,12 @@ module Amazonka.CognitoIdentity.DescribeIdentityPool
 
     -- * Response Lenses
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,

@@ -19,16 +19,16 @@ module Amazonka.CognitoIdentity.Types
 
     -- * Errors
     _ConcurrentModificationException,
-    _InternalErrorException,
     _DeveloperUserAlreadyRegisteredException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _ResourceConflictException,
     _ExternalServiceException,
+    _InternalErrorException,
     _InvalidIdentityPoolConfigurationException,
-    _NotAuthorizedException,
-    _TooManyRequestsException,
     _InvalidParameterException,
+    _LimitExceededException,
+    _NotAuthorizedException,
+    _ResourceConflictException,
+    _ResourceNotFoundException,
+    _TooManyRequestsException,
 
     -- * AmbiguousRoleResolutionType
     AmbiguousRoleResolutionType (..),
@@ -52,29 +52,29 @@ module Amazonka.CognitoIdentity.Types
     -- * Credentials
     Credentials (..),
     newCredentials,
-    credentials_sessionToken,
+    credentials_accessKeyId,
     credentials_expiration,
     credentials_secretKey,
-    credentials_accessKeyId,
+    credentials_sessionToken,
 
     -- * IdentityDescription
     IdentityDescription (..),
     newIdentityDescription,
-    identityDescription_logins,
-    identityDescription_lastModifiedDate,
     identityDescription_creationDate,
     identityDescription_identityId,
+    identityDescription_lastModifiedDate,
+    identityDescription_logins,
 
     -- * IdentityPool
     IdentityPool (..),
     newIdentityPool,
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
@@ -82,8 +82,8 @@ module Amazonka.CognitoIdentity.Types
     -- * IdentityPoolShortDescription
     IdentityPoolShortDescription (..),
     newIdentityPoolShortDescription,
-    identityPoolShortDescription_identityPoolName,
     identityPoolShortDescription_identityPoolId,
+    identityPoolShortDescription_identityPoolName,
 
     -- * MappingRule
     MappingRule (..),
@@ -156,28 +156,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -185,13 +179,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -199,6 +197,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Thrown if there are parallel requests to modify a resource.
@@ -208,14 +208,6 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | Thrown when the service encounters an error during processing the
--- request.
-_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalErrorException"
-
 -- | The provided developer user identifier is already registered with
 -- Cognito under a different identity ID.
 _DeveloperUserAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -223,29 +215,6 @@ _DeveloperUserAlreadyRegisteredException =
   Core._MatchServiceError
     defaultService
     "DeveloperUserAlreadyRegisteredException"
-
--- | Thrown when the requested resource (for example, a dataset or record)
--- does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Thrown when the total number of user pools has exceeded a preset limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | Thrown when a user tries to use a login which is already linked to
--- another account.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceConflictException"
 
 -- | An exception thrown when a dependent service such as Facebook or Twitter
 -- is not responding
@@ -255,6 +224,14 @@ _ExternalServiceException =
     defaultService
     "ExternalServiceException"
 
+-- | Thrown when the service encounters an error during processing the
+-- request.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalErrorException"
+
 -- | Thrown if the identity pool has no role associated for the given auth
 -- type (auth\/unauth) or if the AssumeRole fails.
 _InvalidIdentityPoolConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -263,6 +240,20 @@ _InvalidIdentityPoolConfigurationException =
     defaultService
     "InvalidIdentityPoolConfigurationException"
 
+-- | Thrown for missing or bad input parameter(s).
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+
+-- | Thrown when the total number of user pools has exceeded a preset limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
 -- | Thrown when a user is not authorized to access the requested resource.
 _NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotAuthorizedException =
@@ -270,16 +261,25 @@ _NotAuthorizedException =
     defaultService
     "NotAuthorizedException"
 
+-- | Thrown when a user tries to use a login which is already linked to
+-- another account.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceConflictException"
+
+-- | Thrown when the requested resource (for example, a dataset or record)
+-- does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
 -- | Thrown when a request is throttled.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
-
--- | Thrown for missing or bad input parameter(s).
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"

@@ -29,26 +29,26 @@ module Amazonka.STS
     -- ** ExpiredTokenException
     _ExpiredTokenException,
 
-    -- ** PackedPolicyTooLargeException
-    _PackedPolicyTooLargeException,
+    -- ** IDPCommunicationErrorException
+    _IDPCommunicationErrorException,
 
     -- ** IDPRejectedClaimException
     _IDPRejectedClaimException,
 
-    -- ** InvalidIdentityTokenException
-    _InvalidIdentityTokenException,
-
     -- ** InvalidAuthorizationMessageException
     _InvalidAuthorizationMessageException,
 
-    -- ** RegionDisabledException
-    _RegionDisabledException,
+    -- ** InvalidIdentityTokenException
+    _InvalidIdentityTokenException,
 
     -- ** MalformedPolicyDocumentException
     _MalformedPolicyDocumentException,
 
-    -- ** IDPCommunicationErrorException
-    _IDPCommunicationErrorException,
+    -- ** PackedPolicyTooLargeException
+    _PackedPolicyTooLargeException,
+
+    -- ** RegionDisabledException
+    _RegionDisabledException,
 
     -- * Waiters
     -- $waiters

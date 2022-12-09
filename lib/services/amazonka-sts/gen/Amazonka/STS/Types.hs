@@ -19,13 +19,13 @@ module Amazonka.STS.Types
 
     -- * Errors
     _ExpiredTokenException,
-    _PackedPolicyTooLargeException,
-    _IDPRejectedClaimException,
-    _InvalidIdentityTokenException,
-    _InvalidAuthorizationMessageException,
-    _RegionDisabledException,
-    _MalformedPolicyDocumentException,
     _IDPCommunicationErrorException,
+    _IDPRejectedClaimException,
+    _InvalidAuthorizationMessageException,
+    _InvalidIdentityTokenException,
+    _MalformedPolicyDocumentException,
+    _PackedPolicyTooLargeException,
+    _RegionDisabledException,
 
     -- * AssumedRoleUser
     AssumedRoleUser (..),
@@ -86,26 +86,12 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 502) e =
         Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
         Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "IDPCommunicationError"
               Prelude.. Core.hasStatus 400
@@ -115,19 +101,31 @@ defaultService =
       | Lens.has (Core.hasStatus 509) e =
         Prelude.Just "limit_exceeded"
       | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -135,6 +133,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The web identity token that was passed is expired or is not valid. Get a
@@ -145,6 +145,61 @@ _ExpiredTokenException =
   Core._MatchServiceError
     defaultService
     "ExpiredTokenException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request could not be fulfilled because the identity provider (IDP)
+-- that was asked to verify the incoming identity token could not be
+-- reached. This is often a transient error caused by network conditions.
+-- Retry the request a limited number of times so that you don\'t exceed
+-- the request rate. If the error persists, the identity provider might be
+-- down or not responding.
+_IDPCommunicationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IDPCommunicationErrorException =
+  Core._MatchServiceError
+    defaultService
+    "IDPCommunicationError"
+    Prelude.. Core.hasStatus 400
+
+-- | The identity provider (IdP) reported that authentication failed. This
+-- might be because the claim is invalid.
+--
+-- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
+-- it can also mean that the claim has expired or has been explicitly
+-- revoked.
+_IDPRejectedClaimException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IDPRejectedClaimException =
+  Core._MatchServiceError
+    defaultService
+    "IDPRejectedClaim"
+    Prelude.. Core.hasStatus 403
+
+-- | The error returned if the message passed to @DecodeAuthorizationMessage@
+-- was invalid. This can happen if the token contains invalid characters,
+-- such as linebreaks.
+_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthorizationMessageException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAuthorizationMessageException"
+    Prelude.. Core.hasStatus 400
+
+-- | The web identity token that was passed could not be validated by Amazon
+-- Web Services. Get a new identity token from the identity provider and
+-- then retry the request.
+_InvalidIdentityTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdentityTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidIdentityToken"
+    Prelude.. Core.hasStatus 400
+
+-- | The request was rejected because the policy document was malformed. The
+-- error message describes the specific error.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyDocument"
     Prelude.. Core.hasStatus 400
 
 -- | The request was rejected because the total packed size of the session
@@ -167,39 +222,6 @@ _PackedPolicyTooLargeException =
     "PackedPolicyTooLarge"
     Prelude.. Core.hasStatus 400
 
--- | The identity provider (IdP) reported that authentication failed. This
--- might be because the claim is invalid.
---
--- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
--- it can also mean that the claim has expired or has been explicitly
--- revoked.
-_IDPRejectedClaimException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IDPRejectedClaimException =
-  Core._MatchServiceError
-    defaultService
-    "IDPRejectedClaim"
-    Prelude.. Core.hasStatus 403
-
--- | The web identity token that was passed could not be validated by Amazon
--- Web Services. Get a new identity token from the identity provider and
--- then retry the request.
-_InvalidIdentityTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidIdentityTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidIdentityToken"
-    Prelude.. Core.hasStatus 400
-
--- | The error returned if the message passed to @DecodeAuthorizationMessage@
--- was invalid. This can happen if the token contains invalid characters,
--- such as linebreaks.
-_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAuthorizationMessageException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAuthorizationMessageException"
-    Prelude.. Core.hasStatus 400
-
 -- | STS is not activated in the requested region for the account that is
 -- being asked to generate credentials. The account administrator must use
 -- the IAM console to activate STS in that region. For more information,
@@ -212,25 +234,3 @@ _RegionDisabledException =
     defaultService
     "RegionDisabledException"
     Prelude.. Core.hasStatus 403
-
--- | The request was rejected because the policy document was malformed. The
--- error message describes the specific error.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedPolicyDocumentException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedPolicyDocument"
-    Prelude.. Core.hasStatus 400
-
--- | The request could not be fulfilled because the identity provider (IDP)
--- that was asked to verify the incoming identity token could not be
--- reached. This is often a transient error caused by network conditions.
--- Retry the request a limited number of times so that you don\'t exceed
--- the request rate. If the error persists, the identity provider might be
--- down or not responding.
-_IDPCommunicationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IDPCommunicationErrorException =
-  Core._MatchServiceError
-    defaultService
-    "IDPCommunicationError"
-    Prelude.. Core.hasStatus 400

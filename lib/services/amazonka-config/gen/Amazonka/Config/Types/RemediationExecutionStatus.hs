@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRemediationExecutionStatus' smart constructor.
 data RemediationExecutionStatus = RemediationExecutionStatus'
-  { -- | Details of every step.
-    stepDetails :: Prelude.Maybe [RemediationExecutionStep],
-    -- | Start time when the remediation was executed.
+  { -- | Start time when the remediation was executed.
     invocationTime :: Prelude.Maybe Data.POSIX,
-    -- | ENUM of the values.
-    state :: Prelude.Maybe RemediationExecutionState,
     -- | The time when the remediation execution was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    resourceKey :: Prelude.Maybe ResourceKey
+    resourceKey :: Prelude.Maybe ResourceKey,
+    -- | ENUM of the values.
+    state :: Prelude.Maybe RemediationExecutionState,
+    -- | Details of every step.
+    stepDetails :: Prelude.Maybe [RemediationExecutionStep]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,38 +52,30 @@ data RemediationExecutionStatus = RemediationExecutionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stepDetails', 'remediationExecutionStatus_stepDetails' - Details of every step.
---
 -- 'invocationTime', 'remediationExecutionStatus_invocationTime' - Start time when the remediation was executed.
---
--- 'state', 'remediationExecutionStatus_state' - ENUM of the values.
 --
 -- 'lastUpdatedTime', 'remediationExecutionStatus_lastUpdatedTime' - The time when the remediation execution was last updated.
 --
 -- 'resourceKey', 'remediationExecutionStatus_resourceKey' - Undocumented member.
+--
+-- 'state', 'remediationExecutionStatus_state' - ENUM of the values.
+--
+-- 'stepDetails', 'remediationExecutionStatus_stepDetails' - Details of every step.
 newRemediationExecutionStatus ::
   RemediationExecutionStatus
 newRemediationExecutionStatus =
   RemediationExecutionStatus'
-    { stepDetails =
+    { invocationTime =
         Prelude.Nothing,
-      invocationTime = Prelude.Nothing,
-      state = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
-      resourceKey = Prelude.Nothing
+      resourceKey = Prelude.Nothing,
+      state = Prelude.Nothing,
+      stepDetails = Prelude.Nothing
     }
-
--- | Details of every step.
-remediationExecutionStatus_stepDetails :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe [RemediationExecutionStep])
-remediationExecutionStatus_stepDetails = Lens.lens (\RemediationExecutionStatus' {stepDetails} -> stepDetails) (\s@RemediationExecutionStatus' {} a -> s {stepDetails = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | Start time when the remediation was executed.
 remediationExecutionStatus_invocationTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
 remediationExecutionStatus_invocationTime = Lens.lens (\RemediationExecutionStatus' {invocationTime} -> invocationTime) (\s@RemediationExecutionStatus' {} a -> s {invocationTime = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Data._Time
-
--- | ENUM of the values.
-remediationExecutionStatus_state :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe RemediationExecutionState)
-remediationExecutionStatus_state = Lens.lens (\RemediationExecutionStatus' {state} -> state) (\s@RemediationExecutionStatus' {} a -> s {state = a} :: RemediationExecutionStatus)
 
 -- | The time when the remediation execution was last updated.
 remediationExecutionStatus_lastUpdatedTime :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe Prelude.UTCTime)
@@ -93,31 +85,39 @@ remediationExecutionStatus_lastUpdatedTime = Lens.lens (\RemediationExecutionSta
 remediationExecutionStatus_resourceKey :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe ResourceKey)
 remediationExecutionStatus_resourceKey = Lens.lens (\RemediationExecutionStatus' {resourceKey} -> resourceKey) (\s@RemediationExecutionStatus' {} a -> s {resourceKey = a} :: RemediationExecutionStatus)
 
+-- | ENUM of the values.
+remediationExecutionStatus_state :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe RemediationExecutionState)
+remediationExecutionStatus_state = Lens.lens (\RemediationExecutionStatus' {state} -> state) (\s@RemediationExecutionStatus' {} a -> s {state = a} :: RemediationExecutionStatus)
+
+-- | Details of every step.
+remediationExecutionStatus_stepDetails :: Lens.Lens' RemediationExecutionStatus (Prelude.Maybe [RemediationExecutionStep])
+remediationExecutionStatus_stepDetails = Lens.lens (\RemediationExecutionStatus' {stepDetails} -> stepDetails) (\s@RemediationExecutionStatus' {} a -> s {stepDetails = a} :: RemediationExecutionStatus) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON RemediationExecutionStatus where
   parseJSON =
     Data.withObject
       "RemediationExecutionStatus"
       ( \x ->
           RemediationExecutionStatus'
-            Prelude.<$> (x Data..:? "StepDetails" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "InvocationTime")
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "InvocationTime")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "ResourceKey")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "StepDetails" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RemediationExecutionStatus where
   hashWithSalt _salt RemediationExecutionStatus' {..} =
-    _salt `Prelude.hashWithSalt` stepDetails
-      `Prelude.hashWithSalt` invocationTime
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` invocationTime
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` resourceKey
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stepDetails
 
 instance Prelude.NFData RemediationExecutionStatus where
   rnf RemediationExecutionStatus' {..} =
-    Prelude.rnf stepDetails
-      `Prelude.seq` Prelude.rnf invocationTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf invocationTime
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf resourceKey
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stepDetails

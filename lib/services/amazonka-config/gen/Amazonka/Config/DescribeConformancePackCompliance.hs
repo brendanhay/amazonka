@@ -29,9 +29,9 @@ module Amazonka.Config.DescribeConformancePackCompliance
     newDescribeConformancePackCompliance,
 
     -- * Request Lenses
-    describeConformancePackCompliance_nextToken,
     describeConformancePackCompliance_filters,
     describeConformancePackCompliance_limit,
+    describeConformancePackCompliance_nextToken,
     describeConformancePackCompliance_conformancePackName,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConformancePackCompliance' smart constructor.
 data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
-  { -- | The @nextToken@ string returned in a previous request that you use to
-    -- request the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @ConformancePackComplianceFilters@ object.
+  { -- | A @ConformancePackComplianceFilters@ object.
     filters :: Prelude.Maybe ConformancePackComplianceFilters,
     -- | The maximum number of Config rules within a conformance pack are
     -- returned on each page.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned in a previous request that you use to
+    -- request the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Name of the conformance pack.
     conformancePackName :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConformancePackCompliance_nextToken' - The @nextToken@ string returned in a previous request that you use to
--- request the next page of results in a paginated response.
---
 -- 'filters', 'describeConformancePackCompliance_filters' - A @ConformancePackComplianceFilters@ object.
 --
 -- 'limit', 'describeConformancePackCompliance_limit' - The maximum number of Config rules within a conformance pack are
 -- returned on each page.
+--
+-- 'nextToken', 'describeConformancePackCompliance_nextToken' - The @nextToken@ string returned in a previous request that you use to
+-- request the next page of results in a paginated response.
 --
 -- 'conformancePackName', 'describeConformancePackCompliance_conformancePackName' - Name of the conformance pack.
 newDescribeConformancePackCompliance ::
@@ -93,18 +93,13 @@ newDescribeConformancePackCompliance ::
 newDescribeConformancePackCompliance
   pConformancePackName_ =
     DescribeConformancePackCompliance'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         conformancePackName =
           pConformancePackName_
       }
-
--- | The @nextToken@ string returned in a previous request that you use to
--- request the next page of results in a paginated response.
-describeConformancePackCompliance_nextToken :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Text)
-describeConformancePackCompliance_nextToken = Lens.lens (\DescribeConformancePackCompliance' {nextToken} -> nextToken) (\s@DescribeConformancePackCompliance' {} a -> s {nextToken = a} :: DescribeConformancePackCompliance)
 
 -- | A @ConformancePackComplianceFilters@ object.
 describeConformancePackCompliance_filters :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe ConformancePackComplianceFilters)
@@ -114,6 +109,11 @@ describeConformancePackCompliance_filters = Lens.lens (\DescribeConformancePackC
 -- returned on each page.
 describeConformancePackCompliance_limit :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Natural)
 describeConformancePackCompliance_limit = Lens.lens (\DescribeConformancePackCompliance' {limit} -> limit) (\s@DescribeConformancePackCompliance' {} a -> s {limit = a} :: DescribeConformancePackCompliance)
+
+-- | The @nextToken@ string returned in a previous request that you use to
+-- request the next page of results in a paginated response.
+describeConformancePackCompliance_nextToken :: Lens.Lens' DescribeConformancePackCompliance (Prelude.Maybe Prelude.Text)
+describeConformancePackCompliance_nextToken = Lens.lens (\DescribeConformancePackCompliance' {nextToken} -> nextToken) (\s@DescribeConformancePackCompliance' {} a -> s {nextToken = a} :: DescribeConformancePackCompliance)
 
 -- | Name of the conformance pack.
 describeConformancePackCompliance_conformancePackName :: Lens.Lens' DescribeConformancePackCompliance Prelude.Text
@@ -147,9 +147,9 @@ instance
   hashWithSalt
     _salt
     DescribeConformancePackCompliance' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` conformancePackName
 
 instance
@@ -157,9 +157,9 @@ instance
     DescribeConformancePackCompliance
   where
   rnf DescribeConformancePackCompliance' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf conformancePackName
 
 instance
@@ -187,9 +187,9 @@ instance
   toJSON DescribeConformancePackCompliance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ConformancePackName" Data..= conformancePackName)
           ]

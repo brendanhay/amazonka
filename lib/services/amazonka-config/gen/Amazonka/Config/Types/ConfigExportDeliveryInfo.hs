@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigExportDeliveryInfo' smart constructor.
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
-  { -- | The error code from the last attempted delivery.
+  { -- | The time of the last attempted delivery.
+    lastAttemptTime :: Prelude.Maybe Data.POSIX,
+    -- | The error code from the last attempted delivery.
     lastErrorCode :: Prelude.Maybe Prelude.Text,
-    -- | The time that the next delivery occurs.
-    nextDeliveryTime :: Prelude.Maybe Data.POSIX,
+    -- | The error message from the last attempted delivery.
+    lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | Status of the last attempted delivery.
     lastStatus :: Prelude.Maybe DeliveryStatus,
     -- | The time of the last successful delivery.
     lastSuccessfulTime :: Prelude.Maybe Data.POSIX,
-    -- | The error message from the last attempted delivery.
-    lastErrorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The time of the last attempted delivery.
-    lastAttemptTime :: Prelude.Maybe Data.POSIX
+    -- | The time that the next delivery occurs.
+    nextDeliveryTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +55,41 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastAttemptTime', 'configExportDeliveryInfo_lastAttemptTime' - The time of the last attempted delivery.
+--
 -- 'lastErrorCode', 'configExportDeliveryInfo_lastErrorCode' - The error code from the last attempted delivery.
 --
--- 'nextDeliveryTime', 'configExportDeliveryInfo_nextDeliveryTime' - The time that the next delivery occurs.
+-- 'lastErrorMessage', 'configExportDeliveryInfo_lastErrorMessage' - The error message from the last attempted delivery.
 --
 -- 'lastStatus', 'configExportDeliveryInfo_lastStatus' - Status of the last attempted delivery.
 --
 -- 'lastSuccessfulTime', 'configExportDeliveryInfo_lastSuccessfulTime' - The time of the last successful delivery.
 --
--- 'lastErrorMessage', 'configExportDeliveryInfo_lastErrorMessage' - The error message from the last attempted delivery.
---
--- 'lastAttemptTime', 'configExportDeliveryInfo_lastAttemptTime' - The time of the last attempted delivery.
+-- 'nextDeliveryTime', 'configExportDeliveryInfo_nextDeliveryTime' - The time that the next delivery occurs.
 newConfigExportDeliveryInfo ::
   ConfigExportDeliveryInfo
 newConfigExportDeliveryInfo =
   ConfigExportDeliveryInfo'
-    { lastErrorCode =
+    { lastAttemptTime =
         Prelude.Nothing,
-      nextDeliveryTime = Prelude.Nothing,
+      lastErrorCode = Prelude.Nothing,
+      lastErrorMessage = Prelude.Nothing,
       lastStatus = Prelude.Nothing,
       lastSuccessfulTime = Prelude.Nothing,
-      lastErrorMessage = Prelude.Nothing,
-      lastAttemptTime = Prelude.Nothing
+      nextDeliveryTime = Prelude.Nothing
     }
+
+-- | The time of the last attempted delivery.
+configExportDeliveryInfo_lastAttemptTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
+configExportDeliveryInfo_lastAttemptTime = Lens.lens (\ConfigExportDeliveryInfo' {lastAttemptTime} -> lastAttemptTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastAttemptTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The error code from the last attempted delivery.
 configExportDeliveryInfo_lastErrorCode :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.Text)
 configExportDeliveryInfo_lastErrorCode = Lens.lens (\ConfigExportDeliveryInfo' {lastErrorCode} -> lastErrorCode) (\s@ConfigExportDeliveryInfo' {} a -> s {lastErrorCode = a} :: ConfigExportDeliveryInfo)
 
--- | The time that the next delivery occurs.
-configExportDeliveryInfo_nextDeliveryTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configExportDeliveryInfo_nextDeliveryTime = Lens.lens (\ConfigExportDeliveryInfo' {nextDeliveryTime} -> nextDeliveryTime) (\s@ConfigExportDeliveryInfo' {} a -> s {nextDeliveryTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
+-- | The error message from the last attempted delivery.
+configExportDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.Text)
+configExportDeliveryInfo_lastErrorMessage = Lens.lens (\ConfigExportDeliveryInfo' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigExportDeliveryInfo' {} a -> s {lastErrorMessage = a} :: ConfigExportDeliveryInfo)
 
 -- | Status of the last attempted delivery.
 configExportDeliveryInfo_lastStatus :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe DeliveryStatus)
@@ -95,13 +99,9 @@ configExportDeliveryInfo_lastStatus = Lens.lens (\ConfigExportDeliveryInfo' {las
 configExportDeliveryInfo_lastSuccessfulTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
 configExportDeliveryInfo_lastSuccessfulTime = Lens.lens (\ConfigExportDeliveryInfo' {lastSuccessfulTime} -> lastSuccessfulTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastSuccessfulTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
--- | The error message from the last attempted delivery.
-configExportDeliveryInfo_lastErrorMessage :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.Text)
-configExportDeliveryInfo_lastErrorMessage = Lens.lens (\ConfigExportDeliveryInfo' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigExportDeliveryInfo' {} a -> s {lastErrorMessage = a} :: ConfigExportDeliveryInfo)
-
--- | The time of the last attempted delivery.
-configExportDeliveryInfo_lastAttemptTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
-configExportDeliveryInfo_lastAttemptTime = Lens.lens (\ConfigExportDeliveryInfo' {lastAttemptTime} -> lastAttemptTime) (\s@ConfigExportDeliveryInfo' {} a -> s {lastAttemptTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
+-- | The time that the next delivery occurs.
+configExportDeliveryInfo_nextDeliveryTime :: Lens.Lens' ConfigExportDeliveryInfo (Prelude.Maybe Prelude.UTCTime)
+configExportDeliveryInfo_nextDeliveryTime = Lens.lens (\ConfigExportDeliveryInfo' {nextDeliveryTime} -> nextDeliveryTime) (\s@ConfigExportDeliveryInfo' {} a -> s {nextDeliveryTime = a} :: ConfigExportDeliveryInfo) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ConfigExportDeliveryInfo where
   parseJSON =
@@ -109,28 +109,28 @@ instance Data.FromJSON ConfigExportDeliveryInfo where
       "ConfigExportDeliveryInfo"
       ( \x ->
           ConfigExportDeliveryInfo'
-            Prelude.<$> (x Data..:? "lastErrorCode")
-            Prelude.<*> (x Data..:? "nextDeliveryTime")
+            Prelude.<$> (x Data..:? "lastAttemptTime")
+            Prelude.<*> (x Data..:? "lastErrorCode")
+            Prelude.<*> (x Data..:? "lastErrorMessage")
             Prelude.<*> (x Data..:? "lastStatus")
             Prelude.<*> (x Data..:? "lastSuccessfulTime")
-            Prelude.<*> (x Data..:? "lastErrorMessage")
-            Prelude.<*> (x Data..:? "lastAttemptTime")
+            Prelude.<*> (x Data..:? "nextDeliveryTime")
       )
 
 instance Prelude.Hashable ConfigExportDeliveryInfo where
   hashWithSalt _salt ConfigExportDeliveryInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastErrorCode
-      `Prelude.hashWithSalt` nextDeliveryTime
+    _salt `Prelude.hashWithSalt` lastAttemptTime
+      `Prelude.hashWithSalt` lastErrorCode
+      `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastStatus
       `Prelude.hashWithSalt` lastSuccessfulTime
-      `Prelude.hashWithSalt` lastErrorMessage
-      `Prelude.hashWithSalt` lastAttemptTime
+      `Prelude.hashWithSalt` nextDeliveryTime
 
 instance Prelude.NFData ConfigExportDeliveryInfo where
   rnf ConfigExportDeliveryInfo' {..} =
-    Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf nextDeliveryTime
+    Prelude.rnf lastAttemptTime
+      `Prelude.seq` Prelude.rnf lastErrorCode
+      `Prelude.seq` Prelude.rnf lastErrorMessage
       `Prelude.seq` Prelude.rnf lastStatus
       `Prelude.seq` Prelude.rnf lastSuccessfulTime
-      `Prelude.seq` Prelude.rnf lastErrorMessage
-      `Prelude.seq` Prelude.rnf lastAttemptTime
+      `Prelude.seq` Prelude.rnf nextDeliveryTime

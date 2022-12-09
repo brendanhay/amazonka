@@ -29,8 +29,8 @@ module Amazonka.Config.PutEvaluations
     newPutEvaluations,
 
     -- * Request Lenses
-    putEvaluations_testMode,
     putEvaluations_evaluations,
+    putEvaluations_testMode,
     putEvaluations_resultToken,
 
     -- * Destructuring the Response
@@ -55,7 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
-  { -- | Use this parameter to specify a test run for @PutEvaluations@. You can
+  { -- | The assessments that the Lambda function performs. Each evaluation
+    -- identifies an Amazon Web Services resource and indicates whether it
+    -- complies with the Config rule that invokes the Lambda function.
+    evaluations :: Prelude.Maybe [Evaluation],
+    -- | Use this parameter to specify a test run for @PutEvaluations@. You can
     -- verify whether your Lambda function will deliver evaluation results to
     -- Config. No updates occur to your existing evaluations, and evaluation
     -- results are not sent to Config.
@@ -63,10 +67,6 @@ data PutEvaluations = PutEvaluations'
     -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
     -- value for the @ResultToken@ parameter, but the value cannot be null.
     testMode :: Prelude.Maybe Prelude.Bool,
-    -- | The assessments that the Lambda function performs. Each evaluation
-    -- identifies an Amazon Web Services resource and indicates whether it
-    -- complies with the Config rule that invokes the Lambda function.
-    evaluations :: Prelude.Maybe [Evaluation],
     -- | An encrypted token that associates an evaluation with an Config rule.
     -- Identifies the rule and the event that triggered the evaluation.
     resultToken :: Prelude.Text
@@ -81,6 +81,10 @@ data PutEvaluations = PutEvaluations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'evaluations', 'putEvaluations_evaluations' - The assessments that the Lambda function performs. Each evaluation
+-- identifies an Amazon Web Services resource and indicates whether it
+-- complies with the Config rule that invokes the Lambda function.
+--
 -- 'testMode', 'putEvaluations_testMode' - Use this parameter to specify a test run for @PutEvaluations@. You can
 -- verify whether your Lambda function will deliver evaluation results to
 -- Config. No updates occur to your existing evaluations, and evaluation
@@ -88,10 +92,6 @@ data PutEvaluations = PutEvaluations'
 --
 -- When @TestMode@ is @true@, @PutEvaluations@ doesn\'t require a valid
 -- value for the @ResultToken@ parameter, but the value cannot be null.
---
--- 'evaluations', 'putEvaluations_evaluations' - The assessments that the Lambda function performs. Each evaluation
--- identifies an Amazon Web Services resource and indicates whether it
--- complies with the Config rule that invokes the Lambda function.
 --
 -- 'resultToken', 'putEvaluations_resultToken' - An encrypted token that associates an evaluation with an Config rule.
 -- Identifies the rule and the event that triggered the evaluation.
@@ -101,10 +101,16 @@ newPutEvaluations ::
   PutEvaluations
 newPutEvaluations pResultToken_ =
   PutEvaluations'
-    { testMode = Prelude.Nothing,
-      evaluations = Prelude.Nothing,
+    { evaluations = Prelude.Nothing,
+      testMode = Prelude.Nothing,
       resultToken = pResultToken_
     }
+
+-- | The assessments that the Lambda function performs. Each evaluation
+-- identifies an Amazon Web Services resource and indicates whether it
+-- complies with the Config rule that invokes the Lambda function.
+putEvaluations_evaluations :: Lens.Lens' PutEvaluations (Prelude.Maybe [Evaluation])
+putEvaluations_evaluations = Lens.lens (\PutEvaluations' {evaluations} -> evaluations) (\s@PutEvaluations' {} a -> s {evaluations = a} :: PutEvaluations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use this parameter to specify a test run for @PutEvaluations@. You can
 -- verify whether your Lambda function will deliver evaluation results to
@@ -115,12 +121,6 @@ newPutEvaluations pResultToken_ =
 -- value for the @ResultToken@ parameter, but the value cannot be null.
 putEvaluations_testMode :: Lens.Lens' PutEvaluations (Prelude.Maybe Prelude.Bool)
 putEvaluations_testMode = Lens.lens (\PutEvaluations' {testMode} -> testMode) (\s@PutEvaluations' {} a -> s {testMode = a} :: PutEvaluations)
-
--- | The assessments that the Lambda function performs. Each evaluation
--- identifies an Amazon Web Services resource and indicates whether it
--- complies with the Config rule that invokes the Lambda function.
-putEvaluations_evaluations :: Lens.Lens' PutEvaluations (Prelude.Maybe [Evaluation])
-putEvaluations_evaluations = Lens.lens (\PutEvaluations' {evaluations} -> evaluations) (\s@PutEvaluations' {} a -> s {evaluations = a} :: PutEvaluations) Prelude.. Lens.mapping Lens.coerced
 
 -- | An encrypted token that associates an evaluation with an Config rule.
 -- Identifies the rule and the event that triggered the evaluation.
@@ -145,14 +145,14 @@ instance Core.AWSRequest PutEvaluations where
 
 instance Prelude.Hashable PutEvaluations where
   hashWithSalt _salt PutEvaluations' {..} =
-    _salt `Prelude.hashWithSalt` testMode
-      `Prelude.hashWithSalt` evaluations
+    _salt `Prelude.hashWithSalt` evaluations
+      `Prelude.hashWithSalt` testMode
       `Prelude.hashWithSalt` resultToken
 
 instance Prelude.NFData PutEvaluations where
   rnf PutEvaluations' {..} =
-    Prelude.rnf testMode
-      `Prelude.seq` Prelude.rnf evaluations
+    Prelude.rnf evaluations
+      `Prelude.seq` Prelude.rnf testMode
       `Prelude.seq` Prelude.rnf resultToken
 
 instance Data.ToHeaders PutEvaluations where
@@ -174,8 +174,8 @@ instance Data.ToJSON PutEvaluations where
   toJSON PutEvaluations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TestMode" Data..=) Prelude.<$> testMode,
-            ("Evaluations" Data..=) Prelude.<$> evaluations,
+          [ ("Evaluations" Data..=) Prelude.<$> evaluations,
+            ("TestMode" Data..=) Prelude.<$> testMode,
             Prelude.Just ("ResultToken" Data..= resultToken)
           ]
       )

@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComplianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-  { -- | The ID of the Amazon Web Services resource that was evaluated.
+  { -- | Indicates whether the Amazon Web Services resource complies with all of
+    -- the Config rules that evaluated it.
+    compliance :: Prelude.Maybe Compliance,
+    -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of the Amazon Web Services resource that was evaluated.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Amazon Web Services resource complies with all of
-    -- the Config rules that evaluated it.
-    compliance :: Prelude.Maybe Compliance
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,25 @@ data ComplianceByResource = ComplianceByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'compliance', 'complianceByResource_compliance' - Indicates whether the Amazon Web Services resource complies with all of
+-- the Config rules that evaluated it.
+--
 -- 'resourceId', 'complianceByResource_resourceId' - The ID of the Amazon Web Services resource that was evaluated.
 --
 -- 'resourceType', 'complianceByResource_resourceType' - The type of the Amazon Web Services resource that was evaluated.
---
--- 'compliance', 'complianceByResource_compliance' - Indicates whether the Amazon Web Services resource complies with all of
--- the Config rules that evaluated it.
 newComplianceByResource ::
   ComplianceByResource
 newComplianceByResource =
   ComplianceByResource'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      compliance = Prelude.Nothing
+    { compliance = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
+
+-- | Indicates whether the Amazon Web Services resource complies with all of
+-- the Config rules that evaluated it.
+complianceByResource_compliance :: Lens.Lens' ComplianceByResource (Prelude.Maybe Compliance)
+complianceByResource_compliance = Lens.lens (\ComplianceByResource' {compliance} -> compliance) (\s@ComplianceByResource' {} a -> s {compliance = a} :: ComplianceByResource)
 
 -- | The ID of the Amazon Web Services resource that was evaluated.
 complianceByResource_resourceId :: Lens.Lens' ComplianceByResource (Prelude.Maybe Prelude.Text)
@@ -74,30 +79,25 @@ complianceByResource_resourceId = Lens.lens (\ComplianceByResource' {resourceId}
 complianceByResource_resourceType :: Lens.Lens' ComplianceByResource (Prelude.Maybe Prelude.Text)
 complianceByResource_resourceType = Lens.lens (\ComplianceByResource' {resourceType} -> resourceType) (\s@ComplianceByResource' {} a -> s {resourceType = a} :: ComplianceByResource)
 
--- | Indicates whether the Amazon Web Services resource complies with all of
--- the Config rules that evaluated it.
-complianceByResource_compliance :: Lens.Lens' ComplianceByResource (Prelude.Maybe Compliance)
-complianceByResource_compliance = Lens.lens (\ComplianceByResource' {compliance} -> compliance) (\s@ComplianceByResource' {} a -> s {compliance = a} :: ComplianceByResource)
-
 instance Data.FromJSON ComplianceByResource where
   parseJSON =
     Data.withObject
       "ComplianceByResource"
       ( \x ->
           ComplianceByResource'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "Compliance")
+            Prelude.<*> (x Data..:? "ResourceId")
             Prelude.<*> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "Compliance")
       )
 
 instance Prelude.Hashable ComplianceByResource where
   hashWithSalt _salt ComplianceByResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` compliance
 
 instance Prelude.NFData ComplianceByResource where
   rnf ComplianceByResource' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf compliance

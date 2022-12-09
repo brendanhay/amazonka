@@ -23,8 +23,8 @@ module Amazonka.Config.Lens
 
     -- ** BatchGetResourceConfig
     batchGetResourceConfig_resourceKeys,
-    batchGetResourceConfigResponse_unprocessedResourceKeys,
     batchGetResourceConfigResponse_baseConfigurationItems,
+    batchGetResourceConfigResponse_unprocessedResourceKeys,
     batchGetResourceConfigResponse_httpStatus,
 
     -- ** DeleteAggregationAuthorization
@@ -88,78 +88,79 @@ module Amazonka.Config.Lens
     deliverConfigSnapshotResponse_httpStatus,
 
     -- ** DescribeAggregateComplianceByConfigRules
-    describeAggregateComplianceByConfigRules_nextToken,
     describeAggregateComplianceByConfigRules_filters,
     describeAggregateComplianceByConfigRules_limit,
+    describeAggregateComplianceByConfigRules_nextToken,
     describeAggregateComplianceByConfigRules_configurationAggregatorName,
-    describeAggregateComplianceByConfigRulesResponse_nextToken,
     describeAggregateComplianceByConfigRulesResponse_aggregateComplianceByConfigRules,
+    describeAggregateComplianceByConfigRulesResponse_nextToken,
     describeAggregateComplianceByConfigRulesResponse_httpStatus,
 
     -- ** DescribeAggregateComplianceByConformancePacks
-    describeAggregateComplianceByConformancePacks_nextToken,
     describeAggregateComplianceByConformancePacks_filters,
     describeAggregateComplianceByConformancePacks_limit,
+    describeAggregateComplianceByConformancePacks_nextToken,
     describeAggregateComplianceByConformancePacks_configurationAggregatorName,
-    describeAggregateComplianceByConformancePacksResponse_nextToken,
     describeAggregateComplianceByConformancePacksResponse_aggregateComplianceByConformancePacks,
+    describeAggregateComplianceByConformancePacksResponse_nextToken,
     describeAggregateComplianceByConformancePacksResponse_httpStatus,
 
     -- ** DescribeAggregationAuthorizations
-    describeAggregationAuthorizations_nextToken,
     describeAggregationAuthorizations_limit,
-    describeAggregationAuthorizationsResponse_nextToken,
+    describeAggregationAuthorizations_nextToken,
     describeAggregationAuthorizationsResponse_aggregationAuthorizations,
+    describeAggregationAuthorizationsResponse_nextToken,
     describeAggregationAuthorizationsResponse_httpStatus,
 
     -- ** DescribeComplianceByConfigRule
-    describeComplianceByConfigRule_nextToken,
     describeComplianceByConfigRule_complianceTypes,
     describeComplianceByConfigRule_configRuleNames,
-    describeComplianceByConfigRuleResponse_nextToken,
+    describeComplianceByConfigRule_nextToken,
     describeComplianceByConfigRuleResponse_complianceByConfigRules,
+    describeComplianceByConfigRuleResponse_nextToken,
     describeComplianceByConfigRuleResponse_httpStatus,
 
     -- ** DescribeComplianceByResource
-    describeComplianceByResource_resourceId,
-    describeComplianceByResource_resourceType,
-    describeComplianceByResource_nextToken,
     describeComplianceByResource_complianceTypes,
     describeComplianceByResource_limit,
-    describeComplianceByResourceResponse_nextToken,
+    describeComplianceByResource_nextToken,
+    describeComplianceByResource_resourceId,
+    describeComplianceByResource_resourceType,
     describeComplianceByResourceResponse_complianceByResources,
+    describeComplianceByResourceResponse_nextToken,
     describeComplianceByResourceResponse_httpStatus,
 
     -- ** DescribeConfigRuleEvaluationStatus
-    describeConfigRuleEvaluationStatus_nextToken,
     describeConfigRuleEvaluationStatus_configRuleNames,
     describeConfigRuleEvaluationStatus_limit,
-    describeConfigRuleEvaluationStatusResponse_nextToken,
+    describeConfigRuleEvaluationStatus_nextToken,
     describeConfigRuleEvaluationStatusResponse_configRulesEvaluationStatus,
+    describeConfigRuleEvaluationStatusResponse_nextToken,
     describeConfigRuleEvaluationStatusResponse_httpStatus,
 
     -- ** DescribeConfigRules
-    describeConfigRules_nextToken,
     describeConfigRules_configRuleNames,
+    describeConfigRules_filters,
+    describeConfigRules_nextToken,
     describeConfigRulesResponse_configRules,
     describeConfigRulesResponse_nextToken,
     describeConfigRulesResponse_httpStatus,
 
     -- ** DescribeConfigurationAggregatorSourcesStatus
+    describeConfigurationAggregatorSourcesStatus_limit,
     describeConfigurationAggregatorSourcesStatus_nextToken,
     describeConfigurationAggregatorSourcesStatus_updateStatus,
-    describeConfigurationAggregatorSourcesStatus_limit,
     describeConfigurationAggregatorSourcesStatus_configurationAggregatorName,
-    describeConfigurationAggregatorSourcesStatusResponse_nextToken,
     describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList,
+    describeConfigurationAggregatorSourcesStatusResponse_nextToken,
     describeConfigurationAggregatorSourcesStatusResponse_httpStatus,
 
     -- ** DescribeConfigurationAggregators
-    describeConfigurationAggregators_nextToken,
     describeConfigurationAggregators_configurationAggregatorNames,
     describeConfigurationAggregators_limit,
-    describeConfigurationAggregatorsResponse_nextToken,
+    describeConfigurationAggregators_nextToken,
     describeConfigurationAggregatorsResponse_configurationAggregators,
+    describeConfigurationAggregatorsResponse_nextToken,
     describeConfigurationAggregatorsResponse_httpStatus,
 
     -- ** DescribeConfigurationRecorderStatus
@@ -173,9 +174,9 @@ module Amazonka.Config.Lens
     describeConfigurationRecordersResponse_httpStatus,
 
     -- ** DescribeConformancePackCompliance
-    describeConformancePackCompliance_nextToken,
     describeConformancePackCompliance_filters,
     describeConformancePackCompliance_limit,
+    describeConformancePackCompliance_nextToken,
     describeConformancePackCompliance_conformancePackName,
     describeConformancePackComplianceResponse_nextToken,
     describeConformancePackComplianceResponse_httpStatus,
@@ -183,19 +184,19 @@ module Amazonka.Config.Lens
     describeConformancePackComplianceResponse_conformancePackRuleComplianceList,
 
     -- ** DescribeConformancePackStatus
-    describeConformancePackStatus_nextToken,
-    describeConformancePackStatus_limit,
     describeConformancePackStatus_conformancePackNames,
+    describeConformancePackStatus_limit,
+    describeConformancePackStatus_nextToken,
     describeConformancePackStatusResponse_conformancePackStatusDetails,
     describeConformancePackStatusResponse_nextToken,
     describeConformancePackStatusResponse_httpStatus,
 
     -- ** DescribeConformancePacks
-    describeConformancePacks_nextToken,
-    describeConformancePacks_limit,
     describeConformancePacks_conformancePackNames,
-    describeConformancePacksResponse_nextToken,
+    describeConformancePacks_limit,
+    describeConformancePacks_nextToken,
     describeConformancePacksResponse_conformancePackDetails,
+    describeConformancePacksResponse_nextToken,
     describeConformancePacksResponse_httpStatus,
 
     -- ** DescribeDeliveryChannelStatus
@@ -209,40 +210,40 @@ module Amazonka.Config.Lens
     describeDeliveryChannelsResponse_httpStatus,
 
     -- ** DescribeOrganizationConfigRuleStatuses
-    describeOrganizationConfigRuleStatuses_nextToken,
     describeOrganizationConfigRuleStatuses_limit,
+    describeOrganizationConfigRuleStatuses_nextToken,
     describeOrganizationConfigRuleStatuses_organizationConfigRuleNames,
     describeOrganizationConfigRuleStatusesResponse_nextToken,
     describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses,
     describeOrganizationConfigRuleStatusesResponse_httpStatus,
 
     -- ** DescribeOrganizationConfigRules
-    describeOrganizationConfigRules_nextToken,
     describeOrganizationConfigRules_limit,
+    describeOrganizationConfigRules_nextToken,
     describeOrganizationConfigRules_organizationConfigRuleNames,
     describeOrganizationConfigRulesResponse_nextToken,
     describeOrganizationConfigRulesResponse_organizationConfigRules,
     describeOrganizationConfigRulesResponse_httpStatus,
 
     -- ** DescribeOrganizationConformancePackStatuses
-    describeOrganizationConformancePackStatuses_organizationConformancePackNames,
-    describeOrganizationConformancePackStatuses_nextToken,
     describeOrganizationConformancePackStatuses_limit,
+    describeOrganizationConformancePackStatuses_nextToken,
+    describeOrganizationConformancePackStatuses_organizationConformancePackNames,
     describeOrganizationConformancePackStatusesResponse_nextToken,
     describeOrganizationConformancePackStatusesResponse_organizationConformancePackStatuses,
     describeOrganizationConformancePackStatusesResponse_httpStatus,
 
     -- ** DescribeOrganizationConformancePacks
-    describeOrganizationConformancePacks_organizationConformancePackNames,
-    describeOrganizationConformancePacks_nextToken,
     describeOrganizationConformancePacks_limit,
+    describeOrganizationConformancePacks_nextToken,
+    describeOrganizationConformancePacks_organizationConformancePackNames,
     describeOrganizationConformancePacksResponse_nextToken,
     describeOrganizationConformancePacksResponse_organizationConformancePacks,
     describeOrganizationConformancePacksResponse_httpStatus,
 
     -- ** DescribePendingAggregationRequests
-    describePendingAggregationRequests_nextToken,
     describePendingAggregationRequests_limit,
+    describePendingAggregationRequests_nextToken,
     describePendingAggregationRequestsResponse_nextToken,
     describePendingAggregationRequestsResponse_pendingAggregationRequests,
     describePendingAggregationRequestsResponse_httpStatus,
@@ -253,21 +254,21 @@ module Amazonka.Config.Lens
     describeRemediationConfigurationsResponse_httpStatus,
 
     -- ** DescribeRemediationExceptions
+    describeRemediationExceptions_limit,
     describeRemediationExceptions_nextToken,
     describeRemediationExceptions_resourceKeys,
-    describeRemediationExceptions_limit,
     describeRemediationExceptions_configRuleName,
     describeRemediationExceptionsResponse_nextToken,
     describeRemediationExceptionsResponse_remediationExceptions,
     describeRemediationExceptionsResponse_httpStatus,
 
     -- ** DescribeRemediationExecutionStatus
+    describeRemediationExecutionStatus_limit,
     describeRemediationExecutionStatus_nextToken,
     describeRemediationExecutionStatus_resourceKeys,
-    describeRemediationExecutionStatus_limit,
     describeRemediationExecutionStatus_configRuleName,
-    describeRemediationExecutionStatusResponse_remediationExecutionStatuses,
     describeRemediationExecutionStatusResponse_nextToken,
+    describeRemediationExecutionStatusResponse_remediationExecutionStatuses,
     describeRemediationExecutionStatusResponse_httpStatus,
 
     -- ** DescribeRetentionConfigurations
@@ -278,48 +279,48 @@ module Amazonka.Config.Lens
     describeRetentionConfigurationsResponse_httpStatus,
 
     -- ** GetAggregateComplianceDetailsByConfigRule
-    getAggregateComplianceDetailsByConfigRule_nextToken,
-    getAggregateComplianceDetailsByConfigRule_limit,
     getAggregateComplianceDetailsByConfigRule_complianceType,
+    getAggregateComplianceDetailsByConfigRule_limit,
+    getAggregateComplianceDetailsByConfigRule_nextToken,
     getAggregateComplianceDetailsByConfigRule_configurationAggregatorName,
     getAggregateComplianceDetailsByConfigRule_configRuleName,
     getAggregateComplianceDetailsByConfigRule_accountId,
     getAggregateComplianceDetailsByConfigRule_awsRegion,
-    getAggregateComplianceDetailsByConfigRuleResponse_nextToken,
     getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults,
+    getAggregateComplianceDetailsByConfigRuleResponse_nextToken,
     getAggregateComplianceDetailsByConfigRuleResponse_httpStatus,
 
     -- ** GetAggregateConfigRuleComplianceSummary
-    getAggregateConfigRuleComplianceSummary_nextToken,
     getAggregateConfigRuleComplianceSummary_filters,
     getAggregateConfigRuleComplianceSummary_groupByKey,
     getAggregateConfigRuleComplianceSummary_limit,
+    getAggregateConfigRuleComplianceSummary_nextToken,
     getAggregateConfigRuleComplianceSummary_configurationAggregatorName,
-    getAggregateConfigRuleComplianceSummaryResponse_nextToken,
     getAggregateConfigRuleComplianceSummaryResponse_aggregateComplianceCounts,
     getAggregateConfigRuleComplianceSummaryResponse_groupByKey,
+    getAggregateConfigRuleComplianceSummaryResponse_nextToken,
     getAggregateConfigRuleComplianceSummaryResponse_httpStatus,
 
     -- ** GetAggregateConformancePackComplianceSummary
-    getAggregateConformancePackComplianceSummary_nextToken,
     getAggregateConformancePackComplianceSummary_filters,
     getAggregateConformancePackComplianceSummary_groupByKey,
     getAggregateConformancePackComplianceSummary_limit,
+    getAggregateConformancePackComplianceSummary_nextToken,
     getAggregateConformancePackComplianceSummary_configurationAggregatorName,
-    getAggregateConformancePackComplianceSummaryResponse_nextToken,
-    getAggregateConformancePackComplianceSummaryResponse_groupByKey,
     getAggregateConformancePackComplianceSummaryResponse_aggregateConformancePackComplianceSummaries,
+    getAggregateConformancePackComplianceSummaryResponse_groupByKey,
+    getAggregateConformancePackComplianceSummaryResponse_nextToken,
     getAggregateConformancePackComplianceSummaryResponse_httpStatus,
 
     -- ** GetAggregateDiscoveredResourceCounts
-    getAggregateDiscoveredResourceCounts_nextToken,
     getAggregateDiscoveredResourceCounts_filters,
     getAggregateDiscoveredResourceCounts_groupByKey,
     getAggregateDiscoveredResourceCounts_limit,
+    getAggregateDiscoveredResourceCounts_nextToken,
     getAggregateDiscoveredResourceCounts_configurationAggregatorName,
-    getAggregateDiscoveredResourceCountsResponse_nextToken,
-    getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts,
     getAggregateDiscoveredResourceCountsResponse_groupByKey,
+    getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts,
+    getAggregateDiscoveredResourceCountsResponse_nextToken,
     getAggregateDiscoveredResourceCountsResponse_httpStatus,
     getAggregateDiscoveredResourceCountsResponse_totalDiscoveredResources,
 
@@ -330,19 +331,20 @@ module Amazonka.Config.Lens
     getAggregateResourceConfigResponse_httpStatus,
 
     -- ** GetComplianceDetailsByConfigRule
-    getComplianceDetailsByConfigRule_nextToken,
     getComplianceDetailsByConfigRule_complianceTypes,
     getComplianceDetailsByConfigRule_limit,
+    getComplianceDetailsByConfigRule_nextToken,
     getComplianceDetailsByConfigRule_configRuleName,
     getComplianceDetailsByConfigRuleResponse_evaluationResults,
     getComplianceDetailsByConfigRuleResponse_nextToken,
     getComplianceDetailsByConfigRuleResponse_httpStatus,
 
     -- ** GetComplianceDetailsByResource
-    getComplianceDetailsByResource_nextToken,
     getComplianceDetailsByResource_complianceTypes,
-    getComplianceDetailsByResource_resourceType,
+    getComplianceDetailsByResource_nextToken,
+    getComplianceDetailsByResource_resourceEvaluationId,
     getComplianceDetailsByResource_resourceId,
+    getComplianceDetailsByResource_resourceType,
     getComplianceDetailsByResourceResponse_evaluationResults,
     getComplianceDetailsByResourceResponse_nextToken,
     getComplianceDetailsByResourceResponse_httpStatus,
@@ -357,21 +359,21 @@ module Amazonka.Config.Lens
     getComplianceSummaryByResourceTypeResponse_httpStatus,
 
     -- ** GetConformancePackComplianceDetails
-    getConformancePackComplianceDetails_nextToken,
     getConformancePackComplianceDetails_filters,
     getConformancePackComplianceDetails_limit,
+    getConformancePackComplianceDetails_nextToken,
     getConformancePackComplianceDetails_conformancePackName,
-    getConformancePackComplianceDetailsResponse_nextToken,
     getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults,
+    getConformancePackComplianceDetailsResponse_nextToken,
     getConformancePackComplianceDetailsResponse_httpStatus,
     getConformancePackComplianceDetailsResponse_conformancePackName,
 
     -- ** GetConformancePackComplianceSummary
-    getConformancePackComplianceSummary_nextToken,
     getConformancePackComplianceSummary_limit,
+    getConformancePackComplianceSummary_nextToken,
     getConformancePackComplianceSummary_conformancePackNames,
-    getConformancePackComplianceSummaryResponse_nextToken,
     getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList,
+    getConformancePackComplianceSummaryResponse_nextToken,
     getConformancePackComplianceSummaryResponse_httpStatus,
 
     -- ** GetCustomRulePolicy
@@ -380,27 +382,27 @@ module Amazonka.Config.Lens
     getCustomRulePolicyResponse_httpStatus,
 
     -- ** GetDiscoveredResourceCounts
+    getDiscoveredResourceCounts_limit,
     getDiscoveredResourceCounts_nextToken,
     getDiscoveredResourceCounts_resourceTypes,
-    getDiscoveredResourceCounts_limit,
     getDiscoveredResourceCountsResponse_nextToken,
     getDiscoveredResourceCountsResponse_resourceCounts,
     getDiscoveredResourceCountsResponse_totalDiscoveredResources,
     getDiscoveredResourceCountsResponse_httpStatus,
 
     -- ** GetOrganizationConfigRuleDetailedStatus
-    getOrganizationConfigRuleDetailedStatus_nextToken,
     getOrganizationConfigRuleDetailedStatus_filters,
     getOrganizationConfigRuleDetailedStatus_limit,
+    getOrganizationConfigRuleDetailedStatus_nextToken,
     getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName,
     getOrganizationConfigRuleDetailedStatusResponse_nextToken,
     getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus,
     getOrganizationConfigRuleDetailedStatusResponse_httpStatus,
 
     -- ** GetOrganizationConformancePackDetailedStatus
-    getOrganizationConformancePackDetailedStatus_nextToken,
     getOrganizationConformancePackDetailedStatus_filters,
     getOrganizationConformancePackDetailedStatus_limit,
+    getOrganizationConformancePackDetailedStatus_nextToken,
     getOrganizationConformancePackDetailedStatus_organizationConformancePackName,
     getOrganizationConformancePackDetailedStatusResponse_nextToken,
     getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
@@ -412,16 +414,27 @@ module Amazonka.Config.Lens
     getOrganizationCustomRulePolicyResponse_httpStatus,
 
     -- ** GetResourceConfigHistory
-    getResourceConfigHistory_nextToken,
-    getResourceConfigHistory_earlierTime,
-    getResourceConfigHistory_limit,
-    getResourceConfigHistory_laterTime,
     getResourceConfigHistory_chronologicalOrder,
+    getResourceConfigHistory_earlierTime,
+    getResourceConfigHistory_laterTime,
+    getResourceConfigHistory_limit,
+    getResourceConfigHistory_nextToken,
     getResourceConfigHistory_resourceType,
     getResourceConfigHistory_resourceId,
-    getResourceConfigHistoryResponse_nextToken,
     getResourceConfigHistoryResponse_configurationItems,
+    getResourceConfigHistoryResponse_nextToken,
     getResourceConfigHistoryResponse_httpStatus,
+
+    -- ** GetResourceEvaluationSummary
+    getResourceEvaluationSummary_resourceEvaluationId,
+    getResourceEvaluationSummaryResponse_compliance,
+    getResourceEvaluationSummaryResponse_evaluationContext,
+    getResourceEvaluationSummaryResponse_evaluationMode,
+    getResourceEvaluationSummaryResponse_evaluationStartTimestamp,
+    getResourceEvaluationSummaryResponse_evaluationStatus,
+    getResourceEvaluationSummaryResponse_resourceDetails,
+    getResourceEvaluationSummaryResponse_resourceEvaluationId,
+    getResourceEvaluationSummaryResponse_httpStatus,
 
     -- ** GetStoredQuery
     getStoredQuery_queryName,
@@ -429,49 +442,57 @@ module Amazonka.Config.Lens
     getStoredQueryResponse_httpStatus,
 
     -- ** ListAggregateDiscoveredResources
-    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_filters,
     listAggregateDiscoveredResources_limit,
+    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_configurationAggregatorName,
     listAggregateDiscoveredResources_resourceType,
-    listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_nextToken,
+    listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_httpStatus,
 
     -- ** ListConformancePackComplianceScores
-    listConformancePackComplianceScores_sortOrder,
-    listConformancePackComplianceScores_nextToken,
     listConformancePackComplianceScores_filters,
-    listConformancePackComplianceScores_sortBy,
     listConformancePackComplianceScores_limit,
+    listConformancePackComplianceScores_nextToken,
+    listConformancePackComplianceScores_sortBy,
+    listConformancePackComplianceScores_sortOrder,
     listConformancePackComplianceScoresResponse_nextToken,
     listConformancePackComplianceScoresResponse_httpStatus,
     listConformancePackComplianceScoresResponse_conformancePackComplianceScores,
 
     -- ** ListDiscoveredResources
-    listDiscoveredResources_nextToken,
-    listDiscoveredResources_resourceName,
     listDiscoveredResources_includeDeletedResources,
-    listDiscoveredResources_resourceIds,
     listDiscoveredResources_limit,
+    listDiscoveredResources_nextToken,
+    listDiscoveredResources_resourceIds,
+    listDiscoveredResources_resourceName,
     listDiscoveredResources_resourceType,
-    listDiscoveredResourcesResponse_resourceIdentifiers,
     listDiscoveredResourcesResponse_nextToken,
+    listDiscoveredResourcesResponse_resourceIdentifiers,
     listDiscoveredResourcesResponse_httpStatus,
 
+    -- ** ListResourceEvaluations
+    listResourceEvaluations_filters,
+    listResourceEvaluations_limit,
+    listResourceEvaluations_nextToken,
+    listResourceEvaluationsResponse_nextToken,
+    listResourceEvaluationsResponse_resourceEvaluations,
+    listResourceEvaluationsResponse_httpStatus,
+
     -- ** ListStoredQueries
-    listStoredQueries_nextToken,
     listStoredQueries_maxResults,
+    listStoredQueries_nextToken,
     listStoredQueriesResponse_nextToken,
     listStoredQueriesResponse_storedQueryMetadata,
     listStoredQueriesResponse_httpStatus,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_limit,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** PutAggregationAuthorization
@@ -486,9 +507,9 @@ module Amazonka.Config.Lens
     putConfigRule_configRule,
 
     -- ** PutConfigurationAggregator
-    putConfigurationAggregator_tags,
     putConfigurationAggregator_accountAggregationSources,
     putConfigurationAggregator_organizationAggregationSource,
+    putConfigurationAggregator_tags,
     putConfigurationAggregator_configurationAggregatorName,
     putConfigurationAggregatorResponse_configurationAggregator,
     putConfigurationAggregatorResponse_httpStatus,
@@ -497,12 +518,12 @@ module Amazonka.Config.Lens
     putConfigurationRecorder_configurationRecorder,
 
     -- ** PutConformancePack
-    putConformancePack_templateS3Uri,
     putConformancePack_conformancePackInputParameters,
-    putConformancePack_templateBody,
     putConformancePack_deliveryS3Bucket,
-    putConformancePack_templateSSMDocumentDetails,
     putConformancePack_deliveryS3KeyPrefix,
+    putConformancePack_templateBody,
+    putConformancePack_templateS3Uri,
+    putConformancePack_templateSSMDocumentDetails,
     putConformancePack_conformancePackName,
     putConformancePackResponse_conformancePackArn,
     putConformancePackResponse_httpStatus,
@@ -511,8 +532,8 @@ module Amazonka.Config.Lens
     putDeliveryChannel_deliveryChannel,
 
     -- ** PutEvaluations
-    putEvaluations_testMode,
     putEvaluations_evaluations,
+    putEvaluations_testMode,
     putEvaluations_resultToken,
     putEvaluationsResponse_failedEvaluations,
     putEvaluationsResponse_httpStatus,
@@ -523,21 +544,21 @@ module Amazonka.Config.Lens
     putExternalEvaluationResponse_httpStatus,
 
     -- ** PutOrganizationConfigRule
-    putOrganizationConfigRule_organizationCustomPolicyRuleMetadata,
     putOrganizationConfigRule_excludedAccounts,
-    putOrganizationConfigRule_organizationManagedRuleMetadata,
+    putOrganizationConfigRule_organizationCustomPolicyRuleMetadata,
     putOrganizationConfigRule_organizationCustomRuleMetadata,
+    putOrganizationConfigRule_organizationManagedRuleMetadata,
     putOrganizationConfigRule_organizationConfigRuleName,
     putOrganizationConfigRuleResponse_organizationConfigRuleArn,
     putOrganizationConfigRuleResponse_httpStatus,
 
     -- ** PutOrganizationConformancePack
-    putOrganizationConformancePack_excludedAccounts,
-    putOrganizationConformancePack_templateS3Uri,
     putOrganizationConformancePack_conformancePackInputParameters,
-    putOrganizationConformancePack_templateBody,
     putOrganizationConformancePack_deliveryS3Bucket,
     putOrganizationConformancePack_deliveryS3KeyPrefix,
+    putOrganizationConformancePack_excludedAccounts,
+    putOrganizationConformancePack_templateBody,
+    putOrganizationConformancePack_templateS3Uri,
     putOrganizationConformancePack_organizationConformancePackName,
     putOrganizationConformancePackResponse_organizationConformancePackArn,
     putOrganizationConformancePackResponse_httpStatus,
@@ -548,16 +569,16 @@ module Amazonka.Config.Lens
     putRemediationConfigurationsResponse_httpStatus,
 
     -- ** PutRemediationExceptions
-    putRemediationExceptions_message,
     putRemediationExceptions_expirationTime,
+    putRemediationExceptions_message,
     putRemediationExceptions_configRuleName,
     putRemediationExceptions_resourceKeys,
     putRemediationExceptionsResponse_failedBatches,
     putRemediationExceptionsResponse_httpStatus,
 
     -- ** PutResourceConfig
-    putResourceConfig_tags,
     putResourceConfig_resourceName,
+    putResourceConfig_tags,
     putResourceConfig_resourceType,
     putResourceConfig_schemaVersionId,
     putResourceConfig_resourceId,
@@ -575,22 +596,22 @@ module Amazonka.Config.Lens
     putStoredQueryResponse_httpStatus,
 
     -- ** SelectAggregateResourceConfig
-    selectAggregateResourceConfig_nextToken,
     selectAggregateResourceConfig_limit,
     selectAggregateResourceConfig_maxResults,
+    selectAggregateResourceConfig_nextToken,
     selectAggregateResourceConfig_expression,
     selectAggregateResourceConfig_configurationAggregatorName,
-    selectAggregateResourceConfigResponse_queryInfo,
     selectAggregateResourceConfigResponse_nextToken,
+    selectAggregateResourceConfigResponse_queryInfo,
     selectAggregateResourceConfigResponse_results,
     selectAggregateResourceConfigResponse_httpStatus,
 
     -- ** SelectResourceConfig
-    selectResourceConfig_nextToken,
     selectResourceConfig_limit,
+    selectResourceConfig_nextToken,
     selectResourceConfig_expression,
-    selectResourceConfigResponse_queryInfo,
     selectResourceConfigResponse_nextToken,
+    selectResourceConfigResponse_queryInfo,
     selectResourceConfigResponse_results,
     selectResourceConfigResponse_httpStatus,
 
@@ -608,6 +629,15 @@ module Amazonka.Config.Lens
     startRemediationExecutionResponse_failureMessage,
     startRemediationExecutionResponse_httpStatus,
 
+    -- ** StartResourceEvaluation
+    startResourceEvaluation_clientToken,
+    startResourceEvaluation_evaluationContext,
+    startResourceEvaluation_evaluationTimeout,
+    startResourceEvaluation_resourceDetails,
+    startResourceEvaluation_evaluationMode,
+    startResourceEvaluationResponse_resourceEvaluationId,
+    startResourceEvaluationResponse_httpStatus,
+
     -- ** StopConfigurationRecorder
     stopConfigurationRecorder_configurationRecorderName,
 
@@ -622,58 +652,58 @@ module Amazonka.Config.Lens
     -- * Types
 
     -- ** AccountAggregationSource
-    accountAggregationSource_awsRegions,
     accountAggregationSource_allAwsRegions,
+    accountAggregationSource_awsRegions,
     accountAggregationSource_accountIds,
 
     -- ** AggregateComplianceByConfigRule
-    aggregateComplianceByConfigRule_configRuleName,
     aggregateComplianceByConfigRule_accountId,
     aggregateComplianceByConfigRule_awsRegion,
     aggregateComplianceByConfigRule_compliance,
+    aggregateComplianceByConfigRule_configRuleName,
 
     -- ** AggregateComplianceByConformancePack
-    aggregateComplianceByConformancePack_conformancePackName,
     aggregateComplianceByConformancePack_accountId,
     aggregateComplianceByConformancePack_awsRegion,
     aggregateComplianceByConformancePack_compliance,
+    aggregateComplianceByConformancePack_conformancePackName,
 
     -- ** AggregateComplianceCount
-    aggregateComplianceCount_groupName,
     aggregateComplianceCount_complianceSummary,
+    aggregateComplianceCount_groupName,
 
     -- ** AggregateConformancePackCompliance
+    aggregateConformancePackCompliance_complianceType,
+    aggregateConformancePackCompliance_compliantRuleCount,
     aggregateConformancePackCompliance_nonCompliantRuleCount,
     aggregateConformancePackCompliance_totalRuleCount,
-    aggregateConformancePackCompliance_compliantRuleCount,
-    aggregateConformancePackCompliance_complianceType,
 
     -- ** AggregateConformancePackComplianceCount
     aggregateConformancePackComplianceCount_compliantConformancePackCount,
     aggregateConformancePackComplianceCount_nonCompliantConformancePackCount,
 
     -- ** AggregateConformancePackComplianceFilters
-    aggregateConformancePackComplianceFilters_conformancePackName,
     aggregateConformancePackComplianceFilters_accountId,
     aggregateConformancePackComplianceFilters_awsRegion,
     aggregateConformancePackComplianceFilters_complianceType,
+    aggregateConformancePackComplianceFilters_conformancePackName,
 
     -- ** AggregateConformancePackComplianceSummary
-    aggregateConformancePackComplianceSummary_groupName,
     aggregateConformancePackComplianceSummary_complianceSummary,
+    aggregateConformancePackComplianceSummary_groupName,
 
     -- ** AggregateConformancePackComplianceSummaryFilters
     aggregateConformancePackComplianceSummaryFilters_accountId,
     aggregateConformancePackComplianceSummaryFilters_awsRegion,
 
     -- ** AggregateEvaluationResult
-    aggregateEvaluationResult_evaluationResultIdentifier,
-    aggregateEvaluationResult_configRuleInvokedTime,
-    aggregateEvaluationResult_resultRecordedTime,
-    aggregateEvaluationResult_annotation,
     aggregateEvaluationResult_accountId,
+    aggregateEvaluationResult_annotation,
     aggregateEvaluationResult_awsRegion,
     aggregateEvaluationResult_complianceType,
+    aggregateEvaluationResult_configRuleInvokedTime,
+    aggregateEvaluationResult_evaluationResultIdentifier,
+    aggregateEvaluationResult_resultRecordedTime,
 
     -- ** AggregateResourceIdentifier
     aggregateResourceIdentifier_resourceName,
@@ -683,170 +713,171 @@ module Amazonka.Config.Lens
     aggregateResourceIdentifier_resourceType,
 
     -- ** AggregatedSourceStatus
-    aggregatedSourceStatus_lastErrorCode,
-    aggregatedSourceStatus_sourceId,
-    aggregatedSourceStatus_sourceType,
     aggregatedSourceStatus_awsRegion,
+    aggregatedSourceStatus_lastErrorCode,
+    aggregatedSourceStatus_lastErrorMessage,
     aggregatedSourceStatus_lastUpdateStatus,
     aggregatedSourceStatus_lastUpdateTime,
-    aggregatedSourceStatus_lastErrorMessage,
+    aggregatedSourceStatus_sourceId,
+    aggregatedSourceStatus_sourceType,
 
     -- ** AggregationAuthorization
-    aggregationAuthorization_authorizedAwsRegion,
-    aggregationAuthorization_authorizedAccountId,
     aggregationAuthorization_aggregationAuthorizationArn,
+    aggregationAuthorization_authorizedAccountId,
+    aggregationAuthorization_authorizedAwsRegion,
     aggregationAuthorization_creationTime,
 
     -- ** BaseConfigurationItem
-    baseConfigurationItem_resourceId,
-    baseConfigurationItem_resourceType,
-    baseConfigurationItem_resourceName,
-    baseConfigurationItem_resourceCreationTime,
-    baseConfigurationItem_supplementaryConfiguration,
-    baseConfigurationItem_configurationStateId,
-    baseConfigurationItem_configuration,
-    baseConfigurationItem_arn,
-    baseConfigurationItem_configurationItemStatus,
-    baseConfigurationItem_availabilityZone,
     baseConfigurationItem_accountId,
+    baseConfigurationItem_arn,
+    baseConfigurationItem_availabilityZone,
     baseConfigurationItem_awsRegion,
-    baseConfigurationItem_version,
+    baseConfigurationItem_configuration,
     baseConfigurationItem_configurationItemCaptureTime,
+    baseConfigurationItem_configurationItemStatus,
+    baseConfigurationItem_configurationStateId,
+    baseConfigurationItem_resourceCreationTime,
+    baseConfigurationItem_resourceId,
+    baseConfigurationItem_resourceName,
+    baseConfigurationItem_resourceType,
+    baseConfigurationItem_supplementaryConfiguration,
+    baseConfigurationItem_version,
 
     -- ** Compliance
     compliance_complianceContributorCount,
     compliance_complianceType,
 
     -- ** ComplianceByConfigRule
-    complianceByConfigRule_configRuleName,
     complianceByConfigRule_compliance,
+    complianceByConfigRule_configRuleName,
 
     -- ** ComplianceByResource
+    complianceByResource_compliance,
     complianceByResource_resourceId,
     complianceByResource_resourceType,
-    complianceByResource_compliance,
 
     -- ** ComplianceContributorCount
-    complianceContributorCount_cappedCount,
     complianceContributorCount_capExceeded,
+    complianceContributorCount_cappedCount,
 
     -- ** ComplianceSummary
-    complianceSummary_compliantResourceCount,
     complianceSummary_complianceSummaryTimestamp,
+    complianceSummary_compliantResourceCount,
     complianceSummary_nonCompliantResourceCount,
 
     -- ** ComplianceSummaryByResourceType
-    complianceSummaryByResourceType_resourceType,
     complianceSummaryByResourceType_complianceSummary,
+    complianceSummaryByResourceType_resourceType,
 
     -- ** ConfigExportDeliveryInfo
+    configExportDeliveryInfo_lastAttemptTime,
     configExportDeliveryInfo_lastErrorCode,
-    configExportDeliveryInfo_nextDeliveryTime,
+    configExportDeliveryInfo_lastErrorMessage,
     configExportDeliveryInfo_lastStatus,
     configExportDeliveryInfo_lastSuccessfulTime,
-    configExportDeliveryInfo_lastErrorMessage,
-    configExportDeliveryInfo_lastAttemptTime,
+    configExportDeliveryInfo_nextDeliveryTime,
 
     -- ** ConfigRule
-    configRule_maximumExecutionFrequency,
-    configRule_inputParameters,
     configRule_configRuleArn,
-    configRule_description,
     configRule_configRuleId,
     configRule_configRuleName,
-    configRule_scope,
     configRule_configRuleState,
     configRule_createdBy,
+    configRule_description,
+    configRule_evaluationModes,
+    configRule_inputParameters,
+    configRule_maximumExecutionFrequency,
+    configRule_scope,
     configRule_source,
 
     -- ** ConfigRuleComplianceFilters
-    configRuleComplianceFilters_configRuleName,
     configRuleComplianceFilters_accountId,
     configRuleComplianceFilters_awsRegion,
     configRuleComplianceFilters_complianceType,
+    configRuleComplianceFilters_configRuleName,
 
     -- ** ConfigRuleComplianceSummaryFilters
     configRuleComplianceSummaryFilters_accountId,
     configRuleComplianceSummaryFilters_awsRegion,
 
     -- ** ConfigRuleEvaluationStatus
-    configRuleEvaluationStatus_lastDebugLogDeliveryStatus,
-    configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason,
-    configRuleEvaluationStatus_firstEvaluationStarted,
-    configRuleEvaluationStatus_lastErrorCode,
-    configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
-    configRuleEvaluationStatus_lastFailedEvaluationTime,
-    configRuleEvaluationStatus_lastFailedInvocationTime,
-    configRuleEvaluationStatus_lastDeactivatedTime,
     configRuleEvaluationStatus_configRuleArn,
-    configRuleEvaluationStatus_firstActivatedTime,
     configRuleEvaluationStatus_configRuleId,
     configRuleEvaluationStatus_configRuleName,
+    configRuleEvaluationStatus_firstActivatedTime,
+    configRuleEvaluationStatus_firstEvaluationStarted,
+    configRuleEvaluationStatus_lastDeactivatedTime,
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatus,
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason,
     configRuleEvaluationStatus_lastDebugLogDeliveryTime,
-    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
+    configRuleEvaluationStatus_lastErrorCode,
     configRuleEvaluationStatus_lastErrorMessage,
+    configRuleEvaluationStatus_lastFailedEvaluationTime,
+    configRuleEvaluationStatus_lastFailedInvocationTime,
+    configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
+    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
 
     -- ** ConfigSnapshotDeliveryProperties
     configSnapshotDeliveryProperties_deliveryFrequency,
 
     -- ** ConfigStreamDeliveryInfo
     configStreamDeliveryInfo_lastErrorCode,
+    configStreamDeliveryInfo_lastErrorMessage,
     configStreamDeliveryInfo_lastStatus,
     configStreamDeliveryInfo_lastStatusChangeTime,
-    configStreamDeliveryInfo_lastErrorMessage,
 
     -- ** ConfigurationAggregator
-    configurationAggregator_configurationAggregatorArn,
     configurationAggregator_accountAggregationSources,
-    configurationAggregator_lastUpdatedTime,
+    configurationAggregator_configurationAggregatorArn,
     configurationAggregator_configurationAggregatorName,
-    configurationAggregator_organizationAggregationSource,
-    configurationAggregator_creationTime,
     configurationAggregator_createdBy,
+    configurationAggregator_creationTime,
+    configurationAggregator_lastUpdatedTime,
+    configurationAggregator_organizationAggregationSource,
 
     -- ** ConfigurationItem
-    configurationItem_tags,
-    configurationItem_resourceId,
-    configurationItem_resourceType,
-    configurationItem_resourceName,
-    configurationItem_resourceCreationTime,
-    configurationItem_supplementaryConfiguration,
-    configurationItem_configurationStateId,
-    configurationItem_configurationItemMD5Hash,
-    configurationItem_configuration,
-    configurationItem_arn,
-    configurationItem_configurationItemStatus,
-    configurationItem_availabilityZone,
     configurationItem_accountId,
+    configurationItem_arn,
+    configurationItem_availabilityZone,
     configurationItem_awsRegion,
+    configurationItem_configuration,
+    configurationItem_configurationItemCaptureTime,
+    configurationItem_configurationItemMD5Hash,
+    configurationItem_configurationItemStatus,
+    configurationItem_configurationStateId,
     configurationItem_relatedEvents,
     configurationItem_relationships,
+    configurationItem_resourceCreationTime,
+    configurationItem_resourceId,
+    configurationItem_resourceName,
+    configurationItem_resourceType,
+    configurationItem_supplementaryConfiguration,
+    configurationItem_tags,
     configurationItem_version,
-    configurationItem_configurationItemCaptureTime,
 
     -- ** ConfigurationRecorder
     configurationRecorder_name,
-    configurationRecorder_roleARN,
     configurationRecorder_recordingGroup,
+    configurationRecorder_roleARN,
 
     -- ** ConfigurationRecorderStatus
-    configurationRecorderStatus_name,
     configurationRecorderStatus_lastErrorCode,
+    configurationRecorderStatus_lastErrorMessage,
     configurationRecorderStatus_lastStartTime,
     configurationRecorderStatus_lastStatus,
     configurationRecorderStatus_lastStatusChangeTime,
-    configurationRecorderStatus_recording,
     configurationRecorderStatus_lastStopTime,
-    configurationRecorderStatus_lastErrorMessage,
+    configurationRecorderStatus_name,
+    configurationRecorderStatus_recording,
 
     -- ** ConformancePackComplianceFilters
-    conformancePackComplianceFilters_configRuleNames,
     conformancePackComplianceFilters_complianceType,
+    conformancePackComplianceFilters_configRuleNames,
 
     -- ** ConformancePackComplianceScore
-    conformancePackComplianceScore_score,
     conformancePackComplianceScore_conformancePackName,
     conformancePackComplianceScore_lastUpdatedTime,
+    conformancePackComplianceScore_score,
 
     -- ** ConformancePackComplianceScoresFilters
     conformancePackComplianceScoresFilters_conformancePackNames,
@@ -856,21 +887,21 @@ module Amazonka.Config.Lens
     conformancePackComplianceSummary_conformancePackComplianceStatus,
 
     -- ** ConformancePackDetail
-    conformancePackDetail_lastUpdateRequestedTime,
     conformancePackDetail_conformancePackInputParameters,
-    conformancePackDetail_deliveryS3Bucket,
-    conformancePackDetail_templateSSMDocumentDetails,
     conformancePackDetail_createdBy,
+    conformancePackDetail_deliveryS3Bucket,
     conformancePackDetail_deliveryS3KeyPrefix,
+    conformancePackDetail_lastUpdateRequestedTime,
+    conformancePackDetail_templateSSMDocumentDetails,
     conformancePackDetail_conformancePackName,
     conformancePackDetail_conformancePackArn,
     conformancePackDetail_conformancePackId,
 
     -- ** ConformancePackEvaluationFilters
-    conformancePackEvaluationFilters_resourceType,
-    conformancePackEvaluationFilters_resourceIds,
-    conformancePackEvaluationFilters_configRuleNames,
     conformancePackEvaluationFilters_complianceType,
+    conformancePackEvaluationFilters_configRuleNames,
+    conformancePackEvaluationFilters_resourceIds,
+    conformancePackEvaluationFilters_resourceType,
 
     -- ** ConformancePackEvaluationResult
     conformancePackEvaluationResult_annotation,
@@ -884,9 +915,9 @@ module Amazonka.Config.Lens
     conformancePackInputParameter_parameterValue,
 
     -- ** ConformancePackRuleCompliance
+    conformancePackRuleCompliance_complianceType,
     conformancePackRuleCompliance_configRuleName,
     conformancePackRuleCompliance_controls,
-    conformancePackRuleCompliance_complianceType,
 
     -- ** ConformancePackStatusDetail
     conformancePackStatusDetail_conformancePackStatusReason,
@@ -904,18 +935,21 @@ module Amazonka.Config.Lens
     customPolicyDetails_policyText,
 
     -- ** DeliveryChannel
-    deliveryChannel_s3KeyPrefix,
+    deliveryChannel_configSnapshotDeliveryProperties,
     deliveryChannel_name,
     deliveryChannel_s3BucketName,
-    deliveryChannel_snsTopicARN,
-    deliveryChannel_configSnapshotDeliveryProperties,
+    deliveryChannel_s3KeyPrefix,
     deliveryChannel_s3KmsKeyArn,
+    deliveryChannel_snsTopicARN,
 
     -- ** DeliveryChannelStatus
-    deliveryChannelStatus_name,
     deliveryChannelStatus_configHistoryDeliveryInfo,
     deliveryChannelStatus_configSnapshotDeliveryInfo,
     deliveryChannelStatus_configStreamDeliveryInfo,
+    deliveryChannelStatus_name,
+
+    -- ** DescribeConfigRulesFilters
+    describeConfigRulesFilters_evaluationMode,
 
     -- ** Evaluation
     evaluation_annotation,
@@ -924,22 +958,34 @@ module Amazonka.Config.Lens
     evaluation_complianceType,
     evaluation_orderingTimestamp,
 
+    -- ** EvaluationContext
+    evaluationContext_evaluationContextIdentifier,
+
+    -- ** EvaluationModeConfiguration
+    evaluationModeConfiguration_mode,
+
     -- ** EvaluationResult
-    evaluationResult_evaluationResultIdentifier,
-    evaluationResult_configRuleInvokedTime,
-    evaluationResult_resultToken,
-    evaluationResult_resultRecordedTime,
     evaluationResult_annotation,
     evaluationResult_complianceType,
+    evaluationResult_configRuleInvokedTime,
+    evaluationResult_evaluationResultIdentifier,
+    evaluationResult_resultRecordedTime,
+    evaluationResult_resultToken,
 
     -- ** EvaluationResultIdentifier
-    evaluationResultIdentifier_orderingTimestamp,
     evaluationResultIdentifier_evaluationResultQualifier,
+    evaluationResultIdentifier_orderingTimestamp,
+    evaluationResultIdentifier_resourceEvaluationId,
 
     -- ** EvaluationResultQualifier
+    evaluationResultQualifier_configRuleName,
+    evaluationResultQualifier_evaluationMode,
     evaluationResultQualifier_resourceId,
     evaluationResultQualifier_resourceType,
-    evaluationResultQualifier_configRuleName,
+
+    -- ** EvaluationStatus
+    evaluationStatus_failureReason,
+    evaluationStatus_status,
 
     -- ** ExecutionControls
     executionControls_ssmControls,
@@ -971,143 +1017,143 @@ module Amazonka.Config.Lens
     groupedResourceCount_resourceCount,
 
     -- ** MemberAccountStatus
-    memberAccountStatus_errorMessage,
     memberAccountStatus_errorCode,
+    memberAccountStatus_errorMessage,
     memberAccountStatus_lastUpdateTime,
     memberAccountStatus_accountId,
     memberAccountStatus_configRuleName,
     memberAccountStatus_memberAccountRuleStatus,
 
     -- ** OrganizationAggregationSource
-    organizationAggregationSource_awsRegions,
     organizationAggregationSource_allAwsRegions,
+    organizationAggregationSource_awsRegions,
     organizationAggregationSource_roleArn,
 
     -- ** OrganizationConfigRule
-    organizationConfigRule_organizationCustomPolicyRuleMetadata,
     organizationConfigRule_excludedAccounts,
     organizationConfigRule_lastUpdateTime,
-    organizationConfigRule_organizationManagedRuleMetadata,
+    organizationConfigRule_organizationCustomPolicyRuleMetadata,
     organizationConfigRule_organizationCustomRuleMetadata,
+    organizationConfigRule_organizationManagedRuleMetadata,
     organizationConfigRule_organizationConfigRuleName,
     organizationConfigRule_organizationConfigRuleArn,
 
     -- ** OrganizationConfigRuleStatus
-    organizationConfigRuleStatus_errorMessage,
     organizationConfigRuleStatus_errorCode,
+    organizationConfigRuleStatus_errorMessage,
     organizationConfigRuleStatus_lastUpdateTime,
     organizationConfigRuleStatus_organizationConfigRuleName,
     organizationConfigRuleStatus_organizationRuleStatus,
 
     -- ** OrganizationConformancePack
-    organizationConformancePack_excludedAccounts,
     organizationConformancePack_conformancePackInputParameters,
     organizationConformancePack_deliveryS3Bucket,
     organizationConformancePack_deliveryS3KeyPrefix,
+    organizationConformancePack_excludedAccounts,
     organizationConformancePack_organizationConformancePackName,
     organizationConformancePack_organizationConformancePackArn,
     organizationConformancePack_lastUpdateTime,
 
     -- ** OrganizationConformancePackDetailedStatus
-    organizationConformancePackDetailedStatus_errorMessage,
     organizationConformancePackDetailedStatus_errorCode,
+    organizationConformancePackDetailedStatus_errorMessage,
     organizationConformancePackDetailedStatus_lastUpdateTime,
     organizationConformancePackDetailedStatus_accountId,
     organizationConformancePackDetailedStatus_conformancePackName,
     organizationConformancePackDetailedStatus_status,
 
     -- ** OrganizationConformancePackStatus
-    organizationConformancePackStatus_errorMessage,
     organizationConformancePackStatus_errorCode,
+    organizationConformancePackStatus_errorMessage,
     organizationConformancePackStatus_lastUpdateTime,
     organizationConformancePackStatus_organizationConformancePackName,
     organizationConformancePackStatus_status,
 
     -- ** OrganizationCustomPolicyRuleMetadata
-    organizationCustomPolicyRuleMetadata_maximumExecutionFrequency,
-    organizationCustomPolicyRuleMetadata_resourceTypesScope,
-    organizationCustomPolicyRuleMetadata_inputParameters,
-    organizationCustomPolicyRuleMetadata_tagValueScope,
-    organizationCustomPolicyRuleMetadata_resourceIdScope,
     organizationCustomPolicyRuleMetadata_debugLogDeliveryAccounts,
     organizationCustomPolicyRuleMetadata_description,
+    organizationCustomPolicyRuleMetadata_inputParameters,
+    organizationCustomPolicyRuleMetadata_maximumExecutionFrequency,
     organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes,
+    organizationCustomPolicyRuleMetadata_resourceIdScope,
+    organizationCustomPolicyRuleMetadata_resourceTypesScope,
     organizationCustomPolicyRuleMetadata_tagKeyScope,
+    organizationCustomPolicyRuleMetadata_tagValueScope,
     organizationCustomPolicyRuleMetadata_policyRuntime,
     organizationCustomPolicyRuleMetadata_policyText,
 
     -- ** OrganizationCustomPolicyRuleMetadataNoPolicy
-    organizationCustomPolicyRuleMetadataNoPolicy_maximumExecutionFrequency,
-    organizationCustomPolicyRuleMetadataNoPolicy_resourceTypesScope,
-    organizationCustomPolicyRuleMetadataNoPolicy_inputParameters,
-    organizationCustomPolicyRuleMetadataNoPolicy_tagValueScope,
-    organizationCustomPolicyRuleMetadataNoPolicy_resourceIdScope,
     organizationCustomPolicyRuleMetadataNoPolicy_debugLogDeliveryAccounts,
     organizationCustomPolicyRuleMetadataNoPolicy_description,
+    organizationCustomPolicyRuleMetadataNoPolicy_inputParameters,
+    organizationCustomPolicyRuleMetadataNoPolicy_maximumExecutionFrequency,
     organizationCustomPolicyRuleMetadataNoPolicy_organizationConfigRuleTriggerTypes,
     organizationCustomPolicyRuleMetadataNoPolicy_policyRuntime,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceIdScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceTypesScope,
     organizationCustomPolicyRuleMetadataNoPolicy_tagKeyScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_tagValueScope,
 
     -- ** OrganizationCustomRuleMetadata
-    organizationCustomRuleMetadata_maximumExecutionFrequency,
-    organizationCustomRuleMetadata_resourceTypesScope,
-    organizationCustomRuleMetadata_inputParameters,
-    organizationCustomRuleMetadata_tagValueScope,
-    organizationCustomRuleMetadata_resourceIdScope,
     organizationCustomRuleMetadata_description,
+    organizationCustomRuleMetadata_inputParameters,
+    organizationCustomRuleMetadata_maximumExecutionFrequency,
+    organizationCustomRuleMetadata_resourceIdScope,
+    organizationCustomRuleMetadata_resourceTypesScope,
     organizationCustomRuleMetadata_tagKeyScope,
+    organizationCustomRuleMetadata_tagValueScope,
     organizationCustomRuleMetadata_lambdaFunctionArn,
     organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes,
 
     -- ** OrganizationManagedRuleMetadata
-    organizationManagedRuleMetadata_maximumExecutionFrequency,
-    organizationManagedRuleMetadata_resourceTypesScope,
-    organizationManagedRuleMetadata_inputParameters,
-    organizationManagedRuleMetadata_tagValueScope,
-    organizationManagedRuleMetadata_resourceIdScope,
     organizationManagedRuleMetadata_description,
+    organizationManagedRuleMetadata_inputParameters,
+    organizationManagedRuleMetadata_maximumExecutionFrequency,
+    organizationManagedRuleMetadata_resourceIdScope,
+    organizationManagedRuleMetadata_resourceTypesScope,
     organizationManagedRuleMetadata_tagKeyScope,
+    organizationManagedRuleMetadata_tagValueScope,
     organizationManagedRuleMetadata_ruleIdentifier,
 
     -- ** OrganizationResourceDetailedStatusFilters
-    organizationResourceDetailedStatusFilters_status,
     organizationResourceDetailedStatusFilters_accountId,
+    organizationResourceDetailedStatusFilters_status,
 
     -- ** PendingAggregationRequest
-    pendingAggregationRequest_requesterAwsRegion,
     pendingAggregationRequest_requesterAccountId,
+    pendingAggregationRequest_requesterAwsRegion,
 
     -- ** QueryInfo
     queryInfo_selectFields,
 
     -- ** RecordingGroup
+    recordingGroup_allSupported,
     recordingGroup_includeGlobalResourceTypes,
     recordingGroup_resourceTypes,
-    recordingGroup_allSupported,
 
     -- ** Relationship
-    relationship_resourceId,
-    relationship_resourceType,
-    relationship_resourceName,
     relationship_relationshipName,
+    relationship_resourceId,
+    relationship_resourceName,
+    relationship_resourceType,
 
     -- ** RemediationConfiguration
-    remediationConfiguration_resourceType,
-    remediationConfiguration_maximumAutomaticAttempts,
     remediationConfiguration_arn,
-    remediationConfiguration_executionControls,
     remediationConfiguration_automatic,
-    remediationConfiguration_targetVersion,
     remediationConfiguration_createdByService,
-    remediationConfiguration_retryAttemptSeconds,
+    remediationConfiguration_executionControls,
+    remediationConfiguration_maximumAutomaticAttempts,
     remediationConfiguration_parameters,
+    remediationConfiguration_resourceType,
+    remediationConfiguration_retryAttemptSeconds,
+    remediationConfiguration_targetVersion,
     remediationConfiguration_configRuleName,
     remediationConfiguration_targetType,
     remediationConfiguration_targetId,
 
     -- ** RemediationException
-    remediationException_message,
     remediationException_expirationTime,
+    remediationException_message,
     remediationException_configRuleName,
     remediationException_resourceType,
     remediationException_resourceId,
@@ -1117,43 +1163,59 @@ module Amazonka.Config.Lens
     remediationExceptionResourceKey_resourceType,
 
     -- ** RemediationExecutionStatus
-    remediationExecutionStatus_stepDetails,
     remediationExecutionStatus_invocationTime,
-    remediationExecutionStatus_state,
     remediationExecutionStatus_lastUpdatedTime,
     remediationExecutionStatus_resourceKey,
+    remediationExecutionStatus_state,
+    remediationExecutionStatus_stepDetails,
 
     -- ** RemediationExecutionStep
-    remediationExecutionStep_name,
     remediationExecutionStep_errorMessage,
-    remediationExecutionStep_stopTime,
-    remediationExecutionStep_state,
+    remediationExecutionStep_name,
     remediationExecutionStep_startTime,
+    remediationExecutionStep_state,
+    remediationExecutionStep_stopTime,
 
     -- ** RemediationParameterValue
-    remediationParameterValue_staticValue,
     remediationParameterValue_resourceValue,
+    remediationParameterValue_staticValue,
 
     -- ** ResourceCount
-    resourceCount_resourceType,
     resourceCount_count,
+    resourceCount_resourceType,
 
     -- ** ResourceCountFilters
-    resourceCountFilters_resourceType,
-    resourceCountFilters_region,
     resourceCountFilters_accountId,
+    resourceCountFilters_region,
+    resourceCountFilters_resourceType,
+
+    -- ** ResourceDetails
+    resourceDetails_resourceConfigurationSchemaType,
+    resourceDetails_resourceId,
+    resourceDetails_resourceType,
+    resourceDetails_resourceConfiguration,
+
+    -- ** ResourceEvaluation
+    resourceEvaluation_evaluationMode,
+    resourceEvaluation_evaluationStartTimestamp,
+    resourceEvaluation_resourceEvaluationId,
+
+    -- ** ResourceEvaluationFilters
+    resourceEvaluationFilters_evaluationContextIdentifier,
+    resourceEvaluationFilters_evaluationMode,
+    resourceEvaluationFilters_timeWindow,
 
     -- ** ResourceFilters
+    resourceFilters_accountId,
+    resourceFilters_region,
     resourceFilters_resourceId,
     resourceFilters_resourceName,
-    resourceFilters_region,
-    resourceFilters_accountId,
 
     -- ** ResourceIdentifier
-    resourceIdentifier_resourceId,
-    resourceIdentifier_resourceType,
-    resourceIdentifier_resourceName,
     resourceIdentifier_resourceDeletionTime,
+    resourceIdentifier_resourceId,
+    resourceIdentifier_resourceName,
+    resourceIdentifier_resourceType,
 
     -- ** ResourceKey
     resourceKey_resourceType,
@@ -1167,10 +1229,10 @@ module Amazonka.Config.Lens
     retentionConfiguration_retentionPeriodInDays,
 
     -- ** Scope
-    scope_tagValue,
-    scope_tagKey,
     scope_complianceResourceId,
     scope_complianceResourceTypes,
+    scope_tagKey,
+    scope_tagValue,
 
     -- ** Source
     source_customPolicyDetails,
@@ -1179,9 +1241,9 @@ module Amazonka.Config.Lens
     source_owner,
 
     -- ** SourceDetail
+    sourceDetail_eventSource,
     sourceDetail_maximumExecutionFrequency,
     sourceDetail_messageType,
-    sourceDetail_eventSource,
 
     -- ** SsmControls
     ssmControls_concurrentExecutionRatePercentage,
@@ -1191,14 +1253,14 @@ module Amazonka.Config.Lens
     staticValue_values,
 
     -- ** StatusDetailFilters
-    statusDetailFilters_memberAccountRuleStatus,
     statusDetailFilters_accountId,
+    statusDetailFilters_memberAccountRuleStatus,
 
     -- ** StoredQuery
-    storedQuery_queryId,
     storedQuery_description,
     storedQuery_expression,
     storedQuery_queryArn,
+    storedQuery_queryId,
     storedQuery_queryName,
 
     -- ** StoredQueryMetadata
@@ -1214,6 +1276,10 @@ module Amazonka.Config.Lens
     -- ** TemplateSSMDocumentDetails
     templateSSMDocumentDetails_documentVersion,
     templateSSMDocumentDetails_documentName,
+
+    -- ** TimeWindow
+    timeWindow_endTime,
+    timeWindow_startTime,
   )
 where
 
@@ -1277,10 +1343,12 @@ import Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
 import Amazonka.Config.GetOrganizationConformancePackDetailedStatus
 import Amazonka.Config.GetOrganizationCustomRulePolicy
 import Amazonka.Config.GetResourceConfigHistory
+import Amazonka.Config.GetResourceEvaluationSummary
 import Amazonka.Config.GetStoredQuery
 import Amazonka.Config.ListAggregateDiscoveredResources
 import Amazonka.Config.ListConformancePackComplianceScores
 import Amazonka.Config.ListDiscoveredResources
+import Amazonka.Config.ListResourceEvaluations
 import Amazonka.Config.ListStoredQueries
 import Amazonka.Config.ListTagsForResource
 import Amazonka.Config.PutAggregationAuthorization
@@ -1303,6 +1371,7 @@ import Amazonka.Config.SelectResourceConfig
 import Amazonka.Config.StartConfigRulesEvaluation
 import Amazonka.Config.StartConfigurationRecorder
 import Amazonka.Config.StartRemediationExecution
+import Amazonka.Config.StartResourceEvaluation
 import Amazonka.Config.StopConfigurationRecorder
 import Amazonka.Config.TagResource
 import Amazonka.Config.Types.AccountAggregationSource
@@ -1349,10 +1418,14 @@ import Amazonka.Config.Types.ConformancePackStatusDetail
 import Amazonka.Config.Types.CustomPolicyDetails
 import Amazonka.Config.Types.DeliveryChannel
 import Amazonka.Config.Types.DeliveryChannelStatus
+import Amazonka.Config.Types.DescribeConfigRulesFilters
 import Amazonka.Config.Types.Evaluation
+import Amazonka.Config.Types.EvaluationContext
+import Amazonka.Config.Types.EvaluationModeConfiguration
 import Amazonka.Config.Types.EvaluationResult
 import Amazonka.Config.Types.EvaluationResultIdentifier
 import Amazonka.Config.Types.EvaluationResultQualifier
+import Amazonka.Config.Types.EvaluationStatus
 import Amazonka.Config.Types.ExecutionControls
 import Amazonka.Config.Types.ExternalEvaluation
 import Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch
@@ -1384,6 +1457,9 @@ import Amazonka.Config.Types.RemediationExecutionStep
 import Amazonka.Config.Types.RemediationParameterValue
 import Amazonka.Config.Types.ResourceCount
 import Amazonka.Config.Types.ResourceCountFilters
+import Amazonka.Config.Types.ResourceDetails
+import Amazonka.Config.Types.ResourceEvaluation
+import Amazonka.Config.Types.ResourceEvaluationFilters
 import Amazonka.Config.Types.ResourceFilters
 import Amazonka.Config.Types.ResourceIdentifier
 import Amazonka.Config.Types.ResourceKey
@@ -1399,4 +1475,5 @@ import Amazonka.Config.Types.StoredQuery
 import Amazonka.Config.Types.StoredQueryMetadata
 import Amazonka.Config.Types.Tag
 import Amazonka.Config.Types.TemplateSSMDocumentDetails
+import Amazonka.Config.Types.TimeWindow
 import Amazonka.Config.UntagResource

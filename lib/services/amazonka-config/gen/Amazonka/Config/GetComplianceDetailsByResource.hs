@@ -22,7 +22,7 @@
 --
 -- Returns the evaluation results for the specified Amazon Web Services
 -- resource. The results indicate which Config rules were used to evaluate
--- the resource, when each rule was last used, and whether the resource
+-- the resource, when each rule was last invoked, and whether the resource
 -- complies with each rule.
 --
 -- This operation returns paginated results.
@@ -32,10 +32,11 @@ module Amazonka.Config.GetComplianceDetailsByResource
     newGetComplianceDetailsByResource,
 
     -- * Request Lenses
-    getComplianceDetailsByResource_nextToken,
     getComplianceDetailsByResource_complianceTypes,
-    getComplianceDetailsByResource_resourceType,
+    getComplianceDetailsByResource_nextToken,
+    getComplianceDetailsByResource_resourceEvaluationId,
     getComplianceDetailsByResource_resourceId,
+    getComplianceDetailsByResource_resourceType,
 
     -- * Destructuring the Response
     GetComplianceDetailsByResourceResponse (..),
@@ -60,20 +61,26 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetComplianceDetailsByResource' smart constructor.
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @NOT_APPLICABLE@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | The type of the Amazon Web Services resource for which you want
-    -- compliance information.
-    resourceType :: Prelude.Text,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of Amazon Web Services resource execution for which you
+    -- want to retrieve evaluation results.
+    --
+    -- You need to only provide either a @ResourceEvaluationID@ or a
+    -- @ResourceID @and @ResourceType@.
+    resourceEvaluationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services resource for which you want compliance
     -- information.
-    resourceId :: Prelude.Text
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the Amazon Web Services resource for which you want
+    -- compliance information.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,40 +92,36 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getComplianceDetailsByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'complianceTypes', 'getComplianceDetailsByResource_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @NOT_APPLICABLE@.
 --
--- 'resourceType', 'getComplianceDetailsByResource_resourceType' - The type of the Amazon Web Services resource for which you want
--- compliance information.
+-- 'nextToken', 'getComplianceDetailsByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
+-- 'resourceEvaluationId', 'getComplianceDetailsByResource_resourceEvaluationId' - The unique ID of Amazon Web Services resource execution for which you
+-- want to retrieve evaluation results.
+--
+-- You need to only provide either a @ResourceEvaluationID@ or a
+-- @ResourceID @and @ResourceType@.
 --
 -- 'resourceId', 'getComplianceDetailsByResource_resourceId' - The ID of the Amazon Web Services resource for which you want compliance
 -- information.
+--
+-- 'resourceType', 'getComplianceDetailsByResource_resourceType' - The type of the Amazon Web Services resource for which you want
+-- compliance information.
 newGetComplianceDetailsByResource ::
-  -- | 'resourceType'
-  Prelude.Text ->
-  -- | 'resourceId'
-  Prelude.Text ->
   GetComplianceDetailsByResource
-newGetComplianceDetailsByResource
-  pResourceType_
-  pResourceId_ =
-    GetComplianceDetailsByResource'
-      { nextToken =
-          Prelude.Nothing,
-        complianceTypes = Prelude.Nothing,
-        resourceType = pResourceType_,
-        resourceId = pResourceId_
-      }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getComplianceDetailsByResource_nextToken :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
-getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByResource' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResource' {} a -> s {nextToken = a} :: GetComplianceDetailsByResource)
+newGetComplianceDetailsByResource =
+  GetComplianceDetailsByResource'
+    { complianceTypes =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceEvaluationId = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing
+    }
 
 -- | Filters the results by compliance.
 --
@@ -127,15 +130,28 @@ getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByRes
 getComplianceDetailsByResource_complianceTypes :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe [ComplianceType])
 getComplianceDetailsByResource_complianceTypes = Lens.lens (\GetComplianceDetailsByResource' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByResource' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByResource) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of the Amazon Web Services resource for which you want
--- compliance information.
-getComplianceDetailsByResource_resourceType :: Lens.Lens' GetComplianceDetailsByResource Prelude.Text
-getComplianceDetailsByResource_resourceType = Lens.lens (\GetComplianceDetailsByResource' {resourceType} -> resourceType) (\s@GetComplianceDetailsByResource' {} a -> s {resourceType = a} :: GetComplianceDetailsByResource)
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getComplianceDetailsByResource_nextToken :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByResource' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResource' {} a -> s {nextToken = a} :: GetComplianceDetailsByResource)
+
+-- | The unique ID of Amazon Web Services resource execution for which you
+-- want to retrieve evaluation results.
+--
+-- You need to only provide either a @ResourceEvaluationID@ or a
+-- @ResourceID @and @ResourceType@.
+getComplianceDetailsByResource_resourceEvaluationId :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByResource_resourceEvaluationId = Lens.lens (\GetComplianceDetailsByResource' {resourceEvaluationId} -> resourceEvaluationId) (\s@GetComplianceDetailsByResource' {} a -> s {resourceEvaluationId = a} :: GetComplianceDetailsByResource)
 
 -- | The ID of the Amazon Web Services resource for which you want compliance
 -- information.
-getComplianceDetailsByResource_resourceId :: Lens.Lens' GetComplianceDetailsByResource Prelude.Text
+getComplianceDetailsByResource_resourceId :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
 getComplianceDetailsByResource_resourceId = Lens.lens (\GetComplianceDetailsByResource' {resourceId} -> resourceId) (\s@GetComplianceDetailsByResource' {} a -> s {resourceId = a} :: GetComplianceDetailsByResource)
+
+-- | The type of the Amazon Web Services resource for which you want
+-- compliance information.
+getComplianceDetailsByResource_resourceType :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByResource_resourceType = Lens.lens (\GetComplianceDetailsByResource' {resourceType} -> resourceType) (\s@GetComplianceDetailsByResource' {} a -> s {resourceType = a} :: GetComplianceDetailsByResource)
 
 instance Core.AWSPager GetComplianceDetailsByResource where
   page rq rs
@@ -186,20 +202,22 @@ instance
   hashWithSalt
     _salt
     GetComplianceDetailsByResource' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` complianceTypes
-        `Prelude.hashWithSalt` resourceType
+      _salt `Prelude.hashWithSalt` complianceTypes
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` resourceEvaluationId
         `Prelude.hashWithSalt` resourceId
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
     GetComplianceDetailsByResource
   where
   rnf GetComplianceDetailsByResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf complianceTypes
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf complianceTypes
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceEvaluationId
       `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance
   Data.ToHeaders
@@ -223,11 +241,13 @@ instance Data.ToJSON GetComplianceDetailsByResource where
   toJSON GetComplianceDetailsByResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Data..=)
+          [ ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
-            Prelude.Just ("ResourceType" Data..= resourceType),
-            Prelude.Just ("ResourceId" Data..= resourceId)
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceEvaluationId" Data..=)
+              Prelude.<$> resourceEvaluationId,
+            ("ResourceId" Data..=) Prelude.<$> resourceId,
+            ("ResourceType" Data..=) Prelude.<$> resourceType
           ]
       )
 

@@ -35,28 +35,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationCustomPolicyRuleMetadata' smart constructor.
 data OrganizationCustomPolicyRuleMetadata = OrganizationCustomPolicyRuleMetadata'
-  { -- | The maximum frequency with which Config runs evaluations for a rule.
-    -- Your Config Custom Policy rule is triggered when Config delivers the
-    -- configuration snapshot. For more information, see
-    -- ConfigSnapshotDeliveryProperties.
-    maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
-    -- | The type of the Amazon Web Services resource that was evaluated.
-    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
-    -- | A string, in JSON format, that is passed to your organization Config
-    -- Custom Policy rule.
-    inputParameters :: Prelude.Maybe Prelude.Text,
-    -- | The optional part of a key-value pair that make up a tag. A value acts
-    -- as a descriptor within a tag category (key).
-    tagValueScope :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services resource that was evaluated.
-    resourceIdScope :: Prelude.Maybe Prelude.Text,
-    -- | A list of accounts that you can enable debug logging for your
+  { -- | A list of accounts that you can enable debug logging for your
     -- organization Config Custom Policy rule. List is null when debug logging
     -- is enabled for all accounts.
     debugLogDeliveryAccounts :: Prelude.Maybe [Prelude.Text],
     -- | The description that you provide for your organization Config Custom
     -- Policy rule.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A string, in JSON format, that is passed to your organization Config
+    -- Custom Policy rule.
+    inputParameters :: Prelude.Maybe Prelude.Text,
+    -- | The maximum frequency with which Config runs evaluations for a rule.
+    -- Your Config Custom Policy rule is triggered when Config delivers the
+    -- configuration snapshot. For more information, see
+    -- ConfigSnapshotDeliveryProperties.
+    maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
     -- | The type of notification that initiates Config to run an evaluation for
     -- a rule. For Config Custom Policy rules, Config supports change-initiated
     -- notification types:
@@ -70,9 +63,16 @@ data OrganizationCustomPolicyRuleMetadata = OrganizationCustomPolicyRuleMetadata
     --     Config may generate this notification type when a resource changes
     --     and the notification exceeds the maximum size allowed by Amazon SNS.
     organizationConfigRuleTriggerTypes :: Prelude.Maybe [OrganizationConfigRuleTriggerTypeNoSN],
+    -- | The ID of the Amazon Web Services resource that was evaluated.
+    resourceIdScope :: Prelude.Maybe Prelude.Text,
+    -- | The type of the Amazon Web Services resource that was evaluated.
+    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
     -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
     tagKeyScope :: Prelude.Maybe Prelude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts
+    -- as a descriptor within a tag category (key).
+    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The runtime system for your organization Config Custom Policy rules.
     -- Guard is a policy-as-code language that allows you to write policies
     -- that are enforced by Config Custom Policy rules. For more information
@@ -93,27 +93,20 @@ data OrganizationCustomPolicyRuleMetadata = OrganizationCustomPolicyRuleMetadata
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumExecutionFrequency', 'organizationCustomPolicyRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
--- Your Config Custom Policy rule is triggered when Config delivers the
--- configuration snapshot. For more information, see
--- ConfigSnapshotDeliveryProperties.
---
--- 'resourceTypesScope', 'organizationCustomPolicyRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
---
--- 'inputParameters', 'organizationCustomPolicyRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
--- Custom Policy rule.
---
--- 'tagValueScope', 'organizationCustomPolicyRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
---
--- 'resourceIdScope', 'organizationCustomPolicyRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
---
 -- 'debugLogDeliveryAccounts', 'organizationCustomPolicyRuleMetadata_debugLogDeliveryAccounts' - A list of accounts that you can enable debug logging for your
 -- organization Config Custom Policy rule. List is null when debug logging
 -- is enabled for all accounts.
 --
 -- 'description', 'organizationCustomPolicyRuleMetadata_description' - The description that you provide for your organization Config Custom
 -- Policy rule.
+--
+-- 'inputParameters', 'organizationCustomPolicyRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
+-- Custom Policy rule.
+--
+-- 'maximumExecutionFrequency', 'organizationCustomPolicyRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
+-- Your Config Custom Policy rule is triggered when Config delivers the
+-- configuration snapshot. For more information, see
+-- ConfigSnapshotDeliveryProperties.
 --
 -- 'organizationConfigRuleTriggerTypes', 'organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes' - The type of notification that initiates Config to run an evaluation for
 -- a rule. For Config Custom Policy rules, Config supports change-initiated
@@ -128,8 +121,15 @@ data OrganizationCustomPolicyRuleMetadata = OrganizationCustomPolicyRuleMetadata
 --     Config may generate this notification type when a resource changes
 --     and the notification exceeds the maximum size allowed by Amazon SNS.
 --
+-- 'resourceIdScope', 'organizationCustomPolicyRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
+--
+-- 'resourceTypesScope', 'organizationCustomPolicyRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
+--
 -- 'tagKeyScope', 'organizationCustomPolicyRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
+--
+-- 'tagValueScope', 'organizationCustomPolicyRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
 --
 -- 'policyRuntime', 'organizationCustomPolicyRuleMetadata_policyRuntime' - The runtime system for your organization Config Custom Policy rules.
 -- Guard is a policy-as-code language that allows you to write policies
@@ -149,46 +149,21 @@ newOrganizationCustomPolicyRuleMetadata
   pPolicyRuntime_
   pPolicyText_ =
     OrganizationCustomPolicyRuleMetadata'
-      { maximumExecutionFrequency =
-          Prelude.Nothing,
-        resourceTypesScope = Prelude.Nothing,
-        inputParameters = Prelude.Nothing,
-        tagValueScope = Prelude.Nothing,
-        resourceIdScope = Prelude.Nothing,
-        debugLogDeliveryAccounts =
+      { debugLogDeliveryAccounts =
           Prelude.Nothing,
         description = Prelude.Nothing,
+        inputParameters = Prelude.Nothing,
+        maximumExecutionFrequency =
+          Prelude.Nothing,
         organizationConfigRuleTriggerTypes =
           Prelude.Nothing,
+        resourceIdScope = Prelude.Nothing,
+        resourceTypesScope = Prelude.Nothing,
         tagKeyScope = Prelude.Nothing,
+        tagValueScope = Prelude.Nothing,
         policyRuntime = pPolicyRuntime_,
         policyText = pPolicyText_
       }
-
--- | The maximum frequency with which Config runs evaluations for a rule.
--- Your Config Custom Policy rule is triggered when Config delivers the
--- configuration snapshot. For more information, see
--- ConfigSnapshotDeliveryProperties.
-organizationCustomPolicyRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
-organizationCustomPolicyRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationCustomPolicyRuleMetadata)
-
--- | The type of the Amazon Web Services resource that was evaluated.
-organizationCustomPolicyRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe [Prelude.Text])
-organizationCustomPolicyRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomPolicyRuleMetadata) Prelude.. Lens.mapping Lens.coerced
-
--- | A string, in JSON format, that is passed to your organization Config
--- Custom Policy rule.
-organizationCustomPolicyRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomPolicyRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomPolicyRuleMetadata)
-
--- | The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
-organizationCustomPolicyRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomPolicyRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationCustomPolicyRuleMetadata)
-
--- | The ID of the Amazon Web Services resource that was evaluated.
-organizationCustomPolicyRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomPolicyRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomPolicyRuleMetadata)
 
 -- | A list of accounts that you can enable debug logging for your
 -- organization Config Custom Policy rule. List is null when debug logging
@@ -200,6 +175,18 @@ organizationCustomPolicyRuleMetadata_debugLogDeliveryAccounts = Lens.lens (\Orga
 -- Policy rule.
 organizationCustomPolicyRuleMetadata_description :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomPolicyRuleMetadata_description = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {description} -> description) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {description = a} :: OrganizationCustomPolicyRuleMetadata)
+
+-- | A string, in JSON format, that is passed to your organization Config
+-- Custom Policy rule.
+organizationCustomPolicyRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomPolicyRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomPolicyRuleMetadata)
+
+-- | The maximum frequency with which Config runs evaluations for a rule.
+-- Your Config Custom Policy rule is triggered when Config delivers the
+-- configuration snapshot. For more information, see
+-- ConfigSnapshotDeliveryProperties.
+organizationCustomPolicyRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
+organizationCustomPolicyRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationCustomPolicyRuleMetadata)
 
 -- | The type of notification that initiates Config to run an evaluation for
 -- a rule. For Config Custom Policy rules, Config supports change-initiated
@@ -216,10 +203,23 @@ organizationCustomPolicyRuleMetadata_description = Lens.lens (\OrganizationCusto
 organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe [OrganizationConfigRuleTriggerTypeNoSN])
 organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {organizationConfigRuleTriggerTypes} -> organizationConfigRuleTriggerTypes) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomPolicyRuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the Amazon Web Services resource that was evaluated.
+organizationCustomPolicyRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomPolicyRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomPolicyRuleMetadata)
+
+-- | The type of the Amazon Web Services resource that was evaluated.
+organizationCustomPolicyRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe [Prelude.Text])
+organizationCustomPolicyRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomPolicyRuleMetadata) Prelude.. Lens.mapping Lens.coerced
+
 -- | One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 organizationCustomPolicyRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomPolicyRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {tagKeyScope} -> tagKeyScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {tagKeyScope = a} :: OrganizationCustomPolicyRuleMetadata)
+
+-- | The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
+organizationCustomPolicyRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomPolicyRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomPolicyRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomPolicyRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationCustomPolicyRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationCustomPolicyRuleMetadata)
 
 -- | The runtime system for your organization Config Custom Policy rules.
 -- Guard is a policy-as-code language that allows you to write policies
@@ -242,15 +242,15 @@ instance
     _salt
     OrganizationCustomPolicyRuleMetadata' {..} =
       _salt
-        `Prelude.hashWithSalt` maximumExecutionFrequency
-        `Prelude.hashWithSalt` resourceTypesScope
-        `Prelude.hashWithSalt` inputParameters
-        `Prelude.hashWithSalt` tagValueScope
-        `Prelude.hashWithSalt` resourceIdScope
         `Prelude.hashWithSalt` debugLogDeliveryAccounts
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` inputParameters
+        `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` organizationConfigRuleTriggerTypes
+        `Prelude.hashWithSalt` resourceIdScope
+        `Prelude.hashWithSalt` resourceTypesScope
         `Prelude.hashWithSalt` tagKeyScope
+        `Prelude.hashWithSalt` tagValueScope
         `Prelude.hashWithSalt` policyRuntime
         `Prelude.hashWithSalt` policyText
 
@@ -259,15 +259,15 @@ instance
     OrganizationCustomPolicyRuleMetadata
   where
   rnf OrganizationCustomPolicyRuleMetadata' {..} =
-    Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf resourceTypesScope
-      `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf tagValueScope
-      `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf debugLogDeliveryAccounts
+    Prelude.rnf debugLogDeliveryAccounts
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf inputParameters
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
       `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
+      `Prelude.seq` Prelude.rnf resourceIdScope
+      `Prelude.seq` Prelude.rnf resourceTypesScope
       `Prelude.seq` Prelude.rnf tagKeyScope
+      `Prelude.seq` Prelude.rnf tagValueScope
       `Prelude.seq` Prelude.rnf policyRuntime
       `Prelude.seq` Prelude.rnf policyText
 
@@ -278,21 +278,21 @@ instance
   toJSON OrganizationCustomPolicyRuleMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Data..=)
-              Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Data..=)
-              Prelude.<$> resourceTypesScope,
-            ("InputParameters" Data..=)
-              Prelude.<$> inputParameters,
-            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
-            ("ResourceIdScope" Data..=)
-              Prelude.<$> resourceIdScope,
-            ("DebugLogDeliveryAccounts" Data..=)
+          [ ("DebugLogDeliveryAccounts" Data..=)
               Prelude.<$> debugLogDeliveryAccounts,
             ("Description" Data..=) Prelude.<$> description,
+            ("InputParameters" Data..=)
+              Prelude.<$> inputParameters,
+            ("MaximumExecutionFrequency" Data..=)
+              Prelude.<$> maximumExecutionFrequency,
             ("OrganizationConfigRuleTriggerTypes" Data..=)
               Prelude.<$> organizationConfigRuleTriggerTypes,
+            ("ResourceIdScope" Data..=)
+              Prelude.<$> resourceIdScope,
+            ("ResourceTypesScope" Data..=)
+              Prelude.<$> resourceTypesScope,
             ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
             Prelude.Just ("PolicyRuntime" Data..= policyRuntime),
             Prelude.Just ("PolicyText" Data..= policyText)
           ]

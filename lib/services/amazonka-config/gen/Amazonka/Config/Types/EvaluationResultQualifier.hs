@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Config.Types.EvaluationResultQualifier where
 
+import Amazonka.Config.Types.EvaluationMode
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -30,12 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
-  { -- | The ID of the evaluated Amazon Web Services resource.
+  { -- | The name of the Config rule that was used in the evaluation.
+    configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | The mode of an evaluation. The valid values are Detective or Proactive.
+    evaluationMode :: Prelude.Maybe EvaluationMode,
+    -- | The ID of the evaluated Amazon Web Services resource.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of Amazon Web Services resource that was evaluated.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Config rule that was used in the evaluation.
-    configRuleName :: Prelude.Maybe Prelude.Text
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +50,31 @@ data EvaluationResultQualifier = EvaluationResultQualifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configRuleName', 'evaluationResultQualifier_configRuleName' - The name of the Config rule that was used in the evaluation.
+--
+-- 'evaluationMode', 'evaluationResultQualifier_evaluationMode' - The mode of an evaluation. The valid values are Detective or Proactive.
+--
 -- 'resourceId', 'evaluationResultQualifier_resourceId' - The ID of the evaluated Amazon Web Services resource.
 --
 -- 'resourceType', 'evaluationResultQualifier_resourceType' - The type of Amazon Web Services resource that was evaluated.
---
--- 'configRuleName', 'evaluationResultQualifier_configRuleName' - The name of the Config rule that was used in the evaluation.
 newEvaluationResultQualifier ::
   EvaluationResultQualifier
 newEvaluationResultQualifier =
   EvaluationResultQualifier'
-    { resourceId =
+    { configRuleName =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      configRuleName = Prelude.Nothing
+      evaluationMode = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
+
+-- | The name of the Config rule that was used in the evaluation.
+evaluationResultQualifier_configRuleName :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
+evaluationResultQualifier_configRuleName = Lens.lens (\EvaluationResultQualifier' {configRuleName} -> configRuleName) (\s@EvaluationResultQualifier' {} a -> s {configRuleName = a} :: EvaluationResultQualifier)
+
+-- | The mode of an evaluation. The valid values are Detective or Proactive.
+evaluationResultQualifier_evaluationMode :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe EvaluationMode)
+evaluationResultQualifier_evaluationMode = Lens.lens (\EvaluationResultQualifier' {evaluationMode} -> evaluationMode) (\s@EvaluationResultQualifier' {} a -> s {evaluationMode = a} :: EvaluationResultQualifier)
 
 -- | The ID of the evaluated Amazon Web Services resource.
 evaluationResultQualifier_resourceId :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
@@ -70,29 +84,28 @@ evaluationResultQualifier_resourceId = Lens.lens (\EvaluationResultQualifier' {r
 evaluationResultQualifier_resourceType :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
 evaluationResultQualifier_resourceType = Lens.lens (\EvaluationResultQualifier' {resourceType} -> resourceType) (\s@EvaluationResultQualifier' {} a -> s {resourceType = a} :: EvaluationResultQualifier)
 
--- | The name of the Config rule that was used in the evaluation.
-evaluationResultQualifier_configRuleName :: Lens.Lens' EvaluationResultQualifier (Prelude.Maybe Prelude.Text)
-evaluationResultQualifier_configRuleName = Lens.lens (\EvaluationResultQualifier' {configRuleName} -> configRuleName) (\s@EvaluationResultQualifier' {} a -> s {configRuleName = a} :: EvaluationResultQualifier)
-
 instance Data.FromJSON EvaluationResultQualifier where
   parseJSON =
     Data.withObject
       "EvaluationResultQualifier"
       ( \x ->
           EvaluationResultQualifier'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "EvaluationMode")
+            Prelude.<*> (x Data..:? "ResourceId")
             Prelude.<*> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "ConfigRuleName")
       )
 
 instance Prelude.Hashable EvaluationResultQualifier where
   hashWithSalt _salt EvaluationResultQualifier' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` evaluationMode
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` configRuleName
 
 instance Prelude.NFData EvaluationResultQualifier where
   rnf EvaluationResultQualifier' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf evaluationMode
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf configRuleName

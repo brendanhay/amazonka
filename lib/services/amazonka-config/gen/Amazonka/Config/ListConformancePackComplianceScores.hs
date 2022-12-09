@@ -36,11 +36,11 @@ module Amazonka.Config.ListConformancePackComplianceScores
     newListConformancePackComplianceScores,
 
     -- * Request Lenses
-    listConformancePackComplianceScores_sortOrder,
-    listConformancePackComplianceScores_nextToken,
     listConformancePackComplianceScores_filters,
-    listConformancePackComplianceScores_sortBy,
     listConformancePackComplianceScores_limit,
+    listConformancePackComplianceScores_nextToken,
+    listConformancePackComplianceScores_sortBy,
+    listConformancePackComplianceScores_sortOrder,
 
     -- * Destructuring the Response
     ListConformancePackComplianceScoresResponse (..),
@@ -63,7 +63,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConformancePackComplianceScores' smart constructor.
 data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
-  { -- | Determines the order in which conformance pack compliance scores are
+  { -- | Filters the results based on the
+    -- @ConformancePackComplianceScoresFilters@.
+    filters :: Prelude.Maybe ConformancePackComplianceScoresFilters,
+    -- | The maximum number of conformance pack compliance scores returned on
+    -- each page.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string in a prior request that you can use to get the
+    -- paginated response for next set of conformance pack compliance scores.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Sorts your conformance pack compliance scores in either ascending or
+    -- descending order, depending on @SortOrder@.
+    --
+    -- By default, conformance pack compliance scores are sorted in
+    -- alphabetical order by name of the conformance pack. Enter @SCORE@, to
+    -- sort conformance pack compliance scores by the numerical value of the
+    -- compliance score.
+    sortBy :: Prelude.Maybe SortBy,
+    -- | Determines the order in which conformance pack compliance scores are
     -- sorted. Either in ascending or descending order.
     --
     -- By default, conformance pack compliance scores are sorted in
@@ -76,24 +93,7 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
     -- compliance scores are sorted by @SCORE@, conformance packs with a
     -- compliance score of @INSUFFICIENT_DATA@ will be last when sorting by
     -- ascending order and first when sorting by descending order.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The @nextToken@ string in a prior request that you can use to get the
-    -- paginated response for next set of conformance pack compliance scores.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results based on the
-    -- @ConformancePackComplianceScoresFilters@.
-    filters :: Prelude.Maybe ConformancePackComplianceScoresFilters,
-    -- | Sorts your conformance pack compliance scores in either ascending or
-    -- descending order, depending on @SortOrder@.
-    --
-    -- By default, conformance pack compliance scores are sorted in
-    -- alphabetical order by name of the conformance pack. Enter @SCORE@, to
-    -- sort conformance pack compliance scores by the numerical value of the
-    -- compliance score.
-    sortBy :: Prelude.Maybe SortBy,
-    -- | The maximum number of conformance pack compliance scores returned on
-    -- each page.
-    limit :: Prelude.Maybe Prelude.Natural
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,6 +104,23 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listConformancePackComplianceScores_filters' - Filters the results based on the
+-- @ConformancePackComplianceScoresFilters@.
+--
+-- 'limit', 'listConformancePackComplianceScores_limit' - The maximum number of conformance pack compliance scores returned on
+-- each page.
+--
+-- 'nextToken', 'listConformancePackComplianceScores_nextToken' - The @nextToken@ string in a prior request that you can use to get the
+-- paginated response for next set of conformance pack compliance scores.
+--
+-- 'sortBy', 'listConformancePackComplianceScores_sortBy' - Sorts your conformance pack compliance scores in either ascending or
+-- descending order, depending on @SortOrder@.
+--
+-- By default, conformance pack compliance scores are sorted in
+-- alphabetical order by name of the conformance pack. Enter @SCORE@, to
+-- sort conformance pack compliance scores by the numerical value of the
+-- compliance score.
 --
 -- 'sortOrder', 'listConformancePackComplianceScores_sortOrder' - Determines the order in which conformance pack compliance scores are
 -- sorted. Either in ascending or descending order.
@@ -118,34 +135,42 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
 -- compliance scores are sorted by @SCORE@, conformance packs with a
 -- compliance score of @INSUFFICIENT_DATA@ will be last when sorting by
 -- ascending order and first when sorting by descending order.
---
--- 'nextToken', 'listConformancePackComplianceScores_nextToken' - The @nextToken@ string in a prior request that you can use to get the
--- paginated response for next set of conformance pack compliance scores.
---
--- 'filters', 'listConformancePackComplianceScores_filters' - Filters the results based on the
+newListConformancePackComplianceScores ::
+  ListConformancePackComplianceScores
+newListConformancePackComplianceScores =
+  ListConformancePackComplianceScores'
+    { filters =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
+
+-- | Filters the results based on the
 -- @ConformancePackComplianceScoresFilters@.
---
--- 'sortBy', 'listConformancePackComplianceScores_sortBy' - Sorts your conformance pack compliance scores in either ascending or
+listConformancePackComplianceScores_filters :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe ConformancePackComplianceScoresFilters)
+listConformancePackComplianceScores_filters = Lens.lens (\ListConformancePackComplianceScores' {filters} -> filters) (\s@ListConformancePackComplianceScores' {} a -> s {filters = a} :: ListConformancePackComplianceScores)
+
+-- | The maximum number of conformance pack compliance scores returned on
+-- each page.
+listConformancePackComplianceScores_limit :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe Prelude.Natural)
+listConformancePackComplianceScores_limit = Lens.lens (\ListConformancePackComplianceScores' {limit} -> limit) (\s@ListConformancePackComplianceScores' {} a -> s {limit = a} :: ListConformancePackComplianceScores)
+
+-- | The @nextToken@ string in a prior request that you can use to get the
+-- paginated response for next set of conformance pack compliance scores.
+listConformancePackComplianceScores_nextToken :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe Prelude.Text)
+listConformancePackComplianceScores_nextToken = Lens.lens (\ListConformancePackComplianceScores' {nextToken} -> nextToken) (\s@ListConformancePackComplianceScores' {} a -> s {nextToken = a} :: ListConformancePackComplianceScores)
+
+-- | Sorts your conformance pack compliance scores in either ascending or
 -- descending order, depending on @SortOrder@.
 --
 -- By default, conformance pack compliance scores are sorted in
 -- alphabetical order by name of the conformance pack. Enter @SCORE@, to
 -- sort conformance pack compliance scores by the numerical value of the
 -- compliance score.
---
--- 'limit', 'listConformancePackComplianceScores_limit' - The maximum number of conformance pack compliance scores returned on
--- each page.
-newListConformancePackComplianceScores ::
-  ListConformancePackComplianceScores
-newListConformancePackComplianceScores =
-  ListConformancePackComplianceScores'
-    { sortOrder =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      limit = Prelude.Nothing
-    }
+listConformancePackComplianceScores_sortBy :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe SortBy)
+listConformancePackComplianceScores_sortBy = Lens.lens (\ListConformancePackComplianceScores' {sortBy} -> sortBy) (\s@ListConformancePackComplianceScores' {} a -> s {sortBy = a} :: ListConformancePackComplianceScores)
 
 -- | Determines the order in which conformance pack compliance scores are
 -- sorted. Either in ascending or descending order.
@@ -162,31 +187,6 @@ newListConformancePackComplianceScores =
 -- ascending order and first when sorting by descending order.
 listConformancePackComplianceScores_sortOrder :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe SortOrder)
 listConformancePackComplianceScores_sortOrder = Lens.lens (\ListConformancePackComplianceScores' {sortOrder} -> sortOrder) (\s@ListConformancePackComplianceScores' {} a -> s {sortOrder = a} :: ListConformancePackComplianceScores)
-
--- | The @nextToken@ string in a prior request that you can use to get the
--- paginated response for next set of conformance pack compliance scores.
-listConformancePackComplianceScores_nextToken :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe Prelude.Text)
-listConformancePackComplianceScores_nextToken = Lens.lens (\ListConformancePackComplianceScores' {nextToken} -> nextToken) (\s@ListConformancePackComplianceScores' {} a -> s {nextToken = a} :: ListConformancePackComplianceScores)
-
--- | Filters the results based on the
--- @ConformancePackComplianceScoresFilters@.
-listConformancePackComplianceScores_filters :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe ConformancePackComplianceScoresFilters)
-listConformancePackComplianceScores_filters = Lens.lens (\ListConformancePackComplianceScores' {filters} -> filters) (\s@ListConformancePackComplianceScores' {} a -> s {filters = a} :: ListConformancePackComplianceScores)
-
--- | Sorts your conformance pack compliance scores in either ascending or
--- descending order, depending on @SortOrder@.
---
--- By default, conformance pack compliance scores are sorted in
--- alphabetical order by name of the conformance pack. Enter @SCORE@, to
--- sort conformance pack compliance scores by the numerical value of the
--- compliance score.
-listConformancePackComplianceScores_sortBy :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe SortBy)
-listConformancePackComplianceScores_sortBy = Lens.lens (\ListConformancePackComplianceScores' {sortBy} -> sortBy) (\s@ListConformancePackComplianceScores' {} a -> s {sortBy = a} :: ListConformancePackComplianceScores)
-
--- | The maximum number of conformance pack compliance scores returned on
--- each page.
-listConformancePackComplianceScores_limit :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe Prelude.Natural)
-listConformancePackComplianceScores_limit = Lens.lens (\ListConformancePackComplianceScores' {limit} -> limit) (\s@ListConformancePackComplianceScores' {} a -> s {limit = a} :: ListConformancePackComplianceScores)
 
 instance
   Core.AWSRequest
@@ -215,22 +215,22 @@ instance
   hashWithSalt
     _salt
     ListConformancePackComplianceScores' {..} =
-      _salt `Prelude.hashWithSalt` sortOrder
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` sortBy
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` sortOrder
 
 instance
   Prelude.NFData
     ListConformancePackComplianceScores
   where
   rnf ListConformancePackComplianceScores' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -257,11 +257,11 @@ instance
   toJSON ListConformancePackComplianceScores' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
             ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

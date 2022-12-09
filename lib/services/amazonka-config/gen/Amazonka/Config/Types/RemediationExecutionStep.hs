@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRemediationExecutionStep' smart constructor.
 data RemediationExecutionStep = RemediationExecutionStep'
-  { -- | The details of the step.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | An error message if the step was interrupted during execution.
+  { -- | An error message if the step was interrupted during execution.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The time when the step stopped.
-    stopTime :: Prelude.Maybe Data.POSIX,
+    -- | The details of the step.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time when the step started.
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | The valid status of the step.
     state :: Prelude.Maybe RemediationExecutionStepState,
-    -- | The time when the step started.
-    startTime :: Prelude.Maybe Data.POSIX
+    -- | The time when the step stopped.
+    stopTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,45 +50,46 @@ data RemediationExecutionStep = RemediationExecutionStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'remediationExecutionStep_name' - The details of the step.
---
 -- 'errorMessage', 'remediationExecutionStep_errorMessage' - An error message if the step was interrupted during execution.
 --
--- 'stopTime', 'remediationExecutionStep_stopTime' - The time when the step stopped.
+-- 'name', 'remediationExecutionStep_name' - The details of the step.
+--
+-- 'startTime', 'remediationExecutionStep_startTime' - The time when the step started.
 --
 -- 'state', 'remediationExecutionStep_state' - The valid status of the step.
 --
--- 'startTime', 'remediationExecutionStep_startTime' - The time when the step started.
+-- 'stopTime', 'remediationExecutionStep_stopTime' - The time when the step stopped.
 newRemediationExecutionStep ::
   RemediationExecutionStep
 newRemediationExecutionStep =
   RemediationExecutionStep'
-    { name = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      stopTime = Prelude.Nothing,
+    { errorMessage =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       state = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      stopTime = Prelude.Nothing
     }
-
--- | The details of the step.
-remediationExecutionStep_name :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.Text)
-remediationExecutionStep_name = Lens.lens (\RemediationExecutionStep' {name} -> name) (\s@RemediationExecutionStep' {} a -> s {name = a} :: RemediationExecutionStep)
 
 -- | An error message if the step was interrupted during execution.
 remediationExecutionStep_errorMessage :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.Text)
 remediationExecutionStep_errorMessage = Lens.lens (\RemediationExecutionStep' {errorMessage} -> errorMessage) (\s@RemediationExecutionStep' {} a -> s {errorMessage = a} :: RemediationExecutionStep)
 
--- | The time when the step stopped.
-remediationExecutionStep_stopTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
-remediationExecutionStep_stopTime = Lens.lens (\RemediationExecutionStep' {stopTime} -> stopTime) (\s@RemediationExecutionStep' {} a -> s {stopTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Data._Time
+-- | The details of the step.
+remediationExecutionStep_name :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.Text)
+remediationExecutionStep_name = Lens.lens (\RemediationExecutionStep' {name} -> name) (\s@RemediationExecutionStep' {} a -> s {name = a} :: RemediationExecutionStep)
+
+-- | The time when the step started.
+remediationExecutionStep_startTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
+remediationExecutionStep_startTime = Lens.lens (\RemediationExecutionStep' {startTime} -> startTime) (\s@RemediationExecutionStep' {} a -> s {startTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Data._Time
 
 -- | The valid status of the step.
 remediationExecutionStep_state :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe RemediationExecutionStepState)
 remediationExecutionStep_state = Lens.lens (\RemediationExecutionStep' {state} -> state) (\s@RemediationExecutionStep' {} a -> s {state = a} :: RemediationExecutionStep)
 
--- | The time when the step started.
-remediationExecutionStep_startTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
-remediationExecutionStep_startTime = Lens.lens (\RemediationExecutionStep' {startTime} -> startTime) (\s@RemediationExecutionStep' {} a -> s {startTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Data._Time
+-- | The time when the step stopped.
+remediationExecutionStep_stopTime :: Lens.Lens' RemediationExecutionStep (Prelude.Maybe Prelude.UTCTime)
+remediationExecutionStep_stopTime = Lens.lens (\RemediationExecutionStep' {stopTime} -> stopTime) (\s@RemediationExecutionStep' {} a -> s {stopTime = a} :: RemediationExecutionStep) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON RemediationExecutionStep where
   parseJSON =
@@ -96,25 +97,25 @@ instance Data.FromJSON RemediationExecutionStep where
       "RemediationExecutionStep"
       ( \x ->
           RemediationExecutionStep'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "StopTime")
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "StopTime")
       )
 
 instance Prelude.Hashable RemediationExecutionStep where
   hashWithSalt _salt RemediationExecutionStep' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` stopTime
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stopTime
 
 instance Prelude.NFData RemediationExecutionStep where
   rnf RemediationExecutionStep' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stopTime

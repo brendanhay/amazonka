@@ -39,9 +39,9 @@ module Amazonka.Config.ListAggregateDiscoveredResources
     newListAggregateDiscoveredResources,
 
     -- * Request Lenses
-    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_filters,
     listAggregateDiscoveredResources_limit,
+    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_configurationAggregatorName,
     listAggregateDiscoveredResources_resourceType,
 
@@ -50,8 +50,8 @@ module Amazonka.Config.ListAggregateDiscoveredResources
     newListAggregateDiscoveredResourcesResponse,
 
     -- * Response Lenses
-    listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_nextToken,
+    listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_httpStatus,
   )
 where
@@ -66,15 +66,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAggregateDiscoveredResources' smart constructor.
 data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results based on the @ResourceFilters@ object.
+  { -- | Filters the results based on the @ResourceFilters@ object.
     filters :: Prelude.Maybe ResourceFilters,
     -- | The maximum number of resource identifiers returned on each page. You
     -- cannot specify a number greater than 100. If you specify 0, Config uses
     -- the default.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text,
     -- | The type of resources that you want Config to list in the response.
@@ -90,14 +90,14 @@ data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAggregateDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.
 --
 -- 'limit', 'listAggregateDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. You
 -- cannot specify a number greater than 100. If you specify 0, Config uses
 -- the default.
+--
+-- 'nextToken', 'listAggregateDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'configurationAggregatorName', 'listAggregateDiscoveredResources_configurationAggregatorName' - The name of the configuration aggregator.
 --
@@ -112,19 +112,14 @@ newListAggregateDiscoveredResources
   pConfigurationAggregatorName_
   pResourceType_ =
     ListAggregateDiscoveredResources'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_,
         resourceType = pResourceType_
       }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-listAggregateDiscoveredResources_nextToken :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Text)
-listAggregateDiscoveredResources_nextToken = Lens.lens (\ListAggregateDiscoveredResources' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResources' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResources)
 
 -- | Filters the results based on the @ResourceFilters@ object.
 listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe ResourceFilters)
@@ -135,6 +130,11 @@ listAggregateDiscoveredResources_filters = Lens.lens (\ListAggregateDiscoveredRe
 -- the default.
 listAggregateDiscoveredResources_limit :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Natural)
 listAggregateDiscoveredResources_limit = Lens.lens (\ListAggregateDiscoveredResources' {limit} -> limit) (\s@ListAggregateDiscoveredResources' {} a -> s {limit = a} :: ListAggregateDiscoveredResources)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+listAggregateDiscoveredResources_nextToken :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Text)
+listAggregateDiscoveredResources_nextToken = Lens.lens (\ListAggregateDiscoveredResources' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResources' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResources)
 
 -- | The name of the configuration aggregator.
 listAggregateDiscoveredResources_configurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Prelude.Text
@@ -182,10 +182,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAggregateDiscoveredResourcesResponse'
-            Prelude.<$> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -196,9 +196,9 @@ instance
   hashWithSalt
     _salt
     ListAggregateDiscoveredResources' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` configurationAggregatorName
         `Prelude.hashWithSalt` resourceType
 
@@ -207,9 +207,9 @@ instance
     ListAggregateDiscoveredResources
   where
   rnf ListAggregateDiscoveredResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf configurationAggregatorName
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -235,9 +235,9 @@ instance Data.ToJSON ListAggregateDiscoveredResources where
   toJSON ListAggregateDiscoveredResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "ConfigurationAggregatorName"
                   Data..= configurationAggregatorName
@@ -257,11 +257,11 @@ instance
 
 -- | /See:/ 'newListAggregateDiscoveredResourcesResponse' smart constructor.
 data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResourcesResponse'
-  { -- | Returns a list of @ResourceIdentifiers@ objects.
-    resourceIdentifiers :: Prelude.Maybe [AggregateResourceIdentifier],
-    -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of @ResourceIdentifiers@ objects.
+    resourceIdentifiers :: Prelude.Maybe [AggregateResourceIdentifier],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,10 +275,10 @@ data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResources
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIdentifiers', 'listAggregateDiscoveredResourcesResponse_resourceIdentifiers' - Returns a list of @ResourceIdentifiers@ objects.
---
 -- 'nextToken', 'listAggregateDiscoveredResourcesResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
+--
+-- 'resourceIdentifiers', 'listAggregateDiscoveredResourcesResponse_resourceIdentifiers' - Returns a list of @ResourceIdentifiers@ objects.
 --
 -- 'httpStatus', 'listAggregateDiscoveredResourcesResponse_httpStatus' - The response's http status code.
 newListAggregateDiscoveredResourcesResponse ::
@@ -288,20 +288,21 @@ newListAggregateDiscoveredResourcesResponse ::
 newListAggregateDiscoveredResourcesResponse
   pHttpStatus_ =
     ListAggregateDiscoveredResourcesResponse'
-      { resourceIdentifiers =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        resourceIdentifiers =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Returns a list of @ResourceIdentifiers@ objects.
-listAggregateDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe [AggregateResourceIdentifier])
-listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 listAggregateDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
 listAggregateDiscoveredResourcesResponse_nextToken = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResourcesResponse)
+
+-- | Returns a list of @ResourceIdentifiers@ objects.
+listAggregateDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe [AggregateResourceIdentifier])
+listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAggregateDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Prelude.Int
@@ -312,6 +313,6 @@ instance
     ListAggregateDiscoveredResourcesResponse
   where
   rnf ListAggregateDiscoveredResourcesResponse' {..} =
-    Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
       `Prelude.seq` Prelude.rnf httpStatus

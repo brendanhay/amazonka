@@ -33,21 +33,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScope' smart constructor.
 data Scope = Scope'
-  { -- | The tag value applied to only those Amazon Web Services resources that
-    -- you want to trigger an evaluation for the rule. If you specify a value
-    -- for @TagValue@, you must also specify a value for @TagKey@.
-    tagValue :: Prelude.Maybe Prelude.Text,
-    -- | The tag key that is applied to only those Amazon Web Services resources
-    -- that you want to trigger an evaluation for the rule.
-    tagKey :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the only Amazon Web Services resource that you want to trigger
+  { -- | The ID of the only Amazon Web Services resource that you want to trigger
     -- an evaluation for the rule. If you specify a resource ID, you must
     -- specify one resource type for @ComplianceResourceTypes@.
     complianceResourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource types of only those Amazon Web Services resources that you
     -- want to trigger an evaluation for the rule. You can only specify one
     -- type if you also specify a resource ID for @ComplianceResourceId@.
-    complianceResourceTypes :: Prelude.Maybe [Prelude.Text]
+    complianceResourceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The tag key that is applied to only those Amazon Web Services resources
+    -- that you want to trigger an evaluation for the rule.
+    tagKey :: Prelude.Maybe Prelude.Text,
+    -- | The tag value applied to only those Amazon Web Services resources that
+    -- you want to trigger an evaluation for the rule. If you specify a value
+    -- for @TagValue@, you must also specify a value for @TagKey@.
+    tagValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +59,6 @@ data Scope = Scope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValue', 'scope_tagValue' - The tag value applied to only those Amazon Web Services resources that
--- you want to trigger an evaluation for the rule. If you specify a value
--- for @TagValue@, you must also specify a value for @TagKey@.
---
--- 'tagKey', 'scope_tagKey' - The tag key that is applied to only those Amazon Web Services resources
--- that you want to trigger an evaluation for the rule.
---
 -- 'complianceResourceId', 'scope_complianceResourceId' - The ID of the only Amazon Web Services resource that you want to trigger
 -- an evaluation for the rule. If you specify a resource ID, you must
 -- specify one resource type for @ComplianceResourceTypes@.
@@ -73,26 +66,22 @@ data Scope = Scope'
 -- 'complianceResourceTypes', 'scope_complianceResourceTypes' - The resource types of only those Amazon Web Services resources that you
 -- want to trigger an evaluation for the rule. You can only specify one
 -- type if you also specify a resource ID for @ComplianceResourceId@.
+--
+-- 'tagKey', 'scope_tagKey' - The tag key that is applied to only those Amazon Web Services resources
+-- that you want to trigger an evaluation for the rule.
+--
+-- 'tagValue', 'scope_tagValue' - The tag value applied to only those Amazon Web Services resources that
+-- you want to trigger an evaluation for the rule. If you specify a value
+-- for @TagValue@, you must also specify a value for @TagKey@.
 newScope ::
   Scope
 newScope =
   Scope'
-    { tagValue = Prelude.Nothing,
+    { complianceResourceId = Prelude.Nothing,
+      complianceResourceTypes = Prelude.Nothing,
       tagKey = Prelude.Nothing,
-      complianceResourceId = Prelude.Nothing,
-      complianceResourceTypes = Prelude.Nothing
+      tagValue = Prelude.Nothing
     }
-
--- | The tag value applied to only those Amazon Web Services resources that
--- you want to trigger an evaluation for the rule. If you specify a value
--- for @TagValue@, you must also specify a value for @TagKey@.
-scope_tagValue :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
-scope_tagValue = Lens.lens (\Scope' {tagValue} -> tagValue) (\s@Scope' {} a -> s {tagValue = a} :: Scope)
-
--- | The tag key that is applied to only those Amazon Web Services resources
--- that you want to trigger an evaluation for the rule.
-scope_tagKey :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
-scope_tagKey = Lens.lens (\Scope' {tagKey} -> tagKey) (\s@Scope' {} a -> s {tagKey = a} :: Scope)
 
 -- | The ID of the only Amazon Web Services resource that you want to trigger
 -- an evaluation for the rule. If you specify a resource ID, you must
@@ -106,43 +95,54 @@ scope_complianceResourceId = Lens.lens (\Scope' {complianceResourceId} -> compli
 scope_complianceResourceTypes :: Lens.Lens' Scope (Prelude.Maybe [Prelude.Text])
 scope_complianceResourceTypes = Lens.lens (\Scope' {complianceResourceTypes} -> complianceResourceTypes) (\s@Scope' {} a -> s {complianceResourceTypes = a} :: Scope) Prelude.. Lens.mapping Lens.coerced
 
+-- | The tag key that is applied to only those Amazon Web Services resources
+-- that you want to trigger an evaluation for the rule.
+scope_tagKey :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_tagKey = Lens.lens (\Scope' {tagKey} -> tagKey) (\s@Scope' {} a -> s {tagKey = a} :: Scope)
+
+-- | The tag value applied to only those Amazon Web Services resources that
+-- you want to trigger an evaluation for the rule. If you specify a value
+-- for @TagValue@, you must also specify a value for @TagKey@.
+scope_tagValue :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_tagValue = Lens.lens (\Scope' {tagValue} -> tagValue) (\s@Scope' {} a -> s {tagValue = a} :: Scope)
+
 instance Data.FromJSON Scope where
   parseJSON =
     Data.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Data..:? "TagValue")
-            Prelude.<*> (x Data..:? "TagKey")
-            Prelude.<*> (x Data..:? "ComplianceResourceId")
+            Prelude.<$> (x Data..:? "ComplianceResourceId")
             Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "TagKey")
+            Prelude.<*> (x Data..:? "TagValue")
       )
 
 instance Prelude.Hashable Scope where
   hashWithSalt _salt Scope' {..} =
-    _salt `Prelude.hashWithSalt` tagValue
-      `Prelude.hashWithSalt` tagKey
-      `Prelude.hashWithSalt` complianceResourceId
+    _salt `Prelude.hashWithSalt` complianceResourceId
       `Prelude.hashWithSalt` complianceResourceTypes
+      `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData Scope where
   rnf Scope' {..} =
-    Prelude.rnf tagValue
-      `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf complianceResourceId
+    Prelude.rnf complianceResourceId
       `Prelude.seq` Prelude.rnf complianceResourceTypes
+      `Prelude.seq` Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValue
 
 instance Data.ToJSON Scope where
   toJSON Scope' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TagValue" Data..=) Prelude.<$> tagValue,
-            ("TagKey" Data..=) Prelude.<$> tagKey,
-            ("ComplianceResourceId" Data..=)
+          [ ("ComplianceResourceId" Data..=)
               Prelude.<$> complianceResourceId,
             ("ComplianceResourceTypes" Data..=)
-              Prelude.<$> complianceResourceTypes
+              Prelude.<$> complianceResourceTypes,
+            ("TagKey" Data..=) Prelude.<$> tagKey,
+            ("TagValue" Data..=) Prelude.<$> tagValue
           ]
       )

@@ -29,8 +29,8 @@ module Amazonka.Config.DescribePendingAggregationRequests
     newDescribePendingAggregationRequests,
 
     -- * Request Lenses
-    describePendingAggregationRequests_nextToken,
     describePendingAggregationRequests_limit,
+    describePendingAggregationRequests_nextToken,
 
     -- * Destructuring the Response
     DescribePendingAggregationRequestsResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePendingAggregationRequests' smart constructor.
 data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of evaluation results returned on each page. The
+  { -- | The maximum number of evaluation results returned on each page. The
     -- default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,29 +70,29 @@ data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describePendingAggregationRequests_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'limit', 'describePendingAggregationRequests_limit' - The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
+--
+-- 'nextToken', 'describePendingAggregationRequests_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribePendingAggregationRequests ::
   DescribePendingAggregationRequests
 newDescribePendingAggregationRequests =
   DescribePendingAggregationRequests'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describePendingAggregationRequests_nextToken :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Text)
-describePendingAggregationRequests_nextToken = Lens.lens (\DescribePendingAggregationRequests' {nextToken} -> nextToken) (\s@DescribePendingAggregationRequests' {} a -> s {nextToken = a} :: DescribePendingAggregationRequests)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
 describePendingAggregationRequests_limit :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Natural)
 describePendingAggregationRequests_limit = Lens.lens (\DescribePendingAggregationRequests' {limit} -> limit) (\s@DescribePendingAggregationRequests' {} a -> s {limit = a} :: DescribePendingAggregationRequests)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describePendingAggregationRequests_nextToken :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Text)
+describePendingAggregationRequests_nextToken = Lens.lens (\DescribePendingAggregationRequests' {nextToken} -> nextToken) (\s@DescribePendingAggregationRequests' {} a -> s {nextToken = a} :: DescribePendingAggregationRequests)
 
 instance
   Core.AWSPager
@@ -146,16 +146,16 @@ instance
   hashWithSalt
     _salt
     DescribePendingAggregationRequests' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+      _salt `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribePendingAggregationRequests
   where
   rnf DescribePendingAggregationRequests' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -182,8 +182,8 @@ instance
   toJSON DescribePendingAggregationRequests' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

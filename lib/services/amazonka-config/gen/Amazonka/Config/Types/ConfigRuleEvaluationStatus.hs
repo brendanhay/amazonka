@@ -34,13 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
-  { -- | The status of the last attempted delivery of a debug log for your Config
-    -- Custom Policy rules. Either @Successful@ or @Failed@.
-    lastDebugLogDeliveryStatus :: Prelude.Maybe Prelude.Text,
-    -- | The reason Config was not able to deliver a debug log. This is for the
-    -- last failed attempt to retrieve a debug log for your Config Custom
-    -- Policy rules.
-    lastDebugLogDeliveryStatusReason :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Config rule.
+    configRuleArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Config rule.
+    configRuleId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Config rule.
+    configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | The time that you first activated the Config rule.
+    firstActivatedTime :: Prelude.Maybe Data.POSIX,
     -- | Indicates whether Config has evaluated your resources against the rule
     -- at least once.
     --
@@ -50,35 +51,34 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
     -- -   @false@ - Config has not finished evaluating your Amazon Web
     --     Services resources against the rule at least once.
     firstEvaluationStarted :: Prelude.Maybe Prelude.Bool,
+    -- | The time that you last turned off the Config rule.
+    lastDeactivatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the last attempted delivery of a debug log for your Config
+    -- Custom Policy rules. Either @Successful@ or @Failed@.
+    lastDebugLogDeliveryStatus :: Prelude.Maybe Prelude.Text,
+    -- | The reason Config was not able to deliver a debug log. This is for the
+    -- last failed attempt to retrieve a debug log for your Config Custom
+    -- Policy rules.
+    lastDebugLogDeliveryStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | The time Config last attempted to deliver a debug log for your Config
+    -- Custom Policy rules.
+    lastDebugLogDeliveryTime :: Prelude.Maybe Data.POSIX,
     -- | The error code that Config returned when the rule last failed.
     lastErrorCode :: Prelude.Maybe Prelude.Text,
-    -- | The time that Config last successfully evaluated your Amazon Web
-    -- Services resources against the rule.
-    lastSuccessfulEvaluationTime :: Prelude.Maybe Data.POSIX,
+    -- | The error message that Config returned when the rule last failed.
+    lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time that Config last failed to evaluate your Amazon Web Services
     -- resources against the rule.
     lastFailedEvaluationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that Config last failed to invoke the Config rule to evaluate
     -- your Amazon Web Services resources.
     lastFailedInvocationTime :: Prelude.Maybe Data.POSIX,
-    -- | The time that you last turned off the Config rule.
-    lastDeactivatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the Config rule.
-    configRuleArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that you first activated the Config rule.
-    firstActivatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the Config rule.
-    configRuleId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Config rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
-    -- | The time Config last attempted to deliver a debug log for your Config
-    -- Custom Policy rules.
-    lastDebugLogDeliveryTime :: Prelude.Maybe Data.POSIX,
+    -- | The time that Config last successfully evaluated your Amazon Web
+    -- Services resources against the rule.
+    lastSuccessfulEvaluationTime :: Prelude.Maybe Data.POSIX,
     -- | The time that Config last successfully invoked the Config rule to
     -- evaluate your Amazon Web Services resources.
-    lastSuccessfulInvocationTime :: Prelude.Maybe Data.POSIX,
-    -- | The error message that Config returned when the rule last failed.
-    lastErrorMessage :: Prelude.Maybe Prelude.Text
+    lastSuccessfulInvocationTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,12 +90,13 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastDebugLogDeliveryStatus', 'configRuleEvaluationStatus_lastDebugLogDeliveryStatus' - The status of the last attempted delivery of a debug log for your Config
--- Custom Policy rules. Either @Successful@ or @Failed@.
+-- 'configRuleArn', 'configRuleEvaluationStatus_configRuleArn' - The Amazon Resource Name (ARN) of the Config rule.
 --
--- 'lastDebugLogDeliveryStatusReason', 'configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason' - The reason Config was not able to deliver a debug log. This is for the
--- last failed attempt to retrieve a debug log for your Config Custom
--- Policy rules.
+-- 'configRuleId', 'configRuleEvaluationStatus_configRuleId' - The ID of the Config rule.
+--
+-- 'configRuleName', 'configRuleEvaluationStatus_configRuleName' - The name of the Config rule.
+--
+-- 'firstActivatedTime', 'configRuleEvaluationStatus_firstActivatedTime' - The time that you first activated the Config rule.
 --
 -- 'firstEvaluationStarted', 'configRuleEvaluationStatus_firstEvaluationStarted' - Indicates whether Config has evaluated your resources against the rule
 -- at least once.
@@ -106,10 +107,21 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 -- -   @false@ - Config has not finished evaluating your Amazon Web
 --     Services resources against the rule at least once.
 --
+-- 'lastDeactivatedTime', 'configRuleEvaluationStatus_lastDeactivatedTime' - The time that you last turned off the Config rule.
+--
+-- 'lastDebugLogDeliveryStatus', 'configRuleEvaluationStatus_lastDebugLogDeliveryStatus' - The status of the last attempted delivery of a debug log for your Config
+-- Custom Policy rules. Either @Successful@ or @Failed@.
+--
+-- 'lastDebugLogDeliveryStatusReason', 'configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason' - The reason Config was not able to deliver a debug log. This is for the
+-- last failed attempt to retrieve a debug log for your Config Custom
+-- Policy rules.
+--
+-- 'lastDebugLogDeliveryTime', 'configRuleEvaluationStatus_lastDebugLogDeliveryTime' - The time Config last attempted to deliver a debug log for your Config
+-- Custom Policy rules.
+--
 -- 'lastErrorCode', 'configRuleEvaluationStatus_lastErrorCode' - The error code that Config returned when the rule last failed.
 --
--- 'lastSuccessfulEvaluationTime', 'configRuleEvaluationStatus_lastSuccessfulEvaluationTime' - The time that Config last successfully evaluated your Amazon Web
--- Services resources against the rule.
+-- 'lastErrorMessage', 'configRuleEvaluationStatus_lastErrorMessage' - The error message that Config returned when the rule last failed.
 --
 -- 'lastFailedEvaluationTime', 'configRuleEvaluationStatus_lastFailedEvaluationTime' - The time that Config last failed to evaluate your Amazon Web Services
 -- resources against the rule.
@@ -117,56 +129,49 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 -- 'lastFailedInvocationTime', 'configRuleEvaluationStatus_lastFailedInvocationTime' - The time that Config last failed to invoke the Config rule to evaluate
 -- your Amazon Web Services resources.
 --
--- 'lastDeactivatedTime', 'configRuleEvaluationStatus_lastDeactivatedTime' - The time that you last turned off the Config rule.
---
--- 'configRuleArn', 'configRuleEvaluationStatus_configRuleArn' - The Amazon Resource Name (ARN) of the Config rule.
---
--- 'firstActivatedTime', 'configRuleEvaluationStatus_firstActivatedTime' - The time that you first activated the Config rule.
---
--- 'configRuleId', 'configRuleEvaluationStatus_configRuleId' - The ID of the Config rule.
---
--- 'configRuleName', 'configRuleEvaluationStatus_configRuleName' - The name of the Config rule.
---
--- 'lastDebugLogDeliveryTime', 'configRuleEvaluationStatus_lastDebugLogDeliveryTime' - The time Config last attempted to deliver a debug log for your Config
--- Custom Policy rules.
+-- 'lastSuccessfulEvaluationTime', 'configRuleEvaluationStatus_lastSuccessfulEvaluationTime' - The time that Config last successfully evaluated your Amazon Web
+-- Services resources against the rule.
 --
 -- 'lastSuccessfulInvocationTime', 'configRuleEvaluationStatus_lastSuccessfulInvocationTime' - The time that Config last successfully invoked the Config rule to
 -- evaluate your Amazon Web Services resources.
---
--- 'lastErrorMessage', 'configRuleEvaluationStatus_lastErrorMessage' - The error message that Config returned when the rule last failed.
 newConfigRuleEvaluationStatus ::
   ConfigRuleEvaluationStatus
 newConfigRuleEvaluationStatus =
   ConfigRuleEvaluationStatus'
-    { lastDebugLogDeliveryStatus =
+    { configRuleArn =
         Prelude.Nothing,
-      lastDebugLogDeliveryStatusReason =
-        Prelude.Nothing,
-      firstEvaluationStarted = Prelude.Nothing,
-      lastErrorCode = Prelude.Nothing,
-      lastSuccessfulEvaluationTime = Prelude.Nothing,
-      lastFailedEvaluationTime = Prelude.Nothing,
-      lastFailedInvocationTime = Prelude.Nothing,
-      lastDeactivatedTime = Prelude.Nothing,
-      configRuleArn = Prelude.Nothing,
-      firstActivatedTime = Prelude.Nothing,
       configRuleId = Prelude.Nothing,
       configRuleName = Prelude.Nothing,
+      firstActivatedTime = Prelude.Nothing,
+      firstEvaluationStarted = Prelude.Nothing,
+      lastDeactivatedTime = Prelude.Nothing,
+      lastDebugLogDeliveryStatus = Prelude.Nothing,
+      lastDebugLogDeliveryStatusReason =
+        Prelude.Nothing,
       lastDebugLogDeliveryTime = Prelude.Nothing,
-      lastSuccessfulInvocationTime = Prelude.Nothing,
-      lastErrorMessage = Prelude.Nothing
+      lastErrorCode = Prelude.Nothing,
+      lastErrorMessage = Prelude.Nothing,
+      lastFailedEvaluationTime = Prelude.Nothing,
+      lastFailedInvocationTime = Prelude.Nothing,
+      lastSuccessfulEvaluationTime = Prelude.Nothing,
+      lastSuccessfulInvocationTime = Prelude.Nothing
     }
 
--- | The status of the last attempted delivery of a debug log for your Config
--- Custom Policy rules. Either @Successful@ or @Failed@.
-configRuleEvaluationStatus_lastDebugLogDeliveryStatus :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_lastDebugLogDeliveryStatus = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryStatus} -> lastDebugLogDeliveryStatus) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryStatus = a} :: ConfigRuleEvaluationStatus)
+-- | The Amazon Resource Name (ARN) of the Config rule.
+configRuleEvaluationStatus_configRuleArn :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_configRuleArn = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleArn} -> configRuleArn) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleArn = a} :: ConfigRuleEvaluationStatus)
 
--- | The reason Config was not able to deliver a debug log. This is for the
--- last failed attempt to retrieve a debug log for your Config Custom
--- Policy rules.
-configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryStatusReason} -> lastDebugLogDeliveryStatusReason) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryStatusReason = a} :: ConfigRuleEvaluationStatus)
+-- | The ID of the Config rule.
+configRuleEvaluationStatus_configRuleId :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_configRuleId = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleId} -> configRuleId) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleId = a} :: ConfigRuleEvaluationStatus)
+
+-- | The name of the Config rule.
+configRuleEvaluationStatus_configRuleName :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_configRuleName = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleName} -> configRuleName) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleName = a} :: ConfigRuleEvaluationStatus)
+
+-- | The time that you first activated the Config rule.
+configRuleEvaluationStatus_firstActivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+configRuleEvaluationStatus_firstActivatedTime = Lens.lens (\ConfigRuleEvaluationStatus' {firstActivatedTime} -> firstActivatedTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {firstActivatedTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether Config has evaluated your resources against the rule
 -- at least once.
@@ -179,14 +184,33 @@ configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason = Lens.lens (\Config
 configRuleEvaluationStatus_firstEvaluationStarted :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Bool)
 configRuleEvaluationStatus_firstEvaluationStarted = Lens.lens (\ConfigRuleEvaluationStatus' {firstEvaluationStarted} -> firstEvaluationStarted) (\s@ConfigRuleEvaluationStatus' {} a -> s {firstEvaluationStarted = a} :: ConfigRuleEvaluationStatus)
 
+-- | The time that you last turned off the Config rule.
+configRuleEvaluationStatus_lastDeactivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+configRuleEvaluationStatus_lastDeactivatedTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastDeactivatedTime} -> lastDeactivatedTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDeactivatedTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the last attempted delivery of a debug log for your Config
+-- Custom Policy rules. Either @Successful@ or @Failed@.
+configRuleEvaluationStatus_lastDebugLogDeliveryStatus :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_lastDebugLogDeliveryStatus = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryStatus} -> lastDebugLogDeliveryStatus) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryStatus = a} :: ConfigRuleEvaluationStatus)
+
+-- | The reason Config was not able to deliver a debug log. This is for the
+-- last failed attempt to retrieve a debug log for your Config Custom
+-- Policy rules.
+configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryStatusReason} -> lastDebugLogDeliveryStatusReason) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryStatusReason = a} :: ConfigRuleEvaluationStatus)
+
+-- | The time Config last attempted to deliver a debug log for your Config
+-- Custom Policy rules.
+configRuleEvaluationStatus_lastDebugLogDeliveryTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+configRuleEvaluationStatus_lastDebugLogDeliveryTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryTime} -> lastDebugLogDeliveryTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
+
 -- | The error code that Config returned when the rule last failed.
 configRuleEvaluationStatus_lastErrorCode :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
 configRuleEvaluationStatus_lastErrorCode = Lens.lens (\ConfigRuleEvaluationStatus' {lastErrorCode} -> lastErrorCode) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastErrorCode = a} :: ConfigRuleEvaluationStatus)
 
--- | The time that Config last successfully evaluated your Amazon Web
--- Services resources against the rule.
-configRuleEvaluationStatus_lastSuccessfulEvaluationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-configRuleEvaluationStatus_lastSuccessfulEvaluationTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastSuccessfulEvaluationTime} -> lastSuccessfulEvaluationTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastSuccessfulEvaluationTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
+-- | The error message that Config returned when the rule last failed.
+configRuleEvaluationStatus_lastErrorMessage :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+configRuleEvaluationStatus_lastErrorMessage = Lens.lens (\ConfigRuleEvaluationStatus' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastErrorMessage = a} :: ConfigRuleEvaluationStatus)
 
 -- | The time that Config last failed to evaluate your Amazon Web Services
 -- resources against the rule.
@@ -198,39 +222,15 @@ configRuleEvaluationStatus_lastFailedEvaluationTime = Lens.lens (\ConfigRuleEval
 configRuleEvaluationStatus_lastFailedInvocationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
 configRuleEvaluationStatus_lastFailedInvocationTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastFailedInvocationTime} -> lastFailedInvocationTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastFailedInvocationTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
 
--- | The time that you last turned off the Config rule.
-configRuleEvaluationStatus_lastDeactivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-configRuleEvaluationStatus_lastDeactivatedTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastDeactivatedTime} -> lastDeactivatedTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDeactivatedTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
-
--- | The Amazon Resource Name (ARN) of the Config rule.
-configRuleEvaluationStatus_configRuleArn :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_configRuleArn = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleArn} -> configRuleArn) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleArn = a} :: ConfigRuleEvaluationStatus)
-
--- | The time that you first activated the Config rule.
-configRuleEvaluationStatus_firstActivatedTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-configRuleEvaluationStatus_firstActivatedTime = Lens.lens (\ConfigRuleEvaluationStatus' {firstActivatedTime} -> firstActivatedTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {firstActivatedTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the Config rule.
-configRuleEvaluationStatus_configRuleId :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_configRuleId = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleId} -> configRuleId) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleId = a} :: ConfigRuleEvaluationStatus)
-
--- | The name of the Config rule.
-configRuleEvaluationStatus_configRuleName :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_configRuleName = Lens.lens (\ConfigRuleEvaluationStatus' {configRuleName} -> configRuleName) (\s@ConfigRuleEvaluationStatus' {} a -> s {configRuleName = a} :: ConfigRuleEvaluationStatus)
-
--- | The time Config last attempted to deliver a debug log for your Config
--- Custom Policy rules.
-configRuleEvaluationStatus_lastDebugLogDeliveryTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-configRuleEvaluationStatus_lastDebugLogDeliveryTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastDebugLogDeliveryTime} -> lastDebugLogDeliveryTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastDebugLogDeliveryTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
+-- | The time that Config last successfully evaluated your Amazon Web
+-- Services resources against the rule.
+configRuleEvaluationStatus_lastSuccessfulEvaluationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+configRuleEvaluationStatus_lastSuccessfulEvaluationTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastSuccessfulEvaluationTime} -> lastSuccessfulEvaluationTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastSuccessfulEvaluationTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The time that Config last successfully invoked the Config rule to
 -- evaluate your Amazon Web Services resources.
 configRuleEvaluationStatus_lastSuccessfulInvocationTime :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
 configRuleEvaluationStatus_lastSuccessfulInvocationTime = Lens.lens (\ConfigRuleEvaluationStatus' {lastSuccessfulInvocationTime} -> lastSuccessfulInvocationTime) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastSuccessfulInvocationTime = a} :: ConfigRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
-
--- | The error message that Config returned when the rule last failed.
-configRuleEvaluationStatus_lastErrorMessage :: Lens.Lens' ConfigRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-configRuleEvaluationStatus_lastErrorMessage = Lens.lens (\ConfigRuleEvaluationStatus' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigRuleEvaluationStatus' {} a -> s {lastErrorMessage = a} :: ConfigRuleEvaluationStatus)
 
 instance Data.FromJSON ConfigRuleEvaluationStatus where
   parseJSON =
@@ -238,56 +238,55 @@ instance Data.FromJSON ConfigRuleEvaluationStatus where
       "ConfigRuleEvaluationStatus"
       ( \x ->
           ConfigRuleEvaluationStatus'
-            Prelude.<$> (x Data..:? "LastDebugLogDeliveryStatus")
-            Prelude.<*> (x Data..:? "LastDebugLogDeliveryStatusReason")
-            Prelude.<*> (x Data..:? "FirstEvaluationStarted")
-            Prelude.<*> (x Data..:? "LastErrorCode")
-            Prelude.<*> (x Data..:? "LastSuccessfulEvaluationTime")
-            Prelude.<*> (x Data..:? "LastFailedEvaluationTime")
-            Prelude.<*> (x Data..:? "LastFailedInvocationTime")
-            Prelude.<*> (x Data..:? "LastDeactivatedTime")
-            Prelude.<*> (x Data..:? "ConfigRuleArn")
-            Prelude.<*> (x Data..:? "FirstActivatedTime")
+            Prelude.<$> (x Data..:? "ConfigRuleArn")
             Prelude.<*> (x Data..:? "ConfigRuleId")
             Prelude.<*> (x Data..:? "ConfigRuleName")
+            Prelude.<*> (x Data..:? "FirstActivatedTime")
+            Prelude.<*> (x Data..:? "FirstEvaluationStarted")
+            Prelude.<*> (x Data..:? "LastDeactivatedTime")
+            Prelude.<*> (x Data..:? "LastDebugLogDeliveryStatus")
+            Prelude.<*> (x Data..:? "LastDebugLogDeliveryStatusReason")
             Prelude.<*> (x Data..:? "LastDebugLogDeliveryTime")
-            Prelude.<*> (x Data..:? "LastSuccessfulInvocationTime")
+            Prelude.<*> (x Data..:? "LastErrorCode")
             Prelude.<*> (x Data..:? "LastErrorMessage")
+            Prelude.<*> (x Data..:? "LastFailedEvaluationTime")
+            Prelude.<*> (x Data..:? "LastFailedInvocationTime")
+            Prelude.<*> (x Data..:? "LastSuccessfulEvaluationTime")
+            Prelude.<*> (x Data..:? "LastSuccessfulInvocationTime")
       )
 
 instance Prelude.Hashable ConfigRuleEvaluationStatus where
   hashWithSalt _salt ConfigRuleEvaluationStatus' {..} =
-    _salt
-      `Prelude.hashWithSalt` lastDebugLogDeliveryStatus
-      `Prelude.hashWithSalt` lastDebugLogDeliveryStatusReason
-      `Prelude.hashWithSalt` firstEvaluationStarted
-      `Prelude.hashWithSalt` lastErrorCode
-      `Prelude.hashWithSalt` lastSuccessfulEvaluationTime
-      `Prelude.hashWithSalt` lastFailedEvaluationTime
-      `Prelude.hashWithSalt` lastFailedInvocationTime
-      `Prelude.hashWithSalt` lastDeactivatedTime
-      `Prelude.hashWithSalt` configRuleArn
-      `Prelude.hashWithSalt` firstActivatedTime
+    _salt `Prelude.hashWithSalt` configRuleArn
       `Prelude.hashWithSalt` configRuleId
       `Prelude.hashWithSalt` configRuleName
+      `Prelude.hashWithSalt` firstActivatedTime
+      `Prelude.hashWithSalt` firstEvaluationStarted
+      `Prelude.hashWithSalt` lastDeactivatedTime
+      `Prelude.hashWithSalt` lastDebugLogDeliveryStatus
+      `Prelude.hashWithSalt` lastDebugLogDeliveryStatusReason
       `Prelude.hashWithSalt` lastDebugLogDeliveryTime
-      `Prelude.hashWithSalt` lastSuccessfulInvocationTime
+      `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
+      `Prelude.hashWithSalt` lastFailedEvaluationTime
+      `Prelude.hashWithSalt` lastFailedInvocationTime
+      `Prelude.hashWithSalt` lastSuccessfulEvaluationTime
+      `Prelude.hashWithSalt` lastSuccessfulInvocationTime
 
 instance Prelude.NFData ConfigRuleEvaluationStatus where
   rnf ConfigRuleEvaluationStatus' {..} =
-    Prelude.rnf lastDebugLogDeliveryStatus
-      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryStatusReason
-      `Prelude.seq` Prelude.rnf firstEvaluationStarted
-      `Prelude.seq` Prelude.rnf lastErrorCode
-      `Prelude.seq` Prelude.rnf lastSuccessfulEvaluationTime
-      `Prelude.seq` Prelude.rnf lastFailedEvaluationTime
-      `Prelude.seq` Prelude.rnf lastFailedInvocationTime
-      `Prelude.seq` Prelude.rnf lastDeactivatedTime
-      `Prelude.seq` Prelude.rnf configRuleArn
-      `Prelude.seq` Prelude.rnf firstActivatedTime
+    Prelude.rnf configRuleArn
       `Prelude.seq` Prelude.rnf configRuleId
       `Prelude.seq` Prelude.rnf configRuleName
+      `Prelude.seq` Prelude.rnf firstActivatedTime
+      `Prelude.seq` Prelude.rnf firstEvaluationStarted
+      `Prelude.seq` Prelude.rnf lastDeactivatedTime
+      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryStatus
+      `Prelude.seq` Prelude.rnf lastDebugLogDeliveryStatusReason
       `Prelude.seq` Prelude.rnf lastDebugLogDeliveryTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulInvocationTime
+      `Prelude.seq` Prelude.rnf lastErrorCode
       `Prelude.seq` Prelude.rnf lastErrorMessage
+      `Prelude.seq` Prelude.rnf lastFailedEvaluationTime
+      `Prelude.seq` Prelude.rnf lastFailedInvocationTime
+      `Prelude.seq` Prelude.rnf lastSuccessfulEvaluationTime
+      `Prelude.seq` Prelude.rnf lastSuccessfulInvocationTime

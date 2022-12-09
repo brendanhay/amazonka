@@ -51,9 +51,9 @@ module Amazonka.Config.DescribeOrganizationConformancePacks
     newDescribeOrganizationConformancePacks,
 
     -- * Request Lenses
-    describeOrganizationConformancePacks_organizationConformancePackNames,
-    describeOrganizationConformancePacks_nextToken,
     describeOrganizationConformancePacks_limit,
+    describeOrganizationConformancePacks_nextToken,
+    describeOrganizationConformancePacks_organizationConformancePackNames,
 
     -- * Destructuring the Response
     DescribeOrganizationConformancePacksResponse (..),
@@ -76,15 +76,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOrganizationConformancePacks' smart constructor.
 data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks'
-  { -- | The name that you assign to an organization conformance pack.
-    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text],
+  { -- | The maximum number of organization config packs returned on each page.
+    -- If you do no specify a number, Config uses the default. The default is
+    -- 100.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of organization config packs returned on each page.
-    -- If you do no specify a number, Config uses the default. The default is
-    -- 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    -- | The name that you assign to an organization conformance pack.
+    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,38 +96,39 @@ data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.
+-- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.
+-- If you do no specify a number, Config uses the default. The default is
+-- 100.
 --
 -- 'nextToken', 'describeOrganizationConformancePacks_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 --
--- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.
--- If you do no specify a number, Config uses the default. The default is
--- 100.
+-- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.
 newDescribeOrganizationConformancePacks ::
   DescribeOrganizationConformancePacks
 newDescribeOrganizationConformancePacks =
   DescribeOrganizationConformancePacks'
-    { organizationConformancePackNames =
+    { limit =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+      organizationConformancePackNames =
+        Prelude.Nothing
     }
-
--- | The name that you assign to an organization conformance pack.
-describeOrganizationConformancePacks_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe [Prelude.Text])
-describeOrganizationConformancePacks_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePacks' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePacks' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks) Prelude.. Lens.mapping Lens.coerced
-
--- | The nextToken string returned on a previous page that you use to get the
--- next page of results in a paginated response.
-describeOrganizationConformancePacks_nextToken :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Text)
-describeOrganizationConformancePacks_nextToken = Lens.lens (\DescribeOrganizationConformancePacks' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePacks' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePacks)
 
 -- | The maximum number of organization config packs returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
 describeOrganizationConformancePacks_limit :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Natural)
 describeOrganizationConformancePacks_limit = Lens.lens (\DescribeOrganizationConformancePacks' {limit} -> limit) (\s@DescribeOrganizationConformancePacks' {} a -> s {limit = a} :: DescribeOrganizationConformancePacks)
+
+-- | The nextToken string returned on a previous page that you use to get the
+-- next page of results in a paginated response.
+describeOrganizationConformancePacks_nextToken :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Text)
+describeOrganizationConformancePacks_nextToken = Lens.lens (\DescribeOrganizationConformancePacks' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePacks' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePacks)
+
+-- | The name that you assign to an organization conformance pack.
+describeOrganizationConformancePacks_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe [Prelude.Text])
+describeOrganizationConformancePacks_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePacks' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePacks' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -181,19 +182,18 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationConformancePacks' {..} =
-      _salt
-        `Prelude.hashWithSalt` organizationConformancePackNames
+      _salt `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` organizationConformancePackNames
 
 instance
   Prelude.NFData
     DescribeOrganizationConformancePacks
   where
   rnf DescribeOrganizationConformancePacks' {..} =
-    Prelude.rnf organizationConformancePackNames
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf organizationConformancePackNames
 
 instance
   Data.ToHeaders
@@ -220,10 +220,10 @@ instance
   toJSON DescribeOrganizationConformancePacks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationConformancePackNames" Data..=)
-              Prelude.<$> organizationConformancePackNames,
+          [ ("Limit" Data..=) Prelude.<$> limit,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("OrganizationConformancePackNames" Data..=)
+              Prelude.<$> organizationConformancePackNames
           ]
       )
 

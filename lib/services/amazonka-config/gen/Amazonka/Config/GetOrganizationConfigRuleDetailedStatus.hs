@@ -30,9 +30,9 @@ module Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
     newGetOrganizationConfigRuleDetailedStatus,
 
     -- * Request Lenses
-    getOrganizationConfigRuleDetailedStatus_nextToken,
     getOrganizationConfigRuleDetailedStatus_filters,
     getOrganizationConfigRuleDetailedStatus_limit,
+    getOrganizationConfigRuleDetailedStatus_nextToken,
     getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOrganizationConfigRuleDetailedStatus' smart constructor.
 data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailedStatus'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @StatusDetailFilters@ object.
+  { -- | A @StatusDetailFilters@ object.
     filters :: Prelude.Maybe StatusDetailFilters,
     -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
     -- each page. If you do not specify a number, Config uses the default. The
     -- default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of your organization Config rule for which you want status
     -- details for member accounts.
     organizationConfigRuleName :: Prelude.Text
@@ -79,14 +79,14 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getOrganizationConfigRuleDetailedStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'filters', 'getOrganizationConfigRuleDetailedStatus_filters' - A @StatusDetailFilters@ object.
 --
 -- 'limit', 'getOrganizationConfigRuleDetailedStatus_limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
 -- each page. If you do not specify a number, Config uses the default. The
 -- default is 100.
+--
+-- 'nextToken', 'getOrganizationConfigRuleDetailedStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'organizationConfigRuleName', 'getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName' - The name of your organization Config rule for which you want status
 -- details for member accounts.
@@ -97,18 +97,13 @@ newGetOrganizationConfigRuleDetailedStatus ::
 newGetOrganizationConfigRuleDetailedStatus
   pOrganizationConfigRuleName_ =
     GetOrganizationConfigRuleDetailedStatus'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getOrganizationConfigRuleDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Text)
-getOrganizationConfigRuleDetailedStatus_nextToken = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatus)
 
 -- | A @StatusDetailFilters@ object.
 getOrganizationConfigRuleDetailedStatus_filters :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe StatusDetailFilters)
@@ -119,6 +114,11 @@ getOrganizationConfigRuleDetailedStatus_filters = Lens.lens (\GetOrganizationCon
 -- default is 100.
 getOrganizationConfigRuleDetailedStatus_limit :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Natural)
 getOrganizationConfigRuleDetailedStatus_limit = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {limit} -> limit) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {limit = a} :: GetOrganizationConfigRuleDetailedStatus)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getOrganizationConfigRuleDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Text)
+getOrganizationConfigRuleDetailedStatus_nextToken = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConfigRuleDetailedStatus)
 
 -- | The name of your organization Config rule for which you want status
 -- details for member accounts.
@@ -178,9 +178,9 @@ instance
   hashWithSalt
     _salt
     GetOrganizationConfigRuleDetailedStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationConfigRuleName
 
 instance
@@ -188,9 +188,9 @@ instance
     GetOrganizationConfigRuleDetailedStatus
   where
   rnf GetOrganizationConfigRuleDetailedStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
 
 instance
@@ -218,9 +218,9 @@ instance
   toJSON GetOrganizationConfigRuleDetailedStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "OrganizationConfigRuleName"
                   Data..= organizationConfigRuleName

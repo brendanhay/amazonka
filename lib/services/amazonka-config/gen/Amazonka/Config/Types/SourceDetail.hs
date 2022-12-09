@@ -35,7 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
-  { -- | The frequency at which you want Config to run evaluations for a custom
+  { -- | The source of the event, such as an Amazon Web Services service, that
+    -- triggers Config to evaluate your Amazon Web Services resources.
+    eventSource :: Prelude.Maybe EventSource,
+    -- | The frequency at which you want Config to run evaluations for a custom
     -- rule with a periodic trigger. If you specify a value for
     -- @MaximumExecutionFrequency@, then @MessageType@ must use the
     -- @ScheduledNotification@ value.
@@ -71,10 +74,7 @@ data SourceDetail = SourceDetail'
     -- specify two SourceDetail objects, one for
     -- @ConfigurationItemChangeNotification@ and one for
     -- @OversizedConfigurationItemChangeNotification@.
-    messageType :: Prelude.Maybe MessageType,
-    -- | The source of the event, such as an Amazon Web Services service, that
-    -- triggers Config to evaluate your Amazon Web Services resources.
-    eventSource :: Prelude.Maybe EventSource
+    messageType :: Prelude.Maybe MessageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,9 @@ data SourceDetail = SourceDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'eventSource', 'sourceDetail_eventSource' - The source of the event, such as an Amazon Web Services service, that
+-- triggers Config to evaluate your Amazon Web Services resources.
 --
 -- 'maximumExecutionFrequency', 'sourceDetail_maximumExecutionFrequency' - The frequency at which you want Config to run evaluations for a custom
 -- rule with a periodic trigger. If you specify a value for
@@ -122,18 +125,19 @@ data SourceDetail = SourceDetail'
 -- specify two SourceDetail objects, one for
 -- @ConfigurationItemChangeNotification@ and one for
 -- @OversizedConfigurationItemChangeNotification@.
---
--- 'eventSource', 'sourceDetail_eventSource' - The source of the event, such as an Amazon Web Services service, that
--- triggers Config to evaluate your Amazon Web Services resources.
 newSourceDetail ::
   SourceDetail
 newSourceDetail =
   SourceDetail'
-    { maximumExecutionFrequency =
-        Prelude.Nothing,
-      messageType = Prelude.Nothing,
-      eventSource = Prelude.Nothing
+    { eventSource = Prelude.Nothing,
+      maximumExecutionFrequency = Prelude.Nothing,
+      messageType = Prelude.Nothing
     }
+
+-- | The source of the event, such as an Amazon Web Services service, that
+-- triggers Config to evaluate your Amazon Web Services resources.
+sourceDetail_eventSource :: Lens.Lens' SourceDetail (Prelude.Maybe EventSource)
+sourceDetail_eventSource = Lens.lens (\SourceDetail' {eventSource} -> eventSource) (\s@SourceDetail' {} a -> s {eventSource = a} :: SourceDetail)
 
 -- | The frequency at which you want Config to run evaluations for a custom
 -- rule with a periodic trigger. If you specify a value for
@@ -176,42 +180,36 @@ sourceDetail_maximumExecutionFrequency = Lens.lens (\SourceDetail' {maximumExecu
 sourceDetail_messageType :: Lens.Lens' SourceDetail (Prelude.Maybe MessageType)
 sourceDetail_messageType = Lens.lens (\SourceDetail' {messageType} -> messageType) (\s@SourceDetail' {} a -> s {messageType = a} :: SourceDetail)
 
--- | The source of the event, such as an Amazon Web Services service, that
--- triggers Config to evaluate your Amazon Web Services resources.
-sourceDetail_eventSource :: Lens.Lens' SourceDetail (Prelude.Maybe EventSource)
-sourceDetail_eventSource = Lens.lens (\SourceDetail' {eventSource} -> eventSource) (\s@SourceDetail' {} a -> s {eventSource = a} :: SourceDetail)
-
 instance Data.FromJSON SourceDetail where
   parseJSON =
     Data.withObject
       "SourceDetail"
       ( \x ->
           SourceDetail'
-            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<$> (x Data..:? "EventSource")
+            Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
             Prelude.<*> (x Data..:? "MessageType")
-            Prelude.<*> (x Data..:? "EventSource")
       )
 
 instance Prelude.Hashable SourceDetail where
   hashWithSalt _salt SourceDetail' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` eventSource
       `Prelude.hashWithSalt` maximumExecutionFrequency
       `Prelude.hashWithSalt` messageType
-      `Prelude.hashWithSalt` eventSource
 
 instance Prelude.NFData SourceDetail where
   rnf SourceDetail' {..} =
-    Prelude.rnf maximumExecutionFrequency
+    Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
       `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf eventSource
 
 instance Data.ToJSON SourceDetail where
   toJSON SourceDetail' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Data..=)
+          [ ("EventSource" Data..=) Prelude.<$> eventSource,
+            ("MaximumExecutionFrequency" Data..=)
               Prelude.<$> maximumExecutionFrequency,
-            ("MessageType" Data..=) Prelude.<$> messageType,
-            ("EventSource" Data..=) Prelude.<$> eventSource
+            ("MessageType" Data..=) Prelude.<$> messageType
           ]
       )

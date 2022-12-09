@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceCountFilters' smart constructor.
 data ResourceCountFilters = ResourceCountFilters'
-  { -- | The type of the Amazon Web Services resource.
-    resourceType :: Prelude.Maybe ResourceType,
+  { -- | The 12-digit ID of the account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The region where the account is located.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit ID of the account.
-    accountId :: Prelude.Maybe Prelude.Text
+    -- | The type of the Amazon Web Services resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,51 +47,50 @@ data ResourceCountFilters = ResourceCountFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'resourceCountFilters_resourceType' - The type of the Amazon Web Services resource.
+-- 'accountId', 'resourceCountFilters_accountId' - The 12-digit ID of the account.
 --
 -- 'region', 'resourceCountFilters_region' - The region where the account is located.
 --
--- 'accountId', 'resourceCountFilters_accountId' - The 12-digit ID of the account.
+-- 'resourceType', 'resourceCountFilters_resourceType' - The type of the Amazon Web Services resource.
 newResourceCountFilters ::
   ResourceCountFilters
 newResourceCountFilters =
   ResourceCountFilters'
-    { resourceType =
-        Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       region = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
-
--- | The type of the Amazon Web Services resource.
-resourceCountFilters_resourceType :: Lens.Lens' ResourceCountFilters (Prelude.Maybe ResourceType)
-resourceCountFilters_resourceType = Lens.lens (\ResourceCountFilters' {resourceType} -> resourceType) (\s@ResourceCountFilters' {} a -> s {resourceType = a} :: ResourceCountFilters)
-
--- | The region where the account is located.
-resourceCountFilters_region :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
-resourceCountFilters_region = Lens.lens (\ResourceCountFilters' {region} -> region) (\s@ResourceCountFilters' {} a -> s {region = a} :: ResourceCountFilters)
 
 -- | The 12-digit ID of the account.
 resourceCountFilters_accountId :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
 resourceCountFilters_accountId = Lens.lens (\ResourceCountFilters' {accountId} -> accountId) (\s@ResourceCountFilters' {} a -> s {accountId = a} :: ResourceCountFilters)
 
+-- | The region where the account is located.
+resourceCountFilters_region :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
+resourceCountFilters_region = Lens.lens (\ResourceCountFilters' {region} -> region) (\s@ResourceCountFilters' {} a -> s {region = a} :: ResourceCountFilters)
+
+-- | The type of the Amazon Web Services resource.
+resourceCountFilters_resourceType :: Lens.Lens' ResourceCountFilters (Prelude.Maybe ResourceType)
+resourceCountFilters_resourceType = Lens.lens (\ResourceCountFilters' {resourceType} -> resourceType) (\s@ResourceCountFilters' {} a -> s {resourceType = a} :: ResourceCountFilters)
+
 instance Prelude.Hashable ResourceCountFilters where
   hashWithSalt _salt ResourceCountFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResourceCountFilters where
   rnf ResourceCountFilters' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToJSON ResourceCountFilters where
   toJSON ResourceCountFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             ("Region" Data..=) Prelude.<$> region,
-            ("AccountId" Data..=) Prelude.<$> accountId
+            ("ResourceType" Data..=) Prelude.<$> resourceType
           ]
       )

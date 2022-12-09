@@ -28,14 +28,17 @@
 -- Config generates a remediation exception when a problem occurs executing
 -- a remediation action to a specific resource. Remediation exceptions
 -- blocks auto-remediation until the exception is cleared.
+--
+-- To place an exception on an Amazon Web Services resource, ensure
+-- remediation is set as manual remediation.
 module Amazonka.Config.PutRemediationExceptions
   ( -- * Creating a Request
     PutRemediationExceptions (..),
     newPutRemediationExceptions,
 
     -- * Request Lenses
-    putRemediationExceptions_message,
     putRemediationExceptions_expirationTime,
+    putRemediationExceptions_message,
     putRemediationExceptions_configRuleName,
     putRemediationExceptions_resourceKeys,
 
@@ -59,10 +62,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRemediationExceptions' smart constructor.
 data PutRemediationExceptions = PutRemediationExceptions'
-  { -- | The message contains an explanation of the exception.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The exception is automatically deleted after the expiration date.
+  { -- | The exception is automatically deleted after the expiration date.
     expirationTime :: Prelude.Maybe Data.POSIX,
+    -- | The message contains an explanation of the exception.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The name of the Config rule for which you want to create remediation
     -- exception.
     configRuleName :: Prelude.Text,
@@ -81,9 +84,9 @@ data PutRemediationExceptions = PutRemediationExceptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'putRemediationExceptions_message' - The message contains an explanation of the exception.
---
 -- 'expirationTime', 'putRemediationExceptions_expirationTime' - The exception is automatically deleted after the expiration date.
+--
+-- 'message', 'putRemediationExceptions_message' - The message contains an explanation of the exception.
 --
 -- 'configRuleName', 'putRemediationExceptions_configRuleName' - The name of the Config rule for which you want to create remediation
 -- exception.
@@ -101,20 +104,20 @@ newPutRemediationExceptions
   pConfigRuleName_
   pResourceKeys_ =
     PutRemediationExceptions'
-      { message =
+      { expirationTime =
           Prelude.Nothing,
-        expirationTime = Prelude.Nothing,
+        message = Prelude.Nothing,
         configRuleName = pConfigRuleName_,
         resourceKeys = Lens.coerced Lens.# pResourceKeys_
       }
 
--- | The message contains an explanation of the exception.
-putRemediationExceptions_message :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.Text)
-putRemediationExceptions_message = Lens.lens (\PutRemediationExceptions' {message} -> message) (\s@PutRemediationExceptions' {} a -> s {message = a} :: PutRemediationExceptions)
-
 -- | The exception is automatically deleted after the expiration date.
 putRemediationExceptions_expirationTime :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.UTCTime)
 putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' {expirationTime} -> expirationTime) (\s@PutRemediationExceptions' {} a -> s {expirationTime = a} :: PutRemediationExceptions) Prelude.. Lens.mapping Data._Time
+
+-- | The message contains an explanation of the exception.
+putRemediationExceptions_message :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.Text)
+putRemediationExceptions_message = Lens.lens (\PutRemediationExceptions' {message} -> message) (\s@PutRemediationExceptions' {} a -> s {message = a} :: PutRemediationExceptions)
 
 -- | The name of the Config rule for which you want to create remediation
 -- exception.
@@ -143,15 +146,15 @@ instance Core.AWSRequest PutRemediationExceptions where
 
 instance Prelude.Hashable PutRemediationExceptions where
   hashWithSalt _salt PutRemediationExceptions' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` expirationTime
+    _salt `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceKeys
 
 instance Prelude.NFData PutRemediationExceptions where
   rnf PutRemediationExceptions' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf expirationTime
+    Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf resourceKeys
 
@@ -174,9 +177,9 @@ instance Data.ToJSON PutRemediationExceptions where
   toJSON PutRemediationExceptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Message" Data..=) Prelude.<$> message,
-            ("ExpirationTime" Data..=)
+          [ ("ExpirationTime" Data..=)
               Prelude.<$> expirationTime,
+            ("Message" Data..=) Prelude.<$> message,
             Prelude.Just
               ("ConfigRuleName" Data..= configRuleName),
             Prelude.Just ("ResourceKeys" Data..= resourceKeys)

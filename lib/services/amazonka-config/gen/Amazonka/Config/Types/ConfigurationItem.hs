@@ -31,32 +31,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
-  { -- | A mapping of key value tags associated with the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ID of the resource (for example, @sg-xxxxxx@).
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of Amazon Web Services resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The custom name of the resource, if available.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp when the resource was created.
-    resourceCreationTime :: Prelude.Maybe Data.POSIX,
-    -- | Configuration attributes that Config returns for certain resource types
-    -- to supplement the information returned for the @configuration@
-    -- parameter.
-    supplementaryConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An identifier that indicates the ordering of the configuration items of
-    -- a resource.
-    configurationStateId :: Prelude.Maybe Prelude.Text,
+  { -- | The 12-digit Amazon Web Services account ID associated with the
+    -- resource.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) associated with the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The Availability Zone associated with the resource.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The region where the resource resides.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The description of the resource configuration.
+    configuration :: Prelude.Maybe Prelude.Text,
+    -- | The time when the configuration recording was initiated.
+    configurationItemCaptureTime :: Prelude.Maybe Data.POSIX,
     -- | Unique MD5 hash that represents the configuration item\'s state.
     --
     -- You can use MD5 hash to compare the states of two or more configuration
     -- items that are associated with the same resource.
     configurationItemMD5Hash :: Prelude.Maybe Prelude.Text,
-    -- | The description of the resource configuration.
-    configuration :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) associated with the resource.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The configuration item status. The valid values are:
     --
     -- -   OK – The resource configuration has been updated
@@ -75,13 +67,9 @@ data ConfigurationItem = ConfigurationItem'
     --
     -- The CIs do not incur any cost.
     configurationItemStatus :: Prelude.Maybe ConfigurationItemStatus,
-    -- | The Availability Zone associated with the resource.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit Amazon Web Services account ID associated with the
-    -- resource.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The region where the resource resides.
-    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | An identifier that indicates the ordering of the configuration items of
+    -- a resource.
+    configurationStateId :: Prelude.Maybe Prelude.Text,
     -- | A list of CloudTrail event IDs.
     --
     -- A populated field indicates that the current configuration was initiated
@@ -98,10 +86,22 @@ data ConfigurationItem = ConfigurationItem'
     relatedEvents :: Prelude.Maybe [Prelude.Text],
     -- | A list of related Amazon Web Services resources.
     relationships :: Prelude.Maybe [Relationship],
+    -- | The time stamp when the resource was created.
+    resourceCreationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the resource (for example, @sg-xxxxxx@).
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The custom name of the resource, if available.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The type of Amazon Web Services resource.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | Configuration attributes that Config returns for certain resource types
+    -- to supplement the information returned for the @configuration@
+    -- parameter.
+    supplementaryConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A mapping of key value tags associated with the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version number of the resource configuration.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The time when the configuration recording was initiated.
-    configurationItemCaptureTime :: Prelude.Maybe Data.POSIX
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,31 +113,23 @@ data ConfigurationItem = ConfigurationItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'configurationItem_tags' - A mapping of key value tags associated with the resource.
+-- 'accountId', 'configurationItem_accountId' - The 12-digit Amazon Web Services account ID associated with the
+-- resource.
 --
--- 'resourceId', 'configurationItem_resourceId' - The ID of the resource (for example, @sg-xxxxxx@).
+-- 'arn', 'configurationItem_arn' - Amazon Resource Name (ARN) associated with the resource.
 --
--- 'resourceType', 'configurationItem_resourceType' - The type of Amazon Web Services resource.
+-- 'availabilityZone', 'configurationItem_availabilityZone' - The Availability Zone associated with the resource.
 --
--- 'resourceName', 'configurationItem_resourceName' - The custom name of the resource, if available.
+-- 'awsRegion', 'configurationItem_awsRegion' - The region where the resource resides.
 --
--- 'resourceCreationTime', 'configurationItem_resourceCreationTime' - The time stamp when the resource was created.
+-- 'configuration', 'configurationItem_configuration' - The description of the resource configuration.
 --
--- 'supplementaryConfiguration', 'configurationItem_supplementaryConfiguration' - Configuration attributes that Config returns for certain resource types
--- to supplement the information returned for the @configuration@
--- parameter.
---
--- 'configurationStateId', 'configurationItem_configurationStateId' - An identifier that indicates the ordering of the configuration items of
--- a resource.
+-- 'configurationItemCaptureTime', 'configurationItem_configurationItemCaptureTime' - The time when the configuration recording was initiated.
 --
 -- 'configurationItemMD5Hash', 'configurationItem_configurationItemMD5Hash' - Unique MD5 hash that represents the configuration item\'s state.
 --
 -- You can use MD5 hash to compare the states of two or more configuration
 -- items that are associated with the same resource.
---
--- 'configuration', 'configurationItem_configuration' - The description of the resource configuration.
---
--- 'arn', 'configurationItem_arn' - Amazon Resource Name (ARN) associated with the resource.
 --
 -- 'configurationItemStatus', 'configurationItem_configurationItemStatus' - The configuration item status. The valid values are:
 --
@@ -157,12 +149,8 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- The CIs do not incur any cost.
 --
--- 'availabilityZone', 'configurationItem_availabilityZone' - The Availability Zone associated with the resource.
---
--- 'accountId', 'configurationItem_accountId' - The 12-digit Amazon Web Services account ID associated with the
--- resource.
---
--- 'awsRegion', 'configurationItem_awsRegion' - The region where the resource resides.
+-- 'configurationStateId', 'configurationItem_configurationStateId' - An identifier that indicates the ordering of the configuration items of
+-- a resource.
 --
 -- 'relatedEvents', 'configurationItem_relatedEvents' - A list of CloudTrail event IDs.
 --
@@ -180,63 +168,69 @@ data ConfigurationItem = ConfigurationItem'
 --
 -- 'relationships', 'configurationItem_relationships' - A list of related Amazon Web Services resources.
 --
--- 'version', 'configurationItem_version' - The version number of the resource configuration.
+-- 'resourceCreationTime', 'configurationItem_resourceCreationTime' - The time stamp when the resource was created.
 --
--- 'configurationItemCaptureTime', 'configurationItem_configurationItemCaptureTime' - The time when the configuration recording was initiated.
+-- 'resourceId', 'configurationItem_resourceId' - The ID of the resource (for example, @sg-xxxxxx@).
+--
+-- 'resourceName', 'configurationItem_resourceName' - The custom name of the resource, if available.
+--
+-- 'resourceType', 'configurationItem_resourceType' - The type of Amazon Web Services resource.
+--
+-- 'supplementaryConfiguration', 'configurationItem_supplementaryConfiguration' - Configuration attributes that Config returns for certain resource types
+-- to supplement the information returned for the @configuration@
+-- parameter.
+--
+-- 'tags', 'configurationItem_tags' - A mapping of key value tags associated with the resource.
+--
+-- 'version', 'configurationItem_version' - The version number of the resource configuration.
 newConfigurationItem ::
   ConfigurationItem
 newConfigurationItem =
   ConfigurationItem'
-    { tags = Prelude.Nothing,
-      resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      resourceName = Prelude.Nothing,
-      resourceCreationTime = Prelude.Nothing,
-      supplementaryConfiguration = Prelude.Nothing,
-      configurationStateId = Prelude.Nothing,
-      configurationItemMD5Hash = Prelude.Nothing,
-      configuration = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       arn = Prelude.Nothing,
-      configurationItemStatus = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      accountId = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      configurationItemCaptureTime = Prelude.Nothing,
+      configurationItemMD5Hash = Prelude.Nothing,
+      configurationItemStatus = Prelude.Nothing,
+      configurationStateId = Prelude.Nothing,
       relatedEvents = Prelude.Nothing,
       relationships = Prelude.Nothing,
-      version = Prelude.Nothing,
-      configurationItemCaptureTime = Prelude.Nothing
+      resourceCreationTime = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      supplementaryConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
--- | A mapping of key value tags associated with the resource.
-configurationItem_tags :: Lens.Lens' ConfigurationItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configurationItem_tags = Lens.lens (\ConfigurationItem' {tags} -> tags) (\s@ConfigurationItem' {} a -> s {tags = a} :: ConfigurationItem) Prelude.. Lens.mapping Lens.coerced
+-- | The 12-digit Amazon Web Services account ID associated with the
+-- resource.
+configurationItem_accountId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_accountId = Lens.lens (\ConfigurationItem' {accountId} -> accountId) (\s@ConfigurationItem' {} a -> s {accountId = a} :: ConfigurationItem)
 
--- | The ID of the resource (for example, @sg-xxxxxx@).
-configurationItem_resourceId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_resourceId = Lens.lens (\ConfigurationItem' {resourceId} -> resourceId) (\s@ConfigurationItem' {} a -> s {resourceId = a} :: ConfigurationItem)
+-- | Amazon Resource Name (ARN) associated with the resource.
+configurationItem_arn :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_arn = Lens.lens (\ConfigurationItem' {arn} -> arn) (\s@ConfigurationItem' {} a -> s {arn = a} :: ConfigurationItem)
 
--- | The type of Amazon Web Services resource.
-configurationItem_resourceType :: Lens.Lens' ConfigurationItem (Prelude.Maybe ResourceType)
-configurationItem_resourceType = Lens.lens (\ConfigurationItem' {resourceType} -> resourceType) (\s@ConfigurationItem' {} a -> s {resourceType = a} :: ConfigurationItem)
+-- | The Availability Zone associated with the resource.
+configurationItem_availabilityZone :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_availabilityZone = Lens.lens (\ConfigurationItem' {availabilityZone} -> availabilityZone) (\s@ConfigurationItem' {} a -> s {availabilityZone = a} :: ConfigurationItem)
 
--- | The custom name of the resource, if available.
-configurationItem_resourceName :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_resourceName = Lens.lens (\ConfigurationItem' {resourceName} -> resourceName) (\s@ConfigurationItem' {} a -> s {resourceName = a} :: ConfigurationItem)
+-- | The region where the resource resides.
+configurationItem_awsRegion :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_awsRegion = Lens.lens (\ConfigurationItem' {awsRegion} -> awsRegion) (\s@ConfigurationItem' {} a -> s {awsRegion = a} :: ConfigurationItem)
 
--- | The time stamp when the resource was created.
-configurationItem_resourceCreationTime :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.UTCTime)
-configurationItem_resourceCreationTime = Lens.lens (\ConfigurationItem' {resourceCreationTime} -> resourceCreationTime) (\s@ConfigurationItem' {} a -> s {resourceCreationTime = a} :: ConfigurationItem) Prelude.. Lens.mapping Data._Time
+-- | The description of the resource configuration.
+configurationItem_configuration :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_configuration = Lens.lens (\ConfigurationItem' {configuration} -> configuration) (\s@ConfigurationItem' {} a -> s {configuration = a} :: ConfigurationItem)
 
--- | Configuration attributes that Config returns for certain resource types
--- to supplement the information returned for the @configuration@
--- parameter.
-configurationItem_supplementaryConfiguration :: Lens.Lens' ConfigurationItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configurationItem_supplementaryConfiguration = Lens.lens (\ConfigurationItem' {supplementaryConfiguration} -> supplementaryConfiguration) (\s@ConfigurationItem' {} a -> s {supplementaryConfiguration = a} :: ConfigurationItem) Prelude.. Lens.mapping Lens.coerced
-
--- | An identifier that indicates the ordering of the configuration items of
--- a resource.
-configurationItem_configurationStateId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_configurationStateId = Lens.lens (\ConfigurationItem' {configurationStateId} -> configurationStateId) (\s@ConfigurationItem' {} a -> s {configurationStateId = a} :: ConfigurationItem)
+-- | The time when the configuration recording was initiated.
+configurationItem_configurationItemCaptureTime :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.UTCTime)
+configurationItem_configurationItemCaptureTime = Lens.lens (\ConfigurationItem' {configurationItemCaptureTime} -> configurationItemCaptureTime) (\s@ConfigurationItem' {} a -> s {configurationItemCaptureTime = a} :: ConfigurationItem) Prelude.. Lens.mapping Data._Time
 
 -- | Unique MD5 hash that represents the configuration item\'s state.
 --
@@ -244,14 +238,6 @@ configurationItem_configurationStateId = Lens.lens (\ConfigurationItem' {configu
 -- items that are associated with the same resource.
 configurationItem_configurationItemMD5Hash :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
 configurationItem_configurationItemMD5Hash = Lens.lens (\ConfigurationItem' {configurationItemMD5Hash} -> configurationItemMD5Hash) (\s@ConfigurationItem' {} a -> s {configurationItemMD5Hash = a} :: ConfigurationItem)
-
--- | The description of the resource configuration.
-configurationItem_configuration :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_configuration = Lens.lens (\ConfigurationItem' {configuration} -> configuration) (\s@ConfigurationItem' {} a -> s {configuration = a} :: ConfigurationItem)
-
--- | Amazon Resource Name (ARN) associated with the resource.
-configurationItem_arn :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_arn = Lens.lens (\ConfigurationItem' {arn} -> arn) (\s@ConfigurationItem' {} a -> s {arn = a} :: ConfigurationItem)
 
 -- | The configuration item status. The valid values are:
 --
@@ -273,18 +259,10 @@ configurationItem_arn = Lens.lens (\ConfigurationItem' {arn} -> arn) (\s@Configu
 configurationItem_configurationItemStatus :: Lens.Lens' ConfigurationItem (Prelude.Maybe ConfigurationItemStatus)
 configurationItem_configurationItemStatus = Lens.lens (\ConfigurationItem' {configurationItemStatus} -> configurationItemStatus) (\s@ConfigurationItem' {} a -> s {configurationItemStatus = a} :: ConfigurationItem)
 
--- | The Availability Zone associated with the resource.
-configurationItem_availabilityZone :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_availabilityZone = Lens.lens (\ConfigurationItem' {availabilityZone} -> availabilityZone) (\s@ConfigurationItem' {} a -> s {availabilityZone = a} :: ConfigurationItem)
-
--- | The 12-digit Amazon Web Services account ID associated with the
--- resource.
-configurationItem_accountId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_accountId = Lens.lens (\ConfigurationItem' {accountId} -> accountId) (\s@ConfigurationItem' {} a -> s {accountId = a} :: ConfigurationItem)
-
--- | The region where the resource resides.
-configurationItem_awsRegion :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
-configurationItem_awsRegion = Lens.lens (\ConfigurationItem' {awsRegion} -> awsRegion) (\s@ConfigurationItem' {} a -> s {awsRegion = a} :: ConfigurationItem)
+-- | An identifier that indicates the ordering of the configuration items of
+-- a resource.
+configurationItem_configurationStateId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_configurationStateId = Lens.lens (\ConfigurationItem' {configurationStateId} -> configurationStateId) (\s@ConfigurationItem' {} a -> s {configurationStateId = a} :: ConfigurationItem)
 
 -- | A list of CloudTrail event IDs.
 --
@@ -306,13 +284,35 @@ configurationItem_relatedEvents = Lens.lens (\ConfigurationItem' {relatedEvents}
 configurationItem_relationships :: Lens.Lens' ConfigurationItem (Prelude.Maybe [Relationship])
 configurationItem_relationships = Lens.lens (\ConfigurationItem' {relationships} -> relationships) (\s@ConfigurationItem' {} a -> s {relationships = a} :: ConfigurationItem) Prelude.. Lens.mapping Lens.coerced
 
+-- | The time stamp when the resource was created.
+configurationItem_resourceCreationTime :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.UTCTime)
+configurationItem_resourceCreationTime = Lens.lens (\ConfigurationItem' {resourceCreationTime} -> resourceCreationTime) (\s@ConfigurationItem' {} a -> s {resourceCreationTime = a} :: ConfigurationItem) Prelude.. Lens.mapping Data._Time
+
+-- | The ID of the resource (for example, @sg-xxxxxx@).
+configurationItem_resourceId :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_resourceId = Lens.lens (\ConfigurationItem' {resourceId} -> resourceId) (\s@ConfigurationItem' {} a -> s {resourceId = a} :: ConfigurationItem)
+
+-- | The custom name of the resource, if available.
+configurationItem_resourceName :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
+configurationItem_resourceName = Lens.lens (\ConfigurationItem' {resourceName} -> resourceName) (\s@ConfigurationItem' {} a -> s {resourceName = a} :: ConfigurationItem)
+
+-- | The type of Amazon Web Services resource.
+configurationItem_resourceType :: Lens.Lens' ConfigurationItem (Prelude.Maybe ResourceType)
+configurationItem_resourceType = Lens.lens (\ConfigurationItem' {resourceType} -> resourceType) (\s@ConfigurationItem' {} a -> s {resourceType = a} :: ConfigurationItem)
+
+-- | Configuration attributes that Config returns for certain resource types
+-- to supplement the information returned for the @configuration@
+-- parameter.
+configurationItem_supplementaryConfiguration :: Lens.Lens' ConfigurationItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configurationItem_supplementaryConfiguration = Lens.lens (\ConfigurationItem' {supplementaryConfiguration} -> supplementaryConfiguration) (\s@ConfigurationItem' {} a -> s {supplementaryConfiguration = a} :: ConfigurationItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | A mapping of key value tags associated with the resource.
+configurationItem_tags :: Lens.Lens' ConfigurationItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configurationItem_tags = Lens.lens (\ConfigurationItem' {tags} -> tags) (\s@ConfigurationItem' {} a -> s {tags = a} :: ConfigurationItem) Prelude.. Lens.mapping Lens.coerced
+
 -- | The version number of the resource configuration.
 configurationItem_version :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.Text)
 configurationItem_version = Lens.lens (\ConfigurationItem' {version} -> version) (\s@ConfigurationItem' {} a -> s {version = a} :: ConfigurationItem)
-
--- | The time when the configuration recording was initiated.
-configurationItem_configurationItemCaptureTime :: Lens.Lens' ConfigurationItem (Prelude.Maybe Prelude.UTCTime)
-configurationItem_configurationItemCaptureTime = Lens.lens (\ConfigurationItem' {configurationItemCaptureTime} -> configurationItemCaptureTime) (\s@ConfigurationItem' {} a -> s {configurationItemCaptureTime = a} :: ConfigurationItem) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ConfigurationItem where
   parseJSON =
@@ -320,67 +320,66 @@ instance Data.FromJSON ConfigurationItem where
       "ConfigurationItem"
       ( \x ->
           ConfigurationItem'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "resourceId")
-            Prelude.<*> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "availabilityZone")
+            Prelude.<*> (x Data..:? "awsRegion")
+            Prelude.<*> (x Data..:? "configuration")
+            Prelude.<*> (x Data..:? "configurationItemCaptureTime")
+            Prelude.<*> (x Data..:? "configurationItemMD5Hash")
+            Prelude.<*> (x Data..:? "configurationItemStatus")
+            Prelude.<*> (x Data..:? "configurationStateId")
+            Prelude.<*> (x Data..:? "relatedEvents" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "relationships" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resourceCreationTime")
+            Prelude.<*> (x Data..:? "resourceId")
+            Prelude.<*> (x Data..:? "resourceName")
+            Prelude.<*> (x Data..:? "resourceType")
             Prelude.<*> ( x Data..:? "supplementaryConfiguration"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "configurationStateId")
-            Prelude.<*> (x Data..:? "configurationItemMD5Hash")
-            Prelude.<*> (x Data..:? "configuration")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "configurationItemStatus")
-            Prelude.<*> (x Data..:? "availabilityZone")
-            Prelude.<*> (x Data..:? "accountId")
-            Prelude.<*> (x Data..:? "awsRegion")
-            Prelude.<*> (x Data..:? "relatedEvents" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "relationships" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "version")
-            Prelude.<*> (x Data..:? "configurationItemCaptureTime")
       )
 
 instance Prelude.Hashable ConfigurationItem where
   hashWithSalt _salt ConfigurationItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` resourceName
-      `Prelude.hashWithSalt` resourceCreationTime
-      `Prelude.hashWithSalt` supplementaryConfiguration
-      `Prelude.hashWithSalt` configurationStateId
-      `Prelude.hashWithSalt` configurationItemMD5Hash
-      `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` configurationItemStatus
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` configurationItemCaptureTime
+      `Prelude.hashWithSalt` configurationItemMD5Hash
+      `Prelude.hashWithSalt` configurationItemStatus
+      `Prelude.hashWithSalt` configurationStateId
       `Prelude.hashWithSalt` relatedEvents
       `Prelude.hashWithSalt` relationships
+      `Prelude.hashWithSalt` resourceCreationTime
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceName
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` supplementaryConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` configurationItemCaptureTime
 
 instance Prelude.NFData ConfigurationItem where
   rnf ConfigurationItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceCreationTime
-      `Prelude.seq` Prelude.rnf supplementaryConfiguration
-      `Prelude.seq` Prelude.rnf configurationStateId
-      `Prelude.seq` Prelude.rnf configurationItemMD5Hash
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf configurationItemStatus
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf configurationItemCaptureTime
+      `Prelude.seq` Prelude.rnf configurationItemMD5Hash
+      `Prelude.seq` Prelude.rnf configurationItemStatus
+      `Prelude.seq` Prelude.rnf configurationStateId
       `Prelude.seq` Prelude.rnf relatedEvents
       `Prelude.seq` Prelude.rnf relationships
+      `Prelude.seq` Prelude.rnf resourceCreationTime
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceName
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf supplementaryConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf
-        configurationItemCaptureTime

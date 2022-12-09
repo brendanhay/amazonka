@@ -207,6 +207,9 @@ import Test.Tasty
 --         , requestGetResourceConfigHistory $
 --             newGetResourceConfigHistory
 --
+--         , requestGetResourceEvaluationSummary $
+--             newGetResourceEvaluationSummary
+--
 --         , requestGetStoredQuery $
 --             newGetStoredQuery
 --
@@ -218,6 +221,9 @@ import Test.Tasty
 --
 --         , requestListDiscoveredResources $
 --             newListDiscoveredResources
+--
+--         , requestListResourceEvaluations $
+--             newListResourceEvaluations
 --
 --         , requestListStoredQueries $
 --             newListStoredQueries
@@ -284,6 +290,9 @@ import Test.Tasty
 --
 --         , requestStartRemediationExecution $
 --             newStartRemediationExecution
+--
+--         , requestStartResourceEvaluation $
+--             newStartResourceEvaluation
 --
 --         , requestStopConfigurationRecorder $
 --             newStopConfigurationRecorder
@@ -477,6 +486,9 @@ import Test.Tasty
 --         , responseGetResourceConfigHistory $
 --             newGetResourceConfigHistoryResponse
 --
+--         , responseGetResourceEvaluationSummary $
+--             newGetResourceEvaluationSummaryResponse
+--
 --         , responseGetStoredQuery $
 --             newGetStoredQueryResponse
 --
@@ -488,6 +500,9 @@ import Test.Tasty
 --
 --         , responseListDiscoveredResources $
 --             newListDiscoveredResourcesResponse
+--
+--         , responseListResourceEvaluations $
+--             newListResourceEvaluationsResponse
 --
 --         , responseListStoredQueries $
 --             newListStoredQueriesResponse
@@ -554,6 +569,9 @@ import Test.Tasty
 --
 --         , responseStartRemediationExecution $
 --             newStartRemediationExecutionResponse
+--
+--         , responseStartResourceEvaluation $
+--             newStartResourceEvaluationResponse
 --
 --         , responseStopConfigurationRecorder $
 --             newStopConfigurationRecorderResponse
@@ -929,6 +947,12 @@ requestGetResourceConfigHistory =
     "GetResourceConfigHistory"
     "fixture/GetResourceConfigHistory.yaml"
 
+requestGetResourceEvaluationSummary :: GetResourceEvaluationSummary -> TestTree
+requestGetResourceEvaluationSummary =
+  req
+    "GetResourceEvaluationSummary"
+    "fixture/GetResourceEvaluationSummary.yaml"
+
 requestGetStoredQuery :: GetStoredQuery -> TestTree
 requestGetStoredQuery =
   req
@@ -952,6 +976,12 @@ requestListDiscoveredResources =
   req
     "ListDiscoveredResources"
     "fixture/ListDiscoveredResources.yaml"
+
+requestListResourceEvaluations :: ListResourceEvaluations -> TestTree
+requestListResourceEvaluations =
+  req
+    "ListResourceEvaluations"
+    "fixture/ListResourceEvaluations.yaml"
 
 requestListStoredQueries :: ListStoredQueries -> TestTree
 requestListStoredQueries =
@@ -1084,6 +1114,12 @@ requestStartRemediationExecution =
   req
     "StartRemediationExecution"
     "fixture/StartRemediationExecution.yaml"
+
+requestStartResourceEvaluation :: StartResourceEvaluation -> TestTree
+requestStartResourceEvaluation =
+  req
+    "StartResourceEvaluation"
+    "fixture/StartResourceEvaluation.yaml"
 
 requestStopConfigurationRecorder :: StopConfigurationRecorder -> TestTree
 requestStopConfigurationRecorder =
@@ -1585,6 +1621,14 @@ responseGetResourceConfigHistory =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetResourceConfigHistory)
 
+responseGetResourceEvaluationSummary :: GetResourceEvaluationSummaryResponse -> TestTree
+responseGetResourceEvaluationSummary =
+  res
+    "GetResourceEvaluationSummaryResponse"
+    "fixture/GetResourceEvaluationSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceEvaluationSummary)
+
 responseGetStoredQuery :: GetStoredQueryResponse -> TestTree
 responseGetStoredQuery =
   res
@@ -1616,6 +1660,14 @@ responseListDiscoveredResources =
     "fixture/ListDiscoveredResourcesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDiscoveredResources)
+
+responseListResourceEvaluations :: ListResourceEvaluationsResponse -> TestTree
+responseListResourceEvaluations =
+  res
+    "ListResourceEvaluationsResponse"
+    "fixture/ListResourceEvaluationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceEvaluations)
 
 responseListStoredQueries :: ListStoredQueriesResponse -> TestTree
 responseListStoredQueries =
@@ -1792,6 +1844,14 @@ responseStartRemediationExecution =
     "fixture/StartRemediationExecutionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartRemediationExecution)
+
+responseStartResourceEvaluation :: StartResourceEvaluationResponse -> TestTree
+responseStartResourceEvaluation =
+  res
+    "StartResourceEvaluationResponse"
+    "fixture/StartResourceEvaluationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartResourceEvaluation)
 
 responseStopConfigurationRecorder :: StopConfigurationRecorderResponse -> TestTree
 responseStopConfigurationRecorder =

@@ -30,9 +30,9 @@ module Amazonka.Config.GetOrganizationConformancePackDetailedStatus
     newGetOrganizationConformancePackDetailedStatus,
 
     -- * Request Lenses
-    getOrganizationConformancePackDetailedStatus_nextToken,
     getOrganizationConformancePackDetailedStatus_filters,
     getOrganizationConformancePackDetailedStatus_limit,
+    getOrganizationConformancePackDetailedStatus_nextToken,
     getOrganizationConformancePackDetailedStatus_organizationConformancePackName,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOrganizationConformancePackDetailedStatus' smart constructor.
 data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePackDetailedStatus'
-  { -- | The nextToken string returned on a previous page that you use to get the
-    -- next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An @OrganizationResourceDetailedStatusFilters@ object.
+  { -- | An @OrganizationResourceDetailedStatusFilters@ object.
     filters :: Prelude.Maybe OrganizationResourceDetailedStatusFilters,
     -- | The maximum number of @OrganizationConformancePackDetailedStatuses@
     -- returned on each page. If you do not specify a number, Config uses the
     -- default. The default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken string returned on a previous page that you use to get the
+    -- next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of organization conformance pack for which you want status
     -- details for member accounts.
     organizationConformancePackName :: Prelude.Text
@@ -79,14 +79,14 @@ data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getOrganizationConformancePackDetailedStatus_nextToken' - The nextToken string returned on a previous page that you use to get the
--- next page of results in a paginated response.
---
 -- 'filters', 'getOrganizationConformancePackDetailedStatus_filters' - An @OrganizationResourceDetailedStatusFilters@ object.
 --
 -- 'limit', 'getOrganizationConformancePackDetailedStatus_limit' - The maximum number of @OrganizationConformancePackDetailedStatuses@
 -- returned on each page. If you do not specify a number, Config uses the
 -- default. The default is 100.
+--
+-- 'nextToken', 'getOrganizationConformancePackDetailedStatus_nextToken' - The nextToken string returned on a previous page that you use to get the
+-- next page of results in a paginated response.
 --
 -- 'organizationConformancePackName', 'getOrganizationConformancePackDetailedStatus_organizationConformancePackName' - The name of organization conformance pack for which you want status
 -- details for member accounts.
@@ -97,18 +97,13 @@ newGetOrganizationConformancePackDetailedStatus ::
 newGetOrganizationConformancePackDetailedStatus
   pOrganizationConformancePackName_ =
     GetOrganizationConformancePackDetailedStatus'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         limit = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_
       }
-
--- | The nextToken string returned on a previous page that you use to get the
--- next page of results in a paginated response.
-getOrganizationConformancePackDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Text)
-getOrganizationConformancePackDetailedStatus_nextToken = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatus)
 
 -- | An @OrganizationResourceDetailedStatusFilters@ object.
 getOrganizationConformancePackDetailedStatus_filters :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe OrganizationResourceDetailedStatusFilters)
@@ -119,6 +114,11 @@ getOrganizationConformancePackDetailedStatus_filters = Lens.lens (\GetOrganizati
 -- default. The default is 100.
 getOrganizationConformancePackDetailedStatus_limit :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Natural)
 getOrganizationConformancePackDetailedStatus_limit = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {limit} -> limit) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {limit = a} :: GetOrganizationConformancePackDetailedStatus)
+
+-- | The nextToken string returned on a previous page that you use to get the
+-- next page of results in a paginated response.
+getOrganizationConformancePackDetailedStatus_nextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Prelude.Maybe Prelude.Text)
+getOrganizationConformancePackDetailedStatus_nextToken = Lens.lens (\GetOrganizationConformancePackDetailedStatus' {nextToken} -> nextToken) (\s@GetOrganizationConformancePackDetailedStatus' {} a -> s {nextToken = a} :: GetOrganizationConformancePackDetailedStatus)
 
 -- | The name of organization conformance pack for which you want status
 -- details for member accounts.
@@ -179,9 +179,9 @@ instance
   hashWithSalt
     _salt
     GetOrganizationConformancePackDetailedStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationConformancePackName
 
 instance
@@ -189,9 +189,9 @@ instance
     GetOrganizationConformancePackDetailedStatus
   where
   rnf GetOrganizationConformancePackDetailedStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationConformancePackName
 
 instance
@@ -220,9 +220,9 @@ instance
     GetOrganizationConformancePackDetailedStatus' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Data..=) Prelude.<$> nextToken,
-              ("Filters" Data..=) Prelude.<$> filters,
+            [ ("Filters" Data..=) Prelude.<$> filters,
               ("Limit" Data..=) Prelude.<$> limit,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
               Prelude.Just
                 ( "OrganizationConformancePackName"
                     Data..= organizationConformancePackName

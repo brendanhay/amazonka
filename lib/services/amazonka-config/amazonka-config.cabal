@@ -104,11 +104,13 @@ library
     Amazonka.Config.GetOrganizationConformancePackDetailedStatus
     Amazonka.Config.GetOrganizationCustomRulePolicy
     Amazonka.Config.GetResourceConfigHistory
+    Amazonka.Config.GetResourceEvaluationSummary
     Amazonka.Config.GetStoredQuery
     Amazonka.Config.Lens
     Amazonka.Config.ListAggregateDiscoveredResources
     Amazonka.Config.ListConformancePackComplianceScores
     Amazonka.Config.ListDiscoveredResources
+    Amazonka.Config.ListResourceEvaluations
     Amazonka.Config.ListStoredQueries
     Amazonka.Config.ListTagsForResource
     Amazonka.Config.PutAggregationAuthorization
@@ -131,6 +133,7 @@ library
     Amazonka.Config.StartConfigRulesEvaluation
     Amazonka.Config.StartConfigurationRecorder
     Amazonka.Config.StartRemediationExecution
+    Amazonka.Config.StartResourceEvaluation
     Amazonka.Config.StopConfigurationRecorder
     Amazonka.Config.TagResource
     Amazonka.Config.Types
@@ -189,10 +192,15 @@ library
     Amazonka.Config.Types.DeliveryChannel
     Amazonka.Config.Types.DeliveryChannelStatus
     Amazonka.Config.Types.DeliveryStatus
+    Amazonka.Config.Types.DescribeConfigRulesFilters
     Amazonka.Config.Types.Evaluation
+    Amazonka.Config.Types.EvaluationContext
+    Amazonka.Config.Types.EvaluationMode
+    Amazonka.Config.Types.EvaluationModeConfiguration
     Amazonka.Config.Types.EvaluationResult
     Amazonka.Config.Types.EvaluationResultIdentifier
     Amazonka.Config.Types.EvaluationResultQualifier
+    Amazonka.Config.Types.EvaluationStatus
     Amazonka.Config.Types.EventSource
     Amazonka.Config.Types.ExecutionControls
     Amazonka.Config.Types.ExternalEvaluation
@@ -236,9 +244,14 @@ library
     Amazonka.Config.Types.RemediationExecutionStepState
     Amazonka.Config.Types.RemediationParameterValue
     Amazonka.Config.Types.RemediationTargetType
+    Amazonka.Config.Types.ResourceConfigurationSchemaType
     Amazonka.Config.Types.ResourceCount
     Amazonka.Config.Types.ResourceCountFilters
     Amazonka.Config.Types.ResourceCountGroupKey
+    Amazonka.Config.Types.ResourceDetails
+    Amazonka.Config.Types.ResourceEvaluation
+    Amazonka.Config.Types.ResourceEvaluationFilters
+    Amazonka.Config.Types.ResourceEvaluationStatus
     Amazonka.Config.Types.ResourceFilters
     Amazonka.Config.Types.ResourceIdentifier
     Amazonka.Config.Types.ResourceKey
@@ -258,6 +271,7 @@ library
     Amazonka.Config.Types.StoredQueryMetadata
     Amazonka.Config.Types.Tag
     Amazonka.Config.Types.TemplateSSMDocumentDetails
+    Amazonka.Config.Types.TimeWindow
     Amazonka.Config.UntagResource
     Amazonka.Config.Waiters
 

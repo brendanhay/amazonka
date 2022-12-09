@@ -35,9 +35,9 @@ module Amazonka.Config.GetAggregateComplianceDetailsByConfigRule
     newGetAggregateComplianceDetailsByConfigRule,
 
     -- * Request Lenses
-    getAggregateComplianceDetailsByConfigRule_nextToken,
-    getAggregateComplianceDetailsByConfigRule_limit,
     getAggregateComplianceDetailsByConfigRule_complianceType,
+    getAggregateComplianceDetailsByConfigRule_limit,
+    getAggregateComplianceDetailsByConfigRule_nextToken,
     getAggregateComplianceDetailsByConfigRule_configurationAggregatorName,
     getAggregateComplianceDetailsByConfigRule_configRuleName,
     getAggregateComplianceDetailsByConfigRule_accountId,
@@ -48,8 +48,8 @@ module Amazonka.Config.GetAggregateComplianceDetailsByConfigRule
     newGetAggregateComplianceDetailsByConfigRuleResponse,
 
     -- * Response Lenses
-    getAggregateComplianceDetailsByConfigRuleResponse_nextToken,
     getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults,
+    getAggregateComplianceDetailsByConfigRuleResponse_nextToken,
     getAggregateComplianceDetailsByConfigRuleResponse_httpStatus,
   )
 where
@@ -64,19 +64,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAggregateComplianceDetailsByConfigRule' smart constructor.
 data GetAggregateComplianceDetailsByConfigRule = GetAggregateComplianceDetailsByConfigRule'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of evaluation results returned on each page. The
-    -- default is 50. You cannot specify a number greater than 100. If you
-    -- specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The resource compliance status.
+  { -- | The resource compliance status.
     --
     -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
     -- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does
     -- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
     complianceType :: Prelude.Maybe ComplianceType,
+    -- | The maximum number of evaluation results returned on each page. The
+    -- default is 50. You cannot specify a number greater than 100. If you
+    -- specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text,
     -- | The name of the Config rule for which you want compliance information.
@@ -96,18 +96,18 @@ data GetAggregateComplianceDetailsByConfigRule = GetAggregateComplianceDetailsBy
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getAggregateComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
--- 'limit', 'getAggregateComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
--- default is 50. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
---
 -- 'complianceType', 'getAggregateComplianceDetailsByConfigRule_complianceType' - The resource compliance status.
 --
 -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
 -- Config supports only the @COMPLIANT@ and @NON_COMPLIANT@. Config does
 -- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
+--
+-- 'limit', 'getAggregateComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
+-- default is 50. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+--
+-- 'nextToken', 'getAggregateComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'configurationAggregatorName', 'getAggregateComplianceDetailsByConfigRule_configurationAggregatorName' - The name of the configuration aggregator.
 --
@@ -132,10 +132,10 @@ newGetAggregateComplianceDetailsByConfigRule
   pAccountId_
   pAwsRegion_ =
     GetAggregateComplianceDetailsByConfigRule'
-      { nextToken =
+      { complianceType =
           Prelude.Nothing,
         limit = Prelude.Nothing,
-        complianceType = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_,
         configRuleName =
@@ -144,17 +144,6 @@ newGetAggregateComplianceDetailsByConfigRule
         awsRegion = pAwsRegion_
       }
 
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getAggregateComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
-getAggregateComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetAggregateComplianceDetailsByConfigRule)
-
--- | The maximum number of evaluation results returned on each page. The
--- default is 50. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
-getAggregateComplianceDetailsByConfigRule_limit :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Natural)
-getAggregateComplianceDetailsByConfigRule_limit = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {limit} -> limit) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {limit = a} :: GetAggregateComplianceDetailsByConfigRule)
-
 -- | The resource compliance status.
 --
 -- For the @GetAggregateComplianceDetailsByConfigRuleRequest@ data type,
@@ -162,6 +151,17 @@ getAggregateComplianceDetailsByConfigRule_limit = Lens.lens (\GetAggregateCompli
 -- not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ values.
 getAggregateComplianceDetailsByConfigRule_complianceType :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe ComplianceType)
 getAggregateComplianceDetailsByConfigRule_complianceType = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {complianceType} -> complianceType) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {complianceType = a} :: GetAggregateComplianceDetailsByConfigRule)
+
+-- | The maximum number of evaluation results returned on each page. The
+-- default is 50. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+getAggregateComplianceDetailsByConfigRule_limit :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Natural)
+getAggregateComplianceDetailsByConfigRule_limit = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {limit} -> limit) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {limit = a} :: GetAggregateComplianceDetailsByConfigRule)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getAggregateComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
+getAggregateComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetAggregateComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetAggregateComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetAggregateComplianceDetailsByConfigRule)
 
 -- | The name of the configuration aggregator.
 getAggregateComplianceDetailsByConfigRule_configurationAggregatorName :: Lens.Lens' GetAggregateComplianceDetailsByConfigRule Prelude.Text
@@ -218,10 +218,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAggregateComplianceDetailsByConfigRuleResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AggregateEvaluationResults"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AggregateEvaluationResults"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,9 +232,9 @@ instance
   hashWithSalt
     _salt
     GetAggregateComplianceDetailsByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` limit
-        `Prelude.hashWithSalt` complianceType
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` configurationAggregatorName
         `Prelude.hashWithSalt` configRuleName
         `Prelude.hashWithSalt` accountId
@@ -245,9 +245,9 @@ instance
     GetAggregateComplianceDetailsByConfigRule
   where
   rnf GetAggregateComplianceDetailsByConfigRule' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf complianceType
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf configurationAggregatorName
       `Prelude.seq` Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf accountId
@@ -278,10 +278,10 @@ instance
   toJSON GetAggregateComplianceDetailsByConfigRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
-            ("ComplianceType" Data..=)
+          [ ("ComplianceType" Data..=)
               Prelude.<$> complianceType,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "ConfigurationAggregatorName"
                   Data..= configurationAggregatorName
@@ -307,11 +307,11 @@ instance
 
 -- | /See:/ 'newGetAggregateComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetAggregateComplianceDetailsByConfigRuleResponse = GetAggregateComplianceDetailsByConfigRuleResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | Returns an AggregateEvaluationResults object.
+    aggregateEvaluationResults :: Prelude.Maybe [AggregateEvaluationResult],
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns an AggregateEvaluationResults object.
-    aggregateEvaluationResults :: Prelude.Maybe [AggregateEvaluationResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -325,10 +325,10 @@ data GetAggregateComplianceDetailsByConfigRuleResponse = GetAggregateComplianceD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aggregateEvaluationResults', 'getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults' - Returns an AggregateEvaluationResults object.
+--
 -- 'nextToken', 'getAggregateComplianceDetailsByConfigRuleResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
---
--- 'aggregateEvaluationResults', 'getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults' - Returns an AggregateEvaluationResults object.
 --
 -- 'httpStatus', 'getAggregateComplianceDetailsByConfigRuleResponse_httpStatus' - The response's http status code.
 newGetAggregateComplianceDetailsByConfigRuleResponse ::
@@ -338,22 +338,22 @@ newGetAggregateComplianceDetailsByConfigRuleResponse ::
 newGetAggregateComplianceDetailsByConfigRuleResponse
   pHttpStatus_ =
     GetAggregateComplianceDetailsByConfigRuleResponse'
-      { nextToken =
+      { aggregateEvaluationResults =
           Prelude.Nothing,
-        aggregateEvaluationResults =
+        nextToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
+-- | Returns an AggregateEvaluationResults object.
+getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Prelude.Maybe [AggregateEvaluationResult])
+getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults = Lens.lens (\GetAggregateComplianceDetailsByConfigRuleResponse' {aggregateEvaluationResults} -> aggregateEvaluationResults) (\s@GetAggregateComplianceDetailsByConfigRuleResponse' {} a -> s {aggregateEvaluationResults = a} :: GetAggregateComplianceDetailsByConfigRuleResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 getAggregateComplianceDetailsByConfigRuleResponse_nextToken :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Prelude.Maybe Prelude.Text)
 getAggregateComplianceDetailsByConfigRuleResponse_nextToken = Lens.lens (\GetAggregateComplianceDetailsByConfigRuleResponse' {nextToken} -> nextToken) (\s@GetAggregateComplianceDetailsByConfigRuleResponse' {} a -> s {nextToken = a} :: GetAggregateComplianceDetailsByConfigRuleResponse)
-
--- | Returns an AggregateEvaluationResults object.
-getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse (Prelude.Maybe [AggregateEvaluationResult])
-getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults = Lens.lens (\GetAggregateComplianceDetailsByConfigRuleResponse' {aggregateEvaluationResults} -> aggregateEvaluationResults) (\s@GetAggregateComplianceDetailsByConfigRuleResponse' {} a -> s {aggregateEvaluationResults = a} :: GetAggregateComplianceDetailsByConfigRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAggregateComplianceDetailsByConfigRuleResponse_httpStatus :: Lens.Lens' GetAggregateComplianceDetailsByConfigRuleResponse Prelude.Int
@@ -365,6 +365,6 @@ instance
   where
   rnf
     GetAggregateComplianceDetailsByConfigRuleResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf aggregateEvaluationResults
+      Prelude.rnf aggregateEvaluationResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

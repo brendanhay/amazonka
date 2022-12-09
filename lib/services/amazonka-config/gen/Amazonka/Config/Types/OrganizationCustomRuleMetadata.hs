@@ -35,7 +35,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationCustomRuleMetadata' smart constructor.
 data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
-  { -- | The maximum frequency with which Config runs evaluations for a rule.
+  { -- | The description that you provide for your organization Config rule.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A string, in JSON format, that is passed to your organization Config
+    -- rule Lambda function.
+    inputParameters :: Prelude.Maybe Prelude.Text,
+    -- | The maximum frequency with which Config runs evaluations for a rule.
     -- Your custom rule is triggered when Config delivers the configuration
     -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
     --
@@ -43,21 +48,16 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
     -- To change the frequency, specify a valid value for the
     -- @MaximumExecutionFrequency@ parameter.
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
-    -- | The type of the Amazon Web Services resource that was evaluated.
-    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
-    -- | A string, in JSON format, that is passed to your organization Config
-    -- rule Lambda function.
-    inputParameters :: Prelude.Maybe Prelude.Text,
-    -- | The optional part of a key-value pair that make up a tag. A value acts
-    -- as a descriptor within a tag category (key).
-    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceIdScope :: Prelude.Maybe Prelude.Text,
-    -- | The description that you provide for your organization Config rule.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The type of the Amazon Web Services resource that was evaluated.
+    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
     -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
     tagKeyScope :: Prelude.Maybe Prelude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts
+    -- as a descriptor within a tag category (key).
+    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The lambda function ARN.
     lambdaFunctionArn :: Prelude.Text,
     -- | The type of notification that triggers Config to run an evaluation for a
@@ -86,6 +86,11 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'organizationCustomRuleMetadata_description' - The description that you provide for your organization Config rule.
+--
+-- 'inputParameters', 'organizationCustomRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
+--
 -- 'maximumExecutionFrequency', 'organizationCustomRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
 -- Your custom rule is triggered when Config delivers the configuration
 -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
@@ -94,20 +99,15 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 -- To change the frequency, specify a valid value for the
 -- @MaximumExecutionFrequency@ parameter.
 --
--- 'resourceTypesScope', 'organizationCustomRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
---
--- 'inputParameters', 'organizationCustomRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
--- rule Lambda function.
---
--- 'tagValueScope', 'organizationCustomRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
---
 -- 'resourceIdScope', 'organizationCustomRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
 --
--- 'description', 'organizationCustomRuleMetadata_description' - The description that you provide for your organization Config rule.
+-- 'resourceTypesScope', 'organizationCustomRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
 --
 -- 'tagKeyScope', 'organizationCustomRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
+--
+-- 'tagValueScope', 'organizationCustomRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
 --
 -- 'lambdaFunctionArn', 'organizationCustomRuleMetadata_lambdaFunctionArn' - The lambda function ARN.
 --
@@ -131,18 +131,27 @@ newOrganizationCustomRuleMetadata ::
   OrganizationCustomRuleMetadata
 newOrganizationCustomRuleMetadata pLambdaFunctionArn_ =
   OrganizationCustomRuleMetadata'
-    { maximumExecutionFrequency =
+    { description =
         Prelude.Nothing,
-      resourceTypesScope = Prelude.Nothing,
       inputParameters = Prelude.Nothing,
-      tagValueScope = Prelude.Nothing,
+      maximumExecutionFrequency = Prelude.Nothing,
       resourceIdScope = Prelude.Nothing,
-      description = Prelude.Nothing,
+      resourceTypesScope = Prelude.Nothing,
       tagKeyScope = Prelude.Nothing,
+      tagValueScope = Prelude.Nothing,
       lambdaFunctionArn = pLambdaFunctionArn_,
       organizationConfigRuleTriggerTypes =
         Prelude.mempty
     }
+
+-- | The description that you provide for your organization Config rule.
+organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomRuleMetadata_description = Lens.lens (\OrganizationCustomRuleMetadata' {description} -> description) (\s@OrganizationCustomRuleMetadata' {} a -> s {description = a} :: OrganizationCustomRuleMetadata)
+
+-- | A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
+organizationCustomRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomRuleMetadata)
 
 -- | The maximum frequency with which Config runs evaluations for a rule.
 -- Your custom rule is triggered when Config delivers the configuration
@@ -154,32 +163,23 @@ newOrganizationCustomRuleMetadata pLambdaFunctionArn_ =
 organizationCustomRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
 organizationCustomRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationCustomRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationCustomRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationCustomRuleMetadata)
 
--- | The type of the Amazon Web Services resource that was evaluated.
-organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe [Prelude.Text])
-organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.mapping Lens.coerced
-
--- | A string, in JSON format, that is passed to your organization Config
--- rule Lambda function.
-organizationCustomRuleMetadata_inputParameters :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationCustomRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationCustomRuleMetadata)
-
--- | The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
-organizationCustomRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationCustomRuleMetadata)
-
 -- | The ID of the Amazon Web Services resource that was evaluated.
 organizationCustomRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomRuleMetadata)
 
--- | The description that you provide for your organization Config rule.
-organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationCustomRuleMetadata_description = Lens.lens (\OrganizationCustomRuleMetadata' {description} -> description) (\s@OrganizationCustomRuleMetadata' {} a -> s {description = a} :: OrganizationCustomRuleMetadata)
+-- | The type of the Amazon Web Services resource that was evaluated.
+organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe [Prelude.Text])
+organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 organizationCustomRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagKeyScope} -> tagKeyScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagKeyScope = a} :: OrganizationCustomRuleMetadata)
+
+-- | The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
+organizationCustomRuleMetadata_tagValueScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationCustomRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationCustomRuleMetadata)
 
 -- | The lambda function ARN.
 organizationCustomRuleMetadata_lambdaFunctionArn :: Lens.Lens' OrganizationCustomRuleMetadata Prelude.Text
@@ -208,15 +208,15 @@ instance Data.FromJSON OrganizationCustomRuleMetadata where
       "OrganizationCustomRuleMetadata"
       ( \x ->
           OrganizationCustomRuleMetadata'
-            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Data..:? "ResourceIdScope")
             Prelude.<*> ( x Data..:? "ResourceTypesScope"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "InputParameters")
-            Prelude.<*> (x Data..:? "TagValueScope")
-            Prelude.<*> (x Data..:? "ResourceIdScope")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "TagKeyScope")
+            Prelude.<*> (x Data..:? "TagValueScope")
             Prelude.<*> (x Data..: "LambdaFunctionArn")
             Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
                             Data..!= Prelude.mempty
@@ -230,14 +230,13 @@ instance
   hashWithSalt
     _salt
     OrganizationCustomRuleMetadata' {..} =
-      _salt
-        `Prelude.hashWithSalt` maximumExecutionFrequency
-        `Prelude.hashWithSalt` resourceTypesScope
+      _salt `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` inputParameters
-        `Prelude.hashWithSalt` tagValueScope
+        `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` resourceIdScope
-        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` resourceTypesScope
         `Prelude.hashWithSalt` tagKeyScope
+        `Prelude.hashWithSalt` tagValueScope
         `Prelude.hashWithSalt` lambdaFunctionArn
         `Prelude.hashWithSalt` organizationConfigRuleTriggerTypes
 
@@ -246,13 +245,13 @@ instance
     OrganizationCustomRuleMetadata
   where
   rnf OrganizationCustomRuleMetadata' {..} =
-    Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf resourceTypesScope
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf tagValueScope
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
       `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceTypesScope
       `Prelude.seq` Prelude.rnf tagKeyScope
+      `Prelude.seq` Prelude.rnf tagValueScope
       `Prelude.seq` Prelude.rnf lambdaFunctionArn
       `Prelude.seq` Prelude.rnf organizationConfigRuleTriggerTypes
 
@@ -260,17 +259,17 @@ instance Data.ToJSON OrganizationCustomRuleMetadata where
   toJSON OrganizationCustomRuleMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Data..=)
-              Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Data..=)
-              Prelude.<$> resourceTypesScope,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
+            ("MaximumExecutionFrequency" Data..=)
+              Prelude.<$> maximumExecutionFrequency,
             ("ResourceIdScope" Data..=)
               Prelude.<$> resourceIdScope,
-            ("Description" Data..=) Prelude.<$> description,
+            ("ResourceTypesScope" Data..=)
+              Prelude.<$> resourceTypesScope,
             ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
             Prelude.Just
               ("LambdaFunctionArn" Data..= lambdaFunctionArn),
             Prelude.Just

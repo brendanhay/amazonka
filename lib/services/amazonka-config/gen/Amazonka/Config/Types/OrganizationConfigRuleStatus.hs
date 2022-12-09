@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationConfigRuleStatus' smart constructor.
 data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
-  { -- | An error message indicating that organization Config rule creation or
-    -- deletion failed due to an error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | An error code that is returned when organization Config rule creation or
+  { -- | An error code that is returned when organization Config rule creation or
     -- deletion has failed.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | An error message indicating that organization Config rule creation or
+    -- deletion failed due to an error.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last update.
     lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The name that you assign to organization Config rule.
@@ -90,11 +90,11 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'organizationConfigRuleStatus_errorMessage' - An error message indicating that organization Config rule creation or
--- deletion failed due to an error.
---
 -- 'errorCode', 'organizationConfigRuleStatus_errorCode' - An error code that is returned when organization Config rule creation or
 -- deletion has failed.
+--
+-- 'errorMessage', 'organizationConfigRuleStatus_errorMessage' - An error message indicating that organization Config rule creation or
+-- deletion failed due to an error.
 --
 -- 'lastUpdateTime', 'organizationConfigRuleStatus_lastUpdateTime' - The timestamp of the last update.
 --
@@ -149,9 +149,9 @@ newOrganizationConfigRuleStatus
   pOrganizationConfigRuleName_
   pOrganizationRuleStatus_ =
     OrganizationConfigRuleStatus'
-      { errorMessage =
+      { errorCode =
           Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
         lastUpdateTime = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
@@ -159,15 +159,15 @@ newOrganizationConfigRuleStatus
           pOrganizationRuleStatus_
       }
 
--- | An error message indicating that organization Config rule creation or
--- deletion failed due to an error.
-organizationConfigRuleStatus_errorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
-organizationConfigRuleStatus_errorMessage = Lens.lens (\OrganizationConfigRuleStatus' {errorMessage} -> errorMessage) (\s@OrganizationConfigRuleStatus' {} a -> s {errorMessage = a} :: OrganizationConfigRuleStatus)
-
 -- | An error code that is returned when organization Config rule creation or
 -- deletion has failed.
 organizationConfigRuleStatus_errorCode :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
 organizationConfigRuleStatus_errorCode = Lens.lens (\OrganizationConfigRuleStatus' {errorCode} -> errorCode) (\s@OrganizationConfigRuleStatus' {} a -> s {errorCode = a} :: OrganizationConfigRuleStatus)
+
+-- | An error message indicating that organization Config rule creation or
+-- deletion failed due to an error.
+organizationConfigRuleStatus_errorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
+organizationConfigRuleStatus_errorMessage = Lens.lens (\OrganizationConfigRuleStatus' {errorMessage} -> errorMessage) (\s@OrganizationConfigRuleStatus' {} a -> s {errorMessage = a} :: OrganizationConfigRuleStatus)
 
 -- | The timestamp of the last update.
 organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.UTCTime)
@@ -225,8 +225,8 @@ instance Data.FromJSON OrganizationConfigRuleStatus where
       "OrganizationConfigRuleStatus"
       ( \x ->
           OrganizationConfigRuleStatus'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "LastUpdateTime")
             Prelude.<*> (x Data..: "OrganizationConfigRuleName")
             Prelude.<*> (x Data..: "OrganizationRuleStatus")
@@ -237,16 +237,16 @@ instance
     OrganizationConfigRuleStatus
   where
   hashWithSalt _salt OrganizationConfigRuleStatus' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` organizationConfigRuleName
       `Prelude.hashWithSalt` organizationRuleStatus
 
 instance Prelude.NFData OrganizationConfigRuleStatus where
   rnf OrganizationConfigRuleStatus' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
       `Prelude.seq` Prelude.rnf organizationRuleStatus

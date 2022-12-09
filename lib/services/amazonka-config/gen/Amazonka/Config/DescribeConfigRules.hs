@@ -29,8 +29,9 @@ module Amazonka.Config.DescribeConfigRules
     newDescribeConfigRules,
 
     -- * Request Lenses
-    describeConfigRules_nextToken,
     describeConfigRules_configRuleNames,
+    describeConfigRules_filters,
+    describeConfigRules_nextToken,
 
     -- * Destructuring the Response
     DescribeConfigRulesResponse (..),
@@ -55,12 +56,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the Config rules for which you want details. If you do not
+  { -- | The names of the Config rules for which you want details. If you do not
     -- specify any names, Config returns details for all your rules.
-    configRuleNames :: Prelude.Maybe [Prelude.Text]
+    configRuleNames :: Prelude.Maybe [Prelude.Text],
+    -- | Returns a list of Detecive or Proactive Config rules. By default, this
+    -- API returns an unfiltered list.
+    filters :: Prelude.Maybe DescribeConfigRulesFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,28 +76,38 @@ data DescribeConfigRules = DescribeConfigRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not
 -- specify any names, Config returns details for all your rules.
+--
+-- 'filters', 'describeConfigRules_filters' - Returns a list of Detecive or Proactive Config rules. By default, this
+-- API returns an unfiltered list.
+--
+-- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribeConfigRules ::
   DescribeConfigRules
 newDescribeConfigRules =
   DescribeConfigRules'
-    { nextToken = Prelude.Nothing,
-      configRuleNames = Prelude.Nothing
+    { configRuleNames =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeConfigRules_nextToken :: Lens.Lens' DescribeConfigRules (Prelude.Maybe Prelude.Text)
-describeConfigRules_nextToken = Lens.lens (\DescribeConfigRules' {nextToken} -> nextToken) (\s@DescribeConfigRules' {} a -> s {nextToken = a} :: DescribeConfigRules)
 
 -- | The names of the Config rules for which you want details. If you do not
 -- specify any names, Config returns details for all your rules.
 describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
 describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns a list of Detecive or Proactive Config rules. By default, this
+-- API returns an unfiltered list.
+describeConfigRules_filters :: Lens.Lens' DescribeConfigRules (Prelude.Maybe DescribeConfigRulesFilters)
+describeConfigRules_filters = Lens.lens (\DescribeConfigRules' {filters} -> filters) (\s@DescribeConfigRules' {} a -> s {filters = a} :: DescribeConfigRules)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeConfigRules_nextToken :: Lens.Lens' DescribeConfigRules (Prelude.Maybe Prelude.Text)
+describeConfigRules_nextToken = Lens.lens (\DescribeConfigRules' {nextToken} -> nextToken) (\s@DescribeConfigRules' {} a -> s {nextToken = a} :: DescribeConfigRules)
 
 instance Core.AWSPager DescribeConfigRules where
   page rq rs
@@ -134,13 +148,15 @@ instance Core.AWSRequest DescribeConfigRules where
 
 instance Prelude.Hashable DescribeConfigRules where
   hashWithSalt _salt DescribeConfigRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` configRuleNames
+    _salt `Prelude.hashWithSalt` configRuleNames
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeConfigRules where
   rnf DescribeConfigRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configRuleNames
+    Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConfigRules where
   toHeaders =
@@ -161,9 +177,10 @@ instance Data.ToJSON DescribeConfigRules where
   toJSON DescribeConfigRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConfigRuleNames" Data..=)
-              Prelude.<$> configRuleNames
+          [ ("ConfigRuleNames" Data..=)
+              Prelude.<$> configRuleNames,
+            ("Filters" Data..=) Prelude.<$> filters,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,23 +34,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentInfo' smart constructor.
 data AgentInfo = AgentInfo'
-  { -- | Type of agent.
+  { -- | The agent or connector ID.
+    agentId :: Prelude.Maybe Prelude.Text,
+    -- | Network details about the host where the agent or connector resides.
+    agentNetworkInfoList :: Prelude.Maybe [AgentNetworkInfo],
+    -- | Type of agent.
     agentType :: Prelude.Maybe Prelude.Text,
     -- | Status of the collection process for an agent or connector.
     collectionStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector.
     connectorId :: Prelude.Maybe Prelude.Text,
-    -- | Time since agent or connector health was reported.
-    lastHealthPingTime :: Prelude.Maybe Prelude.Text,
+    -- | The health of the agent or connector.
+    health :: Prelude.Maybe AgentStatus,
     -- | The name of the host where the agent or connector resides. The host can
     -- be a server or virtual machine.
     hostName :: Prelude.Maybe Prelude.Text,
-    -- | The agent or connector ID.
-    agentId :: Prelude.Maybe Prelude.Text,
-    -- | The health of the agent or connector.
-    health :: Prelude.Maybe AgentStatus,
-    -- | Network details about the host where the agent or connector resides.
-    agentNetworkInfoList :: Prelude.Maybe [AgentNetworkInfo],
+    -- | Time since agent or connector health was reported.
+    lastHealthPingTime :: Prelude.Maybe Prelude.Text,
     -- | Agent\'s first registration timestamp in UTC.
     registeredTime :: Prelude.Maybe Prelude.Text,
     -- | The agent or connector version.
@@ -66,22 +66,22 @@ data AgentInfo = AgentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agentId', 'agentInfo_agentId' - The agent or connector ID.
+--
+-- 'agentNetworkInfoList', 'agentInfo_agentNetworkInfoList' - Network details about the host where the agent or connector resides.
+--
 -- 'agentType', 'agentInfo_agentType' - Type of agent.
 --
 -- 'collectionStatus', 'agentInfo_collectionStatus' - Status of the collection process for an agent or connector.
 --
 -- 'connectorId', 'agentInfo_connectorId' - The ID of the connector.
 --
--- 'lastHealthPingTime', 'agentInfo_lastHealthPingTime' - Time since agent or connector health was reported.
+-- 'health', 'agentInfo_health' - The health of the agent or connector.
 --
 -- 'hostName', 'agentInfo_hostName' - The name of the host where the agent or connector resides. The host can
 -- be a server or virtual machine.
 --
--- 'agentId', 'agentInfo_agentId' - The agent or connector ID.
---
--- 'health', 'agentInfo_health' - The health of the agent or connector.
---
--- 'agentNetworkInfoList', 'agentInfo_agentNetworkInfoList' - Network details about the host where the agent or connector resides.
+-- 'lastHealthPingTime', 'agentInfo_lastHealthPingTime' - Time since agent or connector health was reported.
 --
 -- 'registeredTime', 'agentInfo_registeredTime' - Agent\'s first registration timestamp in UTC.
 --
@@ -90,17 +90,25 @@ newAgentInfo ::
   AgentInfo
 newAgentInfo =
   AgentInfo'
-    { agentType = Prelude.Nothing,
+    { agentId = Prelude.Nothing,
+      agentNetworkInfoList = Prelude.Nothing,
+      agentType = Prelude.Nothing,
       collectionStatus = Prelude.Nothing,
       connectorId = Prelude.Nothing,
-      lastHealthPingTime = Prelude.Nothing,
-      hostName = Prelude.Nothing,
-      agentId = Prelude.Nothing,
       health = Prelude.Nothing,
-      agentNetworkInfoList = Prelude.Nothing,
+      hostName = Prelude.Nothing,
+      lastHealthPingTime = Prelude.Nothing,
       registeredTime = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | The agent or connector ID.
+agentInfo_agentId :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
+agentInfo_agentId = Lens.lens (\AgentInfo' {agentId} -> agentId) (\s@AgentInfo' {} a -> s {agentId = a} :: AgentInfo)
+
+-- | Network details about the host where the agent or connector resides.
+agentInfo_agentNetworkInfoList :: Lens.Lens' AgentInfo (Prelude.Maybe [AgentNetworkInfo])
+agentInfo_agentNetworkInfoList = Lens.lens (\AgentInfo' {agentNetworkInfoList} -> agentNetworkInfoList) (\s@AgentInfo' {} a -> s {agentNetworkInfoList = a} :: AgentInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | Type of agent.
 agentInfo_agentType :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
@@ -114,26 +122,18 @@ agentInfo_collectionStatus = Lens.lens (\AgentInfo' {collectionStatus} -> collec
 agentInfo_connectorId :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
 agentInfo_connectorId = Lens.lens (\AgentInfo' {connectorId} -> connectorId) (\s@AgentInfo' {} a -> s {connectorId = a} :: AgentInfo)
 
--- | Time since agent or connector health was reported.
-agentInfo_lastHealthPingTime :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
-agentInfo_lastHealthPingTime = Lens.lens (\AgentInfo' {lastHealthPingTime} -> lastHealthPingTime) (\s@AgentInfo' {} a -> s {lastHealthPingTime = a} :: AgentInfo)
+-- | The health of the agent or connector.
+agentInfo_health :: Lens.Lens' AgentInfo (Prelude.Maybe AgentStatus)
+agentInfo_health = Lens.lens (\AgentInfo' {health} -> health) (\s@AgentInfo' {} a -> s {health = a} :: AgentInfo)
 
 -- | The name of the host where the agent or connector resides. The host can
 -- be a server or virtual machine.
 agentInfo_hostName :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
 agentInfo_hostName = Lens.lens (\AgentInfo' {hostName} -> hostName) (\s@AgentInfo' {} a -> s {hostName = a} :: AgentInfo)
 
--- | The agent or connector ID.
-agentInfo_agentId :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
-agentInfo_agentId = Lens.lens (\AgentInfo' {agentId} -> agentId) (\s@AgentInfo' {} a -> s {agentId = a} :: AgentInfo)
-
--- | The health of the agent or connector.
-agentInfo_health :: Lens.Lens' AgentInfo (Prelude.Maybe AgentStatus)
-agentInfo_health = Lens.lens (\AgentInfo' {health} -> health) (\s@AgentInfo' {} a -> s {health = a} :: AgentInfo)
-
--- | Network details about the host where the agent or connector resides.
-agentInfo_agentNetworkInfoList :: Lens.Lens' AgentInfo (Prelude.Maybe [AgentNetworkInfo])
-agentInfo_agentNetworkInfoList = Lens.lens (\AgentInfo' {agentNetworkInfoList} -> agentNetworkInfoList) (\s@AgentInfo' {} a -> s {agentNetworkInfoList = a} :: AgentInfo) Prelude.. Lens.mapping Lens.coerced
+-- | Time since agent or connector health was reported.
+agentInfo_lastHealthPingTime :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
+agentInfo_lastHealthPingTime = Lens.lens (\AgentInfo' {lastHealthPingTime} -> lastHealthPingTime) (\s@AgentInfo' {} a -> s {lastHealthPingTime = a} :: AgentInfo)
 
 -- | Agent\'s first registration timestamp in UTC.
 agentInfo_registeredTime :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
@@ -149,42 +149,42 @@ instance Data.FromJSON AgentInfo where
       "AgentInfo"
       ( \x ->
           AgentInfo'
-            Prelude.<$> (x Data..:? "agentType")
-            Prelude.<*> (x Data..:? "collectionStatus")
-            Prelude.<*> (x Data..:? "connectorId")
-            Prelude.<*> (x Data..:? "lastHealthPingTime")
-            Prelude.<*> (x Data..:? "hostName")
-            Prelude.<*> (x Data..:? "agentId")
-            Prelude.<*> (x Data..:? "health")
+            Prelude.<$> (x Data..:? "agentId")
             Prelude.<*> ( x Data..:? "agentNetworkInfoList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "agentType")
+            Prelude.<*> (x Data..:? "collectionStatus")
+            Prelude.<*> (x Data..:? "connectorId")
+            Prelude.<*> (x Data..:? "health")
+            Prelude.<*> (x Data..:? "hostName")
+            Prelude.<*> (x Data..:? "lastHealthPingTime")
             Prelude.<*> (x Data..:? "registeredTime")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable AgentInfo where
   hashWithSalt _salt AgentInfo' {..} =
-    _salt `Prelude.hashWithSalt` agentType
+    _salt `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` agentNetworkInfoList
+      `Prelude.hashWithSalt` agentType
       `Prelude.hashWithSalt` collectionStatus
       `Prelude.hashWithSalt` connectorId
-      `Prelude.hashWithSalt` lastHealthPingTime
-      `Prelude.hashWithSalt` hostName
-      `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` health
-      `Prelude.hashWithSalt` agentNetworkInfoList
+      `Prelude.hashWithSalt` hostName
+      `Prelude.hashWithSalt` lastHealthPingTime
       `Prelude.hashWithSalt` registeredTime
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData AgentInfo where
   rnf AgentInfo' {..} =
-    Prelude.rnf agentType
+    Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf agentNetworkInfoList
+      `Prelude.seq` Prelude.rnf agentType
       `Prelude.seq` Prelude.rnf collectionStatus
       `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf lastHealthPingTime
-      `Prelude.seq` Prelude.rnf hostName
-      `Prelude.seq` Prelude.rnf agentId
       `Prelude.seq` Prelude.rnf health
-      `Prelude.seq` Prelude.rnf agentNetworkInfoList
+      `Prelude.seq` Prelude.rnf hostName
+      `Prelude.seq` Prelude.rnf lastHealthPingTime
       `Prelude.seq` Prelude.rnf registeredTime
       `Prelude.seq` Prelude.rnf version

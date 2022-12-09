@@ -34,8 +34,8 @@ module Amazonka.Discovery.StopContinuousExport
     newStopContinuousExportResponse,
 
     -- * Response Lenses
-    stopContinuousExportResponse_stopTime,
     stopContinuousExportResponse_startTime,
+    stopContinuousExportResponse_stopTime,
     stopContinuousExportResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest StopContinuousExport where
     Response.receiveJSON
       ( \s h x ->
           StopContinuousExportResponse'
-            Prelude.<$> (x Data..?> "stopTime")
-            Prelude.<*> (x Data..?> "startTime")
+            Prelude.<$> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "stopTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,11 +127,11 @@ instance Data.ToQuery StopContinuousExport where
 
 -- | /See:/ 'newStopContinuousExportResponse' smart constructor.
 data StopContinuousExportResponse = StopContinuousExportResponse'
-  { -- | Timestamp that represents when this continuous export was stopped.
-    stopTime :: Prelude.Maybe Data.POSIX,
-    -- | Timestamp that represents when this continuous export started collecting
+  { -- | Timestamp that represents when this continuous export started collecting
     -- data.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | Timestamp that represents when this continuous export was stopped.
+    stopTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,10 +145,10 @@ data StopContinuousExportResponse = StopContinuousExportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stopTime', 'stopContinuousExportResponse_stopTime' - Timestamp that represents when this continuous export was stopped.
---
 -- 'startTime', 'stopContinuousExportResponse_startTime' - Timestamp that represents when this continuous export started collecting
 -- data.
+--
+-- 'stopTime', 'stopContinuousExportResponse_stopTime' - Timestamp that represents when this continuous export was stopped.
 --
 -- 'httpStatus', 'stopContinuousExportResponse_httpStatus' - The response's http status code.
 newStopContinuousExportResponse ::
@@ -157,20 +157,20 @@ newStopContinuousExportResponse ::
   StopContinuousExportResponse
 newStopContinuousExportResponse pHttpStatus_ =
   StopContinuousExportResponse'
-    { stopTime =
+    { startTime =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
+      stopTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Timestamp that represents when this continuous export was stopped.
-stopContinuousExportResponse_stopTime :: Lens.Lens' StopContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
-stopContinuousExportResponse_stopTime = Lens.lens (\StopContinuousExportResponse' {stopTime} -> stopTime) (\s@StopContinuousExportResponse' {} a -> s {stopTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Timestamp that represents when this continuous export started collecting
 -- data.
 stopContinuousExportResponse_startTime :: Lens.Lens' StopContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
 stopContinuousExportResponse_startTime = Lens.lens (\StopContinuousExportResponse' {startTime} -> startTime) (\s@StopContinuousExportResponse' {} a -> s {startTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Timestamp that represents when this continuous export was stopped.
+stopContinuousExportResponse_stopTime :: Lens.Lens' StopContinuousExportResponse (Prelude.Maybe Prelude.UTCTime)
+stopContinuousExportResponse_stopTime = Lens.lens (\StopContinuousExportResponse' {stopTime} -> stopTime) (\s@StopContinuousExportResponse' {} a -> s {stopTime = a} :: StopContinuousExportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 stopContinuousExportResponse_httpStatus :: Lens.Lens' StopContinuousExportResponse Prelude.Int
@@ -178,6 +178,6 @@ stopContinuousExportResponse_httpStatus = Lens.lens (\StopContinuousExportRespon
 
 instance Prelude.NFData StopContinuousExportResponse where
   rnf StopContinuousExportResponse' {..} =
-    Prelude.rnf stopTime
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf stopTime
       `Prelude.seq` Prelude.rnf httpStatus

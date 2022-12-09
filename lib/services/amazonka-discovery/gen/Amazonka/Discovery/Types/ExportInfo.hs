@@ -30,21 +30,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportInfo' smart constructor.
 data ExportInfo = ExportInfo'
-  { -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
-    -- requested, this result does not appear in @ExportInfo@.
-    requestedEndTime :: Prelude.Maybe Data.POSIX,
+  { -- | A URL for an Amazon S3 bucket where you can review the exported data.
+    -- The URL is displayed only if the export succeeded.
+    configurationsDownloadUrl :: Prelude.Maybe Prelude.Text,
     -- | If true, the export of agent information exceeded the size limit for a
     -- single export and the exported data is incomplete for the requested time
     -- range. To address this, select a smaller time range for the export by
     -- using @startDate@ and @endDate@.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
+    -- requested, this result does not appear in @ExportInfo@.
+    requestedEndTime :: Prelude.Maybe Data.POSIX,
     -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
     -- no @startTime@ was requested, this result does not appear in
     -- @ExportInfo@.
     requestedStartTime :: Prelude.Maybe Data.POSIX,
-    -- | A URL for an Amazon S3 bucket where you can review the exported data.
-    -- The URL is displayed only if the export succeeded.
-    configurationsDownloadUrl :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier used to query an export.
     exportId :: Prelude.Text,
     -- | The status of the data export job.
@@ -64,20 +64,20 @@ data ExportInfo = ExportInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestedEndTime', 'exportInfo_requestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
--- requested, this result does not appear in @ExportInfo@.
+-- 'configurationsDownloadUrl', 'exportInfo_configurationsDownloadUrl' - A URL for an Amazon S3 bucket where you can review the exported data.
+-- The URL is displayed only if the export succeeded.
 --
 -- 'isTruncated', 'exportInfo_isTruncated' - If true, the export of agent information exceeded the size limit for a
 -- single export and the exported data is incomplete for the requested time
 -- range. To address this, select a smaller time range for the export by
 -- using @startDate@ and @endDate@.
 --
+-- 'requestedEndTime', 'exportInfo_requestedEndTime' - The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
+-- requested, this result does not appear in @ExportInfo@.
+--
 -- 'requestedStartTime', 'exportInfo_requestedStartTime' - The value of @startTime@ parameter in the @StartExportTask@ request. If
 -- no @startTime@ was requested, this result does not appear in
 -- @ExportInfo@.
---
--- 'configurationsDownloadUrl', 'exportInfo_configurationsDownloadUrl' - A URL for an Amazon S3 bucket where you can review the exported data.
--- The URL is displayed only if the export succeeded.
 --
 -- 'exportId', 'exportInfo_exportId' - A unique identifier used to query an export.
 --
@@ -102,10 +102,11 @@ newExportInfo
   pStatusMessage_
   pExportRequestTime_ =
     ExportInfo'
-      { requestedEndTime = Prelude.Nothing,
+      { configurationsDownloadUrl =
+          Prelude.Nothing,
         isTruncated = Prelude.Nothing,
+        requestedEndTime = Prelude.Nothing,
         requestedStartTime = Prelude.Nothing,
-        configurationsDownloadUrl = Prelude.Nothing,
         exportId = pExportId_,
         exportStatus = pExportStatus_,
         statusMessage = pStatusMessage_,
@@ -113,10 +114,10 @@ newExportInfo
           Data._Time Lens.# pExportRequestTime_
       }
 
--- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
--- requested, this result does not appear in @ExportInfo@.
-exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
-exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Data._Time
+-- | A URL for an Amazon S3 bucket where you can review the exported data.
+-- The URL is displayed only if the export succeeded.
+exportInfo_configurationsDownloadUrl :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Text)
+exportInfo_configurationsDownloadUrl = Lens.lens (\ExportInfo' {configurationsDownloadUrl} -> configurationsDownloadUrl) (\s@ExportInfo' {} a -> s {configurationsDownloadUrl = a} :: ExportInfo)
 
 -- | If true, the export of agent information exceeded the size limit for a
 -- single export and the exported data is incomplete for the requested time
@@ -125,16 +126,16 @@ exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requ
 exportInfo_isTruncated :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Bool)
 exportInfo_isTruncated = Lens.lens (\ExportInfo' {isTruncated} -> isTruncated) (\s@ExportInfo' {} a -> s {isTruncated = a} :: ExportInfo)
 
+-- | The @endTime@ used in the @StartExportTask@ request. If no @endTime@ was
+-- requested, this result does not appear in @ExportInfo@.
+exportInfo_requestedEndTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
+exportInfo_requestedEndTime = Lens.lens (\ExportInfo' {requestedEndTime} -> requestedEndTime) (\s@ExportInfo' {} a -> s {requestedEndTime = a} :: ExportInfo) Prelude.. Lens.mapping Data._Time
+
 -- | The value of @startTime@ parameter in the @StartExportTask@ request. If
 -- no @startTime@ was requested, this result does not appear in
 -- @ExportInfo@.
 exportInfo_requestedStartTime :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.UTCTime)
 exportInfo_requestedStartTime = Lens.lens (\ExportInfo' {requestedStartTime} -> requestedStartTime) (\s@ExportInfo' {} a -> s {requestedStartTime = a} :: ExportInfo) Prelude.. Lens.mapping Data._Time
-
--- | A URL for an Amazon S3 bucket where you can review the exported data.
--- The URL is displayed only if the export succeeded.
-exportInfo_configurationsDownloadUrl :: Lens.Lens' ExportInfo (Prelude.Maybe Prelude.Text)
-exportInfo_configurationsDownloadUrl = Lens.lens (\ExportInfo' {configurationsDownloadUrl} -> configurationsDownloadUrl) (\s@ExportInfo' {} a -> s {configurationsDownloadUrl = a} :: ExportInfo)
 
 -- | A unique identifier used to query an export.
 exportInfo_exportId :: Lens.Lens' ExportInfo Prelude.Text
@@ -158,10 +159,10 @@ instance Data.FromJSON ExportInfo where
       "ExportInfo"
       ( \x ->
           ExportInfo'
-            Prelude.<$> (x Data..:? "requestedEndTime")
+            Prelude.<$> (x Data..:? "configurationsDownloadUrl")
             Prelude.<*> (x Data..:? "isTruncated")
+            Prelude.<*> (x Data..:? "requestedEndTime")
             Prelude.<*> (x Data..:? "requestedStartTime")
-            Prelude.<*> (x Data..:? "configurationsDownloadUrl")
             Prelude.<*> (x Data..: "exportId")
             Prelude.<*> (x Data..: "exportStatus")
             Prelude.<*> (x Data..: "statusMessage")
@@ -170,10 +171,11 @@ instance Data.FromJSON ExportInfo where
 
 instance Prelude.Hashable ExportInfo where
   hashWithSalt _salt ExportInfo' {..} =
-    _salt `Prelude.hashWithSalt` requestedEndTime
-      `Prelude.hashWithSalt` isTruncated
-      `Prelude.hashWithSalt` requestedStartTime
+    _salt
       `Prelude.hashWithSalt` configurationsDownloadUrl
+      `Prelude.hashWithSalt` isTruncated
+      `Prelude.hashWithSalt` requestedEndTime
+      `Prelude.hashWithSalt` requestedStartTime
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` exportStatus
       `Prelude.hashWithSalt` statusMessage
@@ -181,10 +183,10 @@ instance Prelude.Hashable ExportInfo where
 
 instance Prelude.NFData ExportInfo where
   rnf ExportInfo' {..} =
-    Prelude.rnf requestedEndTime
+    Prelude.rnf configurationsDownloadUrl
       `Prelude.seq` Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf requestedEndTime
       `Prelude.seq` Prelude.rnf requestedStartTime
-      `Prelude.seq` Prelude.rnf configurationsDownloadUrl
       `Prelude.seq` Prelude.rnf exportId
       `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf statusMessage

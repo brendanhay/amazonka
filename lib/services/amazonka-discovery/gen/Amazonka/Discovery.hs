@@ -109,32 +109,32 @@ module Amazonka.Discovery
     -- * Errors
     -- $errors
 
-    -- ** ConflictErrorException
-    _ConflictErrorException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ServerInternalErrorException
-    _ServerInternalErrorException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** AuthorizationErrorException
     _AuthorizationErrorException,
 
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** ConflictErrorException
+    _ConflictErrorException,
 
     -- ** HomeRegionNotSetException
     _HomeRegionNotSetException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServerInternalErrorException
+    _ServerInternalErrorException,
 
     -- * Waiters
     -- $waiters

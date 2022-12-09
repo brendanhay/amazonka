@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { -- | A description of the operation performed.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The agent\/connector ID.
+  { -- | The agent\/connector ID.
     agentId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the operation performed.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the @StartDataCollection@ and
     -- @StopDataCollection@ operations. The system has recorded the data
     -- collection operation. The agent\/connector receives this command the
@@ -51,9 +51,9 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'agentConfigurationStatus_description' - A description of the operation performed.
---
 -- 'agentId', 'agentConfigurationStatus_agentId' - The agent\/connector ID.
+--
+-- 'description', 'agentConfigurationStatus_description' - A description of the operation performed.
 --
 -- 'operationSucceeded', 'agentConfigurationStatus_operationSucceeded' - Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
@@ -63,19 +63,19 @@ newAgentConfigurationStatus ::
   AgentConfigurationStatus
 newAgentConfigurationStatus =
   AgentConfigurationStatus'
-    { description =
+    { agentId =
         Prelude.Nothing,
-      agentId = Prelude.Nothing,
+      description = Prelude.Nothing,
       operationSucceeded = Prelude.Nothing
     }
-
--- | A description of the operation performed.
-agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
-agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {description} -> description) (\s@AgentConfigurationStatus' {} a -> s {description = a} :: AgentConfigurationStatus)
 
 -- | The agent\/connector ID.
 agentConfigurationStatus_agentId :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
 agentConfigurationStatus_agentId = Lens.lens (\AgentConfigurationStatus' {agentId} -> agentId) (\s@AgentConfigurationStatus' {} a -> s {agentId = a} :: AgentConfigurationStatus)
+
+-- | A description of the operation performed.
+agentConfigurationStatus_description :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
+agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {description} -> description) (\s@AgentConfigurationStatus' {} a -> s {description = a} :: AgentConfigurationStatus)
 
 -- | Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
@@ -90,19 +90,19 @@ instance Data.FromJSON AgentConfigurationStatus where
       "AgentConfigurationStatus"
       ( \x ->
           AgentConfigurationStatus'
-            Prelude.<$> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "agentId")
+            Prelude.<$> (x Data..:? "agentId")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "operationSucceeded")
       )
 
 instance Prelude.Hashable AgentConfigurationStatus where
   hashWithSalt _salt AgentConfigurationStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` agentId
+    _salt `Prelude.hashWithSalt` agentId
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` operationSucceeded
 
 instance Prelude.NFData AgentConfigurationStatus where
   rnf AgentConfigurationStatus' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf agentId
+    Prelude.rnf agentId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf operationSucceeded

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlacementTemplate' smart constructor.
 data PlacementTemplate = PlacementTemplate'
-  { -- | An object specifying the DeviceTemplate for all placements using this
-    -- (PlacementTemplate) template.
-    deviceTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text DeviceTemplate),
-    -- | The default attributes (key\/value pairs) to be applied to all
+  { -- | The default attributes (key\/value pairs) to be applied to all
     -- placements using this template.
-    defaultAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    defaultAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An object specifying the DeviceTemplate for all placements using this
+    -- (PlacementTemplate) template.
+    deviceTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text DeviceTemplate)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data PlacementTemplate = PlacementTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceTemplates', 'placementTemplate_deviceTemplates' - An object specifying the DeviceTemplate for all placements using this
--- (PlacementTemplate) template.
---
 -- 'defaultAttributes', 'placementTemplate_defaultAttributes' - The default attributes (key\/value pairs) to be applied to all
 -- placements using this template.
+--
+-- 'deviceTemplates', 'placementTemplate_deviceTemplates' - An object specifying the DeviceTemplate for all placements using this
+-- (PlacementTemplate) template.
 newPlacementTemplate ::
   PlacementTemplate
 newPlacementTemplate =
   PlacementTemplate'
-    { deviceTemplates =
+    { defaultAttributes =
         Prelude.Nothing,
-      defaultAttributes = Prelude.Nothing
+      deviceTemplates = Prelude.Nothing
     }
-
--- | An object specifying the DeviceTemplate for all placements using this
--- (PlacementTemplate) template.
-placementTemplate_deviceTemplates :: Lens.Lens' PlacementTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text DeviceTemplate))
-placementTemplate_deviceTemplates = Lens.lens (\PlacementTemplate' {deviceTemplates} -> deviceTemplates) (\s@PlacementTemplate' {} a -> s {deviceTemplates = a} :: PlacementTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default attributes (key\/value pairs) to be applied to all
 -- placements using this template.
 placementTemplate_defaultAttributes :: Lens.Lens' PlacementTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 placementTemplate_defaultAttributes = Lens.lens (\PlacementTemplate' {defaultAttributes} -> defaultAttributes) (\s@PlacementTemplate' {} a -> s {defaultAttributes = a} :: PlacementTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object specifying the DeviceTemplate for all placements using this
+-- (PlacementTemplate) template.
+placementTemplate_deviceTemplates :: Lens.Lens' PlacementTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text DeviceTemplate))
+placementTemplate_deviceTemplates = Lens.lens (\PlacementTemplate' {deviceTemplates} -> deviceTemplates) (\s@PlacementTemplate' {} a -> s {deviceTemplates = a} :: PlacementTemplate) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON PlacementTemplate where
   parseJSON =
@@ -76,31 +76,31 @@ instance Data.FromJSON PlacementTemplate where
       "PlacementTemplate"
       ( \x ->
           PlacementTemplate'
-            Prelude.<$> ( x Data..:? "deviceTemplates"
+            Prelude.<$> ( x Data..:? "defaultAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "defaultAttributes"
+            Prelude.<*> ( x Data..:? "deviceTemplates"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PlacementTemplate where
   hashWithSalt _salt PlacementTemplate' {..} =
-    _salt `Prelude.hashWithSalt` deviceTemplates
-      `Prelude.hashWithSalt` defaultAttributes
+    _salt `Prelude.hashWithSalt` defaultAttributes
+      `Prelude.hashWithSalt` deviceTemplates
 
 instance Prelude.NFData PlacementTemplate where
   rnf PlacementTemplate' {..} =
-    Prelude.rnf deviceTemplates
-      `Prelude.seq` Prelude.rnf defaultAttributes
+    Prelude.rnf defaultAttributes
+      `Prelude.seq` Prelude.rnf deviceTemplates
 
 instance Data.ToJSON PlacementTemplate where
   toJSON PlacementTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deviceTemplates" Data..=)
-              Prelude.<$> deviceTemplates,
-            ("defaultAttributes" Data..=)
-              Prelude.<$> defaultAttributes
+          [ ("defaultAttributes" Data..=)
+              Prelude.<$> defaultAttributes,
+            ("deviceTemplates" Data..=)
+              Prelude.<$> deviceTemplates
           ]
       )

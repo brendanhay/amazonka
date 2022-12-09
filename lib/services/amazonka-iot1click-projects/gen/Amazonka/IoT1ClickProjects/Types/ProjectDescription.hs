@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { -- | The tags (metadata key\/value pairs) associated with the project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the project.
+  { -- | The ARN of the project.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | An object describing the project\'s placement specifications.
     placementTemplate :: Prelude.Maybe PlacementTemplate,
+    -- | The tags (metadata key\/value pairs) associated with the project.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the project for which to obtain information from.
     projectName :: Prelude.Text,
     -- | The date when the project was originally created, in UNIX epoch time
@@ -58,13 +58,13 @@ data ProjectDescription = ProjectDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'projectDescription_tags' - The tags (metadata key\/value pairs) associated with the project.
---
 -- 'arn', 'projectDescription_arn' - The ARN of the project.
 --
 -- 'description', 'projectDescription_description' - The description of the project.
 --
 -- 'placementTemplate', 'projectDescription_placementTemplate' - An object describing the project\'s placement specifications.
+--
+-- 'tags', 'projectDescription_tags' - The tags (metadata key\/value pairs) associated with the project.
 --
 -- 'projectName', 'projectDescription_projectName' - The name of the project for which to obtain information from.
 --
@@ -87,18 +87,14 @@ newProjectDescription
   pCreatedDate_
   pUpdatedDate_ =
     ProjectDescription'
-      { tags = Prelude.Nothing,
-        arn = Prelude.Nothing,
+      { arn = Prelude.Nothing,
         description = Prelude.Nothing,
         placementTemplate = Prelude.Nothing,
+        tags = Prelude.Nothing,
         projectName = pProjectName_,
         createdDate = Data._Time Lens.# pCreatedDate_,
         updatedDate = Data._Time Lens.# pUpdatedDate_
       }
-
--- | The tags (metadata key\/value pairs) associated with the project.
-projectDescription_tags :: Lens.Lens' ProjectDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-projectDescription_tags = Lens.lens (\ProjectDescription' {tags} -> tags) (\s@ProjectDescription' {} a -> s {tags = a} :: ProjectDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the project.
 projectDescription_arn :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.Text)
@@ -111,6 +107,10 @@ projectDescription_description = Lens.lens (\ProjectDescription' {description} -
 -- | An object describing the project\'s placement specifications.
 projectDescription_placementTemplate :: Lens.Lens' ProjectDescription (Prelude.Maybe PlacementTemplate)
 projectDescription_placementTemplate = Lens.lens (\ProjectDescription' {placementTemplate} -> placementTemplate) (\s@ProjectDescription' {} a -> s {placementTemplate = a} :: ProjectDescription)
+
+-- | The tags (metadata key\/value pairs) associated with the project.
+projectDescription_tags :: Lens.Lens' ProjectDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+projectDescription_tags = Lens.lens (\ProjectDescription' {tags} -> tags) (\s@ProjectDescription' {} a -> s {tags = a} :: ProjectDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project for which to obtain information from.
 projectDescription_projectName :: Lens.Lens' ProjectDescription Prelude.Text
@@ -133,10 +133,10 @@ instance Data.FromJSON ProjectDescription where
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "placementTemplate")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "projectName")
             Prelude.<*> (x Data..: "createdDate")
             Prelude.<*> (x Data..: "updatedDate")
@@ -144,20 +144,20 @@ instance Data.FromJSON ProjectDescription where
 
 instance Prelude.Hashable ProjectDescription where
   hashWithSalt _salt ProjectDescription' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` placementTemplate
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` updatedDate
 
 instance Prelude.NFData ProjectDescription where
   rnf ProjectDescription' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf placementTemplate
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf updatedDate

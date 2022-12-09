@@ -35,13 +35,13 @@ module Amazonka.AmplifyBackend.GetBackend
     newGetBackendResponse,
 
     -- * Response Lenses
-    getBackendResponse_appName,
     getBackendResponse_amplifyFeatureFlags,
-    getBackendResponse_backendEnvironmentList,
     getBackendResponse_amplifyMetaConfig,
-    getBackendResponse_error,
     getBackendResponse_appId,
+    getBackendResponse_appName,
+    getBackendResponse_backendEnvironmentList,
     getBackendResponse_backendEnvironmentName,
+    getBackendResponse_error,
     getBackendResponse_httpStatus,
   )
 where
@@ -103,15 +103,15 @@ instance Core.AWSRequest GetBackend where
     Response.receiveJSON
       ( \s h x ->
           GetBackendResponse'
-            Prelude.<$> (x Data..?> "appName")
-            Prelude.<*> (x Data..?> "amplifyFeatureFlags")
+            Prelude.<$> (x Data..?> "amplifyFeatureFlags")
+            Prelude.<*> (x Data..?> "amplifyMetaConfig")
+            Prelude.<*> (x Data..?> "appId")
+            Prelude.<*> (x Data..?> "appName")
             Prelude.<*> ( x Data..?> "backendEnvironmentList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "amplifyMetaConfig")
-            Prelude.<*> (x Data..?> "error")
-            Prelude.<*> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,20 +155,20 @@ instance Data.ToQuery GetBackend where
 
 -- | /See:/ 'newGetBackendResponse' smart constructor.
 data GetBackendResponse = GetBackendResponse'
-  { -- | The name of the app.
-    appName :: Prelude.Maybe Prelude.Text,
-    -- | A stringified version of the cli.json file for your Amplify project.
+  { -- | A stringified version of the cli.json file for your Amplify project.
     amplifyFeatureFlags :: Prelude.Maybe Prelude.Text,
-    -- | A list of backend environments in an array.
-    backendEnvironmentList :: Prelude.Maybe [Prelude.Text],
     -- | A stringified version of the current configs for your Amplify project.
     amplifyMetaConfig :: Prelude.Maybe Prelude.Text,
-    -- | If the request failed, this is the returned error.
-    error :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the app.
+    appName :: Prelude.Maybe Prelude.Text,
+    -- | A list of backend environments in an array.
+    backendEnvironmentList :: Prelude.Maybe [Prelude.Text],
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | If the request failed, this is the returned error.
+    error :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,19 +182,19 @@ data GetBackendResponse = GetBackendResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appName', 'getBackendResponse_appName' - The name of the app.
---
 -- 'amplifyFeatureFlags', 'getBackendResponse_amplifyFeatureFlags' - A stringified version of the cli.json file for your Amplify project.
---
--- 'backendEnvironmentList', 'getBackendResponse_backendEnvironmentList' - A list of backend environments in an array.
 --
 -- 'amplifyMetaConfig', 'getBackendResponse_amplifyMetaConfig' - A stringified version of the current configs for your Amplify project.
 --
--- 'error', 'getBackendResponse_error' - If the request failed, this is the returned error.
---
 -- 'appId', 'getBackendResponse_appId' - The app ID.
 --
+-- 'appName', 'getBackendResponse_appName' - The name of the app.
+--
+-- 'backendEnvironmentList', 'getBackendResponse_backendEnvironmentList' - A list of backend environments in an array.
+--
 -- 'backendEnvironmentName', 'getBackendResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'error', 'getBackendResponse_error' - If the request failed, this is the returned error.
 --
 -- 'httpStatus', 'getBackendResponse_httpStatus' - The response's http status code.
 newGetBackendResponse ::
@@ -203,43 +203,44 @@ newGetBackendResponse ::
   GetBackendResponse
 newGetBackendResponse pHttpStatus_ =
   GetBackendResponse'
-    { appName = Prelude.Nothing,
-      amplifyFeatureFlags = Prelude.Nothing,
-      backendEnvironmentList = Prelude.Nothing,
+    { amplifyFeatureFlags =
+        Prelude.Nothing,
       amplifyMetaConfig = Prelude.Nothing,
-      error = Prelude.Nothing,
       appId = Prelude.Nothing,
+      appName = Prelude.Nothing,
+      backendEnvironmentList = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      error = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the app.
-getBackendResponse_appName :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
-getBackendResponse_appName = Lens.lens (\GetBackendResponse' {appName} -> appName) (\s@GetBackendResponse' {} a -> s {appName = a} :: GetBackendResponse)
 
 -- | A stringified version of the cli.json file for your Amplify project.
 getBackendResponse_amplifyFeatureFlags :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
 getBackendResponse_amplifyFeatureFlags = Lens.lens (\GetBackendResponse' {amplifyFeatureFlags} -> amplifyFeatureFlags) (\s@GetBackendResponse' {} a -> s {amplifyFeatureFlags = a} :: GetBackendResponse)
 
--- | A list of backend environments in an array.
-getBackendResponse_backendEnvironmentList :: Lens.Lens' GetBackendResponse (Prelude.Maybe [Prelude.Text])
-getBackendResponse_backendEnvironmentList = Lens.lens (\GetBackendResponse' {backendEnvironmentList} -> backendEnvironmentList) (\s@GetBackendResponse' {} a -> s {backendEnvironmentList = a} :: GetBackendResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | A stringified version of the current configs for your Amplify project.
 getBackendResponse_amplifyMetaConfig :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
 getBackendResponse_amplifyMetaConfig = Lens.lens (\GetBackendResponse' {amplifyMetaConfig} -> amplifyMetaConfig) (\s@GetBackendResponse' {} a -> s {amplifyMetaConfig = a} :: GetBackendResponse)
-
--- | If the request failed, this is the returned error.
-getBackendResponse_error :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
-getBackendResponse_error = Lens.lens (\GetBackendResponse' {error} -> error) (\s@GetBackendResponse' {} a -> s {error = a} :: GetBackendResponse)
 
 -- | The app ID.
 getBackendResponse_appId :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
 getBackendResponse_appId = Lens.lens (\GetBackendResponse' {appId} -> appId) (\s@GetBackendResponse' {} a -> s {appId = a} :: GetBackendResponse)
 
+-- | The name of the app.
+getBackendResponse_appName :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
+getBackendResponse_appName = Lens.lens (\GetBackendResponse' {appName} -> appName) (\s@GetBackendResponse' {} a -> s {appName = a} :: GetBackendResponse)
+
+-- | A list of backend environments in an array.
+getBackendResponse_backendEnvironmentList :: Lens.Lens' GetBackendResponse (Prelude.Maybe [Prelude.Text])
+getBackendResponse_backendEnvironmentList = Lens.lens (\GetBackendResponse' {backendEnvironmentList} -> backendEnvironmentList) (\s@GetBackendResponse' {} a -> s {backendEnvironmentList = a} :: GetBackendResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the backend environment.
 getBackendResponse_backendEnvironmentName :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
 getBackendResponse_backendEnvironmentName = Lens.lens (\GetBackendResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@GetBackendResponse' {} a -> s {backendEnvironmentName = a} :: GetBackendResponse)
+
+-- | If the request failed, this is the returned error.
+getBackendResponse_error :: Lens.Lens' GetBackendResponse (Prelude.Maybe Prelude.Text)
+getBackendResponse_error = Lens.lens (\GetBackendResponse' {error} -> error) (\s@GetBackendResponse' {} a -> s {error = a} :: GetBackendResponse)
 
 -- | The response's http status code.
 getBackendResponse_httpStatus :: Lens.Lens' GetBackendResponse Prelude.Int
@@ -247,11 +248,11 @@ getBackendResponse_httpStatus = Lens.lens (\GetBackendResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetBackendResponse where
   rnf GetBackendResponse' {..} =
-    Prelude.rnf appName
-      `Prelude.seq` Prelude.rnf amplifyFeatureFlags
-      `Prelude.seq` Prelude.rnf backendEnvironmentList
+    Prelude.rnf amplifyFeatureFlags
       `Prelude.seq` Prelude.rnf amplifyMetaConfig
-      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf appName
+      `Prelude.seq` Prelude.rnf backendEnvironmentList
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf httpStatus

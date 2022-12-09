@@ -36,12 +36,12 @@ module Amazonka.AmplifyBackend.DeleteBackendAuth
     newDeleteBackendAuthResponse,
 
     -- * Response Lenses
-    deleteBackendAuthResponse_jobId,
-    deleteBackendAuthResponse_status,
-    deleteBackendAuthResponse_error,
-    deleteBackendAuthResponse_operation,
     deleteBackendAuthResponse_appId,
     deleteBackendAuthResponse_backendEnvironmentName,
+    deleteBackendAuthResponse_error,
+    deleteBackendAuthResponse_jobId,
+    deleteBackendAuthResponse_operation,
+    deleteBackendAuthResponse_status,
     deleteBackendAuthResponse_httpStatus,
   )
 where
@@ -120,12 +120,12 @@ instance Core.AWSRequest DeleteBackendAuth where
     Response.receiveJSON
       ( \s h x ->
           DeleteBackendAuthResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "error")
-            Prelude.<*> (x Data..?> "operation")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,18 +174,18 @@ instance Data.ToQuery DeleteBackendAuth where
 
 -- | /See:/ 'newDeleteBackendAuthResponse' smart constructor.
 data DeleteBackendAuthResponse = DeleteBackendAuthResponse'
-  { -- | The ID for the job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,17 +199,17 @@ data DeleteBackendAuthResponse = DeleteBackendAuthResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'deleteBackendAuthResponse_jobId' - The ID for the job.
---
--- 'status', 'deleteBackendAuthResponse_status' - The current status of the request.
---
--- 'error', 'deleteBackendAuthResponse_error' - If the request fails, this error is returned.
---
--- 'operation', 'deleteBackendAuthResponse_operation' - The name of the operation.
---
 -- 'appId', 'deleteBackendAuthResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'deleteBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'error', 'deleteBackendAuthResponse_error' - If the request fails, this error is returned.
+--
+-- 'jobId', 'deleteBackendAuthResponse_jobId' - The ID for the job.
+--
+-- 'operation', 'deleteBackendAuthResponse_operation' - The name of the operation.
+--
+-- 'status', 'deleteBackendAuthResponse_status' - The current status of the request.
 --
 -- 'httpStatus', 'deleteBackendAuthResponse_httpStatus' - The response's http status code.
 newDeleteBackendAuthResponse ::
@@ -218,30 +218,14 @@ newDeleteBackendAuthResponse ::
   DeleteBackendAuthResponse
 newDeleteBackendAuthResponse pHttpStatus_ =
   DeleteBackendAuthResponse'
-    { jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      error = Prelude.Nothing,
-      operation = Prelude.Nothing,
-      appId = Prelude.Nothing,
+    { appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      error = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      operation = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID for the job.
-deleteBackendAuthResponse_jobId :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
-deleteBackendAuthResponse_jobId = Lens.lens (\DeleteBackendAuthResponse' {jobId} -> jobId) (\s@DeleteBackendAuthResponse' {} a -> s {jobId = a} :: DeleteBackendAuthResponse)
-
--- | The current status of the request.
-deleteBackendAuthResponse_status :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
-deleteBackendAuthResponse_status = Lens.lens (\DeleteBackendAuthResponse' {status} -> status) (\s@DeleteBackendAuthResponse' {} a -> s {status = a} :: DeleteBackendAuthResponse)
-
--- | If the request fails, this error is returned.
-deleteBackendAuthResponse_error :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
-deleteBackendAuthResponse_error = Lens.lens (\DeleteBackendAuthResponse' {error} -> error) (\s@DeleteBackendAuthResponse' {} a -> s {error = a} :: DeleteBackendAuthResponse)
-
--- | The name of the operation.
-deleteBackendAuthResponse_operation :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
-deleteBackendAuthResponse_operation = Lens.lens (\DeleteBackendAuthResponse' {operation} -> operation) (\s@DeleteBackendAuthResponse' {} a -> s {operation = a} :: DeleteBackendAuthResponse)
 
 -- | The app ID.
 deleteBackendAuthResponse_appId :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
@@ -251,16 +235,32 @@ deleteBackendAuthResponse_appId = Lens.lens (\DeleteBackendAuthResponse' {appId}
 deleteBackendAuthResponse_backendEnvironmentName :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
 deleteBackendAuthResponse_backendEnvironmentName = Lens.lens (\DeleteBackendAuthResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@DeleteBackendAuthResponse' {} a -> s {backendEnvironmentName = a} :: DeleteBackendAuthResponse)
 
+-- | If the request fails, this error is returned.
+deleteBackendAuthResponse_error :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
+deleteBackendAuthResponse_error = Lens.lens (\DeleteBackendAuthResponse' {error} -> error) (\s@DeleteBackendAuthResponse' {} a -> s {error = a} :: DeleteBackendAuthResponse)
+
+-- | The ID for the job.
+deleteBackendAuthResponse_jobId :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
+deleteBackendAuthResponse_jobId = Lens.lens (\DeleteBackendAuthResponse' {jobId} -> jobId) (\s@DeleteBackendAuthResponse' {} a -> s {jobId = a} :: DeleteBackendAuthResponse)
+
+-- | The name of the operation.
+deleteBackendAuthResponse_operation :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
+deleteBackendAuthResponse_operation = Lens.lens (\DeleteBackendAuthResponse' {operation} -> operation) (\s@DeleteBackendAuthResponse' {} a -> s {operation = a} :: DeleteBackendAuthResponse)
+
+-- | The current status of the request.
+deleteBackendAuthResponse_status :: Lens.Lens' DeleteBackendAuthResponse (Prelude.Maybe Prelude.Text)
+deleteBackendAuthResponse_status = Lens.lens (\DeleteBackendAuthResponse' {status} -> status) (\s@DeleteBackendAuthResponse' {} a -> s {status = a} :: DeleteBackendAuthResponse)
+
 -- | The response's http status code.
 deleteBackendAuthResponse_httpStatus :: Lens.Lens' DeleteBackendAuthResponse Prelude.Int
 deleteBackendAuthResponse_httpStatus = Lens.lens (\DeleteBackendAuthResponse' {httpStatus} -> httpStatus) (\s@DeleteBackendAuthResponse' {} a -> s {httpStatus = a} :: DeleteBackendAuthResponse)
 
 instance Prelude.NFData DeleteBackendAuthResponse where
   rnf DeleteBackendAuthResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

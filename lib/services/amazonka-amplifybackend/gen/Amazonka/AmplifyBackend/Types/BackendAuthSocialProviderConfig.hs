@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendAuthSocialProviderConfig' smart constructor.
 data BackendAuthSocialProviderConfig = BackendAuthSocialProviderConfig'
-  { -- | Describes the client_secret, which can be obtained from third-party
-    -- social federation providers.
-    clientSecret :: Prelude.Maybe Prelude.Text,
-    -- | Describes the client_id, which can be obtained from the third-party
+  { -- | Describes the client_id, which can be obtained from the third-party
     -- social federation provider.
-    clientId :: Prelude.Maybe Prelude.Text
+    clientId :: Prelude.Maybe Prelude.Text,
+    -- | Describes the client_secret, which can be obtained from third-party
+    -- social federation providers.
+    clientSecret :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data BackendAuthSocialProviderConfig = BackendAuthSocialProviderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientSecret', 'backendAuthSocialProviderConfig_clientSecret' - Describes the client_secret, which can be obtained from third-party
--- social federation providers.
---
 -- 'clientId', 'backendAuthSocialProviderConfig_clientId' - Describes the client_id, which can be obtained from the third-party
 -- social federation provider.
+--
+-- 'clientSecret', 'backendAuthSocialProviderConfig_clientSecret' - Describes the client_secret, which can be obtained from third-party
+-- social federation providers.
 newBackendAuthSocialProviderConfig ::
   BackendAuthSocialProviderConfig
 newBackendAuthSocialProviderConfig =
   BackendAuthSocialProviderConfig'
-    { clientSecret =
+    { clientId =
         Prelude.Nothing,
-      clientId = Prelude.Nothing
+      clientSecret = Prelude.Nothing
     }
-
--- | Describes the client_secret, which can be obtained from third-party
--- social federation providers.
-backendAuthSocialProviderConfig_clientSecret :: Lens.Lens' BackendAuthSocialProviderConfig (Prelude.Maybe Prelude.Text)
-backendAuthSocialProviderConfig_clientSecret = Lens.lens (\BackendAuthSocialProviderConfig' {clientSecret} -> clientSecret) (\s@BackendAuthSocialProviderConfig' {} a -> s {clientSecret = a} :: BackendAuthSocialProviderConfig)
 
 -- | Describes the client_id, which can be obtained from the third-party
 -- social federation provider.
 backendAuthSocialProviderConfig_clientId :: Lens.Lens' BackendAuthSocialProviderConfig (Prelude.Maybe Prelude.Text)
 backendAuthSocialProviderConfig_clientId = Lens.lens (\BackendAuthSocialProviderConfig' {clientId} -> clientId) (\s@BackendAuthSocialProviderConfig' {} a -> s {clientId = a} :: BackendAuthSocialProviderConfig)
+
+-- | Describes the client_secret, which can be obtained from third-party
+-- social federation providers.
+backendAuthSocialProviderConfig_clientSecret :: Lens.Lens' BackendAuthSocialProviderConfig (Prelude.Maybe Prelude.Text)
+backendAuthSocialProviderConfig_clientSecret = Lens.lens (\BackendAuthSocialProviderConfig' {clientSecret} -> clientSecret) (\s@BackendAuthSocialProviderConfig' {} a -> s {clientSecret = a} :: BackendAuthSocialProviderConfig)
 
 instance
   Data.FromJSON
@@ -79,8 +79,8 @@ instance
       "BackendAuthSocialProviderConfig"
       ( \x ->
           BackendAuthSocialProviderConfig'
-            Prelude.<$> (x Data..:? "client_secret")
-            Prelude.<*> (x Data..:? "client_id")
+            Prelude.<$> (x Data..:? "client_id")
+            Prelude.<*> (x Data..:? "client_secret")
       )
 
 instance
@@ -90,22 +90,22 @@ instance
   hashWithSalt
     _salt
     BackendAuthSocialProviderConfig' {..} =
-      _salt `Prelude.hashWithSalt` clientSecret
-        `Prelude.hashWithSalt` clientId
+      _salt `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` clientSecret
 
 instance
   Prelude.NFData
     BackendAuthSocialProviderConfig
   where
   rnf BackendAuthSocialProviderConfig' {..} =
-    Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance Data.ToJSON BackendAuthSocialProviderConfig where
   toJSON BackendAuthSocialProviderConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("client_secret" Data..=) Prelude.<$> clientSecret,
-            ("client_id" Data..=) Prelude.<$> clientId
+          [ ("client_id" Data..=) Prelude.<$> clientId,
+            ("client_secret" Data..=) Prelude.<$> clientSecret
           ]
       )

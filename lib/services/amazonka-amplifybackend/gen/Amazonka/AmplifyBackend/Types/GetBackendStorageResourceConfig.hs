@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGetBackendStorageResourceConfig' smart constructor.
 data GetBackendStorageResourceConfig = GetBackendStorageResourceConfig'
-  { -- | The authorization configuration for the storage S3 bucket.
-    permissions :: Prelude.Maybe BackendStoragePermissions,
-    -- | The name of the S3 bucket.
+  { -- | The name of the S3 bucket.
     bucketName :: Prelude.Maybe Prelude.Text,
+    -- | The authorization configuration for the storage S3 bucket.
+    permissions :: Prelude.Maybe BackendStoragePermissions,
     -- | The name of the storage service.
     serviceName :: ServiceName,
     -- | Returns True if the storage resource has been imported.
@@ -49,9 +49,9 @@ data GetBackendStorageResourceConfig = GetBackendStorageResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissions', 'getBackendStorageResourceConfig_permissions' - The authorization configuration for the storage S3 bucket.
---
 -- 'bucketName', 'getBackendStorageResourceConfig_bucketName' - The name of the S3 bucket.
+--
+-- 'permissions', 'getBackendStorageResourceConfig_permissions' - The authorization configuration for the storage S3 bucket.
 --
 -- 'serviceName', 'getBackendStorageResourceConfig_serviceName' - The name of the storage service.
 --
@@ -66,20 +66,20 @@ newGetBackendStorageResourceConfig
   pServiceName_
   pImported_ =
     GetBackendStorageResourceConfig'
-      { permissions =
+      { bucketName =
           Prelude.Nothing,
-        bucketName = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         serviceName = pServiceName_,
         imported = pImported_
       }
 
--- | The authorization configuration for the storage S3 bucket.
-getBackendStorageResourceConfig_permissions :: Lens.Lens' GetBackendStorageResourceConfig (Prelude.Maybe BackendStoragePermissions)
-getBackendStorageResourceConfig_permissions = Lens.lens (\GetBackendStorageResourceConfig' {permissions} -> permissions) (\s@GetBackendStorageResourceConfig' {} a -> s {permissions = a} :: GetBackendStorageResourceConfig)
-
 -- | The name of the S3 bucket.
 getBackendStorageResourceConfig_bucketName :: Lens.Lens' GetBackendStorageResourceConfig (Prelude.Maybe Prelude.Text)
 getBackendStorageResourceConfig_bucketName = Lens.lens (\GetBackendStorageResourceConfig' {bucketName} -> bucketName) (\s@GetBackendStorageResourceConfig' {} a -> s {bucketName = a} :: GetBackendStorageResourceConfig)
+
+-- | The authorization configuration for the storage S3 bucket.
+getBackendStorageResourceConfig_permissions :: Lens.Lens' GetBackendStorageResourceConfig (Prelude.Maybe BackendStoragePermissions)
+getBackendStorageResourceConfig_permissions = Lens.lens (\GetBackendStorageResourceConfig' {permissions} -> permissions) (\s@GetBackendStorageResourceConfig' {} a -> s {permissions = a} :: GetBackendStorageResourceConfig)
 
 -- | The name of the storage service.
 getBackendStorageResourceConfig_serviceName :: Lens.Lens' GetBackendStorageResourceConfig ServiceName
@@ -98,8 +98,8 @@ instance
       "GetBackendStorageResourceConfig"
       ( \x ->
           GetBackendStorageResourceConfig'
-            Prelude.<$> (x Data..:? "permissions")
-            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<$> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "permissions")
             Prelude.<*> (x Data..: "serviceName")
             Prelude.<*> (x Data..: "imported")
       )
@@ -111,8 +111,8 @@ instance
   hashWithSalt
     _salt
     GetBackendStorageResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` permissions
-        `Prelude.hashWithSalt` bucketName
+      _salt `Prelude.hashWithSalt` bucketName
+        `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` imported
 
@@ -121,7 +121,7 @@ instance
     GetBackendStorageResourceConfig
   where
   rnf GetBackendStorageResourceConfig' {..} =
-    Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf imported

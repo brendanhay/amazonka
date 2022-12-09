@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmailSettings' smart constructor.
 data EmailSettings = EmailSettings'
-  { -- | The contents of the subject line of the email message.
-    emailSubject :: Prelude.Maybe Prelude.Text,
-    -- | The contents of the email message.
-    emailMessage :: Prelude.Maybe Prelude.Text
+  { -- | The contents of the email message.
+    emailMessage :: Prelude.Maybe Prelude.Text,
+    -- | The contents of the subject line of the email message.
+    emailSubject :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data EmailSettings = EmailSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailSubject', 'emailSettings_emailSubject' - The contents of the subject line of the email message.
---
 -- 'emailMessage', 'emailSettings_emailMessage' - The contents of the email message.
+--
+-- 'emailSubject', 'emailSettings_emailSubject' - The contents of the subject line of the email message.
 newEmailSettings ::
   EmailSettings
 newEmailSettings =
   EmailSettings'
-    { emailSubject = Prelude.Nothing,
-      emailMessage = Prelude.Nothing
+    { emailMessage = Prelude.Nothing,
+      emailSubject = Prelude.Nothing
     }
-
--- | The contents of the subject line of the email message.
-emailSettings_emailSubject :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
-emailSettings_emailSubject = Lens.lens (\EmailSettings' {emailSubject} -> emailSubject) (\s@EmailSettings' {} a -> s {emailSubject = a} :: EmailSettings)
 
 -- | The contents of the email message.
 emailSettings_emailMessage :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
 emailSettings_emailMessage = Lens.lens (\EmailSettings' {emailMessage} -> emailMessage) (\s@EmailSettings' {} a -> s {emailMessage = a} :: EmailSettings)
+
+-- | The contents of the subject line of the email message.
+emailSettings_emailSubject :: Lens.Lens' EmailSettings (Prelude.Maybe Prelude.Text)
+emailSettings_emailSubject = Lens.lens (\EmailSettings' {emailSubject} -> emailSubject) (\s@EmailSettings' {} a -> s {emailSubject = a} :: EmailSettings)
 
 instance Data.FromJSON EmailSettings where
   parseJSON =
@@ -69,25 +69,25 @@ instance Data.FromJSON EmailSettings where
       "EmailSettings"
       ( \x ->
           EmailSettings'
-            Prelude.<$> (x Data..:? "emailSubject")
-            Prelude.<*> (x Data..:? "emailMessage")
+            Prelude.<$> (x Data..:? "emailMessage")
+            Prelude.<*> (x Data..:? "emailSubject")
       )
 
 instance Prelude.Hashable EmailSettings where
   hashWithSalt _salt EmailSettings' {..} =
-    _salt `Prelude.hashWithSalt` emailSubject
-      `Prelude.hashWithSalt` emailMessage
+    _salt `Prelude.hashWithSalt` emailMessage
+      `Prelude.hashWithSalt` emailSubject
 
 instance Prelude.NFData EmailSettings where
   rnf EmailSettings' {..} =
-    Prelude.rnf emailSubject
-      `Prelude.seq` Prelude.rnf emailMessage
+    Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf emailSubject
 
 instance Data.ToJSON EmailSettings where
   toJSON EmailSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("emailSubject" Data..=) Prelude.<$> emailSubject,
-            ("emailMessage" Data..=) Prelude.<$> emailMessage
+          [ ("emailMessage" Data..=) Prelude.<$> emailMessage,
+            ("emailSubject" Data..=) Prelude.<$> emailSubject
           ]
       )

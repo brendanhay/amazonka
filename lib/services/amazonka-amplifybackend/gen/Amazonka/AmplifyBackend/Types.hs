@@ -18,9 +18,9 @@ module Amazonka.AmplifyBackend.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
     _BadRequestException,
     _GatewayTimeoutException,
+    _NotFoundException,
     _TooManyRequestsException,
 
     -- * AdditionalConstraintsElement
@@ -74,20 +74,20 @@ module Amazonka.AmplifyBackend.Types
     -- * BackendAPIAppSyncAuthSettings
     BackendAPIAppSyncAuthSettings (..),
     newBackendAPIAppSyncAuthSettings,
+    backendAPIAppSyncAuthSettings_cognitoUserPoolId,
+    backendAPIAppSyncAuthSettings_description,
     backendAPIAppSyncAuthSettings_expirationTime,
     backendAPIAppSyncAuthSettings_openIDAuthTTL,
-    backendAPIAppSyncAuthSettings_description,
-    backendAPIAppSyncAuthSettings_openIDIssueURL,
     backendAPIAppSyncAuthSettings_openIDClientId,
     backendAPIAppSyncAuthSettings_openIDIatTTL,
+    backendAPIAppSyncAuthSettings_openIDIssueURL,
     backendAPIAppSyncAuthSettings_openIDProviderName,
-    backendAPIAppSyncAuthSettings_cognitoUserPoolId,
 
     -- * BackendAPIAuthType
     BackendAPIAuthType (..),
     newBackendAPIAuthType,
-    backendAPIAuthType_settings,
     backendAPIAuthType_mode,
+    backendAPIAuthType_settings,
 
     -- * BackendAPIConflictResolution
     BackendAPIConflictResolution (..),
@@ -98,35 +98,35 @@ module Amazonka.AmplifyBackend.Types
     BackendAPIResourceConfig (..),
     newBackendAPIResourceConfig,
     backendAPIResourceConfig_additionalAuthTypes,
+    backendAPIResourceConfig_apiName,
     backendAPIResourceConfig_conflictResolution,
+    backendAPIResourceConfig_defaultAuthType,
     backendAPIResourceConfig_service,
     backendAPIResourceConfig_transformSchema,
-    backendAPIResourceConfig_defaultAuthType,
-    backendAPIResourceConfig_apiName,
 
     -- * BackendAuthAppleProviderConfig
     BackendAuthAppleProviderConfig (..),
     newBackendAuthAppleProviderConfig,
     backendAuthAppleProviderConfig_clientId,
+    backendAuthAppleProviderConfig_keyId,
     backendAuthAppleProviderConfig_privateKey,
     backendAuthAppleProviderConfig_teamId,
-    backendAuthAppleProviderConfig_keyId,
 
     -- * BackendAuthSocialProviderConfig
     BackendAuthSocialProviderConfig (..),
     newBackendAuthSocialProviderConfig,
-    backendAuthSocialProviderConfig_clientSecret,
     backendAuthSocialProviderConfig_clientId,
+    backendAuthSocialProviderConfig_clientSecret,
 
     -- * BackendJobRespObj
     BackendJobRespObj (..),
     newBackendJobRespObj,
-    backendJobRespObj_jobId,
-    backendJobRespObj_status,
-    backendJobRespObj_updateTime,
     backendJobRespObj_createTime,
     backendJobRespObj_error,
+    backendJobRespObj_jobId,
     backendJobRespObj_operation,
+    backendJobRespObj_status,
+    backendJobRespObj_updateTime,
     backendJobRespObj_appId,
     backendJobRespObj_backendEnvironmentName,
 
@@ -182,11 +182,11 @@ module Amazonka.AmplifyBackend.Types
     -- * CreateBackendAuthUserPoolConfig
     CreateBackendAuthUserPoolConfig (..),
     newCreateBackendAuthUserPoolConfig,
+    createBackendAuthUserPoolConfig_forgotPassword,
+    createBackendAuthUserPoolConfig_mfa,
     createBackendAuthUserPoolConfig_oAuth,
     createBackendAuthUserPoolConfig_passwordPolicy,
-    createBackendAuthUserPoolConfig_forgotPassword,
     createBackendAuthUserPoolConfig_verificationMessage,
-    createBackendAuthUserPoolConfig_mfa,
     createBackendAuthUserPoolConfig_requiredSignUpAttributes,
     createBackendAuthUserPoolConfig_signInMethod,
     createBackendAuthUserPoolConfig_userPoolName,
@@ -208,14 +208,14 @@ module Amazonka.AmplifyBackend.Types
     -- * EmailSettings
     EmailSettings (..),
     newEmailSettings,
-    emailSettings_emailSubject,
     emailSettings_emailMessage,
+    emailSettings_emailSubject,
 
     -- * GetBackendStorageResourceConfig
     GetBackendStorageResourceConfig (..),
     newGetBackendStorageResourceConfig,
-    getBackendStorageResourceConfig_permissions,
     getBackendStorageResourceConfig_bucketName,
+    getBackendStorageResourceConfig_permissions,
     getBackendStorageResourceConfig_serviceName,
     getBackendStorageResourceConfig_imported,
 
@@ -234,8 +234,8 @@ module Amazonka.AmplifyBackend.Types
     -- * S3BucketInfo
     S3BucketInfo (..),
     newS3BucketInfo,
-    s3BucketInfo_name,
     s3BucketInfo_creationDate,
+    s3BucketInfo_name,
 
     -- * Settings
     Settings (..),
@@ -251,16 +251,16 @@ module Amazonka.AmplifyBackend.Types
     -- * SocialProviderSettings
     SocialProviderSettings (..),
     newSocialProviderSettings,
-    socialProviderSettings_loginWithAmazon,
-    socialProviderSettings_signInWithApple,
     socialProviderSettings_facebook,
     socialProviderSettings_google,
+    socialProviderSettings_loginWithAmazon,
+    socialProviderSettings_signInWithApple,
 
     -- * UpdateBackendAuthForgotPasswordConfig
     UpdateBackendAuthForgotPasswordConfig (..),
     newUpdateBackendAuthForgotPasswordConfig,
-    updateBackendAuthForgotPasswordConfig_emailSettings,
     updateBackendAuthForgotPasswordConfig_deliveryMethod,
+    updateBackendAuthForgotPasswordConfig_emailSettings,
     updateBackendAuthForgotPasswordConfig_smsSettings,
 
     -- * UpdateBackendAuthIdentityPoolConfig
@@ -271,18 +271,18 @@ module Amazonka.AmplifyBackend.Types
     -- * UpdateBackendAuthMFAConfig
     UpdateBackendAuthMFAConfig (..),
     newUpdateBackendAuthMFAConfig,
-    updateBackendAuthMFAConfig_settings,
     updateBackendAuthMFAConfig_mfaMode,
+    updateBackendAuthMFAConfig_settings,
 
     -- * UpdateBackendAuthOAuthConfig
     UpdateBackendAuthOAuthConfig (..),
     newUpdateBackendAuthOAuthConfig,
     updateBackendAuthOAuthConfig_domainPrefix,
-    updateBackendAuthOAuthConfig_redirectSignOutURIs,
-    updateBackendAuthOAuthConfig_redirectSignInURIs,
-    updateBackendAuthOAuthConfig_oAuthScopes,
-    updateBackendAuthOAuthConfig_socialProviderSettings,
     updateBackendAuthOAuthConfig_oAuthGrantType,
+    updateBackendAuthOAuthConfig_oAuthScopes,
+    updateBackendAuthOAuthConfig_redirectSignInURIs,
+    updateBackendAuthOAuthConfig_redirectSignOutURIs,
+    updateBackendAuthOAuthConfig_socialProviderSettings,
 
     -- * UpdateBackendAuthPasswordPolicyConfig
     UpdateBackendAuthPasswordPolicyConfig (..),
@@ -301,11 +301,11 @@ module Amazonka.AmplifyBackend.Types
     -- * UpdateBackendAuthUserPoolConfig
     UpdateBackendAuthUserPoolConfig (..),
     newUpdateBackendAuthUserPoolConfig,
+    updateBackendAuthUserPoolConfig_forgotPassword,
+    updateBackendAuthUserPoolConfig_mfa,
     updateBackendAuthUserPoolConfig_oAuth,
     updateBackendAuthUserPoolConfig_passwordPolicy,
-    updateBackendAuthUserPoolConfig_forgotPassword,
     updateBackendAuthUserPoolConfig_verificationMessage,
-    updateBackendAuthUserPoolConfig_mfa,
 
     -- * UpdateBackendAuthVerificationMessageConfig
     UpdateBackendAuthVerificationMessageConfig (..),
@@ -402,28 +402,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -431,13 +425,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -445,15 +443,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | An error returned when a specific resource type is not found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | An error returned if a request is not formed properly.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -470,6 +462,14 @@ _GatewayTimeoutException =
     defaultService
     "GatewayTimeoutException"
     Prelude.. Core.hasStatus 504
+
+-- | An error returned when a specific resource type is not found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | An error that is returned when a limit of a specific type has been
 -- exceeded.

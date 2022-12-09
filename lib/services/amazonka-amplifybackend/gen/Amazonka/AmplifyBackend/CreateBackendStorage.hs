@@ -37,10 +37,10 @@ module Amazonka.AmplifyBackend.CreateBackendStorage
     newCreateBackendStorageResponse,
 
     -- * Response Lenses
-    createBackendStorageResponse_jobId,
-    createBackendStorageResponse_status,
     createBackendStorageResponse_appId,
     createBackendStorageResponse_backendEnvironmentName,
+    createBackendStorageResponse_jobId,
+    createBackendStorageResponse_status,
     createBackendStorageResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest CreateBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           CreateBackendStorageResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,14 +187,14 @@ instance Data.ToQuery CreateBackendStorage where
 
 -- | /See:/ 'newCreateBackendStorageResponse' smart constructor.
 data CreateBackendStorageResponse = CreateBackendStorageResponse'
-  { -- | The ID for the job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,13 +208,13 @@ data CreateBackendStorageResponse = CreateBackendStorageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'createBackendStorageResponse_jobId' - The ID for the job.
---
--- 'status', 'createBackendStorageResponse_status' - The current status of the request.
---
 -- 'appId', 'createBackendStorageResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'createBackendStorageResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'jobId', 'createBackendStorageResponse_jobId' - The ID for the job.
+--
+-- 'status', 'createBackendStorageResponse_status' - The current status of the request.
 --
 -- 'httpStatus', 'createBackendStorageResponse_httpStatus' - The response's http status code.
 newCreateBackendStorageResponse ::
@@ -223,21 +223,13 @@ newCreateBackendStorageResponse ::
   CreateBackendStorageResponse
 newCreateBackendStorageResponse pHttpStatus_ =
   CreateBackendStorageResponse'
-    { jobId =
+    { appId =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID for the job.
-createBackendStorageResponse_jobId :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
-createBackendStorageResponse_jobId = Lens.lens (\CreateBackendStorageResponse' {jobId} -> jobId) (\s@CreateBackendStorageResponse' {} a -> s {jobId = a} :: CreateBackendStorageResponse)
-
--- | The current status of the request.
-createBackendStorageResponse_status :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
-createBackendStorageResponse_status = Lens.lens (\CreateBackendStorageResponse' {status} -> status) (\s@CreateBackendStorageResponse' {} a -> s {status = a} :: CreateBackendStorageResponse)
 
 -- | The app ID.
 createBackendStorageResponse_appId :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
@@ -247,14 +239,22 @@ createBackendStorageResponse_appId = Lens.lens (\CreateBackendStorageResponse' {
 createBackendStorageResponse_backendEnvironmentName :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
 createBackendStorageResponse_backendEnvironmentName = Lens.lens (\CreateBackendStorageResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@CreateBackendStorageResponse' {} a -> s {backendEnvironmentName = a} :: CreateBackendStorageResponse)
 
+-- | The ID for the job.
+createBackendStorageResponse_jobId :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
+createBackendStorageResponse_jobId = Lens.lens (\CreateBackendStorageResponse' {jobId} -> jobId) (\s@CreateBackendStorageResponse' {} a -> s {jobId = a} :: CreateBackendStorageResponse)
+
+-- | The current status of the request.
+createBackendStorageResponse_status :: Lens.Lens' CreateBackendStorageResponse (Prelude.Maybe Prelude.Text)
+createBackendStorageResponse_status = Lens.lens (\CreateBackendStorageResponse' {status} -> status) (\s@CreateBackendStorageResponse' {} a -> s {status = a} :: CreateBackendStorageResponse)
+
 -- | The response's http status code.
 createBackendStorageResponse_httpStatus :: Lens.Lens' CreateBackendStorageResponse Prelude.Int
 createBackendStorageResponse_httpStatus = Lens.lens (\CreateBackendStorageResponse' {httpStatus} -> httpStatus) (\s@CreateBackendStorageResponse' {} a -> s {httpStatus = a} :: CreateBackendStorageResponse)
 
 instance Prelude.NFData CreateBackendStorageResponse where
   rnf CreateBackendStorageResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

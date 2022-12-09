@@ -36,10 +36,10 @@ module Amazonka.AmplifyBackend.GetBackendStorage
     newGetBackendStorageResponse,
 
     -- * Response Lenses
-    getBackendStorageResponse_resourceName,
-    getBackendStorageResponse_resourceConfig,
     getBackendStorageResponse_appId,
     getBackendStorageResponse_backendEnvironmentName,
+    getBackendStorageResponse_resourceConfig,
+    getBackendStorageResponse_resourceName,
     getBackendStorageResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest GetBackendStorage where
     Response.receiveJSON
       ( \s h x ->
           GetBackendStorageResponse'
-            Prelude.<$> (x Data..?> "resourceName")
-            Prelude.<*> (x Data..?> "resourceConfig")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "resourceConfig")
+            Prelude.<*> (x Data..?> "resourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,14 +170,14 @@ instance Data.ToQuery GetBackendStorage where
 
 -- | /See:/ 'newGetBackendStorageResponse' smart constructor.
 data GetBackendStorageResponse = GetBackendStorageResponse'
-  { -- | The name of the storage resource.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The resource configuration for the backend storage resource.
-    resourceConfig :: Prelude.Maybe GetBackendStorageResourceConfig,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | The resource configuration for the backend storage resource.
+    resourceConfig :: Prelude.Maybe GetBackendStorageResourceConfig,
+    -- | The name of the storage resource.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,13 +191,13 @@ data GetBackendStorageResponse = GetBackendStorageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceName', 'getBackendStorageResponse_resourceName' - The name of the storage resource.
---
--- 'resourceConfig', 'getBackendStorageResponse_resourceConfig' - The resource configuration for the backend storage resource.
---
 -- 'appId', 'getBackendStorageResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'getBackendStorageResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'resourceConfig', 'getBackendStorageResponse_resourceConfig' - The resource configuration for the backend storage resource.
+--
+-- 'resourceName', 'getBackendStorageResponse_resourceName' - The name of the storage resource.
 --
 -- 'httpStatus', 'getBackendStorageResponse_httpStatus' - The response's http status code.
 newGetBackendStorageResponse ::
@@ -206,21 +206,12 @@ newGetBackendStorageResponse ::
   GetBackendStorageResponse
 newGetBackendStorageResponse pHttpStatus_ =
   GetBackendStorageResponse'
-    { resourceName =
-        Prelude.Nothing,
-      resourceConfig = Prelude.Nothing,
-      appId = Prelude.Nothing,
+    { appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      resourceConfig = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the storage resource.
-getBackendStorageResponse_resourceName :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe Prelude.Text)
-getBackendStorageResponse_resourceName = Lens.lens (\GetBackendStorageResponse' {resourceName} -> resourceName) (\s@GetBackendStorageResponse' {} a -> s {resourceName = a} :: GetBackendStorageResponse)
-
--- | The resource configuration for the backend storage resource.
-getBackendStorageResponse_resourceConfig :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe GetBackendStorageResourceConfig)
-getBackendStorageResponse_resourceConfig = Lens.lens (\GetBackendStorageResponse' {resourceConfig} -> resourceConfig) (\s@GetBackendStorageResponse' {} a -> s {resourceConfig = a} :: GetBackendStorageResponse)
 
 -- | The app ID.
 getBackendStorageResponse_appId :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe Prelude.Text)
@@ -230,14 +221,22 @@ getBackendStorageResponse_appId = Lens.lens (\GetBackendStorageResponse' {appId}
 getBackendStorageResponse_backendEnvironmentName :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe Prelude.Text)
 getBackendStorageResponse_backendEnvironmentName = Lens.lens (\GetBackendStorageResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@GetBackendStorageResponse' {} a -> s {backendEnvironmentName = a} :: GetBackendStorageResponse)
 
+-- | The resource configuration for the backend storage resource.
+getBackendStorageResponse_resourceConfig :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe GetBackendStorageResourceConfig)
+getBackendStorageResponse_resourceConfig = Lens.lens (\GetBackendStorageResponse' {resourceConfig} -> resourceConfig) (\s@GetBackendStorageResponse' {} a -> s {resourceConfig = a} :: GetBackendStorageResponse)
+
+-- | The name of the storage resource.
+getBackendStorageResponse_resourceName :: Lens.Lens' GetBackendStorageResponse (Prelude.Maybe Prelude.Text)
+getBackendStorageResponse_resourceName = Lens.lens (\GetBackendStorageResponse' {resourceName} -> resourceName) (\s@GetBackendStorageResponse' {} a -> s {resourceName = a} :: GetBackendStorageResponse)
+
 -- | The response's http status code.
 getBackendStorageResponse_httpStatus :: Lens.Lens' GetBackendStorageResponse Prelude.Int
 getBackendStorageResponse_httpStatus = Lens.lens (\GetBackendStorageResponse' {httpStatus} -> httpStatus) (\s@GetBackendStorageResponse' {} a -> s {httpStatus = a} :: GetBackendStorageResponse)
 
 instance Prelude.NFData GetBackendStorageResponse where
   rnf GetBackendStorageResponse' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf httpStatus

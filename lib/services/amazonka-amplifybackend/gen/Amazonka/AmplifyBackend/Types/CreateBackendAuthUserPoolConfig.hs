@@ -36,21 +36,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateBackendAuthUserPoolConfig' smart constructor.
 data CreateBackendAuthUserPoolConfig = CreateBackendAuthUserPoolConfig'
-  { -- | Describes the OAuth policy and rules for your Amazon Cognito user pool,
+  { -- | __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
+    -- Cognito user pool, configured as a part of your Amplify project.
+    forgotPassword :: Prelude.Maybe CreateBackendAuthForgotPasswordConfig,
+    -- | Describes whether to apply multi-factor authentication policies for your
+    -- Amazon Cognito user pool configured as a part of your Amplify project.
+    mfa :: Prelude.Maybe CreateBackendAuthMFAConfig,
+    -- | Describes the OAuth policy and rules for your Amazon Cognito user pool,
     -- configured as a part of your Amplify project.
     oAuth :: Prelude.Maybe CreateBackendAuthOAuthConfig,
     -- | Describes the password policy for your Amazon Cognito user pool,
     -- configured as a part of your Amplify project.
     passwordPolicy :: Prelude.Maybe CreateBackendAuthPasswordPolicyConfig,
-    -- | __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
-    -- Cognito user pool, configured as a part of your Amplify project.
-    forgotPassword :: Prelude.Maybe CreateBackendAuthForgotPasswordConfig,
     -- | Describes the email or SMS verification message for your Amazon Cognito
     -- user pool, configured as a part of your Amplify project.
     verificationMessage :: Prelude.Maybe CreateBackendAuthVerificationMessageConfig,
-    -- | Describes whether to apply multi-factor authentication policies for your
-    -- Amazon Cognito user pool configured as a part of your Amplify project.
-    mfa :: Prelude.Maybe CreateBackendAuthMFAConfig,
     -- | The required attributes to sign up new users in the user pool.
     requiredSignUpAttributes :: [RequiredSignUpAttributesElement],
     -- | Describes the sign-in methods that your Amplify app users use to log in
@@ -70,20 +70,20 @@ data CreateBackendAuthUserPoolConfig = CreateBackendAuthUserPoolConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'forgotPassword', 'createBackendAuthUserPoolConfig_forgotPassword' - __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
+-- Cognito user pool, configured as a part of your Amplify project.
+--
+-- 'mfa', 'createBackendAuthUserPoolConfig_mfa' - Describes whether to apply multi-factor authentication policies for your
+-- Amazon Cognito user pool configured as a part of your Amplify project.
+--
 -- 'oAuth', 'createBackendAuthUserPoolConfig_oAuth' - Describes the OAuth policy and rules for your Amazon Cognito user pool,
 -- configured as a part of your Amplify project.
 --
 -- 'passwordPolicy', 'createBackendAuthUserPoolConfig_passwordPolicy' - Describes the password policy for your Amazon Cognito user pool,
 -- configured as a part of your Amplify project.
 --
--- 'forgotPassword', 'createBackendAuthUserPoolConfig_forgotPassword' - __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
--- Cognito user pool, configured as a part of your Amplify project.
---
 -- 'verificationMessage', 'createBackendAuthUserPoolConfig_verificationMessage' - Describes the email or SMS verification message for your Amazon Cognito
 -- user pool, configured as a part of your Amplify project.
---
--- 'mfa', 'createBackendAuthUserPoolConfig_mfa' - Describes whether to apply multi-factor authentication policies for your
--- Amazon Cognito user pool configured as a part of your Amplify project.
 --
 -- 'requiredSignUpAttributes', 'createBackendAuthUserPoolConfig_requiredSignUpAttributes' - The required attributes to sign up new users in the user pool.
 --
@@ -102,16 +102,26 @@ newCreateBackendAuthUserPoolConfig
   pSignInMethod_
   pUserPoolName_ =
     CreateBackendAuthUserPoolConfig'
-      { oAuth =
+      { forgotPassword =
           Prelude.Nothing,
-        passwordPolicy = Prelude.Nothing,
-        forgotPassword = Prelude.Nothing,
-        verificationMessage = Prelude.Nothing,
         mfa = Prelude.Nothing,
+        oAuth = Prelude.Nothing,
+        passwordPolicy = Prelude.Nothing,
+        verificationMessage = Prelude.Nothing,
         requiredSignUpAttributes = Prelude.mempty,
         signInMethod = pSignInMethod_,
         userPoolName = pUserPoolName_
       }
+
+-- | __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
+-- Cognito user pool, configured as a part of your Amplify project.
+createBackendAuthUserPoolConfig_forgotPassword :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthForgotPasswordConfig)
+createBackendAuthUserPoolConfig_forgotPassword = Lens.lens (\CreateBackendAuthUserPoolConfig' {forgotPassword} -> forgotPassword) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {forgotPassword = a} :: CreateBackendAuthUserPoolConfig)
+
+-- | Describes whether to apply multi-factor authentication policies for your
+-- Amazon Cognito user pool configured as a part of your Amplify project.
+createBackendAuthUserPoolConfig_mfa :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthMFAConfig)
+createBackendAuthUserPoolConfig_mfa = Lens.lens (\CreateBackendAuthUserPoolConfig' {mfa} -> mfa) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {mfa = a} :: CreateBackendAuthUserPoolConfig)
 
 -- | Describes the OAuth policy and rules for your Amazon Cognito user pool,
 -- configured as a part of your Amplify project.
@@ -123,20 +133,10 @@ createBackendAuthUserPoolConfig_oAuth = Lens.lens (\CreateBackendAuthUserPoolCon
 createBackendAuthUserPoolConfig_passwordPolicy :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthPasswordPolicyConfig)
 createBackendAuthUserPoolConfig_passwordPolicy = Lens.lens (\CreateBackendAuthUserPoolConfig' {passwordPolicy} -> passwordPolicy) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {passwordPolicy = a} :: CreateBackendAuthUserPoolConfig)
 
--- | __(DEPRECATED)__ Describes the forgotten password policy for your Amazon
--- Cognito user pool, configured as a part of your Amplify project.
-createBackendAuthUserPoolConfig_forgotPassword :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthForgotPasswordConfig)
-createBackendAuthUserPoolConfig_forgotPassword = Lens.lens (\CreateBackendAuthUserPoolConfig' {forgotPassword} -> forgotPassword) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {forgotPassword = a} :: CreateBackendAuthUserPoolConfig)
-
 -- | Describes the email or SMS verification message for your Amazon Cognito
 -- user pool, configured as a part of your Amplify project.
 createBackendAuthUserPoolConfig_verificationMessage :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthVerificationMessageConfig)
 createBackendAuthUserPoolConfig_verificationMessage = Lens.lens (\CreateBackendAuthUserPoolConfig' {verificationMessage} -> verificationMessage) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {verificationMessage = a} :: CreateBackendAuthUserPoolConfig)
-
--- | Describes whether to apply multi-factor authentication policies for your
--- Amazon Cognito user pool configured as a part of your Amplify project.
-createBackendAuthUserPoolConfig_mfa :: Lens.Lens' CreateBackendAuthUserPoolConfig (Prelude.Maybe CreateBackendAuthMFAConfig)
-createBackendAuthUserPoolConfig_mfa = Lens.lens (\CreateBackendAuthUserPoolConfig' {mfa} -> mfa) (\s@CreateBackendAuthUserPoolConfig' {} a -> s {mfa = a} :: CreateBackendAuthUserPoolConfig)
 
 -- | The required attributes to sign up new users in the user pool.
 createBackendAuthUserPoolConfig_requiredSignUpAttributes :: Lens.Lens' CreateBackendAuthUserPoolConfig [RequiredSignUpAttributesElement]
@@ -161,11 +161,11 @@ instance
       "CreateBackendAuthUserPoolConfig"
       ( \x ->
           CreateBackendAuthUserPoolConfig'
-            Prelude.<$> (x Data..:? "oAuth")
-            Prelude.<*> (x Data..:? "passwordPolicy")
-            Prelude.<*> (x Data..:? "forgotPassword")
-            Prelude.<*> (x Data..:? "verificationMessage")
+            Prelude.<$> (x Data..:? "forgotPassword")
             Prelude.<*> (x Data..:? "mfa")
+            Prelude.<*> (x Data..:? "oAuth")
+            Prelude.<*> (x Data..:? "passwordPolicy")
+            Prelude.<*> (x Data..:? "verificationMessage")
             Prelude.<*> ( x Data..:? "requiredSignUpAttributes"
                             Data..!= Prelude.mempty
                         )
@@ -180,11 +180,11 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthUserPoolConfig' {..} =
-      _salt `Prelude.hashWithSalt` oAuth
-        `Prelude.hashWithSalt` passwordPolicy
-        `Prelude.hashWithSalt` forgotPassword
-        `Prelude.hashWithSalt` verificationMessage
+      _salt `Prelude.hashWithSalt` forgotPassword
         `Prelude.hashWithSalt` mfa
+        `Prelude.hashWithSalt` oAuth
+        `Prelude.hashWithSalt` passwordPolicy
+        `Prelude.hashWithSalt` verificationMessage
         `Prelude.hashWithSalt` requiredSignUpAttributes
         `Prelude.hashWithSalt` signInMethod
         `Prelude.hashWithSalt` userPoolName
@@ -194,11 +194,11 @@ instance
     CreateBackendAuthUserPoolConfig
   where
   rnf CreateBackendAuthUserPoolConfig' {..} =
-    Prelude.rnf oAuth
-      `Prelude.seq` Prelude.rnf passwordPolicy
-      `Prelude.seq` Prelude.rnf forgotPassword
-      `Prelude.seq` Prelude.rnf verificationMessage
+    Prelude.rnf forgotPassword
       `Prelude.seq` Prelude.rnf mfa
+      `Prelude.seq` Prelude.rnf oAuth
+      `Prelude.seq` Prelude.rnf passwordPolicy
+      `Prelude.seq` Prelude.rnf verificationMessage
       `Prelude.seq` Prelude.rnf requiredSignUpAttributes
       `Prelude.seq` Prelude.rnf signInMethod
       `Prelude.seq` Prelude.rnf userPoolName
@@ -207,14 +207,14 @@ instance Data.ToJSON CreateBackendAuthUserPoolConfig where
   toJSON CreateBackendAuthUserPoolConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("oAuth" Data..=) Prelude.<$> oAuth,
+          [ ("forgotPassword" Data..=)
+              Prelude.<$> forgotPassword,
+            ("mfa" Data..=) Prelude.<$> mfa,
+            ("oAuth" Data..=) Prelude.<$> oAuth,
             ("passwordPolicy" Data..=)
               Prelude.<$> passwordPolicy,
-            ("forgotPassword" Data..=)
-              Prelude.<$> forgotPassword,
             ("verificationMessage" Data..=)
               Prelude.<$> verificationMessage,
-            ("mfa" Data..=) Prelude.<$> mfa,
             Prelude.Just
               ( "requiredSignUpAttributes"
                   Data..= requiredSignUpAttributes

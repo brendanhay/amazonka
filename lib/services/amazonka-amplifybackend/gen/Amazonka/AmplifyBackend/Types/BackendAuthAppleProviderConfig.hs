@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data BackendAuthAppleProviderConfig = BackendAuthAppleProviderConfig'
   { -- | Describes the client_id (also called Services ID) that comes from Apple.
     clientId :: Prelude.Maybe Prelude.Text,
+    -- | Describes the key_id that comes from Apple.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | Describes the private_key that comes from Apple.
     privateKey :: Prelude.Maybe Prelude.Text,
     -- | Describes the team_id that comes from Apple.
-    teamId :: Prelude.Maybe Prelude.Text,
-    -- | Describes the key_id that comes from Apple.
-    keyId :: Prelude.Maybe Prelude.Text
+    teamId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,25 +50,29 @@ data BackendAuthAppleProviderConfig = BackendAuthAppleProviderConfig'
 --
 -- 'clientId', 'backendAuthAppleProviderConfig_clientId' - Describes the client_id (also called Services ID) that comes from Apple.
 --
+-- 'keyId', 'backendAuthAppleProviderConfig_keyId' - Describes the key_id that comes from Apple.
+--
 -- 'privateKey', 'backendAuthAppleProviderConfig_privateKey' - Describes the private_key that comes from Apple.
 --
 -- 'teamId', 'backendAuthAppleProviderConfig_teamId' - Describes the team_id that comes from Apple.
---
--- 'keyId', 'backendAuthAppleProviderConfig_keyId' - Describes the key_id that comes from Apple.
 newBackendAuthAppleProviderConfig ::
   BackendAuthAppleProviderConfig
 newBackendAuthAppleProviderConfig =
   BackendAuthAppleProviderConfig'
     { clientId =
         Prelude.Nothing,
+      keyId = Prelude.Nothing,
       privateKey = Prelude.Nothing,
-      teamId = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      teamId = Prelude.Nothing
     }
 
 -- | Describes the client_id (also called Services ID) that comes from Apple.
 backendAuthAppleProviderConfig_clientId :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
 backendAuthAppleProviderConfig_clientId = Lens.lens (\BackendAuthAppleProviderConfig' {clientId} -> clientId) (\s@BackendAuthAppleProviderConfig' {} a -> s {clientId = a} :: BackendAuthAppleProviderConfig)
+
+-- | Describes the key_id that comes from Apple.
+backendAuthAppleProviderConfig_keyId :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
+backendAuthAppleProviderConfig_keyId = Lens.lens (\BackendAuthAppleProviderConfig' {keyId} -> keyId) (\s@BackendAuthAppleProviderConfig' {} a -> s {keyId = a} :: BackendAuthAppleProviderConfig)
 
 -- | Describes the private_key that comes from Apple.
 backendAuthAppleProviderConfig_privateKey :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
@@ -78,10 +82,6 @@ backendAuthAppleProviderConfig_privateKey = Lens.lens (\BackendAuthAppleProvider
 backendAuthAppleProviderConfig_teamId :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
 backendAuthAppleProviderConfig_teamId = Lens.lens (\BackendAuthAppleProviderConfig' {teamId} -> teamId) (\s@BackendAuthAppleProviderConfig' {} a -> s {teamId = a} :: BackendAuthAppleProviderConfig)
 
--- | Describes the key_id that comes from Apple.
-backendAuthAppleProviderConfig_keyId :: Lens.Lens' BackendAuthAppleProviderConfig (Prelude.Maybe Prelude.Text)
-backendAuthAppleProviderConfig_keyId = Lens.lens (\BackendAuthAppleProviderConfig' {keyId} -> keyId) (\s@BackendAuthAppleProviderConfig' {} a -> s {keyId = a} :: BackendAuthAppleProviderConfig)
-
 instance Data.FromJSON BackendAuthAppleProviderConfig where
   parseJSON =
     Data.withObject
@@ -89,9 +89,9 @@ instance Data.FromJSON BackendAuthAppleProviderConfig where
       ( \x ->
           BackendAuthAppleProviderConfig'
             Prelude.<$> (x Data..:? "client_id")
+            Prelude.<*> (x Data..:? "key_id")
             Prelude.<*> (x Data..:? "private_key")
             Prelude.<*> (x Data..:? "team_id")
-            Prelude.<*> (x Data..:? "key_id")
       )
 
 instance
@@ -102,9 +102,9 @@ instance
     _salt
     BackendAuthAppleProviderConfig' {..} =
       _salt `Prelude.hashWithSalt` clientId
+        `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` privateKey
         `Prelude.hashWithSalt` teamId
-        `Prelude.hashWithSalt` keyId
 
 instance
   Prelude.NFData
@@ -112,17 +112,17 @@ instance
   where
   rnf BackendAuthAppleProviderConfig' {..} =
     Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf privateKey
       `Prelude.seq` Prelude.rnf teamId
-      `Prelude.seq` Prelude.rnf keyId
 
 instance Data.ToJSON BackendAuthAppleProviderConfig where
   toJSON BackendAuthAppleProviderConfig' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("client_id" Data..=) Prelude.<$> clientId,
+            ("key_id" Data..=) Prelude.<$> keyId,
             ("private_key" Data..=) Prelude.<$> privateKey,
-            ("team_id" Data..=) Prelude.<$> teamId,
-            ("key_id" Data..=) Prelude.<$> keyId
+            ("team_id" Data..=) Prelude.<$> teamId
           ]
       )

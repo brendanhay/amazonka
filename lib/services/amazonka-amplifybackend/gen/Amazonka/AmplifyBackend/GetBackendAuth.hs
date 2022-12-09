@@ -36,11 +36,11 @@ module Amazonka.AmplifyBackend.GetBackendAuth
     newGetBackendAuthResponse,
 
     -- * Response Lenses
-    getBackendAuthResponse_resourceName,
-    getBackendAuthResponse_resourceConfig,
-    getBackendAuthResponse_error,
     getBackendAuthResponse_appId,
     getBackendAuthResponse_backendEnvironmentName,
+    getBackendAuthResponse_error,
+    getBackendAuthResponse_resourceConfig,
+    getBackendAuthResponse_resourceName,
     getBackendAuthResponse_httpStatus,
   )
 where
@@ -119,11 +119,11 @@ instance Core.AWSRequest GetBackendAuth where
     Response.receiveJSON
       ( \s h x ->
           GetBackendAuthResponse'
-            Prelude.<$> (x Data..?> "resourceName")
-            Prelude.<*> (x Data..?> "resourceConfig")
-            Prelude.<*> (x Data..?> "error")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "resourceConfig")
+            Prelude.<*> (x Data..?> "resourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,17 +172,17 @@ instance Data.ToQuery GetBackendAuth where
 
 -- | /See:/ 'newGetBackendAuthResponse' smart constructor.
 data GetBackendAuthResponse = GetBackendAuthResponse'
-  { -- | The name of this resource.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The resource configuration for authorization requests to the backend of
-    -- your Amplify project.
-    resourceConfig :: Prelude.Maybe CreateBackendAuthResourceConfig,
-    -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The resource configuration for authorization requests to the backend of
+    -- your Amplify project.
+    resourceConfig :: Prelude.Maybe CreateBackendAuthResourceConfig,
+    -- | The name of this resource.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,16 +196,16 @@ data GetBackendAuthResponse = GetBackendAuthResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceName', 'getBackendAuthResponse_resourceName' - The name of this resource.
+-- 'appId', 'getBackendAuthResponse_appId' - The app ID.
+--
+-- 'backendEnvironmentName', 'getBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'error', 'getBackendAuthResponse_error' - If the request fails, this error is returned.
 --
 -- 'resourceConfig', 'getBackendAuthResponse_resourceConfig' - The resource configuration for authorization requests to the backend of
 -- your Amplify project.
 --
--- 'error', 'getBackendAuthResponse_error' - If the request fails, this error is returned.
---
--- 'appId', 'getBackendAuthResponse_appId' - The app ID.
---
--- 'backendEnvironmentName', 'getBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.
+-- 'resourceName', 'getBackendAuthResponse_resourceName' - The name of this resource.
 --
 -- 'httpStatus', 'getBackendAuthResponse_httpStatus' - The response's http status code.
 newGetBackendAuthResponse ::
@@ -214,27 +214,13 @@ newGetBackendAuthResponse ::
   GetBackendAuthResponse
 newGetBackendAuthResponse pHttpStatus_ =
   GetBackendAuthResponse'
-    { resourceName =
-        Prelude.Nothing,
-      resourceConfig = Prelude.Nothing,
-      error = Prelude.Nothing,
-      appId = Prelude.Nothing,
+    { appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      error = Prelude.Nothing,
+      resourceConfig = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of this resource.
-getBackendAuthResponse_resourceName :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
-getBackendAuthResponse_resourceName = Lens.lens (\GetBackendAuthResponse' {resourceName} -> resourceName) (\s@GetBackendAuthResponse' {} a -> s {resourceName = a} :: GetBackendAuthResponse)
-
--- | The resource configuration for authorization requests to the backend of
--- your Amplify project.
-getBackendAuthResponse_resourceConfig :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe CreateBackendAuthResourceConfig)
-getBackendAuthResponse_resourceConfig = Lens.lens (\GetBackendAuthResponse' {resourceConfig} -> resourceConfig) (\s@GetBackendAuthResponse' {} a -> s {resourceConfig = a} :: GetBackendAuthResponse)
-
--- | If the request fails, this error is returned.
-getBackendAuthResponse_error :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
-getBackendAuthResponse_error = Lens.lens (\GetBackendAuthResponse' {error} -> error) (\s@GetBackendAuthResponse' {} a -> s {error = a} :: GetBackendAuthResponse)
 
 -- | The app ID.
 getBackendAuthResponse_appId :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
@@ -244,15 +230,28 @@ getBackendAuthResponse_appId = Lens.lens (\GetBackendAuthResponse' {appId} -> ap
 getBackendAuthResponse_backendEnvironmentName :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
 getBackendAuthResponse_backendEnvironmentName = Lens.lens (\GetBackendAuthResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@GetBackendAuthResponse' {} a -> s {backendEnvironmentName = a} :: GetBackendAuthResponse)
 
+-- | If the request fails, this error is returned.
+getBackendAuthResponse_error :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
+getBackendAuthResponse_error = Lens.lens (\GetBackendAuthResponse' {error} -> error) (\s@GetBackendAuthResponse' {} a -> s {error = a} :: GetBackendAuthResponse)
+
+-- | The resource configuration for authorization requests to the backend of
+-- your Amplify project.
+getBackendAuthResponse_resourceConfig :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe CreateBackendAuthResourceConfig)
+getBackendAuthResponse_resourceConfig = Lens.lens (\GetBackendAuthResponse' {resourceConfig} -> resourceConfig) (\s@GetBackendAuthResponse' {} a -> s {resourceConfig = a} :: GetBackendAuthResponse)
+
+-- | The name of this resource.
+getBackendAuthResponse_resourceName :: Lens.Lens' GetBackendAuthResponse (Prelude.Maybe Prelude.Text)
+getBackendAuthResponse_resourceName = Lens.lens (\GetBackendAuthResponse' {resourceName} -> resourceName) (\s@GetBackendAuthResponse' {} a -> s {resourceName = a} :: GetBackendAuthResponse)
+
 -- | The response's http status code.
 getBackendAuthResponse_httpStatus :: Lens.Lens' GetBackendAuthResponse Prelude.Int
 getBackendAuthResponse_httpStatus = Lens.lens (\GetBackendAuthResponse' {httpStatus} -> httpStatus) (\s@GetBackendAuthResponse' {} a -> s {httpStatus = a} :: GetBackendAuthResponse)
 
 instance Prelude.NFData GetBackendAuthResponse where
   rnf GetBackendAuthResponse' {..} =
-    Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf resourceConfig
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf resourceConfig
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf httpStatus

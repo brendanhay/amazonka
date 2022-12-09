@@ -34,8 +34,8 @@ module Amazonka.KafkaConnect.DeleteCustomPlugin
     newDeleteCustomPluginResponse,
 
     -- * Response Lenses
-    deleteCustomPluginResponse_customPluginState,
     deleteCustomPluginResponse_customPluginArn,
+    deleteCustomPluginResponse_customPluginState,
     deleteCustomPluginResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest DeleteCustomPlugin where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomPluginResponse'
-            Prelude.<$> (x Data..?> "customPluginState")
-            Prelude.<*> (x Data..?> "customPluginArn")
+            Prelude.<$> (x Data..?> "customPluginArn")
+            Prelude.<*> (x Data..?> "customPluginState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,11 +125,11 @@ instance Data.ToQuery DeleteCustomPlugin where
 
 -- | /See:/ 'newDeleteCustomPluginResponse' smart constructor.
 data DeleteCustomPluginResponse = DeleteCustomPluginResponse'
-  { -- | The state of the custom plugin.
-    customPluginState :: Prelude.Maybe CustomPluginState,
-    -- | The Amazon Resource Name (ARN) of the custom plugin that you requested
+  { -- | The Amazon Resource Name (ARN) of the custom plugin that you requested
     -- to delete.
     customPluginArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the custom plugin.
+    customPluginState :: Prelude.Maybe CustomPluginState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,10 +143,10 @@ data DeleteCustomPluginResponse = DeleteCustomPluginResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customPluginState', 'deleteCustomPluginResponse_customPluginState' - The state of the custom plugin.
---
 -- 'customPluginArn', 'deleteCustomPluginResponse_customPluginArn' - The Amazon Resource Name (ARN) of the custom plugin that you requested
 -- to delete.
+--
+-- 'customPluginState', 'deleteCustomPluginResponse_customPluginState' - The state of the custom plugin.
 --
 -- 'httpStatus', 'deleteCustomPluginResponse_httpStatus' - The response's http status code.
 newDeleteCustomPluginResponse ::
@@ -155,20 +155,20 @@ newDeleteCustomPluginResponse ::
   DeleteCustomPluginResponse
 newDeleteCustomPluginResponse pHttpStatus_ =
   DeleteCustomPluginResponse'
-    { customPluginState =
+    { customPluginArn =
         Prelude.Nothing,
-      customPluginArn = Prelude.Nothing,
+      customPluginState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The state of the custom plugin.
-deleteCustomPluginResponse_customPluginState :: Lens.Lens' DeleteCustomPluginResponse (Prelude.Maybe CustomPluginState)
-deleteCustomPluginResponse_customPluginState = Lens.lens (\DeleteCustomPluginResponse' {customPluginState} -> customPluginState) (\s@DeleteCustomPluginResponse' {} a -> s {customPluginState = a} :: DeleteCustomPluginResponse)
 
 -- | The Amazon Resource Name (ARN) of the custom plugin that you requested
 -- to delete.
 deleteCustomPluginResponse_customPluginArn :: Lens.Lens' DeleteCustomPluginResponse (Prelude.Maybe Prelude.Text)
 deleteCustomPluginResponse_customPluginArn = Lens.lens (\DeleteCustomPluginResponse' {customPluginArn} -> customPluginArn) (\s@DeleteCustomPluginResponse' {} a -> s {customPluginArn = a} :: DeleteCustomPluginResponse)
+
+-- | The state of the custom plugin.
+deleteCustomPluginResponse_customPluginState :: Lens.Lens' DeleteCustomPluginResponse (Prelude.Maybe CustomPluginState)
+deleteCustomPluginResponse_customPluginState = Lens.lens (\DeleteCustomPluginResponse' {customPluginState} -> customPluginState) (\s@DeleteCustomPluginResponse' {} a -> s {customPluginState = a} :: DeleteCustomPluginResponse)
 
 -- | The response's http status code.
 deleteCustomPluginResponse_httpStatus :: Lens.Lens' DeleteCustomPluginResponse Prelude.Int
@@ -176,6 +176,6 @@ deleteCustomPluginResponse_httpStatus = Lens.lens (\DeleteCustomPluginResponse' 
 
 instance Prelude.NFData DeleteCustomPluginResponse where
   rnf DeleteCustomPluginResponse' {..} =
-    Prelude.rnf customPluginState
-      `Prelude.seq` Prelude.rnf customPluginArn
+    Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf customPluginState
       `Prelude.seq` Prelude.rnf httpStatus

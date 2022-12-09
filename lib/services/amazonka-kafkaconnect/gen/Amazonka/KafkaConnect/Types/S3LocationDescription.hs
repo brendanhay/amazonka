@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3LocationDescription' smart constructor.
 data S3LocationDescription = S3LocationDescription'
-  { -- | The file key for an object in an S3 bucket.
+  { -- | The Amazon Resource Name (ARN) of an S3 bucket.
+    bucketArn :: Prelude.Maybe Prelude.Text,
+    -- | The file key for an object in an S3 bucket.
     fileKey :: Prelude.Maybe Prelude.Text,
     -- | The version of an object in an S3 bucket.
-    objectVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an S3 bucket.
-    bucketArn :: Prelude.Maybe Prelude.Text
+    objectVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data S3LocationDescription = S3LocationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucketArn', 's3LocationDescription_bucketArn' - The Amazon Resource Name (ARN) of an S3 bucket.
+--
 -- 'fileKey', 's3LocationDescription_fileKey' - The file key for an object in an S3 bucket.
 --
 -- 'objectVersion', 's3LocationDescription_objectVersion' - The version of an object in an S3 bucket.
---
--- 'bucketArn', 's3LocationDescription_bucketArn' - The Amazon Resource Name (ARN) of an S3 bucket.
 newS3LocationDescription ::
   S3LocationDescription
 newS3LocationDescription =
   S3LocationDescription'
-    { fileKey = Prelude.Nothing,
-      objectVersion = Prelude.Nothing,
-      bucketArn = Prelude.Nothing
+    { bucketArn = Prelude.Nothing,
+      fileKey = Prelude.Nothing,
+      objectVersion = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of an S3 bucket.
+s3LocationDescription_bucketArn :: Lens.Lens' S3LocationDescription (Prelude.Maybe Prelude.Text)
+s3LocationDescription_bucketArn = Lens.lens (\S3LocationDescription' {bucketArn} -> bucketArn) (\s@S3LocationDescription' {} a -> s {bucketArn = a} :: S3LocationDescription)
 
 -- | The file key for an object in an S3 bucket.
 s3LocationDescription_fileKey :: Lens.Lens' S3LocationDescription (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ s3LocationDescription_fileKey = Lens.lens (\S3LocationDescription' {fileKey} -> 
 s3LocationDescription_objectVersion :: Lens.Lens' S3LocationDescription (Prelude.Maybe Prelude.Text)
 s3LocationDescription_objectVersion = Lens.lens (\S3LocationDescription' {objectVersion} -> objectVersion) (\s@S3LocationDescription' {} a -> s {objectVersion = a} :: S3LocationDescription)
 
--- | The Amazon Resource Name (ARN) of an S3 bucket.
-s3LocationDescription_bucketArn :: Lens.Lens' S3LocationDescription (Prelude.Maybe Prelude.Text)
-s3LocationDescription_bucketArn = Lens.lens (\S3LocationDescription' {bucketArn} -> bucketArn) (\s@S3LocationDescription' {} a -> s {bucketArn = a} :: S3LocationDescription)
-
 instance Data.FromJSON S3LocationDescription where
   parseJSON =
     Data.withObject
       "S3LocationDescription"
       ( \x ->
           S3LocationDescription'
-            Prelude.<$> (x Data..:? "fileKey")
+            Prelude.<$> (x Data..:? "bucketArn")
+            Prelude.<*> (x Data..:? "fileKey")
             Prelude.<*> (x Data..:? "objectVersion")
-            Prelude.<*> (x Data..:? "bucketArn")
       )
 
 instance Prelude.Hashable S3LocationDescription where
   hashWithSalt _salt S3LocationDescription' {..} =
-    _salt `Prelude.hashWithSalt` fileKey
+    _salt `Prelude.hashWithSalt` bucketArn
+      `Prelude.hashWithSalt` fileKey
       `Prelude.hashWithSalt` objectVersion
-      `Prelude.hashWithSalt` bucketArn
 
 instance Prelude.NFData S3LocationDescription where
   rnf S3LocationDescription' {..} =
-    Prelude.rnf fileKey
+    Prelude.rnf bucketArn
+      `Prelude.seq` Prelude.rnf fileKey
       `Prelude.seq` Prelude.rnf objectVersion
-      `Prelude.seq` Prelude.rnf bucketArn

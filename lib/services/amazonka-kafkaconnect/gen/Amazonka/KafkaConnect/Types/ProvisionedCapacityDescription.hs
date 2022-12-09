@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-  { -- | The number of workers that are allocated to the connector.
-    workerCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of microcontroller units (MCUs) allocated to each connector
+  { -- | The number of microcontroller units (MCUs) allocated to each connector
     -- worker. The valid values are 1,2,4,8.
-    mcuCount :: Prelude.Maybe Prelude.Int
+    mcuCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of workers that are allocated to the connector.
+    workerCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workerCount', 'provisionedCapacityDescription_workerCount' - The number of workers that are allocated to the connector.
---
 -- 'mcuCount', 'provisionedCapacityDescription_mcuCount' - The number of microcontroller units (MCUs) allocated to each connector
 -- worker. The valid values are 1,2,4,8.
+--
+-- 'workerCount', 'provisionedCapacityDescription_workerCount' - The number of workers that are allocated to the connector.
 newProvisionedCapacityDescription ::
   ProvisionedCapacityDescription
 newProvisionedCapacityDescription =
   ProvisionedCapacityDescription'
-    { workerCount =
+    { mcuCount =
         Prelude.Nothing,
-      mcuCount = Prelude.Nothing
+      workerCount = Prelude.Nothing
     }
-
--- | The number of workers that are allocated to the connector.
-provisionedCapacityDescription_workerCount :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Int)
-provisionedCapacityDescription_workerCount = Lens.lens (\ProvisionedCapacityDescription' {workerCount} -> workerCount) (\s@ProvisionedCapacityDescription' {} a -> s {workerCount = a} :: ProvisionedCapacityDescription)
 
 -- | The number of microcontroller units (MCUs) allocated to each connector
 -- worker. The valid values are 1,2,4,8.
 provisionedCapacityDescription_mcuCount :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Int)
 provisionedCapacityDescription_mcuCount = Lens.lens (\ProvisionedCapacityDescription' {mcuCount} -> mcuCount) (\s@ProvisionedCapacityDescription' {} a -> s {mcuCount = a} :: ProvisionedCapacityDescription)
+
+-- | The number of workers that are allocated to the connector.
+provisionedCapacityDescription_workerCount :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Int)
+provisionedCapacityDescription_workerCount = Lens.lens (\ProvisionedCapacityDescription' {workerCount} -> workerCount) (\s@ProvisionedCapacityDescription' {} a -> s {workerCount = a} :: ProvisionedCapacityDescription)
 
 instance Data.FromJSON ProvisionedCapacityDescription where
   parseJSON =
@@ -72,8 +72,8 @@ instance Data.FromJSON ProvisionedCapacityDescription where
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            Prelude.<$> (x Data..:? "workerCount")
-            Prelude.<*> (x Data..:? "mcuCount")
+            Prelude.<$> (x Data..:? "mcuCount")
+            Prelude.<*> (x Data..:? "workerCount")
       )
 
 instance
@@ -83,13 +83,13 @@ instance
   hashWithSalt
     _salt
     ProvisionedCapacityDescription' {..} =
-      _salt `Prelude.hashWithSalt` workerCount
-        `Prelude.hashWithSalt` mcuCount
+      _salt `Prelude.hashWithSalt` mcuCount
+        `Prelude.hashWithSalt` workerCount
 
 instance
   Prelude.NFData
     ProvisionedCapacityDescription
   where
   rnf ProvisionedCapacityDescription' {..} =
-    Prelude.rnf workerCount
-      `Prelude.seq` Prelude.rnf mcuCount
+    Prelude.rnf mcuCount
+      `Prelude.seq` Prelude.rnf workerCount

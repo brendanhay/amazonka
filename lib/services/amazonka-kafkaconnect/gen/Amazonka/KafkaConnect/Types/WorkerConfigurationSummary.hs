@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkerConfigurationSummary' smart constructor.
 data WorkerConfigurationSummary = WorkerConfigurationSummary'
-  { -- | The latest revision of a worker configuration.
+  { -- | The time that a worker configuration was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of a worker configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The latest revision of a worker configuration.
     latestRevision :: Prelude.Maybe WorkerConfigurationRevisionSummary,
     -- | The name of the worker configuration.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of a worker configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the worker configuration.
-    workerConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that a worker configuration was created.
-    creationTime :: Prelude.Maybe Data.POSIX
+    workerConfigurationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,34 @@ data WorkerConfigurationSummary = WorkerConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'workerConfigurationSummary_creationTime' - The time that a worker configuration was created.
+--
+-- 'description', 'workerConfigurationSummary_description' - The description of a worker configuration.
+--
 -- 'latestRevision', 'workerConfigurationSummary_latestRevision' - The latest revision of a worker configuration.
 --
 -- 'name', 'workerConfigurationSummary_name' - The name of the worker configuration.
 --
--- 'description', 'workerConfigurationSummary_description' - The description of a worker configuration.
---
 -- 'workerConfigurationArn', 'workerConfigurationSummary_workerConfigurationArn' - The Amazon Resource Name (ARN) of the worker configuration.
---
--- 'creationTime', 'workerConfigurationSummary_creationTime' - The time that a worker configuration was created.
 newWorkerConfigurationSummary ::
   WorkerConfigurationSummary
 newWorkerConfigurationSummary =
   WorkerConfigurationSummary'
-    { latestRevision =
+    { creationTime =
         Prelude.Nothing,
-      name = Prelude.Nothing,
       description = Prelude.Nothing,
-      workerConfigurationArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      latestRevision = Prelude.Nothing,
+      name = Prelude.Nothing,
+      workerConfigurationArn = Prelude.Nothing
     }
+
+-- | The time that a worker configuration was created.
+workerConfigurationSummary_creationTime :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
+workerConfigurationSummary_creationTime = Lens.lens (\WorkerConfigurationSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationSummary' {} a -> s {creationTime = a} :: WorkerConfigurationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The description of a worker configuration.
+workerConfigurationSummary_description :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.Text)
+workerConfigurationSummary_description = Lens.lens (\WorkerConfigurationSummary' {description} -> description) (\s@WorkerConfigurationSummary' {} a -> s {description = a} :: WorkerConfigurationSummary)
 
 -- | The latest revision of a worker configuration.
 workerConfigurationSummary_latestRevision :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe WorkerConfigurationRevisionSummary)
@@ -79,17 +87,9 @@ workerConfigurationSummary_latestRevision = Lens.lens (\WorkerConfigurationSumma
 workerConfigurationSummary_name :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.Text)
 workerConfigurationSummary_name = Lens.lens (\WorkerConfigurationSummary' {name} -> name) (\s@WorkerConfigurationSummary' {} a -> s {name = a} :: WorkerConfigurationSummary)
 
--- | The description of a worker configuration.
-workerConfigurationSummary_description :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.Text)
-workerConfigurationSummary_description = Lens.lens (\WorkerConfigurationSummary' {description} -> description) (\s@WorkerConfigurationSummary' {} a -> s {description = a} :: WorkerConfigurationSummary)
-
 -- | The Amazon Resource Name (ARN) of the worker configuration.
 workerConfigurationSummary_workerConfigurationArn :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.Text)
 workerConfigurationSummary_workerConfigurationArn = Lens.lens (\WorkerConfigurationSummary' {workerConfigurationArn} -> workerConfigurationArn) (\s@WorkerConfigurationSummary' {} a -> s {workerConfigurationArn = a} :: WorkerConfigurationSummary)
-
--- | The time that a worker configuration was created.
-workerConfigurationSummary_creationTime :: Lens.Lens' WorkerConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-workerConfigurationSummary_creationTime = Lens.lens (\WorkerConfigurationSummary' {creationTime} -> creationTime) (\s@WorkerConfigurationSummary' {} a -> s {creationTime = a} :: WorkerConfigurationSummary) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON WorkerConfigurationSummary where
   parseJSON =
@@ -97,25 +97,25 @@ instance Data.FromJSON WorkerConfigurationSummary where
       "WorkerConfigurationSummary"
       ( \x ->
           WorkerConfigurationSummary'
-            Prelude.<$> (x Data..:? "latestRevision")
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "latestRevision")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "workerConfigurationArn")
-            Prelude.<*> (x Data..:? "creationTime")
       )
 
 instance Prelude.Hashable WorkerConfigurationSummary where
   hashWithSalt _salt WorkerConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` latestRevision
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` latestRevision
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workerConfigurationArn
-      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData WorkerConfigurationSummary where
   rnf WorkerConfigurationSummary' {..} =
-    Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf workerConfigurationArn
-      `Prelude.seq` Prelude.rnf creationTime

@@ -33,9 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGetResourcePoliciesResponseEntry' smart constructor.
 data GetResourcePoliciesResponseEntry = GetResourcePoliciesResponseEntry'
-  { -- | A policy ID.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | A resource policy helps you to define the IAM entity (for example, an
+  { -- | A resource policy helps you to define the IAM entity (for example, an
     -- Amazon Web Services account) that can manage your Systems Manager
     -- resources. Currently, @OpsItemGroup@ is the only resource that supports
     -- Systems Manager resource policies. The resource policy for
@@ -45,7 +43,9 @@ data GetResourcePoliciesResponseEntry = GetResourcePoliciesResponseEntry'
     -- | ID of the current policy version. The hash helps to prevent a situation
     -- where multiple users attempt to overwrite a policy. You must provide
     -- this hash when updating or deleting a policy.
-    policyHash :: Prelude.Maybe Prelude.Text
+    policyHash :: Prelude.Maybe Prelude.Text,
+    -- | A policy ID.
+    policyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data GetResourcePoliciesResponseEntry = GetResourcePoliciesResponseEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyId', 'getResourcePoliciesResponseEntry_policyId' - A policy ID.
---
 -- 'policy', 'getResourcePoliciesResponseEntry_policy' - A resource policy helps you to define the IAM entity (for example, an
 -- Amazon Web Services account) that can manage your Systems Manager
 -- resources. Currently, @OpsItemGroup@ is the only resource that supports
@@ -69,19 +67,17 @@ data GetResourcePoliciesResponseEntry = GetResourcePoliciesResponseEntry'
 -- 'policyHash', 'getResourcePoliciesResponseEntry_policyHash' - ID of the current policy version. The hash helps to prevent a situation
 -- where multiple users attempt to overwrite a policy. You must provide
 -- this hash when updating or deleting a policy.
+--
+-- 'policyId', 'getResourcePoliciesResponseEntry_policyId' - A policy ID.
 newGetResourcePoliciesResponseEntry ::
   GetResourcePoliciesResponseEntry
 newGetResourcePoliciesResponseEntry =
   GetResourcePoliciesResponseEntry'
-    { policyId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing,
-      policyHash = Prelude.Nothing
+      policyHash = Prelude.Nothing,
+      policyId = Prelude.Nothing
     }
-
--- | A policy ID.
-getResourcePoliciesResponseEntry_policyId :: Lens.Lens' GetResourcePoliciesResponseEntry (Prelude.Maybe Prelude.Text)
-getResourcePoliciesResponseEntry_policyId = Lens.lens (\GetResourcePoliciesResponseEntry' {policyId} -> policyId) (\s@GetResourcePoliciesResponseEntry' {} a -> s {policyId = a} :: GetResourcePoliciesResponseEntry)
 
 -- | A resource policy helps you to define the IAM entity (for example, an
 -- Amazon Web Services account) that can manage your Systems Manager
@@ -98,6 +94,10 @@ getResourcePoliciesResponseEntry_policy = Lens.lens (\GetResourcePoliciesRespons
 getResourcePoliciesResponseEntry_policyHash :: Lens.Lens' GetResourcePoliciesResponseEntry (Prelude.Maybe Prelude.Text)
 getResourcePoliciesResponseEntry_policyHash = Lens.lens (\GetResourcePoliciesResponseEntry' {policyHash} -> policyHash) (\s@GetResourcePoliciesResponseEntry' {} a -> s {policyHash = a} :: GetResourcePoliciesResponseEntry)
 
+-- | A policy ID.
+getResourcePoliciesResponseEntry_policyId :: Lens.Lens' GetResourcePoliciesResponseEntry (Prelude.Maybe Prelude.Text)
+getResourcePoliciesResponseEntry_policyId = Lens.lens (\GetResourcePoliciesResponseEntry' {policyId} -> policyId) (\s@GetResourcePoliciesResponseEntry' {} a -> s {policyId = a} :: GetResourcePoliciesResponseEntry)
+
 instance
   Data.FromJSON
     GetResourcePoliciesResponseEntry
@@ -107,9 +107,9 @@ instance
       "GetResourcePoliciesResponseEntry"
       ( \x ->
           GetResourcePoliciesResponseEntry'
-            Prelude.<$> (x Data..:? "PolicyId")
-            Prelude.<*> (x Data..:? "Policy")
+            Prelude.<$> (x Data..:? "Policy")
             Prelude.<*> (x Data..:? "PolicyHash")
+            Prelude.<*> (x Data..:? "PolicyId")
       )
 
 instance
@@ -119,15 +119,15 @@ instance
   hashWithSalt
     _salt
     GetResourcePoliciesResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` policyId
-        `Prelude.hashWithSalt` policy
+      _salt `Prelude.hashWithSalt` policy
         `Prelude.hashWithSalt` policyHash
+        `Prelude.hashWithSalt` policyId
 
 instance
   Prelude.NFData
     GetResourcePoliciesResponseEntry
   where
   rnf GetResourcePoliciesResponseEntry' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf policy
       `Prelude.seq` Prelude.rnf policyHash
+      `Prelude.seq` Prelude.rnf policyId

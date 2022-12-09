@@ -32,37 +32,37 @@ import Amazonka.SSM.Types.MaintenanceWindowTaskType
 --
 -- /See:/ 'newMaintenanceWindowExecutionTaskInvocationIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecutionTaskInvocationIdentity'
-  { -- | The ID of the target definition in this maintenance window the
-    -- invocation was performed for.
-    windowTargetId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the maintenance window execution that ran the task.
-    windowExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the task invocation.
-    invocationId :: Prelude.Maybe Prelude.Text,
-    -- | The details explaining the status of the task invocation. Not available
-    -- for all status values.
-    statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | The status of the task invocation.
-    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The time the invocation finished.
+  { -- | The time the invocation finished.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The task type.
-    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
     -- | The ID of the action performed in the service that actually handled the
     -- task invocation. If the task type is @RUN_COMMAND@, this value is the
     -- command ID.
     executionId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the task invocation.
+    invocationId :: Prelude.Maybe Prelude.Text,
     -- | User-provided value that was specified when the target was registered
     -- with the maintenance window. This was also included in any Amazon
     -- CloudWatch Events events raised during the task invocation.
     ownerInformation :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The parameters that were provided for the invocation when it was run.
+    parameters :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time the invocation started.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the task invocation.
+    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The details explaining the status of the task invocation. Not available
+    -- for all status values.
+    statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The ID of the specific task execution in the maintenance window
     -- execution.
     taskExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The parameters that were provided for the invocation when it was run.
-    parameters :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    -- | The task type.
+    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
+    -- | The ID of the maintenance window execution that ran the task.
+    windowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the target definition in this maintenance window the
+    -- invocation was performed for.
+    windowTargetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -74,93 +74,68 @@ data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecuti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowTargetId', 'maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId' - The ID of the target definition in this maintenance window the
--- invocation was performed for.
---
--- 'windowExecutionId', 'maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId' - The ID of the maintenance window execution that ran the task.
---
--- 'invocationId', 'maintenanceWindowExecutionTaskInvocationIdentity_invocationId' - The ID of the task invocation.
---
--- 'statusDetails', 'maintenanceWindowExecutionTaskInvocationIdentity_statusDetails' - The details explaining the status of the task invocation. Not available
--- for all status values.
---
--- 'status', 'maintenanceWindowExecutionTaskInvocationIdentity_status' - The status of the task invocation.
---
 -- 'endTime', 'maintenanceWindowExecutionTaskInvocationIdentity_endTime' - The time the invocation finished.
---
--- 'taskType', 'maintenanceWindowExecutionTaskInvocationIdentity_taskType' - The task type.
 --
 -- 'executionId', 'maintenanceWindowExecutionTaskInvocationIdentity_executionId' - The ID of the action performed in the service that actually handled the
 -- task invocation. If the task type is @RUN_COMMAND@, this value is the
 -- command ID.
 --
+-- 'invocationId', 'maintenanceWindowExecutionTaskInvocationIdentity_invocationId' - The ID of the task invocation.
+--
 -- 'ownerInformation', 'maintenanceWindowExecutionTaskInvocationIdentity_ownerInformation' - User-provided value that was specified when the target was registered
 -- with the maintenance window. This was also included in any Amazon
 -- CloudWatch Events events raised during the task invocation.
 --
+-- 'parameters', 'maintenanceWindowExecutionTaskInvocationIdentity_parameters' - The parameters that were provided for the invocation when it was run.
+--
 -- 'startTime', 'maintenanceWindowExecutionTaskInvocationIdentity_startTime' - The time the invocation started.
+--
+-- 'status', 'maintenanceWindowExecutionTaskInvocationIdentity_status' - The status of the task invocation.
+--
+-- 'statusDetails', 'maintenanceWindowExecutionTaskInvocationIdentity_statusDetails' - The details explaining the status of the task invocation. Not available
+-- for all status values.
 --
 -- 'taskExecutionId', 'maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId' - The ID of the specific task execution in the maintenance window
 -- execution.
 --
--- 'parameters', 'maintenanceWindowExecutionTaskInvocationIdentity_parameters' - The parameters that were provided for the invocation when it was run.
+-- 'taskType', 'maintenanceWindowExecutionTaskInvocationIdentity_taskType' - The task type.
+--
+-- 'windowExecutionId', 'maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId' - The ID of the maintenance window execution that ran the task.
+--
+-- 'windowTargetId', 'maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId' - The ID of the target definition in this maintenance window the
+-- invocation was performed for.
 newMaintenanceWindowExecutionTaskInvocationIdentity ::
   MaintenanceWindowExecutionTaskInvocationIdentity
 newMaintenanceWindowExecutionTaskInvocationIdentity =
   MaintenanceWindowExecutionTaskInvocationIdentity'
-    { windowTargetId =
-        Prelude.Nothing,
-      windowExecutionId =
-        Prelude.Nothing,
-      invocationId =
-        Prelude.Nothing,
-      statusDetails =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      taskType =
+    { endTime =
         Prelude.Nothing,
       executionId =
         Prelude.Nothing,
+      invocationId =
+        Prelude.Nothing,
       ownerInformation =
+        Prelude.Nothing,
+      parameters =
         Prelude.Nothing,
       startTime =
         Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusDetails =
+        Prelude.Nothing,
       taskExecutionId =
         Prelude.Nothing,
-      parameters =
+      taskType =
+        Prelude.Nothing,
+      windowExecutionId =
+        Prelude.Nothing,
+      windowTargetId =
         Prelude.Nothing
     }
-
--- | The ID of the target definition in this maintenance window the
--- invocation was performed for.
-maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {windowTargetId} -> windowTargetId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {windowTargetId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
-
--- | The ID of the maintenance window execution that ran the task.
-maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
-
--- | The ID of the task invocation.
-maintenanceWindowExecutionTaskInvocationIdentity_invocationId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecutionTaskInvocationIdentity_invocationId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {invocationId} -> invocationId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {invocationId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
-
--- | The details explaining the status of the task invocation. Not available
--- for all status values.
-maintenanceWindowExecutionTaskInvocationIdentity_statusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecutionTaskInvocationIdentity_statusDetails = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {statusDetails = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
-
--- | The status of the task invocation.
-maintenanceWindowExecutionTaskInvocationIdentity_status :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe MaintenanceWindowExecutionStatus)
-maintenanceWindowExecutionTaskInvocationIdentity_status = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {status} -> status) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {status = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
 -- | The time the invocation finished.
 maintenanceWindowExecutionTaskInvocationIdentity_endTime :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.UTCTime)
 maintenanceWindowExecutionTaskInvocationIdentity_endTime = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {endTime} -> endTime) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {endTime = a} :: MaintenanceWindowExecutionTaskInvocationIdentity) Prelude.. Lens.mapping Data._Time
-
--- | The task type.
-maintenanceWindowExecutionTaskInvocationIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe MaintenanceWindowTaskType)
-maintenanceWindowExecutionTaskInvocationIdentity_taskType = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {taskType} -> taskType) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {taskType = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
 -- | The ID of the action performed in the service that actually handled the
 -- task invocation. If the task type is @RUN_COMMAND@, this value is the
@@ -168,24 +143,50 @@ maintenanceWindowExecutionTaskInvocationIdentity_taskType = Lens.lens (\Maintena
 maintenanceWindowExecutionTaskInvocationIdentity_executionId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskInvocationIdentity_executionId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {executionId} -> executionId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {executionId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
+-- | The ID of the task invocation.
+maintenanceWindowExecutionTaskInvocationIdentity_invocationId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskInvocationIdentity_invocationId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {invocationId} -> invocationId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {invocationId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
+
 -- | User-provided value that was specified when the target was registered
 -- with the maintenance window. This was also included in any Amazon
 -- CloudWatch Events events raised during the task invocation.
 maintenanceWindowExecutionTaskInvocationIdentity_ownerInformation :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskInvocationIdentity_ownerInformation = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {ownerInformation = a} :: MaintenanceWindowExecutionTaskInvocationIdentity) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The parameters that were provided for the invocation when it was run.
+maintenanceWindowExecutionTaskInvocationIdentity_parameters :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskInvocationIdentity_parameters = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {parameters} -> parameters) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {parameters = a} :: MaintenanceWindowExecutionTaskInvocationIdentity) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The time the invocation started.
 maintenanceWindowExecutionTaskInvocationIdentity_startTime :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.UTCTime)
 maintenanceWindowExecutionTaskInvocationIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskInvocationIdentity) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the task invocation.
+maintenanceWindowExecutionTaskInvocationIdentity_status :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe MaintenanceWindowExecutionStatus)
+maintenanceWindowExecutionTaskInvocationIdentity_status = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {status} -> status) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {status = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
+
+-- | The details explaining the status of the task invocation. Not available
+-- for all status values.
+maintenanceWindowExecutionTaskInvocationIdentity_statusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskInvocationIdentity_statusDetails = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {statusDetails = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
 -- | The ID of the specific task execution in the maintenance window
 -- execution.
 maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {taskExecutionId} -> taskExecutionId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {taskExecutionId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
--- | The parameters that were provided for the invocation when it was run.
-maintenanceWindowExecutionTaskInvocationIdentity_parameters :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
-maintenanceWindowExecutionTaskInvocationIdentity_parameters = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {parameters} -> parameters) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {parameters = a} :: MaintenanceWindowExecutionTaskInvocationIdentity) Prelude.. Lens.mapping Data._Sensitive
+-- | The task type.
+maintenanceWindowExecutionTaskInvocationIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe MaintenanceWindowTaskType)
+maintenanceWindowExecutionTaskInvocationIdentity_taskType = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {taskType} -> taskType) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {taskType = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
+
+-- | The ID of the maintenance window execution that ran the task.
+maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
+
+-- | The ID of the target definition in this maintenance window the
+-- invocation was performed for.
+maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId :: Lens.Lens' MaintenanceWindowExecutionTaskInvocationIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId = Lens.lens (\MaintenanceWindowExecutionTaskInvocationIdentity' {windowTargetId} -> windowTargetId) (\s@MaintenanceWindowExecutionTaskInvocationIdentity' {} a -> s {windowTargetId = a} :: MaintenanceWindowExecutionTaskInvocationIdentity)
 
 instance
   Data.FromJSON
@@ -196,18 +197,18 @@ instance
       "MaintenanceWindowExecutionTaskInvocationIdentity"
       ( \x ->
           MaintenanceWindowExecutionTaskInvocationIdentity'
-            Prelude.<$> (x Data..:? "WindowTargetId")
-              Prelude.<*> (x Data..:? "WindowExecutionId")
-              Prelude.<*> (x Data..:? "InvocationId")
-              Prelude.<*> (x Data..:? "StatusDetails")
-              Prelude.<*> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "EndTime")
-              Prelude.<*> (x Data..:? "TaskType")
+            Prelude.<$> (x Data..:? "EndTime")
               Prelude.<*> (x Data..:? "ExecutionId")
+              Prelude.<*> (x Data..:? "InvocationId")
               Prelude.<*> (x Data..:? "OwnerInformation")
-              Prelude.<*> (x Data..:? "StartTime")
-              Prelude.<*> (x Data..:? "TaskExecutionId")
               Prelude.<*> (x Data..:? "Parameters")
+              Prelude.<*> (x Data..:? "StartTime")
+              Prelude.<*> (x Data..:? "Status")
+              Prelude.<*> (x Data..:? "StatusDetails")
+              Prelude.<*> (x Data..:? "TaskExecutionId")
+              Prelude.<*> (x Data..:? "TaskType")
+              Prelude.<*> (x Data..:? "WindowExecutionId")
+              Prelude.<*> (x Data..:? "WindowTargetId")
       )
 
 instance
@@ -217,18 +218,18 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowExecutionTaskInvocationIdentity' {..} =
-      _salt `Prelude.hashWithSalt` windowTargetId
-        `Prelude.hashWithSalt` windowExecutionId
-        `Prelude.hashWithSalt` invocationId
-        `Prelude.hashWithSalt` statusDetails
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` endTime
-        `Prelude.hashWithSalt` taskType
+      _salt `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` executionId
+        `Prelude.hashWithSalt` invocationId
         `Prelude.hashWithSalt` ownerInformation
-        `Prelude.hashWithSalt` startTime
-        `Prelude.hashWithSalt` taskExecutionId
         `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` statusDetails
+        `Prelude.hashWithSalt` taskExecutionId
+        `Prelude.hashWithSalt` taskType
+        `Prelude.hashWithSalt` windowExecutionId
+        `Prelude.hashWithSalt` windowTargetId
 
 instance
   Prelude.NFData
@@ -236,15 +237,15 @@ instance
   where
   rnf
     MaintenanceWindowExecutionTaskInvocationIdentity' {..} =
-      Prelude.rnf windowTargetId
-        `Prelude.seq` Prelude.rnf windowExecutionId
-        `Prelude.seq` Prelude.rnf invocationId
-        `Prelude.seq` Prelude.rnf statusDetails
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf endTime
-        `Prelude.seq` Prelude.rnf taskType
+      Prelude.rnf endTime
         `Prelude.seq` Prelude.rnf executionId
+        `Prelude.seq` Prelude.rnf invocationId
         `Prelude.seq` Prelude.rnf ownerInformation
-        `Prelude.seq` Prelude.rnf startTime
-        `Prelude.seq` Prelude.rnf taskExecutionId
         `Prelude.seq` Prelude.rnf parameters
+        `Prelude.seq` Prelude.rnf startTime
+        `Prelude.seq` Prelude.rnf status
+        `Prelude.seq` Prelude.rnf statusDetails
+        `Prelude.seq` Prelude.rnf taskExecutionId
+        `Prelude.seq` Prelude.rnf taskType
+        `Prelude.seq` Prelude.rnf windowExecutionId
+        `Prelude.seq` Prelude.rnf windowTargetId

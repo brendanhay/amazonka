@@ -34,6 +34,56 @@ data CommandPlugin = CommandPlugin'
     -- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
     -- @aws:updateSSMAgent@.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Output of the plugin execution.
+    output :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket where the responses to the command executions should be
+    -- stored. This was requested when issuing the command. For example, in the
+    -- following response:
+    --
+    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
+    --
+    -- @doc-example-bucket@ is the name of the S3 bucket;
+    --
+    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
+    --
+    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
+    --
+    -- @awsrunShellScript@ is the name of the plugin.
+    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 directory path inside the bucket where the responses to the
+    -- command executions should be stored. This was requested when issuing the
+    -- command. For example, in the following response:
+    --
+    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
+    --
+    -- @doc-example-bucket@ is the name of the S3 bucket;
+    --
+    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
+    --
+    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
+    --
+    -- @awsrunShellScript@ is the name of the plugin.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) You can no longer specify this parameter. The system
+    -- ignores it. Instead, Amazon Web Services Systems Manager automatically
+    -- determines the S3 bucket region.
+    outputS3Region :: Prelude.Maybe Prelude.Text,
+    -- | A numeric response code generated after running the plugin.
+    responseCode :: Prelude.Maybe Prelude.Int,
+    -- | The time the plugin stopped running. Could stop prematurely if, for
+    -- example, a cancel command was sent.
+    responseFinishDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The time the plugin started running.
+    responseStartDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The URL for the complete text written by the plugin to stderr. If
+    -- execution isn\'t yet complete, then this string is empty.
+    standardErrorUrl :: Prelude.Maybe Prelude.Text,
+    -- | The URL for the complete text written by the plugin to stdout in Amazon
+    -- S3. If the S3 bucket for the command wasn\'t specified, then this string
+    -- is empty.
+    standardOutputUrl :: Prelude.Maybe Prelude.Text,
+    -- | The status of this plugin. You can run a document with multiple plugins.
+    status :: Prelude.Maybe CommandPluginStatus,
     -- | A detailed status of the plugin execution. @StatusDetails@ includes more
     -- information than Status because it includes states resulting from error
     -- and concurrency control parameters. StatusDetails can show different
@@ -79,57 +129,7 @@ data CommandPlugin = CommandPlugin'
     -- -   Terminated: The parent command exceeded its MaxErrors limit and
     --     subsequent command invocations were canceled by the system. This is
     --     a terminal state.
-    statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | The time the plugin started running.
-    responseStartDateTime :: Prelude.Maybe Data.POSIX,
-    -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Amazon Web Services Systems Manager automatically
-    -- determines the S3 bucket region.
-    outputS3Region :: Prelude.Maybe Prelude.Text,
-    -- | The status of this plugin. You can run a document with multiple plugins.
-    status :: Prelude.Maybe CommandPluginStatus,
-    -- | The time the plugin stopped running. Could stop prematurely if, for
-    -- example, a cancel command was sent.
-    responseFinishDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The URL for the complete text written by the plugin to stderr. If
-    -- execution isn\'t yet complete, then this string is empty.
-    standardErrorUrl :: Prelude.Maybe Prelude.Text,
-    -- | Output of the plugin execution.
-    output :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket where the responses to the command executions should be
-    -- stored. This was requested when issuing the command. For example, in the
-    -- following response:
-    --
-    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
-    --
-    -- @doc-example-bucket@ is the name of the S3 bucket;
-    --
-    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
-    --
-    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
-    --
-    -- @awsrunShellScript@ is the name of the plugin.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | A numeric response code generated after running the plugin.
-    responseCode :: Prelude.Maybe Prelude.Int,
-    -- | The S3 directory path inside the bucket where the responses to the
-    -- command executions should be stored. This was requested when issuing the
-    -- command. For example, in the following response:
-    --
-    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
-    --
-    -- @doc-example-bucket@ is the name of the S3 bucket;
-    --
-    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
-    --
-    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
-    --
-    -- @awsrunShellScript@ is the name of the plugin.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The URL for the complete text written by the plugin to stdout in Amazon
-    -- S3. If the S3 bucket for the command wasn\'t specified, then this string
-    -- is empty.
-    standardOutputUrl :: Prelude.Maybe Prelude.Text
+    statusDetails :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -145,6 +145,56 @@ data CommandPlugin = CommandPlugin'
 -- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
 -- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
 -- @aws:updateSSMAgent@.
+--
+-- 'output', 'commandPlugin_output' - Output of the plugin execution.
+--
+-- 'outputS3BucketName', 'commandPlugin_outputS3BucketName' - The S3 bucket where the responses to the command executions should be
+-- stored. This was requested when issuing the command. For example, in the
+-- following response:
+--
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
+--
+-- @doc-example-bucket@ is the name of the S3 bucket;
+--
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
+--
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
+--
+-- @awsrunShellScript@ is the name of the plugin.
+--
+-- 'outputS3KeyPrefix', 'commandPlugin_outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the
+-- command executions should be stored. This was requested when issuing the
+-- command. For example, in the following response:
+--
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
+--
+-- @doc-example-bucket@ is the name of the S3 bucket;
+--
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
+--
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
+--
+-- @awsrunShellScript@ is the name of the plugin.
+--
+-- 'outputS3Region', 'commandPlugin_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the S3 bucket region.
+--
+-- 'responseCode', 'commandPlugin_responseCode' - A numeric response code generated after running the plugin.
+--
+-- 'responseFinishDateTime', 'commandPlugin_responseFinishDateTime' - The time the plugin stopped running. Could stop prematurely if, for
+-- example, a cancel command was sent.
+--
+-- 'responseStartDateTime', 'commandPlugin_responseStartDateTime' - The time the plugin started running.
+--
+-- 'standardErrorUrl', 'commandPlugin_standardErrorUrl' - The URL for the complete text written by the plugin to stderr. If
+-- execution isn\'t yet complete, then this string is empty.
+--
+-- 'standardOutputUrl', 'commandPlugin_standardOutputUrl' - The URL for the complete text written by the plugin to stdout in Amazon
+-- S3. If the S3 bucket for the command wasn\'t specified, then this string
+-- is empty.
+--
+-- 'status', 'commandPlugin_status' - The status of this plugin. You can run a document with multiple plugins.
 --
 -- 'statusDetails', 'commandPlugin_statusDetails' - A detailed status of the plugin execution. @StatusDetails@ includes more
 -- information than Status because it includes states resulting from error
@@ -191,24 +241,36 @@ data CommandPlugin = CommandPlugin'
 -- -   Terminated: The parent command exceeded its MaxErrors limit and
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
---
--- 'responseStartDateTime', 'commandPlugin_responseStartDateTime' - The time the plugin started running.
---
--- 'outputS3Region', 'commandPlugin_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Amazon Web Services Systems Manager automatically
--- determines the S3 bucket region.
---
--- 'status', 'commandPlugin_status' - The status of this plugin. You can run a document with multiple plugins.
---
--- 'responseFinishDateTime', 'commandPlugin_responseFinishDateTime' - The time the plugin stopped running. Could stop prematurely if, for
--- example, a cancel command was sent.
---
--- 'standardErrorUrl', 'commandPlugin_standardErrorUrl' - The URL for the complete text written by the plugin to stderr. If
--- execution isn\'t yet complete, then this string is empty.
---
--- 'output', 'commandPlugin_output' - Output of the plugin execution.
---
--- 'outputS3BucketName', 'commandPlugin_outputS3BucketName' - The S3 bucket where the responses to the command executions should be
+newCommandPlugin ::
+  CommandPlugin
+newCommandPlugin =
+  CommandPlugin'
+    { name = Prelude.Nothing,
+      output = Prelude.Nothing,
+      outputS3BucketName = Prelude.Nothing,
+      outputS3KeyPrefix = Prelude.Nothing,
+      outputS3Region = Prelude.Nothing,
+      responseCode = Prelude.Nothing,
+      responseFinishDateTime = Prelude.Nothing,
+      responseStartDateTime = Prelude.Nothing,
+      standardErrorUrl = Prelude.Nothing,
+      standardOutputUrl = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusDetails = Prelude.Nothing
+    }
+
+-- | The name of the plugin. Must be one of the following: @aws:updateAgent@,
+-- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
+-- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
+-- @aws:updateSSMAgent@.
+commandPlugin_name :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugin' {} a -> s {name = a} :: CommandPlugin)
+
+-- | Output of the plugin execution.
+commandPlugin_output :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_output = Lens.lens (\CommandPlugin' {output} -> output) (\s@CommandPlugin' {} a -> s {output = a} :: CommandPlugin)
+
+-- | The S3 bucket where the responses to the command executions should be
 -- stored. This was requested when issuing the command. For example, in the
 -- following response:
 --
@@ -221,10 +283,10 @@ data CommandPlugin = CommandPlugin'
 -- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
---
--- 'responseCode', 'commandPlugin_responseCode' - A numeric response code generated after running the plugin.
---
--- 'outputS3KeyPrefix', 'commandPlugin_outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the
+commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3BucketName = Lens.lens (\CommandPlugin' {outputS3BucketName} -> outputS3BucketName) (\s@CommandPlugin' {} a -> s {outputS3BucketName = a} :: CommandPlugin)
+
+-- | The S3 directory path inside the bucket where the responses to the
 -- command executions should be stored. This was requested when issuing the
 -- command. For example, in the following response:
 --
@@ -237,34 +299,42 @@ data CommandPlugin = CommandPlugin'
 -- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
---
--- 'standardOutputUrl', 'commandPlugin_standardOutputUrl' - The URL for the complete text written by the plugin to stdout in Amazon
+commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3KeyPrefix = Lens.lens (\CommandPlugin' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@CommandPlugin' {} a -> s {outputS3KeyPrefix = a} :: CommandPlugin)
+
+-- | (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the S3 bucket region.
+commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3Region = Lens.lens (\CommandPlugin' {outputS3Region} -> outputS3Region) (\s@CommandPlugin' {} a -> s {outputS3Region = a} :: CommandPlugin)
+
+-- | A numeric response code generated after running the plugin.
+commandPlugin_responseCode :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Int)
+commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> responseCode) (\s@CommandPlugin' {} a -> s {responseCode = a} :: CommandPlugin)
+
+-- | The time the plugin stopped running. Could stop prematurely if, for
+-- example, a cancel command was sent.
+commandPlugin_responseFinishDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
+commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
+
+-- | The time the plugin started running.
+commandPlugin_responseStartDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
+commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
+
+-- | The URL for the complete text written by the plugin to stderr. If
+-- execution isn\'t yet complete, then this string is empty.
+commandPlugin_standardErrorUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_standardErrorUrl = Lens.lens (\CommandPlugin' {standardErrorUrl} -> standardErrorUrl) (\s@CommandPlugin' {} a -> s {standardErrorUrl = a} :: CommandPlugin)
+
+-- | The URL for the complete text written by the plugin to stdout in Amazon
 -- S3. If the S3 bucket for the command wasn\'t specified, then this string
 -- is empty.
-newCommandPlugin ::
-  CommandPlugin
-newCommandPlugin =
-  CommandPlugin'
-    { name = Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      responseStartDateTime = Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
-      status = Prelude.Nothing,
-      responseFinishDateTime = Prelude.Nothing,
-      standardErrorUrl = Prelude.Nothing,
-      output = Prelude.Nothing,
-      outputS3BucketName = Prelude.Nothing,
-      responseCode = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing,
-      standardOutputUrl = Prelude.Nothing
-    }
+commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl} -> standardOutputUrl) (\s@CommandPlugin' {} a -> s {standardOutputUrl = a} :: CommandPlugin)
 
--- | The name of the plugin. Must be one of the following: @aws:updateAgent@,
--- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
--- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
--- @aws:updateSSMAgent@.
-commandPlugin_name :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugin' {} a -> s {name = a} :: CommandPlugin)
+-- | The status of this plugin. You can run a document with multiple plugins.
+commandPlugin_status :: Lens.Lens' CommandPlugin (Prelude.Maybe CommandPluginStatus)
+commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@CommandPlugin' {} a -> s {status = a} :: CommandPlugin)
 
 -- | A detailed status of the plugin execution. @StatusDetails@ includes more
 -- information than Status because it includes states resulting from error
@@ -314,76 +384,6 @@ commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugi
 commandPlugin_statusDetails :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_statusDetails = Lens.lens (\CommandPlugin' {statusDetails} -> statusDetails) (\s@CommandPlugin' {} a -> s {statusDetails = a} :: CommandPlugin)
 
--- | The time the plugin started running.
-commandPlugin_responseStartDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseStartDateTime = Lens.lens (\CommandPlugin' {responseStartDateTime} -> responseStartDateTime) (\s@CommandPlugin' {} a -> s {responseStartDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
-
--- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Amazon Web Services Systems Manager automatically
--- determines the S3 bucket region.
-commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_outputS3Region = Lens.lens (\CommandPlugin' {outputS3Region} -> outputS3Region) (\s@CommandPlugin' {} a -> s {outputS3Region = a} :: CommandPlugin)
-
--- | The status of this plugin. You can run a document with multiple plugins.
-commandPlugin_status :: Lens.Lens' CommandPlugin (Prelude.Maybe CommandPluginStatus)
-commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@CommandPlugin' {} a -> s {status = a} :: CommandPlugin)
-
--- | The time the plugin stopped running. Could stop prematurely if, for
--- example, a cancel command was sent.
-commandPlugin_responseFinishDateTime :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.UTCTime)
-commandPlugin_responseFinishDateTime = Lens.lens (\CommandPlugin' {responseFinishDateTime} -> responseFinishDateTime) (\s@CommandPlugin' {} a -> s {responseFinishDateTime = a} :: CommandPlugin) Prelude.. Lens.mapping Data._Time
-
--- | The URL for the complete text written by the plugin to stderr. If
--- execution isn\'t yet complete, then this string is empty.
-commandPlugin_standardErrorUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_standardErrorUrl = Lens.lens (\CommandPlugin' {standardErrorUrl} -> standardErrorUrl) (\s@CommandPlugin' {} a -> s {standardErrorUrl = a} :: CommandPlugin)
-
--- | Output of the plugin execution.
-commandPlugin_output :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_output = Lens.lens (\CommandPlugin' {output} -> output) (\s@CommandPlugin' {} a -> s {output = a} :: CommandPlugin)
-
--- | The S3 bucket where the responses to the command executions should be
--- stored. This was requested when issuing the command. For example, in the
--- following response:
---
--- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
---
--- @doc-example-bucket@ is the name of the S3 bucket;
---
--- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
---
--- @i-02573cafcfEXAMPLE@ is the managed node ID;
---
--- @awsrunShellScript@ is the name of the plugin.
-commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_outputS3BucketName = Lens.lens (\CommandPlugin' {outputS3BucketName} -> outputS3BucketName) (\s@CommandPlugin' {} a -> s {outputS3BucketName = a} :: CommandPlugin)
-
--- | A numeric response code generated after running the plugin.
-commandPlugin_responseCode :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Int)
-commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> responseCode) (\s@CommandPlugin' {} a -> s {responseCode = a} :: CommandPlugin)
-
--- | The S3 directory path inside the bucket where the responses to the
--- command executions should be stored. This was requested when issuing the
--- command. For example, in the following response:
---
--- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
---
--- @doc-example-bucket@ is the name of the S3 bucket;
---
--- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
---
--- @i-02573cafcfEXAMPLE@ is the managed node ID;
---
--- @awsrunShellScript@ is the name of the plugin.
-commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_outputS3KeyPrefix = Lens.lens (\CommandPlugin' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@CommandPlugin' {} a -> s {outputS3KeyPrefix = a} :: CommandPlugin)
-
--- | The URL for the complete text written by the plugin to stdout in Amazon
--- S3. If the S3 bucket for the command wasn\'t specified, then this string
--- is empty.
-commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl} -> standardOutputUrl) (\s@CommandPlugin' {} a -> s {standardOutputUrl = a} :: CommandPlugin)
-
 instance Data.FromJSON CommandPlugin where
   parseJSON =
     Data.withObject
@@ -391,45 +391,45 @@ instance Data.FromJSON CommandPlugin where
       ( \x ->
           CommandPlugin'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "StatusDetails")
-            Prelude.<*> (x Data..:? "ResponseStartDateTime")
-            Prelude.<*> (x Data..:? "OutputS3Region")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ResponseFinishDateTime")
-            Prelude.<*> (x Data..:? "StandardErrorUrl")
             Prelude.<*> (x Data..:? "Output")
             Prelude.<*> (x Data..:? "OutputS3BucketName")
-            Prelude.<*> (x Data..:? "ResponseCode")
             Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Data..:? "OutputS3Region")
+            Prelude.<*> (x Data..:? "ResponseCode")
+            Prelude.<*> (x Data..:? "ResponseFinishDateTime")
+            Prelude.<*> (x Data..:? "ResponseStartDateTime")
+            Prelude.<*> (x Data..:? "StandardErrorUrl")
             Prelude.<*> (x Data..:? "StandardOutputUrl")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusDetails")
       )
 
 instance Prelude.Hashable CommandPlugin where
   hashWithSalt _salt CommandPlugin' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` statusDetails
-      `Prelude.hashWithSalt` responseStartDateTime
-      `Prelude.hashWithSalt` outputS3Region
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` responseFinishDateTime
-      `Prelude.hashWithSalt` standardErrorUrl
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputS3BucketName
-      `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` outputS3KeyPrefix
+      `Prelude.hashWithSalt` outputS3Region
+      `Prelude.hashWithSalt` responseCode
+      `Prelude.hashWithSalt` responseFinishDateTime
+      `Prelude.hashWithSalt` responseStartDateTime
+      `Prelude.hashWithSalt` standardErrorUrl
       `Prelude.hashWithSalt` standardOutputUrl
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusDetails
 
 instance Prelude.NFData CommandPlugin where
   rnf CommandPlugin' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf responseStartDateTime
-      `Prelude.seq` Prelude.rnf outputS3Region
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf responseFinishDateTime
-      `Prelude.seq` Prelude.rnf standardErrorUrl
       `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf responseCode
       `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf outputS3Region
+      `Prelude.seq` Prelude.rnf responseCode
+      `Prelude.seq` Prelude.rnf responseFinishDateTime
+      `Prelude.seq` Prelude.rnf responseStartDateTime
+      `Prelude.seq` Prelude.rnf standardErrorUrl
       `Prelude.seq` Prelude.rnf standardOutputUrl
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusDetails

@@ -29,9 +29,9 @@ module Amazonka.SSM.DescribeMaintenanceWindowTargets
     newDescribeMaintenanceWindowTargets,
 
     -- * Request Lenses
-    describeMaintenanceWindowTargets_nextToken,
     describeMaintenanceWindowTargets_filters,
     describeMaintenanceWindowTargets_maxResults,
+    describeMaintenanceWindowTargets_nextToken,
     describeMaintenanceWindowTargets_windowId,
 
     -- * Destructuring the Response
@@ -55,10 +55,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowTargets' smart constructor.
 data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters that can be used to narrow down the scope of the
+  { -- | Optional filters that can be used to narrow down the scope of the
     -- returned window targets. The supported filter keys are @Type@,
     -- @WindowTargetId@, and @OwnerInformation@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
@@ -66,6 +63,9 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window whose targets should be retrieved.
     windowId :: Prelude.Text
   }
@@ -79,9 +79,6 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeMaintenanceWindowTargets_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeMaintenanceWindowTargets_filters' - Optional filters that can be used to narrow down the scope of the
 -- returned window targets. The supported filter keys are @Type@,
 -- @WindowTargetId@, and @OwnerInformation@.
@@ -90,6 +87,9 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'nextToken', 'describeMaintenanceWindowTargets_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'windowId', 'describeMaintenanceWindowTargets_windowId' - The ID of the maintenance window whose targets should be retrieved.
 newDescribeMaintenanceWindowTargets ::
   -- | 'windowId'
@@ -97,17 +97,12 @@ newDescribeMaintenanceWindowTargets ::
   DescribeMaintenanceWindowTargets
 newDescribeMaintenanceWindowTargets pWindowId_ =
   DescribeMaintenanceWindowTargets'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       windowId = pWindowId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowTargets_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowTargets_nextToken = Lens.lens (\DescribeMaintenanceWindowTargets' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargets' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargets)
 
 -- | Optional filters that can be used to narrow down the scope of the
 -- returned window targets. The supported filter keys are @Type@,
@@ -120,6 +115,11 @@ describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindow
 -- next set of results.
 describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowTargets_maxResults = Lens.lens (\DescribeMaintenanceWindowTargets' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTargets' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTargets)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowTargets_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTargets_nextToken = Lens.lens (\DescribeMaintenanceWindowTargets' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargets' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargets)
 
 -- | The ID of the maintenance window whose targets should be retrieved.
 describeMaintenanceWindowTargets_windowId :: Lens.Lens' DescribeMaintenanceWindowTargets Prelude.Text
@@ -175,9 +175,9 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowTargets' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` windowId
 
 instance
@@ -185,9 +185,9 @@ instance
     DescribeMaintenanceWindowTargets
   where
   rnf DescribeMaintenanceWindowTargets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf windowId
 
 instance
@@ -212,9 +212,9 @@ instance Data.ToJSON DescribeMaintenanceWindowTargets where
   toJSON DescribeMaintenanceWindowTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("WindowId" Data..= windowId)
           ]
       )

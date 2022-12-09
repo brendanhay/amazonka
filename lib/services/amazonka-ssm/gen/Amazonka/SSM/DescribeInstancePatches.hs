@@ -30,9 +30,9 @@ module Amazonka.SSM.DescribeInstancePatches
     newDescribeInstancePatches,
 
     -- * Request Lenses
-    describeInstancePatches_nextToken,
     describeInstancePatches_filters,
     describeInstancePatches_maxResults,
+    describeInstancePatches_nextToken,
     describeInstancePatches_instanceId,
 
     -- * Destructuring the Response
@@ -56,10 +56,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeInstancePatches' smart constructor.
 data DescribeInstancePatches = DescribeInstancePatches'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each element in the array is a structure containing a key-value pair.
+  { -- | Each element in the array is a structure containing a key-value pair.
     --
     -- Supported keys for @DescribeInstancePatches@include the following:
     --
@@ -82,6 +79,9 @@ data DescribeInstancePatches = DescribeInstancePatches'
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the managed node whose patch state information should be
     -- retrieved.
     instanceId :: Prelude.Text
@@ -95,9 +95,6 @@ data DescribeInstancePatches = DescribeInstancePatches'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeInstancePatches_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'filters', 'describeInstancePatches_filters' - Each element in the array is a structure containing a key-value pair.
 --
@@ -122,6 +119,9 @@ data DescribeInstancePatches = DescribeInstancePatches'
 --
 -- 'maxResults', 'describeInstancePatches_maxResults' - The maximum number of patches to return (per page).
 --
+-- 'nextToken', 'describeInstancePatches_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'instanceId', 'describeInstancePatches_instanceId' - The ID of the managed node whose patch state information should be
 -- retrieved.
 newDescribeInstancePatches ::
@@ -130,17 +130,11 @@ newDescribeInstancePatches ::
   DescribeInstancePatches
 newDescribeInstancePatches pInstanceId_ =
   DescribeInstancePatches'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeInstancePatches_nextToken :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Text)
-describeInstancePatches_nextToken = Lens.lens (\DescribeInstancePatches' {nextToken} -> nextToken) (\s@DescribeInstancePatches' {} a -> s {nextToken = a} :: DescribeInstancePatches)
 
 -- | Each element in the array is a structure containing a key-value pair.
 --
@@ -168,6 +162,11 @@ describeInstancePatches_filters = Lens.lens (\DescribeInstancePatches' {filters}
 -- | The maximum number of patches to return (per page).
 describeInstancePatches_maxResults :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Natural)
 describeInstancePatches_maxResults = Lens.lens (\DescribeInstancePatches' {maxResults} -> maxResults) (\s@DescribeInstancePatches' {} a -> s {maxResults = a} :: DescribeInstancePatches)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstancePatches_nextToken :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Text)
+describeInstancePatches_nextToken = Lens.lens (\DescribeInstancePatches' {nextToken} -> nextToken) (\s@DescribeInstancePatches' {} a -> s {nextToken = a} :: DescribeInstancePatches)
 
 -- | The ID of the managed node whose patch state information should be
 -- retrieved.
@@ -213,16 +212,16 @@ instance Core.AWSRequest DescribeInstancePatches where
 
 instance Prelude.Hashable DescribeInstancePatches where
   hashWithSalt _salt DescribeInstancePatches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeInstancePatches where
   rnf DescribeInstancePatches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders DescribeInstancePatches where
@@ -244,9 +243,9 @@ instance Data.ToJSON DescribeInstancePatches where
   toJSON DescribeInstancePatches' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )

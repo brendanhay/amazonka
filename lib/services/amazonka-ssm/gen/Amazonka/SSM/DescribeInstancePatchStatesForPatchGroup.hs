@@ -30,9 +30,9 @@ module Amazonka.SSM.DescribeInstancePatchStatesForPatchGroup
     newDescribeInstancePatchStatesForPatchGroup,
 
     -- * Request Lenses
-    describeInstancePatchStatesForPatchGroup_nextToken,
     describeInstancePatchStatesForPatchGroup_filters,
     describeInstancePatchStatesForPatchGroup_maxResults,
+    describeInstancePatchStatesForPatchGroup_nextToken,
     describeInstancePatchStatesForPatchGroup_patchGroup,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.SSM.DescribeInstancePatchStatesForPatchGroup
     newDescribeInstancePatchStatesForPatchGroupResponse,
 
     -- * Response Lenses
-    describeInstancePatchStatesForPatchGroupResponse_nextToken,
     describeInstancePatchStatesForPatchGroupResponse_instancePatchStates,
+    describeInstancePatchStatesForPatchGroupResponse_nextToken,
     describeInstancePatchStatesForPatchGroupResponse_httpStatus,
   )
 where
@@ -56,10 +56,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeInstancePatchStatesForPatchGroup' smart constructor.
 data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPatchGroup'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each entry in the array is a structure containing:
+  { -- | Each entry in the array is a structure containing:
     --
     -- -   Key (string between 1 and 200 characters)
     --
@@ -69,6 +66,9 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
     filters :: Prelude.Maybe [InstancePatchStateFilter],
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch group for which the patch state information should
     -- be retrieved.
     patchGroup :: Prelude.Text
@@ -83,9 +83,6 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeInstancePatchStatesForPatchGroup_filters' - Each entry in the array is a structure containing:
 --
 -- -   Key (string between 1 and 200 characters)
@@ -96,6 +93,9 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 --
 -- 'maxResults', 'describeInstancePatchStatesForPatchGroup_maxResults' - The maximum number of patches to return (per page).
 --
+-- 'nextToken', 'describeInstancePatchStatesForPatchGroup_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'patchGroup', 'describeInstancePatchStatesForPatchGroup_patchGroup' - The name of the patch group for which the patch state information should
 -- be retrieved.
 newDescribeInstancePatchStatesForPatchGroup ::
@@ -105,17 +105,12 @@ newDescribeInstancePatchStatesForPatchGroup ::
 newDescribeInstancePatchStatesForPatchGroup
   pPatchGroup_ =
     DescribeInstancePatchStatesForPatchGroup'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         patchGroup = pPatchGroup_
       }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeInstancePatchStatesForPatchGroup_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Text)
-describeInstancePatchStatesForPatchGroup_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroup)
 
 -- | Each entry in the array is a structure containing:
 --
@@ -130,6 +125,11 @@ describeInstancePatchStatesForPatchGroup_filters = Lens.lens (\DescribeInstanceP
 -- | The maximum number of patches to return (per page).
 describeInstancePatchStatesForPatchGroup_maxResults :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Natural)
 describeInstancePatchStatesForPatchGroup_maxResults = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {maxResults} -> maxResults) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {maxResults = a} :: DescribeInstancePatchStatesForPatchGroup)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstancePatchStatesForPatchGroup_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe Prelude.Text)
+describeInstancePatchStatesForPatchGroup_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroup)
 
 -- | The name of the patch group for which the patch state information should
 -- be retrieved.
@@ -176,8 +176,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancePatchStatesForPatchGroupResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "InstancePatchStates")
+            Prelude.<$> (x Data..?> "InstancePatchStates")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,9 +188,9 @@ instance
   hashWithSalt
     _salt
     DescribeInstancePatchStatesForPatchGroup' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` patchGroup
 
 instance
@@ -198,9 +198,9 @@ instance
     DescribeInstancePatchStatesForPatchGroup
   where
   rnf DescribeInstancePatchStatesForPatchGroup' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf patchGroup
 
 instance
@@ -228,9 +228,9 @@ instance
   toJSON DescribeInstancePatchStatesForPatchGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("PatchGroup" Data..= patchGroup)
           ]
       )
@@ -249,11 +249,11 @@ instance
 
 -- | /See:/ 'newDescribeInstancePatchStatesForPatchGroupResponse' smart constructor.
 data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchStatesForPatchGroupResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The high-level patch state for the requested managed nodes.
+    instancePatchStates :: Prelude.Maybe (Prelude.NonEmpty InstancePatchState),
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The high-level patch state for the requested managed nodes.
-    instancePatchStates :: Prelude.Maybe (Prelude.NonEmpty InstancePatchState),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,10 +267,10 @@ data DescribeInstancePatchStatesForPatchGroupResponse = DescribeInstancePatchSta
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instancePatchStates', 'describeInstancePatchStatesForPatchGroupResponse_instancePatchStates' - The high-level patch state for the requested managed nodes.
+--
 -- 'nextToken', 'describeInstancePatchStatesForPatchGroupResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'instancePatchStates', 'describeInstancePatchStatesForPatchGroupResponse_instancePatchStates' - The high-level patch state for the requested managed nodes.
 --
 -- 'httpStatus', 'describeInstancePatchStatesForPatchGroupResponse_httpStatus' - The response's http status code.
 newDescribeInstancePatchStatesForPatchGroupResponse ::
@@ -280,21 +280,21 @@ newDescribeInstancePatchStatesForPatchGroupResponse ::
 newDescribeInstancePatchStatesForPatchGroupResponse
   pHttpStatus_ =
     DescribeInstancePatchStatesForPatchGroupResponse'
-      { nextToken =
+      { instancePatchStates =
           Prelude.Nothing,
-        instancePatchStates =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The high-level patch state for the requested managed nodes.
+describeInstancePatchStatesForPatchGroupResponse_instancePatchStates :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse (Prelude.Maybe (Prelude.NonEmpty InstancePatchState))
+describeInstancePatchStatesForPatchGroupResponse_instancePatchStates = Lens.lens (\DescribeInstancePatchStatesForPatchGroupResponse' {instancePatchStates} -> instancePatchStates) (\s@DescribeInstancePatchStatesForPatchGroupResponse' {} a -> s {instancePatchStates = a} :: DescribeInstancePatchStatesForPatchGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeInstancePatchStatesForPatchGroupResponse_nextToken :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse (Prelude.Maybe Prelude.Text)
 describeInstancePatchStatesForPatchGroupResponse_nextToken = Lens.lens (\DescribeInstancePatchStatesForPatchGroupResponse' {nextToken} -> nextToken) (\s@DescribeInstancePatchStatesForPatchGroupResponse' {} a -> s {nextToken = a} :: DescribeInstancePatchStatesForPatchGroupResponse)
-
--- | The high-level patch state for the requested managed nodes.
-describeInstancePatchStatesForPatchGroupResponse_instancePatchStates :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse (Prelude.Maybe (Prelude.NonEmpty InstancePatchState))
-describeInstancePatchStatesForPatchGroupResponse_instancePatchStates = Lens.lens (\DescribeInstancePatchStatesForPatchGroupResponse' {instancePatchStates} -> instancePatchStates) (\s@DescribeInstancePatchStatesForPatchGroupResponse' {} a -> s {instancePatchStates = a} :: DescribeInstancePatchStatesForPatchGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstancePatchStatesForPatchGroupResponse_httpStatus :: Lens.Lens' DescribeInstancePatchStatesForPatchGroupResponse Prelude.Int
@@ -306,6 +306,6 @@ instance
   where
   rnf
     DescribeInstancePatchStatesForPatchGroupResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf instancePatchStates
+      Prelude.rnf instancePatchStates
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

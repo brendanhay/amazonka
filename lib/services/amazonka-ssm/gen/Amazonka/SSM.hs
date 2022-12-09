@@ -51,362 +51,143 @@ module Amazonka.SSM
     -- * Errors
     -- $errors
 
-    -- ** CustomSchemaCountLimitExceededException
-    _CustomSchemaCountLimitExceededException,
-
-    -- ** InvalidAggregatorException
-    _InvalidAggregatorException,
-
-    -- ** InvocationDoesNotExist
-    _InvocationDoesNotExist,
-
-    -- ** OpsMetadataInvalidArgumentException
-    _OpsMetadataInvalidArgumentException,
-
-    -- ** ResourcePolicyConflictException
-    _ResourcePolicyConflictException,
-
-    -- ** InvalidFilterKey
-    _InvalidFilterKey,
-
-    -- ** OpsItemLimitExceededException
-    _OpsItemLimitExceededException,
-
-    -- ** AutomationExecutionLimitExceededException
-    _AutomationExecutionLimitExceededException,
-
-    -- ** FeatureNotAvailableException
-    _FeatureNotAvailableException,
-
-    -- ** InvalidOptionException
-    _InvalidOptionException,
-
-    -- ** DocumentPermissionLimit
-    _DocumentPermissionLimit,
-
-    -- ** ParameterLimitExceeded
-    _ParameterLimitExceeded,
-
-    -- ** InvalidDocumentContent
-    _InvalidDocumentContent,
-
-    -- ** ParameterAlreadyExists
-    _ParameterAlreadyExists,
-
-    -- ** InvalidTypeNameException
-    _InvalidTypeNameException,
-
-    -- ** InvalidResourceId
-    _InvalidResourceId,
-
-    -- ** OpsItemAccessDeniedException
-    _OpsItemAccessDeniedException,
-
-    -- ** ResourceDataSyncAlreadyExistsException
-    _ResourceDataSyncAlreadyExistsException,
-
-    -- ** DocumentLimitExceeded
-    _DocumentLimitExceeded,
-
-    -- ** OpsItemRelatedItemAlreadyExistsException
-    _OpsItemRelatedItemAlreadyExistsException,
-
-    -- ** InvalidAutomationExecutionParametersException
-    _InvalidAutomationExecutionParametersException,
-
-    -- ** DocumentAlreadyExists
-    _DocumentAlreadyExists,
-
-    -- ** DocumentVersionLimitExceeded
-    _DocumentVersionLimitExceeded,
-
-    -- ** InvalidPolicyAttributeException
-    _InvalidPolicyAttributeException,
-
-    -- ** UnsupportedPlatformType
-    _UnsupportedPlatformType,
-
-    -- ** InvalidDocumentType
-    _InvalidDocumentType,
-
-    -- ** IncompatiblePolicyException
-    _IncompatiblePolicyException,
-
-    -- ** AssociationAlreadyExists
-    _AssociationAlreadyExists,
-
-    -- ** MaxDocumentSizeExceeded
-    _MaxDocumentSizeExceeded,
-
-    -- ** InvalidDeleteInventoryParametersException
-    _InvalidDeleteInventoryParametersException,
-
-    -- ** InvalidPluginName
-    _InvalidPluginName,
-
-    -- ** StatusUnchanged
-    _StatusUnchanged,
-
-    -- ** ResourceDataSyncInvalidConfigurationException
-    _ResourceDataSyncInvalidConfigurationException,
-
-    -- ** InvalidAllowedPatternException
-    _InvalidAllowedPatternException,
-
-    -- ** AssociationExecutionDoesNotExist
-    _AssociationExecutionDoesNotExist,
-
-    -- ** AutomationDefinitionVersionNotFoundException
-    _AutomationDefinitionVersionNotFoundException,
-
-    -- ** AutomationExecutionNotFoundException
-    _AutomationExecutionNotFoundException,
-
-    -- ** OpsItemNotFoundException
-    _OpsItemNotFoundException,
-
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** TooManyTagsError
-    _TooManyTagsError,
-
-    -- ** InvalidUpdate
-    _InvalidUpdate,
-
-    -- ** OpsMetadataKeyLimitExceededException
-    _OpsMetadataKeyLimitExceededException,
-
-    -- ** InvalidFilterOption
-    _InvalidFilterOption,
-
-    -- ** ItemContentMismatchException
-    _ItemContentMismatchException,
-
-    -- ** UnsupportedCalendarException
-    _UnsupportedCalendarException,
-
-    -- ** InvalidPermissionType
-    _InvalidPermissionType,
-
-    -- ** OpsMetadataTooManyUpdatesException
-    _OpsMetadataTooManyUpdatesException,
-
-    -- ** ParameterVersionLabelLimitExceeded
-    _ParameterVersionLabelLimitExceeded,
-
-    -- ** TargetNotConnected
-    _TargetNotConnected,
-
-    -- ** ParameterMaxVersionLimitExceeded
-    _ParameterMaxVersionLimitExceeded,
-
-    -- ** DuplicateDocumentContent
-    _DuplicateDocumentContent,
-
-    -- ** InvalidActivationId
-    _InvalidActivationId,
-
-    -- ** InvalidAutomationStatusUpdateException
-    _InvalidAutomationStatusUpdateException,
-
-    -- ** InvalidInventoryItemContextException
-    _InvalidInventoryItemContextException,
-
-    -- ** ItemSizeLimitExceededException
-    _ItemSizeLimitExceededException,
-
-    -- ** AssociationDoesNotExist
-    _AssociationDoesNotExist,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** AlreadyExistsException
     _AlreadyExistsException,
-
-    -- ** ResourcePolicyLimitExceededException
-    _ResourcePolicyLimitExceededException,
-
-    -- ** AssociationVersionLimitExceeded
-    _AssociationVersionLimitExceeded,
-
-    -- ** InvalidFilterValue
-    _InvalidFilterValue,
-
-    -- ** ParameterVersionNotFound
-    _ParameterVersionNotFound,
-
-    -- ** AutomationDefinitionNotFoundException
-    _AutomationDefinitionNotFoundException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** ParameterPatternMismatchException
-    _ParameterPatternMismatchException,
-
-    -- ** InvalidAssociationVersion
-    _InvalidAssociationVersion,
-
-    -- ** TargetInUseException
-    _TargetInUseException,
-
-    -- ** InvalidResultAttributeException
-    _InvalidResultAttributeException,
-
-    -- ** ResourceDataSyncNotFoundException
-    _ResourceDataSyncNotFoundException,
-
-    -- ** TotalSizeLimitExceededException
-    _TotalSizeLimitExceededException,
-
-    -- ** OpsItemAlreadyExistsException
-    _OpsItemAlreadyExistsException,
-
-    -- ** InvalidItemContentException
-    _InvalidItemContentException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** HierarchyLevelLimitExceededException
-    _HierarchyLevelLimitExceededException,
-
-    -- ** UnsupportedParameterType
-    _UnsupportedParameterType,
-
-    -- ** InvalidInstanceInformationFilterValue
-    _InvalidInstanceInformationFilterValue,
-
-    -- ** UnsupportedInventorySchemaVersionException
-    _UnsupportedInventorySchemaVersionException,
-
-    -- ** InvalidSchedule
-    _InvalidSchedule,
-
-    -- ** InvalidInstanceId
-    _InvalidInstanceId,
-
-    -- ** HierarchyTypeMismatchException
-    _HierarchyTypeMismatchException,
-
-    -- ** InvalidKeyId
-    _InvalidKeyId,
-
-    -- ** AssociationLimitExceeded
-    _AssociationLimitExceeded,
-
-    -- ** InvalidAutomationSignalException
-    _InvalidAutomationSignalException,
-
-    -- ** OpsItemRelatedItemAssociationNotFoundException
-    _OpsItemRelatedItemAssociationNotFoundException,
-
-    -- ** InvalidOutputLocation
-    _InvalidOutputLocation,
-
-    -- ** ComplianceTypeCountLimitExceededException
-    _ComplianceTypeCountLimitExceededException,
-
-    -- ** InvalidInventoryGroupException
-    _InvalidInventoryGroupException,
-
-    -- ** ParameterNotFound
-    _ParameterNotFound,
-
-    -- ** InvalidDeletionIdException
-    _InvalidDeletionIdException,
-
-    -- ** IdempotentParameterMismatch
-    _IdempotentParameterMismatch,
-
-    -- ** InvalidInventoryRequestException
-    _InvalidInventoryRequestException,
-
-    -- ** UnsupportedFeatureRequiredException
-    _UnsupportedFeatureRequiredException,
-
-    -- ** ServiceSettingNotFound
-    _ServiceSettingNotFound,
-
-    -- ** OpsItemInvalidParameterException
-    _OpsItemInvalidParameterException,
-
-    -- ** InvalidCommandId
-    _InvalidCommandId,
-
-    -- ** ResourceDataSyncConflictException
-    _ResourceDataSyncConflictException,
-
-    -- ** InvalidDocumentOperation
-    _InvalidDocumentOperation,
 
     -- ** AssociatedInstances
     _AssociatedInstances,
 
-    -- ** InvalidDocument
-    _InvalidDocument,
+    -- ** AssociationAlreadyExists
+    _AssociationAlreadyExists,
 
-    -- ** InvalidTarget
-    _InvalidTarget,
+    -- ** AssociationDoesNotExist
+    _AssociationDoesNotExist,
 
-    -- ** TooManyUpdates
-    _TooManyUpdates,
+    -- ** AssociationExecutionDoesNotExist
+    _AssociationExecutionDoesNotExist,
+
+    -- ** AssociationLimitExceeded
+    _AssociationLimitExceeded,
+
+    -- ** AssociationVersionLimitExceeded
+    _AssociationVersionLimitExceeded,
 
     -- ** AutomationDefinitionNotApprovedException
     _AutomationDefinitionNotApprovedException,
 
-    -- ** SubTypeCountLimitExceededException
-    _SubTypeCountLimitExceededException,
+    -- ** AutomationDefinitionNotFoundException
+    _AutomationDefinitionNotFoundException,
 
-    -- ** InvalidRole
-    _InvalidRole,
+    -- ** AutomationDefinitionVersionNotFoundException
+    _AutomationDefinitionVersionNotFoundException,
+
+    -- ** AutomationExecutionLimitExceededException
+    _AutomationExecutionLimitExceededException,
+
+    -- ** AutomationExecutionNotFoundException
+    _AutomationExecutionNotFoundException,
 
     -- ** AutomationStepNotFoundException
     _AutomationStepNotFoundException,
 
-    -- ** InvalidPolicyTypeException
-    _InvalidPolicyTypeException,
+    -- ** ComplianceTypeCountLimitExceededException
+    _ComplianceTypeCountLimitExceededException,
 
-    -- ** InvalidParameters
-    _InvalidParameters,
+    -- ** CustomSchemaCountLimitExceededException
+    _CustomSchemaCountLimitExceededException,
 
-    -- ** ResourceDataSyncCountExceededException
-    _ResourceDataSyncCountExceededException,
+    -- ** DocumentAlreadyExists
+    _DocumentAlreadyExists,
 
-    -- ** InvalidNotificationConfig
-    _InvalidNotificationConfig,
+    -- ** DocumentLimitExceeded
+    _DocumentLimitExceeded,
 
-    -- ** InvalidTag
-    _InvalidTag,
+    -- ** DocumentPermissionLimit
+    _DocumentPermissionLimit,
 
-    -- ** InvalidDocumentSchemaVersion
-    _InvalidDocumentSchemaVersion,
+    -- ** DocumentVersionLimitExceeded
+    _DocumentVersionLimitExceeded,
 
-    -- ** OpsMetadataNotFoundException
-    _OpsMetadataNotFoundException,
+    -- ** DoesNotExistException
+    _DoesNotExistException,
 
-    -- ** InvalidOutputFolder
-    _InvalidOutputFolder,
-
-    -- ** PoliciesLimitExceededException
-    _PoliciesLimitExceededException,
+    -- ** DuplicateDocumentContent
+    _DuplicateDocumentContent,
 
     -- ** DuplicateDocumentVersionName
     _DuplicateDocumentVersionName,
 
-    -- ** UnsupportedInventoryItemContextException
-    _UnsupportedInventoryItemContextException,
+    -- ** DuplicateInstanceId
+    _DuplicateInstanceId,
+
+    -- ** FeatureNotAvailableException
+    _FeatureNotAvailableException,
+
+    -- ** HierarchyLevelLimitExceededException
+    _HierarchyLevelLimitExceededException,
+
+    -- ** HierarchyTypeMismatchException
+    _HierarchyTypeMismatchException,
+
+    -- ** IdempotentParameterMismatch
+    _IdempotentParameterMismatch,
+
+    -- ** IncompatiblePolicyException
+    _IncompatiblePolicyException,
+
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- ** InvalidActivation
     _InvalidActivation,
 
-    -- ** DuplicateInstanceId
-    _DuplicateInstanceId,
+    -- ** InvalidActivationId
+    _InvalidActivationId,
 
-    -- ** InvalidResourceType
-    _InvalidResourceType,
+    -- ** InvalidAggregatorException
+    _InvalidAggregatorException,
+
+    -- ** InvalidAllowedPatternException
+    _InvalidAllowedPatternException,
+
+    -- ** InvalidAssociation
+    _InvalidAssociation,
+
+    -- ** InvalidAssociationVersion
+    _InvalidAssociationVersion,
+
+    -- ** InvalidAutomationExecutionParametersException
+    _InvalidAutomationExecutionParametersException,
+
+    -- ** InvalidAutomationSignalException
+    _InvalidAutomationSignalException,
+
+    -- ** InvalidAutomationStatusUpdateException
+    _InvalidAutomationStatusUpdateException,
+
+    -- ** InvalidCommandId
+    _InvalidCommandId,
+
+    -- ** InvalidDeleteInventoryParametersException
+    _InvalidDeleteInventoryParametersException,
+
+    -- ** InvalidDeletionIdException
+    _InvalidDeletionIdException,
+
+    -- ** InvalidDocument
+    _InvalidDocument,
+
+    -- ** InvalidDocumentContent
+    _InvalidDocumentContent,
+
+    -- ** InvalidDocumentOperation
+    _InvalidDocumentOperation,
+
+    -- ** InvalidDocumentSchemaVersion
+    _InvalidDocumentSchemaVersion,
+
+    -- ** InvalidDocumentType
+    _InvalidDocumentType,
 
     -- ** InvalidDocumentVersion
     _InvalidDocumentVersion,
@@ -414,26 +195,245 @@ module Amazonka.SSM
     -- ** InvalidFilter
     _InvalidFilter,
 
-    -- ** InvalidAssociation
-    _InvalidAssociation,
+    -- ** InvalidFilterKey
+    _InvalidFilterKey,
 
-    -- ** DoesNotExistException
-    _DoesNotExistException,
+    -- ** InvalidFilterOption
+    _InvalidFilterOption,
 
-    -- ** OpsMetadataLimitExceededException
-    _OpsMetadataLimitExceededException,
+    -- ** InvalidFilterValue
+    _InvalidFilterValue,
 
-    -- ** OpsMetadataAlreadyExistsException
-    _OpsMetadataAlreadyExistsException,
+    -- ** InvalidInstanceId
+    _InvalidInstanceId,
 
-    -- ** UnsupportedOperatingSystem
-    _UnsupportedOperatingSystem,
+    -- ** InvalidInstanceInformationFilterValue
+    _InvalidInstanceInformationFilterValue,
+
+    -- ** InvalidInventoryGroupException
+    _InvalidInventoryGroupException,
+
+    -- ** InvalidInventoryItemContextException
+    _InvalidInventoryItemContextException,
+
+    -- ** InvalidInventoryRequestException
+    _InvalidInventoryRequestException,
+
+    -- ** InvalidItemContentException
+    _InvalidItemContentException,
+
+    -- ** InvalidKeyId
+    _InvalidKeyId,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InvalidNotificationConfig
+    _InvalidNotificationConfig,
+
+    -- ** InvalidOptionException
+    _InvalidOptionException,
+
+    -- ** InvalidOutputFolder
+    _InvalidOutputFolder,
+
+    -- ** InvalidOutputLocation
+    _InvalidOutputLocation,
+
+    -- ** InvalidParameters
+    _InvalidParameters,
+
+    -- ** InvalidPermissionType
+    _InvalidPermissionType,
+
+    -- ** InvalidPluginName
+    _InvalidPluginName,
+
+    -- ** InvalidPolicyAttributeException
+    _InvalidPolicyAttributeException,
+
+    -- ** InvalidPolicyTypeException
+    _InvalidPolicyTypeException,
+
+    -- ** InvalidResourceId
+    _InvalidResourceId,
+
+    -- ** InvalidResourceType
+    _InvalidResourceType,
+
+    -- ** InvalidResultAttributeException
+    _InvalidResultAttributeException,
+
+    -- ** InvalidRole
+    _InvalidRole,
+
+    -- ** InvalidSchedule
+    _InvalidSchedule,
+
+    -- ** InvalidTag
+    _InvalidTag,
+
+    -- ** InvalidTarget
+    _InvalidTarget,
 
     -- ** InvalidTargetMaps
     _InvalidTargetMaps,
 
+    -- ** InvalidTypeNameException
+    _InvalidTypeNameException,
+
+    -- ** InvalidUpdate
+    _InvalidUpdate,
+
+    -- ** InvocationDoesNotExist
+    _InvocationDoesNotExist,
+
+    -- ** ItemContentMismatchException
+    _ItemContentMismatchException,
+
+    -- ** ItemSizeLimitExceededException
+    _ItemSizeLimitExceededException,
+
+    -- ** MaxDocumentSizeExceeded
+    _MaxDocumentSizeExceeded,
+
+    -- ** OpsItemAccessDeniedException
+    _OpsItemAccessDeniedException,
+
+    -- ** OpsItemAlreadyExistsException
+    _OpsItemAlreadyExistsException,
+
+    -- ** OpsItemInvalidParameterException
+    _OpsItemInvalidParameterException,
+
+    -- ** OpsItemLimitExceededException
+    _OpsItemLimitExceededException,
+
+    -- ** OpsItemNotFoundException
+    _OpsItemNotFoundException,
+
+    -- ** OpsItemRelatedItemAlreadyExistsException
+    _OpsItemRelatedItemAlreadyExistsException,
+
+    -- ** OpsItemRelatedItemAssociationNotFoundException
+    _OpsItemRelatedItemAssociationNotFoundException,
+
+    -- ** OpsMetadataAlreadyExistsException
+    _OpsMetadataAlreadyExistsException,
+
+    -- ** OpsMetadataInvalidArgumentException
+    _OpsMetadataInvalidArgumentException,
+
+    -- ** OpsMetadataKeyLimitExceededException
+    _OpsMetadataKeyLimitExceededException,
+
+    -- ** OpsMetadataLimitExceededException
+    _OpsMetadataLimitExceededException,
+
+    -- ** OpsMetadataNotFoundException
+    _OpsMetadataNotFoundException,
+
+    -- ** OpsMetadataTooManyUpdatesException
+    _OpsMetadataTooManyUpdatesException,
+
+    -- ** ParameterAlreadyExists
+    _ParameterAlreadyExists,
+
+    -- ** ParameterLimitExceeded
+    _ParameterLimitExceeded,
+
+    -- ** ParameterMaxVersionLimitExceeded
+    _ParameterMaxVersionLimitExceeded,
+
+    -- ** ParameterNotFound
+    _ParameterNotFound,
+
+    -- ** ParameterPatternMismatchException
+    _ParameterPatternMismatchException,
+
+    -- ** ParameterVersionLabelLimitExceeded
+    _ParameterVersionLabelLimitExceeded,
+
+    -- ** ParameterVersionNotFound
+    _ParameterVersionNotFound,
+
+    -- ** PoliciesLimitExceededException
+    _PoliciesLimitExceededException,
+
+    -- ** ResourceDataSyncAlreadyExistsException
+    _ResourceDataSyncAlreadyExistsException,
+
+    -- ** ResourceDataSyncConflictException
+    _ResourceDataSyncConflictException,
+
+    -- ** ResourceDataSyncCountExceededException
+    _ResourceDataSyncCountExceededException,
+
+    -- ** ResourceDataSyncInvalidConfigurationException
+    _ResourceDataSyncInvalidConfigurationException,
+
+    -- ** ResourceDataSyncNotFoundException
+    _ResourceDataSyncNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ResourcePolicyConflictException
+    _ResourcePolicyConflictException,
+
     -- ** ResourcePolicyInvalidParameterException
     _ResourcePolicyInvalidParameterException,
+
+    -- ** ResourcePolicyLimitExceededException
+    _ResourcePolicyLimitExceededException,
+
+    -- ** ServiceSettingNotFound
+    _ServiceSettingNotFound,
+
+    -- ** StatusUnchanged
+    _StatusUnchanged,
+
+    -- ** SubTypeCountLimitExceededException
+    _SubTypeCountLimitExceededException,
+
+    -- ** TargetInUseException
+    _TargetInUseException,
+
+    -- ** TargetNotConnected
+    _TargetNotConnected,
+
+    -- ** TooManyTagsError
+    _TooManyTagsError,
+
+    -- ** TooManyUpdates
+    _TooManyUpdates,
+
+    -- ** TotalSizeLimitExceededException
+    _TotalSizeLimitExceededException,
+
+    -- ** UnsupportedCalendarException
+    _UnsupportedCalendarException,
+
+    -- ** UnsupportedFeatureRequiredException
+    _UnsupportedFeatureRequiredException,
+
+    -- ** UnsupportedInventoryItemContextException
+    _UnsupportedInventoryItemContextException,
+
+    -- ** UnsupportedInventorySchemaVersionException
+    _UnsupportedInventorySchemaVersionException,
+
+    -- ** UnsupportedOperatingSystem
+    _UnsupportedOperatingSystem,
+
+    -- ** UnsupportedParameterType
+    _UnsupportedParameterType,
+
+    -- ** UnsupportedPlatformType
+    _UnsupportedPlatformType,
 
     -- * Waiters
     -- $waiters

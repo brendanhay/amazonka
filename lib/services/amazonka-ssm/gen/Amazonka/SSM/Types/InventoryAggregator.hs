@@ -30,10 +30,10 @@ import Amazonka.SSM.Types.InventoryGroup
 --
 -- /See:/ 'newInventoryAggregator' smart constructor.
 data InventoryAggregator = InventoryAggregator'
-  { -- | The inventory type and attribute name for aggregation.
-    expression :: Prelude.Maybe Prelude.Text,
-    -- | Nested aggregators to further refine aggregation for an inventory type.
+  { -- | Nested aggregators to further refine aggregation for an inventory type.
     aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator),
+    -- | The inventory type and attribute name for aggregation.
+    expression :: Prelude.Maybe Prelude.Text,
     -- | A user-defined set of one or more filters on which to aggregate
     -- inventory data. Groups return a count of resources that match and don\'t
     -- match the specified criteria.
@@ -49,9 +49,9 @@ data InventoryAggregator = InventoryAggregator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expression', 'inventoryAggregator_expression' - The inventory type and attribute name for aggregation.
---
 -- 'aggregators', 'inventoryAggregator_aggregators' - Nested aggregators to further refine aggregation for an inventory type.
+--
+-- 'expression', 'inventoryAggregator_expression' - The inventory type and attribute name for aggregation.
 --
 -- 'groups', 'inventoryAggregator_groups' - A user-defined set of one or more filters on which to aggregate
 -- inventory data. Groups return a count of resources that match and don\'t
@@ -60,18 +60,18 @@ newInventoryAggregator ::
   InventoryAggregator
 newInventoryAggregator =
   InventoryAggregator'
-    { expression = Prelude.Nothing,
-      aggregators = Prelude.Nothing,
+    { aggregators = Prelude.Nothing,
+      expression = Prelude.Nothing,
       groups = Prelude.Nothing
     }
-
--- | The inventory type and attribute name for aggregation.
-inventoryAggregator_expression :: Lens.Lens' InventoryAggregator (Prelude.Maybe Prelude.Text)
-inventoryAggregator_expression = Lens.lens (\InventoryAggregator' {expression} -> expression) (\s@InventoryAggregator' {} a -> s {expression = a} :: InventoryAggregator)
 
 -- | Nested aggregators to further refine aggregation for an inventory type.
 inventoryAggregator_aggregators :: Lens.Lens' InventoryAggregator (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
 inventoryAggregator_aggregators = Lens.lens (\InventoryAggregator' {aggregators} -> aggregators) (\s@InventoryAggregator' {} a -> s {aggregators = a} :: InventoryAggregator) Prelude.. Lens.mapping Lens.coerced
+
+-- | The inventory type and attribute name for aggregation.
+inventoryAggregator_expression :: Lens.Lens' InventoryAggregator (Prelude.Maybe Prelude.Text)
+inventoryAggregator_expression = Lens.lens (\InventoryAggregator' {expression} -> expression) (\s@InventoryAggregator' {} a -> s {expression = a} :: InventoryAggregator)
 
 -- | A user-defined set of one or more filters on which to aggregate
 -- inventory data. Groups return a count of resources that match and don\'t
@@ -81,22 +81,22 @@ inventoryAggregator_groups = Lens.lens (\InventoryAggregator' {groups} -> groups
 
 instance Prelude.Hashable InventoryAggregator where
   hashWithSalt _salt InventoryAggregator' {..} =
-    _salt `Prelude.hashWithSalt` expression
-      `Prelude.hashWithSalt` aggregators
+    _salt `Prelude.hashWithSalt` aggregators
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` groups
 
 instance Prelude.NFData InventoryAggregator where
   rnf InventoryAggregator' {..} =
-    Prelude.rnf expression
-      `Prelude.seq` Prelude.rnf aggregators
+    Prelude.rnf aggregators
+      `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf groups
 
 instance Data.ToJSON InventoryAggregator where
   toJSON InventoryAggregator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Expression" Data..=) Prelude.<$> expression,
-            ("Aggregators" Data..=) Prelude.<$> aggregators,
+          [ ("Aggregators" Data..=) Prelude.<$> aggregators,
+            ("Expression" Data..=) Prelude.<$> expression,
             ("Groups" Data..=) Prelude.<$> groups
           ]
       )

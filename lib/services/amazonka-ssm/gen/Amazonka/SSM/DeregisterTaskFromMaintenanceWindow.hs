@@ -35,8 +35,8 @@ module Amazonka.SSM.DeregisterTaskFromMaintenanceWindow
     newDeregisterTaskFromMaintenanceWindowResponse,
 
     -- * Response Lenses
-    deregisterTaskFromMaintenanceWindowResponse_windowTaskId,
     deregisterTaskFromMaintenanceWindowResponse_windowId,
+    deregisterTaskFromMaintenanceWindowResponse_windowTaskId,
     deregisterTaskFromMaintenanceWindowResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeregisterTaskFromMaintenanceWindowResponse'
-            Prelude.<$> (x Data..?> "WindowTaskId")
-              Prelude.<*> (x Data..?> "WindowId")
+            Prelude.<$> (x Data..?> "WindowId")
+              Prelude.<*> (x Data..?> "WindowTaskId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance
 
 -- | /See:/ 'newDeregisterTaskFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenanceWindowResponse'
-  { -- | The ID of the task removed from the maintenance window.
-    windowTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the maintenance window the task was removed from.
+  { -- | The ID of the maintenance window the task was removed from.
     windowId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the task removed from the maintenance window.
+    windowTaskId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenance
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowTaskId', 'deregisterTaskFromMaintenanceWindowResponse_windowTaskId' - The ID of the task removed from the maintenance window.
---
 -- 'windowId', 'deregisterTaskFromMaintenanceWindowResponse_windowId' - The ID of the maintenance window the task was removed from.
+--
+-- 'windowTaskId', 'deregisterTaskFromMaintenanceWindowResponse_windowTaskId' - The ID of the task removed from the maintenance window.
 --
 -- 'httpStatus', 'deregisterTaskFromMaintenanceWindowResponse_httpStatus' - The response's http status code.
 newDeregisterTaskFromMaintenanceWindowResponse ::
@@ -201,19 +201,19 @@ newDeregisterTaskFromMaintenanceWindowResponse ::
 newDeregisterTaskFromMaintenanceWindowResponse
   pHttpStatus_ =
     DeregisterTaskFromMaintenanceWindowResponse'
-      { windowTaskId =
+      { windowId =
           Prelude.Nothing,
-        windowId = Prelude.Nothing,
+        windowTaskId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The ID of the task removed from the maintenance window.
-deregisterTaskFromMaintenanceWindowResponse_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
-deregisterTaskFromMaintenanceWindowResponse_windowTaskId = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {windowTaskId} -> windowTaskId) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
 
 -- | The ID of the maintenance window the task was removed from.
 deregisterTaskFromMaintenanceWindowResponse_windowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
 deregisterTaskFromMaintenanceWindowResponse_windowId = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {windowId} -> windowId) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
+
+-- | The ID of the task removed from the maintenance window.
+deregisterTaskFromMaintenanceWindowResponse_windowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+deregisterTaskFromMaintenanceWindowResponse_windowTaskId = Lens.lens (\DeregisterTaskFromMaintenanceWindowResponse' {windowTaskId} -> windowTaskId) (\s@DeregisterTaskFromMaintenanceWindowResponse' {} a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
 
 -- | The response's http status code.
 deregisterTaskFromMaintenanceWindowResponse_httpStatus :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse Prelude.Int
@@ -224,6 +224,6 @@ instance
     DeregisterTaskFromMaintenanceWindowResponse
   where
   rnf DeregisterTaskFromMaintenanceWindowResponse' {..} =
-    Prelude.rnf windowTaskId
-      `Prelude.seq` Prelude.rnf windowId
+    Prelude.rnf windowId
+      `Prelude.seq` Prelude.rnf windowTaskId
       `Prelude.seq` Prelude.rnf httpStatus

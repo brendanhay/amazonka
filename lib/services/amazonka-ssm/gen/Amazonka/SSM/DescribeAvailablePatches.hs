@@ -29,9 +29,9 @@ module Amazonka.SSM.DescribeAvailablePatches
     newDescribeAvailablePatches,
 
     -- * Request Lenses
-    describeAvailablePatches_nextToken,
     describeAvailablePatches_filters,
     describeAvailablePatches_maxResults,
+    describeAvailablePatches_nextToken,
 
     -- * Destructuring the Response
     DescribeAvailablePatchesResponse (..),
@@ -54,10 +54,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each element in the array is a structure containing a key-value pair.
+  { -- | Each element in the array is a structure containing a key-value pair.
     --
     -- __Windows Server__
     --
@@ -149,7 +146,10 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
     --     Sample values: @1463241@
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
     -- | The maximum number of patches to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -160,9 +160,6 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeAvailablePatches_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'filters', 'describeAvailablePatches_filters' - Each element in the array is a structure containing a key-value pair.
 --
@@ -256,20 +253,18 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --     Sample values: @1463241@
 --
 -- 'maxResults', 'describeAvailablePatches_maxResults' - The maximum number of patches to return (per page).
+--
+-- 'nextToken', 'describeAvailablePatches_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 newDescribeAvailablePatches ::
   DescribeAvailablePatches
 newDescribeAvailablePatches =
   DescribeAvailablePatches'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Text)
-describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {nextToken} -> nextToken) (\s@DescribeAvailablePatches' {} a -> s {nextToken = a} :: DescribeAvailablePatches)
 
 -- | Each element in the array is a structure containing a key-value pair.
 --
@@ -368,6 +363,11 @@ describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filter
 describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Natural)
 describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {maxResults} -> maxResults) (\s@DescribeAvailablePatches' {} a -> s {maxResults = a} :: DescribeAvailablePatches)
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Text)
+describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {nextToken} -> nextToken) (\s@DescribeAvailablePatches' {} a -> s {nextToken = a} :: DescribeAvailablePatches)
+
 instance Core.AWSPager DescribeAvailablePatches where
   page rq rs
     | Core.stop
@@ -407,15 +407,15 @@ instance Core.AWSRequest DescribeAvailablePatches where
 
 instance Prelude.Hashable DescribeAvailablePatches where
   hashWithSalt _salt DescribeAvailablePatches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAvailablePatches where
   rnf DescribeAvailablePatches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAvailablePatches where
   toHeaders =
@@ -436,9 +436,9 @@ instance Data.ToJSON DescribeAvailablePatches where
   toJSON DescribeAvailablePatches' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

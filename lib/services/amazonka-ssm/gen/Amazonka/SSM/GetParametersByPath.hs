@@ -38,10 +38,10 @@ module Amazonka.SSM.GetParametersByPath
     newGetParametersByPath,
 
     -- * Request Lenses
+    getParametersByPath_maxResults,
     getParametersByPath_nextToken,
     getParametersByPath_parameterFilters,
     getParametersByPath_recursive,
-    getParametersByPath_maxResults,
     getParametersByPath_withDecryption,
     getParametersByPath_path,
 
@@ -66,7 +66,11 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
-  { -- | A token to start the list. Use this token to get the next set of
+  { -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters to limit the request results.
@@ -86,10 +90,6 @@ data GetParametersByPath = GetParametersByPath'
     -- the GetParametersByPath API operation recursively for @\/a@ and view
     -- @\/a\/b@.
     recursive :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Retrieve all parameters in a hierarchy with their value decrypted.
     withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The hierarchy for the parameter. Hierarchies start with a forward slash
@@ -109,6 +109,10 @@ data GetParametersByPath = GetParametersByPath'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'getParametersByPath_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 --
 -- 'nextToken', 'getParametersByPath_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
@@ -130,10 +134,6 @@ data GetParametersByPath = GetParametersByPath'
 -- the GetParametersByPath API operation recursively for @\/a@ and view
 -- @\/a\/b@.
 --
--- 'maxResults', 'getParametersByPath_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
---
 -- 'withDecryption', 'getParametersByPath_withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
 --
 -- 'path', 'getParametersByPath_path' - The hierarchy for the parameter. Hierarchies start with a forward slash
@@ -148,13 +148,19 @@ newGetParametersByPath ::
   GetParametersByPath
 newGetParametersByPath pPath_ =
   GetParametersByPath'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       parameterFilters = Prelude.Nothing,
       recursive = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       withDecryption = Prelude.Nothing,
       path = pPath_
     }
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
+getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
@@ -181,12 +187,6 @@ getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {paramet
 -- @\/a\/b@.
 getParametersByPath_recursive :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
 getParametersByPath_recursive = Lens.lens (\GetParametersByPath' {recursive} -> recursive) (\s@GetParametersByPath' {} a -> s {recursive = a} :: GetParametersByPath)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
-getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
 -- | Retrieve all parameters in a hierarchy with their value decrypted.
 getParametersByPath_withDecryption :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
@@ -240,19 +240,19 @@ instance Core.AWSRequest GetParametersByPath where
 
 instance Prelude.Hashable GetParametersByPath where
   hashWithSalt _salt GetParametersByPath' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parameterFilters
       `Prelude.hashWithSalt` recursive
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` withDecryption
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData GetParametersByPath where
   rnf GetParametersByPath' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf parameterFilters
       `Prelude.seq` Prelude.rnf recursive
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf withDecryption
       `Prelude.seq` Prelude.rnf path
 
@@ -275,11 +275,11 @@ instance Data.ToJSON GetParametersByPath where
   toJSON GetParametersByPath' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ParameterFilters" Data..=)
               Prelude.<$> parameterFilters,
             ("Recursive" Data..=) Prelude.<$> recursive,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("WithDecryption" Data..=)
               Prelude.<$> withDecryption,
             Prelude.Just ("Path" Data..= path)

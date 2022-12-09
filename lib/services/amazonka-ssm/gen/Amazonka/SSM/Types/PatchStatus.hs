@@ -30,13 +30,13 @@ import Amazonka.SSM.Types.PatchDeploymentStatus
 --
 -- /See:/ 'newPatchStatus' smart constructor.
 data PatchStatus = PatchStatus'
-  { -- | The approval status of a patch.
-    deploymentStatus :: Prelude.Maybe PatchDeploymentStatus,
+  { -- | The date the patch was approved (or will be approved if the status is
+    -- @PENDING_APPROVAL@).
+    approvalDate :: Prelude.Maybe Data.POSIX,
     -- | The compliance severity level for a patch.
     complianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | The date the patch was approved (or will be approved if the status is
-    -- @PENDING_APPROVAL@).
-    approvalDate :: Prelude.Maybe Data.POSIX
+    -- | The approval status of a patch.
+    deploymentStatus :: Prelude.Maybe PatchDeploymentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data PatchStatus = PatchStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch.
+-- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
+-- @PENDING_APPROVAL@).
 --
 -- 'complianceLevel', 'patchStatus_complianceLevel' - The compliance severity level for a patch.
 --
--- 'approvalDate', 'patchStatus_approvalDate' - The date the patch was approved (or will be approved if the status is
--- @PENDING_APPROVAL@).
+-- 'deploymentStatus', 'patchStatus_deploymentStatus' - The approval status of a patch.
 newPatchStatus ::
   PatchStatus
 newPatchStatus =
   PatchStatus'
-    { deploymentStatus = Prelude.Nothing,
+    { approvalDate = Prelude.Nothing,
       complianceLevel = Prelude.Nothing,
-      approvalDate = Prelude.Nothing
+      deploymentStatus = Prelude.Nothing
     }
-
--- | The approval status of a patch.
-patchStatus_deploymentStatus :: Lens.Lens' PatchStatus (Prelude.Maybe PatchDeploymentStatus)
-patchStatus_deploymentStatus = Lens.lens (\PatchStatus' {deploymentStatus} -> deploymentStatus) (\s@PatchStatus' {} a -> s {deploymentStatus = a} :: PatchStatus)
-
--- | The compliance severity level for a patch.
-patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
-patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
 
 -- | The date the patch was approved (or will be approved if the status is
 -- @PENDING_APPROVAL@).
 patchStatus_approvalDate :: Lens.Lens' PatchStatus (Prelude.Maybe Prelude.UTCTime)
 patchStatus_approvalDate = Lens.lens (\PatchStatus' {approvalDate} -> approvalDate) (\s@PatchStatus' {} a -> s {approvalDate = a} :: PatchStatus) Prelude.. Lens.mapping Data._Time
+
+-- | The compliance severity level for a patch.
+patchStatus_complianceLevel :: Lens.Lens' PatchStatus (Prelude.Maybe PatchComplianceLevel)
+patchStatus_complianceLevel = Lens.lens (\PatchStatus' {complianceLevel} -> complianceLevel) (\s@PatchStatus' {} a -> s {complianceLevel = a} :: PatchStatus)
+
+-- | The approval status of a patch.
+patchStatus_deploymentStatus :: Lens.Lens' PatchStatus (Prelude.Maybe PatchDeploymentStatus)
+patchStatus_deploymentStatus = Lens.lens (\PatchStatus' {deploymentStatus} -> deploymentStatus) (\s@PatchStatus' {} a -> s {deploymentStatus = a} :: PatchStatus)
 
 instance Data.FromJSON PatchStatus where
   parseJSON =
@@ -82,19 +82,19 @@ instance Data.FromJSON PatchStatus where
       "PatchStatus"
       ( \x ->
           PatchStatus'
-            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<$> (x Data..:? "ApprovalDate")
             Prelude.<*> (x Data..:? "ComplianceLevel")
-            Prelude.<*> (x Data..:? "ApprovalDate")
+            Prelude.<*> (x Data..:? "DeploymentStatus")
       )
 
 instance Prelude.Hashable PatchStatus where
   hashWithSalt _salt PatchStatus' {..} =
-    _salt `Prelude.hashWithSalt` deploymentStatus
+    _salt `Prelude.hashWithSalt` approvalDate
       `Prelude.hashWithSalt` complianceLevel
-      `Prelude.hashWithSalt` approvalDate
+      `Prelude.hashWithSalt` deploymentStatus
 
 instance Prelude.NFData PatchStatus where
   rnf PatchStatus' {..} =
-    Prelude.rnf deploymentStatus
+    Prelude.rnf approvalDate
       `Prelude.seq` Prelude.rnf complianceLevel
-      `Prelude.seq` Prelude.rnf approvalDate
+      `Prelude.seq` Prelude.rnf deploymentStatus

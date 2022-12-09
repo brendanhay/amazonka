@@ -36,10 +36,10 @@ data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocation
     automation :: Prelude.Maybe MaintenanceWindowAutomationParameters,
     -- | The parameters for a @LAMBDA@ task type.
     lambda :: Prelude.Maybe MaintenanceWindowLambdaParameters,
-    -- | The parameters for a @STEP_FUNCTIONS@ task type.
-    stepFunctions :: Prelude.Maybe MaintenanceWindowStepFunctionsParameters,
     -- | The parameters for a @RUN_COMMAND@ task type.
-    runCommand :: Prelude.Maybe MaintenanceWindowRunCommandParameters
+    runCommand :: Prelude.Maybe MaintenanceWindowRunCommandParameters,
+    -- | The parameters for a @STEP_FUNCTIONS@ task type.
+    stepFunctions :: Prelude.Maybe MaintenanceWindowStepFunctionsParameters
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,9 @@ data MaintenanceWindowTaskInvocationParameters = MaintenanceWindowTaskInvocation
 --
 -- 'lambda', 'maintenanceWindowTaskInvocationParameters_lambda' - The parameters for a @LAMBDA@ task type.
 --
--- 'stepFunctions', 'maintenanceWindowTaskInvocationParameters_stepFunctions' - The parameters for a @STEP_FUNCTIONS@ task type.
---
 -- 'runCommand', 'maintenanceWindowTaskInvocationParameters_runCommand' - The parameters for a @RUN_COMMAND@ task type.
+--
+-- 'stepFunctions', 'maintenanceWindowTaskInvocationParameters_stepFunctions' - The parameters for a @STEP_FUNCTIONS@ task type.
 newMaintenanceWindowTaskInvocationParameters ::
   MaintenanceWindowTaskInvocationParameters
 newMaintenanceWindowTaskInvocationParameters =
@@ -65,8 +65,8 @@ newMaintenanceWindowTaskInvocationParameters =
     { automation =
         Prelude.Nothing,
       lambda = Prelude.Nothing,
-      stepFunctions = Prelude.Nothing,
-      runCommand = Prelude.Nothing
+      runCommand = Prelude.Nothing,
+      stepFunctions = Prelude.Nothing
     }
 
 -- | The parameters for an @AUTOMATION@ task type.
@@ -77,13 +77,13 @@ maintenanceWindowTaskInvocationParameters_automation = Lens.lens (\MaintenanceWi
 maintenanceWindowTaskInvocationParameters_lambda :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Prelude.Maybe MaintenanceWindowLambdaParameters)
 maintenanceWindowTaskInvocationParameters_lambda = Lens.lens (\MaintenanceWindowTaskInvocationParameters' {lambda} -> lambda) (\s@MaintenanceWindowTaskInvocationParameters' {} a -> s {lambda = a} :: MaintenanceWindowTaskInvocationParameters)
 
--- | The parameters for a @STEP_FUNCTIONS@ task type.
-maintenanceWindowTaskInvocationParameters_stepFunctions :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Prelude.Maybe MaintenanceWindowStepFunctionsParameters)
-maintenanceWindowTaskInvocationParameters_stepFunctions = Lens.lens (\MaintenanceWindowTaskInvocationParameters' {stepFunctions} -> stepFunctions) (\s@MaintenanceWindowTaskInvocationParameters' {} a -> s {stepFunctions = a} :: MaintenanceWindowTaskInvocationParameters)
-
 -- | The parameters for a @RUN_COMMAND@ task type.
 maintenanceWindowTaskInvocationParameters_runCommand :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Prelude.Maybe MaintenanceWindowRunCommandParameters)
 maintenanceWindowTaskInvocationParameters_runCommand = Lens.lens (\MaintenanceWindowTaskInvocationParameters' {runCommand} -> runCommand) (\s@MaintenanceWindowTaskInvocationParameters' {} a -> s {runCommand = a} :: MaintenanceWindowTaskInvocationParameters)
+
+-- | The parameters for a @STEP_FUNCTIONS@ task type.
+maintenanceWindowTaskInvocationParameters_stepFunctions :: Lens.Lens' MaintenanceWindowTaskInvocationParameters (Prelude.Maybe MaintenanceWindowStepFunctionsParameters)
+maintenanceWindowTaskInvocationParameters_stepFunctions = Lens.lens (\MaintenanceWindowTaskInvocationParameters' {stepFunctions} -> stepFunctions) (\s@MaintenanceWindowTaskInvocationParameters' {} a -> s {stepFunctions = a} :: MaintenanceWindowTaskInvocationParameters)
 
 instance
   Data.FromJSON
@@ -96,8 +96,8 @@ instance
           MaintenanceWindowTaskInvocationParameters'
             Prelude.<$> (x Data..:? "Automation")
               Prelude.<*> (x Data..:? "Lambda")
-              Prelude.<*> (x Data..:? "StepFunctions")
               Prelude.<*> (x Data..:? "RunCommand")
+              Prelude.<*> (x Data..:? "StepFunctions")
       )
 
 instance
@@ -109,8 +109,8 @@ instance
     MaintenanceWindowTaskInvocationParameters' {..} =
       _salt `Prelude.hashWithSalt` automation
         `Prelude.hashWithSalt` lambda
-        `Prelude.hashWithSalt` stepFunctions
         `Prelude.hashWithSalt` runCommand
+        `Prelude.hashWithSalt` stepFunctions
 
 instance
   Prelude.NFData
@@ -119,8 +119,8 @@ instance
   rnf MaintenanceWindowTaskInvocationParameters' {..} =
     Prelude.rnf automation
       `Prelude.seq` Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf stepFunctions
       `Prelude.seq` Prelude.rnf runCommand
+      `Prelude.seq` Prelude.rnf stepFunctions
 
 instance
   Data.ToJSON
@@ -131,7 +131,7 @@ instance
       ( Prelude.catMaybes
           [ ("Automation" Data..=) Prelude.<$> automation,
             ("Lambda" Data..=) Prelude.<$> lambda,
-            ("StepFunctions" Data..=) Prelude.<$> stepFunctions,
-            ("RunCommand" Data..=) Prelude.<$> runCommand
+            ("RunCommand" Data..=) Prelude.<$> runCommand,
+            ("StepFunctions" Data..=) Prelude.<$> stepFunctions
           ]
       )

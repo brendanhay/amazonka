@@ -32,17 +32,17 @@ module Amazonka.SSM.ListComplianceSummaries
     newListComplianceSummaries,
 
     -- * Request Lenses
-    listComplianceSummaries_nextToken,
     listComplianceSummaries_filters,
     listComplianceSummaries_maxResults,
+    listComplianceSummaries_nextToken,
 
     -- * Destructuring the Response
     ListComplianceSummariesResponse (..),
     newListComplianceSummariesResponse,
 
     -- * Response Lenses
-    listComplianceSummariesResponse_nextToken,
     listComplianceSummariesResponse_complianceSummaryItems,
+    listComplianceSummariesResponse_nextToken,
     listComplianceSummariesResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListComplianceSummaries' smart constructor.
 data ListComplianceSummaries = ListComplianceSummaries'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more compliance or inventory filters. Use a filter to return a
+  { -- | One or more compliance or inventory filters. Use a filter to return a
     -- more specific list of results.
     filters :: Prelude.Maybe [ComplianceStringFilter],
     -- | The maximum number of items to return for this call. Currently, you can
     -- specify null or 50. The call also returns a token that you can specify
     -- in a subsequent call to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,23 @@ data ListComplianceSummaries = ListComplianceSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
 -- 'filters', 'listComplianceSummaries_filters' - One or more compliance or inventory filters. Use a filter to return a
 -- more specific list of results.
 --
 -- 'maxResults', 'listComplianceSummaries_maxResults' - The maximum number of items to return for this call. Currently, you can
 -- specify null or 50. The call also returns a token that you can specify
 -- in a subsequent call to get the next set of results.
+--
+-- 'nextToken', 'listComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 newListComplianceSummaries ::
   ListComplianceSummaries
 newListComplianceSummaries =
   ListComplianceSummaries'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-listComplianceSummaries_nextToken :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Text)
-listComplianceSummaries_nextToken = Lens.lens (\ListComplianceSummaries' {nextToken} -> nextToken) (\s@ListComplianceSummaries' {} a -> s {nextToken = a} :: ListComplianceSummaries)
 
 -- | One or more compliance or inventory filters. Use a filter to return a
 -- more specific list of results.
@@ -112,6 +106,11 @@ listComplianceSummaries_filters = Lens.lens (\ListComplianceSummaries' {filters}
 -- in a subsequent call to get the next set of results.
 listComplianceSummaries_maxResults :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Natural)
 listComplianceSummaries_maxResults = Lens.lens (\ListComplianceSummaries' {maxResults} -> maxResults) (\s@ListComplianceSummaries' {} a -> s {maxResults = a} :: ListComplianceSummaries)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+listComplianceSummaries_nextToken :: Lens.Lens' ListComplianceSummaries (Prelude.Maybe Prelude.Text)
+listComplianceSummaries_nextToken = Lens.lens (\ListComplianceSummaries' {nextToken} -> nextToken) (\s@ListComplianceSummaries' {} a -> s {nextToken = a} :: ListComplianceSummaries)
 
 instance Core.AWSPager ListComplianceSummaries where
   page rq rs
@@ -145,24 +144,24 @@ instance Core.AWSRequest ListComplianceSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceSummariesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComplianceSummaryItems"
+            Prelude.<$> ( x Data..?> "ComplianceSummaryItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComplianceSummaries where
   hashWithSalt _salt ListComplianceSummaries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListComplianceSummaries where
   rnf ListComplianceSummaries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListComplianceSummaries where
   toHeaders =
@@ -183,9 +182,9 @@ instance Data.ToJSON ListComplianceSummaries where
   toJSON ListComplianceSummaries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -197,14 +196,14 @@ instance Data.ToQuery ListComplianceSummaries where
 
 -- | /See:/ 'newListComplianceSummariesResponse' smart constructor.
 data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
-  { -- | The token for the next set of items to return. Use this token to get the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of compliant and non-compliant summary counts based on compliance
+  { -- | A list of compliant and non-compliant summary counts based on compliance
     -- types. For example, this call returns State Manager associations,
     -- patches, or custom compliance types according to the filter criteria
     -- that you specified.
     complianceSummaryItems :: Prelude.Maybe [ComplianceSummaryItem],
+    -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,13 +217,13 @@ data ListComplianceSummariesResponse = ListComplianceSummariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
--- next set of results.
---
 -- 'complianceSummaryItems', 'listComplianceSummariesResponse_complianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance
 -- types. For example, this call returns State Manager associations,
 -- patches, or custom compliance types according to the filter criteria
 -- that you specified.
+--
+-- 'nextToken', 'listComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
 --
 -- 'httpStatus', 'listComplianceSummariesResponse_httpStatus' - The response's http status code.
 newListComplianceSummariesResponse ::
@@ -233,16 +232,11 @@ newListComplianceSummariesResponse ::
   ListComplianceSummariesResponse
 newListComplianceSummariesResponse pHttpStatus_ =
   ListComplianceSummariesResponse'
-    { nextToken =
+    { complianceSummaryItems =
         Prelude.Nothing,
-      complianceSummaryItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of items to return. Use this token to get the
--- next set of results.
-listComplianceSummariesResponse_nextToken :: Lens.Lens' ListComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
-listComplianceSummariesResponse_nextToken = Lens.lens (\ListComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListComplianceSummariesResponse)
 
 -- | A list of compliant and non-compliant summary counts based on compliance
 -- types. For example, this call returns State Manager associations,
@@ -250,6 +244,11 @@ listComplianceSummariesResponse_nextToken = Lens.lens (\ListComplianceSummariesR
 -- that you specified.
 listComplianceSummariesResponse_complianceSummaryItems :: Lens.Lens' ListComplianceSummariesResponse (Prelude.Maybe [ComplianceSummaryItem])
 listComplianceSummariesResponse_complianceSummaryItems = Lens.lens (\ListComplianceSummariesResponse' {complianceSummaryItems} -> complianceSummaryItems) (\s@ListComplianceSummariesResponse' {} a -> s {complianceSummaryItems = a} :: ListComplianceSummariesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. Use this token to get the
+-- next set of results.
+listComplianceSummariesResponse_nextToken :: Lens.Lens' ListComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
+listComplianceSummariesResponse_nextToken = Lens.lens (\ListComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListComplianceSummariesResponse)
 
 -- | The response's http status code.
 listComplianceSummariesResponse_httpStatus :: Lens.Lens' ListComplianceSummariesResponse Prelude.Int
@@ -260,6 +259,6 @@ instance
     ListComplianceSummariesResponse
   where
   rnf ListComplianceSummariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf complianceSummaryItems
+    Prelude.rnf complianceSummaryItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

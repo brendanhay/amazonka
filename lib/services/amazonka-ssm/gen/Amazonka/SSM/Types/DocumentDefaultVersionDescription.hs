@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
-  { -- | The name of the document.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The default version of the document.
+    defaultVersion :: Prelude.Maybe Prelude.Text,
     -- | The default version of the artifact associated with the document.
     defaultVersionName :: Prelude.Maybe Prelude.Text,
-    -- | The default version of the document.
-    defaultVersion :: Prelude.Maybe Prelude.Text
+    -- | The name of the document.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,32 +45,32 @@ data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'documentDefaultVersionDescription_name' - The name of the document.
+-- 'defaultVersion', 'documentDefaultVersionDescription_defaultVersion' - The default version of the document.
 --
 -- 'defaultVersionName', 'documentDefaultVersionDescription_defaultVersionName' - The default version of the artifact associated with the document.
 --
--- 'defaultVersion', 'documentDefaultVersionDescription_defaultVersion' - The default version of the document.
+-- 'name', 'documentDefaultVersionDescription_name' - The name of the document.
 newDocumentDefaultVersionDescription ::
   DocumentDefaultVersionDescription
 newDocumentDefaultVersionDescription =
   DocumentDefaultVersionDescription'
-    { name =
+    { defaultVersion =
         Prelude.Nothing,
       defaultVersionName = Prelude.Nothing,
-      defaultVersion = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the document.
-documentDefaultVersionDescription_name :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
-documentDefaultVersionDescription_name = Lens.lens (\DocumentDefaultVersionDescription' {name} -> name) (\s@DocumentDefaultVersionDescription' {} a -> s {name = a} :: DocumentDefaultVersionDescription)
+-- | The default version of the document.
+documentDefaultVersionDescription_defaultVersion :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
+documentDefaultVersionDescription_defaultVersion = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersion} -> defaultVersion) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersion = a} :: DocumentDefaultVersionDescription)
 
 -- | The default version of the artifact associated with the document.
 documentDefaultVersionDescription_defaultVersionName :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
 documentDefaultVersionDescription_defaultVersionName = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersionName} -> defaultVersionName) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersionName = a} :: DocumentDefaultVersionDescription)
 
--- | The default version of the document.
-documentDefaultVersionDescription_defaultVersion :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
-documentDefaultVersionDescription_defaultVersion = Lens.lens (\DocumentDefaultVersionDescription' {defaultVersion} -> defaultVersion) (\s@DocumentDefaultVersionDescription' {} a -> s {defaultVersion = a} :: DocumentDefaultVersionDescription)
+-- | The name of the document.
+documentDefaultVersionDescription_name :: Lens.Lens' DocumentDefaultVersionDescription (Prelude.Maybe Prelude.Text)
+documentDefaultVersionDescription_name = Lens.lens (\DocumentDefaultVersionDescription' {name} -> name) (\s@DocumentDefaultVersionDescription' {} a -> s {name = a} :: DocumentDefaultVersionDescription)
 
 instance
   Data.FromJSON
@@ -81,9 +81,9 @@ instance
       "DocumentDefaultVersionDescription"
       ( \x ->
           DocumentDefaultVersionDescription'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "DefaultVersion")
             Prelude.<*> (x Data..:? "DefaultVersionName")
-            Prelude.<*> (x Data..:? "DefaultVersion")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -93,15 +93,15 @@ instance
   hashWithSalt
     _salt
     DocumentDefaultVersionDescription' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` defaultVersion
         `Prelude.hashWithSalt` defaultVersionName
-        `Prelude.hashWithSalt` defaultVersion
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     DocumentDefaultVersionDescription
   where
   rnf DocumentDefaultVersionDescription' {..} =
-    Prelude.rnf name
+    Prelude.rnf defaultVersion
       `Prelude.seq` Prelude.rnf defaultVersionName
-      `Prelude.seq` Prelude.rnf defaultVersion
+      `Prelude.seq` Prelude.rnf name

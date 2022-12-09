@@ -29,8 +29,8 @@ module Amazonka.SSM.ListAssociationVersions
     newListAssociationVersions,
 
     -- * Request Lenses
-    listAssociationVersions_nextToken,
     listAssociationVersions_maxResults,
+    listAssociationVersions_nextToken,
     listAssociationVersions_associationId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SSM.ListAssociationVersions
     newListAssociationVersionsResponse,
 
     -- * Response Lenses
-    listAssociationVersionsResponse_nextToken,
     listAssociationVersionsResponse_associationVersions,
+    listAssociationVersionsResponse_nextToken,
     listAssociationVersionsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListAssociationVersions' smart constructor.
 data ListAssociationVersions = ListAssociationVersions'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The association ID for which you want to view all versions.
     associationId :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data ListAssociationVersions = ListAssociationVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociationVersions_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
 -- 'maxResults', 'listAssociationVersions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'listAssociationVersions_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 --
 -- 'associationId', 'listAssociationVersions_associationId' - The association ID for which you want to view all versions.
 newListAssociationVersions ::
@@ -88,22 +88,22 @@ newListAssociationVersions ::
   ListAssociationVersions
 newListAssociationVersions pAssociationId_ =
   ListAssociationVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       associationId = pAssociationId_
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-listAssociationVersions_nextToken :: Lens.Lens' ListAssociationVersions (Prelude.Maybe Prelude.Text)
-listAssociationVersions_nextToken = Lens.lens (\ListAssociationVersions' {nextToken} -> nextToken) (\s@ListAssociationVersions' {} a -> s {nextToken = a} :: ListAssociationVersions)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 listAssociationVersions_maxResults :: Lens.Lens' ListAssociationVersions (Prelude.Maybe Prelude.Natural)
 listAssociationVersions_maxResults = Lens.lens (\ListAssociationVersions' {maxResults} -> maxResults) (\s@ListAssociationVersions' {} a -> s {maxResults = a} :: ListAssociationVersions)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+listAssociationVersions_nextToken :: Lens.Lens' ListAssociationVersions (Prelude.Maybe Prelude.Text)
+listAssociationVersions_nextToken = Lens.lens (\ListAssociationVersions' {nextToken} -> nextToken) (\s@ListAssociationVersions' {} a -> s {nextToken = a} :: ListAssociationVersions)
 
 -- | The association ID for which you want to view all versions.
 listAssociationVersions_associationId :: Lens.Lens' ListAssociationVersions Prelude.Text
@@ -142,21 +142,21 @@ instance Core.AWSRequest ListAssociationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListAssociationVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AssociationVersions")
+            Prelude.<$> (x Data..?> "AssociationVersions")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAssociationVersions where
   hashWithSalt _salt ListAssociationVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData ListAssociationVersions where
   rnf ListAssociationVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf associationId
 
 instance Data.ToHeaders ListAssociationVersions where
@@ -178,8 +178,8 @@ instance Data.ToJSON ListAssociationVersions where
   toJSON ListAssociationVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AssociationId" Data..= associationId)
           ]
@@ -193,12 +193,12 @@ instance Data.ToQuery ListAssociationVersions where
 
 -- | /See:/ 'newListAssociationVersionsResponse' smart constructor.
 data ListAssociationVersionsResponse = ListAssociationVersionsResponse'
-  { -- | The token for the next set of items to return. Use this token to get the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about all versions of the association for the specified
+  { -- | Information about all versions of the association for the specified
     -- association ID.
     associationVersions :: Prelude.Maybe (Prelude.NonEmpty AssociationVersionInfo),
+    -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,11 +212,11 @@ data ListAssociationVersionsResponse = ListAssociationVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociationVersionsResponse_nextToken' - The token for the next set of items to return. Use this token to get the
--- next set of results.
---
 -- 'associationVersions', 'listAssociationVersionsResponse_associationVersions' - Information about all versions of the association for the specified
 -- association ID.
+--
+-- 'nextToken', 'listAssociationVersionsResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
 --
 -- 'httpStatus', 'listAssociationVersionsResponse_httpStatus' - The response's http status code.
 newListAssociationVersionsResponse ::
@@ -225,21 +225,21 @@ newListAssociationVersionsResponse ::
   ListAssociationVersionsResponse
 newListAssociationVersionsResponse pHttpStatus_ =
   ListAssociationVersionsResponse'
-    { nextToken =
+    { associationVersions =
         Prelude.Nothing,
-      associationVersions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of items to return. Use this token to get the
--- next set of results.
-listAssociationVersionsResponse_nextToken :: Lens.Lens' ListAssociationVersionsResponse (Prelude.Maybe Prelude.Text)
-listAssociationVersionsResponse_nextToken = Lens.lens (\ListAssociationVersionsResponse' {nextToken} -> nextToken) (\s@ListAssociationVersionsResponse' {} a -> s {nextToken = a} :: ListAssociationVersionsResponse)
 
 -- | Information about all versions of the association for the specified
 -- association ID.
 listAssociationVersionsResponse_associationVersions :: Lens.Lens' ListAssociationVersionsResponse (Prelude.Maybe (Prelude.NonEmpty AssociationVersionInfo))
 listAssociationVersionsResponse_associationVersions = Lens.lens (\ListAssociationVersionsResponse' {associationVersions} -> associationVersions) (\s@ListAssociationVersionsResponse' {} a -> s {associationVersions = a} :: ListAssociationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. Use this token to get the
+-- next set of results.
+listAssociationVersionsResponse_nextToken :: Lens.Lens' ListAssociationVersionsResponse (Prelude.Maybe Prelude.Text)
+listAssociationVersionsResponse_nextToken = Lens.lens (\ListAssociationVersionsResponse' {nextToken} -> nextToken) (\s@ListAssociationVersionsResponse' {} a -> s {nextToken = a} :: ListAssociationVersionsResponse)
 
 -- | The response's http status code.
 listAssociationVersionsResponse_httpStatus :: Lens.Lens' ListAssociationVersionsResponse Prelude.Int
@@ -250,6 +250,6 @@ instance
     ListAssociationVersionsResponse
   where
   rnf ListAssociationVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationVersions
+    Prelude.rnf associationVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

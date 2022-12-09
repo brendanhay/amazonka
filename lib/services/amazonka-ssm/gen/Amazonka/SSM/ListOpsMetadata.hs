@@ -30,9 +30,9 @@ module Amazonka.SSM.ListOpsMetadata
     newListOpsMetadata,
 
     -- * Request Lenses
-    listOpsMetadata_nextToken,
     listOpsMetadata_filters,
     listOpsMetadata_maxResults,
+    listOpsMetadata_nextToken,
 
     -- * Destructuring the Response
     ListOpsMetadataResponse (..),
@@ -55,16 +55,16 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListOpsMetadata' smart constructor.
 data ListOpsMetadata = ListOpsMetadata'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters to limit the number of OpsMetadata objects returned
+  { -- | One or more filters to limit the number of OpsMetadata objects returned
     -- by the call.
     filters :: Prelude.Maybe [OpsMetadataFilter],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,28 +76,23 @@ data ListOpsMetadata = ListOpsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOpsMetadata_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
 -- 'filters', 'listOpsMetadata_filters' - One or more filters to limit the number of OpsMetadata objects returned
 -- by the call.
 --
 -- 'maxResults', 'listOpsMetadata_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'listOpsMetadata_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 newListOpsMetadata ::
   ListOpsMetadata
 newListOpsMetadata =
   ListOpsMetadata'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-listOpsMetadata_nextToken :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Text)
-listOpsMetadata_nextToken = Lens.lens (\ListOpsMetadata' {nextToken} -> nextToken) (\s@ListOpsMetadata' {} a -> s {nextToken = a} :: ListOpsMetadata)
 
 -- | One or more filters to limit the number of OpsMetadata objects returned
 -- by the call.
@@ -109,6 +104,11 @@ listOpsMetadata_filters = Lens.lens (\ListOpsMetadata' {filters} -> filters) (\s
 -- next set of results.
 listOpsMetadata_maxResults :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Natural)
 listOpsMetadata_maxResults = Lens.lens (\ListOpsMetadata' {maxResults} -> maxResults) (\s@ListOpsMetadata' {} a -> s {maxResults = a} :: ListOpsMetadata)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+listOpsMetadata_nextToken :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Text)
+listOpsMetadata_nextToken = Lens.lens (\ListOpsMetadata' {nextToken} -> nextToken) (\s@ListOpsMetadata' {} a -> s {nextToken = a} :: ListOpsMetadata)
 
 instance Core.AWSPager ListOpsMetadata where
   page rq rs
@@ -150,15 +150,15 @@ instance Core.AWSRequest ListOpsMetadata where
 
 instance Prelude.Hashable ListOpsMetadata where
   hashWithSalt _salt ListOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOpsMetadata where
   rnf ListOpsMetadata' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOpsMetadata where
   toHeaders =
@@ -177,9 +177,9 @@ instance Data.ToJSON ListOpsMetadata where
   toJSON ListOpsMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

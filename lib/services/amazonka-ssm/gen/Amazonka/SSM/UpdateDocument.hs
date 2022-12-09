@@ -27,12 +27,12 @@ module Amazonka.SSM.UpdateDocument
     newUpdateDocument,
 
     -- * Request Lenses
-    updateDocument_displayName,
-    updateDocument_targetType,
     updateDocument_attachments,
-    updateDocument_versionName,
+    updateDocument_displayName,
     updateDocument_documentFormat,
     updateDocument_documentVersion,
+    updateDocument_targetType,
+    updateDocument_versionName,
     updateDocument_content,
     updateDocument_name,
 
@@ -56,21 +56,14 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { -- | The friendly name of the SSM document that you want to update. This
+  { -- | A list of key-value pairs that describe attachments to a version of a
+    -- document.
+    attachments :: Prelude.Maybe [AttachmentsSource],
+    -- | The friendly name of the SSM document that you want to update. This
     -- value can differ for each version of the document. If you don\'t specify
     -- a value for this parameter in your request, the existing value is
     -- applied to the new document version.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | Specify a new target type for the document.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that describe attachments to a version of a
-    -- document.
-    attachments :: Prelude.Maybe [AttachmentsSource],
-    -- | An optional field specifying the version of the artifact you are
-    -- updating with the document. For example, \"Release 12, Update 6\". This
-    -- value is unique across all versions of a document, and can\'t be
-    -- changed.
-    versionName :: Prelude.Maybe Prelude.Text,
     -- | Specify the document format for the new document version. Systems
     -- Manager supports JSON and YAML documents. JSON is the default format.
     documentFormat :: Prelude.Maybe DocumentFormat,
@@ -83,6 +76,13 @@ data UpdateDocument = UpdateDocument'
     -- Systems Manager immediately runs the association unless you previously
     -- specifed the @apply-only-at-cron-interval@ parameter.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specify a new target type for the document.
+    targetType :: Prelude.Maybe Prelude.Text,
+    -- | An optional field specifying the version of the artifact you are
+    -- updating with the document. For example, \"Release 12, Update 6\". This
+    -- value is unique across all versions of a document, and can\'t be
+    -- changed.
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | A valid JSON or YAML string.
     content :: Prelude.Text,
     -- | The name of the SSM document that you want to update.
@@ -98,20 +98,13 @@ data UpdateDocument = UpdateDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachments', 'updateDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
+-- document.
+--
 -- 'displayName', 'updateDocument_displayName' - The friendly name of the SSM document that you want to update. This
 -- value can differ for each version of the document. If you don\'t specify
 -- a value for this parameter in your request, the existing value is
 -- applied to the new document version.
---
--- 'targetType', 'updateDocument_targetType' - Specify a new target type for the document.
---
--- 'attachments', 'updateDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
--- document.
---
--- 'versionName', 'updateDocument_versionName' - An optional field specifying the version of the artifact you are
--- updating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
 --
 -- 'documentFormat', 'updateDocument_documentFormat' - Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
@@ -125,6 +118,13 @@ data UpdateDocument = UpdateDocument'
 -- Systems Manager immediately runs the association unless you previously
 -- specifed the @apply-only-at-cron-interval@ parameter.
 --
+-- 'targetType', 'updateDocument_targetType' - Specify a new target type for the document.
+--
+-- 'versionName', 'updateDocument_versionName' - An optional field specifying the version of the artifact you are
+-- updating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+--
 -- 'content', 'updateDocument_content' - A valid JSON or YAML string.
 --
 -- 'name', 'updateDocument_name' - The name of the SSM document that you want to update.
@@ -136,15 +136,20 @@ newUpdateDocument ::
   UpdateDocument
 newUpdateDocument pContent_ pName_ =
   UpdateDocument'
-    { displayName = Prelude.Nothing,
-      targetType = Prelude.Nothing,
-      attachments = Prelude.Nothing,
-      versionName = Prelude.Nothing,
+    { attachments = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
+      targetType = Prelude.Nothing,
+      versionName = Prelude.Nothing,
       content = pContent_,
       name = pName_
     }
+
+-- | A list of key-value pairs that describe attachments to a version of a
+-- document.
+updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
+updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | The friendly name of the SSM document that you want to update. This
 -- value can differ for each version of the document. If you don\'t specify
@@ -152,22 +157,6 @@ newUpdateDocument pContent_ pName_ =
 -- applied to the new document version.
 updateDocument_displayName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_displayName = Lens.lens (\UpdateDocument' {displayName} -> displayName) (\s@UpdateDocument' {} a -> s {displayName = a} :: UpdateDocument)
-
--- | Specify a new target type for the document.
-updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
-updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
-
--- | A list of key-value pairs that describe attachments to a version of a
--- document.
-updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
-updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional field specifying the version of the artifact you are
--- updating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
-updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
-updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
 
 -- | Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
@@ -184,6 +173,17 @@ updateDocument_documentFormat = Lens.lens (\UpdateDocument' {documentFormat} -> 
 -- specifed the @apply-only-at-cron-interval@ parameter.
 updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
 updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -> documentVersion) (\s@UpdateDocument' {} a -> s {documentVersion = a} :: UpdateDocument)
+
+-- | Specify a new target type for the document.
+updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
+
+-- | An optional field specifying the version of the artifact you are
+-- updating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
 
 -- | A valid JSON or YAML string.
 updateDocument_content :: Lens.Lens' UpdateDocument Prelude.Text
@@ -209,23 +209,23 @@ instance Core.AWSRequest UpdateDocument where
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` targetType
-      `Prelude.hashWithSalt` attachments
-      `Prelude.hashWithSalt` versionName
+    _salt `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` targetType
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateDocument where
   rnf UpdateDocument' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf attachments
-      `Prelude.seq` Prelude.rnf versionName
+    Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf documentFormat
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf targetType
+      `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf name
 
@@ -246,14 +246,14 @@ instance Data.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("TargetType" Data..=) Prelude.<$> targetType,
-            ("Attachments" Data..=) Prelude.<$> attachments,
-            ("VersionName" Data..=) Prelude.<$> versionName,
+          [ ("Attachments" Data..=) Prelude.<$> attachments,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
             ("DocumentFormat" Data..=)
               Prelude.<$> documentFormat,
             ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
+            ("TargetType" Data..=) Prelude.<$> targetType,
+            ("VersionName" Data..=) Prelude.<$> versionName,
             Prelude.Just ("Content" Data..= content),
             Prelude.Just ("Name" Data..= name)
           ]

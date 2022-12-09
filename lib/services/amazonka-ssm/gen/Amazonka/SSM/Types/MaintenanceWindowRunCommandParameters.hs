@@ -52,28 +52,14 @@ import Amazonka.SSM.Types.NotificationConfig
 --
 -- /See:/ 'newMaintenanceWindowRunCommandParameters' smart constructor.
 data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParameters'
-  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) service role to use to publish Amazon Simple Notification Service
-    -- (Amazon SNS) notifications for maintenance window Run Command tasks.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | If this time is reached and the command hasn\'t already started running,
-    -- it doesn\'t run.
-    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
-    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+  { cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
     -- | Information about the commands to run.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | Configurations for sending notifications about command status changes on
-    -- a per-managed node basis.
-    notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
-    documentHashType :: Prelude.Maybe DocumentHashType,
-    -- | The name of the Amazon Simple Storage Service (Amazon S3) bucket.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The SHA-256 or SHA-1 hash created by the system when the document was
     -- created. SHA-1 hashes have been deprecated.
     documentHash :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket subfolder.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
+    documentHashType :: Prelude.Maybe DocumentHashType,
     -- | The Amazon Web Services Systems Manager document (SSM document) version
     -- to use in the request. You can specify @$DEFAULT@, @$LATEST@, or a
     -- specific version number. If you run commands by using the Amazon Web
@@ -87,8 +73,22 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
     --
     -- @--document-version \"3\"@
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Configurations for sending notifications about command status changes on
+    -- a per-managed node basis.
+    notificationConfig :: Prelude.Maybe NotificationConfig,
+    -- | The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+    outputS3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the @RUN_COMMAND@ task execution.
-    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) service role to use to publish Amazon Simple Notification Service
+    -- (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | If this time is reached and the command hasn\'t already started running,
+    -- it doesn\'t run.
+    timeoutSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -100,28 +100,14 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceRoleArn', 'maintenanceWindowRunCommandParameters_serviceRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) service role to use to publish Amazon Simple Notification Service
--- (Amazon SNS) notifications for maintenance window Run Command tasks.
---
--- 'timeoutSeconds', 'maintenanceWindowRunCommandParameters_timeoutSeconds' - If this time is reached and the command hasn\'t already started running,
--- it doesn\'t run.
---
 -- 'cloudWatchOutputConfig', 'maintenanceWindowRunCommandParameters_cloudWatchOutputConfig' - Undocumented member.
 --
 -- 'comment', 'maintenanceWindowRunCommandParameters_comment' - Information about the commands to run.
 --
--- 'notificationConfig', 'maintenanceWindowRunCommandParameters_notificationConfig' - Configurations for sending notifications about command status changes on
--- a per-managed node basis.
---
--- 'documentHashType', 'maintenanceWindowRunCommandParameters_documentHashType' - SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
---
--- 'outputS3BucketName', 'maintenanceWindowRunCommandParameters_outputS3BucketName' - The name of the Amazon Simple Storage Service (Amazon S3) bucket.
---
 -- 'documentHash', 'maintenanceWindowRunCommandParameters_documentHash' - The SHA-256 or SHA-1 hash created by the system when the document was
 -- created. SHA-1 hashes have been deprecated.
 --
--- 'outputS3KeyPrefix', 'maintenanceWindowRunCommandParameters_outputS3KeyPrefix' - The S3 bucket subfolder.
+-- 'documentHashType', 'maintenanceWindowRunCommandParameters_documentHashType' - SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
 --
 -- 'documentVersion', 'maintenanceWindowRunCommandParameters_documentVersion' - The Amazon Web Services Systems Manager document (SSM document) version
 -- to use in the request. You can specify @$DEFAULT@, @$LATEST@, or a
@@ -136,36 +122,38 @@ data MaintenanceWindowRunCommandParameters = MaintenanceWindowRunCommandParamete
 --
 -- @--document-version \"3\"@
 --
+-- 'notificationConfig', 'maintenanceWindowRunCommandParameters_notificationConfig' - Configurations for sending notifications about command status changes on
+-- a per-managed node basis.
+--
+-- 'outputS3BucketName', 'maintenanceWindowRunCommandParameters_outputS3BucketName' - The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+--
+-- 'outputS3KeyPrefix', 'maintenanceWindowRunCommandParameters_outputS3KeyPrefix' - The S3 bucket subfolder.
+--
 -- 'parameters', 'maintenanceWindowRunCommandParameters_parameters' - The parameters for the @RUN_COMMAND@ task execution.
+--
+-- 'serviceRoleArn', 'maintenanceWindowRunCommandParameters_serviceRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) service role to use to publish Amazon Simple Notification Service
+-- (Amazon SNS) notifications for maintenance window Run Command tasks.
+--
+-- 'timeoutSeconds', 'maintenanceWindowRunCommandParameters_timeoutSeconds' - If this time is reached and the command hasn\'t already started running,
+-- it doesn\'t run.
 newMaintenanceWindowRunCommandParameters ::
   MaintenanceWindowRunCommandParameters
 newMaintenanceWindowRunCommandParameters =
   MaintenanceWindowRunCommandParameters'
-    { serviceRoleArn =
-        Prelude.Nothing,
-      timeoutSeconds = Prelude.Nothing,
-      cloudWatchOutputConfig =
+    { cloudWatchOutputConfig =
         Prelude.Nothing,
       comment = Prelude.Nothing,
-      notificationConfig = Prelude.Nothing,
-      documentHashType = Prelude.Nothing,
-      outputS3BucketName = Prelude.Nothing,
       documentHash = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing,
+      documentHashType = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      notificationConfig = Prelude.Nothing,
+      outputS3BucketName = Prelude.Nothing,
+      outputS3KeyPrefix = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) service role to use to publish Amazon Simple Notification Service
--- (Amazon SNS) notifications for maintenance window Run Command tasks.
-maintenanceWindowRunCommandParameters_serviceRoleArn :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowRunCommandParameters_serviceRoleArn = Lens.lens (\MaintenanceWindowRunCommandParameters' {serviceRoleArn} -> serviceRoleArn) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {serviceRoleArn = a} :: MaintenanceWindowRunCommandParameters)
-
--- | If this time is reached and the command hasn\'t already started running,
--- it doesn\'t run.
-maintenanceWindowRunCommandParameters_timeoutSeconds :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Natural)
-maintenanceWindowRunCommandParameters_timeoutSeconds = Lens.lens (\MaintenanceWindowRunCommandParameters' {timeoutSeconds} -> timeoutSeconds) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {timeoutSeconds = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | Undocumented member.
 maintenanceWindowRunCommandParameters_cloudWatchOutputConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe CloudWatchOutputConfig)
@@ -175,27 +163,14 @@ maintenanceWindowRunCommandParameters_cloudWatchOutputConfig = Lens.lens (\Maint
 maintenanceWindowRunCommandParameters_comment :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowRunCommandParameters_comment = Lens.lens (\MaintenanceWindowRunCommandParameters' {comment} -> comment) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {comment = a} :: MaintenanceWindowRunCommandParameters)
 
--- | Configurations for sending notifications about command status changes on
--- a per-managed node basis.
-maintenanceWindowRunCommandParameters_notificationConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe NotificationConfig)
-maintenanceWindowRunCommandParameters_notificationConfig = Lens.lens (\MaintenanceWindowRunCommandParameters' {notificationConfig} -> notificationConfig) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {notificationConfig = a} :: MaintenanceWindowRunCommandParameters)
-
--- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
-maintenanceWindowRunCommandParameters_documentHashType :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe DocumentHashType)
-maintenanceWindowRunCommandParameters_documentHashType = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentHashType} -> documentHashType) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentHashType = a} :: MaintenanceWindowRunCommandParameters)
-
--- | The name of the Amazon Simple Storage Service (Amazon S3) bucket.
-maintenanceWindowRunCommandParameters_outputS3BucketName :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowRunCommandParameters_outputS3BucketName = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3BucketName} -> outputS3BucketName) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3BucketName = a} :: MaintenanceWindowRunCommandParameters)
-
 -- | The SHA-256 or SHA-1 hash created by the system when the document was
 -- created. SHA-1 hashes have been deprecated.
 maintenanceWindowRunCommandParameters_documentHash :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowRunCommandParameters_documentHash = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentHash} -> documentHash) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentHash = a} :: MaintenanceWindowRunCommandParameters)
 
--- | The S3 bucket subfolder.
-maintenanceWindowRunCommandParameters_outputS3KeyPrefix :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowRunCommandParameters_outputS3KeyPrefix = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3KeyPrefix = a} :: MaintenanceWindowRunCommandParameters)
+-- | SHA-256 or SHA-1. SHA-1 hashes have been deprecated.
+maintenanceWindowRunCommandParameters_documentHashType :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe DocumentHashType)
+maintenanceWindowRunCommandParameters_documentHashType = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentHashType} -> documentHashType) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentHashType = a} :: MaintenanceWindowRunCommandParameters)
 
 -- | The Amazon Web Services Systems Manager document (SSM document) version
 -- to use in the request. You can specify @$DEFAULT@, @$LATEST@, or a
@@ -212,9 +187,33 @@ maintenanceWindowRunCommandParameters_outputS3KeyPrefix = Lens.lens (\Maintenanc
 maintenanceWindowRunCommandParameters_documentVersion :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowRunCommandParameters_documentVersion = Lens.lens (\MaintenanceWindowRunCommandParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowRunCommandParameters)
 
+-- | Configurations for sending notifications about command status changes on
+-- a per-managed node basis.
+maintenanceWindowRunCommandParameters_notificationConfig :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe NotificationConfig)
+maintenanceWindowRunCommandParameters_notificationConfig = Lens.lens (\MaintenanceWindowRunCommandParameters' {notificationConfig} -> notificationConfig) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {notificationConfig = a} :: MaintenanceWindowRunCommandParameters)
+
+-- | The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+maintenanceWindowRunCommandParameters_outputS3BucketName :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_outputS3BucketName = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3BucketName} -> outputS3BucketName) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3BucketName = a} :: MaintenanceWindowRunCommandParameters)
+
+-- | The S3 bucket subfolder.
+maintenanceWindowRunCommandParameters_outputS3KeyPrefix :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_outputS3KeyPrefix = Lens.lens (\MaintenanceWindowRunCommandParameters' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {outputS3KeyPrefix = a} :: MaintenanceWindowRunCommandParameters)
+
 -- | The parameters for the @RUN_COMMAND@ task execution.
 maintenanceWindowRunCommandParameters_parameters :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 maintenanceWindowRunCommandParameters_parameters = Lens.lens (\MaintenanceWindowRunCommandParameters' {parameters} -> parameters) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {parameters = a} :: MaintenanceWindowRunCommandParameters) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) service role to use to publish Amazon Simple Notification Service
+-- (Amazon SNS) notifications for maintenance window Run Command tasks.
+maintenanceWindowRunCommandParameters_serviceRoleArn :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowRunCommandParameters_serviceRoleArn = Lens.lens (\MaintenanceWindowRunCommandParameters' {serviceRoleArn} -> serviceRoleArn) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {serviceRoleArn = a} :: MaintenanceWindowRunCommandParameters)
+
+-- | If this time is reached and the command hasn\'t already started running,
+-- it doesn\'t run.
+maintenanceWindowRunCommandParameters_timeoutSeconds :: Lens.Lens' MaintenanceWindowRunCommandParameters (Prelude.Maybe Prelude.Natural)
+maintenanceWindowRunCommandParameters_timeoutSeconds = Lens.lens (\MaintenanceWindowRunCommandParameters' {timeoutSeconds} -> timeoutSeconds) (\s@MaintenanceWindowRunCommandParameters' {} a -> s {timeoutSeconds = a} :: MaintenanceWindowRunCommandParameters)
 
 instance
   Data.FromJSON
@@ -225,17 +224,17 @@ instance
       "MaintenanceWindowRunCommandParameters"
       ( \x ->
           MaintenanceWindowRunCommandParameters'
-            Prelude.<$> (x Data..:? "ServiceRoleArn")
-            Prelude.<*> (x Data..:? "TimeoutSeconds")
-            Prelude.<*> (x Data..:? "CloudWatchOutputConfig")
+            Prelude.<$> (x Data..:? "CloudWatchOutputConfig")
             Prelude.<*> (x Data..:? "Comment")
-            Prelude.<*> (x Data..:? "NotificationConfig")
-            Prelude.<*> (x Data..:? "DocumentHashType")
-            Prelude.<*> (x Data..:? "OutputS3BucketName")
             Prelude.<*> (x Data..:? "DocumentHash")
-            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Data..:? "DocumentHashType")
             Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "NotificationConfig")
+            Prelude.<*> (x Data..:? "OutputS3BucketName")
+            Prelude.<*> (x Data..:? "OutputS3KeyPrefix")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceRoleArn")
+            Prelude.<*> (x Data..:? "TimeoutSeconds")
       )
 
 instance
@@ -245,34 +244,34 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowRunCommandParameters' {..} =
-      _salt `Prelude.hashWithSalt` serviceRoleArn
-        `Prelude.hashWithSalt` timeoutSeconds
-        `Prelude.hashWithSalt` cloudWatchOutputConfig
+      _salt `Prelude.hashWithSalt` cloudWatchOutputConfig
         `Prelude.hashWithSalt` comment
-        `Prelude.hashWithSalt` notificationConfig
-        `Prelude.hashWithSalt` documentHashType
-        `Prelude.hashWithSalt` outputS3BucketName
         `Prelude.hashWithSalt` documentHash
-        `Prelude.hashWithSalt` outputS3KeyPrefix
+        `Prelude.hashWithSalt` documentHashType
         `Prelude.hashWithSalt` documentVersion
+        `Prelude.hashWithSalt` notificationConfig
+        `Prelude.hashWithSalt` outputS3BucketName
+        `Prelude.hashWithSalt` outputS3KeyPrefix
         `Prelude.hashWithSalt` parameters
+        `Prelude.hashWithSalt` serviceRoleArn
+        `Prelude.hashWithSalt` timeoutSeconds
 
 instance
   Prelude.NFData
     MaintenanceWindowRunCommandParameters
   where
   rnf MaintenanceWindowRunCommandParameters' {..} =
-    Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
+    Prelude.rnf cloudWatchOutputConfig
       `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf documentHashType
-      `Prelude.seq` Prelude.rnf outputS3BucketName
       `Prelude.seq` Prelude.rnf documentHash
-      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
+      `Prelude.seq` Prelude.rnf documentHashType
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf outputS3BucketName
+      `Prelude.seq` Prelude.rnf outputS3KeyPrefix
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf timeoutSeconds
 
 instance
   Data.ToJSON
@@ -281,24 +280,24 @@ instance
   toJSON MaintenanceWindowRunCommandParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServiceRoleArn" Data..=)
-              Prelude.<$> serviceRoleArn,
-            ("TimeoutSeconds" Data..=)
-              Prelude.<$> timeoutSeconds,
-            ("CloudWatchOutputConfig" Data..=)
+          [ ("CloudWatchOutputConfig" Data..=)
               Prelude.<$> cloudWatchOutputConfig,
             ("Comment" Data..=) Prelude.<$> comment,
-            ("NotificationConfig" Data..=)
-              Prelude.<$> notificationConfig,
+            ("DocumentHash" Data..=) Prelude.<$> documentHash,
             ("DocumentHashType" Data..=)
               Prelude.<$> documentHashType,
-            ("OutputS3BucketName" Data..=)
-              Prelude.<$> outputS3BucketName,
-            ("DocumentHash" Data..=) Prelude.<$> documentHash,
-            ("OutputS3KeyPrefix" Data..=)
-              Prelude.<$> outputS3KeyPrefix,
             ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Data..=) Prelude.<$> parameters
+            ("NotificationConfig" Data..=)
+              Prelude.<$> notificationConfig,
+            ("OutputS3BucketName" Data..=)
+              Prelude.<$> outputS3BucketName,
+            ("OutputS3KeyPrefix" Data..=)
+              Prelude.<$> outputS3KeyPrefix,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            ("ServiceRoleArn" Data..=)
+              Prelude.<$> serviceRoleArn,
+            ("TimeoutSeconds" Data..=)
+              Prelude.<$> timeoutSeconds
           ]
       )

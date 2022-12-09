@@ -39,8 +39,8 @@ module Amazonka.SSM.GetDefaultPatchBaseline
     newGetDefaultPatchBaselineResponse,
 
     -- * Response Lenses
-    getDefaultPatchBaselineResponse_operatingSystem,
     getDefaultPatchBaselineResponse_baselineId,
+    getDefaultPatchBaselineResponse_operatingSystem,
     getDefaultPatchBaselineResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultPatchBaselineResponse'
-            Prelude.<$> (x Data..?> "OperatingSystem")
-            Prelude.<*> (x Data..?> "BaselineId")
+            Prelude.<$> (x Data..?> "BaselineId")
+            Prelude.<*> (x Data..?> "OperatingSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +136,10 @@ instance Data.ToQuery GetDefaultPatchBaseline where
 
 -- | /See:/ 'newGetDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-  { -- | The operating system for the returned patch baseline.
-    operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | The ID of the default patch baseline.
+  { -- | The ID of the default patch baseline.
     baselineId :: Prelude.Maybe Prelude.Text,
+    -- | The operating system for the returned patch baseline.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.
---
 -- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.
+--
+-- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.
 --
 -- 'httpStatus', 'getDefaultPatchBaselineResponse_httpStatus' - The response's http status code.
 newGetDefaultPatchBaselineResponse ::
@@ -164,19 +164,19 @@ newGetDefaultPatchBaselineResponse ::
   GetDefaultPatchBaselineResponse
 newGetDefaultPatchBaselineResponse pHttpStatus_ =
   GetDefaultPatchBaselineResponse'
-    { operatingSystem =
+    { baselineId =
         Prelude.Nothing,
-      baselineId = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The operating system for the returned patch baseline.
-getDefaultPatchBaselineResponse_operatingSystem :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe OperatingSystem)
-getDefaultPatchBaselineResponse_operatingSystem = Lens.lens (\GetDefaultPatchBaselineResponse' {operatingSystem} -> operatingSystem) (\s@GetDefaultPatchBaselineResponse' {} a -> s {operatingSystem = a} :: GetDefaultPatchBaselineResponse)
 
 -- | The ID of the default patch baseline.
 getDefaultPatchBaselineResponse_baselineId :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe Prelude.Text)
 getDefaultPatchBaselineResponse_baselineId = Lens.lens (\GetDefaultPatchBaselineResponse' {baselineId} -> baselineId) (\s@GetDefaultPatchBaselineResponse' {} a -> s {baselineId = a} :: GetDefaultPatchBaselineResponse)
+
+-- | The operating system for the returned patch baseline.
+getDefaultPatchBaselineResponse_operatingSystem :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe OperatingSystem)
+getDefaultPatchBaselineResponse_operatingSystem = Lens.lens (\GetDefaultPatchBaselineResponse' {operatingSystem} -> operatingSystem) (\s@GetDefaultPatchBaselineResponse' {} a -> s {operatingSystem = a} :: GetDefaultPatchBaselineResponse)
 
 -- | The response's http status code.
 getDefaultPatchBaselineResponse_httpStatus :: Lens.Lens' GetDefaultPatchBaselineResponse Prelude.Int
@@ -187,6 +187,6 @@ instance
     GetDefaultPatchBaselineResponse
   where
   rnf GetDefaultPatchBaselineResponse' {..} =
-    Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf baselineId
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf httpStatus

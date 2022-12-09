@@ -34,8 +34,8 @@ module Amazonka.SSM.GetParameterHistory
     newGetParameterHistory,
 
     -- * Request Lenses
-    getParameterHistory_nextToken,
     getParameterHistory_maxResults,
+    getParameterHistory_nextToken,
     getParameterHistory_withDecryption,
     getParameterHistory_name,
 
@@ -60,13 +60,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Return decrypted values for secure string parameters. This flag is
     -- ignored for @String@ and @StringList@ parameter types.
     withDecryption :: Prelude.Maybe Prelude.Bool,
@@ -83,12 +83,12 @@ data GetParameterHistory = GetParameterHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getParameterHistory_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'getParameterHistory_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'getParameterHistory_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'withDecryption', 'getParameterHistory_withDecryption' - Return decrypted values for secure string parameters. This flag is
 -- ignored for @String@ and @StringList@ parameter types.
@@ -100,22 +100,22 @@ newGetParameterHistory ::
   GetParameterHistory
 newGetParameterHistory pName_ =
   GetParameterHistory'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       withDecryption = Prelude.Nothing,
       name = pName_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-getParameterHistory_nextToken :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Text)
-getParameterHistory_nextToken = Lens.lens (\GetParameterHistory' {nextToken} -> nextToken) (\s@GetParameterHistory' {} a -> s {nextToken = a} :: GetParameterHistory)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 getParameterHistory_maxResults :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Natural)
 getParameterHistory_maxResults = Lens.lens (\GetParameterHistory' {maxResults} -> maxResults) (\s@GetParameterHistory' {} a -> s {maxResults = a} :: GetParameterHistory)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+getParameterHistory_nextToken :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Text)
+getParameterHistory_nextToken = Lens.lens (\GetParameterHistory' {nextToken} -> nextToken) (\s@GetParameterHistory' {} a -> s {nextToken = a} :: GetParameterHistory)
 
 -- | Return decrypted values for secure string parameters. This flag is
 -- ignored for @String@ and @StringList@ parameter types.
@@ -165,15 +165,15 @@ instance Core.AWSRequest GetParameterHistory where
 
 instance Prelude.Hashable GetParameterHistory where
   hashWithSalt _salt GetParameterHistory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` withDecryption
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetParameterHistory where
   rnf GetParameterHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf withDecryption
       `Prelude.seq` Prelude.rnf name
 
@@ -196,8 +196,8 @@ instance Data.ToJSON GetParameterHistory where
   toJSON GetParameterHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("WithDecryption" Data..=)
               Prelude.<$> withDecryption,
             Prelude.Just ("Name" Data..= name)

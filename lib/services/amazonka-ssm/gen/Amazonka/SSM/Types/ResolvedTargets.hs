@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolvedTargets' smart constructor.
 data ResolvedTargets = ResolvedTargets'
-  { -- | A boolean value indicating whether the resolved target list is
-    -- truncated.
-    truncated :: Prelude.Maybe Prelude.Bool,
-    -- | A list of parameter values sent to targets that resolved during the
+  { -- | A list of parameter values sent to targets that resolved during the
     -- Automation execution.
-    parameterValues :: Prelude.Maybe [Prelude.Text]
+    parameterValues :: Prelude.Maybe [Prelude.Text],
+    -- | A boolean value indicating whether the resolved target list is
+    -- truncated.
+    truncated :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data ResolvedTargets = ResolvedTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'truncated', 'resolvedTargets_truncated' - A boolean value indicating whether the resolved target list is
--- truncated.
---
 -- 'parameterValues', 'resolvedTargets_parameterValues' - A list of parameter values sent to targets that resolved during the
 -- Automation execution.
+--
+-- 'truncated', 'resolvedTargets_truncated' - A boolean value indicating whether the resolved target list is
+-- truncated.
 newResolvedTargets ::
   ResolvedTargets
 newResolvedTargets =
   ResolvedTargets'
-    { truncated = Prelude.Nothing,
-      parameterValues = Prelude.Nothing
+    { parameterValues = Prelude.Nothing,
+      truncated = Prelude.Nothing
     }
-
--- | A boolean value indicating whether the resolved target list is
--- truncated.
-resolvedTargets_truncated :: Lens.Lens' ResolvedTargets (Prelude.Maybe Prelude.Bool)
-resolvedTargets_truncated = Lens.lens (\ResolvedTargets' {truncated} -> truncated) (\s@ResolvedTargets' {} a -> s {truncated = a} :: ResolvedTargets)
 
 -- | A list of parameter values sent to targets that resolved during the
 -- Automation execution.
 resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Prelude.Maybe [Prelude.Text])
 resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | A boolean value indicating whether the resolved target list is
+-- truncated.
+resolvedTargets_truncated :: Lens.Lens' ResolvedTargets (Prelude.Maybe Prelude.Bool)
+resolvedTargets_truncated = Lens.lens (\ResolvedTargets' {truncated} -> truncated) (\s@ResolvedTargets' {} a -> s {truncated = a} :: ResolvedTargets)
 
 instance Data.FromJSON ResolvedTargets where
   parseJSON =
@@ -74,18 +74,18 @@ instance Data.FromJSON ResolvedTargets where
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            Prelude.<$> (x Data..:? "Truncated")
-            Prelude.<*> ( x Data..:? "ParameterValues"
+            Prelude.<$> ( x Data..:? "ParameterValues"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Truncated")
       )
 
 instance Prelude.Hashable ResolvedTargets where
   hashWithSalt _salt ResolvedTargets' {..} =
-    _salt `Prelude.hashWithSalt` truncated
-      `Prelude.hashWithSalt` parameterValues
+    _salt `Prelude.hashWithSalt` parameterValues
+      `Prelude.hashWithSalt` truncated
 
 instance Prelude.NFData ResolvedTargets where
   rnf ResolvedTargets' {..} =
-    Prelude.rnf truncated
-      `Prelude.seq` Prelude.rnf parameterValues
+    Prelude.rnf parameterValues
+      `Prelude.seq` Prelude.rnf truncated

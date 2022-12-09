@@ -29,10 +29,10 @@ import Amazonka.SSM.Types.OpsEntityItem
 --
 -- /See:/ 'newOpsEntity' smart constructor.
 data OpsEntity = OpsEntity'
-  { -- | The query ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The data returned by the query.
-    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem)
+  { -- | The data returned by the query.
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem),
+    -- | The query ID.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data OpsEntity = OpsEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'opsEntity_id' - The query ID.
---
 -- 'data'', 'opsEntity_data' - The data returned by the query.
+--
+-- 'id', 'opsEntity_id' - The query ID.
 newOpsEntity ::
   OpsEntity
 newOpsEntity =
   OpsEntity'
-    { id = Prelude.Nothing,
-      data' = Prelude.Nothing
+    { data' = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The query ID.
-opsEntity_id :: Lens.Lens' OpsEntity (Prelude.Maybe Prelude.Text)
-opsEntity_id = Lens.lens (\OpsEntity' {id} -> id) (\s@OpsEntity' {} a -> s {id = a} :: OpsEntity)
 
 -- | The data returned by the query.
 opsEntity_data :: Lens.Lens' OpsEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem))
 opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Prelude.. Lens.mapping Lens.coerced
+
+-- | The query ID.
+opsEntity_id :: Lens.Lens' OpsEntity (Prelude.Maybe Prelude.Text)
+opsEntity_id = Lens.lens (\OpsEntity' {id} -> id) (\s@OpsEntity' {} a -> s {id = a} :: OpsEntity)
 
 instance Data.FromJSON OpsEntity where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON OpsEntity where
       "OpsEntity"
       ( \x ->
           OpsEntity'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Data" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Data" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable OpsEntity where
   hashWithSalt _salt OpsEntity' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` data'
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData OpsEntity where
   rnf OpsEntity' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf data'
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf id

@@ -40,8 +40,8 @@ module Amazonka.SSM.StartSession
 
     -- * Request Lenses
     startSession_documentName,
-    startSession_reason,
     startSession_parameters,
+    startSession_reason,
     startSession_target,
 
     -- * Destructuring the Response
@@ -49,9 +49,9 @@ module Amazonka.SSM.StartSession
     newStartSessionResponse,
 
     -- * Response Lenses
-    startSessionResponse_tokenValue,
-    startSessionResponse_streamUrl,
     startSessionResponse_sessionId,
+    startSessionResponse_streamUrl,
+    startSessionResponse_tokenValue,
     startSessionResponse_httpStatus,
   )
 where
@@ -75,13 +75,13 @@ data StartSession = StartSession'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html Start a session>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     documentName :: Prelude.Maybe Prelude.Text,
+    -- | The values you want to specify for the parameters defined in the Session
+    -- document.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The reason for connecting to the instance. This value is included in the
     -- details for the Amazon CloudWatch Events event created when you start
     -- the session.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The values you want to specify for the parameters defined in the Session
-    -- document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The managed node to connect to for the session.
     target :: Prelude.Text
   }
@@ -104,12 +104,12 @@ data StartSession = StartSession'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html Start a session>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
+-- 'parameters', 'startSession_parameters' - The values you want to specify for the parameters defined in the Session
+-- document.
+--
 -- 'reason', 'startSession_reason' - The reason for connecting to the instance. This value is included in the
 -- details for the Amazon CloudWatch Events event created when you start
 -- the session.
---
--- 'parameters', 'startSession_parameters' - The values you want to specify for the parameters defined in the Session
--- document.
 --
 -- 'target', 'startSession_target' - The managed node to connect to for the session.
 newStartSession ::
@@ -119,8 +119,8 @@ newStartSession ::
 newStartSession pTarget_ =
   StartSession'
     { documentName = Prelude.Nothing,
-      reason = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      reason = Prelude.Nothing,
       target = pTarget_
     }
 
@@ -135,16 +135,16 @@ newStartSession pTarget_ =
 startSession_documentName :: Lens.Lens' StartSession (Prelude.Maybe Prelude.Text)
 startSession_documentName = Lens.lens (\StartSession' {documentName} -> documentName) (\s@StartSession' {} a -> s {documentName = a} :: StartSession)
 
+-- | The values you want to specify for the parameters defined in the Session
+-- document.
+startSession_parameters :: Lens.Lens' StartSession (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Prelude.. Lens.mapping Lens.coerced
+
 -- | The reason for connecting to the instance. This value is included in the
 -- details for the Amazon CloudWatch Events event created when you start
 -- the session.
 startSession_reason :: Lens.Lens' StartSession (Prelude.Maybe Prelude.Text)
 startSession_reason = Lens.lens (\StartSession' {reason} -> reason) (\s@StartSession' {} a -> s {reason = a} :: StartSession)
-
--- | The values you want to specify for the parameters defined in the Session
--- document.
-startSession_parameters :: Lens.Lens' StartSession (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startSession_parameters = Lens.lens (\StartSession' {parameters} -> parameters) (\s@StartSession' {} a -> s {parameters = a} :: StartSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | The managed node to connect to for the session.
 startSession_target :: Lens.Lens' StartSession Prelude.Text
@@ -158,24 +158,24 @@ instance Core.AWSRequest StartSession where
     Response.receiveJSON
       ( \s h x ->
           StartSessionResponse'
-            Prelude.<$> (x Data..?> "TokenValue")
+            Prelude.<$> (x Data..?> "SessionId")
             Prelude.<*> (x Data..?> "StreamUrl")
-            Prelude.<*> (x Data..?> "SessionId")
+            Prelude.<*> (x Data..?> "TokenValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =
     _salt `Prelude.hashWithSalt` documentName
-      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData StartSession where
   rnf StartSession' {..} =
     Prelude.rnf documentName
-      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf target
 
 instance Data.ToHeaders StartSession where
@@ -196,8 +196,8 @@ instance Data.ToJSON StartSession where
     Data.object
       ( Prelude.catMaybes
           [ ("DocumentName" Data..=) Prelude.<$> documentName,
-            ("Reason" Data..=) Prelude.<$> reason,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Reason" Data..=) Prelude.<$> reason,
             Prelude.Just ("Target" Data..= target)
           ]
       )
@@ -210,11 +210,8 @@ instance Data.ToQuery StartSession where
 
 -- | /See:/ 'newStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { -- | An encrypted token value containing session and caller information. This
-    -- token is used to authenticate the connection to the managed node, and is
-    -- valid only long enough to ensure the connection is successful. Never
-    -- share your session\'s token.
-    tokenValue :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | A URL back to SSM Agent on the managed node that the Session Manager
     -- client uses to send commands and receive output from the node. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
@@ -229,8 +226,11 @@ data StartSessionResponse = StartSessionResponse'
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
     streamUrl :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | An encrypted token value containing session and caller information. This
+    -- token is used to authenticate the connection to the managed node, and is
+    -- valid only long enough to ensure the connection is successful. Never
+    -- share your session\'s token.
+    tokenValue :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,10 +244,7 @@ data StartSessionResponse = StartSessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. This
--- token is used to authenticate the connection to the managed node, and is
--- valid only long enough to ensure the connection is successful. Never
--- share your session\'s token.
+-- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.
 --
 -- 'streamUrl', 'startSessionResponse_streamUrl' - A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the node. Format:
@@ -263,7 +260,10 @@ data StartSessionResponse = StartSessionResponse'
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
 --
--- 'sessionId', 'startSessionResponse_sessionId' - The ID of the session.
+-- 'tokenValue', 'startSessionResponse_tokenValue' - An encrypted token value containing session and caller information. This
+-- token is used to authenticate the connection to the managed node, and is
+-- valid only long enough to ensure the connection is successful. Never
+-- share your session\'s token.
 --
 -- 'httpStatus', 'startSessionResponse_httpStatus' - The response's http status code.
 newStartSessionResponse ::
@@ -272,18 +272,15 @@ newStartSessionResponse ::
   StartSessionResponse
 newStartSessionResponse pHttpStatus_ =
   StartSessionResponse'
-    { tokenValue = Prelude.Nothing,
+    { sessionId = Prelude.Nothing,
       streamUrl = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
+      tokenValue = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An encrypted token value containing session and caller information. This
--- token is used to authenticate the connection to the managed node, and is
--- valid only long enough to ensure the connection is successful. Never
--- share your session\'s token.
-startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
-startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
+-- | The ID of the session.
+startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
 
 -- | A URL back to SSM Agent on the managed node that the Session Manager
 -- client uses to send commands and receive output from the node. Format:
@@ -301,9 +298,12 @@ startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue}
 startSessionResponse_streamUrl :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
 startSessionResponse_streamUrl = Lens.lens (\StartSessionResponse' {streamUrl} -> streamUrl) (\s@StartSessionResponse' {} a -> s {streamUrl = a} :: StartSessionResponse)
 
--- | The ID of the session.
-startSessionResponse_sessionId :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
-startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -> sessionId) (\s@StartSessionResponse' {} a -> s {sessionId = a} :: StartSessionResponse)
+-- | An encrypted token value containing session and caller information. This
+-- token is used to authenticate the connection to the managed node, and is
+-- valid only long enough to ensure the connection is successful. Never
+-- share your session\'s token.
+startSessionResponse_tokenValue :: Lens.Lens' StartSessionResponse (Prelude.Maybe Prelude.Text)
+startSessionResponse_tokenValue = Lens.lens (\StartSessionResponse' {tokenValue} -> tokenValue) (\s@StartSessionResponse' {} a -> s {tokenValue = a} :: StartSessionResponse)
 
 -- | The response's http status code.
 startSessionResponse_httpStatus :: Lens.Lens' StartSessionResponse Prelude.Int
@@ -311,7 +311,7 @@ startSessionResponse_httpStatus = Lens.lens (\StartSessionResponse' {httpStatus}
 
 instance Prelude.NFData StartSessionResponse where
   rnf StartSessionResponse' {..} =
-    Prelude.rnf tokenValue
+    Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf tokenValue
       `Prelude.seq` Prelude.rnf httpStatus

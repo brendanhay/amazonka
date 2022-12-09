@@ -55,9 +55,9 @@ module Amazonka.SSM.CreateResourceDataSync
     newCreateResourceDataSync,
 
     -- * Request Lenses
-    createResourceDataSync_syncType,
     createResourceDataSync_s3Destination,
     createResourceDataSync_syncSource,
+    createResourceDataSync_syncType,
     createResourceDataSync_syncName,
 
     -- * Destructuring the Response
@@ -79,7 +79,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-  { -- | Specify @SyncToDestination@ to create a resource data sync that
+  { -- | Amazon S3 configuration details for the sync. This parameter is required
+    -- if the @SyncType@ value is SyncToDestination.
+    s3Destination :: Prelude.Maybe ResourceDataSyncS3Destination,
+    -- | Specify information about the data sources to synchronize. This
+    -- parameter is required if the @SyncType@ value is SyncFromSource.
+    syncSource :: Prelude.Maybe ResourceDataSyncSource,
+    -- | Specify @SyncToDestination@ to create a resource data sync that
     -- synchronizes data to an S3 bucket for Inventory. If you specify
     -- @SyncToDestination@, you must provide a value for @S3Destination@.
     -- Specify @SyncFromSource@ to synchronize data from a single account and
@@ -88,12 +94,6 @@ data CreateResourceDataSync = CreateResourceDataSync'
     -- specify @SyncFromSource@, you must provide a value for @SyncSource@. The
     -- default value is @SyncToDestination@.
     syncType :: Prelude.Maybe Prelude.Text,
-    -- | Amazon S3 configuration details for the sync. This parameter is required
-    -- if the @SyncType@ value is SyncToDestination.
-    s3Destination :: Prelude.Maybe ResourceDataSyncS3Destination,
-    -- | Specify information about the data sources to synchronize. This
-    -- parameter is required if the @SyncType@ value is SyncFromSource.
-    syncSource :: Prelude.Maybe ResourceDataSyncSource,
     -- | A name for the configuration.
     syncName :: Prelude.Text
   }
@@ -107,6 +107,12 @@ data CreateResourceDataSync = CreateResourceDataSync'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Destination', 'createResourceDataSync_s3Destination' - Amazon S3 configuration details for the sync. This parameter is required
+-- if the @SyncType@ value is SyncToDestination.
+--
+-- 'syncSource', 'createResourceDataSync_syncSource' - Specify information about the data sources to synchronize. This
+-- parameter is required if the @SyncType@ value is SyncFromSource.
+--
 -- 'syncType', 'createResourceDataSync_syncType' - Specify @SyncToDestination@ to create a resource data sync that
 -- synchronizes data to an S3 bucket for Inventory. If you specify
 -- @SyncToDestination@, you must provide a value for @S3Destination@.
@@ -116,12 +122,6 @@ data CreateResourceDataSync = CreateResourceDataSync'
 -- specify @SyncFromSource@, you must provide a value for @SyncSource@. The
 -- default value is @SyncToDestination@.
 --
--- 's3Destination', 'createResourceDataSync_s3Destination' - Amazon S3 configuration details for the sync. This parameter is required
--- if the @SyncType@ value is SyncToDestination.
---
--- 'syncSource', 'createResourceDataSync_syncSource' - Specify information about the data sources to synchronize. This
--- parameter is required if the @SyncType@ value is SyncFromSource.
---
 -- 'syncName', 'createResourceDataSync_syncName' - A name for the configuration.
 newCreateResourceDataSync ::
   -- | 'syncName'
@@ -129,11 +129,22 @@ newCreateResourceDataSync ::
   CreateResourceDataSync
 newCreateResourceDataSync pSyncName_ =
   CreateResourceDataSync'
-    { syncType = Prelude.Nothing,
-      s3Destination = Prelude.Nothing,
+    { s3Destination =
+        Prelude.Nothing,
       syncSource = Prelude.Nothing,
+      syncType = Prelude.Nothing,
       syncName = pSyncName_
     }
+
+-- | Amazon S3 configuration details for the sync. This parameter is required
+-- if the @SyncType@ value is SyncToDestination.
+createResourceDataSync_s3Destination :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncS3Destination)
+createResourceDataSync_s3Destination = Lens.lens (\CreateResourceDataSync' {s3Destination} -> s3Destination) (\s@CreateResourceDataSync' {} a -> s {s3Destination = a} :: CreateResourceDataSync)
+
+-- | Specify information about the data sources to synchronize. This
+-- parameter is required if the @SyncType@ value is SyncFromSource.
+createResourceDataSync_syncSource :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncSource)
+createResourceDataSync_syncSource = Lens.lens (\CreateResourceDataSync' {syncSource} -> syncSource) (\s@CreateResourceDataSync' {} a -> s {syncSource = a} :: CreateResourceDataSync)
 
 -- | Specify @SyncToDestination@ to create a resource data sync that
 -- synchronizes data to an S3 bucket for Inventory. If you specify
@@ -145,16 +156,6 @@ newCreateResourceDataSync pSyncName_ =
 -- default value is @SyncToDestination@.
 createResourceDataSync_syncType :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe Prelude.Text)
 createResourceDataSync_syncType = Lens.lens (\CreateResourceDataSync' {syncType} -> syncType) (\s@CreateResourceDataSync' {} a -> s {syncType = a} :: CreateResourceDataSync)
-
--- | Amazon S3 configuration details for the sync. This parameter is required
--- if the @SyncType@ value is SyncToDestination.
-createResourceDataSync_s3Destination :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncS3Destination)
-createResourceDataSync_s3Destination = Lens.lens (\CreateResourceDataSync' {s3Destination} -> s3Destination) (\s@CreateResourceDataSync' {} a -> s {s3Destination = a} :: CreateResourceDataSync)
-
--- | Specify information about the data sources to synchronize. This
--- parameter is required if the @SyncType@ value is SyncFromSource.
-createResourceDataSync_syncSource :: Lens.Lens' CreateResourceDataSync (Prelude.Maybe ResourceDataSyncSource)
-createResourceDataSync_syncSource = Lens.lens (\CreateResourceDataSync' {syncSource} -> syncSource) (\s@CreateResourceDataSync' {} a -> s {syncSource = a} :: CreateResourceDataSync)
 
 -- | A name for the configuration.
 createResourceDataSync_syncName :: Lens.Lens' CreateResourceDataSync Prelude.Text
@@ -175,16 +176,16 @@ instance Core.AWSRequest CreateResourceDataSync where
 
 instance Prelude.Hashable CreateResourceDataSync where
   hashWithSalt _salt CreateResourceDataSync' {..} =
-    _salt `Prelude.hashWithSalt` syncType
-      `Prelude.hashWithSalt` s3Destination
+    _salt `Prelude.hashWithSalt` s3Destination
       `Prelude.hashWithSalt` syncSource
+      `Prelude.hashWithSalt` syncType
       `Prelude.hashWithSalt` syncName
 
 instance Prelude.NFData CreateResourceDataSync where
   rnf CreateResourceDataSync' {..} =
-    Prelude.rnf syncType
-      `Prelude.seq` Prelude.rnf s3Destination
+    Prelude.rnf s3Destination
       `Prelude.seq` Prelude.rnf syncSource
+      `Prelude.seq` Prelude.rnf syncType
       `Prelude.seq` Prelude.rnf syncName
 
 instance Data.ToHeaders CreateResourceDataSync where
@@ -206,9 +207,9 @@ instance Data.ToJSON CreateResourceDataSync where
   toJSON CreateResourceDataSync' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SyncType" Data..=) Prelude.<$> syncType,
-            ("S3Destination" Data..=) Prelude.<$> s3Destination,
+          [ ("S3Destination" Data..=) Prelude.<$> s3Destination,
             ("SyncSource" Data..=) Prelude.<$> syncSource,
+            ("SyncType" Data..=) Prelude.<$> syncType,
             Prelude.Just ("SyncName" Data..= syncName)
           ]
       )

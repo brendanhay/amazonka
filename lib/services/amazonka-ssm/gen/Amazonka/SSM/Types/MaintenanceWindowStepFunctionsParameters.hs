@@ -48,10 +48,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
-  { -- | The name of the @STEP_FUNCTIONS@ task.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The inputs for the @STEP_FUNCTIONS@ task.
-    input :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | The inputs for the @STEP_FUNCTIONS@ task.
+    input :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the @STEP_FUNCTIONS@ task.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,25 +63,25 @@ data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsPa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'maintenanceWindowStepFunctionsParameters_name' - The name of the @STEP_FUNCTIONS@ task.
---
 -- 'input', 'maintenanceWindowStepFunctionsParameters_input' - The inputs for the @STEP_FUNCTIONS@ task.
+--
+-- 'name', 'maintenanceWindowStepFunctionsParameters_name' - The name of the @STEP_FUNCTIONS@ task.
 newMaintenanceWindowStepFunctionsParameters ::
   MaintenanceWindowStepFunctionsParameters
 newMaintenanceWindowStepFunctionsParameters =
   MaintenanceWindowStepFunctionsParameters'
-    { name =
+    { input =
         Prelude.Nothing,
-      input = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the @STEP_FUNCTIONS@ task.
-maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {name} -> name) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
 
 -- | The inputs for the @STEP_FUNCTIONS@ task.
 maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the @STEP_FUNCTIONS@ task.
+maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {name} -> name) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
 
 instance
   Data.FromJSON
@@ -92,7 +92,7 @@ instance
       "MaintenanceWindowStepFunctionsParameters"
       ( \x ->
           MaintenanceWindowStepFunctionsParameters'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Input")
+            Prelude.<$> (x Data..:? "Input") Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -102,15 +102,15 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowStepFunctionsParameters' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` input
+      _salt `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     MaintenanceWindowStepFunctionsParameters
   where
   rnf MaintenanceWindowStepFunctionsParameters' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf input
+    Prelude.rnf input `Prelude.seq` Prelude.rnf name
 
 instance
   Data.ToJSON
@@ -119,7 +119,7 @@ instance
   toJSON MaintenanceWindowStepFunctionsParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Input" Data..=) Prelude.<$> input
+          [ ("Input" Data..=) Prelude.<$> input,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )

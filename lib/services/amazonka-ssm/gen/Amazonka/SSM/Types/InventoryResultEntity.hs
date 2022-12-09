@@ -29,12 +29,12 @@ import Amazonka.SSM.Types.InventoryResultItem
 --
 -- /See:/ 'newInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
-  { -- | ID of the inventory result entity. For example, for managed node
+  { -- | The data section in the inventory result entity JSON.
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem),
+    -- | ID of the inventory result entity. For example, for managed node
     -- inventory the result will be the managed node ID. For EC2 instance
     -- inventory, the result will be the instance ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The data section in the inventory result entity JSON.
-    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem)
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data InventoryResultEntity = InventoryResultEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'data'', 'inventoryResultEntity_data' - The data section in the inventory result entity JSON.
+--
 -- 'id', 'inventoryResultEntity_id' - ID of the inventory result entity. For example, for managed node
 -- inventory the result will be the managed node ID. For EC2 instance
 -- inventory, the result will be the instance ID.
---
--- 'data'', 'inventoryResultEntity_data' - The data section in the inventory result entity JSON.
 newInventoryResultEntity ::
   InventoryResultEntity
 newInventoryResultEntity =
   InventoryResultEntity'
-    { id = Prelude.Nothing,
-      data' = Prelude.Nothing
+    { data' = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The data section in the inventory result entity JSON.
+inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem))
+inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | ID of the inventory result entity. For example, for managed node
 -- inventory the result will be the managed node ID. For EC2 instance
@@ -65,25 +69,21 @@ newInventoryResultEntity =
 inventoryResultEntity_id :: Lens.Lens' InventoryResultEntity (Prelude.Maybe Prelude.Text)
 inventoryResultEntity_id = Lens.lens (\InventoryResultEntity' {id} -> id) (\s@InventoryResultEntity' {} a -> s {id = a} :: InventoryResultEntity)
 
--- | The data section in the inventory result entity JSON.
-inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem))
-inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON InventoryResultEntity where
   parseJSON =
     Data.withObject
       "InventoryResultEntity"
       ( \x ->
           InventoryResultEntity'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Data" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Data" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable InventoryResultEntity where
   hashWithSalt _salt InventoryResultEntity' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` data'
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData InventoryResultEntity where
   rnf InventoryResultEntity' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf data'
+    Prelude.rnf data' `Prelude.seq` Prelude.rnf id

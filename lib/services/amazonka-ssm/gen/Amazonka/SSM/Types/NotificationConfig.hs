@@ -30,16 +30,7 @@ import Amazonka.SSM.Types.NotificationType
 --
 -- /See:/ 'newNotificationConfig' smart constructor.
 data NotificationConfig = NotificationConfig'
-  { -- | The type of notification.
-    --
-    -- -   @Command@: Receive notification when the status of a command
-    --     changes.
-    --
-    -- -   @Invocation@: For commands sent to multiple managed nodes, receive
-    --     notification on a per-node basis when the status of a command
-    --     changes.
-    notificationType :: Prelude.Maybe NotificationType,
-    -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
+  { -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
     -- (Amazon SNS) topic. Run Command pushes notifications about command
     -- status changes to this topic.
     notificationArn :: Prelude.Maybe Prelude.Text,
@@ -47,7 +38,16 @@ data NotificationConfig = NotificationConfig'
     -- more about these events, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
     -- in the /Amazon Web Services Systems Manager User Guide/.
-    notificationEvents :: Prelude.Maybe [NotificationEvent]
+    notificationEvents :: Prelude.Maybe [NotificationEvent],
+    -- | The type of notification.
+    --
+    -- -   @Command@: Receive notification when the status of a command
+    --     changes.
+    --
+    -- -   @Invocation@: For commands sent to multiple managed nodes, receive
+    --     notification on a per-node basis when the status of a command
+    --     changes.
+    notificationType :: Prelude.Maybe NotificationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,15 +59,6 @@ data NotificationConfig = NotificationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationType', 'notificationConfig_notificationType' - The type of notification.
---
--- -   @Command@: Receive notification when the status of a command
---     changes.
---
--- -   @Invocation@: For commands sent to multiple managed nodes, receive
---     notification on a per-node basis when the status of a command
---     changes.
---
 -- 'notificationArn', 'notificationConfig_notificationArn' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
 -- (Amazon SNS) topic. Run Command pushes notifications about command
 -- status changes to this topic.
@@ -76,17 +67,8 @@ data NotificationConfig = NotificationConfig'
 -- more about these events, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
 -- in the /Amazon Web Services Systems Manager User Guide/.
-newNotificationConfig ::
-  NotificationConfig
-newNotificationConfig =
-  NotificationConfig'
-    { notificationType =
-        Prelude.Nothing,
-      notificationArn = Prelude.Nothing,
-      notificationEvents = Prelude.Nothing
-    }
-
--- | The type of notification.
+--
+-- 'notificationType', 'notificationConfig_notificationType' - The type of notification.
 --
 -- -   @Command@: Receive notification when the status of a command
 --     changes.
@@ -94,8 +76,15 @@ newNotificationConfig =
 -- -   @Invocation@: For commands sent to multiple managed nodes, receive
 --     notification on a per-node basis when the status of a command
 --     changes.
-notificationConfig_notificationType :: Lens.Lens' NotificationConfig (Prelude.Maybe NotificationType)
-notificationConfig_notificationType = Lens.lens (\NotificationConfig' {notificationType} -> notificationType) (\s@NotificationConfig' {} a -> s {notificationType = a} :: NotificationConfig)
+newNotificationConfig ::
+  NotificationConfig
+newNotificationConfig =
+  NotificationConfig'
+    { notificationArn =
+        Prelude.Nothing,
+      notificationEvents = Prelude.Nothing,
+      notificationType = Prelude.Nothing
+    }
 
 -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service
 -- (Amazon SNS) topic. Run Command pushes notifications about command
@@ -110,40 +99,51 @@ notificationConfig_notificationArn = Lens.lens (\NotificationConfig' {notificati
 notificationConfig_notificationEvents :: Lens.Lens' NotificationConfig (Prelude.Maybe [NotificationEvent])
 notificationConfig_notificationEvents = Lens.lens (\NotificationConfig' {notificationEvents} -> notificationEvents) (\s@NotificationConfig' {} a -> s {notificationEvents = a} :: NotificationConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of notification.
+--
+-- -   @Command@: Receive notification when the status of a command
+--     changes.
+--
+-- -   @Invocation@: For commands sent to multiple managed nodes, receive
+--     notification on a per-node basis when the status of a command
+--     changes.
+notificationConfig_notificationType :: Lens.Lens' NotificationConfig (Prelude.Maybe NotificationType)
+notificationConfig_notificationType = Lens.lens (\NotificationConfig' {notificationType} -> notificationType) (\s@NotificationConfig' {} a -> s {notificationType = a} :: NotificationConfig)
+
 instance Data.FromJSON NotificationConfig where
   parseJSON =
     Data.withObject
       "NotificationConfig"
       ( \x ->
           NotificationConfig'
-            Prelude.<$> (x Data..:? "NotificationType")
-            Prelude.<*> (x Data..:? "NotificationArn")
+            Prelude.<$> (x Data..:? "NotificationArn")
             Prelude.<*> ( x Data..:? "NotificationEvents"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "NotificationType")
       )
 
 instance Prelude.Hashable NotificationConfig where
   hashWithSalt _salt NotificationConfig' {..} =
-    _salt `Prelude.hashWithSalt` notificationType
-      `Prelude.hashWithSalt` notificationArn
+    _salt `Prelude.hashWithSalt` notificationArn
       `Prelude.hashWithSalt` notificationEvents
+      `Prelude.hashWithSalt` notificationType
 
 instance Prelude.NFData NotificationConfig where
   rnf NotificationConfig' {..} =
-    Prelude.rnf notificationType
-      `Prelude.seq` Prelude.rnf notificationArn
+    Prelude.rnf notificationArn
       `Prelude.seq` Prelude.rnf notificationEvents
+      `Prelude.seq` Prelude.rnf notificationType
 
 instance Data.ToJSON NotificationConfig where
   toJSON NotificationConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NotificationType" Data..=)
-              Prelude.<$> notificationType,
-            ("NotificationArn" Data..=)
+          [ ("NotificationArn" Data..=)
               Prelude.<$> notificationArn,
             ("NotificationEvents" Data..=)
-              Prelude.<$> notificationEvents
+              Prelude.<$> notificationEvents,
+            ("NotificationType" Data..=)
+              Prelude.<$> notificationType
           ]
       )

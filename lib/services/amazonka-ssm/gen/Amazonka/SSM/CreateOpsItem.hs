@@ -37,19 +37,19 @@ module Amazonka.SSM.CreateOpsItem
     newCreateOpsItem,
 
     -- * Request Lenses
-    createOpsItem_tags,
-    createOpsItem_notifications,
-    createOpsItem_severity,
-    createOpsItem_plannedStartTime,
-    createOpsItem_plannedEndTime,
     createOpsItem_accountId,
-    createOpsItem_priority,
-    createOpsItem_opsItemType,
-    createOpsItem_category,
-    createOpsItem_operationalData,
-    createOpsItem_actualStartTime,
     createOpsItem_actualEndTime,
+    createOpsItem_actualStartTime,
+    createOpsItem_category,
+    createOpsItem_notifications,
+    createOpsItem_operationalData,
+    createOpsItem_opsItemType,
+    createOpsItem_plannedEndTime,
+    createOpsItem_plannedStartTime,
+    createOpsItem_priority,
     createOpsItem_relatedOpsItems,
+    createOpsItem_severity,
+    createOpsItem_tags,
     createOpsItem_description,
     createOpsItem_source,
     createOpsItem_title,
@@ -75,61 +75,23 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateOpsItem' smart constructor.
 data CreateOpsItem = CreateOpsItem'
-  { -- | Optional metadata that you assign to a resource. You can restrict access
-    -- to OpsItems by using an inline IAM policy that specifies tags. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    --
-    -- Tags use a key-value pair. For example:
-    --
-    -- @Key=Department,Value=Finance@
-    --
-    -- To add tags to a new OpsItem, a user must have IAM permissions for both
-    -- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
-    -- operation. To add tags to an existing OpsItem, use the AddTagsToResource
-    -- operation.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
-    -- sent when this OpsItem is edited or changed.
-    notifications :: Prelude.Maybe [OpsItemNotification],
-    -- | Specify a severity to assign to an OpsItem.
-    severity :: Prelude.Maybe Prelude.Text,
-    -- | The time specified in a change request for a runbook workflow to start.
-    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The time specified in a change request for a runbook workflow to end.
-    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Data.POSIX,
-    -- | The target Amazon Web Services account where you want to create an
+  { -- | The target Amazon Web Services account where you want to create an
     -- OpsItem. To make this call, your account must be configured to work with
     -- OpsItems across accounts. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html Setting up OpsCenter to work with OpsItems across accounts>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The importance of this OpsItem in relation to other OpsItems in the
-    -- system.
-    priority :: Prelude.Maybe Prelude.Natural,
-    -- | The type of OpsItem to create. Systems Manager supports the following
-    -- types of OpsItems:
-    --
-    -- -   @\/aws\/issue@
-    --
-    --     This type of OpsItem is used for default OpsItems created by
-    --     OpsCenter.
-    --
-    -- -   @\/aws\/changerequest@
-    --
-    --     This type of OpsItem is used by Change Manager for reviewing and
-    --     approving or rejecting change requests.
-    --
-    -- -   @\/aws\/insights@
-    --
-    --     This type of OpsItem is used by OpsCenter for aggregating and
-    --     reporting on duplicate OpsItems.
-    opsItemType :: Prelude.Maybe Prelude.Text,
+    -- | The time a runbook workflow ended. Currently reported only for the
+    -- OpsItem type @\/aws\/changerequest@.
+    actualEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The time a runbook workflow started. Currently reported only for the
+    -- OpsItem type @\/aws\/changerequest@.
+    actualStartTime :: Prelude.Maybe Data.POSIX,
     -- | Specify a category to assign to an OpsItem.
     category :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
+    -- sent when this OpsItem is edited or changed.
+    notifications :: Prelude.Maybe [OpsItemNotification],
     -- | Operational data is custom data that provides useful reference details
     -- about the OpsItem. For example, you can specify log files, error
     -- strings, license keys, troubleshooting tips, or other relevant data. You
@@ -154,17 +116,55 @@ data CreateOpsItem = CreateOpsItem'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
-    -- | The time a runbook workflow started. Currently reported only for the
-    -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The time a runbook workflow ended. Currently reported only for the
-    -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The type of OpsItem to create. Systems Manager supports the following
+    -- types of OpsItems:
+    --
+    -- -   @\/aws\/issue@
+    --
+    --     This type of OpsItem is used for default OpsItems created by
+    --     OpsCenter.
+    --
+    -- -   @\/aws\/changerequest@
+    --
+    --     This type of OpsItem is used by Change Manager for reviewing and
+    --     approving or rejecting change requests.
+    --
+    -- -   @\/aws\/insights@
+    --
+    --     This type of OpsItem is used by OpsCenter for aggregating and
+    --     reporting on duplicate OpsItems.
+    opsItemType :: Prelude.Maybe Prelude.Text,
+    -- | The time specified in a change request for a runbook workflow to end.
+    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+    plannedEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The time specified in a change request for a runbook workflow to start.
+    -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+    plannedStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The importance of this OpsItem in relation to other OpsItems in the
+    -- system.
+    priority :: Prelude.Maybe Prelude.Natural,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItems. For example, related OpsItems can include OpsItems with
     -- similar error messages, impacted resources, or statuses for the impacted
     -- resource.
     relatedOpsItems :: Prelude.Maybe [RelatedOpsItem],
+    -- | Specify a severity to assign to an OpsItem.
+    severity :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata that you assign to a resource. You can restrict access
+    -- to OpsItems by using an inline IAM policy that specifies tags. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    --
+    -- Tags use a key-value pair. For example:
+    --
+    -- @Key=Department,Value=Finance@
+    --
+    -- To add tags to a new OpsItem, a user must have IAM permissions for both
+    -- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+    -- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+    -- operation.
+    tags :: Prelude.Maybe [Tag],
     -- | Information about the OpsItem.
     description :: Prelude.Text,
     -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
@@ -186,60 +186,22 @@ data CreateOpsItem = CreateOpsItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createOpsItem_tags' - Optional metadata that you assign to a resource. You can restrict access
--- to OpsItems by using an inline IAM policy that specifies tags. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- Tags use a key-value pair. For example:
---
--- @Key=Department,Value=Finance@
---
--- To add tags to a new OpsItem, a user must have IAM permissions for both
--- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
--- operation. To add tags to an existing OpsItem, use the AddTagsToResource
--- operation.
---
--- 'notifications', 'createOpsItem_notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
---
--- 'severity', 'createOpsItem_severity' - Specify a severity to assign to an OpsItem.
---
--- 'plannedStartTime', 'createOpsItem_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
---
--- 'plannedEndTime', 'createOpsItem_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
---
 -- 'accountId', 'createOpsItem_accountId' - The target Amazon Web Services account where you want to create an
 -- OpsItem. To make this call, your account must be configured to work with
 -- OpsItems across accounts. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-OpsCenter-multiple-accounts.html Setting up OpsCenter to work with OpsItems across accounts>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'priority', 'createOpsItem_priority' - The importance of this OpsItem in relation to other OpsItems in the
--- system.
+-- 'actualEndTime', 'createOpsItem_actualEndTime' - The time a runbook workflow ended. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
 --
--- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Systems Manager supports the following
--- types of OpsItems:
---
--- -   @\/aws\/issue@
---
---     This type of OpsItem is used for default OpsItems created by
---     OpsCenter.
---
--- -   @\/aws\/changerequest@
---
---     This type of OpsItem is used by Change Manager for reviewing and
---     approving or rejecting change requests.
---
--- -   @\/aws\/insights@
---
---     This type of OpsItem is used by OpsCenter for aggregating and
---     reporting on duplicate OpsItems.
+-- 'actualStartTime', 'createOpsItem_actualStartTime' - The time a runbook workflow started. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
 --
 -- 'category', 'createOpsItem_category' - Specify a category to assign to an OpsItem.
+--
+-- 'notifications', 'createOpsItem_notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
+-- sent when this OpsItem is edited or changed.
 --
 -- 'operationalData', 'createOpsItem_operationalData' - Operational data is custom data that provides useful reference details
 -- about the OpsItem. For example, you can specify log files, error
@@ -265,16 +227,54 @@ data CreateOpsItem = CreateOpsItem'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'actualStartTime', 'createOpsItem_actualStartTime' - The time a runbook workflow started. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
+-- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Systems Manager supports the following
+-- types of OpsItems:
 --
--- 'actualEndTime', 'createOpsItem_actualEndTime' - The time a runbook workflow ended. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
+--
+-- 'plannedEndTime', 'createOpsItem_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+--
+-- 'plannedStartTime', 'createOpsItem_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+--
+-- 'priority', 'createOpsItem_priority' - The importance of this OpsItem in relation to other OpsItems in the
+-- system.
 --
 -- 'relatedOpsItems', 'createOpsItem_relatedOpsItems' - One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
 -- similar error messages, impacted resources, or statuses for the impacted
 -- resource.
+--
+-- 'severity', 'createOpsItem_severity' - Specify a severity to assign to an OpsItem.
+--
+-- 'tags', 'createOpsItem_tags' - Optional metadata that you assign to a resource. You can restrict access
+-- to OpsItems by using an inline IAM policy that specifies tags. For more
+-- information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- Tags use a key-value pair. For example:
+--
+-- @Key=Department,Value=Finance@
+--
+-- To add tags to a new OpsItem, a user must have IAM permissions for both
+-- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+-- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+-- operation.
 --
 -- 'description', 'createOpsItem_description' - Information about the OpsItem.
 --
@@ -295,59 +295,23 @@ newCreateOpsItem ::
   CreateOpsItem
 newCreateOpsItem pDescription_ pSource_ pTitle_ =
   CreateOpsItem'
-    { tags = Prelude.Nothing,
-      notifications = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      plannedStartTime = Prelude.Nothing,
-      plannedEndTime = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
-      category = Prelude.Nothing,
-      operationalData = Prelude.Nothing,
-      actualStartTime = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       actualEndTime = Prelude.Nothing,
+      actualStartTime = Prelude.Nothing,
+      category = Prelude.Nothing,
+      notifications = Prelude.Nothing,
+      operationalData = Prelude.Nothing,
+      opsItemType = Prelude.Nothing,
+      plannedEndTime = Prelude.Nothing,
+      plannedStartTime = Prelude.Nothing,
+      priority = Prelude.Nothing,
       relatedOpsItems = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      tags = Prelude.Nothing,
       description = pDescription_,
       source = pSource_,
       title = pTitle_
     }
-
--- | Optional metadata that you assign to a resource. You can restrict access
--- to OpsItems by using an inline IAM policy that specifies tags. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- Tags use a key-value pair. For example:
---
--- @Key=Department,Value=Finance@
---
--- To add tags to a new OpsItem, a user must have IAM permissions for both
--- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
--- operation. To add tags to an existing OpsItem, use the AddTagsToResource
--- operation.
-createOpsItem_tags :: Lens.Lens' CreateOpsItem (Prelude.Maybe [Tag])
-createOpsItem_tags = Lens.lens (\CreateOpsItem' {tags} -> tags) (\s@CreateOpsItem' {} a -> s {tags = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
-createOpsItem_notifications :: Lens.Lens' CreateOpsItem (Prelude.Maybe [OpsItemNotification])
-createOpsItem_notifications = Lens.lens (\CreateOpsItem' {notifications} -> notifications) (\s@CreateOpsItem' {} a -> s {notifications = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify a severity to assign to an OpsItem.
-createOpsItem_severity :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
-createOpsItem_severity = Lens.lens (\CreateOpsItem' {severity} -> severity) (\s@CreateOpsItem' {} a -> s {severity = a} :: CreateOpsItem)
-
--- | The time specified in a change request for a runbook workflow to start.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
-
--- | The time specified in a change request for a runbook workflow to end.
--- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | The target Amazon Web Services account where you want to create an
 -- OpsItem. To make this call, your account must be configured to work with
@@ -357,34 +321,24 @@ createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> pl
 createOpsItem_accountId :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
 createOpsItem_accountId = Lens.lens (\CreateOpsItem' {accountId} -> accountId) (\s@CreateOpsItem' {} a -> s {accountId = a} :: CreateOpsItem)
 
--- | The importance of this OpsItem in relation to other OpsItems in the
--- system.
-createOpsItem_priority :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Natural)
-createOpsItem_priority = Lens.lens (\CreateOpsItem' {priority} -> priority) (\s@CreateOpsItem' {} a -> s {priority = a} :: CreateOpsItem)
+-- | The time a runbook workflow ended. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
+createOpsItem_actualEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
+createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
--- | The type of OpsItem to create. Systems Manager supports the following
--- types of OpsItems:
---
--- -   @\/aws\/issue@
---
---     This type of OpsItem is used for default OpsItems created by
---     OpsCenter.
---
--- -   @\/aws\/changerequest@
---
---     This type of OpsItem is used by Change Manager for reviewing and
---     approving or rejecting change requests.
---
--- -   @\/aws\/insights@
---
---     This type of OpsItem is used by OpsCenter for aggregating and
---     reporting on duplicate OpsItems.
-createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
-createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
+-- | The time a runbook workflow started. Currently reported only for the
+-- OpsItem type @\/aws\/changerequest@.
+createOpsItem_actualStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
+createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
 
 -- | Specify a category to assign to an OpsItem.
 createOpsItem_category :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
 createOpsItem_category = Lens.lens (\CreateOpsItem' {category} -> category) (\s@CreateOpsItem' {} a -> s {category = a} :: CreateOpsItem)
+
+-- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
+-- sent when this OpsItem is edited or changed.
+createOpsItem_notifications :: Lens.Lens' CreateOpsItem (Prelude.Maybe [OpsItemNotification])
+createOpsItem_notifications = Lens.lens (\CreateOpsItem' {notifications} -> notifications) (\s@CreateOpsItem' {} a -> s {notifications = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Operational data is custom data that provides useful reference details
 -- about the OpsItem. For example, you can specify log files, error
@@ -412,15 +366,40 @@ createOpsItem_category = Lens.lens (\CreateOpsItem' {category} -> category) (\s@
 createOpsItem_operationalData :: Lens.Lens' CreateOpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
 createOpsItem_operationalData = Lens.lens (\CreateOpsItem' {operationalData} -> operationalData) (\s@CreateOpsItem' {} a -> s {operationalData = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The time a runbook workflow started. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
-createOpsItem_actualStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualStartTime = Lens.lens (\CreateOpsItem' {actualStartTime} -> actualStartTime) (\s@CreateOpsItem' {} a -> s {actualStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
+-- | The type of OpsItem to create. Systems Manager supports the following
+-- types of OpsItems:
+--
+-- -   @\/aws\/issue@
+--
+--     This type of OpsItem is used for default OpsItems created by
+--     OpsCenter.
+--
+-- -   @\/aws\/changerequest@
+--
+--     This type of OpsItem is used by Change Manager for reviewing and
+--     approving or rejecting change requests.
+--
+-- -   @\/aws\/insights@
+--
+--     This type of OpsItem is used by OpsCenter for aggregating and
+--     reporting on duplicate OpsItems.
+createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
 
--- | The time a runbook workflow ended. Currently reported only for the
--- OpsItem type @\/aws\/changerequest@.
-createOpsItem_actualEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
-createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actualEndTime) (\s@CreateOpsItem' {} a -> s {actualEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
+-- | The time specified in a change request for a runbook workflow to end.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+createOpsItem_plannedEndTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
+createOpsItem_plannedEndTime = Lens.lens (\CreateOpsItem' {plannedEndTime} -> plannedEndTime) (\s@CreateOpsItem' {} a -> s {plannedEndTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
+
+-- | The time specified in a change request for a runbook workflow to start.
+-- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
+createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Data._Time
+
+-- | The importance of this OpsItem in relation to other OpsItems in the
+-- system.
+createOpsItem_priority :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Natural)
+createOpsItem_priority = Lens.lens (\CreateOpsItem' {priority} -> priority) (\s@CreateOpsItem' {} a -> s {priority = a} :: CreateOpsItem)
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItems. For example, related OpsItems can include OpsItems with
@@ -428,6 +407,27 @@ createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actu
 -- resource.
 createOpsItem_relatedOpsItems :: Lens.Lens' CreateOpsItem (Prelude.Maybe [RelatedOpsItem])
 createOpsItem_relatedOpsItems = Lens.lens (\CreateOpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@CreateOpsItem' {} a -> s {relatedOpsItems = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify a severity to assign to an OpsItem.
+createOpsItem_severity :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_severity = Lens.lens (\CreateOpsItem' {severity} -> severity) (\s@CreateOpsItem' {} a -> s {severity = a} :: CreateOpsItem)
+
+-- | Optional metadata that you assign to a resource. You can restrict access
+-- to OpsItems by using an inline IAM policy that specifies tags. For more
+-- information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- Tags use a key-value pair. For example:
+--
+-- @Key=Department,Value=Finance@
+--
+-- To add tags to a new OpsItem, a user must have IAM permissions for both
+-- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+-- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+-- operation.
+createOpsItem_tags :: Lens.Lens' CreateOpsItem (Prelude.Maybe [Tag])
+createOpsItem_tags = Lens.lens (\CreateOpsItem' {tags} -> tags) (\s@CreateOpsItem' {} a -> s {tags = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the OpsItem.
 createOpsItem_description :: Lens.Lens' CreateOpsItem Prelude.Text
@@ -462,38 +462,38 @@ instance Core.AWSRequest CreateOpsItem where
 
 instance Prelude.Hashable CreateOpsItem where
   hashWithSalt _salt CreateOpsItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` notifications
-      `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` plannedStartTime
-      `Prelude.hashWithSalt` plannedEndTime
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` opsItemType
-      `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` operationalData
-      `Prelude.hashWithSalt` actualStartTime
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` actualEndTime
+      `Prelude.hashWithSalt` actualStartTime
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` notifications
+      `Prelude.hashWithSalt` operationalData
+      `Prelude.hashWithSalt` opsItemType
+      `Prelude.hashWithSalt` plannedEndTime
+      `Prelude.hashWithSalt` plannedStartTime
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` relatedOpsItems
+      `Prelude.hashWithSalt` severity
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` title
 
 instance Prelude.NFData CreateOpsItem where
   rnf CreateOpsItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf plannedStartTime
-      `Prelude.seq` Prelude.rnf plannedEndTime
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf opsItemType
-      `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf operationalData
-      `Prelude.seq` Prelude.rnf actualStartTime
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf actualEndTime
+      `Prelude.seq` Prelude.rnf actualStartTime
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf notifications
+      `Prelude.seq` Prelude.rnf operationalData
+      `Prelude.seq` Prelude.rnf opsItemType
+      `Prelude.seq` Prelude.rnf plannedEndTime
+      `Prelude.seq` Prelude.rnf plannedStartTime
+      `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf relatedOpsItems
+      `Prelude.seq` Prelude.rnf severity
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf title
@@ -515,24 +515,24 @@ instance Data.ToJSON CreateOpsItem where
   toJSON CreateOpsItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Notifications" Data..=) Prelude.<$> notifications,
-            ("Severity" Data..=) Prelude.<$> severity,
-            ("PlannedStartTime" Data..=)
-              Prelude.<$> plannedStartTime,
-            ("PlannedEndTime" Data..=)
-              Prelude.<$> plannedEndTime,
-            ("AccountId" Data..=) Prelude.<$> accountId,
-            ("Priority" Data..=) Prelude.<$> priority,
-            ("OpsItemType" Data..=) Prelude.<$> opsItemType,
-            ("Category" Data..=) Prelude.<$> category,
-            ("OperationalData" Data..=)
-              Prelude.<$> operationalData,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("ActualEndTime" Data..=) Prelude.<$> actualEndTime,
             ("ActualStartTime" Data..=)
               Prelude.<$> actualStartTime,
-            ("ActualEndTime" Data..=) Prelude.<$> actualEndTime,
+            ("Category" Data..=) Prelude.<$> category,
+            ("Notifications" Data..=) Prelude.<$> notifications,
+            ("OperationalData" Data..=)
+              Prelude.<$> operationalData,
+            ("OpsItemType" Data..=) Prelude.<$> opsItemType,
+            ("PlannedEndTime" Data..=)
+              Prelude.<$> plannedEndTime,
+            ("PlannedStartTime" Data..=)
+              Prelude.<$> plannedStartTime,
+            ("Priority" Data..=) Prelude.<$> priority,
             ("RelatedOpsItems" Data..=)
               Prelude.<$> relatedOpsItems,
+            ("Severity" Data..=) Prelude.<$> severity,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Description" Data..= description),
             Prelude.Just ("Source" Data..= source),
             Prelude.Just ("Title" Data..= title)

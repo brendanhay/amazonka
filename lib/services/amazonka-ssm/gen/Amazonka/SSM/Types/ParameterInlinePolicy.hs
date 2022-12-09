@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameterInlinePolicy' smart constructor.
 data ParameterInlinePolicy = ParameterInlinePolicy'
-  { -- | The type of policy. Parameter Store, a capability of Amazon Web Services
-    -- Systems Manager, supports the following policy types: Expiration,
-    -- ExpirationNotification, and NoChangeNotification.
-    policyType :: Prelude.Maybe Prelude.Text,
-    -- | The JSON text of the policy.
-    policyText :: Prelude.Maybe Prelude.Text,
-    -- | The status of the policy. Policies report the following statuses:
+  { -- | The status of the policy. Policies report the following statuses:
     -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
     -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
     -- (the policy is being applied now).
-    policyStatus :: Prelude.Maybe Prelude.Text
+    policyStatus :: Prelude.Maybe Prelude.Text,
+    -- | The JSON text of the policy.
+    policyText :: Prelude.Maybe Prelude.Text,
+    -- | The type of policy. Parameter Store, a capability of Amazon Web Services
+    -- Systems Manager, supports the following policy types: Expiration,
+    -- ExpirationNotification, and NoChangeNotification.
+    policyType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,25 @@ data ParameterInlinePolicy = ParameterInlinePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store, a capability of Amazon Web Services
--- Systems Manager, supports the following policy types: Expiration,
--- ExpirationNotification, and NoChangeNotification.
---
--- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
---
 -- 'policyStatus', 'parameterInlinePolicy_policyStatus' - The status of the policy. Policies report the following statuses:
 -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
 -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
 -- (the policy is being applied now).
+--
+-- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
+--
+-- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store, a capability of Amazon Web Services
+-- Systems Manager, supports the following policy types: Expiration,
+-- ExpirationNotification, and NoChangeNotification.
 newParameterInlinePolicy ::
   ParameterInlinePolicy
 newParameterInlinePolicy =
   ParameterInlinePolicy'
-    { policyType =
+    { policyStatus =
         Prelude.Nothing,
       policyText = Prelude.Nothing,
-      policyStatus = Prelude.Nothing
+      policyType = Prelude.Nothing
     }
-
--- | The type of policy. Parameter Store, a capability of Amazon Web Services
--- Systems Manager, supports the following policy types: Expiration,
--- ExpirationNotification, and NoChangeNotification.
-parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
-parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
-
--- | The JSON text of the policy.
-parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
-parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
 
 -- | The status of the policy. Policies report the following statuses:
 -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
@@ -87,25 +77,35 @@ parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyTex
 parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)
 
+-- | The JSON text of the policy.
+parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
+
+-- | The type of policy. Parameter Store, a capability of Amazon Web Services
+-- Systems Manager, supports the following policy types: Expiration,
+-- ExpirationNotification, and NoChangeNotification.
+parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
+
 instance Data.FromJSON ParameterInlinePolicy where
   parseJSON =
     Data.withObject
       "ParameterInlinePolicy"
       ( \x ->
           ParameterInlinePolicy'
-            Prelude.<$> (x Data..:? "PolicyType")
+            Prelude.<$> (x Data..:? "PolicyStatus")
             Prelude.<*> (x Data..:? "PolicyText")
-            Prelude.<*> (x Data..:? "PolicyStatus")
+            Prelude.<*> (x Data..:? "PolicyType")
       )
 
 instance Prelude.Hashable ParameterInlinePolicy where
   hashWithSalt _salt ParameterInlinePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyType
+    _salt `Prelude.hashWithSalt` policyStatus
       `Prelude.hashWithSalt` policyText
-      `Prelude.hashWithSalt` policyStatus
+      `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData ParameterInlinePolicy where
   rnf ParameterInlinePolicy' {..} =
-    Prelude.rnf policyType
+    Prelude.rnf policyStatus
       `Prelude.seq` Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf policyStatus
+      `Prelude.seq` Prelude.rnf policyType

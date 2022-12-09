@@ -29,10 +29,10 @@ import Amazonka.SSM.Types.ReviewStatus
 --
 -- /See:/ 'newReviewInformation' smart constructor.
 data ReviewInformation = ReviewInformation'
-  { -- | The reviewer assigned to take action on the document review request.
-    reviewer :: Prelude.Maybe Prelude.Text,
-    -- | The time that the reviewer took action on the document review request.
+  { -- | The time that the reviewer took action on the document review request.
     reviewedTime :: Prelude.Maybe Data.POSIX,
+    -- | The reviewer assigned to take action on the document review request.
+    reviewer :: Prelude.Maybe Prelude.Text,
     -- | The current status of the document review request.
     status :: Prelude.Maybe ReviewStatus
   }
@@ -46,27 +46,27 @@ data ReviewInformation = ReviewInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reviewer', 'reviewInformation_reviewer' - The reviewer assigned to take action on the document review request.
---
 -- 'reviewedTime', 'reviewInformation_reviewedTime' - The time that the reviewer took action on the document review request.
+--
+-- 'reviewer', 'reviewInformation_reviewer' - The reviewer assigned to take action on the document review request.
 --
 -- 'status', 'reviewInformation_status' - The current status of the document review request.
 newReviewInformation ::
   ReviewInformation
 newReviewInformation =
   ReviewInformation'
-    { reviewer = Prelude.Nothing,
-      reviewedTime = Prelude.Nothing,
+    { reviewedTime = Prelude.Nothing,
+      reviewer = Prelude.Nothing,
       status = Prelude.Nothing
     }
-
--- | The reviewer assigned to take action on the document review request.
-reviewInformation_reviewer :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.Text)
-reviewInformation_reviewer = Lens.lens (\ReviewInformation' {reviewer} -> reviewer) (\s@ReviewInformation' {} a -> s {reviewer = a} :: ReviewInformation)
 
 -- | The time that the reviewer took action on the document review request.
 reviewInformation_reviewedTime :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.UTCTime)
 reviewInformation_reviewedTime = Lens.lens (\ReviewInformation' {reviewedTime} -> reviewedTime) (\s@ReviewInformation' {} a -> s {reviewedTime = a} :: ReviewInformation) Prelude.. Lens.mapping Data._Time
+
+-- | The reviewer assigned to take action on the document review request.
+reviewInformation_reviewer :: Lens.Lens' ReviewInformation (Prelude.Maybe Prelude.Text)
+reviewInformation_reviewer = Lens.lens (\ReviewInformation' {reviewer} -> reviewer) (\s@ReviewInformation' {} a -> s {reviewer = a} :: ReviewInformation)
 
 -- | The current status of the document review request.
 reviewInformation_status :: Lens.Lens' ReviewInformation (Prelude.Maybe ReviewStatus)
@@ -78,19 +78,19 @@ instance Data.FromJSON ReviewInformation where
       "ReviewInformation"
       ( \x ->
           ReviewInformation'
-            Prelude.<$> (x Data..:? "Reviewer")
-            Prelude.<*> (x Data..:? "ReviewedTime")
+            Prelude.<$> (x Data..:? "ReviewedTime")
+            Prelude.<*> (x Data..:? "Reviewer")
             Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ReviewInformation where
   hashWithSalt _salt ReviewInformation' {..} =
-    _salt `Prelude.hashWithSalt` reviewer
-      `Prelude.hashWithSalt` reviewedTime
+    _salt `Prelude.hashWithSalt` reviewedTime
+      `Prelude.hashWithSalt` reviewer
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ReviewInformation where
   rnf ReviewInformation' {..} =
-    Prelude.rnf reviewer
-      `Prelude.seq` Prelude.rnf reviewedTime
+    Prelude.rnf reviewedTime
+      `Prelude.seq` Prelude.rnf reviewer
       `Prelude.seq` Prelude.rnf status

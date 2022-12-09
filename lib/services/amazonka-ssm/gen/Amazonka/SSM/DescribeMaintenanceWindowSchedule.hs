@@ -29,12 +29,12 @@ module Amazonka.SSM.DescribeMaintenanceWindowSchedule
     newDescribeMaintenanceWindowSchedule,
 
     -- * Request Lenses
-    describeMaintenanceWindowSchedule_resourceType,
-    describeMaintenanceWindowSchedule_nextToken,
     describeMaintenanceWindowSchedule_filters,
-    describeMaintenanceWindowSchedule_windowId,
-    describeMaintenanceWindowSchedule_targets,
     describeMaintenanceWindowSchedule_maxResults,
+    describeMaintenanceWindowSchedule_nextToken,
+    describeMaintenanceWindowSchedule_resourceType,
+    describeMaintenanceWindowSchedule_targets,
+    describeMaintenanceWindowSchedule_windowId,
 
     -- * Destructuring the Response
     DescribeMaintenanceWindowScheduleResponse (..),
@@ -57,24 +57,24 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowSchedule' smart constructor.
 data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
-  { -- | The type of resource you want to retrieve information about. For
-    -- example, @INSTANCE@.
-    resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
-    -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters used to limit the range of results. For example, you can limit
+  { -- | Filters used to limit the range of results. For example, you can limit
     -- maintenance window executions to only those scheduled before or after a
     -- certain date and time.
     filters :: Prelude.Maybe [PatchOrchestratorFilter],
-    -- | The ID of the maintenance window to retrieve information about.
-    windowId :: Prelude.Maybe Prelude.Text,
-    -- | The managed node ID or key-value pair to retrieve information about.
-    targets :: Prelude.Maybe [Target],
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The type of resource you want to retrieve information about. For
+    -- example, @INSTANCE@.
+    resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
+    -- | The managed node ID or key-value pair to retrieve information about.
+    targets :: Prelude.Maybe [Target],
+    -- | The ID of the maintenance window to retrieve information about.
+    windowId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,45 +86,35 @@ data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'describeMaintenanceWindowSchedule_resourceType' - The type of resource you want to retrieve information about. For
--- example, @INSTANCE@.
---
--- 'nextToken', 'describeMaintenanceWindowSchedule_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeMaintenanceWindowSchedule_filters' - Filters used to limit the range of results. For example, you can limit
 -- maintenance window executions to only those scheduled before or after a
 -- certain date and time.
 --
--- 'windowId', 'describeMaintenanceWindowSchedule_windowId' - The ID of the maintenance window to retrieve information about.
---
--- 'targets', 'describeMaintenanceWindowSchedule_targets' - The managed node ID or key-value pair to retrieve information about.
---
 -- 'maxResults', 'describeMaintenanceWindowSchedule_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeMaintenanceWindowSchedule_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'resourceType', 'describeMaintenanceWindowSchedule_resourceType' - The type of resource you want to retrieve information about. For
+-- example, @INSTANCE@.
+--
+-- 'targets', 'describeMaintenanceWindowSchedule_targets' - The managed node ID or key-value pair to retrieve information about.
+--
+-- 'windowId', 'describeMaintenanceWindowSchedule_windowId' - The ID of the maintenance window to retrieve information about.
 newDescribeMaintenanceWindowSchedule ::
   DescribeMaintenanceWindowSchedule
 newDescribeMaintenanceWindowSchedule =
   DescribeMaintenanceWindowSchedule'
-    { resourceType =
+    { filters =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      windowId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       targets = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      windowId = Prelude.Nothing
     }
-
--- | The type of resource you want to retrieve information about. For
--- example, @INSTANCE@.
-describeMaintenanceWindowSchedule_resourceType :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe MaintenanceWindowResourceType)
-describeMaintenanceWindowSchedule_resourceType = Lens.lens (\DescribeMaintenanceWindowSchedule' {resourceType} -> resourceType) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {resourceType = a} :: DescribeMaintenanceWindowSchedule)
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowSchedule_nextToken :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowSchedule_nextToken = Lens.lens (\DescribeMaintenanceWindowSchedule' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowSchedule)
 
 -- | Filters used to limit the range of results. For example, you can limit
 -- maintenance window executions to only those scheduled before or after a
@@ -132,19 +122,29 @@ describeMaintenanceWindowSchedule_nextToken = Lens.lens (\DescribeMaintenanceWin
 describeMaintenanceWindowSchedule_filters :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe [PatchOrchestratorFilter])
 describeMaintenanceWindowSchedule_filters = Lens.lens (\DescribeMaintenanceWindowSchedule' {filters} -> filters) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {filters = a} :: DescribeMaintenanceWindowSchedule) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the maintenance window to retrieve information about.
-describeMaintenanceWindowSchedule_windowId :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowSchedule_windowId = Lens.lens (\DescribeMaintenanceWindowSchedule' {windowId} -> windowId) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {windowId = a} :: DescribeMaintenanceWindowSchedule)
-
--- | The managed node ID or key-value pair to retrieve information about.
-describeMaintenanceWindowSchedule_targets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe [Target])
-describeMaintenanceWindowSchedule_targets = Lens.lens (\DescribeMaintenanceWindowSchedule' {targets} -> targets) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {targets = a} :: DescribeMaintenanceWindowSchedule) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 describeMaintenanceWindowSchedule_maxResults :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowSchedule_maxResults = Lens.lens (\DescribeMaintenanceWindowSchedule' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowSchedule)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowSchedule_nextToken :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowSchedule_nextToken = Lens.lens (\DescribeMaintenanceWindowSchedule' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowSchedule)
+
+-- | The type of resource you want to retrieve information about. For
+-- example, @INSTANCE@.
+describeMaintenanceWindowSchedule_resourceType :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe MaintenanceWindowResourceType)
+describeMaintenanceWindowSchedule_resourceType = Lens.lens (\DescribeMaintenanceWindowSchedule' {resourceType} -> resourceType) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {resourceType = a} :: DescribeMaintenanceWindowSchedule)
+
+-- | The managed node ID or key-value pair to retrieve information about.
+describeMaintenanceWindowSchedule_targets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe [Target])
+describeMaintenanceWindowSchedule_targets = Lens.lens (\DescribeMaintenanceWindowSchedule' {targets} -> targets) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {targets = a} :: DescribeMaintenanceWindowSchedule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the maintenance window to retrieve information about.
+describeMaintenanceWindowSchedule_windowId :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowSchedule_windowId = Lens.lens (\DescribeMaintenanceWindowSchedule' {windowId} -> windowId) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {windowId = a} :: DescribeMaintenanceWindowSchedule)
 
 instance
   Core.AWSPager
@@ -198,24 +198,24 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowSchedule' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` windowId
-        `Prelude.hashWithSalt` targets
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` targets
+        `Prelude.hashWithSalt` windowId
 
 instance
   Prelude.NFData
     DescribeMaintenanceWindowSchedule
   where
   rnf DescribeMaintenanceWindowSchedule' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf windowId
-      `Prelude.seq` Prelude.rnf targets
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf windowId
 
 instance
   Data.ToHeaders
@@ -242,12 +242,12 @@ instance
   toJSON DescribeMaintenanceWindowSchedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("WindowId" Data..=) Prelude.<$> windowId,
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
             ("Targets" Data..=) Prelude.<$> targets,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("WindowId" Data..=) Prelude.<$> windowId
           ]
       )
 

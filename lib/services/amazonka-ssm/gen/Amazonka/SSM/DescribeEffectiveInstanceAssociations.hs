@@ -29,8 +29,8 @@ module Amazonka.SSM.DescribeEffectiveInstanceAssociations
     newDescribeEffectiveInstanceAssociations,
 
     -- * Request Lenses
-    describeEffectiveInstanceAssociations_nextToken,
     describeEffectiveInstanceAssociations_maxResults,
+    describeEffectiveInstanceAssociations_nextToken,
     describeEffectiveInstanceAssociations_instanceId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SSM.DescribeEffectiveInstanceAssociations
     newDescribeEffectiveInstanceAssociationsResponse,
 
     -- * Response Lenses
-    describeEffectiveInstanceAssociationsResponse_nextToken,
     describeEffectiveInstanceAssociationsResponse_associations,
+    describeEffectiveInstanceAssociationsResponse_nextToken,
     describeEffectiveInstanceAssociationsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeEffectiveInstanceAssociations' smart constructor.
 data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The managed node ID for which you want to view all associations.
     instanceId :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeEffectiveInstanceAssociations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'describeEffectiveInstanceAssociations_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeEffectiveInstanceAssociations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'instanceId', 'describeEffectiveInstanceAssociations_instanceId' - The managed node ID for which you want to view all associations.
 newDescribeEffectiveInstanceAssociations ::
@@ -88,22 +88,22 @@ newDescribeEffectiveInstanceAssociations ::
   DescribeEffectiveInstanceAssociations
 newDescribeEffectiveInstanceAssociations pInstanceId_ =
   DescribeEffectiveInstanceAssociations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeEffectiveInstanceAssociations_nextToken :: Lens.Lens' DescribeEffectiveInstanceAssociations (Prelude.Maybe Prelude.Text)
-describeEffectiveInstanceAssociations_nextToken = Lens.lens (\DescribeEffectiveInstanceAssociations' {nextToken} -> nextToken) (\s@DescribeEffectiveInstanceAssociations' {} a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociations)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 describeEffectiveInstanceAssociations_maxResults :: Lens.Lens' DescribeEffectiveInstanceAssociations (Prelude.Maybe Prelude.Natural)
 describeEffectiveInstanceAssociations_maxResults = Lens.lens (\DescribeEffectiveInstanceAssociations' {maxResults} -> maxResults) (\s@DescribeEffectiveInstanceAssociations' {} a -> s {maxResults = a} :: DescribeEffectiveInstanceAssociations)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeEffectiveInstanceAssociations_nextToken :: Lens.Lens' DescribeEffectiveInstanceAssociations (Prelude.Maybe Prelude.Text)
+describeEffectiveInstanceAssociations_nextToken = Lens.lens (\DescribeEffectiveInstanceAssociations' {nextToken} -> nextToken) (\s@DescribeEffectiveInstanceAssociations' {} a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociations)
 
 -- | The managed node ID for which you want to view all associations.
 describeEffectiveInstanceAssociations_instanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Prelude.Text
@@ -148,8 +148,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectiveInstanceAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Associations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Associations" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,8 +160,8 @@ instance
   hashWithSalt
     _salt
     DescribeEffectiveInstanceAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceId
 
 instance
@@ -169,8 +169,8 @@ instance
     DescribeEffectiveInstanceAssociations
   where
   rnf DescribeEffectiveInstanceAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance
@@ -198,8 +198,8 @@ instance
   toJSON DescribeEffectiveInstanceAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
@@ -218,11 +218,11 @@ instance
 
 -- | /See:/ 'newDescribeEffectiveInstanceAssociationsResponse' smart constructor.
 data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAssociationsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The associations for the requested managed node.
+    associations :: Prelude.Maybe [InstanceAssociation],
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The associations for the requested managed node.
-    associations :: Prelude.Maybe [InstanceAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,10 +236,10 @@ data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAs
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associations', 'describeEffectiveInstanceAssociationsResponse_associations' - The associations for the requested managed node.
+--
 -- 'nextToken', 'describeEffectiveInstanceAssociationsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'associations', 'describeEffectiveInstanceAssociationsResponse_associations' - The associations for the requested managed node.
 --
 -- 'httpStatus', 'describeEffectiveInstanceAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeEffectiveInstanceAssociationsResponse ::
@@ -249,21 +249,20 @@ newDescribeEffectiveInstanceAssociationsResponse ::
 newDescribeEffectiveInstanceAssociationsResponse
   pHttpStatus_ =
     DescribeEffectiveInstanceAssociationsResponse'
-      { nextToken =
+      { associations =
           Prelude.Nothing,
-        associations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The associations for the requested managed node.
+describeEffectiveInstanceAssociationsResponse_associations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe [InstanceAssociation])
+describeEffectiveInstanceAssociationsResponse_associations = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {associations} -> associations) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeEffectiveInstanceAssociationsResponse_nextToken :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe Prelude.Text)
 describeEffectiveInstanceAssociationsResponse_nextToken = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociationsResponse)
-
--- | The associations for the requested managed node.
-describeEffectiveInstanceAssociationsResponse_associations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe [InstanceAssociation])
-describeEffectiveInstanceAssociationsResponse_associations = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {associations} -> associations) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEffectiveInstanceAssociationsResponse_httpStatus :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse Prelude.Int
@@ -275,6 +274,6 @@ instance
   where
   rnf
     DescribeEffectiveInstanceAssociationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf associations
+      Prelude.rnf associations
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

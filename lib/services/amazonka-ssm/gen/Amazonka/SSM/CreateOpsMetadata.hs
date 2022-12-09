@@ -29,8 +29,8 @@ module Amazonka.SSM.CreateOpsMetadata
     newCreateOpsMetadata,
 
     -- * Request Lenses
-    createOpsMetadata_tags,
     createOpsMetadata_metadata,
+    createOpsMetadata_tags,
     createOpsMetadata_resourceId,
 
     -- * Destructuring the Response
@@ -53,7 +53,9 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newCreateOpsMetadata' smart constructor.
 data CreateOpsMetadata = CreateOpsMetadata'
-  { -- | Optional metadata that you assign to a resource. You can specify a
+  { -- | Metadata for a new Application Manager application.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
+    -- | Optional metadata that you assign to a resource. You can specify a
     -- maximum of five tags for an OpsMetadata object. Tags enable you to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment. For example, you might want to tag an OpsMetadata object to
@@ -64,8 +66,6 @@ data CreateOpsMetadata = CreateOpsMetadata'
     --
     -- -   @Key=Region,Value=us-east-2@
     tags :: Prelude.Maybe [Tag],
-    -- | Metadata for a new Application Manager application.
-    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
     -- | A resource ID for a new Application Manager application.
     resourceId :: Prelude.Text
   }
@@ -79,6 +79,8 @@ data CreateOpsMetadata = CreateOpsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metadata', 'createOpsMetadata_metadata' - Metadata for a new Application Manager application.
+--
 -- 'tags', 'createOpsMetadata_tags' - Optional metadata that you assign to a resource. You can specify a
 -- maximum of five tags for an OpsMetadata object. Tags enable you to
 -- categorize a resource in different ways, such as by purpose, owner, or
@@ -90,8 +92,6 @@ data CreateOpsMetadata = CreateOpsMetadata'
 --
 -- -   @Key=Region,Value=us-east-2@
 --
--- 'metadata', 'createOpsMetadata_metadata' - Metadata for a new Application Manager application.
---
 -- 'resourceId', 'createOpsMetadata_resourceId' - A resource ID for a new Application Manager application.
 newCreateOpsMetadata ::
   -- | 'resourceId'
@@ -99,10 +99,14 @@ newCreateOpsMetadata ::
   CreateOpsMetadata
 newCreateOpsMetadata pResourceId_ =
   CreateOpsMetadata'
-    { tags = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      tags = Prelude.Nothing,
       resourceId = pResourceId_
     }
+
+-- | Metadata for a new Application Manager application.
+createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
+createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional metadata that you assign to a resource. You can specify a
 -- maximum of five tags for an OpsMetadata object. Tags enable you to
@@ -116,10 +120,6 @@ newCreateOpsMetadata pResourceId_ =
 -- -   @Key=Region,Value=us-east-2@
 createOpsMetadata_tags :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe [Tag])
 createOpsMetadata_tags = Lens.lens (\CreateOpsMetadata' {tags} -> tags) (\s@CreateOpsMetadata' {} a -> s {tags = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
-
--- | Metadata for a new Application Manager application.
-createOpsMetadata_metadata :: Lens.Lens' CreateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
-createOpsMetadata_metadata = Lens.lens (\CreateOpsMetadata' {metadata} -> metadata) (\s@CreateOpsMetadata' {} a -> s {metadata = a} :: CreateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A resource ID for a new Application Manager application.
 createOpsMetadata_resourceId :: Lens.Lens' CreateOpsMetadata Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest CreateOpsMetadata where
 
 instance Prelude.Hashable CreateOpsMetadata where
   hashWithSalt _salt CreateOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` metadata
+    _salt `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData CreateOpsMetadata where
   rnf CreateOpsMetadata' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders CreateOpsMetadata where
@@ -170,8 +170,8 @@ instance Data.ToJSON CreateOpsMetadata where
   toJSON CreateOpsMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Metadata" Data..=) Prelude.<$> metadata,
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )

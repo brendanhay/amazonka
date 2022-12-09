@@ -34,9 +34,9 @@ module Amazonka.CodeArtifact.ListPackageVersionDependencies
     newListPackageVersionDependencies,
 
     -- * Request Lenses
-    listPackageVersionDependencies_nextToken,
     listPackageVersionDependencies_domainOwner,
     listPackageVersionDependencies_namespace,
+    listPackageVersionDependencies_nextToken,
     listPackageVersionDependencies_domain,
     listPackageVersionDependencies_repository,
     listPackageVersionDependencies_format,
@@ -49,12 +49,12 @@ module Amazonka.CodeArtifact.ListPackageVersionDependencies
 
     -- * Response Lenses
     listPackageVersionDependenciesResponse_dependencies,
-    listPackageVersionDependenciesResponse_nextToken,
-    listPackageVersionDependenciesResponse_versionRevision,
     listPackageVersionDependenciesResponse_format,
-    listPackageVersionDependenciesResponse_package,
     listPackageVersionDependenciesResponse_namespace,
+    listPackageVersionDependenciesResponse_nextToken,
+    listPackageVersionDependenciesResponse_package,
     listPackageVersionDependenciesResponse_version,
+    listPackageVersionDependenciesResponse_versionRevision,
     listPackageVersionDependenciesResponse_httpStatus,
   )
 where
@@ -69,11 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackageVersionDependencies' smart constructor.
 data ListPackageVersionDependencies = ListPackageVersionDependencies'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
     -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package version with the requested dependencies.
@@ -88,6 +84,10 @@ data ListPackageVersionDependencies = ListPackageVersionDependencies'
     --     component, package versions of those formats do not have a
     --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- requested package version dependencies.
     domain :: Prelude.Text,
@@ -110,10 +110,6 @@ data ListPackageVersionDependencies = ListPackageVersionDependencies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackageVersionDependencies_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'domainOwner', 'listPackageVersionDependencies_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 --
@@ -128,6 +124,10 @@ data ListPackageVersionDependencies = ListPackageVersionDependencies'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- 'nextToken', 'listPackageVersionDependencies_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 --
 -- 'domain', 'listPackageVersionDependencies_domain' - The name of the domain that contains the repository that contains the
 -- requested package version dependencies.
@@ -158,22 +158,16 @@ newListPackageVersionDependencies
   pPackage_
   pPackageVersion_ =
     ListPackageVersionDependencies'
-      { nextToken =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
         package = pPackage_,
         packageVersion = pPackageVersion_
       }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listPackageVersionDependencies_nextToken :: Lens.Lens' ListPackageVersionDependencies (Prelude.Maybe Prelude.Text)
-listPackageVersionDependencies_nextToken = Lens.lens (\ListPackageVersionDependencies' {nextToken} -> nextToken) (\s@ListPackageVersionDependencies' {} a -> s {nextToken = a} :: ListPackageVersionDependencies)
 
 -- | The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
@@ -193,6 +187,12 @@ listPackageVersionDependencies_domainOwner = Lens.lens (\ListPackageVersionDepen
 --     namespace.
 listPackageVersionDependencies_namespace :: Lens.Lens' ListPackageVersionDependencies (Prelude.Maybe Prelude.Text)
 listPackageVersionDependencies_namespace = Lens.lens (\ListPackageVersionDependencies' {namespace} -> namespace) (\s@ListPackageVersionDependencies' {} a -> s {namespace = a} :: ListPackageVersionDependencies)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listPackageVersionDependencies_nextToken :: Lens.Lens' ListPackageVersionDependencies (Prelude.Maybe Prelude.Text)
+listPackageVersionDependencies_nextToken = Lens.lens (\ListPackageVersionDependencies' {nextToken} -> nextToken) (\s@ListPackageVersionDependencies' {} a -> s {nextToken = a} :: ListPackageVersionDependencies)
 
 -- | The name of the domain that contains the repository that contains the
 -- requested package version dependencies.
@@ -229,12 +229,12 @@ instance
       ( \s h x ->
           ListPackageVersionDependenciesResponse'
             Prelude.<$> (x Data..?> "dependencies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "versionRevision")
             Prelude.<*> (x Data..?> "format")
-            Prelude.<*> (x Data..?> "package")
             Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "package")
             Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (x Data..?> "versionRevision")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,9 +245,9 @@ instance
   hashWithSalt
     _salt
     ListPackageVersionDependencies' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` domainOwner
+      _salt `Prelude.hashWithSalt` domainOwner
         `Prelude.hashWithSalt` namespace
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository
         `Prelude.hashWithSalt` format
@@ -259,9 +259,9 @@ instance
     ListPackageVersionDependencies
   where
   rnf ListPackageVersionDependencies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -292,9 +292,9 @@ instance Data.ToPath ListPackageVersionDependencies where
 instance Data.ToQuery ListPackageVersionDependencies where
   toQuery ListPackageVersionDependencies' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "domain-owner" Data.=: domainOwner,
+      [ "domain-owner" Data.=: domainOwner,
         "namespace" Data.=: namespace,
+        "next-token" Data.=: nextToken,
         "domain" Data.=: domain,
         "repository" Data.=: repository,
         "format" Data.=: format,
@@ -308,18 +308,9 @@ data ListPackageVersionDependenciesResponse = ListPackageVersionDependenciesResp
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html PackageDependency>
     -- objects.
     dependencies :: Prelude.Maybe [PackageDependency],
-    -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current revision associated with the package version.
-    versionRevision :: Prelude.Maybe Prelude.Text,
     -- | A format that specifies the type of the package that contains the
     -- returned dependencies.
     format :: Prelude.Maybe PackageFormat,
-    -- | The name of the package that contains the returned package versions
-    -- dependencies.
-    package :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package version that contains the returned
     -- dependencies. The package version component that specifies its namespace
     -- depends on its type. For example:
@@ -332,8 +323,17 @@ data ListPackageVersionDependenciesResponse = ListPackageVersionDependenciesResp
     --     component, package versions of those formats do not have a
     --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the package that contains the returned package versions
+    -- dependencies.
+    package :: Prelude.Maybe Prelude.Text,
     -- | The version of the package that is specified in the request.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The current revision associated with the package version.
+    versionRevision :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -351,17 +351,8 @@ data ListPackageVersionDependenciesResponse = ListPackageVersionDependenciesResp
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html PackageDependency>
 -- objects.
 --
--- 'nextToken', 'listPackageVersionDependenciesResponse_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- 'versionRevision', 'listPackageVersionDependenciesResponse_versionRevision' - The current revision associated with the package version.
---
 -- 'format', 'listPackageVersionDependenciesResponse_format' - A format that specifies the type of the package that contains the
 -- returned dependencies.
---
--- 'package', 'listPackageVersionDependenciesResponse_package' - The name of the package that contains the returned package versions
--- dependencies.
 --
 -- 'namespace', 'listPackageVersionDependenciesResponse_namespace' - The namespace of the package version that contains the returned
 -- dependencies. The package version component that specifies its namespace
@@ -375,7 +366,16 @@ data ListPackageVersionDependenciesResponse = ListPackageVersionDependenciesResp
 --     component, package versions of those formats do not have a
 --     namespace.
 --
+-- 'nextToken', 'listPackageVersionDependenciesResponse_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- 'package', 'listPackageVersionDependenciesResponse_package' - The name of the package that contains the returned package versions
+-- dependencies.
+--
 -- 'version', 'listPackageVersionDependenciesResponse_version' - The version of the package that is specified in the request.
+--
+-- 'versionRevision', 'listPackageVersionDependenciesResponse_versionRevision' - The current revision associated with the package version.
 --
 -- 'httpStatus', 'listPackageVersionDependenciesResponse_httpStatus' - The response's http status code.
 newListPackageVersionDependenciesResponse ::
@@ -387,12 +387,12 @@ newListPackageVersionDependenciesResponse
     ListPackageVersionDependenciesResponse'
       { dependencies =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
-        versionRevision = Prelude.Nothing,
         format = Prelude.Nothing,
-        package = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        package = Prelude.Nothing,
         version = Prelude.Nothing,
+        versionRevision = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -402,25 +402,10 @@ newListPackageVersionDependenciesResponse
 listPackageVersionDependenciesResponse_dependencies :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe [PackageDependency])
 listPackageVersionDependenciesResponse_dependencies = Lens.lens (\ListPackageVersionDependenciesResponse' {dependencies} -> dependencies) (\s@ListPackageVersionDependenciesResponse' {} a -> s {dependencies = a} :: ListPackageVersionDependenciesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listPackageVersionDependenciesResponse_nextToken :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionDependenciesResponse_nextToken = Lens.lens (\ListPackageVersionDependenciesResponse' {nextToken} -> nextToken) (\s@ListPackageVersionDependenciesResponse' {} a -> s {nextToken = a} :: ListPackageVersionDependenciesResponse)
-
--- | The current revision associated with the package version.
-listPackageVersionDependenciesResponse_versionRevision :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionDependenciesResponse_versionRevision = Lens.lens (\ListPackageVersionDependenciesResponse' {versionRevision} -> versionRevision) (\s@ListPackageVersionDependenciesResponse' {} a -> s {versionRevision = a} :: ListPackageVersionDependenciesResponse)
-
 -- | A format that specifies the type of the package that contains the
 -- returned dependencies.
 listPackageVersionDependenciesResponse_format :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe PackageFormat)
 listPackageVersionDependenciesResponse_format = Lens.lens (\ListPackageVersionDependenciesResponse' {format} -> format) (\s@ListPackageVersionDependenciesResponse' {} a -> s {format = a} :: ListPackageVersionDependenciesResponse)
-
--- | The name of the package that contains the returned package versions
--- dependencies.
-listPackageVersionDependenciesResponse_package :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionDependenciesResponse_package = Lens.lens (\ListPackageVersionDependenciesResponse' {package} -> package) (\s@ListPackageVersionDependenciesResponse' {} a -> s {package = a} :: ListPackageVersionDependenciesResponse)
 
 -- | The namespace of the package version that contains the returned
 -- dependencies. The package version component that specifies its namespace
@@ -436,9 +421,24 @@ listPackageVersionDependenciesResponse_package = Lens.lens (\ListPackageVersionD
 listPackageVersionDependenciesResponse_namespace :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionDependenciesResponse_namespace = Lens.lens (\ListPackageVersionDependenciesResponse' {namespace} -> namespace) (\s@ListPackageVersionDependenciesResponse' {} a -> s {namespace = a} :: ListPackageVersionDependenciesResponse)
 
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listPackageVersionDependenciesResponse_nextToken :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionDependenciesResponse_nextToken = Lens.lens (\ListPackageVersionDependenciesResponse' {nextToken} -> nextToken) (\s@ListPackageVersionDependenciesResponse' {} a -> s {nextToken = a} :: ListPackageVersionDependenciesResponse)
+
+-- | The name of the package that contains the returned package versions
+-- dependencies.
+listPackageVersionDependenciesResponse_package :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionDependenciesResponse_package = Lens.lens (\ListPackageVersionDependenciesResponse' {package} -> package) (\s@ListPackageVersionDependenciesResponse' {} a -> s {package = a} :: ListPackageVersionDependenciesResponse)
+
 -- | The version of the package that is specified in the request.
 listPackageVersionDependenciesResponse_version :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionDependenciesResponse_version = Lens.lens (\ListPackageVersionDependenciesResponse' {version} -> version) (\s@ListPackageVersionDependenciesResponse' {} a -> s {version = a} :: ListPackageVersionDependenciesResponse)
+
+-- | The current revision associated with the package version.
+listPackageVersionDependenciesResponse_versionRevision :: Lens.Lens' ListPackageVersionDependenciesResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionDependenciesResponse_versionRevision = Lens.lens (\ListPackageVersionDependenciesResponse' {versionRevision} -> versionRevision) (\s@ListPackageVersionDependenciesResponse' {} a -> s {versionRevision = a} :: ListPackageVersionDependenciesResponse)
 
 -- | The response's http status code.
 listPackageVersionDependenciesResponse_httpStatus :: Lens.Lens' ListPackageVersionDependenciesResponse Prelude.Int
@@ -450,10 +450,10 @@ instance
   where
   rnf ListPackageVersionDependenciesResponse' {..} =
     Prelude.rnf dependencies
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf versionRevision
       `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf versionRevision
       `Prelude.seq` Prelude.rnf httpStatus

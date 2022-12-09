@@ -33,8 +33,8 @@ module Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
     newPutRepositoryPermissionsPolicy,
 
     -- * Request Lenses
-    putRepositoryPermissionsPolicy_policyRevision,
     putRepositoryPermissionsPolicy_domainOwner,
+    putRepositoryPermissionsPolicy_policyRevision,
     putRepositoryPermissionsPolicy_domain,
     putRepositoryPermissionsPolicy_repository,
     putRepositoryPermissionsPolicy_policyDocument,
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutRepositoryPermissionsPolicy' smart constructor.
 data PutRepositoryPermissionsPolicy = PutRepositoryPermissionsPolicy'
-  { -- | Sets the revision of the resource policy that specifies permissions to
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | Sets the revision of the resource policy that specifies permissions to
     -- access the repository. This revision is used for optimistic locking,
     -- which prevents others from overwriting your changes to the repository\'s
     -- resource policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
-    -- the domain. It does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the repository to set the resource
     -- policy on.
     domain :: Prelude.Text,
@@ -86,13 +86,13 @@ data PutRepositoryPermissionsPolicy = PutRepositoryPermissionsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainOwner', 'putRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+--
 -- 'policyRevision', 'putRepositoryPermissionsPolicy_policyRevision' - Sets the revision of the resource policy that specifies permissions to
 -- access the repository. This revision is used for optimistic locking,
 -- which prevents others from overwriting your changes to the repository\'s
 -- resource policy.
---
--- 'domainOwner', 'putRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'putRepositoryPermissionsPolicy_domain' - The name of the domain containing the repository to set the resource
 -- policy on.
@@ -114,13 +114,18 @@ newPutRepositoryPermissionsPolicy
   pRepository_
   pPolicyDocument_ =
     PutRepositoryPermissionsPolicy'
-      { policyRevision =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
+        policyRevision = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         policyDocument = pPolicyDocument_
       }
+
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+putRepositoryPermissionsPolicy_domainOwner :: Lens.Lens' PutRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
+putRepositoryPermissionsPolicy_domainOwner = Lens.lens (\PutRepositoryPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutRepositoryPermissionsPolicy' {} a -> s {domainOwner = a} :: PutRepositoryPermissionsPolicy)
 
 -- | Sets the revision of the resource policy that specifies permissions to
 -- access the repository. This revision is used for optimistic locking,
@@ -128,11 +133,6 @@ newPutRepositoryPermissionsPolicy
 -- resource policy.
 putRepositoryPermissionsPolicy_policyRevision :: Lens.Lens' PutRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putRepositoryPermissionsPolicy_policyRevision = Lens.lens (\PutRepositoryPermissionsPolicy' {policyRevision} -> policyRevision) (\s@PutRepositoryPermissionsPolicy' {} a -> s {policyRevision = a} :: PutRepositoryPermissionsPolicy)
-
--- | The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
-putRepositoryPermissionsPolicy_domainOwner :: Lens.Lens' PutRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
-putRepositoryPermissionsPolicy_domainOwner = Lens.lens (\PutRepositoryPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutRepositoryPermissionsPolicy' {} a -> s {domainOwner = a} :: PutRepositoryPermissionsPolicy)
 
 -- | The name of the domain containing the repository to set the resource
 -- policy on.
@@ -172,8 +172,8 @@ instance
   hashWithSalt
     _salt
     PutRepositoryPermissionsPolicy' {..} =
-      _salt `Prelude.hashWithSalt` policyRevision
-        `Prelude.hashWithSalt` domainOwner
+      _salt `Prelude.hashWithSalt` domainOwner
+        `Prelude.hashWithSalt` policyRevision
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` repository
         `Prelude.hashWithSalt` policyDocument
@@ -183,8 +183,8 @@ instance
     PutRepositoryPermissionsPolicy
   where
   rnf PutRepositoryPermissionsPolicy' {..} =
-    Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf policyRevision
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf policyDocument

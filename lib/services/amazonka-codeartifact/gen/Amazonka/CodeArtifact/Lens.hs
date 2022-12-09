@@ -23,12 +23,12 @@ module Amazonka.CodeArtifact.Lens
     associateExternalConnectionResponse_httpStatus,
 
     -- ** CopyPackageVersions
-    copyPackageVersions_includeFromUpstream,
-    copyPackageVersions_versionRevisions,
     copyPackageVersions_allowOverwrite,
-    copyPackageVersions_versions,
     copyPackageVersions_domainOwner,
+    copyPackageVersions_includeFromUpstream,
     copyPackageVersions_namespace,
+    copyPackageVersions_versionRevisions,
+    copyPackageVersions_versions,
     copyPackageVersions_domain,
     copyPackageVersions_sourceRepository,
     copyPackageVersions_destinationRepository,
@@ -39,17 +39,17 @@ module Amazonka.CodeArtifact.Lens
     copyPackageVersionsResponse_httpStatus,
 
     -- ** CreateDomain
-    createDomain_tags,
     createDomain_encryptionKey,
+    createDomain_tags,
     createDomain_domain,
     createDomainResponse_domain,
     createDomainResponse_httpStatus,
 
     -- ** CreateRepository
-    createRepository_tags,
-    createRepository_upstreams,
     createRepository_description,
     createRepository_domainOwner,
+    createRepository_tags,
+    createRepository_upstreams,
     createRepository_domain,
     createRepository_repository,
     createRepositoryResponse_repository,
@@ -62,15 +62,15 @@ module Amazonka.CodeArtifact.Lens
     deleteDomainResponse_httpStatus,
 
     -- ** DeleteDomainPermissionsPolicy
-    deleteDomainPermissionsPolicy_policyRevision,
     deleteDomainPermissionsPolicy_domainOwner,
+    deleteDomainPermissionsPolicy_policyRevision,
     deleteDomainPermissionsPolicy_domain,
     deleteDomainPermissionsPolicyResponse_policy,
     deleteDomainPermissionsPolicyResponse_httpStatus,
 
     -- ** DeletePackageVersions
-    deletePackageVersions_expectedStatus,
     deletePackageVersions_domainOwner,
+    deletePackageVersions_expectedStatus,
     deletePackageVersions_namespace,
     deletePackageVersions_domain,
     deletePackageVersions_repository,
@@ -89,8 +89,8 @@ module Amazonka.CodeArtifact.Lens
     deleteRepositoryResponse_httpStatus,
 
     -- ** DeleteRepositoryPermissionsPolicy
-    deleteRepositoryPermissionsPolicy_policyRevision,
     deleteRepositoryPermissionsPolicy_domainOwner,
+    deleteRepositoryPermissionsPolicy_policyRevision,
     deleteRepositoryPermissionsPolicy_domain,
     deleteRepositoryPermissionsPolicy_repository,
     deleteRepositoryPermissionsPolicyResponse_policy,
@@ -139,10 +139,10 @@ module Amazonka.CodeArtifact.Lens
     disassociateExternalConnectionResponse_httpStatus,
 
     -- ** DisposePackageVersions
-    disposePackageVersions_versionRevisions,
-    disposePackageVersions_expectedStatus,
     disposePackageVersions_domainOwner,
+    disposePackageVersions_expectedStatus,
     disposePackageVersions_namespace,
+    disposePackageVersions_versionRevisions,
     disposePackageVersions_domain,
     disposePackageVersions_repository,
     disposePackageVersions_format,
@@ -153,11 +153,11 @@ module Amazonka.CodeArtifact.Lens
     disposePackageVersionsResponse_httpStatus,
 
     -- ** GetAuthorizationToken
-    getAuthorizationToken_durationSeconds,
     getAuthorizationToken_domainOwner,
+    getAuthorizationToken_durationSeconds,
     getAuthorizationToken_domain,
-    getAuthorizationTokenResponse_expiration,
     getAuthorizationTokenResponse_authorizationToken,
+    getAuthorizationTokenResponse_expiration,
     getAuthorizationTokenResponse_httpStatus,
 
     -- ** GetDomainPermissionsPolicy
@@ -167,9 +167,9 @@ module Amazonka.CodeArtifact.Lens
     getDomainPermissionsPolicyResponse_httpStatus,
 
     -- ** GetPackageVersionAsset
-    getPackageVersionAsset_packageVersionRevision,
     getPackageVersionAsset_domainOwner,
     getPackageVersionAsset_namespace,
+    getPackageVersionAsset_packageVersionRevision,
     getPackageVersionAsset_domain,
     getPackageVersionAsset_repository,
     getPackageVersionAsset_format,
@@ -177,8 +177,8 @@ module Amazonka.CodeArtifact.Lens
     getPackageVersionAsset_packageVersion,
     getPackageVersionAsset_asset,
     getPackageVersionAssetResponse_assetName,
-    getPackageVersionAssetResponse_packageVersionRevision,
     getPackageVersionAssetResponse_packageVersion,
+    getPackageVersionAssetResponse_packageVersionRevision,
     getPackageVersionAssetResponse_httpStatus,
     getPackageVersionAssetResponse_asset,
 
@@ -190,12 +190,12 @@ module Amazonka.CodeArtifact.Lens
     getPackageVersionReadme_format,
     getPackageVersionReadme_package,
     getPackageVersionReadme_packageVersion,
-    getPackageVersionReadmeResponse_versionRevision,
     getPackageVersionReadmeResponse_format,
-    getPackageVersionReadmeResponse_readme,
-    getPackageVersionReadmeResponse_package,
     getPackageVersionReadmeResponse_namespace,
+    getPackageVersionReadmeResponse_package,
+    getPackageVersionReadmeResponse_readme,
     getPackageVersionReadmeResponse_version,
+    getPackageVersionReadmeResponse_versionRevision,
     getPackageVersionReadmeResponse_httpStatus,
 
     -- ** GetRepositoryEndpoint
@@ -214,78 +214,78 @@ module Amazonka.CodeArtifact.Lens
     getRepositoryPermissionsPolicyResponse_httpStatus,
 
     -- ** ListDomains
-    listDomains_nextToken,
     listDomains_maxResults,
+    listDomains_nextToken,
     listDomainsResponse_domains,
     listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
 
     -- ** ListPackageVersionAssets
-    listPackageVersionAssets_nextToken,
-    listPackageVersionAssets_maxResults,
     listPackageVersionAssets_domainOwner,
+    listPackageVersionAssets_maxResults,
     listPackageVersionAssets_namespace,
+    listPackageVersionAssets_nextToken,
     listPackageVersionAssets_domain,
     listPackageVersionAssets_repository,
     listPackageVersionAssets_format,
     listPackageVersionAssets_package,
     listPackageVersionAssets_packageVersion,
-    listPackageVersionAssetsResponse_nextToken,
-    listPackageVersionAssetsResponse_versionRevision,
-    listPackageVersionAssetsResponse_format,
-    listPackageVersionAssetsResponse_package,
     listPackageVersionAssetsResponse_assets,
+    listPackageVersionAssetsResponse_format,
     listPackageVersionAssetsResponse_namespace,
+    listPackageVersionAssetsResponse_nextToken,
+    listPackageVersionAssetsResponse_package,
     listPackageVersionAssetsResponse_version,
+    listPackageVersionAssetsResponse_versionRevision,
     listPackageVersionAssetsResponse_httpStatus,
 
     -- ** ListPackageVersionDependencies
-    listPackageVersionDependencies_nextToken,
     listPackageVersionDependencies_domainOwner,
     listPackageVersionDependencies_namespace,
+    listPackageVersionDependencies_nextToken,
     listPackageVersionDependencies_domain,
     listPackageVersionDependencies_repository,
     listPackageVersionDependencies_format,
     listPackageVersionDependencies_package,
     listPackageVersionDependencies_packageVersion,
     listPackageVersionDependenciesResponse_dependencies,
-    listPackageVersionDependenciesResponse_nextToken,
-    listPackageVersionDependenciesResponse_versionRevision,
     listPackageVersionDependenciesResponse_format,
-    listPackageVersionDependenciesResponse_package,
     listPackageVersionDependenciesResponse_namespace,
+    listPackageVersionDependenciesResponse_nextToken,
+    listPackageVersionDependenciesResponse_package,
     listPackageVersionDependenciesResponse_version,
+    listPackageVersionDependenciesResponse_versionRevision,
     listPackageVersionDependenciesResponse_httpStatus,
 
     -- ** ListPackageVersions
+    listPackageVersions_domainOwner,
+    listPackageVersions_maxResults,
+    listPackageVersions_namespace,
     listPackageVersions_nextToken,
     listPackageVersions_originType,
-    listPackageVersions_status,
     listPackageVersions_sortBy,
-    listPackageVersions_maxResults,
-    listPackageVersions_domainOwner,
-    listPackageVersions_namespace,
+    listPackageVersions_status,
     listPackageVersions_domain,
     listPackageVersions_repository,
     listPackageVersions_format,
     listPackageVersions_package,
-    listPackageVersionsResponse_nextToken,
     listPackageVersionsResponse_defaultDisplayVersion,
     listPackageVersionsResponse_format,
+    listPackageVersionsResponse_namespace,
+    listPackageVersionsResponse_nextToken,
     listPackageVersionsResponse_package,
     listPackageVersionsResponse_versions,
-    listPackageVersionsResponse_namespace,
     listPackageVersionsResponse_httpStatus,
 
     -- ** ListPackages
-    listPackages_nextToken,
-    listPackages_publish,
-    listPackages_upstream,
+    listPackages_domainOwner,
     listPackages_format,
     listPackages_maxResults,
-    listPackages_domainOwner,
     listPackages_namespace,
+    listPackages_nextToken,
     listPackages_packagePrefix,
+    listPackages_publish,
+    listPackages_upstream,
     listPackages_domain,
     listPackages_repository,
     listPackagesResponse_nextToken,
@@ -293,19 +293,19 @@ module Amazonka.CodeArtifact.Lens
     listPackagesResponse_httpStatus,
 
     -- ** ListRepositories
+    listRepositories_maxResults,
     listRepositories_nextToken,
     listRepositories_repositoryPrefix,
-    listRepositories_maxResults,
     listRepositoriesResponse_nextToken,
     listRepositoriesResponse_repositories,
     listRepositoriesResponse_httpStatus,
 
     -- ** ListRepositoriesInDomain
     listRepositoriesInDomain_administratorAccount,
+    listRepositoriesInDomain_domainOwner,
+    listRepositoriesInDomain_maxResults,
     listRepositoriesInDomain_nextToken,
     listRepositoriesInDomain_repositoryPrefix,
-    listRepositoriesInDomain_maxResults,
-    listRepositoriesInDomain_domainOwner,
     listRepositoriesInDomain_domain,
     listRepositoriesInDomainResponse_nextToken,
     listRepositoriesInDomainResponse_repositories,
@@ -317,8 +317,8 @@ module Amazonka.CodeArtifact.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** PutDomainPermissionsPolicy
-    putDomainPermissionsPolicy_policyRevision,
     putDomainPermissionsPolicy_domainOwner,
+    putDomainPermissionsPolicy_policyRevision,
     putDomainPermissionsPolicy_domain,
     putDomainPermissionsPolicy_policyDocument,
     putDomainPermissionsPolicyResponse_policy,
@@ -336,8 +336,8 @@ module Amazonka.CodeArtifact.Lens
     putPackageOriginConfigurationResponse_httpStatus,
 
     -- ** PutRepositoryPermissionsPolicy
-    putRepositoryPermissionsPolicy_policyRevision,
     putRepositoryPermissionsPolicy_domainOwner,
+    putRepositoryPermissionsPolicy_policyRevision,
     putRepositoryPermissionsPolicy_domain,
     putRepositoryPermissionsPolicy_repository,
     putRepositoryPermissionsPolicy_policyDocument,
@@ -355,10 +355,10 @@ module Amazonka.CodeArtifact.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdatePackageVersionsStatus
-    updatePackageVersionsStatus_versionRevisions,
-    updatePackageVersionsStatus_expectedStatus,
     updatePackageVersionsStatus_domainOwner,
+    updatePackageVersionsStatus_expectedStatus,
     updatePackageVersionsStatus_namespace,
+    updatePackageVersionsStatus_versionRevisions,
     updatePackageVersionsStatus_domain,
     updatePackageVersionsStatus_repository,
     updatePackageVersionsStatus_format,
@@ -370,9 +370,9 @@ module Amazonka.CodeArtifact.Lens
     updatePackageVersionsStatusResponse_httpStatus,
 
     -- ** UpdateRepository
-    updateRepository_upstreams,
     updateRepository_description,
     updateRepository_domainOwner,
+    updateRepository_upstreams,
     updateRepository_domain,
     updateRepository_repository,
     updateRepositoryResponse_repository,
@@ -381,48 +381,48 @@ module Amazonka.CodeArtifact.Lens
     -- * Types
 
     -- ** AssetSummary
-    assetSummary_size,
     assetSummary_hashes,
+    assetSummary_size,
     assetSummary_name,
 
     -- ** DomainDescription
-    domainDescription_name,
-    domainDescription_repositoryCount,
-    domainDescription_createdTime,
-    domainDescription_assetSizeBytes,
     domainDescription_arn,
-    domainDescription_status,
-    domainDescription_owner,
-    domainDescription_s3BucketArn,
+    domainDescription_assetSizeBytes,
+    domainDescription_createdTime,
     domainDescription_encryptionKey,
+    domainDescription_name,
+    domainDescription_owner,
+    domainDescription_repositoryCount,
+    domainDescription_s3BucketArn,
+    domainDescription_status,
 
     -- ** DomainEntryPoint
-    domainEntryPoint_repositoryName,
     domainEntryPoint_externalConnectionName,
+    domainEntryPoint_repositoryName,
 
     -- ** DomainSummary
-    domainSummary_name,
-    domainSummary_createdTime,
     domainSummary_arn,
-    domainSummary_status,
-    domainSummary_owner,
+    domainSummary_createdTime,
     domainSummary_encryptionKey,
+    domainSummary_name,
+    domainSummary_owner,
+    domainSummary_status,
 
     -- ** LicenseInfo
     licenseInfo_name,
     licenseInfo_url,
 
     -- ** PackageDependency
-    packageDependency_package,
-    packageDependency_versionRequirement,
     packageDependency_dependencyType,
     packageDependency_namespace,
+    packageDependency_package,
+    packageDependency_versionRequirement,
 
     -- ** PackageDescription
-    packageDescription_name,
     packageDescription_format,
-    packageDescription_originConfiguration,
+    packageDescription_name,
     packageDescription_namespace,
+    packageDescription_originConfiguration,
 
     -- ** PackageOriginConfiguration
     packageOriginConfiguration_restrictions,
@@ -433,66 +433,66 @@ module Amazonka.CodeArtifact.Lens
 
     -- ** PackageSummary
     packageSummary_format,
-    packageSummary_package,
-    packageSummary_originConfiguration,
     packageSummary_namespace,
+    packageSummary_originConfiguration,
+    packageSummary_package,
 
     -- ** PackageVersionDescription
-    packageVersionDescription_publishedTime,
-    packageVersionDescription_homePage,
-    packageVersionDescription_packageName,
-    packageVersionDescription_format,
-    packageVersionDescription_revision,
     packageVersionDescription_displayName,
-    packageVersionDescription_summary,
-    packageVersionDescription_status,
-    packageVersionDescription_sourceCodeRepository,
+    packageVersionDescription_format,
+    packageVersionDescription_homePage,
+    packageVersionDescription_licenses,
     packageVersionDescription_namespace,
     packageVersionDescription_origin,
+    packageVersionDescription_packageName,
+    packageVersionDescription_publishedTime,
+    packageVersionDescription_revision,
+    packageVersionDescription_sourceCodeRepository,
+    packageVersionDescription_status,
+    packageVersionDescription_summary,
     packageVersionDescription_version,
-    packageVersionDescription_licenses,
 
     -- ** PackageVersionError
-    packageVersionError_errorMessage,
     packageVersionError_errorCode,
+    packageVersionError_errorMessage,
 
     -- ** PackageVersionOrigin
-    packageVersionOrigin_originType,
     packageVersionOrigin_domainEntryPoint,
+    packageVersionOrigin_originType,
 
     -- ** PackageVersionSummary
-    packageVersionSummary_revision,
     packageVersionSummary_origin,
+    packageVersionSummary_revision,
     packageVersionSummary_version,
     packageVersionSummary_status,
 
     -- ** RepositoryDescription
     repositoryDescription_administratorAccount,
-    repositoryDescription_name,
-    repositoryDescription_domainName,
-    repositoryDescription_upstreams,
     repositoryDescription_arn,
     repositoryDescription_description,
-    repositoryDescription_externalConnections,
+    repositoryDescription_domainName,
     repositoryDescription_domainOwner,
+    repositoryDescription_externalConnections,
+    repositoryDescription_name,
+    repositoryDescription_upstreams,
 
     -- ** RepositoryExternalConnectionInfo
-    repositoryExternalConnectionInfo_status,
     repositoryExternalConnectionInfo_externalConnectionName,
     repositoryExternalConnectionInfo_packageFormat,
+    repositoryExternalConnectionInfo_status,
 
     -- ** RepositorySummary
     repositorySummary_administratorAccount,
-    repositorySummary_name,
-    repositorySummary_domainName,
     repositorySummary_arn,
     repositorySummary_description,
+    repositorySummary_domainName,
     repositorySummary_domainOwner,
+    repositorySummary_name,
 
     -- ** ResourcePolicy
-    resourcePolicy_revision,
     resourcePolicy_document,
     resourcePolicy_resourceArn,
+    resourcePolicy_revision,
 
     -- ** SuccessfulPackageVersionInfo
     successfulPackageVersionInfo_revision,

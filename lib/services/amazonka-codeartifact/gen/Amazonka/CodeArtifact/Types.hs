@@ -19,10 +19,10 @@ module Amazonka.CodeArtifact.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -59,38 +59,38 @@ module Amazonka.CodeArtifact.Types
     -- * AssetSummary
     AssetSummary (..),
     newAssetSummary,
-    assetSummary_size,
     assetSummary_hashes,
+    assetSummary_size,
     assetSummary_name,
 
     -- * DomainDescription
     DomainDescription (..),
     newDomainDescription,
-    domainDescription_name,
-    domainDescription_repositoryCount,
-    domainDescription_createdTime,
-    domainDescription_assetSizeBytes,
     domainDescription_arn,
-    domainDescription_status,
-    domainDescription_owner,
-    domainDescription_s3BucketArn,
+    domainDescription_assetSizeBytes,
+    domainDescription_createdTime,
     domainDescription_encryptionKey,
+    domainDescription_name,
+    domainDescription_owner,
+    domainDescription_repositoryCount,
+    domainDescription_s3BucketArn,
+    domainDescription_status,
 
     -- * DomainEntryPoint
     DomainEntryPoint (..),
     newDomainEntryPoint,
-    domainEntryPoint_repositoryName,
     domainEntryPoint_externalConnectionName,
+    domainEntryPoint_repositoryName,
 
     -- * DomainSummary
     DomainSummary (..),
     newDomainSummary,
-    domainSummary_name,
-    domainSummary_createdTime,
     domainSummary_arn,
-    domainSummary_status,
-    domainSummary_owner,
+    domainSummary_createdTime,
     domainSummary_encryptionKey,
+    domainSummary_name,
+    domainSummary_owner,
+    domainSummary_status,
 
     -- * LicenseInfo
     LicenseInfo (..),
@@ -101,18 +101,18 @@ module Amazonka.CodeArtifact.Types
     -- * PackageDependency
     PackageDependency (..),
     newPackageDependency,
-    packageDependency_package,
-    packageDependency_versionRequirement,
     packageDependency_dependencyType,
     packageDependency_namespace,
+    packageDependency_package,
+    packageDependency_versionRequirement,
 
     -- * PackageDescription
     PackageDescription (..),
     newPackageDescription,
-    packageDescription_name,
     packageDescription_format,
-    packageDescription_originConfiguration,
+    packageDescription_name,
     packageDescription_namespace,
+    packageDescription_originConfiguration,
 
     -- * PackageOriginConfiguration
     PackageOriginConfiguration (..),
@@ -129,44 +129,44 @@ module Amazonka.CodeArtifact.Types
     PackageSummary (..),
     newPackageSummary,
     packageSummary_format,
-    packageSummary_package,
-    packageSummary_originConfiguration,
     packageSummary_namespace,
+    packageSummary_originConfiguration,
+    packageSummary_package,
 
     -- * PackageVersionDescription
     PackageVersionDescription (..),
     newPackageVersionDescription,
-    packageVersionDescription_publishedTime,
-    packageVersionDescription_homePage,
-    packageVersionDescription_packageName,
-    packageVersionDescription_format,
-    packageVersionDescription_revision,
     packageVersionDescription_displayName,
-    packageVersionDescription_summary,
-    packageVersionDescription_status,
-    packageVersionDescription_sourceCodeRepository,
+    packageVersionDescription_format,
+    packageVersionDescription_homePage,
+    packageVersionDescription_licenses,
     packageVersionDescription_namespace,
     packageVersionDescription_origin,
+    packageVersionDescription_packageName,
+    packageVersionDescription_publishedTime,
+    packageVersionDescription_revision,
+    packageVersionDescription_sourceCodeRepository,
+    packageVersionDescription_status,
+    packageVersionDescription_summary,
     packageVersionDescription_version,
-    packageVersionDescription_licenses,
 
     -- * PackageVersionError
     PackageVersionError (..),
     newPackageVersionError,
-    packageVersionError_errorMessage,
     packageVersionError_errorCode,
+    packageVersionError_errorMessage,
 
     -- * PackageVersionOrigin
     PackageVersionOrigin (..),
     newPackageVersionOrigin,
-    packageVersionOrigin_originType,
     packageVersionOrigin_domainEntryPoint,
+    packageVersionOrigin_originType,
 
     -- * PackageVersionSummary
     PackageVersionSummary (..),
     newPackageVersionSummary,
-    packageVersionSummary_revision,
     packageVersionSummary_origin,
+    packageVersionSummary_revision,
     packageVersionSummary_version,
     packageVersionSummary_status,
 
@@ -174,37 +174,37 @@ module Amazonka.CodeArtifact.Types
     RepositoryDescription (..),
     newRepositoryDescription,
     repositoryDescription_administratorAccount,
-    repositoryDescription_name,
-    repositoryDescription_domainName,
-    repositoryDescription_upstreams,
     repositoryDescription_arn,
     repositoryDescription_description,
-    repositoryDescription_externalConnections,
+    repositoryDescription_domainName,
     repositoryDescription_domainOwner,
+    repositoryDescription_externalConnections,
+    repositoryDescription_name,
+    repositoryDescription_upstreams,
 
     -- * RepositoryExternalConnectionInfo
     RepositoryExternalConnectionInfo (..),
     newRepositoryExternalConnectionInfo,
-    repositoryExternalConnectionInfo_status,
     repositoryExternalConnectionInfo_externalConnectionName,
     repositoryExternalConnectionInfo_packageFormat,
+    repositoryExternalConnectionInfo_status,
 
     -- * RepositorySummary
     RepositorySummary (..),
     newRepositorySummary,
     repositorySummary_administratorAccount,
-    repositorySummary_name,
-    repositorySummary_domainName,
     repositorySummary_arn,
     repositorySummary_description,
+    repositorySummary_domainName,
     repositorySummary_domainOwner,
+    repositorySummary_name,
 
     -- * ResourcePolicy
     ResourcePolicy (..),
     newResourcePolicy,
-    resourcePolicy_revision,
     resourcePolicy_document,
     resourcePolicy_resourceArn,
+    resourcePolicy_revision,
 
     -- * SuccessfulPackageVersionInfo
     SuccessfulPackageVersionInfo (..),
@@ -292,28 +292,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -321,13 +315,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -335,6 +333,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation did not succeed because of an unauthorized access attempt.
@@ -345,6 +345,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The operation did not succeed because prerequisites are not met.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The operation did not succeed because of an error that occurred inside
 -- CodeArtifact.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -353,15 +361,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The operation did not succeed because it would have exceeded a service
--- limit for your account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The operation did not succeed because the resource requested is not
 -- found in the service.
@@ -372,13 +371,14 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The operation did not succeed because prerequisites are not met.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The operation did not succeed because it would have exceeded a service
+-- limit for your account.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The operation did not succeed because too many requests are sent to the
 -- service.

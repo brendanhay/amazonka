@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetSummary' smart constructor.
 data AssetSummary = AssetSummary'
-  { -- | The size of the asset.
-    size :: Prelude.Maybe Prelude.Integer,
-    -- | The hashes of the asset.
+  { -- | The hashes of the asset.
     hashes :: Prelude.Maybe (Prelude.HashMap HashAlgorithm Prelude.Text),
+    -- | The size of the asset.
+    size :: Prelude.Maybe Prelude.Integer,
     -- | The name of the asset.
     name :: Prelude.Text
   }
@@ -46,9 +46,9 @@ data AssetSummary = AssetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'size', 'assetSummary_size' - The size of the asset.
---
 -- 'hashes', 'assetSummary_hashes' - The hashes of the asset.
+--
+-- 'size', 'assetSummary_size' - The size of the asset.
 --
 -- 'name', 'assetSummary_name' - The name of the asset.
 newAssetSummary ::
@@ -57,18 +57,18 @@ newAssetSummary ::
   AssetSummary
 newAssetSummary pName_ =
   AssetSummary'
-    { size = Prelude.Nothing,
-      hashes = Prelude.Nothing,
+    { hashes = Prelude.Nothing,
+      size = Prelude.Nothing,
       name = pName_
     }
-
--- | The size of the asset.
-assetSummary_size :: Lens.Lens' AssetSummary (Prelude.Maybe Prelude.Integer)
-assetSummary_size = Lens.lens (\AssetSummary' {size} -> size) (\s@AssetSummary' {} a -> s {size = a} :: AssetSummary)
 
 -- | The hashes of the asset.
 assetSummary_hashes :: Lens.Lens' AssetSummary (Prelude.Maybe (Prelude.HashMap HashAlgorithm Prelude.Text))
 assetSummary_hashes = Lens.lens (\AssetSummary' {hashes} -> hashes) (\s@AssetSummary' {} a -> s {hashes = a} :: AssetSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The size of the asset.
+assetSummary_size :: Lens.Lens' AssetSummary (Prelude.Maybe Prelude.Integer)
+assetSummary_size = Lens.lens (\AssetSummary' {size} -> size) (\s@AssetSummary' {} a -> s {size = a} :: AssetSummary)
 
 -- | The name of the asset.
 assetSummary_name :: Lens.Lens' AssetSummary Prelude.Text
@@ -80,19 +80,19 @@ instance Data.FromJSON AssetSummary where
       "AssetSummary"
       ( \x ->
           AssetSummary'
-            Prelude.<$> (x Data..:? "size")
-            Prelude.<*> (x Data..:? "hashes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "hashes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "size")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable AssetSummary where
   hashWithSalt _salt AssetSummary' {..} =
-    _salt `Prelude.hashWithSalt` size
-      `Prelude.hashWithSalt` hashes
+    _salt `Prelude.hashWithSalt` hashes
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AssetSummary where
   rnf AssetSummary' {..} =
-    Prelude.rnf size
-      `Prelude.seq` Prelude.rnf hashes
+    Prelude.rnf hashes
+      `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf name

@@ -27,8 +27,8 @@ module Amazonka.CodeArtifact.DeleteDomainPermissionsPolicy
     newDeleteDomainPermissionsPolicy,
 
     -- * Request Lenses
-    deleteDomainPermissionsPolicy_policyRevision,
     deleteDomainPermissionsPolicy_domainOwner,
+    deleteDomainPermissionsPolicy_policyRevision,
     deleteDomainPermissionsPolicy_domain,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDomainPermissionsPolicy' smart constructor.
 data DeleteDomainPermissionsPolicy = DeleteDomainPermissionsPolicy'
-  { -- | The current revision of the resource policy to be deleted. This revision
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The current revision of the resource policy to be deleted. This revision
     -- is used for optimistic locking, which prevents others from overwriting
     -- your changes to the domain\'s resource policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
-    -- the domain. It does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain associated with the resource policy to be
     -- deleted.
     domain :: Prelude.Text
@@ -72,12 +72,12 @@ data DeleteDomainPermissionsPolicy = DeleteDomainPermissionsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainOwner', 'deleteDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+--
 -- 'policyRevision', 'deleteDomainPermissionsPolicy_policyRevision' - The current revision of the resource policy to be deleted. This revision
 -- is used for optimistic locking, which prevents others from overwriting
 -- your changes to the domain\'s resource policy.
---
--- 'domainOwner', 'deleteDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'deleteDomainPermissionsPolicy_domain' - The name of the domain associated with the resource policy to be
 -- deleted.
@@ -87,22 +87,22 @@ newDeleteDomainPermissionsPolicy ::
   DeleteDomainPermissionsPolicy
 newDeleteDomainPermissionsPolicy pDomain_ =
   DeleteDomainPermissionsPolicy'
-    { policyRevision =
+    { domainOwner =
         Prelude.Nothing,
-      domainOwner = Prelude.Nothing,
+      policyRevision = Prelude.Nothing,
       domain = pDomain_
     }
+
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+deleteDomainPermissionsPolicy_domainOwner :: Lens.Lens' DeleteDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
+deleteDomainPermissionsPolicy_domainOwner = Lens.lens (\DeleteDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@DeleteDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: DeleteDomainPermissionsPolicy)
 
 -- | The current revision of the resource policy to be deleted. This revision
 -- is used for optimistic locking, which prevents others from overwriting
 -- your changes to the domain\'s resource policy.
 deleteDomainPermissionsPolicy_policyRevision :: Lens.Lens' DeleteDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
 deleteDomainPermissionsPolicy_policyRevision = Lens.lens (\DeleteDomainPermissionsPolicy' {policyRevision} -> policyRevision) (\s@DeleteDomainPermissionsPolicy' {} a -> s {policyRevision = a} :: DeleteDomainPermissionsPolicy)
-
--- | The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
-deleteDomainPermissionsPolicy_domainOwner :: Lens.Lens' DeleteDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
-deleteDomainPermissionsPolicy_domainOwner = Lens.lens (\DeleteDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@DeleteDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: DeleteDomainPermissionsPolicy)
 
 -- | The name of the domain associated with the resource policy to be
 -- deleted.
@@ -131,14 +131,14 @@ instance
     DeleteDomainPermissionsPolicy
   where
   hashWithSalt _salt DeleteDomainPermissionsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevision
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` policyRevision
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData DeleteDomainPermissionsPolicy where
   rnf DeleteDomainPermissionsPolicy' {..} =
-    Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf policyRevision
       `Prelude.seq` Prelude.rnf domain
 
 instance Data.ToHeaders DeleteDomainPermissionsPolicy where
@@ -159,8 +159,8 @@ instance Data.ToPath DeleteDomainPermissionsPolicy where
 instance Data.ToQuery DeleteDomainPermissionsPolicy where
   toQuery DeleteDomainPermissionsPolicy' {..} =
     Prelude.mconcat
-      [ "policy-revision" Data.=: policyRevision,
-        "domain-owner" Data.=: domainOwner,
+      [ "domain-owner" Data.=: domainOwner,
+        "policy-revision" Data.=: policyRevision,
         "domain" Data.=: domain
       ]
 

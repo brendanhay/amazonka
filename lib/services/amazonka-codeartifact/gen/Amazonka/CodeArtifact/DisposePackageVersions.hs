@@ -38,10 +38,10 @@ module Amazonka.CodeArtifact.DisposePackageVersions
     newDisposePackageVersions,
 
     -- * Request Lenses
-    disposePackageVersions_versionRevisions,
-    disposePackageVersions_expectedStatus,
     disposePackageVersions_domainOwner,
+    disposePackageVersions_expectedStatus,
     disposePackageVersions_namespace,
+    disposePackageVersions_versionRevisions,
     disposePackageVersions_domain,
     disposePackageVersions_repository,
     disposePackageVersions_format,
@@ -69,13 +69,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisposePackageVersions' smart constructor.
 data DisposePackageVersions = DisposePackageVersions'
-  { -- | The revisions of the package versions you want to dispose.
-    versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The expected status of the package version to dispose.
-    expectedStatus :: Prelude.Maybe PackageVersionStatus,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
     -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The expected status of the package version to dispose.
+    expectedStatus :: Prelude.Maybe PackageVersionStatus,
     -- | The namespace of the package versions to be disposed. The package
     -- version component that specifies its namespace depends on its type. For
     -- example:
@@ -88,6 +86,8 @@ data DisposePackageVersions = DisposePackageVersions'
     --     component, package versions of those formats do not have a
     --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The revisions of the package versions you want to dispose.
+    versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the domain that contains the repository you want to dispose.
     domain :: Prelude.Text,
     -- | The name of the repository that contains the package versions you want
@@ -111,12 +111,10 @@ data DisposePackageVersions = DisposePackageVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionRevisions', 'disposePackageVersions_versionRevisions' - The revisions of the package versions you want to dispose.
---
--- 'expectedStatus', 'disposePackageVersions_expectedStatus' - The expected status of the package version to dispose.
---
 -- 'domainOwner', 'disposePackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
+--
+-- 'expectedStatus', 'disposePackageVersions_expectedStatus' - The expected status of the package version to dispose.
 --
 -- 'namespace', 'disposePackageVersions_namespace' - The namespace of the package versions to be disposed. The package
 -- version component that specifies its namespace depends on its type. For
@@ -129,6 +127,8 @@ data DisposePackageVersions = DisposePackageVersions'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- 'versionRevisions', 'disposePackageVersions_versionRevisions' - The revisions of the package versions you want to dispose.
 --
 -- 'domain', 'disposePackageVersions_domain' - The name of the domain that contains the repository you want to dispose.
 --
@@ -157,11 +157,11 @@ newDisposePackageVersions
   pFormat_
   pPackage_ =
     DisposePackageVersions'
-      { versionRevisions =
+      { domainOwner =
           Prelude.Nothing,
         expectedStatus = Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        versionRevisions = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
@@ -169,18 +169,14 @@ newDisposePackageVersions
         versions = Prelude.mempty
       }
 
--- | The revisions of the package versions you want to dispose.
-disposePackageVersions_versionRevisions :: Lens.Lens' DisposePackageVersions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-disposePackageVersions_versionRevisions = Lens.lens (\DisposePackageVersions' {versionRevisions} -> versionRevisions) (\s@DisposePackageVersions' {} a -> s {versionRevisions = a} :: DisposePackageVersions) Prelude.. Lens.mapping Lens.coerced
-
--- | The expected status of the package version to dispose.
-disposePackageVersions_expectedStatus :: Lens.Lens' DisposePackageVersions (Prelude.Maybe PackageVersionStatus)
-disposePackageVersions_expectedStatus = Lens.lens (\DisposePackageVersions' {expectedStatus} -> expectedStatus) (\s@DisposePackageVersions' {} a -> s {expectedStatus = a} :: DisposePackageVersions)
-
 -- | The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 disposePackageVersions_domainOwner :: Lens.Lens' DisposePackageVersions (Prelude.Maybe Prelude.Text)
 disposePackageVersions_domainOwner = Lens.lens (\DisposePackageVersions' {domainOwner} -> domainOwner) (\s@DisposePackageVersions' {} a -> s {domainOwner = a} :: DisposePackageVersions)
+
+-- | The expected status of the package version to dispose.
+disposePackageVersions_expectedStatus :: Lens.Lens' DisposePackageVersions (Prelude.Maybe PackageVersionStatus)
+disposePackageVersions_expectedStatus = Lens.lens (\DisposePackageVersions' {expectedStatus} -> expectedStatus) (\s@DisposePackageVersions' {} a -> s {expectedStatus = a} :: DisposePackageVersions)
 
 -- | The namespace of the package versions to be disposed. The package
 -- version component that specifies its namespace depends on its type. For
@@ -195,6 +191,10 @@ disposePackageVersions_domainOwner = Lens.lens (\DisposePackageVersions' {domain
 --     namespace.
 disposePackageVersions_namespace :: Lens.Lens' DisposePackageVersions (Prelude.Maybe Prelude.Text)
 disposePackageVersions_namespace = Lens.lens (\DisposePackageVersions' {namespace} -> namespace) (\s@DisposePackageVersions' {} a -> s {namespace = a} :: DisposePackageVersions)
+
+-- | The revisions of the package versions you want to dispose.
+disposePackageVersions_versionRevisions :: Lens.Lens' DisposePackageVersions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+disposePackageVersions_versionRevisions = Lens.lens (\DisposePackageVersions' {versionRevisions} -> versionRevisions) (\s@DisposePackageVersions' {} a -> s {versionRevisions = a} :: DisposePackageVersions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain that contains the repository you want to dispose.
 disposePackageVersions_domain :: Lens.Lens' DisposePackageVersions Prelude.Text
@@ -237,10 +237,10 @@ instance Core.AWSRequest DisposePackageVersions where
 
 instance Prelude.Hashable DisposePackageVersions where
   hashWithSalt _salt DisposePackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` versionRevisions
+    _salt `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
-      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` versionRevisions
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -249,10 +249,10 @@ instance Prelude.Hashable DisposePackageVersions where
 
 instance Prelude.NFData DisposePackageVersions where
   rnf DisposePackageVersions' {..} =
-    Prelude.rnf versionRevisions
+    Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versionRevisions
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -274,10 +274,10 @@ instance Data.ToJSON DisposePackageVersions where
   toJSON DisposePackageVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("versionRevisions" Data..=)
-              Prelude.<$> versionRevisions,
-            ("expectedStatus" Data..=)
+          [ ("expectedStatus" Data..=)
               Prelude.<$> expectedStatus,
+            ("versionRevisions" Data..=)
+              Prelude.<$> versionRevisions,
             Prelude.Just ("versions" Data..= versions)
           ]
       )

@@ -31,10 +31,10 @@ module Amazonka.CodeArtifact.UpdatePackageVersionsStatus
     newUpdatePackageVersionsStatus,
 
     -- * Request Lenses
-    updatePackageVersionsStatus_versionRevisions,
-    updatePackageVersionsStatus_expectedStatus,
     updatePackageVersionsStatus_domainOwner,
+    updatePackageVersionsStatus_expectedStatus,
     updatePackageVersionsStatus_namespace,
+    updatePackageVersionsStatus_versionRevisions,
     updatePackageVersionsStatus_domain,
     updatePackageVersionsStatus_repository,
     updatePackageVersionsStatus_format,
@@ -63,18 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePackageVersionsStatus' smart constructor.
 data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
-  { -- | A map of package versions and package version revisions. The map @key@
-    -- is the package version (for example, @3.5.2@), and the map @value@ is
-    -- the package version revision.
-    versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The package version’s expected status before it is updated. If
     -- @expectedStatus@ is provided, the package version\'s status is updated
     -- only if its status at the time @UpdatePackageVersionsStatus@ is called
     -- matches @expectedStatus@.
     expectedStatus :: Prelude.Maybe PackageVersionStatus,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
-    -- the domain. It does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package version to be updated. The package version
     -- component that specifies its namespace depends on its type. For example:
     --
@@ -86,6 +82,10 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
     --     component, package versions of those formats do not have a
     --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | A map of package versions and package version revisions. The map @key@
+    -- is the package version (for example, @3.5.2@), and the map @value@ is
+    -- the package version revision.
+    versionRevisions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the domain that contains the repository that contains the
     -- package versions with a status to be updated.
     domain :: Prelude.Text,
@@ -113,17 +113,13 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionRevisions', 'updatePackageVersionsStatus_versionRevisions' - A map of package versions and package version revisions. The map @key@
--- is the package version (for example, @3.5.2@), and the map @value@ is
--- the package version revision.
+-- 'domainOwner', 'updatePackageVersionsStatus_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'expectedStatus', 'updatePackageVersionsStatus_expectedStatus' - The package version’s expected status before it is updated. If
 -- @expectedStatus@ is provided, the package version\'s status is updated
 -- only if its status at the time @UpdatePackageVersionsStatus@ is called
 -- matches @expectedStatus@.
---
--- 'domainOwner', 'updatePackageVersionsStatus_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
 --
 -- 'namespace', 'updatePackageVersionsStatus_namespace' - The namespace of the package version to be updated. The package version
 -- component that specifies its namespace depends on its type. For example:
@@ -135,6 +131,10 @@ data UpdatePackageVersionsStatus = UpdatePackageVersionsStatus'
 -- -   Python and NuGet package versions do not contain a corresponding
 --     component, package versions of those formats do not have a
 --     namespace.
+--
+-- 'versionRevisions', 'updatePackageVersionsStatus_versionRevisions' - A map of package versions and package version revisions. The map @key@
+-- is the package version (for example, @3.5.2@), and the map @value@ is
+-- the package version revision.
 --
 -- 'domain', 'updatePackageVersionsStatus_domain' - The name of the domain that contains the repository that contains the
 -- package versions with a status to be updated.
@@ -170,11 +170,11 @@ newUpdatePackageVersionsStatus
   pPackage_
   pTargetStatus_ =
     UpdatePackageVersionsStatus'
-      { versionRevisions =
+      { domainOwner =
           Prelude.Nothing,
         expectedStatus = Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        versionRevisions = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
@@ -183,11 +183,10 @@ newUpdatePackageVersionsStatus
         targetStatus = pTargetStatus_
       }
 
--- | A map of package versions and package version revisions. The map @key@
--- is the package version (for example, @3.5.2@), and the map @value@ is
--- the package version revision.
-updatePackageVersionsStatus_versionRevisions :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updatePackageVersionsStatus_versionRevisions = Lens.lens (\UpdatePackageVersionsStatus' {versionRevisions} -> versionRevisions) (\s@UpdatePackageVersionsStatus' {} a -> s {versionRevisions = a} :: UpdatePackageVersionsStatus) Prelude.. Lens.mapping Lens.coerced
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+updatePackageVersionsStatus_domainOwner :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
+updatePackageVersionsStatus_domainOwner = Lens.lens (\UpdatePackageVersionsStatus' {domainOwner} -> domainOwner) (\s@UpdatePackageVersionsStatus' {} a -> s {domainOwner = a} :: UpdatePackageVersionsStatus)
 
 -- | The package version’s expected status before it is updated. If
 -- @expectedStatus@ is provided, the package version\'s status is updated
@@ -195,11 +194,6 @@ updatePackageVersionsStatus_versionRevisions = Lens.lens (\UpdatePackageVersions
 -- matches @expectedStatus@.
 updatePackageVersionsStatus_expectedStatus :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe PackageVersionStatus)
 updatePackageVersionsStatus_expectedStatus = Lens.lens (\UpdatePackageVersionsStatus' {expectedStatus} -> expectedStatus) (\s@UpdatePackageVersionsStatus' {} a -> s {expectedStatus = a} :: UpdatePackageVersionsStatus)
-
--- | The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
-updatePackageVersionsStatus_domainOwner :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
-updatePackageVersionsStatus_domainOwner = Lens.lens (\UpdatePackageVersionsStatus' {domainOwner} -> domainOwner) (\s@UpdatePackageVersionsStatus' {} a -> s {domainOwner = a} :: UpdatePackageVersionsStatus)
 
 -- | The namespace of the package version to be updated. The package version
 -- component that specifies its namespace depends on its type. For example:
@@ -213,6 +207,12 @@ updatePackageVersionsStatus_domainOwner = Lens.lens (\UpdatePackageVersionsStatu
 --     namespace.
 updatePackageVersionsStatus_namespace :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe Prelude.Text)
 updatePackageVersionsStatus_namespace = Lens.lens (\UpdatePackageVersionsStatus' {namespace} -> namespace) (\s@UpdatePackageVersionsStatus' {} a -> s {namespace = a} :: UpdatePackageVersionsStatus)
+
+-- | A map of package versions and package version revisions. The map @key@
+-- is the package version (for example, @3.5.2@), and the map @value@ is
+-- the package version revision.
+updatePackageVersionsStatus_versionRevisions :: Lens.Lens' UpdatePackageVersionsStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updatePackageVersionsStatus_versionRevisions = Lens.lens (\UpdatePackageVersionsStatus' {versionRevisions} -> versionRevisions) (\s@UpdatePackageVersionsStatus' {} a -> s {versionRevisions = a} :: UpdatePackageVersionsStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain that contains the repository that contains the
 -- package versions with a status to be updated.
@@ -261,10 +261,10 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
 
 instance Prelude.Hashable UpdatePackageVersionsStatus where
   hashWithSalt _salt UpdatePackageVersionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` versionRevisions
+    _salt `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` expectedStatus
-      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` versionRevisions
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -274,10 +274,10 @@ instance Prelude.Hashable UpdatePackageVersionsStatus where
 
 instance Prelude.NFData UpdatePackageVersionsStatus where
   rnf UpdatePackageVersionsStatus' {..} =
-    Prelude.rnf versionRevisions
+    Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf versionRevisions
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -300,10 +300,10 @@ instance Data.ToJSON UpdatePackageVersionsStatus where
   toJSON UpdatePackageVersionsStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("versionRevisions" Data..=)
-              Prelude.<$> versionRevisions,
-            ("expectedStatus" Data..=)
+          [ ("expectedStatus" Data..=)
               Prelude.<$> expectedStatus,
+            ("versionRevisions" Data..=)
+              Prelude.<$> versionRevisions,
             Prelude.Just ("versions" Data..= versions),
             Prelude.Just ("targetStatus" Data..= targetStatus)
           ]

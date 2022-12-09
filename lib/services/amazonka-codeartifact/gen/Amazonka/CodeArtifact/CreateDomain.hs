@@ -36,8 +36,8 @@ module Amazonka.CodeArtifact.CreateDomain
     newCreateDomain,
 
     -- * Request Lenses
-    createDomain_tags,
     createDomain_encryptionKey,
+    createDomain_tags,
     createDomain_domain,
 
     -- * Destructuring the Response
@@ -60,9 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | One or more tag key-value pairs for the domain.
-    tags :: Prelude.Maybe [Tag],
-    -- | The encryption key for the domain. This is used to encrypt content
+  { -- | The encryption key for the domain. This is used to encrypt content
     -- stored in a domain. An encryption key can be a key ID, a key Amazon
     -- Resource Name (ARN), a key alias, or a key alias ARN. To specify an
     -- @encryptionKey@, your IAM role must have @kms:DescribeKey@ and
@@ -78,6 +76,8 @@ data CreateDomain = CreateDomain'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
     -- in the /Key Management Service Developer Guide/.
     encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | One or more tag key-value pairs for the domain.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the domain to create. All domain names in an Amazon Web
     -- Services Region that are in the same Amazon Web Services account must be
     -- unique. The domain name is used as the prefix in DNS hostnames. Do not
@@ -95,8 +95,6 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDomain_tags' - One or more tag key-value pairs for the domain.
---
 -- 'encryptionKey', 'createDomain_encryptionKey' - The encryption key for the domain. This is used to encrypt content
 -- stored in a domain. An encryption key can be a key ID, a key Amazon
 -- Resource Name (ARN), a key alias, or a key alias ARN. To specify an
@@ -113,6 +111,8 @@ data CreateDomain = CreateDomain'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
 -- in the /Key Management Service Developer Guide/.
 --
+-- 'tags', 'createDomain_tags' - One or more tag key-value pairs for the domain.
+--
 -- 'domain', 'createDomain_domain' - The name of the domain to create. All domain names in an Amazon Web
 -- Services Region that are in the same Amazon Web Services account must be
 -- unique. The domain name is used as the prefix in DNS hostnames. Do not
@@ -124,14 +124,10 @@ newCreateDomain ::
   CreateDomain
 newCreateDomain pDomain_ =
   CreateDomain'
-    { tags = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing,
+    { encryptionKey = Prelude.Nothing,
+      tags = Prelude.Nothing,
       domain = pDomain_
     }
-
--- | One or more tag key-value pairs for the domain.
-createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The encryption key for the domain. This is used to encrypt content
 -- stored in a domain. An encryption key can be a key ID, a key Amazon
@@ -150,6 +146,10 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 -- in the /Key Management Service Developer Guide/.
 createDomain_encryptionKey :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_encryptionKey = Lens.lens (\CreateDomain' {encryptionKey} -> encryptionKey) (\s@CreateDomain' {} a -> s {encryptionKey = a} :: CreateDomain)
+
+-- | One or more tag key-value pairs for the domain.
+createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain to create. All domain names in an Amazon Web
 -- Services Region that are in the same Amazon Web Services account must be
@@ -173,14 +173,14 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` encryptionKey
+    _salt `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domain
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf encryptionKey
+    Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domain
 
 instance Data.ToHeaders CreateDomain where
@@ -198,8 +198,8 @@ instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("encryptionKey" Data..=) Prelude.<$> encryptionKey
+          [ ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

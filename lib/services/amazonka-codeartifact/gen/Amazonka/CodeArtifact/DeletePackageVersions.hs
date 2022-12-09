@@ -34,8 +34,8 @@ module Amazonka.CodeArtifact.DeletePackageVersions
     newDeletePackageVersions,
 
     -- * Request Lenses
-    deletePackageVersions_expectedStatus,
     deletePackageVersions_domainOwner,
+    deletePackageVersions_expectedStatus,
     deletePackageVersions_namespace,
     deletePackageVersions_domain,
     deletePackageVersions_repository,
@@ -64,11 +64,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePackageVersions' smart constructor.
 data DeletePackageVersions = DeletePackageVersions'
-  { -- | The expected status of the package version to delete.
-    expectedStatus :: Prelude.Maybe PackageVersionStatus,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
     -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The expected status of the package version to delete.
+    expectedStatus :: Prelude.Maybe PackageVersionStatus,
     -- | The namespace of the package versions to be deleted. The package version
     -- component that specifies its namespace depends on its type. For example:
     --
@@ -102,10 +102,10 @@ data DeletePackageVersions = DeletePackageVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedStatus', 'deletePackageVersions_expectedStatus' - The expected status of the package version to delete.
---
 -- 'domainOwner', 'deletePackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
+--
+-- 'expectedStatus', 'deletePackageVersions_expectedStatus' - The expected status of the package version to delete.
 --
 -- 'namespace', 'deletePackageVersions_namespace' - The namespace of the package versions to be deleted. The package version
 -- component that specifies its namespace depends on its type. For example:
@@ -144,9 +144,9 @@ newDeletePackageVersions
   pFormat_
   pPackage_ =
     DeletePackageVersions'
-      { expectedStatus =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
+        expectedStatus = Prelude.Nothing,
         namespace = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
@@ -155,14 +155,14 @@ newDeletePackageVersions
         versions = Prelude.mempty
       }
 
--- | The expected status of the package version to delete.
-deletePackageVersions_expectedStatus :: Lens.Lens' DeletePackageVersions (Prelude.Maybe PackageVersionStatus)
-deletePackageVersions_expectedStatus = Lens.lens (\DeletePackageVersions' {expectedStatus} -> expectedStatus) (\s@DeletePackageVersions' {} a -> s {expectedStatus = a} :: DeletePackageVersions)
-
 -- | The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 deletePackageVersions_domainOwner :: Lens.Lens' DeletePackageVersions (Prelude.Maybe Prelude.Text)
 deletePackageVersions_domainOwner = Lens.lens (\DeletePackageVersions' {domainOwner} -> domainOwner) (\s@DeletePackageVersions' {} a -> s {domainOwner = a} :: DeletePackageVersions)
+
+-- | The expected status of the package version to delete.
+deletePackageVersions_expectedStatus :: Lens.Lens' DeletePackageVersions (Prelude.Maybe PackageVersionStatus)
+deletePackageVersions_expectedStatus = Lens.lens (\DeletePackageVersions' {expectedStatus} -> expectedStatus) (\s@DeletePackageVersions' {} a -> s {expectedStatus = a} :: DeletePackageVersions)
 
 -- | The namespace of the package versions to be deleted. The package version
 -- component that specifies its namespace depends on its type. For example:
@@ -217,8 +217,8 @@ instance Core.AWSRequest DeletePackageVersions where
 
 instance Prelude.Hashable DeletePackageVersions where
   hashWithSalt _salt DeletePackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` expectedStatus
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` expectedStatus
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
@@ -228,8 +228,8 @@ instance Prelude.Hashable DeletePackageVersions where
 
 instance Prelude.NFData DeletePackageVersions where
   rnf DeletePackageVersions' {..} =
-    Prelude.rnf expectedStatus
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf expectedStatus
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository

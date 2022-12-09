@@ -31,25 +31,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainDescription' smart constructor.
 data DomainDescription = DomainDescription'
-  { -- | The name of the domain.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The number of repositories in the domain.
-    repositoryCount :: Prelude.Maybe Prelude.Int,
-    -- | A timestamp that represents the date and time the domain was created.
-    createdTime :: Prelude.Maybe Data.POSIX,
+  { -- | The Amazon Resource Name (ARN) of the domain.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The total size of all assets in the domain.
     assetSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the domain.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of a domain.
-    status :: Prelude.Maybe DomainStatus,
+    -- | A timestamp that represents the date and time the domain was created.
+    createdTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of an Key Management Service (KMS) key associated with a domain.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The name of the domain.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID that owns the domain.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The number of repositories in the domain.
+    repositoryCount :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to
     -- store package assets in the domain.
     s3BucketArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of an Key Management Service (KMS) key associated with a domain.
-    encryptionKey :: Prelude.Maybe Prelude.Text
+    -- | The current status of a domain.
+    status :: Prelude.Maybe DomainStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,75 +61,75 @@ data DomainDescription = DomainDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'domainDescription_name' - The name of the domain.
---
--- 'repositoryCount', 'domainDescription_repositoryCount' - The number of repositories in the domain.
---
--- 'createdTime', 'domainDescription_createdTime' - A timestamp that represents the date and time the domain was created.
+-- 'arn', 'domainDescription_arn' - The Amazon Resource Name (ARN) of the domain.
 --
 -- 'assetSizeBytes', 'domainDescription_assetSizeBytes' - The total size of all assets in the domain.
 --
--- 'arn', 'domainDescription_arn' - The Amazon Resource Name (ARN) of the domain.
+-- 'createdTime', 'domainDescription_createdTime' - A timestamp that represents the date and time the domain was created.
 --
--- 'status', 'domainDescription_status' - The current status of a domain.
+-- 'encryptionKey', 'domainDescription_encryptionKey' - The ARN of an Key Management Service (KMS) key associated with a domain.
+--
+-- 'name', 'domainDescription_name' - The name of the domain.
 --
 -- 'owner', 'domainDescription_owner' - The Amazon Web Services account ID that owns the domain.
+--
+-- 'repositoryCount', 'domainDescription_repositoryCount' - The number of repositories in the domain.
 --
 -- 's3BucketArn', 'domainDescription_s3BucketArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to
 -- store package assets in the domain.
 --
--- 'encryptionKey', 'domainDescription_encryptionKey' - The ARN of an Key Management Service (KMS) key associated with a domain.
+-- 'status', 'domainDescription_status' - The current status of a domain.
 newDomainDescription ::
   DomainDescription
 newDomainDescription =
   DomainDescription'
-    { name = Prelude.Nothing,
-      repositoryCount = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       assetSizeBytes = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      encryptionKey = Prelude.Nothing,
+      name = Prelude.Nothing,
       owner = Prelude.Nothing,
+      repositoryCount = Prelude.Nothing,
       s3BucketArn = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The name of the domain.
-domainDescription_name :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
-domainDescription_name = Lens.lens (\DomainDescription' {name} -> name) (\s@DomainDescription' {} a -> s {name = a} :: DomainDescription)
-
--- | The number of repositories in the domain.
-domainDescription_repositoryCount :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Int)
-domainDescription_repositoryCount = Lens.lens (\DomainDescription' {repositoryCount} -> repositoryCount) (\s@DomainDescription' {} a -> s {repositoryCount = a} :: DomainDescription)
-
--- | A timestamp that represents the date and time the domain was created.
-domainDescription_createdTime :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.UTCTime)
-domainDescription_createdTime = Lens.lens (\DomainDescription' {createdTime} -> createdTime) (\s@DomainDescription' {} a -> s {createdTime = a} :: DomainDescription) Prelude.. Lens.mapping Data._Time
-
--- | The total size of all assets in the domain.
-domainDescription_assetSizeBytes :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Integer)
-domainDescription_assetSizeBytes = Lens.lens (\DomainDescription' {assetSizeBytes} -> assetSizeBytes) (\s@DomainDescription' {} a -> s {assetSizeBytes = a} :: DomainDescription)
 
 -- | The Amazon Resource Name (ARN) of the domain.
 domainDescription_arn :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_arn = Lens.lens (\DomainDescription' {arn} -> arn) (\s@DomainDescription' {} a -> s {arn = a} :: DomainDescription)
 
--- | The current status of a domain.
-domainDescription_status :: Lens.Lens' DomainDescription (Prelude.Maybe DomainStatus)
-domainDescription_status = Lens.lens (\DomainDescription' {status} -> status) (\s@DomainDescription' {} a -> s {status = a} :: DomainDescription)
+-- | The total size of all assets in the domain.
+domainDescription_assetSizeBytes :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Integer)
+domainDescription_assetSizeBytes = Lens.lens (\DomainDescription' {assetSizeBytes} -> assetSizeBytes) (\s@DomainDescription' {} a -> s {assetSizeBytes = a} :: DomainDescription)
+
+-- | A timestamp that represents the date and time the domain was created.
+domainDescription_createdTime :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.UTCTime)
+domainDescription_createdTime = Lens.lens (\DomainDescription' {createdTime} -> createdTime) (\s@DomainDescription' {} a -> s {createdTime = a} :: DomainDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of an Key Management Service (KMS) key associated with a domain.
+domainDescription_encryptionKey :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
+domainDescription_encryptionKey = Lens.lens (\DomainDescription' {encryptionKey} -> encryptionKey) (\s@DomainDescription' {} a -> s {encryptionKey = a} :: DomainDescription)
+
+-- | The name of the domain.
+domainDescription_name :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
+domainDescription_name = Lens.lens (\DomainDescription' {name} -> name) (\s@DomainDescription' {} a -> s {name = a} :: DomainDescription)
 
 -- | The Amazon Web Services account ID that owns the domain.
 domainDescription_owner :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_owner = Lens.lens (\DomainDescription' {owner} -> owner) (\s@DomainDescription' {} a -> s {owner = a} :: DomainDescription)
+
+-- | The number of repositories in the domain.
+domainDescription_repositoryCount :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Int)
+domainDescription_repositoryCount = Lens.lens (\DomainDescription' {repositoryCount} -> repositoryCount) (\s@DomainDescription' {} a -> s {repositoryCount = a} :: DomainDescription)
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to
 -- store package assets in the domain.
 domainDescription_s3BucketArn :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_s3BucketArn = Lens.lens (\DomainDescription' {s3BucketArn} -> s3BucketArn) (\s@DomainDescription' {} a -> s {s3BucketArn = a} :: DomainDescription)
 
--- | The ARN of an Key Management Service (KMS) key associated with a domain.
-domainDescription_encryptionKey :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
-domainDescription_encryptionKey = Lens.lens (\DomainDescription' {encryptionKey} -> encryptionKey) (\s@DomainDescription' {} a -> s {encryptionKey = a} :: DomainDescription)
+-- | The current status of a domain.
+domainDescription_status :: Lens.Lens' DomainDescription (Prelude.Maybe DomainStatus)
+domainDescription_status = Lens.lens (\DomainDescription' {status} -> status) (\s@DomainDescription' {} a -> s {status = a} :: DomainDescription)
 
 instance Data.FromJSON DomainDescription where
   parseJSON =
@@ -137,37 +137,37 @@ instance Data.FromJSON DomainDescription where
       "DomainDescription"
       ( \x ->
           DomainDescription'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "repositoryCount")
-            Prelude.<*> (x Data..:? "createdTime")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "assetSizeBytes")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "owner")
-            Prelude.<*> (x Data..:? "s3BucketArn")
+            Prelude.<*> (x Data..:? "createdTime")
             Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "repositoryCount")
+            Prelude.<*> (x Data..:? "s3BucketArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable DomainDescription where
   hashWithSalt _salt DomainDescription' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` repositoryCount
-      `Prelude.hashWithSalt` createdTime
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assetSizeBytes
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` s3BucketArn
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` repositoryCount
+      `Prelude.hashWithSalt` s3BucketArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DomainDescription where
   rnf DomainDescription' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf repositoryCount
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf assetSizeBytes
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf repositoryCount
+      `Prelude.seq` Prelude.rnf s3BucketArn
+      `Prelude.seq` Prelude.rnf status

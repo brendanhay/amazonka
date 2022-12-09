@@ -31,14 +31,14 @@ module Amazonka.CodeArtifact.ListPackages
     newListPackages,
 
     -- * Request Lenses
-    listPackages_nextToken,
-    listPackages_publish,
-    listPackages_upstream,
+    listPackages_domainOwner,
     listPackages_format,
     listPackages_maxResults,
-    listPackages_domainOwner,
     listPackages_namespace,
+    listPackages_nextToken,
     listPackages_packagePrefix,
+    listPackages_publish,
+    listPackages_upstream,
     listPackages_domain,
     listPackages_repository,
 
@@ -63,28 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackages' smart constructor.
 data ListPackages = ListPackages'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The value of the @Publish@ package origin control restriction used to
-    -- filter requested packages. Only packages with the provided restriction
-    -- are returned. For more information, see
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
-    publish :: Prelude.Maybe AllowPublish,
-    -- | The value of the @Upstream@ package origin control restriction used to
-    -- filter requested packages. Only packages with the provided restriction
-    -- are returned. For more information, see
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
-    upstream :: Prelude.Maybe AllowUpstream,
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The format used to filter requested packages. Only packages from the
     -- provided format will be returned.
     format :: Prelude.Maybe PackageFormat,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
-    -- the domain. It does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The namespace used to filter requested packages. Only packages with the
     -- provided namespace will be returned. The package component that
     -- specifies its namespace depends on its type. For example:
@@ -96,9 +82,23 @@ data ListPackages = ListPackages'
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A prefix used to filter requested packages. Only packages with names
     -- that start with @packagePrefix@ are returned.
     packagePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The value of the @Publish@ package origin control restriction used to
+    -- filter requested packages. Only packages with the provided restriction
+    -- are returned. For more information, see
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+    publish :: Prelude.Maybe AllowPublish,
+    -- | The value of the @Upstream@ package origin control restriction used to
+    -- filter requested packages. Only packages with the provided restriction
+    -- are returned. For more information, see
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+    upstream :: Prelude.Maybe AllowUpstream,
     -- | The name of the domain that contains the repository that contains the
     -- requested packages.
     domain :: Prelude.Text,
@@ -115,27 +115,13 @@ data ListPackages = ListPackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackages_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- 'publish', 'listPackages_publish' - The value of the @Publish@ package origin control restriction used to
--- filter requested packages. Only packages with the provided restriction
--- are returned. For more information, see
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
---
--- 'upstream', 'listPackages_upstream' - The value of the @Upstream@ package origin control restriction used to
--- filter requested packages. Only packages with the provided restriction
--- are returned. For more information, see
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+-- 'domainOwner', 'listPackages_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'format', 'listPackages_format' - The format used to filter requested packages. Only packages from the
 -- provided format will be returned.
 --
 -- 'maxResults', 'listPackages_maxResults' - The maximum number of results to return per page.
---
--- 'domainOwner', 'listPackages_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
 --
 -- 'namespace', 'listPackages_namespace' - The namespace used to filter requested packages. Only packages with the
 -- provided namespace will be returned. The package component that
@@ -148,8 +134,22 @@ data ListPackages = ListPackages'
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
 --
+-- 'nextToken', 'listPackages_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
 -- 'packagePrefix', 'listPackages_packagePrefix' - A prefix used to filter requested packages. Only packages with names
 -- that start with @packagePrefix@ are returned.
+--
+-- 'publish', 'listPackages_publish' - The value of the @Publish@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+--
+-- 'upstream', 'listPackages_upstream' - The value of the @Upstream@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
 --
 -- 'domain', 'listPackages_domain' - The name of the domain that contains the repository that contains the
 -- requested packages.
@@ -163,37 +163,22 @@ newListPackages ::
   ListPackages
 newListPackages pDomain_ pRepository_ =
   ListPackages'
-    { nextToken = Prelude.Nothing,
-      publish = Prelude.Nothing,
-      upstream = Prelude.Nothing,
+    { domainOwner = Prelude.Nothing,
       format = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      domainOwner = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       packagePrefix = Prelude.Nothing,
+      publish = Prelude.Nothing,
+      upstream = Prelude.Nothing,
       domain = pDomain_,
       repository = pRepository_
     }
 
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listPackages_nextToken :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
-listPackages_nextToken = Lens.lens (\ListPackages' {nextToken} -> nextToken) (\s@ListPackages' {} a -> s {nextToken = a} :: ListPackages)
-
--- | The value of the @Publish@ package origin control restriction used to
--- filter requested packages. Only packages with the provided restriction
--- are returned. For more information, see
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
-listPackages_publish :: Lens.Lens' ListPackages (Prelude.Maybe AllowPublish)
-listPackages_publish = Lens.lens (\ListPackages' {publish} -> publish) (\s@ListPackages' {} a -> s {publish = a} :: ListPackages)
-
--- | The value of the @Upstream@ package origin control restriction used to
--- filter requested packages. Only packages with the provided restriction
--- are returned. For more information, see
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
-listPackages_upstream :: Lens.Lens' ListPackages (Prelude.Maybe AllowUpstream)
-listPackages_upstream = Lens.lens (\ListPackages' {upstream} -> upstream) (\s@ListPackages' {} a -> s {upstream = a} :: ListPackages)
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+listPackages_domainOwner :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
+listPackages_domainOwner = Lens.lens (\ListPackages' {domainOwner} -> domainOwner) (\s@ListPackages' {} a -> s {domainOwner = a} :: ListPackages)
 
 -- | The format used to filter requested packages. Only packages from the
 -- provided format will be returned.
@@ -203,11 +188,6 @@ listPackages_format = Lens.lens (\ListPackages' {format} -> format) (\s@ListPack
 -- | The maximum number of results to return per page.
 listPackages_maxResults :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Natural)
 listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) (\s@ListPackages' {} a -> s {maxResults = a} :: ListPackages)
-
--- | The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
-listPackages_domainOwner :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
-listPackages_domainOwner = Lens.lens (\ListPackages' {domainOwner} -> domainOwner) (\s@ListPackages' {} a -> s {domainOwner = a} :: ListPackages)
 
 -- | The namespace used to filter requested packages. Only packages with the
 -- provided namespace will be returned. The package component that
@@ -222,10 +202,30 @@ listPackages_domainOwner = Lens.lens (\ListPackages' {domainOwner} -> domainOwne
 listPackages_namespace :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_namespace = Lens.lens (\ListPackages' {namespace} -> namespace) (\s@ListPackages' {} a -> s {namespace = a} :: ListPackages)
 
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listPackages_nextToken :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
+listPackages_nextToken = Lens.lens (\ListPackages' {nextToken} -> nextToken) (\s@ListPackages' {} a -> s {nextToken = a} :: ListPackages)
+
 -- | A prefix used to filter requested packages. Only packages with names
 -- that start with @packagePrefix@ are returned.
 listPackages_packagePrefix :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_packagePrefix = Lens.lens (\ListPackages' {packagePrefix} -> packagePrefix) (\s@ListPackages' {} a -> s {packagePrefix = a} :: ListPackages)
+
+-- | The value of the @Publish@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+listPackages_publish :: Lens.Lens' ListPackages (Prelude.Maybe AllowPublish)
+listPackages_publish = Lens.lens (\ListPackages' {publish} -> publish) (\s@ListPackages' {} a -> s {publish = a} :: ListPackages)
+
+-- | The value of the @Upstream@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+listPackages_upstream :: Lens.Lens' ListPackages (Prelude.Maybe AllowUpstream)
+listPackages_upstream = Lens.lens (\ListPackages' {upstream} -> upstream) (\s@ListPackages' {} a -> s {upstream = a} :: ListPackages)
 
 -- | The name of the domain that contains the repository that contains the
 -- requested packages.
@@ -270,27 +270,27 @@ instance Core.AWSRequest ListPackages where
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` publish
-      `Prelude.hashWithSalt` upstream
+    _salt `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packagePrefix
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` upstream
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
 
 instance Prelude.NFData ListPackages where
   rnf ListPackages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf publish
-      `Prelude.seq` Prelude.rnf upstream
+    Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf packagePrefix
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf upstream
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
 
@@ -314,14 +314,14 @@ instance Data.ToPath ListPackages where
 instance Data.ToQuery ListPackages where
   toQuery ListPackages' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "publish" Data.=: publish,
-        "upstream" Data.=: upstream,
+      [ "domain-owner" Data.=: domainOwner,
         "format" Data.=: format,
         "max-results" Data.=: maxResults,
-        "domain-owner" Data.=: domainOwner,
         "namespace" Data.=: namespace,
+        "next-token" Data.=: nextToken,
         "package-prefix" Data.=: packagePrefix,
+        "publish" Data.=: publish,
+        "upstream" Data.=: upstream,
         "domain" Data.=: domain,
         "repository" Data.=: repository
       ]

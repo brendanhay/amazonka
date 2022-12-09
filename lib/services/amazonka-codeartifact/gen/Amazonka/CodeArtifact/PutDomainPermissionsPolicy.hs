@@ -33,8 +33,8 @@ module Amazonka.CodeArtifact.PutDomainPermissionsPolicy
     newPutDomainPermissionsPolicy,
 
     -- * Request Lenses
-    putDomainPermissionsPolicy_policyRevision,
     putDomainPermissionsPolicy_domainOwner,
+    putDomainPermissionsPolicy_policyRevision,
     putDomainPermissionsPolicy_domain,
     putDomainPermissionsPolicy_policyDocument,
 
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutDomainPermissionsPolicy' smart constructor.
 data PutDomainPermissionsPolicy = PutDomainPermissionsPolicy'
-  { -- | The current revision of the resource policy to be set. This revision is
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
+    domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The current revision of the resource policy to be set. This revision is
     -- used for optimistic locking, which prevents others from overwriting your
     -- changes to the domain\'s resource policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
-    -- the domain. It does not include dashes or spaces.
-    domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain on which to set the resource policy.
     domain :: Prelude.Text,
     -- | A valid displayable JSON Aspen policy string to be set as the access
@@ -81,12 +81,12 @@ data PutDomainPermissionsPolicy = PutDomainPermissionsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainOwner', 'putDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+--
 -- 'policyRevision', 'putDomainPermissionsPolicy_policyRevision' - The current revision of the resource policy to be set. This revision is
 -- used for optimistic locking, which prevents others from overwriting your
 -- changes to the domain\'s resource policy.
---
--- 'domainOwner', 'putDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'putDomainPermissionsPolicy_domain' - The name of the domain on which to set the resource policy.
 --
@@ -102,23 +102,23 @@ newPutDomainPermissionsPolicy
   pDomain_
   pPolicyDocument_ =
     PutDomainPermissionsPolicy'
-      { policyRevision =
+      { domainOwner =
           Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
+        policyRevision = Prelude.Nothing,
         domain = pDomain_,
         policyDocument = pPolicyDocument_
       }
+
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
+putDomainPermissionsPolicy_domainOwner :: Lens.Lens' PutDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
+putDomainPermissionsPolicy_domainOwner = Lens.lens (\PutDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: PutDomainPermissionsPolicy)
 
 -- | The current revision of the resource policy to be set. This revision is
 -- used for optimistic locking, which prevents others from overwriting your
 -- changes to the domain\'s resource policy.
 putDomainPermissionsPolicy_policyRevision :: Lens.Lens' PutDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putDomainPermissionsPolicy_policyRevision = Lens.lens (\PutDomainPermissionsPolicy' {policyRevision} -> policyRevision) (\s@PutDomainPermissionsPolicy' {} a -> s {policyRevision = a} :: PutDomainPermissionsPolicy)
-
--- | The 12-digit account number of the Amazon Web Services account that owns
--- the domain. It does not include dashes or spaces.
-putDomainPermissionsPolicy_domainOwner :: Lens.Lens' PutDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
-putDomainPermissionsPolicy_domainOwner = Lens.lens (\PutDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: PutDomainPermissionsPolicy)
 
 -- | The name of the domain on which to set the resource policy.
 putDomainPermissionsPolicy_domain :: Lens.Lens' PutDomainPermissionsPolicy Prelude.Text
@@ -145,15 +145,15 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
 
 instance Prelude.Hashable PutDomainPermissionsPolicy where
   hashWithSalt _salt PutDomainPermissionsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevision
-      `Prelude.hashWithSalt` domainOwner
+    _salt `Prelude.hashWithSalt` domainOwner
+      `Prelude.hashWithSalt` policyRevision
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData PutDomainPermissionsPolicy where
   rnf PutDomainPermissionsPolicy' {..} =
-    Prelude.rnf policyRevision
-      `Prelude.seq` Prelude.rnf domainOwner
+    Prelude.rnf domainOwner
+      `Prelude.seq` Prelude.rnf policyRevision
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf policyDocument
 
@@ -172,9 +172,9 @@ instance Data.ToJSON PutDomainPermissionsPolicy where
   toJSON PutDomainPermissionsPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("policyRevision" Data..=)
+          [ ("domainOwner" Data..=) Prelude.<$> domainOwner,
+            ("policyRevision" Data..=)
               Prelude.<$> policyRevision,
-            ("domainOwner" Data..=) Prelude.<$> domainOwner,
             Prelude.Just ("domain" Data..= domain),
             Prelude.Just
               ("policyDocument" Data..= policyDocument)

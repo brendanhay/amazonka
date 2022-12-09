@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionOrigin' smart constructor.
 data PackageVersionOrigin = PackageVersionOrigin'
-  { -- | Describes how the package version was originally added to the domain. An
-    -- @INTERNAL@ origin type means the package version was published directly
-    -- to a repository in the domain. An @EXTERNAL@ origin type means the
-    -- package version was ingested from an external connection.
-    originType :: Prelude.Maybe PackageVersionOriginType,
-    -- | A
+  { -- | A
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainEntryPoint.html DomainEntryPoint>
     -- object that contains information about from which repository or external
     -- connection the package version was added to the domain.
-    domainEntryPoint :: Prelude.Maybe DomainEntryPoint
+    domainEntryPoint :: Prelude.Maybe DomainEntryPoint,
+    -- | Describes how the package version was originally added to the domain. An
+    -- @INTERNAL@ origin type means the package version was published directly
+    -- to a repository in the domain. An @EXTERNAL@ origin type means the
+    -- package version was ingested from an external connection.
+    originType :: Prelude.Maybe PackageVersionOriginType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,29 +51,23 @@ data PackageVersionOrigin = PackageVersionOrigin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originType', 'packageVersionOrigin_originType' - Describes how the package version was originally added to the domain. An
--- @INTERNAL@ origin type means the package version was published directly
--- to a repository in the domain. An @EXTERNAL@ origin type means the
--- package version was ingested from an external connection.
---
 -- 'domainEntryPoint', 'packageVersionOrigin_domainEntryPoint' - A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainEntryPoint.html DomainEntryPoint>
 -- object that contains information about from which repository or external
 -- connection the package version was added to the domain.
+--
+-- 'originType', 'packageVersionOrigin_originType' - Describes how the package version was originally added to the domain. An
+-- @INTERNAL@ origin type means the package version was published directly
+-- to a repository in the domain. An @EXTERNAL@ origin type means the
+-- package version was ingested from an external connection.
 newPackageVersionOrigin ::
   PackageVersionOrigin
 newPackageVersionOrigin =
   PackageVersionOrigin'
-    { originType = Prelude.Nothing,
-      domainEntryPoint = Prelude.Nothing
+    { domainEntryPoint =
+        Prelude.Nothing,
+      originType = Prelude.Nothing
     }
-
--- | Describes how the package version was originally added to the domain. An
--- @INTERNAL@ origin type means the package version was published directly
--- to a repository in the domain. An @EXTERNAL@ origin type means the
--- package version was ingested from an external connection.
-packageVersionOrigin_originType :: Lens.Lens' PackageVersionOrigin (Prelude.Maybe PackageVersionOriginType)
-packageVersionOrigin_originType = Lens.lens (\PackageVersionOrigin' {originType} -> originType) (\s@PackageVersionOrigin' {} a -> s {originType = a} :: PackageVersionOrigin)
 
 -- | A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainEntryPoint.html DomainEntryPoint>
@@ -82,22 +76,29 @@ packageVersionOrigin_originType = Lens.lens (\PackageVersionOrigin' {originType}
 packageVersionOrigin_domainEntryPoint :: Lens.Lens' PackageVersionOrigin (Prelude.Maybe DomainEntryPoint)
 packageVersionOrigin_domainEntryPoint = Lens.lens (\PackageVersionOrigin' {domainEntryPoint} -> domainEntryPoint) (\s@PackageVersionOrigin' {} a -> s {domainEntryPoint = a} :: PackageVersionOrigin)
 
+-- | Describes how the package version was originally added to the domain. An
+-- @INTERNAL@ origin type means the package version was published directly
+-- to a repository in the domain. An @EXTERNAL@ origin type means the
+-- package version was ingested from an external connection.
+packageVersionOrigin_originType :: Lens.Lens' PackageVersionOrigin (Prelude.Maybe PackageVersionOriginType)
+packageVersionOrigin_originType = Lens.lens (\PackageVersionOrigin' {originType} -> originType) (\s@PackageVersionOrigin' {} a -> s {originType = a} :: PackageVersionOrigin)
+
 instance Data.FromJSON PackageVersionOrigin where
   parseJSON =
     Data.withObject
       "PackageVersionOrigin"
       ( \x ->
           PackageVersionOrigin'
-            Prelude.<$> (x Data..:? "originType")
-            Prelude.<*> (x Data..:? "domainEntryPoint")
+            Prelude.<$> (x Data..:? "domainEntryPoint")
+            Prelude.<*> (x Data..:? "originType")
       )
 
 instance Prelude.Hashable PackageVersionOrigin where
   hashWithSalt _salt PackageVersionOrigin' {..} =
-    _salt `Prelude.hashWithSalt` originType
-      `Prelude.hashWithSalt` domainEntryPoint
+    _salt `Prelude.hashWithSalt` domainEntryPoint
+      `Prelude.hashWithSalt` originType
 
 instance Prelude.NFData PackageVersionOrigin where
   rnf PackageVersionOrigin' {..} =
-    Prelude.rnf originType
-      `Prelude.seq` Prelude.rnf domainEntryPoint
+    Prelude.rnf domainEntryPoint
+      `Prelude.seq` Prelude.rnf originType

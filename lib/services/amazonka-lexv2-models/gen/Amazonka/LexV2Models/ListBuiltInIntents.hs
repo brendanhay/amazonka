@@ -33,9 +33,9 @@ module Amazonka.LexV2Models.ListBuiltInIntents
     newListBuiltInIntents,
 
     -- * Request Lenses
+    listBuiltInIntents_maxResults,
     listBuiltInIntents_nextToken,
     listBuiltInIntents_sortBy,
-    listBuiltInIntents_maxResults,
     listBuiltInIntents_localeId,
 
     -- * Destructuring the Response
@@ -43,9 +43,9 @@ module Amazonka.LexV2Models.ListBuiltInIntents
     newListBuiltInIntentsResponse,
 
     -- * Response Lenses
-    listBuiltInIntentsResponse_nextToken,
     listBuiltInIntentsResponse_builtInIntentSummaries,
     listBuiltInIntentsResponse_localeId,
+    listBuiltInIntentsResponse_nextToken,
     listBuiltInIntentsResponse_httpStatus,
   )
 where
@@ -60,7 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBuiltInIntents' smart constructor.
 data ListBuiltInIntents = ListBuiltInIntents'
-  { -- | If the response from the @ListBuiltInIntents@ operation contains more
+  { -- | The maximum number of built-in intents to return in each page of
+    -- results. If there are fewer results than the max page size, only the
+    -- actual number of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListBuiltInIntents@ operation contains more
     -- results than specified in the @maxResults@ parameter, a token is
     -- returned in the response. Use that token in the @nextToken@ parameter to
     -- return the next page of results.
@@ -69,10 +73,6 @@ data ListBuiltInIntents = ListBuiltInIntents'
     -- specify that the list be sorted by the built-in intent signature in
     -- either ascending or descending order.
     sortBy :: Prelude.Maybe BuiltInIntentSortBy,
-    -- | The maximum number of built-in intents to return in each page of
-    -- results. If there are fewer results than the max page size, only the
-    -- actual number of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the language and locale of the intents to list. The
     -- string must match one of the supported locales. For more information,
     -- see
@@ -89,6 +89,10 @@ data ListBuiltInIntents = ListBuiltInIntents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBuiltInIntents_maxResults' - The maximum number of built-in intents to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+--
 -- 'nextToken', 'listBuiltInIntents_nextToken' - If the response from the @ListBuiltInIntents@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
 -- returned in the response. Use that token in the @nextToken@ parameter to
@@ -97,10 +101,6 @@ data ListBuiltInIntents = ListBuiltInIntents'
 -- 'sortBy', 'listBuiltInIntents_sortBy' - Specifies sorting parameters for the list of built-in intents. You can
 -- specify that the list be sorted by the built-in intent signature in
 -- either ascending or descending order.
---
--- 'maxResults', 'listBuiltInIntents_maxResults' - The maximum number of built-in intents to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
 --
 -- 'localeId', 'listBuiltInIntents_localeId' - The identifier of the language and locale of the intents to list. The
 -- string must match one of the supported locales. For more information,
@@ -112,11 +112,17 @@ newListBuiltInIntents ::
   ListBuiltInIntents
 newListBuiltInIntents pLocaleId_ =
   ListBuiltInIntents'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       localeId = pLocaleId_
     }
+
+-- | The maximum number of built-in intents to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+listBuiltInIntents_maxResults :: Lens.Lens' ListBuiltInIntents (Prelude.Maybe Prelude.Natural)
+listBuiltInIntents_maxResults = Lens.lens (\ListBuiltInIntents' {maxResults} -> maxResults) (\s@ListBuiltInIntents' {} a -> s {maxResults = a} :: ListBuiltInIntents)
 
 -- | If the response from the @ListBuiltInIntents@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
@@ -130,12 +136,6 @@ listBuiltInIntents_nextToken = Lens.lens (\ListBuiltInIntents' {nextToken} -> ne
 -- either ascending or descending order.
 listBuiltInIntents_sortBy :: Lens.Lens' ListBuiltInIntents (Prelude.Maybe BuiltInIntentSortBy)
 listBuiltInIntents_sortBy = Lens.lens (\ListBuiltInIntents' {sortBy} -> sortBy) (\s@ListBuiltInIntents' {} a -> s {sortBy = a} :: ListBuiltInIntents)
-
--- | The maximum number of built-in intents to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
-listBuiltInIntents_maxResults :: Lens.Lens' ListBuiltInIntents (Prelude.Maybe Prelude.Natural)
-listBuiltInIntents_maxResults = Lens.lens (\ListBuiltInIntents' {maxResults} -> maxResults) (\s@ListBuiltInIntents' {} a -> s {maxResults = a} :: ListBuiltInIntents)
 
 -- | The identifier of the language and locale of the intents to list. The
 -- string must match one of the supported locales. For more information,
@@ -154,26 +154,26 @@ instance Core.AWSRequest ListBuiltInIntents where
     Response.receiveJSON
       ( \s h x ->
           ListBuiltInIntentsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "builtInIntentSummaries"
+            Prelude.<$> ( x Data..?> "builtInIntentSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBuiltInIntents where
   hashWithSalt _salt ListBuiltInIntents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` localeId
 
 instance Prelude.NFData ListBuiltInIntents where
   rnf ListBuiltInIntents' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf localeId
 
 instance Data.ToHeaders ListBuiltInIntents where
@@ -191,9 +191,9 @@ instance Data.ToJSON ListBuiltInIntents where
   toJSON ListBuiltInIntents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy
           ]
       )
 
@@ -210,12 +210,7 @@ instance Data.ToQuery ListBuiltInIntents where
 
 -- | /See:/ 'newListBuiltInIntentsResponse' smart constructor.
 data ListBuiltInIntentsResponse = ListBuiltInIntentsResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
-    -- is present, you send the contents as the @nextToken@ parameter of a
-    -- @ListBotAliases@ operation request to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information for the built-in intents that meet the filter
+  { -- | Summary information for the built-in intents that meet the filter
     -- criteria specified in the request. The length of the list is specified
     -- in the @maxResults@ parameter of the request. If there are more intents
     -- available, the @nextToken@ field contains a token to get the next page
@@ -223,6 +218,11 @@ data ListBuiltInIntentsResponse = ListBuiltInIntentsResponse'
     builtInIntentSummaries :: Prelude.Maybe [BuiltInIntentSummary],
     -- | The language and locale of the intents in the list.
     localeId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
+    -- is present, you send the contents as the @nextToken@ parameter of a
+    -- @ListBotAliases@ operation request to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,11 +236,6 @@ data ListBuiltInIntentsResponse = ListBuiltInIntentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBuiltInIntentsResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
--- is present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
---
 -- 'builtInIntentSummaries', 'listBuiltInIntentsResponse_builtInIntentSummaries' - Summary information for the built-in intents that meet the filter
 -- criteria specified in the request. The length of the list is specified
 -- in the @maxResults@ parameter of the request. If there are more intents
@@ -249,6 +244,11 @@ data ListBuiltInIntentsResponse = ListBuiltInIntentsResponse'
 --
 -- 'localeId', 'listBuiltInIntentsResponse_localeId' - The language and locale of the intents in the list.
 --
+-- 'nextToken', 'listBuiltInIntentsResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
+-- is present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
+--
 -- 'httpStatus', 'listBuiltInIntentsResponse_httpStatus' - The response's http status code.
 newListBuiltInIntentsResponse ::
   -- | 'httpStatus'
@@ -256,19 +256,12 @@ newListBuiltInIntentsResponse ::
   ListBuiltInIntentsResponse
 newListBuiltInIntentsResponse pHttpStatus_ =
   ListBuiltInIntentsResponse'
-    { nextToken =
+    { builtInIntentSummaries =
         Prelude.Nothing,
-      builtInIntentSummaries = Prelude.Nothing,
       localeId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that indicates whether there are more results to return in a
--- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
--- is present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
-listBuiltInIntentsResponse_nextToken :: Lens.Lens' ListBuiltInIntentsResponse (Prelude.Maybe Prelude.Text)
-listBuiltInIntentsResponse_nextToken = Lens.lens (\ListBuiltInIntentsResponse' {nextToken} -> nextToken) (\s@ListBuiltInIntentsResponse' {} a -> s {nextToken = a} :: ListBuiltInIntentsResponse)
 
 -- | Summary information for the built-in intents that meet the filter
 -- criteria specified in the request. The length of the list is specified
@@ -282,13 +275,20 @@ listBuiltInIntentsResponse_builtInIntentSummaries = Lens.lens (\ListBuiltInInten
 listBuiltInIntentsResponse_localeId :: Lens.Lens' ListBuiltInIntentsResponse (Prelude.Maybe Prelude.Text)
 listBuiltInIntentsResponse_localeId = Lens.lens (\ListBuiltInIntentsResponse' {localeId} -> localeId) (\s@ListBuiltInIntentsResponse' {} a -> s {localeId = a} :: ListBuiltInIntentsResponse)
 
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListBuiltInIntents@ operation. If the @nextToken@ field
+-- is present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
+listBuiltInIntentsResponse_nextToken :: Lens.Lens' ListBuiltInIntentsResponse (Prelude.Maybe Prelude.Text)
+listBuiltInIntentsResponse_nextToken = Lens.lens (\ListBuiltInIntentsResponse' {nextToken} -> nextToken) (\s@ListBuiltInIntentsResponse' {} a -> s {nextToken = a} :: ListBuiltInIntentsResponse)
+
 -- | The response's http status code.
 listBuiltInIntentsResponse_httpStatus :: Lens.Lens' ListBuiltInIntentsResponse Prelude.Int
 listBuiltInIntentsResponse_httpStatus = Lens.lens (\ListBuiltInIntentsResponse' {httpStatus} -> httpStatus) (\s@ListBuiltInIntentsResponse' {} a -> s {httpStatus = a} :: ListBuiltInIntentsResponse)
 
 instance Prelude.NFData ListBuiltInIntentsResponse where
   rnf ListBuiltInIntentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf builtInIntentSummaries
+    Prelude.rnf builtInIntentSummaries
       `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

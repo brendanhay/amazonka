@@ -28,8 +28,8 @@ module Amazonka.LexV2Models.ListCustomVocabularyItems
     newListCustomVocabularyItems,
 
     -- * Request Lenses
-    listCustomVocabularyItems_nextToken,
     listCustomVocabularyItems_maxResults,
+    listCustomVocabularyItems_nextToken,
     listCustomVocabularyItems_botId,
     listCustomVocabularyItems_botVersion,
     listCustomVocabularyItems_localeId,
@@ -39,11 +39,11 @@ module Amazonka.LexV2Models.ListCustomVocabularyItems
     newListCustomVocabularyItemsResponse,
 
     -- * Response Lenses
-    listCustomVocabularyItemsResponse_nextToken,
-    listCustomVocabularyItemsResponse_customVocabularyItems,
-    listCustomVocabularyItemsResponse_botVersion,
-    listCustomVocabularyItemsResponse_localeId,
     listCustomVocabularyItemsResponse_botId,
+    listCustomVocabularyItemsResponse_botVersion,
+    listCustomVocabularyItemsResponse_customVocabularyItems,
+    listCustomVocabularyItemsResponse_localeId,
+    listCustomVocabularyItemsResponse_nextToken,
     listCustomVocabularyItemsResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomVocabularyItems' smart constructor.
 data ListCustomVocabularyItems = ListCustomVocabularyItems'
-  { -- | The nextToken identifier to the list custom vocabulary request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum results to the list custom vocabulary request.
+  { -- | The maximum results to the list custom vocabulary request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken identifier to the list custom vocabulary request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the bot to the list custom vocabulary request.
     botId :: Prelude.Text,
     -- | The bot version of the bot to the list custom vocabulary request.
@@ -79,9 +79,9 @@ data ListCustomVocabularyItems = ListCustomVocabularyItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomVocabularyItems_nextToken' - The nextToken identifier to the list custom vocabulary request.
---
 -- 'maxResults', 'listCustomVocabularyItems_maxResults' - The maximum results to the list custom vocabulary request.
+--
+-- 'nextToken', 'listCustomVocabularyItems_nextToken' - The nextToken identifier to the list custom vocabulary request.
 --
 -- 'botId', 'listCustomVocabularyItems_botId' - The unique identifier of the bot to the list custom vocabulary request.
 --
@@ -101,21 +101,21 @@ newListCustomVocabularyItems
   pBotVersion_
   pLocaleId_ =
     ListCustomVocabularyItems'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         botId = pBotId_,
         botVersion = pBotVersion_,
         localeId = pLocaleId_
       }
 
--- | The nextToken identifier to the list custom vocabulary request.
-listCustomVocabularyItems_nextToken :: Lens.Lens' ListCustomVocabularyItems (Prelude.Maybe Prelude.Text)
-listCustomVocabularyItems_nextToken = Lens.lens (\ListCustomVocabularyItems' {nextToken} -> nextToken) (\s@ListCustomVocabularyItems' {} a -> s {nextToken = a} :: ListCustomVocabularyItems)
-
 -- | The maximum results to the list custom vocabulary request.
 listCustomVocabularyItems_maxResults :: Lens.Lens' ListCustomVocabularyItems (Prelude.Maybe Prelude.Natural)
 listCustomVocabularyItems_maxResults = Lens.lens (\ListCustomVocabularyItems' {maxResults} -> maxResults) (\s@ListCustomVocabularyItems' {} a -> s {maxResults = a} :: ListCustomVocabularyItems)
+
+-- | The nextToken identifier to the list custom vocabulary request.
+listCustomVocabularyItems_nextToken :: Lens.Lens' ListCustomVocabularyItems (Prelude.Maybe Prelude.Text)
+listCustomVocabularyItems_nextToken = Lens.lens (\ListCustomVocabularyItems' {nextToken} -> nextToken) (\s@ListCustomVocabularyItems' {} a -> s {nextToken = a} :: ListCustomVocabularyItems)
 
 -- | The unique identifier of the bot to the list custom vocabulary request.
 listCustomVocabularyItems_botId :: Lens.Lens' ListCustomVocabularyItems Prelude.Text
@@ -139,28 +139,28 @@ instance Core.AWSRequest ListCustomVocabularyItems where
     Response.receiveJSON
       ( \s h x ->
           ListCustomVocabularyItemsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> ( x Data..?> "customVocabularyItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomVocabularyItems where
   hashWithSalt _salt ListCustomVocabularyItems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 
 instance Prelude.NFData ListCustomVocabularyItems where
   rnf ListCustomVocabularyItems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
@@ -180,8 +180,8 @@ instance Data.ToJSON ListCustomVocabularyItems where
   toJSON ListCustomVocabularyItems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -202,16 +202,16 @@ instance Data.ToQuery ListCustomVocabularyItems where
 
 -- | /See:/ 'newListCustomVocabularyItemsResponse' smart constructor.
 data ListCustomVocabularyItemsResponse = ListCustomVocabularyItemsResponse'
-  { -- | The nextToken identifier to the list custom vocabulary response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The custom vocabulary items from the list custom vocabulary response.
-    customVocabularyItems :: Prelude.Maybe [CustomVocabularyItem],
+  { -- | The unique identifier of the bot to the list custom vocabulary response.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The bot version of the bot to the list custom vocabulary response.
     botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The custom vocabulary items from the list custom vocabulary response.
+    customVocabularyItems :: Prelude.Maybe [CustomVocabularyItem],
     -- | The locale identifier of the bot to the list custom vocabulary response.
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot to the list custom vocabulary response.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | The nextToken identifier to the list custom vocabulary response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,15 +225,15 @@ data ListCustomVocabularyItemsResponse = ListCustomVocabularyItemsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomVocabularyItemsResponse_nextToken' - The nextToken identifier to the list custom vocabulary response.
---
--- 'customVocabularyItems', 'listCustomVocabularyItemsResponse_customVocabularyItems' - The custom vocabulary items from the list custom vocabulary response.
+-- 'botId', 'listCustomVocabularyItemsResponse_botId' - The unique identifier of the bot to the list custom vocabulary response.
 --
 -- 'botVersion', 'listCustomVocabularyItemsResponse_botVersion' - The bot version of the bot to the list custom vocabulary response.
 --
+-- 'customVocabularyItems', 'listCustomVocabularyItemsResponse_customVocabularyItems' - The custom vocabulary items from the list custom vocabulary response.
+--
 -- 'localeId', 'listCustomVocabularyItemsResponse_localeId' - The locale identifier of the bot to the list custom vocabulary response.
 --
--- 'botId', 'listCustomVocabularyItemsResponse_botId' - The unique identifier of the bot to the list custom vocabulary response.
+-- 'nextToken', 'listCustomVocabularyItemsResponse_nextToken' - The nextToken identifier to the list custom vocabulary response.
 --
 -- 'httpStatus', 'listCustomVocabularyItemsResponse_httpStatus' - The response's http status code.
 newListCustomVocabularyItemsResponse ::
@@ -242,34 +242,34 @@ newListCustomVocabularyItemsResponse ::
   ListCustomVocabularyItemsResponse
 newListCustomVocabularyItemsResponse pHttpStatus_ =
   ListCustomVocabularyItemsResponse'
-    { nextToken =
+    { botId =
         Prelude.Nothing,
-      customVocabularyItems = Prelude.Nothing,
       botVersion = Prelude.Nothing,
+      customVocabularyItems = Prelude.Nothing,
       localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The nextToken identifier to the list custom vocabulary response.
-listCustomVocabularyItemsResponse_nextToken :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
-listCustomVocabularyItemsResponse_nextToken = Lens.lens (\ListCustomVocabularyItemsResponse' {nextToken} -> nextToken) (\s@ListCustomVocabularyItemsResponse' {} a -> s {nextToken = a} :: ListCustomVocabularyItemsResponse)
-
--- | The custom vocabulary items from the list custom vocabulary response.
-listCustomVocabularyItemsResponse_customVocabularyItems :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe [CustomVocabularyItem])
-listCustomVocabularyItemsResponse_customVocabularyItems = Lens.lens (\ListCustomVocabularyItemsResponse' {customVocabularyItems} -> customVocabularyItems) (\s@ListCustomVocabularyItemsResponse' {} a -> s {customVocabularyItems = a} :: ListCustomVocabularyItemsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The unique identifier of the bot to the list custom vocabulary response.
+listCustomVocabularyItemsResponse_botId :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
+listCustomVocabularyItemsResponse_botId = Lens.lens (\ListCustomVocabularyItemsResponse' {botId} -> botId) (\s@ListCustomVocabularyItemsResponse' {} a -> s {botId = a} :: ListCustomVocabularyItemsResponse)
 
 -- | The bot version of the bot to the list custom vocabulary response.
 listCustomVocabularyItemsResponse_botVersion :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
 listCustomVocabularyItemsResponse_botVersion = Lens.lens (\ListCustomVocabularyItemsResponse' {botVersion} -> botVersion) (\s@ListCustomVocabularyItemsResponse' {} a -> s {botVersion = a} :: ListCustomVocabularyItemsResponse)
 
+-- | The custom vocabulary items from the list custom vocabulary response.
+listCustomVocabularyItemsResponse_customVocabularyItems :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe [CustomVocabularyItem])
+listCustomVocabularyItemsResponse_customVocabularyItems = Lens.lens (\ListCustomVocabularyItemsResponse' {customVocabularyItems} -> customVocabularyItems) (\s@ListCustomVocabularyItemsResponse' {} a -> s {customVocabularyItems = a} :: ListCustomVocabularyItemsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The locale identifier of the bot to the list custom vocabulary response.
 listCustomVocabularyItemsResponse_localeId :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
 listCustomVocabularyItemsResponse_localeId = Lens.lens (\ListCustomVocabularyItemsResponse' {localeId} -> localeId) (\s@ListCustomVocabularyItemsResponse' {} a -> s {localeId = a} :: ListCustomVocabularyItemsResponse)
 
--- | The unique identifier of the bot to the list custom vocabulary response.
-listCustomVocabularyItemsResponse_botId :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
-listCustomVocabularyItemsResponse_botId = Lens.lens (\ListCustomVocabularyItemsResponse' {botId} -> botId) (\s@ListCustomVocabularyItemsResponse' {} a -> s {botId = a} :: ListCustomVocabularyItemsResponse)
+-- | The nextToken identifier to the list custom vocabulary response.
+listCustomVocabularyItemsResponse_nextToken :: Lens.Lens' ListCustomVocabularyItemsResponse (Prelude.Maybe Prelude.Text)
+listCustomVocabularyItemsResponse_nextToken = Lens.lens (\ListCustomVocabularyItemsResponse' {nextToken} -> nextToken) (\s@ListCustomVocabularyItemsResponse' {} a -> s {nextToken = a} :: ListCustomVocabularyItemsResponse)
 
 -- | The response's http status code.
 listCustomVocabularyItemsResponse_httpStatus :: Lens.Lens' ListCustomVocabularyItemsResponse Prelude.Int
@@ -280,9 +280,9 @@ instance
     ListCustomVocabularyItemsResponse
   where
   rnf ListCustomVocabularyItemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf customVocabularyItems
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf customVocabularyItems
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

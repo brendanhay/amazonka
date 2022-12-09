@@ -27,8 +27,8 @@ module Amazonka.LexV2Models.ListBotRecommendations
     newListBotRecommendations,
 
     -- * Request Lenses
-    listBotRecommendations_nextToken,
     listBotRecommendations_maxResults,
+    listBotRecommendations_nextToken,
     listBotRecommendations_botId,
     listBotRecommendations_botVersion,
     listBotRecommendations_localeId,
@@ -38,11 +38,11 @@ module Amazonka.LexV2Models.ListBotRecommendations
     newListBotRecommendationsResponse,
 
     -- * Response Lenses
-    listBotRecommendationsResponse_nextToken,
-    listBotRecommendationsResponse_botVersion,
-    listBotRecommendationsResponse_botRecommendationSummaries,
-    listBotRecommendationsResponse_localeId,
     listBotRecommendationsResponse_botId,
+    listBotRecommendationsResponse_botRecommendationSummaries,
+    listBotRecommendationsResponse_botVersion,
+    listBotRecommendationsResponse_localeId,
+    listBotRecommendationsResponse_nextToken,
     listBotRecommendationsResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBotRecommendations' smart constructor.
 data ListBotRecommendations = ListBotRecommendations'
-  { -- | If the response from the ListBotRecommendation operation contains more
+  { -- | The maximum number of bot recommendations to return in each page of
+    -- results. If there are fewer results than the max page size, only the
+    -- actual number of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the ListBotRecommendation operation contains more
     -- results than specified in the maxResults parameter, a token is returned
     -- in the response. Use that token in the nextToken parameter to return the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of bot recommendations to return in each page of
-    -- results. If there are fewer results than the max page size, only the
-    -- actual number of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the bot that contains the bot recommendation
     -- list.
     botId :: Prelude.Text,
@@ -85,14 +85,14 @@ data ListBotRecommendations = ListBotRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBotRecommendations_maxResults' - The maximum number of bot recommendations to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+--
 -- 'nextToken', 'listBotRecommendations_nextToken' - If the response from the ListBotRecommendation operation contains more
 -- results than specified in the maxResults parameter, a token is returned
 -- in the response. Use that token in the nextToken parameter to return the
 -- next page of results.
---
--- 'maxResults', 'listBotRecommendations_maxResults' - The maximum number of bot recommendations to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
 --
 -- 'botId', 'listBotRecommendations_botId' - The unique identifier of the bot that contains the bot recommendation
 -- list.
@@ -114,13 +114,19 @@ newListBotRecommendations
   pBotVersion_
   pLocaleId_ =
     ListBotRecommendations'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         botId = pBotId_,
         botVersion = pBotVersion_,
         localeId = pLocaleId_
       }
+
+-- | The maximum number of bot recommendations to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+listBotRecommendations_maxResults :: Lens.Lens' ListBotRecommendations (Prelude.Maybe Prelude.Natural)
+listBotRecommendations_maxResults = Lens.lens (\ListBotRecommendations' {maxResults} -> maxResults) (\s@ListBotRecommendations' {} a -> s {maxResults = a} :: ListBotRecommendations)
 
 -- | If the response from the ListBotRecommendation operation contains more
 -- results than specified in the maxResults parameter, a token is returned
@@ -128,12 +134,6 @@ newListBotRecommendations
 -- next page of results.
 listBotRecommendations_nextToken :: Lens.Lens' ListBotRecommendations (Prelude.Maybe Prelude.Text)
 listBotRecommendations_nextToken = Lens.lens (\ListBotRecommendations' {nextToken} -> nextToken) (\s@ListBotRecommendations' {} a -> s {nextToken = a} :: ListBotRecommendations)
-
--- | The maximum number of bot recommendations to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
-listBotRecommendations_maxResults :: Lens.Lens' ListBotRecommendations (Prelude.Maybe Prelude.Natural)
-listBotRecommendations_maxResults = Lens.lens (\ListBotRecommendations' {maxResults} -> maxResults) (\s@ListBotRecommendations' {} a -> s {maxResults = a} :: ListBotRecommendations)
 
 -- | The unique identifier of the bot that contains the bot recommendation
 -- list.
@@ -159,28 +159,28 @@ instance Core.AWSRequest ListBotRecommendations where
     Response.receiveJSON
       ( \s h x ->
           ListBotRecommendationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> ( x Data..?> "botRecommendationSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBotRecommendations where
   hashWithSalt _salt ListBotRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 
 instance Prelude.NFData ListBotRecommendations where
   rnf ListBotRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
@@ -200,8 +200,8 @@ instance Data.ToJSON ListBotRecommendations where
   toJSON ListBotRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -222,26 +222,26 @@ instance Data.ToQuery ListBotRecommendations where
 
 -- | /See:/ 'newListBotRecommendationsResponse' smart constructor.
 data ListBotRecommendationsResponse = ListBotRecommendationsResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the ListBotRecommendations operation. If the nextToken field
-    -- is present, you send the contents as the nextToken parameter of a
-    -- ListBotRecommendations operation request to get the next page of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the bot that contains the bot recommendation list.
-    botVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier of the bot that contains the bot recommendation
+    -- list.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the bot recommendations that meet the filter
     -- specified in this request. The length of the list is specified in the
     -- maxResults parameter of the request. If there are more bot
     -- recommendations available, the nextToken field contains a token to get
     -- the next page of results.
     botRecommendationSummaries :: Prelude.Maybe [BotRecommendationSummary],
+    -- | The version of the bot that contains the bot recommendation list.
+    botVersion :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the language and locale of the bot recommendation
     -- list.
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot that contains the bot recommendation
-    -- list.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the ListBotRecommendations operation. If the nextToken field
+    -- is present, you send the contents as the nextToken parameter of a
+    -- ListBotRecommendations operation request to get the next page of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,13 +255,8 @@ data ListBotRecommendationsResponse = ListBotRecommendationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBotRecommendationsResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the ListBotRecommendations operation. If the nextToken field
--- is present, you send the contents as the nextToken parameter of a
--- ListBotRecommendations operation request to get the next page of
--- results.
---
--- 'botVersion', 'listBotRecommendationsResponse_botVersion' - The version of the bot that contains the bot recommendation list.
+-- 'botId', 'listBotRecommendationsResponse_botId' - The unique identifier of the bot that contains the bot recommendation
+-- list.
 --
 -- 'botRecommendationSummaries', 'listBotRecommendationsResponse_botRecommendationSummaries' - Summary information for the bot recommendations that meet the filter
 -- specified in this request. The length of the list is specified in the
@@ -269,11 +264,16 @@ data ListBotRecommendationsResponse = ListBotRecommendationsResponse'
 -- recommendations available, the nextToken field contains a token to get
 -- the next page of results.
 --
+-- 'botVersion', 'listBotRecommendationsResponse_botVersion' - The version of the bot that contains the bot recommendation list.
+--
 -- 'localeId', 'listBotRecommendationsResponse_localeId' - The identifier of the language and locale of the bot recommendation
 -- list.
 --
--- 'botId', 'listBotRecommendationsResponse_botId' - The unique identifier of the bot that contains the bot recommendation
--- list.
+-- 'nextToken', 'listBotRecommendationsResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the ListBotRecommendations operation. If the nextToken field
+-- is present, you send the contents as the nextToken parameter of a
+-- ListBotRecommendations operation request to get the next page of
+-- results.
 --
 -- 'httpStatus', 'listBotRecommendationsResponse_httpStatus' - The response's http status code.
 newListBotRecommendationsResponse ::
@@ -282,27 +282,20 @@ newListBotRecommendationsResponse ::
   ListBotRecommendationsResponse
 newListBotRecommendationsResponse pHttpStatus_ =
   ListBotRecommendationsResponse'
-    { nextToken =
+    { botId =
         Prelude.Nothing,
-      botVersion = Prelude.Nothing,
       botRecommendationSummaries =
         Prelude.Nothing,
+      botVersion = Prelude.Nothing,
       localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates whether there are more results to return in a
--- response to the ListBotRecommendations operation. If the nextToken field
--- is present, you send the contents as the nextToken parameter of a
--- ListBotRecommendations operation request to get the next page of
--- results.
-listBotRecommendationsResponse_nextToken :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
-listBotRecommendationsResponse_nextToken = Lens.lens (\ListBotRecommendationsResponse' {nextToken} -> nextToken) (\s@ListBotRecommendationsResponse' {} a -> s {nextToken = a} :: ListBotRecommendationsResponse)
-
--- | The version of the bot that contains the bot recommendation list.
-listBotRecommendationsResponse_botVersion :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
-listBotRecommendationsResponse_botVersion = Lens.lens (\ListBotRecommendationsResponse' {botVersion} -> botVersion) (\s@ListBotRecommendationsResponse' {} a -> s {botVersion = a} :: ListBotRecommendationsResponse)
+-- | The unique identifier of the bot that contains the bot recommendation
+-- list.
+listBotRecommendationsResponse_botId :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
+listBotRecommendationsResponse_botId = Lens.lens (\ListBotRecommendationsResponse' {botId} -> botId) (\s@ListBotRecommendationsResponse' {} a -> s {botId = a} :: ListBotRecommendationsResponse)
 
 -- | Summary information for the bot recommendations that meet the filter
 -- specified in this request. The length of the list is specified in the
@@ -312,15 +305,22 @@ listBotRecommendationsResponse_botVersion = Lens.lens (\ListBotRecommendationsRe
 listBotRecommendationsResponse_botRecommendationSummaries :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe [BotRecommendationSummary])
 listBotRecommendationsResponse_botRecommendationSummaries = Lens.lens (\ListBotRecommendationsResponse' {botRecommendationSummaries} -> botRecommendationSummaries) (\s@ListBotRecommendationsResponse' {} a -> s {botRecommendationSummaries = a} :: ListBotRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The version of the bot that contains the bot recommendation list.
+listBotRecommendationsResponse_botVersion :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
+listBotRecommendationsResponse_botVersion = Lens.lens (\ListBotRecommendationsResponse' {botVersion} -> botVersion) (\s@ListBotRecommendationsResponse' {} a -> s {botVersion = a} :: ListBotRecommendationsResponse)
+
 -- | The identifier of the language and locale of the bot recommendation
 -- list.
 listBotRecommendationsResponse_localeId :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
 listBotRecommendationsResponse_localeId = Lens.lens (\ListBotRecommendationsResponse' {localeId} -> localeId) (\s@ListBotRecommendationsResponse' {} a -> s {localeId = a} :: ListBotRecommendationsResponse)
 
--- | The unique identifier of the bot that contains the bot recommendation
--- list.
-listBotRecommendationsResponse_botId :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
-listBotRecommendationsResponse_botId = Lens.lens (\ListBotRecommendationsResponse' {botId} -> botId) (\s@ListBotRecommendationsResponse' {} a -> s {botId = a} :: ListBotRecommendationsResponse)
+-- | A token that indicates whether there are more results to return in a
+-- response to the ListBotRecommendations operation. If the nextToken field
+-- is present, you send the contents as the nextToken parameter of a
+-- ListBotRecommendations operation request to get the next page of
+-- results.
+listBotRecommendationsResponse_nextToken :: Lens.Lens' ListBotRecommendationsResponse (Prelude.Maybe Prelude.Text)
+listBotRecommendationsResponse_nextToken = Lens.lens (\ListBotRecommendationsResponse' {nextToken} -> nextToken) (\s@ListBotRecommendationsResponse' {} a -> s {nextToken = a} :: ListBotRecommendationsResponse)
 
 -- | The response's http status code.
 listBotRecommendationsResponse_httpStatus :: Lens.Lens' ListBotRecommendationsResponse Prelude.Int
@@ -331,9 +331,9 @@ instance
     ListBotRecommendationsResponse
   where
   rnf ListBotRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botVersion
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationSummaries
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

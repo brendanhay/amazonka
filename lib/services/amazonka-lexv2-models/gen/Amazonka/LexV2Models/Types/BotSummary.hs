@@ -31,22 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotSummary' smart constructor.
 data BotSummary = BotSummary'
-  { -- | The description of the bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier assigned to the bot. Use this ID to get detailed
+  { -- | The unique identifier assigned to the bot. Use this ID to get detailed
     -- information about the bot with the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html DescribeBot>
     -- operation.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot.
     botName :: Prelude.Maybe Prelude.Text,
-    -- | The latest numerical version in use for the bot.
-    latestBotVersion :: Prelude.Maybe Prelude.Text,
     -- | The current status of the bot. When the status is @Available@ the bot is
     -- ready for use.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The description of the bot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the bot was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The latest numerical version in use for the bot.
+    latestBotVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,8 +58,6 @@ data BotSummary = BotSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'botSummary_description' - The description of the bot.
---
 -- 'botId', 'botSummary_botId' - The unique identifier assigned to the bot. Use this ID to get detailed
 -- information about the bot with the
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html DescribeBot>
@@ -67,27 +65,25 @@ data BotSummary = BotSummary'
 --
 -- 'botName', 'botSummary_botName' - The name of the bot.
 --
--- 'latestBotVersion', 'botSummary_latestBotVersion' - The latest numerical version in use for the bot.
---
 -- 'botStatus', 'botSummary_botStatus' - The current status of the bot. When the status is @Available@ the bot is
 -- ready for use.
 --
+-- 'description', 'botSummary_description' - The description of the bot.
+--
 -- 'lastUpdatedDateTime', 'botSummary_lastUpdatedDateTime' - The date and time that the bot was last updated.
+--
+-- 'latestBotVersion', 'botSummary_latestBotVersion' - The latest numerical version in use for the bot.
 newBotSummary ::
   BotSummary
 newBotSummary =
   BotSummary'
-    { description = Prelude.Nothing,
-      botId = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botName = Prelude.Nothing,
-      latestBotVersion = Prelude.Nothing,
       botStatus = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      description = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      latestBotVersion = Prelude.Nothing
     }
-
--- | The description of the bot.
-botSummary_description :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
-botSummary_description = Lens.lens (\BotSummary' {description} -> description) (\s@BotSummary' {} a -> s {description = a} :: BotSummary)
 
 -- | The unique identifier assigned to the bot. Use this ID to get detailed
 -- information about the bot with the
@@ -100,18 +96,22 @@ botSummary_botId = Lens.lens (\BotSummary' {botId} -> botId) (\s@BotSummary' {} 
 botSummary_botName :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
 botSummary_botName = Lens.lens (\BotSummary' {botName} -> botName) (\s@BotSummary' {} a -> s {botName = a} :: BotSummary)
 
--- | The latest numerical version in use for the bot.
-botSummary_latestBotVersion :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
-botSummary_latestBotVersion = Lens.lens (\BotSummary' {latestBotVersion} -> latestBotVersion) (\s@BotSummary' {} a -> s {latestBotVersion = a} :: BotSummary)
-
 -- | The current status of the bot. When the status is @Available@ the bot is
 -- ready for use.
 botSummary_botStatus :: Lens.Lens' BotSummary (Prelude.Maybe BotStatus)
 botSummary_botStatus = Lens.lens (\BotSummary' {botStatus} -> botStatus) (\s@BotSummary' {} a -> s {botStatus = a} :: BotSummary)
 
+-- | The description of the bot.
+botSummary_description :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
+botSummary_description = Lens.lens (\BotSummary' {description} -> description) (\s@BotSummary' {} a -> s {description = a} :: BotSummary)
+
 -- | The date and time that the bot was last updated.
 botSummary_lastUpdatedDateTime :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.UTCTime)
 botSummary_lastUpdatedDateTime = Lens.lens (\BotSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotSummary' {} a -> s {lastUpdatedDateTime = a} :: BotSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The latest numerical version in use for the bot.
+botSummary_latestBotVersion :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
+botSummary_latestBotVersion = Lens.lens (\BotSummary' {latestBotVersion} -> latestBotVersion) (\s@BotSummary' {} a -> s {latestBotVersion = a} :: BotSummary)
 
 instance Data.FromJSON BotSummary where
   parseJSON =
@@ -119,28 +119,28 @@ instance Data.FromJSON BotSummary where
       "BotSummary"
       ( \x ->
           BotSummary'
-            Prelude.<$> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "botId")
+            Prelude.<$> (x Data..:? "botId")
             Prelude.<*> (x Data..:? "botName")
-            Prelude.<*> (x Data..:? "latestBotVersion")
             Prelude.<*> (x Data..:? "botStatus")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "latestBotVersion")
       )
 
 instance Prelude.Hashable BotSummary where
   hashWithSalt _salt BotSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` botId
+    _salt `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botName
-      `Prelude.hashWithSalt` latestBotVersion
       `Prelude.hashWithSalt` botStatus
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` latestBotVersion
 
 instance Prelude.NFData BotSummary where
   rnf BotSummary' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf latestBotVersion
       `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf latestBotVersion

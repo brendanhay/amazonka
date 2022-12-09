@@ -37,10 +37,10 @@ module Amazonka.LexV2Models.DeleteCustomVocabulary
     newDeleteCustomVocabularyResponse,
 
     -- * Response Lenses
-    deleteCustomVocabularyResponse_customVocabularyStatus,
-    deleteCustomVocabularyResponse_botVersion,
-    deleteCustomVocabularyResponse_localeId,
     deleteCustomVocabularyResponse_botId,
+    deleteCustomVocabularyResponse_botVersion,
+    deleteCustomVocabularyResponse_customVocabularyStatus,
+    deleteCustomVocabularyResponse_localeId,
     deleteCustomVocabularyResponse_httpStatus,
   )
 where
@@ -120,10 +120,10 @@ instance Core.AWSRequest DeleteCustomVocabulary where
     Response.receiveJSON
       ( \s h x ->
           DeleteCustomVocabularyResponse'
-            Prelude.<$> (x Data..?> "customVocabularyStatus")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "customVocabularyStatus")
             Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,15 +167,15 @@ instance Data.ToQuery DeleteCustomVocabulary where
 
 -- | /See:/ 'newDeleteCustomVocabularyResponse' smart constructor.
 data DeleteCustomVocabularyResponse = DeleteCustomVocabularyResponse'
-  { -- | The status of removing the custom vocabulary.
-    customVocabularyStatus :: Prelude.Maybe CustomVocabularyStatus,
+  { -- | The identifier of the bot that the custom vocabulary was removed from.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot that the custom vocabulary was removed from.
     botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The status of removing the custom vocabulary.
+    customVocabularyStatus :: Prelude.Maybe CustomVocabularyStatus,
     -- | The locale identifier for the locale that the custom vocabulary was
     -- removed from.
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that the custom vocabulary was removed from.
-    botId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,14 +189,14 @@ data DeleteCustomVocabularyResponse = DeleteCustomVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customVocabularyStatus', 'deleteCustomVocabularyResponse_customVocabularyStatus' - The status of removing the custom vocabulary.
+-- 'botId', 'deleteCustomVocabularyResponse_botId' - The identifier of the bot that the custom vocabulary was removed from.
 --
 -- 'botVersion', 'deleteCustomVocabularyResponse_botVersion' - The version of the bot that the custom vocabulary was removed from.
 --
+-- 'customVocabularyStatus', 'deleteCustomVocabularyResponse_customVocabularyStatus' - The status of removing the custom vocabulary.
+--
 -- 'localeId', 'deleteCustomVocabularyResponse_localeId' - The locale identifier for the locale that the custom vocabulary was
 -- removed from.
---
--- 'botId', 'deleteCustomVocabularyResponse_botId' - The identifier of the bot that the custom vocabulary was removed from.
 --
 -- 'httpStatus', 'deleteCustomVocabularyResponse_httpStatus' - The response's http status code.
 newDeleteCustomVocabularyResponse ::
@@ -205,30 +205,30 @@ newDeleteCustomVocabularyResponse ::
   DeleteCustomVocabularyResponse
 newDeleteCustomVocabularyResponse pHttpStatus_ =
   DeleteCustomVocabularyResponse'
-    { customVocabularyStatus =
+    { botId =
         Prelude.Nothing,
       botVersion = Prelude.Nothing,
+      customVocabularyStatus = Prelude.Nothing,
       localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of removing the custom vocabulary.
-deleteCustomVocabularyResponse_customVocabularyStatus :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe CustomVocabularyStatus)
-deleteCustomVocabularyResponse_customVocabularyStatus = Lens.lens (\DeleteCustomVocabularyResponse' {customVocabularyStatus} -> customVocabularyStatus) (\s@DeleteCustomVocabularyResponse' {} a -> s {customVocabularyStatus = a} :: DeleteCustomVocabularyResponse)
+-- | The identifier of the bot that the custom vocabulary was removed from.
+deleteCustomVocabularyResponse_botId :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe Prelude.Text)
+deleteCustomVocabularyResponse_botId = Lens.lens (\DeleteCustomVocabularyResponse' {botId} -> botId) (\s@DeleteCustomVocabularyResponse' {} a -> s {botId = a} :: DeleteCustomVocabularyResponse)
 
 -- | The version of the bot that the custom vocabulary was removed from.
 deleteCustomVocabularyResponse_botVersion :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe Prelude.Text)
 deleteCustomVocabularyResponse_botVersion = Lens.lens (\DeleteCustomVocabularyResponse' {botVersion} -> botVersion) (\s@DeleteCustomVocabularyResponse' {} a -> s {botVersion = a} :: DeleteCustomVocabularyResponse)
 
+-- | The status of removing the custom vocabulary.
+deleteCustomVocabularyResponse_customVocabularyStatus :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe CustomVocabularyStatus)
+deleteCustomVocabularyResponse_customVocabularyStatus = Lens.lens (\DeleteCustomVocabularyResponse' {customVocabularyStatus} -> customVocabularyStatus) (\s@DeleteCustomVocabularyResponse' {} a -> s {customVocabularyStatus = a} :: DeleteCustomVocabularyResponse)
+
 -- | The locale identifier for the locale that the custom vocabulary was
 -- removed from.
 deleteCustomVocabularyResponse_localeId :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe Prelude.Text)
 deleteCustomVocabularyResponse_localeId = Lens.lens (\DeleteCustomVocabularyResponse' {localeId} -> localeId) (\s@DeleteCustomVocabularyResponse' {} a -> s {localeId = a} :: DeleteCustomVocabularyResponse)
-
--- | The identifier of the bot that the custom vocabulary was removed from.
-deleteCustomVocabularyResponse_botId :: Lens.Lens' DeleteCustomVocabularyResponse (Prelude.Maybe Prelude.Text)
-deleteCustomVocabularyResponse_botId = Lens.lens (\DeleteCustomVocabularyResponse' {botId} -> botId) (\s@DeleteCustomVocabularyResponse' {} a -> s {botId = a} :: DeleteCustomVocabularyResponse)
 
 -- | The response's http status code.
 deleteCustomVocabularyResponse_httpStatus :: Lens.Lens' DeleteCustomVocabularyResponse Prelude.Int
@@ -239,8 +239,8 @@ instance
     DeleteCustomVocabularyResponse
   where
   rnf DeleteCustomVocabularyResponse' {..} =
-    Prelude.rnf customVocabularyStatus
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf customVocabularyStatus
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -17,20 +17,20 @@ module Amazonka.LexV2Models
     -- * Errors
     -- $errors
 
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -41,29 +41,29 @@ module Amazonka.LexV2Models
     -- * Waiters
     -- $waiters
 
-    -- ** BotLocaleBuilt
-    newBotLocaleBuilt,
-
-    -- ** BotImportCompleted
-    newBotImportCompleted,
-
-    -- ** BotLocaleExpressTestingAvailable
-    newBotLocaleExpressTestingAvailable,
+    -- ** BotAliasAvailable
+    newBotAliasAvailable,
 
     -- ** BotAvailable
     newBotAvailable,
 
-    -- ** BotAliasAvailable
-    newBotAliasAvailable,
+    -- ** BotExportCompleted
+    newBotExportCompleted,
+
+    -- ** BotImportCompleted
+    newBotImportCompleted,
+
+    -- ** BotLocaleBuilt
+    newBotLocaleBuilt,
 
     -- ** BotLocaleCreated
     newBotLocaleCreated,
 
+    -- ** BotLocaleExpressTestingAvailable
+    newBotLocaleExpressTestingAvailable,
+
     -- ** BotVersionAvailable
     newBotVersionAvailable,
-
-    -- ** BotExportCompleted
-    newBotExportCompleted,
 
     -- * Operations
     -- $operations

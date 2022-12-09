@@ -33,8 +33,6 @@ import qualified Amazonka.Prelude as Prelude
 data ImportSummary = ImportSummary'
   { -- | The date and time that the import was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The name that you gave the imported resource.
-    importedResourceName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier that Amazon Lex assigned to the import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the resource. When the status is @Completed@ the resource
@@ -42,6 +40,8 @@ data ImportSummary = ImportSummary'
     importStatus :: Prelude.Maybe ImportStatus,
     -- | The unique identifier that Amazon Lex assigned to the imported resource.
     importedResourceId :: Prelude.Maybe Prelude.Text,
+    -- | The name that you gave the imported resource.
+    importedResourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of resource that was imported.
     importedResourceType :: Prelude.Maybe ImportResourceType,
     -- | The date and time that the import was last updated.
@@ -62,14 +62,14 @@ data ImportSummary = ImportSummary'
 --
 -- 'creationDateTime', 'importSummary_creationDateTime' - The date and time that the import was created.
 --
--- 'importedResourceName', 'importSummary_importedResourceName' - The name that you gave the imported resource.
---
 -- 'importId', 'importSummary_importId' - The unique identifier that Amazon Lex assigned to the import.
 --
 -- 'importStatus', 'importSummary_importStatus' - The status of the resource. When the status is @Completed@ the resource
 -- is ready to build.
 --
 -- 'importedResourceId', 'importSummary_importedResourceId' - The unique identifier that Amazon Lex assigned to the imported resource.
+--
+-- 'importedResourceName', 'importSummary_importedResourceName' - The name that you gave the imported resource.
 --
 -- 'importedResourceType', 'importSummary_importedResourceType' - The type of resource that was imported.
 --
@@ -82,10 +82,10 @@ newImportSummary ::
 newImportSummary =
   ImportSummary'
     { creationDateTime = Prelude.Nothing,
-      importedResourceName = Prelude.Nothing,
       importId = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       importedResourceId = Prelude.Nothing,
+      importedResourceName = Prelude.Nothing,
       importedResourceType = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       mergeStrategy = Prelude.Nothing
@@ -94,10 +94,6 @@ newImportSummary =
 -- | The date and time that the import was created.
 importSummary_creationDateTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
 importSummary_creationDateTime = Lens.lens (\ImportSummary' {creationDateTime} -> creationDateTime) (\s@ImportSummary' {} a -> s {creationDateTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
-
--- | The name that you gave the imported resource.
-importSummary_importedResourceName :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
-importSummary_importedResourceName = Lens.lens (\ImportSummary' {importedResourceName} -> importedResourceName) (\s@ImportSummary' {} a -> s {importedResourceName = a} :: ImportSummary)
 
 -- | The unique identifier that Amazon Lex assigned to the import.
 importSummary_importId :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
@@ -111,6 +107,10 @@ importSummary_importStatus = Lens.lens (\ImportSummary' {importStatus} -> import
 -- | The unique identifier that Amazon Lex assigned to the imported resource.
 importSummary_importedResourceId :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
 importSummary_importedResourceId = Lens.lens (\ImportSummary' {importedResourceId} -> importedResourceId) (\s@ImportSummary' {} a -> s {importedResourceId = a} :: ImportSummary)
+
+-- | The name that you gave the imported resource.
+importSummary_importedResourceName :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
+importSummary_importedResourceName = Lens.lens (\ImportSummary' {importedResourceName} -> importedResourceName) (\s@ImportSummary' {} a -> s {importedResourceName = a} :: ImportSummary)
 
 -- | The type of resource that was imported.
 importSummary_importedResourceType :: Lens.Lens' ImportSummary (Prelude.Maybe ImportResourceType)
@@ -132,10 +132,10 @@ instance Data.FromJSON ImportSummary where
       ( \x ->
           ImportSummary'
             Prelude.<$> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "importedResourceName")
             Prelude.<*> (x Data..:? "importId")
             Prelude.<*> (x Data..:? "importStatus")
             Prelude.<*> (x Data..:? "importedResourceId")
+            Prelude.<*> (x Data..:? "importedResourceName")
             Prelude.<*> (x Data..:? "importedResourceType")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "mergeStrategy")
@@ -144,10 +144,10 @@ instance Data.FromJSON ImportSummary where
 instance Prelude.Hashable ImportSummary where
   hashWithSalt _salt ImportSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` importedResourceName
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` importStatus
       `Prelude.hashWithSalt` importedResourceId
+      `Prelude.hashWithSalt` importedResourceName
       `Prelude.hashWithSalt` importedResourceType
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` mergeStrategy
@@ -155,10 +155,10 @@ instance Prelude.Hashable ImportSummary where
 instance Prelude.NFData ImportSummary where
   rnf ImportSummary' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf importedResourceName
       `Prelude.seq` Prelude.rnf importId
       `Prelude.seq` Prelude.rnf importStatus
       `Prelude.seq` Prelude.rnf importedResourceId
+      `Prelude.seq` Prelude.rnf importedResourceName
       `Prelude.seq` Prelude.rnf importedResourceType
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf mergeStrategy

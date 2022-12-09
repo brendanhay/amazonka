@@ -35,18 +35,18 @@ module Amazonka.LexV2Models.DescribeBotAlias
     newDescribeBotAliasResponse,
 
     -- * Response Lenses
-    describeBotAliasResponse_botAliasStatus,
-    describeBotAliasResponse_botVersion,
-    describeBotAliasResponse_creationDateTime,
-    describeBotAliasResponse_description,
-    describeBotAliasResponse_sentimentAnalysisSettings,
-    describeBotAliasResponse_botId,
+    describeBotAliasResponse_botAliasHistoryEvents,
     describeBotAliasResponse_botAliasId,
-    describeBotAliasResponse_conversationLogSettings,
     describeBotAliasResponse_botAliasLocaleSettings,
     describeBotAliasResponse_botAliasName,
-    describeBotAliasResponse_botAliasHistoryEvents,
+    describeBotAliasResponse_botAliasStatus,
+    describeBotAliasResponse_botId,
+    describeBotAliasResponse_botVersion,
+    describeBotAliasResponse_conversationLogSettings,
+    describeBotAliasResponse_creationDateTime,
+    describeBotAliasResponse_description,
     describeBotAliasResponse_lastUpdatedDateTime,
+    describeBotAliasResponse_sentimentAnalysisSettings,
     describeBotAliasResponse_httpStatus,
   )
 where
@@ -109,22 +109,22 @@ instance Core.AWSRequest DescribeBotAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotAliasResponse'
-            Prelude.<$> (x Data..?> "botAliasStatus")
-            Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> ( x Data..?> "botAliasHistoryEvents"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "botAliasId")
-            Prelude.<*> (x Data..?> "conversationLogSettings")
             Prelude.<*> ( x Data..?> "botAliasLocaleSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botAliasName")
-            Prelude.<*> ( x Data..?> "botAliasHistoryEvents"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<*> (x Data..?> "botAliasStatus")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "conversationLogSettings")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,32 +164,32 @@ instance Data.ToQuery DescribeBotAlias where
 
 -- | /See:/ 'newDescribeBotAliasResponse' smart constructor.
 data DescribeBotAliasResponse = DescribeBotAliasResponse'
-  { -- | The current status of the alias. When the alias is @Available@, the
-    -- alias is ready for use with your bot.
-    botAliasStatus :: Prelude.Maybe BotAliasStatus,
-    -- | The version of the bot associated with the bot alias.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the alias was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The description of the bot alias.
-    description :: Prelude.Maybe Prelude.Text,
-    sentimentAnalysisSettings :: Prelude.Maybe SentimentAnalysisSettings,
-    -- | The identifier of the bot associated with the bot alias.
-    botId :: Prelude.Maybe Prelude.Text,
+  { -- | A list of events that affect a bot alias. For example, an event is
+    -- recorded when the version that the alias points to changes.
+    botAliasHistoryEvents :: Prelude.Maybe [BotAliasHistoryEvent],
     -- | The identifier of the bot alias.
     botAliasId :: Prelude.Maybe Prelude.Text,
-    -- | Specifics of how Amazon Lex logs text and audio conversations with the
-    -- bot associated with the alias.
-    conversationLogSettings :: Prelude.Maybe ConversationLogSettings,
     -- | The locale settings that are unique to the alias.
     botAliasLocaleSettings :: Prelude.Maybe (Prelude.HashMap Prelude.Text BotAliasLocaleSettings),
     -- | The name of the bot alias.
     botAliasName :: Prelude.Maybe Prelude.Text,
-    -- | A list of events that affect a bot alias. For example, an event is
-    -- recorded when the version that the alias points to changes.
-    botAliasHistoryEvents :: Prelude.Maybe [BotAliasHistoryEvent],
+    -- | The current status of the alias. When the alias is @Available@, the
+    -- alias is ready for use with your bot.
+    botAliasStatus :: Prelude.Maybe BotAliasStatus,
+    -- | The identifier of the bot associated with the bot alias.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot associated with the bot alias.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifics of how Amazon Lex logs text and audio conversations with the
+    -- bot associated with the alias.
+    conversationLogSettings :: Prelude.Maybe ConversationLogSettings,
+    -- | A timestamp of the date and time that the alias was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the bot alias.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the alias was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    sentimentAnalysisSettings :: Prelude.Maybe SentimentAnalysisSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,32 +203,32 @@ data DescribeBotAliasResponse = DescribeBotAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botAliasStatus', 'describeBotAliasResponse_botAliasStatus' - The current status of the alias. When the alias is @Available@, the
--- alias is ready for use with your bot.
---
--- 'botVersion', 'describeBotAliasResponse_botVersion' - The version of the bot associated with the bot alias.
---
--- 'creationDateTime', 'describeBotAliasResponse_creationDateTime' - A timestamp of the date and time that the alias was created.
---
--- 'description', 'describeBotAliasResponse_description' - The description of the bot alias.
---
--- 'sentimentAnalysisSettings', 'describeBotAliasResponse_sentimentAnalysisSettings' - Undocumented member.
---
--- 'botId', 'describeBotAliasResponse_botId' - The identifier of the bot associated with the bot alias.
+-- 'botAliasHistoryEvents', 'describeBotAliasResponse_botAliasHistoryEvents' - A list of events that affect a bot alias. For example, an event is
+-- recorded when the version that the alias points to changes.
 --
 -- 'botAliasId', 'describeBotAliasResponse_botAliasId' - The identifier of the bot alias.
---
--- 'conversationLogSettings', 'describeBotAliasResponse_conversationLogSettings' - Specifics of how Amazon Lex logs text and audio conversations with the
--- bot associated with the alias.
 --
 -- 'botAliasLocaleSettings', 'describeBotAliasResponse_botAliasLocaleSettings' - The locale settings that are unique to the alias.
 --
 -- 'botAliasName', 'describeBotAliasResponse_botAliasName' - The name of the bot alias.
 --
--- 'botAliasHistoryEvents', 'describeBotAliasResponse_botAliasHistoryEvents' - A list of events that affect a bot alias. For example, an event is
--- recorded when the version that the alias points to changes.
+-- 'botAliasStatus', 'describeBotAliasResponse_botAliasStatus' - The current status of the alias. When the alias is @Available@, the
+-- alias is ready for use with your bot.
+--
+-- 'botId', 'describeBotAliasResponse_botId' - The identifier of the bot associated with the bot alias.
+--
+-- 'botVersion', 'describeBotAliasResponse_botVersion' - The version of the bot associated with the bot alias.
+--
+-- 'conversationLogSettings', 'describeBotAliasResponse_conversationLogSettings' - Specifics of how Amazon Lex logs text and audio conversations with the
+-- bot associated with the alias.
+--
+-- 'creationDateTime', 'describeBotAliasResponse_creationDateTime' - A timestamp of the date and time that the alias was created.
+--
+-- 'description', 'describeBotAliasResponse_description' - The description of the bot alias.
 --
 -- 'lastUpdatedDateTime', 'describeBotAliasResponse_lastUpdatedDateTime' - A timestamp of the date and time that the alias was last updated.
+--
+-- 'sentimentAnalysisSettings', 'describeBotAliasResponse_sentimentAnalysisSettings' - Undocumented member.
 --
 -- 'httpStatus', 'describeBotAliasResponse_httpStatus' - The response's http status code.
 newDescribeBotAliasResponse ::
@@ -237,55 +237,30 @@ newDescribeBotAliasResponse ::
   DescribeBotAliasResponse
 newDescribeBotAliasResponse pHttpStatus_ =
   DescribeBotAliasResponse'
-    { botAliasStatus =
+    { botAliasHistoryEvents =
         Prelude.Nothing,
-      botVersion = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      sentimentAnalysisSettings = Prelude.Nothing,
-      botId = Prelude.Nothing,
       botAliasId = Prelude.Nothing,
-      conversationLogSettings = Prelude.Nothing,
       botAliasLocaleSettings = Prelude.Nothing,
       botAliasName = Prelude.Nothing,
-      botAliasHistoryEvents = Prelude.Nothing,
+      botAliasStatus = Prelude.Nothing,
+      botId = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      conversationLogSettings = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      description = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      sentimentAnalysisSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The current status of the alias. When the alias is @Available@, the
--- alias is ready for use with your bot.
-describeBotAliasResponse_botAliasStatus :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe BotAliasStatus)
-describeBotAliasResponse_botAliasStatus = Lens.lens (\DescribeBotAliasResponse' {botAliasStatus} -> botAliasStatus) (\s@DescribeBotAliasResponse' {} a -> s {botAliasStatus = a} :: DescribeBotAliasResponse)
-
--- | The version of the bot associated with the bot alias.
-describeBotAliasResponse_botVersion :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
-describeBotAliasResponse_botVersion = Lens.lens (\DescribeBotAliasResponse' {botVersion} -> botVersion) (\s@DescribeBotAliasResponse' {} a -> s {botVersion = a} :: DescribeBotAliasResponse)
-
--- | A timestamp of the date and time that the alias was created.
-describeBotAliasResponse_creationDateTime :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotAliasResponse_creationDateTime = Lens.lens (\DescribeBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotAliasResponse' {} a -> s {creationDateTime = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Data._Time
-
--- | The description of the bot alias.
-describeBotAliasResponse_description :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
-describeBotAliasResponse_description = Lens.lens (\DescribeBotAliasResponse' {description} -> description) (\s@DescribeBotAliasResponse' {} a -> s {description = a} :: DescribeBotAliasResponse)
-
--- | Undocumented member.
-describeBotAliasResponse_sentimentAnalysisSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe SentimentAnalysisSettings)
-describeBotAliasResponse_sentimentAnalysisSettings = Lens.lens (\DescribeBotAliasResponse' {sentimentAnalysisSettings} -> sentimentAnalysisSettings) (\s@DescribeBotAliasResponse' {} a -> s {sentimentAnalysisSettings = a} :: DescribeBotAliasResponse)
-
--- | The identifier of the bot associated with the bot alias.
-describeBotAliasResponse_botId :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
-describeBotAliasResponse_botId = Lens.lens (\DescribeBotAliasResponse' {botId} -> botId) (\s@DescribeBotAliasResponse' {} a -> s {botId = a} :: DescribeBotAliasResponse)
+-- | A list of events that affect a bot alias. For example, an event is
+-- recorded when the version that the alias points to changes.
+describeBotAliasResponse_botAliasHistoryEvents :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe [BotAliasHistoryEvent])
+describeBotAliasResponse_botAliasHistoryEvents = Lens.lens (\DescribeBotAliasResponse' {botAliasHistoryEvents} -> botAliasHistoryEvents) (\s@DescribeBotAliasResponse' {} a -> s {botAliasHistoryEvents = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the bot alias.
 describeBotAliasResponse_botAliasId :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
 describeBotAliasResponse_botAliasId = Lens.lens (\DescribeBotAliasResponse' {botAliasId} -> botAliasId) (\s@DescribeBotAliasResponse' {} a -> s {botAliasId = a} :: DescribeBotAliasResponse)
-
--- | Specifics of how Amazon Lex logs text and audio conversations with the
--- bot associated with the alias.
-describeBotAliasResponse_conversationLogSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe ConversationLogSettings)
-describeBotAliasResponse_conversationLogSettings = Lens.lens (\DescribeBotAliasResponse' {conversationLogSettings} -> conversationLogSettings) (\s@DescribeBotAliasResponse' {} a -> s {conversationLogSettings = a} :: DescribeBotAliasResponse)
 
 -- | The locale settings that are unique to the alias.
 describeBotAliasResponse_botAliasLocaleSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text BotAliasLocaleSettings))
@@ -295,14 +270,39 @@ describeBotAliasResponse_botAliasLocaleSettings = Lens.lens (\DescribeBotAliasRe
 describeBotAliasResponse_botAliasName :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
 describeBotAliasResponse_botAliasName = Lens.lens (\DescribeBotAliasResponse' {botAliasName} -> botAliasName) (\s@DescribeBotAliasResponse' {} a -> s {botAliasName = a} :: DescribeBotAliasResponse)
 
--- | A list of events that affect a bot alias. For example, an event is
--- recorded when the version that the alias points to changes.
-describeBotAliasResponse_botAliasHistoryEvents :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe [BotAliasHistoryEvent])
-describeBotAliasResponse_botAliasHistoryEvents = Lens.lens (\DescribeBotAliasResponse' {botAliasHistoryEvents} -> botAliasHistoryEvents) (\s@DescribeBotAliasResponse' {} a -> s {botAliasHistoryEvents = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The current status of the alias. When the alias is @Available@, the
+-- alias is ready for use with your bot.
+describeBotAliasResponse_botAliasStatus :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe BotAliasStatus)
+describeBotAliasResponse_botAliasStatus = Lens.lens (\DescribeBotAliasResponse' {botAliasStatus} -> botAliasStatus) (\s@DescribeBotAliasResponse' {} a -> s {botAliasStatus = a} :: DescribeBotAliasResponse)
+
+-- | The identifier of the bot associated with the bot alias.
+describeBotAliasResponse_botId :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
+describeBotAliasResponse_botId = Lens.lens (\DescribeBotAliasResponse' {botId} -> botId) (\s@DescribeBotAliasResponse' {} a -> s {botId = a} :: DescribeBotAliasResponse)
+
+-- | The version of the bot associated with the bot alias.
+describeBotAliasResponse_botVersion :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
+describeBotAliasResponse_botVersion = Lens.lens (\DescribeBotAliasResponse' {botVersion} -> botVersion) (\s@DescribeBotAliasResponse' {} a -> s {botVersion = a} :: DescribeBotAliasResponse)
+
+-- | Specifics of how Amazon Lex logs text and audio conversations with the
+-- bot associated with the alias.
+describeBotAliasResponse_conversationLogSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe ConversationLogSettings)
+describeBotAliasResponse_conversationLogSettings = Lens.lens (\DescribeBotAliasResponse' {conversationLogSettings} -> conversationLogSettings) (\s@DescribeBotAliasResponse' {} a -> s {conversationLogSettings = a} :: DescribeBotAliasResponse)
+
+-- | A timestamp of the date and time that the alias was created.
+describeBotAliasResponse_creationDateTime :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
+describeBotAliasResponse_creationDateTime = Lens.lens (\DescribeBotAliasResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotAliasResponse' {} a -> s {creationDateTime = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the bot alias.
+describeBotAliasResponse_description :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.Text)
+describeBotAliasResponse_description = Lens.lens (\DescribeBotAliasResponse' {description} -> description) (\s@DescribeBotAliasResponse' {} a -> s {description = a} :: DescribeBotAliasResponse)
 
 -- | A timestamp of the date and time that the alias was last updated.
 describeBotAliasResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
 describeBotAliasResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotAliasResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotAliasResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Undocumented member.
+describeBotAliasResponse_sentimentAnalysisSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe SentimentAnalysisSettings)
+describeBotAliasResponse_sentimentAnalysisSettings = Lens.lens (\DescribeBotAliasResponse' {sentimentAnalysisSettings} -> sentimentAnalysisSettings) (\s@DescribeBotAliasResponse' {} a -> s {sentimentAnalysisSettings = a} :: DescribeBotAliasResponse)
 
 -- | The response's http status code.
 describeBotAliasResponse_httpStatus :: Lens.Lens' DescribeBotAliasResponse Prelude.Int
@@ -310,16 +310,16 @@ describeBotAliasResponse_httpStatus = Lens.lens (\DescribeBotAliasResponse' {htt
 
 instance Prelude.NFData DescribeBotAliasResponse where
   rnf DescribeBotAliasResponse' {..} =
-    Prelude.rnf botAliasStatus
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botAliasHistoryEvents
       `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf conversationLogSettings
       `Prelude.seq` Prelude.rnf botAliasLocaleSettings
       `Prelude.seq` Prelude.rnf botAliasName
-      `Prelude.seq` Prelude.rnf botAliasHistoryEvents
+      `Prelude.seq` Prelude.rnf botAliasStatus
+      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf conversationLogSettings
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
       `Prelude.seq` Prelude.rnf httpStatus

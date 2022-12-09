@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportResourceSpecification' smart constructor.
 data ImportResourceSpecification = ImportResourceSpecification'
-  { -- | Parameters for importing a bot locale.
-    botLocaleImportSpecification :: Prelude.Maybe BotLocaleImportSpecification,
-    -- | Parameters for importing a bot.
+  { -- | Parameters for importing a bot.
     botImportSpecification :: Prelude.Maybe BotImportSpecification,
+    -- | Parameters for importing a bot locale.
+    botLocaleImportSpecification :: Prelude.Maybe BotLocaleImportSpecification,
     customVocabularyImportSpecification :: Prelude.Maybe CustomVocabularyImportSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,29 +49,29 @@ data ImportResourceSpecification = ImportResourceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botLocaleImportSpecification', 'importResourceSpecification_botLocaleImportSpecification' - Parameters for importing a bot locale.
---
 -- 'botImportSpecification', 'importResourceSpecification_botImportSpecification' - Parameters for importing a bot.
+--
+-- 'botLocaleImportSpecification', 'importResourceSpecification_botLocaleImportSpecification' - Parameters for importing a bot locale.
 --
 -- 'customVocabularyImportSpecification', 'importResourceSpecification_customVocabularyImportSpecification' - Undocumented member.
 newImportResourceSpecification ::
   ImportResourceSpecification
 newImportResourceSpecification =
   ImportResourceSpecification'
-    { botLocaleImportSpecification =
+    { botImportSpecification =
         Prelude.Nothing,
-      botImportSpecification = Prelude.Nothing,
+      botLocaleImportSpecification = Prelude.Nothing,
       customVocabularyImportSpecification =
         Prelude.Nothing
     }
 
--- | Parameters for importing a bot locale.
-importResourceSpecification_botLocaleImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe BotLocaleImportSpecification)
-importResourceSpecification_botLocaleImportSpecification = Lens.lens (\ImportResourceSpecification' {botLocaleImportSpecification} -> botLocaleImportSpecification) (\s@ImportResourceSpecification' {} a -> s {botLocaleImportSpecification = a} :: ImportResourceSpecification)
-
 -- | Parameters for importing a bot.
 importResourceSpecification_botImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe BotImportSpecification)
 importResourceSpecification_botImportSpecification = Lens.lens (\ImportResourceSpecification' {botImportSpecification} -> botImportSpecification) (\s@ImportResourceSpecification' {} a -> s {botImportSpecification = a} :: ImportResourceSpecification)
+
+-- | Parameters for importing a bot locale.
+importResourceSpecification_botLocaleImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe BotLocaleImportSpecification)
+importResourceSpecification_botLocaleImportSpecification = Lens.lens (\ImportResourceSpecification' {botLocaleImportSpecification} -> botLocaleImportSpecification) (\s@ImportResourceSpecification' {} a -> s {botLocaleImportSpecification = a} :: ImportResourceSpecification)
 
 -- | Undocumented member.
 importResourceSpecification_customVocabularyImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe CustomVocabularyImportSpecification)
@@ -83,32 +83,31 @@ instance Data.FromJSON ImportResourceSpecification where
       "ImportResourceSpecification"
       ( \x ->
           ImportResourceSpecification'
-            Prelude.<$> (x Data..:? "botLocaleImportSpecification")
-            Prelude.<*> (x Data..:? "botImportSpecification")
+            Prelude.<$> (x Data..:? "botImportSpecification")
+            Prelude.<*> (x Data..:? "botLocaleImportSpecification")
             Prelude.<*> (x Data..:? "customVocabularyImportSpecification")
       )
 
 instance Prelude.Hashable ImportResourceSpecification where
   hashWithSalt _salt ImportResourceSpecification' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` botImportSpecification
       `Prelude.hashWithSalt` botLocaleImportSpecification
-      `Prelude.hashWithSalt` botImportSpecification
       `Prelude.hashWithSalt` customVocabularyImportSpecification
 
 instance Prelude.NFData ImportResourceSpecification where
   rnf ImportResourceSpecification' {..} =
-    Prelude.rnf botLocaleImportSpecification
-      `Prelude.seq` Prelude.rnf botImportSpecification
+    Prelude.rnf botImportSpecification
+      `Prelude.seq` Prelude.rnf botLocaleImportSpecification
       `Prelude.seq` Prelude.rnf customVocabularyImportSpecification
 
 instance Data.ToJSON ImportResourceSpecification where
   toJSON ImportResourceSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("botLocaleImportSpecification" Data..=)
-              Prelude.<$> botLocaleImportSpecification,
-            ("botImportSpecification" Data..=)
+          [ ("botImportSpecification" Data..=)
               Prelude.<$> botImportSpecification,
+            ("botLocaleImportSpecification" Data..=)
+              Prelude.<$> botLocaleImportSpecification,
             ("customVocabularyImportSpecification" Data..=)
               Prelude.<$> customVocabularyImportSpecification
           ]

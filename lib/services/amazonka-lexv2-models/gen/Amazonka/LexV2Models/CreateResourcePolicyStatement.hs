@@ -32,8 +32,8 @@ module Amazonka.LexV2Models.CreateResourcePolicyStatement
     newCreateResourcePolicyStatement,
 
     -- * Request Lenses
-    createResourcePolicyStatement_expectedRevisionId,
     createResourcePolicyStatement_condition,
+    createResourcePolicyStatement_expectedRevisionId,
     createResourcePolicyStatement_resourceArn,
     createResourcePolicyStatement_statementId,
     createResourcePolicyStatement_effect,
@@ -45,8 +45,8 @@ module Amazonka.LexV2Models.CreateResourcePolicyStatement
     newCreateResourcePolicyStatementResponse,
 
     -- * Response Lenses
-    createResourcePolicyStatementResponse_revisionId,
     createResourcePolicyStatementResponse_resourceArn,
+    createResourcePolicyStatementResponse_revisionId,
     createResourcePolicyStatementResponse_httpStatus,
   )
 where
@@ -61,14 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourcePolicyStatement' smart constructor.
 data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
-  { -- | The identifier of the revision of the policy to edit. If this revision
-    -- ID doesn\'t match the current revision ID, Amazon Lex throws an
-    -- exception.
-    --
-    -- If you don\'t specify a revision, Amazon Lex overwrites the contents of
-    -- the policy with the new values.
-    expectedRevisionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a condition when the policy is in effect. If the principal of
+  { -- | Specifies a condition when the policy is in effect. If the principal of
     -- the policy is a service principal, you must provide two condition
     -- blocks, one with a SourceAccount global condition key and one with a
     -- SourceArn global condition key.
@@ -77,6 +70,13 @@ data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html IAM JSON policy elements: Condition>
     -- .
     condition :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The identifier of the revision of the policy to edit. If this revision
+    -- ID doesn\'t match the current revision ID, Amazon Lex throws an
+    -- exception.
+    --
+    -- If you don\'t specify a revision, Amazon Lex overwrites the contents of
+    -- the policy with the new values.
+    expectedRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
     -- policy is attached to.
     resourceArn :: Prelude.Text,
@@ -108,13 +108,6 @@ data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedRevisionId', 'createResourcePolicyStatement_expectedRevisionId' - The identifier of the revision of the policy to edit. If this revision
--- ID doesn\'t match the current revision ID, Amazon Lex throws an
--- exception.
---
--- If you don\'t specify a revision, Amazon Lex overwrites the contents of
--- the policy with the new values.
---
 -- 'condition', 'createResourcePolicyStatement_condition' - Specifies a condition when the policy is in effect. If the principal of
 -- the policy is a service principal, you must provide two condition
 -- blocks, one with a SourceAccount global condition key and one with a
@@ -123,6 +116,13 @@ data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html IAM JSON policy elements: Condition>
 -- .
+--
+-- 'expectedRevisionId', 'createResourcePolicyStatement_expectedRevisionId' - The identifier of the revision of the policy to edit. If this revision
+-- ID doesn\'t match the current revision ID, Amazon Lex throws an
+-- exception.
+--
+-- If you don\'t specify a revision, Amazon Lex overwrites the contents of
+-- the policy with the new values.
 --
 -- 'resourceArn', 'createResourcePolicyStatement_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
 -- policy is attached to.
@@ -156,24 +156,15 @@ newCreateResourcePolicyStatement
   pStatementId_
   pEffect_ =
     CreateResourcePolicyStatement'
-      { expectedRevisionId =
+      { condition =
           Prelude.Nothing,
-        condition = Prelude.Nothing,
+        expectedRevisionId = Prelude.Nothing,
         resourceArn = pResourceArn_,
         statementId = pStatementId_,
         effect = pEffect_,
         principal = Prelude.mempty,
         action = Prelude.mempty
       }
-
--- | The identifier of the revision of the policy to edit. If this revision
--- ID doesn\'t match the current revision ID, Amazon Lex throws an
--- exception.
---
--- If you don\'t specify a revision, Amazon Lex overwrites the contents of
--- the policy with the new values.
-createResourcePolicyStatement_expectedRevisionId :: Lens.Lens' CreateResourcePolicyStatement (Prelude.Maybe Prelude.Text)
-createResourcePolicyStatement_expectedRevisionId = Lens.lens (\CreateResourcePolicyStatement' {expectedRevisionId} -> expectedRevisionId) (\s@CreateResourcePolicyStatement' {} a -> s {expectedRevisionId = a} :: CreateResourcePolicyStatement)
 
 -- | Specifies a condition when the policy is in effect. If the principal of
 -- the policy is a service principal, you must provide two condition
@@ -185,6 +176,15 @@ createResourcePolicyStatement_expectedRevisionId = Lens.lens (\CreateResourcePol
 -- .
 createResourcePolicyStatement_condition :: Lens.Lens' CreateResourcePolicyStatement (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text Prelude.Text)))
 createResourcePolicyStatement_condition = Lens.lens (\CreateResourcePolicyStatement' {condition} -> condition) (\s@CreateResourcePolicyStatement' {} a -> s {condition = a} :: CreateResourcePolicyStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the revision of the policy to edit. If this revision
+-- ID doesn\'t match the current revision ID, Amazon Lex throws an
+-- exception.
+--
+-- If you don\'t specify a revision, Amazon Lex overwrites the contents of
+-- the policy with the new values.
+createResourcePolicyStatement_expectedRevisionId :: Lens.Lens' CreateResourcePolicyStatement (Prelude.Maybe Prelude.Text)
+createResourcePolicyStatement_expectedRevisionId = Lens.lens (\CreateResourcePolicyStatement' {expectedRevisionId} -> expectedRevisionId) (\s@CreateResourcePolicyStatement' {} a -> s {expectedRevisionId = a} :: CreateResourcePolicyStatement)
 
 -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
 -- policy is attached to.
@@ -229,8 +229,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateResourcePolicyStatementResponse'
-            Prelude.<$> (x Data..?> "revisionId")
-            Prelude.<*> (x Data..?> "resourceArn")
+            Prelude.<$> (x Data..?> "resourceArn")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,8 +239,8 @@ instance
     CreateResourcePolicyStatement
   where
   hashWithSalt _salt CreateResourcePolicyStatement' {..} =
-    _salt `Prelude.hashWithSalt` expectedRevisionId
-      `Prelude.hashWithSalt` condition
+    _salt `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` statementId
       `Prelude.hashWithSalt` effect
@@ -249,8 +249,8 @@ instance
 
 instance Prelude.NFData CreateResourcePolicyStatement where
   rnf CreateResourcePolicyStatement' {..} =
-    Prelude.rnf expectedRevisionId
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf expectedRevisionId
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf statementId
       `Prelude.seq` Prelude.rnf effect
@@ -292,14 +292,14 @@ instance Data.ToQuery CreateResourcePolicyStatement where
 
 -- | /See:/ 'newCreateResourcePolicyStatementResponse' smart constructor.
 data CreateResourcePolicyStatementResponse = CreateResourcePolicyStatementResponse'
-  { -- | The current revision of the resource policy. Use the revision ID to make
+  { -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+    -- policy is attached to.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The current revision of the resource policy. Use the revision ID to make
     -- sure that you are updating the most current version of a resource policy
     -- when you add a policy statement to a resource, delete a resource, or
     -- update a resource.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
-    -- policy is attached to.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -313,13 +313,13 @@ data CreateResourcePolicyStatementResponse = CreateResourcePolicyStatementRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceArn', 'createResourcePolicyStatementResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy is attached to.
+--
 -- 'revisionId', 'createResourcePolicyStatementResponse_revisionId' - The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
 -- when you add a policy statement to a resource, delete a resource, or
 -- update a resource.
---
--- 'resourceArn', 'createResourcePolicyStatementResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy is attached to.
 --
 -- 'httpStatus', 'createResourcePolicyStatementResponse_httpStatus' - The response's http status code.
 newCreateResourcePolicyStatementResponse ::
@@ -328,11 +328,16 @@ newCreateResourcePolicyStatementResponse ::
   CreateResourcePolicyStatementResponse
 newCreateResourcePolicyStatementResponse pHttpStatus_ =
   CreateResourcePolicyStatementResponse'
-    { revisionId =
+    { resourceArn =
         Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy is attached to.
+createResourcePolicyStatementResponse_resourceArn :: Lens.Lens' CreateResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
+createResourcePolicyStatementResponse_resourceArn = Lens.lens (\CreateResourcePolicyStatementResponse' {resourceArn} -> resourceArn) (\s@CreateResourcePolicyStatementResponse' {} a -> s {resourceArn = a} :: CreateResourcePolicyStatementResponse)
 
 -- | The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
@@ -340,11 +345,6 @@ newCreateResourcePolicyStatementResponse pHttpStatus_ =
 -- update a resource.
 createResourcePolicyStatementResponse_revisionId :: Lens.Lens' CreateResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
 createResourcePolicyStatementResponse_revisionId = Lens.lens (\CreateResourcePolicyStatementResponse' {revisionId} -> revisionId) (\s@CreateResourcePolicyStatementResponse' {} a -> s {revisionId = a} :: CreateResourcePolicyStatementResponse)
-
--- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy is attached to.
-createResourcePolicyStatementResponse_resourceArn :: Lens.Lens' CreateResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
-createResourcePolicyStatementResponse_resourceArn = Lens.lens (\CreateResourcePolicyStatementResponse' {resourceArn} -> resourceArn) (\s@CreateResourcePolicyStatementResponse' {} a -> s {resourceArn = a} :: CreateResourcePolicyStatementResponse)
 
 -- | The response's http status code.
 createResourcePolicyStatementResponse_httpStatus :: Lens.Lens' CreateResourcePolicyStatementResponse Prelude.Int
@@ -355,6 +355,6 @@ instance
     CreateResourcePolicyStatementResponse
   where
   rnf CreateResourcePolicyStatementResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf httpStatus

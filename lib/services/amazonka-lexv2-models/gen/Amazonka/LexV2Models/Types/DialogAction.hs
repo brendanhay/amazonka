@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDialogAction' smart constructor.
 data DialogAction = DialogAction'
-  { -- | When true the next message for the intent is not used.
-    suppressNextMessage :: Prelude.Maybe Prelude.Bool,
-    -- | If the dialog action is @ElicitSlot@, defines the slot to elicit from
+  { -- | If the dialog action is @ElicitSlot@, defines the slot to elicit from
     -- the user.
     slotToElicit :: Prelude.Maybe Prelude.Text,
+    -- | When true the next message for the intent is not used.
+    suppressNextMessage :: Prelude.Maybe Prelude.Bool,
     -- | The action that the bot should execute.
     type' :: DialogActionType
   }
@@ -48,10 +48,10 @@ data DialogAction = DialogAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suppressNextMessage', 'dialogAction_suppressNextMessage' - When true the next message for the intent is not used.
---
 -- 'slotToElicit', 'dialogAction_slotToElicit' - If the dialog action is @ElicitSlot@, defines the slot to elicit from
 -- the user.
+--
+-- 'suppressNextMessage', 'dialogAction_suppressNextMessage' - When true the next message for the intent is not used.
 --
 -- 'type'', 'dialogAction_type' - The action that the bot should execute.
 newDialogAction ::
@@ -60,20 +60,19 @@ newDialogAction ::
   DialogAction
 newDialogAction pType_ =
   DialogAction'
-    { suppressNextMessage =
-        Prelude.Nothing,
-      slotToElicit = Prelude.Nothing,
+    { slotToElicit = Prelude.Nothing,
+      suppressNextMessage = Prelude.Nothing,
       type' = pType_
     }
-
--- | When true the next message for the intent is not used.
-dialogAction_suppressNextMessage :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Bool)
-dialogAction_suppressNextMessage = Lens.lens (\DialogAction' {suppressNextMessage} -> suppressNextMessage) (\s@DialogAction' {} a -> s {suppressNextMessage = a} :: DialogAction)
 
 -- | If the dialog action is @ElicitSlot@, defines the slot to elicit from
 -- the user.
 dialogAction_slotToElicit :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Text)
 dialogAction_slotToElicit = Lens.lens (\DialogAction' {slotToElicit} -> slotToElicit) (\s@DialogAction' {} a -> s {slotToElicit = a} :: DialogAction)
+
+-- | When true the next message for the intent is not used.
+dialogAction_suppressNextMessage :: Lens.Lens' DialogAction (Prelude.Maybe Prelude.Bool)
+dialogAction_suppressNextMessage = Lens.lens (\DialogAction' {suppressNextMessage} -> suppressNextMessage) (\s@DialogAction' {} a -> s {suppressNextMessage = a} :: DialogAction)
 
 -- | The action that the bot should execute.
 dialogAction_type :: Lens.Lens' DialogAction DialogActionType
@@ -85,30 +84,30 @@ instance Data.FromJSON DialogAction where
       "DialogAction"
       ( \x ->
           DialogAction'
-            Prelude.<$> (x Data..:? "suppressNextMessage")
-            Prelude.<*> (x Data..:? "slotToElicit")
+            Prelude.<$> (x Data..:? "slotToElicit")
+            Prelude.<*> (x Data..:? "suppressNextMessage")
             Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable DialogAction where
   hashWithSalt _salt DialogAction' {..} =
-    _salt `Prelude.hashWithSalt` suppressNextMessage
-      `Prelude.hashWithSalt` slotToElicit
+    _salt `Prelude.hashWithSalt` slotToElicit
+      `Prelude.hashWithSalt` suppressNextMessage
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DialogAction where
   rnf DialogAction' {..} =
-    Prelude.rnf suppressNextMessage
-      `Prelude.seq` Prelude.rnf slotToElicit
+    Prelude.rnf slotToElicit
+      `Prelude.seq` Prelude.rnf suppressNextMessage
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON DialogAction where
   toJSON DialogAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("suppressNextMessage" Data..=)
+          [ ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
+            ("suppressNextMessage" Data..=)
               Prelude.<$> suppressNextMessage,
-            ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
             Prelude.Just ("type" Data..= type')
           ]
       )

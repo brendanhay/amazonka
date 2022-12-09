@@ -38,15 +38,15 @@ module Amazonka.LexV2Models.UpdateBotRecommendation
     newUpdateBotRecommendationResponse,
 
     -- * Response Lenses
+    updateBotRecommendationResponse_botId,
+    updateBotRecommendationResponse_botRecommendationId,
+    updateBotRecommendationResponse_botRecommendationStatus,
     updateBotRecommendationResponse_botVersion,
     updateBotRecommendationResponse_creationDateTime,
-    updateBotRecommendationResponse_localeId,
     updateBotRecommendationResponse_encryptionSetting,
-    updateBotRecommendationResponse_botRecommendationId,
-    updateBotRecommendationResponse_botId,
-    updateBotRecommendationResponse_botRecommendationStatus,
-    updateBotRecommendationResponse_transcriptSourceSetting,
     updateBotRecommendationResponse_lastUpdatedDateTime,
+    updateBotRecommendationResponse_localeId,
+    updateBotRecommendationResponse_transcriptSourceSetting,
     updateBotRecommendationResponse_httpStatus,
   )
 where
@@ -165,15 +165,15 @@ instance Core.AWSRequest UpdateBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotRecommendationResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationId")
-            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationStatus")
-            Prelude.<*> (x Data..?> "transcriptSourceSetting")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "encryptionSetting")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,37 +232,37 @@ instance Data.ToQuery UpdateBotRecommendation where
 
 -- | /See:/ 'newUpdateBotRecommendationResponse' smart constructor.
 data UpdateBotRecommendationResponse = UpdateBotRecommendationResponse'
-  { -- | The version of the bot containing the bot recommendation that has been
-    -- updated.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the bot recommendation was
-    -- created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the language and locale of the bot recommendation to
-    -- update. The string must match one of the supported locales. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The object representing the passwords that were used to encrypt the data
-    -- related to the bot recommendation results, as well as the KMS key ARN
-    -- used to encrypt the associated metadata.
-    encryptionSetting :: Prelude.Maybe EncryptionSetting,
-    -- | The unique identifier of the bot recommendation to be updated.
-    botRecommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot containing the bot recommendation that
+  { -- | The unique identifier of the bot containing the bot recommendation that
     -- has been updated.
     botId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the bot recommendation to be updated.
+    botRecommendationId :: Prelude.Maybe Prelude.Text,
     -- | The status of the bot recommendation.
     --
     -- If the status is Failed, then the reasons for the failure are listed in
     -- the failureReasons field.
     botRecommendationStatus :: Prelude.Maybe BotRecommendationStatus,
-    -- | The object representing the Amazon S3 bucket containing the transcript,
-    -- as well as the associated metadata.
-    transcriptSourceSetting :: Prelude.Maybe TranscriptSourceSetting,
+    -- | The version of the bot containing the bot recommendation that has been
+    -- updated.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp of the date and time that the bot recommendation was
+    -- created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The object representing the passwords that were used to encrypt the data
+    -- related to the bot recommendation results, as well as the KMS key ARN
+    -- used to encrypt the associated metadata.
+    encryptionSetting :: Prelude.Maybe EncryptionSetting,
     -- | A timestamp of the date and time that the bot recommendation was last
     -- updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the language and locale of the bot recommendation to
+    -- update. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The object representing the Amazon S3 bucket containing the transcript,
+    -- as well as the associated metadata.
+    transcriptSourceSetting :: Prelude.Maybe TranscriptSourceSetting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -276,36 +276,36 @@ data UpdateBotRecommendationResponse = UpdateBotRecommendationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'updateBotRecommendationResponse_botVersion' - The version of the bot containing the bot recommendation that has been
--- updated.
---
--- 'creationDateTime', 'updateBotRecommendationResponse_creationDateTime' - A timestamp of the date and time that the bot recommendation was
--- created.
---
--- 'localeId', 'updateBotRecommendationResponse_localeId' - The identifier of the language and locale of the bot recommendation to
--- update. The string must match one of the supported locales. For more
--- information, see
--- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
---
--- 'encryptionSetting', 'updateBotRecommendationResponse_encryptionSetting' - The object representing the passwords that were used to encrypt the data
--- related to the bot recommendation results, as well as the KMS key ARN
--- used to encrypt the associated metadata.
---
--- 'botRecommendationId', 'updateBotRecommendationResponse_botRecommendationId' - The unique identifier of the bot recommendation to be updated.
---
 -- 'botId', 'updateBotRecommendationResponse_botId' - The unique identifier of the bot containing the bot recommendation that
 -- has been updated.
+--
+-- 'botRecommendationId', 'updateBotRecommendationResponse_botRecommendationId' - The unique identifier of the bot recommendation to be updated.
 --
 -- 'botRecommendationStatus', 'updateBotRecommendationResponse_botRecommendationStatus' - The status of the bot recommendation.
 --
 -- If the status is Failed, then the reasons for the failure are listed in
 -- the failureReasons field.
 --
--- 'transcriptSourceSetting', 'updateBotRecommendationResponse_transcriptSourceSetting' - The object representing the Amazon S3 bucket containing the transcript,
--- as well as the associated metadata.
+-- 'botVersion', 'updateBotRecommendationResponse_botVersion' - The version of the bot containing the bot recommendation that has been
+-- updated.
+--
+-- 'creationDateTime', 'updateBotRecommendationResponse_creationDateTime' - A timestamp of the date and time that the bot recommendation was
+-- created.
+--
+-- 'encryptionSetting', 'updateBotRecommendationResponse_encryptionSetting' - The object representing the passwords that were used to encrypt the data
+-- related to the bot recommendation results, as well as the KMS key ARN
+-- used to encrypt the associated metadata.
 --
 -- 'lastUpdatedDateTime', 'updateBotRecommendationResponse_lastUpdatedDateTime' - A timestamp of the date and time that the bot recommendation was last
 -- updated.
+--
+-- 'localeId', 'updateBotRecommendationResponse_localeId' - The identifier of the language and locale of the bot recommendation to
+-- update. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
+--
+-- 'transcriptSourceSetting', 'updateBotRecommendationResponse_transcriptSourceSetting' - The object representing the Amazon S3 bucket containing the transcript,
+-- as well as the associated metadata.
 --
 -- 'httpStatus', 'updateBotRecommendationResponse_httpStatus' - The response's http status code.
 newUpdateBotRecommendationResponse ::
@@ -314,18 +314,34 @@ newUpdateBotRecommendationResponse ::
   UpdateBotRecommendationResponse
 newUpdateBotRecommendationResponse pHttpStatus_ =
   UpdateBotRecommendationResponse'
-    { botVersion =
+    { botId =
         Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      encryptionSetting = Prelude.Nothing,
       botRecommendationId = Prelude.Nothing,
-      botId = Prelude.Nothing,
       botRecommendationStatus = Prelude.Nothing,
-      transcriptSourceSetting = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      encryptionSetting = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      transcriptSourceSetting = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier of the bot containing the bot recommendation that
+-- has been updated.
+updateBotRecommendationResponse_botId :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+updateBotRecommendationResponse_botId = Lens.lens (\UpdateBotRecommendationResponse' {botId} -> botId) (\s@UpdateBotRecommendationResponse' {} a -> s {botId = a} :: UpdateBotRecommendationResponse)
+
+-- | The unique identifier of the bot recommendation to be updated.
+updateBotRecommendationResponse_botRecommendationId :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+updateBotRecommendationResponse_botRecommendationId = Lens.lens (\UpdateBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@UpdateBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: UpdateBotRecommendationResponse)
+
+-- | The status of the bot recommendation.
+--
+-- If the status is Failed, then the reasons for the failure are listed in
+-- the failureReasons field.
+updateBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
+updateBotRecommendationResponse_botRecommendationStatus = Lens.lens (\UpdateBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@UpdateBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: UpdateBotRecommendationResponse)
 
 -- | The version of the bot containing the bot recommendation that has been
 -- updated.
@@ -337,6 +353,17 @@ updateBotRecommendationResponse_botVersion = Lens.lens (\UpdateBotRecommendation
 updateBotRecommendationResponse_creationDateTime :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
 updateBotRecommendationResponse_creationDateTime = Lens.lens (\UpdateBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {creationDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The object representing the passwords that were used to encrypt the data
+-- related to the bot recommendation results, as well as the KMS key ARN
+-- used to encrypt the associated metadata.
+updateBotRecommendationResponse_encryptionSetting :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe EncryptionSetting)
+updateBotRecommendationResponse_encryptionSetting = Lens.lens (\UpdateBotRecommendationResponse' {encryptionSetting} -> encryptionSetting) (\s@UpdateBotRecommendationResponse' {} a -> s {encryptionSetting = a} :: UpdateBotRecommendationResponse)
+
+-- | A timestamp of the date and time that the bot recommendation was last
+-- updated.
+updateBotRecommendationResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
+updateBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The identifier of the language and locale of the bot recommendation to
 -- update. The string must match one of the supported locales. For more
 -- information, see
@@ -344,37 +371,10 @@ updateBotRecommendationResponse_creationDateTime = Lens.lens (\UpdateBotRecommen
 updateBotRecommendationResponse_localeId :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.Text)
 updateBotRecommendationResponse_localeId = Lens.lens (\UpdateBotRecommendationResponse' {localeId} -> localeId) (\s@UpdateBotRecommendationResponse' {} a -> s {localeId = a} :: UpdateBotRecommendationResponse)
 
--- | The object representing the passwords that were used to encrypt the data
--- related to the bot recommendation results, as well as the KMS key ARN
--- used to encrypt the associated metadata.
-updateBotRecommendationResponse_encryptionSetting :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe EncryptionSetting)
-updateBotRecommendationResponse_encryptionSetting = Lens.lens (\UpdateBotRecommendationResponse' {encryptionSetting} -> encryptionSetting) (\s@UpdateBotRecommendationResponse' {} a -> s {encryptionSetting = a} :: UpdateBotRecommendationResponse)
-
--- | The unique identifier of the bot recommendation to be updated.
-updateBotRecommendationResponse_botRecommendationId :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-updateBotRecommendationResponse_botRecommendationId = Lens.lens (\UpdateBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@UpdateBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: UpdateBotRecommendationResponse)
-
--- | The unique identifier of the bot containing the bot recommendation that
--- has been updated.
-updateBotRecommendationResponse_botId :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-updateBotRecommendationResponse_botId = Lens.lens (\UpdateBotRecommendationResponse' {botId} -> botId) (\s@UpdateBotRecommendationResponse' {} a -> s {botId = a} :: UpdateBotRecommendationResponse)
-
--- | The status of the bot recommendation.
---
--- If the status is Failed, then the reasons for the failure are listed in
--- the failureReasons field.
-updateBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
-updateBotRecommendationResponse_botRecommendationStatus = Lens.lens (\UpdateBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@UpdateBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: UpdateBotRecommendationResponse)
-
 -- | The object representing the Amazon S3 bucket containing the transcript,
 -- as well as the associated metadata.
 updateBotRecommendationResponse_transcriptSourceSetting :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe TranscriptSourceSetting)
 updateBotRecommendationResponse_transcriptSourceSetting = Lens.lens (\UpdateBotRecommendationResponse' {transcriptSourceSetting} -> transcriptSourceSetting) (\s@UpdateBotRecommendationResponse' {} a -> s {transcriptSourceSetting = a} :: UpdateBotRecommendationResponse)
-
--- | A timestamp of the date and time that the bot recommendation was last
--- updated.
-updateBotRecommendationResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotRecommendationResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotRecommendationResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotRecommendationResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateBotRecommendationResponse_httpStatus :: Lens.Lens' UpdateBotRecommendationResponse Prelude.Int
@@ -385,13 +385,13 @@ instance
     UpdateBotRecommendationResponse
   where
   rnf UpdateBotRecommendationResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf encryptionSetting
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationStatus
-      `Prelude.seq` Prelude.rnf transcriptSourceSetting
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf encryptionSetting
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf transcriptSourceSetting
       `Prelude.seq` Prelude.rnf httpStatus

@@ -39,10 +39,10 @@ module Amazonka.LexV2Models.DeleteBotLocale
     newDeleteBotLocaleResponse,
 
     -- * Response Lenses
-    deleteBotLocaleResponse_botVersion,
-    deleteBotLocaleResponse_localeId,
     deleteBotLocaleResponse_botId,
     deleteBotLocaleResponse_botLocaleStatus,
+    deleteBotLocaleResponse_botVersion,
+    deleteBotLocaleResponse_localeId,
     deleteBotLocaleResponse_httpStatus,
   )
 where
@@ -125,10 +125,10 @@ instance Core.AWSRequest DeleteBotLocale where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotLocaleResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,16 +172,16 @@ instance Data.ToQuery DeleteBotLocale where
 
 -- | /See:/ 'newDeleteBotLocaleResponse' smart constructor.
 data DeleteBotLocaleResponse = DeleteBotLocaleResponse'
-  { -- | The version of the bot that contained the deleted locale.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The language and locale of the deleted locale.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that contained the deleted locale.
+  { -- | The identifier of the bot that contained the deleted locale.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The status of deleting the bot locale. The locale first enters the
     -- @Deleting@ status. Once the locale is deleted it no longer appears in
     -- the list of locales for the bot.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
+    -- | The version of the bot that contained the deleted locale.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The language and locale of the deleted locale.
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,15 +195,15 @@ data DeleteBotLocaleResponse = DeleteBotLocaleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'deleteBotLocaleResponse_botVersion' - The version of the bot that contained the deleted locale.
---
--- 'localeId', 'deleteBotLocaleResponse_localeId' - The language and locale of the deleted locale.
---
 -- 'botId', 'deleteBotLocaleResponse_botId' - The identifier of the bot that contained the deleted locale.
 --
 -- 'botLocaleStatus', 'deleteBotLocaleResponse_botLocaleStatus' - The status of deleting the bot locale. The locale first enters the
 -- @Deleting@ status. Once the locale is deleted it no longer appears in
 -- the list of locales for the bot.
+--
+-- 'botVersion', 'deleteBotLocaleResponse_botVersion' - The version of the bot that contained the deleted locale.
+--
+-- 'localeId', 'deleteBotLocaleResponse_localeId' - The language and locale of the deleted locale.
 --
 -- 'httpStatus', 'deleteBotLocaleResponse_httpStatus' - The response's http status code.
 newDeleteBotLocaleResponse ::
@@ -212,21 +212,12 @@ newDeleteBotLocaleResponse ::
   DeleteBotLocaleResponse
 newDeleteBotLocaleResponse pHttpStatus_ =
   DeleteBotLocaleResponse'
-    { botVersion =
-        Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botLocaleStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      localeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version of the bot that contained the deleted locale.
-deleteBotLocaleResponse_botVersion :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe Prelude.Text)
-deleteBotLocaleResponse_botVersion = Lens.lens (\DeleteBotLocaleResponse' {botVersion} -> botVersion) (\s@DeleteBotLocaleResponse' {} a -> s {botVersion = a} :: DeleteBotLocaleResponse)
-
--- | The language and locale of the deleted locale.
-deleteBotLocaleResponse_localeId :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe Prelude.Text)
-deleteBotLocaleResponse_localeId = Lens.lens (\DeleteBotLocaleResponse' {localeId} -> localeId) (\s@DeleteBotLocaleResponse' {} a -> s {localeId = a} :: DeleteBotLocaleResponse)
 
 -- | The identifier of the bot that contained the deleted locale.
 deleteBotLocaleResponse_botId :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe Prelude.Text)
@@ -238,14 +229,22 @@ deleteBotLocaleResponse_botId = Lens.lens (\DeleteBotLocaleResponse' {botId} -> 
 deleteBotLocaleResponse_botLocaleStatus :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe BotLocaleStatus)
 deleteBotLocaleResponse_botLocaleStatus = Lens.lens (\DeleteBotLocaleResponse' {botLocaleStatus} -> botLocaleStatus) (\s@DeleteBotLocaleResponse' {} a -> s {botLocaleStatus = a} :: DeleteBotLocaleResponse)
 
+-- | The version of the bot that contained the deleted locale.
+deleteBotLocaleResponse_botVersion :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe Prelude.Text)
+deleteBotLocaleResponse_botVersion = Lens.lens (\DeleteBotLocaleResponse' {botVersion} -> botVersion) (\s@DeleteBotLocaleResponse' {} a -> s {botVersion = a} :: DeleteBotLocaleResponse)
+
+-- | The language and locale of the deleted locale.
+deleteBotLocaleResponse_localeId :: Lens.Lens' DeleteBotLocaleResponse (Prelude.Maybe Prelude.Text)
+deleteBotLocaleResponse_localeId = Lens.lens (\DeleteBotLocaleResponse' {localeId} -> localeId) (\s@DeleteBotLocaleResponse' {} a -> s {localeId = a} :: DeleteBotLocaleResponse)
+
 -- | The response's http status code.
 deleteBotLocaleResponse_httpStatus :: Lens.Lens' DeleteBotLocaleResponse Prelude.Int
 deleteBotLocaleResponse_httpStatus = Lens.lens (\DeleteBotLocaleResponse' {httpStatus} -> httpStatus) (\s@DeleteBotLocaleResponse' {} a -> s {httpStatus = a} :: DeleteBotLocaleResponse)
 
 instance Prelude.NFData DeleteBotLocaleResponse where
   rnf DeleteBotLocaleResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botLocaleStatus
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf httpStatus

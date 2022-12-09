@@ -38,10 +38,10 @@ module Amazonka.LexV2Models.BatchDeleteCustomVocabularyItem
     newBatchDeleteCustomVocabularyItemResponse,
 
     -- * Response Lenses
-    batchDeleteCustomVocabularyItemResponse_botVersion,
-    batchDeleteCustomVocabularyItemResponse_localeId,
     batchDeleteCustomVocabularyItemResponse_botId,
+    batchDeleteCustomVocabularyItemResponse_botVersion,
     batchDeleteCustomVocabularyItemResponse_errors,
+    batchDeleteCustomVocabularyItemResponse_localeId,
     batchDeleteCustomVocabularyItemResponse_resources,
     batchDeleteCustomVocabularyItemResponse_httpStatus,
   )
@@ -148,10 +148,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteCustomVocabularyItemResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -220,18 +220,18 @@ instance Data.ToQuery BatchDeleteCustomVocabularyItem where
 
 -- | /See:/ 'newBatchDeleteCustomVocabularyItemResponse' smart constructor.
 data BatchDeleteCustomVocabularyItemResponse = BatchDeleteCustomVocabularyItemResponse'
-  { -- | The version of the bot to batch delete response for the custom
-    -- vocabulary item.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The locale identifier of the bot to batch delete response for the custom
-    -- vocabulary item.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot to batch delete response for the custom
+  { -- | The unique identifier of the bot to batch delete response for the custom
     -- vocabulary item.
     botId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot to batch delete response for the custom
+    -- vocabulary item.
+    botVersion :: Prelude.Maybe Prelude.Text,
     -- | The errors of the action to batch delete response for the custom
     -- vocabulary item.
     errors :: Prelude.Maybe [FailedCustomVocabularyItem],
+    -- | The locale identifier of the bot to batch delete response for the custom
+    -- vocabulary item.
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The resources of the action to batch delete response for the custom
     -- vocabulary item.
     resources :: Prelude.Maybe [CustomVocabularyItem],
@@ -248,16 +248,16 @@ data BatchDeleteCustomVocabularyItemResponse = BatchDeleteCustomVocabularyItemRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'batchDeleteCustomVocabularyItemResponse_botVersion' - The version of the bot to batch delete response for the custom
--- vocabulary item.
---
--- 'localeId', 'batchDeleteCustomVocabularyItemResponse_localeId' - The locale identifier of the bot to batch delete response for the custom
--- vocabulary item.
---
 -- 'botId', 'batchDeleteCustomVocabularyItemResponse_botId' - The unique identifier of the bot to batch delete response for the custom
 -- vocabulary item.
 --
+-- 'botVersion', 'batchDeleteCustomVocabularyItemResponse_botVersion' - The version of the bot to batch delete response for the custom
+-- vocabulary item.
+--
 -- 'errors', 'batchDeleteCustomVocabularyItemResponse_errors' - The errors of the action to batch delete response for the custom
+-- vocabulary item.
+--
+-- 'localeId', 'batchDeleteCustomVocabularyItemResponse_localeId' - The locale identifier of the bot to batch delete response for the custom
 -- vocabulary item.
 --
 -- 'resources', 'batchDeleteCustomVocabularyItemResponse_resources' - The resources of the action to batch delete response for the custom
@@ -271,34 +271,34 @@ newBatchDeleteCustomVocabularyItemResponse ::
 newBatchDeleteCustomVocabularyItemResponse
   pHttpStatus_ =
     BatchDeleteCustomVocabularyItemResponse'
-      { botVersion =
+      { botId =
           Prelude.Nothing,
-        localeId = Prelude.Nothing,
-        botId = Prelude.Nothing,
+        botVersion = Prelude.Nothing,
         errors = Prelude.Nothing,
+        localeId = Prelude.Nothing,
         resources = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The version of the bot to batch delete response for the custom
--- vocabulary item.
-batchDeleteCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
-batchDeleteCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchDeleteCustomVocabularyItemResponse)
-
--- | The locale identifier of the bot to batch delete response for the custom
--- vocabulary item.
-batchDeleteCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
-batchDeleteCustomVocabularyItemResponse_localeId = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchDeleteCustomVocabularyItemResponse)
 
 -- | The unique identifier of the bot to batch delete response for the custom
 -- vocabulary item.
 batchDeleteCustomVocabularyItemResponse_botId :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchDeleteCustomVocabularyItemResponse_botId = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {botId} -> botId) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {botId = a} :: BatchDeleteCustomVocabularyItemResponse)
 
+-- | The version of the bot to batch delete response for the custom
+-- vocabulary item.
+batchDeleteCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
+batchDeleteCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchDeleteCustomVocabularyItemResponse)
+
 -- | The errors of the action to batch delete response for the custom
 -- vocabulary item.
 batchDeleteCustomVocabularyItemResponse_errors :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe [FailedCustomVocabularyItem])
 batchDeleteCustomVocabularyItemResponse_errors = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {errors} -> errors) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {errors = a} :: BatchDeleteCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The locale identifier of the bot to batch delete response for the custom
+-- vocabulary item.
+batchDeleteCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
+batchDeleteCustomVocabularyItemResponse_localeId = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchDeleteCustomVocabularyItemResponse)
 
 -- | The resources of the action to batch delete response for the custom
 -- vocabulary item.
@@ -314,9 +314,9 @@ instance
     BatchDeleteCustomVocabularyItemResponse
   where
   rnf BatchDeleteCustomVocabularyItemResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

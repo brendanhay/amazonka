@@ -37,8 +37,8 @@ module Amazonka.LexV2Models.UpdateResourcePolicy
     newUpdateResourcePolicyResponse,
 
     -- * Response Lenses
-    updateResourcePolicyResponse_revisionId,
     updateResourcePolicyResponse_resourceArn,
+    updateResourcePolicyResponse_revisionId,
     updateResourcePolicyResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest UpdateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           UpdateResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "revisionId")
-            Prelude.<*> (x Data..?> "resourceArn")
+            Prelude.<$> (x Data..?> "resourceArn")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,14 +197,14 @@ instance Data.ToQuery UpdateResourcePolicy where
 
 -- | /See:/ 'newUpdateResourcePolicyResponse' smart constructor.
 data UpdateResourcePolicyResponse = UpdateResourcePolicyResponse'
-  { -- | The current revision of the resource policy. Use the revision ID to make
+  { -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+    -- policy is attached to.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The current revision of the resource policy. Use the revision ID to make
     -- sure that you are updating the most current version of a resource policy
     -- when you add a policy statement to a resource, delete a resource, or
     -- update a resource.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
-    -- policy is attached to.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,13 +218,13 @@ data UpdateResourcePolicyResponse = UpdateResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceArn', 'updateResourcePolicyResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy is attached to.
+--
 -- 'revisionId', 'updateResourcePolicyResponse_revisionId' - The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
 -- when you add a policy statement to a resource, delete a resource, or
 -- update a resource.
---
--- 'resourceArn', 'updateResourcePolicyResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy is attached to.
 --
 -- 'httpStatus', 'updateResourcePolicyResponse_httpStatus' - The response's http status code.
 newUpdateResourcePolicyResponse ::
@@ -233,11 +233,16 @@ newUpdateResourcePolicyResponse ::
   UpdateResourcePolicyResponse
 newUpdateResourcePolicyResponse pHttpStatus_ =
   UpdateResourcePolicyResponse'
-    { revisionId =
+    { resourceArn =
         Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy is attached to.
+updateResourcePolicyResponse_resourceArn :: Lens.Lens' UpdateResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+updateResourcePolicyResponse_resourceArn = Lens.lens (\UpdateResourcePolicyResponse' {resourceArn} -> resourceArn) (\s@UpdateResourcePolicyResponse' {} a -> s {resourceArn = a} :: UpdateResourcePolicyResponse)
 
 -- | The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
@@ -246,17 +251,12 @@ newUpdateResourcePolicyResponse pHttpStatus_ =
 updateResourcePolicyResponse_revisionId :: Lens.Lens' UpdateResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 updateResourcePolicyResponse_revisionId = Lens.lens (\UpdateResourcePolicyResponse' {revisionId} -> revisionId) (\s@UpdateResourcePolicyResponse' {} a -> s {revisionId = a} :: UpdateResourcePolicyResponse)
 
--- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy is attached to.
-updateResourcePolicyResponse_resourceArn :: Lens.Lens' UpdateResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-updateResourcePolicyResponse_resourceArn = Lens.lens (\UpdateResourcePolicyResponse' {resourceArn} -> resourceArn) (\s@UpdateResourcePolicyResponse' {} a -> s {resourceArn = a} :: UpdateResourcePolicyResponse)
-
 -- | The response's http status code.
 updateResourcePolicyResponse_httpStatus :: Lens.Lens' UpdateResourcePolicyResponse Prelude.Int
 updateResourcePolicyResponse_httpStatus = Lens.lens (\UpdateResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateResourcePolicyResponse' {} a -> s {httpStatus = a} :: UpdateResourcePolicyResponse)
 
 instance Prelude.NFData UpdateResourcePolicyResponse where
   rnf UpdateResourcePolicyResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf httpStatus

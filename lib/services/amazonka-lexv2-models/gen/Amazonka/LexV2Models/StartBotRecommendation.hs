@@ -39,13 +39,13 @@ module Amazonka.LexV2Models.StartBotRecommendation
     newStartBotRecommendationResponse,
 
     -- * Response Lenses
+    startBotRecommendationResponse_botId,
+    startBotRecommendationResponse_botRecommendationId,
+    startBotRecommendationResponse_botRecommendationStatus,
     startBotRecommendationResponse_botVersion,
     startBotRecommendationResponse_creationDateTime,
-    startBotRecommendationResponse_localeId,
     startBotRecommendationResponse_encryptionSetting,
-    startBotRecommendationResponse_botRecommendationId,
-    startBotRecommendationResponse_botId,
-    startBotRecommendationResponse_botRecommendationStatus,
+    startBotRecommendationResponse_localeId,
     startBotRecommendationResponse_transcriptSourceSetting,
     startBotRecommendationResponse_httpStatus,
   )
@@ -163,13 +163,13 @@ instance Core.AWSRequest StartBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           StartBotRecommendationResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationId")
-            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "encryptionSetting")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -231,29 +231,29 @@ instance Data.ToQuery StartBotRecommendation where
 
 -- | /See:/ 'newStartBotRecommendationResponse' smart constructor.
 data StartBotRecommendationResponse = StartBotRecommendationResponse'
-  { -- | The version of the bot containing the bot recommendation.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the bot recommendation was
-    -- created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the language and locale of the bot recommendation to
-    -- start. The string must match one of the supported locales. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The object representing the passwords that were used to encrypt the data
-    -- related to the bot recommendation results, as well as the KMS key ARN
-    -- used to encrypt the associated metadata.
-    encryptionSetting :: Prelude.Maybe EncryptionSetting,
+  { -- | The unique identifier of the bot containing the bot recommendation.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bot recommendation that you have created.
     botRecommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot containing the bot recommendation.
-    botId :: Prelude.Maybe Prelude.Text,
     -- | The status of the bot recommendation.
     --
     -- If the status is Failed, then the reasons for the failure are listed in
     -- the failureReasons field.
     botRecommendationStatus :: Prelude.Maybe BotRecommendationStatus,
+    -- | The version of the bot containing the bot recommendation.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp of the date and time that the bot recommendation was
+    -- created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The object representing the passwords that were used to encrypt the data
+    -- related to the bot recommendation results, as well as the KMS key ARN
+    -- used to encrypt the associated metadata.
+    encryptionSetting :: Prelude.Maybe EncryptionSetting,
+    -- | The identifier of the language and locale of the bot recommendation to
+    -- start. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The object representing the Amazon S3 bucket containing the transcript,
     -- as well as the associated metadata.
     transcriptSourceSetting :: Prelude.Maybe TranscriptSourceSetting,
@@ -270,28 +270,28 @@ data StartBotRecommendationResponse = StartBotRecommendationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'startBotRecommendationResponse_botVersion' - The version of the bot containing the bot recommendation.
---
--- 'creationDateTime', 'startBotRecommendationResponse_creationDateTime' - A timestamp of the date and time that the bot recommendation was
--- created.
---
--- 'localeId', 'startBotRecommendationResponse_localeId' - The identifier of the language and locale of the bot recommendation to
--- start. The string must match one of the supported locales. For more
--- information, see
--- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
---
--- 'encryptionSetting', 'startBotRecommendationResponse_encryptionSetting' - The object representing the passwords that were used to encrypt the data
--- related to the bot recommendation results, as well as the KMS key ARN
--- used to encrypt the associated metadata.
+-- 'botId', 'startBotRecommendationResponse_botId' - The unique identifier of the bot containing the bot recommendation.
 --
 -- 'botRecommendationId', 'startBotRecommendationResponse_botRecommendationId' - The identifier of the bot recommendation that you have created.
---
--- 'botId', 'startBotRecommendationResponse_botId' - The unique identifier of the bot containing the bot recommendation.
 --
 -- 'botRecommendationStatus', 'startBotRecommendationResponse_botRecommendationStatus' - The status of the bot recommendation.
 --
 -- If the status is Failed, then the reasons for the failure are listed in
 -- the failureReasons field.
+--
+-- 'botVersion', 'startBotRecommendationResponse_botVersion' - The version of the bot containing the bot recommendation.
+--
+-- 'creationDateTime', 'startBotRecommendationResponse_creationDateTime' - A timestamp of the date and time that the bot recommendation was
+-- created.
+--
+-- 'encryptionSetting', 'startBotRecommendationResponse_encryptionSetting' - The object representing the passwords that were used to encrypt the data
+-- related to the bot recommendation results, as well as the KMS key ARN
+-- used to encrypt the associated metadata.
+--
+-- 'localeId', 'startBotRecommendationResponse_localeId' - The identifier of the language and locale of the bot recommendation to
+-- start. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
 --
 -- 'transcriptSourceSetting', 'startBotRecommendationResponse_transcriptSourceSetting' - The object representing the Amazon S3 bucket containing the transcript,
 -- as well as the associated metadata.
@@ -303,17 +303,32 @@ newStartBotRecommendationResponse ::
   StartBotRecommendationResponse
 newStartBotRecommendationResponse pHttpStatus_ =
   StartBotRecommendationResponse'
-    { botVersion =
+    { botId =
         Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      encryptionSetting = Prelude.Nothing,
       botRecommendationId = Prelude.Nothing,
-      botId = Prelude.Nothing,
       botRecommendationStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      encryptionSetting = Prelude.Nothing,
+      localeId = Prelude.Nothing,
       transcriptSourceSetting = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier of the bot containing the bot recommendation.
+startBotRecommendationResponse_botId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+startBotRecommendationResponse_botId = Lens.lens (\StartBotRecommendationResponse' {botId} -> botId) (\s@StartBotRecommendationResponse' {} a -> s {botId = a} :: StartBotRecommendationResponse)
+
+-- | The identifier of the bot recommendation that you have created.
+startBotRecommendationResponse_botRecommendationId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+startBotRecommendationResponse_botRecommendationId = Lens.lens (\StartBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@StartBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: StartBotRecommendationResponse)
+
+-- | The status of the bot recommendation.
+--
+-- If the status is Failed, then the reasons for the failure are listed in
+-- the failureReasons field.
+startBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
+startBotRecommendationResponse_botRecommendationStatus = Lens.lens (\StartBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@StartBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: StartBotRecommendationResponse)
 
 -- | The version of the bot containing the bot recommendation.
 startBotRecommendationResponse_botVersion :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
@@ -324,33 +339,18 @@ startBotRecommendationResponse_botVersion = Lens.lens (\StartBotRecommendationRe
 startBotRecommendationResponse_creationDateTime :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.UTCTime)
 startBotRecommendationResponse_creationDateTime = Lens.lens (\StartBotRecommendationResponse' {creationDateTime} -> creationDateTime) (\s@StartBotRecommendationResponse' {} a -> s {creationDateTime = a} :: StartBotRecommendationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The identifier of the language and locale of the bot recommendation to
--- start. The string must match one of the supported locales. For more
--- information, see
--- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
-startBotRecommendationResponse_localeId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-startBotRecommendationResponse_localeId = Lens.lens (\StartBotRecommendationResponse' {localeId} -> localeId) (\s@StartBotRecommendationResponse' {} a -> s {localeId = a} :: StartBotRecommendationResponse)
-
 -- | The object representing the passwords that were used to encrypt the data
 -- related to the bot recommendation results, as well as the KMS key ARN
 -- used to encrypt the associated metadata.
 startBotRecommendationResponse_encryptionSetting :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe EncryptionSetting)
 startBotRecommendationResponse_encryptionSetting = Lens.lens (\StartBotRecommendationResponse' {encryptionSetting} -> encryptionSetting) (\s@StartBotRecommendationResponse' {} a -> s {encryptionSetting = a} :: StartBotRecommendationResponse)
 
--- | The identifier of the bot recommendation that you have created.
-startBotRecommendationResponse_botRecommendationId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-startBotRecommendationResponse_botRecommendationId = Lens.lens (\StartBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@StartBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: StartBotRecommendationResponse)
-
--- | The unique identifier of the bot containing the bot recommendation.
-startBotRecommendationResponse_botId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-startBotRecommendationResponse_botId = Lens.lens (\StartBotRecommendationResponse' {botId} -> botId) (\s@StartBotRecommendationResponse' {} a -> s {botId = a} :: StartBotRecommendationResponse)
-
--- | The status of the bot recommendation.
---
--- If the status is Failed, then the reasons for the failure are listed in
--- the failureReasons field.
-startBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
-startBotRecommendationResponse_botRecommendationStatus = Lens.lens (\StartBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@StartBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: StartBotRecommendationResponse)
+-- | The identifier of the language and locale of the bot recommendation to
+-- start. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
+startBotRecommendationResponse_localeId :: Lens.Lens' StartBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+startBotRecommendationResponse_localeId = Lens.lens (\StartBotRecommendationResponse' {localeId} -> localeId) (\s@StartBotRecommendationResponse' {} a -> s {localeId = a} :: StartBotRecommendationResponse)
 
 -- | The object representing the Amazon S3 bucket containing the transcript,
 -- as well as the associated metadata.
@@ -366,12 +366,12 @@ instance
     StartBotRecommendationResponse
   where
   rnf StartBotRecommendationResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf encryptionSetting
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationStatus
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf encryptionSetting
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf transcriptSourceSetting
       `Prelude.seq` Prelude.rnf httpStatus

@@ -42,14 +42,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubSlotValueElicitationSetting' smart constructor.
 data SubSlotValueElicitationSetting = SubSlotValueElicitationSetting'
-  { -- | If you know a specific pattern that users might respond to an Amazon Lex
+  { defaultValueSpecification :: Prelude.Maybe SlotDefaultValueSpecification,
+    -- | If you know a specific pattern that users might respond to an Amazon Lex
     -- request for a sub slot value, you can provide those utterances to
     -- improve accuracy. This is optional. In most cases Amazon Lex is capable
     -- of understanding user utterances. This is similar to @SampleUtterances@
     -- for slots.
     sampleUtterances :: Prelude.Maybe [SampleUtterance],
     waitAndContinueSpecification :: Prelude.Maybe WaitAndContinueSpecification,
-    defaultValueSpecification :: Prelude.Maybe SlotDefaultValueSpecification,
     promptSpecification :: PromptSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,6 +62,8 @@ data SubSlotValueElicitationSetting = SubSlotValueElicitationSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultValueSpecification', 'subSlotValueElicitationSetting_defaultValueSpecification' - Undocumented member.
+--
 -- 'sampleUtterances', 'subSlotValueElicitationSetting_sampleUtterances' - If you know a specific pattern that users might respond to an Amazon Lex
 -- request for a sub slot value, you can provide those utterances to
 -- improve accuracy. This is optional. In most cases Amazon Lex is capable
@@ -69,8 +71,6 @@ data SubSlotValueElicitationSetting = SubSlotValueElicitationSetting'
 -- for slots.
 --
 -- 'waitAndContinueSpecification', 'subSlotValueElicitationSetting_waitAndContinueSpecification' - Undocumented member.
---
--- 'defaultValueSpecification', 'subSlotValueElicitationSetting_defaultValueSpecification' - Undocumented member.
 --
 -- 'promptSpecification', 'subSlotValueElicitationSetting_promptSpecification' - Undocumented member.
 newSubSlotValueElicitationSetting ::
@@ -80,13 +80,17 @@ newSubSlotValueElicitationSetting ::
 newSubSlotValueElicitationSetting
   pPromptSpecification_ =
     SubSlotValueElicitationSetting'
-      { sampleUtterances =
+      { defaultValueSpecification =
           Prelude.Nothing,
+        sampleUtterances = Prelude.Nothing,
         waitAndContinueSpecification =
           Prelude.Nothing,
-        defaultValueSpecification = Prelude.Nothing,
         promptSpecification = pPromptSpecification_
       }
+
+-- | Undocumented member.
+subSlotValueElicitationSetting_defaultValueSpecification :: Lens.Lens' SubSlotValueElicitationSetting (Prelude.Maybe SlotDefaultValueSpecification)
+subSlotValueElicitationSetting_defaultValueSpecification = Lens.lens (\SubSlotValueElicitationSetting' {defaultValueSpecification} -> defaultValueSpecification) (\s@SubSlotValueElicitationSetting' {} a -> s {defaultValueSpecification = a} :: SubSlotValueElicitationSetting)
 
 -- | If you know a specific pattern that users might respond to an Amazon Lex
 -- request for a sub slot value, you can provide those utterances to
@@ -101,10 +105,6 @@ subSlotValueElicitationSetting_waitAndContinueSpecification :: Lens.Lens' SubSlo
 subSlotValueElicitationSetting_waitAndContinueSpecification = Lens.lens (\SubSlotValueElicitationSetting' {waitAndContinueSpecification} -> waitAndContinueSpecification) (\s@SubSlotValueElicitationSetting' {} a -> s {waitAndContinueSpecification = a} :: SubSlotValueElicitationSetting)
 
 -- | Undocumented member.
-subSlotValueElicitationSetting_defaultValueSpecification :: Lens.Lens' SubSlotValueElicitationSetting (Prelude.Maybe SlotDefaultValueSpecification)
-subSlotValueElicitationSetting_defaultValueSpecification = Lens.lens (\SubSlotValueElicitationSetting' {defaultValueSpecification} -> defaultValueSpecification) (\s@SubSlotValueElicitationSetting' {} a -> s {defaultValueSpecification = a} :: SubSlotValueElicitationSetting)
-
--- | Undocumented member.
 subSlotValueElicitationSetting_promptSpecification :: Lens.Lens' SubSlotValueElicitationSetting PromptSpecification
 subSlotValueElicitationSetting_promptSpecification = Lens.lens (\SubSlotValueElicitationSetting' {promptSpecification} -> promptSpecification) (\s@SubSlotValueElicitationSetting' {} a -> s {promptSpecification = a} :: SubSlotValueElicitationSetting)
 
@@ -114,11 +114,11 @@ instance Data.FromJSON SubSlotValueElicitationSetting where
       "SubSlotValueElicitationSetting"
       ( \x ->
           SubSlotValueElicitationSetting'
-            Prelude.<$> ( x Data..:? "sampleUtterances"
+            Prelude.<$> (x Data..:? "defaultValueSpecification")
+            Prelude.<*> ( x Data..:? "sampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "waitAndContinueSpecification")
-            Prelude.<*> (x Data..:? "defaultValueSpecification")
             Prelude.<*> (x Data..: "promptSpecification")
       )
 
@@ -129,9 +129,10 @@ instance
   hashWithSalt
     _salt
     SubSlotValueElicitationSetting' {..} =
-      _salt `Prelude.hashWithSalt` sampleUtterances
-        `Prelude.hashWithSalt` waitAndContinueSpecification
+      _salt
         `Prelude.hashWithSalt` defaultValueSpecification
+        `Prelude.hashWithSalt` sampleUtterances
+        `Prelude.hashWithSalt` waitAndContinueSpecification
         `Prelude.hashWithSalt` promptSpecification
 
 instance
@@ -139,21 +140,21 @@ instance
     SubSlotValueElicitationSetting
   where
   rnf SubSlotValueElicitationSetting' {..} =
-    Prelude.rnf sampleUtterances
+    Prelude.rnf defaultValueSpecification
+      `Prelude.seq` Prelude.rnf sampleUtterances
       `Prelude.seq` Prelude.rnf waitAndContinueSpecification
-      `Prelude.seq` Prelude.rnf defaultValueSpecification
       `Prelude.seq` Prelude.rnf promptSpecification
 
 instance Data.ToJSON SubSlotValueElicitationSetting where
   toJSON SubSlotValueElicitationSetting' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sampleUtterances" Data..=)
+          [ ("defaultValueSpecification" Data..=)
+              Prelude.<$> defaultValueSpecification,
+            ("sampleUtterances" Data..=)
               Prelude.<$> sampleUtterances,
             ("waitAndContinueSpecification" Data..=)
               Prelude.<$> waitAndContinueSpecification,
-            ("defaultValueSpecification" Data..=)
-              Prelude.<$> defaultValueSpecification,
             Prelude.Just
               ("promptSpecification" Data..= promptSpecification)
           ]

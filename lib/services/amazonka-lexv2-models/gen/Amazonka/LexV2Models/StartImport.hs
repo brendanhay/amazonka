@@ -39,10 +39,10 @@ module Amazonka.LexV2Models.StartImport
 
     -- * Response Lenses
     startImportResponse_creationDateTime,
-    startImportResponse_resourceSpecification,
     startImportResponse_importId,
     startImportResponse_importStatus,
     startImportResponse_mergeStrategy,
+    startImportResponse_resourceSpecification,
     startImportResponse_httpStatus,
   )
 where
@@ -151,10 +151,10 @@ instance Core.AWSRequest StartImport where
       ( \s h x ->
           StartImportResponse'
             Prelude.<$> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (x Data..?> "importId")
             Prelude.<*> (x Data..?> "importStatus")
             Prelude.<*> (x Data..?> "mergeStrategy")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,8 +208,6 @@ instance Data.ToQuery StartImport where
 data StartImportResponse = StartImportResponse'
   { -- | The date and time that the import request was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The parameters used when importing the resource.
-    resourceSpecification :: Prelude.Maybe ImportResourceSpecification,
     -- | A unique identifier for the import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the import. When the status is @Complete@ the bot,
@@ -220,6 +218,8 @@ data StartImportResponse = StartImportResponse'
     -- @FailOnConflict@ existing resources are not overwritten and the import
     -- fails.
     mergeStrategy :: Prelude.Maybe MergeStrategy,
+    -- | The parameters used when importing the resource.
+    resourceSpecification :: Prelude.Maybe ImportResourceSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,8 +235,6 @@ data StartImportResponse = StartImportResponse'
 --
 -- 'creationDateTime', 'startImportResponse_creationDateTime' - The date and time that the import request was created.
 --
--- 'resourceSpecification', 'startImportResponse_resourceSpecification' - The parameters used when importing the resource.
---
 -- 'importId', 'startImportResponse_importId' - A unique identifier for the import.
 --
 -- 'importStatus', 'startImportResponse_importStatus' - The current status of the import. When the status is @Complete@ the bot,
@@ -247,6 +245,8 @@ data StartImportResponse = StartImportResponse'
 -- @FailOnConflict@ existing resources are not overwritten and the import
 -- fails.
 --
+-- 'resourceSpecification', 'startImportResponse_resourceSpecification' - The parameters used when importing the resource.
+--
 -- 'httpStatus', 'startImportResponse_httpStatus' - The response's http status code.
 newStartImportResponse ::
   -- | 'httpStatus'
@@ -256,20 +256,16 @@ newStartImportResponse pHttpStatus_ =
   StartImportResponse'
     { creationDateTime =
         Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
       importId = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       mergeStrategy = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time that the import request was created.
 startImportResponse_creationDateTime :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
 startImportResponse_creationDateTime = Lens.lens (\StartImportResponse' {creationDateTime} -> creationDateTime) (\s@StartImportResponse' {} a -> s {creationDateTime = a} :: StartImportResponse) Prelude.. Lens.mapping Data._Time
-
--- | The parameters used when importing the resource.
-startImportResponse_resourceSpecification :: Lens.Lens' StartImportResponse (Prelude.Maybe ImportResourceSpecification)
-startImportResponse_resourceSpecification = Lens.lens (\StartImportResponse' {resourceSpecification} -> resourceSpecification) (\s@StartImportResponse' {} a -> s {resourceSpecification = a} :: StartImportResponse)
 
 -- | A unique identifier for the import.
 startImportResponse_importId :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.Text)
@@ -287,6 +283,10 @@ startImportResponse_importStatus = Lens.lens (\StartImportResponse' {importStatu
 startImportResponse_mergeStrategy :: Lens.Lens' StartImportResponse (Prelude.Maybe MergeStrategy)
 startImportResponse_mergeStrategy = Lens.lens (\StartImportResponse' {mergeStrategy} -> mergeStrategy) (\s@StartImportResponse' {} a -> s {mergeStrategy = a} :: StartImportResponse)
 
+-- | The parameters used when importing the resource.
+startImportResponse_resourceSpecification :: Lens.Lens' StartImportResponse (Prelude.Maybe ImportResourceSpecification)
+startImportResponse_resourceSpecification = Lens.lens (\StartImportResponse' {resourceSpecification} -> resourceSpecification) (\s@StartImportResponse' {} a -> s {resourceSpecification = a} :: StartImportResponse)
+
 -- | The response's http status code.
 startImportResponse_httpStatus :: Lens.Lens' StartImportResponse Prelude.Int
 startImportResponse_httpStatus = Lens.lens (\StartImportResponse' {httpStatus} -> httpStatus) (\s@StartImportResponse' {} a -> s {httpStatus = a} :: StartImportResponse)
@@ -294,8 +294,8 @@ startImportResponse_httpStatus = Lens.lens (\StartImportResponse' {httpStatus} -
 instance Prelude.NFData StartImportResponse where
   rnf StartImportResponse' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf importId
       `Prelude.seq` Prelude.rnf importStatus
       `Prelude.seq` Prelude.rnf mergeStrategy
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf httpStatus

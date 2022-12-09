@@ -34,10 +34,10 @@ data PromptAttemptSpecification = PromptAttemptSpecification'
   { -- | Indicates whether the user can interrupt a speech prompt attempt from
     -- the bot.
     allowInterrupt :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the settings on text input.
-    textInputSpecification :: Prelude.Maybe TextInputSpecification,
     -- | Specifies the settings on audio and DTMF input.
     audioAndDTMFInputSpecification :: Prelude.Maybe AudioAndDTMFInputSpecification,
+    -- | Specifies the settings on text input.
+    textInputSpecification :: Prelude.Maybe TextInputSpecification,
     -- | Indicates the allowed input types of the prompt attempt.
     allowedInputTypes :: AllowedInputTypes
   }
@@ -54,9 +54,9 @@ data PromptAttemptSpecification = PromptAttemptSpecification'
 -- 'allowInterrupt', 'promptAttemptSpecification_allowInterrupt' - Indicates whether the user can interrupt a speech prompt attempt from
 -- the bot.
 --
--- 'textInputSpecification', 'promptAttemptSpecification_textInputSpecification' - Specifies the settings on text input.
---
 -- 'audioAndDTMFInputSpecification', 'promptAttemptSpecification_audioAndDTMFInputSpecification' - Specifies the settings on audio and DTMF input.
+--
+-- 'textInputSpecification', 'promptAttemptSpecification_textInputSpecification' - Specifies the settings on text input.
 --
 -- 'allowedInputTypes', 'promptAttemptSpecification_allowedInputTypes' - Indicates the allowed input types of the prompt attempt.
 newPromptAttemptSpecification ::
@@ -67,9 +67,9 @@ newPromptAttemptSpecification pAllowedInputTypes_ =
   PromptAttemptSpecification'
     { allowInterrupt =
         Prelude.Nothing,
-      textInputSpecification = Prelude.Nothing,
       audioAndDTMFInputSpecification =
         Prelude.Nothing,
+      textInputSpecification = Prelude.Nothing,
       allowedInputTypes = pAllowedInputTypes_
     }
 
@@ -78,13 +78,13 @@ newPromptAttemptSpecification pAllowedInputTypes_ =
 promptAttemptSpecification_allowInterrupt :: Lens.Lens' PromptAttemptSpecification (Prelude.Maybe Prelude.Bool)
 promptAttemptSpecification_allowInterrupt = Lens.lens (\PromptAttemptSpecification' {allowInterrupt} -> allowInterrupt) (\s@PromptAttemptSpecification' {} a -> s {allowInterrupt = a} :: PromptAttemptSpecification)
 
--- | Specifies the settings on text input.
-promptAttemptSpecification_textInputSpecification :: Lens.Lens' PromptAttemptSpecification (Prelude.Maybe TextInputSpecification)
-promptAttemptSpecification_textInputSpecification = Lens.lens (\PromptAttemptSpecification' {textInputSpecification} -> textInputSpecification) (\s@PromptAttemptSpecification' {} a -> s {textInputSpecification = a} :: PromptAttemptSpecification)
-
 -- | Specifies the settings on audio and DTMF input.
 promptAttemptSpecification_audioAndDTMFInputSpecification :: Lens.Lens' PromptAttemptSpecification (Prelude.Maybe AudioAndDTMFInputSpecification)
 promptAttemptSpecification_audioAndDTMFInputSpecification = Lens.lens (\PromptAttemptSpecification' {audioAndDTMFInputSpecification} -> audioAndDTMFInputSpecification) (\s@PromptAttemptSpecification' {} a -> s {audioAndDTMFInputSpecification = a} :: PromptAttemptSpecification)
+
+-- | Specifies the settings on text input.
+promptAttemptSpecification_textInputSpecification :: Lens.Lens' PromptAttemptSpecification (Prelude.Maybe TextInputSpecification)
+promptAttemptSpecification_textInputSpecification = Lens.lens (\PromptAttemptSpecification' {textInputSpecification} -> textInputSpecification) (\s@PromptAttemptSpecification' {} a -> s {textInputSpecification = a} :: PromptAttemptSpecification)
 
 -- | Indicates the allowed input types of the prompt attempt.
 promptAttemptSpecification_allowedInputTypes :: Lens.Lens' PromptAttemptSpecification AllowedInputTypes
@@ -97,23 +97,23 @@ instance Data.FromJSON PromptAttemptSpecification where
       ( \x ->
           PromptAttemptSpecification'
             Prelude.<$> (x Data..:? "allowInterrupt")
-            Prelude.<*> (x Data..:? "textInputSpecification")
             Prelude.<*> (x Data..:? "audioAndDTMFInputSpecification")
+            Prelude.<*> (x Data..:? "textInputSpecification")
             Prelude.<*> (x Data..: "allowedInputTypes")
       )
 
 instance Prelude.Hashable PromptAttemptSpecification where
   hashWithSalt _salt PromptAttemptSpecification' {..} =
     _salt `Prelude.hashWithSalt` allowInterrupt
-      `Prelude.hashWithSalt` textInputSpecification
       `Prelude.hashWithSalt` audioAndDTMFInputSpecification
+      `Prelude.hashWithSalt` textInputSpecification
       `Prelude.hashWithSalt` allowedInputTypes
 
 instance Prelude.NFData PromptAttemptSpecification where
   rnf PromptAttemptSpecification' {..} =
     Prelude.rnf allowInterrupt
-      `Prelude.seq` Prelude.rnf textInputSpecification
       `Prelude.seq` Prelude.rnf audioAndDTMFInputSpecification
+      `Prelude.seq` Prelude.rnf textInputSpecification
       `Prelude.seq` Prelude.rnf allowedInputTypes
 
 instance Data.ToJSON PromptAttemptSpecification where
@@ -122,10 +122,10 @@ instance Data.ToJSON PromptAttemptSpecification where
       ( Prelude.catMaybes
           [ ("allowInterrupt" Data..=)
               Prelude.<$> allowInterrupt,
-            ("textInputSpecification" Data..=)
-              Prelude.<$> textInputSpecification,
             ("audioAndDTMFInputSpecification" Data..=)
               Prelude.<$> audioAndDTMFInputSpecification,
+            ("textInputSpecification" Data..=)
+              Prelude.<$> textInputSpecification,
             Prelude.Just
               ("allowedInputTypes" Data..= allowedInputTypes)
           ]

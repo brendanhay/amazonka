@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedCustomVocabularyItem' smart constructor.
 data FailedCustomVocabularyItem = FailedCustomVocabularyItem'
-  { -- | The error message for the failed custom vocabulary item from the custom
-    -- vocabulary list.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The unique error code for the failed custom vocabulary item from the
+  { -- | The unique error code for the failed custom vocabulary item from the
     -- custom vocabulary list.
     errorCode :: Prelude.Maybe ErrorCode,
+    -- | The error message for the failed custom vocabulary item from the custom
+    -- vocabulary list.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique item identifer for the failed custom vocabulary item from the
     -- custom vocabulary list.
     itemId :: Prelude.Maybe Prelude.Text
@@ -50,11 +50,11 @@ data FailedCustomVocabularyItem = FailedCustomVocabularyItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'failedCustomVocabularyItem_errorMessage' - The error message for the failed custom vocabulary item from the custom
--- vocabulary list.
---
 -- 'errorCode', 'failedCustomVocabularyItem_errorCode' - The unique error code for the failed custom vocabulary item from the
 -- custom vocabulary list.
+--
+-- 'errorMessage', 'failedCustomVocabularyItem_errorMessage' - The error message for the failed custom vocabulary item from the custom
+-- vocabulary list.
 --
 -- 'itemId', 'failedCustomVocabularyItem_itemId' - The unique item identifer for the failed custom vocabulary item from the
 -- custom vocabulary list.
@@ -62,21 +62,21 @@ newFailedCustomVocabularyItem ::
   FailedCustomVocabularyItem
 newFailedCustomVocabularyItem =
   FailedCustomVocabularyItem'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       itemId = Prelude.Nothing
     }
-
--- | The error message for the failed custom vocabulary item from the custom
--- vocabulary list.
-failedCustomVocabularyItem_errorMessage :: Lens.Lens' FailedCustomVocabularyItem (Prelude.Maybe Prelude.Text)
-failedCustomVocabularyItem_errorMessage = Lens.lens (\FailedCustomVocabularyItem' {errorMessage} -> errorMessage) (\s@FailedCustomVocabularyItem' {} a -> s {errorMessage = a} :: FailedCustomVocabularyItem)
 
 -- | The unique error code for the failed custom vocabulary item from the
 -- custom vocabulary list.
 failedCustomVocabularyItem_errorCode :: Lens.Lens' FailedCustomVocabularyItem (Prelude.Maybe ErrorCode)
 failedCustomVocabularyItem_errorCode = Lens.lens (\FailedCustomVocabularyItem' {errorCode} -> errorCode) (\s@FailedCustomVocabularyItem' {} a -> s {errorCode = a} :: FailedCustomVocabularyItem)
+
+-- | The error message for the failed custom vocabulary item from the custom
+-- vocabulary list.
+failedCustomVocabularyItem_errorMessage :: Lens.Lens' FailedCustomVocabularyItem (Prelude.Maybe Prelude.Text)
+failedCustomVocabularyItem_errorMessage = Lens.lens (\FailedCustomVocabularyItem' {errorMessage} -> errorMessage) (\s@FailedCustomVocabularyItem' {} a -> s {errorMessage = a} :: FailedCustomVocabularyItem)
 
 -- | The unique item identifer for the failed custom vocabulary item from the
 -- custom vocabulary list.
@@ -89,19 +89,19 @@ instance Data.FromJSON FailedCustomVocabularyItem where
       "FailedCustomVocabularyItem"
       ( \x ->
           FailedCustomVocabularyItem'
-            Prelude.<$> (x Data..:? "errorMessage")
-            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "itemId")
       )
 
 instance Prelude.Hashable FailedCustomVocabularyItem where
   hashWithSalt _salt FailedCustomVocabularyItem' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` itemId
 
 instance Prelude.NFData FailedCustomVocabularyItem where
   rnf FailedCustomVocabularyItem' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf itemId

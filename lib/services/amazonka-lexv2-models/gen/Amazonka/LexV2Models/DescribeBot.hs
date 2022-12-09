@@ -34,15 +34,15 @@ module Amazonka.LexV2Models.DescribeBot
     newDescribeBotResponse,
 
     -- * Response Lenses
-    describeBotResponse_roleArn,
-    describeBotResponse_creationDateTime,
-    describeBotResponse_description,
-    describeBotResponse_idleSessionTTLInSeconds,
     describeBotResponse_botId,
     describeBotResponse_botName,
-    describeBotResponse_dataPrivacy,
     describeBotResponse_botStatus,
+    describeBotResponse_creationDateTime,
+    describeBotResponse_dataPrivacy,
+    describeBotResponse_description,
+    describeBotResponse_idleSessionTTLInSeconds,
     describeBotResponse_lastUpdatedDateTime,
+    describeBotResponse_roleArn,
     describeBotResponse_httpStatus,
   )
 where
@@ -90,15 +90,15 @@ instance Core.AWSRequest DescribeBot where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotResponse'
-            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "dataPrivacy")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botName")
-            Prelude.<*> (x Data..?> "dataPrivacy")
-            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,28 +129,28 @@ instance Data.ToQuery DescribeBot where
 
 -- | /See:/ 'newDescribeBotResponse' smart constructor.
 data DescribeBotResponse = DescribeBotResponse'
-  { -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
-    -- access the bot.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier of the bot.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bot.
+    botName :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the bot. When the status is @Available@ the bot is
+    -- ready to be used in conversations with users.
+    botStatus :: Prelude.Maybe BotStatus,
     -- | A timestamp of the date and time that the bot was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | Settings for managing data privacy of the bot and its conversations with
+    -- users.
+    dataPrivacy :: Prelude.Maybe DataPrivacy,
     -- | The description of the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The maximum time in seconds that Amazon Lex retains the data gathered in
     -- a conversation.
     idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier of the bot.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot.
-    botName :: Prelude.Maybe Prelude.Text,
-    -- | Settings for managing data privacy of the bot and its conversations with
-    -- users.
-    dataPrivacy :: Prelude.Maybe DataPrivacy,
-    -- | The current status of the bot. When the status is @Available@ the bot is
-    -- ready to be used in conversations with users.
-    botStatus :: Prelude.Maybe BotStatus,
     -- | A timestamp of the date and time that the bot was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
+    -- access the bot.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,27 +164,27 @@ data DescribeBotResponse = DescribeBotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeBotResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that has permission to
--- access the bot.
+-- 'botId', 'describeBotResponse_botId' - The unique identifier of the bot.
+--
+-- 'botName', 'describeBotResponse_botName' - The name of the bot.
+--
+-- 'botStatus', 'describeBotResponse_botStatus' - The current status of the bot. When the status is @Available@ the bot is
+-- ready to be used in conversations with users.
 --
 -- 'creationDateTime', 'describeBotResponse_creationDateTime' - A timestamp of the date and time that the bot was created.
+--
+-- 'dataPrivacy', 'describeBotResponse_dataPrivacy' - Settings for managing data privacy of the bot and its conversations with
+-- users.
 --
 -- 'description', 'describeBotResponse_description' - The description of the bot.
 --
 -- 'idleSessionTTLInSeconds', 'describeBotResponse_idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in
 -- a conversation.
 --
--- 'botId', 'describeBotResponse_botId' - The unique identifier of the bot.
---
--- 'botName', 'describeBotResponse_botName' - The name of the bot.
---
--- 'dataPrivacy', 'describeBotResponse_dataPrivacy' - Settings for managing data privacy of the bot and its conversations with
--- users.
---
--- 'botStatus', 'describeBotResponse_botStatus' - The current status of the bot. When the status is @Available@ the bot is
--- ready to be used in conversations with users.
---
 -- 'lastUpdatedDateTime', 'describeBotResponse_lastUpdatedDateTime' - A timestamp of the date and time that the bot was last updated.
+--
+-- 'roleArn', 'describeBotResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that has permission to
+-- access the bot.
 --
 -- 'httpStatus', 'describeBotResponse_httpStatus' - The response's http status code.
 newDescribeBotResponse ::
@@ -193,26 +193,39 @@ newDescribeBotResponse ::
   DescribeBotResponse
 newDescribeBotResponse pHttpStatus_ =
   DescribeBotResponse'
-    { roleArn = Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botName = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      dataPrivacy = Prelude.Nothing,
       description = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      dataPrivacy = Prelude.Nothing,
-      botStatus = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of an IAM role that has permission to
--- access the bot.
-describeBotResponse_roleArn :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
-describeBotResponse_roleArn = Lens.lens (\DescribeBotResponse' {roleArn} -> roleArn) (\s@DescribeBotResponse' {} a -> s {roleArn = a} :: DescribeBotResponse)
+-- | The unique identifier of the bot.
+describeBotResponse_botId :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
+describeBotResponse_botId = Lens.lens (\DescribeBotResponse' {botId} -> botId) (\s@DescribeBotResponse' {} a -> s {botId = a} :: DescribeBotResponse)
+
+-- | The name of the bot.
+describeBotResponse_botName :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
+describeBotResponse_botName = Lens.lens (\DescribeBotResponse' {botName} -> botName) (\s@DescribeBotResponse' {} a -> s {botName = a} :: DescribeBotResponse)
+
+-- | The current status of the bot. When the status is @Available@ the bot is
+-- ready to be used in conversations with users.
+describeBotResponse_botStatus :: Lens.Lens' DescribeBotResponse (Prelude.Maybe BotStatus)
+describeBotResponse_botStatus = Lens.lens (\DescribeBotResponse' {botStatus} -> botStatus) (\s@DescribeBotResponse' {} a -> s {botStatus = a} :: DescribeBotResponse)
 
 -- | A timestamp of the date and time that the bot was created.
 describeBotResponse_creationDateTime :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.UTCTime)
 describeBotResponse_creationDateTime = Lens.lens (\DescribeBotResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotResponse' {} a -> s {creationDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Settings for managing data privacy of the bot and its conversations with
+-- users.
+describeBotResponse_dataPrivacy :: Lens.Lens' DescribeBotResponse (Prelude.Maybe DataPrivacy)
+describeBotResponse_dataPrivacy = Lens.lens (\DescribeBotResponse' {dataPrivacy} -> dataPrivacy) (\s@DescribeBotResponse' {} a -> s {dataPrivacy = a} :: DescribeBotResponse)
 
 -- | The description of the bot.
 describeBotResponse_description :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
@@ -223,27 +236,14 @@ describeBotResponse_description = Lens.lens (\DescribeBotResponse' {description}
 describeBotResponse_idleSessionTTLInSeconds :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Natural)
 describeBotResponse_idleSessionTTLInSeconds = Lens.lens (\DescribeBotResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@DescribeBotResponse' {} a -> s {idleSessionTTLInSeconds = a} :: DescribeBotResponse)
 
--- | The unique identifier of the bot.
-describeBotResponse_botId :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
-describeBotResponse_botId = Lens.lens (\DescribeBotResponse' {botId} -> botId) (\s@DescribeBotResponse' {} a -> s {botId = a} :: DescribeBotResponse)
-
--- | The name of the bot.
-describeBotResponse_botName :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
-describeBotResponse_botName = Lens.lens (\DescribeBotResponse' {botName} -> botName) (\s@DescribeBotResponse' {} a -> s {botName = a} :: DescribeBotResponse)
-
--- | Settings for managing data privacy of the bot and its conversations with
--- users.
-describeBotResponse_dataPrivacy :: Lens.Lens' DescribeBotResponse (Prelude.Maybe DataPrivacy)
-describeBotResponse_dataPrivacy = Lens.lens (\DescribeBotResponse' {dataPrivacy} -> dataPrivacy) (\s@DescribeBotResponse' {} a -> s {dataPrivacy = a} :: DescribeBotResponse)
-
--- | The current status of the bot. When the status is @Available@ the bot is
--- ready to be used in conversations with users.
-describeBotResponse_botStatus :: Lens.Lens' DescribeBotResponse (Prelude.Maybe BotStatus)
-describeBotResponse_botStatus = Lens.lens (\DescribeBotResponse' {botStatus} -> botStatus) (\s@DescribeBotResponse' {} a -> s {botStatus = a} :: DescribeBotResponse)
-
 -- | A timestamp of the date and time that the bot was last updated.
 describeBotResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.UTCTime)
 describeBotResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permission to
+-- access the bot.
+describeBotResponse_roleArn :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
+describeBotResponse_roleArn = Lens.lens (\DescribeBotResponse' {roleArn} -> roleArn) (\s@DescribeBotResponse' {} a -> s {roleArn = a} :: DescribeBotResponse)
 
 -- | The response's http status code.
 describeBotResponse_httpStatus :: Lens.Lens' DescribeBotResponse Prelude.Int
@@ -251,13 +251,13 @@ describeBotResponse_httpStatus = Lens.lens (\DescribeBotResponse' {httpStatus} -
 
 instance Prelude.NFData DescribeBotResponse where
   rnf DescribeBotResponse' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,16 +35,16 @@ module Amazonka.LexV2Models.DescribeBotVersion
     newDescribeBotVersionResponse,
 
     -- * Response Lenses
-    describeBotVersionResponse_roleArn,
-    describeBotVersionResponse_botVersion,
-    describeBotVersionResponse_creationDateTime,
-    describeBotVersionResponse_description,
-    describeBotVersionResponse_idleSessionTTLInSeconds,
     describeBotVersionResponse_botId,
     describeBotVersionResponse_botName,
-    describeBotVersionResponse_dataPrivacy,
-    describeBotVersionResponse_failureReasons,
     describeBotVersionResponse_botStatus,
+    describeBotVersionResponse_botVersion,
+    describeBotVersionResponse_creationDateTime,
+    describeBotVersionResponse_dataPrivacy,
+    describeBotVersionResponse_description,
+    describeBotVersionResponse_failureReasons,
+    describeBotVersionResponse_idleSessionTTLInSeconds,
+    describeBotVersionResponse_roleArn,
     describeBotVersionResponse_httpStatus,
   )
 where
@@ -107,16 +107,16 @@ instance Core.AWSRequest DescribeBotVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotVersionResponse'
-            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "botStatus")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botName")
             Prelude.<*> (x Data..?> "dataPrivacy")
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,30 +156,30 @@ instance Data.ToQuery DescribeBotVersion where
 
 -- | /See:/ 'newDescribeBotVersionResponse' smart constructor.
 data DescribeBotVersionResponse = DescribeBotVersionResponse'
-  { -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
-    -- access the bot version.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the bot that contains the version.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bot that contains the version.
+    botName :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the bot. When the status is @Available@, the bot
+    -- version is ready for use.
+    botStatus :: Prelude.Maybe BotStatus,
     -- | The version of the bot to describe.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot version was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The description specified for the bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds that a session with the bot remains active before
-    -- it is discarded by Amazon Lex.
-    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the bot that contains the version.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot that contains the version.
-    botName :: Prelude.Maybe Prelude.Text,
     -- | Data privacy settings for the bot version.
     dataPrivacy :: Prelude.Maybe DataPrivacy,
+    -- | The description specified for the bot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | If the @botStatus@ is @Failed@, this contains a list of reasons that the
     -- version couldn\'t be built.
     failureReasons :: Prelude.Maybe [Prelude.Text],
-    -- | The current status of the bot. When the status is @Available@, the bot
-    -- version is ready for use.
-    botStatus :: Prelude.Maybe BotStatus,
+    -- | The number of seconds that a session with the bot remains active before
+    -- it is discarded by Amazon Lex.
+    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
+    -- access the bot version.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,29 +193,29 @@ data DescribeBotVersionResponse = DescribeBotVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeBotVersionResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that has permission to
--- access the bot version.
+-- 'botId', 'describeBotVersionResponse_botId' - The identifier of the bot that contains the version.
+--
+-- 'botName', 'describeBotVersionResponse_botName' - The name of the bot that contains the version.
+--
+-- 'botStatus', 'describeBotVersionResponse_botStatus' - The current status of the bot. When the status is @Available@, the bot
+-- version is ready for use.
 --
 -- 'botVersion', 'describeBotVersionResponse_botVersion' - The version of the bot to describe.
 --
 -- 'creationDateTime', 'describeBotVersionResponse_creationDateTime' - A timestamp of the date and time that the bot version was created.
 --
--- 'description', 'describeBotVersionResponse_description' - The description specified for the bot.
---
--- 'idleSessionTTLInSeconds', 'describeBotVersionResponse_idleSessionTTLInSeconds' - The number of seconds that a session with the bot remains active before
--- it is discarded by Amazon Lex.
---
--- 'botId', 'describeBotVersionResponse_botId' - The identifier of the bot that contains the version.
---
--- 'botName', 'describeBotVersionResponse_botName' - The name of the bot that contains the version.
---
 -- 'dataPrivacy', 'describeBotVersionResponse_dataPrivacy' - Data privacy settings for the bot version.
+--
+-- 'description', 'describeBotVersionResponse_description' - The description specified for the bot.
 --
 -- 'failureReasons', 'describeBotVersionResponse_failureReasons' - If the @botStatus@ is @Failed@, this contains a list of reasons that the
 -- version couldn\'t be built.
 --
--- 'botStatus', 'describeBotVersionResponse_botStatus' - The current status of the bot. When the status is @Available@, the bot
--- version is ready for use.
+-- 'idleSessionTTLInSeconds', 'describeBotVersionResponse_idleSessionTTLInSeconds' - The number of seconds that a session with the bot remains active before
+-- it is discarded by Amazon Lex.
+--
+-- 'roleArn', 'describeBotVersionResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that has permission to
+-- access the bot version.
 --
 -- 'httpStatus', 'describeBotVersionResponse_httpStatus' - The response's http status code.
 newDescribeBotVersionResponse ::
@@ -224,41 +224,19 @@ newDescribeBotVersionResponse ::
   DescribeBotVersionResponse
 newDescribeBotVersionResponse pHttpStatus_ =
   DescribeBotVersionResponse'
-    { roleArn =
+    { botId =
         Prelude.Nothing,
+      botName = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      idleSessionTTLInSeconds = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botName = Prelude.Nothing,
       dataPrivacy = Prelude.Nothing,
+      description = Prelude.Nothing,
       failureReasons = Prelude.Nothing,
-      botStatus = Prelude.Nothing,
+      idleSessionTTLInSeconds = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of an IAM role that has permission to
--- access the bot version.
-describeBotVersionResponse_roleArn :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
-describeBotVersionResponse_roleArn = Lens.lens (\DescribeBotVersionResponse' {roleArn} -> roleArn) (\s@DescribeBotVersionResponse' {} a -> s {roleArn = a} :: DescribeBotVersionResponse)
-
--- | The version of the bot to describe.
-describeBotVersionResponse_botVersion :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
-describeBotVersionResponse_botVersion = Lens.lens (\DescribeBotVersionResponse' {botVersion} -> botVersion) (\s@DescribeBotVersionResponse' {} a -> s {botVersion = a} :: DescribeBotVersionResponse)
-
--- | A timestamp of the date and time that the bot version was created.
-describeBotVersionResponse_creationDateTime :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeBotVersionResponse_creationDateTime = Lens.lens (\DescribeBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotVersionResponse' {} a -> s {creationDateTime = a} :: DescribeBotVersionResponse) Prelude.. Lens.mapping Data._Time
-
--- | The description specified for the bot.
-describeBotVersionResponse_description :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
-describeBotVersionResponse_description = Lens.lens (\DescribeBotVersionResponse' {description} -> description) (\s@DescribeBotVersionResponse' {} a -> s {description = a} :: DescribeBotVersionResponse)
-
--- | The number of seconds that a session with the bot remains active before
--- it is discarded by Amazon Lex.
-describeBotVersionResponse_idleSessionTTLInSeconds :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Natural)
-describeBotVersionResponse_idleSessionTTLInSeconds = Lens.lens (\DescribeBotVersionResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@DescribeBotVersionResponse' {} a -> s {idleSessionTTLInSeconds = a} :: DescribeBotVersionResponse)
 
 -- | The identifier of the bot that contains the version.
 describeBotVersionResponse_botId :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
@@ -268,19 +246,41 @@ describeBotVersionResponse_botId = Lens.lens (\DescribeBotVersionResponse' {botI
 describeBotVersionResponse_botName :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
 describeBotVersionResponse_botName = Lens.lens (\DescribeBotVersionResponse' {botName} -> botName) (\s@DescribeBotVersionResponse' {} a -> s {botName = a} :: DescribeBotVersionResponse)
 
+-- | The current status of the bot. When the status is @Available@, the bot
+-- version is ready for use.
+describeBotVersionResponse_botStatus :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe BotStatus)
+describeBotVersionResponse_botStatus = Lens.lens (\DescribeBotVersionResponse' {botStatus} -> botStatus) (\s@DescribeBotVersionResponse' {} a -> s {botStatus = a} :: DescribeBotVersionResponse)
+
+-- | The version of the bot to describe.
+describeBotVersionResponse_botVersion :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
+describeBotVersionResponse_botVersion = Lens.lens (\DescribeBotVersionResponse' {botVersion} -> botVersion) (\s@DescribeBotVersionResponse' {} a -> s {botVersion = a} :: DescribeBotVersionResponse)
+
+-- | A timestamp of the date and time that the bot version was created.
+describeBotVersionResponse_creationDateTime :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
+describeBotVersionResponse_creationDateTime = Lens.lens (\DescribeBotVersionResponse' {creationDateTime} -> creationDateTime) (\s@DescribeBotVersionResponse' {} a -> s {creationDateTime = a} :: DescribeBotVersionResponse) Prelude.. Lens.mapping Data._Time
+
 -- | Data privacy settings for the bot version.
 describeBotVersionResponse_dataPrivacy :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe DataPrivacy)
 describeBotVersionResponse_dataPrivacy = Lens.lens (\DescribeBotVersionResponse' {dataPrivacy} -> dataPrivacy) (\s@DescribeBotVersionResponse' {} a -> s {dataPrivacy = a} :: DescribeBotVersionResponse)
+
+-- | The description specified for the bot.
+describeBotVersionResponse_description :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
+describeBotVersionResponse_description = Lens.lens (\DescribeBotVersionResponse' {description} -> description) (\s@DescribeBotVersionResponse' {} a -> s {description = a} :: DescribeBotVersionResponse)
 
 -- | If the @botStatus@ is @Failed@, this contains a list of reasons that the
 -- version couldn\'t be built.
 describeBotVersionResponse_failureReasons :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe [Prelude.Text])
 describeBotVersionResponse_failureReasons = Lens.lens (\DescribeBotVersionResponse' {failureReasons} -> failureReasons) (\s@DescribeBotVersionResponse' {} a -> s {failureReasons = a} :: DescribeBotVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The current status of the bot. When the status is @Available@, the bot
--- version is ready for use.
-describeBotVersionResponse_botStatus :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe BotStatus)
-describeBotVersionResponse_botStatus = Lens.lens (\DescribeBotVersionResponse' {botStatus} -> botStatus) (\s@DescribeBotVersionResponse' {} a -> s {botStatus = a} :: DescribeBotVersionResponse)
+-- | The number of seconds that a session with the bot remains active before
+-- it is discarded by Amazon Lex.
+describeBotVersionResponse_idleSessionTTLInSeconds :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Natural)
+describeBotVersionResponse_idleSessionTTLInSeconds = Lens.lens (\DescribeBotVersionResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@DescribeBotVersionResponse' {} a -> s {idleSessionTTLInSeconds = a} :: DescribeBotVersionResponse)
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permission to
+-- access the bot version.
+describeBotVersionResponse_roleArn :: Lens.Lens' DescribeBotVersionResponse (Prelude.Maybe Prelude.Text)
+describeBotVersionResponse_roleArn = Lens.lens (\DescribeBotVersionResponse' {roleArn} -> roleArn) (\s@DescribeBotVersionResponse' {} a -> s {roleArn = a} :: DescribeBotVersionResponse)
 
 -- | The response's http status code.
 describeBotVersionResponse_httpStatus :: Lens.Lens' DescribeBotVersionResponse Prelude.Int
@@ -288,14 +288,14 @@ describeBotVersionResponse_httpStatus = Lens.lens (\DescribeBotVersionResponse' 
 
 instance Prelude.NFData DescribeBotVersionResponse where
   rnf DescribeBotVersionResponse' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botStatus
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf dataPrivacy
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,10 +27,10 @@ module Amazonka.LexV2Models.ListBotLocales
     newListBotLocales,
 
     -- * Request Lenses
-    listBotLocales_nextToken,
     listBotLocales_filters,
-    listBotLocales_sortBy,
     listBotLocales_maxResults,
+    listBotLocales_nextToken,
+    listBotLocales_sortBy,
     listBotLocales_botId,
     listBotLocales_botVersion,
 
@@ -39,10 +39,10 @@ module Amazonka.LexV2Models.ListBotLocales
     newListBotLocalesResponse,
 
     -- * Response Lenses
-    listBotLocalesResponse_nextToken,
-    listBotLocalesResponse_botVersion,
-    listBotLocalesResponse_botLocaleSummaries,
     listBotLocalesResponse_botId,
+    listBotLocalesResponse_botLocaleSummaries,
+    listBotLocalesResponse_botVersion,
+    listBotLocalesResponse_nextToken,
     listBotLocalesResponse_httpStatus,
   )
 where
@@ -57,22 +57,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBotLocales' smart constructor.
 data ListBotLocales = ListBotLocales'
-  { -- | If the response from the @ListBotLocales@ operation contains more
-    -- results than specified in the @maxResults@ parameter, a token is
-    -- returned in the response. Use that token as the @nextToken@ parameter to
-    -- return the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides the specification for a filter used to limit the response to
+  { -- | Provides the specification for a filter used to limit the response to
     -- only those locales that match the filter specification. You can only
     -- specify one filter and one value to filter on.
     filters :: Prelude.Maybe (Prelude.NonEmpty BotLocaleFilter),
-    -- | Specifies sorting parameters for the list of locales. You can sort by
-    -- locale name in ascending or descending order.
-    sortBy :: Prelude.Maybe BotLocaleSortBy,
     -- | The maximum number of aliases to return in each page of results. If
     -- there are fewer results than the max page size, only the actual number
     -- of results are returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListBotLocales@ operation contains more
+    -- results than specified in the @maxResults@ parameter, a token is
+    -- returned in the response. Use that token as the @nextToken@ parameter to
+    -- return the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies sorting parameters for the list of locales. You can sort by
+    -- locale name in ascending or descending order.
+    sortBy :: Prelude.Maybe BotLocaleSortBy,
     -- | The identifier of the bot to list locales for.
     botId :: Prelude.Text,
     -- | The version of the bot to list locales for.
@@ -88,21 +88,21 @@ data ListBotLocales = ListBotLocales'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listBotLocales_filters' - Provides the specification for a filter used to limit the response to
+-- only those locales that match the filter specification. You can only
+-- specify one filter and one value to filter on.
+--
+-- 'maxResults', 'listBotLocales_maxResults' - The maximum number of aliases to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+--
 -- 'nextToken', 'listBotLocales_nextToken' - If the response from the @ListBotLocales@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
 -- returned in the response. Use that token as the @nextToken@ parameter to
 -- return the next page of results.
 --
--- 'filters', 'listBotLocales_filters' - Provides the specification for a filter used to limit the response to
--- only those locales that match the filter specification. You can only
--- specify one filter and one value to filter on.
---
 -- 'sortBy', 'listBotLocales_sortBy' - Specifies sorting parameters for the list of locales. You can sort by
 -- locale name in ascending or descending order.
---
--- 'maxResults', 'listBotLocales_maxResults' - The maximum number of aliases to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
 --
 -- 'botId', 'listBotLocales_botId' - The identifier of the bot to list locales for.
 --
@@ -115,13 +115,25 @@ newListBotLocales ::
   ListBotLocales
 newListBotLocales pBotId_ pBotVersion_ =
   ListBotLocales'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       botId = pBotId_,
       botVersion = pBotVersion_
     }
+
+-- | Provides the specification for a filter used to limit the response to
+-- only those locales that match the filter specification. You can only
+-- specify one filter and one value to filter on.
+listBotLocales_filters :: Lens.Lens' ListBotLocales (Prelude.Maybe (Prelude.NonEmpty BotLocaleFilter))
+listBotLocales_filters = Lens.lens (\ListBotLocales' {filters} -> filters) (\s@ListBotLocales' {} a -> s {filters = a} :: ListBotLocales) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of aliases to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+listBotLocales_maxResults :: Lens.Lens' ListBotLocales (Prelude.Maybe Prelude.Natural)
+listBotLocales_maxResults = Lens.lens (\ListBotLocales' {maxResults} -> maxResults) (\s@ListBotLocales' {} a -> s {maxResults = a} :: ListBotLocales)
 
 -- | If the response from the @ListBotLocales@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
@@ -130,22 +142,10 @@ newListBotLocales pBotId_ pBotVersion_ =
 listBotLocales_nextToken :: Lens.Lens' ListBotLocales (Prelude.Maybe Prelude.Text)
 listBotLocales_nextToken = Lens.lens (\ListBotLocales' {nextToken} -> nextToken) (\s@ListBotLocales' {} a -> s {nextToken = a} :: ListBotLocales)
 
--- | Provides the specification for a filter used to limit the response to
--- only those locales that match the filter specification. You can only
--- specify one filter and one value to filter on.
-listBotLocales_filters :: Lens.Lens' ListBotLocales (Prelude.Maybe (Prelude.NonEmpty BotLocaleFilter))
-listBotLocales_filters = Lens.lens (\ListBotLocales' {filters} -> filters) (\s@ListBotLocales' {} a -> s {filters = a} :: ListBotLocales) Prelude.. Lens.mapping Lens.coerced
-
 -- | Specifies sorting parameters for the list of locales. You can sort by
 -- locale name in ascending or descending order.
 listBotLocales_sortBy :: Lens.Lens' ListBotLocales (Prelude.Maybe BotLocaleSortBy)
 listBotLocales_sortBy = Lens.lens (\ListBotLocales' {sortBy} -> sortBy) (\s@ListBotLocales' {} a -> s {sortBy = a} :: ListBotLocales)
-
--- | The maximum number of aliases to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
-listBotLocales_maxResults :: Lens.Lens' ListBotLocales (Prelude.Maybe Prelude.Natural)
-listBotLocales_maxResults = Lens.lens (\ListBotLocales' {maxResults} -> maxResults) (\s@ListBotLocales' {} a -> s {maxResults = a} :: ListBotLocales)
 
 -- | The identifier of the bot to list locales for.
 listBotLocales_botId :: Lens.Lens' ListBotLocales Prelude.Text
@@ -165,30 +165,30 @@ instance Core.AWSRequest ListBotLocales where
     Response.receiveJSON
       ( \s h x ->
           ListBotLocalesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> ( x Data..?> "botLocaleSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBotLocales where
   hashWithSalt _salt ListBotLocales' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
 
 instance Prelude.NFData ListBotLocales where
   rnf ListBotLocales' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
 
@@ -207,10 +207,10 @@ instance Data.ToJSON ListBotLocales where
   toJSON ListBotLocales' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy
           ]
       )
 
@@ -229,21 +229,21 @@ instance Data.ToQuery ListBotLocales where
 
 -- | /See:/ 'newListBotLocalesResponse' smart constructor.
 data ListBotLocalesResponse = ListBotLocalesResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListBotLocales@ operation. If the @nextToken@ field is
-    -- present, you send the contents as the @nextToken@ parameter of a
-    -- @ListBotLocales@ operation request to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The version of the bot.
-    botVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the bot to list locales for.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the locales that meet the filter criteria
     -- specified in the request. The length of the list is specified in the
     -- @maxResults@ parameter of the request. If there are more locales
     -- available, the @nextToken@ field contains a token to get the next page
     -- of results.
     botLocaleSummaries :: Prelude.Maybe [BotLocaleSummary],
-    -- | The identifier of the bot to list locales for.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListBotLocales@ operation. If the @nextToken@ field is
+    -- present, you send the contents as the @nextToken@ parameter of a
+    -- @ListBotLocales@ operation request to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,12 +257,7 @@ data ListBotLocalesResponse = ListBotLocalesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBotLocalesResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListBotLocales@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotLocales@ operation request to get the next page of results.
---
--- 'botVersion', 'listBotLocalesResponse_botVersion' - The version of the bot.
+-- 'botId', 'listBotLocalesResponse_botId' - The identifier of the bot to list locales for.
 --
 -- 'botLocaleSummaries', 'listBotLocalesResponse_botLocaleSummaries' - Summary information for the locales that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -270,7 +265,12 @@ data ListBotLocalesResponse = ListBotLocalesResponse'
 -- available, the @nextToken@ field contains a token to get the next page
 -- of results.
 --
--- 'botId', 'listBotLocalesResponse_botId' - The identifier of the bot to list locales for.
+-- 'botVersion', 'listBotLocalesResponse_botVersion' - The version of the bot.
+--
+-- 'nextToken', 'listBotLocalesResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListBotLocales@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotLocales@ operation request to get the next page of results.
 --
 -- 'httpStatus', 'listBotLocalesResponse_httpStatus' - The response's http status code.
 newListBotLocalesResponse ::
@@ -279,24 +279,16 @@ newListBotLocalesResponse ::
   ListBotLocalesResponse
 newListBotLocalesResponse pHttpStatus_ =
   ListBotLocalesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      botVersion = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botLocaleSummaries = Prelude.Nothing,
-      botId = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates whether there are more results to return in a
--- response to the @ListBotLocales@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotLocales@ operation request to get the next page of results.
-listBotLocalesResponse_nextToken :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
-listBotLocalesResponse_nextToken = Lens.lens (\ListBotLocalesResponse' {nextToken} -> nextToken) (\s@ListBotLocalesResponse' {} a -> s {nextToken = a} :: ListBotLocalesResponse)
-
--- | The version of the bot.
-listBotLocalesResponse_botVersion :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
-listBotLocalesResponse_botVersion = Lens.lens (\ListBotLocalesResponse' {botVersion} -> botVersion) (\s@ListBotLocalesResponse' {} a -> s {botVersion = a} :: ListBotLocalesResponse)
+-- | The identifier of the bot to list locales for.
+listBotLocalesResponse_botId :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
+listBotLocalesResponse_botId = Lens.lens (\ListBotLocalesResponse' {botId} -> botId) (\s@ListBotLocalesResponse' {} a -> s {botId = a} :: ListBotLocalesResponse)
 
 -- | Summary information for the locales that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -306,9 +298,16 @@ listBotLocalesResponse_botVersion = Lens.lens (\ListBotLocalesResponse' {botVers
 listBotLocalesResponse_botLocaleSummaries :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe [BotLocaleSummary])
 listBotLocalesResponse_botLocaleSummaries = Lens.lens (\ListBotLocalesResponse' {botLocaleSummaries} -> botLocaleSummaries) (\s@ListBotLocalesResponse' {} a -> s {botLocaleSummaries = a} :: ListBotLocalesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of the bot to list locales for.
-listBotLocalesResponse_botId :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
-listBotLocalesResponse_botId = Lens.lens (\ListBotLocalesResponse' {botId} -> botId) (\s@ListBotLocalesResponse' {} a -> s {botId = a} :: ListBotLocalesResponse)
+-- | The version of the bot.
+listBotLocalesResponse_botVersion :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
+listBotLocalesResponse_botVersion = Lens.lens (\ListBotLocalesResponse' {botVersion} -> botVersion) (\s@ListBotLocalesResponse' {} a -> s {botVersion = a} :: ListBotLocalesResponse)
+
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListBotLocales@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotLocales@ operation request to get the next page of results.
+listBotLocalesResponse_nextToken :: Lens.Lens' ListBotLocalesResponse (Prelude.Maybe Prelude.Text)
+listBotLocalesResponse_nextToken = Lens.lens (\ListBotLocalesResponse' {nextToken} -> nextToken) (\s@ListBotLocalesResponse' {} a -> s {nextToken = a} :: ListBotLocalesResponse)
 
 -- | The response's http status code.
 listBotLocalesResponse_httpStatus :: Lens.Lens' ListBotLocalesResponse Prelude.Int
@@ -316,8 +315,8 @@ listBotLocalesResponse_httpStatus = Lens.lens (\ListBotLocalesResponse' {httpSta
 
 instance Prelude.NFData ListBotLocalesResponse where
   rnf ListBotLocalesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botVersion
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botLocaleSummaries
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

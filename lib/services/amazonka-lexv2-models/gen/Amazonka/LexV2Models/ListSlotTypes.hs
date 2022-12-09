@@ -27,10 +27,10 @@ module Amazonka.LexV2Models.ListSlotTypes
     newListSlotTypes,
 
     -- * Request Lenses
-    listSlotTypes_nextToken,
     listSlotTypes_filters,
-    listSlotTypes_sortBy,
     listSlotTypes_maxResults,
+    listSlotTypes_nextToken,
+    listSlotTypes_sortBy,
     listSlotTypes_botId,
     listSlotTypes_botVersion,
     listSlotTypes_localeId,
@@ -40,10 +40,10 @@ module Amazonka.LexV2Models.ListSlotTypes
     newListSlotTypesResponse,
 
     -- * Response Lenses
-    listSlotTypesResponse_nextToken,
+    listSlotTypesResponse_botId,
     listSlotTypesResponse_botVersion,
     listSlotTypesResponse_localeId,
-    listSlotTypesResponse_botId,
+    listSlotTypesResponse_nextToken,
     listSlotTypesResponse_slotTypeSummaries,
     listSlotTypesResponse_httpStatus,
   )
@@ -59,23 +59,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSlotTypes' smart constructor.
 data ListSlotTypes = ListSlotTypes'
-  { -- | If the response from the @ListSlotTypes@ operation contains more results
-    -- than specified in the @maxResults@ parameter, a token is returned in the
-    -- response. Use that token in the @nextToken@ parameter to return the next
-    -- page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides the specification of a filter used to limit the slot types in
+  { -- | Provides the specification of a filter used to limit the slot types in
     -- the response to only those that match the filter specification. You can
     -- only specify one filter and only one string to filter on.
     filters :: Prelude.Maybe (Prelude.NonEmpty SlotTypeFilter),
-    -- | Determines the sort order for the response from the @ListSlotTypes@
-    -- operation. You can choose to sort by the slot type name or last updated
-    -- date in either ascending or descending order.
-    sortBy :: Prelude.Maybe SlotTypeSortBy,
     -- | The maximum number of slot types to return in each page of results. If
     -- there are fewer results than the max page size, only the actual number
     -- of results are returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListSlotTypes@ operation contains more results
+    -- than specified in the @maxResults@ parameter, a token is returned in the
+    -- response. Use that token in the @nextToken@ parameter to return the next
+    -- page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Determines the sort order for the response from the @ListSlotTypes@
+    -- operation. You can choose to sort by the slot type name or last updated
+    -- date in either ascending or descending order.
+    sortBy :: Prelude.Maybe SlotTypeSortBy,
     -- | The unique identifier of the bot that contains the slot types.
     botId :: Prelude.Text,
     -- | The version of the bot that contains the slot type.
@@ -96,22 +96,22 @@ data ListSlotTypes = ListSlotTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listSlotTypes_filters' - Provides the specification of a filter used to limit the slot types in
+-- the response to only those that match the filter specification. You can
+-- only specify one filter and only one string to filter on.
+--
+-- 'maxResults', 'listSlotTypes_maxResults' - The maximum number of slot types to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+--
 -- 'nextToken', 'listSlotTypes_nextToken' - If the response from the @ListSlotTypes@ operation contains more results
 -- than specified in the @maxResults@ parameter, a token is returned in the
 -- response. Use that token in the @nextToken@ parameter to return the next
 -- page of results.
 --
--- 'filters', 'listSlotTypes_filters' - Provides the specification of a filter used to limit the slot types in
--- the response to only those that match the filter specification. You can
--- only specify one filter and only one string to filter on.
---
 -- 'sortBy', 'listSlotTypes_sortBy' - Determines the sort order for the response from the @ListSlotTypes@
 -- operation. You can choose to sort by the slot type name or last updated
 -- date in either ascending or descending order.
---
--- 'maxResults', 'listSlotTypes_maxResults' - The maximum number of slot types to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
 --
 -- 'botId', 'listSlotTypes_botId' - The unique identifier of the bot that contains the slot types.
 --
@@ -131,14 +131,26 @@ newListSlotTypes ::
   ListSlotTypes
 newListSlotTypes pBotId_ pBotVersion_ pLocaleId_ =
   ListSlotTypes'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       botId = pBotId_,
       botVersion = pBotVersion_,
       localeId = pLocaleId_
     }
+
+-- | Provides the specification of a filter used to limit the slot types in
+-- the response to only those that match the filter specification. You can
+-- only specify one filter and only one string to filter on.
+listSlotTypes_filters :: Lens.Lens' ListSlotTypes (Prelude.Maybe (Prelude.NonEmpty SlotTypeFilter))
+listSlotTypes_filters = Lens.lens (\ListSlotTypes' {filters} -> filters) (\s@ListSlotTypes' {} a -> s {filters = a} :: ListSlotTypes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of slot types to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+listSlotTypes_maxResults :: Lens.Lens' ListSlotTypes (Prelude.Maybe Prelude.Natural)
+listSlotTypes_maxResults = Lens.lens (\ListSlotTypes' {maxResults} -> maxResults) (\s@ListSlotTypes' {} a -> s {maxResults = a} :: ListSlotTypes)
 
 -- | If the response from the @ListSlotTypes@ operation contains more results
 -- than specified in the @maxResults@ parameter, a token is returned in the
@@ -147,23 +159,11 @@ newListSlotTypes pBotId_ pBotVersion_ pLocaleId_ =
 listSlotTypes_nextToken :: Lens.Lens' ListSlotTypes (Prelude.Maybe Prelude.Text)
 listSlotTypes_nextToken = Lens.lens (\ListSlotTypes' {nextToken} -> nextToken) (\s@ListSlotTypes' {} a -> s {nextToken = a} :: ListSlotTypes)
 
--- | Provides the specification of a filter used to limit the slot types in
--- the response to only those that match the filter specification. You can
--- only specify one filter and only one string to filter on.
-listSlotTypes_filters :: Lens.Lens' ListSlotTypes (Prelude.Maybe (Prelude.NonEmpty SlotTypeFilter))
-listSlotTypes_filters = Lens.lens (\ListSlotTypes' {filters} -> filters) (\s@ListSlotTypes' {} a -> s {filters = a} :: ListSlotTypes) Prelude.. Lens.mapping Lens.coerced
-
 -- | Determines the sort order for the response from the @ListSlotTypes@
 -- operation. You can choose to sort by the slot type name or last updated
 -- date in either ascending or descending order.
 listSlotTypes_sortBy :: Lens.Lens' ListSlotTypes (Prelude.Maybe SlotTypeSortBy)
 listSlotTypes_sortBy = Lens.lens (\ListSlotTypes' {sortBy} -> sortBy) (\s@ListSlotTypes' {} a -> s {sortBy = a} :: ListSlotTypes)
-
--- | The maximum number of slot types to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
-listSlotTypes_maxResults :: Lens.Lens' ListSlotTypes (Prelude.Maybe Prelude.Natural)
-listSlotTypes_maxResults = Lens.lens (\ListSlotTypes' {maxResults} -> maxResults) (\s@ListSlotTypes' {} a -> s {maxResults = a} :: ListSlotTypes)
 
 -- | The unique identifier of the bot that contains the slot types.
 listSlotTypes_botId :: Lens.Lens' ListSlotTypes Prelude.Text
@@ -190,10 +190,10 @@ instance Core.AWSRequest ListSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           ListSlotTypesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> ( x Data..?> "slotTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
@@ -202,20 +202,20 @@ instance Core.AWSRequest ListSlotTypes where
 
 instance Prelude.Hashable ListSlotTypes where
   hashWithSalt _salt ListSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 
 instance Prelude.NFData ListSlotTypes where
   rnf ListSlotTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
@@ -235,10 +235,10 @@ instance Data.ToJSON ListSlotTypes where
   toJSON ListSlotTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy
           ]
       )
 
@@ -259,17 +259,17 @@ instance Data.ToQuery ListSlotTypes where
 
 -- | /See:/ 'newListSlotTypesResponse' smart constructor.
 data ListSlotTypesResponse = ListSlotTypesResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
-    -- present, you send the contents as the @nextToken@ parameter of a
-    -- @ListSlotTypes@ operation request to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the bot that contains the slot types.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot that contains the slot types.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The language and local of the slot types in the list.
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that contains the slot types.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
+    -- present, you send the contents as the @nextToken@ parameter of a
+    -- @ListSlotTypes@ operation request to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the slot types that meet the filter criteria
     -- specified in the request. The length of the list is specified in the
     -- @maxResults@ parameter of the request. If there are more slot types
@@ -289,16 +289,16 @@ data ListSlotTypesResponse = ListSlotTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSlotTypesResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListSlotTypes@ operation request to get the next page of results.
+-- 'botId', 'listSlotTypesResponse_botId' - The identifier of the bot that contains the slot types.
 --
 -- 'botVersion', 'listSlotTypesResponse_botVersion' - The version of the bot that contains the slot types.
 --
 -- 'localeId', 'listSlotTypesResponse_localeId' - The language and local of the slot types in the list.
 --
--- 'botId', 'listSlotTypesResponse_botId' - The identifier of the bot that contains the slot types.
+-- 'nextToken', 'listSlotTypesResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListSlotTypes@ operation request to get the next page of results.
 --
 -- 'slotTypeSummaries', 'listSlotTypesResponse_slotTypeSummaries' - Summary information for the slot types that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -313,20 +313,17 @@ newListSlotTypesResponse ::
   ListSlotTypesResponse
 newListSlotTypesResponse pHttpStatus_ =
   ListSlotTypesResponse'
-    { nextToken = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       slotTypeSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates whether there are more results to return in a
--- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListSlotTypes@ operation request to get the next page of results.
-listSlotTypesResponse_nextToken :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
-listSlotTypesResponse_nextToken = Lens.lens (\ListSlotTypesResponse' {nextToken} -> nextToken) (\s@ListSlotTypesResponse' {} a -> s {nextToken = a} :: ListSlotTypesResponse)
+-- | The identifier of the bot that contains the slot types.
+listSlotTypesResponse_botId :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
+listSlotTypesResponse_botId = Lens.lens (\ListSlotTypesResponse' {botId} -> botId) (\s@ListSlotTypesResponse' {} a -> s {botId = a} :: ListSlotTypesResponse)
 
 -- | The version of the bot that contains the slot types.
 listSlotTypesResponse_botVersion :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
@@ -336,9 +333,12 @@ listSlotTypesResponse_botVersion = Lens.lens (\ListSlotTypesResponse' {botVersio
 listSlotTypesResponse_localeId :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
 listSlotTypesResponse_localeId = Lens.lens (\ListSlotTypesResponse' {localeId} -> localeId) (\s@ListSlotTypesResponse' {} a -> s {localeId = a} :: ListSlotTypesResponse)
 
--- | The identifier of the bot that contains the slot types.
-listSlotTypesResponse_botId :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
-listSlotTypesResponse_botId = Lens.lens (\ListSlotTypesResponse' {botId} -> botId) (\s@ListSlotTypesResponse' {} a -> s {botId = a} :: ListSlotTypesResponse)
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListSlotTypes@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListSlotTypes@ operation request to get the next page of results.
+listSlotTypesResponse_nextToken :: Lens.Lens' ListSlotTypesResponse (Prelude.Maybe Prelude.Text)
+listSlotTypesResponse_nextToken = Lens.lens (\ListSlotTypesResponse' {nextToken} -> nextToken) (\s@ListSlotTypesResponse' {} a -> s {nextToken = a} :: ListSlotTypesResponse)
 
 -- | Summary information for the slot types that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -354,9 +354,9 @@ listSlotTypesResponse_httpStatus = Lens.lens (\ListSlotTypesResponse' {httpStatu
 
 instance Prelude.NFData ListSlotTypesResponse where
   rnf ListSlotTypesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf slotTypeSummaries
       `Prelude.seq` Prelude.rnf httpStatus

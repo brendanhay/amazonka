@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessage' smart constructor.
 data Message = Message'
-  { -- | A message in Speech Synthesis Markup Language (SSML).
-    ssmlMessage :: Prelude.Maybe SSMLMessage,
+  { -- | A message in a custom format defined by the client application.
+    customPayload :: Prelude.Maybe CustomPayload,
     -- | A message that defines a response card that the client application can
     -- show to the user.
     imageResponseCard :: Prelude.Maybe ImageResponseCard,
-    -- | A message in a custom format defined by the client application.
-    customPayload :: Prelude.Maybe CustomPayload,
     -- | A message in plain text format.
-    plainTextMessage :: Prelude.Maybe PlainTextMessage
+    plainTextMessage :: Prelude.Maybe PlainTextMessage,
+    -- | A message in Speech Synthesis Markup Language (SSML).
+    ssmlMessage :: Prelude.Maybe SSMLMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,40 +52,40 @@ data Message = Message'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ssmlMessage', 'message_ssmlMessage' - A message in Speech Synthesis Markup Language (SSML).
+-- 'customPayload', 'message_customPayload' - A message in a custom format defined by the client application.
 --
 -- 'imageResponseCard', 'message_imageResponseCard' - A message that defines a response card that the client application can
 -- show to the user.
 --
--- 'customPayload', 'message_customPayload' - A message in a custom format defined by the client application.
---
 -- 'plainTextMessage', 'message_plainTextMessage' - A message in plain text format.
+--
+-- 'ssmlMessage', 'message_ssmlMessage' - A message in Speech Synthesis Markup Language (SSML).
 newMessage ::
   Message
 newMessage =
   Message'
-    { ssmlMessage = Prelude.Nothing,
+    { customPayload = Prelude.Nothing,
       imageResponseCard = Prelude.Nothing,
-      customPayload = Prelude.Nothing,
-      plainTextMessage = Prelude.Nothing
+      plainTextMessage = Prelude.Nothing,
+      ssmlMessage = Prelude.Nothing
     }
 
--- | A message in Speech Synthesis Markup Language (SSML).
-message_ssmlMessage :: Lens.Lens' Message (Prelude.Maybe SSMLMessage)
-message_ssmlMessage = Lens.lens (\Message' {ssmlMessage} -> ssmlMessage) (\s@Message' {} a -> s {ssmlMessage = a} :: Message)
+-- | A message in a custom format defined by the client application.
+message_customPayload :: Lens.Lens' Message (Prelude.Maybe CustomPayload)
+message_customPayload = Lens.lens (\Message' {customPayload} -> customPayload) (\s@Message' {} a -> s {customPayload = a} :: Message)
 
 -- | A message that defines a response card that the client application can
 -- show to the user.
 message_imageResponseCard :: Lens.Lens' Message (Prelude.Maybe ImageResponseCard)
 message_imageResponseCard = Lens.lens (\Message' {imageResponseCard} -> imageResponseCard) (\s@Message' {} a -> s {imageResponseCard = a} :: Message)
 
--- | A message in a custom format defined by the client application.
-message_customPayload :: Lens.Lens' Message (Prelude.Maybe CustomPayload)
-message_customPayload = Lens.lens (\Message' {customPayload} -> customPayload) (\s@Message' {} a -> s {customPayload = a} :: Message)
-
 -- | A message in plain text format.
 message_plainTextMessage :: Lens.Lens' Message (Prelude.Maybe PlainTextMessage)
 message_plainTextMessage = Lens.lens (\Message' {plainTextMessage} -> plainTextMessage) (\s@Message' {} a -> s {plainTextMessage = a} :: Message)
+
+-- | A message in Speech Synthesis Markup Language (SSML).
+message_ssmlMessage :: Lens.Lens' Message (Prelude.Maybe SSMLMessage)
+message_ssmlMessage = Lens.lens (\Message' {ssmlMessage} -> ssmlMessage) (\s@Message' {} a -> s {ssmlMessage = a} :: Message)
 
 instance Data.FromJSON Message where
   parseJSON =
@@ -93,35 +93,35 @@ instance Data.FromJSON Message where
       "Message"
       ( \x ->
           Message'
-            Prelude.<$> (x Data..:? "ssmlMessage")
+            Prelude.<$> (x Data..:? "customPayload")
             Prelude.<*> (x Data..:? "imageResponseCard")
-            Prelude.<*> (x Data..:? "customPayload")
             Prelude.<*> (x Data..:? "plainTextMessage")
+            Prelude.<*> (x Data..:? "ssmlMessage")
       )
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` ssmlMessage
+    _salt `Prelude.hashWithSalt` customPayload
       `Prelude.hashWithSalt` imageResponseCard
-      `Prelude.hashWithSalt` customPayload
       `Prelude.hashWithSalt` plainTextMessage
+      `Prelude.hashWithSalt` ssmlMessage
 
 instance Prelude.NFData Message where
   rnf Message' {..} =
-    Prelude.rnf ssmlMessage
+    Prelude.rnf customPayload
       `Prelude.seq` Prelude.rnf imageResponseCard
-      `Prelude.seq` Prelude.rnf customPayload
       `Prelude.seq` Prelude.rnf plainTextMessage
+      `Prelude.seq` Prelude.rnf ssmlMessage
 
 instance Data.ToJSON Message where
   toJSON Message' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ssmlMessage" Data..=) Prelude.<$> ssmlMessage,
+          [ ("customPayload" Data..=) Prelude.<$> customPayload,
             ("imageResponseCard" Data..=)
               Prelude.<$> imageResponseCard,
-            ("customPayload" Data..=) Prelude.<$> customPayload,
             ("plainTextMessage" Data..=)
-              Prelude.<$> plainTextMessage
+              Prelude.<$> plainTextMessage,
+            ("ssmlMessage" Data..=) Prelude.<$> ssmlMessage
           ]
       )

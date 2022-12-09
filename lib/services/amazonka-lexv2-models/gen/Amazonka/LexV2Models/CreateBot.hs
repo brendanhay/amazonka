@@ -27,8 +27,8 @@ module Amazonka.LexV2Models.CreateBot
     newCreateBot,
 
     -- * Request Lenses
-    createBot_description,
     createBot_botTags,
+    createBot_description,
     createBot_testBotAliasTags,
     createBot_botName,
     createBot_roleArn,
@@ -40,15 +40,15 @@ module Amazonka.LexV2Models.CreateBot
     newCreateBotResponse,
 
     -- * Response Lenses
-    createBotResponse_roleArn,
+    createBotResponse_botId,
+    createBotResponse_botName,
+    createBotResponse_botStatus,
+    createBotResponse_botTags,
     createBotResponse_creationDateTime,
+    createBotResponse_dataPrivacy,
     createBotResponse_description,
     createBotResponse_idleSessionTTLInSeconds,
-    createBotResponse_botId,
-    createBotResponse_botTags,
-    createBotResponse_botName,
-    createBotResponse_dataPrivacy,
-    createBotResponse_botStatus,
+    createBotResponse_roleArn,
     createBotResponse_testBotAliasTags,
     createBotResponse_httpStatus,
   )
@@ -64,13 +64,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBot' smart constructor.
 data CreateBot = CreateBot'
-  { -- | A description of the bot. It appears in lists to help you identify a
-    -- particular bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to add to the bot. You can only add tags when you create
+  { -- | A list of tags to add to the bot. You can only add tags when you create
     -- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
     -- update tags, use the @TagResource@ operation.
     botTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the bot. It appears in lists to help you identify a
+    -- particular bot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to add to the test alias for a bot. You can only add tags
     -- when you create a bot. You can\'t use the @UpdateAlias@ operation to
     -- update tags. To update tags on the test alias, use the @TagResource@
@@ -105,12 +105,12 @@ data CreateBot = CreateBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createBot_description' - A description of the bot. It appears in lists to help you identify a
--- particular bot.
---
 -- 'botTags', 'createBot_botTags' - A list of tags to add to the bot. You can only add tags when you create
 -- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
 -- update tags, use the @TagResource@ operation.
+--
+-- 'description', 'createBot_description' - A description of the bot. It appears in lists to help you identify a
+-- particular bot.
 --
 -- 'testBotAliasTags', 'createBot_testBotAliasTags' - A list of tags to add to the test alias for a bot. You can only add tags
 -- when you create a bot. You can\'t use the @UpdateAlias@ operation to
@@ -150,8 +150,8 @@ newCreateBot
   pDataPrivacy_
   pIdleSessionTTLInSeconds_ =
     CreateBot'
-      { description = Prelude.Nothing,
-        botTags = Prelude.Nothing,
+      { botTags = Prelude.Nothing,
+        description = Prelude.Nothing,
         testBotAliasTags = Prelude.Nothing,
         botName = pBotName_,
         roleArn = pRoleArn_,
@@ -159,16 +159,16 @@ newCreateBot
         idleSessionTTLInSeconds = pIdleSessionTTLInSeconds_
       }
 
--- | A description of the bot. It appears in lists to help you identify a
--- particular bot.
-createBot_description :: Lens.Lens' CreateBot (Prelude.Maybe Prelude.Text)
-createBot_description = Lens.lens (\CreateBot' {description} -> description) (\s@CreateBot' {} a -> s {description = a} :: CreateBot)
-
 -- | A list of tags to add to the bot. You can only add tags when you create
 -- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
 -- update tags, use the @TagResource@ operation.
 createBot_botTags :: Lens.Lens' CreateBot (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createBot_botTags = Lens.lens (\CreateBot' {botTags} -> botTags) (\s@CreateBot' {} a -> s {botTags = a} :: CreateBot) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the bot. It appears in lists to help you identify a
+-- particular bot.
+createBot_description :: Lens.Lens' CreateBot (Prelude.Maybe Prelude.Text)
+createBot_description = Lens.lens (\CreateBot' {description} -> description) (\s@CreateBot' {} a -> s {description = a} :: CreateBot)
 
 -- | A list of tags to add to the test alias for a bot. You can only add tags
 -- when you create a bot. You can\'t use the @UpdateAlias@ operation to
@@ -211,15 +211,15 @@ instance Core.AWSRequest CreateBot where
     Response.receiveJSON
       ( \s h x ->
           CreateBotResponse'
-            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botName")
+            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "botTags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "creationDateTime")
+            Prelude.<*> (x Data..?> "dataPrivacy")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "botName")
-            Prelude.<*> (x Data..?> "dataPrivacy")
-            Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> ( x Data..?> "testBotAliasTags"
                             Core..!@ Prelude.mempty
                         )
@@ -228,8 +228,8 @@ instance Core.AWSRequest CreateBot where
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` botTags
+    _salt `Prelude.hashWithSalt` botTags
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` testBotAliasTags
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` roleArn
@@ -238,8 +238,8 @@ instance Prelude.Hashable CreateBot where
 
 instance Prelude.NFData CreateBot where
   rnf CreateBot' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botTags
+    Prelude.rnf botTags
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf testBotAliasTags
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf roleArn
@@ -261,8 +261,8 @@ instance Data.ToJSON CreateBot where
   toJSON CreateBot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
-            ("botTags" Data..=) Prelude.<$> botTags,
+          [ ("botTags" Data..=) Prelude.<$> botTags,
+            ("description" Data..=) Prelude.<$> description,
             ("testBotAliasTags" Data..=)
               Prelude.<$> testBotAliasTags,
             Prelude.Just ("botName" Data..= botName),
@@ -283,28 +283,28 @@ instance Data.ToQuery CreateBot where
 
 -- | /See:/ 'newCreateBotResponse' smart constructor.
 data CreateBotResponse = CreateBotResponse'
-  { -- | The IAM role specified for the bot.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp indicating the date and time that the bot was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The description specified for the bot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The session idle time specified for the bot.
-    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for a particular bot. You use this to identify the
+  { -- | A unique identifier for a particular bot. You use this to identify the
     -- bot when you call other Amazon Lex API operations.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags associated with the bot.
-    botTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name specified for the bot.
     botName :: Prelude.Maybe Prelude.Text,
-    -- | The data privacy settings specified for the bot.
-    dataPrivacy :: Prelude.Maybe DataPrivacy,
     -- | Shows the current status of the bot. The bot is first in the @Creating@
     -- status. Once the bot is read for use, it changes to the @Available@
     -- status. After the bot is created, you can use the @Draft@ version of the
     -- bot.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | A list of tags associated with the bot.
+    botTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A timestamp indicating the date and time that the bot was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The data privacy settings specified for the bot.
+    dataPrivacy :: Prelude.Maybe DataPrivacy,
+    -- | The description specified for the bot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The session idle time specified for the bot.
+    idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The IAM role specified for the bot.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of tags associated with the test alias for the bot.
     testBotAliasTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
@@ -320,27 +320,27 @@ data CreateBotResponse = CreateBotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'createBotResponse_roleArn' - The IAM role specified for the bot.
---
--- 'creationDateTime', 'createBotResponse_creationDateTime' - A timestamp indicating the date and time that the bot was created.
---
--- 'description', 'createBotResponse_description' - The description specified for the bot.
---
--- 'idleSessionTTLInSeconds', 'createBotResponse_idleSessionTTLInSeconds' - The session idle time specified for the bot.
---
 -- 'botId', 'createBotResponse_botId' - A unique identifier for a particular bot. You use this to identify the
 -- bot when you call other Amazon Lex API operations.
 --
--- 'botTags', 'createBotResponse_botTags' - A list of tags associated with the bot.
---
 -- 'botName', 'createBotResponse_botName' - The name specified for the bot.
---
--- 'dataPrivacy', 'createBotResponse_dataPrivacy' - The data privacy settings specified for the bot.
 --
 -- 'botStatus', 'createBotResponse_botStatus' - Shows the current status of the bot. The bot is first in the @Creating@
 -- status. Once the bot is read for use, it changes to the @Available@
 -- status. After the bot is created, you can use the @Draft@ version of the
 -- bot.
+--
+-- 'botTags', 'createBotResponse_botTags' - A list of tags associated with the bot.
+--
+-- 'creationDateTime', 'createBotResponse_creationDateTime' - A timestamp indicating the date and time that the bot was created.
+--
+-- 'dataPrivacy', 'createBotResponse_dataPrivacy' - The data privacy settings specified for the bot.
+--
+-- 'description', 'createBotResponse_description' - The description specified for the bot.
+--
+-- 'idleSessionTTLInSeconds', 'createBotResponse_idleSessionTTLInSeconds' - The session idle time specified for the bot.
+--
+-- 'roleArn', 'createBotResponse_roleArn' - The IAM role specified for the bot.
 --
 -- 'testBotAliasTags', 'createBotResponse_testBotAliasTags' - A list of tags associated with the test alias for the bot.
 --
@@ -351,26 +351,46 @@ newCreateBotResponse ::
   CreateBotResponse
 newCreateBotResponse pHttpStatus_ =
   CreateBotResponse'
-    { roleArn = Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botName = Prelude.Nothing,
+      botStatus = Prelude.Nothing,
+      botTags = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      dataPrivacy = Prelude.Nothing,
       description = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botTags = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      dataPrivacy = Prelude.Nothing,
-      botStatus = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       testBotAliasTags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The IAM role specified for the bot.
-createBotResponse_roleArn :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
-createBotResponse_roleArn = Lens.lens (\CreateBotResponse' {roleArn} -> roleArn) (\s@CreateBotResponse' {} a -> s {roleArn = a} :: CreateBotResponse)
+-- | A unique identifier for a particular bot. You use this to identify the
+-- bot when you call other Amazon Lex API operations.
+createBotResponse_botId :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
+createBotResponse_botId = Lens.lens (\CreateBotResponse' {botId} -> botId) (\s@CreateBotResponse' {} a -> s {botId = a} :: CreateBotResponse)
+
+-- | The name specified for the bot.
+createBotResponse_botName :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
+createBotResponse_botName = Lens.lens (\CreateBotResponse' {botName} -> botName) (\s@CreateBotResponse' {} a -> s {botName = a} :: CreateBotResponse)
+
+-- | Shows the current status of the bot. The bot is first in the @Creating@
+-- status. Once the bot is read for use, it changes to the @Available@
+-- status. After the bot is created, you can use the @Draft@ version of the
+-- bot.
+createBotResponse_botStatus :: Lens.Lens' CreateBotResponse (Prelude.Maybe BotStatus)
+createBotResponse_botStatus = Lens.lens (\CreateBotResponse' {botStatus} -> botStatus) (\s@CreateBotResponse' {} a -> s {botStatus = a} :: CreateBotResponse)
+
+-- | A list of tags associated with the bot.
+createBotResponse_botTags :: Lens.Lens' CreateBotResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createBotResponse_botTags = Lens.lens (\CreateBotResponse' {botTags} -> botTags) (\s@CreateBotResponse' {} a -> s {botTags = a} :: CreateBotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A timestamp indicating the date and time that the bot was created.
 createBotResponse_creationDateTime :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.UTCTime)
 createBotResponse_creationDateTime = Lens.lens (\CreateBotResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotResponse' {} a -> s {creationDateTime = a} :: CreateBotResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The data privacy settings specified for the bot.
+createBotResponse_dataPrivacy :: Lens.Lens' CreateBotResponse (Prelude.Maybe DataPrivacy)
+createBotResponse_dataPrivacy = Lens.lens (\CreateBotResponse' {dataPrivacy} -> dataPrivacy) (\s@CreateBotResponse' {} a -> s {dataPrivacy = a} :: CreateBotResponse)
 
 -- | The description specified for the bot.
 createBotResponse_description :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
@@ -380,29 +400,9 @@ createBotResponse_description = Lens.lens (\CreateBotResponse' {description} -> 
 createBotResponse_idleSessionTTLInSeconds :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Natural)
 createBotResponse_idleSessionTTLInSeconds = Lens.lens (\CreateBotResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@CreateBotResponse' {} a -> s {idleSessionTTLInSeconds = a} :: CreateBotResponse)
 
--- | A unique identifier for a particular bot. You use this to identify the
--- bot when you call other Amazon Lex API operations.
-createBotResponse_botId :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
-createBotResponse_botId = Lens.lens (\CreateBotResponse' {botId} -> botId) (\s@CreateBotResponse' {} a -> s {botId = a} :: CreateBotResponse)
-
--- | A list of tags associated with the bot.
-createBotResponse_botTags :: Lens.Lens' CreateBotResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBotResponse_botTags = Lens.lens (\CreateBotResponse' {botTags} -> botTags) (\s@CreateBotResponse' {} a -> s {botTags = a} :: CreateBotResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name specified for the bot.
-createBotResponse_botName :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
-createBotResponse_botName = Lens.lens (\CreateBotResponse' {botName} -> botName) (\s@CreateBotResponse' {} a -> s {botName = a} :: CreateBotResponse)
-
--- | The data privacy settings specified for the bot.
-createBotResponse_dataPrivacy :: Lens.Lens' CreateBotResponse (Prelude.Maybe DataPrivacy)
-createBotResponse_dataPrivacy = Lens.lens (\CreateBotResponse' {dataPrivacy} -> dataPrivacy) (\s@CreateBotResponse' {} a -> s {dataPrivacy = a} :: CreateBotResponse)
-
--- | Shows the current status of the bot. The bot is first in the @Creating@
--- status. Once the bot is read for use, it changes to the @Available@
--- status. After the bot is created, you can use the @Draft@ version of the
--- bot.
-createBotResponse_botStatus :: Lens.Lens' CreateBotResponse (Prelude.Maybe BotStatus)
-createBotResponse_botStatus = Lens.lens (\CreateBotResponse' {botStatus} -> botStatus) (\s@CreateBotResponse' {} a -> s {botStatus = a} :: CreateBotResponse)
+-- | The IAM role specified for the bot.
+createBotResponse_roleArn :: Lens.Lens' CreateBotResponse (Prelude.Maybe Prelude.Text)
+createBotResponse_roleArn = Lens.lens (\CreateBotResponse' {roleArn} -> roleArn) (\s@CreateBotResponse' {} a -> s {roleArn = a} :: CreateBotResponse)
 
 -- | A list of tags associated with the test alias for the bot.
 createBotResponse_testBotAliasTags :: Lens.Lens' CreateBotResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -414,14 +414,14 @@ createBotResponse_httpStatus = Lens.lens (\CreateBotResponse' {httpStatus} -> ht
 
 instance Prelude.NFData CreateBotResponse where
   rnf CreateBotResponse' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botName
+      `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botTags
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botTags
-      `Prelude.seq` Prelude.rnf botName
-      `Prelude.seq` Prelude.rnf dataPrivacy
-      `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf testBotAliasTags
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,8 +35,8 @@ module Amazonka.LexV2Models.DeleteExport
     newDeleteExportResponse,
 
     -- * Response Lenses
-    deleteExportResponse_exportStatus,
     deleteExportResponse_exportId,
+    deleteExportResponse_exportStatus,
     deleteExportResponse_httpStatus,
   )
 where
@@ -84,8 +84,8 @@ instance Core.AWSRequest DeleteExport where
     Response.receiveJSON
       ( \s h x ->
           DeleteExportResponse'
-            Prelude.<$> (x Data..?> "exportStatus")
-            Prelude.<*> (x Data..?> "exportId")
+            Prelude.<$> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,15 +117,15 @@ instance Data.ToQuery DeleteExport where
 
 -- | /See:/ 'newDeleteExportResponse' smart constructor.
 data DeleteExportResponse = DeleteExportResponse'
-  { -- | The current status of the deletion. When the deletion is complete, the
+  { -- | The unique identifier of the deleted export.
+    exportId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the deletion. When the deletion is complete, the
     -- export will no longer be returned by the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html ListExports>
     -- operation and calls to the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
     -- operation with the export identifier will fail.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | The unique identifier of the deleted export.
-    exportId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,14 +139,14 @@ data DeleteExportResponse = DeleteExportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exportId', 'deleteExportResponse_exportId' - The unique identifier of the deleted export.
+--
 -- 'exportStatus', 'deleteExportResponse_exportStatus' - The current status of the deletion. When the deletion is complete, the
 -- export will no longer be returned by the
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html ListExports>
 -- operation and calls to the
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
 -- operation with the export identifier will fail.
---
--- 'exportId', 'deleteExportResponse_exportId' - The unique identifier of the deleted export.
 --
 -- 'httpStatus', 'deleteExportResponse_httpStatus' - The response's http status code.
 newDeleteExportResponse ::
@@ -155,11 +155,14 @@ newDeleteExportResponse ::
   DeleteExportResponse
 newDeleteExportResponse pHttpStatus_ =
   DeleteExportResponse'
-    { exportStatus =
-        Prelude.Nothing,
-      exportId = Prelude.Nothing,
+    { exportId = Prelude.Nothing,
+      exportStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier of the deleted export.
+deleteExportResponse_exportId :: Lens.Lens' DeleteExportResponse (Prelude.Maybe Prelude.Text)
+deleteExportResponse_exportId = Lens.lens (\DeleteExportResponse' {exportId} -> exportId) (\s@DeleteExportResponse' {} a -> s {exportId = a} :: DeleteExportResponse)
 
 -- | The current status of the deletion. When the deletion is complete, the
 -- export will no longer be returned by the
@@ -170,16 +173,12 @@ newDeleteExportResponse pHttpStatus_ =
 deleteExportResponse_exportStatus :: Lens.Lens' DeleteExportResponse (Prelude.Maybe ExportStatus)
 deleteExportResponse_exportStatus = Lens.lens (\DeleteExportResponse' {exportStatus} -> exportStatus) (\s@DeleteExportResponse' {} a -> s {exportStatus = a} :: DeleteExportResponse)
 
--- | The unique identifier of the deleted export.
-deleteExportResponse_exportId :: Lens.Lens' DeleteExportResponse (Prelude.Maybe Prelude.Text)
-deleteExportResponse_exportId = Lens.lens (\DeleteExportResponse' {exportId} -> exportId) (\s@DeleteExportResponse' {} a -> s {exportId = a} :: DeleteExportResponse)
-
 -- | The response's http status code.
 deleteExportResponse_httpStatus :: Lens.Lens' DeleteExportResponse Prelude.Int
 deleteExportResponse_httpStatus = Lens.lens (\DeleteExportResponse' {httpStatus} -> httpStatus) (\s@DeleteExportResponse' {} a -> s {httpStatus = a} :: DeleteExportResponse)
 
 instance Prelude.NFData DeleteExportResponse where
   rnf DeleteExportResponse' {..} =
-    Prelude.rnf exportStatus
-      `Prelude.seq` Prelude.rnf exportId
+    Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf httpStatus

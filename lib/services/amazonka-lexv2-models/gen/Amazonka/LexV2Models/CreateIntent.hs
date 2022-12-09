@@ -57,17 +57,17 @@ module Amazonka.LexV2Models.CreateIntent
     newCreateIntent,
 
     -- * Request Lenses
-    createIntent_intentClosingSetting,
-    createIntent_sampleUtterances,
-    createIntent_kendraConfiguration,
-    createIntent_dialogCodeHook,
-    createIntent_outputContexts,
-    createIntent_intentConfirmationSetting,
-    createIntent_parentIntentSignature,
     createIntent_description,
+    createIntent_dialogCodeHook,
     createIntent_fulfillmentCodeHook,
     createIntent_initialResponseSetting,
     createIntent_inputContexts,
+    createIntent_intentClosingSetting,
+    createIntent_intentConfirmationSetting,
+    createIntent_kendraConfiguration,
+    createIntent_outputContexts,
+    createIntent_parentIntentSignature,
+    createIntent_sampleUtterances,
     createIntent_intentName,
     createIntent_botId,
     createIntent_botVersion,
@@ -78,23 +78,23 @@ module Amazonka.LexV2Models.CreateIntent
     newCreateIntentResponse,
 
     -- * Response Lenses
-    createIntentResponse_intentClosingSetting,
-    createIntentResponse_sampleUtterances,
-    createIntentResponse_kendraConfiguration,
+    createIntentResponse_botId,
     createIntentResponse_botVersion,
     createIntentResponse_creationDateTime,
-    createIntentResponse_dialogCodeHook,
-    createIntentResponse_localeId,
-    createIntentResponse_outputContexts,
-    createIntentResponse_intentConfirmationSetting,
-    createIntentResponse_parentIntentSignature,
     createIntentResponse_description,
-    createIntentResponse_botId,
-    createIntentResponse_intentId,
-    createIntentResponse_intentName,
+    createIntentResponse_dialogCodeHook,
     createIntentResponse_fulfillmentCodeHook,
     createIntentResponse_initialResponseSetting,
     createIntentResponse_inputContexts,
+    createIntentResponse_intentClosingSetting,
+    createIntentResponse_intentConfirmationSetting,
+    createIntentResponse_intentId,
+    createIntentResponse_intentName,
+    createIntentResponse_kendraConfiguration,
+    createIntentResponse_localeId,
+    createIntentResponse_outputContexts,
+    createIntentResponse_parentIntentSignature,
+    createIntentResponse_sampleUtterances,
     createIntentResponse_httpStatus,
   )
 where
@@ -109,21 +109,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIntent' smart constructor.
 data CreateIntent = CreateIntent'
-  { -- | Sets the response that Amazon Lex sends to the user when the intent is
-    -- closed.
-    intentClosingSetting :: Prelude.Maybe IntentClosingSetting,
-    -- | An array of strings that a user might say to signal the intent. For
-    -- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
-    --
-    -- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
-    -- to indicate where they should be displayed in the utterance shown to the
-    -- user..
-    sampleUtterances :: Prelude.Maybe [SampleUtterance],
-    -- | Configuration information required to use the
-    -- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
-    -- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
-    -- determine another intent to invoke.
-    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+  { -- | A description of the intent. Use the description to help identify the
+    -- intent in lists.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies that Amazon Lex invokes the alias Lambda function for each
     -- user input. You can invoke this Lambda function to personalize user
     -- interaction.
@@ -135,26 +123,6 @@ data CreateIntent = CreateIntent'
     -- intent slot, @glutenIntolerant@ to @true@. You might find John\'s phone
     -- number and set the corresponding session attribute.
     dialogCodeHook :: Prelude.Maybe DialogCodeHookSettings,
-    -- | A lists of contexts that the intent activates when it is fulfilled.
-    --
-    -- You can use an output context to indicate the intents that Amazon Lex
-    -- should consider for the next turn of the conversation with a customer.
-    --
-    -- When you use the @outputContextsList@ property, all of the contexts
-    -- specified in the list are activated when the intent is fulfilled. You
-    -- can set up to 10 output contexts. You can also set the number of
-    -- conversation turns that the context should be active, or the length of
-    -- time that the context should be active.
-    outputContexts :: Prelude.Maybe [OutputContext],
-    -- | Provides prompts that Amazon Lex sends to the user to confirm the
-    -- completion of an intent. If the user answers \"no,\" the settings
-    -- contain a statement that is sent to the user to end the intent.
-    intentConfirmationSetting :: Prelude.Maybe IntentConfirmationSetting,
-    -- | A unique identifier for the built-in intent to base this intent on.
-    parentIntentSignature :: Prelude.Maybe Prelude.Text,
-    -- | A description of the intent. Use the description to help identify the
-    -- intent in lists.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies that Amazon Lex invokes the alias Lambda function when the
     -- intent is ready for fulfillment. You can invoke this function to
     -- complete the bot\'s transaction with the user.
@@ -185,6 +153,38 @@ data CreateIntent = CreateIntent'
     -- input contexts, all of the contexts must be active to consider the
     -- intent.
     inputContexts :: Prelude.Maybe [InputContext],
+    -- | Sets the response that Amazon Lex sends to the user when the intent is
+    -- closed.
+    intentClosingSetting :: Prelude.Maybe IntentClosingSetting,
+    -- | Provides prompts that Amazon Lex sends to the user to confirm the
+    -- completion of an intent. If the user answers \"no,\" the settings
+    -- contain a statement that is sent to the user to end the intent.
+    intentConfirmationSetting :: Prelude.Maybe IntentConfirmationSetting,
+    -- | Configuration information required to use the
+    -- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
+    -- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
+    -- determine another intent to invoke.
+    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+    -- | A lists of contexts that the intent activates when it is fulfilled.
+    --
+    -- You can use an output context to indicate the intents that Amazon Lex
+    -- should consider for the next turn of the conversation with a customer.
+    --
+    -- When you use the @outputContextsList@ property, all of the contexts
+    -- specified in the list are activated when the intent is fulfilled. You
+    -- can set up to 10 output contexts. You can also set the number of
+    -- conversation turns that the context should be active, or the length of
+    -- time that the context should be active.
+    outputContexts :: Prelude.Maybe [OutputContext],
+    -- | A unique identifier for the built-in intent to base this intent on.
+    parentIntentSignature :: Prelude.Maybe Prelude.Text,
+    -- | An array of strings that a user might say to signal the intent. For
+    -- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
+    --
+    -- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
+    -- to indicate where they should be displayed in the utterance shown to the
+    -- user..
+    sampleUtterances :: Prelude.Maybe [SampleUtterance],
     -- | The name of the intent. Intent names must be unique in the locale that
     -- contains the intent and cannot match the name of any built-in intent.
     intentName :: Prelude.Text,
@@ -208,20 +208,8 @@ data CreateIntent = CreateIntent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'intentClosingSetting', 'createIntent_intentClosingSetting' - Sets the response that Amazon Lex sends to the user when the intent is
--- closed.
---
--- 'sampleUtterances', 'createIntent_sampleUtterances' - An array of strings that a user might say to signal the intent. For
--- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
---
--- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
--- to indicate where they should be displayed in the utterance shown to the
--- user..
---
--- 'kendraConfiguration', 'createIntent_kendraConfiguration' - Configuration information required to use the
--- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
--- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
--- determine another intent to invoke.
+-- 'description', 'createIntent_description' - A description of the intent. Use the description to help identify the
+-- intent in lists.
 --
 -- 'dialogCodeHook', 'createIntent_dialogCodeHook' - Specifies that Amazon Lex invokes the alias Lambda function for each
 -- user input. You can invoke this Lambda function to personalize user
@@ -233,26 +221,6 @@ data CreateIntent = CreateIntent'
 -- find that John is gluten intolerant, you might set the corresponding
 -- intent slot, @glutenIntolerant@ to @true@. You might find John\'s phone
 -- number and set the corresponding session attribute.
---
--- 'outputContexts', 'createIntent_outputContexts' - A lists of contexts that the intent activates when it is fulfilled.
---
--- You can use an output context to indicate the intents that Amazon Lex
--- should consider for the next turn of the conversation with a customer.
---
--- When you use the @outputContextsList@ property, all of the contexts
--- specified in the list are activated when the intent is fulfilled. You
--- can set up to 10 output contexts. You can also set the number of
--- conversation turns that the context should be active, or the length of
--- time that the context should be active.
---
--- 'intentConfirmationSetting', 'createIntent_intentConfirmationSetting' - Provides prompts that Amazon Lex sends to the user to confirm the
--- completion of an intent. If the user answers \"no,\" the settings
--- contain a statement that is sent to the user to end the intent.
---
--- 'parentIntentSignature', 'createIntent_parentIntentSignature' - A unique identifier for the built-in intent to base this intent on.
---
--- 'description', 'createIntent_description' - A description of the intent. Use the description to help identify the
--- intent in lists.
 --
 -- 'fulfillmentCodeHook', 'createIntent_fulfillmentCodeHook' - Specifies that Amazon Lex invokes the alias Lambda function when the
 -- intent is ready for fulfillment. You can invoke this function to
@@ -284,6 +252,38 @@ data CreateIntent = CreateIntent'
 -- input contexts, all of the contexts must be active to consider the
 -- intent.
 --
+-- 'intentClosingSetting', 'createIntent_intentClosingSetting' - Sets the response that Amazon Lex sends to the user when the intent is
+-- closed.
+--
+-- 'intentConfirmationSetting', 'createIntent_intentConfirmationSetting' - Provides prompts that Amazon Lex sends to the user to confirm the
+-- completion of an intent. If the user answers \"no,\" the settings
+-- contain a statement that is sent to the user to end the intent.
+--
+-- 'kendraConfiguration', 'createIntent_kendraConfiguration' - Configuration information required to use the
+-- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
+-- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
+-- determine another intent to invoke.
+--
+-- 'outputContexts', 'createIntent_outputContexts' - A lists of contexts that the intent activates when it is fulfilled.
+--
+-- You can use an output context to indicate the intents that Amazon Lex
+-- should consider for the next turn of the conversation with a customer.
+--
+-- When you use the @outputContextsList@ property, all of the contexts
+-- specified in the list are activated when the intent is fulfilled. You
+-- can set up to 10 output contexts. You can also set the number of
+-- conversation turns that the context should be active, or the length of
+-- time that the context should be active.
+--
+-- 'parentIntentSignature', 'createIntent_parentIntentSignature' - A unique identifier for the built-in intent to base this intent on.
+--
+-- 'sampleUtterances', 'createIntent_sampleUtterances' - An array of strings that a user might say to signal the intent. For
+-- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
+--
+-- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
+-- to indicate where they should be displayed in the utterance shown to the
+-- user..
+--
 -- 'intentName', 'createIntent_intentName' - The name of the intent. Intent names must be unique in the locale that
 -- contains the intent and cannot match the name of any built-in intent.
 --
@@ -311,44 +311,27 @@ newCreateIntent
   pBotVersion_
   pLocaleId_ =
     CreateIntent'
-      { intentClosingSetting =
-          Prelude.Nothing,
-        sampleUtterances = Prelude.Nothing,
-        kendraConfiguration = Prelude.Nothing,
+      { description = Prelude.Nothing,
         dialogCodeHook = Prelude.Nothing,
-        outputContexts = Prelude.Nothing,
-        intentConfirmationSetting = Prelude.Nothing,
-        parentIntentSignature = Prelude.Nothing,
-        description = Prelude.Nothing,
         fulfillmentCodeHook = Prelude.Nothing,
         initialResponseSetting = Prelude.Nothing,
         inputContexts = Prelude.Nothing,
+        intentClosingSetting = Prelude.Nothing,
+        intentConfirmationSetting = Prelude.Nothing,
+        kendraConfiguration = Prelude.Nothing,
+        outputContexts = Prelude.Nothing,
+        parentIntentSignature = Prelude.Nothing,
+        sampleUtterances = Prelude.Nothing,
         intentName = pIntentName_,
         botId = pBotId_,
         botVersion = pBotVersion_,
         localeId = pLocaleId_
       }
 
--- | Sets the response that Amazon Lex sends to the user when the intent is
--- closed.
-createIntent_intentClosingSetting :: Lens.Lens' CreateIntent (Prelude.Maybe IntentClosingSetting)
-createIntent_intentClosingSetting = Lens.lens (\CreateIntent' {intentClosingSetting} -> intentClosingSetting) (\s@CreateIntent' {} a -> s {intentClosingSetting = a} :: CreateIntent)
-
--- | An array of strings that a user might say to signal the intent. For
--- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
---
--- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
--- to indicate where they should be displayed in the utterance shown to the
--- user..
-createIntent_sampleUtterances :: Lens.Lens' CreateIntent (Prelude.Maybe [SampleUtterance])
-createIntent_sampleUtterances = Lens.lens (\CreateIntent' {sampleUtterances} -> sampleUtterances) (\s@CreateIntent' {} a -> s {sampleUtterances = a} :: CreateIntent) Prelude.. Lens.mapping Lens.coerced
-
--- | Configuration information required to use the
--- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
--- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
--- determine another intent to invoke.
-createIntent_kendraConfiguration :: Lens.Lens' CreateIntent (Prelude.Maybe KendraConfiguration)
-createIntent_kendraConfiguration = Lens.lens (\CreateIntent' {kendraConfiguration} -> kendraConfiguration) (\s@CreateIntent' {} a -> s {kendraConfiguration = a} :: CreateIntent)
+-- | A description of the intent. Use the description to help identify the
+-- intent in lists.
+createIntent_description :: Lens.Lens' CreateIntent (Prelude.Maybe Prelude.Text)
+createIntent_description = Lens.lens (\CreateIntent' {description} -> description) (\s@CreateIntent' {} a -> s {description = a} :: CreateIntent)
 
 -- | Specifies that Amazon Lex invokes the alias Lambda function for each
 -- user input. You can invoke this Lambda function to personalize user
@@ -362,34 +345,6 @@ createIntent_kendraConfiguration = Lens.lens (\CreateIntent' {kendraConfiguratio
 -- number and set the corresponding session attribute.
 createIntent_dialogCodeHook :: Lens.Lens' CreateIntent (Prelude.Maybe DialogCodeHookSettings)
 createIntent_dialogCodeHook = Lens.lens (\CreateIntent' {dialogCodeHook} -> dialogCodeHook) (\s@CreateIntent' {} a -> s {dialogCodeHook = a} :: CreateIntent)
-
--- | A lists of contexts that the intent activates when it is fulfilled.
---
--- You can use an output context to indicate the intents that Amazon Lex
--- should consider for the next turn of the conversation with a customer.
---
--- When you use the @outputContextsList@ property, all of the contexts
--- specified in the list are activated when the intent is fulfilled. You
--- can set up to 10 output contexts. You can also set the number of
--- conversation turns that the context should be active, or the length of
--- time that the context should be active.
-createIntent_outputContexts :: Lens.Lens' CreateIntent (Prelude.Maybe [OutputContext])
-createIntent_outputContexts = Lens.lens (\CreateIntent' {outputContexts} -> outputContexts) (\s@CreateIntent' {} a -> s {outputContexts = a} :: CreateIntent) Prelude.. Lens.mapping Lens.coerced
-
--- | Provides prompts that Amazon Lex sends to the user to confirm the
--- completion of an intent. If the user answers \"no,\" the settings
--- contain a statement that is sent to the user to end the intent.
-createIntent_intentConfirmationSetting :: Lens.Lens' CreateIntent (Prelude.Maybe IntentConfirmationSetting)
-createIntent_intentConfirmationSetting = Lens.lens (\CreateIntent' {intentConfirmationSetting} -> intentConfirmationSetting) (\s@CreateIntent' {} a -> s {intentConfirmationSetting = a} :: CreateIntent)
-
--- | A unique identifier for the built-in intent to base this intent on.
-createIntent_parentIntentSignature :: Lens.Lens' CreateIntent (Prelude.Maybe Prelude.Text)
-createIntent_parentIntentSignature = Lens.lens (\CreateIntent' {parentIntentSignature} -> parentIntentSignature) (\s@CreateIntent' {} a -> s {parentIntentSignature = a} :: CreateIntent)
-
--- | A description of the intent. Use the description to help identify the
--- intent in lists.
-createIntent_description :: Lens.Lens' CreateIntent (Prelude.Maybe Prelude.Text)
-createIntent_description = Lens.lens (\CreateIntent' {description} -> description) (\s@CreateIntent' {} a -> s {description = a} :: CreateIntent)
 
 -- | Specifies that Amazon Lex invokes the alias Lambda function when the
 -- intent is ready for fulfillment. You can invoke this function to
@@ -427,6 +382,50 @@ createIntent_initialResponseSetting = Lens.lens (\CreateIntent' {initialResponse
 createIntent_inputContexts :: Lens.Lens' CreateIntent (Prelude.Maybe [InputContext])
 createIntent_inputContexts = Lens.lens (\CreateIntent' {inputContexts} -> inputContexts) (\s@CreateIntent' {} a -> s {inputContexts = a} :: CreateIntent) Prelude.. Lens.mapping Lens.coerced
 
+-- | Sets the response that Amazon Lex sends to the user when the intent is
+-- closed.
+createIntent_intentClosingSetting :: Lens.Lens' CreateIntent (Prelude.Maybe IntentClosingSetting)
+createIntent_intentClosingSetting = Lens.lens (\CreateIntent' {intentClosingSetting} -> intentClosingSetting) (\s@CreateIntent' {} a -> s {intentClosingSetting = a} :: CreateIntent)
+
+-- | Provides prompts that Amazon Lex sends to the user to confirm the
+-- completion of an intent. If the user answers \"no,\" the settings
+-- contain a statement that is sent to the user to end the intent.
+createIntent_intentConfirmationSetting :: Lens.Lens' CreateIntent (Prelude.Maybe IntentConfirmationSetting)
+createIntent_intentConfirmationSetting = Lens.lens (\CreateIntent' {intentConfirmationSetting} -> intentConfirmationSetting) (\s@CreateIntent' {} a -> s {intentConfirmationSetting = a} :: CreateIntent)
+
+-- | Configuration information required to use the
+-- @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index.
+-- The @AMAZON.KendraSearchIntent@ intent is called when Amazon Lex can\'t
+-- determine another intent to invoke.
+createIntent_kendraConfiguration :: Lens.Lens' CreateIntent (Prelude.Maybe KendraConfiguration)
+createIntent_kendraConfiguration = Lens.lens (\CreateIntent' {kendraConfiguration} -> kendraConfiguration) (\s@CreateIntent' {} a -> s {kendraConfiguration = a} :: CreateIntent)
+
+-- | A lists of contexts that the intent activates when it is fulfilled.
+--
+-- You can use an output context to indicate the intents that Amazon Lex
+-- should consider for the next turn of the conversation with a customer.
+--
+-- When you use the @outputContextsList@ property, all of the contexts
+-- specified in the list are activated when the intent is fulfilled. You
+-- can set up to 10 output contexts. You can also set the number of
+-- conversation turns that the context should be active, or the length of
+-- time that the context should be active.
+createIntent_outputContexts :: Lens.Lens' CreateIntent (Prelude.Maybe [OutputContext])
+createIntent_outputContexts = Lens.lens (\CreateIntent' {outputContexts} -> outputContexts) (\s@CreateIntent' {} a -> s {outputContexts = a} :: CreateIntent) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the built-in intent to base this intent on.
+createIntent_parentIntentSignature :: Lens.Lens' CreateIntent (Prelude.Maybe Prelude.Text)
+createIntent_parentIntentSignature = Lens.lens (\CreateIntent' {parentIntentSignature} -> parentIntentSignature) (\s@CreateIntent' {} a -> s {parentIntentSignature = a} :: CreateIntent)
+
+-- | An array of strings that a user might say to signal the intent. For
+-- example, \"I want a pizza\", or \"I want a {PizzaSize} pizza\".
+--
+-- In an utterance, slot names are enclosed in curly braces (\"{\", \"}\")
+-- to indicate where they should be displayed in the utterance shown to the
+-- user..
+createIntent_sampleUtterances :: Lens.Lens' CreateIntent (Prelude.Maybe [SampleUtterance])
+createIntent_sampleUtterances = Lens.lens (\CreateIntent' {sampleUtterances} -> sampleUtterances) (\s@CreateIntent' {} a -> s {sampleUtterances = a} :: CreateIntent) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the intent. Intent names must be unique in the locale that
 -- contains the intent and cannot match the name of any built-in intent.
 createIntent_intentName :: Lens.Lens' CreateIntent Prelude.Text
@@ -455,41 +454,41 @@ instance Core.AWSRequest CreateIntent where
     Response.receiveJSON
       ( \s h x ->
           CreateIntentResponse'
-            Prelude.<$> (x Data..?> "intentClosingSetting")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "dialogCodeHook")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "intentConfirmationSetting")
-            Prelude.<*> (x Data..?> "parentIntentSignature")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "intentId")
-            Prelude.<*> (x Data..?> "intentName")
+            Prelude.<*> (x Data..?> "dialogCodeHook")
             Prelude.<*> (x Data..?> "fulfillmentCodeHook")
             Prelude.<*> (x Data..?> "initialResponseSetting")
             Prelude.<*> (x Data..?> "inputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "intentClosingSetting")
+            Prelude.<*> (x Data..?> "intentConfirmationSetting")
+            Prelude.<*> (x Data..?> "intentId")
+            Prelude.<*> (x Data..?> "intentName")
+            Prelude.<*> (x Data..?> "kendraConfiguration")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "parentIntentSignature")
+            Prelude.<*> ( x Data..?> "sampleUtterances"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateIntent where
   hashWithSalt _salt CreateIntent' {..} =
-    _salt `Prelude.hashWithSalt` intentClosingSetting
-      `Prelude.hashWithSalt` sampleUtterances
-      `Prelude.hashWithSalt` kendraConfiguration
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dialogCodeHook
-      `Prelude.hashWithSalt` outputContexts
-      `Prelude.hashWithSalt` intentConfirmationSetting
-      `Prelude.hashWithSalt` parentIntentSignature
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fulfillmentCodeHook
       `Prelude.hashWithSalt` initialResponseSetting
       `Prelude.hashWithSalt` inputContexts
+      `Prelude.hashWithSalt` intentClosingSetting
+      `Prelude.hashWithSalt` intentConfirmationSetting
+      `Prelude.hashWithSalt` kendraConfiguration
+      `Prelude.hashWithSalt` outputContexts
+      `Prelude.hashWithSalt` parentIntentSignature
+      `Prelude.hashWithSalt` sampleUtterances
       `Prelude.hashWithSalt` intentName
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
@@ -497,17 +496,17 @@ instance Prelude.Hashable CreateIntent where
 
 instance Prelude.NFData CreateIntent where
   rnf CreateIntent' {..} =
-    Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf kendraConfiguration
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf parentIntentSignature
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf fulfillmentCodeHook
       `Prelude.seq` Prelude.rnf initialResponseSetting
       `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf intentClosingSetting
+      `Prelude.seq` Prelude.rnf intentConfirmationSetting
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf sampleUtterances
       `Prelude.seq` Prelude.rnf intentName
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
@@ -528,26 +527,26 @@ instance Data.ToJSON CreateIntent where
   toJSON CreateIntent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("intentClosingSetting" Data..=)
-              Prelude.<$> intentClosingSetting,
-            ("sampleUtterances" Data..=)
-              Prelude.<$> sampleUtterances,
-            ("kendraConfiguration" Data..=)
-              Prelude.<$> kendraConfiguration,
+          [ ("description" Data..=) Prelude.<$> description,
             ("dialogCodeHook" Data..=)
               Prelude.<$> dialogCodeHook,
-            ("outputContexts" Data..=)
-              Prelude.<$> outputContexts,
-            ("intentConfirmationSetting" Data..=)
-              Prelude.<$> intentConfirmationSetting,
-            ("parentIntentSignature" Data..=)
-              Prelude.<$> parentIntentSignature,
-            ("description" Data..=) Prelude.<$> description,
             ("fulfillmentCodeHook" Data..=)
               Prelude.<$> fulfillmentCodeHook,
             ("initialResponseSetting" Data..=)
               Prelude.<$> initialResponseSetting,
             ("inputContexts" Data..=) Prelude.<$> inputContexts,
+            ("intentClosingSetting" Data..=)
+              Prelude.<$> intentClosingSetting,
+            ("intentConfirmationSetting" Data..=)
+              Prelude.<$> intentConfirmationSetting,
+            ("kendraConfiguration" Data..=)
+              Prelude.<$> kendraConfiguration,
+            ("outputContexts" Data..=)
+              Prelude.<$> outputContexts,
+            ("parentIntentSignature" Data..=)
+              Prelude.<$> parentIntentSignature,
+            ("sampleUtterances" Data..=)
+              Prelude.<$> sampleUtterances,
             Prelude.Just ("intentName" Data..= intentName)
           ]
       )
@@ -569,35 +568,16 @@ instance Data.ToQuery CreateIntent where
 
 -- | /See:/ 'newCreateIntentResponse' smart constructor.
 data CreateIntentResponse = CreateIntentResponse'
-  { -- | The closing setting specified for the intent.
-    intentClosingSetting :: Prelude.Maybe IntentClosingSetting,
-    -- | The sample utterances specified for the intent.
-    sampleUtterances :: Prelude.Maybe [SampleUtterance],
-    -- | Configuration for searching a Amazon Kendra index specified for the
-    -- intent.
-    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+  { -- | The identifier of the bot associated with the intent.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the version of the bot associated with the intent.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the intent was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The dialog Lambda function specified for the intent.
-    dialogCodeHook :: Prelude.Maybe DialogCodeHookSettings,
-    -- | The locale that the intent is specified to use.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The list of output contexts specified for the intent.
-    outputContexts :: Prelude.Maybe [OutputContext],
-    -- | The confirmation setting specified for the intent.
-    intentConfirmationSetting :: Prelude.Maybe IntentConfirmationSetting,
-    -- | The signature of the parent intent specified for the intent.
-    parentIntentSignature :: Prelude.Maybe Prelude.Text,
     -- | The description specified for the intent.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot associated with the intent.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the intent.
-    intentId :: Prelude.Maybe Prelude.Text,
-    -- | The name specified for the intent.
-    intentName :: Prelude.Maybe Prelude.Text,
+    -- | The dialog Lambda function specified for the intent.
+    dialogCodeHook :: Prelude.Maybe DialogCodeHookSettings,
     -- | The fulfillment Lambda function specified for the intent.
     fulfillmentCodeHook :: Prelude.Maybe FulfillmentCodeHookSettings,
     -- | Configuration settings for the response that is sent to the user at the
@@ -605,6 +585,25 @@ data CreateIntentResponse = CreateIntentResponse'
     initialResponseSetting :: Prelude.Maybe InitialResponseSetting,
     -- | The list of input contexts specified for the intent.
     inputContexts :: Prelude.Maybe [InputContext],
+    -- | The closing setting specified for the intent.
+    intentClosingSetting :: Prelude.Maybe IntentClosingSetting,
+    -- | The confirmation setting specified for the intent.
+    intentConfirmationSetting :: Prelude.Maybe IntentConfirmationSetting,
+    -- | A unique identifier for the intent.
+    intentId :: Prelude.Maybe Prelude.Text,
+    -- | The name specified for the intent.
+    intentName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration for searching a Amazon Kendra index specified for the
+    -- intent.
+    kendraConfiguration :: Prelude.Maybe KendraConfiguration,
+    -- | The locale that the intent is specified to use.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The list of output contexts specified for the intent.
+    outputContexts :: Prelude.Maybe [OutputContext],
+    -- | The signature of the parent intent specified for the intent.
+    parentIntentSignature :: Prelude.Maybe Prelude.Text,
+    -- | The sample utterances specified for the intent.
+    sampleUtterances :: Prelude.Maybe [SampleUtterance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -618,34 +617,15 @@ data CreateIntentResponse = CreateIntentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'intentClosingSetting', 'createIntentResponse_intentClosingSetting' - The closing setting specified for the intent.
---
--- 'sampleUtterances', 'createIntentResponse_sampleUtterances' - The sample utterances specified for the intent.
---
--- 'kendraConfiguration', 'createIntentResponse_kendraConfiguration' - Configuration for searching a Amazon Kendra index specified for the
--- intent.
+-- 'botId', 'createIntentResponse_botId' - The identifier of the bot associated with the intent.
 --
 -- 'botVersion', 'createIntentResponse_botVersion' - The identifier of the version of the bot associated with the intent.
 --
 -- 'creationDateTime', 'createIntentResponse_creationDateTime' - A timestamp of the date and time that the intent was created.
 --
--- 'dialogCodeHook', 'createIntentResponse_dialogCodeHook' - The dialog Lambda function specified for the intent.
---
--- 'localeId', 'createIntentResponse_localeId' - The locale that the intent is specified to use.
---
--- 'outputContexts', 'createIntentResponse_outputContexts' - The list of output contexts specified for the intent.
---
--- 'intentConfirmationSetting', 'createIntentResponse_intentConfirmationSetting' - The confirmation setting specified for the intent.
---
--- 'parentIntentSignature', 'createIntentResponse_parentIntentSignature' - The signature of the parent intent specified for the intent.
---
 -- 'description', 'createIntentResponse_description' - The description specified for the intent.
 --
--- 'botId', 'createIntentResponse_botId' - The identifier of the bot associated with the intent.
---
--- 'intentId', 'createIntentResponse_intentId' - A unique identifier for the intent.
---
--- 'intentName', 'createIntentResponse_intentName' - The name specified for the intent.
+-- 'dialogCodeHook', 'createIntentResponse_dialogCodeHook' - The dialog Lambda function specified for the intent.
 --
 -- 'fulfillmentCodeHook', 'createIntentResponse_fulfillmentCodeHook' - The fulfillment Lambda function specified for the intent.
 --
@@ -654,6 +634,25 @@ data CreateIntentResponse = CreateIntentResponse'
 --
 -- 'inputContexts', 'createIntentResponse_inputContexts' - The list of input contexts specified for the intent.
 --
+-- 'intentClosingSetting', 'createIntentResponse_intentClosingSetting' - The closing setting specified for the intent.
+--
+-- 'intentConfirmationSetting', 'createIntentResponse_intentConfirmationSetting' - The confirmation setting specified for the intent.
+--
+-- 'intentId', 'createIntentResponse_intentId' - A unique identifier for the intent.
+--
+-- 'intentName', 'createIntentResponse_intentName' - The name specified for the intent.
+--
+-- 'kendraConfiguration', 'createIntentResponse_kendraConfiguration' - Configuration for searching a Amazon Kendra index specified for the
+-- intent.
+--
+-- 'localeId', 'createIntentResponse_localeId' - The locale that the intent is specified to use.
+--
+-- 'outputContexts', 'createIntentResponse_outputContexts' - The list of output contexts specified for the intent.
+--
+-- 'parentIntentSignature', 'createIntentResponse_parentIntentSignature' - The signature of the parent intent specified for the intent.
+--
+-- 'sampleUtterances', 'createIntentResponse_sampleUtterances' - The sample utterances specified for the intent.
+--
 -- 'httpStatus', 'createIntentResponse_httpStatus' - The response's http status code.
 newCreateIntentResponse ::
   -- | 'httpStatus'
@@ -661,39 +660,29 @@ newCreateIntentResponse ::
   CreateIntentResponse
 newCreateIntentResponse pHttpStatus_ =
   CreateIntentResponse'
-    { intentClosingSetting =
-        Prelude.Nothing,
-      sampleUtterances = Prelude.Nothing,
-      kendraConfiguration = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      dialogCodeHook = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      outputContexts = Prelude.Nothing,
-      intentConfirmationSetting = Prelude.Nothing,
-      parentIntentSignature = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      intentId = Prelude.Nothing,
-      intentName = Prelude.Nothing,
+      dialogCodeHook = Prelude.Nothing,
       fulfillmentCodeHook = Prelude.Nothing,
       initialResponseSetting = Prelude.Nothing,
       inputContexts = Prelude.Nothing,
+      intentClosingSetting = Prelude.Nothing,
+      intentConfirmationSetting = Prelude.Nothing,
+      intentId = Prelude.Nothing,
+      intentName = Prelude.Nothing,
+      kendraConfiguration = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      outputContexts = Prelude.Nothing,
+      parentIntentSignature = Prelude.Nothing,
+      sampleUtterances = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The closing setting specified for the intent.
-createIntentResponse_intentClosingSetting :: Lens.Lens' CreateIntentResponse (Prelude.Maybe IntentClosingSetting)
-createIntentResponse_intentClosingSetting = Lens.lens (\CreateIntentResponse' {intentClosingSetting} -> intentClosingSetting) (\s@CreateIntentResponse' {} a -> s {intentClosingSetting = a} :: CreateIntentResponse)
-
--- | The sample utterances specified for the intent.
-createIntentResponse_sampleUtterances :: Lens.Lens' CreateIntentResponse (Prelude.Maybe [SampleUtterance])
-createIntentResponse_sampleUtterances = Lens.lens (\CreateIntentResponse' {sampleUtterances} -> sampleUtterances) (\s@CreateIntentResponse' {} a -> s {sampleUtterances = a} :: CreateIntentResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Configuration for searching a Amazon Kendra index specified for the
--- intent.
-createIntentResponse_kendraConfiguration :: Lens.Lens' CreateIntentResponse (Prelude.Maybe KendraConfiguration)
-createIntentResponse_kendraConfiguration = Lens.lens (\CreateIntentResponse' {kendraConfiguration} -> kendraConfiguration) (\s@CreateIntentResponse' {} a -> s {kendraConfiguration = a} :: CreateIntentResponse)
+-- | The identifier of the bot associated with the intent.
+createIntentResponse_botId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
+createIntentResponse_botId = Lens.lens (\CreateIntentResponse' {botId} -> botId) (\s@CreateIntentResponse' {} a -> s {botId = a} :: CreateIntentResponse)
 
 -- | The identifier of the version of the bot associated with the intent.
 createIntentResponse_botVersion :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
@@ -703,41 +692,13 @@ createIntentResponse_botVersion = Lens.lens (\CreateIntentResponse' {botVersion}
 createIntentResponse_creationDateTime :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.UTCTime)
 createIntentResponse_creationDateTime = Lens.lens (\CreateIntentResponse' {creationDateTime} -> creationDateTime) (\s@CreateIntentResponse' {} a -> s {creationDateTime = a} :: CreateIntentResponse) Prelude.. Lens.mapping Data._Time
 
--- | The dialog Lambda function specified for the intent.
-createIntentResponse_dialogCodeHook :: Lens.Lens' CreateIntentResponse (Prelude.Maybe DialogCodeHookSettings)
-createIntentResponse_dialogCodeHook = Lens.lens (\CreateIntentResponse' {dialogCodeHook} -> dialogCodeHook) (\s@CreateIntentResponse' {} a -> s {dialogCodeHook = a} :: CreateIntentResponse)
-
--- | The locale that the intent is specified to use.
-createIntentResponse_localeId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
-createIntentResponse_localeId = Lens.lens (\CreateIntentResponse' {localeId} -> localeId) (\s@CreateIntentResponse' {} a -> s {localeId = a} :: CreateIntentResponse)
-
--- | The list of output contexts specified for the intent.
-createIntentResponse_outputContexts :: Lens.Lens' CreateIntentResponse (Prelude.Maybe [OutputContext])
-createIntentResponse_outputContexts = Lens.lens (\CreateIntentResponse' {outputContexts} -> outputContexts) (\s@CreateIntentResponse' {} a -> s {outputContexts = a} :: CreateIntentResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The confirmation setting specified for the intent.
-createIntentResponse_intentConfirmationSetting :: Lens.Lens' CreateIntentResponse (Prelude.Maybe IntentConfirmationSetting)
-createIntentResponse_intentConfirmationSetting = Lens.lens (\CreateIntentResponse' {intentConfirmationSetting} -> intentConfirmationSetting) (\s@CreateIntentResponse' {} a -> s {intentConfirmationSetting = a} :: CreateIntentResponse)
-
--- | The signature of the parent intent specified for the intent.
-createIntentResponse_parentIntentSignature :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
-createIntentResponse_parentIntentSignature = Lens.lens (\CreateIntentResponse' {parentIntentSignature} -> parentIntentSignature) (\s@CreateIntentResponse' {} a -> s {parentIntentSignature = a} :: CreateIntentResponse)
-
 -- | The description specified for the intent.
 createIntentResponse_description :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
 createIntentResponse_description = Lens.lens (\CreateIntentResponse' {description} -> description) (\s@CreateIntentResponse' {} a -> s {description = a} :: CreateIntentResponse)
 
--- | The identifier of the bot associated with the intent.
-createIntentResponse_botId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
-createIntentResponse_botId = Lens.lens (\CreateIntentResponse' {botId} -> botId) (\s@CreateIntentResponse' {} a -> s {botId = a} :: CreateIntentResponse)
-
--- | A unique identifier for the intent.
-createIntentResponse_intentId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
-createIntentResponse_intentId = Lens.lens (\CreateIntentResponse' {intentId} -> intentId) (\s@CreateIntentResponse' {} a -> s {intentId = a} :: CreateIntentResponse)
-
--- | The name specified for the intent.
-createIntentResponse_intentName :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
-createIntentResponse_intentName = Lens.lens (\CreateIntentResponse' {intentName} -> intentName) (\s@CreateIntentResponse' {} a -> s {intentName = a} :: CreateIntentResponse)
+-- | The dialog Lambda function specified for the intent.
+createIntentResponse_dialogCodeHook :: Lens.Lens' CreateIntentResponse (Prelude.Maybe DialogCodeHookSettings)
+createIntentResponse_dialogCodeHook = Lens.lens (\CreateIntentResponse' {dialogCodeHook} -> dialogCodeHook) (\s@CreateIntentResponse' {} a -> s {dialogCodeHook = a} :: CreateIntentResponse)
 
 -- | The fulfillment Lambda function specified for the intent.
 createIntentResponse_fulfillmentCodeHook :: Lens.Lens' CreateIntentResponse (Prelude.Maybe FulfillmentCodeHookSettings)
@@ -752,27 +713,64 @@ createIntentResponse_initialResponseSetting = Lens.lens (\CreateIntentResponse' 
 createIntentResponse_inputContexts :: Lens.Lens' CreateIntentResponse (Prelude.Maybe [InputContext])
 createIntentResponse_inputContexts = Lens.lens (\CreateIntentResponse' {inputContexts} -> inputContexts) (\s@CreateIntentResponse' {} a -> s {inputContexts = a} :: CreateIntentResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The closing setting specified for the intent.
+createIntentResponse_intentClosingSetting :: Lens.Lens' CreateIntentResponse (Prelude.Maybe IntentClosingSetting)
+createIntentResponse_intentClosingSetting = Lens.lens (\CreateIntentResponse' {intentClosingSetting} -> intentClosingSetting) (\s@CreateIntentResponse' {} a -> s {intentClosingSetting = a} :: CreateIntentResponse)
+
+-- | The confirmation setting specified for the intent.
+createIntentResponse_intentConfirmationSetting :: Lens.Lens' CreateIntentResponse (Prelude.Maybe IntentConfirmationSetting)
+createIntentResponse_intentConfirmationSetting = Lens.lens (\CreateIntentResponse' {intentConfirmationSetting} -> intentConfirmationSetting) (\s@CreateIntentResponse' {} a -> s {intentConfirmationSetting = a} :: CreateIntentResponse)
+
+-- | A unique identifier for the intent.
+createIntentResponse_intentId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
+createIntentResponse_intentId = Lens.lens (\CreateIntentResponse' {intentId} -> intentId) (\s@CreateIntentResponse' {} a -> s {intentId = a} :: CreateIntentResponse)
+
+-- | The name specified for the intent.
+createIntentResponse_intentName :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
+createIntentResponse_intentName = Lens.lens (\CreateIntentResponse' {intentName} -> intentName) (\s@CreateIntentResponse' {} a -> s {intentName = a} :: CreateIntentResponse)
+
+-- | Configuration for searching a Amazon Kendra index specified for the
+-- intent.
+createIntentResponse_kendraConfiguration :: Lens.Lens' CreateIntentResponse (Prelude.Maybe KendraConfiguration)
+createIntentResponse_kendraConfiguration = Lens.lens (\CreateIntentResponse' {kendraConfiguration} -> kendraConfiguration) (\s@CreateIntentResponse' {} a -> s {kendraConfiguration = a} :: CreateIntentResponse)
+
+-- | The locale that the intent is specified to use.
+createIntentResponse_localeId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
+createIntentResponse_localeId = Lens.lens (\CreateIntentResponse' {localeId} -> localeId) (\s@CreateIntentResponse' {} a -> s {localeId = a} :: CreateIntentResponse)
+
+-- | The list of output contexts specified for the intent.
+createIntentResponse_outputContexts :: Lens.Lens' CreateIntentResponse (Prelude.Maybe [OutputContext])
+createIntentResponse_outputContexts = Lens.lens (\CreateIntentResponse' {outputContexts} -> outputContexts) (\s@CreateIntentResponse' {} a -> s {outputContexts = a} :: CreateIntentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The signature of the parent intent specified for the intent.
+createIntentResponse_parentIntentSignature :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
+createIntentResponse_parentIntentSignature = Lens.lens (\CreateIntentResponse' {parentIntentSignature} -> parentIntentSignature) (\s@CreateIntentResponse' {} a -> s {parentIntentSignature = a} :: CreateIntentResponse)
+
+-- | The sample utterances specified for the intent.
+createIntentResponse_sampleUtterances :: Lens.Lens' CreateIntentResponse (Prelude.Maybe [SampleUtterance])
+createIntentResponse_sampleUtterances = Lens.lens (\CreateIntentResponse' {sampleUtterances} -> sampleUtterances) (\s@CreateIntentResponse' {} a -> s {sampleUtterances = a} :: CreateIntentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 createIntentResponse_httpStatus :: Lens.Lens' CreateIntentResponse Prelude.Int
 createIntentResponse_httpStatus = Lens.lens (\CreateIntentResponse' {httpStatus} -> httpStatus) (\s@CreateIntentResponse' {} a -> s {httpStatus = a} :: CreateIntentResponse)
 
 instance Prelude.NFData CreateIntentResponse where
   rnf CreateIntentResponse' {..} =
-    Prelude.rnf intentClosingSetting
-      `Prelude.seq` Prelude.rnf sampleUtterances
-      `Prelude.seq` Prelude.rnf kendraConfiguration
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf dialogCodeHook
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf outputContexts
-      `Prelude.seq` Prelude.rnf intentConfirmationSetting
-      `Prelude.seq` Prelude.rnf parentIntentSignature
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf intentId
-      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf dialogCodeHook
       `Prelude.seq` Prelude.rnf fulfillmentCodeHook
       `Prelude.seq` Prelude.rnf initialResponseSetting
       `Prelude.seq` Prelude.rnf inputContexts
+      `Prelude.seq` Prelude.rnf intentClosingSetting
+      `Prelude.seq` Prelude.rnf intentConfirmationSetting
+      `Prelude.seq` Prelude.rnf intentId
+      `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf kendraConfiguration
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf outputContexts
+      `Prelude.seq` Prelude.rnf parentIntentSignature
+      `Prelude.seq` Prelude.rnf sampleUtterances
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,11 +38,11 @@ module Amazonka.LexV2Models.BuildBotLocale
     newBuildBotLocaleResponse,
 
     -- * Response Lenses
-    buildBotLocaleResponse_botVersion,
-    buildBotLocaleResponse_localeId,
     buildBotLocaleResponse_botId,
-    buildBotLocaleResponse_lastBuildSubmittedDateTime,
     buildBotLocaleResponse_botLocaleStatus,
+    buildBotLocaleResponse_botVersion,
+    buildBotLocaleResponse_lastBuildSubmittedDateTime,
+    buildBotLocaleResponse_localeId,
     buildBotLocaleResponse_httpStatus,
   )
 where
@@ -140,11 +140,11 @@ instance Core.AWSRequest BuildBotLocale where
     Response.receiveJSON
       ( \s h x ->
           BuildBotLocaleResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "lastBuildSubmittedDateTime")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "lastBuildSubmittedDateTime")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,21 +191,21 @@ instance Data.ToQuery BuildBotLocale where
 
 -- | /See:/ 'newBuildBotLocaleResponse' smart constructor.
 data BuildBotLocaleResponse = BuildBotLocaleResponse'
-  { -- | The version of the bot that was built. This is only the draft version of
-    -- the bot.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The language and locale specified of where the bot can be used.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the specified bot.
+  { -- | The identifier of the specified bot.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp indicating the date and time that the bot was last built for
-    -- this locale.
-    lastBuildSubmittedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The bot\'s build status. When the status is @ReadyExpressTesting@ you
     -- can test the bot using the utterances defined for the intents and slot
     -- types. When the status is @Built@, the bot is ready for use and can be
     -- tested using any utterance.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
+    -- | The version of the bot that was built. This is only the draft version of
+    -- the bot.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp indicating the date and time that the bot was last built for
+    -- this locale.
+    lastBuildSubmittedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The language and locale specified of where the bot can be used.
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,20 +219,20 @@ data BuildBotLocaleResponse = BuildBotLocaleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'buildBotLocaleResponse_botVersion' - The version of the bot that was built. This is only the draft version of
--- the bot.
---
--- 'localeId', 'buildBotLocaleResponse_localeId' - The language and locale specified of where the bot can be used.
---
 -- 'botId', 'buildBotLocaleResponse_botId' - The identifier of the specified bot.
---
--- 'lastBuildSubmittedDateTime', 'buildBotLocaleResponse_lastBuildSubmittedDateTime' - A timestamp indicating the date and time that the bot was last built for
--- this locale.
 --
 -- 'botLocaleStatus', 'buildBotLocaleResponse_botLocaleStatus' - The bot\'s build status. When the status is @ReadyExpressTesting@ you
 -- can test the bot using the utterances defined for the intents and slot
 -- types. When the status is @Built@, the bot is ready for use and can be
 -- tested using any utterance.
+--
+-- 'botVersion', 'buildBotLocaleResponse_botVersion' - The version of the bot that was built. This is only the draft version of
+-- the bot.
+--
+-- 'lastBuildSubmittedDateTime', 'buildBotLocaleResponse_lastBuildSubmittedDateTime' - A timestamp indicating the date and time that the bot was last built for
+-- this locale.
+--
+-- 'localeId', 'buildBotLocaleResponse_localeId' - The language and locale specified of where the bot can be used.
 --
 -- 'httpStatus', 'buildBotLocaleResponse_httpStatus' - The response's http status code.
 newBuildBotLocaleResponse ::
@@ -241,32 +241,17 @@ newBuildBotLocaleResponse ::
   BuildBotLocaleResponse
 newBuildBotLocaleResponse pHttpStatus_ =
   BuildBotLocaleResponse'
-    { botVersion =
-        Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      lastBuildSubmittedDateTime = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botLocaleStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      lastBuildSubmittedDateTime = Prelude.Nothing,
+      localeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version of the bot that was built. This is only the draft version of
--- the bot.
-buildBotLocaleResponse_botVersion :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.Text)
-buildBotLocaleResponse_botVersion = Lens.lens (\BuildBotLocaleResponse' {botVersion} -> botVersion) (\s@BuildBotLocaleResponse' {} a -> s {botVersion = a} :: BuildBotLocaleResponse)
-
--- | The language and locale specified of where the bot can be used.
-buildBotLocaleResponse_localeId :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.Text)
-buildBotLocaleResponse_localeId = Lens.lens (\BuildBotLocaleResponse' {localeId} -> localeId) (\s@BuildBotLocaleResponse' {} a -> s {localeId = a} :: BuildBotLocaleResponse)
 
 -- | The identifier of the specified bot.
 buildBotLocaleResponse_botId :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.Text)
 buildBotLocaleResponse_botId = Lens.lens (\BuildBotLocaleResponse' {botId} -> botId) (\s@BuildBotLocaleResponse' {} a -> s {botId = a} :: BuildBotLocaleResponse)
-
--- | A timestamp indicating the date and time that the bot was last built for
--- this locale.
-buildBotLocaleResponse_lastBuildSubmittedDateTime :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-buildBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\BuildBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BuildBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: BuildBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The bot\'s build status. When the status is @ReadyExpressTesting@ you
 -- can test the bot using the utterances defined for the intents and slot
@@ -275,15 +260,29 @@ buildBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\BuildBotLocaleRe
 buildBotLocaleResponse_botLocaleStatus :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe BotLocaleStatus)
 buildBotLocaleResponse_botLocaleStatus = Lens.lens (\BuildBotLocaleResponse' {botLocaleStatus} -> botLocaleStatus) (\s@BuildBotLocaleResponse' {} a -> s {botLocaleStatus = a} :: BuildBotLocaleResponse)
 
+-- | The version of the bot that was built. This is only the draft version of
+-- the bot.
+buildBotLocaleResponse_botVersion :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.Text)
+buildBotLocaleResponse_botVersion = Lens.lens (\BuildBotLocaleResponse' {botVersion} -> botVersion) (\s@BuildBotLocaleResponse' {} a -> s {botVersion = a} :: BuildBotLocaleResponse)
+
+-- | A timestamp indicating the date and time that the bot was last built for
+-- this locale.
+buildBotLocaleResponse_lastBuildSubmittedDateTime :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
+buildBotLocaleResponse_lastBuildSubmittedDateTime = Lens.lens (\BuildBotLocaleResponse' {lastBuildSubmittedDateTime} -> lastBuildSubmittedDateTime) (\s@BuildBotLocaleResponse' {} a -> s {lastBuildSubmittedDateTime = a} :: BuildBotLocaleResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The language and locale specified of where the bot can be used.
+buildBotLocaleResponse_localeId :: Lens.Lens' BuildBotLocaleResponse (Prelude.Maybe Prelude.Text)
+buildBotLocaleResponse_localeId = Lens.lens (\BuildBotLocaleResponse' {localeId} -> localeId) (\s@BuildBotLocaleResponse' {} a -> s {localeId = a} :: BuildBotLocaleResponse)
+
 -- | The response's http status code.
 buildBotLocaleResponse_httpStatus :: Lens.Lens' BuildBotLocaleResponse Prelude.Int
 buildBotLocaleResponse_httpStatus = Lens.lens (\BuildBotLocaleResponse' {httpStatus} -> httpStatus) (\s@BuildBotLocaleResponse' {} a -> s {httpStatus = a} :: BuildBotLocaleResponse)
 
 instance Prelude.NFData BuildBotLocaleResponse where
   rnf BuildBotLocaleResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf lastBuildSubmittedDateTime
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botLocaleStatus
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf lastBuildSubmittedDateTime
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf httpStatus

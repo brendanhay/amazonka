@@ -42,11 +42,11 @@ module Amazonka.LexV2Models.UpdateExport
 
     -- * Response Lenses
     updateExportResponse_creationDateTime,
-    updateExportResponse_resourceSpecification,
-    updateExportResponse_exportStatus,
     updateExportResponse_exportId,
-    updateExportResponse_lastUpdatedDateTime,
+    updateExportResponse_exportStatus,
     updateExportResponse_fileFormat,
+    updateExportResponse_lastUpdatedDateTime,
+    updateExportResponse_resourceSpecification,
     updateExportResponse_httpStatus,
   )
 where
@@ -106,11 +106,11 @@ instance Core.AWSRequest UpdateExport where
       ( \s h x ->
           UpdateExportResponse'
             Prelude.<$> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "resourceSpecification")
-            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "exportId")
-            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "fileFormat")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,20 +154,20 @@ instance Data.ToQuery UpdateExport where
 data UpdateExportResponse = UpdateExportResponse'
   { -- | The date and time that the export was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | A description of the type of resource that was exported, either a bot or
-    -- a bot locale.
-    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
+    -- | The unique identifier Amazon Lex assigned to the export.
+    exportId :: Prelude.Maybe Prelude.Text,
     -- | The status of the export. When the status is @Completed@ the export
     -- archive is available for download.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | The unique identifier Amazon Lex assigned to the export.
-    exportId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the export was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The file format used for the files that define the resource. The @TSV@
     -- format is required to export a custom vocabulary only; otherwise use
     -- @LexJson@ format.
     fileFormat :: Prelude.Maybe ImportExportFileFormat,
+    -- | The date and time that the export was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | A description of the type of resource that was exported, either a bot or
+    -- a bot locale.
+    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,19 +183,19 @@ data UpdateExportResponse = UpdateExportResponse'
 --
 -- 'creationDateTime', 'updateExportResponse_creationDateTime' - The date and time that the export was created.
 --
--- 'resourceSpecification', 'updateExportResponse_resourceSpecification' - A description of the type of resource that was exported, either a bot or
--- a bot locale.
+-- 'exportId', 'updateExportResponse_exportId' - The unique identifier Amazon Lex assigned to the export.
 --
 -- 'exportStatus', 'updateExportResponse_exportStatus' - The status of the export. When the status is @Completed@ the export
 -- archive is available for download.
 --
--- 'exportId', 'updateExportResponse_exportId' - The unique identifier Amazon Lex assigned to the export.
---
--- 'lastUpdatedDateTime', 'updateExportResponse_lastUpdatedDateTime' - The date and time that the export was last updated.
---
 -- 'fileFormat', 'updateExportResponse_fileFormat' - The file format used for the files that define the resource. The @TSV@
 -- format is required to export a custom vocabulary only; otherwise use
 -- @LexJson@ format.
+--
+-- 'lastUpdatedDateTime', 'updateExportResponse_lastUpdatedDateTime' - The date and time that the export was last updated.
+--
+-- 'resourceSpecification', 'updateExportResponse_resourceSpecification' - A description of the type of resource that was exported, either a bot or
+-- a bot locale.
 --
 -- 'httpStatus', 'updateExportResponse_httpStatus' - The response's http status code.
 newUpdateExportResponse ::
@@ -206,11 +206,11 @@ newUpdateExportResponse pHttpStatus_ =
   UpdateExportResponse'
     { creationDateTime =
         Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
-      exportStatus = Prelude.Nothing,
       exportId = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
+      exportStatus = Prelude.Nothing,
       fileFormat = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -218,29 +218,29 @@ newUpdateExportResponse pHttpStatus_ =
 updateExportResponse_creationDateTime :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.UTCTime)
 updateExportResponse_creationDateTime = Lens.lens (\UpdateExportResponse' {creationDateTime} -> creationDateTime) (\s@UpdateExportResponse' {} a -> s {creationDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Data._Time
 
--- | A description of the type of resource that was exported, either a bot or
--- a bot locale.
-updateExportResponse_resourceSpecification :: Lens.Lens' UpdateExportResponse (Prelude.Maybe ExportResourceSpecification)
-updateExportResponse_resourceSpecification = Lens.lens (\UpdateExportResponse' {resourceSpecification} -> resourceSpecification) (\s@UpdateExportResponse' {} a -> s {resourceSpecification = a} :: UpdateExportResponse)
+-- | The unique identifier Amazon Lex assigned to the export.
+updateExportResponse_exportId :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.Text)
+updateExportResponse_exportId = Lens.lens (\UpdateExportResponse' {exportId} -> exportId) (\s@UpdateExportResponse' {} a -> s {exportId = a} :: UpdateExportResponse)
 
 -- | The status of the export. When the status is @Completed@ the export
 -- archive is available for download.
 updateExportResponse_exportStatus :: Lens.Lens' UpdateExportResponse (Prelude.Maybe ExportStatus)
 updateExportResponse_exportStatus = Lens.lens (\UpdateExportResponse' {exportStatus} -> exportStatus) (\s@UpdateExportResponse' {} a -> s {exportStatus = a} :: UpdateExportResponse)
 
--- | The unique identifier Amazon Lex assigned to the export.
-updateExportResponse_exportId :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.Text)
-updateExportResponse_exportId = Lens.lens (\UpdateExportResponse' {exportId} -> exportId) (\s@UpdateExportResponse' {} a -> s {exportId = a} :: UpdateExportResponse)
-
--- | The date and time that the export was last updated.
-updateExportResponse_lastUpdatedDateTime :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.UTCTime)
-updateExportResponse_lastUpdatedDateTime = Lens.lens (\UpdateExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateExportResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The file format used for the files that define the resource. The @TSV@
 -- format is required to export a custom vocabulary only; otherwise use
 -- @LexJson@ format.
 updateExportResponse_fileFormat :: Lens.Lens' UpdateExportResponse (Prelude.Maybe ImportExportFileFormat)
 updateExportResponse_fileFormat = Lens.lens (\UpdateExportResponse' {fileFormat} -> fileFormat) (\s@UpdateExportResponse' {} a -> s {fileFormat = a} :: UpdateExportResponse)
+
+-- | The date and time that the export was last updated.
+updateExportResponse_lastUpdatedDateTime :: Lens.Lens' UpdateExportResponse (Prelude.Maybe Prelude.UTCTime)
+updateExportResponse_lastUpdatedDateTime = Lens.lens (\UpdateExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateExportResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateExportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | A description of the type of resource that was exported, either a bot or
+-- a bot locale.
+updateExportResponse_resourceSpecification :: Lens.Lens' UpdateExportResponse (Prelude.Maybe ExportResourceSpecification)
+updateExportResponse_resourceSpecification = Lens.lens (\UpdateExportResponse' {resourceSpecification} -> resourceSpecification) (\s@UpdateExportResponse' {} a -> s {resourceSpecification = a} :: UpdateExportResponse)
 
 -- | The response's http status code.
 updateExportResponse_httpStatus :: Lens.Lens' UpdateExportResponse Prelude.Int
@@ -249,9 +249,9 @@ updateExportResponse_httpStatus = Lens.lens (\UpdateExportResponse' {httpStatus}
 instance Prelude.NFData UpdateExportResponse where
   rnf UpdateExportResponse' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf exportId
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf httpStatus

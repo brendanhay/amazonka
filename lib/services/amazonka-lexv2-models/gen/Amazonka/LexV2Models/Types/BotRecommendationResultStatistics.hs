@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotRecommendationResultStatistics' smart constructor.
 data BotRecommendationResultStatistics = BotRecommendationResultStatistics'
-  { -- | Statistical information about the slot types associated with the bot
+  { -- | Statistical information about about the intents associated with the bot
     -- recommendation results.
-    slotTypes :: Prelude.Maybe SlotTypeStatistics,
-    -- | Statistical information about about the intents associated with the bot
+    intents :: Prelude.Maybe IntentStatistics,
+    -- | Statistical information about the slot types associated with the bot
     -- recommendation results.
-    intents :: Prelude.Maybe IntentStatistics
+    slotTypes :: Prelude.Maybe SlotTypeStatistics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data BotRecommendationResultStatistics = BotRecommendationResultStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'slotTypes', 'botRecommendationResultStatistics_slotTypes' - Statistical information about the slot types associated with the bot
+-- 'intents', 'botRecommendationResultStatistics_intents' - Statistical information about about the intents associated with the bot
 -- recommendation results.
 --
--- 'intents', 'botRecommendationResultStatistics_intents' - Statistical information about about the intents associated with the bot
+-- 'slotTypes', 'botRecommendationResultStatistics_slotTypes' - Statistical information about the slot types associated with the bot
 -- recommendation results.
 newBotRecommendationResultStatistics ::
   BotRecommendationResultStatistics
 newBotRecommendationResultStatistics =
   BotRecommendationResultStatistics'
-    { slotTypes =
+    { intents =
         Prelude.Nothing,
-      intents = Prelude.Nothing
+      slotTypes = Prelude.Nothing
     }
-
--- | Statistical information about the slot types associated with the bot
--- recommendation results.
-botRecommendationResultStatistics_slotTypes :: Lens.Lens' BotRecommendationResultStatistics (Prelude.Maybe SlotTypeStatistics)
-botRecommendationResultStatistics_slotTypes = Lens.lens (\BotRecommendationResultStatistics' {slotTypes} -> slotTypes) (\s@BotRecommendationResultStatistics' {} a -> s {slotTypes = a} :: BotRecommendationResultStatistics)
 
 -- | Statistical information about about the intents associated with the bot
 -- recommendation results.
 botRecommendationResultStatistics_intents :: Lens.Lens' BotRecommendationResultStatistics (Prelude.Maybe IntentStatistics)
 botRecommendationResultStatistics_intents = Lens.lens (\BotRecommendationResultStatistics' {intents} -> intents) (\s@BotRecommendationResultStatistics' {} a -> s {intents = a} :: BotRecommendationResultStatistics)
+
+-- | Statistical information about the slot types associated with the bot
+-- recommendation results.
+botRecommendationResultStatistics_slotTypes :: Lens.Lens' BotRecommendationResultStatistics (Prelude.Maybe SlotTypeStatistics)
+botRecommendationResultStatistics_slotTypes = Lens.lens (\BotRecommendationResultStatistics' {slotTypes} -> slotTypes) (\s@BotRecommendationResultStatistics' {} a -> s {slotTypes = a} :: BotRecommendationResultStatistics)
 
 instance
   Data.FromJSON
@@ -80,8 +80,8 @@ instance
       "BotRecommendationResultStatistics"
       ( \x ->
           BotRecommendationResultStatistics'
-            Prelude.<$> (x Data..:? "slotTypes")
-            Prelude.<*> (x Data..:? "intents")
+            Prelude.<$> (x Data..:? "intents")
+            Prelude.<*> (x Data..:? "slotTypes")
       )
 
 instance
@@ -91,13 +91,13 @@ instance
   hashWithSalt
     _salt
     BotRecommendationResultStatistics' {..} =
-      _salt `Prelude.hashWithSalt` slotTypes
-        `Prelude.hashWithSalt` intents
+      _salt `Prelude.hashWithSalt` intents
+        `Prelude.hashWithSalt` slotTypes
 
 instance
   Prelude.NFData
     BotRecommendationResultStatistics
   where
   rnf BotRecommendationResultStatistics' {..} =
-    Prelude.rnf slotTypes
-      `Prelude.seq` Prelude.rnf intents
+    Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf slotTypes

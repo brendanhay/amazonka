@@ -47,10 +47,10 @@ module Amazonka.LexV2Models.CreateExport
 
     -- * Response Lenses
     createExportResponse_creationDateTime,
-    createExportResponse_resourceSpecification,
-    createExportResponse_exportStatus,
     createExportResponse_exportId,
+    createExportResponse_exportStatus,
     createExportResponse_fileFormat,
+    createExportResponse_resourceSpecification,
     createExportResponse_httpStatus,
   )
 where
@@ -130,10 +130,10 @@ instance Core.AWSRequest CreateExport where
       ( \s h x ->
           CreateExportResponse'
             Prelude.<$> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "resourceSpecification")
-            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "fileFormat")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,19 +183,19 @@ instance Data.ToQuery CreateExport where
 data CreateExportResponse = CreateExportResponse'
   { -- | The date and time that the request to export a bot was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | A description of the type of resource that was exported, either a bot or
-    -- a bot locale.
-    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
+    -- | An identifier for a specific request to create an export.
+    exportId :: Prelude.Maybe Prelude.Text,
     -- | The status of the export. When the status is @Completed@, you can use
     -- the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
     -- operation to get the pre-signed S3 URL link to your exported bot or bot
     -- locale.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | An identifier for a specific request to create an export.
-    exportId :: Prelude.Maybe Prelude.Text,
     -- | The file format used for the bot or bot locale definition files.
     fileFormat :: Prelude.Maybe ImportExportFileFormat,
+    -- | A description of the type of resource that was exported, either a bot or
+    -- a bot locale.
+    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,8 +211,7 @@ data CreateExportResponse = CreateExportResponse'
 --
 -- 'creationDateTime', 'createExportResponse_creationDateTime' - The date and time that the request to export a bot was created.
 --
--- 'resourceSpecification', 'createExportResponse_resourceSpecification' - A description of the type of resource that was exported, either a bot or
--- a bot locale.
+-- 'exportId', 'createExportResponse_exportId' - An identifier for a specific request to create an export.
 --
 -- 'exportStatus', 'createExportResponse_exportStatus' - The status of the export. When the status is @Completed@, you can use
 -- the
@@ -220,9 +219,10 @@ data CreateExportResponse = CreateExportResponse'
 -- operation to get the pre-signed S3 URL link to your exported bot or bot
 -- locale.
 --
--- 'exportId', 'createExportResponse_exportId' - An identifier for a specific request to create an export.
---
 -- 'fileFormat', 'createExportResponse_fileFormat' - The file format used for the bot or bot locale definition files.
+--
+-- 'resourceSpecification', 'createExportResponse_resourceSpecification' - A description of the type of resource that was exported, either a bot or
+-- a bot locale.
 --
 -- 'httpStatus', 'createExportResponse_httpStatus' - The response's http status code.
 newCreateExportResponse ::
@@ -233,10 +233,10 @@ newCreateExportResponse pHttpStatus_ =
   CreateExportResponse'
     { creationDateTime =
         Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
-      exportStatus = Prelude.Nothing,
       exportId = Prelude.Nothing,
+      exportStatus = Prelude.Nothing,
       fileFormat = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -244,10 +244,9 @@ newCreateExportResponse pHttpStatus_ =
 createExportResponse_creationDateTime :: Lens.Lens' CreateExportResponse (Prelude.Maybe Prelude.UTCTime)
 createExportResponse_creationDateTime = Lens.lens (\CreateExportResponse' {creationDateTime} -> creationDateTime) (\s@CreateExportResponse' {} a -> s {creationDateTime = a} :: CreateExportResponse) Prelude.. Lens.mapping Data._Time
 
--- | A description of the type of resource that was exported, either a bot or
--- a bot locale.
-createExportResponse_resourceSpecification :: Lens.Lens' CreateExportResponse (Prelude.Maybe ExportResourceSpecification)
-createExportResponse_resourceSpecification = Lens.lens (\CreateExportResponse' {resourceSpecification} -> resourceSpecification) (\s@CreateExportResponse' {} a -> s {resourceSpecification = a} :: CreateExportResponse)
+-- | An identifier for a specific request to create an export.
+createExportResponse_exportId :: Lens.Lens' CreateExportResponse (Prelude.Maybe Prelude.Text)
+createExportResponse_exportId = Lens.lens (\CreateExportResponse' {exportId} -> exportId) (\s@CreateExportResponse' {} a -> s {exportId = a} :: CreateExportResponse)
 
 -- | The status of the export. When the status is @Completed@, you can use
 -- the
@@ -257,13 +256,14 @@ createExportResponse_resourceSpecification = Lens.lens (\CreateExportResponse' {
 createExportResponse_exportStatus :: Lens.Lens' CreateExportResponse (Prelude.Maybe ExportStatus)
 createExportResponse_exportStatus = Lens.lens (\CreateExportResponse' {exportStatus} -> exportStatus) (\s@CreateExportResponse' {} a -> s {exportStatus = a} :: CreateExportResponse)
 
--- | An identifier for a specific request to create an export.
-createExportResponse_exportId :: Lens.Lens' CreateExportResponse (Prelude.Maybe Prelude.Text)
-createExportResponse_exportId = Lens.lens (\CreateExportResponse' {exportId} -> exportId) (\s@CreateExportResponse' {} a -> s {exportId = a} :: CreateExportResponse)
-
 -- | The file format used for the bot or bot locale definition files.
 createExportResponse_fileFormat :: Lens.Lens' CreateExportResponse (Prelude.Maybe ImportExportFileFormat)
 createExportResponse_fileFormat = Lens.lens (\CreateExportResponse' {fileFormat} -> fileFormat) (\s@CreateExportResponse' {} a -> s {fileFormat = a} :: CreateExportResponse)
+
+-- | A description of the type of resource that was exported, either a bot or
+-- a bot locale.
+createExportResponse_resourceSpecification :: Lens.Lens' CreateExportResponse (Prelude.Maybe ExportResourceSpecification)
+createExportResponse_resourceSpecification = Lens.lens (\CreateExportResponse' {resourceSpecification} -> resourceSpecification) (\s@CreateExportResponse' {} a -> s {resourceSpecification = a} :: CreateExportResponse)
 
 -- | The response's http status code.
 createExportResponse_httpStatus :: Lens.Lens' CreateExportResponse Prelude.Int
@@ -272,8 +272,8 @@ createExportResponse_httpStatus = Lens.lens (\CreateExportResponse' {httpStatus}
 instance Prelude.NFData CreateExportResponse where
   rnf CreateExportResponse' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf httpStatus

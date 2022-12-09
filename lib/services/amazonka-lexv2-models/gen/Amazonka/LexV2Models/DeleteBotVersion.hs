@@ -39,9 +39,9 @@ module Amazonka.LexV2Models.DeleteBotVersion
     newDeleteBotVersionResponse,
 
     -- * Response Lenses
-    deleteBotVersionResponse_botVersion,
     deleteBotVersionResponse_botId,
     deleteBotVersionResponse_botStatus,
+    deleteBotVersionResponse_botVersion,
     deleteBotVersionResponse_httpStatus,
   )
 where
@@ -126,9 +126,9 @@ instance Core.AWSRequest DeleteBotVersion where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotVersionResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,12 +174,12 @@ instance Data.ToQuery DeleteBotVersion where
 
 -- | /See:/ 'newDeleteBotVersionResponse' smart constructor.
 data DeleteBotVersionResponse = DeleteBotVersionResponse'
-  { -- | The version of the bot that is being deleted.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that is being deleted.
+  { -- | The identifier of the bot that is being deleted.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the bot.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The version of the bot that is being deleted.
+    botVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,11 +193,11 @@ data DeleteBotVersionResponse = DeleteBotVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botVersion', 'deleteBotVersionResponse_botVersion' - The version of the bot that is being deleted.
---
 -- 'botId', 'deleteBotVersionResponse_botId' - The identifier of the bot that is being deleted.
 --
 -- 'botStatus', 'deleteBotVersionResponse_botStatus' - The current status of the bot.
+--
+-- 'botVersion', 'deleteBotVersionResponse_botVersion' - The version of the bot that is being deleted.
 --
 -- 'httpStatus', 'deleteBotVersionResponse_httpStatus' - The response's http status code.
 newDeleteBotVersionResponse ::
@@ -206,16 +206,11 @@ newDeleteBotVersionResponse ::
   DeleteBotVersionResponse
 newDeleteBotVersionResponse pHttpStatus_ =
   DeleteBotVersionResponse'
-    { botVersion =
-        Prelude.Nothing,
-      botId = Prelude.Nothing,
+    { botId = Prelude.Nothing,
       botStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The version of the bot that is being deleted.
-deleteBotVersionResponse_botVersion :: Lens.Lens' DeleteBotVersionResponse (Prelude.Maybe Prelude.Text)
-deleteBotVersionResponse_botVersion = Lens.lens (\DeleteBotVersionResponse' {botVersion} -> botVersion) (\s@DeleteBotVersionResponse' {} a -> s {botVersion = a} :: DeleteBotVersionResponse)
 
 -- | The identifier of the bot that is being deleted.
 deleteBotVersionResponse_botId :: Lens.Lens' DeleteBotVersionResponse (Prelude.Maybe Prelude.Text)
@@ -225,13 +220,17 @@ deleteBotVersionResponse_botId = Lens.lens (\DeleteBotVersionResponse' {botId} -
 deleteBotVersionResponse_botStatus :: Lens.Lens' DeleteBotVersionResponse (Prelude.Maybe BotStatus)
 deleteBotVersionResponse_botStatus = Lens.lens (\DeleteBotVersionResponse' {botStatus} -> botStatus) (\s@DeleteBotVersionResponse' {} a -> s {botStatus = a} :: DeleteBotVersionResponse)
 
+-- | The version of the bot that is being deleted.
+deleteBotVersionResponse_botVersion :: Lens.Lens' DeleteBotVersionResponse (Prelude.Maybe Prelude.Text)
+deleteBotVersionResponse_botVersion = Lens.lens (\DeleteBotVersionResponse' {botVersion} -> botVersion) (\s@DeleteBotVersionResponse' {} a -> s {botVersion = a} :: DeleteBotVersionResponse)
+
 -- | The response's http status code.
 deleteBotVersionResponse_httpStatus :: Lens.Lens' DeleteBotVersionResponse Prelude.Int
 deleteBotVersionResponse_httpStatus = Lens.lens (\DeleteBotVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteBotVersionResponse' {} a -> s {httpStatus = a} :: DeleteBotVersionResponse)
 
 instance Prelude.NFData DeleteBotVersionResponse where
   rnf DeleteBotVersionResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf httpStatus

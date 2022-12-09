@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefaultConditionalBranch' smart constructor.
 data DefaultConditionalBranch = DefaultConditionalBranch'
-  { response :: Prelude.Maybe ResponseSpecification,
-    -- | The next step in the conversation.
-    nextStep :: Prelude.Maybe DialogState
+  { -- | The next step in the conversation.
+    nextStep :: Prelude.Maybe DialogState,
+    response :: Prelude.Maybe ResponseSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data DefaultConditionalBranch = DefaultConditionalBranch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'response', 'defaultConditionalBranch_response' - Undocumented member.
---
 -- 'nextStep', 'defaultConditionalBranch_nextStep' - The next step in the conversation.
+--
+-- 'response', 'defaultConditionalBranch_response' - Undocumented member.
 newDefaultConditionalBranch ::
   DefaultConditionalBranch
 newDefaultConditionalBranch =
   DefaultConditionalBranch'
-    { response =
+    { nextStep =
         Prelude.Nothing,
-      nextStep = Prelude.Nothing
+      response = Prelude.Nothing
     }
-
--- | Undocumented member.
-defaultConditionalBranch_response :: Lens.Lens' DefaultConditionalBranch (Prelude.Maybe ResponseSpecification)
-defaultConditionalBranch_response = Lens.lens (\DefaultConditionalBranch' {response} -> response) (\s@DefaultConditionalBranch' {} a -> s {response = a} :: DefaultConditionalBranch)
 
 -- | The next step in the conversation.
 defaultConditionalBranch_nextStep :: Lens.Lens' DefaultConditionalBranch (Prelude.Maybe DialogState)
 defaultConditionalBranch_nextStep = Lens.lens (\DefaultConditionalBranch' {nextStep} -> nextStep) (\s@DefaultConditionalBranch' {} a -> s {nextStep = a} :: DefaultConditionalBranch)
+
+-- | Undocumented member.
+defaultConditionalBranch_response :: Lens.Lens' DefaultConditionalBranch (Prelude.Maybe ResponseSpecification)
+defaultConditionalBranch_response = Lens.lens (\DefaultConditionalBranch' {response} -> response) (\s@DefaultConditionalBranch' {} a -> s {response = a} :: DefaultConditionalBranch)
 
 instance Data.FromJSON DefaultConditionalBranch where
   parseJSON =
@@ -71,25 +71,25 @@ instance Data.FromJSON DefaultConditionalBranch where
       "DefaultConditionalBranch"
       ( \x ->
           DefaultConditionalBranch'
-            Prelude.<$> (x Data..:? "response")
-            Prelude.<*> (x Data..:? "nextStep")
+            Prelude.<$> (x Data..:? "nextStep")
+            Prelude.<*> (x Data..:? "response")
       )
 
 instance Prelude.Hashable DefaultConditionalBranch where
   hashWithSalt _salt DefaultConditionalBranch' {..} =
-    _salt `Prelude.hashWithSalt` response
-      `Prelude.hashWithSalt` nextStep
+    _salt `Prelude.hashWithSalt` nextStep
+      `Prelude.hashWithSalt` response
 
 instance Prelude.NFData DefaultConditionalBranch where
   rnf DefaultConditionalBranch' {..} =
-    Prelude.rnf response
-      `Prelude.seq` Prelude.rnf nextStep
+    Prelude.rnf nextStep
+      `Prelude.seq` Prelude.rnf response
 
 instance Data.ToJSON DefaultConditionalBranch where
   toJSON DefaultConditionalBranch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("response" Data..=) Prelude.<$> response,
-            ("nextStep" Data..=) Prelude.<$> nextStep
+          [ ("nextStep" Data..=) Prelude.<$> nextStep,
+            ("response" Data..=) Prelude.<$> response
           ]
       )

@@ -31,7 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotAliasSummary' smart constructor.
 data BotAliasSummary = BotAliasSummary'
-  { -- | The current state of the bot alias. If the status is @Available@, the
+  { -- | The unique identifier assigned to the bot alias. You can use this ID to
+    -- get detailed information about the alias using the
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+    -- operation.
+    botAliasId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bot alias.
+    botAliasName :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the bot alias. If the status is @Available@, the
     -- alias is ready for use.
     botAliasStatus :: Prelude.Maybe BotAliasStatus,
     -- | The version of the bot that the bot alias references.
@@ -40,13 +47,6 @@ data BotAliasSummary = BotAliasSummary'
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the bot alias.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier assigned to the bot alias. You can use this ID to
-    -- get detailed information about the alias using the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
-    -- operation.
-    botAliasId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot alias.
-    botAliasName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the bot alias was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
   }
@@ -60,6 +60,13 @@ data BotAliasSummary = BotAliasSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botAliasId', 'botAliasSummary_botAliasId' - The unique identifier assigned to the bot alias. You can use this ID to
+-- get detailed information about the alias using the
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+-- operation.
+--
+-- 'botAliasName', 'botAliasSummary_botAliasName' - The name of the bot alias.
+--
 -- 'botAliasStatus', 'botAliasSummary_botAliasStatus' - The current state of the bot alias. If the status is @Available@, the
 -- alias is ready for use.
 --
@@ -69,26 +76,30 @@ data BotAliasSummary = BotAliasSummary'
 --
 -- 'description', 'botAliasSummary_description' - The description of the bot alias.
 --
--- 'botAliasId', 'botAliasSummary_botAliasId' - The unique identifier assigned to the bot alias. You can use this ID to
--- get detailed information about the alias using the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
--- operation.
---
--- 'botAliasName', 'botAliasSummary_botAliasName' - The name of the bot alias.
---
 -- 'lastUpdatedDateTime', 'botAliasSummary_lastUpdatedDateTime' - A timestamp of the date and time that the bot alias was last updated.
 newBotAliasSummary ::
   BotAliasSummary
 newBotAliasSummary =
   BotAliasSummary'
-    { botAliasStatus = Prelude.Nothing,
+    { botAliasId = Prelude.Nothing,
+      botAliasName = Prelude.Nothing,
+      botAliasStatus = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       description = Prelude.Nothing,
-      botAliasId = Prelude.Nothing,
-      botAliasName = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing
     }
+
+-- | The unique identifier assigned to the bot alias. You can use this ID to
+-- get detailed information about the alias using the
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+-- operation.
+botAliasSummary_botAliasId :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
+botAliasSummary_botAliasId = Lens.lens (\BotAliasSummary' {botAliasId} -> botAliasId) (\s@BotAliasSummary' {} a -> s {botAliasId = a} :: BotAliasSummary)
+
+-- | The name of the bot alias.
+botAliasSummary_botAliasName :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
+botAliasSummary_botAliasName = Lens.lens (\BotAliasSummary' {botAliasName} -> botAliasName) (\s@BotAliasSummary' {} a -> s {botAliasName = a} :: BotAliasSummary)
 
 -- | The current state of the bot alias. If the status is @Available@, the
 -- alias is ready for use.
@@ -107,17 +118,6 @@ botAliasSummary_creationDateTime = Lens.lens (\BotAliasSummary' {creationDateTim
 botAliasSummary_description :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
 botAliasSummary_description = Lens.lens (\BotAliasSummary' {description} -> description) (\s@BotAliasSummary' {} a -> s {description = a} :: BotAliasSummary)
 
--- | The unique identifier assigned to the bot alias. You can use this ID to
--- get detailed information about the alias using the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
--- operation.
-botAliasSummary_botAliasId :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
-botAliasSummary_botAliasId = Lens.lens (\BotAliasSummary' {botAliasId} -> botAliasId) (\s@BotAliasSummary' {} a -> s {botAliasId = a} :: BotAliasSummary)
-
--- | The name of the bot alias.
-botAliasSummary_botAliasName :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
-botAliasSummary_botAliasName = Lens.lens (\BotAliasSummary' {botAliasName} -> botAliasName) (\s@BotAliasSummary' {} a -> s {botAliasName = a} :: BotAliasSummary)
-
 -- | A timestamp of the date and time that the bot alias was last updated.
 botAliasSummary_lastUpdatedDateTime :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.UTCTime)
 botAliasSummary_lastUpdatedDateTime = Lens.lens (\BotAliasSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@BotAliasSummary' {} a -> s {lastUpdatedDateTime = a} :: BotAliasSummary) Prelude.. Lens.mapping Data._Time
@@ -128,31 +128,31 @@ instance Data.FromJSON BotAliasSummary where
       "BotAliasSummary"
       ( \x ->
           BotAliasSummary'
-            Prelude.<$> (x Data..:? "botAliasStatus")
+            Prelude.<$> (x Data..:? "botAliasId")
+            Prelude.<*> (x Data..:? "botAliasName")
+            Prelude.<*> (x Data..:? "botAliasStatus")
             Prelude.<*> (x Data..:? "botVersion")
             Prelude.<*> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "botAliasId")
-            Prelude.<*> (x Data..:? "botAliasName")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
       )
 
 instance Prelude.Hashable BotAliasSummary where
   hashWithSalt _salt BotAliasSummary' {..} =
-    _salt `Prelude.hashWithSalt` botAliasStatus
+    _salt `Prelude.hashWithSalt` botAliasId
+      `Prelude.hashWithSalt` botAliasName
+      `Prelude.hashWithSalt` botAliasStatus
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` botAliasId
-      `Prelude.hashWithSalt` botAliasName
       `Prelude.hashWithSalt` lastUpdatedDateTime
 
 instance Prelude.NFData BotAliasSummary where
   rnf BotAliasSummary' {..} =
-    Prelude.rnf botAliasStatus
+    Prelude.rnf botAliasId
+      `Prelude.seq` Prelude.rnf botAliasName
+      `Prelude.seq` Prelude.rnf botAliasStatus
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botAliasId
-      `Prelude.seq` Prelude.rnf botAliasName
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime

@@ -35,9 +35,9 @@ module Amazonka.StorageGateway.ActivateGateway
     newActivateGateway,
 
     -- * Request Lenses
-    activateGateway_tags,
     activateGateway_gatewayType,
     activateGateway_mediumChangerType,
+    activateGateway_tags,
     activateGateway_tapeDriveType,
     activateGateway_activationKey,
     activateGateway_gatewayName,
@@ -80,15 +80,7 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newActivateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
-  { -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
-    -- a key-value pair.
-    --
-    -- Valid characters for key and value are letters, spaces, and numbers that
-    -- can be represented in UTF-8 format, and the following special
-    -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
-    -- characters, and the maximum length for a tag\'s value is 256 characters.
-    tags :: Prelude.Maybe [Tag],
-    -- | A value that defines the type of gateway to activate. The type specified
+  { -- | A value that defines the type of gateway to activate. The type specified
     -- is critical to all later functions of the gateway and cannot be changed
     -- after activation. The default value is @CACHED@.
     --
@@ -100,6 +92,14 @@ data ActivateGateway = ActivateGateway'
     --
     -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
     mediumChangerType :: Prelude.Maybe Prelude.Text,
+    -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
+    -- a key-value pair.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers that
+    -- can be represented in UTF-8 format, and the following special
+    -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+    -- characters, and the maximum length for a tag\'s value is 256 characters.
+    tags :: Prelude.Maybe [Tag],
     -- | The value that indicates the type of tape drive to use for tape gateway.
     -- This field is optional.
     --
@@ -151,14 +151,6 @@ data ActivateGateway = ActivateGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is
--- a key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers that
--- can be represented in UTF-8 format, and the following special
--- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
--- characters, and the maximum length for a tag\'s value is 256 characters.
---
 -- 'gatewayType', 'activateGateway_gatewayType' - A value that defines the type of gateway to activate. The type specified
 -- is critical to all later functions of the gateway and cannot be changed
 -- after activation. The default value is @CACHED@.
@@ -170,6 +162,14 @@ data ActivateGateway = ActivateGateway'
 -- gateway. This field is optional.
 --
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+--
+-- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is
+-- a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers that
+-- can be represented in UTF-8 format, and the following special
+-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+-- characters, and the maximum length for a tag\'s value is 256 characters.
 --
 -- 'tapeDriveType', 'activateGateway_tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway.
 -- This field is optional.
@@ -226,25 +226,15 @@ newActivateGateway
   pGatewayTimezone_
   pGatewayRegion_ =
     ActivateGateway'
-      { tags = Prelude.Nothing,
-        gatewayType = Prelude.Nothing,
+      { gatewayType = Prelude.Nothing,
         mediumChangerType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         tapeDriveType = Prelude.Nothing,
         activationKey = pActivationKey_,
         gatewayName = pGatewayName_,
         gatewayTimezone = pGatewayTimezone_,
         gatewayRegion = pGatewayRegion_
       }
-
--- | A list of up to 50 tags that you can assign to the gateway. Each tag is
--- a key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers that
--- can be represented in UTF-8 format, and the following special
--- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
--- characters, and the maximum length for a tag\'s value is 256 characters.
-activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
-activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that defines the type of gateway to activate. The type specified
 -- is critical to all later functions of the gateway and cannot be changed
@@ -261,6 +251,16 @@ activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gate
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
 activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
+
+-- | A list of up to 50 tags that you can assign to the gateway. Each tag is
+-- a key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers that
+-- can be represented in UTF-8 format, and the following special
+-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
+-- characters, and the maximum length for a tag\'s value is 256 characters.
+activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
+activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value that indicates the type of tape drive to use for tape gateway.
 -- This field is optional.
@@ -328,9 +328,9 @@ instance Core.AWSRequest ActivateGateway where
 
 instance Prelude.Hashable ActivateGateway where
   hashWithSalt _salt ActivateGateway' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` gatewayType
+    _salt `Prelude.hashWithSalt` gatewayType
       `Prelude.hashWithSalt` mediumChangerType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tapeDriveType
       `Prelude.hashWithSalt` activationKey
       `Prelude.hashWithSalt` gatewayName
@@ -339,9 +339,9 @@ instance Prelude.Hashable ActivateGateway where
 
 instance Prelude.NFData ActivateGateway where
   rnf ActivateGateway' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf gatewayType
+    Prelude.rnf gatewayType
       `Prelude.seq` Prelude.rnf mediumChangerType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf tapeDriveType
       `Prelude.seq` Prelude.rnf activationKey
       `Prelude.seq` Prelude.rnf gatewayName
@@ -367,10 +367,10 @@ instance Data.ToJSON ActivateGateway where
   toJSON ActivateGateway' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("GatewayType" Data..=) Prelude.<$> gatewayType,
+          [ ("GatewayType" Data..=) Prelude.<$> gatewayType,
             ("MediumChangerType" Data..=)
               Prelude.<$> mediumChangerType,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TapeDriveType" Data..=) Prelude.<$> tapeDriveType,
             Prelude.Just ("ActivationKey" Data..= activationKey),
             Prelude.Just ("GatewayName" Data..= gatewayName),

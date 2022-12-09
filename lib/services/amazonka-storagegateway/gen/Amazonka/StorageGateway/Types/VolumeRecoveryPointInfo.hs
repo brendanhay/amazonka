@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-  { -- | The size of the volume in bytes.
+  { -- | The Amazon Resource Name (ARN) of the volume target.
+    volumeARN :: Prelude.Maybe Prelude.Text,
+    -- | The time the recovery point was taken.
+    volumeRecoveryPointTime :: Prelude.Maybe Prelude.Text,
+    -- | The size of the volume in bytes.
     volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The size of the data stored on the volume in bytes.
     --
     -- This value is not available for volumes created prior to May 13, 2015,
     -- until you store data on the volume.
-    volumeUsageInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the volume target.
-    volumeARN :: Prelude.Maybe Prelude.Text,
-    -- | The time the recovery point was taken.
-    volumeRecoveryPointTime :: Prelude.Maybe Prelude.Text
+    volumeUsageInBytes :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,34 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'volumeARN', 'volumeRecoveryPointInfo_volumeARN' - The Amazon Resource Name (ARN) of the volume target.
+--
+-- 'volumeRecoveryPointTime', 'volumeRecoveryPointInfo_volumeRecoveryPointTime' - The time the recovery point was taken.
+--
 -- 'volumeSizeInBytes', 'volumeRecoveryPointInfo_volumeSizeInBytes' - The size of the volume in bytes.
 --
 -- 'volumeUsageInBytes', 'volumeRecoveryPointInfo_volumeUsageInBytes' - The size of the data stored on the volume in bytes.
 --
 -- This value is not available for volumes created prior to May 13, 2015,
 -- until you store data on the volume.
---
--- 'volumeARN', 'volumeRecoveryPointInfo_volumeARN' - The Amazon Resource Name (ARN) of the volume target.
---
--- 'volumeRecoveryPointTime', 'volumeRecoveryPointInfo_volumeRecoveryPointTime' - The time the recovery point was taken.
 newVolumeRecoveryPointInfo ::
   VolumeRecoveryPointInfo
 newVolumeRecoveryPointInfo =
   VolumeRecoveryPointInfo'
-    { volumeSizeInBytes =
+    { volumeARN =
         Prelude.Nothing,
-      volumeUsageInBytes = Prelude.Nothing,
-      volumeARN = Prelude.Nothing,
-      volumeRecoveryPointTime = Prelude.Nothing
+      volumeRecoveryPointTime = Prelude.Nothing,
+      volumeSizeInBytes = Prelude.Nothing,
+      volumeUsageInBytes = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the volume target.
+volumeRecoveryPointInfo_volumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
+volumeRecoveryPointInfo_volumeARN = Lens.lens (\VolumeRecoveryPointInfo' {volumeARN} -> volumeARN) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeARN = a} :: VolumeRecoveryPointInfo)
+
+-- | The time the recovery point was taken.
+volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
+volumeRecoveryPointInfo_volumeRecoveryPointTime = Lens.lens (\VolumeRecoveryPointInfo' {volumeRecoveryPointTime} -> volumeRecoveryPointTime) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeRecoveryPointTime = a} :: VolumeRecoveryPointInfo)
 
 -- | The size of the volume in bytes.
 volumeRecoveryPointInfo_volumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
@@ -82,36 +90,28 @@ volumeRecoveryPointInfo_volumeSizeInBytes = Lens.lens (\VolumeRecoveryPointInfo'
 volumeRecoveryPointInfo_volumeUsageInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
 volumeRecoveryPointInfo_volumeUsageInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeUsageInBytes} -> volumeUsageInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeUsageInBytes = a} :: VolumeRecoveryPointInfo)
 
--- | The Amazon Resource Name (ARN) of the volume target.
-volumeRecoveryPointInfo_volumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
-volumeRecoveryPointInfo_volumeARN = Lens.lens (\VolumeRecoveryPointInfo' {volumeARN} -> volumeARN) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeARN = a} :: VolumeRecoveryPointInfo)
-
--- | The time the recovery point was taken.
-volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
-volumeRecoveryPointInfo_volumeRecoveryPointTime = Lens.lens (\VolumeRecoveryPointInfo' {volumeRecoveryPointTime} -> volumeRecoveryPointTime) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeRecoveryPointTime = a} :: VolumeRecoveryPointInfo)
-
 instance Data.FromJSON VolumeRecoveryPointInfo where
   parseJSON =
     Data.withObject
       "VolumeRecoveryPointInfo"
       ( \x ->
           VolumeRecoveryPointInfo'
-            Prelude.<$> (x Data..:? "VolumeSizeInBytes")
-            Prelude.<*> (x Data..:? "VolumeUsageInBytes")
-            Prelude.<*> (x Data..:? "VolumeARN")
+            Prelude.<$> (x Data..:? "VolumeARN")
             Prelude.<*> (x Data..:? "VolumeRecoveryPointTime")
+            Prelude.<*> (x Data..:? "VolumeSizeInBytes")
+            Prelude.<*> (x Data..:? "VolumeUsageInBytes")
       )
 
 instance Prelude.Hashable VolumeRecoveryPointInfo where
   hashWithSalt _salt VolumeRecoveryPointInfo' {..} =
-    _salt `Prelude.hashWithSalt` volumeSizeInBytes
-      `Prelude.hashWithSalt` volumeUsageInBytes
-      `Prelude.hashWithSalt` volumeARN
+    _salt `Prelude.hashWithSalt` volumeARN
       `Prelude.hashWithSalt` volumeRecoveryPointTime
+      `Prelude.hashWithSalt` volumeSizeInBytes
+      `Prelude.hashWithSalt` volumeUsageInBytes
 
 instance Prelude.NFData VolumeRecoveryPointInfo where
   rnf VolumeRecoveryPointInfo' {..} =
-    Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf volumeUsageInBytes
-      `Prelude.seq` Prelude.rnf volumeARN
+    Prelude.rnf volumeARN
       `Prelude.seq` Prelude.rnf volumeRecoveryPointTime
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
+      `Prelude.seq` Prelude.rnf volumeUsageInBytes

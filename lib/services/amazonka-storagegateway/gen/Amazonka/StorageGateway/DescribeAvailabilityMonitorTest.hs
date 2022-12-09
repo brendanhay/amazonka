@@ -36,9 +36,9 @@ module Amazonka.StorageGateway.DescribeAvailabilityMonitorTest
     newDescribeAvailabilityMonitorTestResponse,
 
     -- * Response Lenses
-    describeAvailabilityMonitorTestResponse_status,
     describeAvailabilityMonitorTestResponse_gatewayARN,
     describeAvailabilityMonitorTestResponse_startTime,
+    describeAvailabilityMonitorTestResponse_status,
     describeAvailabilityMonitorTestResponse_httpStatus,
   )
 where
@@ -93,9 +93,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAvailabilityMonitorTestResponse'
-            Prelude.<$> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<$> (x Data..?> "GatewayARN")
             Prelude.<*> (x Data..?> "StartTime")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,13 +148,13 @@ instance Data.ToQuery DescribeAvailabilityMonitorTest where
 
 -- | /See:/ 'newDescribeAvailabilityMonitorTestResponse' smart constructor.
 data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestResponse'
-  { -- | The status of the high availability monitoring test. If a test hasn\'t
-    -- been performed, the value of this field is null.
-    status :: Prelude.Maybe AvailabilityMonitorTestStatus,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The time the high availability monitoring test was started. If a test
     -- hasn\'t been performed, the value of this field is null.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the high availability monitoring test. If a test hasn\'t
+    -- been performed, the value of this field is null.
+    status :: Prelude.Maybe AvailabilityMonitorTestStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,13 +168,13 @@ data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeAvailabilityMonitorTestResponse_status' - The status of the high availability monitoring test. If a test hasn\'t
--- been performed, the value of this field is null.
---
 -- 'gatewayARN', 'describeAvailabilityMonitorTestResponse_gatewayARN' - Undocumented member.
 --
 -- 'startTime', 'describeAvailabilityMonitorTestResponse_startTime' - The time the high availability monitoring test was started. If a test
 -- hasn\'t been performed, the value of this field is null.
+--
+-- 'status', 'describeAvailabilityMonitorTestResponse_status' - The status of the high availability monitoring test. If a test hasn\'t
+-- been performed, the value of this field is null.
 --
 -- 'httpStatus', 'describeAvailabilityMonitorTestResponse_httpStatus' - The response's http status code.
 newDescribeAvailabilityMonitorTestResponse ::
@@ -184,17 +184,12 @@ newDescribeAvailabilityMonitorTestResponse ::
 newDescribeAvailabilityMonitorTestResponse
   pHttpStatus_ =
     DescribeAvailabilityMonitorTestResponse'
-      { status =
+      { gatewayARN =
           Prelude.Nothing,
-        gatewayARN = Prelude.Nothing,
         startTime = Prelude.Nothing,
+        status = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The status of the high availability monitoring test. If a test hasn\'t
--- been performed, the value of this field is null.
-describeAvailabilityMonitorTestResponse_status :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe AvailabilityMonitorTestStatus)
-describeAvailabilityMonitorTestResponse_status = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {status} -> status) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {status = a} :: DescribeAvailabilityMonitorTestResponse)
 
 -- | Undocumented member.
 describeAvailabilityMonitorTestResponse_gatewayARN :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe Prelude.Text)
@@ -205,6 +200,11 @@ describeAvailabilityMonitorTestResponse_gatewayARN = Lens.lens (\DescribeAvailab
 describeAvailabilityMonitorTestResponse_startTime :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe Prelude.UTCTime)
 describeAvailabilityMonitorTestResponse_startTime = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {startTime} -> startTime) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {startTime = a} :: DescribeAvailabilityMonitorTestResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The status of the high availability monitoring test. If a test hasn\'t
+-- been performed, the value of this field is null.
+describeAvailabilityMonitorTestResponse_status :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe AvailabilityMonitorTestStatus)
+describeAvailabilityMonitorTestResponse_status = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {status} -> status) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {status = a} :: DescribeAvailabilityMonitorTestResponse)
+
 -- | The response's http status code.
 describeAvailabilityMonitorTestResponse_httpStatus :: Lens.Lens' DescribeAvailabilityMonitorTestResponse Prelude.Int
 describeAvailabilityMonitorTestResponse_httpStatus = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {httpStatus} -> httpStatus) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {httpStatus = a} :: DescribeAvailabilityMonitorTestResponse)
@@ -214,7 +214,7 @@ instance
     DescribeAvailabilityMonitorTestResponse
   where
   rnf DescribeAvailabilityMonitorTestResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

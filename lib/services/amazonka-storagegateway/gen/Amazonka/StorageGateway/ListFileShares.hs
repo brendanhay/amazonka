@@ -31,17 +31,17 @@ module Amazonka.StorageGateway.ListFileShares
     newListFileShares,
 
     -- * Request Lenses
-    listFileShares_marker,
     listFileShares_gatewayARN,
     listFileShares_limit,
+    listFileShares_marker,
 
     -- * Destructuring the Response
     ListFileSharesResponse (..),
     newListFileSharesResponse,
 
     -- * Response Lenses
-    listFileSharesResponse_marker,
     listFileSharesResponse_fileShareInfoList,
+    listFileSharesResponse_marker,
     listFileSharesResponse_nextMarker,
     listFileSharesResponse_httpStatus,
   )
@@ -59,17 +59,17 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newListFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-  { -- | Opaque pagination token returned from a previous ListFileShares
-    -- operation. If present, @Marker@ specifies where to continue the list
-    -- from after a previous call to ListFileShares. Optional.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
+  { -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
     -- to list. If this field is not present, all file shares under your
     -- account are listed.
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of file shares to return in the response. The value
     -- must be an integer with a value greater than zero. Optional.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Opaque pagination token returned from a previous ListFileShares
+    -- operation. If present, @Marker@ specifies where to continue the list
+    -- from after a previous call to ListFileShares. Optional.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,30 +81,24 @@ data ListFileShares = ListFileShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listFileShares_marker' - Opaque pagination token returned from a previous ListFileShares
--- operation. If present, @Marker@ specifies where to continue the list
--- from after a previous call to ListFileShares. Optional.
---
 -- 'gatewayARN', 'listFileShares_gatewayARN' - The Amazon Resource Name (ARN) of the gateway whose file shares you want
 -- to list. If this field is not present, all file shares under your
 -- account are listed.
 --
 -- 'limit', 'listFileShares_limit' - The maximum number of file shares to return in the response. The value
 -- must be an integer with a value greater than zero. Optional.
+--
+-- 'marker', 'listFileShares_marker' - Opaque pagination token returned from a previous ListFileShares
+-- operation. If present, @Marker@ specifies where to continue the list
+-- from after a previous call to ListFileShares. Optional.
 newListFileShares ::
   ListFileShares
 newListFileShares =
   ListFileShares'
-    { marker = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { gatewayARN = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
-
--- | Opaque pagination token returned from a previous ListFileShares
--- operation. If present, @Marker@ specifies where to continue the list
--- from after a previous call to ListFileShares. Optional.
-listFileShares_marker :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Text)
-listFileShares_marker = Lens.lens (\ListFileShares' {marker} -> marker) (\s@ListFileShares' {} a -> s {marker = a} :: ListFileShares)
 
 -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
 -- to list. If this field is not present, all file shares under your
@@ -116,6 +110,12 @@ listFileShares_gatewayARN = Lens.lens (\ListFileShares' {gatewayARN} -> gatewayA
 -- must be an integer with a value greater than zero. Optional.
 listFileShares_limit :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Natural)
 listFileShares_limit = Lens.lens (\ListFileShares' {limit} -> limit) (\s@ListFileShares' {} a -> s {limit = a} :: ListFileShares)
+
+-- | Opaque pagination token returned from a previous ListFileShares
+-- operation. If present, @Marker@ specifies where to continue the list
+-- from after a previous call to ListFileShares. Optional.
+listFileShares_marker :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Text)
+listFileShares_marker = Lens.lens (\ListFileShares' {marker} -> marker) (\s@ListFileShares' {} a -> s {marker = a} :: ListFileShares)
 
 instance Core.AWSPager ListFileShares where
   page rq rs
@@ -149,25 +149,25 @@ instance Core.AWSRequest ListFileShares where
     Response.receiveJSON
       ( \s h x ->
           ListFileSharesResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "FileShareInfoList"
+            Prelude.<$> ( x Data..?> "FileShareInfoList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFileShares where
   hashWithSalt _salt ListFileShares' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` gatewayARN
+    _salt `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
 instance Prelude.NFData ListFileShares where
   rnf ListFileShares' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf gatewayARN
+    Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
 
 instance Data.ToHeaders ListFileShares where
   toHeaders =
@@ -188,9 +188,9 @@ instance Data.ToJSON ListFileShares where
   toJSON ListFileShares' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("GatewayARN" Data..=) Prelude.<$> gatewayARN,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("GatewayARN" Data..=) Prelude.<$> gatewayARN,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("Marker" Data..=) Prelude.<$> marker
           ]
       )
 
@@ -204,11 +204,11 @@ instance Data.ToQuery ListFileShares where
 --
 -- /See:/ 'newListFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
-  { -- | If the request includes @Marker@, the response returns that value in
+  { -- | An array of information about the S3 File Gateway\'s file shares.
+    fileShareInfoList :: Prelude.Maybe [FileShareInfo],
+    -- | If the request includes @Marker@, the response returns that value in
     -- this field.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | An array of information about the S3 File Gateway\'s file shares.
-    fileShareInfoList :: Prelude.Maybe [FileShareInfo],
     -- | If a value is present, there are more file shares to return. In a
     -- subsequent request, use @NextMarker@ as the value for @Marker@ to
     -- retrieve the next set of file shares.
@@ -226,10 +226,10 @@ data ListFileSharesResponse = ListFileSharesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileShareInfoList', 'listFileSharesResponse_fileShareInfoList' - An array of information about the S3 File Gateway\'s file shares.
+--
 -- 'marker', 'listFileSharesResponse_marker' - If the request includes @Marker@, the response returns that value in
 -- this field.
---
--- 'fileShareInfoList', 'listFileSharesResponse_fileShareInfoList' - An array of information about the S3 File Gateway\'s file shares.
 --
 -- 'nextMarker', 'listFileSharesResponse_nextMarker' - If a value is present, there are more file shares to return. In a
 -- subsequent request, use @NextMarker@ as the value for @Marker@ to
@@ -242,20 +242,21 @@ newListFileSharesResponse ::
   ListFileSharesResponse
 newListFileSharesResponse pHttpStatus_ =
   ListFileSharesResponse'
-    { marker = Prelude.Nothing,
-      fileShareInfoList = Prelude.Nothing,
+    { fileShareInfoList =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of information about the S3 File Gateway\'s file shares.
+listFileSharesResponse_fileShareInfoList :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe [FileShareInfo])
+listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the request includes @Marker@, the response returns that value in
 -- this field.
 listFileSharesResponse_marker :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe Prelude.Text)
 listFileSharesResponse_marker = Lens.lens (\ListFileSharesResponse' {marker} -> marker) (\s@ListFileSharesResponse' {} a -> s {marker = a} :: ListFileSharesResponse)
-
--- | An array of information about the S3 File Gateway\'s file shares.
-listFileSharesResponse_fileShareInfoList :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe [FileShareInfo])
-listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a value is present, there are more file shares to return. In a
 -- subsequent request, use @NextMarker@ as the value for @Marker@ to
@@ -269,7 +270,7 @@ listFileSharesResponse_httpStatus = Lens.lens (\ListFileSharesResponse' {httpSta
 
 instance Prelude.NFData ListFileSharesResponse where
   rnf ListFileSharesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf fileShareInfoList
+    Prelude.rnf fileShareInfoList
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf httpStatus

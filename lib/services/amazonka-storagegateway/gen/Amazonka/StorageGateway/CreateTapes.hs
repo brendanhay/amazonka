@@ -33,11 +33,11 @@ module Amazonka.StorageGateway.CreateTapes
     newCreateTapes,
 
     -- * Request Lenses
+    createTapes_kmsEncrypted,
+    createTapes_kmsKey,
+    createTapes_poolId,
     createTapes_tags,
     createTapes_worm,
-    createTapes_kmsKey,
-    createTapes_kmsEncrypted,
-    createTapes_poolId,
     createTapes_gatewayARN,
     createTapes_tapeSizeInBytes,
     createTapes_clientToken,
@@ -66,7 +66,23 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newCreateTapes' smart constructor.
 data CreateTapes = CreateTapes'
-  { -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
+  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+    -- used for Amazon S3 server-side encryption. Storage Gateway does not
+    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+    -- is @true@. Optional.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the pool that you want to add your tape to for archiving. The
+    -- tape in this pool is archived in the S3 storage class that is associated
+    -- with the pool. When you use your backup application to eject the tape,
+    -- the tape is archived directly into the storage class (S3 Glacier or S3
+    -- Glacier Deep Archive) that corresponds to the pool.
+    poolId :: Prelude.Maybe Prelude.Text,
+    -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
     -- is a key-value pair.
     --
     -- Valid characters for key and value are letters, spaces, and numbers
@@ -77,22 +93,6 @@ data CreateTapes = CreateTapes'
     -- | Set to @TRUE@ if the tape you are creating is to be configured as a
     -- write-once-read-many (WORM) tape.
     worm :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
-    -- used for Amazon S3 server-side encryption. Storage Gateway does not
-    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
-    -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
-    -- key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the pool that you want to add your tape to for archiving. The
-    -- tape in this pool is archived in the S3 storage class that is associated
-    -- with the pool. When you use your backup application to eject the tape,
-    -- the tape is archived directly into the storage class (S3 Glacier or S3
-    -- Glacier Deep Archive) that corresponds to the pool.
-    poolId :: Prelude.Maybe Prelude.Text,
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tapes with. Use the ListGateways operation to
     -- return a list of gateways for your account and Amazon Web Services
@@ -127,6 +127,22 @@ data CreateTapes = CreateTapes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsEncrypted', 'createTapes_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'kmsKey', 'createTapes_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+--
+-- 'poolId', 'createTapes_poolId' - The ID of the pool that you want to add your tape to for archiving. The
+-- tape in this pool is archived in the S3 storage class that is associated
+-- with the pool. When you use your backup application to eject the tape,
+-- the tape is archived directly into the storage class (S3 Glacier or S3
+-- Glacier Deep Archive) that corresponds to the pool.
+--
 -- 'tags', 'createTapes_tags' - A list of up to 50 tags that can be assigned to a virtual tape. Each tag
 -- is a key-value pair.
 --
@@ -137,22 +153,6 @@ data CreateTapes = CreateTapes'
 --
 -- 'worm', 'createTapes_worm' - Set to @TRUE@ if the tape you are creating is to be configured as a
 -- write-once-read-many (WORM) tape.
---
--- 'kmsKey', 'createTapes_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
---
--- 'kmsEncrypted', 'createTapes_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
---
--- 'poolId', 'createTapes_poolId' - The ID of the pool that you want to add your tape to for archiving. The
--- tape in this pool is archived in the S3 storage class that is associated
--- with the pool. When you use your backup application to eject the tape,
--- the tape is archived directly into the storage class (S3 Glacier or S3
--- Glacier Deep Archive) that corresponds to the pool.
 --
 -- 'gatewayARN', 'createTapes_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
@@ -195,17 +195,39 @@ newCreateTapes
   pNumTapesToCreate_
   pTapeBarcodePrefix_ =
     CreateTapes'
-      { tags = Prelude.Nothing,
-        worm = Prelude.Nothing,
+      { kmsEncrypted = Prelude.Nothing,
         kmsKey = Prelude.Nothing,
-        kmsEncrypted = Prelude.Nothing,
         poolId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        worm = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         tapeSizeInBytes = pTapeSizeInBytes_,
         clientToken = pClientToken_,
         numTapesToCreate = pNumTapesToCreate_,
         tapeBarcodePrefix = pTapeBarcodePrefix_
       }
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+createTapes_kmsEncrypted :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
+createTapes_kmsEncrypted = Lens.lens (\CreateTapes' {kmsEncrypted} -> kmsEncrypted) (\s@CreateTapes' {} a -> s {kmsEncrypted = a} :: CreateTapes)
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+createTapes_kmsKey :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
+createTapes_kmsKey = Lens.lens (\CreateTapes' {kmsKey} -> kmsKey) (\s@CreateTapes' {} a -> s {kmsKey = a} :: CreateTapes)
+
+-- | The ID of the pool that you want to add your tape to for archiving. The
+-- tape in this pool is archived in the S3 storage class that is associated
+-- with the pool. When you use your backup application to eject the tape,
+-- the tape is archived directly into the storage class (S3 Glacier or S3
+-- Glacier Deep Archive) that corresponds to the pool.
+createTapes_poolId :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
+createTapes_poolId = Lens.lens (\CreateTapes' {poolId} -> poolId) (\s@CreateTapes' {} a -> s {poolId = a} :: CreateTapes)
 
 -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag
 -- is a key-value pair.
@@ -221,28 +243,6 @@ createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} 
 -- write-once-read-many (WORM) tape.
 createTapes_worm :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
 createTapes_worm = Lens.lens (\CreateTapes' {worm} -> worm) (\s@CreateTapes' {} a -> s {worm = a} :: CreateTapes)
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
-createTapes_kmsKey :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
-createTapes_kmsKey = Lens.lens (\CreateTapes' {kmsKey} -> kmsKey) (\s@CreateTapes' {} a -> s {kmsKey = a} :: CreateTapes)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
-createTapes_kmsEncrypted :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Bool)
-createTapes_kmsEncrypted = Lens.lens (\CreateTapes' {kmsEncrypted} -> kmsEncrypted) (\s@CreateTapes' {} a -> s {kmsEncrypted = a} :: CreateTapes)
-
--- | The ID of the pool that you want to add your tape to for archiving. The
--- tape in this pool is archived in the S3 storage class that is associated
--- with the pool. When you use your backup application to eject the tape,
--- the tape is archived directly into the storage class (S3 Glacier or S3
--- Glacier Deep Archive) that corresponds to the pool.
-createTapes_poolId :: Lens.Lens' CreateTapes (Prelude.Maybe Prelude.Text)
-createTapes_poolId = Lens.lens (\CreateTapes' {poolId} -> poolId) (\s@CreateTapes' {} a -> s {poolId = a} :: CreateTapes)
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
@@ -291,11 +291,11 @@ instance Core.AWSRequest CreateTapes where
 
 instance Prelude.Hashable CreateTapes where
   hashWithSalt _salt CreateTapes' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` worm
+    _salt `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` poolId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` worm
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` tapeSizeInBytes
       `Prelude.hashWithSalt` clientToken
@@ -304,11 +304,11 @@ instance Prelude.Hashable CreateTapes where
 
 instance Prelude.NFData CreateTapes where
   rnf CreateTapes' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf worm
+    Prelude.rnf kmsEncrypted
       `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf kmsEncrypted
       `Prelude.seq` Prelude.rnf poolId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf worm
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf tapeSizeInBytes
       `Prelude.seq` Prelude.rnf clientToken
@@ -334,11 +334,11 @@ instance Data.ToJSON CreateTapes where
   toJSON CreateTapes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Worm" Data..=) Prelude.<$> worm,
+          [ ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
             ("KMSKey" Data..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
             ("PoolId" Data..=) Prelude.<$> poolId,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Worm" Data..=) Prelude.<$> worm,
             Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just
               ("TapeSizeInBytes" Data..= tapeSizeInBytes),

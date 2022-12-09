@@ -44,9 +44,9 @@ module Amazonka.StorageGateway.DescribeBandwidthRateLimit
     newDescribeBandwidthRateLimitResponse,
 
     -- * Response Lenses
+    describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec,
     describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec,
     describeBandwidthRateLimitResponse_gatewayARN,
-    describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec,
     describeBandwidthRateLimitResponse_httpStatus,
   )
 where
@@ -100,9 +100,9 @@ instance Core.AWSRequest DescribeBandwidthRateLimit where
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitResponse'
-            Prelude.<$> (x Data..?> "AverageUploadRateLimitInBitsPerSec")
+            Prelude.<$> (x Data..?> "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<*> (x Data..?> "AverageUploadRateLimitInBitsPerSec")
             Prelude.<*> (x Data..?> "GatewayARN")
-            Prelude.<*> (x Data..?> "AverageDownloadRateLimitInBitsPerSec")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,13 +146,13 @@ instance Data.ToQuery DescribeBandwidthRateLimit where
 --
 -- /See:/ 'newDescribeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { -- | The average upload bandwidth rate limit in bits per second. This field
+  { -- | The average download bandwidth rate limit in bits per second. This field
+    -- does not appear in the response if the download rate limit is not set.
+    averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
+    -- | The average upload bandwidth rate limit in bits per second. This field
     -- does not appear in the response if the upload rate limit is not set.
     averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
     gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | The average download bandwidth rate limit in bits per second. This field
-    -- does not appear in the response if the download rate limit is not set.
-    averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,13 +166,13 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'averageDownloadRateLimitInBitsPerSec', 'describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field
+-- does not appear in the response if the download rate limit is not set.
+--
 -- 'averageUploadRateLimitInBitsPerSec', 'describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
 --
 -- 'gatewayARN', 'describeBandwidthRateLimitResponse_gatewayARN' - Undocumented member.
---
--- 'averageDownloadRateLimitInBitsPerSec', 'describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field
--- does not appear in the response if the download rate limit is not set.
 --
 -- 'httpStatus', 'describeBandwidthRateLimitResponse_httpStatus' - The response's http status code.
 newDescribeBandwidthRateLimitResponse ::
@@ -181,13 +181,18 @@ newDescribeBandwidthRateLimitResponse ::
   DescribeBandwidthRateLimitResponse
 newDescribeBandwidthRateLimitResponse pHttpStatus_ =
   DescribeBandwidthRateLimitResponse'
-    { averageUploadRateLimitInBitsPerSec =
+    { averageDownloadRateLimitInBitsPerSec =
+        Prelude.Nothing,
+      averageUploadRateLimitInBitsPerSec =
         Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
-      averageDownloadRateLimitInBitsPerSec =
-        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The average download bandwidth rate limit in bits per second. This field
+-- does not appear in the response if the download rate limit is not set.
+describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Natural)
+describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec = Lens.lens (\DescribeBandwidthRateLimitResponse' {averageDownloadRateLimitInBitsPerSec} -> averageDownloadRateLimitInBitsPerSec) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {averageDownloadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
 
 -- | The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
@@ -198,11 +203,6 @@ describeBandwidthRateLimitResponse_averageUploadRateLimitInBitsPerSec = Lens.len
 describeBandwidthRateLimitResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Text)
 describeBandwidthRateLimitResponse_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitResponse' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitResponse)
 
--- | The average download bandwidth rate limit in bits per second. This field
--- does not appear in the response if the download rate limit is not set.
-describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' DescribeBandwidthRateLimitResponse (Prelude.Maybe Prelude.Natural)
-describeBandwidthRateLimitResponse_averageDownloadRateLimitInBitsPerSec = Lens.lens (\DescribeBandwidthRateLimitResponse' {averageDownloadRateLimitInBitsPerSec} -> averageDownloadRateLimitInBitsPerSec) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {averageDownloadRateLimitInBitsPerSec = a} :: DescribeBandwidthRateLimitResponse)
-
 -- | The response's http status code.
 describeBandwidthRateLimitResponse_httpStatus :: Lens.Lens' DescribeBandwidthRateLimitResponse Prelude.Int
 describeBandwidthRateLimitResponse_httpStatus = Lens.lens (\DescribeBandwidthRateLimitResponse' {httpStatus} -> httpStatus) (\s@DescribeBandwidthRateLimitResponse' {} a -> s {httpStatus = a} :: DescribeBandwidthRateLimitResponse)
@@ -212,7 +212,7 @@ instance
     DescribeBandwidthRateLimitResponse
   where
   rnf DescribeBandwidthRateLimitResponse' {..} =
-    Prelude.rnf averageUploadRateLimitInBitsPerSec
+    Prelude.rnf averageDownloadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf httpStatus

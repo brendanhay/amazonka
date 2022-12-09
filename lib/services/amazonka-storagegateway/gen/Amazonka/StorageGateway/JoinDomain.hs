@@ -28,9 +28,9 @@ module Amazonka.StorageGateway.JoinDomain
     newJoinDomain,
 
     -- * Request Lenses
+    joinDomain_domainControllers,
     joinDomain_organizationalUnit,
     joinDomain_timeoutInSeconds,
-    joinDomain_domainControllers,
     joinDomain_gatewayARN,
     joinDomain_domainName,
     joinDomain_userName,
@@ -41,8 +41,8 @@ module Amazonka.StorageGateway.JoinDomain
     newJoinDomainResponse,
 
     -- * Response Lenses
-    joinDomainResponse_gatewayARN,
     joinDomainResponse_activeDirectoryStatus,
+    joinDomainResponse_gatewayARN,
     joinDomainResponse_httpStatus,
   )
 where
@@ -59,17 +59,17 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newJoinDomain' smart constructor.
 data JoinDomain = JoinDomain'
-  { -- | The organizational unit (OU) is a container in an Active Directory that
+  { -- | List of IPv4 addresses, NetBIOS names, or host names of your domain
+    -- server. If you need to specify the port number include it after the
+    -- colon (“:”). For example, @mydc.mydomain.com:389@.
+    domainControllers :: Prelude.Maybe [Prelude.Text],
+    -- | The organizational unit (OU) is a container in an Active Directory that
     -- can hold users, groups, computers, and other OUs and this parameter
     -- specifies the OU that the gateway will join within the AD domain.
     organizationalUnit :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time in seconds, in which the @JoinDomain@ operation must
     -- complete. The default is 20 seconds.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | List of IPv4 addresses, NetBIOS names, or host names of your domain
-    -- server. If you need to specify the port number include it after the
-    -- colon (“:”). For example, @mydc.mydomain.com:389@.
-    domainControllers :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
     -- operation to return a list of gateways for your account and Amazon Web
     -- Services Region.
@@ -96,16 +96,16 @@ data JoinDomain = JoinDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainControllers', 'joinDomain_domainControllers' - List of IPv4 addresses, NetBIOS names, or host names of your domain
+-- server. If you need to specify the port number include it after the
+-- colon (“:”). For example, @mydc.mydomain.com:389@.
+--
 -- 'organizationalUnit', 'joinDomain_organizationalUnit' - The organizational unit (OU) is a container in an Active Directory that
 -- can hold users, groups, computers, and other OUs and this parameter
 -- specifies the OU that the gateway will join within the AD domain.
 --
 -- 'timeoutInSeconds', 'joinDomain_timeoutInSeconds' - Specifies the time in seconds, in which the @JoinDomain@ operation must
 -- complete. The default is 20 seconds.
---
--- 'domainControllers', 'joinDomain_domainControllers' - List of IPv4 addresses, NetBIOS names, or host names of your domain
--- server. If you need to specify the port number include it after the
--- colon (“:”). For example, @mydc.mydomain.com:389@.
 --
 -- 'gatewayARN', 'joinDomain_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
 -- operation to return a list of gateways for your account and Amazon Web
@@ -137,14 +137,20 @@ newJoinDomain
   pUserName_
   pPassword_ =
     JoinDomain'
-      { organizationalUnit = Prelude.Nothing,
+      { domainControllers = Prelude.Nothing,
+        organizationalUnit = Prelude.Nothing,
         timeoutInSeconds = Prelude.Nothing,
-        domainControllers = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         domainName = pDomainName_,
         userName = pUserName_,
         password = Data._Sensitive Lens.# pPassword_
       }
+
+-- | List of IPv4 addresses, NetBIOS names, or host names of your domain
+-- server. If you need to specify the port number include it after the
+-- colon (“:”). For example, @mydc.mydomain.com:389@.
+joinDomain_domainControllers :: Lens.Lens' JoinDomain (Prelude.Maybe [Prelude.Text])
+joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The organizational unit (OU) is a container in an Active Directory that
 -- can hold users, groups, computers, and other OUs and this parameter
@@ -156,12 +162,6 @@ joinDomain_organizationalUnit = Lens.lens (\JoinDomain' {organizationalUnit} -> 
 -- complete. The default is 20 seconds.
 joinDomain_timeoutInSeconds :: Lens.Lens' JoinDomain (Prelude.Maybe Prelude.Natural)
 joinDomain_timeoutInSeconds = Lens.lens (\JoinDomain' {timeoutInSeconds} -> timeoutInSeconds) (\s@JoinDomain' {} a -> s {timeoutInSeconds = a} :: JoinDomain)
-
--- | List of IPv4 addresses, NetBIOS names, or host names of your domain
--- server. If you need to specify the port number include it after the
--- colon (“:”). For example, @mydc.mydomain.com:389@.
-joinDomain_domainControllers :: Lens.Lens' JoinDomain (Prelude.Maybe [Prelude.Text])
-joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
 -- operation to return a list of gateways for your account and Amazon Web
@@ -194,16 +194,16 @@ instance Core.AWSRequest JoinDomain where
     Response.receiveJSON
       ( \s h x ->
           JoinDomainResponse'
-            Prelude.<$> (x Data..?> "GatewayARN")
-            Prelude.<*> (x Data..?> "ActiveDirectoryStatus")
+            Prelude.<$> (x Data..?> "ActiveDirectoryStatus")
+            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable JoinDomain where
   hashWithSalt _salt JoinDomain' {..} =
-    _salt `Prelude.hashWithSalt` organizationalUnit
+    _salt `Prelude.hashWithSalt` domainControllers
+      `Prelude.hashWithSalt` organizationalUnit
       `Prelude.hashWithSalt` timeoutInSeconds
-      `Prelude.hashWithSalt` domainControllers
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` userName
@@ -211,9 +211,9 @@ instance Prelude.Hashable JoinDomain where
 
 instance Prelude.NFData JoinDomain where
   rnf JoinDomain' {..} =
-    Prelude.rnf organizationalUnit
+    Prelude.rnf domainControllers
+      `Prelude.seq` Prelude.rnf organizationalUnit
       `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf domainControllers
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf userName
@@ -238,12 +238,12 @@ instance Data.ToJSON JoinDomain where
   toJSON JoinDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationalUnit" Data..=)
+          [ ("DomainControllers" Data..=)
+              Prelude.<$> domainControllers,
+            ("OrganizationalUnit" Data..=)
               Prelude.<$> organizationalUnit,
             ("TimeoutInSeconds" Data..=)
               Prelude.<$> timeoutInSeconds,
-            ("DomainControllers" Data..=)
-              Prelude.<$> domainControllers,
             Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just ("DomainName" Data..= domainName),
             Prelude.Just ("UserName" Data..= userName),
@@ -261,10 +261,7 @@ instance Data.ToQuery JoinDomain where
 --
 -- /See:/ 'newJoinDomainResponse' smart constructor.
 data JoinDomainResponse = JoinDomainResponse'
-  { -- | The unique Amazon Resource Name (ARN) of the gateway that joined the
-    -- domain.
-    gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the status of the gateway as a member of the Active Directory
+  { -- | Indicates the status of the gateway as a member of the Active Directory
     -- domain.
     --
     -- -   @ACCESS_DENIED@: Indicates that the @JoinDomain@ operation failed
@@ -286,6 +283,9 @@ data JoinDomainResponse = JoinDomainResponse'
     -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
     --     due to another type of error.
     activeDirectoryStatus :: Prelude.Maybe ActiveDirectoryStatus,
+    -- | The unique Amazon Resource Name (ARN) of the gateway that joined the
+    -- domain.
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,9 +298,6 @@ data JoinDomainResponse = JoinDomainResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'gatewayARN', 'joinDomainResponse_gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that joined the
--- domain.
 --
 -- 'activeDirectoryStatus', 'joinDomainResponse_activeDirectoryStatus' - Indicates the status of the gateway as a member of the Active Directory
 -- domain.
@@ -324,6 +321,9 @@ data JoinDomainResponse = JoinDomainResponse'
 -- -   @UNKNOWN_ERROR@: Indicates that the @JoinDomain@ operation failed
 --     due to another type of error.
 --
+-- 'gatewayARN', 'joinDomainResponse_gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that joined the
+-- domain.
+--
 -- 'httpStatus', 'joinDomainResponse_httpStatus' - The response's http status code.
 newJoinDomainResponse ::
   -- | 'httpStatus'
@@ -331,15 +331,11 @@ newJoinDomainResponse ::
   JoinDomainResponse
 newJoinDomainResponse pHttpStatus_ =
   JoinDomainResponse'
-    { gatewayARN = Prelude.Nothing,
-      activeDirectoryStatus = Prelude.Nothing,
+    { activeDirectoryStatus =
+        Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique Amazon Resource Name (ARN) of the gateway that joined the
--- domain.
-joinDomainResponse_gatewayARN :: Lens.Lens' JoinDomainResponse (Prelude.Maybe Prelude.Text)
-joinDomainResponse_gatewayARN = Lens.lens (\JoinDomainResponse' {gatewayARN} -> gatewayARN) (\s@JoinDomainResponse' {} a -> s {gatewayARN = a} :: JoinDomainResponse)
 
 -- | Indicates the status of the gateway as a member of the Active Directory
 -- domain.
@@ -365,12 +361,17 @@ joinDomainResponse_gatewayARN = Lens.lens (\JoinDomainResponse' {gatewayARN} -> 
 joinDomainResponse_activeDirectoryStatus :: Lens.Lens' JoinDomainResponse (Prelude.Maybe ActiveDirectoryStatus)
 joinDomainResponse_activeDirectoryStatus = Lens.lens (\JoinDomainResponse' {activeDirectoryStatus} -> activeDirectoryStatus) (\s@JoinDomainResponse' {} a -> s {activeDirectoryStatus = a} :: JoinDomainResponse)
 
+-- | The unique Amazon Resource Name (ARN) of the gateway that joined the
+-- domain.
+joinDomainResponse_gatewayARN :: Lens.Lens' JoinDomainResponse (Prelude.Maybe Prelude.Text)
+joinDomainResponse_gatewayARN = Lens.lens (\JoinDomainResponse' {gatewayARN} -> gatewayARN) (\s@JoinDomainResponse' {} a -> s {gatewayARN = a} :: JoinDomainResponse)
+
 -- | The response's http status code.
 joinDomainResponse_httpStatus :: Lens.Lens' JoinDomainResponse Prelude.Int
 joinDomainResponse_httpStatus = Lens.lens (\JoinDomainResponse' {httpStatus} -> httpStatus) (\s@JoinDomainResponse' {} a -> s {httpStatus = a} :: JoinDomainResponse)
 
 instance Prelude.NFData JoinDomainResponse where
   rnf JoinDomainResponse' {..} =
-    Prelude.rnf gatewayARN
-      `Prelude.seq` Prelude.rnf activeDirectoryStatus
+    Prelude.rnf activeDirectoryStatus
+      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf httpStatus

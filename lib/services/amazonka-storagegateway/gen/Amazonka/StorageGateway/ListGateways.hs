@@ -40,16 +40,16 @@ module Amazonka.StorageGateway.ListGateways
     newListGateways,
 
     -- * Request Lenses
-    listGateways_marker,
     listGateways_limit,
+    listGateways_marker,
 
     -- * Destructuring the Response
     ListGatewaysResponse (..),
     newListGatewaysResponse,
 
     -- * Response Lenses
-    listGatewaysResponse_marker,
     listGatewaysResponse_gateways,
+    listGatewaysResponse_marker,
     listGatewaysResponse_httpStatus,
   )
 where
@@ -70,12 +70,12 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { -- | An opaque string that indicates the position at which to begin the
-    -- returned list of gateways.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that the list of gateways returned be limited to the specified
+  { -- | Specifies that the list of gateways returned be limited to the specified
     -- number of items.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin the
+    -- returned list of gateways.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,28 +87,28 @@ data ListGateways = ListGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listGateways_marker' - An opaque string that indicates the position at which to begin the
--- returned list of gateways.
---
 -- 'limit', 'listGateways_limit' - Specifies that the list of gateways returned be limited to the specified
 -- number of items.
+--
+-- 'marker', 'listGateways_marker' - An opaque string that indicates the position at which to begin the
+-- returned list of gateways.
 newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
-    { marker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
-
--- | An opaque string that indicates the position at which to begin the
--- returned list of gateways.
-listGateways_marker :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
-listGateways_marker = Lens.lens (\ListGateways' {marker} -> marker) (\s@ListGateways' {} a -> s {marker = a} :: ListGateways)
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
 listGateways_limit :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
 listGateways_limit = Lens.lens (\ListGateways' {limit} -> limit) (\s@ListGateways' {} a -> s {limit = a} :: ListGateways)
+
+-- | An opaque string that indicates the position at which to begin the
+-- returned list of gateways.
+listGateways_marker :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
+listGateways_marker = Lens.lens (\ListGateways' {marker} -> marker) (\s@ListGateways' {} a -> s {marker = a} :: ListGateways)
 
 instance Core.AWSPager ListGateways where
   page rq rs
@@ -137,19 +137,19 @@ instance Core.AWSRequest ListGateways where
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> (x Data..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
 
 instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
-    Prelude.rnf marker `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit `Prelude.seq` Prelude.rnf marker
 
 instance Data.ToHeaders ListGateways where
   toHeaders =
@@ -170,8 +170,8 @@ instance Data.ToJSON ListGateways where
   toJSON ListGateways' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("Marker" Data..=) Prelude.<$> marker
           ]
       )
 
@@ -183,12 +183,12 @@ instance Data.ToQuery ListGateways where
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { -- | Use the marker in your next request to fetch the next set of gateways in
+  { -- | An array of GatewayInfo objects.
+    gateways :: Prelude.Maybe [GatewayInfo],
+    -- | Use the marker in your next request to fetch the next set of gateways in
     -- the list. If there are no more gateways to list, this field does not
     -- appear in the response.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | An array of GatewayInfo objects.
-    gateways :: Prelude.Maybe [GatewayInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,11 +202,11 @@ data ListGatewaysResponse = ListGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gateways', 'listGatewaysResponse_gateways' - An array of GatewayInfo objects.
+--
 -- 'marker', 'listGatewaysResponse_marker' - Use the marker in your next request to fetch the next set of gateways in
 -- the list. If there are no more gateways to list, this field does not
 -- appear in the response.
---
--- 'gateways', 'listGatewaysResponse_gateways' - An array of GatewayInfo objects.
 --
 -- 'httpStatus', 'listGatewaysResponse_httpStatus' - The response's http status code.
 newListGatewaysResponse ::
@@ -215,10 +215,14 @@ newListGatewaysResponse ::
   ListGatewaysResponse
 newListGatewaysResponse pHttpStatus_ =
   ListGatewaysResponse'
-    { marker = Prelude.Nothing,
-      gateways = Prelude.Nothing,
+    { gateways = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of GatewayInfo objects.
+listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewayInfo])
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use the marker in your next request to fetch the next set of gateways in
 -- the list. If there are no more gateways to list, this field does not
@@ -226,16 +230,12 @@ newListGatewaysResponse pHttpStatus_ =
 listGatewaysResponse_marker :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe Prelude.Text)
 listGatewaysResponse_marker = Lens.lens (\ListGatewaysResponse' {marker} -> marker) (\s@ListGatewaysResponse' {} a -> s {marker = a} :: ListGatewaysResponse)
 
--- | An array of GatewayInfo objects.
-listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewayInfo])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int
 listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListGatewaysResponse' {} a -> s {httpStatus = a} :: ListGatewaysResponse)
 
 instance Prelude.NFData ListGatewaysResponse where
   rnf ListGatewaysResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf gateways
+    Prelude.rnf gateways
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

@@ -43,20 +43,20 @@ module Amazonka.StorageGateway.UpdateNFSFileShare
     newUpdateNFSFileShare,
 
     -- * Request Lenses
-    updateNFSFileShare_squash,
-    updateNFSFileShare_nFSFileShareDefaults,
-    updateNFSFileShare_fileShareName,
-    updateNFSFileShare_requesterPays,
-    updateNFSFileShare_objectACL,
-    updateNFSFileShare_kmsKey,
-    updateNFSFileShare_kmsEncrypted,
-    updateNFSFileShare_defaultStorageClass,
-    updateNFSFileShare_cacheAttributes,
-    updateNFSFileShare_readOnly,
     updateNFSFileShare_auditDestinationARN,
+    updateNFSFileShare_cacheAttributes,
     updateNFSFileShare_clientList,
+    updateNFSFileShare_defaultStorageClass,
+    updateNFSFileShare_fileShareName,
     updateNFSFileShare_guessMIMETypeEnabled,
+    updateNFSFileShare_kmsEncrypted,
+    updateNFSFileShare_kmsKey,
+    updateNFSFileShare_nFSFileShareDefaults,
     updateNFSFileShare_notificationPolicy,
+    updateNFSFileShare_objectACL,
+    updateNFSFileShare_readOnly,
+    updateNFSFileShare_requesterPays,
+    updateNFSFileShare_squash,
     updateNFSFileShare_fileShareARN,
 
     -- * Destructuring the Response
@@ -81,72 +81,42 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newUpdateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-  { -- | The user mapped to anonymous user.
-    --
-    -- Valid values are the following:
-    --
-    -- -   @RootSquash@: Only root is mapped to anonymous user.
-    --
-    -- -   @NoSquash@: No one is mapped to anonymous user.
-    --
-    -- -   @AllSquash@: Everyone is mapped to anonymous user.
-    squash :: Prelude.Maybe Prelude.Text,
-    -- | The default values for the file share. Optional.
-    nFSFileShareDefaults :: Prelude.Maybe NFSFileShareDefaults,
-    -- | The name of the file share. Optional.
-    --
-    -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@, or if an access point or access point alias is used.
-    fileShareName :: Prelude.Maybe Prelude.Text,
-    -- | A value that sets who pays the cost of the request and the cost
-    -- associated with data download from the S3 bucket. If this value is set
-    -- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
-    -- pays. However, the S3 bucket owner always pays the cost of storing data.
-    --
-    -- @RequesterPays@ is a configuration for the S3 bucket that backs the file
-    -- share, so make sure that the configuration on the file share is the same
-    -- as the S3 bucket configuration.
-    --
-    -- Valid Values: @true@ | @false@
-    requesterPays :: Prelude.Maybe Prelude.Bool,
-    -- | A value that sets the access control list (ACL) permission for objects
-    -- in the S3 bucket that a S3 File Gateway puts objects into. The default
-    -- value is @private@.
-    objectACL :: Prelude.Maybe ObjectACL,
-    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
-    -- used for Amazon S3 server-side encryption. Storage Gateway does not
-    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
-    -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
-    -- key, or @false@ to use a key managed by Amazon S3. Optional.
-    --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+  { -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    -- | Specifies refresh cache information for the file share.
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
+    -- | The list of clients that are allowed to access the S3 File Gateway. The
+    -- list must contain either valid IP addresses or valid CIDR blocks.
+    clientList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The default storage class for objects put into an Amazon S3 bucket by
     -- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
     -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
     defaultStorageClass :: Prelude.Maybe Prelude.Text,
-    -- | Specifies refresh cache information for the file share.
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
-    -- | A value that sets the write status of a file share. Set this value to
-    -- @true@ to set the write status to read-only, otherwise set to @false@.
+    -- | The name of the file share. Optional.
     --
-    -- Valid Values: @true@ | @false@
-    readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
-    auditDestinationARN :: Prelude.Maybe Prelude.Text,
-    -- | The list of clients that are allowed to access the S3 File Gateway. The
-    -- list must contain either valid IP addresses or valid CIDR blocks.
-    clientList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- @FileShareName@ must be set if an S3 prefix name is set in
+    -- @LocationARN@, or if an access point or access point alias is used.
+    fileShareName :: Prelude.Maybe Prelude.Text,
     -- | A value that enables guessing of the MIME type for uploaded objects
     -- based on file extensions. Set this value to @true@ to enable MIME type
     -- guessing, otherwise set to @false@. The default value is @true@.
     --
     -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+    -- used for Amazon S3 server-side encryption. Storage Gateway does not
+    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+    -- is @true@. Optional.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The default values for the file share. Optional.
+    nFSFileShareDefaults :: Prelude.Maybe NFSFileShareDefaults,
     -- | The notification policy of the file share. @SettlingTimeInSeconds@
     -- controls the number of seconds to wait after the last point in time a
     -- client wrote to a file before generating an @ObjectUploaded@
@@ -166,6 +136,36 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
     --
     -- @{}@
     notificationPolicy :: Prelude.Maybe Prelude.Text,
+    -- | A value that sets the access control list (ACL) permission for objects
+    -- in the S3 bucket that a S3 File Gateway puts objects into. The default
+    -- value is @private@.
+    objectACL :: Prelude.Maybe ObjectACL,
+    -- | A value that sets the write status of a file share. Set this value to
+    -- @true@ to set the write status to read-only, otherwise set to @false@.
+    --
+    -- Valid Values: @true@ | @false@
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | A value that sets who pays the cost of the request and the cost
+    -- associated with data download from the S3 bucket. If this value is set
+    -- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
+    -- pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- @RequesterPays@ is a configuration for the S3 bucket that backs the file
+    -- share, so make sure that the configuration on the file share is the same
+    -- as the S3 bucket configuration.
+    --
+    -- Valid Values: @true@ | @false@
+    requesterPays :: Prelude.Maybe Prelude.Bool,
+    -- | The user mapped to anonymous user.
+    --
+    -- Valid values are the following:
+    --
+    -- -   @RootSquash@: Only root is mapped to anonymous user.
+    --
+    -- -   @NoSquash@: No one is mapped to anonymous user.
+    --
+    -- -   @AllSquash@: Everyone is mapped to anonymous user.
+    squash :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the file share to be updated.
     fileShareARN :: Prelude.Text
   }
@@ -179,47 +179,12 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'squash', 'updateNFSFileShare_squash' - The user mapped to anonymous user.
+-- 'auditDestinationARN', 'updateNFSFileShare_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for audit logs.
 --
--- Valid values are the following:
+-- 'cacheAttributes', 'updateNFSFileShare_cacheAttributes' - Specifies refresh cache information for the file share.
 --
--- -   @RootSquash@: Only root is mapped to anonymous user.
---
--- -   @NoSquash@: No one is mapped to anonymous user.
---
--- -   @AllSquash@: Everyone is mapped to anonymous user.
---
--- 'nFSFileShareDefaults', 'updateNFSFileShare_nFSFileShareDefaults' - The default values for the file share. Optional.
---
--- 'fileShareName', 'updateNFSFileShare_fileShareName' - The name of the file share. Optional.
---
--- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@, or if an access point or access point alias is used.
---
--- 'requesterPays', 'updateNFSFileShare_requesterPays' - A value that sets who pays the cost of the request and the cost
--- associated with data download from the S3 bucket. If this value is set
--- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
--- pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- @RequesterPays@ is a configuration for the S3 bucket that backs the file
--- share, so make sure that the configuration on the file share is the same
--- as the S3 bucket configuration.
---
--- Valid Values: @true@ | @false@
---
--- 'objectACL', 'updateNFSFileShare_objectACL' - A value that sets the access control list (ACL) permission for objects
--- in the S3 bucket that a S3 File Gateway puts objects into. The default
--- value is @private@.
---
--- 'kmsKey', 'updateNFSFileShare_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
---
--- 'kmsEncrypted', 'updateNFSFileShare_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
+-- 'clientList', 'updateNFSFileShare_clientList' - The list of clients that are allowed to access the S3 File Gateway. The
+-- list must contain either valid IP addresses or valid CIDR blocks.
 --
 -- 'defaultStorageClass', 'updateNFSFileShare_defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by
 -- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
@@ -227,23 +192,28 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
 --
--- 'cacheAttributes', 'updateNFSFileShare_cacheAttributes' - Specifies refresh cache information for the file share.
+-- 'fileShareName', 'updateNFSFileShare_fileShareName' - The name of the file share. Optional.
 --
--- 'readOnly', 'updateNFSFileShare_readOnly' - A value that sets the write status of a file share. Set this value to
--- @true@ to set the write status to read-only, otherwise set to @false@.
---
--- Valid Values: @true@ | @false@
---
--- 'auditDestinationARN', 'updateNFSFileShare_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for audit logs.
---
--- 'clientList', 'updateNFSFileShare_clientList' - The list of clients that are allowed to access the S3 File Gateway. The
--- list must contain either valid IP addresses or valid CIDR blocks.
+-- @FileShareName@ must be set if an S3 prefix name is set in
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'guessMIMETypeEnabled', 'updateNFSFileShare_guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
 -- guessing, otherwise set to @false@. The default value is @true@.
 --
 -- Valid Values: @true@ | @false@
+--
+-- 'kmsEncrypted', 'updateNFSFileShare_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'kmsKey', 'updateNFSFileShare_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+--
+-- 'nFSFileShareDefaults', 'updateNFSFileShare_nFSFileShareDefaults' - The default values for the file share. Optional.
 --
 -- 'notificationPolicy', 'updateNFSFileShare_notificationPolicy' - The notification policy of the file share. @SettlingTimeInSeconds@
 -- controls the number of seconds to wait after the last point in time a
@@ -264,54 +234,16 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 --
 -- @{}@
 --
--- 'fileShareARN', 'updateNFSFileShare_fileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
-newUpdateNFSFileShare ::
-  -- | 'fileShareARN'
-  Prelude.Text ->
-  UpdateNFSFileShare
-newUpdateNFSFileShare pFileShareARN_ =
-  UpdateNFSFileShare'
-    { squash = Prelude.Nothing,
-      nFSFileShareDefaults = Prelude.Nothing,
-      fileShareName = Prelude.Nothing,
-      requesterPays = Prelude.Nothing,
-      objectACL = Prelude.Nothing,
-      kmsKey = Prelude.Nothing,
-      kmsEncrypted = Prelude.Nothing,
-      defaultStorageClass = Prelude.Nothing,
-      cacheAttributes = Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      auditDestinationARN = Prelude.Nothing,
-      clientList = Prelude.Nothing,
-      guessMIMETypeEnabled = Prelude.Nothing,
-      notificationPolicy = Prelude.Nothing,
-      fileShareARN = pFileShareARN_
-    }
-
--- | The user mapped to anonymous user.
+-- 'objectACL', 'updateNFSFileShare_objectACL' - A value that sets the access control list (ACL) permission for objects
+-- in the S3 bucket that a S3 File Gateway puts objects into. The default
+-- value is @private@.
 --
--- Valid values are the following:
+-- 'readOnly', 'updateNFSFileShare_readOnly' - A value that sets the write status of a file share. Set this value to
+-- @true@ to set the write status to read-only, otherwise set to @false@.
 --
--- -   @RootSquash@: Only root is mapped to anonymous user.
+-- Valid Values: @true@ | @false@
 --
--- -   @NoSquash@: No one is mapped to anonymous user.
---
--- -   @AllSquash@: Everyone is mapped to anonymous user.
-updateNFSFileShare_squash :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
-updateNFSFileShare_squash = Lens.lens (\UpdateNFSFileShare' {squash} -> squash) (\s@UpdateNFSFileShare' {} a -> s {squash = a} :: UpdateNFSFileShare)
-
--- | The default values for the file share. Optional.
-updateNFSFileShare_nFSFileShareDefaults :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe NFSFileShareDefaults)
-updateNFSFileShare_nFSFileShareDefaults = Lens.lens (\UpdateNFSFileShare' {nFSFileShareDefaults} -> nFSFileShareDefaults) (\s@UpdateNFSFileShare' {} a -> s {nFSFileShareDefaults = a} :: UpdateNFSFileShare)
-
--- | The name of the file share. Optional.
---
--- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@, or if an access point or access point alias is used.
-updateNFSFileShare_fileShareName :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
-updateNFSFileShare_fileShareName = Lens.lens (\UpdateNFSFileShare' {fileShareName} -> fileShareName) (\s@UpdateNFSFileShare' {} a -> s {fileShareName = a} :: UpdateNFSFileShare)
-
--- | A value that sets who pays the cost of the request and the cost
+-- 'requesterPays', 'updateNFSFileShare_requesterPays' - A value that sets who pays the cost of the request and the cost
 -- associated with data download from the S3 bucket. If this value is set
 -- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
 -- pays. However, the S3 bucket owner always pays the cost of storing data.
@@ -321,28 +253,54 @@ updateNFSFileShare_fileShareName = Lens.lens (\UpdateNFSFileShare' {fileShareNam
 -- as the S3 bucket configuration.
 --
 -- Valid Values: @true@ | @false@
-updateNFSFileShare_requesterPays :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
-updateNFSFileShare_requesterPays = Lens.lens (\UpdateNFSFileShare' {requesterPays} -> requesterPays) (\s@UpdateNFSFileShare' {} a -> s {requesterPays = a} :: UpdateNFSFileShare)
-
--- | A value that sets the access control list (ACL) permission for objects
--- in the S3 bucket that a S3 File Gateway puts objects into. The default
--- value is @private@.
-updateNFSFileShare_objectACL :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe ObjectACL)
-updateNFSFileShare_objectACL = Lens.lens (\UpdateNFSFileShare' {objectACL} -> objectACL) (\s@UpdateNFSFileShare' {} a -> s {objectACL = a} :: UpdateNFSFileShare)
-
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
-updateNFSFileShare_kmsKey :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
-updateNFSFileShare_kmsKey = Lens.lens (\UpdateNFSFileShare' {kmsKey} -> kmsKey) (\s@UpdateNFSFileShare' {} a -> s {kmsKey = a} :: UpdateNFSFileShare)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- Valid Values: @true@ | @false@
-updateNFSFileShare_kmsEncrypted :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
-updateNFSFileShare_kmsEncrypted = Lens.lens (\UpdateNFSFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@UpdateNFSFileShare' {} a -> s {kmsEncrypted = a} :: UpdateNFSFileShare)
+-- 'squash', 'updateNFSFileShare_squash' - The user mapped to anonymous user.
+--
+-- Valid values are the following:
+--
+-- -   @RootSquash@: Only root is mapped to anonymous user.
+--
+-- -   @NoSquash@: No one is mapped to anonymous user.
+--
+-- -   @AllSquash@: Everyone is mapped to anonymous user.
+--
+-- 'fileShareARN', 'updateNFSFileShare_fileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
+newUpdateNFSFileShare ::
+  -- | 'fileShareARN'
+  Prelude.Text ->
+  UpdateNFSFileShare
+newUpdateNFSFileShare pFileShareARN_ =
+  UpdateNFSFileShare'
+    { auditDestinationARN =
+        Prelude.Nothing,
+      cacheAttributes = Prelude.Nothing,
+      clientList = Prelude.Nothing,
+      defaultStorageClass = Prelude.Nothing,
+      fileShareName = Prelude.Nothing,
+      guessMIMETypeEnabled = Prelude.Nothing,
+      kmsEncrypted = Prelude.Nothing,
+      kmsKey = Prelude.Nothing,
+      nFSFileShareDefaults = Prelude.Nothing,
+      notificationPolicy = Prelude.Nothing,
+      objectACL = Prelude.Nothing,
+      readOnly = Prelude.Nothing,
+      requesterPays = Prelude.Nothing,
+      squash = Prelude.Nothing,
+      fileShareARN = pFileShareARN_
+    }
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+updateNFSFileShare_auditDestinationARN :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
+updateNFSFileShare_auditDestinationARN = Lens.lens (\UpdateNFSFileShare' {auditDestinationARN} -> auditDestinationARN) (\s@UpdateNFSFileShare' {} a -> s {auditDestinationARN = a} :: UpdateNFSFileShare)
+
+-- | Specifies refresh cache information for the file share.
+updateNFSFileShare_cacheAttributes :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe CacheAttributes)
+updateNFSFileShare_cacheAttributes = Lens.lens (\UpdateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@UpdateNFSFileShare' {} a -> s {cacheAttributes = a} :: UpdateNFSFileShare)
+
+-- | The list of clients that are allowed to access the S3 File Gateway. The
+-- list must contain either valid IP addresses or valid CIDR blocks.
+updateNFSFileShare_clientList :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateNFSFileShare_clientList = Lens.lens (\UpdateNFSFileShare' {clientList} -> clientList) (\s@UpdateNFSFileShare' {} a -> s {clientList = a} :: UpdateNFSFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default storage class for objects put into an Amazon S3 bucket by
 -- the S3 File Gateway. The default value is @S3_STANDARD@. Optional.
@@ -352,25 +310,12 @@ updateNFSFileShare_kmsEncrypted = Lens.lens (\UpdateNFSFileShare' {kmsEncrypted}
 updateNFSFileShare_defaultStorageClass :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
 updateNFSFileShare_defaultStorageClass = Lens.lens (\UpdateNFSFileShare' {defaultStorageClass} -> defaultStorageClass) (\s@UpdateNFSFileShare' {} a -> s {defaultStorageClass = a} :: UpdateNFSFileShare)
 
--- | Specifies refresh cache information for the file share.
-updateNFSFileShare_cacheAttributes :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe CacheAttributes)
-updateNFSFileShare_cacheAttributes = Lens.lens (\UpdateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@UpdateNFSFileShare' {} a -> s {cacheAttributes = a} :: UpdateNFSFileShare)
-
--- | A value that sets the write status of a file share. Set this value to
--- @true@ to set the write status to read-only, otherwise set to @false@.
+-- | The name of the file share. Optional.
 --
--- Valid Values: @true@ | @false@
-updateNFSFileShare_readOnly :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
-updateNFSFileShare_readOnly = Lens.lens (\UpdateNFSFileShare' {readOnly} -> readOnly) (\s@UpdateNFSFileShare' {} a -> s {readOnly = a} :: UpdateNFSFileShare)
-
--- | The Amazon Resource Name (ARN) of the storage used for audit logs.
-updateNFSFileShare_auditDestinationARN :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
-updateNFSFileShare_auditDestinationARN = Lens.lens (\UpdateNFSFileShare' {auditDestinationARN} -> auditDestinationARN) (\s@UpdateNFSFileShare' {} a -> s {auditDestinationARN = a} :: UpdateNFSFileShare)
-
--- | The list of clients that are allowed to access the S3 File Gateway. The
--- list must contain either valid IP addresses or valid CIDR blocks.
-updateNFSFileShare_clientList :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateNFSFileShare_clientList = Lens.lens (\UpdateNFSFileShare' {clientList} -> clientList) (\s@UpdateNFSFileShare' {} a -> s {clientList = a} :: UpdateNFSFileShare) Prelude.. Lens.mapping Lens.coerced
+-- @FileShareName@ must be set if an S3 prefix name is set in
+-- @LocationARN@, or if an access point or access point alias is used.
+updateNFSFileShare_fileShareName :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
+updateNFSFileShare_fileShareName = Lens.lens (\UpdateNFSFileShare' {fileShareName} -> fileShareName) (\s@UpdateNFSFileShare' {} a -> s {fileShareName = a} :: UpdateNFSFileShare)
 
 -- | A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
@@ -379,6 +324,24 @@ updateNFSFileShare_clientList = Lens.lens (\UpdateNFSFileShare' {clientList} -> 
 -- Valid Values: @true@ | @false@
 updateNFSFileShare_guessMIMETypeEnabled :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
 updateNFSFileShare_guessMIMETypeEnabled = Lens.lens (\UpdateNFSFileShare' {guessMIMETypeEnabled} -> guessMIMETypeEnabled) (\s@UpdateNFSFileShare' {} a -> s {guessMIMETypeEnabled = a} :: UpdateNFSFileShare)
+
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+updateNFSFileShare_kmsEncrypted :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
+updateNFSFileShare_kmsEncrypted = Lens.lens (\UpdateNFSFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@UpdateNFSFileShare' {} a -> s {kmsEncrypted = a} :: UpdateNFSFileShare)
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+updateNFSFileShare_kmsKey :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
+updateNFSFileShare_kmsKey = Lens.lens (\UpdateNFSFileShare' {kmsKey} -> kmsKey) (\s@UpdateNFSFileShare' {} a -> s {kmsKey = a} :: UpdateNFSFileShare)
+
+-- | The default values for the file share. Optional.
+updateNFSFileShare_nFSFileShareDefaults :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe NFSFileShareDefaults)
+updateNFSFileShare_nFSFileShareDefaults = Lens.lens (\UpdateNFSFileShare' {nFSFileShareDefaults} -> nFSFileShareDefaults) (\s@UpdateNFSFileShare' {} a -> s {nFSFileShareDefaults = a} :: UpdateNFSFileShare)
 
 -- | The notification policy of the file share. @SettlingTimeInSeconds@
 -- controls the number of seconds to wait after the last point in time a
@@ -401,6 +364,44 @@ updateNFSFileShare_guessMIMETypeEnabled = Lens.lens (\UpdateNFSFileShare' {guess
 updateNFSFileShare_notificationPolicy :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
 updateNFSFileShare_notificationPolicy = Lens.lens (\UpdateNFSFileShare' {notificationPolicy} -> notificationPolicy) (\s@UpdateNFSFileShare' {} a -> s {notificationPolicy = a} :: UpdateNFSFileShare)
 
+-- | A value that sets the access control list (ACL) permission for objects
+-- in the S3 bucket that a S3 File Gateway puts objects into. The default
+-- value is @private@.
+updateNFSFileShare_objectACL :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe ObjectACL)
+updateNFSFileShare_objectACL = Lens.lens (\UpdateNFSFileShare' {objectACL} -> objectACL) (\s@UpdateNFSFileShare' {} a -> s {objectACL = a} :: UpdateNFSFileShare)
+
+-- | A value that sets the write status of a file share. Set this value to
+-- @true@ to set the write status to read-only, otherwise set to @false@.
+--
+-- Valid Values: @true@ | @false@
+updateNFSFileShare_readOnly :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
+updateNFSFileShare_readOnly = Lens.lens (\UpdateNFSFileShare' {readOnly} -> readOnly) (\s@UpdateNFSFileShare' {} a -> s {readOnly = a} :: UpdateNFSFileShare)
+
+-- | A value that sets who pays the cost of the request and the cost
+-- associated with data download from the S3 bucket. If this value is set
+-- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
+-- pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- @RequesterPays@ is a configuration for the S3 bucket that backs the file
+-- share, so make sure that the configuration on the file share is the same
+-- as the S3 bucket configuration.
+--
+-- Valid Values: @true@ | @false@
+updateNFSFileShare_requesterPays :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Bool)
+updateNFSFileShare_requesterPays = Lens.lens (\UpdateNFSFileShare' {requesterPays} -> requesterPays) (\s@UpdateNFSFileShare' {} a -> s {requesterPays = a} :: UpdateNFSFileShare)
+
+-- | The user mapped to anonymous user.
+--
+-- Valid values are the following:
+--
+-- -   @RootSquash@: Only root is mapped to anonymous user.
+--
+-- -   @NoSquash@: No one is mapped to anonymous user.
+--
+-- -   @AllSquash@: Everyone is mapped to anonymous user.
+updateNFSFileShare_squash :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
+updateNFSFileShare_squash = Lens.lens (\UpdateNFSFileShare' {squash} -> squash) (\s@UpdateNFSFileShare' {} a -> s {squash = a} :: UpdateNFSFileShare)
+
 -- | The Amazon Resource Name (ARN) of the file share to be updated.
 updateNFSFileShare_fileShareARN :: Lens.Lens' UpdateNFSFileShare Prelude.Text
 updateNFSFileShare_fileShareARN = Lens.lens (\UpdateNFSFileShare' {fileShareARN} -> fileShareARN) (\s@UpdateNFSFileShare' {} a -> s {fileShareARN = a} :: UpdateNFSFileShare)
@@ -421,38 +422,38 @@ instance Core.AWSRequest UpdateNFSFileShare where
 
 instance Prelude.Hashable UpdateNFSFileShare where
   hashWithSalt _salt UpdateNFSFileShare' {..} =
-    _salt `Prelude.hashWithSalt` squash
-      `Prelude.hashWithSalt` nFSFileShareDefaults
-      `Prelude.hashWithSalt` fileShareName
-      `Prelude.hashWithSalt` requesterPays
-      `Prelude.hashWithSalt` objectACL
-      `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` kmsEncrypted
-      `Prelude.hashWithSalt` defaultStorageClass
+    _salt `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` cacheAttributes
-      `Prelude.hashWithSalt` readOnly
-      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` clientList
+      `Prelude.hashWithSalt` defaultStorageClass
+      `Prelude.hashWithSalt` fileShareName
       `Prelude.hashWithSalt` guessMIMETypeEnabled
+      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` nFSFileShareDefaults
       `Prelude.hashWithSalt` notificationPolicy
+      `Prelude.hashWithSalt` objectACL
+      `Prelude.hashWithSalt` readOnly
+      `Prelude.hashWithSalt` requesterPays
+      `Prelude.hashWithSalt` squash
       `Prelude.hashWithSalt` fileShareARN
 
 instance Prelude.NFData UpdateNFSFileShare where
   rnf UpdateNFSFileShare' {..} =
-    Prelude.rnf squash
-      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
-      `Prelude.seq` Prelude.rnf fileShareName
-      `Prelude.seq` Prelude.rnf requesterPays
-      `Prelude.seq` Prelude.rnf objectACL
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf kmsEncrypted
-      `Prelude.seq` Prelude.rnf defaultStorageClass
+    Prelude.rnf auditDestinationARN
       `Prelude.seq` Prelude.rnf cacheAttributes
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf auditDestinationARN
       `Prelude.seq` Prelude.rnf clientList
+      `Prelude.seq` Prelude.rnf defaultStorageClass
+      `Prelude.seq` Prelude.rnf fileShareName
       `Prelude.seq` Prelude.rnf guessMIMETypeEnabled
+      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf nFSFileShareDefaults
       `Prelude.seq` Prelude.rnf notificationPolicy
+      `Prelude.seq` Prelude.rnf objectACL
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf requesterPays
+      `Prelude.seq` Prelude.rnf squash
       `Prelude.seq` Prelude.rnf fileShareARN
 
 instance Data.ToHeaders UpdateNFSFileShare where
@@ -474,26 +475,26 @@ instance Data.ToJSON UpdateNFSFileShare where
   toJSON UpdateNFSFileShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Squash" Data..=) Prelude.<$> squash,
-            ("NFSFileShareDefaults" Data..=)
-              Prelude.<$> nFSFileShareDefaults,
-            ("FileShareName" Data..=) Prelude.<$> fileShareName,
-            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
-            ("ObjectACL" Data..=) Prelude.<$> objectACL,
-            ("KMSKey" Data..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
-            ("DefaultStorageClass" Data..=)
-              Prelude.<$> defaultStorageClass,
+          [ ("AuditDestinationARN" Data..=)
+              Prelude.<$> auditDestinationARN,
             ("CacheAttributes" Data..=)
               Prelude.<$> cacheAttributes,
-            ("ReadOnly" Data..=) Prelude.<$> readOnly,
-            ("AuditDestinationARN" Data..=)
-              Prelude.<$> auditDestinationARN,
             ("ClientList" Data..=) Prelude.<$> clientList,
+            ("DefaultStorageClass" Data..=)
+              Prelude.<$> defaultStorageClass,
+            ("FileShareName" Data..=) Prelude.<$> fileShareName,
             ("GuessMIMETypeEnabled" Data..=)
               Prelude.<$> guessMIMETypeEnabled,
+            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("KMSKey" Data..=) Prelude.<$> kmsKey,
+            ("NFSFileShareDefaults" Data..=)
+              Prelude.<$> nFSFileShareDefaults,
             ("NotificationPolicy" Data..=)
               Prelude.<$> notificationPolicy,
+            ("ObjectACL" Data..=) Prelude.<$> objectACL,
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("RequesterPays" Data..=) Prelude.<$> requesterPays,
+            ("Squash" Data..=) Prelude.<$> squash,
             Prelude.Just ("FileShareARN" Data..= fileShareARN)
           ]
       )

@@ -30,13 +30,13 @@ module Amazonka.KinesisVideoArchivedMedia.GetImages
     newGetImages,
 
     -- * Request Lenses
-    getImages_nextToken,
     getImages_formatConfig,
-    getImages_maxResults,
     getImages_heightPixels,
+    getImages_maxResults,
+    getImages_nextToken,
     getImages_streamARN,
-    getImages_widthPixels,
     getImages_streamName,
+    getImages_widthPixels,
     getImages_imageSelectorType,
     getImages_startTimestamp,
     getImages_endTimestamp,
@@ -48,8 +48,8 @@ module Amazonka.KinesisVideoArchivedMedia.GetImages
     newGetImagesResponse,
 
     -- * Response Lenses
-    getImagesResponse_nextToken,
     getImagesResponse_images,
+    getImagesResponse_nextToken,
     getImagesResponse_httpStatus,
   )
 where
@@ -64,10 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetImages' smart constructor.
 data GetImages = GetImages'
-  { -- | A token that specifies where to start paginating the next set of Images.
-    -- This is the @GetImages:NextToken@ from a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of a key-value pair structure that contains extra parameters
+  { -- | The list of a key-value pair structure that contains extra parameters
     -- that can be applied when the image is generated. The @FormatConfig@ key
     -- is the @JPEGQuality@, which indicates the JPEG quality key to be used to
     -- generate the image. The @FormatConfig@ value accepts ints from 1 to 100.
@@ -76,11 +73,6 @@ data GetImages = GetImages'
     -- the best quality and less compression. If no value is provided, the
     -- default value of the @JPEGQuality@ key will be set to 80.
     formatConfig :: Prelude.Maybe (Prelude.HashMap FormatConfigKey Prelude.Text),
-    -- | The maximum number of images to be returned by the API.
-    --
-    -- The default limit is 100 images per API response. The additional results
-    -- will be paginated.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The height of the output image that is used in conjunction with the
     -- @WidthPixels@ parameter. When both @HeightPixels@ and @WidthPixels@
     -- parameters are provided, the image will be stretched to fit the
@@ -89,9 +81,20 @@ data GetImages = GetImages'
     -- @WidthPixels@ ratio. If neither parameter is provided, the original
     -- image size will be returned.
     heightPixels :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of images to be returned by the API.
+    --
+    -- The default limit is 100 images per API response. The additional results
+    -- will be paginated.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that specifies where to start paginating the next set of Images.
+    -- This is the @GetImages:NextToken@ from a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the stream from which to retrieve the
     -- images. You must specify either the @StreamName@ or the @StreamARN@.
     streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream from which to retrieve the images. You must
+    -- specify either the @StreamName@ or the @StreamARN@.
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | The width of the output image that is used in conjunction with the
     -- @HeightPixels@ parameter. When both @WidthPixels@ and @HeightPixels@
     -- parameters are provided, the image will be stretched to fit the
@@ -100,9 +103,6 @@ data GetImages = GetImages'
     -- be thrown. If neither parameter is provided, the original image size
     -- from the stream will be returned.
     widthPixels :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the stream from which to retrieve the images. You must
-    -- specify either the @StreamName@ or the @StreamARN@.
-    streamName :: Prelude.Maybe Prelude.Text,
     -- | The origin of the Server or Producer timestamps to use to generate the
     -- images.
     imageSelectorType :: ImageSelectorType,
@@ -133,9 +133,6 @@ data GetImages = GetImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getImages_nextToken' - A token that specifies where to start paginating the next set of Images.
--- This is the @GetImages:NextToken@ from a previously truncated response.
---
 -- 'formatConfig', 'getImages_formatConfig' - The list of a key-value pair structure that contains extra parameters
 -- that can be applied when the image is generated. The @FormatConfig@ key
 -- is the @JPEGQuality@, which indicates the JPEG quality key to be used to
@@ -145,11 +142,6 @@ data GetImages = GetImages'
 -- the best quality and less compression. If no value is provided, the
 -- default value of the @JPEGQuality@ key will be set to 80.
 --
--- 'maxResults', 'getImages_maxResults' - The maximum number of images to be returned by the API.
---
--- The default limit is 100 images per API response. The additional results
--- will be paginated.
---
 -- 'heightPixels', 'getImages_heightPixels' - The height of the output image that is used in conjunction with the
 -- @WidthPixels@ parameter. When both @HeightPixels@ and @WidthPixels@
 -- parameters are provided, the image will be stretched to fit the
@@ -158,8 +150,19 @@ data GetImages = GetImages'
 -- @WidthPixels@ ratio. If neither parameter is provided, the original
 -- image size will be returned.
 --
+-- 'maxResults', 'getImages_maxResults' - The maximum number of images to be returned by the API.
+--
+-- The default limit is 100 images per API response. The additional results
+-- will be paginated.
+--
+-- 'nextToken', 'getImages_nextToken' - A token that specifies where to start paginating the next set of Images.
+-- This is the @GetImages:NextToken@ from a previously truncated response.
+--
 -- 'streamARN', 'getImages_streamARN' - The Amazon Resource Name (ARN) of the stream from which to retrieve the
 -- images. You must specify either the @StreamName@ or the @StreamARN@.
+--
+-- 'streamName', 'getImages_streamName' - The name of the stream from which to retrieve the images. You must
+-- specify either the @StreamName@ or the @StreamARN@.
 --
 -- 'widthPixels', 'getImages_widthPixels' - The width of the output image that is used in conjunction with the
 -- @HeightPixels@ parameter. When both @WidthPixels@ and @HeightPixels@
@@ -168,9 +171,6 @@ data GetImages = GetImages'
 -- or if only the @HeightPixels@ is provided, a @ValidationException@ will
 -- be thrown. If neither parameter is provided, the original image size
 -- from the stream will be returned.
---
--- 'streamName', 'getImages_streamName' - The name of the stream from which to retrieve the images. You must
--- specify either the @StreamName@ or the @StreamARN@.
 --
 -- 'imageSelectorType', 'getImages_imageSelectorType' - The origin of the Server or Producer timestamps to use to generate the
 -- images.
@@ -209,24 +209,19 @@ newGetImages
   pSamplingInterval_
   pFormat_ =
     GetImages'
-      { nextToken = Prelude.Nothing,
-        formatConfig = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { formatConfig = Prelude.Nothing,
         heightPixels = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         streamARN = Prelude.Nothing,
-        widthPixels = Prelude.Nothing,
         streamName = Prelude.Nothing,
+        widthPixels = Prelude.Nothing,
         imageSelectorType = pImageSelectorType_,
         startTimestamp = Data._Time Lens.# pStartTimestamp_,
         endTimestamp = Data._Time Lens.# pEndTimestamp_,
         samplingInterval = pSamplingInterval_,
         format = pFormat_
       }
-
--- | A token that specifies where to start paginating the next set of Images.
--- This is the @GetImages:NextToken@ from a previously truncated response.
-getImages_nextToken :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Text)
-getImages_nextToken = Lens.lens (\GetImages' {nextToken} -> nextToken) (\s@GetImages' {} a -> s {nextToken = a} :: GetImages)
 
 -- | The list of a key-value pair structure that contains extra parameters
 -- that can be applied when the image is generated. The @FormatConfig@ key
@@ -239,13 +234,6 @@ getImages_nextToken = Lens.lens (\GetImages' {nextToken} -> nextToken) (\s@GetIm
 getImages_formatConfig :: Lens.Lens' GetImages (Prelude.Maybe (Prelude.HashMap FormatConfigKey Prelude.Text))
 getImages_formatConfig = Lens.lens (\GetImages' {formatConfig} -> formatConfig) (\s@GetImages' {} a -> s {formatConfig = a} :: GetImages) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of images to be returned by the API.
---
--- The default limit is 100 images per API response. The additional results
--- will be paginated.
-getImages_maxResults :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Natural)
-getImages_maxResults = Lens.lens (\GetImages' {maxResults} -> maxResults) (\s@GetImages' {} a -> s {maxResults = a} :: GetImages)
-
 -- | The height of the output image that is used in conjunction with the
 -- @WidthPixels@ parameter. When both @HeightPixels@ and @WidthPixels@
 -- parameters are provided, the image will be stretched to fit the
@@ -256,10 +244,27 @@ getImages_maxResults = Lens.lens (\GetImages' {maxResults} -> maxResults) (\s@Ge
 getImages_heightPixels :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Natural)
 getImages_heightPixels = Lens.lens (\GetImages' {heightPixels} -> heightPixels) (\s@GetImages' {} a -> s {heightPixels = a} :: GetImages)
 
+-- | The maximum number of images to be returned by the API.
+--
+-- The default limit is 100 images per API response. The additional results
+-- will be paginated.
+getImages_maxResults :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Natural)
+getImages_maxResults = Lens.lens (\GetImages' {maxResults} -> maxResults) (\s@GetImages' {} a -> s {maxResults = a} :: GetImages)
+
+-- | A token that specifies where to start paginating the next set of Images.
+-- This is the @GetImages:NextToken@ from a previously truncated response.
+getImages_nextToken :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Text)
+getImages_nextToken = Lens.lens (\GetImages' {nextToken} -> nextToken) (\s@GetImages' {} a -> s {nextToken = a} :: GetImages)
+
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve the
 -- images. You must specify either the @StreamName@ or the @StreamARN@.
 getImages_streamARN :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Text)
 getImages_streamARN = Lens.lens (\GetImages' {streamARN} -> streamARN) (\s@GetImages' {} a -> s {streamARN = a} :: GetImages)
+
+-- | The name of the stream from which to retrieve the images. You must
+-- specify either the @StreamName@ or the @StreamARN@.
+getImages_streamName :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Text)
+getImages_streamName = Lens.lens (\GetImages' {streamName} -> streamName) (\s@GetImages' {} a -> s {streamName = a} :: GetImages)
 
 -- | The width of the output image that is used in conjunction with the
 -- @HeightPixels@ parameter. When both @WidthPixels@ and @HeightPixels@
@@ -270,11 +275,6 @@ getImages_streamARN = Lens.lens (\GetImages' {streamARN} -> streamARN) (\s@GetIm
 -- from the stream will be returned.
 getImages_widthPixels :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Natural)
 getImages_widthPixels = Lens.lens (\GetImages' {widthPixels} -> widthPixels) (\s@GetImages' {} a -> s {widthPixels = a} :: GetImages)
-
--- | The name of the stream from which to retrieve the images. You must
--- specify either the @StreamName@ or the @StreamARN@.
-getImages_streamName :: Lens.Lens' GetImages (Prelude.Maybe Prelude.Text)
-getImages_streamName = Lens.lens (\GetImages' {streamName} -> streamName) (\s@GetImages' {} a -> s {streamName = a} :: GetImages)
 
 -- | The origin of the Server or Producer timestamps to use to generate the
 -- images.
@@ -332,20 +332,20 @@ instance Core.AWSRequest GetImages where
     Response.receiveJSON
       ( \s h x ->
           GetImagesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetImages where
   hashWithSalt _salt GetImages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` formatConfig
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` formatConfig
       `Prelude.hashWithSalt` heightPixels
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` streamARN
-      `Prelude.hashWithSalt` widthPixels
       `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` widthPixels
       `Prelude.hashWithSalt` imageSelectorType
       `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` endTimestamp
@@ -354,13 +354,13 @@ instance Prelude.Hashable GetImages where
 
 instance Prelude.NFData GetImages where
   rnf GetImages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf formatConfig
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf formatConfig
       `Prelude.seq` Prelude.rnf heightPixels
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf streamARN
-      `Prelude.seq` Prelude.rnf widthPixels
       `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf widthPixels
       `Prelude.seq` Prelude.rnf imageSelectorType
       `Prelude.seq` Prelude.rnf startTimestamp
       `Prelude.seq` Prelude.rnf endTimestamp
@@ -374,13 +374,13 @@ instance Data.ToJSON GetImages where
   toJSON GetImages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FormatConfig" Data..=) Prelude.<$> formatConfig,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("FormatConfig" Data..=) Prelude.<$> formatConfig,
             ("HeightPixels" Data..=) Prelude.<$> heightPixels,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StreamARN" Data..=) Prelude.<$> streamARN,
-            ("WidthPixels" Data..=) Prelude.<$> widthPixels,
             ("StreamName" Data..=) Prelude.<$> streamName,
+            ("WidthPixels" Data..=) Prelude.<$> widthPixels,
             Prelude.Just
               ("ImageSelectorType" Data..= imageSelectorType),
             Prelude.Just
@@ -400,14 +400,14 @@ instance Data.ToQuery GetImages where
 
 -- | /See:/ 'newGetImagesResponse' smart constructor.
 data GetImagesResponse = GetImagesResponse'
-  { -- | The encrypted token that was used in the request to get more images.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of images generated from the video stream. If there is no media
+  { -- | The list of images generated from the video stream. If there is no media
     -- available for the given timestamp, the @NO_MEDIA@ error will be listed
     -- in the output. If an error occurs while the image is being generated,
     -- the @MEDIA_ERROR@ will be listed in the output as the cause of the
     -- missing image.
     images :: Prelude.Maybe [Image],
+    -- | The encrypted token that was used in the request to get more images.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -421,13 +421,13 @@ data GetImagesResponse = GetImagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getImagesResponse_nextToken' - The encrypted token that was used in the request to get more images.
---
 -- 'images', 'getImagesResponse_images' - The list of images generated from the video stream. If there is no media
 -- available for the given timestamp, the @NO_MEDIA@ error will be listed
 -- in the output. If an error occurs while the image is being generated,
 -- the @MEDIA_ERROR@ will be listed in the output as the cause of the
 -- missing image.
+--
+-- 'nextToken', 'getImagesResponse_nextToken' - The encrypted token that was used in the request to get more images.
 --
 -- 'httpStatus', 'getImagesResponse_httpStatus' - The response's http status code.
 newGetImagesResponse ::
@@ -436,14 +436,10 @@ newGetImagesResponse ::
   GetImagesResponse
 newGetImagesResponse pHttpStatus_ =
   GetImagesResponse'
-    { nextToken = Prelude.Nothing,
-      images = Prelude.Nothing,
+    { images = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The encrypted token that was used in the request to get more images.
-getImagesResponse_nextToken :: Lens.Lens' GetImagesResponse (Prelude.Maybe Prelude.Text)
-getImagesResponse_nextToken = Lens.lens (\GetImagesResponse' {nextToken} -> nextToken) (\s@GetImagesResponse' {} a -> s {nextToken = a} :: GetImagesResponse)
 
 -- | The list of images generated from the video stream. If there is no media
 -- available for the given timestamp, the @NO_MEDIA@ error will be listed
@@ -453,12 +449,16 @@ getImagesResponse_nextToken = Lens.lens (\GetImagesResponse' {nextToken} -> next
 getImagesResponse_images :: Lens.Lens' GetImagesResponse (Prelude.Maybe [Image])
 getImagesResponse_images = Lens.lens (\GetImagesResponse' {images} -> images) (\s@GetImagesResponse' {} a -> s {images = a} :: GetImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The encrypted token that was used in the request to get more images.
+getImagesResponse_nextToken :: Lens.Lens' GetImagesResponse (Prelude.Maybe Prelude.Text)
+getImagesResponse_nextToken = Lens.lens (\GetImagesResponse' {nextToken} -> nextToken) (\s@GetImagesResponse' {} a -> s {nextToken = a} :: GetImagesResponse)
+
 -- | The response's http status code.
 getImagesResponse_httpStatus :: Lens.Lens' GetImagesResponse Prelude.Int
 getImagesResponse_httpStatus = Lens.lens (\GetImagesResponse' {httpStatus} -> httpStatus) (\s@GetImagesResponse' {} a -> s {httpStatus = a} :: GetImagesResponse)
 
 instance Prelude.NFData GetImagesResponse where
   rnf GetImagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf images
+    Prelude.rnf images
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,11 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
-  { -- | An attribute of the @Image@ object that is used to extract an image from
-    -- the video stream. This field is used to manage gaps on images or to
-    -- better understand the pagination window.
-    timeStamp :: Prelude.Maybe Data.POSIX,
-    -- | The error message shown when the image for the provided timestamp was
+  { -- | The error message shown when the image for the provided timestamp was
     -- not extracted due to a non-tryable error. An error will be returned if:
     --
     -- -   There is no media that exists for the specified @Timestamp@.
@@ -43,7 +39,11 @@ data Image = Image'
     --     media has been ingested.
     error :: Prelude.Maybe ImageError,
     -- | An attribute of the @Image@ object that is Base64 encoded.
-    imageContent :: Prelude.Maybe Prelude.Text
+    imageContent :: Prelude.Maybe Prelude.Text,
+    -- | An attribute of the @Image@ object that is used to extract an image from
+    -- the video stream. This field is used to manage gaps on images or to
+    -- better understand the pagination window.
+    timeStamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,10 +55,6 @@ data Image = Image'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeStamp', 'image_timeStamp' - An attribute of the @Image@ object that is used to extract an image from
--- the video stream. This field is used to manage gaps on images or to
--- better understand the pagination window.
---
 -- 'error', 'image_error' - The error message shown when the image for the provided timestamp was
 -- not extracted due to a non-tryable error. An error will be returned if:
 --
@@ -69,20 +65,18 @@ data Image = Image'
 --     media has been ingested.
 --
 -- 'imageContent', 'image_imageContent' - An attribute of the @Image@ object that is Base64 encoded.
+--
+-- 'timeStamp', 'image_timeStamp' - An attribute of the @Image@ object that is used to extract an image from
+-- the video stream. This field is used to manage gaps on images or to
+-- better understand the pagination window.
 newImage ::
   Image
 newImage =
   Image'
-    { timeStamp = Prelude.Nothing,
-      error = Prelude.Nothing,
-      imageContent = Prelude.Nothing
+    { error = Prelude.Nothing,
+      imageContent = Prelude.Nothing,
+      timeStamp = Prelude.Nothing
     }
-
--- | An attribute of the @Image@ object that is used to extract an image from
--- the video stream. This field is used to manage gaps on images or to
--- better understand the pagination window.
-image_timeStamp :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
-image_timeStamp = Lens.lens (\Image' {timeStamp} -> timeStamp) (\s@Image' {} a -> s {timeStamp = a} :: Image) Prelude.. Lens.mapping Data._Time
 
 -- | The error message shown when the image for the provided timestamp was
 -- not extracted due to a non-tryable error. An error will be returned if:
@@ -99,25 +93,31 @@ image_error = Lens.lens (\Image' {error} -> error) (\s@Image' {} a -> s {error =
 image_imageContent :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_imageContent = Lens.lens (\Image' {imageContent} -> imageContent) (\s@Image' {} a -> s {imageContent = a} :: Image)
 
+-- | An attribute of the @Image@ object that is used to extract an image from
+-- the video stream. This field is used to manage gaps on images or to
+-- better understand the pagination window.
+image_timeStamp :: Lens.Lens' Image (Prelude.Maybe Prelude.UTCTime)
+image_timeStamp = Lens.lens (\Image' {timeStamp} -> timeStamp) (\s@Image' {} a -> s {timeStamp = a} :: Image) Prelude.. Lens.mapping Data._Time
+
 instance Data.FromJSON Image where
   parseJSON =
     Data.withObject
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Data..:? "TimeStamp")
-            Prelude.<*> (x Data..:? "Error")
+            Prelude.<$> (x Data..:? "Error")
             Prelude.<*> (x Data..:? "ImageContent")
+            Prelude.<*> (x Data..:? "TimeStamp")
       )
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` timeStamp
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` imageContent
+      `Prelude.hashWithSalt` timeStamp
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf timeStamp
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
       `Prelude.seq` Prelude.rnf imageContent
+      `Prelude.seq` Prelude.rnf timeStamp

@@ -193,15 +193,15 @@ module Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
     newGetHLSStreamingSessionURL,
 
     -- * Request Lenses
-    getHLSStreamingSessionURL_hLSFragmentSelector,
-    getHLSStreamingSessionURL_displayFragmentTimestamp,
-    getHLSStreamingSessionURL_expires,
-    getHLSStreamingSessionURL_streamARN,
-    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
-    getHLSStreamingSessionURL_streamName,
     getHLSStreamingSessionURL_containerFormat,
     getHLSStreamingSessionURL_discontinuityMode,
+    getHLSStreamingSessionURL_displayFragmentTimestamp,
+    getHLSStreamingSessionURL_expires,
+    getHLSStreamingSessionURL_hLSFragmentSelector,
+    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
     getHLSStreamingSessionURL_playbackMode,
+    getHLSStreamingSessionURL_streamARN,
+    getHLSStreamingSessionURL_streamName,
 
     -- * Destructuring the Response
     GetHLSStreamingSessionURLResponse (..),
@@ -223,71 +223,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetHLSStreamingSessionURL' smart constructor.
 data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
-  { -- | The time range of the requested fragment and the source of the
-    -- timestamps.
-    --
-    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
-    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
-    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
-    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
-    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
-    -- be set.
-    hLSFragmentSelector :: Prelude.Maybe HLSFragmentSelector,
-    -- | Specifies when the fragment start timestamps should be included in the
-    -- HLS media playlist. Typically, media players report the playhead
-    -- position as a time relative to the start of the first fragment in the
-    -- playback session. However, when the start timestamps are included in the
-    -- HLS media playlist, some media players might report the current playhead
-    -- as an absolute time based on the fragment timestamps. This can be useful
-    -- for creating a playback experience that shows viewers the wall-clock
-    -- time of the media.
-    --
-    -- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
-    -- the timestamps will be the server start timestamps. Similarly, when
-    -- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
-    -- producer start timestamps.
-    displayFragmentTimestamp :: Prelude.Maybe HLSDisplayFragmentTimestamp,
-    -- | The time in seconds until the requested session expires. This value can
-    -- be between 300 (5 minutes) and 43200 (12 hours).
-    --
-    -- When a session expires, no new calls to @GetHLSMasterPlaylist@,
-    -- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
-    -- @GetTSFragment@ can be made for that session.
-    --
-    -- The default is 300 (5 minutes).
-    expires :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
-    -- HLS master playlist URL.
-    --
-    -- You must specify either the @StreamName@ or the @StreamARN@.
-    streamARN :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of fragments that are returned in the HLS media
-    -- playlists.
-    --
-    -- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
-    -- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
-    -- oldest fragments are returned, up to this maximum number.
-    --
-    -- When there are a higher number of fragments available in a live HLS
-    -- media playlist, video players often buffer content before starting
-    -- playback. Increasing the buffer size increases the playback latency, but
-    -- it decreases the likelihood that rebuffering will occur during playback.
-    -- We recommend that a live HLS media playlist have a minimum of 3
-    -- fragments and a maximum of 10 fragments.
-    --
-    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
-    -- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
-    --
-    -- The maximum value of 5,000 fragments corresponds to more than 80 minutes
-    -- of video on streams with 1-second fragments, and more than 13 hours of
-    -- video on streams with 10-second fragments.
-    maxMediaPlaylistFragmentResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the stream for which to retrieve the HLS master playlist
-    -- URL.
-    --
-    -- You must specify either the @StreamName@ or the @StreamARN@.
-    streamName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies which format should be used for packaging the media.
+  { -- | Specifies which format should be used for packaging the media.
     -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
     -- MP4 fragments (fMP4 or CMAF). This is the recommended packaging because
     -- there is minimal packaging overhead. The other container format option
@@ -332,6 +268,60 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- The default is @ALWAYS@ when HLSFragmentSelector is set to
     -- @SERVER_TIMESTAMP@, and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@.
     discontinuityMode :: Prelude.Maybe HLSDiscontinuityMode,
+    -- | Specifies when the fragment start timestamps should be included in the
+    -- HLS media playlist. Typically, media players report the playhead
+    -- position as a time relative to the start of the first fragment in the
+    -- playback session. However, when the start timestamps are included in the
+    -- HLS media playlist, some media players might report the current playhead
+    -- as an absolute time based on the fragment timestamps. This can be useful
+    -- for creating a playback experience that shows viewers the wall-clock
+    -- time of the media.
+    --
+    -- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
+    -- the timestamps will be the server start timestamps. Similarly, when
+    -- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
+    -- producer start timestamps.
+    displayFragmentTimestamp :: Prelude.Maybe HLSDisplayFragmentTimestamp,
+    -- | The time in seconds until the requested session expires. This value can
+    -- be between 300 (5 minutes) and 43200 (12 hours).
+    --
+    -- When a session expires, no new calls to @GetHLSMasterPlaylist@,
+    -- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
+    -- @GetTSFragment@ can be made for that session.
+    --
+    -- The default is 300 (5 minutes).
+    expires :: Prelude.Maybe Prelude.Natural,
+    -- | The time range of the requested fragment and the source of the
+    -- timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+    -- be set.
+    hLSFragmentSelector :: Prelude.Maybe HLSFragmentSelector,
+    -- | The maximum number of fragments that are returned in the HLS media
+    -- playlists.
+    --
+    -- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
+    -- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
+    -- oldest fragments are returned, up to this maximum number.
+    --
+    -- When there are a higher number of fragments available in a live HLS
+    -- media playlist, video players often buffer content before starting
+    -- playback. Increasing the buffer size increases the playback latency, but
+    -- it decreases the likelihood that rebuffering will occur during playback.
+    -- We recommend that a live HLS media playlist have a minimum of 3
+    -- fragments and a maximum of 10 fragments.
+    --
+    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
+    -- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
+    --
+    -- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+    -- of video on streams with 1-second fragments, and more than 13 hours of
+    -- video on streams with 10-second fragments.
+    maxMediaPlaylistFragmentResults :: Prelude.Maybe Prelude.Natural,
     -- | Whether to retrieve live, live replay, or archived, on-demand data.
     --
     -- Features of the three types of sessions include the following:
@@ -384,7 +374,17 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- player.
     --
     -- The default is @LIVE@.
-    playbackMode :: Prelude.Maybe HLSPlaybackMode
+    playbackMode :: Prelude.Maybe HLSPlaybackMode,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+    -- HLS master playlist URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream for which to retrieve the HLS master playlist
+    -- URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@.
+    streamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -395,70 +395,6 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'hLSFragmentSelector', 'getHLSStreamingSessionURL_hLSFragmentSelector' - The time range of the requested fragment and the source of the
--- timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
---
--- 'displayFragmentTimestamp', 'getHLSStreamingSessionURL_displayFragmentTimestamp' - Specifies when the fragment start timestamps should be included in the
--- HLS media playlist. Typically, media players report the playhead
--- position as a time relative to the start of the first fragment in the
--- playback session. However, when the start timestamps are included in the
--- HLS media playlist, some media players might report the current playhead
--- as an absolute time based on the fragment timestamps. This can be useful
--- for creating a playback experience that shows viewers the wall-clock
--- time of the media.
---
--- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
--- the timestamps will be the server start timestamps. Similarly, when
--- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
--- producer start timestamps.
---
--- 'expires', 'getHLSStreamingSessionURL_expires' - The time in seconds until the requested session expires. This value can
--- be between 300 (5 minutes) and 43200 (12 hours).
---
--- When a session expires, no new calls to @GetHLSMasterPlaylist@,
--- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
--- @GetTSFragment@ can be made for that session.
---
--- The default is 300 (5 minutes).
---
--- 'streamARN', 'getHLSStreamingSessionURL_streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the
--- HLS master playlist URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
---
--- 'maxMediaPlaylistFragmentResults', 'getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media
--- playlists.
---
--- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
--- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
--- oldest fragments are returned, up to this maximum number.
---
--- When there are a higher number of fragments available in a live HLS
--- media playlist, video players often buffer content before starting
--- playback. Increasing the buffer size increases the playback latency, but
--- it decreases the likelihood that rebuffering will occur during playback.
--- We recommend that a live HLS media playlist have a minimum of 3
--- fragments and a maximum of 10 fragments.
---
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
--- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
---
--- The maximum value of 5,000 fragments corresponds to more than 80 minutes
--- of video on streams with 1-second fragments, and more than 13 hours of
--- video on streams with 10-second fragments.
---
--- 'streamName', 'getHLSStreamingSessionURL_streamName' - The name of the stream for which to retrieve the HLS master playlist
--- URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
 --
 -- 'containerFormat', 'getHLSStreamingSessionURL_containerFormat' - Specifies which format should be used for packaging the media.
 -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
@@ -504,6 +440,60 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 --
 -- The default is @ALWAYS@ when HLSFragmentSelector is set to
 -- @SERVER_TIMESTAMP@, and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@.
+--
+-- 'displayFragmentTimestamp', 'getHLSStreamingSessionURL_displayFragmentTimestamp' - Specifies when the fragment start timestamps should be included in the
+-- HLS media playlist. Typically, media players report the playhead
+-- position as a time relative to the start of the first fragment in the
+-- playback session. However, when the start timestamps are included in the
+-- HLS media playlist, some media players might report the current playhead
+-- as an absolute time based on the fragment timestamps. This can be useful
+-- for creating a playback experience that shows viewers the wall-clock
+-- time of the media.
+--
+-- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
+-- the timestamps will be the server start timestamps. Similarly, when
+-- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
+-- producer start timestamps.
+--
+-- 'expires', 'getHLSStreamingSessionURL_expires' - The time in seconds until the requested session expires. This value can
+-- be between 300 (5 minutes) and 43200 (12 hours).
+--
+-- When a session expires, no new calls to @GetHLSMasterPlaylist@,
+-- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
+-- @GetTSFragment@ can be made for that session.
+--
+-- The default is 300 (5 minutes).
+--
+-- 'hLSFragmentSelector', 'getHLSStreamingSessionURL_hLSFragmentSelector' - The time range of the requested fragment and the source of the
+-- timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+-- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+-- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+-- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+-- be set.
+--
+-- 'maxMediaPlaylistFragmentResults', 'getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media
+-- playlists.
+--
+-- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
+-- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
+-- oldest fragments are returned, up to this maximum number.
+--
+-- When there are a higher number of fragments available in a live HLS
+-- media playlist, video players often buffer content before starting
+-- playback. Increasing the buffer size increases the playback latency, but
+-- it decreases the likelihood that rebuffering will occur during playback.
+-- We recommend that a live HLS media playlist have a minimum of 3
+-- fragments and a maximum of 10 fragments.
+--
+-- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
+-- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
+--
+-- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+-- of video on streams with 1-second fragments, and more than 13 hours of
+-- video on streams with 10-second fragments.
 --
 -- 'playbackMode', 'getHLSStreamingSessionURL_playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
 --
@@ -557,98 +547,32 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 -- player.
 --
 -- The default is @LIVE@.
+--
+-- 'streamARN', 'getHLSStreamingSessionURL_streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the
+-- HLS master playlist URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@.
+--
+-- 'streamName', 'getHLSStreamingSessionURL_streamName' - The name of the stream for which to retrieve the HLS master playlist
+-- URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@.
 newGetHLSStreamingSessionURL ::
   GetHLSStreamingSessionURL
 newGetHLSStreamingSessionURL =
   GetHLSStreamingSessionURL'
-    { hLSFragmentSelector =
+    { containerFormat =
         Prelude.Nothing,
+      discontinuityMode = Prelude.Nothing,
       displayFragmentTimestamp = Prelude.Nothing,
       expires = Prelude.Nothing,
-      streamARN = Prelude.Nothing,
+      hLSFragmentSelector = Prelude.Nothing,
       maxMediaPlaylistFragmentResults =
         Prelude.Nothing,
-      streamName = Prelude.Nothing,
-      containerFormat = Prelude.Nothing,
-      discontinuityMode = Prelude.Nothing,
-      playbackMode = Prelude.Nothing
+      playbackMode = Prelude.Nothing,
+      streamARN = Prelude.Nothing,
+      streamName = Prelude.Nothing
     }
-
--- | The time range of the requested fragment and the source of the
--- timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
-getHLSStreamingSessionURL_hLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSFragmentSelector)
-getHLSStreamingSessionURL_hLSFragmentSelector = Lens.lens (\GetHLSStreamingSessionURL' {hLSFragmentSelector} -> hLSFragmentSelector) (\s@GetHLSStreamingSessionURL' {} a -> s {hLSFragmentSelector = a} :: GetHLSStreamingSessionURL)
-
--- | Specifies when the fragment start timestamps should be included in the
--- HLS media playlist. Typically, media players report the playhead
--- position as a time relative to the start of the first fragment in the
--- playback session. However, when the start timestamps are included in the
--- HLS media playlist, some media players might report the current playhead
--- as an absolute time based on the fragment timestamps. This can be useful
--- for creating a playback experience that shows viewers the wall-clock
--- time of the media.
---
--- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
--- the timestamps will be the server start timestamps. Similarly, when
--- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
--- producer start timestamps.
-getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSDisplayFragmentTimestamp)
-getHLSStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetHLSStreamingSessionURL' {displayFragmentTimestamp} -> displayFragmentTimestamp) (\s@GetHLSStreamingSessionURL' {} a -> s {displayFragmentTimestamp = a} :: GetHLSStreamingSessionURL)
-
--- | The time in seconds until the requested session expires. This value can
--- be between 300 (5 minutes) and 43200 (12 hours).
---
--- When a session expires, no new calls to @GetHLSMasterPlaylist@,
--- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
--- @GetTSFragment@ can be made for that session.
---
--- The default is 300 (5 minutes).
-getHLSStreamingSessionURL_expires :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
-getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expires} -> expires) (\s@GetHLSStreamingSessionURL' {} a -> s {expires = a} :: GetHLSStreamingSessionURL)
-
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
--- HLS master playlist URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
-getHLSStreamingSessionURL_streamARN :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
-getHLSStreamingSessionURL_streamARN = Lens.lens (\GetHLSStreamingSessionURL' {streamARN} -> streamARN) (\s@GetHLSStreamingSessionURL' {} a -> s {streamARN = a} :: GetHLSStreamingSessionURL)
-
--- | The maximum number of fragments that are returned in the HLS media
--- playlists.
---
--- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
--- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
--- oldest fragments are returned, up to this maximum number.
---
--- When there are a higher number of fragments available in a live HLS
--- media playlist, video players often buffer content before starting
--- playback. Increasing the buffer size increases the playback latency, but
--- it decreases the likelihood that rebuffering will occur during playback.
--- We recommend that a live HLS media playlist have a minimum of 3
--- fragments and a maximum of 10 fragments.
---
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
--- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
---
--- The maximum value of 5,000 fragments corresponds to more than 80 minutes
--- of video on streams with 1-second fragments, and more than 13 hours of
--- video on streams with 10-second fragments.
-getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
-getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults = Lens.lens (\GetHLSStreamingSessionURL' {maxMediaPlaylistFragmentResults} -> maxMediaPlaylistFragmentResults) (\s@GetHLSStreamingSessionURL' {} a -> s {maxMediaPlaylistFragmentResults = a} :: GetHLSStreamingSessionURL)
-
--- | The name of the stream for which to retrieve the HLS master playlist
--- URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
-getHLSStreamingSessionURL_streamName :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
-getHLSStreamingSessionURL_streamName = Lens.lens (\GetHLSStreamingSessionURL' {streamName} -> streamName) (\s@GetHLSStreamingSessionURL' {} a -> s {streamName = a} :: GetHLSStreamingSessionURL)
 
 -- | Specifies which format should be used for packaging the media.
 -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
@@ -698,6 +622,68 @@ getHLSStreamingSessionURL_containerFormat = Lens.lens (\GetHLSStreamingSessionUR
 -- @SERVER_TIMESTAMP@, and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@.
 getHLSStreamingSessionURL_discontinuityMode :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSDiscontinuityMode)
 getHLSStreamingSessionURL_discontinuityMode = Lens.lens (\GetHLSStreamingSessionURL' {discontinuityMode} -> discontinuityMode) (\s@GetHLSStreamingSessionURL' {} a -> s {discontinuityMode = a} :: GetHLSStreamingSessionURL)
+
+-- | Specifies when the fragment start timestamps should be included in the
+-- HLS media playlist. Typically, media players report the playhead
+-- position as a time relative to the start of the first fragment in the
+-- playback session. However, when the start timestamps are included in the
+-- HLS media playlist, some media players might report the current playhead
+-- as an absolute time based on the fragment timestamps. This can be useful
+-- for creating a playback experience that shows viewers the wall-clock
+-- time of the media.
+--
+-- The default is @NEVER@. When HLSFragmentSelector is @SERVER_TIMESTAMP@,
+-- the timestamps will be the server start timestamps. Similarly, when
+-- HLSFragmentSelector is @PRODUCER_TIMESTAMP@, the timestamps will be the
+-- producer start timestamps.
+getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSDisplayFragmentTimestamp)
+getHLSStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetHLSStreamingSessionURL' {displayFragmentTimestamp} -> displayFragmentTimestamp) (\s@GetHLSStreamingSessionURL' {} a -> s {displayFragmentTimestamp = a} :: GetHLSStreamingSessionURL)
+
+-- | The time in seconds until the requested session expires. This value can
+-- be between 300 (5 minutes) and 43200 (12 hours).
+--
+-- When a session expires, no new calls to @GetHLSMasterPlaylist@,
+-- @GetHLSMediaPlaylist@, @GetMP4InitFragment@, @GetMP4MediaFragment@, or
+-- @GetTSFragment@ can be made for that session.
+--
+-- The default is 300 (5 minutes).
+getHLSStreamingSessionURL_expires :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
+getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expires} -> expires) (\s@GetHLSStreamingSessionURL' {} a -> s {expires = a} :: GetHLSStreamingSessionURL)
+
+-- | The time range of the requested fragment and the source of the
+-- timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+-- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+-- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+-- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+-- be set.
+getHLSStreamingSessionURL_hLSFragmentSelector :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSFragmentSelector)
+getHLSStreamingSessionURL_hLSFragmentSelector = Lens.lens (\GetHLSStreamingSessionURL' {hLSFragmentSelector} -> hLSFragmentSelector) (\s@GetHLSStreamingSessionURL' {} a -> s {hLSFragmentSelector = a} :: GetHLSStreamingSessionURL)
+
+-- | The maximum number of fragments that are returned in the HLS media
+-- playlists.
+--
+-- When the @PlaybackMode@ is @LIVE@, the most recent fragments are
+-- returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@, the
+-- oldest fragments are returned, up to this maximum number.
+--
+-- When there are a higher number of fragments available in a live HLS
+-- media playlist, video players often buffer content before starting
+-- playback. Increasing the buffer size increases the playback latency, but
+-- it decreases the likelihood that rebuffering will occur during playback.
+-- We recommend that a live HLS media playlist have a minimum of 3
+-- fragments and a maximum of 10 fragments.
+--
+-- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
+-- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
+--
+-- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+-- of video on streams with 1-second fragments, and more than 13 hours of
+-- video on streams with 10-second fragments.
+getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
+getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults = Lens.lens (\GetHLSStreamingSessionURL' {maxMediaPlaylistFragmentResults} -> maxMediaPlaylistFragmentResults) (\s@GetHLSStreamingSessionURL' {} a -> s {maxMediaPlaylistFragmentResults = a} :: GetHLSStreamingSessionURL)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --
@@ -754,6 +740,20 @@ getHLSStreamingSessionURL_discontinuityMode = Lens.lens (\GetHLSStreamingSession
 getHLSStreamingSessionURL_playbackMode :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSPlaybackMode)
 getHLSStreamingSessionURL_playbackMode = Lens.lens (\GetHLSStreamingSessionURL' {playbackMode} -> playbackMode) (\s@GetHLSStreamingSessionURL' {} a -> s {playbackMode = a} :: GetHLSStreamingSessionURL)
 
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+-- HLS master playlist URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@.
+getHLSStreamingSessionURL_streamARN :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
+getHLSStreamingSessionURL_streamARN = Lens.lens (\GetHLSStreamingSessionURL' {streamARN} -> streamARN) (\s@GetHLSStreamingSessionURL' {} a -> s {streamARN = a} :: GetHLSStreamingSessionURL)
+
+-- | The name of the stream for which to retrieve the HLS master playlist
+-- URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@.
+getHLSStreamingSessionURL_streamName :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Text)
+getHLSStreamingSessionURL_streamName = Lens.lens (\GetHLSStreamingSessionURL' {streamName} -> streamName) (\s@GetHLSStreamingSessionURL' {} a -> s {streamName = a} :: GetHLSStreamingSessionURL)
+
 instance Core.AWSRequest GetHLSStreamingSessionURL where
   type
     AWSResponse GetHLSStreamingSessionURL =
@@ -770,27 +770,27 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
 
 instance Prelude.Hashable GetHLSStreamingSessionURL where
   hashWithSalt _salt GetHLSStreamingSessionURL' {..} =
-    _salt `Prelude.hashWithSalt` hLSFragmentSelector
+    _salt `Prelude.hashWithSalt` containerFormat
+      `Prelude.hashWithSalt` discontinuityMode
       `Prelude.hashWithSalt` displayFragmentTimestamp
       `Prelude.hashWithSalt` expires
-      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` hLSFragmentSelector
       `Prelude.hashWithSalt` maxMediaPlaylistFragmentResults
-      `Prelude.hashWithSalt` streamName
-      `Prelude.hashWithSalt` containerFormat
-      `Prelude.hashWithSalt` discontinuityMode
       `Prelude.hashWithSalt` playbackMode
+      `Prelude.hashWithSalt` streamARN
+      `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData GetHLSStreamingSessionURL where
   rnf GetHLSStreamingSessionURL' {..} =
-    Prelude.rnf hLSFragmentSelector
+    Prelude.rnf containerFormat
+      `Prelude.seq` Prelude.rnf discontinuityMode
       `Prelude.seq` Prelude.rnf displayFragmentTimestamp
       `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf hLSFragmentSelector
       `Prelude.seq` Prelude.rnf maxMediaPlaylistFragmentResults
-      `Prelude.seq` Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf containerFormat
-      `Prelude.seq` Prelude.rnf discontinuityMode
       `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf streamARN
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Data.ToHeaders GetHLSStreamingSessionURL where
   toHeaders = Prelude.const Prelude.mempty
@@ -799,20 +799,20 @@ instance Data.ToJSON GetHLSStreamingSessionURL where
   toJSON GetHLSStreamingSessionURL' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HLSFragmentSelector" Data..=)
-              Prelude.<$> hLSFragmentSelector,
-            ("DisplayFragmentTimestamp" Data..=)
-              Prelude.<$> displayFragmentTimestamp,
-            ("Expires" Data..=) Prelude.<$> expires,
-            ("StreamARN" Data..=) Prelude.<$> streamARN,
-            ("MaxMediaPlaylistFragmentResults" Data..=)
-              Prelude.<$> maxMediaPlaylistFragmentResults,
-            ("StreamName" Data..=) Prelude.<$> streamName,
-            ("ContainerFormat" Data..=)
+          [ ("ContainerFormat" Data..=)
               Prelude.<$> containerFormat,
             ("DiscontinuityMode" Data..=)
               Prelude.<$> discontinuityMode,
-            ("PlaybackMode" Data..=) Prelude.<$> playbackMode
+            ("DisplayFragmentTimestamp" Data..=)
+              Prelude.<$> displayFragmentTimestamp,
+            ("Expires" Data..=) Prelude.<$> expires,
+            ("HLSFragmentSelector" Data..=)
+              Prelude.<$> hLSFragmentSelector,
+            ("MaxMediaPlaylistFragmentResults" Data..=)
+              Prelude.<$> maxMediaPlaylistFragmentResults,
+            ("PlaybackMode" Data..=) Prelude.<$> playbackMode,
+            ("StreamARN" Data..=) Prelude.<$> streamARN,
+            ("StreamName" Data..=) Prelude.<$> streamName
           ]
       )
 

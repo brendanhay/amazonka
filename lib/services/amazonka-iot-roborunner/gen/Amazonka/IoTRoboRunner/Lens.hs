@@ -15,9 +15,9 @@ module Amazonka.IoTRoboRunner.Lens
   ( -- * Operations
 
     -- ** CreateDestination
+    createDestination_additionalFixedProperties,
     createDestination_clientToken,
     createDestination_state,
-    createDestination_additionalFixedProperties,
     createDestination_name,
     createDestination_site,
     createDestinationResponse_httpStatus,
@@ -39,12 +39,12 @@ module Amazonka.IoTRoboRunner.Lens
     createSiteResponse_updatedAt,
 
     -- ** CreateWorker
-    createWorker_clientToken,
-    createWorker_additionalTransientProperties,
-    createWorker_orientation,
-    createWorker_vendorProperties,
-    createWorker_position,
     createWorker_additionalFixedProperties,
+    createWorker_additionalTransientProperties,
+    createWorker_clientToken,
+    createWorker_orientation,
+    createWorker_position,
+    createWorker_vendorProperties,
     createWorker_name,
     createWorker_fleet,
     createWorkerResponse_httpStatus,
@@ -55,8 +55,8 @@ module Amazonka.IoTRoboRunner.Lens
     createWorkerResponse_site,
 
     -- ** CreateWorkerFleet
-    createWorkerFleet_clientToken,
     createWorkerFleet_additionalFixedProperties,
+    createWorkerFleet_clientToken,
     createWorkerFleet_name,
     createWorkerFleet_site,
     createWorkerFleetResponse_httpStatus,
@@ -106,11 +106,11 @@ module Amazonka.IoTRoboRunner.Lens
 
     -- ** GetWorker
     getWorker_id,
+    getWorkerResponse_additionalFixedProperties,
     getWorkerResponse_additionalTransientProperties,
     getWorkerResponse_orientation,
-    getWorkerResponse_vendorProperties,
     getWorkerResponse_position,
-    getWorkerResponse_additionalFixedProperties,
+    getWorkerResponse_vendorProperties,
     getWorkerResponse_httpStatus,
     getWorkerResponse_arn,
     getWorkerResponse_id,
@@ -132,42 +132,42 @@ module Amazonka.IoTRoboRunner.Lens
     getWorkerFleetResponse_updatedAt,
 
     -- ** ListDestinations
+    listDestinations_maxResults,
     listDestinations_nextToken,
     listDestinations_state,
-    listDestinations_maxResults,
     listDestinations_site,
-    listDestinationsResponse_nextToken,
     listDestinationsResponse_destinations,
+    listDestinationsResponse_nextToken,
     listDestinationsResponse_httpStatus,
 
     -- ** ListSites
-    listSites_nextToken,
     listSites_maxResults,
-    listSitesResponse_sites,
+    listSites_nextToken,
     listSitesResponse_nextToken,
+    listSitesResponse_sites,
     listSitesResponse_httpStatus,
 
     -- ** ListWorkerFleets
-    listWorkerFleets_nextToken,
     listWorkerFleets_maxResults,
+    listWorkerFleets_nextToken,
     listWorkerFleets_site,
     listWorkerFleetsResponse_nextToken,
     listWorkerFleetsResponse_workerFleets,
     listWorkerFleetsResponse_httpStatus,
 
     -- ** ListWorkers
-    listWorkers_nextToken,
     listWorkers_fleet,
     listWorkers_maxResults,
+    listWorkers_nextToken,
     listWorkers_site,
     listWorkersResponse_nextToken,
     listWorkersResponse_workers,
     listWorkersResponse_httpStatus,
 
     -- ** UpdateDestination
+    updateDestination_additionalFixedProperties,
     updateDestination_name,
     updateDestination_state,
-    updateDestination_additionalFixedProperties,
     updateDestination_id,
     updateDestinationResponse_additionalFixedProperties,
     updateDestinationResponse_httpStatus,
@@ -178,9 +178,9 @@ module Amazonka.IoTRoboRunner.Lens
     updateDestinationResponse_state,
 
     -- ** UpdateSite
-    updateSite_name,
     updateSite_countryCode,
     updateSite_description,
+    updateSite_name,
     updateSite_id,
     updateSiteResponse_countryCode,
     updateSiteResponse_description,
@@ -191,18 +191,18 @@ module Amazonka.IoTRoboRunner.Lens
     updateSiteResponse_updatedAt,
 
     -- ** UpdateWorker
-    updateWorker_name,
-    updateWorker_additionalTransientProperties,
-    updateWorker_orientation,
-    updateWorker_vendorProperties,
-    updateWorker_position,
     updateWorker_additionalFixedProperties,
+    updateWorker_additionalTransientProperties,
+    updateWorker_name,
+    updateWorker_orientation,
+    updateWorker_position,
+    updateWorker_vendorProperties,
     updateWorker_id,
+    updateWorkerResponse_additionalFixedProperties,
     updateWorkerResponse_additionalTransientProperties,
     updateWorkerResponse_orientation,
-    updateWorkerResponse_vendorProperties,
     updateWorkerResponse_position,
-    updateWorkerResponse_additionalFixedProperties,
+    updateWorkerResponse_vendorProperties,
     updateWorkerResponse_httpStatus,
     updateWorkerResponse_arn,
     updateWorkerResponse_id,
@@ -211,8 +211,8 @@ module Amazonka.IoTRoboRunner.Lens
     updateWorkerResponse_name,
 
     -- ** UpdateWorkerFleet
-    updateWorkerFleet_name,
     updateWorkerFleet_additionalFixedProperties,
+    updateWorkerFleet_name,
     updateWorkerFleet_id,
     updateWorkerFleetResponse_additionalFixedProperties,
     updateWorkerFleetResponse_httpStatus,
@@ -251,17 +251,17 @@ module Amazonka.IoTRoboRunner.Lens
     site_createdAt,
 
     -- ** VendorProperties
-    vendorProperties_vendorWorkerIpAddress,
     vendorProperties_vendorAdditionalFixedProperties,
     vendorProperties_vendorAdditionalTransientProperties,
+    vendorProperties_vendorWorkerIpAddress,
     vendorProperties_vendorWorkerId,
 
     -- ** Worker
+    worker_additionalFixedProperties,
     worker_additionalTransientProperties,
     worker_orientation,
-    worker_vendorProperties,
     worker_position,
-    worker_additionalFixedProperties,
+    worker_vendorProperties,
     worker_arn,
     worker_id,
     worker_fleet,

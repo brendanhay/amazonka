@@ -34,11 +34,11 @@ module Amazonka.IoTRoboRunner.GetWorker
     newGetWorkerResponse,
 
     -- * Response Lenses
+    getWorkerResponse_additionalFixedProperties,
     getWorkerResponse_additionalTransientProperties,
     getWorkerResponse_orientation,
-    getWorkerResponse_vendorProperties,
     getWorkerResponse_position,
-    getWorkerResponse_additionalFixedProperties,
+    getWorkerResponse_vendorProperties,
     getWorkerResponse_httpStatus,
     getWorkerResponse_arn,
     getWorkerResponse_id,
@@ -91,11 +91,11 @@ instance Core.AWSRequest GetWorker where
     Response.receiveJSON
       ( \s h x ->
           GetWorkerResponse'
-            Prelude.<$> (x Data..?> "additionalTransientProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
+            Prelude.<*> (x Data..?> "additionalTransientProperties")
             Prelude.<*> (x Data..?> "orientation")
-            Prelude.<*> (x Data..?> "vendorProperties")
             Prelude.<*> (x Data..?> "position")
-            Prelude.<*> (x Data..?> "additionalFixedProperties")
+            Prelude.<*> (x Data..?> "vendorProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "id")
@@ -133,11 +133,11 @@ instance Data.ToQuery GetWorker where
 
 -- | /See:/ 'newGetWorkerResponse' smart constructor.
 data GetWorkerResponse = GetWorkerResponse'
-  { additionalTransientProperties :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    additionalTransientProperties :: Prelude.Maybe Prelude.Text,
     orientation :: Prelude.Maybe Orientation,
-    vendorProperties :: Prelude.Maybe VendorProperties,
     position :: Prelude.Maybe PositionCoordinates,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    vendorProperties :: Prelude.Maybe VendorProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     arn :: Prelude.Text,
@@ -158,15 +158,15 @@ data GetWorkerResponse = GetWorkerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalFixedProperties', 'getWorkerResponse_additionalFixedProperties' - Undocumented member.
+--
 -- 'additionalTransientProperties', 'getWorkerResponse_additionalTransientProperties' - Undocumented member.
 --
 -- 'orientation', 'getWorkerResponse_orientation' - Undocumented member.
 --
--- 'vendorProperties', 'getWorkerResponse_vendorProperties' - Undocumented member.
---
 -- 'position', 'getWorkerResponse_position' - Undocumented member.
 --
--- 'additionalFixedProperties', 'getWorkerResponse_additionalFixedProperties' - Undocumented member.
+-- 'vendorProperties', 'getWorkerResponse_vendorProperties' - Undocumented member.
 --
 -- 'httpStatus', 'getWorkerResponse_httpStatus' - The response's http status code.
 --
@@ -211,12 +211,12 @@ newGetWorkerResponse
   pUpdatedAt_
   pName_ =
     GetWorkerResponse'
-      { additionalTransientProperties =
+      { additionalFixedProperties =
           Prelude.Nothing,
+        additionalTransientProperties = Prelude.Nothing,
         orientation = Prelude.Nothing,
-        vendorProperties = Prelude.Nothing,
         position = Prelude.Nothing,
-        additionalFixedProperties = Prelude.Nothing,
+        vendorProperties = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         arn = pArn_,
         id = pId_,
@@ -228,6 +228,10 @@ newGetWorkerResponse
       }
 
 -- | Undocumented member.
+getWorkerResponse_additionalFixedProperties :: Lens.Lens' GetWorkerResponse (Prelude.Maybe Prelude.Text)
+getWorkerResponse_additionalFixedProperties = Lens.lens (\GetWorkerResponse' {additionalFixedProperties} -> additionalFixedProperties) (\s@GetWorkerResponse' {} a -> s {additionalFixedProperties = a} :: GetWorkerResponse)
+
+-- | Undocumented member.
 getWorkerResponse_additionalTransientProperties :: Lens.Lens' GetWorkerResponse (Prelude.Maybe Prelude.Text)
 getWorkerResponse_additionalTransientProperties = Lens.lens (\GetWorkerResponse' {additionalTransientProperties} -> additionalTransientProperties) (\s@GetWorkerResponse' {} a -> s {additionalTransientProperties = a} :: GetWorkerResponse)
 
@@ -236,16 +240,12 @@ getWorkerResponse_orientation :: Lens.Lens' GetWorkerResponse (Prelude.Maybe Ori
 getWorkerResponse_orientation = Lens.lens (\GetWorkerResponse' {orientation} -> orientation) (\s@GetWorkerResponse' {} a -> s {orientation = a} :: GetWorkerResponse)
 
 -- | Undocumented member.
-getWorkerResponse_vendorProperties :: Lens.Lens' GetWorkerResponse (Prelude.Maybe VendorProperties)
-getWorkerResponse_vendorProperties = Lens.lens (\GetWorkerResponse' {vendorProperties} -> vendorProperties) (\s@GetWorkerResponse' {} a -> s {vendorProperties = a} :: GetWorkerResponse)
-
--- | Undocumented member.
 getWorkerResponse_position :: Lens.Lens' GetWorkerResponse (Prelude.Maybe PositionCoordinates)
 getWorkerResponse_position = Lens.lens (\GetWorkerResponse' {position} -> position) (\s@GetWorkerResponse' {} a -> s {position = a} :: GetWorkerResponse)
 
 -- | Undocumented member.
-getWorkerResponse_additionalFixedProperties :: Lens.Lens' GetWorkerResponse (Prelude.Maybe Prelude.Text)
-getWorkerResponse_additionalFixedProperties = Lens.lens (\GetWorkerResponse' {additionalFixedProperties} -> additionalFixedProperties) (\s@GetWorkerResponse' {} a -> s {additionalFixedProperties = a} :: GetWorkerResponse)
+getWorkerResponse_vendorProperties :: Lens.Lens' GetWorkerResponse (Prelude.Maybe VendorProperties)
+getWorkerResponse_vendorProperties = Lens.lens (\GetWorkerResponse' {vendorProperties} -> vendorProperties) (\s@GetWorkerResponse' {} a -> s {vendorProperties = a} :: GetWorkerResponse)
 
 -- | The response's http status code.
 getWorkerResponse_httpStatus :: Lens.Lens' GetWorkerResponse Prelude.Int
@@ -281,11 +281,11 @@ getWorkerResponse_name = Lens.lens (\GetWorkerResponse' {name} -> name) (\s@GetW
 
 instance Prelude.NFData GetWorkerResponse where
   rnf GetWorkerResponse' {..} =
-    Prelude.rnf additionalTransientProperties
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf additionalTransientProperties
       `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id

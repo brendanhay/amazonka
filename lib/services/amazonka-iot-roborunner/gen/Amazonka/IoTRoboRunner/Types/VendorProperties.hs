@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVendorProperties' smart constructor.
 data VendorProperties = VendorProperties'
-  { vendorWorkerIpAddress :: Prelude.Maybe Prelude.Text,
-    vendorAdditionalFixedProperties :: Prelude.Maybe Prelude.Text,
+  { vendorAdditionalFixedProperties :: Prelude.Maybe Prelude.Text,
     vendorAdditionalTransientProperties :: Prelude.Maybe Prelude.Text,
+    vendorWorkerIpAddress :: Prelude.Maybe Prelude.Text,
     vendorWorkerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,11 +43,11 @@ data VendorProperties = VendorProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vendorWorkerIpAddress', 'vendorProperties_vendorWorkerIpAddress' - Undocumented member.
---
 -- 'vendorAdditionalFixedProperties', 'vendorProperties_vendorAdditionalFixedProperties' - Undocumented member.
 --
 -- 'vendorAdditionalTransientProperties', 'vendorProperties_vendorAdditionalTransientProperties' - Undocumented member.
+--
+-- 'vendorWorkerIpAddress', 'vendorProperties_vendorWorkerIpAddress' - Undocumented member.
 --
 -- 'vendorWorkerId', 'vendorProperties_vendorWorkerId' - Undocumented member.
 newVendorProperties ::
@@ -56,17 +56,13 @@ newVendorProperties ::
   VendorProperties
 newVendorProperties pVendorWorkerId_ =
   VendorProperties'
-    { vendorWorkerIpAddress =
+    { vendorAdditionalFixedProperties =
         Prelude.Nothing,
-      vendorAdditionalFixedProperties = Prelude.Nothing,
       vendorAdditionalTransientProperties =
         Prelude.Nothing,
+      vendorWorkerIpAddress = Prelude.Nothing,
       vendorWorkerId = pVendorWorkerId_
     }
-
--- | Undocumented member.
-vendorProperties_vendorWorkerIpAddress :: Lens.Lens' VendorProperties (Prelude.Maybe Prelude.Text)
-vendorProperties_vendorWorkerIpAddress = Lens.lens (\VendorProperties' {vendorWorkerIpAddress} -> vendorWorkerIpAddress) (\s@VendorProperties' {} a -> s {vendorWorkerIpAddress = a} :: VendorProperties)
 
 -- | Undocumented member.
 vendorProperties_vendorAdditionalFixedProperties :: Lens.Lens' VendorProperties (Prelude.Maybe Prelude.Text)
@@ -75,6 +71,10 @@ vendorProperties_vendorAdditionalFixedProperties = Lens.lens (\VendorProperties'
 -- | Undocumented member.
 vendorProperties_vendorAdditionalTransientProperties :: Lens.Lens' VendorProperties (Prelude.Maybe Prelude.Text)
 vendorProperties_vendorAdditionalTransientProperties = Lens.lens (\VendorProperties' {vendorAdditionalTransientProperties} -> vendorAdditionalTransientProperties) (\s@VendorProperties' {} a -> s {vendorAdditionalTransientProperties = a} :: VendorProperties)
+
+-- | Undocumented member.
+vendorProperties_vendorWorkerIpAddress :: Lens.Lens' VendorProperties (Prelude.Maybe Prelude.Text)
+vendorProperties_vendorWorkerIpAddress = Lens.lens (\VendorProperties' {vendorWorkerIpAddress} -> vendorWorkerIpAddress) (\s@VendorProperties' {} a -> s {vendorWorkerIpAddress = a} :: VendorProperties)
 
 -- | Undocumented member.
 vendorProperties_vendorWorkerId :: Lens.Lens' VendorProperties Prelude.Text
@@ -86,36 +86,37 @@ instance Data.FromJSON VendorProperties where
       "VendorProperties"
       ( \x ->
           VendorProperties'
-            Prelude.<$> (x Data..:? "vendorWorkerIpAddress")
-            Prelude.<*> (x Data..:? "vendorAdditionalFixedProperties")
+            Prelude.<$> (x Data..:? "vendorAdditionalFixedProperties")
             Prelude.<*> (x Data..:? "vendorAdditionalTransientProperties")
+            Prelude.<*> (x Data..:? "vendorWorkerIpAddress")
             Prelude.<*> (x Data..: "vendorWorkerId")
       )
 
 instance Prelude.Hashable VendorProperties where
   hashWithSalt _salt VendorProperties' {..} =
-    _salt `Prelude.hashWithSalt` vendorWorkerIpAddress
+    _salt
       `Prelude.hashWithSalt` vendorAdditionalFixedProperties
       `Prelude.hashWithSalt` vendorAdditionalTransientProperties
+      `Prelude.hashWithSalt` vendorWorkerIpAddress
       `Prelude.hashWithSalt` vendorWorkerId
 
 instance Prelude.NFData VendorProperties where
   rnf VendorProperties' {..} =
-    Prelude.rnf vendorWorkerIpAddress
-      `Prelude.seq` Prelude.rnf vendorAdditionalFixedProperties
+    Prelude.rnf vendorAdditionalFixedProperties
       `Prelude.seq` Prelude.rnf vendorAdditionalTransientProperties
+      `Prelude.seq` Prelude.rnf vendorWorkerIpAddress
       `Prelude.seq` Prelude.rnf vendorWorkerId
 
 instance Data.ToJSON VendorProperties where
   toJSON VendorProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vendorWorkerIpAddress" Data..=)
-              Prelude.<$> vendorWorkerIpAddress,
-            ("vendorAdditionalFixedProperties" Data..=)
+          [ ("vendorAdditionalFixedProperties" Data..=)
               Prelude.<$> vendorAdditionalFixedProperties,
             ("vendorAdditionalTransientProperties" Data..=)
               Prelude.<$> vendorAdditionalTransientProperties,
+            ("vendorWorkerIpAddress" Data..=)
+              Prelude.<$> vendorWorkerIpAddress,
             Prelude.Just
               ("vendorWorkerId" Data..= vendorWorkerId)
           ]

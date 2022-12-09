@@ -27,9 +27,9 @@ module Amazonka.IoTRoboRunner.CreateDestination
     newCreateDestination,
 
     -- * Request Lenses
+    createDestination_additionalFixedProperties,
     createDestination_clientToken,
     createDestination_state,
-    createDestination_additionalFixedProperties,
     createDestination_name,
     createDestination_site,
 
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDestination' smart constructor.
 data CreateDestination = CreateDestination'
-  { clientToken :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The state of the destination. Default used if not specified.
     state :: Prelude.Maybe DestinationState,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data CreateDestination = CreateDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalFixedProperties', 'createDestination_additionalFixedProperties' - Undocumented member.
+--
 -- 'clientToken', 'createDestination_clientToken' - Undocumented member.
 --
 -- 'state', 'createDestination_state' - The state of the destination. Default used if not specified.
---
--- 'additionalFixedProperties', 'createDestination_additionalFixedProperties' - Undocumented member.
 --
 -- 'name', 'createDestination_name' - Undocumented member.
 --
@@ -91,12 +91,17 @@ newCreateDestination ::
   CreateDestination
 newCreateDestination pName_ pSite_ =
   CreateDestination'
-    { clientToken = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       state = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
       name = pName_,
       site = pSite_
     }
+
+-- | Undocumented member.
+createDestination_additionalFixedProperties :: Lens.Lens' CreateDestination (Prelude.Maybe Prelude.Text)
+createDestination_additionalFixedProperties = Lens.lens (\CreateDestination' {additionalFixedProperties} -> additionalFixedProperties) (\s@CreateDestination' {} a -> s {additionalFixedProperties = a} :: CreateDestination)
 
 -- | Undocumented member.
 createDestination_clientToken :: Lens.Lens' CreateDestination (Prelude.Maybe Prelude.Text)
@@ -105,10 +110,6 @@ createDestination_clientToken = Lens.lens (\CreateDestination' {clientToken} -> 
 -- | The state of the destination. Default used if not specified.
 createDestination_state :: Lens.Lens' CreateDestination (Prelude.Maybe DestinationState)
 createDestination_state = Lens.lens (\CreateDestination' {state} -> state) (\s@CreateDestination' {} a -> s {state = a} :: CreateDestination)
-
--- | Undocumented member.
-createDestination_additionalFixedProperties :: Lens.Lens' CreateDestination (Prelude.Maybe Prelude.Text)
-createDestination_additionalFixedProperties = Lens.lens (\CreateDestination' {additionalFixedProperties} -> additionalFixedProperties) (\s@CreateDestination' {} a -> s {additionalFixedProperties = a} :: CreateDestination)
 
 -- | Undocumented member.
 createDestination_name :: Lens.Lens' CreateDestination Prelude.Text
@@ -138,17 +139,18 @@ instance Core.AWSRequest CreateDestination where
 
 instance Prelude.Hashable CreateDestination where
   hashWithSalt _salt CreateDestination' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` state
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` site
 
 instance Prelude.NFData CreateDestination where
   rnf CreateDestination' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf site
 
@@ -167,10 +169,10 @@ instance Data.ToJSON CreateDestination where
   toJSON CreateDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("state" Data..=) Prelude.<$> state,
-            ("additionalFixedProperties" Data..=)
+          [ ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("state" Data..=) Prelude.<$> state,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("site" Data..= site)
           ]

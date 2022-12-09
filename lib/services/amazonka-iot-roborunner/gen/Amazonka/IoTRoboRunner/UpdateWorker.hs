@@ -27,12 +27,12 @@ module Amazonka.IoTRoboRunner.UpdateWorker
     newUpdateWorker,
 
     -- * Request Lenses
-    updateWorker_name,
-    updateWorker_additionalTransientProperties,
-    updateWorker_orientation,
-    updateWorker_vendorProperties,
-    updateWorker_position,
     updateWorker_additionalFixedProperties,
+    updateWorker_additionalTransientProperties,
+    updateWorker_name,
+    updateWorker_orientation,
+    updateWorker_position,
+    updateWorker_vendorProperties,
     updateWorker_id,
 
     -- * Destructuring the Response
@@ -40,11 +40,11 @@ module Amazonka.IoTRoboRunner.UpdateWorker
     newUpdateWorkerResponse,
 
     -- * Response Lenses
+    updateWorkerResponse_additionalFixedProperties,
     updateWorkerResponse_additionalTransientProperties,
     updateWorkerResponse_orientation,
-    updateWorkerResponse_vendorProperties,
     updateWorkerResponse_position,
-    updateWorkerResponse_additionalFixedProperties,
+    updateWorkerResponse_vendorProperties,
     updateWorkerResponse_httpStatus,
     updateWorkerResponse_arn,
     updateWorkerResponse_id,
@@ -64,12 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorker' smart constructor.
 data UpdateWorker = UpdateWorker'
-  { name :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
     additionalTransientProperties :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     orientation :: Prelude.Maybe Orientation,
-    vendorProperties :: Prelude.Maybe VendorProperties,
     position :: Prelude.Maybe PositionCoordinates,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    vendorProperties :: Prelude.Maybe VendorProperties,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,17 +82,17 @@ data UpdateWorker = UpdateWorker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateWorker_name' - Undocumented member.
+-- 'additionalFixedProperties', 'updateWorker_additionalFixedProperties' - Undocumented member.
 --
 -- 'additionalTransientProperties', 'updateWorker_additionalTransientProperties' - Undocumented member.
 --
--- 'orientation', 'updateWorker_orientation' - Undocumented member.
+-- 'name', 'updateWorker_name' - Undocumented member.
 --
--- 'vendorProperties', 'updateWorker_vendorProperties' - Undocumented member.
+-- 'orientation', 'updateWorker_orientation' - Undocumented member.
 --
 -- 'position', 'updateWorker_position' - Undocumented member.
 --
--- 'additionalFixedProperties', 'updateWorker_additionalFixedProperties' - Undocumented member.
+-- 'vendorProperties', 'updateWorker_vendorProperties' - Undocumented member.
 --
 -- 'id', 'updateWorker_id' - Undocumented member.
 newUpdateWorker ::
@@ -101,38 +101,39 @@ newUpdateWorker ::
   UpdateWorker
 newUpdateWorker pId_ =
   UpdateWorker'
-    { name = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
       additionalTransientProperties = Prelude.Nothing,
+      name = Prelude.Nothing,
       orientation = Prelude.Nothing,
-      vendorProperties = Prelude.Nothing,
       position = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
+      vendorProperties = Prelude.Nothing,
       id = pId_
     }
 
 -- | Undocumented member.
-updateWorker_name :: Lens.Lens' UpdateWorker (Prelude.Maybe Prelude.Text)
-updateWorker_name = Lens.lens (\UpdateWorker' {name} -> name) (\s@UpdateWorker' {} a -> s {name = a} :: UpdateWorker)
+updateWorker_additionalFixedProperties :: Lens.Lens' UpdateWorker (Prelude.Maybe Prelude.Text)
+updateWorker_additionalFixedProperties = Lens.lens (\UpdateWorker' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateWorker' {} a -> s {additionalFixedProperties = a} :: UpdateWorker)
 
 -- | Undocumented member.
 updateWorker_additionalTransientProperties :: Lens.Lens' UpdateWorker (Prelude.Maybe Prelude.Text)
 updateWorker_additionalTransientProperties = Lens.lens (\UpdateWorker' {additionalTransientProperties} -> additionalTransientProperties) (\s@UpdateWorker' {} a -> s {additionalTransientProperties = a} :: UpdateWorker)
 
 -- | Undocumented member.
-updateWorker_orientation :: Lens.Lens' UpdateWorker (Prelude.Maybe Orientation)
-updateWorker_orientation = Lens.lens (\UpdateWorker' {orientation} -> orientation) (\s@UpdateWorker' {} a -> s {orientation = a} :: UpdateWorker)
+updateWorker_name :: Lens.Lens' UpdateWorker (Prelude.Maybe Prelude.Text)
+updateWorker_name = Lens.lens (\UpdateWorker' {name} -> name) (\s@UpdateWorker' {} a -> s {name = a} :: UpdateWorker)
 
 -- | Undocumented member.
-updateWorker_vendorProperties :: Lens.Lens' UpdateWorker (Prelude.Maybe VendorProperties)
-updateWorker_vendorProperties = Lens.lens (\UpdateWorker' {vendorProperties} -> vendorProperties) (\s@UpdateWorker' {} a -> s {vendorProperties = a} :: UpdateWorker)
+updateWorker_orientation :: Lens.Lens' UpdateWorker (Prelude.Maybe Orientation)
+updateWorker_orientation = Lens.lens (\UpdateWorker' {orientation} -> orientation) (\s@UpdateWorker' {} a -> s {orientation = a} :: UpdateWorker)
 
 -- | Undocumented member.
 updateWorker_position :: Lens.Lens' UpdateWorker (Prelude.Maybe PositionCoordinates)
 updateWorker_position = Lens.lens (\UpdateWorker' {position} -> position) (\s@UpdateWorker' {} a -> s {position = a} :: UpdateWorker)
 
 -- | Undocumented member.
-updateWorker_additionalFixedProperties :: Lens.Lens' UpdateWorker (Prelude.Maybe Prelude.Text)
-updateWorker_additionalFixedProperties = Lens.lens (\UpdateWorker' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateWorker' {} a -> s {additionalFixedProperties = a} :: UpdateWorker)
+updateWorker_vendorProperties :: Lens.Lens' UpdateWorker (Prelude.Maybe VendorProperties)
+updateWorker_vendorProperties = Lens.lens (\UpdateWorker' {vendorProperties} -> vendorProperties) (\s@UpdateWorker' {} a -> s {vendorProperties = a} :: UpdateWorker)
 
 -- | Undocumented member.
 updateWorker_id :: Lens.Lens' UpdateWorker Prelude.Text
@@ -146,11 +147,11 @@ instance Core.AWSRequest UpdateWorker where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkerResponse'
-            Prelude.<$> (x Data..?> "additionalTransientProperties")
+            Prelude.<$> (x Data..?> "additionalFixedProperties")
+            Prelude.<*> (x Data..?> "additionalTransientProperties")
             Prelude.<*> (x Data..?> "orientation")
-            Prelude.<*> (x Data..?> "vendorProperties")
             Prelude.<*> (x Data..?> "position")
-            Prelude.<*> (x Data..?> "additionalFixedProperties")
+            Prelude.<*> (x Data..?> "vendorProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "id")
@@ -161,22 +162,23 @@ instance Core.AWSRequest UpdateWorker where
 
 instance Prelude.Hashable UpdateWorker where
   hashWithSalt _salt UpdateWorker' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` additionalTransientProperties
-      `Prelude.hashWithSalt` orientation
-      `Prelude.hashWithSalt` vendorProperties
-      `Prelude.hashWithSalt` position
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` additionalTransientProperties
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` orientation
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` vendorProperties
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWorker where
   rnf UpdateWorker' {..} =
-    Prelude.rnf name
+    Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf additionalTransientProperties
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateWorker where
@@ -194,15 +196,15 @@ instance Data.ToJSON UpdateWorker where
   toJSON UpdateWorker' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("additionalFixedProperties" Data..=)
+              Prelude.<$> additionalFixedProperties,
             ("additionalTransientProperties" Data..=)
               Prelude.<$> additionalTransientProperties,
+            ("name" Data..=) Prelude.<$> name,
             ("orientation" Data..=) Prelude.<$> orientation,
+            ("position" Data..=) Prelude.<$> position,
             ("vendorProperties" Data..=)
               Prelude.<$> vendorProperties,
-            ("position" Data..=) Prelude.<$> position,
-            ("additionalFixedProperties" Data..=)
-              Prelude.<$> additionalFixedProperties,
             Prelude.Just ("id" Data..= id)
           ]
       )
@@ -215,11 +217,11 @@ instance Data.ToQuery UpdateWorker where
 
 -- | /See:/ 'newUpdateWorkerResponse' smart constructor.
 data UpdateWorkerResponse = UpdateWorkerResponse'
-  { additionalTransientProperties :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    additionalTransientProperties :: Prelude.Maybe Prelude.Text,
     orientation :: Prelude.Maybe Orientation,
-    vendorProperties :: Prelude.Maybe VendorProperties,
     position :: Prelude.Maybe PositionCoordinates,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    vendorProperties :: Prelude.Maybe VendorProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     arn :: Prelude.Text,
@@ -238,15 +240,15 @@ data UpdateWorkerResponse = UpdateWorkerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalFixedProperties', 'updateWorkerResponse_additionalFixedProperties' - Undocumented member.
+--
 -- 'additionalTransientProperties', 'updateWorkerResponse_additionalTransientProperties' - Undocumented member.
 --
 -- 'orientation', 'updateWorkerResponse_orientation' - Undocumented member.
 --
--- 'vendorProperties', 'updateWorkerResponse_vendorProperties' - Undocumented member.
---
 -- 'position', 'updateWorkerResponse_position' - Undocumented member.
 --
--- 'additionalFixedProperties', 'updateWorkerResponse_additionalFixedProperties' - Undocumented member.
+-- 'vendorProperties', 'updateWorkerResponse_vendorProperties' - Undocumented member.
 --
 -- 'httpStatus', 'updateWorkerResponse_httpStatus' - The response's http status code.
 --
@@ -281,12 +283,12 @@ newUpdateWorkerResponse
   pUpdatedAt_
   pName_ =
     UpdateWorkerResponse'
-      { additionalTransientProperties =
+      { additionalFixedProperties =
           Prelude.Nothing,
+        additionalTransientProperties = Prelude.Nothing,
         orientation = Prelude.Nothing,
-        vendorProperties = Prelude.Nothing,
         position = Prelude.Nothing,
-        additionalFixedProperties = Prelude.Nothing,
+        vendorProperties = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         arn = pArn_,
         id = pId_,
@@ -294,6 +296,10 @@ newUpdateWorkerResponse
         updatedAt = Data._Time Lens.# pUpdatedAt_,
         name = pName_
       }
+
+-- | Undocumented member.
+updateWorkerResponse_additionalFixedProperties :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe Prelude.Text)
+updateWorkerResponse_additionalFixedProperties = Lens.lens (\UpdateWorkerResponse' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateWorkerResponse' {} a -> s {additionalFixedProperties = a} :: UpdateWorkerResponse)
 
 -- | Undocumented member.
 updateWorkerResponse_additionalTransientProperties :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe Prelude.Text)
@@ -304,16 +310,12 @@ updateWorkerResponse_orientation :: Lens.Lens' UpdateWorkerResponse (Prelude.May
 updateWorkerResponse_orientation = Lens.lens (\UpdateWorkerResponse' {orientation} -> orientation) (\s@UpdateWorkerResponse' {} a -> s {orientation = a} :: UpdateWorkerResponse)
 
 -- | Undocumented member.
-updateWorkerResponse_vendorProperties :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe VendorProperties)
-updateWorkerResponse_vendorProperties = Lens.lens (\UpdateWorkerResponse' {vendorProperties} -> vendorProperties) (\s@UpdateWorkerResponse' {} a -> s {vendorProperties = a} :: UpdateWorkerResponse)
-
--- | Undocumented member.
 updateWorkerResponse_position :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe PositionCoordinates)
 updateWorkerResponse_position = Lens.lens (\UpdateWorkerResponse' {position} -> position) (\s@UpdateWorkerResponse' {} a -> s {position = a} :: UpdateWorkerResponse)
 
 -- | Undocumented member.
-updateWorkerResponse_additionalFixedProperties :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe Prelude.Text)
-updateWorkerResponse_additionalFixedProperties = Lens.lens (\UpdateWorkerResponse' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateWorkerResponse' {} a -> s {additionalFixedProperties = a} :: UpdateWorkerResponse)
+updateWorkerResponse_vendorProperties :: Lens.Lens' UpdateWorkerResponse (Prelude.Maybe VendorProperties)
+updateWorkerResponse_vendorProperties = Lens.lens (\UpdateWorkerResponse' {vendorProperties} -> vendorProperties) (\s@UpdateWorkerResponse' {} a -> s {vendorProperties = a} :: UpdateWorkerResponse)
 
 -- | The response's http status code.
 updateWorkerResponse_httpStatus :: Lens.Lens' UpdateWorkerResponse Prelude.Int
@@ -341,11 +343,11 @@ updateWorkerResponse_name = Lens.lens (\UpdateWorkerResponse' {name} -> name) (\
 
 instance Prelude.NFData UpdateWorkerResponse where
   rnf UpdateWorkerResponse' {..} =
-    Prelude.rnf additionalTransientProperties
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf additionalTransientProperties
       `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id

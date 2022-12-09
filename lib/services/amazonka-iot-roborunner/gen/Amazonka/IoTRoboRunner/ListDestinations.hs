@@ -29,9 +29,9 @@ module Amazonka.IoTRoboRunner.ListDestinations
     newListDestinations,
 
     -- * Request Lenses
+    listDestinations_maxResults,
     listDestinations_nextToken,
     listDestinations_state,
-    listDestinations_maxResults,
     listDestinations_site,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.IoTRoboRunner.ListDestinations
     newListDestinationsResponse,
 
     -- * Response Lenses
-    listDestinationsResponse_nextToken,
     listDestinationsResponse_destinations,
+    listDestinationsResponse_nextToken,
     listDestinationsResponse_httpStatus,
   )
 where
@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDestinations' smart constructor.
 data ListDestinations = ListDestinations'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     state :: Prelude.Maybe DestinationState,
-    maxResults :: Prelude.Maybe Prelude.Natural,
     site :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,11 +70,11 @@ data ListDestinations = ListDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDestinations_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listDestinations_nextToken' - Undocumented member.
 --
 -- 'state', 'listDestinations_state' - Undocumented member.
---
--- 'maxResults', 'listDestinations_maxResults' - Undocumented member.
 --
 -- 'site', 'listDestinations_site' - Undocumented member.
 newListDestinations ::
@@ -83,11 +83,15 @@ newListDestinations ::
   ListDestinations
 newListDestinations pSite_ =
   ListDestinations'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       state = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       site = pSite_
     }
+
+-- | Undocumented member.
+listDestinations_maxResults :: Lens.Lens' ListDestinations (Prelude.Maybe Prelude.Natural)
+listDestinations_maxResults = Lens.lens (\ListDestinations' {maxResults} -> maxResults) (\s@ListDestinations' {} a -> s {maxResults = a} :: ListDestinations)
 
 -- | Undocumented member.
 listDestinations_nextToken :: Lens.Lens' ListDestinations (Prelude.Maybe Prelude.Text)
@@ -96,10 +100,6 @@ listDestinations_nextToken = Lens.lens (\ListDestinations' {nextToken} -> nextTo
 -- | Undocumented member.
 listDestinations_state :: Lens.Lens' ListDestinations (Prelude.Maybe DestinationState)
 listDestinations_state = Lens.lens (\ListDestinations' {state} -> state) (\s@ListDestinations' {} a -> s {state = a} :: ListDestinations)
-
--- | Undocumented member.
-listDestinations_maxResults :: Lens.Lens' ListDestinations (Prelude.Maybe Prelude.Natural)
-listDestinations_maxResults = Lens.lens (\ListDestinations' {maxResults} -> maxResults) (\s@ListDestinations' {} a -> s {maxResults = a} :: ListDestinations)
 
 -- | Undocumented member.
 listDestinations_site :: Lens.Lens' ListDestinations Prelude.Text
@@ -137,23 +137,23 @@ instance Core.AWSRequest ListDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListDestinationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "destinations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDestinations where
   hashWithSalt _salt ListDestinations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` site
 
 instance Prelude.NFData ListDestinations where
   rnf ListDestinations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf site
 
 instance Data.ToHeaders ListDestinations where
@@ -173,16 +173,16 @@ instance Data.ToPath ListDestinations where
 instance Data.ToQuery ListDestinations where
   toQuery ListDestinations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "state" Data.=: state,
-        "maxResults" Data.=: maxResults,
         "site" Data.=: site
       ]
 
 -- | /See:/ 'newListDestinationsResponse' smart constructor.
 data ListDestinationsResponse = ListDestinationsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    destinations :: Prelude.Maybe [Destination],
+  { destinations :: Prelude.Maybe [Destination],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,9 +196,9 @@ data ListDestinationsResponse = ListDestinationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDestinationsResponse_nextToken' - Undocumented member.
---
 -- 'destinations', 'listDestinationsResponse_destinations' - Undocumented member.
+--
+-- 'nextToken', 'listDestinationsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listDestinationsResponse_httpStatus' - The response's http status code.
 newListDestinationsResponse ::
@@ -207,19 +207,19 @@ newListDestinationsResponse ::
   ListDestinationsResponse
 newListDestinationsResponse pHttpStatus_ =
   ListDestinationsResponse'
-    { nextToken =
+    { destinations =
         Prelude.Nothing,
-      destinations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listDestinationsResponse_nextToken :: Lens.Lens' ListDestinationsResponse (Prelude.Maybe Prelude.Text)
-listDestinationsResponse_nextToken = Lens.lens (\ListDestinationsResponse' {nextToken} -> nextToken) (\s@ListDestinationsResponse' {} a -> s {nextToken = a} :: ListDestinationsResponse)
-
--- | Undocumented member.
 listDestinationsResponse_destinations :: Lens.Lens' ListDestinationsResponse (Prelude.Maybe [Destination])
 listDestinationsResponse_destinations = Lens.lens (\ListDestinationsResponse' {destinations} -> destinations) (\s@ListDestinationsResponse' {} a -> s {destinations = a} :: ListDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listDestinationsResponse_nextToken :: Lens.Lens' ListDestinationsResponse (Prelude.Maybe Prelude.Text)
+listDestinationsResponse_nextToken = Lens.lens (\ListDestinationsResponse' {nextToken} -> nextToken) (\s@ListDestinationsResponse' {} a -> s {nextToken = a} :: ListDestinationsResponse)
 
 -- | The response's http status code.
 listDestinationsResponse_httpStatus :: Lens.Lens' ListDestinationsResponse Prelude.Int
@@ -227,6 +227,6 @@ listDestinationsResponse_httpStatus = Lens.lens (\ListDestinationsResponse' {htt
 
 instance Prelude.NFData ListDestinationsResponse where
   rnf ListDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf destinations
+    Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

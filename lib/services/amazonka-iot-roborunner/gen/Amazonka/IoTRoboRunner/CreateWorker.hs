@@ -27,12 +27,12 @@ module Amazonka.IoTRoboRunner.CreateWorker
     newCreateWorker,
 
     -- * Request Lenses
-    createWorker_clientToken,
-    createWorker_additionalTransientProperties,
-    createWorker_orientation,
-    createWorker_vendorProperties,
-    createWorker_position,
     createWorker_additionalFixedProperties,
+    createWorker_additionalTransientProperties,
+    createWorker_clientToken,
+    createWorker_orientation,
+    createWorker_position,
+    createWorker_vendorProperties,
     createWorker_name,
     createWorker_fleet,
 
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorker' smart constructor.
 data CreateWorker = CreateWorker'
-  { clientToken :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
     additionalTransientProperties :: Prelude.Maybe Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     orientation :: Prelude.Maybe Orientation,
-    vendorProperties :: Prelude.Maybe VendorProperties,
     position :: Prelude.Maybe PositionCoordinates,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    vendorProperties :: Prelude.Maybe VendorProperties,
     name :: Prelude.Text,
     fleet :: Prelude.Text
   }
@@ -79,17 +79,17 @@ data CreateWorker = CreateWorker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createWorker_clientToken' - Undocumented member.
+-- 'additionalFixedProperties', 'createWorker_additionalFixedProperties' - Undocumented member.
 --
 -- 'additionalTransientProperties', 'createWorker_additionalTransientProperties' - Undocumented member.
 --
--- 'orientation', 'createWorker_orientation' - Undocumented member.
+-- 'clientToken', 'createWorker_clientToken' - Undocumented member.
 --
--- 'vendorProperties', 'createWorker_vendorProperties' - Undocumented member.
+-- 'orientation', 'createWorker_orientation' - Undocumented member.
 --
 -- 'position', 'createWorker_position' - Undocumented member.
 --
--- 'additionalFixedProperties', 'createWorker_additionalFixedProperties' - Undocumented member.
+-- 'vendorProperties', 'createWorker_vendorProperties' - Undocumented member.
 --
 -- 'name', 'createWorker_name' - Undocumented member.
 --
@@ -102,39 +102,40 @@ newCreateWorker ::
   CreateWorker
 newCreateWorker pName_ pFleet_ =
   CreateWorker'
-    { clientToken = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
       additionalTransientProperties = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       orientation = Prelude.Nothing,
-      vendorProperties = Prelude.Nothing,
       position = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
+      vendorProperties = Prelude.Nothing,
       name = pName_,
       fleet = pFleet_
     }
 
 -- | Undocumented member.
-createWorker_clientToken :: Lens.Lens' CreateWorker (Prelude.Maybe Prelude.Text)
-createWorker_clientToken = Lens.lens (\CreateWorker' {clientToken} -> clientToken) (\s@CreateWorker' {} a -> s {clientToken = a} :: CreateWorker)
+createWorker_additionalFixedProperties :: Lens.Lens' CreateWorker (Prelude.Maybe Prelude.Text)
+createWorker_additionalFixedProperties = Lens.lens (\CreateWorker' {additionalFixedProperties} -> additionalFixedProperties) (\s@CreateWorker' {} a -> s {additionalFixedProperties = a} :: CreateWorker)
 
 -- | Undocumented member.
 createWorker_additionalTransientProperties :: Lens.Lens' CreateWorker (Prelude.Maybe Prelude.Text)
 createWorker_additionalTransientProperties = Lens.lens (\CreateWorker' {additionalTransientProperties} -> additionalTransientProperties) (\s@CreateWorker' {} a -> s {additionalTransientProperties = a} :: CreateWorker)
 
 -- | Undocumented member.
-createWorker_orientation :: Lens.Lens' CreateWorker (Prelude.Maybe Orientation)
-createWorker_orientation = Lens.lens (\CreateWorker' {orientation} -> orientation) (\s@CreateWorker' {} a -> s {orientation = a} :: CreateWorker)
+createWorker_clientToken :: Lens.Lens' CreateWorker (Prelude.Maybe Prelude.Text)
+createWorker_clientToken = Lens.lens (\CreateWorker' {clientToken} -> clientToken) (\s@CreateWorker' {} a -> s {clientToken = a} :: CreateWorker)
 
 -- | Undocumented member.
-createWorker_vendorProperties :: Lens.Lens' CreateWorker (Prelude.Maybe VendorProperties)
-createWorker_vendorProperties = Lens.lens (\CreateWorker' {vendorProperties} -> vendorProperties) (\s@CreateWorker' {} a -> s {vendorProperties = a} :: CreateWorker)
+createWorker_orientation :: Lens.Lens' CreateWorker (Prelude.Maybe Orientation)
+createWorker_orientation = Lens.lens (\CreateWorker' {orientation} -> orientation) (\s@CreateWorker' {} a -> s {orientation = a} :: CreateWorker)
 
 -- | Undocumented member.
 createWorker_position :: Lens.Lens' CreateWorker (Prelude.Maybe PositionCoordinates)
 createWorker_position = Lens.lens (\CreateWorker' {position} -> position) (\s@CreateWorker' {} a -> s {position = a} :: CreateWorker)
 
 -- | Undocumented member.
-createWorker_additionalFixedProperties :: Lens.Lens' CreateWorker (Prelude.Maybe Prelude.Text)
-createWorker_additionalFixedProperties = Lens.lens (\CreateWorker' {additionalFixedProperties} -> additionalFixedProperties) (\s@CreateWorker' {} a -> s {additionalFixedProperties = a} :: CreateWorker)
+createWorker_vendorProperties :: Lens.Lens' CreateWorker (Prelude.Maybe VendorProperties)
+createWorker_vendorProperties = Lens.lens (\CreateWorker' {vendorProperties} -> vendorProperties) (\s@CreateWorker' {} a -> s {vendorProperties = a} :: CreateWorker)
 
 -- | Undocumented member.
 createWorker_name :: Lens.Lens' CreateWorker Prelude.Text
@@ -162,23 +163,24 @@ instance Core.AWSRequest CreateWorker where
 
 instance Prelude.Hashable CreateWorker where
   hashWithSalt _salt CreateWorker' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` additionalTransientProperties
-      `Prelude.hashWithSalt` orientation
-      `Prelude.hashWithSalt` vendorProperties
-      `Prelude.hashWithSalt` position
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` additionalTransientProperties
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` orientation
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` vendorProperties
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fleet
 
 instance Prelude.NFData CreateWorker where
   rnf CreateWorker' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf additionalTransientProperties
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fleet
 
@@ -197,15 +199,15 @@ instance Data.ToJSON CreateWorker where
   toJSON CreateWorker' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("additionalFixedProperties" Data..=)
+              Prelude.<$> additionalFixedProperties,
             ("additionalTransientProperties" Data..=)
               Prelude.<$> additionalTransientProperties,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             ("orientation" Data..=) Prelude.<$> orientation,
+            ("position" Data..=) Prelude.<$> position,
             ("vendorProperties" Data..=)
               Prelude.<$> vendorProperties,
-            ("position" Data..=) Prelude.<$> position,
-            ("additionalFixedProperties" Data..=)
-              Prelude.<$> additionalFixedProperties,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("fleet" Data..= fleet)
           ]

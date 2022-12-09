@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorker' smart constructor.
 data Worker = Worker'
-  { additionalTransientProperties :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    additionalTransientProperties :: Prelude.Maybe Prelude.Text,
     orientation :: Prelude.Maybe Orientation,
-    vendorProperties :: Prelude.Maybe VendorProperties,
     position :: Prelude.Maybe PositionCoordinates,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    vendorProperties :: Prelude.Maybe VendorProperties,
     arn :: Prelude.Text,
     id :: Prelude.Text,
     fleet :: Prelude.Text,
@@ -54,15 +54,15 @@ data Worker = Worker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalFixedProperties', 'worker_additionalFixedProperties' - Undocumented member.
+--
 -- 'additionalTransientProperties', 'worker_additionalTransientProperties' - Undocumented member.
 --
 -- 'orientation', 'worker_orientation' - Undocumented member.
 --
--- 'vendorProperties', 'worker_vendorProperties' - Undocumented member.
---
 -- 'position', 'worker_position' - Undocumented member.
 --
--- 'additionalFixedProperties', 'worker_additionalFixedProperties' - Undocumented member.
+-- 'vendorProperties', 'worker_vendorProperties' - Undocumented member.
 --
 -- 'arn', 'worker_arn' - Undocumented member.
 --
@@ -102,12 +102,12 @@ newWorker
   pName_
   pSite_ =
     Worker'
-      { additionalTransientProperties =
+      { additionalFixedProperties =
           Prelude.Nothing,
+        additionalTransientProperties = Prelude.Nothing,
         orientation = Prelude.Nothing,
-        vendorProperties = Prelude.Nothing,
         position = Prelude.Nothing,
-        additionalFixedProperties = Prelude.Nothing,
+        vendorProperties = Prelude.Nothing,
         arn = pArn_,
         id = pId_,
         fleet = pFleet_,
@@ -118,6 +118,10 @@ newWorker
       }
 
 -- | Undocumented member.
+worker_additionalFixedProperties :: Lens.Lens' Worker (Prelude.Maybe Prelude.Text)
+worker_additionalFixedProperties = Lens.lens (\Worker' {additionalFixedProperties} -> additionalFixedProperties) (\s@Worker' {} a -> s {additionalFixedProperties = a} :: Worker)
+
+-- | Undocumented member.
 worker_additionalTransientProperties :: Lens.Lens' Worker (Prelude.Maybe Prelude.Text)
 worker_additionalTransientProperties = Lens.lens (\Worker' {additionalTransientProperties} -> additionalTransientProperties) (\s@Worker' {} a -> s {additionalTransientProperties = a} :: Worker)
 
@@ -126,16 +130,12 @@ worker_orientation :: Lens.Lens' Worker (Prelude.Maybe Orientation)
 worker_orientation = Lens.lens (\Worker' {orientation} -> orientation) (\s@Worker' {} a -> s {orientation = a} :: Worker)
 
 -- | Undocumented member.
-worker_vendorProperties :: Lens.Lens' Worker (Prelude.Maybe VendorProperties)
-worker_vendorProperties = Lens.lens (\Worker' {vendorProperties} -> vendorProperties) (\s@Worker' {} a -> s {vendorProperties = a} :: Worker)
-
--- | Undocumented member.
 worker_position :: Lens.Lens' Worker (Prelude.Maybe PositionCoordinates)
 worker_position = Lens.lens (\Worker' {position} -> position) (\s@Worker' {} a -> s {position = a} :: Worker)
 
 -- | Undocumented member.
-worker_additionalFixedProperties :: Lens.Lens' Worker (Prelude.Maybe Prelude.Text)
-worker_additionalFixedProperties = Lens.lens (\Worker' {additionalFixedProperties} -> additionalFixedProperties) (\s@Worker' {} a -> s {additionalFixedProperties = a} :: Worker)
+worker_vendorProperties :: Lens.Lens' Worker (Prelude.Maybe VendorProperties)
+worker_vendorProperties = Lens.lens (\Worker' {vendorProperties} -> vendorProperties) (\s@Worker' {} a -> s {vendorProperties = a} :: Worker)
 
 -- | Undocumented member.
 worker_arn :: Lens.Lens' Worker Prelude.Text
@@ -171,11 +171,11 @@ instance Data.FromJSON Worker where
       "Worker"
       ( \x ->
           Worker'
-            Prelude.<$> (x Data..:? "additionalTransientProperties")
+            Prelude.<$> (x Data..:? "additionalFixedProperties")
+            Prelude.<*> (x Data..:? "additionalTransientProperties")
             Prelude.<*> (x Data..:? "orientation")
-            Prelude.<*> (x Data..:? "vendorProperties")
             Prelude.<*> (x Data..:? "position")
-            Prelude.<*> (x Data..:? "additionalFixedProperties")
+            Prelude.<*> (x Data..:? "vendorProperties")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "fleet")
@@ -188,11 +188,11 @@ instance Data.FromJSON Worker where
 instance Prelude.Hashable Worker where
   hashWithSalt _salt Worker' {..} =
     _salt
+      `Prelude.hashWithSalt` additionalFixedProperties
       `Prelude.hashWithSalt` additionalTransientProperties
       `Prelude.hashWithSalt` orientation
-      `Prelude.hashWithSalt` vendorProperties
       `Prelude.hashWithSalt` position
-      `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` vendorProperties
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` fleet
@@ -203,11 +203,11 @@ instance Prelude.Hashable Worker where
 
 instance Prelude.NFData Worker where
   rnf Worker' {..} =
-    Prelude.rnf additionalTransientProperties
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf additionalTransientProperties
       `Prelude.seq` Prelude.rnf orientation
-      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf position
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf vendorProperties
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf fleet

@@ -29,8 +29,8 @@ module Amazonka.IoTRoboRunner.ListWorkerFleets
     newListWorkerFleets,
 
     -- * Request Lenses
-    listWorkerFleets_nextToken,
     listWorkerFleets_maxResults,
+    listWorkerFleets_nextToken,
     listWorkerFleets_site,
 
     -- * Destructuring the Response
@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkerFleets' smart constructor.
 data ListWorkerFleets = ListWorkerFleets'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     site :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +68,9 @@ data ListWorkerFleets = ListWorkerFleets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkerFleets_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listWorkerFleets_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listWorkerFleets_nextToken' - Undocumented member.
 --
 -- 'site', 'listWorkerFleets_site' - Undocumented member.
 newListWorkerFleets ::
@@ -79,18 +79,18 @@ newListWorkerFleets ::
   ListWorkerFleets
 newListWorkerFleets pSite_ =
   ListWorkerFleets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       site = pSite_
     }
 
 -- | Undocumented member.
-listWorkerFleets_nextToken :: Lens.Lens' ListWorkerFleets (Prelude.Maybe Prelude.Text)
-listWorkerFleets_nextToken = Lens.lens (\ListWorkerFleets' {nextToken} -> nextToken) (\s@ListWorkerFleets' {} a -> s {nextToken = a} :: ListWorkerFleets)
-
--- | Undocumented member.
 listWorkerFleets_maxResults :: Lens.Lens' ListWorkerFleets (Prelude.Maybe Prelude.Natural)
 listWorkerFleets_maxResults = Lens.lens (\ListWorkerFleets' {maxResults} -> maxResults) (\s@ListWorkerFleets' {} a -> s {maxResults = a} :: ListWorkerFleets)
+
+-- | Undocumented member.
+listWorkerFleets_nextToken :: Lens.Lens' ListWorkerFleets (Prelude.Maybe Prelude.Text)
+listWorkerFleets_nextToken = Lens.lens (\ListWorkerFleets' {nextToken} -> nextToken) (\s@ListWorkerFleets' {} a -> s {nextToken = a} :: ListWorkerFleets)
 
 -- | Undocumented member.
 listWorkerFleets_site :: Lens.Lens' ListWorkerFleets Prelude.Text
@@ -135,14 +135,14 @@ instance Core.AWSRequest ListWorkerFleets where
 
 instance Prelude.Hashable ListWorkerFleets where
   hashWithSalt _salt ListWorkerFleets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` site
 
 instance Prelude.NFData ListWorkerFleets where
   rnf ListWorkerFleets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf site
 
 instance Data.ToHeaders ListWorkerFleets where
@@ -162,8 +162,8 @@ instance Data.ToPath ListWorkerFleets where
 instance Data.ToQuery ListWorkerFleets where
   toQuery ListWorkerFleets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "site" Data.=: site
       ]
 

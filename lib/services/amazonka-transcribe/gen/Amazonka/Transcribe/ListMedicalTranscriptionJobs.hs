@@ -32,18 +32,18 @@ module Amazonka.Transcribe.ListMedicalTranscriptionJobs
     newListMedicalTranscriptionJobs,
 
     -- * Request Lenses
+    listMedicalTranscriptionJobs_jobNameContains,
+    listMedicalTranscriptionJobs_maxResults,
     listMedicalTranscriptionJobs_nextToken,
     listMedicalTranscriptionJobs_status,
-    listMedicalTranscriptionJobs_maxResults,
-    listMedicalTranscriptionJobs_jobNameContains,
 
     -- * Destructuring the Response
     ListMedicalTranscriptionJobsResponse (..),
     newListMedicalTranscriptionJobsResponse,
 
     -- * Response Lenses
-    listMedicalTranscriptionJobsResponse_nextToken,
     listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries,
+    listMedicalTranscriptionJobsResponse_nextToken,
     listMedicalTranscriptionJobsResponse_status,
     listMedicalTranscriptionJobsResponse_httpStatus,
   )
@@ -59,7 +59,15 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListMedicalTranscriptionJobs' smart constructor.
 data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
-  { -- | If your @ListMedicalTranscriptionJobs@ request returns more results than
+  { -- | Returns only the medical transcription jobs that contain the specified
+    -- string. The search is not case sensitive.
+    jobNameContains :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of medical transcription jobs to return in each page
+    -- of results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your @ListMedicalTranscriptionJobs@ request returns more results than
     -- can be displayed, @NextToken@ is displayed in the response with an
     -- associated string. To get the next page of results, copy this string and
     -- repeat your request, including @NextToken@ with the value of the copied
@@ -68,15 +76,7 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
     -- | Returns only medical transcription jobs with the specified status. Jobs
     -- are ordered by creation date, with the newest job first. If you don\'t
     -- include @Status@, all medical transcription jobs are returned.
-    status :: Prelude.Maybe TranscriptionJobStatus,
-    -- | The maximum number of medical transcription jobs to return in each page
-    -- of results. If there are fewer results than the value you specify, only
-    -- the actual results are returned. If you don\'t specify a value, a
-    -- default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Returns only the medical transcription jobs that contain the specified
-    -- string. The search is not case sensitive.
-    jobNameContains :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe TranscriptionJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +88,14 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobNameContains', 'listMedicalTranscriptionJobs_jobNameContains' - Returns only the medical transcription jobs that contain the specified
+-- string. The search is not case sensitive.
+--
+-- 'maxResults', 'listMedicalTranscriptionJobs_maxResults' - The maximum number of medical transcription jobs to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
 -- 'nextToken', 'listMedicalTranscriptionJobs_nextToken' - If your @ListMedicalTranscriptionJobs@ request returns more results than
 -- can be displayed, @NextToken@ is displayed in the response with an
 -- associated string. To get the next page of results, copy this string and
@@ -97,24 +105,28 @@ data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
 -- 'status', 'listMedicalTranscriptionJobs_status' - Returns only medical transcription jobs with the specified status. Jobs
 -- are ordered by creation date, with the newest job first. If you don\'t
 -- include @Status@, all medical transcription jobs are returned.
---
--- 'maxResults', 'listMedicalTranscriptionJobs_maxResults' - The maximum number of medical transcription jobs to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
---
--- 'jobNameContains', 'listMedicalTranscriptionJobs_jobNameContains' - Returns only the medical transcription jobs that contain the specified
--- string. The search is not case sensitive.
 newListMedicalTranscriptionJobs ::
   ListMedicalTranscriptionJobs
 newListMedicalTranscriptionJobs =
   ListMedicalTranscriptionJobs'
-    { nextToken =
+    { jobNameContains =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | Returns only the medical transcription jobs that contain the specified
+-- string. The search is not case sensitive.
+listMedicalTranscriptionJobs_jobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
+listMedicalTranscriptionJobs_jobNameContains = Lens.lens (\ListMedicalTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListMedicalTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListMedicalTranscriptionJobs)
+
+-- | The maximum number of medical transcription jobs to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Natural)
+listMedicalTranscriptionJobs_maxResults = Lens.lens (\ListMedicalTranscriptionJobs' {maxResults} -> maxResults) (\s@ListMedicalTranscriptionJobs' {} a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
 
 -- | If your @ListMedicalTranscriptionJobs@ request returns more results than
 -- can be displayed, @NextToken@ is displayed in the response with an
@@ -130,18 +142,6 @@ listMedicalTranscriptionJobs_nextToken = Lens.lens (\ListMedicalTranscriptionJob
 listMedicalTranscriptionJobs_status :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe TranscriptionJobStatus)
 listMedicalTranscriptionJobs_status = Lens.lens (\ListMedicalTranscriptionJobs' {status} -> status) (\s@ListMedicalTranscriptionJobs' {} a -> s {status = a} :: ListMedicalTranscriptionJobs)
 
--- | The maximum number of medical transcription jobs to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
-listMedicalTranscriptionJobs_maxResults :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Natural)
-listMedicalTranscriptionJobs_maxResults = Lens.lens (\ListMedicalTranscriptionJobs' {maxResults} -> maxResults) (\s@ListMedicalTranscriptionJobs' {} a -> s {maxResults = a} :: ListMedicalTranscriptionJobs)
-
--- | Returns only the medical transcription jobs that contain the specified
--- string. The search is not case sensitive.
-listMedicalTranscriptionJobs_jobNameContains :: Lens.Lens' ListMedicalTranscriptionJobs (Prelude.Maybe Prelude.Text)
-listMedicalTranscriptionJobs_jobNameContains = Lens.lens (\ListMedicalTranscriptionJobs' {jobNameContains} -> jobNameContains) (\s@ListMedicalTranscriptionJobs' {} a -> s {jobNameContains = a} :: ListMedicalTranscriptionJobs)
-
 instance Core.AWSRequest ListMedicalTranscriptionJobs where
   type
     AWSResponse ListMedicalTranscriptionJobs =
@@ -152,10 +152,10 @@ instance Core.AWSRequest ListMedicalTranscriptionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListMedicalTranscriptionJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MedicalTranscriptionJobSummaries"
+            Prelude.<$> ( x Data..?> "MedicalTranscriptionJobSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -165,17 +165,17 @@ instance
     ListMedicalTranscriptionJobs
   where
   hashWithSalt _salt ListMedicalTranscriptionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` jobNameContains
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` jobNameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListMedicalTranscriptionJobs where
   rnf ListMedicalTranscriptionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobNameContains
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf jobNameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders ListMedicalTranscriptionJobs where
   toHeaders =
@@ -196,11 +196,11 @@ instance Data.ToJSON ListMedicalTranscriptionJobs where
   toJSON ListMedicalTranscriptionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Status" Data..=) Prelude.<$> status,
+          [ ("JobNameContains" Data..=)
+              Prelude.<$> jobNameContains,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("JobNameContains" Data..=)
-              Prelude.<$> jobNameContains
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )
 
@@ -212,14 +212,14 @@ instance Data.ToQuery ListMedicalTranscriptionJobs where
 
 -- | /See:/ 'newListMedicalTranscriptionJobsResponse' smart constructor.
 data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse'
-  { -- | If @NextToken@ is present in your response, it indicates that not all
+  { -- | Provides a summary of information about each result.
+    medicalTranscriptionJobSummaries :: Prelude.Maybe [MedicalTranscriptionJobSummary],
+    -- | If @NextToken@ is present in your response, it indicates that not all
     -- results are displayed. To view the next set of results, copy the string
     -- associated with the @NextToken@ parameter in your results output, then
     -- run your request again including @NextToken@ with the value of the
     -- copied string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides a summary of information about each result.
-    medicalTranscriptionJobSummaries :: Prelude.Maybe [MedicalTranscriptionJobSummary],
     -- | Lists all medical transcription jobs that have the status specified in
     -- your request. Jobs are ordered by creation date, with the newest job
     -- first.
@@ -237,13 +237,13 @@ data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'medicalTranscriptionJobSummaries', 'listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries' - Provides a summary of information about each result.
+--
 -- 'nextToken', 'listMedicalTranscriptionJobsResponse_nextToken' - If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
 -- associated with the @NextToken@ parameter in your results output, then
 -- run your request again including @NextToken@ with the value of the
 -- copied string. Repeat as needed to view all your results.
---
--- 'medicalTranscriptionJobSummaries', 'listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries' - Provides a summary of information about each result.
 --
 -- 'status', 'listMedicalTranscriptionJobsResponse_status' - Lists all medical transcription jobs that have the status specified in
 -- your request. Jobs are ordered by creation date, with the newest job
@@ -256,13 +256,16 @@ newListMedicalTranscriptionJobsResponse ::
   ListMedicalTranscriptionJobsResponse
 newListMedicalTranscriptionJobsResponse pHttpStatus_ =
   ListMedicalTranscriptionJobsResponse'
-    { nextToken =
+    { medicalTranscriptionJobSummaries =
         Prelude.Nothing,
-      medicalTranscriptionJobSummaries =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Provides a summary of information about each result.
+listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe [MedicalTranscriptionJobSummary])
+listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries = Lens.lens (\ListMedicalTranscriptionJobsResponse' {medicalTranscriptionJobSummaries} -> medicalTranscriptionJobSummaries) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
@@ -271,10 +274,6 @@ newListMedicalTranscriptionJobsResponse pHttpStatus_ =
 -- copied string. Repeat as needed to view all your results.
 listMedicalTranscriptionJobsResponse_nextToken :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe Prelude.Text)
 listMedicalTranscriptionJobsResponse_nextToken = Lens.lens (\ListMedicalTranscriptionJobsResponse' {nextToken} -> nextToken) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {nextToken = a} :: ListMedicalTranscriptionJobsResponse)
-
--- | Provides a summary of information about each result.
-listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries :: Lens.Lens' ListMedicalTranscriptionJobsResponse (Prelude.Maybe [MedicalTranscriptionJobSummary])
-listMedicalTranscriptionJobsResponse_medicalTranscriptionJobSummaries = Lens.lens (\ListMedicalTranscriptionJobsResponse' {medicalTranscriptionJobSummaries} -> medicalTranscriptionJobSummaries) (\s@ListMedicalTranscriptionJobsResponse' {} a -> s {medicalTranscriptionJobSummaries = a} :: ListMedicalTranscriptionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Lists all medical transcription jobs that have the status specified in
 -- your request. Jobs are ordered by creation date, with the newest job
@@ -291,7 +290,7 @@ instance
     ListMedicalTranscriptionJobsResponse
   where
   rnf ListMedicalTranscriptionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobSummaries
+    Prelude.rnf medicalTranscriptionJobSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

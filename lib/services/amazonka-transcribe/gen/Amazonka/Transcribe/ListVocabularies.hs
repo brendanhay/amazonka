@@ -32,9 +32,9 @@ module Amazonka.Transcribe.ListVocabularies
     newListVocabularies,
 
     -- * Request Lenses
-    listVocabularies_nextToken,
-    listVocabularies_nameContains,
     listVocabularies_maxResults,
+    listVocabularies_nameContains,
+    listVocabularies_nextToken,
     listVocabularies_stateEquals,
 
     -- * Destructuring the Response
@@ -59,20 +59,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListVocabularies' smart constructor.
 data ListVocabularies = ListVocabularies'
-  { -- | If your @ListVocabularies@ request returns more results than can be
+  { -- | The maximum number of custom vocabularies to return in each page of
+    -- results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Returns only the custom vocabularies that contain the specified string.
+    -- The search is not case sensitive.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | If your @ListVocabularies@ request returns more results than can be
     -- displayed, @NextToken@ is displayed in the response with an associated
     -- string. To get the next page of results, copy this string and repeat
     -- your request, including @NextToken@ with the value of the copied string.
     -- Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns only the custom vocabularies that contain the specified string.
-    -- The search is not case sensitive.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of custom vocabularies to return in each page of
-    -- results. If there are fewer results than the value you specify, only the
-    -- actual results are returned. If you don\'t specify a value, a default of
-    -- 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only custom vocabularies with the specified state. Vocabularies
     -- are ordered by creation date, with the newest vocabulary first. If you
     -- don\'t include @StateEquals@, all custom medical vocabularies are
@@ -89,19 +89,19 @@ data ListVocabularies = ListVocabularies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listVocabularies_maxResults' - The maximum number of custom vocabularies to return in each page of
+-- results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
+-- 'nameContains', 'listVocabularies_nameContains' - Returns only the custom vocabularies that contain the specified string.
+-- The search is not case sensitive.
+--
 -- 'nextToken', 'listVocabularies_nextToken' - If your @ListVocabularies@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
 -- string. To get the next page of results, copy this string and repeat
 -- your request, including @NextToken@ with the value of the copied string.
 -- Repeat as needed to view all your results.
---
--- 'nameContains', 'listVocabularies_nameContains' - Returns only the custom vocabularies that contain the specified string.
--- The search is not case sensitive.
---
--- 'maxResults', 'listVocabularies_maxResults' - The maximum number of custom vocabularies to return in each page of
--- results. If there are fewer results than the value you specify, only the
--- actual results are returned. If you don\'t specify a value, a default of
--- 5 is used.
 --
 -- 'stateEquals', 'listVocabularies_stateEquals' - Returns only custom vocabularies with the specified state. Vocabularies
 -- are ordered by creation date, with the newest vocabulary first. If you
@@ -111,11 +111,23 @@ newListVocabularies ::
   ListVocabularies
 newListVocabularies =
   ListVocabularies'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       stateEquals = Prelude.Nothing
     }
+
+-- | The maximum number of custom vocabularies to return in each page of
+-- results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listVocabularies_maxResults :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Natural)
+listVocabularies_maxResults = Lens.lens (\ListVocabularies' {maxResults} -> maxResults) (\s@ListVocabularies' {} a -> s {maxResults = a} :: ListVocabularies)
+
+-- | Returns only the custom vocabularies that contain the specified string.
+-- The search is not case sensitive.
+listVocabularies_nameContains :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
+listVocabularies_nameContains = Lens.lens (\ListVocabularies' {nameContains} -> nameContains) (\s@ListVocabularies' {} a -> s {nameContains = a} :: ListVocabularies)
 
 -- | If your @ListVocabularies@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
@@ -124,18 +136,6 @@ newListVocabularies =
 -- Repeat as needed to view all your results.
 listVocabularies_nextToken :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
 listVocabularies_nextToken = Lens.lens (\ListVocabularies' {nextToken} -> nextToken) (\s@ListVocabularies' {} a -> s {nextToken = a} :: ListVocabularies)
-
--- | Returns only the custom vocabularies that contain the specified string.
--- The search is not case sensitive.
-listVocabularies_nameContains :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
-listVocabularies_nameContains = Lens.lens (\ListVocabularies' {nameContains} -> nameContains) (\s@ListVocabularies' {} a -> s {nameContains = a} :: ListVocabularies)
-
--- | The maximum number of custom vocabularies to return in each page of
--- results. If there are fewer results than the value you specify, only the
--- actual results are returned. If you don\'t specify a value, a default of
--- 5 is used.
-listVocabularies_maxResults :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Natural)
-listVocabularies_maxResults = Lens.lens (\ListVocabularies' {maxResults} -> maxResults) (\s@ListVocabularies' {} a -> s {maxResults = a} :: ListVocabularies)
 
 -- | Returns only custom vocabularies with the specified state. Vocabularies
 -- are ordered by creation date, with the newest vocabulary first. If you
@@ -162,16 +162,16 @@ instance Core.AWSRequest ListVocabularies where
 
 instance Prelude.Hashable ListVocabularies where
   hashWithSalt _salt ListVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateEquals
 
 instance Prelude.NFData ListVocabularies where
   rnf ListVocabularies' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stateEquals
 
 instance Data.ToHeaders ListVocabularies where
@@ -193,9 +193,9 @@ instance Data.ToJSON ListVocabularies where
   toJSON ListVocabularies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StateEquals" Data..=) Prelude.<$> stateEquals
           ]
       )

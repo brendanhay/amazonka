@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Allows you to control how your transcription job is processed.
+-- | Makes it possible to control how your transcription job is processed.
 -- Currently, the only @JobExecutionSettings@ modification you can choose
 -- is enabling job queueing using the @AllowDeferredExecution@
 -- sub-parameter.
@@ -35,12 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionSettings' smart constructor.
 data JobExecutionSettings = JobExecutionSettings'
-  { -- | Allows you to enable job queuing when your concurrent request limit is
-    -- exceeded. When @AllowDeferredExecution@ is set to @true@, transcription
-    -- job requests are placed in a queue until the number of jobs falls below
-    -- the concurrent request limit. If @AllowDeferredExecution@ is set to
-    -- @false@ and the number of transcription job requests exceed the
-    -- concurrent request limit, you get a @LimitExceededException@ error.
+  { -- | Makes it possible to enable job queuing when your concurrent request
+    -- limit is exceeded. When @AllowDeferredExecution@ is set to @true@,
+    -- transcription job requests are placed in a queue until the number of
+    -- jobs falls below the concurrent request limit. If
+    -- @AllowDeferredExecution@ is set to @false@ and the number of
+    -- transcription job requests exceed the concurrent request limit, you get
+    -- a @LimitExceededException@ error.
     --
     -- Note that job queuing is enabled by default for Call Analytics jobs.
     --
@@ -49,7 +50,7 @@ data JobExecutionSettings = JobExecutionSettings'
     allowDeferredExecution :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
     -- access the Amazon S3 bucket that contains your input files. If the role
-    -- you specify doesn’t have the appropriate permissions to access the
+    -- that you specify doesn’t have the appropriate permissions to access the
     -- specified Amazon S3 location, your request fails.
     --
     -- IAM role ARNs have the format
@@ -71,12 +72,13 @@ data JobExecutionSettings = JobExecutionSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowDeferredExecution', 'jobExecutionSettings_allowDeferredExecution' - Allows you to enable job queuing when your concurrent request limit is
--- exceeded. When @AllowDeferredExecution@ is set to @true@, transcription
--- job requests are placed in a queue until the number of jobs falls below
--- the concurrent request limit. If @AllowDeferredExecution@ is set to
--- @false@ and the number of transcription job requests exceed the
--- concurrent request limit, you get a @LimitExceededException@ error.
+-- 'allowDeferredExecution', 'jobExecutionSettings_allowDeferredExecution' - Makes it possible to enable job queuing when your concurrent request
+-- limit is exceeded. When @AllowDeferredExecution@ is set to @true@,
+-- transcription job requests are placed in a queue until the number of
+-- jobs falls below the concurrent request limit. If
+-- @AllowDeferredExecution@ is set to @false@ and the number of
+-- transcription job requests exceed the concurrent request limit, you get
+-- a @LimitExceededException@ error.
 --
 -- Note that job queuing is enabled by default for Call Analytics jobs.
 --
@@ -85,7 +87,7 @@ data JobExecutionSettings = JobExecutionSettings'
 --
 -- 'dataAccessRoleArn', 'jobExecutionSettings_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format
@@ -104,12 +106,13 @@ newJobExecutionSettings =
       dataAccessRoleArn = Prelude.Nothing
     }
 
--- | Allows you to enable job queuing when your concurrent request limit is
--- exceeded. When @AllowDeferredExecution@ is set to @true@, transcription
--- job requests are placed in a queue until the number of jobs falls below
--- the concurrent request limit. If @AllowDeferredExecution@ is set to
--- @false@ and the number of transcription job requests exceed the
--- concurrent request limit, you get a @LimitExceededException@ error.
+-- | Makes it possible to enable job queuing when your concurrent request
+-- limit is exceeded. When @AllowDeferredExecution@ is set to @true@,
+-- transcription job requests are placed in a queue until the number of
+-- jobs falls below the concurrent request limit. If
+-- @AllowDeferredExecution@ is set to @false@ and the number of
+-- transcription job requests exceed the concurrent request limit, you get
+-- a @LimitExceededException@ error.
 --
 -- Note that job queuing is enabled by default for Call Analytics jobs.
 --
@@ -120,7 +123,7 @@ jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' 
 
 -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format

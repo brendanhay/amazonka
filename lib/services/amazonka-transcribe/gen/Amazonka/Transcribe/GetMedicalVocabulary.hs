@@ -22,10 +22,10 @@
 --
 -- Provides information about the specified custom medical vocabulary.
 --
--- To view the status of the specified medical vocabulary, check the
--- @VocabularyState@ field. If the status is @READY@, your vocabulary is
--- available to use. If the status is @FAILED@, @FailureReason@ provides
--- details on why your vocabulary failed.
+-- To view the status of the specified custom medical vocabulary, check the
+-- @VocabularyState@ field. If the status is @READY@, your custom
+-- vocabulary is available to use. If the status is @FAILED@,
+-- @FailureReason@ provides details on why your vocabulary failed.
 --
 -- To get a list of your custom medical vocabularies, use the operation.
 module Amazonka.Transcribe.GetMedicalVocabulary
@@ -42,11 +42,11 @@ module Amazonka.Transcribe.GetMedicalVocabulary
 
     -- * Response Lenses
     getMedicalVocabularyResponse_downloadUri,
+    getMedicalVocabularyResponse_failureReason,
+    getMedicalVocabularyResponse_languageCode,
+    getMedicalVocabularyResponse_lastModifiedTime,
     getMedicalVocabularyResponse_vocabularyName,
     getMedicalVocabularyResponse_vocabularyState,
-    getMedicalVocabularyResponse_lastModifiedTime,
-    getMedicalVocabularyResponse_languageCode,
-    getMedicalVocabularyResponse_failureReason,
     getMedicalVocabularyResponse_httpStatus,
   )
 where
@@ -62,7 +62,7 @@ import Amazonka.Transcribe.Types
 -- | /See:/ 'newGetMedicalVocabulary' smart constructor.
 data GetMedicalVocabulary = GetMedicalVocabulary'
   { -- | The name of the custom medical vocabulary you want information about.
-    -- Vocabulary names are case sensitive.
+    -- Custom medical vocabulary names are case sensitive.
     vocabularyName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data GetMedicalVocabulary = GetMedicalVocabulary'
 -- for backwards compatibility:
 --
 -- 'vocabularyName', 'getMedicalVocabulary_vocabularyName' - The name of the custom medical vocabulary you want information about.
--- Vocabulary names are case sensitive.
+-- Custom medical vocabulary names are case sensitive.
 newGetMedicalVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -88,7 +88,7 @@ newGetMedicalVocabulary pVocabularyName_ =
     }
 
 -- | The name of the custom medical vocabulary you want information about.
--- Vocabulary names are case sensitive.
+-- Custom medical vocabulary names are case sensitive.
 getMedicalVocabulary_vocabularyName :: Lens.Lens' GetMedicalVocabulary Prelude.Text
 getMedicalVocabulary_vocabularyName = Lens.lens (\GetMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabulary' {} a -> s {vocabularyName = a} :: GetMedicalVocabulary)
 
@@ -103,11 +103,11 @@ instance Core.AWSRequest GetMedicalVocabulary where
       ( \s h x ->
           GetMedicalVocabularyResponse'
             Prelude.<$> (x Data..?> "DownloadUri")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "LanguageCode")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "VocabularyName")
             Prelude.<*> (x Data..?> "VocabularyState")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "LanguageCode")
-            Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,16 +151,17 @@ instance Data.ToQuery GetMedicalVocabulary where
 
 -- | /See:/ 'newGetMedicalVocabularyResponse' smart constructor.
 data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
-  { -- | The S3 location where the specified medical vocabulary is stored; use
-    -- this URI to view or download the vocabulary.
+  { -- | The S3 location where the specified custom medical vocabulary is stored;
+    -- use this URI to view or download the custom vocabulary.
     downloadUri :: Prelude.Maybe Prelude.Text,
-    -- | The name of the custom medical vocabulary you requested information
-    -- about.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The processing state of your custom medical vocabulary. If the state is
-    -- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
-    -- request.
-    vocabularyState :: Prelude.Maybe VocabularyState,
+    -- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+    -- about why the custom medical vocabulary request failed. See also:
+    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The language code you selected for your custom medical vocabulary. US
+    -- English (@en-US@) is the only language supported with Amazon Transcribe
+    -- Medical.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The date and time the specified custom medical vocabulary was last
     -- modified.
     --
@@ -168,13 +169,13 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The language code you selected for your medical vocabulary. US English
-    -- (@en-US@) is the only language supported with Amazon Transcribe Medical.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
-    -- about why the medical vocabulary request failed. See also:
-    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The name of the custom medical vocabulary you requested information
+    -- about.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The processing state of your custom medical vocabulary. If the state is
+    -- @READY@, you can use the custom vocabulary in a
+    -- @StartMedicalTranscriptionJob@ request.
+    vocabularyState :: Prelude.Maybe VocabularyState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,15 +189,16 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'downloadUri', 'getMedicalVocabularyResponse_downloadUri' - The S3 location where the specified medical vocabulary is stored; use
--- this URI to view or download the vocabulary.
+-- 'downloadUri', 'getMedicalVocabularyResponse_downloadUri' - The S3 location where the specified custom medical vocabulary is stored;
+-- use this URI to view or download the custom vocabulary.
 --
--- 'vocabularyName', 'getMedicalVocabularyResponse_vocabularyName' - The name of the custom medical vocabulary you requested information
--- about.
+-- 'failureReason', 'getMedicalVocabularyResponse_failureReason' - If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+-- about why the custom medical vocabulary request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 --
--- 'vocabularyState', 'getMedicalVocabularyResponse_vocabularyState' - The processing state of your custom medical vocabulary. If the state is
--- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
--- request.
+-- 'languageCode', 'getMedicalVocabularyResponse_languageCode' - The language code you selected for your custom medical vocabulary. US
+-- English (@en-US@) is the only language supported with Amazon Transcribe
+-- Medical.
 --
 -- 'lastModifiedTime', 'getMedicalVocabularyResponse_lastModifiedTime' - The date and time the specified custom medical vocabulary was last
 -- modified.
@@ -205,12 +207,12 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 --
--- 'languageCode', 'getMedicalVocabularyResponse_languageCode' - The language code you selected for your medical vocabulary. US English
--- (@en-US@) is the only language supported with Amazon Transcribe Medical.
+-- 'vocabularyName', 'getMedicalVocabularyResponse_vocabularyName' - The name of the custom medical vocabulary you requested information
+-- about.
 --
--- 'failureReason', 'getMedicalVocabularyResponse_failureReason' - If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
--- about why the medical vocabulary request failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+-- 'vocabularyState', 'getMedicalVocabularyResponse_vocabularyState' - The processing state of your custom medical vocabulary. If the state is
+-- @READY@, you can use the custom vocabulary in a
+-- @StartMedicalTranscriptionJob@ request.
 --
 -- 'httpStatus', 'getMedicalVocabularyResponse_httpStatus' - The response's http status code.
 newGetMedicalVocabularyResponse ::
@@ -221,29 +223,30 @@ newGetMedicalVocabularyResponse pHttpStatus_ =
   GetMedicalVocabularyResponse'
     { downloadUri =
         Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
       vocabularyState = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The S3 location where the specified medical vocabulary is stored; use
--- this URI to view or download the vocabulary.
+-- | The S3 location where the specified custom medical vocabulary is stored;
+-- use this URI to view or download the custom vocabulary.
 getMedicalVocabularyResponse_downloadUri :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
 getMedicalVocabularyResponse_downloadUri = Lens.lens (\GetMedicalVocabularyResponse' {downloadUri} -> downloadUri) (\s@GetMedicalVocabularyResponse' {} a -> s {downloadUri = a} :: GetMedicalVocabularyResponse)
 
--- | The name of the custom medical vocabulary you requested information
--- about.
-getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-getMedicalVocabularyResponse_vocabularyName = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
+-- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+-- about why the custom medical vocabulary request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+getMedicalVocabularyResponse_failureReason :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_failureReason = Lens.lens (\GetMedicalVocabularyResponse' {failureReason} -> failureReason) (\s@GetMedicalVocabularyResponse' {} a -> s {failureReason = a} :: GetMedicalVocabularyResponse)
 
--- | The processing state of your custom medical vocabulary. If the state is
--- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
--- request.
-getMedicalVocabularyResponse_vocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
-getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: GetMedicalVocabularyResponse)
+-- | The language code you selected for your custom medical vocabulary. US
+-- English (@en-US@) is the only language supported with Amazon Transcribe
+-- Medical.
+getMedicalVocabularyResponse_languageCode :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
+getMedicalVocabularyResponse_languageCode = Lens.lens (\GetMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@GetMedicalVocabularyResponse' {} a -> s {languageCode = a} :: GetMedicalVocabularyResponse)
 
 -- | The date and time the specified custom medical vocabulary was last
 -- modified.
@@ -254,16 +257,16 @@ getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyR
 getMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 getMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\GetMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: GetMedicalVocabularyResponse) Prelude.. Lens.mapping Data._Time
 
--- | The language code you selected for your medical vocabulary. US English
--- (@en-US@) is the only language supported with Amazon Transcribe Medical.
-getMedicalVocabularyResponse_languageCode :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
-getMedicalVocabularyResponse_languageCode = Lens.lens (\GetMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@GetMedicalVocabularyResponse' {} a -> s {languageCode = a} :: GetMedicalVocabularyResponse)
+-- | The name of the custom medical vocabulary you requested information
+-- about.
+getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_vocabularyName = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
 
--- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
--- about why the medical vocabulary request failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-getMedicalVocabularyResponse_failureReason :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-getMedicalVocabularyResponse_failureReason = Lens.lens (\GetMedicalVocabularyResponse' {failureReason} -> failureReason) (\s@GetMedicalVocabularyResponse' {} a -> s {failureReason = a} :: GetMedicalVocabularyResponse)
+-- | The processing state of your custom medical vocabulary. If the state is
+-- @READY@, you can use the custom vocabulary in a
+-- @StartMedicalTranscriptionJob@ request.
+getMedicalVocabularyResponse_vocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
+getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: GetMedicalVocabularyResponse)
 
 -- | The response's http status code.
 getMedicalVocabularyResponse_httpStatus :: Lens.Lens' GetMedicalVocabularyResponse Prelude.Int
@@ -272,9 +275,9 @@ getMedicalVocabularyResponse_httpStatus = Lens.lens (\GetMedicalVocabularyRespon
 instance Prelude.NFData GetMedicalVocabularyResponse where
   rnf GetMedicalVocabularyResponse' {..} =
     Prelude.rnf downloadUri
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus

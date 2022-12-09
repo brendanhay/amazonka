@@ -22,10 +22,17 @@
 --
 -- Creates a new Call Analytics category.
 --
--- All categories are automatically applied to your Call Analytics jobs.
--- Note that in order to apply your categories to your jobs, you must
--- create them before submitting your job request, as categories cannot be
--- applied retroactively.
+-- All categories are automatically applied to your Call Analytics
+-- transcriptions. Note that in order to apply categories to your
+-- transcriptions, you must create them before submitting your
+-- transcription request, as categories cannot be applied retroactively.
+--
+-- When creating a new category, you can use the @InputType@ parameter to
+-- label the category as a batch category (@POST_CALL@) or a streaming
+-- category (@REAL_TIME@). Batch categories can only be applied to batch
+-- transcriptions and streaming categories can only be applied to streaming
+-- transcriptions. If you do not include @InputType@, your category is
+-- created as a batch category by default.
 --
 -- Call Analytics categories are composed of rules. For each category, you
 -- must create between 1 and 20 rules. Rules can include these parameters:
@@ -33,23 +40,17 @@
 --
 -- To update an existing category, see .
 --
--- To learn more about:
---
--- -   Call Analytics categories, see
---     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html Creating categories>
---
--- -   Using rules, see
---     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
---     and refer to the data type
---
--- -   Call Analytics, see
---     <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html Analyzing call center audio with Call Analytics>
+-- To learn more about Call Analytics categories, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for batch transcriptions>
+-- and
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for streaming transcriptions>.
 module Amazonka.Transcribe.CreateCallAnalyticsCategory
   ( -- * Creating a Request
     CreateCallAnalyticsCategory (..),
     newCreateCallAnalyticsCategory,
 
     -- * Request Lenses
+    createCallAnalyticsCategory_inputType,
     createCallAnalyticsCategory_categoryName,
     createCallAnalyticsCategory_rules,
 
@@ -73,7 +74,21 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateCallAnalyticsCategory' smart constructor.
 data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
-  { -- | A unique name, chosen by you, for your Call Analytics category. It\'s
+  { -- | Choose whether you want to create a streaming or a batch category for
+    -- your Call Analytics transcription.
+    --
+    -- Specifying @POST_CALL@ assigns your category to batch transcriptions;
+    -- categories with this input type cannot be applied to streaming
+    -- (real-time) transcriptions.
+    --
+    -- Specifying @REAL_TIME@ assigns your category to streaming
+    -- transcriptions; categories with this input type cannot be applied to
+    -- batch (post-call) transcriptions.
+    --
+    -- If you do not include @InputType@, your category is created as a batch
+    -- category by default.
+    inputType :: Prelude.Maybe InputType,
+    -- | A unique name, chosen by you, for your Call Analytics category. It\'s
     -- helpful to use a detailed naming system that will make sense to you in
     -- the future. For example, it\'s better to use
     -- @sentiment-positive-last30seconds@ for a category over a generic name
@@ -81,12 +96,11 @@ data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
     --
     -- Category names are case sensitive.
     categoryName :: Prelude.Text,
-    -- | Rules define a Call Analytics category. When creating a new Call
-    -- Analytics category, you must create between 1 and 20 rules for that
-    -- category. For each rule, you specify a filter you want applied to the
-    -- attributes of a call. For example, you can choose a sentiment filter
-    -- that detects if a customer\'s sentiment was positive during the last 30
-    -- seconds of the call.
+    -- | Rules define a Call Analytics category. When creating a new category,
+    -- you must create between 1 and 20 rules for that category. For each rule,
+    -- you specify a filter you want applied to the attributes of a call. For
+    -- example, you can choose a sentiment filter that detects if a customer\'s
+    -- sentiment was positive during the last 30 seconds of the call.
     rules :: Prelude.NonEmpty Rule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,6 +113,20 @@ data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inputType', 'createCallAnalyticsCategory_inputType' - Choose whether you want to create a streaming or a batch category for
+-- your Call Analytics transcription.
+--
+-- Specifying @POST_CALL@ assigns your category to batch transcriptions;
+-- categories with this input type cannot be applied to streaming
+-- (real-time) transcriptions.
+--
+-- Specifying @REAL_TIME@ assigns your category to streaming
+-- transcriptions; categories with this input type cannot be applied to
+-- batch (post-call) transcriptions.
+--
+-- If you do not include @InputType@, your category is created as a batch
+-- category by default.
+--
 -- 'categoryName', 'createCallAnalyticsCategory_categoryName' - A unique name, chosen by you, for your Call Analytics category. It\'s
 -- helpful to use a detailed naming system that will make sense to you in
 -- the future. For example, it\'s better to use
@@ -107,12 +135,11 @@ data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
 --
 -- Category names are case sensitive.
 --
--- 'rules', 'createCallAnalyticsCategory_rules' - Rules define a Call Analytics category. When creating a new Call
--- Analytics category, you must create between 1 and 20 rules for that
--- category. For each rule, you specify a filter you want applied to the
--- attributes of a call. For example, you can choose a sentiment filter
--- that detects if a customer\'s sentiment was positive during the last 30
--- seconds of the call.
+-- 'rules', 'createCallAnalyticsCategory_rules' - Rules define a Call Analytics category. When creating a new category,
+-- you must create between 1 and 20 rules for that category. For each rule,
+-- you specify a filter you want applied to the attributes of a call. For
+-- example, you can choose a sentiment filter that detects if a customer\'s
+-- sentiment was positive during the last 30 seconds of the call.
 newCreateCallAnalyticsCategory ::
   -- | 'categoryName'
   Prelude.Text ->
@@ -121,10 +148,27 @@ newCreateCallAnalyticsCategory ::
   CreateCallAnalyticsCategory
 newCreateCallAnalyticsCategory pCategoryName_ pRules_ =
   CreateCallAnalyticsCategory'
-    { categoryName =
-        pCategoryName_,
+    { inputType =
+        Prelude.Nothing,
+      categoryName = pCategoryName_,
       rules = Lens.coerced Lens.# pRules_
     }
+
+-- | Choose whether you want to create a streaming or a batch category for
+-- your Call Analytics transcription.
+--
+-- Specifying @POST_CALL@ assigns your category to batch transcriptions;
+-- categories with this input type cannot be applied to streaming
+-- (real-time) transcriptions.
+--
+-- Specifying @REAL_TIME@ assigns your category to streaming
+-- transcriptions; categories with this input type cannot be applied to
+-- batch (post-call) transcriptions.
+--
+-- If you do not include @InputType@, your category is created as a batch
+-- category by default.
+createCallAnalyticsCategory_inputType :: Lens.Lens' CreateCallAnalyticsCategory (Prelude.Maybe InputType)
+createCallAnalyticsCategory_inputType = Lens.lens (\CreateCallAnalyticsCategory' {inputType} -> inputType) (\s@CreateCallAnalyticsCategory' {} a -> s {inputType = a} :: CreateCallAnalyticsCategory)
 
 -- | A unique name, chosen by you, for your Call Analytics category. It\'s
 -- helpful to use a detailed naming system that will make sense to you in
@@ -136,12 +180,11 @@ newCreateCallAnalyticsCategory pCategoryName_ pRules_ =
 createCallAnalyticsCategory_categoryName :: Lens.Lens' CreateCallAnalyticsCategory Prelude.Text
 createCallAnalyticsCategory_categoryName = Lens.lens (\CreateCallAnalyticsCategory' {categoryName} -> categoryName) (\s@CreateCallAnalyticsCategory' {} a -> s {categoryName = a} :: CreateCallAnalyticsCategory)
 
--- | Rules define a Call Analytics category. When creating a new Call
--- Analytics category, you must create between 1 and 20 rules for that
--- category. For each rule, you specify a filter you want applied to the
--- attributes of a call. For example, you can choose a sentiment filter
--- that detects if a customer\'s sentiment was positive during the last 30
--- seconds of the call.
+-- | Rules define a Call Analytics category. When creating a new category,
+-- you must create between 1 and 20 rules for that category. For each rule,
+-- you specify a filter you want applied to the attributes of a call. For
+-- example, you can choose a sentiment filter that detects if a customer\'s
+-- sentiment was positive during the last 30 seconds of the call.
 createCallAnalyticsCategory_rules :: Lens.Lens' CreateCallAnalyticsCategory (Prelude.NonEmpty Rule)
 createCallAnalyticsCategory_rules = Lens.lens (\CreateCallAnalyticsCategory' {rules} -> rules) (\s@CreateCallAnalyticsCategory' {} a -> s {rules = a} :: CreateCallAnalyticsCategory) Prelude.. Lens.coerced
 
@@ -161,12 +204,14 @@ instance Core.AWSRequest CreateCallAnalyticsCategory where
 
 instance Prelude.Hashable CreateCallAnalyticsCategory where
   hashWithSalt _salt CreateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` categoryName
+    _salt `Prelude.hashWithSalt` inputType
+      `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CreateCallAnalyticsCategory where
   rnf CreateCallAnalyticsCategory' {..} =
-    Prelude.rnf categoryName
+    Prelude.rnf inputType
+      `Prelude.seq` Prelude.rnf categoryName
       `Prelude.seq` Prelude.rnf rules
 
 instance Data.ToHeaders CreateCallAnalyticsCategory where
@@ -188,7 +233,8 @@ instance Data.ToJSON CreateCallAnalyticsCategory where
   toJSON CreateCallAnalyticsCategory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("CategoryName" Data..= categoryName),
+          [ ("InputType" Data..=) Prelude.<$> inputType,
+            Prelude.Just ("CategoryName" Data..= categoryName),
             Prelude.Just ("Rules" Data..= rules)
           ]
       )

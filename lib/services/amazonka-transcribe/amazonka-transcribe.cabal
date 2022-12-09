@@ -91,6 +91,7 @@ library
     Amazonka.Transcribe.Types.CLMLanguageCode
     Amazonka.Transcribe.Types.ContentRedaction
     Amazonka.Transcribe.Types.InputDataConfig
+    Amazonka.Transcribe.Types.InputType
     Amazonka.Transcribe.Types.InterruptionFilter
     Amazonka.Transcribe.Types.JobExecutionSettings
     Amazonka.Transcribe.Types.LanguageCode

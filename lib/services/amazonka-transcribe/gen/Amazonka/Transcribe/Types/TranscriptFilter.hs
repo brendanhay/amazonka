@@ -41,27 +41,29 @@ import Amazonka.Transcribe.Types.TranscriptFilterType
 -- -   Custom words or phrases that occur at a specific time frame
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
--- for examples.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
+-- and
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream Rule criteria for streaming categories>
+-- for usage examples.
 --
 -- /See:/ 'newTranscriptFilter' smart constructor.
 data TranscriptFilter = TranscriptFilter'
-  { -- | Set to @TRUE@ to flag the absence of the phrase you specified in your
-    -- request. Set to @FALSE@ to flag the presence of the phrase you specified
-    -- in your request.
-    negate :: Prelude.Maybe Prelude.Bool,
-    -- | Allows you to specify a time range (in milliseconds) in your audio,
-    -- during which you want to search for the specified key words or phrases.
-    -- See for more detail.
+  { -- | Makes it possible to specify a time range (in milliseconds) in your
+    -- audio, during which you want to search for the specified key words or
+    -- phrases. See for more detail.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
-    -- | Specify the participant you want to flag. Omitting this parameter is
-    -- equivalent to specifying both participants.
+    -- | Set to @TRUE@ to flag the absence of the phrase that you specified in
+    -- your request. Set to @FALSE@ to flag the presence of the phrase that you
+    -- specified in your request.
+    negate :: Prelude.Maybe Prelude.Bool,
+    -- | Specify the participant that you want to flag. Omitting this parameter
+    -- is equivalent to specifying both participants.
     participantRole :: Prelude.Maybe ParticipantRole,
-    -- | Allows you to specify a time range (in percentage) in your media file,
-    -- during which you want to search for the specified key words or phrases.
-    -- See for more detail.
+    -- | Makes it possible to specify a time range (in percentage) in your media
+    -- file, during which you want to search for the specified key words or
+    -- phrases. See for more detail.
     relativeTimeRange :: Prelude.Maybe RelativeTimeRange,
-    -- | Flag the presence or absence of an exact match to the phrases you
+    -- | Flag the presence or absence of an exact match to the phrases that you
     -- specify. For example, if you specify the phrase \"speak to a manager\"
     -- as your @Targets@ value, only that exact phrase is flagged.
     --
@@ -69,7 +71,7 @@ data TranscriptFilter = TranscriptFilter'
     -- customer says \"speak to /the/ manager\", instead of \"speak to /a/
     -- manager\", your content is not flagged.
     transcriptFilterType :: TranscriptFilterType,
-    -- | Specify the phrases you want to flag.
+    -- | Specify the phrases that you want to flag.
     targets :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,22 +84,22 @@ data TranscriptFilter = TranscriptFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'negate', 'transcriptFilter_negate' - Set to @TRUE@ to flag the absence of the phrase you specified in your
--- request. Set to @FALSE@ to flag the presence of the phrase you specified
--- in your request.
+-- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - Makes it possible to specify a time range (in milliseconds) in your
+-- audio, during which you want to search for the specified key words or
+-- phrases. See for more detail.
 --
--- 'absoluteTimeRange', 'transcriptFilter_absoluteTimeRange' - Allows you to specify a time range (in milliseconds) in your audio,
--- during which you want to search for the specified key words or phrases.
--- See for more detail.
+-- 'negate', 'transcriptFilter_negate' - Set to @TRUE@ to flag the absence of the phrase that you specified in
+-- your request. Set to @FALSE@ to flag the presence of the phrase that you
+-- specified in your request.
 --
--- 'participantRole', 'transcriptFilter_participantRole' - Specify the participant you want to flag. Omitting this parameter is
--- equivalent to specifying both participants.
+-- 'participantRole', 'transcriptFilter_participantRole' - Specify the participant that you want to flag. Omitting this parameter
+-- is equivalent to specifying both participants.
 --
--- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - Allows you to specify a time range (in percentage) in your media file,
--- during which you want to search for the specified key words or phrases.
--- See for more detail.
+-- 'relativeTimeRange', 'transcriptFilter_relativeTimeRange' - Makes it possible to specify a time range (in percentage) in your media
+-- file, during which you want to search for the specified key words or
+-- phrases. See for more detail.
 --
--- 'transcriptFilterType', 'transcriptFilter_transcriptFilterType' - Flag the presence or absence of an exact match to the phrases you
+-- 'transcriptFilterType', 'transcriptFilter_transcriptFilterType' - Flag the presence or absence of an exact match to the phrases that you
 -- specify. For example, if you specify the phrase \"speak to a manager\"
 -- as your @Targets@ value, only that exact phrase is flagged.
 --
@@ -105,7 +107,7 @@ data TranscriptFilter = TranscriptFilter'
 -- customer says \"speak to /the/ manager\", instead of \"speak to /a/
 -- manager\", your content is not flagged.
 --
--- 'targets', 'transcriptFilter_targets' - Specify the phrases you want to flag.
+-- 'targets', 'transcriptFilter_targets' - Specify the phrases that you want to flag.
 newTranscriptFilter ::
   -- | 'transcriptFilterType'
   TranscriptFilterType ->
@@ -114,38 +116,39 @@ newTranscriptFilter ::
   TranscriptFilter
 newTranscriptFilter pTranscriptFilterType_ pTargets_ =
   TranscriptFilter'
-    { negate = Prelude.Nothing,
-      absoluteTimeRange = Prelude.Nothing,
+    { absoluteTimeRange =
+        Prelude.Nothing,
+      negate = Prelude.Nothing,
       participantRole = Prelude.Nothing,
       relativeTimeRange = Prelude.Nothing,
       transcriptFilterType = pTranscriptFilterType_,
       targets = Lens.coerced Lens.# pTargets_
     }
 
--- | Set to @TRUE@ to flag the absence of the phrase you specified in your
--- request. Set to @FALSE@ to flag the presence of the phrase you specified
--- in your request.
-transcriptFilter_negate :: Lens.Lens' TranscriptFilter (Prelude.Maybe Prelude.Bool)
-transcriptFilter_negate = Lens.lens (\TranscriptFilter' {negate} -> negate) (\s@TranscriptFilter' {} a -> s {negate = a} :: TranscriptFilter)
-
--- | Allows you to specify a time range (in milliseconds) in your audio,
--- during which you want to search for the specified key words or phrases.
--- See for more detail.
+-- | Makes it possible to specify a time range (in milliseconds) in your
+-- audio, during which you want to search for the specified key words or
+-- phrases. See for more detail.
 transcriptFilter_absoluteTimeRange :: Lens.Lens' TranscriptFilter (Prelude.Maybe AbsoluteTimeRange)
 transcriptFilter_absoluteTimeRange = Lens.lens (\TranscriptFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@TranscriptFilter' {} a -> s {absoluteTimeRange = a} :: TranscriptFilter)
 
--- | Specify the participant you want to flag. Omitting this parameter is
--- equivalent to specifying both participants.
+-- | Set to @TRUE@ to flag the absence of the phrase that you specified in
+-- your request. Set to @FALSE@ to flag the presence of the phrase that you
+-- specified in your request.
+transcriptFilter_negate :: Lens.Lens' TranscriptFilter (Prelude.Maybe Prelude.Bool)
+transcriptFilter_negate = Lens.lens (\TranscriptFilter' {negate} -> negate) (\s@TranscriptFilter' {} a -> s {negate = a} :: TranscriptFilter)
+
+-- | Specify the participant that you want to flag. Omitting this parameter
+-- is equivalent to specifying both participants.
 transcriptFilter_participantRole :: Lens.Lens' TranscriptFilter (Prelude.Maybe ParticipantRole)
 transcriptFilter_participantRole = Lens.lens (\TranscriptFilter' {participantRole} -> participantRole) (\s@TranscriptFilter' {} a -> s {participantRole = a} :: TranscriptFilter)
 
--- | Allows you to specify a time range (in percentage) in your media file,
--- during which you want to search for the specified key words or phrases.
--- See for more detail.
+-- | Makes it possible to specify a time range (in percentage) in your media
+-- file, during which you want to search for the specified key words or
+-- phrases. See for more detail.
 transcriptFilter_relativeTimeRange :: Lens.Lens' TranscriptFilter (Prelude.Maybe RelativeTimeRange)
 transcriptFilter_relativeTimeRange = Lens.lens (\TranscriptFilter' {relativeTimeRange} -> relativeTimeRange) (\s@TranscriptFilter' {} a -> s {relativeTimeRange = a} :: TranscriptFilter)
 
--- | Flag the presence or absence of an exact match to the phrases you
+-- | Flag the presence or absence of an exact match to the phrases that you
 -- specify. For example, if you specify the phrase \"speak to a manager\"
 -- as your @Targets@ value, only that exact phrase is flagged.
 --
@@ -155,7 +158,7 @@ transcriptFilter_relativeTimeRange = Lens.lens (\TranscriptFilter' {relativeTime
 transcriptFilter_transcriptFilterType :: Lens.Lens' TranscriptFilter TranscriptFilterType
 transcriptFilter_transcriptFilterType = Lens.lens (\TranscriptFilter' {transcriptFilterType} -> transcriptFilterType) (\s@TranscriptFilter' {} a -> s {transcriptFilterType = a} :: TranscriptFilter)
 
--- | Specify the phrases you want to flag.
+-- | Specify the phrases that you want to flag.
 transcriptFilter_targets :: Lens.Lens' TranscriptFilter (Prelude.NonEmpty Prelude.Text)
 transcriptFilter_targets = Lens.lens (\TranscriptFilter' {targets} -> targets) (\s@TranscriptFilter' {} a -> s {targets = a} :: TranscriptFilter) Prelude.. Lens.coerced
 
@@ -165,8 +168,8 @@ instance Data.FromJSON TranscriptFilter where
       "TranscriptFilter"
       ( \x ->
           TranscriptFilter'
-            Prelude.<$> (x Data..:? "Negate")
-            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<$> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "Negate")
             Prelude.<*> (x Data..:? "ParticipantRole")
             Prelude.<*> (x Data..:? "RelativeTimeRange")
             Prelude.<*> (x Data..: "TranscriptFilterType")
@@ -175,8 +178,8 @@ instance Data.FromJSON TranscriptFilter where
 
 instance Prelude.Hashable TranscriptFilter where
   hashWithSalt _salt TranscriptFilter' {..} =
-    _salt `Prelude.hashWithSalt` negate
-      `Prelude.hashWithSalt` absoluteTimeRange
+    _salt `Prelude.hashWithSalt` absoluteTimeRange
+      `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange
       `Prelude.hashWithSalt` transcriptFilterType
@@ -184,8 +187,8 @@ instance Prelude.Hashable TranscriptFilter where
 
 instance Prelude.NFData TranscriptFilter where
   rnf TranscriptFilter' {..} =
-    Prelude.rnf negate
-      `Prelude.seq` Prelude.rnf absoluteTimeRange
+    Prelude.rnf absoluteTimeRange
+      `Prelude.seq` Prelude.rnf negate
       `Prelude.seq` Prelude.rnf participantRole
       `Prelude.seq` Prelude.rnf relativeTimeRange
       `Prelude.seq` Prelude.rnf transcriptFilterType
@@ -195,9 +198,9 @@ instance Data.ToJSON TranscriptFilter where
   toJSON TranscriptFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Data..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Data..=)
+          [ ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
+            ("Negate" Data..=) Prelude.<$> negate,
             ("ParticipantRole" Data..=)
               Prelude.<$> participantRole,
             ("RelativeTimeRange" Data..=)

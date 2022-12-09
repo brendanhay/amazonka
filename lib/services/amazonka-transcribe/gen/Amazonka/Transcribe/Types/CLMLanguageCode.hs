@@ -20,11 +20,13 @@
 module Amazonka.Transcribe.Types.CLMLanguageCode
   ( CLMLanguageCode
       ( ..,
+        CLMLanguageCode_De_DE,
         CLMLanguageCode_En_AU,
         CLMLanguageCode_En_GB,
         CLMLanguageCode_En_US,
         CLMLanguageCode_Es_US,
-        CLMLanguageCode_Hi_IN
+        CLMLanguageCode_Hi_IN,
+        CLMLanguageCode_Ja_JP
       ),
   )
 where
@@ -61,6 +63,9 @@ newtype CLMLanguageCode = CLMLanguageCode'
       Data.ToXML
     )
 
+pattern CLMLanguageCode_De_DE :: CLMLanguageCode
+pattern CLMLanguageCode_De_DE = CLMLanguageCode' "de-DE"
+
 pattern CLMLanguageCode_En_AU :: CLMLanguageCode
 pattern CLMLanguageCode_En_AU = CLMLanguageCode' "en-AU"
 
@@ -76,11 +81,16 @@ pattern CLMLanguageCode_Es_US = CLMLanguageCode' "es-US"
 pattern CLMLanguageCode_Hi_IN :: CLMLanguageCode
 pattern CLMLanguageCode_Hi_IN = CLMLanguageCode' "hi-IN"
 
+pattern CLMLanguageCode_Ja_JP :: CLMLanguageCode
+pattern CLMLanguageCode_Ja_JP = CLMLanguageCode' "ja-JP"
+
 {-# COMPLETE
+  CLMLanguageCode_De_DE,
   CLMLanguageCode_En_AU,
   CLMLanguageCode_En_GB,
   CLMLanguageCode_En_US,
   CLMLanguageCode_Es_US,
   CLMLanguageCode_Hi_IN,
+  CLMLanguageCode_Ja_JP,
   CLMLanguageCode'
   #-}

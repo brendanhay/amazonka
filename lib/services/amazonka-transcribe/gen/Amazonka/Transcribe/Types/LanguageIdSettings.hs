@@ -24,65 +24,67 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | If using automatic language identification (@IdentifyLanguage@) in your
--- request and you want to apply a custom language model, a custom
--- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
--- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
--- and @VocabularyFilterName@).
+-- | If using automatic language identification in your request and you want
+-- to apply a custom language model, a custom vocabulary, or a custom
+-- vocabulary filter, include @LanguageIdSettings@ with the relevant
+-- sub-parameters (@VocabularyName@, @LanguageModelName@, and
+-- @VocabularyFilterName@). Note that multi-language identification
+-- (@IdentifyMultipleLanguages@) doesn\'t support custom language models.
 --
--- You can specify two or more language codes that represent the languages
--- you think may be present in your media; including more than five is not
--- recommended. Each language code you include can have an associated
--- custom language model, custom vocabulary, and custom vocabulary filter.
--- The languages you specify must match the languages of the specified
--- custom language models, custom vocabularies, and custom vocabulary
--- filters.
+-- @LanguageIdSettings@ supports two to five language codes. Each language
+-- code you include can have an associated custom language model, custom
+-- vocabulary, and custom vocabulary filter. The language codes that you
+-- specify must match the languages of the associated custom language
+-- models, custom vocabularies, and custom vocabulary filters.
 --
--- To include language options using @IdentifyLanguage@ __without__
--- including a custom language model, a custom vocabulary, or a custom
--- vocabulary filter, use @LanguageOptions@ instead of
--- @LanguageIdSettings@. Including language options can improve the
--- accuracy of automatic language identification.
+-- It\'s recommended that you include @LanguageOptions@ when using
+-- @LanguageIdSettings@ to ensure that the correct language dialect is
+-- identified. For example, if you specify a custom vocabulary that is in
+-- @en-US@ but Amazon Transcribe determines that the language spoken in
+-- your media is @en-AU@, your custom vocabulary /is not/ applied to your
+-- transcription. If you include @LanguageOptions@ and include @en-US@ as
+-- the only English language dialect, your custom vocabulary /is/ applied
+-- to your transcription.
 --
 -- If you want to include a custom language model with your request but
 -- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter.
---
--- If you want to include a custom vocabulary or a custom vocabulary filter
--- (or both) with your request but __do not__ want to use automatic
--- language identification, use instead the @@ parameter with the
--- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+-- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
+-- to include a custom vocabulary or a custom vocabulary filter (or both)
+-- with your request but __do not__ want to use automatic language
+-- identification, use instead the @@ parameter with the @VocabularyName@
+-- or @VocabularyFilterName@ (or both) sub-parameter.
 --
 -- /See:/ 'newLanguageIdSettings' smart constructor.
 data LanguageIdSettings = LanguageIdSettings'
-  { -- | The name of the custom vocabulary you want to use when processing your
-    -- transcription job. Vocabulary names are case sensitive.
-    --
-    -- The language of the specified vocabulary must match the language code
-    -- you specify in your transcription request. If the languages don\'t
-    -- match, the vocabulary isn\'t applied. There are no errors or warnings
-    -- associated with a language mismatch.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the custom language model you want to use when processing
-    -- your transcription job. Note that language model names are case
+  { -- | The name of the custom language model you want to use when processing
+    -- your transcription job. Note that custom language model names are case
     -- sensitive.
     --
-    -- The language of the specified language model must match the language
-    -- code you specify in your transcription request. If the languages don\'t
-    -- match, the language model isn\'t applied. There are no errors or
-    -- warnings associated with a language mismatch.
+    -- The language of the specified custom language model must match the
+    -- language code that you specify in your transcription request. If the
+    -- languages don\'t match, the custom language model isn\'t applied. There
+    -- are no errors or warnings associated with a language mismatch.
     languageModelName :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom vocabulary filter you want to use when processing
-    -- your transcription job. Vocabulary filter names are case sensitive.
+    -- your transcription job. Custom vocabulary filter names are case
+    -- sensitive.
     --
-    -- The language of the specified vocabulary filter must match the language
-    -- code you specify in your transcription request. If the languages don\'t
-    -- match, the vocabulary filter isn\'t applied. There are no errors or
-    -- warnings associated with a language mismatch.
+    -- The language of the specified custom vocabulary filter must match the
+    -- language code that you specify in your transcription request. If the
+    -- languages don\'t match, the custom vocabulary filter isn\'t applied.
+    -- There are no errors or warnings associated with a language mismatch.
     --
     -- Note that if you include @VocabularyFilterName@ in your request, you
     -- must also include @VocabularyFilterMethod@.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the custom vocabulary you want to use when processing your
+    -- transcription job. Custom vocabulary names are case sensitive.
+    --
+    -- The language of the specified custom vocabulary must match the language
+    -- code that you specify in your transcription request. If the languages
+    -- don\'t match, the custom vocabulary isn\'t applied. There are no errors
+    -- or warnings associated with a language mismatch.
+    vocabularyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,76 +96,78 @@ data LanguageIdSettings = LanguageIdSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'languageIdSettings_vocabularyName' - The name of the custom vocabulary you want to use when processing your
--- transcription job. Vocabulary names are case sensitive.
---
--- The language of the specified vocabulary must match the language code
--- you specify in your transcription request. If the languages don\'t
--- match, the vocabulary isn\'t applied. There are no errors or warnings
--- associated with a language mismatch.
---
 -- 'languageModelName', 'languageIdSettings_languageModelName' - The name of the custom language model you want to use when processing
--- your transcription job. Note that language model names are case
+-- your transcription job. Note that custom language model names are case
 -- sensitive.
 --
--- The language of the specified language model must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the language model isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom language model must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom language model isn\'t applied. There
+-- are no errors or warnings associated with a language mismatch.
 --
 -- 'vocabularyFilterName', 'languageIdSettings_vocabularyFilterName' - The name of the custom vocabulary filter you want to use when processing
--- your transcription job. Vocabulary filter names are case sensitive.
+-- your transcription job. Custom vocabulary filter names are case
+-- sensitive.
 --
--- The language of the specified vocabulary filter must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the vocabulary filter isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom vocabulary filter must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom vocabulary filter isn\'t applied.
+-- There are no errors or warnings associated with a language mismatch.
 --
 -- Note that if you include @VocabularyFilterName@ in your request, you
 -- must also include @VocabularyFilterMethod@.
+--
+-- 'vocabularyName', 'languageIdSettings_vocabularyName' - The name of the custom vocabulary you want to use when processing your
+-- transcription job. Custom vocabulary names are case sensitive.
+--
+-- The language of the specified custom vocabulary must match the language
+-- code that you specify in your transcription request. If the languages
+-- don\'t match, the custom vocabulary isn\'t applied. There are no errors
+-- or warnings associated with a language mismatch.
 newLanguageIdSettings ::
   LanguageIdSettings
 newLanguageIdSettings =
   LanguageIdSettings'
-    { vocabularyName =
+    { languageModelName =
         Prelude.Nothing,
-      languageModelName = Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing
+      vocabularyFilterName = Prelude.Nothing,
+      vocabularyName = Prelude.Nothing
     }
 
--- | The name of the custom vocabulary you want to use when processing your
--- transcription job. Vocabulary names are case sensitive.
---
--- The language of the specified vocabulary must match the language code
--- you specify in your transcription request. If the languages don\'t
--- match, the vocabulary isn\'t applied. There are no errors or warnings
--- associated with a language mismatch.
-languageIdSettings_vocabularyName :: Lens.Lens' LanguageIdSettings (Prelude.Maybe Prelude.Text)
-languageIdSettings_vocabularyName = Lens.lens (\LanguageIdSettings' {vocabularyName} -> vocabularyName) (\s@LanguageIdSettings' {} a -> s {vocabularyName = a} :: LanguageIdSettings)
-
 -- | The name of the custom language model you want to use when processing
--- your transcription job. Note that language model names are case
+-- your transcription job. Note that custom language model names are case
 -- sensitive.
 --
--- The language of the specified language model must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the language model isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom language model must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom language model isn\'t applied. There
+-- are no errors or warnings associated with a language mismatch.
 languageIdSettings_languageModelName :: Lens.Lens' LanguageIdSettings (Prelude.Maybe Prelude.Text)
 languageIdSettings_languageModelName = Lens.lens (\LanguageIdSettings' {languageModelName} -> languageModelName) (\s@LanguageIdSettings' {} a -> s {languageModelName = a} :: LanguageIdSettings)
 
 -- | The name of the custom vocabulary filter you want to use when processing
--- your transcription job. Vocabulary filter names are case sensitive.
+-- your transcription job. Custom vocabulary filter names are case
+-- sensitive.
 --
--- The language of the specified vocabulary filter must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the vocabulary filter isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom vocabulary filter must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom vocabulary filter isn\'t applied.
+-- There are no errors or warnings associated with a language mismatch.
 --
 -- Note that if you include @VocabularyFilterName@ in your request, you
 -- must also include @VocabularyFilterMethod@.
 languageIdSettings_vocabularyFilterName :: Lens.Lens' LanguageIdSettings (Prelude.Maybe Prelude.Text)
 languageIdSettings_vocabularyFilterName = Lens.lens (\LanguageIdSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@LanguageIdSettings' {} a -> s {vocabularyFilterName = a} :: LanguageIdSettings)
+
+-- | The name of the custom vocabulary you want to use when processing your
+-- transcription job. Custom vocabulary names are case sensitive.
+--
+-- The language of the specified custom vocabulary must match the language
+-- code that you specify in your transcription request. If the languages
+-- don\'t match, the custom vocabulary isn\'t applied. There are no errors
+-- or warnings associated with a language mismatch.
+languageIdSettings_vocabularyName :: Lens.Lens' LanguageIdSettings (Prelude.Maybe Prelude.Text)
+languageIdSettings_vocabularyName = Lens.lens (\LanguageIdSettings' {vocabularyName} -> vocabularyName) (\s@LanguageIdSettings' {} a -> s {vocabularyName = a} :: LanguageIdSettings)
 
 instance Data.FromJSON LanguageIdSettings where
   parseJSON =
@@ -171,32 +175,32 @@ instance Data.FromJSON LanguageIdSettings where
       "LanguageIdSettings"
       ( \x ->
           LanguageIdSettings'
-            Prelude.<$> (x Data..:? "VocabularyName")
-            Prelude.<*> (x Data..:? "LanguageModelName")
+            Prelude.<$> (x Data..:? "LanguageModelName")
             Prelude.<*> (x Data..:? "VocabularyFilterName")
+            Prelude.<*> (x Data..:? "VocabularyName")
       )
 
 instance Prelude.Hashable LanguageIdSettings where
   hashWithSalt _salt LanguageIdSettings' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyName
-      `Prelude.hashWithSalt` languageModelName
+    _salt `Prelude.hashWithSalt` languageModelName
       `Prelude.hashWithSalt` vocabularyFilterName
+      `Prelude.hashWithSalt` vocabularyName
 
 instance Prelude.NFData LanguageIdSettings where
   rnf LanguageIdSettings' {..} =
-    Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf languageModelName
+    Prelude.rnf languageModelName
       `Prelude.seq` Prelude.rnf vocabularyFilterName
+      `Prelude.seq` Prelude.rnf vocabularyName
 
 instance Data.ToJSON LanguageIdSettings where
   toJSON LanguageIdSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Data..=)
-              Prelude.<$> vocabularyName,
-            ("LanguageModelName" Data..=)
+          [ ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName,
             ("VocabularyFilterName" Data..=)
-              Prelude.<$> vocabularyFilterName
+              Prelude.<$> vocabularyFilterName,
+            ("VocabularyName" Data..=)
+              Prelude.<$> vocabularyName
           ]
       )

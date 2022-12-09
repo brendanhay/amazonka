@@ -33,20 +33,20 @@ module Amazonka.Transcribe
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** InternalFailureException
     _InternalFailureException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -298,6 +298,9 @@ module Amazonka.Transcribe
 
     -- ** CallAnalyticsJobStatus
     CallAnalyticsJobStatus (..),
+
+    -- ** InputType
+    InputType (..),
 
     -- ** LanguageCode
     LanguageCode (..),

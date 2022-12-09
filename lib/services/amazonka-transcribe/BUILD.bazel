@@ -52,6 +52,7 @@ haskell_library(
         "gen/Amazonka/Transcribe/Types/ChannelDefinition.hs",
         "gen/Amazonka/Transcribe/Types/ContentRedaction.hs",
         "gen/Amazonka/Transcribe/Types/InputDataConfig.hs",
+        "gen/Amazonka/Transcribe/Types/InputType.hs",
         "gen/Amazonka/Transcribe/Types/InterruptionFilter.hs",
         "gen/Amazonka/Transcribe/Types/JobExecutionSettings.hs",
         "gen/Amazonka/Transcribe/Types/LanguageCode.hs",

@@ -30,12 +30,12 @@ import Amazonka.Transcribe.Types.SubtitleFormat
 --
 -- /See:/ 'newSubtitlesOutput' smart constructor.
 data SubtitlesOutput = SubtitlesOutput'
-  { -- | Provides the start index value for your subtitle files. If you did not
-    -- specify a value in your request, the default value of @0@ is used.
-    outputStartIndex :: Prelude.Maybe Prelude.Natural,
-    -- | Provides the format of your subtitle files. If your request included
+  { -- | Provides the format of your subtitle files. If your request included
     -- both WebVTT (@vtt@) and SubRip (@srt@) formats, both formats are shown.
     formats :: Prelude.Maybe [SubtitleFormat],
+    -- | Provides the start index value for your subtitle files. If you did not
+    -- specify a value in your request, the default value of @0@ is used.
+    outputStartIndex :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon S3 location of your transcript. You can use this URI to
     -- access or download your subtitle file. Your subtitle file is stored in
     -- the same location as your transcript. If you specified both WebVTT and
@@ -67,11 +67,11 @@ data SubtitlesOutput = SubtitlesOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputStartIndex', 'subtitlesOutput_outputStartIndex' - Provides the start index value for your subtitle files. If you did not
--- specify a value in your request, the default value of @0@ is used.
---
 -- 'formats', 'subtitlesOutput_formats' - Provides the format of your subtitle files. If your request included
 -- both WebVTT (@vtt@) and SubRip (@srt@) formats, both formats are shown.
+--
+-- 'outputStartIndex', 'subtitlesOutput_outputStartIndex' - Provides the start index value for your subtitle files. If you did not
+-- specify a value in your request, the default value of @0@ is used.
 --
 -- 'subtitleFileUris', 'subtitlesOutput_subtitleFileUris' - The Amazon S3 location of your transcript. You can use this URI to
 -- access or download your subtitle file. Your subtitle file is stored in
@@ -96,21 +96,20 @@ newSubtitlesOutput ::
   SubtitlesOutput
 newSubtitlesOutput =
   SubtitlesOutput'
-    { outputStartIndex =
-        Prelude.Nothing,
-      formats = Prelude.Nothing,
+    { formats = Prelude.Nothing,
+      outputStartIndex = Prelude.Nothing,
       subtitleFileUris = Prelude.Nothing
     }
-
--- | Provides the start index value for your subtitle files. If you did not
--- specify a value in your request, the default value of @0@ is used.
-subtitlesOutput_outputStartIndex :: Lens.Lens' SubtitlesOutput (Prelude.Maybe Prelude.Natural)
-subtitlesOutput_outputStartIndex = Lens.lens (\SubtitlesOutput' {outputStartIndex} -> outputStartIndex) (\s@SubtitlesOutput' {} a -> s {outputStartIndex = a} :: SubtitlesOutput)
 
 -- | Provides the format of your subtitle files. If your request included
 -- both WebVTT (@vtt@) and SubRip (@srt@) formats, both formats are shown.
 subtitlesOutput_formats :: Lens.Lens' SubtitlesOutput (Prelude.Maybe [SubtitleFormat])
 subtitlesOutput_formats = Lens.lens (\SubtitlesOutput' {formats} -> formats) (\s@SubtitlesOutput' {} a -> s {formats = a} :: SubtitlesOutput) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides the start index value for your subtitle files. If you did not
+-- specify a value in your request, the default value of @0@ is used.
+subtitlesOutput_outputStartIndex :: Lens.Lens' SubtitlesOutput (Prelude.Maybe Prelude.Natural)
+subtitlesOutput_outputStartIndex = Lens.lens (\SubtitlesOutput' {outputStartIndex} -> outputStartIndex) (\s@SubtitlesOutput' {} a -> s {outputStartIndex = a} :: SubtitlesOutput)
 
 -- | The Amazon S3 location of your transcript. You can use this URI to
 -- access or download your subtitle file. Your subtitle file is stored in
@@ -140,8 +139,8 @@ instance Data.FromJSON SubtitlesOutput where
       "SubtitlesOutput"
       ( \x ->
           SubtitlesOutput'
-            Prelude.<$> (x Data..:? "OutputStartIndex")
-            Prelude.<*> (x Data..:? "Formats" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Formats" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "OutputStartIndex")
             Prelude.<*> ( x Data..:? "SubtitleFileUris"
                             Data..!= Prelude.mempty
                         )
@@ -149,12 +148,12 @@ instance Data.FromJSON SubtitlesOutput where
 
 instance Prelude.Hashable SubtitlesOutput where
   hashWithSalt _salt SubtitlesOutput' {..} =
-    _salt `Prelude.hashWithSalt` outputStartIndex
-      `Prelude.hashWithSalt` formats
+    _salt `Prelude.hashWithSalt` formats
+      `Prelude.hashWithSalt` outputStartIndex
       `Prelude.hashWithSalt` subtitleFileUris
 
 instance Prelude.NFData SubtitlesOutput where
   rnf SubtitlesOutput' {..} =
-    Prelude.rnf outputStartIndex
-      `Prelude.seq` Prelude.rnf formats
+    Prelude.rnf formats
+      `Prelude.seq` Prelude.rnf outputStartIndex
       `Prelude.seq` Prelude.rnf subtitleFileUris

@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 -- include one, you must include both.
 --
 -- You can use also @First@ to search from the start of the audio until the
--- time you specify, or @Last@ to search from the time you specify until
--- the end of the audio. For example, setting @First@ to 50000 only
--- searches for your specified criteria in the audio contained between the
--- start of the media file to the 50,000 millisecond mark. You can use
--- @First@ and @Last@ independently of each other.
+-- time that you specify, or @Last@ to search from the time that you
+-- specify until the end of the audio. For example, setting @First@ to
+-- 50000 only searches for your specified criteria in the audio contained
+-- between the start of the media file to the 50,000 millisecond mark. You
+-- can use @First@ and @Last@ independently of each other.
 --
 -- If you prefer to use percentage instead of milliseconds, see .
 --
@@ -48,14 +48,14 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
     -- the specified criteria in your audio. If you include @EndTime@ in your
     -- request, you must also include @StartTime@.
     endTime :: Prelude.Maybe Prelude.Natural,
-    -- | The time, in milliseconds, from the value you specify until the end of
-    -- your media file in which Amazon Transcribe searches for your specified
-    -- criteria.
-    last :: Prelude.Maybe Prelude.Natural,
     -- | The time, in milliseconds, from the start of your media file until the
-    -- value you specify in which Amazon Transcribe searches for your specified
-    -- criteria.
+    -- specified value. Amazon Transcribe searches for your specified criteria
+    -- in this time segment.
     first :: Prelude.Maybe Prelude.Natural,
+    -- | The time, in milliseconds, from the specified value until the end of
+    -- your media file. Amazon Transcribe searches for your specified criteria
+    -- in this time segment.
+    last :: Prelude.Maybe Prelude.Natural,
     -- | The time, in milliseconds, when Amazon Transcribe starts searching for
     -- the specified criteria in your audio. If you include @StartTime@ in your
     -- request, you must also include @EndTime@.
@@ -75,13 +75,13 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
 -- the specified criteria in your audio. If you include @EndTime@ in your
 -- request, you must also include @StartTime@.
 --
--- 'last', 'absoluteTimeRange_last' - The time, in milliseconds, from the value you specify until the end of
--- your media file in which Amazon Transcribe searches for your specified
--- criteria.
---
 -- 'first', 'absoluteTimeRange_first' - The time, in milliseconds, from the start of your media file until the
--- value you specify in which Amazon Transcribe searches for your specified
--- criteria.
+-- specified value. Amazon Transcribe searches for your specified criteria
+-- in this time segment.
+--
+-- 'last', 'absoluteTimeRange_last' - The time, in milliseconds, from the specified value until the end of
+-- your media file. Amazon Transcribe searches for your specified criteria
+-- in this time segment.
 --
 -- 'startTime', 'absoluteTimeRange_startTime' - The time, in milliseconds, when Amazon Transcribe starts searching for
 -- the specified criteria in your audio. If you include @StartTime@ in your
@@ -91,8 +91,8 @@ newAbsoluteTimeRange ::
 newAbsoluteTimeRange =
   AbsoluteTimeRange'
     { endTime = Prelude.Nothing,
-      last = Prelude.Nothing,
       first = Prelude.Nothing,
+      last = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
 
@@ -102,17 +102,17 @@ newAbsoluteTimeRange =
 absoluteTimeRange_endTime :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
 absoluteTimeRange_endTime = Lens.lens (\AbsoluteTimeRange' {endTime} -> endTime) (\s@AbsoluteTimeRange' {} a -> s {endTime = a} :: AbsoluteTimeRange)
 
--- | The time, in milliseconds, from the value you specify until the end of
--- your media file in which Amazon Transcribe searches for your specified
--- criteria.
-absoluteTimeRange_last :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
-absoluteTimeRange_last = Lens.lens (\AbsoluteTimeRange' {last} -> last) (\s@AbsoluteTimeRange' {} a -> s {last = a} :: AbsoluteTimeRange)
-
 -- | The time, in milliseconds, from the start of your media file until the
--- value you specify in which Amazon Transcribe searches for your specified
--- criteria.
+-- specified value. Amazon Transcribe searches for your specified criteria
+-- in this time segment.
 absoluteTimeRange_first :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
 absoluteTimeRange_first = Lens.lens (\AbsoluteTimeRange' {first} -> first) (\s@AbsoluteTimeRange' {} a -> s {first = a} :: AbsoluteTimeRange)
+
+-- | The time, in milliseconds, from the specified value until the end of
+-- your media file. Amazon Transcribe searches for your specified criteria
+-- in this time segment.
+absoluteTimeRange_last :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
+absoluteTimeRange_last = Lens.lens (\AbsoluteTimeRange' {last} -> last) (\s@AbsoluteTimeRange' {} a -> s {last = a} :: AbsoluteTimeRange)
 
 -- | The time, in milliseconds, when Amazon Transcribe starts searching for
 -- the specified criteria in your audio. If you include @StartTime@ in your
@@ -127,23 +127,23 @@ instance Data.FromJSON AbsoluteTimeRange where
       ( \x ->
           AbsoluteTimeRange'
             Prelude.<$> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "Last")
             Prelude.<*> (x Data..:? "First")
+            Prelude.<*> (x Data..:? "Last")
             Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance Prelude.Hashable AbsoluteTimeRange where
   hashWithSalt _salt AbsoluteTimeRange' {..} =
     _salt `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` last
       `Prelude.hashWithSalt` first
+      `Prelude.hashWithSalt` last
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData AbsoluteTimeRange where
   rnf AbsoluteTimeRange' {..} =
     Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf last
       `Prelude.seq` Prelude.rnf first
+      `Prelude.seq` Prelude.rnf last
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToJSON AbsoluteTimeRange where
@@ -151,8 +151,8 @@ instance Data.ToJSON AbsoluteTimeRange where
     Data.object
       ( Prelude.catMaybes
           [ ("EndTime" Data..=) Prelude.<$> endTime,
-            ("Last" Data..=) Prelude.<$> last,
             ("First" Data..=) Prelude.<$> first,
+            ("Last" Data..=) Prelude.<$> last,
             ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

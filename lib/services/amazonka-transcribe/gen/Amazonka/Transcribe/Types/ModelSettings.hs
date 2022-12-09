@@ -35,13 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newModelSettings' smart constructor.
 data ModelSettings = ModelSettings'
   { -- | The name of the custom language model you want to use when processing
-    -- your transcription job. Note that language model names are case
+    -- your transcription job. Note that custom language model names are case
     -- sensitive.
     --
-    -- The language of the specified language model must match the language
-    -- code you specify in your transcription request. If the languages don\'t
-    -- match, the language model isn\'t applied. There are no errors or
-    -- warnings associated with a language mismatch.
+    -- The language of the specified custom language model must match the
+    -- language code that you specify in your transcription request. If the
+    -- languages don\'t match, the custom language model isn\'t applied. There
+    -- are no errors or warnings associated with a language mismatch.
     languageModelName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,26 +55,26 @@ data ModelSettings = ModelSettings'
 -- for backwards compatibility:
 --
 -- 'languageModelName', 'modelSettings_languageModelName' - The name of the custom language model you want to use when processing
--- your transcription job. Note that language model names are case
+-- your transcription job. Note that custom language model names are case
 -- sensitive.
 --
--- The language of the specified language model must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the language model isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom language model must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom language model isn\'t applied. There
+-- are no errors or warnings associated with a language mismatch.
 newModelSettings ::
   ModelSettings
 newModelSettings =
   ModelSettings' {languageModelName = Prelude.Nothing}
 
 -- | The name of the custom language model you want to use when processing
--- your transcription job. Note that language model names are case
+-- your transcription job. Note that custom language model names are case
 -- sensitive.
 --
--- The language of the specified language model must match the language
--- code you specify in your transcription request. If the languages don\'t
--- match, the language model isn\'t applied. There are no errors or
--- warnings associated with a language mismatch.
+-- The language of the specified custom language model must match the
+-- language code that you specify in your transcription request. If the
+-- languages don\'t match, the custom language model isn\'t applied. There
+-- are no errors or warnings associated with a language mismatch.
 modelSettings_languageModelName :: Lens.Lens' ModelSettings (Prelude.Maybe Prelude.Text)
 modelSettings_languageModelName = Lens.lens (\ModelSettings' {languageModelName} -> languageModelName) (\s@ModelSettings' {} a -> s {languageModelName = a} :: ModelSettings)
 

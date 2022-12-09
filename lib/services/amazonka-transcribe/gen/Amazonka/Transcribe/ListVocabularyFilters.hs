@@ -32,9 +32,9 @@ module Amazonka.Transcribe.ListVocabularyFilters
     newListVocabularyFilters,
 
     -- * Request Lenses
-    listVocabularyFilters_nextToken,
-    listVocabularyFilters_nameContains,
     listVocabularyFilters_maxResults,
+    listVocabularyFilters_nameContains,
+    listVocabularyFilters_nextToken,
 
     -- * Destructuring the Response
     ListVocabularyFiltersResponse (..),
@@ -57,20 +57,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { -- | If your @ListVocabularyFilters@ request returns more results than can be
+  { -- | The maximum number of custom vocabulary filters to return in each page
+    -- of results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Returns only the custom vocabulary filters that contain the specified
+    -- string. The search is not case sensitive.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | If your @ListVocabularyFilters@ request returns more results than can be
     -- displayed, @NextToken@ is displayed in the response with an associated
     -- string. To get the next page of results, copy this string and repeat
     -- your request, including @NextToken@ with the value of the copied string.
     -- Repeat as needed to view all your results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns only the custom vocabulary filters that contain the specified
-    -- string. The search is not case sensitive.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of custom vocabulary filters to return in each page
-    -- of results. If there are fewer results than the value you specify, only
-    -- the actual results are returned. If you don\'t specify a value, a
-    -- default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,27 +82,40 @@ data ListVocabularyFilters = ListVocabularyFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of custom vocabulary filters to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
+-- 'nameContains', 'listVocabularyFilters_nameContains' - Returns only the custom vocabulary filters that contain the specified
+-- string. The search is not case sensitive.
+--
 -- 'nextToken', 'listVocabularyFilters_nextToken' - If your @ListVocabularyFilters@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
 -- string. To get the next page of results, copy this string and repeat
 -- your request, including @NextToken@ with the value of the copied string.
 -- Repeat as needed to view all your results.
---
--- 'nameContains', 'listVocabularyFilters_nameContains' - Returns only the custom vocabulary filters that contain the specified
--- string. The search is not case sensitive.
---
--- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of custom vocabulary filters to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
 newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
   ListVocabularyFilters'
-    { nextToken = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
       nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of custom vocabulary filters to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Natural)
+listVocabularyFilters_maxResults = Lens.lens (\ListVocabularyFilters' {maxResults} -> maxResults) (\s@ListVocabularyFilters' {} a -> s {maxResults = a} :: ListVocabularyFilters)
+
+-- | Returns only the custom vocabulary filters that contain the specified
+-- string. The search is not case sensitive.
+listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
+listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
 -- | If your @ListVocabularyFilters@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
@@ -111,18 +124,6 @@ newListVocabularyFilters =
 -- Repeat as needed to view all your results.
 listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
-
--- | Returns only the custom vocabulary filters that contain the specified
--- string. The search is not case sensitive.
-listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
-listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
-
--- | The maximum number of custom vocabulary filters to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
-listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Natural)
-listVocabularyFilters_maxResults = Lens.lens (\ListVocabularyFilters' {maxResults} -> maxResults) (\s@ListVocabularyFilters' {} a -> s {maxResults = a} :: ListVocabularyFilters)
 
 instance Core.AWSRequest ListVocabularyFilters where
   type
@@ -143,15 +144,15 @@ instance Core.AWSRequest ListVocabularyFilters where
 
 instance Prelude.Hashable ListVocabularyFilters where
   hashWithSalt _salt ListVocabularyFilters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVocabularyFilters where
   rnf ListVocabularyFilters' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVocabularyFilters where
   toHeaders =
@@ -172,9 +173,9 @@ instance Data.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

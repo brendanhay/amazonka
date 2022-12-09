@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDvbNitSettings' smart constructor.
 data DvbNitSettings = DvbNitSettings'
-  { -- | The number of milliseconds between instances of this table in the output
-    -- transport stream.
-    nitInterval :: Prelude.Maybe Prelude.Natural,
+  { -- | The numeric value placed in the Network Information Table (NIT).
+    networkId :: Prelude.Maybe Prelude.Natural,
     -- | The network name text placed in the network_name_descriptor inside the
     -- Network Information Table. Maximum length is 256 characters.
     networkName :: Prelude.Maybe Prelude.Text,
-    -- | The numeric value placed in the Network Information Table (NIT).
-    networkId :: Prelude.Maybe Prelude.Natural
+    -- | The number of milliseconds between instances of this table in the output
+    -- transport stream.
+    nitInterval :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,35 +51,35 @@ data DvbNitSettings = DvbNitSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nitInterval', 'dvbNitSettings_nitInterval' - The number of milliseconds between instances of this table in the output
--- transport stream.
+-- 'networkId', 'dvbNitSettings_networkId' - The numeric value placed in the Network Information Table (NIT).
 --
 -- 'networkName', 'dvbNitSettings_networkName' - The network name text placed in the network_name_descriptor inside the
 -- Network Information Table. Maximum length is 256 characters.
 --
--- 'networkId', 'dvbNitSettings_networkId' - The numeric value placed in the Network Information Table (NIT).
+-- 'nitInterval', 'dvbNitSettings_nitInterval' - The number of milliseconds between instances of this table in the output
+-- transport stream.
 newDvbNitSettings ::
   DvbNitSettings
 newDvbNitSettings =
   DvbNitSettings'
-    { nitInterval = Prelude.Nothing,
+    { networkId = Prelude.Nothing,
       networkName = Prelude.Nothing,
-      networkId = Prelude.Nothing
+      nitInterval = Prelude.Nothing
     }
 
--- | The number of milliseconds between instances of this table in the output
--- transport stream.
-dvbNitSettings_nitInterval :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
-dvbNitSettings_nitInterval = Lens.lens (\DvbNitSettings' {nitInterval} -> nitInterval) (\s@DvbNitSettings' {} a -> s {nitInterval = a} :: DvbNitSettings)
+-- | The numeric value placed in the Network Information Table (NIT).
+dvbNitSettings_networkId :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
+dvbNitSettings_networkId = Lens.lens (\DvbNitSettings' {networkId} -> networkId) (\s@DvbNitSettings' {} a -> s {networkId = a} :: DvbNitSettings)
 
 -- | The network name text placed in the network_name_descriptor inside the
 -- Network Information Table. Maximum length is 256 characters.
 dvbNitSettings_networkName :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Text)
 dvbNitSettings_networkName = Lens.lens (\DvbNitSettings' {networkName} -> networkName) (\s@DvbNitSettings' {} a -> s {networkName = a} :: DvbNitSettings)
 
--- | The numeric value placed in the Network Information Table (NIT).
-dvbNitSettings_networkId :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
-dvbNitSettings_networkId = Lens.lens (\DvbNitSettings' {networkId} -> networkId) (\s@DvbNitSettings' {} a -> s {networkId = a} :: DvbNitSettings)
+-- | The number of milliseconds between instances of this table in the output
+-- transport stream.
+dvbNitSettings_nitInterval :: Lens.Lens' DvbNitSettings (Prelude.Maybe Prelude.Natural)
+dvbNitSettings_nitInterval = Lens.lens (\DvbNitSettings' {nitInterval} -> nitInterval) (\s@DvbNitSettings' {} a -> s {nitInterval = a} :: DvbNitSettings)
 
 instance Data.FromJSON DvbNitSettings where
   parseJSON =
@@ -87,29 +87,29 @@ instance Data.FromJSON DvbNitSettings where
       "DvbNitSettings"
       ( \x ->
           DvbNitSettings'
-            Prelude.<$> (x Data..:? "nitInterval")
+            Prelude.<$> (x Data..:? "networkId")
             Prelude.<*> (x Data..:? "networkName")
-            Prelude.<*> (x Data..:? "networkId")
+            Prelude.<*> (x Data..:? "nitInterval")
       )
 
 instance Prelude.Hashable DvbNitSettings where
   hashWithSalt _salt DvbNitSettings' {..} =
-    _salt `Prelude.hashWithSalt` nitInterval
+    _salt `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` networkName
-      `Prelude.hashWithSalt` networkId
+      `Prelude.hashWithSalt` nitInterval
 
 instance Prelude.NFData DvbNitSettings where
   rnf DvbNitSettings' {..} =
-    Prelude.rnf nitInterval
+    Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf networkName
-      `Prelude.seq` Prelude.rnf networkId
+      `Prelude.seq` Prelude.rnf nitInterval
 
 instance Data.ToJSON DvbNitSettings where
   toJSON DvbNitSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nitInterval" Data..=) Prelude.<$> nitInterval,
+          [ ("networkId" Data..=) Prelude.<$> networkId,
             ("networkName" Data..=) Prelude.<$> networkName,
-            ("networkId" Data..=) Prelude.<$> networkId
+            ("nitInterval" Data..=) Prelude.<$> nitInterval
           ]
       )

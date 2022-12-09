@@ -40,21 +40,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobTemplateSettings' smart constructor.
 data JobTemplateSettings = JobTemplateSettings'
-  { -- | Settings for ad avail blanking. Video can be blanked or overlaid with an
+  { -- | When specified, this offset (in milliseconds) is added to the input Ad
+    -- Avail PTS time.
+    adAvailOffset :: Prelude.Maybe Prelude.Int,
+    -- | Settings for ad avail blanking. Video can be blanked or overlaid with an
     -- image, and audio muted during SCTE-35 triggered ad avails.
     availBlanking :: Prelude.Maybe AvailBlanking,
     -- | Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad
     -- insertion, you can ignore these settings.
     esam :: Prelude.Maybe EsamSettings,
-    -- | Ignore these settings unless you are using Nielsen non-linear
-    -- watermarking. Specify the values that MediaConvert uses to generate and
-    -- place Nielsen watermarks in your output audio. In addition to specifying
-    -- these values, you also need to set up your cloud TIC server. These
-    -- settings apply to every output in your job. The MediaConvert
-    -- implementation is currently with the following Nielsen versions: Nielsen
-    -- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
-    -- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
-    nielsenNonLinearWatermark :: Prelude.Maybe NielsenNonLinearWatermarkSettings,
+    -- | If your source content has EIA-608 Line 21 Data Services, enable this
+    -- feature to specify what MediaConvert does with the Extended Data
+    -- Services (XDS) packets. You can choose to pass through XDS packets, or
+    -- remove them from the output. For more information about XDS, see EIA-608
+    -- Line Data Services, section 9.5.1.5 05h Content Advisory.
+    extendedDataServices :: Prelude.Maybe ExtendedDataServices,
+    -- | Use Inputs (inputs) to define the source file used in the transcode job.
+    -- There can only be one input in a job template. Using the API, you can
+    -- include multiple inputs when referencing a job template.
+    inputs :: Prelude.Maybe [InputTemplate],
+    -- | Use these settings only when you use Kantar watermarking. Specify the
+    -- values that MediaConvert uses to generate and place Kantar watermarks in
+    -- your output audio. These settings apply to every output in your job. In
+    -- addition to specifying these values, you also need to store your Kantar
+    -- credentials in AWS Secrets Manager. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
+    kantarWatermark :: Prelude.Maybe KantarWatermarkSettings,
     -- | Overlay motion graphics on top of your video. The motion graphics that
     -- you specify here appear on all outputs in all output groups. For more
     -- information, see
@@ -69,6 +80,15 @@ data JobTemplateSettings = JobTemplateSettings'
     -- include any children of nielsenConfiguration, you still enable the
     -- setting.
     nielsenConfiguration :: Prelude.Maybe NielsenConfiguration,
+    -- | Ignore these settings unless you are using Nielsen non-linear
+    -- watermarking. Specify the values that MediaConvert uses to generate and
+    -- place Nielsen watermarks in your output audio. In addition to specifying
+    -- these values, you also need to set up your cloud TIC server. These
+    -- settings apply to every output in your job. The MediaConvert
+    -- implementation is currently with the following Nielsen versions: Nielsen
+    -- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
+    -- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+    nielsenNonLinearWatermark :: Prelude.Maybe NielsenNonLinearWatermarkSettings,
     -- | (OutputGroups) contains one group of settings for each set of outputs
     -- that share a common package type. All unpackaged files (MPEG-4, MPEG-2
     -- TS, Quicktime, MXF, and no container) are grouped in a single output
@@ -81,33 +101,13 @@ data JobTemplateSettings = JobTemplateSettings'
     -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
     -- CmafGroupSettings
     outputGroups :: Prelude.Maybe [OutputGroup],
-    -- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
-    -- that you specify. In each output that you want to include this metadata,
-    -- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
-    timedMetadataInsertion :: Prelude.Maybe TimedMetadataInsertion,
-    -- | If your source content has EIA-608 Line 21 Data Services, enable this
-    -- feature to specify what MediaConvert does with the Extended Data
-    -- Services (XDS) packets. You can choose to pass through XDS packets, or
-    -- remove them from the output. For more information about XDS, see EIA-608
-    -- Line Data Services, section 9.5.1.5 05h Content Advisory.
-    extendedDataServices :: Prelude.Maybe ExtendedDataServices,
-    -- | Use these settings only when you use Kantar watermarking. Specify the
-    -- values that MediaConvert uses to generate and place Kantar watermarks in
-    -- your output audio. These settings apply to every output in your job. In
-    -- addition to specifying these values, you also need to store your Kantar
-    -- credentials in AWS Secrets Manager. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
-    kantarWatermark :: Prelude.Maybe KantarWatermarkSettings,
-    -- | Use Inputs (inputs) to define the source file used in the transcode job.
-    -- There can only be one input in a job template. Using the API, you can
-    -- include multiple inputs when referencing a job template.
-    inputs :: Prelude.Maybe [InputTemplate],
     -- | These settings control how the service handles timecodes throughout the
     -- job. These settings don\'t affect input clipping.
     timecodeConfig :: Prelude.Maybe TimecodeConfig,
-    -- | When specified, this offset (in milliseconds) is added to the input Ad
-    -- Avail PTS time.
-    adAvailOffset :: Prelude.Maybe Prelude.Int
+    -- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+    -- that you specify. In each output that you want to include this metadata,
+    -- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
+    timedMetadataInsertion :: Prelude.Maybe TimedMetadataInsertion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,20 +119,31 @@ data JobTemplateSettings = JobTemplateSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adAvailOffset', 'jobTemplateSettings_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad
+-- Avail PTS time.
+--
 -- 'availBlanking', 'jobTemplateSettings_availBlanking' - Settings for ad avail blanking. Video can be blanked or overlaid with an
 -- image, and audio muted during SCTE-35 triggered ad avails.
 --
 -- 'esam', 'jobTemplateSettings_esam' - Settings for Event Signaling And Messaging (ESAM). If you don\'t do ad
 -- insertion, you can ignore these settings.
 --
--- 'nielsenNonLinearWatermark', 'jobTemplateSettings_nielsenNonLinearWatermark' - Ignore these settings unless you are using Nielsen non-linear
--- watermarking. Specify the values that MediaConvert uses to generate and
--- place Nielsen watermarks in your output audio. In addition to specifying
--- these values, you also need to set up your cloud TIC server. These
--- settings apply to every output in your job. The MediaConvert
--- implementation is currently with the following Nielsen versions: Nielsen
--- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
--- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+-- 'extendedDataServices', 'jobTemplateSettings_extendedDataServices' - If your source content has EIA-608 Line 21 Data Services, enable this
+-- feature to specify what MediaConvert does with the Extended Data
+-- Services (XDS) packets. You can choose to pass through XDS packets, or
+-- remove them from the output. For more information about XDS, see EIA-608
+-- Line Data Services, section 9.5.1.5 05h Content Advisory.
+--
+-- 'inputs', 'jobTemplateSettings_inputs' - Use Inputs (inputs) to define the source file used in the transcode job.
+-- There can only be one input in a job template. Using the API, you can
+-- include multiple inputs when referencing a job template.
+--
+-- 'kantarWatermark', 'jobTemplateSettings_kantarWatermark' - Use these settings only when you use Kantar watermarking. Specify the
+-- values that MediaConvert uses to generate and place Kantar watermarks in
+-- your output audio. These settings apply to every output in your job. In
+-- addition to specifying these values, you also need to store your Kantar
+-- credentials in AWS Secrets Manager. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
 --
 -- 'motionImageInserter', 'jobTemplateSettings_motionImageInserter' - Overlay motion graphics on top of your video. The motion graphics that
 -- you specify here appear on all outputs in all output groups. For more
@@ -148,6 +159,15 @@ data JobTemplateSettings = JobTemplateSettings'
 -- include any children of nielsenConfiguration, you still enable the
 -- setting.
 --
+-- 'nielsenNonLinearWatermark', 'jobTemplateSettings_nielsenNonLinearWatermark' - Ignore these settings unless you are using Nielsen non-linear
+-- watermarking. Specify the values that MediaConvert uses to generate and
+-- place Nielsen watermarks in your output audio. In addition to specifying
+-- these values, you also need to set up your cloud TIC server. These
+-- settings apply to every output in your job. The MediaConvert
+-- implementation is currently with the following Nielsen versions: Nielsen
+-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
+-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+--
 -- 'outputGroups', 'jobTemplateSettings_outputGroups' - (OutputGroups) contains one group of settings for each set of outputs
 -- that share a common package type. All unpackaged files (MPEG-4, MPEG-2
 -- TS, Quicktime, MXF, and no container) are grouped in a single output
@@ -160,50 +180,35 @@ data JobTemplateSettings = JobTemplateSettings'
 -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
 -- CmafGroupSettings
 --
--- 'timedMetadataInsertion', 'jobTemplateSettings_timedMetadataInsertion' - Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
--- that you specify. In each output that you want to include this metadata,
--- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
---
--- 'extendedDataServices', 'jobTemplateSettings_extendedDataServices' - If your source content has EIA-608 Line 21 Data Services, enable this
--- feature to specify what MediaConvert does with the Extended Data
--- Services (XDS) packets. You can choose to pass through XDS packets, or
--- remove them from the output. For more information about XDS, see EIA-608
--- Line Data Services, section 9.5.1.5 05h Content Advisory.
---
--- 'kantarWatermark', 'jobTemplateSettings_kantarWatermark' - Use these settings only when you use Kantar watermarking. Specify the
--- values that MediaConvert uses to generate and place Kantar watermarks in
--- your output audio. These settings apply to every output in your job. In
--- addition to specifying these values, you also need to store your Kantar
--- credentials in AWS Secrets Manager. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
---
--- 'inputs', 'jobTemplateSettings_inputs' - Use Inputs (inputs) to define the source file used in the transcode job.
--- There can only be one input in a job template. Using the API, you can
--- include multiple inputs when referencing a job template.
---
 -- 'timecodeConfig', 'jobTemplateSettings_timecodeConfig' - These settings control how the service handles timecodes throughout the
 -- job. These settings don\'t affect input clipping.
 --
--- 'adAvailOffset', 'jobTemplateSettings_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad
--- Avail PTS time.
+-- 'timedMetadataInsertion', 'jobTemplateSettings_timedMetadataInsertion' - Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+-- that you specify. In each output that you want to include this metadata,
+-- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
 newJobTemplateSettings ::
   JobTemplateSettings
 newJobTemplateSettings =
   JobTemplateSettings'
-    { availBlanking =
+    { adAvailOffset =
         Prelude.Nothing,
+      availBlanking = Prelude.Nothing,
       esam = Prelude.Nothing,
-      nielsenNonLinearWatermark = Prelude.Nothing,
+      extendedDataServices = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      kantarWatermark = Prelude.Nothing,
       motionImageInserter = Prelude.Nothing,
       nielsenConfiguration = Prelude.Nothing,
+      nielsenNonLinearWatermark = Prelude.Nothing,
       outputGroups = Prelude.Nothing,
-      timedMetadataInsertion = Prelude.Nothing,
-      extendedDataServices = Prelude.Nothing,
-      kantarWatermark = Prelude.Nothing,
-      inputs = Prelude.Nothing,
       timecodeConfig = Prelude.Nothing,
-      adAvailOffset = Prelude.Nothing
+      timedMetadataInsertion = Prelude.Nothing
     }
+
+-- | When specified, this offset (in milliseconds) is added to the input Ad
+-- Avail PTS time.
+jobTemplateSettings_adAvailOffset :: Lens.Lens' JobTemplateSettings (Prelude.Maybe Prelude.Int)
+jobTemplateSettings_adAvailOffset = Lens.lens (\JobTemplateSettings' {adAvailOffset} -> adAvailOffset) (\s@JobTemplateSettings' {} a -> s {adAvailOffset = a} :: JobTemplateSettings)
 
 -- | Settings for ad avail blanking. Video can be blanked or overlaid with an
 -- image, and audio muted during SCTE-35 triggered ad avails.
@@ -215,16 +220,28 @@ jobTemplateSettings_availBlanking = Lens.lens (\JobTemplateSettings' {availBlank
 jobTemplateSettings_esam :: Lens.Lens' JobTemplateSettings (Prelude.Maybe EsamSettings)
 jobTemplateSettings_esam = Lens.lens (\JobTemplateSettings' {esam} -> esam) (\s@JobTemplateSettings' {} a -> s {esam = a} :: JobTemplateSettings)
 
--- | Ignore these settings unless you are using Nielsen non-linear
--- watermarking. Specify the values that MediaConvert uses to generate and
--- place Nielsen watermarks in your output audio. In addition to specifying
--- these values, you also need to set up your cloud TIC server. These
--- settings apply to every output in your job. The MediaConvert
--- implementation is currently with the following Nielsen versions: Nielsen
--- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
--- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
-jobTemplateSettings_nielsenNonLinearWatermark :: Lens.Lens' JobTemplateSettings (Prelude.Maybe NielsenNonLinearWatermarkSettings)
-jobTemplateSettings_nielsenNonLinearWatermark = Lens.lens (\JobTemplateSettings' {nielsenNonLinearWatermark} -> nielsenNonLinearWatermark) (\s@JobTemplateSettings' {} a -> s {nielsenNonLinearWatermark = a} :: JobTemplateSettings)
+-- | If your source content has EIA-608 Line 21 Data Services, enable this
+-- feature to specify what MediaConvert does with the Extended Data
+-- Services (XDS) packets. You can choose to pass through XDS packets, or
+-- remove them from the output. For more information about XDS, see EIA-608
+-- Line Data Services, section 9.5.1.5 05h Content Advisory.
+jobTemplateSettings_extendedDataServices :: Lens.Lens' JobTemplateSettings (Prelude.Maybe ExtendedDataServices)
+jobTemplateSettings_extendedDataServices = Lens.lens (\JobTemplateSettings' {extendedDataServices} -> extendedDataServices) (\s@JobTemplateSettings' {} a -> s {extendedDataServices = a} :: JobTemplateSettings)
+
+-- | Use Inputs (inputs) to define the source file used in the transcode job.
+-- There can only be one input in a job template. Using the API, you can
+-- include multiple inputs when referencing a job template.
+jobTemplateSettings_inputs :: Lens.Lens' JobTemplateSettings (Prelude.Maybe [InputTemplate])
+jobTemplateSettings_inputs = Lens.lens (\JobTemplateSettings' {inputs} -> inputs) (\s@JobTemplateSettings' {} a -> s {inputs = a} :: JobTemplateSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use these settings only when you use Kantar watermarking. Specify the
+-- values that MediaConvert uses to generate and place Kantar watermarks in
+-- your output audio. These settings apply to every output in your job. In
+-- addition to specifying these values, you also need to store your Kantar
+-- credentials in AWS Secrets Manager. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
+jobTemplateSettings_kantarWatermark :: Lens.Lens' JobTemplateSettings (Prelude.Maybe KantarWatermarkSettings)
+jobTemplateSettings_kantarWatermark = Lens.lens (\JobTemplateSettings' {kantarWatermark} -> kantarWatermark) (\s@JobTemplateSettings' {} a -> s {kantarWatermark = a} :: JobTemplateSettings)
 
 -- | Overlay motion graphics on top of your video. The motion graphics that
 -- you specify here appear on all outputs in all output groups. For more
@@ -244,6 +261,17 @@ jobTemplateSettings_motionImageInserter = Lens.lens (\JobTemplateSettings' {moti
 jobTemplateSettings_nielsenConfiguration :: Lens.Lens' JobTemplateSettings (Prelude.Maybe NielsenConfiguration)
 jobTemplateSettings_nielsenConfiguration = Lens.lens (\JobTemplateSettings' {nielsenConfiguration} -> nielsenConfiguration) (\s@JobTemplateSettings' {} a -> s {nielsenConfiguration = a} :: JobTemplateSettings)
 
+-- | Ignore these settings unless you are using Nielsen non-linear
+-- watermarking. Specify the values that MediaConvert uses to generate and
+-- place Nielsen watermarks in your output audio. In addition to specifying
+-- these values, you also need to set up your cloud TIC server. These
+-- settings apply to every output in your job. The MediaConvert
+-- implementation is currently with the following Nielsen versions: Nielsen
+-- Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7
+-- Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+jobTemplateSettings_nielsenNonLinearWatermark :: Lens.Lens' JobTemplateSettings (Prelude.Maybe NielsenNonLinearWatermarkSettings)
+jobTemplateSettings_nielsenNonLinearWatermark = Lens.lens (\JobTemplateSettings' {nielsenNonLinearWatermark} -> nielsenNonLinearWatermark) (\s@JobTemplateSettings' {} a -> s {nielsenNonLinearWatermark = a} :: JobTemplateSettings)
+
 -- | (OutputGroups) contains one group of settings for each set of outputs
 -- that share a common package type. All unpackaged files (MPEG-4, MPEG-2
 -- TS, Quicktime, MXF, and no container) are grouped in a single output
@@ -258,44 +286,16 @@ jobTemplateSettings_nielsenConfiguration = Lens.lens (\JobTemplateSettings' {nie
 jobTemplateSettings_outputGroups :: Lens.Lens' JobTemplateSettings (Prelude.Maybe [OutputGroup])
 jobTemplateSettings_outputGroups = Lens.lens (\JobTemplateSettings' {outputGroups} -> outputGroups) (\s@JobTemplateSettings' {} a -> s {outputGroups = a} :: JobTemplateSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
--- that you specify. In each output that you want to include this metadata,
--- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
-jobTemplateSettings_timedMetadataInsertion :: Lens.Lens' JobTemplateSettings (Prelude.Maybe TimedMetadataInsertion)
-jobTemplateSettings_timedMetadataInsertion = Lens.lens (\JobTemplateSettings' {timedMetadataInsertion} -> timedMetadataInsertion) (\s@JobTemplateSettings' {} a -> s {timedMetadataInsertion = a} :: JobTemplateSettings)
-
--- | If your source content has EIA-608 Line 21 Data Services, enable this
--- feature to specify what MediaConvert does with the Extended Data
--- Services (XDS) packets. You can choose to pass through XDS packets, or
--- remove them from the output. For more information about XDS, see EIA-608
--- Line Data Services, section 9.5.1.5 05h Content Advisory.
-jobTemplateSettings_extendedDataServices :: Lens.Lens' JobTemplateSettings (Prelude.Maybe ExtendedDataServices)
-jobTemplateSettings_extendedDataServices = Lens.lens (\JobTemplateSettings' {extendedDataServices} -> extendedDataServices) (\s@JobTemplateSettings' {} a -> s {extendedDataServices = a} :: JobTemplateSettings)
-
--- | Use these settings only when you use Kantar watermarking. Specify the
--- values that MediaConvert uses to generate and place Kantar watermarks in
--- your output audio. These settings apply to every output in your job. In
--- addition to specifying these values, you also need to store your Kantar
--- credentials in AWS Secrets Manager. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/kantar-watermarking.html.
-jobTemplateSettings_kantarWatermark :: Lens.Lens' JobTemplateSettings (Prelude.Maybe KantarWatermarkSettings)
-jobTemplateSettings_kantarWatermark = Lens.lens (\JobTemplateSettings' {kantarWatermark} -> kantarWatermark) (\s@JobTemplateSettings' {} a -> s {kantarWatermark = a} :: JobTemplateSettings)
-
--- | Use Inputs (inputs) to define the source file used in the transcode job.
--- There can only be one input in a job template. Using the API, you can
--- include multiple inputs when referencing a job template.
-jobTemplateSettings_inputs :: Lens.Lens' JobTemplateSettings (Prelude.Maybe [InputTemplate])
-jobTemplateSettings_inputs = Lens.lens (\JobTemplateSettings' {inputs} -> inputs) (\s@JobTemplateSettings' {} a -> s {inputs = a} :: JobTemplateSettings) Prelude.. Lens.mapping Lens.coerced
-
 -- | These settings control how the service handles timecodes throughout the
 -- job. These settings don\'t affect input clipping.
 jobTemplateSettings_timecodeConfig :: Lens.Lens' JobTemplateSettings (Prelude.Maybe TimecodeConfig)
 jobTemplateSettings_timecodeConfig = Lens.lens (\JobTemplateSettings' {timecodeConfig} -> timecodeConfig) (\s@JobTemplateSettings' {} a -> s {timecodeConfig = a} :: JobTemplateSettings)
 
--- | When specified, this offset (in milliseconds) is added to the input Ad
--- Avail PTS time.
-jobTemplateSettings_adAvailOffset :: Lens.Lens' JobTemplateSettings (Prelude.Maybe Prelude.Int)
-jobTemplateSettings_adAvailOffset = Lens.lens (\JobTemplateSettings' {adAvailOffset} -> adAvailOffset) (\s@JobTemplateSettings' {} a -> s {adAvailOffset = a} :: JobTemplateSettings)
+-- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+-- that you specify. In each output that you want to include this metadata,
+-- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
+jobTemplateSettings_timedMetadataInsertion :: Lens.Lens' JobTemplateSettings (Prelude.Maybe TimedMetadataInsertion)
+jobTemplateSettings_timedMetadataInsertion = Lens.lens (\JobTemplateSettings' {timedMetadataInsertion} -> timedMetadataInsertion) (\s@JobTemplateSettings' {} a -> s {timedMetadataInsertion = a} :: JobTemplateSettings)
 
 instance Data.FromJSON JobTemplateSettings where
   parseJSON =
@@ -303,72 +303,72 @@ instance Data.FromJSON JobTemplateSettings where
       "JobTemplateSettings"
       ( \x ->
           JobTemplateSettings'
-            Prelude.<$> (x Data..:? "availBlanking")
+            Prelude.<$> (x Data..:? "adAvailOffset")
+            Prelude.<*> (x Data..:? "availBlanking")
             Prelude.<*> (x Data..:? "esam")
-            Prelude.<*> (x Data..:? "nielsenNonLinearWatermark")
+            Prelude.<*> (x Data..:? "extendedDataServices")
+            Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kantarWatermark")
             Prelude.<*> (x Data..:? "motionImageInserter")
             Prelude.<*> (x Data..:? "nielsenConfiguration")
+            Prelude.<*> (x Data..:? "nielsenNonLinearWatermark")
             Prelude.<*> (x Data..:? "outputGroups" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "timedMetadataInsertion")
-            Prelude.<*> (x Data..:? "extendedDataServices")
-            Prelude.<*> (x Data..:? "kantarWatermark")
-            Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "timecodeConfig")
-            Prelude.<*> (x Data..:? "adAvailOffset")
+            Prelude.<*> (x Data..:? "timedMetadataInsertion")
       )
 
 instance Prelude.Hashable JobTemplateSettings where
   hashWithSalt _salt JobTemplateSettings' {..} =
-    _salt `Prelude.hashWithSalt` availBlanking
+    _salt `Prelude.hashWithSalt` adAvailOffset
+      `Prelude.hashWithSalt` availBlanking
       `Prelude.hashWithSalt` esam
-      `Prelude.hashWithSalt` nielsenNonLinearWatermark
+      `Prelude.hashWithSalt` extendedDataServices
+      `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` kantarWatermark
       `Prelude.hashWithSalt` motionImageInserter
       `Prelude.hashWithSalt` nielsenConfiguration
+      `Prelude.hashWithSalt` nielsenNonLinearWatermark
       `Prelude.hashWithSalt` outputGroups
-      `Prelude.hashWithSalt` timedMetadataInsertion
-      `Prelude.hashWithSalt` extendedDataServices
-      `Prelude.hashWithSalt` kantarWatermark
-      `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` timecodeConfig
-      `Prelude.hashWithSalt` adAvailOffset
+      `Prelude.hashWithSalt` timedMetadataInsertion
 
 instance Prelude.NFData JobTemplateSettings where
   rnf JobTemplateSettings' {..} =
-    Prelude.rnf availBlanking
+    Prelude.rnf adAvailOffset
+      `Prelude.seq` Prelude.rnf availBlanking
       `Prelude.seq` Prelude.rnf esam
-      `Prelude.seq` Prelude.rnf nielsenNonLinearWatermark
+      `Prelude.seq` Prelude.rnf extendedDataServices
+      `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf kantarWatermark
       `Prelude.seq` Prelude.rnf motionImageInserter
       `Prelude.seq` Prelude.rnf nielsenConfiguration
+      `Prelude.seq` Prelude.rnf nielsenNonLinearWatermark
       `Prelude.seq` Prelude.rnf outputGroups
-      `Prelude.seq` Prelude.rnf timedMetadataInsertion
-      `Prelude.seq` Prelude.rnf extendedDataServices
-      `Prelude.seq` Prelude.rnf kantarWatermark
-      `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf timecodeConfig
-      `Prelude.seq` Prelude.rnf adAvailOffset
+      `Prelude.seq` Prelude.rnf timedMetadataInsertion
 
 instance Data.ToJSON JobTemplateSettings where
   toJSON JobTemplateSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("availBlanking" Data..=) Prelude.<$> availBlanking,
+          [ ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset,
+            ("availBlanking" Data..=) Prelude.<$> availBlanking,
             ("esam" Data..=) Prelude.<$> esam,
-            ("nielsenNonLinearWatermark" Data..=)
-              Prelude.<$> nielsenNonLinearWatermark,
+            ("extendedDataServices" Data..=)
+              Prelude.<$> extendedDataServices,
+            ("inputs" Data..=) Prelude.<$> inputs,
+            ("kantarWatermark" Data..=)
+              Prelude.<$> kantarWatermark,
             ("motionImageInserter" Data..=)
               Prelude.<$> motionImageInserter,
             ("nielsenConfiguration" Data..=)
               Prelude.<$> nielsenConfiguration,
+            ("nielsenNonLinearWatermark" Data..=)
+              Prelude.<$> nielsenNonLinearWatermark,
             ("outputGroups" Data..=) Prelude.<$> outputGroups,
-            ("timedMetadataInsertion" Data..=)
-              Prelude.<$> timedMetadataInsertion,
-            ("extendedDataServices" Data..=)
-              Prelude.<$> extendedDataServices,
-            ("kantarWatermark" Data..=)
-              Prelude.<$> kantarWatermark,
-            ("inputs" Data..=) Prelude.<$> inputs,
             ("timecodeConfig" Data..=)
               Prelude.<$> timecodeConfig,
-            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset
+            ("timedMetadataInsertion" Data..=)
+              Prelude.<$> timedMetadataInsertion
           ]
       )

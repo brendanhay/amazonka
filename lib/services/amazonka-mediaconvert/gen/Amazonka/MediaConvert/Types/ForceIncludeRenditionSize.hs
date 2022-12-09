@@ -39,12 +39,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newForceIncludeRenditionSize' smart constructor.
 data ForceIncludeRenditionSize = ForceIncludeRenditionSize'
-  { -- | Use Width to define the video resolution width, in pixels, for this
+  { -- | Use Height to define the video resolution height, in pixels, for this
     -- rule.
-    width :: Prelude.Maybe Prelude.Natural,
-    -- | Use Height to define the video resolution height, in pixels, for this
+    height :: Prelude.Maybe Prelude.Natural,
+    -- | Use Width to define the video resolution width, in pixels, for this
     -- rule.
-    height :: Prelude.Maybe Prelude.Natural
+    width :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,28 +56,29 @@ data ForceIncludeRenditionSize = ForceIncludeRenditionSize'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'width', 'forceIncludeRenditionSize_width' - Use Width to define the video resolution width, in pixels, for this
+-- 'height', 'forceIncludeRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
 -- rule.
 --
--- 'height', 'forceIncludeRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
+-- 'width', 'forceIncludeRenditionSize_width' - Use Width to define the video resolution width, in pixels, for this
 -- rule.
 newForceIncludeRenditionSize ::
   ForceIncludeRenditionSize
 newForceIncludeRenditionSize =
   ForceIncludeRenditionSize'
-    { width = Prelude.Nothing,
-      height = Prelude.Nothing
+    { height =
+        Prelude.Nothing,
+      width = Prelude.Nothing
     }
-
--- | Use Width to define the video resolution width, in pixels, for this
--- rule.
-forceIncludeRenditionSize_width :: Lens.Lens' ForceIncludeRenditionSize (Prelude.Maybe Prelude.Natural)
-forceIncludeRenditionSize_width = Lens.lens (\ForceIncludeRenditionSize' {width} -> width) (\s@ForceIncludeRenditionSize' {} a -> s {width = a} :: ForceIncludeRenditionSize)
 
 -- | Use Height to define the video resolution height, in pixels, for this
 -- rule.
 forceIncludeRenditionSize_height :: Lens.Lens' ForceIncludeRenditionSize (Prelude.Maybe Prelude.Natural)
 forceIncludeRenditionSize_height = Lens.lens (\ForceIncludeRenditionSize' {height} -> height) (\s@ForceIncludeRenditionSize' {} a -> s {height = a} :: ForceIncludeRenditionSize)
+
+-- | Use Width to define the video resolution width, in pixels, for this
+-- rule.
+forceIncludeRenditionSize_width :: Lens.Lens' ForceIncludeRenditionSize (Prelude.Maybe Prelude.Natural)
+forceIncludeRenditionSize_width = Lens.lens (\ForceIncludeRenditionSize' {width} -> width) (\s@ForceIncludeRenditionSize' {} a -> s {width = a} :: ForceIncludeRenditionSize)
 
 instance Data.FromJSON ForceIncludeRenditionSize where
   parseJSON =
@@ -85,24 +86,24 @@ instance Data.FromJSON ForceIncludeRenditionSize where
       "ForceIncludeRenditionSize"
       ( \x ->
           ForceIncludeRenditionSize'
-            Prelude.<$> (x Data..:? "width")
-            Prelude.<*> (x Data..:? "height")
+            Prelude.<$> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "width")
       )
 
 instance Prelude.Hashable ForceIncludeRenditionSize where
   hashWithSalt _salt ForceIncludeRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` width
-      `Prelude.hashWithSalt` height
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
 
 instance Prelude.NFData ForceIncludeRenditionSize where
   rnf ForceIncludeRenditionSize' {..} =
-    Prelude.rnf width `Prelude.seq` Prelude.rnf height
+    Prelude.rnf height `Prelude.seq` Prelude.rnf width
 
 instance Data.ToJSON ForceIncludeRenditionSize where
   toJSON ForceIncludeRenditionSize' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("width" Data..=) Prelude.<$> width,
-            ("height" Data..=) Prelude.<$> height
+          [ ("height" Data..=) Prelude.<$> height,
+            ("width" Data..=) Prelude.<$> width
           ]
       )

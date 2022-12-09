@@ -30,19 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEmbeddedSourceSettings' smart constructor.
 data EmbeddedSourceSettings = EmbeddedSourceSettings'
-  { -- | Specifies the 608\/708 channel number within the video track from which
+  { -- | Specify whether this set of input captions appears in your outputs in
+    -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+    -- MediaConvert includes the captions data in two ways: it passes the 608
+    -- data through using the 608 compatibility bytes fields of the 708
+    -- wrapper, and it also translates the 608 data into 708.
+    convert608To708 :: Prelude.Maybe EmbeddedConvert608To708,
+    -- | Specifies the 608\/708 channel number within the video track from which
     -- to extract captions. Unused for passthrough.
     source608ChannelNumber :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the video track index used for extracting captions. The system
     -- only supports one input video track, so this should always be set to
     -- \'1\'.
     source608TrackNumber :: Prelude.Maybe Prelude.Natural,
-    -- | Specify whether this set of input captions appears in your outputs in
-    -- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
-    -- MediaConvert includes the captions data in two ways: it passes the 608
-    -- data through using the 608 compatibility bytes fields of the 708
-    -- wrapper, and it also translates the 608 data into 708.
-    convert608To708 :: Prelude.Maybe EmbeddedConvert608To708,
     -- | By default, the service terminates any unterminated captions at the end
     -- of each input. If you want the caption to continue onto your next input,
     -- disable this setting.
@@ -58,18 +58,18 @@ data EmbeddedSourceSettings = EmbeddedSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'convert608To708', 'embeddedSourceSettings_convert608To708' - Specify whether this set of input captions appears in your outputs in
+-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+-- MediaConvert includes the captions data in two ways: it passes the 608
+-- data through using the 608 compatibility bytes fields of the 708
+-- wrapper, and it also translates the 608 data into 708.
+--
 -- 'source608ChannelNumber', 'embeddedSourceSettings_source608ChannelNumber' - Specifies the 608\/708 channel number within the video track from which
 -- to extract captions. Unused for passthrough.
 --
 -- 'source608TrackNumber', 'embeddedSourceSettings_source608TrackNumber' - Specifies the video track index used for extracting captions. The system
 -- only supports one input video track, so this should always be set to
 -- \'1\'.
---
--- 'convert608To708', 'embeddedSourceSettings_convert608To708' - Specify whether this set of input captions appears in your outputs in
--- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
--- MediaConvert includes the captions data in two ways: it passes the 608
--- data through using the 608 compatibility bytes fields of the 708
--- wrapper, and it also translates the 608 data into 708.
 --
 -- 'terminateCaptions', 'embeddedSourceSettings_terminateCaptions' - By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,
@@ -78,12 +78,20 @@ newEmbeddedSourceSettings ::
   EmbeddedSourceSettings
 newEmbeddedSourceSettings =
   EmbeddedSourceSettings'
-    { source608ChannelNumber =
+    { convert608To708 =
         Prelude.Nothing,
+      source608ChannelNumber = Prelude.Nothing,
       source608TrackNumber = Prelude.Nothing,
-      convert608To708 = Prelude.Nothing,
       terminateCaptions = Prelude.Nothing
     }
+
+-- | Specify whether this set of input captions appears in your outputs in
+-- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
+-- MediaConvert includes the captions data in two ways: it passes the 608
+-- data through using the 608 compatibility bytes fields of the 708
+-- wrapper, and it also translates the 608 data into 708.
+embeddedSourceSettings_convert608To708 :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedConvert608To708)
+embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {convert608To708} -> convert608To708) (\s@EmbeddedSourceSettings' {} a -> s {convert608To708 = a} :: EmbeddedSourceSettings)
 
 -- | Specifies the 608\/708 channel number within the video track from which
 -- to extract captions. Unused for passthrough.
@@ -95,14 +103,6 @@ embeddedSourceSettings_source608ChannelNumber = Lens.lens (\EmbeddedSourceSettin
 -- \'1\'.
 embeddedSourceSettings_source608TrackNumber :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe Prelude.Natural)
 embeddedSourceSettings_source608TrackNumber = Lens.lens (\EmbeddedSourceSettings' {source608TrackNumber} -> source608TrackNumber) (\s@EmbeddedSourceSettings' {} a -> s {source608TrackNumber = a} :: EmbeddedSourceSettings)
-
--- | Specify whether this set of input captions appears in your outputs in
--- both 608 and 708 format. If you choose Upconvert (UPCONVERT),
--- MediaConvert includes the captions data in two ways: it passes the 608
--- data through using the 608 compatibility bytes fields of the 708
--- wrapper, and it also translates the 608 data into 708.
-embeddedSourceSettings_convert608To708 :: Lens.Lens' EmbeddedSourceSettings (Prelude.Maybe EmbeddedConvert608To708)
-embeddedSourceSettings_convert608To708 = Lens.lens (\EmbeddedSourceSettings' {convert608To708} -> convert608To708) (\s@EmbeddedSourceSettings' {} a -> s {convert608To708 = a} :: EmbeddedSourceSettings)
 
 -- | By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,
@@ -116,36 +116,36 @@ instance Data.FromJSON EmbeddedSourceSettings where
       "EmbeddedSourceSettings"
       ( \x ->
           EmbeddedSourceSettings'
-            Prelude.<$> (x Data..:? "source608ChannelNumber")
+            Prelude.<$> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "source608ChannelNumber")
             Prelude.<*> (x Data..:? "source608TrackNumber")
-            Prelude.<*> (x Data..:? "convert608To708")
             Prelude.<*> (x Data..:? "terminateCaptions")
       )
 
 instance Prelude.Hashable EmbeddedSourceSettings where
   hashWithSalt _salt EmbeddedSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` source608ChannelNumber
+    _salt `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` source608ChannelNumber
       `Prelude.hashWithSalt` source608TrackNumber
-      `Prelude.hashWithSalt` convert608To708
       `Prelude.hashWithSalt` terminateCaptions
 
 instance Prelude.NFData EmbeddedSourceSettings where
   rnf EmbeddedSourceSettings' {..} =
-    Prelude.rnf source608ChannelNumber
+    Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf source608ChannelNumber
       `Prelude.seq` Prelude.rnf source608TrackNumber
-      `Prelude.seq` Prelude.rnf convert608To708
       `Prelude.seq` Prelude.rnf terminateCaptions
 
 instance Data.ToJSON EmbeddedSourceSettings where
   toJSON EmbeddedSourceSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("source608ChannelNumber" Data..=)
+          [ ("convert608To708" Data..=)
+              Prelude.<$> convert608To708,
+            ("source608ChannelNumber" Data..=)
               Prelude.<$> source608ChannelNumber,
             ("source608TrackNumber" Data..=)
               Prelude.<$> source608TrackNumber,
-            ("convert608To708" Data..=)
-              Prelude.<$> convert608To708,
             ("terminateCaptions" Data..=)
               Prelude.<$> terminateCaptions
           ]

@@ -37,14 +37,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAllowedRenditionSize' smart constructor.
 data AllowedRenditionSize = AllowedRenditionSize'
-  { -- | Set to ENABLED to force a rendition to be included.
+  { -- | Use Height to define the video resolution height, in pixels, for this
+    -- rule.
+    height :: Prelude.Maybe Prelude.Natural,
+    -- | Set to ENABLED to force a rendition to be included.
     required :: Prelude.Maybe RequiredFlag,
     -- | Use Width to define the video resolution width, in pixels, for this
     -- rule.
-    width :: Prelude.Maybe Prelude.Natural,
-    -- | Use Height to define the video resolution height, in pixels, for this
-    -- rule.
-    height :: Prelude.Maybe Prelude.Natural
+    width :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,21 +56,26 @@ data AllowedRenditionSize = AllowedRenditionSize'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'height', 'allowedRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
+-- rule.
+--
 -- 'required', 'allowedRenditionSize_required' - Set to ENABLED to force a rendition to be included.
 --
 -- 'width', 'allowedRenditionSize_width' - Use Width to define the video resolution width, in pixels, for this
--- rule.
---
--- 'height', 'allowedRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
 -- rule.
 newAllowedRenditionSize ::
   AllowedRenditionSize
 newAllowedRenditionSize =
   AllowedRenditionSize'
-    { required = Prelude.Nothing,
-      width = Prelude.Nothing,
-      height = Prelude.Nothing
+    { height = Prelude.Nothing,
+      required = Prelude.Nothing,
+      width = Prelude.Nothing
     }
+
+-- | Use Height to define the video resolution height, in pixels, for this
+-- rule.
+allowedRenditionSize_height :: Lens.Lens' AllowedRenditionSize (Prelude.Maybe Prelude.Natural)
+allowedRenditionSize_height = Lens.lens (\AllowedRenditionSize' {height} -> height) (\s@AllowedRenditionSize' {} a -> s {height = a} :: AllowedRenditionSize)
 
 -- | Set to ENABLED to force a rendition to be included.
 allowedRenditionSize_required :: Lens.Lens' AllowedRenditionSize (Prelude.Maybe RequiredFlag)
@@ -81,40 +86,35 @@ allowedRenditionSize_required = Lens.lens (\AllowedRenditionSize' {required} -> 
 allowedRenditionSize_width :: Lens.Lens' AllowedRenditionSize (Prelude.Maybe Prelude.Natural)
 allowedRenditionSize_width = Lens.lens (\AllowedRenditionSize' {width} -> width) (\s@AllowedRenditionSize' {} a -> s {width = a} :: AllowedRenditionSize)
 
--- | Use Height to define the video resolution height, in pixels, for this
--- rule.
-allowedRenditionSize_height :: Lens.Lens' AllowedRenditionSize (Prelude.Maybe Prelude.Natural)
-allowedRenditionSize_height = Lens.lens (\AllowedRenditionSize' {height} -> height) (\s@AllowedRenditionSize' {} a -> s {height = a} :: AllowedRenditionSize)
-
 instance Data.FromJSON AllowedRenditionSize where
   parseJSON =
     Data.withObject
       "AllowedRenditionSize"
       ( \x ->
           AllowedRenditionSize'
-            Prelude.<$> (x Data..:? "required")
+            Prelude.<$> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "required")
             Prelude.<*> (x Data..:? "width")
-            Prelude.<*> (x Data..:? "height")
       )
 
 instance Prelude.Hashable AllowedRenditionSize where
   hashWithSalt _salt AllowedRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` required
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` required
       `Prelude.hashWithSalt` width
-      `Prelude.hashWithSalt` height
 
 instance Prelude.NFData AllowedRenditionSize where
   rnf AllowedRenditionSize' {..} =
-    Prelude.rnf required
+    Prelude.rnf height
+      `Prelude.seq` Prelude.rnf required
       `Prelude.seq` Prelude.rnf width
-      `Prelude.seq` Prelude.rnf height
 
 instance Data.ToJSON AllowedRenditionSize where
   toJSON AllowedRenditionSize' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("required" Data..=) Prelude.<$> required,
-            ("width" Data..=) Prelude.<$> width,
-            ("height" Data..=) Prelude.<$> height
+          [ ("height" Data..=) Prelude.<$> height,
+            ("required" Data..=) Prelude.<$> required,
+            ("width" Data..=) Prelude.<$> width
           ]
       )

@@ -30,13 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNoiseReducerTemporalFilterSettings' smart constructor.
 data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
-  { -- | Specify the strength of the noise reducing filter on this output. Higher
-    -- values produce stronger filtering. We recommend the following value
-    -- ranges, depending on the result that you want: * 0-2 for complexity
-    -- reduction with minimal sharpness loss * 2-8 for complexity reduction
-    -- with image preservation * 8-16 for a high level of complexity reduction
-    strength :: Prelude.Maybe Prelude.Natural,
-    -- | Use Aggressive mode for content that has complex motion. Higher values
+  { -- | Use Aggressive mode for content that has complex motion. Higher values
     -- produce stronger temporal filtering. This filters highly complex scenes
     -- more aggressively and creates better VQ for low bitrate outputs.
     aggressiveMode :: Prelude.Maybe Prelude.Natural,
@@ -60,7 +54,13 @@ data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
     -- | The speed of the filter (higher number is faster). Low setting reduces
     -- bit rate at the cost of transcode time, high setting improves transcode
     -- time at the cost of bit rate.
-    speed :: Prelude.Maybe Prelude.Int
+    speed :: Prelude.Maybe Prelude.Int,
+    -- | Specify the strength of the noise reducing filter on this output. Higher
+    -- values produce stronger filtering. We recommend the following value
+    -- ranges, depending on the result that you want: * 0-2 for complexity
+    -- reduction with minimal sharpness loss * 2-8 for complexity reduction
+    -- with image preservation * 8-16 for a high level of complexity reduction
+    strength :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,12 +71,6 @@ data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'strength', 'noiseReducerTemporalFilterSettings_strength' - Specify the strength of the noise reducing filter on this output. Higher
--- values produce stronger filtering. We recommend the following value
--- ranges, depending on the result that you want: * 0-2 for complexity
--- reduction with minimal sharpness loss * 2-8 for complexity reduction
--- with image preservation * 8-16 for a high level of complexity reduction
 --
 -- 'aggressiveMode', 'noiseReducerTemporalFilterSettings_aggressiveMode' - Use Aggressive mode for content that has complex motion. Higher values
 -- produce stronger temporal filtering. This filters highly complex scenes
@@ -102,27 +96,25 @@ data NoiseReducerTemporalFilterSettings = NoiseReducerTemporalFilterSettings'
 -- 'speed', 'noiseReducerTemporalFilterSettings_speed' - The speed of the filter (higher number is faster). Low setting reduces
 -- bit rate at the cost of transcode time, high setting improves transcode
 -- time at the cost of bit rate.
-newNoiseReducerTemporalFilterSettings ::
-  NoiseReducerTemporalFilterSettings
-newNoiseReducerTemporalFilterSettings =
-  NoiseReducerTemporalFilterSettings'
-    { strength =
-        Prelude.Nothing,
-      aggressiveMode = Prelude.Nothing,
-      postTemporalSharpening =
-        Prelude.Nothing,
-      postTemporalSharpeningStrength =
-        Prelude.Nothing,
-      speed = Prelude.Nothing
-    }
-
--- | Specify the strength of the noise reducing filter on this output. Higher
+--
+-- 'strength', 'noiseReducerTemporalFilterSettings_strength' - Specify the strength of the noise reducing filter on this output. Higher
 -- values produce stronger filtering. We recommend the following value
 -- ranges, depending on the result that you want: * 0-2 for complexity
 -- reduction with minimal sharpness loss * 2-8 for complexity reduction
 -- with image preservation * 8-16 for a high level of complexity reduction
-noiseReducerTemporalFilterSettings_strength :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Natural)
-noiseReducerTemporalFilterSettings_strength = Lens.lens (\NoiseReducerTemporalFilterSettings' {strength} -> strength) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {strength = a} :: NoiseReducerTemporalFilterSettings)
+newNoiseReducerTemporalFilterSettings ::
+  NoiseReducerTemporalFilterSettings
+newNoiseReducerTemporalFilterSettings =
+  NoiseReducerTemporalFilterSettings'
+    { aggressiveMode =
+        Prelude.Nothing,
+      postTemporalSharpening =
+        Prelude.Nothing,
+      postTemporalSharpeningStrength =
+        Prelude.Nothing,
+      speed = Prelude.Nothing,
+      strength = Prelude.Nothing
+    }
 
 -- | Use Aggressive mode for content that has complex motion. Higher values
 -- produce stronger temporal filtering. This filters highly complex scenes
@@ -157,6 +149,14 @@ noiseReducerTemporalFilterSettings_postTemporalSharpeningStrength = Lens.lens (\
 noiseReducerTemporalFilterSettings_speed :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Int)
 noiseReducerTemporalFilterSettings_speed = Lens.lens (\NoiseReducerTemporalFilterSettings' {speed} -> speed) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {speed = a} :: NoiseReducerTemporalFilterSettings)
 
+-- | Specify the strength of the noise reducing filter on this output. Higher
+-- values produce stronger filtering. We recommend the following value
+-- ranges, depending on the result that you want: * 0-2 for complexity
+-- reduction with minimal sharpness loss * 2-8 for complexity reduction
+-- with image preservation * 8-16 for a high level of complexity reduction
+noiseReducerTemporalFilterSettings_strength :: Lens.Lens' NoiseReducerTemporalFilterSettings (Prelude.Maybe Prelude.Natural)
+noiseReducerTemporalFilterSettings_strength = Lens.lens (\NoiseReducerTemporalFilterSettings' {strength} -> strength) (\s@NoiseReducerTemporalFilterSettings' {} a -> s {strength = a} :: NoiseReducerTemporalFilterSettings)
+
 instance
   Data.FromJSON
     NoiseReducerTemporalFilterSettings
@@ -166,11 +166,11 @@ instance
       "NoiseReducerTemporalFilterSettings"
       ( \x ->
           NoiseReducerTemporalFilterSettings'
-            Prelude.<$> (x Data..:? "strength")
-            Prelude.<*> (x Data..:? "aggressiveMode")
+            Prelude.<$> (x Data..:? "aggressiveMode")
             Prelude.<*> (x Data..:? "postTemporalSharpening")
             Prelude.<*> (x Data..:? "postTemporalSharpeningStrength")
             Prelude.<*> (x Data..:? "speed")
+            Prelude.<*> (x Data..:? "strength")
       )
 
 instance
@@ -180,22 +180,22 @@ instance
   hashWithSalt
     _salt
     NoiseReducerTemporalFilterSettings' {..} =
-      _salt `Prelude.hashWithSalt` strength
-        `Prelude.hashWithSalt` aggressiveMode
+      _salt `Prelude.hashWithSalt` aggressiveMode
         `Prelude.hashWithSalt` postTemporalSharpening
         `Prelude.hashWithSalt` postTemporalSharpeningStrength
         `Prelude.hashWithSalt` speed
+        `Prelude.hashWithSalt` strength
 
 instance
   Prelude.NFData
     NoiseReducerTemporalFilterSettings
   where
   rnf NoiseReducerTemporalFilterSettings' {..} =
-    Prelude.rnf strength
-      `Prelude.seq` Prelude.rnf aggressiveMode
+    Prelude.rnf aggressiveMode
       `Prelude.seq` Prelude.rnf postTemporalSharpening
       `Prelude.seq` Prelude.rnf postTemporalSharpeningStrength
       `Prelude.seq` Prelude.rnf speed
+      `Prelude.seq` Prelude.rnf strength
 
 instance
   Data.ToJSON
@@ -204,13 +204,13 @@ instance
   toJSON NoiseReducerTemporalFilterSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("strength" Data..=) Prelude.<$> strength,
-            ("aggressiveMode" Data..=)
+          [ ("aggressiveMode" Data..=)
               Prelude.<$> aggressiveMode,
             ("postTemporalSharpening" Data..=)
               Prelude.<$> postTemporalSharpening,
             ("postTemporalSharpeningStrength" Data..=)
               Prelude.<$> postTemporalSharpeningStrength,
-            ("speed" Data..=) Prelude.<$> speed
+            ("speed" Data..=) Prelude.<$> speed,
+            ("strength" Data..=) Prelude.<$> strength
           ]
       )

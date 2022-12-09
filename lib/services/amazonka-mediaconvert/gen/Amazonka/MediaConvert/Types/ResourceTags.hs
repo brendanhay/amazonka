@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceTags' smart constructor.
 data ResourceTags = ResourceTags'
-  { -- | The tags for the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ResourceTags = ResourceTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resourceTags_tags' - The tags for the resource.
---
 -- 'arn', 'resourceTags_arn' - The Amazon Resource Name (ARN) of the resource.
+--
+-- 'tags', 'resourceTags_tags' - The tags for the resource.
 newResourceTags ::
   ResourceTags
 newResourceTags =
   ResourceTags'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags for the resource.
-resourceTags_tags :: Lens.Lens' ResourceTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource.
 resourceTags_arn :: Lens.Lens' ResourceTags (Prelude.Maybe Prelude.Text)
 resourceTags_arn = Lens.lens (\ResourceTags' {arn} -> arn) (\s@ResourceTags' {} a -> s {arn = a} :: ResourceTags)
+
+-- | The tags for the resource.
+resourceTags_tags :: Lens.Lens' ResourceTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ResourceTags where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON ResourceTags where
       "ResourceTags"
       ( \x ->
           ResourceTags'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceTags where
   hashWithSalt _salt ResourceTags' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceTags where
   rnf ResourceTags' {..} =
-    Prelude.rnf tags `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf tags

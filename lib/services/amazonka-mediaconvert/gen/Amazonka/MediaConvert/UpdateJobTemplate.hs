@@ -27,14 +27,14 @@ module Amazonka.MediaConvert.UpdateJobTemplate
     newUpdateJobTemplate,
 
     -- * Request Lenses
-    updateJobTemplate_hopDestinations,
-    updateJobTemplate_statusUpdateInterval,
-    updateJobTemplate_description,
-    updateJobTemplate_settings,
-    updateJobTemplate_priority,
-    updateJobTemplate_category,
     updateJobTemplate_accelerationSettings,
+    updateJobTemplate_category,
+    updateJobTemplate_description,
+    updateJobTemplate_hopDestinations,
+    updateJobTemplate_priority,
     updateJobTemplate_queue,
+    updateJobTemplate_settings,
+    updateJobTemplate_statusUpdateInterval,
     updateJobTemplate_name,
 
     -- * Destructuring the Response
@@ -57,34 +57,34 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateJobTemplate' smart constructor.
 data UpdateJobTemplate = UpdateJobTemplate'
-  { -- | Optional list of hop destinations.
-    hopDestinations :: Prelude.Maybe [HopDestination],
-    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
-    -- CloudWatch Events. Set the interval, in seconds, between status updates.
-    -- MediaConvert sends an update at this interval from the time the service
-    -- begins processing your job to the time it completes the transcode or
-    -- encounters an error.
-    statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+  { -- | Accelerated transcoding can significantly speed up jobs with long,
+    -- visually complex content. Outputs that use this feature incur pro-tier
+    -- pricing. For information about feature limitations, see the AWS
+    -- Elemental MediaConvert User Guide.
+    accelerationSettings :: Prelude.Maybe AccelerationSettings,
+    -- | The new category for the job template, if you are changing it.
+    category :: Prelude.Maybe Prelude.Text,
     -- | The new description for the job template, if you are changing it.
     description :: Prelude.Maybe Prelude.Text,
-    -- | JobTemplateSettings contains all the transcode settings saved in the
-    -- template that will be applied to jobs created from it.
-    settings :: Prelude.Maybe JobTemplateSettings,
+    -- | Optional list of hop destinations.
+    hopDestinations :: Prelude.Maybe [HopDestination],
     -- | Specify the relative priority for this job. In any given queue, the
     -- service begins processing the job with the highest value first. When
     -- more than one job has the same priority, the service begins processing
     -- the job that you submitted first. If you don\'t specify a priority, the
     -- service uses the default value 0.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | The new category for the job template, if you are changing it.
-    category :: Prelude.Maybe Prelude.Text,
-    -- | Accelerated transcoding can significantly speed up jobs with long,
-    -- visually complex content. Outputs that use this feature incur pro-tier
-    -- pricing. For information about feature limitations, see the AWS
-    -- Elemental MediaConvert User Guide.
-    accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | The new queue for the job template, if you are changing it.
     queue :: Prelude.Maybe Prelude.Text,
+    -- | JobTemplateSettings contains all the transcode settings saved in the
+    -- template that will be applied to jobs created from it.
+    settings :: Prelude.Maybe JobTemplateSettings,
+    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
+    -- CloudWatch Events. Set the interval, in seconds, between status updates.
+    -- MediaConvert sends an update at this interval from the time the service
+    -- begins processing your job to the time it completes the transcode or
+    -- encounters an error.
+    statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
     -- | The name of the job template you are modifying
     name :: Prelude.Text
   }
@@ -98,18 +98,16 @@ data UpdateJobTemplate = UpdateJobTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hopDestinations', 'updateJobTemplate_hopDestinations' - Optional list of hop destinations.
+-- 'accelerationSettings', 'updateJobTemplate_accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long,
+-- visually complex content. Outputs that use this feature incur pro-tier
+-- pricing. For information about feature limitations, see the AWS
+-- Elemental MediaConvert User Guide.
 --
--- 'statusUpdateInterval', 'updateJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
--- CloudWatch Events. Set the interval, in seconds, between status updates.
--- MediaConvert sends an update at this interval from the time the service
--- begins processing your job to the time it completes the transcode or
--- encounters an error.
+-- 'category', 'updateJobTemplate_category' - The new category for the job template, if you are changing it.
 --
 -- 'description', 'updateJobTemplate_description' - The new description for the job template, if you are changing it.
 --
--- 'settings', 'updateJobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the
--- template that will be applied to jobs created from it.
+-- 'hopDestinations', 'updateJobTemplate_hopDestinations' - Optional list of hop destinations.
 --
 -- 'priority', 'updateJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the
 -- service begins processing the job with the highest value first. When
@@ -117,14 +115,16 @@ data UpdateJobTemplate = UpdateJobTemplate'
 -- the job that you submitted first. If you don\'t specify a priority, the
 -- service uses the default value 0.
 --
--- 'category', 'updateJobTemplate_category' - The new category for the job template, if you are changing it.
---
--- 'accelerationSettings', 'updateJobTemplate_accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long,
--- visually complex content. Outputs that use this feature incur pro-tier
--- pricing. For information about feature limitations, see the AWS
--- Elemental MediaConvert User Guide.
---
 -- 'queue', 'updateJobTemplate_queue' - The new queue for the job template, if you are changing it.
+--
+-- 'settings', 'updateJobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the
+-- template that will be applied to jobs created from it.
+--
+-- 'statusUpdateInterval', 'updateJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
+-- CloudWatch Events. Set the interval, in seconds, between status updates.
+-- MediaConvert sends an update at this interval from the time the service
+-- begins processing your job to the time it completes the transcode or
+-- encounters an error.
 --
 -- 'name', 'updateJobTemplate_name' - The name of the job template you are modifying
 newUpdateJobTemplate ::
@@ -133,38 +133,36 @@ newUpdateJobTemplate ::
   UpdateJobTemplate
 newUpdateJobTemplate pName_ =
   UpdateJobTemplate'
-    { hopDestinations =
+    { accelerationSettings =
         Prelude.Nothing,
-      statusUpdateInterval = Prelude.Nothing,
-      description = Prelude.Nothing,
-      settings = Prelude.Nothing,
-      priority = Prelude.Nothing,
       category = Prelude.Nothing,
-      accelerationSettings = Prelude.Nothing,
+      description = Prelude.Nothing,
+      hopDestinations = Prelude.Nothing,
+      priority = Prelude.Nothing,
       queue = Prelude.Nothing,
+      settings = Prelude.Nothing,
+      statusUpdateInterval = Prelude.Nothing,
       name = pName_
     }
 
--- | Optional list of hop destinations.
-updateJobTemplate_hopDestinations :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe [HopDestination])
-updateJobTemplate_hopDestinations = Lens.lens (\UpdateJobTemplate' {hopDestinations} -> hopDestinations) (\s@UpdateJobTemplate' {} a -> s {hopDestinations = a} :: UpdateJobTemplate) Prelude.. Lens.mapping Lens.coerced
+-- | Accelerated transcoding can significantly speed up jobs with long,
+-- visually complex content. Outputs that use this feature incur pro-tier
+-- pricing. For information about feature limitations, see the AWS
+-- Elemental MediaConvert User Guide.
+updateJobTemplate_accelerationSettings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe AccelerationSettings)
+updateJobTemplate_accelerationSettings = Lens.lens (\UpdateJobTemplate' {accelerationSettings} -> accelerationSettings) (\s@UpdateJobTemplate' {} a -> s {accelerationSettings = a} :: UpdateJobTemplate)
 
--- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
--- CloudWatch Events. Set the interval, in seconds, between status updates.
--- MediaConvert sends an update at this interval from the time the service
--- begins processing your job to the time it completes the transcode or
--- encounters an error.
-updateJobTemplate_statusUpdateInterval :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe StatusUpdateInterval)
-updateJobTemplate_statusUpdateInterval = Lens.lens (\UpdateJobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@UpdateJobTemplate' {} a -> s {statusUpdateInterval = a} :: UpdateJobTemplate)
+-- | The new category for the job template, if you are changing it.
+updateJobTemplate_category :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
+updateJobTemplate_category = Lens.lens (\UpdateJobTemplate' {category} -> category) (\s@UpdateJobTemplate' {} a -> s {category = a} :: UpdateJobTemplate)
 
 -- | The new description for the job template, if you are changing it.
 updateJobTemplate_description :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
 updateJobTemplate_description = Lens.lens (\UpdateJobTemplate' {description} -> description) (\s@UpdateJobTemplate' {} a -> s {description = a} :: UpdateJobTemplate)
 
--- | JobTemplateSettings contains all the transcode settings saved in the
--- template that will be applied to jobs created from it.
-updateJobTemplate_settings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe JobTemplateSettings)
-updateJobTemplate_settings = Lens.lens (\UpdateJobTemplate' {settings} -> settings) (\s@UpdateJobTemplate' {} a -> s {settings = a} :: UpdateJobTemplate)
+-- | Optional list of hop destinations.
+updateJobTemplate_hopDestinations :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe [HopDestination])
+updateJobTemplate_hopDestinations = Lens.lens (\UpdateJobTemplate' {hopDestinations} -> hopDestinations) (\s@UpdateJobTemplate' {} a -> s {hopDestinations = a} :: UpdateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify the relative priority for this job. In any given queue, the
 -- service begins processing the job with the highest value first. When
@@ -174,20 +172,22 @@ updateJobTemplate_settings = Lens.lens (\UpdateJobTemplate' {settings} -> settin
 updateJobTemplate_priority :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Int)
 updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priority) (\s@UpdateJobTemplate' {} a -> s {priority = a} :: UpdateJobTemplate)
 
--- | The new category for the job template, if you are changing it.
-updateJobTemplate_category :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
-updateJobTemplate_category = Lens.lens (\UpdateJobTemplate' {category} -> category) (\s@UpdateJobTemplate' {} a -> s {category = a} :: UpdateJobTemplate)
-
--- | Accelerated transcoding can significantly speed up jobs with long,
--- visually complex content. Outputs that use this feature incur pro-tier
--- pricing. For information about feature limitations, see the AWS
--- Elemental MediaConvert User Guide.
-updateJobTemplate_accelerationSettings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe AccelerationSettings)
-updateJobTemplate_accelerationSettings = Lens.lens (\UpdateJobTemplate' {accelerationSettings} -> accelerationSettings) (\s@UpdateJobTemplate' {} a -> s {accelerationSettings = a} :: UpdateJobTemplate)
-
 -- | The new queue for the job template, if you are changing it.
 updateJobTemplate_queue :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
 updateJobTemplate_queue = Lens.lens (\UpdateJobTemplate' {queue} -> queue) (\s@UpdateJobTemplate' {} a -> s {queue = a} :: UpdateJobTemplate)
+
+-- | JobTemplateSettings contains all the transcode settings saved in the
+-- template that will be applied to jobs created from it.
+updateJobTemplate_settings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe JobTemplateSettings)
+updateJobTemplate_settings = Lens.lens (\UpdateJobTemplate' {settings} -> settings) (\s@UpdateJobTemplate' {} a -> s {settings = a} :: UpdateJobTemplate)
+
+-- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
+-- CloudWatch Events. Set the interval, in seconds, between status updates.
+-- MediaConvert sends an update at this interval from the time the service
+-- begins processing your job to the time it completes the transcode or
+-- encounters an error.
+updateJobTemplate_statusUpdateInterval :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe StatusUpdateInterval)
+updateJobTemplate_statusUpdateInterval = Lens.lens (\UpdateJobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@UpdateJobTemplate' {} a -> s {statusUpdateInterval = a} :: UpdateJobTemplate)
 
 -- | The name of the job template you are modifying
 updateJobTemplate_name :: Lens.Lens' UpdateJobTemplate Prelude.Text
@@ -209,26 +209,26 @@ instance Core.AWSRequest UpdateJobTemplate where
 
 instance Prelude.Hashable UpdateJobTemplate where
   hashWithSalt _salt UpdateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` hopDestinations
-      `Prelude.hashWithSalt` statusUpdateInterval
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` settings
-      `Prelude.hashWithSalt` priority
+    _salt `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` category
-      `Prelude.hashWithSalt` accelerationSettings
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` hopDestinations
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` queue
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` statusUpdateInterval
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateJobTemplate where
   rnf UpdateJobTemplate' {..} =
-    Prelude.rnf hopDestinations
-      `Prelude.seq` Prelude.rnf statusUpdateInterval
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf accelerationSettings
       `Prelude.seq` Prelude.rnf category
-      `Prelude.seq` Prelude.rnf accelerationSettings
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf hopDestinations
+      `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf queue
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf statusUpdateInterval
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateJobTemplate where
@@ -246,17 +246,17 @@ instance Data.ToJSON UpdateJobTemplate where
   toJSON UpdateJobTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("hopDestinations" Data..=)
-              Prelude.<$> hopDestinations,
-            ("statusUpdateInterval" Data..=)
-              Prelude.<$> statusUpdateInterval,
-            ("description" Data..=) Prelude.<$> description,
-            ("settings" Data..=) Prelude.<$> settings,
-            ("priority" Data..=) Prelude.<$> priority,
-            ("category" Data..=) Prelude.<$> category,
-            ("accelerationSettings" Data..=)
+          [ ("accelerationSettings" Data..=)
               Prelude.<$> accelerationSettings,
-            ("queue" Data..=) Prelude.<$> queue
+            ("category" Data..=) Prelude.<$> category,
+            ("description" Data..=) Prelude.<$> description,
+            ("hopDestinations" Data..=)
+              Prelude.<$> hopDestinations,
+            ("priority" Data..=) Prelude.<$> priority,
+            ("queue" Data..=) Prelude.<$> queue,
+            ("settings" Data..=) Prelude.<$> settings,
+            ("statusUpdateInterval" Data..=)
+              Prelude.<$> statusUpdateInterval
           ]
       )
 

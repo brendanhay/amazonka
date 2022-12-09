@@ -36,9 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
-  { -- | Specifies audio data from an external file source.
-    externalAudioFileInput :: Prelude.Maybe Prelude.Text,
-    -- | Apply audio timing corrections to help synchronize audio and video in
+  { -- | Apply audio timing corrections to help synchronize audio and video in
     -- your output. To apply timing corrections, your input must meet the
     -- following requirements: * Container: MP4, or MOV, with an accurate
     -- time-to-sample (STTS) table. * Audio track: AAC. Choose from the
@@ -54,9 +52,16 @@ data AudioSelector = AudioSelector'
     -- Frame-level correction may affect the pitch of corrected frames, and is
     -- recommended for atonal audio content such as speech or percussion.
     audioDurationCorrection :: Prelude.Maybe AudioDurationCorrection,
-    -- | Selects a specific PID from within an audio source (e.g. 257 selects PID
-    -- 0x101).
-    pids :: Prelude.Maybe [Prelude.Natural],
+    -- | Selects a specific language code from within an audio source, using the
+    -- ISO 639-2 or ISO 639-3 three-letter language code
+    customLanguageCode :: Prelude.Maybe Prelude.Text,
+    -- | Enable this setting on one audio selector to set it as the default for
+    -- the job. The service uses this default for outputs where it can\'t find
+    -- the specified input audio. If you don\'t set a default, those outputs
+    -- have no audio.
+    defaultSelection :: Prelude.Maybe AudioDefaultSelection,
+    -- | Specifies audio data from an external file source.
+    externalAudioFileInput :: Prelude.Maybe Prelude.Text,
     -- | Settings specific to audio sources in an HLS alternate rendition group.
     -- Specify the properties (renditionGroupId, renditionName or
     -- renditionLanguageCode) to identify the unique audio track among the
@@ -67,17 +72,14 @@ data AudioSelector = AudioSelector'
     -- no audio within video segment, the alternative audio with DEFAULT=YES is
     -- chosen instead.
     hlsRenditionGroupSettings :: Prelude.Maybe HlsRenditionGroupSettings,
-    -- | Selects a specific language code from within an audio source, using the
-    -- ISO 639-2 or ISO 639-3 three-letter language code
-    customLanguageCode :: Prelude.Maybe Prelude.Text,
-    -- | Enable this setting on one audio selector to set it as the default for
-    -- the job. The service uses this default for outputs where it can\'t find
-    -- the specified input audio. If you don\'t set a default, those outputs
-    -- have no audio.
-    defaultSelection :: Prelude.Maybe AudioDefaultSelection,
+    -- | Selects a specific language code from within an audio source.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | Specifies a time delta in milliseconds to offset the audio from the
     -- input video.
     offset :: Prelude.Maybe Prelude.Int,
+    -- | Selects a specific PID from within an audio source (e.g. 257 selects PID
+    -- 0x101).
+    pids :: Prelude.Maybe [Prelude.Natural],
     -- | Use this setting for input streams that contain Dolby E, to have the
     -- service extract specific program data from the track. To select multiple
     -- programs, create multiple selectors with the same Track and different
@@ -93,8 +95,6 @@ data AudioSelector = AudioSelector'
     -- those of another input. This allows you to combine the two files into a
     -- single output, one after the other.
     remixSettings :: Prelude.Maybe RemixSettings,
-    -- | Selects a specific language code from within an audio source.
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | Specifies the type of the audio selector.
     selectorType :: Prelude.Maybe AudioSelectorType,
     -- | Identify a track from the input audio to include in this selector by
@@ -115,8 +115,6 @@ data AudioSelector = AudioSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalAudioFileInput', 'audioSelector_externalAudioFileInput' - Specifies audio data from an external file source.
---
 -- 'audioDurationCorrection', 'audioSelector_audioDurationCorrection' - Apply audio timing corrections to help synchronize audio and video in
 -- your output. To apply timing corrections, your input must meet the
 -- following requirements: * Container: MP4, or MOV, with an accurate
@@ -133,8 +131,15 @@ data AudioSelector = AudioSelector'
 -- Frame-level correction may affect the pitch of corrected frames, and is
 -- recommended for atonal audio content such as speech or percussion.
 --
--- 'pids', 'audioSelector_pids' - Selects a specific PID from within an audio source (e.g. 257 selects PID
--- 0x101).
+-- 'customLanguageCode', 'audioSelector_customLanguageCode' - Selects a specific language code from within an audio source, using the
+-- ISO 639-2 or ISO 639-3 three-letter language code
+--
+-- 'defaultSelection', 'audioSelector_defaultSelection' - Enable this setting on one audio selector to set it as the default for
+-- the job. The service uses this default for outputs where it can\'t find
+-- the specified input audio. If you don\'t set a default, those outputs
+-- have no audio.
+--
+-- 'externalAudioFileInput', 'audioSelector_externalAudioFileInput' - Specifies audio data from an external file source.
 --
 -- 'hlsRenditionGroupSettings', 'audioSelector_hlsRenditionGroupSettings' - Settings specific to audio sources in an HLS alternate rendition group.
 -- Specify the properties (renditionGroupId, renditionName or
@@ -146,16 +151,13 @@ data AudioSelector = AudioSelector'
 -- no audio within video segment, the alternative audio with DEFAULT=YES is
 -- chosen instead.
 --
--- 'customLanguageCode', 'audioSelector_customLanguageCode' - Selects a specific language code from within an audio source, using the
--- ISO 639-2 or ISO 639-3 three-letter language code
---
--- 'defaultSelection', 'audioSelector_defaultSelection' - Enable this setting on one audio selector to set it as the default for
--- the job. The service uses this default for outputs where it can\'t find
--- the specified input audio. If you don\'t set a default, those outputs
--- have no audio.
+-- 'languageCode', 'audioSelector_languageCode' - Selects a specific language code from within an audio source.
 --
 -- 'offset', 'audioSelector_offset' - Specifies a time delta in milliseconds to offset the audio from the
 -- input video.
+--
+-- 'pids', 'audioSelector_pids' - Selects a specific PID from within an audio source (e.g. 257 selects PID
+-- 0x101).
 --
 -- 'programSelection', 'audioSelector_programSelection' - Use this setting for input streams that contain Dolby E, to have the
 -- service extract specific program data from the track. To select multiple
@@ -172,8 +174,6 @@ data AudioSelector = AudioSelector'
 -- those of another input. This allows you to combine the two files into a
 -- single output, one after the other.
 --
--- 'languageCode', 'audioSelector_languageCode' - Selects a specific language code from within an audio source.
---
 -- 'selectorType', 'audioSelector_selectorType' - Specifies the type of the audio selector.
 --
 -- 'tracks', 'audioSelector_tracks' - Identify a track from the input audio to include in this selector by
@@ -186,24 +186,20 @@ newAudioSelector ::
   AudioSelector
 newAudioSelector =
   AudioSelector'
-    { externalAudioFileInput =
+    { audioDurationCorrection =
         Prelude.Nothing,
-      audioDurationCorrection = Prelude.Nothing,
-      pids = Prelude.Nothing,
-      hlsRenditionGroupSettings = Prelude.Nothing,
       customLanguageCode = Prelude.Nothing,
       defaultSelection = Prelude.Nothing,
+      externalAudioFileInput = Prelude.Nothing,
+      hlsRenditionGroupSettings = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       offset = Prelude.Nothing,
+      pids = Prelude.Nothing,
       programSelection = Prelude.Nothing,
       remixSettings = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
       selectorType = Prelude.Nothing,
       tracks = Prelude.Nothing
     }
-
--- | Specifies audio data from an external file source.
-audioSelector_externalAudioFileInput :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
-audioSelector_externalAudioFileInput = Lens.lens (\AudioSelector' {externalAudioFileInput} -> externalAudioFileInput) (\s@AudioSelector' {} a -> s {externalAudioFileInput = a} :: AudioSelector)
 
 -- | Apply audio timing corrections to help synchronize audio and video in
 -- your output. To apply timing corrections, your input must meet the
@@ -223,10 +219,21 @@ audioSelector_externalAudioFileInput = Lens.lens (\AudioSelector' {externalAudio
 audioSelector_audioDurationCorrection :: Lens.Lens' AudioSelector (Prelude.Maybe AudioDurationCorrection)
 audioSelector_audioDurationCorrection = Lens.lens (\AudioSelector' {audioDurationCorrection} -> audioDurationCorrection) (\s@AudioSelector' {} a -> s {audioDurationCorrection = a} :: AudioSelector)
 
--- | Selects a specific PID from within an audio source (e.g. 257 selects PID
--- 0x101).
-audioSelector_pids :: Lens.Lens' AudioSelector (Prelude.Maybe [Prelude.Natural])
-audioSelector_pids = Lens.lens (\AudioSelector' {pids} -> pids) (\s@AudioSelector' {} a -> s {pids = a} :: AudioSelector) Prelude.. Lens.mapping Lens.coerced
+-- | Selects a specific language code from within an audio source, using the
+-- ISO 639-2 or ISO 639-3 three-letter language code
+audioSelector_customLanguageCode :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
+audioSelector_customLanguageCode = Lens.lens (\AudioSelector' {customLanguageCode} -> customLanguageCode) (\s@AudioSelector' {} a -> s {customLanguageCode = a} :: AudioSelector)
+
+-- | Enable this setting on one audio selector to set it as the default for
+-- the job. The service uses this default for outputs where it can\'t find
+-- the specified input audio. If you don\'t set a default, those outputs
+-- have no audio.
+audioSelector_defaultSelection :: Lens.Lens' AudioSelector (Prelude.Maybe AudioDefaultSelection)
+audioSelector_defaultSelection = Lens.lens (\AudioSelector' {defaultSelection} -> defaultSelection) (\s@AudioSelector' {} a -> s {defaultSelection = a} :: AudioSelector)
+
+-- | Specifies audio data from an external file source.
+audioSelector_externalAudioFileInput :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
+audioSelector_externalAudioFileInput = Lens.lens (\AudioSelector' {externalAudioFileInput} -> externalAudioFileInput) (\s@AudioSelector' {} a -> s {externalAudioFileInput = a} :: AudioSelector)
 
 -- | Settings specific to audio sources in an HLS alternate rendition group.
 -- Specify the properties (renditionGroupId, renditionName or
@@ -240,22 +247,19 @@ audioSelector_pids = Lens.lens (\AudioSelector' {pids} -> pids) (\s@AudioSelecto
 audioSelector_hlsRenditionGroupSettings :: Lens.Lens' AudioSelector (Prelude.Maybe HlsRenditionGroupSettings)
 audioSelector_hlsRenditionGroupSettings = Lens.lens (\AudioSelector' {hlsRenditionGroupSettings} -> hlsRenditionGroupSettings) (\s@AudioSelector' {} a -> s {hlsRenditionGroupSettings = a} :: AudioSelector)
 
--- | Selects a specific language code from within an audio source, using the
--- ISO 639-2 or ISO 639-3 three-letter language code
-audioSelector_customLanguageCode :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Text)
-audioSelector_customLanguageCode = Lens.lens (\AudioSelector' {customLanguageCode} -> customLanguageCode) (\s@AudioSelector' {} a -> s {customLanguageCode = a} :: AudioSelector)
-
--- | Enable this setting on one audio selector to set it as the default for
--- the job. The service uses this default for outputs where it can\'t find
--- the specified input audio. If you don\'t set a default, those outputs
--- have no audio.
-audioSelector_defaultSelection :: Lens.Lens' AudioSelector (Prelude.Maybe AudioDefaultSelection)
-audioSelector_defaultSelection = Lens.lens (\AudioSelector' {defaultSelection} -> defaultSelection) (\s@AudioSelector' {} a -> s {defaultSelection = a} :: AudioSelector)
+-- | Selects a specific language code from within an audio source.
+audioSelector_languageCode :: Lens.Lens' AudioSelector (Prelude.Maybe LanguageCode)
+audioSelector_languageCode = Lens.lens (\AudioSelector' {languageCode} -> languageCode) (\s@AudioSelector' {} a -> s {languageCode = a} :: AudioSelector)
 
 -- | Specifies a time delta in milliseconds to offset the audio from the
 -- input video.
 audioSelector_offset :: Lens.Lens' AudioSelector (Prelude.Maybe Prelude.Int)
 audioSelector_offset = Lens.lens (\AudioSelector' {offset} -> offset) (\s@AudioSelector' {} a -> s {offset = a} :: AudioSelector)
+
+-- | Selects a specific PID from within an audio source (e.g. 257 selects PID
+-- 0x101).
+audioSelector_pids :: Lens.Lens' AudioSelector (Prelude.Maybe [Prelude.Natural])
+audioSelector_pids = Lens.lens (\AudioSelector' {pids} -> pids) (\s@AudioSelector' {} a -> s {pids = a} :: AudioSelector) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use this setting for input streams that contain Dolby E, to have the
 -- service extract specific program data from the track. To select multiple
@@ -276,10 +280,6 @@ audioSelector_programSelection = Lens.lens (\AudioSelector' {programSelection} -
 audioSelector_remixSettings :: Lens.Lens' AudioSelector (Prelude.Maybe RemixSettings)
 audioSelector_remixSettings = Lens.lens (\AudioSelector' {remixSettings} -> remixSettings) (\s@AudioSelector' {} a -> s {remixSettings = a} :: AudioSelector)
 
--- | Selects a specific language code from within an audio source.
-audioSelector_languageCode :: Lens.Lens' AudioSelector (Prelude.Maybe LanguageCode)
-audioSelector_languageCode = Lens.lens (\AudioSelector' {languageCode} -> languageCode) (\s@AudioSelector' {} a -> s {languageCode = a} :: AudioSelector)
-
 -- | Specifies the type of the audio selector.
 audioSelector_selectorType :: Lens.Lens' AudioSelector (Prelude.Maybe AudioSelectorType)
 audioSelector_selectorType = Lens.lens (\AudioSelector' {selectorType} -> selectorType) (\s@AudioSelector' {} a -> s {selectorType = a} :: AudioSelector)
@@ -299,47 +299,48 @@ instance Data.FromJSON AudioSelector where
       "AudioSelector"
       ( \x ->
           AudioSelector'
-            Prelude.<$> (x Data..:? "externalAudioFileInput")
-            Prelude.<*> (x Data..:? "audioDurationCorrection")
-            Prelude.<*> (x Data..:? "pids" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "hlsRenditionGroupSettings")
+            Prelude.<$> (x Data..:? "audioDurationCorrection")
             Prelude.<*> (x Data..:? "customLanguageCode")
             Prelude.<*> (x Data..:? "defaultSelection")
+            Prelude.<*> (x Data..:? "externalAudioFileInput")
+            Prelude.<*> (x Data..:? "hlsRenditionGroupSettings")
+            Prelude.<*> (x Data..:? "languageCode")
             Prelude.<*> (x Data..:? "offset")
+            Prelude.<*> (x Data..:? "pids" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "programSelection")
             Prelude.<*> (x Data..:? "remixSettings")
-            Prelude.<*> (x Data..:? "languageCode")
             Prelude.<*> (x Data..:? "selectorType")
             Prelude.<*> (x Data..:? "tracks" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AudioSelector where
   hashWithSalt _salt AudioSelector' {..} =
-    _salt `Prelude.hashWithSalt` externalAudioFileInput
+    _salt
       `Prelude.hashWithSalt` audioDurationCorrection
-      `Prelude.hashWithSalt` pids
-      `Prelude.hashWithSalt` hlsRenditionGroupSettings
       `Prelude.hashWithSalt` customLanguageCode
       `Prelude.hashWithSalt` defaultSelection
+      `Prelude.hashWithSalt` externalAudioFileInput
+      `Prelude.hashWithSalt` hlsRenditionGroupSettings
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` offset
+      `Prelude.hashWithSalt` pids
       `Prelude.hashWithSalt` programSelection
       `Prelude.hashWithSalt` remixSettings
-      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` selectorType
       `Prelude.hashWithSalt` tracks
 
 instance Prelude.NFData AudioSelector where
   rnf AudioSelector' {..} =
-    Prelude.rnf externalAudioFileInput
-      `Prelude.seq` Prelude.rnf audioDurationCorrection
-      `Prelude.seq` Prelude.rnf pids
-      `Prelude.seq` Prelude.rnf hlsRenditionGroupSettings
+    Prelude.rnf audioDurationCorrection
       `Prelude.seq` Prelude.rnf customLanguageCode
       `Prelude.seq` Prelude.rnf defaultSelection
+      `Prelude.seq` Prelude.rnf externalAudioFileInput
+      `Prelude.seq` Prelude.rnf hlsRenditionGroupSettings
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf pids
       `Prelude.seq` Prelude.rnf programSelection
       `Prelude.seq` Prelude.rnf remixSettings
-      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf selectorType
       `Prelude.seq` Prelude.rnf tracks
 
@@ -347,22 +348,22 @@ instance Data.ToJSON AudioSelector where
   toJSON AudioSelector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("externalAudioFileInput" Data..=)
-              Prelude.<$> externalAudioFileInput,
-            ("audioDurationCorrection" Data..=)
+          [ ("audioDurationCorrection" Data..=)
               Prelude.<$> audioDurationCorrection,
-            ("pids" Data..=) Prelude.<$> pids,
-            ("hlsRenditionGroupSettings" Data..=)
-              Prelude.<$> hlsRenditionGroupSettings,
             ("customLanguageCode" Data..=)
               Prelude.<$> customLanguageCode,
             ("defaultSelection" Data..=)
               Prelude.<$> defaultSelection,
+            ("externalAudioFileInput" Data..=)
+              Prelude.<$> externalAudioFileInput,
+            ("hlsRenditionGroupSettings" Data..=)
+              Prelude.<$> hlsRenditionGroupSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
             ("offset" Data..=) Prelude.<$> offset,
+            ("pids" Data..=) Prelude.<$> pids,
             ("programSelection" Data..=)
               Prelude.<$> programSelection,
             ("remixSettings" Data..=) Prelude.<$> remixSettings,
-            ("languageCode" Data..=) Prelude.<$> languageCode,
             ("selectorType" Data..=) Prelude.<$> selectorType,
             ("tracks" Data..=) Prelude.<$> tracks
           ]

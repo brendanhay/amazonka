@@ -44,45 +44,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { -- | Settings related to teletext captions. Set up teletext captions in the
-    -- same output as your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/teletext-output-captions.html.
+  { -- | Burn-in is a captions delivery method, rather than a captions format.
+    -- Burn-in writes the captions directly on your video frames, replacing
+    -- pixels of video content with the captions. Set up burn-in captions in
+    -- the same output as your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set destinationType to
-    -- TELETEXT.
-    teletextDestinationSettings :: Prelude.Maybe TeletextDestinationSettings,
-    -- | Settings related to SCC captions. SCC is a sidecar format that holds
-    -- captions in a file that is separate from the video container. Set up
-    -- sidecar captions in the same output group, but different output from
-    -- your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
-    -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set destinationType to SCC.
-    sccDestinationSettings :: Prelude.Maybe SccDestinationSettings,
-    -- | Settings related to WebVTT captions. WebVTT is a sidecar format that
-    -- holds captions in a file that is separate from the video container. Set
-    -- up sidecar captions in the same output group, but different output from
-    -- your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
-    -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set destinationType to WebVTT.
-    webvttDestinationSettings :: Prelude.Maybe WebvttDestinationSettings,
-    -- | Settings related to TTML captions. TTML is a sidecar format that holds
-    -- captions in a file that is separate from the video container. Set up
-    -- sidecar captions in the same output group, but different output from
-    -- your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
-    -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set destinationType to TTML.
-    ttmlDestinationSettings :: Prelude.Maybe TtmlDestinationSettings,
-    -- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
-    -- or ancillary) captions. Set up embedded captions in the same output as
-    -- your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
-    -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set destinationType to
-    -- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
-    embeddedDestinationSettings :: Prelude.Maybe EmbeddedDestinationSettings,
+    -- BURN_IN.
+    burninDestinationSettings :: Prelude.Maybe BurninDestinationSettings,
     -- | Specify the format for this set of captions on this output. The default
     -- format is embedded without SCTE-20. Note that your choice of video
     -- output container constrains your choice of output captions format. For
@@ -94,15 +64,21 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
     -- embedded captions come first, choose Embedded plus SCTE-20
     -- (EMBEDDED_PLUS_SCTE20).
     destinationType :: Prelude.Maybe CaptionDestinationType,
-    -- | Burn-in is a captions delivery method, rather than a captions format.
-    -- Burn-in writes the captions directly on your video frames, replacing
-    -- pixels of video content with the captions. Set up burn-in captions in
-    -- the same output as your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
+    -- | Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
+    -- same output as your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set destinationType to
-    -- BURN_IN.
-    burninDestinationSettings :: Prelude.Maybe BurninDestinationSettings,
+    -- DVB_SUB.
+    dvbSubDestinationSettings :: Prelude.Maybe DvbSubDestinationSettings,
+    -- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
+    -- or ancillary) captions. Set up embedded captions in the same output as
+    -- your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set destinationType to
+    -- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
+    embeddedDestinationSettings :: Prelude.Maybe EmbeddedDestinationSettings,
     -- | Settings related to IMSC captions. IMSC is a sidecar format that holds
     -- captions in a file that is separate from the video container. Set up
     -- sidecar captions in the same output group, but different output from
@@ -111,20 +87,44 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set destinationType to IMSC.
     imscDestinationSettings :: Prelude.Maybe ImscDestinationSettings,
-    -- | Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
-    -- same output as your video. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
+    -- | Settings related to SCC captions. SCC is a sidecar format that holds
+    -- captions in a file that is separate from the video container. Set up
+    -- sidecar captions in the same output group, but different output from
+    -- your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
     -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set destinationType to
-    -- DVB_SUB.
-    dvbSubDestinationSettings :: Prelude.Maybe DvbSubDestinationSettings,
+    -- object and any required children when you set destinationType to SCC.
+    sccDestinationSettings :: Prelude.Maybe SccDestinationSettings,
     -- | Settings related to SRT captions. SRT is a sidecar format that holds
     -- captions in a file that is separate from the video container. Set up
     -- sidecar captions in the same output group, but different output from
     -- your video. When you work directly in your JSON job specification,
     -- include this object and any required children when you set
     -- destinationType to SRT.
-    srtDestinationSettings :: Prelude.Maybe SrtDestinationSettings
+    srtDestinationSettings :: Prelude.Maybe SrtDestinationSettings,
+    -- | Settings related to teletext captions. Set up teletext captions in the
+    -- same output as your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/teletext-output-captions.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set destinationType to
+    -- TELETEXT.
+    teletextDestinationSettings :: Prelude.Maybe TeletextDestinationSettings,
+    -- | Settings related to TTML captions. TTML is a sidecar format that holds
+    -- captions in a file that is separate from the video container. Set up
+    -- sidecar captions in the same output group, but different output from
+    -- your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set destinationType to TTML.
+    ttmlDestinationSettings :: Prelude.Maybe TtmlDestinationSettings,
+    -- | Settings related to WebVTT captions. WebVTT is a sidecar format that
+    -- holds captions in a file that is separate from the video container. Set
+    -- up sidecar captions in the same output group, but different output from
+    -- your video. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set destinationType to WebVTT.
+    webvttDestinationSettings :: Prelude.Maybe WebvttDestinationSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,44 +136,14 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'teletextDestinationSettings', 'captionDestinationSettings_teletextDestinationSettings' - Settings related to teletext captions. Set up teletext captions in the
--- same output as your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/teletext-output-captions.html.
+-- 'burninDestinationSettings', 'captionDestinationSettings_burninDestinationSettings' - Burn-in is a captions delivery method, rather than a captions format.
+-- Burn-in writes the captions directly on your video frames, replacing
+-- pixels of video content with the captions. Set up burn-in captions in
+-- the same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
--- TELETEXT.
---
--- 'sccDestinationSettings', 'captionDestinationSettings_sccDestinationSettings' - Settings related to SCC captions. SCC is a sidecar format that holds
--- captions in a file that is separate from the video container. Set up
--- sidecar captions in the same output group, but different output from
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to SCC.
---
--- 'webvttDestinationSettings', 'captionDestinationSettings_webvttDestinationSettings' - Settings related to WebVTT captions. WebVTT is a sidecar format that
--- holds captions in a file that is separate from the video container. Set
--- up sidecar captions in the same output group, but different output from
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to WebVTT.
---
--- 'ttmlDestinationSettings', 'captionDestinationSettings_ttmlDestinationSettings' - Settings related to TTML captions. TTML is a sidecar format that holds
--- captions in a file that is separate from the video container. Set up
--- sidecar captions in the same output group, but different output from
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to TTML.
---
--- 'embeddedDestinationSettings', 'captionDestinationSettings_embeddedDestinationSettings' - Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
--- or ancillary) captions. Set up embedded captions in the same output as
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to
--- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
+-- BURN_IN.
 --
 -- 'destinationType', 'captionDestinationSettings_destinationType' - Specify the format for this set of captions on this output. The default
 -- format is embedded without SCTE-20. Note that your choice of video
@@ -186,14 +156,20 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- embedded captions come first, choose Embedded plus SCTE-20
 -- (EMBEDDED_PLUS_SCTE20).
 --
--- 'burninDestinationSettings', 'captionDestinationSettings_burninDestinationSettings' - Burn-in is a captions delivery method, rather than a captions format.
--- Burn-in writes the captions directly on your video frames, replacing
--- pixels of video content with the captions. Set up burn-in captions in
--- the same output as your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
+-- 'dvbSubDestinationSettings', 'captionDestinationSettings_dvbSubDestinationSettings' - Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
+-- same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
--- BURN_IN.
+-- DVB_SUB.
+--
+-- 'embeddedDestinationSettings', 'captionDestinationSettings_embeddedDestinationSettings' - Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
+-- or ancillary) captions. Set up embedded captions in the same output as
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to
+-- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
 --
 -- 'imscDestinationSettings', 'captionDestinationSettings_imscDestinationSettings' - Settings related to IMSC captions. IMSC is a sidecar format that holds
 -- captions in a file that is separate from the video container. Set up
@@ -203,12 +179,13 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to IMSC.
 --
--- 'dvbSubDestinationSettings', 'captionDestinationSettings_dvbSubDestinationSettings' - Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
--- same output as your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
+-- 'sccDestinationSettings', 'captionDestinationSettings_sccDestinationSettings' - Settings related to SCC captions. SCC is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
 -- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to
--- DVB_SUB.
+-- object and any required children when you set destinationType to SCC.
 --
 -- 'srtDestinationSettings', 'captionDestinationSettings_srtDestinationSettings' - Settings related to SRT captions. SRT is a sidecar format that holds
 -- captions in a file that is separate from the video container. Set up
@@ -216,71 +193,56 @@ data CaptionDestinationSettings = CaptionDestinationSettings'
 -- your video. When you work directly in your JSON job specification,
 -- include this object and any required children when you set
 -- destinationType to SRT.
-newCaptionDestinationSettings ::
-  CaptionDestinationSettings
-newCaptionDestinationSettings =
-  CaptionDestinationSettings'
-    { teletextDestinationSettings =
-        Prelude.Nothing,
-      sccDestinationSettings = Prelude.Nothing,
-      webvttDestinationSettings = Prelude.Nothing,
-      ttmlDestinationSettings = Prelude.Nothing,
-      embeddedDestinationSettings = Prelude.Nothing,
-      destinationType = Prelude.Nothing,
-      burninDestinationSettings = Prelude.Nothing,
-      imscDestinationSettings = Prelude.Nothing,
-      dvbSubDestinationSettings = Prelude.Nothing,
-      srtDestinationSettings = Prelude.Nothing
-    }
-
--- | Settings related to teletext captions. Set up teletext captions in the
+--
+-- 'teletextDestinationSettings', 'captionDestinationSettings_teletextDestinationSettings' - Settings related to teletext captions. Set up teletext captions in the
 -- same output as your video. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/teletext-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
 -- TELETEXT.
-captionDestinationSettings_teletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TeletextDestinationSettings)
-captionDestinationSettings_teletextDestinationSettings = Lens.lens (\CaptionDestinationSettings' {teletextDestinationSettings} -> teletextDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {teletextDestinationSettings = a} :: CaptionDestinationSettings)
-
--- | Settings related to SCC captions. SCC is a sidecar format that holds
--- captions in a file that is separate from the video container. Set up
--- sidecar captions in the same output group, but different output from
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to SCC.
-captionDestinationSettings_sccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SccDestinationSettings)
-captionDestinationSettings_sccDestinationSettings = Lens.lens (\CaptionDestinationSettings' {sccDestinationSettings} -> sccDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {sccDestinationSettings = a} :: CaptionDestinationSettings)
-
--- | Settings related to WebVTT captions. WebVTT is a sidecar format that
--- holds captions in a file that is separate from the video container. Set
--- up sidecar captions in the same output group, but different output from
--- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to WebVTT.
-captionDestinationSettings_webvttDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe WebvttDestinationSettings)
-captionDestinationSettings_webvttDestinationSettings = Lens.lens (\CaptionDestinationSettings' {webvttDestinationSettings} -> webvttDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {webvttDestinationSettings = a} :: CaptionDestinationSettings)
-
--- | Settings related to TTML captions. TTML is a sidecar format that holds
+--
+-- 'ttmlDestinationSettings', 'captionDestinationSettings_ttmlDestinationSettings' - Settings related to TTML captions. TTML is a sidecar format that holds
 -- captions in a file that is separate from the video container. Set up
 -- sidecar captions in the same output group, but different output from
 -- your video. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to TTML.
-captionDestinationSettings_ttmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TtmlDestinationSettings)
-captionDestinationSettings_ttmlDestinationSettings = Lens.lens (\CaptionDestinationSettings' {ttmlDestinationSettings} -> ttmlDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {ttmlDestinationSettings = a} :: CaptionDestinationSettings)
-
--- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
--- or ancillary) captions. Set up embedded captions in the same output as
+--
+-- 'webvttDestinationSettings', 'captionDestinationSettings_webvttDestinationSettings' - Settings related to WebVTT captions. WebVTT is a sidecar format that
+-- holds captions in a file that is separate from the video container. Set
+-- up sidecar captions in the same output group, but different output from
 -- your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to WebVTT.
+newCaptionDestinationSettings ::
+  CaptionDestinationSettings
+newCaptionDestinationSettings =
+  CaptionDestinationSettings'
+    { burninDestinationSettings =
+        Prelude.Nothing,
+      destinationType = Prelude.Nothing,
+      dvbSubDestinationSettings = Prelude.Nothing,
+      embeddedDestinationSettings = Prelude.Nothing,
+      imscDestinationSettings = Prelude.Nothing,
+      sccDestinationSettings = Prelude.Nothing,
+      srtDestinationSettings = Prelude.Nothing,
+      teletextDestinationSettings = Prelude.Nothing,
+      ttmlDestinationSettings = Prelude.Nothing,
+      webvttDestinationSettings = Prelude.Nothing
+    }
+
+-- | Burn-in is a captions delivery method, rather than a captions format.
+-- Burn-in writes the captions directly on your video frames, replacing
+-- pixels of video content with the captions. Set up burn-in captions in
+-- the same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
--- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
-captionDestinationSettings_embeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe EmbeddedDestinationSettings)
-captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDestinationSettings' {embeddedDestinationSettings} -> embeddedDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {embeddedDestinationSettings = a} :: CaptionDestinationSettings)
+-- BURN_IN.
+captionDestinationSettings_burninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe BurninDestinationSettings)
+captionDestinationSettings_burninDestinationSettings = Lens.lens (\CaptionDestinationSettings' {burninDestinationSettings} -> burninDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {burninDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Specify the format for this set of captions on this output. The default
 -- format is embedded without SCTE-20. Note that your choice of video
@@ -295,16 +257,24 @@ captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDest
 captionDestinationSettings_destinationType :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe CaptionDestinationType)
 captionDestinationSettings_destinationType = Lens.lens (\CaptionDestinationSettings' {destinationType} -> destinationType) (\s@CaptionDestinationSettings' {} a -> s {destinationType = a} :: CaptionDestinationSettings)
 
--- | Burn-in is a captions delivery method, rather than a captions format.
--- Burn-in writes the captions directly on your video frames, replacing
--- pixels of video content with the captions. Set up burn-in captions in
--- the same output as your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
+-- | Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
+-- same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set destinationType to
--- BURN_IN.
-captionDestinationSettings_burninDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe BurninDestinationSettings)
-captionDestinationSettings_burninDestinationSettings = Lens.lens (\CaptionDestinationSettings' {burninDestinationSettings} -> burninDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {burninDestinationSettings = a} :: CaptionDestinationSettings)
+-- DVB_SUB.
+captionDestinationSettings_dvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe DvbSubDestinationSettings)
+captionDestinationSettings_dvbSubDestinationSettings = Lens.lens (\CaptionDestinationSettings' {dvbSubDestinationSettings} -> dvbSubDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {dvbSubDestinationSettings = a} :: CaptionDestinationSettings)
+
+-- | Settings related to CEA\/EIA-608 and CEA\/EIA-708 (also called embedded
+-- or ancillary) captions. Set up embedded captions in the same output as
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/embedded-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to
+-- EMBEDDED, EMBEDDED_PLUS_SCTE20, or SCTE20_PLUS_EMBEDDED.
+captionDestinationSettings_embeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe EmbeddedDestinationSettings)
+captionDestinationSettings_embeddedDestinationSettings = Lens.lens (\CaptionDestinationSettings' {embeddedDestinationSettings} -> embeddedDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {embeddedDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings related to IMSC captions. IMSC is a sidecar format that holds
 -- captions in a file that is separate from the video container. Set up
@@ -316,14 +286,15 @@ captionDestinationSettings_burninDestinationSettings = Lens.lens (\CaptionDestin
 captionDestinationSettings_imscDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe ImscDestinationSettings)
 captionDestinationSettings_imscDestinationSettings = Lens.lens (\CaptionDestinationSettings' {imscDestinationSettings} -> imscDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {imscDestinationSettings = a} :: CaptionDestinationSettings)
 
--- | Settings related to DVB-Sub captions. Set up DVB-Sub captions in the
--- same output as your video. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/dvb-sub-output-captions.html.
+-- | Settings related to SCC captions. SCC is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/scc-srt-output-captions.html.
 -- When you work directly in your JSON job specification, include this
--- object and any required children when you set destinationType to
--- DVB_SUB.
-captionDestinationSettings_dvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe DvbSubDestinationSettings)
-captionDestinationSettings_dvbSubDestinationSettings = Lens.lens (\CaptionDestinationSettings' {dvbSubDestinationSettings} -> dvbSubDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {dvbSubDestinationSettings = a} :: CaptionDestinationSettings)
+-- object and any required children when you set destinationType to SCC.
+captionDestinationSettings_sccDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SccDestinationSettings)
+captionDestinationSettings_sccDestinationSettings = Lens.lens (\CaptionDestinationSettings' {sccDestinationSettings} -> sccDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {sccDestinationSettings = a} :: CaptionDestinationSettings)
 
 -- | Settings related to SRT captions. SRT is a sidecar format that holds
 -- captions in a file that is separate from the video container. Set up
@@ -334,74 +305,103 @@ captionDestinationSettings_dvbSubDestinationSettings = Lens.lens (\CaptionDestin
 captionDestinationSettings_srtDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe SrtDestinationSettings)
 captionDestinationSettings_srtDestinationSettings = Lens.lens (\CaptionDestinationSettings' {srtDestinationSettings} -> srtDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {srtDestinationSettings = a} :: CaptionDestinationSettings)
 
+-- | Settings related to teletext captions. Set up teletext captions in the
+-- same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/teletext-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to
+-- TELETEXT.
+captionDestinationSettings_teletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TeletextDestinationSettings)
+captionDestinationSettings_teletextDestinationSettings = Lens.lens (\CaptionDestinationSettings' {teletextDestinationSettings} -> teletextDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {teletextDestinationSettings = a} :: CaptionDestinationSettings)
+
+-- | Settings related to TTML captions. TTML is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to TTML.
+captionDestinationSettings_ttmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe TtmlDestinationSettings)
+captionDestinationSettings_ttmlDestinationSettings = Lens.lens (\CaptionDestinationSettings' {ttmlDestinationSettings} -> ttmlDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {ttmlDestinationSettings = a} :: CaptionDestinationSettings)
+
+-- | Settings related to WebVTT captions. WebVTT is a sidecar format that
+-- holds captions in a file that is separate from the video container. Set
+-- up sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to WebVTT.
+captionDestinationSettings_webvttDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Prelude.Maybe WebvttDestinationSettings)
+captionDestinationSettings_webvttDestinationSettings = Lens.lens (\CaptionDestinationSettings' {webvttDestinationSettings} -> webvttDestinationSettings) (\s@CaptionDestinationSettings' {} a -> s {webvttDestinationSettings = a} :: CaptionDestinationSettings)
+
 instance Data.FromJSON CaptionDestinationSettings where
   parseJSON =
     Data.withObject
       "CaptionDestinationSettings"
       ( \x ->
           CaptionDestinationSettings'
-            Prelude.<$> (x Data..:? "teletextDestinationSettings")
-            Prelude.<*> (x Data..:? "sccDestinationSettings")
-            Prelude.<*> (x Data..:? "webvttDestinationSettings")
-            Prelude.<*> (x Data..:? "ttmlDestinationSettings")
-            Prelude.<*> (x Data..:? "embeddedDestinationSettings")
+            Prelude.<$> (x Data..:? "burninDestinationSettings")
             Prelude.<*> (x Data..:? "destinationType")
-            Prelude.<*> (x Data..:? "burninDestinationSettings")
-            Prelude.<*> (x Data..:? "imscDestinationSettings")
             Prelude.<*> (x Data..:? "dvbSubDestinationSettings")
+            Prelude.<*> (x Data..:? "embeddedDestinationSettings")
+            Prelude.<*> (x Data..:? "imscDestinationSettings")
+            Prelude.<*> (x Data..:? "sccDestinationSettings")
             Prelude.<*> (x Data..:? "srtDestinationSettings")
+            Prelude.<*> (x Data..:? "teletextDestinationSettings")
+            Prelude.<*> (x Data..:? "ttmlDestinationSettings")
+            Prelude.<*> (x Data..:? "webvttDestinationSettings")
       )
 
 instance Prelude.Hashable CaptionDestinationSettings where
   hashWithSalt _salt CaptionDestinationSettings' {..} =
     _salt
-      `Prelude.hashWithSalt` teletextDestinationSettings
-      `Prelude.hashWithSalt` sccDestinationSettings
-      `Prelude.hashWithSalt` webvttDestinationSettings
-      `Prelude.hashWithSalt` ttmlDestinationSettings
-      `Prelude.hashWithSalt` embeddedDestinationSettings
-      `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` burninDestinationSettings
-      `Prelude.hashWithSalt` imscDestinationSettings
+      `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` dvbSubDestinationSettings
+      `Prelude.hashWithSalt` embeddedDestinationSettings
+      `Prelude.hashWithSalt` imscDestinationSettings
+      `Prelude.hashWithSalt` sccDestinationSettings
       `Prelude.hashWithSalt` srtDestinationSettings
+      `Prelude.hashWithSalt` teletextDestinationSettings
+      `Prelude.hashWithSalt` ttmlDestinationSettings
+      `Prelude.hashWithSalt` webvttDestinationSettings
 
 instance Prelude.NFData CaptionDestinationSettings where
   rnf CaptionDestinationSettings' {..} =
-    Prelude.rnf teletextDestinationSettings
-      `Prelude.seq` Prelude.rnf sccDestinationSettings
-      `Prelude.seq` Prelude.rnf webvttDestinationSettings
-      `Prelude.seq` Prelude.rnf ttmlDestinationSettings
-      `Prelude.seq` Prelude.rnf embeddedDestinationSettings
+    Prelude.rnf burninDestinationSettings
       `Prelude.seq` Prelude.rnf destinationType
-      `Prelude.seq` Prelude.rnf burninDestinationSettings
-      `Prelude.seq` Prelude.rnf imscDestinationSettings
       `Prelude.seq` Prelude.rnf dvbSubDestinationSettings
+      `Prelude.seq` Prelude.rnf embeddedDestinationSettings
+      `Prelude.seq` Prelude.rnf imscDestinationSettings
+      `Prelude.seq` Prelude.rnf sccDestinationSettings
       `Prelude.seq` Prelude.rnf srtDestinationSettings
+      `Prelude.seq` Prelude.rnf teletextDestinationSettings
+      `Prelude.seq` Prelude.rnf ttmlDestinationSettings
+      `Prelude.seq` Prelude.rnf webvttDestinationSettings
 
 instance Data.ToJSON CaptionDestinationSettings where
   toJSON CaptionDestinationSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("teletextDestinationSettings" Data..=)
-              Prelude.<$> teletextDestinationSettings,
-            ("sccDestinationSettings" Data..=)
-              Prelude.<$> sccDestinationSettings,
-            ("webvttDestinationSettings" Data..=)
-              Prelude.<$> webvttDestinationSettings,
-            ("ttmlDestinationSettings" Data..=)
-              Prelude.<$> ttmlDestinationSettings,
-            ("embeddedDestinationSettings" Data..=)
-              Prelude.<$> embeddedDestinationSettings,
+          [ ("burninDestinationSettings" Data..=)
+              Prelude.<$> burninDestinationSettings,
             ("destinationType" Data..=)
               Prelude.<$> destinationType,
-            ("burninDestinationSettings" Data..=)
-              Prelude.<$> burninDestinationSettings,
-            ("imscDestinationSettings" Data..=)
-              Prelude.<$> imscDestinationSettings,
             ("dvbSubDestinationSettings" Data..=)
               Prelude.<$> dvbSubDestinationSettings,
+            ("embeddedDestinationSettings" Data..=)
+              Prelude.<$> embeddedDestinationSettings,
+            ("imscDestinationSettings" Data..=)
+              Prelude.<$> imscDestinationSettings,
+            ("sccDestinationSettings" Data..=)
+              Prelude.<$> sccDestinationSettings,
             ("srtDestinationSettings" Data..=)
-              Prelude.<$> srtDestinationSettings
+              Prelude.<$> srtDestinationSettings,
+            ("teletextDestinationSettings" Data..=)
+              Prelude.<$> teletextDestinationSettings,
+            ("ttmlDestinationSettings" Data..=)
+              Prelude.<$> ttmlDestinationSettings,
+            ("webvttDestinationSettings" Data..=)
+              Prelude.<$> webvttDestinationSettings
           ]
       )

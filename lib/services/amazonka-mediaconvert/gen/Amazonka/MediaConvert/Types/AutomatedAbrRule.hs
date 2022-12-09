@@ -34,7 +34,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutomatedAbrRule' smart constructor.
 data AutomatedAbrRule = AutomatedAbrRule'
-  { -- | Use Min top rendition size to specify a minimum size for the highest
+  { -- | When customer adds the allowed renditions rule for auto ABR ladder, they
+    -- are required to add at leat one rendition to allowedRenditions list
+    allowedRenditions :: Prelude.Maybe [AllowedRenditionSize],
+    -- | When customer adds the force include renditions rule for auto ABR
+    -- ladder, they are required to add at leat one rendition to
+    -- forceIncludeRenditions list
+    forceIncludeRenditions :: Prelude.Maybe [ForceIncludeRenditionSize],
+    -- | Use Min bottom rendition size to specify a minimum size for the lowest
+    -- resolution in your ABR stack. * The lowest resolution in your ABR stack
+    -- will be equal to or greater than the value that you enter. For example:
+    -- If you specify 640x360 the lowest resolution in your ABR stack will be
+    -- equal to or greater than to 640x360. * If you specify a Min top
+    -- rendition size rule, the value that you specify for Min bottom rendition
+    -- size must be less than, or equal to, Min top rendition size.
+    minBottomRenditionSize :: Prelude.Maybe MinBottomRenditionSize,
+    -- | Use Min top rendition size to specify a minimum size for the highest
+    -- resolution in your ABR stack. * The highest resolution in your ABR stack
+    -- will be equal to or greater than the value that you enter. For example:
+    -- If you specify 1280x720 the highest resolution in your ABR stack will be
+    -- equal to or greater than 1280x720. * If you specify a value for Max
+    -- resolution, the value that you specify for Min top rendition size must
+    -- be less than, or equal to, Max resolution.
+    minTopRenditionSize :: Prelude.Maybe MinTopRenditionSize,
+    -- | Use Min top rendition size to specify a minimum size for the highest
     -- resolution in your ABR stack. * The highest resolution in your ABR stack
     -- will be equal to or greater than the value that you enter. For example:
     -- If you specify 1280x720 the highest resolution in your ABR stack will be
@@ -70,30 +93,7 @@ data AutomatedAbrRule = AutomatedAbrRule'
     -- top rendition size or Min bottom rendition size. * If you specify
     -- Allowed renditions, you must not specify a separate rule for Force
     -- include renditions.
-    type' :: Prelude.Maybe RuleType,
-    -- | Use Min top rendition size to specify a minimum size for the highest
-    -- resolution in your ABR stack. * The highest resolution in your ABR stack
-    -- will be equal to or greater than the value that you enter. For example:
-    -- If you specify 1280x720 the highest resolution in your ABR stack will be
-    -- equal to or greater than 1280x720. * If you specify a value for Max
-    -- resolution, the value that you specify for Min top rendition size must
-    -- be less than, or equal to, Max resolution.
-    minTopRenditionSize :: Prelude.Maybe MinTopRenditionSize,
-    -- | Use Min bottom rendition size to specify a minimum size for the lowest
-    -- resolution in your ABR stack. * The lowest resolution in your ABR stack
-    -- will be equal to or greater than the value that you enter. For example:
-    -- If you specify 640x360 the lowest resolution in your ABR stack will be
-    -- equal to or greater than to 640x360. * If you specify a Min top
-    -- rendition size rule, the value that you specify for Min bottom rendition
-    -- size must be less than, or equal to, Min top rendition size.
-    minBottomRenditionSize :: Prelude.Maybe MinBottomRenditionSize,
-    -- | When customer adds the force include renditions rule for auto ABR
-    -- ladder, they are required to add at leat one rendition to
-    -- forceIncludeRenditions list
-    forceIncludeRenditions :: Prelude.Maybe [ForceIncludeRenditionSize],
-    -- | When customer adds the allowed renditions rule for auto ABR ladder, they
-    -- are required to add at leat one rendition to allowedRenditions list
-    allowedRenditions :: Prelude.Maybe [AllowedRenditionSize]
+    type' :: Prelude.Maybe RuleType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,6 +104,29 @@ data AutomatedAbrRule = AutomatedAbrRule'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'allowedRenditions', 'automatedAbrRule_allowedRenditions' - When customer adds the allowed renditions rule for auto ABR ladder, they
+-- are required to add at leat one rendition to allowedRenditions list
+--
+-- 'forceIncludeRenditions', 'automatedAbrRule_forceIncludeRenditions' - When customer adds the force include renditions rule for auto ABR
+-- ladder, they are required to add at leat one rendition to
+-- forceIncludeRenditions list
+--
+-- 'minBottomRenditionSize', 'automatedAbrRule_minBottomRenditionSize' - Use Min bottom rendition size to specify a minimum size for the lowest
+-- resolution in your ABR stack. * The lowest resolution in your ABR stack
+-- will be equal to or greater than the value that you enter. For example:
+-- If you specify 640x360 the lowest resolution in your ABR stack will be
+-- equal to or greater than to 640x360. * If you specify a Min top
+-- rendition size rule, the value that you specify for Min bottom rendition
+-- size must be less than, or equal to, Min top rendition size.
+--
+-- 'minTopRenditionSize', 'automatedAbrRule_minTopRenditionSize' - Use Min top rendition size to specify a minimum size for the highest
+-- resolution in your ABR stack. * The highest resolution in your ABR stack
+-- will be equal to or greater than the value that you enter. For example:
+-- If you specify 1280x720 the highest resolution in your ABR stack will be
+-- equal to or greater than 1280x720. * If you specify a value for Max
+-- resolution, the value that you specify for Min top rendition size must
+-- be less than, or equal to, Max resolution.
 --
 -- 'type'', 'automatedAbrRule_type' - Use Min top rendition size to specify a minimum size for the highest
 -- resolution in your ABR stack. * The highest resolution in your ABR stack
@@ -141,39 +164,48 @@ data AutomatedAbrRule = AutomatedAbrRule'
 -- top rendition size or Min bottom rendition size. * If you specify
 -- Allowed renditions, you must not specify a separate rule for Force
 -- include renditions.
---
--- 'minTopRenditionSize', 'automatedAbrRule_minTopRenditionSize' - Use Min top rendition size to specify a minimum size for the highest
--- resolution in your ABR stack. * The highest resolution in your ABR stack
--- will be equal to or greater than the value that you enter. For example:
--- If you specify 1280x720 the highest resolution in your ABR stack will be
--- equal to or greater than 1280x720. * If you specify a value for Max
--- resolution, the value that you specify for Min top rendition size must
--- be less than, or equal to, Max resolution.
---
--- 'minBottomRenditionSize', 'automatedAbrRule_minBottomRenditionSize' - Use Min bottom rendition size to specify a minimum size for the lowest
+newAutomatedAbrRule ::
+  AutomatedAbrRule
+newAutomatedAbrRule =
+  AutomatedAbrRule'
+    { allowedRenditions =
+        Prelude.Nothing,
+      forceIncludeRenditions = Prelude.Nothing,
+      minBottomRenditionSize = Prelude.Nothing,
+      minTopRenditionSize = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
+
+-- | When customer adds the allowed renditions rule for auto ABR ladder, they
+-- are required to add at leat one rendition to allowedRenditions list
+automatedAbrRule_allowedRenditions :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe [AllowedRenditionSize])
+automatedAbrRule_allowedRenditions = Lens.lens (\AutomatedAbrRule' {allowedRenditions} -> allowedRenditions) (\s@AutomatedAbrRule' {} a -> s {allowedRenditions = a} :: AutomatedAbrRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | When customer adds the force include renditions rule for auto ABR
+-- ladder, they are required to add at leat one rendition to
+-- forceIncludeRenditions list
+automatedAbrRule_forceIncludeRenditions :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe [ForceIncludeRenditionSize])
+automatedAbrRule_forceIncludeRenditions = Lens.lens (\AutomatedAbrRule' {forceIncludeRenditions} -> forceIncludeRenditions) (\s@AutomatedAbrRule' {} a -> s {forceIncludeRenditions = a} :: AutomatedAbrRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use Min bottom rendition size to specify a minimum size for the lowest
 -- resolution in your ABR stack. * The lowest resolution in your ABR stack
 -- will be equal to or greater than the value that you enter. For example:
 -- If you specify 640x360 the lowest resolution in your ABR stack will be
 -- equal to or greater than to 640x360. * If you specify a Min top
 -- rendition size rule, the value that you specify for Min bottom rendition
 -- size must be less than, or equal to, Min top rendition size.
---
--- 'forceIncludeRenditions', 'automatedAbrRule_forceIncludeRenditions' - When customer adds the force include renditions rule for auto ABR
--- ladder, they are required to add at leat one rendition to
--- forceIncludeRenditions list
---
--- 'allowedRenditions', 'automatedAbrRule_allowedRenditions' - When customer adds the allowed renditions rule for auto ABR ladder, they
--- are required to add at leat one rendition to allowedRenditions list
-newAutomatedAbrRule ::
-  AutomatedAbrRule
-newAutomatedAbrRule =
-  AutomatedAbrRule'
-    { type' = Prelude.Nothing,
-      minTopRenditionSize = Prelude.Nothing,
-      minBottomRenditionSize = Prelude.Nothing,
-      forceIncludeRenditions = Prelude.Nothing,
-      allowedRenditions = Prelude.Nothing
-    }
+automatedAbrRule_minBottomRenditionSize :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe MinBottomRenditionSize)
+automatedAbrRule_minBottomRenditionSize = Lens.lens (\AutomatedAbrRule' {minBottomRenditionSize} -> minBottomRenditionSize) (\s@AutomatedAbrRule' {} a -> s {minBottomRenditionSize = a} :: AutomatedAbrRule)
+
+-- | Use Min top rendition size to specify a minimum size for the highest
+-- resolution in your ABR stack. * The highest resolution in your ABR stack
+-- will be equal to or greater than the value that you enter. For example:
+-- If you specify 1280x720 the highest resolution in your ABR stack will be
+-- equal to or greater than 1280x720. * If you specify a value for Max
+-- resolution, the value that you specify for Min top rendition size must
+-- be less than, or equal to, Max resolution.
+automatedAbrRule_minTopRenditionSize :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe MinTopRenditionSize)
+automatedAbrRule_minTopRenditionSize = Lens.lens (\AutomatedAbrRule' {minTopRenditionSize} -> minTopRenditionSize) (\s@AutomatedAbrRule' {} a -> s {minTopRenditionSize = a} :: AutomatedAbrRule)
 
 -- | Use Min top rendition size to specify a minimum size for the highest
 -- resolution in your ABR stack. * The highest resolution in your ABR stack
@@ -214,82 +246,51 @@ newAutomatedAbrRule =
 automatedAbrRule_type :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe RuleType)
 automatedAbrRule_type = Lens.lens (\AutomatedAbrRule' {type'} -> type') (\s@AutomatedAbrRule' {} a -> s {type' = a} :: AutomatedAbrRule)
 
--- | Use Min top rendition size to specify a minimum size for the highest
--- resolution in your ABR stack. * The highest resolution in your ABR stack
--- will be equal to or greater than the value that you enter. For example:
--- If you specify 1280x720 the highest resolution in your ABR stack will be
--- equal to or greater than 1280x720. * If you specify a value for Max
--- resolution, the value that you specify for Min top rendition size must
--- be less than, or equal to, Max resolution.
-automatedAbrRule_minTopRenditionSize :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe MinTopRenditionSize)
-automatedAbrRule_minTopRenditionSize = Lens.lens (\AutomatedAbrRule' {minTopRenditionSize} -> minTopRenditionSize) (\s@AutomatedAbrRule' {} a -> s {minTopRenditionSize = a} :: AutomatedAbrRule)
-
--- | Use Min bottom rendition size to specify a minimum size for the lowest
--- resolution in your ABR stack. * The lowest resolution in your ABR stack
--- will be equal to or greater than the value that you enter. For example:
--- If you specify 640x360 the lowest resolution in your ABR stack will be
--- equal to or greater than to 640x360. * If you specify a Min top
--- rendition size rule, the value that you specify for Min bottom rendition
--- size must be less than, or equal to, Min top rendition size.
-automatedAbrRule_minBottomRenditionSize :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe MinBottomRenditionSize)
-automatedAbrRule_minBottomRenditionSize = Lens.lens (\AutomatedAbrRule' {minBottomRenditionSize} -> minBottomRenditionSize) (\s@AutomatedAbrRule' {} a -> s {minBottomRenditionSize = a} :: AutomatedAbrRule)
-
--- | When customer adds the force include renditions rule for auto ABR
--- ladder, they are required to add at leat one rendition to
--- forceIncludeRenditions list
-automatedAbrRule_forceIncludeRenditions :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe [ForceIncludeRenditionSize])
-automatedAbrRule_forceIncludeRenditions = Lens.lens (\AutomatedAbrRule' {forceIncludeRenditions} -> forceIncludeRenditions) (\s@AutomatedAbrRule' {} a -> s {forceIncludeRenditions = a} :: AutomatedAbrRule) Prelude.. Lens.mapping Lens.coerced
-
--- | When customer adds the allowed renditions rule for auto ABR ladder, they
--- are required to add at leat one rendition to allowedRenditions list
-automatedAbrRule_allowedRenditions :: Lens.Lens' AutomatedAbrRule (Prelude.Maybe [AllowedRenditionSize])
-automatedAbrRule_allowedRenditions = Lens.lens (\AutomatedAbrRule' {allowedRenditions} -> allowedRenditions) (\s@AutomatedAbrRule' {} a -> s {allowedRenditions = a} :: AutomatedAbrRule) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON AutomatedAbrRule where
   parseJSON =
     Data.withObject
       "AutomatedAbrRule"
       ( \x ->
           AutomatedAbrRule'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "minTopRenditionSize")
-            Prelude.<*> (x Data..:? "minBottomRenditionSize")
+            Prelude.<$> ( x Data..:? "allowedRenditions"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Data..:? "forceIncludeRenditions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "allowedRenditions"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Data..:? "minBottomRenditionSize")
+            Prelude.<*> (x Data..:? "minTopRenditionSize")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable AutomatedAbrRule where
   hashWithSalt _salt AutomatedAbrRule' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` minTopRenditionSize
-      `Prelude.hashWithSalt` minBottomRenditionSize
+    _salt `Prelude.hashWithSalt` allowedRenditions
       `Prelude.hashWithSalt` forceIncludeRenditions
-      `Prelude.hashWithSalt` allowedRenditions
+      `Prelude.hashWithSalt` minBottomRenditionSize
+      `Prelude.hashWithSalt` minTopRenditionSize
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AutomatedAbrRule where
   rnf AutomatedAbrRule' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf minTopRenditionSize
-      `Prelude.seq` Prelude.rnf minBottomRenditionSize
+    Prelude.rnf allowedRenditions
       `Prelude.seq` Prelude.rnf forceIncludeRenditions
-      `Prelude.seq` Prelude.rnf allowedRenditions
+      `Prelude.seq` Prelude.rnf minBottomRenditionSize
+      `Prelude.seq` Prelude.rnf minTopRenditionSize
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AutomatedAbrRule where
   toJSON AutomatedAbrRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
-            ("minTopRenditionSize" Data..=)
-              Prelude.<$> minTopRenditionSize,
-            ("minBottomRenditionSize" Data..=)
-              Prelude.<$> minBottomRenditionSize,
+          [ ("allowedRenditions" Data..=)
+              Prelude.<$> allowedRenditions,
             ("forceIncludeRenditions" Data..=)
               Prelude.<$> forceIncludeRenditions,
-            ("allowedRenditions" Data..=)
-              Prelude.<$> allowedRenditions
+            ("minBottomRenditionSize" Data..=)
+              Prelude.<$> minBottomRenditionSize,
+            ("minTopRenditionSize" Data..=)
+              Prelude.<$> minTopRenditionSize,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

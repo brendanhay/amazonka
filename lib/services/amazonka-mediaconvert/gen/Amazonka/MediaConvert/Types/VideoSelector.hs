@@ -44,12 +44,6 @@ data VideoSelector = VideoSelector'
     -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
     -- map the alpha channel to the luma channel of your outputs.
     alphaBehavior :: Prelude.Maybe AlphaBehavior,
-    -- | Use PID (Pid) to select specific video data from an input file. Specify
-    -- this value as an integer; the system automatically converts it to the
-    -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
-    -- identifier, is an identifier for a set of data in an MPEG-2 transport
-    -- stream container.
-    pid :: Prelude.Maybe Prelude.Natural,
     -- | If your input video has accurate color space metadata, or if you don\'t
     -- know about color space, leave this set to the default value Follow. The
     -- service will automatically detect your input color space. If your input
@@ -64,15 +58,6 @@ data VideoSelector = VideoSelector'
     -- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
     -- coefficients: BT.709
     colorSpace :: Prelude.Maybe ColorSpace,
-    -- | Use this setting if your input has video and audio durations that don\'t
-    -- align, and your output or player has strict alignment requirements.
-    -- Examples: Input audio track has a delayed start. Input video track ends
-    -- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
-    -- MediaConvert generates black video frames so that output video and audio
-    -- durations match. Black video frames are added at the beginning or end,
-    -- depending on your input. To keep the default behavior and not generate
-    -- black video, set Pad video to Disabled (DISABLED) or leave blank.
-    padVideo :: Prelude.Maybe PadVideo,
     -- | There are two sources for color metadata, the input file and the job
     -- input settings Color space (ColorSpace) and HDR master display
     -- information settings(Hdr10Metadata). The Color space usage setting
@@ -91,19 +76,6 @@ data VideoSelector = VideoSelector'
     -- (EMBEDDED). Leave Embedded timecode override blank, or set to None
     -- (NONE), when your input does not contain MDPM timecode.
     embeddedTimecodeOverride :: Prelude.Maybe EmbeddedTimecodeOverride,
-    -- | If the sample range metadata in your input video is accurate, or if you
-    -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
-    -- for this setting. When you do, the service automatically detects your
-    -- input sample range. If your input video has metadata indicating the
-    -- wrong sample range, specify the accurate sample range here. When you do,
-    -- MediaConvert ignores any sample range information in the input metadata.
-    -- Regardless of whether MediaConvert uses the input sample range or the
-    -- sample range that you specify, MediaConvert uses the sample range for
-    -- transcoding and also writes it to the output metadata.
-    sampleRange :: Prelude.Maybe InputSampleRange,
-    -- | Selects a specific program from within a multi-program transport stream.
-    -- Note that Quad 4K is not currently supported.
-    programNumber :: Prelude.Maybe Prelude.Int,
     -- | Use these settings to provide HDR 10 metadata that is missing or
     -- inaccurate in your input video. Appropriate values vary depending on the
     -- input video and must be provided by a color grader. The color grader
@@ -118,6 +90,24 @@ data VideoSelector = VideoSelector'
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     hdr10Metadata :: Prelude.Maybe Hdr10Metadata,
+    -- | Use this setting if your input has video and audio durations that don\'t
+    -- align, and your output or player has strict alignment requirements.
+    -- Examples: Input audio track has a delayed start. Input video track ends
+    -- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+    -- MediaConvert generates black video frames so that output video and audio
+    -- durations match. Black video frames are added at the beginning or end,
+    -- depending on your input. To keep the default behavior and not generate
+    -- black video, set Pad video to Disabled (DISABLED) or leave blank.
+    padVideo :: Prelude.Maybe PadVideo,
+    -- | Use PID (Pid) to select specific video data from an input file. Specify
+    -- this value as an integer; the system automatically converts it to the
+    -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+    -- identifier, is an identifier for a set of data in an MPEG-2 transport
+    -- stream container.
+    pid :: Prelude.Maybe Prelude.Natural,
+    -- | Selects a specific program from within a multi-program transport stream.
+    -- Note that Quad 4K is not currently supported.
+    programNumber :: Prelude.Maybe Prelude.Int,
     -- | Use Rotate (InputRotate) to specify how the service rotates your video.
     -- You can choose automatic rotation or specify a rotation. You can specify
     -- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video
@@ -128,7 +118,17 @@ data VideoSelector = VideoSelector'
     -- any other rotation, the service will default to no rotation. By default,
     -- the service does no rotation, even if your input video has rotation
     -- metadata. The service doesn\'t pass through rotation metadata.
-    rotate :: Prelude.Maybe InputRotate
+    rotate :: Prelude.Maybe InputRotate,
+    -- | If the sample range metadata in your input video is accurate, or if you
+    -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+    -- for this setting. When you do, the service automatically detects your
+    -- input sample range. If your input video has metadata indicating the
+    -- wrong sample range, specify the accurate sample range here. When you do,
+    -- MediaConvert ignores any sample range information in the input metadata.
+    -- Regardless of whether MediaConvert uses the input sample range or the
+    -- sample range that you specify, MediaConvert uses the sample range for
+    -- transcoding and also writes it to the output metadata.
+    sampleRange :: Prelude.Maybe InputSampleRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -147,12 +147,6 @@ data VideoSelector = VideoSelector'
 -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
 -- map the alpha channel to the luma channel of your outputs.
 --
--- 'pid', 'videoSelector_pid' - Use PID (Pid) to select specific video data from an input file. Specify
--- this value as an integer; the system automatically converts it to the
--- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
--- identifier, is an identifier for a set of data in an MPEG-2 transport
--- stream container.
---
 -- 'colorSpace', 'videoSelector_colorSpace' - If your input video has accurate color space metadata, or if you don\'t
 -- know about color space, leave this set to the default value Follow. The
 -- service will automatically detect your input color space. If your input
@@ -166,15 +160,6 @@ data VideoSelector = VideoSelector'
 -- (SDR) to set the input color space metadata to the following: * Color
 -- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
 -- coefficients: BT.709
---
--- 'padVideo', 'videoSelector_padVideo' - Use this setting if your input has video and audio durations that don\'t
--- align, and your output or player has strict alignment requirements.
--- Examples: Input audio track has a delayed start. Input video track ends
--- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
--- MediaConvert generates black video frames so that output video and audio
--- durations match. Black video frames are added at the beginning or end,
--- depending on your input. To keep the default behavior and not generate
--- black video, set Pad video to Disabled (DISABLED) or leave blank.
 --
 -- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
@@ -194,19 +179,6 @@ data VideoSelector = VideoSelector'
 -- (EMBEDDED). Leave Embedded timecode override blank, or set to None
 -- (NONE), when your input does not contain MDPM timecode.
 --
--- 'sampleRange', 'videoSelector_sampleRange' - If the sample range metadata in your input video is accurate, or if you
--- don\'t know about sample range, keep the default value, Follow (FOLLOW),
--- for this setting. When you do, the service automatically detects your
--- input sample range. If your input video has metadata indicating the
--- wrong sample range, specify the accurate sample range here. When you do,
--- MediaConvert ignores any sample range information in the input metadata.
--- Regardless of whether MediaConvert uses the input sample range or the
--- sample range that you specify, MediaConvert uses the sample range for
--- transcoding and also writes it to the output metadata.
---
--- 'programNumber', 'videoSelector_programNumber' - Selects a specific program from within a multi-program transport stream.
--- Note that Quad 4K is not currently supported.
---
 -- 'hdr10Metadata', 'videoSelector_hdr10Metadata' - Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
 -- input video and must be provided by a color grader. The color grader
@@ -221,6 +193,24 @@ data VideoSelector = VideoSelector'
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
+-- 'padVideo', 'videoSelector_padVideo' - Use this setting if your input has video and audio durations that don\'t
+-- align, and your output or player has strict alignment requirements.
+-- Examples: Input audio track has a delayed start. Input video track ends
+-- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+-- MediaConvert generates black video frames so that output video and audio
+-- durations match. Black video frames are added at the beginning or end,
+-- depending on your input. To keep the default behavior and not generate
+-- black video, set Pad video to Disabled (DISABLED) or leave blank.
+--
+-- 'pid', 'videoSelector_pid' - Use PID (Pid) to select specific video data from an input file. Specify
+-- this value as an integer; the system automatically converts it to the
+-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+-- identifier, is an identifier for a set of data in an MPEG-2 transport
+-- stream container.
+--
+-- 'programNumber', 'videoSelector_programNumber' - Selects a specific program from within a multi-program transport stream.
+-- Note that Quad 4K is not currently supported.
+--
 -- 'rotate', 'videoSelector_rotate' - Use Rotate (InputRotate) to specify how the service rotates your video.
 -- You can choose automatic rotation or specify a rotation. You can specify
 -- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video
@@ -231,20 +221,30 @@ data VideoSelector = VideoSelector'
 -- any other rotation, the service will default to no rotation. By default,
 -- the service does no rotation, even if your input video has rotation
 -- metadata. The service doesn\'t pass through rotation metadata.
+--
+-- 'sampleRange', 'videoSelector_sampleRange' - If the sample range metadata in your input video is accurate, or if you
+-- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+-- for this setting. When you do, the service automatically detects your
+-- input sample range. If your input video has metadata indicating the
+-- wrong sample range, specify the accurate sample range here. When you do,
+-- MediaConvert ignores any sample range information in the input metadata.
+-- Regardless of whether MediaConvert uses the input sample range or the
+-- sample range that you specify, MediaConvert uses the sample range for
+-- transcoding and also writes it to the output metadata.
 newVideoSelector ::
   VideoSelector
 newVideoSelector =
   VideoSelector'
     { alphaBehavior = Prelude.Nothing,
-      pid = Prelude.Nothing,
       colorSpace = Prelude.Nothing,
-      padVideo = Prelude.Nothing,
       colorSpaceUsage = Prelude.Nothing,
       embeddedTimecodeOverride = Prelude.Nothing,
-      sampleRange = Prelude.Nothing,
-      programNumber = Prelude.Nothing,
       hdr10Metadata = Prelude.Nothing,
-      rotate = Prelude.Nothing
+      padVideo = Prelude.Nothing,
+      pid = Prelude.Nothing,
+      programNumber = Prelude.Nothing,
+      rotate = Prelude.Nothing,
+      sampleRange = Prelude.Nothing
     }
 
 -- | Ignore this setting unless this input is a QuickTime animation with an
@@ -255,14 +255,6 @@ newVideoSelector =
 -- map the alpha channel to the luma channel of your outputs.
 videoSelector_alphaBehavior :: Lens.Lens' VideoSelector (Prelude.Maybe AlphaBehavior)
 videoSelector_alphaBehavior = Lens.lens (\VideoSelector' {alphaBehavior} -> alphaBehavior) (\s@VideoSelector' {} a -> s {alphaBehavior = a} :: VideoSelector)
-
--- | Use PID (Pid) to select specific video data from an input file. Specify
--- this value as an integer; the system automatically converts it to the
--- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
--- identifier, is an identifier for a set of data in an MPEG-2 transport
--- stream container.
-videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
-videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
 
 -- | If your input video has accurate color space metadata, or if you don\'t
 -- know about color space, leave this set to the default value Follow. The
@@ -279,17 +271,6 @@ videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' 
 -- coefficients: BT.709
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
-
--- | Use this setting if your input has video and audio durations that don\'t
--- align, and your output or player has strict alignment requirements.
--- Examples: Input audio track has a delayed start. Input video track ends
--- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
--- MediaConvert generates black video frames so that output video and audio
--- durations match. Black video frames are added at the beginning or end,
--- depending on your input. To keep the default behavior and not generate
--- black video, set Pad video to Disabled (DISABLED) or leave blank.
-videoSelector_padVideo :: Lens.Lens' VideoSelector (Prelude.Maybe PadVideo)
-videoSelector_padVideo = Lens.lens (\VideoSelector' {padVideo} -> padVideo) (\s@VideoSelector' {} a -> s {padVideo = a} :: VideoSelector)
 
 -- | There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
@@ -313,23 +294,6 @@ videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> 
 videoSelector_embeddedTimecodeOverride :: Lens.Lens' VideoSelector (Prelude.Maybe EmbeddedTimecodeOverride)
 videoSelector_embeddedTimecodeOverride = Lens.lens (\VideoSelector' {embeddedTimecodeOverride} -> embeddedTimecodeOverride) (\s@VideoSelector' {} a -> s {embeddedTimecodeOverride = a} :: VideoSelector)
 
--- | If the sample range metadata in your input video is accurate, or if you
--- don\'t know about sample range, keep the default value, Follow (FOLLOW),
--- for this setting. When you do, the service automatically detects your
--- input sample range. If your input video has metadata indicating the
--- wrong sample range, specify the accurate sample range here. When you do,
--- MediaConvert ignores any sample range information in the input metadata.
--- Regardless of whether MediaConvert uses the input sample range or the
--- sample range that you specify, MediaConvert uses the sample range for
--- transcoding and also writes it to the output metadata.
-videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
-videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
-
--- | Selects a specific program from within a multi-program transport stream.
--- Note that Quad 4K is not currently supported.
-videoSelector_programNumber :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Int)
-videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> programNumber) (\s@VideoSelector' {} a -> s {programNumber = a} :: VideoSelector)
-
 -- | Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
 -- input video and must be provided by a color grader. The color grader
@@ -346,6 +310,30 @@ videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> prog
 videoSelector_hdr10Metadata :: Lens.Lens' VideoSelector (Prelude.Maybe Hdr10Metadata)
 videoSelector_hdr10Metadata = Lens.lens (\VideoSelector' {hdr10Metadata} -> hdr10Metadata) (\s@VideoSelector' {} a -> s {hdr10Metadata = a} :: VideoSelector)
 
+-- | Use this setting if your input has video and audio durations that don\'t
+-- align, and your output or player has strict alignment requirements.
+-- Examples: Input audio track has a delayed start. Input video track ends
+-- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+-- MediaConvert generates black video frames so that output video and audio
+-- durations match. Black video frames are added at the beginning or end,
+-- depending on your input. To keep the default behavior and not generate
+-- black video, set Pad video to Disabled (DISABLED) or leave blank.
+videoSelector_padVideo :: Lens.Lens' VideoSelector (Prelude.Maybe PadVideo)
+videoSelector_padVideo = Lens.lens (\VideoSelector' {padVideo} -> padVideo) (\s@VideoSelector' {} a -> s {padVideo = a} :: VideoSelector)
+
+-- | Use PID (Pid) to select specific video data from an input file. Specify
+-- this value as an integer; the system automatically converts it to the
+-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+-- identifier, is an identifier for a set of data in an MPEG-2 transport
+-- stream container.
+videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
+videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
+
+-- | Selects a specific program from within a multi-program transport stream.
+-- Note that Quad 4K is not currently supported.
+videoSelector_programNumber :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Int)
+videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> programNumber) (\s@VideoSelector' {} a -> s {programNumber = a} :: VideoSelector)
+
 -- | Use Rotate (InputRotate) to specify how the service rotates your video.
 -- You can choose automatic rotation or specify a rotation. You can specify
 -- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video
@@ -359,6 +347,18 @@ videoSelector_hdr10Metadata = Lens.lens (\VideoSelector' {hdr10Metadata} -> hdr1
 videoSelector_rotate :: Lens.Lens' VideoSelector (Prelude.Maybe InputRotate)
 videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoSelector' {} a -> s {rotate = a} :: VideoSelector)
 
+-- | If the sample range metadata in your input video is accurate, or if you
+-- don\'t know about sample range, keep the default value, Follow (FOLLOW),
+-- for this setting. When you do, the service automatically detects your
+-- input sample range. If your input video has metadata indicating the
+-- wrong sample range, specify the accurate sample range here. When you do,
+-- MediaConvert ignores any sample range information in the input metadata.
+-- Regardless of whether MediaConvert uses the input sample range or the
+-- sample range that you specify, MediaConvert uses the sample range for
+-- transcoding and also writes it to the output metadata.
+videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
+videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
+
 instance Data.FromJSON VideoSelector where
   parseJSON =
     Data.withObject
@@ -366,58 +366,58 @@ instance Data.FromJSON VideoSelector where
       ( \x ->
           VideoSelector'
             Prelude.<$> (x Data..:? "alphaBehavior")
-            Prelude.<*> (x Data..:? "pid")
             Prelude.<*> (x Data..:? "colorSpace")
-            Prelude.<*> (x Data..:? "padVideo")
             Prelude.<*> (x Data..:? "colorSpaceUsage")
             Prelude.<*> (x Data..:? "embeddedTimecodeOverride")
-            Prelude.<*> (x Data..:? "sampleRange")
-            Prelude.<*> (x Data..:? "programNumber")
             Prelude.<*> (x Data..:? "hdr10Metadata")
+            Prelude.<*> (x Data..:? "padVideo")
+            Prelude.<*> (x Data..:? "pid")
+            Prelude.<*> (x Data..:? "programNumber")
             Prelude.<*> (x Data..:? "rotate")
+            Prelude.<*> (x Data..:? "sampleRange")
       )
 
 instance Prelude.Hashable VideoSelector where
   hashWithSalt _salt VideoSelector' {..} =
     _salt `Prelude.hashWithSalt` alphaBehavior
-      `Prelude.hashWithSalt` pid
       `Prelude.hashWithSalt` colorSpace
-      `Prelude.hashWithSalt` padVideo
       `Prelude.hashWithSalt` colorSpaceUsage
       `Prelude.hashWithSalt` embeddedTimecodeOverride
-      `Prelude.hashWithSalt` sampleRange
-      `Prelude.hashWithSalt` programNumber
       `Prelude.hashWithSalt` hdr10Metadata
+      `Prelude.hashWithSalt` padVideo
+      `Prelude.hashWithSalt` pid
+      `Prelude.hashWithSalt` programNumber
       `Prelude.hashWithSalt` rotate
+      `Prelude.hashWithSalt` sampleRange
 
 instance Prelude.NFData VideoSelector where
   rnf VideoSelector' {..} =
     Prelude.rnf alphaBehavior
-      `Prelude.seq` Prelude.rnf pid
       `Prelude.seq` Prelude.rnf colorSpace
-      `Prelude.seq` Prelude.rnf padVideo
       `Prelude.seq` Prelude.rnf colorSpaceUsage
       `Prelude.seq` Prelude.rnf embeddedTimecodeOverride
-      `Prelude.seq` Prelude.rnf sampleRange
-      `Prelude.seq` Prelude.rnf programNumber
       `Prelude.seq` Prelude.rnf hdr10Metadata
+      `Prelude.seq` Prelude.rnf padVideo
+      `Prelude.seq` Prelude.rnf pid
+      `Prelude.seq` Prelude.rnf programNumber
       `Prelude.seq` Prelude.rnf rotate
+      `Prelude.seq` Prelude.rnf sampleRange
 
 instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("alphaBehavior" Data..=) Prelude.<$> alphaBehavior,
-            ("pid" Data..=) Prelude.<$> pid,
             ("colorSpace" Data..=) Prelude.<$> colorSpace,
-            ("padVideo" Data..=) Prelude.<$> padVideo,
             ("colorSpaceUsage" Data..=)
               Prelude.<$> colorSpaceUsage,
             ("embeddedTimecodeOverride" Data..=)
               Prelude.<$> embeddedTimecodeOverride,
-            ("sampleRange" Data..=) Prelude.<$> sampleRange,
-            ("programNumber" Data..=) Prelude.<$> programNumber,
             ("hdr10Metadata" Data..=) Prelude.<$> hdr10Metadata,
-            ("rotate" Data..=) Prelude.<$> rotate
+            ("padVideo" Data..=) Prelude.<$> padVideo,
+            ("pid" Data..=) Prelude.<$> pid,
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("rotate" Data..=) Prelude.<$> rotate,
+            ("sampleRange" Data..=) Prelude.<$> sampleRange
           ]
       )

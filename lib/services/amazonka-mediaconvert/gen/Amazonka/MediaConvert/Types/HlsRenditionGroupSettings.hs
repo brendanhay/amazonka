@@ -37,12 +37,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsRenditionGroupSettings' smart constructor.
 data HlsRenditionGroupSettings = HlsRenditionGroupSettings'
-  { -- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
+  { -- | Optional. Specify alternative group ID
+    renditionGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
     renditionLanguageCode :: Prelude.Maybe LanguageCode,
     -- | Optional. Specify media name
-    renditionName :: Prelude.Maybe Prelude.Text,
-    -- | Optional. Specify alternative group ID
-    renditionGroupId :: Prelude.Maybe Prelude.Text
+    renditionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,20 +54,24 @@ data HlsRenditionGroupSettings = HlsRenditionGroupSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'renditionGroupId', 'hlsRenditionGroupSettings_renditionGroupId' - Optional. Specify alternative group ID
+--
 -- 'renditionLanguageCode', 'hlsRenditionGroupSettings_renditionLanguageCode' - Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
 --
 -- 'renditionName', 'hlsRenditionGroupSettings_renditionName' - Optional. Specify media name
---
--- 'renditionGroupId', 'hlsRenditionGroupSettings_renditionGroupId' - Optional. Specify alternative group ID
 newHlsRenditionGroupSettings ::
   HlsRenditionGroupSettings
 newHlsRenditionGroupSettings =
   HlsRenditionGroupSettings'
-    { renditionLanguageCode =
+    { renditionGroupId =
         Prelude.Nothing,
-      renditionName = Prelude.Nothing,
-      renditionGroupId = Prelude.Nothing
+      renditionLanguageCode = Prelude.Nothing,
+      renditionName = Prelude.Nothing
     }
+
+-- | Optional. Specify alternative group ID
+hlsRenditionGroupSettings_renditionGroupId :: Lens.Lens' HlsRenditionGroupSettings (Prelude.Maybe Prelude.Text)
+hlsRenditionGroupSettings_renditionGroupId = Lens.lens (\HlsRenditionGroupSettings' {renditionGroupId} -> renditionGroupId) (\s@HlsRenditionGroupSettings' {} a -> s {renditionGroupId = a} :: HlsRenditionGroupSettings)
 
 -- | Optional. Specify ISO 639-2 or ISO 639-3 code in the language property
 hlsRenditionGroupSettings_renditionLanguageCode :: Lens.Lens' HlsRenditionGroupSettings (Prelude.Maybe LanguageCode)
@@ -77,41 +81,37 @@ hlsRenditionGroupSettings_renditionLanguageCode = Lens.lens (\HlsRenditionGroupS
 hlsRenditionGroupSettings_renditionName :: Lens.Lens' HlsRenditionGroupSettings (Prelude.Maybe Prelude.Text)
 hlsRenditionGroupSettings_renditionName = Lens.lens (\HlsRenditionGroupSettings' {renditionName} -> renditionName) (\s@HlsRenditionGroupSettings' {} a -> s {renditionName = a} :: HlsRenditionGroupSettings)
 
--- | Optional. Specify alternative group ID
-hlsRenditionGroupSettings_renditionGroupId :: Lens.Lens' HlsRenditionGroupSettings (Prelude.Maybe Prelude.Text)
-hlsRenditionGroupSettings_renditionGroupId = Lens.lens (\HlsRenditionGroupSettings' {renditionGroupId} -> renditionGroupId) (\s@HlsRenditionGroupSettings' {} a -> s {renditionGroupId = a} :: HlsRenditionGroupSettings)
-
 instance Data.FromJSON HlsRenditionGroupSettings where
   parseJSON =
     Data.withObject
       "HlsRenditionGroupSettings"
       ( \x ->
           HlsRenditionGroupSettings'
-            Prelude.<$> (x Data..:? "renditionLanguageCode")
+            Prelude.<$> (x Data..:? "renditionGroupId")
+            Prelude.<*> (x Data..:? "renditionLanguageCode")
             Prelude.<*> (x Data..:? "renditionName")
-            Prelude.<*> (x Data..:? "renditionGroupId")
       )
 
 instance Prelude.Hashable HlsRenditionGroupSettings where
   hashWithSalt _salt HlsRenditionGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` renditionLanguageCode
+    _salt `Prelude.hashWithSalt` renditionGroupId
+      `Prelude.hashWithSalt` renditionLanguageCode
       `Prelude.hashWithSalt` renditionName
-      `Prelude.hashWithSalt` renditionGroupId
 
 instance Prelude.NFData HlsRenditionGroupSettings where
   rnf HlsRenditionGroupSettings' {..} =
-    Prelude.rnf renditionLanguageCode
+    Prelude.rnf renditionGroupId
+      `Prelude.seq` Prelude.rnf renditionLanguageCode
       `Prelude.seq` Prelude.rnf renditionName
-      `Prelude.seq` Prelude.rnf renditionGroupId
 
 instance Data.ToJSON HlsRenditionGroupSettings where
   toJSON HlsRenditionGroupSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("renditionLanguageCode" Data..=)
+          [ ("renditionGroupId" Data..=)
+              Prelude.<$> renditionGroupId,
+            ("renditionLanguageCode" Data..=)
               Prelude.<$> renditionLanguageCode,
-            ("renditionName" Data..=) Prelude.<$> renditionName,
-            ("renditionGroupId" Data..=)
-              Prelude.<$> renditionGroupId
+            ("renditionName" Data..=) Prelude.<$> renditionName
           ]
       )

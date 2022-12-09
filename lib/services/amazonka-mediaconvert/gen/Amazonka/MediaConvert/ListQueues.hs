@@ -31,9 +31,9 @@ module Amazonka.MediaConvert.ListQueues
     newListQueues,
 
     -- * Request Lenses
-    listQueues_nextToken,
     listQueues_listBy,
     listQueues_maxResults,
+    listQueues_nextToken,
     listQueues_order,
 
     -- * Destructuring the Response
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { -- | Use this string, provided with the response to a previous request, to
-    -- request the next batch of queues.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. When you request a list of queues, you can choose to list them
+  { -- | Optional. When you request a list of queues, you can choose to list them
     -- alphabetically by NAME or chronologically by CREATION_DATE. If you
     -- don\'t specify, the service will list them by creation date.
     listBy :: Prelude.Maybe QueueListBy,
     -- | Optional. Number of queues, up to twenty, that will be returned at one
     -- time.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Use this string, provided with the response to a previous request, to
+    -- request the next batch of queues.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. When you request lists of resources, you can specify whether
     -- they are sorted in ASCENDING or DESCENDING order. Default varies by
     -- resource.
@@ -82,15 +82,15 @@ data ListQueues = ListQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listQueues_nextToken' - Use this string, provided with the response to a previous request, to
--- request the next batch of queues.
---
 -- 'listBy', 'listQueues_listBy' - Optional. When you request a list of queues, you can choose to list them
 -- alphabetically by NAME or chronologically by CREATION_DATE. If you
 -- don\'t specify, the service will list them by creation date.
 --
 -- 'maxResults', 'listQueues_maxResults' - Optional. Number of queues, up to twenty, that will be returned at one
 -- time.
+--
+-- 'nextToken', 'listQueues_nextToken' - Use this string, provided with the response to a previous request, to
+-- request the next batch of queues.
 --
 -- 'order', 'listQueues_order' - Optional. When you request lists of resources, you can specify whether
 -- they are sorted in ASCENDING or DESCENDING order. Default varies by
@@ -99,16 +99,11 @@ newListQueues ::
   ListQueues
 newListQueues =
   ListQueues'
-    { nextToken = Prelude.Nothing,
-      listBy = Prelude.Nothing,
+    { listBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       order = Prelude.Nothing
     }
-
--- | Use this string, provided with the response to a previous request, to
--- request the next batch of queues.
-listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
-listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
 -- | Optional. When you request a list of queues, you can choose to list them
 -- alphabetically by NAME or chronologically by CREATION_DATE. If you
@@ -120,6 +115,11 @@ listQueues_listBy = Lens.lens (\ListQueues' {listBy} -> listBy) (\s@ListQueues' 
 -- time.
 listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
+
+-- | Use this string, provided with the response to a previous request, to
+-- request the next batch of queues.
+listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
+listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
 -- | Optional. When you request lists of resources, you can specify whether
 -- they are sorted in ASCENDING or DESCENDING order. Default varies by
@@ -161,16 +161,16 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` listBy
+    _salt `Prelude.hashWithSalt` listBy
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData ListQueues where
   rnf ListQueues' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf listBy
+    Prelude.rnf listBy
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf order
 
 instance Data.ToHeaders ListQueues where
@@ -190,9 +190,9 @@ instance Data.ToPath ListQueues where
 instance Data.ToQuery ListQueues where
   toQuery ListQueues' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "listBy" Data.=: listBy,
+      [ "listBy" Data.=: listBy,
         "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "order" Data.=: order
       ]
 

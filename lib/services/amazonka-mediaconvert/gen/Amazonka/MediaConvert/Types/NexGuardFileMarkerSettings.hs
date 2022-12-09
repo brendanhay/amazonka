@@ -31,11 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNexGuardFileMarkerSettings' smart constructor.
 data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
-  { -- | Optional. Ignore this setting unless Nagra support directs you to
-    -- specify a value. When you don\'t specify a value here, the Nagra
-    -- NexGuard library uses its default value.
-    strength :: Prelude.Maybe WatermarkingStrength,
-    -- | Use the base64 license string that Nagra provides you. Enter it directly
+  { -- | Use the base64 license string that Nagra provides you. Enter it directly
     -- in your JSON job specification or in the console. Required when you
     -- include Nagra NexGuard File Marker watermarking
     -- (NexGuardWatermarkingSettings) in your job.
@@ -56,7 +52,11 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
     -- | Enter one of the watermarking preset strings that Nagra provides you.
     -- Required when you include Nagra NexGuard File Marker watermarking
     -- (NexGuardWatermarkingSettings) in your job.
-    preset :: Prelude.Maybe Prelude.Text
+    preset :: Prelude.Maybe Prelude.Text,
+    -- | Optional. Ignore this setting unless Nagra support directs you to
+    -- specify a value. When you don\'t specify a value here, the Nagra
+    -- NexGuard library uses its default value.
+    strength :: Prelude.Maybe WatermarkingStrength
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,10 +67,6 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'strength', 'nexGuardFileMarkerSettings_strength' - Optional. Ignore this setting unless Nagra support directs you to
--- specify a value. When you don\'t specify a value here, the Nagra
--- NexGuard library uses its default value.
 --
 -- 'license', 'nexGuardFileMarkerSettings_license' - Use the base64 license string that Nagra provides you. Enter it directly
 -- in your JSON job specification or in the console. Required when you
@@ -93,22 +89,20 @@ data NexGuardFileMarkerSettings = NexGuardFileMarkerSettings'
 -- 'preset', 'nexGuardFileMarkerSettings_preset' - Enter one of the watermarking preset strings that Nagra provides you.
 -- Required when you include Nagra NexGuard File Marker watermarking
 -- (NexGuardWatermarkingSettings) in your job.
+--
+-- 'strength', 'nexGuardFileMarkerSettings_strength' - Optional. Ignore this setting unless Nagra support directs you to
+-- specify a value. When you don\'t specify a value here, the Nagra
+-- NexGuard library uses its default value.
 newNexGuardFileMarkerSettings ::
   NexGuardFileMarkerSettings
 newNexGuardFileMarkerSettings =
   NexGuardFileMarkerSettings'
-    { strength =
+    { license =
         Prelude.Nothing,
-      license = Prelude.Nothing,
       payload = Prelude.Nothing,
-      preset = Prelude.Nothing
+      preset = Prelude.Nothing,
+      strength = Prelude.Nothing
     }
-
--- | Optional. Ignore this setting unless Nagra support directs you to
--- specify a value. When you don\'t specify a value here, the Nagra
--- NexGuard library uses its default value.
-nexGuardFileMarkerSettings_strength :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe WatermarkingStrength)
-nexGuardFileMarkerSettings_strength = Lens.lens (\NexGuardFileMarkerSettings' {strength} -> strength) (\s@NexGuardFileMarkerSettings' {} a -> s {strength = a} :: NexGuardFileMarkerSettings)
 
 -- | Use the base64 license string that Nagra provides you. Enter it directly
 -- in your JSON job specification or in the console. Required when you
@@ -138,39 +132,45 @@ nexGuardFileMarkerSettings_payload = Lens.lens (\NexGuardFileMarkerSettings' {pa
 nexGuardFileMarkerSettings_preset :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe Prelude.Text)
 nexGuardFileMarkerSettings_preset = Lens.lens (\NexGuardFileMarkerSettings' {preset} -> preset) (\s@NexGuardFileMarkerSettings' {} a -> s {preset = a} :: NexGuardFileMarkerSettings)
 
+-- | Optional. Ignore this setting unless Nagra support directs you to
+-- specify a value. When you don\'t specify a value here, the Nagra
+-- NexGuard library uses its default value.
+nexGuardFileMarkerSettings_strength :: Lens.Lens' NexGuardFileMarkerSettings (Prelude.Maybe WatermarkingStrength)
+nexGuardFileMarkerSettings_strength = Lens.lens (\NexGuardFileMarkerSettings' {strength} -> strength) (\s@NexGuardFileMarkerSettings' {} a -> s {strength = a} :: NexGuardFileMarkerSettings)
+
 instance Data.FromJSON NexGuardFileMarkerSettings where
   parseJSON =
     Data.withObject
       "NexGuardFileMarkerSettings"
       ( \x ->
           NexGuardFileMarkerSettings'
-            Prelude.<$> (x Data..:? "strength")
-            Prelude.<*> (x Data..:? "license")
+            Prelude.<$> (x Data..:? "license")
             Prelude.<*> (x Data..:? "payload")
             Prelude.<*> (x Data..:? "preset")
+            Prelude.<*> (x Data..:? "strength")
       )
 
 instance Prelude.Hashable NexGuardFileMarkerSettings where
   hashWithSalt _salt NexGuardFileMarkerSettings' {..} =
-    _salt `Prelude.hashWithSalt` strength
-      `Prelude.hashWithSalt` license
+    _salt `Prelude.hashWithSalt` license
       `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` preset
+      `Prelude.hashWithSalt` strength
 
 instance Prelude.NFData NexGuardFileMarkerSettings where
   rnf NexGuardFileMarkerSettings' {..} =
-    Prelude.rnf strength
-      `Prelude.seq` Prelude.rnf license
+    Prelude.rnf license
       `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf strength
 
 instance Data.ToJSON NexGuardFileMarkerSettings where
   toJSON NexGuardFileMarkerSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("strength" Data..=) Prelude.<$> strength,
-            ("license" Data..=) Prelude.<$> license,
+          [ ("license" Data..=) Prelude.<$> license,
             ("payload" Data..=) Prelude.<$> payload,
-            ("preset" Data..=) Prelude.<$> preset
+            ("preset" Data..=) Prelude.<$> preset,
+            ("strength" Data..=) Prelude.<$> strength
           ]
       )

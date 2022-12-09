@@ -31,13 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeinterlacer' smart constructor.
 data Deinterlacer = Deinterlacer'
-  { -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
-    -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
-    -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
-    -- progressive 23.976p. - Adaptive auto-detects and converts to
-    -- progressive.
-    mode :: Prelude.Maybe DeinterlacerMode,
-    -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
+  { -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
     -- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
     -- (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces
     -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
@@ -53,7 +47,13 @@ data Deinterlacer = Deinterlacer'
     -- are not progressive. Do not turn on otherwise; processing frames that
     -- are already progressive into progressive will probably result in lower
     -- quality video.
-    control :: Prelude.Maybe DeinterlacerControl
+    control :: Prelude.Maybe DeinterlacerControl,
+    -- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
+    -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
+    -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
+    -- progressive 23.976p. - Adaptive auto-detects and converts to
+    -- progressive.
+    mode :: Prelude.Maybe DeinterlacerMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,12 +64,6 @@ data Deinterlacer = Deinterlacer'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'mode', 'deinterlacer_mode' - Use Deinterlacer (DeinterlaceMode) to choose how the service will do
--- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
--- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
--- progressive 23.976p. - Adaptive auto-detects and converts to
--- progressive.
 --
 -- 'algorithm', 'deinterlacer_algorithm' - Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
 -- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
@@ -87,22 +81,20 @@ data Deinterlacer = Deinterlacer'
 -- are not progressive. Do not turn on otherwise; processing frames that
 -- are already progressive into progressive will probably result in lower
 -- quality video.
-newDeinterlacer ::
-  Deinterlacer
-newDeinterlacer =
-  Deinterlacer'
-    { mode = Prelude.Nothing,
-      algorithm = Prelude.Nothing,
-      control = Prelude.Nothing
-    }
-
--- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
+--
+-- 'mode', 'deinterlacer_mode' - Use Deinterlacer (DeinterlaceMode) to choose how the service will do
 -- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
 -- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
 -- progressive 23.976p. - Adaptive auto-detects and converts to
 -- progressive.
-deinterlacer_mode :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerMode)
-deinterlacer_mode = Lens.lens (\Deinterlacer' {mode} -> mode) (\s@Deinterlacer' {} a -> s {mode = a} :: Deinterlacer)
+newDeinterlacer ::
+  Deinterlacer
+newDeinterlacer =
+  Deinterlacer'
+    { algorithm = Prelude.Nothing,
+      control = Prelude.Nothing,
+      mode = Prelude.Nothing
+    }
 
 -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
 -- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
@@ -125,35 +117,43 @@ deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s
 deinterlacer_control :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerControl)
 deinterlacer_control = Lens.lens (\Deinterlacer' {control} -> control) (\s@Deinterlacer' {} a -> s {control = a} :: Deinterlacer)
 
+-- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do
+-- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced
+-- to progressive. - Inverse telecine converts Hard Telecine 29.97i to
+-- progressive 23.976p. - Adaptive auto-detects and converts to
+-- progressive.
+deinterlacer_mode :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlacerMode)
+deinterlacer_mode = Lens.lens (\Deinterlacer' {mode} -> mode) (\s@Deinterlacer' {} a -> s {mode = a} :: Deinterlacer)
+
 instance Data.FromJSON Deinterlacer where
   parseJSON =
     Data.withObject
       "Deinterlacer"
       ( \x ->
           Deinterlacer'
-            Prelude.<$> (x Data..:? "mode")
-            Prelude.<*> (x Data..:? "algorithm")
+            Prelude.<$> (x Data..:? "algorithm")
             Prelude.<*> (x Data..:? "control")
+            Prelude.<*> (x Data..:? "mode")
       )
 
 instance Prelude.Hashable Deinterlacer where
   hashWithSalt _salt Deinterlacer' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` algorithm
+    _salt `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` control
+      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData Deinterlacer where
   rnf Deinterlacer' {..} =
-    Prelude.rnf mode
-      `Prelude.seq` Prelude.rnf algorithm
+    Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf control
+      `Prelude.seq` Prelude.rnf mode
 
 instance Data.ToJSON Deinterlacer where
   toJSON Deinterlacer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("mode" Data..=) Prelude.<$> mode,
-            ("algorithm" Data..=) Prelude.<$> algorithm,
-            ("control" Data..=) Prelude.<$> control
+          [ ("algorithm" Data..=) Prelude.<$> algorithm,
+            ("control" Data..=) Prelude.<$> control,
+            ("mode" Data..=) Prelude.<$> mode
           ]
       )

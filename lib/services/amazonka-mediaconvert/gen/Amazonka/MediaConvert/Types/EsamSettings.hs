@@ -31,7 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEsamSettings' smart constructor.
 data EsamSettings = EsamSettings'
-  { -- | Specifies the stream distance, in milliseconds, between the SCTE 35
+  { -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
+    -- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
+    -- instructions that you provide in the setting MCC XML (mccXml).
+    manifestConfirmConditionNotification :: Prelude.Maybe EsamManifestConfirmConditionNotification,
+    -- | Specifies the stream distance, in milliseconds, between the SCTE 35
     -- messages that the transcoder places and the splice points that they
     -- refer to. If the time between the start of the asset and the SCTE-35
     -- message is less than this value, then the transcoder places the SCTE-35
@@ -40,11 +44,7 @@ data EsamSettings = EsamSettings'
     -- | Specifies an ESAM SignalProcessingNotification XML as per
     -- OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing
     -- instructions that you provide in the setting SCC XML (sccXml).
-    signalProcessingNotification :: Prelude.Maybe EsamSignalProcessingNotification,
-    -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
-    -- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
-    -- instructions that you provide in the setting MCC XML (mccXml).
-    manifestConfirmConditionNotification :: Prelude.Maybe EsamManifestConfirmConditionNotification
+    signalProcessingNotification :: Prelude.Maybe EsamSignalProcessingNotification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,10 @@ data EsamSettings = EsamSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'manifestConfirmConditionNotification', 'esamSettings_manifestConfirmConditionNotification' - Specifies an ESAM ManifestConfirmConditionNotification XML as per
+-- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
+-- instructions that you provide in the setting MCC XML (mccXml).
+--
 -- 'responseSignalPreroll', 'esamSettings_responseSignalPreroll' - Specifies the stream distance, in milliseconds, between the SCTE 35
 -- messages that the transcoder places and the splice points that they
 -- refer to. If the time between the start of the asset and the SCTE-35
@@ -65,20 +69,21 @@ data EsamSettings = EsamSettings'
 -- 'signalProcessingNotification', 'esamSettings_signalProcessingNotification' - Specifies an ESAM SignalProcessingNotification XML as per
 -- OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing
 -- instructions that you provide in the setting SCC XML (sccXml).
---
--- 'manifestConfirmConditionNotification', 'esamSettings_manifestConfirmConditionNotification' - Specifies an ESAM ManifestConfirmConditionNotification XML as per
--- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
--- instructions that you provide in the setting MCC XML (mccXml).
 newEsamSettings ::
   EsamSettings
 newEsamSettings =
   EsamSettings'
-    { responseSignalPreroll =
+    { manifestConfirmConditionNotification =
         Prelude.Nothing,
-      signalProcessingNotification = Prelude.Nothing,
-      manifestConfirmConditionNotification =
-        Prelude.Nothing
+      responseSignalPreroll = Prelude.Nothing,
+      signalProcessingNotification = Prelude.Nothing
     }
+
+-- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
+-- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
+-- instructions that you provide in the setting MCC XML (mccXml).
+esamSettings_manifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamManifestConfirmConditionNotification)
+esamSettings_manifestConfirmConditionNotification = Lens.lens (\EsamSettings' {manifestConfirmConditionNotification} -> manifestConfirmConditionNotification) (\s@EsamSettings' {} a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
 
 -- | Specifies the stream distance, in milliseconds, between the SCTE 35
 -- messages that the transcoder places and the splice points that they
@@ -94,44 +99,39 @@ esamSettings_responseSignalPreroll = Lens.lens (\EsamSettings' {responseSignalPr
 esamSettings_signalProcessingNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamSignalProcessingNotification)
 esamSettings_signalProcessingNotification = Lens.lens (\EsamSettings' {signalProcessingNotification} -> signalProcessingNotification) (\s@EsamSettings' {} a -> s {signalProcessingNotification = a} :: EsamSettings)
 
--- | Specifies an ESAM ManifestConfirmConditionNotification XML as per
--- OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning
--- instructions that you provide in the setting MCC XML (mccXml).
-esamSettings_manifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Prelude.Maybe EsamManifestConfirmConditionNotification)
-esamSettings_manifestConfirmConditionNotification = Lens.lens (\EsamSettings' {manifestConfirmConditionNotification} -> manifestConfirmConditionNotification) (\s@EsamSettings' {} a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
-
 instance Data.FromJSON EsamSettings where
   parseJSON =
     Data.withObject
       "EsamSettings"
       ( \x ->
           EsamSettings'
-            Prelude.<$> (x Data..:? "responseSignalPreroll")
+            Prelude.<$> (x Data..:? "manifestConfirmConditionNotification")
+            Prelude.<*> (x Data..:? "responseSignalPreroll")
             Prelude.<*> (x Data..:? "signalProcessingNotification")
-            Prelude.<*> (x Data..:? "manifestConfirmConditionNotification")
       )
 
 instance Prelude.Hashable EsamSettings where
   hashWithSalt _salt EsamSettings' {..} =
-    _salt `Prelude.hashWithSalt` responseSignalPreroll
-      `Prelude.hashWithSalt` signalProcessingNotification
+    _salt
       `Prelude.hashWithSalt` manifestConfirmConditionNotification
+      `Prelude.hashWithSalt` responseSignalPreroll
+      `Prelude.hashWithSalt` signalProcessingNotification
 
 instance Prelude.NFData EsamSettings where
   rnf EsamSettings' {..} =
-    Prelude.rnf responseSignalPreroll
+    Prelude.rnf manifestConfirmConditionNotification
+      `Prelude.seq` Prelude.rnf responseSignalPreroll
       `Prelude.seq` Prelude.rnf signalProcessingNotification
-      `Prelude.seq` Prelude.rnf manifestConfirmConditionNotification
 
 instance Data.ToJSON EsamSettings where
   toJSON EsamSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("responseSignalPreroll" Data..=)
+          [ ("manifestConfirmConditionNotification" Data..=)
+              Prelude.<$> manifestConfirmConditionNotification,
+            ("responseSignalPreroll" Data..=)
               Prelude.<$> responseSignalPreroll,
             ("signalProcessingNotification" Data..=)
-              Prelude.<$> signalProcessingNotification,
-            ("manifestConfirmConditionNotification" Data..=)
-              Prelude.<$> manifestConfirmConditionNotification
+              Prelude.<$> signalProcessingNotification
           ]
       )

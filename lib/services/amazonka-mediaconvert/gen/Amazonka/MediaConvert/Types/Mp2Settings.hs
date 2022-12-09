@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMp2Settings' smart constructor.
 data Mp2Settings = Mp2Settings'
-  { -- | Set Channels to specify the number of channels in this output audio
+  { -- | Specify the average bitrate in bits per second.
+    bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Set Channels to specify the number of channels in this output audio
     -- track. Choosing Mono in the console will give you 1 output channel;
     -- choosing Stereo will give you 2. In the API, valid values are 1 and 2.
     channels :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the average bitrate in bits per second.
-    bitrate :: Prelude.Maybe Prelude.Natural,
     -- | Sample rate in hz.
     sampleRate :: Prelude.Maybe Prelude.Natural
   }
@@ -48,31 +48,31 @@ data Mp2Settings = Mp2Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bitrate', 'mp2Settings_bitrate' - Specify the average bitrate in bits per second.
+--
 -- 'channels', 'mp2Settings_channels' - Set Channels to specify the number of channels in this output audio
 -- track. Choosing Mono in the console will give you 1 output channel;
 -- choosing Stereo will give you 2. In the API, valid values are 1 and 2.
---
--- 'bitrate', 'mp2Settings_bitrate' - Specify the average bitrate in bits per second.
 --
 -- 'sampleRate', 'mp2Settings_sampleRate' - Sample rate in hz.
 newMp2Settings ::
   Mp2Settings
 newMp2Settings =
   Mp2Settings'
-    { channels = Prelude.Nothing,
-      bitrate = Prelude.Nothing,
+    { bitrate = Prelude.Nothing,
+      channels = Prelude.Nothing,
       sampleRate = Prelude.Nothing
     }
+
+-- | Specify the average bitrate in bits per second.
+mp2Settings_bitrate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
+mp2Settings_bitrate = Lens.lens (\Mp2Settings' {bitrate} -> bitrate) (\s@Mp2Settings' {} a -> s {bitrate = a} :: Mp2Settings)
 
 -- | Set Channels to specify the number of channels in this output audio
 -- track. Choosing Mono in the console will give you 1 output channel;
 -- choosing Stereo will give you 2. In the API, valid values are 1 and 2.
 mp2Settings_channels :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
 mp2Settings_channels = Lens.lens (\Mp2Settings' {channels} -> channels) (\s@Mp2Settings' {} a -> s {channels = a} :: Mp2Settings)
-
--- | Specify the average bitrate in bits per second.
-mp2Settings_bitrate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
-mp2Settings_bitrate = Lens.lens (\Mp2Settings' {bitrate} -> bitrate) (\s@Mp2Settings' {} a -> s {bitrate = a} :: Mp2Settings)
 
 -- | Sample rate in hz.
 mp2Settings_sampleRate :: Lens.Lens' Mp2Settings (Prelude.Maybe Prelude.Natural)
@@ -84,29 +84,29 @@ instance Data.FromJSON Mp2Settings where
       "Mp2Settings"
       ( \x ->
           Mp2Settings'
-            Prelude.<$> (x Data..:? "channels")
-            Prelude.<*> (x Data..:? "bitrate")
+            Prelude.<$> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "channels")
             Prelude.<*> (x Data..:? "sampleRate")
       )
 
 instance Prelude.Hashable Mp2Settings where
   hashWithSalt _salt Mp2Settings' {..} =
-    _salt `Prelude.hashWithSalt` channels
-      `Prelude.hashWithSalt` bitrate
+    _salt `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` sampleRate
 
 instance Prelude.NFData Mp2Settings where
   rnf Mp2Settings' {..} =
-    Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf bitrate
+    Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf channels
       `Prelude.seq` Prelude.rnf sampleRate
 
 instance Data.ToJSON Mp2Settings where
   toJSON Mp2Settings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("channels" Data..=) Prelude.<$> channels,
-            ("bitrate" Data..=) Prelude.<$> bitrate,
+          [ ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("channels" Data..=) Prelude.<$> channels,
             ("sampleRate" Data..=) Prelude.<$> sampleRate
           ]
       )

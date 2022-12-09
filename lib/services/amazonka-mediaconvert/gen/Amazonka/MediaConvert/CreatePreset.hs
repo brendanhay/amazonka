@@ -29,9 +29,9 @@ module Amazonka.MediaConvert.CreatePreset
     newCreatePreset,
 
     -- * Request Lenses
-    createPreset_tags,
-    createPreset_description,
     createPreset_category,
+    createPreset_description,
+    createPreset_tags,
     createPreset_settings,
     createPreset_name,
 
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { -- | The tags that you want to add to the resource. You can tag resources
-    -- with a key-value pair or with only a key.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Optional. A category for the preset you are creating.
+    category :: Prelude.Maybe Prelude.Text,
     -- | Optional. A description of the preset you are creating.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Optional. A category for the preset you are creating.
-    category :: Prelude.Maybe Prelude.Text,
+    -- | The tags that you want to add to the resource. You can tag resources
+    -- with a key-value pair or with only a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Settings for preset
     settings :: PresetSettings,
     -- | The name of the preset you are creating.
@@ -77,12 +77,12 @@ data CreatePreset = CreatePreset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPreset_tags' - The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
+-- 'category', 'createPreset_category' - Optional. A category for the preset you are creating.
 --
 -- 'description', 'createPreset_description' - Optional. A description of the preset you are creating.
 --
--- 'category', 'createPreset_category' - Optional. A category for the preset you are creating.
+-- 'tags', 'createPreset_tags' - The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
 --
 -- 'settings', 'createPreset_settings' - Settings for preset
 --
@@ -95,25 +95,25 @@ newCreatePreset ::
   CreatePreset
 newCreatePreset pSettings_ pName_ =
   CreatePreset'
-    { tags = Prelude.Nothing,
+    { category = Prelude.Nothing,
       description = Prelude.Nothing,
-      category = Prelude.Nothing,
+      tags = Prelude.Nothing,
       settings = pSettings_,
       name = pName_
     }
 
--- | The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
-createPreset_tags :: Lens.Lens' CreatePreset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPreset_tags = Lens.lens (\CreatePreset' {tags} -> tags) (\s@CreatePreset' {} a -> s {tags = a} :: CreatePreset) Prelude.. Lens.mapping Lens.coerced
+-- | Optional. A category for the preset you are creating.
+createPreset_category :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_category = Lens.lens (\CreatePreset' {category} -> category) (\s@CreatePreset' {} a -> s {category = a} :: CreatePreset)
 
 -- | Optional. A description of the preset you are creating.
 createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
 createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
 
--- | Optional. A category for the preset you are creating.
-createPreset_category :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
-createPreset_category = Lens.lens (\CreatePreset' {category} -> category) (\s@CreatePreset' {} a -> s {category = a} :: CreatePreset)
+-- | The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+createPreset_tags :: Lens.Lens' CreatePreset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPreset_tags = Lens.lens (\CreatePreset' {tags} -> tags) (\s@CreatePreset' {} a -> s {tags = a} :: CreatePreset) Prelude.. Lens.mapping Lens.coerced
 
 -- | Settings for preset
 createPreset_settings :: Lens.Lens' CreatePreset PresetSettings
@@ -137,17 +137,17 @@ instance Core.AWSRequest CreatePreset where
 
 instance Prelude.Hashable CreatePreset where
   hashWithSalt _salt CreatePreset' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreatePreset where
   rnf CreatePreset' {..} =
-    Prelude.rnf tags
+    Prelude.rnf category
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf name
 
@@ -166,9 +166,9 @@ instance Data.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("category" Data..=) Prelude.<$> category,
             ("description" Data..=) Prelude.<$> description,
-            ("category" Data..=) Prelude.<$> category,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("settings" Data..= settings),
             Prelude.Just ("name" Data..= name)
           ]

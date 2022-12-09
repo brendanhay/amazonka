@@ -27,9 +27,9 @@ module Amazonka.MediaConvert.UpdateQueue
     newUpdateQueue,
 
     -- * Request Lenses
-    updateQueue_status,
     updateQueue_description,
     updateQueue_reservationPlanSettings,
+    updateQueue_status,
     updateQueue_name,
 
     -- * Destructuring the Response
@@ -52,12 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQueue' smart constructor.
 data UpdateQueue = UpdateQueue'
-  { -- | Pause or activate a queue by changing its status between ACTIVE and
-    -- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
-    -- are running when you pause the queue continue to run until they finish
-    -- or result in an error.
-    status :: Prelude.Maybe QueueStatus,
-    -- | The new description for the queue, if you are changing it.
+  { -- | The new description for the queue, if you are changing it.
     description :: Prelude.Maybe Prelude.Text,
     -- | The new details of your pricing plan for your reserved queue. When you
     -- set up a new pricing plan to replace an expired one, you enter into
@@ -66,6 +61,11 @@ data UpdateQueue = UpdateQueue'
     -- 12 months from when you add capacity. After you make these commitments,
     -- you can\'t cancel them.
     reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
+    -- | Pause or activate a queue by changing its status between ACTIVE and
+    -- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
+    -- are running when you pause the queue continue to run until they finish
+    -- or result in an error.
+    status :: Prelude.Maybe QueueStatus,
     -- | The name of the queue that you are modifying.
     name :: Prelude.Text
   }
@@ -79,11 +79,6 @@ data UpdateQueue = UpdateQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateQueue_status' - Pause or activate a queue by changing its status between ACTIVE and
--- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
--- are running when you pause the queue continue to run until they finish
--- or result in an error.
---
 -- 'description', 'updateQueue_description' - The new description for the queue, if you are changing it.
 --
 -- 'reservationPlanSettings', 'updateQueue_reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you
@@ -93,6 +88,11 @@ data UpdateQueue = UpdateQueue'
 -- 12 months from when you add capacity. After you make these commitments,
 -- you can\'t cancel them.
 --
+-- 'status', 'updateQueue_status' - Pause or activate a queue by changing its status between ACTIVE and
+-- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
+-- are running when you pause the queue continue to run until they finish
+-- or result in an error.
+--
 -- 'name', 'updateQueue_name' - The name of the queue that you are modifying.
 newUpdateQueue ::
   -- | 'name'
@@ -100,18 +100,11 @@ newUpdateQueue ::
   UpdateQueue
 newUpdateQueue pName_ =
   UpdateQueue'
-    { status = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       reservationPlanSettings = Prelude.Nothing,
+      status = Prelude.Nothing,
       name = pName_
     }
-
--- | Pause or activate a queue by changing its status between ACTIVE and
--- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
--- are running when you pause the queue continue to run until they finish
--- or result in an error.
-updateQueue_status :: Lens.Lens' UpdateQueue (Prelude.Maybe QueueStatus)
-updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueue' {} a -> s {status = a} :: UpdateQueue)
 
 -- | The new description for the queue, if you are changing it.
 updateQueue_description :: Lens.Lens' UpdateQueue (Prelude.Maybe Prelude.Text)
@@ -125,6 +118,13 @@ updateQueue_description = Lens.lens (\UpdateQueue' {description} -> description)
 -- you can\'t cancel them.
 updateQueue_reservationPlanSettings :: Lens.Lens' UpdateQueue (Prelude.Maybe ReservationPlanSettings)
 updateQueue_reservationPlanSettings = Lens.lens (\UpdateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@UpdateQueue' {} a -> s {reservationPlanSettings = a} :: UpdateQueue)
+
+-- | Pause or activate a queue by changing its status between ACTIVE and
+-- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that
+-- are running when you pause the queue continue to run until they finish
+-- or result in an error.
+updateQueue_status :: Lens.Lens' UpdateQueue (Prelude.Maybe QueueStatus)
+updateQueue_status = Lens.lens (\UpdateQueue' {status} -> status) (\s@UpdateQueue' {} a -> s {status = a} :: UpdateQueue)
 
 -- | The name of the queue that you are modifying.
 updateQueue_name :: Lens.Lens' UpdateQueue Prelude.Text
@@ -144,16 +144,16 @@ instance Core.AWSRequest UpdateQueue where
 
 instance Prelude.Hashable UpdateQueue where
   hashWithSalt _salt UpdateQueue' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reservationPlanSettings
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateQueue where
   rnf UpdateQueue' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf reservationPlanSettings
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateQueue where
@@ -171,10 +171,10 @@ instance Data.ToJSON UpdateQueue where
   toJSON UpdateQueue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("reservationPlanSettings" Data..=)
-              Prelude.<$> reservationPlanSettings
+              Prelude.<$> reservationPlanSettings,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

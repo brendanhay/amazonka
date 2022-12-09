@@ -36,13 +36,13 @@ data AncillarySourceSettings = AncillarySourceSettings'
     -- data through using the 608 compatibility bytes fields of the 708
     -- wrapper, and it also translates the 608 data into 708.
     convert608To708 :: Prelude.Maybe AncillaryConvert608To708,
+    -- | Specifies the 608 channel number in the ancillary data track from which
+    -- to extract captions. Unused for passthrough.
+    sourceAncillaryChannelNumber :: Prelude.Maybe Prelude.Natural,
     -- | By default, the service terminates any unterminated captions at the end
     -- of each input. If you want the caption to continue onto your next input,
     -- disable this setting.
-    terminateCaptions :: Prelude.Maybe AncillaryTerminateCaptions,
-    -- | Specifies the 608 channel number in the ancillary data track from which
-    -- to extract captions. Unused for passthrough.
-    sourceAncillaryChannelNumber :: Prelude.Maybe Prelude.Natural
+    terminateCaptions :: Prelude.Maybe AncillaryTerminateCaptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,20 +60,20 @@ data AncillarySourceSettings = AncillarySourceSettings'
 -- data through using the 608 compatibility bytes fields of the 708
 -- wrapper, and it also translates the 608 data into 708.
 --
+-- 'sourceAncillaryChannelNumber', 'ancillarySourceSettings_sourceAncillaryChannelNumber' - Specifies the 608 channel number in the ancillary data track from which
+-- to extract captions. Unused for passthrough.
+--
 -- 'terminateCaptions', 'ancillarySourceSettings_terminateCaptions' - By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,
 -- disable this setting.
---
--- 'sourceAncillaryChannelNumber', 'ancillarySourceSettings_sourceAncillaryChannelNumber' - Specifies the 608 channel number in the ancillary data track from which
--- to extract captions. Unused for passthrough.
 newAncillarySourceSettings ::
   AncillarySourceSettings
 newAncillarySourceSettings =
   AncillarySourceSettings'
     { convert608To708 =
         Prelude.Nothing,
-      terminateCaptions = Prelude.Nothing,
-      sourceAncillaryChannelNumber = Prelude.Nothing
+      sourceAncillaryChannelNumber = Prelude.Nothing,
+      terminateCaptions = Prelude.Nothing
     }
 
 -- | Specify whether this set of input captions appears in your outputs in
@@ -84,16 +84,16 @@ newAncillarySourceSettings =
 ancillarySourceSettings_convert608To708 :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe AncillaryConvert608To708)
 ancillarySourceSettings_convert608To708 = Lens.lens (\AncillarySourceSettings' {convert608To708} -> convert608To708) (\s@AncillarySourceSettings' {} a -> s {convert608To708 = a} :: AncillarySourceSettings)
 
+-- | Specifies the 608 channel number in the ancillary data track from which
+-- to extract captions. Unused for passthrough.
+ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe Prelude.Natural)
+ancillarySourceSettings_sourceAncillaryChannelNumber = Lens.lens (\AncillarySourceSettings' {sourceAncillaryChannelNumber} -> sourceAncillaryChannelNumber) (\s@AncillarySourceSettings' {} a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
+
 -- | By default, the service terminates any unterminated captions at the end
 -- of each input. If you want the caption to continue onto your next input,
 -- disable this setting.
 ancillarySourceSettings_terminateCaptions :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe AncillaryTerminateCaptions)
 ancillarySourceSettings_terminateCaptions = Lens.lens (\AncillarySourceSettings' {terminateCaptions} -> terminateCaptions) (\s@AncillarySourceSettings' {} a -> s {terminateCaptions = a} :: AncillarySourceSettings)
-
--- | Specifies the 608 channel number in the ancillary data track from which
--- to extract captions. Unused for passthrough.
-ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe Prelude.Natural)
-ancillarySourceSettings_sourceAncillaryChannelNumber = Lens.lens (\AncillarySourceSettings' {sourceAncillaryChannelNumber} -> sourceAncillaryChannelNumber) (\s@AncillarySourceSettings' {} a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
 
 instance Data.FromJSON AncillarySourceSettings where
   parseJSON =
@@ -102,21 +102,21 @@ instance Data.FromJSON AncillarySourceSettings where
       ( \x ->
           AncillarySourceSettings'
             Prelude.<$> (x Data..:? "convert608To708")
-            Prelude.<*> (x Data..:? "terminateCaptions")
             Prelude.<*> (x Data..:? "sourceAncillaryChannelNumber")
+            Prelude.<*> (x Data..:? "terminateCaptions")
       )
 
 instance Prelude.Hashable AncillarySourceSettings where
   hashWithSalt _salt AncillarySourceSettings' {..} =
     _salt `Prelude.hashWithSalt` convert608To708
-      `Prelude.hashWithSalt` terminateCaptions
       `Prelude.hashWithSalt` sourceAncillaryChannelNumber
+      `Prelude.hashWithSalt` terminateCaptions
 
 instance Prelude.NFData AncillarySourceSettings where
   rnf AncillarySourceSettings' {..} =
     Prelude.rnf convert608To708
-      `Prelude.seq` Prelude.rnf terminateCaptions
       `Prelude.seq` Prelude.rnf sourceAncillaryChannelNumber
+      `Prelude.seq` Prelude.rnf terminateCaptions
 
 instance Data.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =
@@ -124,9 +124,9 @@ instance Data.ToJSON AncillarySourceSettings where
       ( Prelude.catMaybes
           [ ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
-            ("terminateCaptions" Data..=)
-              Prelude.<$> terminateCaptions,
             ("sourceAncillaryChannelNumber" Data..=)
-              Prelude.<$> sourceAncillaryChannelNumber
+              Prelude.<$> sourceAncillaryChannelNumber,
+            ("terminateCaptions" Data..=)
+              Prelude.<$> terminateCaptions
           ]
       )

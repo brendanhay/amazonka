@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExtendedDataServices' smart constructor.
 data ExtendedDataServices = ExtendedDataServices'
-  { -- | The action to take on content advisory XDS packets. If you select
-    -- PASSTHROUGH, packets will not be changed. If you select STRIP, any
-    -- packets will be removed in output captions.
-    vchipAction :: Prelude.Maybe VchipAction,
-    -- | The action to take on copy and redistribution control XDS packets. If
+  { -- | The action to take on copy and redistribution control XDS packets. If
     -- you select PASSTHROUGH, packets will not be changed. If you select
     -- STRIP, any packets will be removed in output captions.
-    copyProtectionAction :: Prelude.Maybe CopyProtectionAction
+    copyProtectionAction :: Prelude.Maybe CopyProtectionAction,
+    -- | The action to take on content advisory XDS packets. If you select
+    -- PASSTHROUGH, packets will not be changed. If you select STRIP, any
+    -- packets will be removed in output captions.
+    vchipAction :: Prelude.Maybe VchipAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,27 +53,21 @@ data ExtendedDataServices = ExtendedDataServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vchipAction', 'extendedDataServices_vchipAction' - The action to take on content advisory XDS packets. If you select
--- PASSTHROUGH, packets will not be changed. If you select STRIP, any
--- packets will be removed in output captions.
---
 -- 'copyProtectionAction', 'extendedDataServices_copyProtectionAction' - The action to take on copy and redistribution control XDS packets. If
 -- you select PASSTHROUGH, packets will not be changed. If you select
 -- STRIP, any packets will be removed in output captions.
+--
+-- 'vchipAction', 'extendedDataServices_vchipAction' - The action to take on content advisory XDS packets. If you select
+-- PASSTHROUGH, packets will not be changed. If you select STRIP, any
+-- packets will be removed in output captions.
 newExtendedDataServices ::
   ExtendedDataServices
 newExtendedDataServices =
   ExtendedDataServices'
-    { vchipAction =
+    { copyProtectionAction =
         Prelude.Nothing,
-      copyProtectionAction = Prelude.Nothing
+      vchipAction = Prelude.Nothing
     }
-
--- | The action to take on content advisory XDS packets. If you select
--- PASSTHROUGH, packets will not be changed. If you select STRIP, any
--- packets will be removed in output captions.
-extendedDataServices_vchipAction :: Lens.Lens' ExtendedDataServices (Prelude.Maybe VchipAction)
-extendedDataServices_vchipAction = Lens.lens (\ExtendedDataServices' {vchipAction} -> vchipAction) (\s@ExtendedDataServices' {} a -> s {vchipAction = a} :: ExtendedDataServices)
 
 -- | The action to take on copy and redistribution control XDS packets. If
 -- you select PASSTHROUGH, packets will not be changed. If you select
@@ -81,32 +75,38 @@ extendedDataServices_vchipAction = Lens.lens (\ExtendedDataServices' {vchipActio
 extendedDataServices_copyProtectionAction :: Lens.Lens' ExtendedDataServices (Prelude.Maybe CopyProtectionAction)
 extendedDataServices_copyProtectionAction = Lens.lens (\ExtendedDataServices' {copyProtectionAction} -> copyProtectionAction) (\s@ExtendedDataServices' {} a -> s {copyProtectionAction = a} :: ExtendedDataServices)
 
+-- | The action to take on content advisory XDS packets. If you select
+-- PASSTHROUGH, packets will not be changed. If you select STRIP, any
+-- packets will be removed in output captions.
+extendedDataServices_vchipAction :: Lens.Lens' ExtendedDataServices (Prelude.Maybe VchipAction)
+extendedDataServices_vchipAction = Lens.lens (\ExtendedDataServices' {vchipAction} -> vchipAction) (\s@ExtendedDataServices' {} a -> s {vchipAction = a} :: ExtendedDataServices)
+
 instance Data.FromJSON ExtendedDataServices where
   parseJSON =
     Data.withObject
       "ExtendedDataServices"
       ( \x ->
           ExtendedDataServices'
-            Prelude.<$> (x Data..:? "vchipAction")
-            Prelude.<*> (x Data..:? "copyProtectionAction")
+            Prelude.<$> (x Data..:? "copyProtectionAction")
+            Prelude.<*> (x Data..:? "vchipAction")
       )
 
 instance Prelude.Hashable ExtendedDataServices where
   hashWithSalt _salt ExtendedDataServices' {..} =
-    _salt `Prelude.hashWithSalt` vchipAction
-      `Prelude.hashWithSalt` copyProtectionAction
+    _salt `Prelude.hashWithSalt` copyProtectionAction
+      `Prelude.hashWithSalt` vchipAction
 
 instance Prelude.NFData ExtendedDataServices where
   rnf ExtendedDataServices' {..} =
-    Prelude.rnf vchipAction
-      `Prelude.seq` Prelude.rnf copyProtectionAction
+    Prelude.rnf copyProtectionAction
+      `Prelude.seq` Prelude.rnf vchipAction
 
 instance Data.ToJSON ExtendedDataServices where
   toJSON ExtendedDataServices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vchipAction" Data..=) Prelude.<$> vchipAction,
-            ("copyProtectionAction" Data..=)
-              Prelude.<$> copyProtectionAction
+          [ ("copyProtectionAction" Data..=)
+              Prelude.<$> copyProtectionAction,
+            ("vchipAction" Data..=) Prelude.<$> vchipAction
           ]
       )

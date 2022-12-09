@@ -15,8 +15,8 @@ module Amazonka.ConnectContactLens.Lens
   ( -- * Operations
 
     -- ** ListRealtimeContactAnalysisSegments
-    listRealtimeContactAnalysisSegments_nextToken,
     listRealtimeContactAnalysisSegments_maxResults,
+    listRealtimeContactAnalysisSegments_nextToken,
     listRealtimeContactAnalysisSegments_instanceId,
     listRealtimeContactAnalysisSegments_contactId,
     listRealtimeContactAnalysisSegmentsResponse_nextToken,
@@ -44,8 +44,8 @@ module Amazonka.ConnectContactLens.Lens
     pointOfInterest_endOffsetMillis,
 
     -- ** RealtimeContactAnalysisSegment
-    realtimeContactAnalysisSegment_transcript,
     realtimeContactAnalysisSegment_categories,
+    realtimeContactAnalysisSegment_transcript,
 
     -- ** Transcript
     transcript_issuesDetected,

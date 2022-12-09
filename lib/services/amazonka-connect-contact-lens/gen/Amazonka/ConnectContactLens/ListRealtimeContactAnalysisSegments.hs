@@ -27,8 +27,8 @@ module Amazonka.ConnectContactLens.ListRealtimeContactAnalysisSegments
     newListRealtimeContactAnalysisSegments,
 
     -- * Request Lenses
-    listRealtimeContactAnalysisSegments_nextToken,
     listRealtimeContactAnalysisSegments_maxResults,
+    listRealtimeContactAnalysisSegments_nextToken,
     listRealtimeContactAnalysisSegments_instanceId,
     listRealtimeContactAnalysisSegments_contactId,
 
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRealtimeContactAnalysisSegments' smart constructor.
 data ListRealtimeContactAnalysisSegments = ListRealtimeContactAnalysisSegments'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximimum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximimum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact.
@@ -74,11 +74,11 @@ data ListRealtimeContactAnalysisSegments = ListRealtimeContactAnalysisSegments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRealtimeContactAnalysisSegments_maxResults' - The maximimum number of results to return per page.
+--
 -- 'nextToken', 'listRealtimeContactAnalysisSegments_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listRealtimeContactAnalysisSegments_maxResults' - The maximimum number of results to return per page.
 --
 -- 'instanceId', 'listRealtimeContactAnalysisSegments_instanceId' - The identifier of the Amazon Connect instance.
 --
@@ -93,22 +93,22 @@ newListRealtimeContactAnalysisSegments
   pInstanceId_
   pContactId_ =
     ListRealtimeContactAnalysisSegments'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         instanceId = pInstanceId_,
         contactId = pContactId_
       }
+
+-- | The maximimum number of results to return per page.
+listRealtimeContactAnalysisSegments_maxResults :: Lens.Lens' ListRealtimeContactAnalysisSegments (Prelude.Maybe Prelude.Natural)
+listRealtimeContactAnalysisSegments_maxResults = Lens.lens (\ListRealtimeContactAnalysisSegments' {maxResults} -> maxResults) (\s@ListRealtimeContactAnalysisSegments' {} a -> s {maxResults = a} :: ListRealtimeContactAnalysisSegments)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listRealtimeContactAnalysisSegments_nextToken :: Lens.Lens' ListRealtimeContactAnalysisSegments (Prelude.Maybe Prelude.Text)
 listRealtimeContactAnalysisSegments_nextToken = Lens.lens (\ListRealtimeContactAnalysisSegments' {nextToken} -> nextToken) (\s@ListRealtimeContactAnalysisSegments' {} a -> s {nextToken = a} :: ListRealtimeContactAnalysisSegments)
-
--- | The maximimum number of results to return per page.
-listRealtimeContactAnalysisSegments_maxResults :: Lens.Lens' ListRealtimeContactAnalysisSegments (Prelude.Maybe Prelude.Natural)
-listRealtimeContactAnalysisSegments_maxResults = Lens.lens (\ListRealtimeContactAnalysisSegments' {maxResults} -> maxResults) (\s@ListRealtimeContactAnalysisSegments' {} a -> s {maxResults = a} :: ListRealtimeContactAnalysisSegments)
 
 -- | The identifier of the Amazon Connect instance.
 listRealtimeContactAnalysisSegments_instanceId :: Lens.Lens' ListRealtimeContactAnalysisSegments Prelude.Text
@@ -143,8 +143,8 @@ instance
   hashWithSalt
     _salt
     ListRealtimeContactAnalysisSegments' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` contactId
 
@@ -153,8 +153,8 @@ instance
     ListRealtimeContactAnalysisSegments
   where
   rnf ListRealtimeContactAnalysisSegments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactId
 
@@ -179,8 +179,8 @@ instance
   toJSON ListRealtimeContactAnalysisSegments' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceId" Data..= instanceId),
             Prelude.Just ("ContactId" Data..= contactId)
           ]

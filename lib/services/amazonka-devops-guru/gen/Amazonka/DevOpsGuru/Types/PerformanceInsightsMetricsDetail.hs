@@ -51,20 +51,20 @@ import qualified Amazonka.Prelude as Prelude
 data PerformanceInsightsMetricsDetail = PerformanceInsightsMetricsDetail'
   { -- | The name used for a specific Performance Insights metric.
     metricDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | A single query to be processed for the metric. For more information, see
+    -- @ PerformanceInsightsMetricQuery @.
+    metricQuery :: Prelude.Maybe PerformanceInsightsMetricQuery,
     -- | For more information, see @ PerformanceInsightsReferenceData @.
     referenceData :: Prelude.Maybe [PerformanceInsightsReferenceData],
     -- | The metric statistics during the anomalous period detected by DevOps
     -- Guru;
     statsAtAnomaly :: Prelude.Maybe [PerformanceInsightsStat],
-    -- | The unit of measure for a metric. For example, a session or a process.
-    unit :: Prelude.Maybe Prelude.Text,
     -- | Typical metric statistics that are not considered anomalous. When DevOps
     -- Guru analyzes metrics, it compares them to @StatsAtBaseline@ to help
     -- determine if they are anomalous.
     statsAtBaseline :: Prelude.Maybe [PerformanceInsightsStat],
-    -- | A single query to be processed for the metric. For more information, see
-    -- @ PerformanceInsightsMetricQuery @.
-    metricQuery :: Prelude.Maybe PerformanceInsightsMetricQuery
+    -- | The unit of measure for a metric. For example, a session or a process.
+    unit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,35 +78,40 @@ data PerformanceInsightsMetricsDetail = PerformanceInsightsMetricsDetail'
 --
 -- 'metricDisplayName', 'performanceInsightsMetricsDetail_metricDisplayName' - The name used for a specific Performance Insights metric.
 --
+-- 'metricQuery', 'performanceInsightsMetricsDetail_metricQuery' - A single query to be processed for the metric. For more information, see
+-- @ PerformanceInsightsMetricQuery @.
+--
 -- 'referenceData', 'performanceInsightsMetricsDetail_referenceData' - For more information, see @ PerformanceInsightsReferenceData @.
 --
 -- 'statsAtAnomaly', 'performanceInsightsMetricsDetail_statsAtAnomaly' - The metric statistics during the anomalous period detected by DevOps
 -- Guru;
 --
--- 'unit', 'performanceInsightsMetricsDetail_unit' - The unit of measure for a metric. For example, a session or a process.
---
 -- 'statsAtBaseline', 'performanceInsightsMetricsDetail_statsAtBaseline' - Typical metric statistics that are not considered anomalous. When DevOps
 -- Guru analyzes metrics, it compares them to @StatsAtBaseline@ to help
 -- determine if they are anomalous.
 --
--- 'metricQuery', 'performanceInsightsMetricsDetail_metricQuery' - A single query to be processed for the metric. For more information, see
--- @ PerformanceInsightsMetricQuery @.
+-- 'unit', 'performanceInsightsMetricsDetail_unit' - The unit of measure for a metric. For example, a session or a process.
 newPerformanceInsightsMetricsDetail ::
   PerformanceInsightsMetricsDetail
 newPerformanceInsightsMetricsDetail =
   PerformanceInsightsMetricsDetail'
     { metricDisplayName =
         Prelude.Nothing,
+      metricQuery = Prelude.Nothing,
       referenceData = Prelude.Nothing,
       statsAtAnomaly = Prelude.Nothing,
-      unit = Prelude.Nothing,
       statsAtBaseline = Prelude.Nothing,
-      metricQuery = Prelude.Nothing
+      unit = Prelude.Nothing
     }
 
 -- | The name used for a specific Performance Insights metric.
 performanceInsightsMetricsDetail_metricDisplayName :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe Prelude.Text)
 performanceInsightsMetricsDetail_metricDisplayName = Lens.lens (\PerformanceInsightsMetricsDetail' {metricDisplayName} -> metricDisplayName) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricDisplayName = a} :: PerformanceInsightsMetricsDetail)
+
+-- | A single query to be processed for the metric. For more information, see
+-- @ PerformanceInsightsMetricQuery @.
+performanceInsightsMetricsDetail_metricQuery :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe PerformanceInsightsMetricQuery)
+performanceInsightsMetricsDetail_metricQuery = Lens.lens (\PerformanceInsightsMetricsDetail' {metricQuery} -> metricQuery) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricQuery = a} :: PerformanceInsightsMetricsDetail)
 
 -- | For more information, see @ PerformanceInsightsReferenceData @.
 performanceInsightsMetricsDetail_referenceData :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe [PerformanceInsightsReferenceData])
@@ -117,20 +122,15 @@ performanceInsightsMetricsDetail_referenceData = Lens.lens (\PerformanceInsights
 performanceInsightsMetricsDetail_statsAtAnomaly :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe [PerformanceInsightsStat])
 performanceInsightsMetricsDetail_statsAtAnomaly = Lens.lens (\PerformanceInsightsMetricsDetail' {statsAtAnomaly} -> statsAtAnomaly) (\s@PerformanceInsightsMetricsDetail' {} a -> s {statsAtAnomaly = a} :: PerformanceInsightsMetricsDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The unit of measure for a metric. For example, a session or a process.
-performanceInsightsMetricsDetail_unit :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe Prelude.Text)
-performanceInsightsMetricsDetail_unit = Lens.lens (\PerformanceInsightsMetricsDetail' {unit} -> unit) (\s@PerformanceInsightsMetricsDetail' {} a -> s {unit = a} :: PerformanceInsightsMetricsDetail)
-
 -- | Typical metric statistics that are not considered anomalous. When DevOps
 -- Guru analyzes metrics, it compares them to @StatsAtBaseline@ to help
 -- determine if they are anomalous.
 performanceInsightsMetricsDetail_statsAtBaseline :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe [PerformanceInsightsStat])
 performanceInsightsMetricsDetail_statsAtBaseline = Lens.lens (\PerformanceInsightsMetricsDetail' {statsAtBaseline} -> statsAtBaseline) (\s@PerformanceInsightsMetricsDetail' {} a -> s {statsAtBaseline = a} :: PerformanceInsightsMetricsDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | A single query to be processed for the metric. For more information, see
--- @ PerformanceInsightsMetricQuery @.
-performanceInsightsMetricsDetail_metricQuery :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe PerformanceInsightsMetricQuery)
-performanceInsightsMetricsDetail_metricQuery = Lens.lens (\PerformanceInsightsMetricsDetail' {metricQuery} -> metricQuery) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricQuery = a} :: PerformanceInsightsMetricsDetail)
+-- | The unit of measure for a metric. For example, a session or a process.
+performanceInsightsMetricsDetail_unit :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe Prelude.Text)
+performanceInsightsMetricsDetail_unit = Lens.lens (\PerformanceInsightsMetricsDetail' {unit} -> unit) (\s@PerformanceInsightsMetricsDetail' {} a -> s {unit = a} :: PerformanceInsightsMetricsDetail)
 
 instance
   Data.FromJSON
@@ -142,13 +142,13 @@ instance
       ( \x ->
           PerformanceInsightsMetricsDetail'
             Prelude.<$> (x Data..:? "MetricDisplayName")
+            Prelude.<*> (x Data..:? "MetricQuery")
             Prelude.<*> (x Data..:? "ReferenceData" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "StatsAtAnomaly" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Unit")
             Prelude.<*> ( x Data..:? "StatsAtBaseline"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "MetricQuery")
+            Prelude.<*> (x Data..:? "Unit")
       )
 
 instance
@@ -159,11 +159,11 @@ instance
     _salt
     PerformanceInsightsMetricsDetail' {..} =
       _salt `Prelude.hashWithSalt` metricDisplayName
+        `Prelude.hashWithSalt` metricQuery
         `Prelude.hashWithSalt` referenceData
         `Prelude.hashWithSalt` statsAtAnomaly
-        `Prelude.hashWithSalt` unit
         `Prelude.hashWithSalt` statsAtBaseline
-        `Prelude.hashWithSalt` metricQuery
+        `Prelude.hashWithSalt` unit
 
 instance
   Prelude.NFData
@@ -171,8 +171,8 @@ instance
   where
   rnf PerformanceInsightsMetricsDetail' {..} =
     Prelude.rnf metricDisplayName
+      `Prelude.seq` Prelude.rnf metricQuery
       `Prelude.seq` Prelude.rnf referenceData
       `Prelude.seq` Prelude.rnf statsAtAnomaly
-      `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf statsAtBaseline
-      `Prelude.seq` Prelude.rnf metricQuery
+      `Prelude.seq` Prelude.rnf unit

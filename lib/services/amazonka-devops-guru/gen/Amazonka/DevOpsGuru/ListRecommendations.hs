@@ -31,9 +31,9 @@ module Amazonka.DevOpsGuru.ListRecommendations
     newListRecommendations,
 
     -- * Request Lenses
-    listRecommendations_nextToken,
-    listRecommendations_locale,
     listRecommendations_accountId,
+    listRecommendations_locale,
+    listRecommendations_nextToken,
     listRecommendations_insightId,
 
     -- * Destructuring the Response
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendations' smart constructor.
 data ListRecommendations = ListRecommendations'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | A locale that specifies the language to use for recommendations.
     locale :: Prelude.Maybe Locale,
-    -- | The ID of the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the requested insight.
     insightId :: Prelude.Text
   }
@@ -77,12 +77,12 @@ data ListRecommendations = ListRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendations_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
+-- 'accountId', 'listRecommendations_accountId' - The ID of the Amazon Web Services account.
 --
 -- 'locale', 'listRecommendations_locale' - A locale that specifies the language to use for recommendations.
 --
--- 'accountId', 'listRecommendations_accountId' - The ID of the Amazon Web Services account.
+-- 'nextToken', 'listRecommendations_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 --
 -- 'insightId', 'listRecommendations_insightId' - The ID of the requested insight.
 newListRecommendations ::
@@ -91,24 +91,24 @@ newListRecommendations ::
   ListRecommendations
 newListRecommendations pInsightId_ =
   ListRecommendations'
-    { nextToken = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       locale = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       insightId = pInsightId_
     }
 
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
-listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
+-- | The ID of the Amazon Web Services account.
+listRecommendations_accountId :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
+listRecommendations_accountId = Lens.lens (\ListRecommendations' {accountId} -> accountId) (\s@ListRecommendations' {} a -> s {accountId = a} :: ListRecommendations)
 
 -- | A locale that specifies the language to use for recommendations.
 listRecommendations_locale :: Lens.Lens' ListRecommendations (Prelude.Maybe Locale)
 listRecommendations_locale = Lens.lens (\ListRecommendations' {locale} -> locale) (\s@ListRecommendations' {} a -> s {locale = a} :: ListRecommendations)
 
--- | The ID of the Amazon Web Services account.
-listRecommendations_accountId :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
-listRecommendations_accountId = Lens.lens (\ListRecommendations' {accountId} -> accountId) (\s@ListRecommendations' {} a -> s {accountId = a} :: ListRecommendations)
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
+listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
 
 -- | The ID of the requested insight.
 listRecommendations_insightId :: Lens.Lens' ListRecommendations Prelude.Text
@@ -155,16 +155,16 @@ instance Core.AWSRequest ListRecommendations where
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` locale
-      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` insightId
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf insightId
 
 instance Data.ToHeaders ListRecommendations where
@@ -182,9 +182,9 @@ instance Data.ToJSON ListRecommendations where
   toJSON ListRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
             ("Locale" Data..=) Prelude.<$> locale,
-            ("AccountId" Data..=) Prelude.<$> accountId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InsightId" Data..= insightId)
           ]
       )

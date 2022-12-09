@@ -36,7 +36,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceCollection' smart constructor.
 data ResourceCollection = ResourceCollection'
-  { -- | The Amazon Web Services tags that are used by resources in the resource
+  { -- | An array of the names of Amazon Web Services CloudFormation stacks. The
+    -- stacks define Amazon Web Services resources that DevOps Guru analyzes.
+    -- You can specify up to 500 Amazon Web Services CloudFormation stacks.
+    cloudFormation :: Prelude.Maybe CloudFormationCollection,
+    -- | The Amazon Web Services tags that are used by resources in the resource
     -- collection.
     --
     -- Tags help you identify and organize your Amazon Web Services resources.
@@ -70,11 +74,7 @@ data ResourceCollection = ResourceCollection'
     -- act as two different /keys/. Possible /key/\//value/ pairs in your
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
-    tags :: Prelude.Maybe [TagCollection],
-    -- | An array of the names of Amazon Web Services CloudFormation stacks. The
-    -- stacks define Amazon Web Services resources that DevOps Guru analyzes.
-    -- You can specify up to 500 Amazon Web Services CloudFormation stacks.
-    cloudFormation :: Prelude.Maybe CloudFormationCollection
+    tags :: Prelude.Maybe [TagCollection]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,10 @@ data ResourceCollection = ResourceCollection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cloudFormation', 'resourceCollection_cloudFormation' - An array of the names of Amazon Web Services CloudFormation stacks. The
+-- stacks define Amazon Web Services resources that DevOps Guru analyzes.
+-- You can specify up to 500 Amazon Web Services CloudFormation stacks.
 --
 -- 'tags', 'resourceCollection_tags' - The Amazon Web Services tags that are used by resources in the resource
 -- collection.
@@ -120,17 +124,20 @@ data ResourceCollection = ResourceCollection'
 -- act as two different /keys/. Possible /key/\//value/ pairs in your
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
---
--- 'cloudFormation', 'resourceCollection_cloudFormation' - An array of the names of Amazon Web Services CloudFormation stacks. The
--- stacks define Amazon Web Services resources that DevOps Guru analyzes.
--- You can specify up to 500 Amazon Web Services CloudFormation stacks.
 newResourceCollection ::
   ResourceCollection
 newResourceCollection =
   ResourceCollection'
-    { tags = Prelude.Nothing,
-      cloudFormation = Prelude.Nothing
+    { cloudFormation =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
+
+-- | An array of the names of Amazon Web Services CloudFormation stacks. The
+-- stacks define Amazon Web Services resources that DevOps Guru analyzes.
+-- You can specify up to 500 Amazon Web Services CloudFormation stacks.
+resourceCollection_cloudFormation :: Lens.Lens' ResourceCollection (Prelude.Maybe CloudFormationCollection)
+resourceCollection_cloudFormation = Lens.lens (\ResourceCollection' {cloudFormation} -> cloudFormation) (\s@ResourceCollection' {} a -> s {cloudFormation = a} :: ResourceCollection)
 
 -- | The Amazon Web Services tags that are used by resources in the resource
 -- collection.
@@ -169,38 +176,32 @@ newResourceCollection =
 resourceCollection_tags :: Lens.Lens' ResourceCollection (Prelude.Maybe [TagCollection])
 resourceCollection_tags = Lens.lens (\ResourceCollection' {tags} -> tags) (\s@ResourceCollection' {} a -> s {tags = a} :: ResourceCollection) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of the names of Amazon Web Services CloudFormation stacks. The
--- stacks define Amazon Web Services resources that DevOps Guru analyzes.
--- You can specify up to 500 Amazon Web Services CloudFormation stacks.
-resourceCollection_cloudFormation :: Lens.Lens' ResourceCollection (Prelude.Maybe CloudFormationCollection)
-resourceCollection_cloudFormation = Lens.lens (\ResourceCollection' {cloudFormation} -> cloudFormation) (\s@ResourceCollection' {} a -> s {cloudFormation = a} :: ResourceCollection)
-
 instance Data.FromJSON ResourceCollection where
   parseJSON =
     Data.withObject
       "ResourceCollection"
       ( \x ->
           ResourceCollection'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "CloudFormation")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceCollection where
   hashWithSalt _salt ResourceCollection' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` cloudFormation
+    _salt `Prelude.hashWithSalt` cloudFormation
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceCollection where
   rnf ResourceCollection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cloudFormation
+    Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON ResourceCollection where
   toJSON ResourceCollection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CloudFormation" Data..=)
-              Prelude.<$> cloudFormation
+          [ ("CloudFormation" Data..=)
+              Prelude.<$> cloudFormation,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

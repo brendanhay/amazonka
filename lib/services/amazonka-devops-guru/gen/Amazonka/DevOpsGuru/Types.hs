@@ -19,10 +19,10 @@ module Amazonka.DevOpsGuru.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -101,14 +101,14 @@ module Amazonka.DevOpsGuru.Types
     -- * AccountHealth
     AccountHealth (..),
     newAccountHealth,
-    accountHealth_insight,
     accountHealth_accountId,
+    accountHealth_insight,
 
     -- * AccountInsightHealth
     AccountInsightHealth (..),
     newAccountInsightHealth,
-    accountInsightHealth_openReactiveInsights,
     accountInsightHealth_openProactiveInsights,
+    accountInsightHealth_openReactiveInsights,
 
     -- * AmazonCodeGuruProfilerIntegration
     AmazonCodeGuruProfilerIntegration (..),
@@ -119,10 +119,10 @@ module Amazonka.DevOpsGuru.Types
     AnomalousLogGroup (..),
     newAnomalousLogGroup,
     anomalousLogGroup_impactEndTime,
-    anomalousLogGroup_numberOfLogLinesScanned,
     anomalousLogGroup_impactStartTime,
     anomalousLogGroup_logAnomalyShowcases,
     anomalousLogGroup_logGroupName,
+    anomalousLogGroup_numberOfLogLinesScanned,
 
     -- * AnomalyReportedTimeRange
     AnomalyReportedTimeRange (..),
@@ -145,9 +145,9 @@ module Amazonka.DevOpsGuru.Types
     -- * AnomalySourceMetadata
     AnomalySourceMetadata (..),
     newAnomalySourceMetadata,
+    anomalySourceMetadata_source,
     anomalySourceMetadata_sourceResourceName,
     anomalySourceMetadata_sourceResourceType,
-    anomalySourceMetadata_source,
 
     -- * AnomalyTimeRange
     AnomalyTimeRange (..),
@@ -173,25 +173,25 @@ module Amazonka.DevOpsGuru.Types
     -- * CloudFormationHealth
     CloudFormationHealth (..),
     newCloudFormationHealth,
-    cloudFormationHealth_insight,
     cloudFormationHealth_analyzedResourceCount,
+    cloudFormationHealth_insight,
     cloudFormationHealth_stackName,
 
     -- * CloudWatchMetricsDataSummary
     CloudWatchMetricsDataSummary (..),
     newCloudWatchMetricsDataSummary,
-    cloudWatchMetricsDataSummary_timestampMetricValuePairList,
     cloudWatchMetricsDataSummary_statusCode,
+    cloudWatchMetricsDataSummary_timestampMetricValuePairList,
 
     -- * CloudWatchMetricsDetail
     CloudWatchMetricsDetail (..),
     newCloudWatchMetricsDetail,
-    cloudWatchMetricsDetail_metricDataSummary,
-    cloudWatchMetricsDetail_period,
     cloudWatchMetricsDetail_dimensions,
-    cloudWatchMetricsDetail_stat,
+    cloudWatchMetricsDetail_metricDataSummary,
     cloudWatchMetricsDetail_metricName,
     cloudWatchMetricsDetail_namespace,
+    cloudWatchMetricsDetail_period,
+    cloudWatchMetricsDetail_stat,
     cloudWatchMetricsDetail_unit,
 
     -- * CloudWatchMetricsDimension
@@ -203,8 +203,8 @@ module Amazonka.DevOpsGuru.Types
     -- * CostEstimationResourceCollectionFilter
     CostEstimationResourceCollectionFilter (..),
     newCostEstimationResourceCollectionFilter,
-    costEstimationResourceCollectionFilter_tags,
     costEstimationResourceCollectionFilter_cloudFormation,
+    costEstimationResourceCollectionFilter_tags,
 
     -- * CostEstimationTimeRange
     CostEstimationTimeRange (..),
@@ -215,27 +215,27 @@ module Amazonka.DevOpsGuru.Types
     -- * EndTimeRange
     EndTimeRange (..),
     newEndTimeRange,
-    endTimeRange_toTime,
     endTimeRange_fromTime,
+    endTimeRange_toTime,
 
     -- * Event
     Event (..),
     newEvent,
-    event_name,
-    event_resourceCollection,
-    event_time,
-    event_id,
     event_dataSource,
     event_eventClass,
-    event_resources,
     event_eventSource,
+    event_id,
+    event_name,
+    event_resourceCollection,
+    event_resources,
+    event_time,
 
     -- * EventResource
     EventResource (..),
     newEventResource,
+    eventResource_arn,
     eventResource_name,
     eventResource_type,
-    eventResource_arn,
 
     -- * EventSourcesConfig
     EventSourcesConfig (..),
@@ -257,9 +257,9 @@ module Amazonka.DevOpsGuru.Types
     -- * InsightHealth
     InsightHealth (..),
     newInsightHealth,
-    insightHealth_openReactiveInsights,
     insightHealth_meanTimeToRecoverInMilliseconds,
     insightHealth_openProactiveInsights,
+    insightHealth_openReactiveInsights,
 
     -- * InsightTimeRange
     InsightTimeRange (..),
@@ -270,12 +270,12 @@ module Amazonka.DevOpsGuru.Types
     -- * ListEventsFilters
     ListEventsFilters (..),
     newListEventsFilters,
-    listEventsFilters_resourceCollection,
-    listEventsFilters_insightId,
     listEventsFilters_dataSource,
     listEventsFilters_eventClass,
-    listEventsFilters_eventTimeRange,
     listEventsFilters_eventSource,
+    listEventsFilters_eventTimeRange,
+    listEventsFilters_insightId,
+    listEventsFilters_resourceCollection,
 
     -- * ListInsightsAnyStatusFilter
     ListInsightsAnyStatusFilter (..),
@@ -297,8 +297,8 @@ module Amazonka.DevOpsGuru.Types
     -- * ListInsightsStatusFilter
     ListInsightsStatusFilter (..),
     newListInsightsStatusFilter,
-    listInsightsStatusFilter_closed,
     listInsightsStatusFilter_any,
+    listInsightsStatusFilter_closed,
     listInsightsStatusFilter_ongoing,
 
     -- * ListMonitoredResourcesFilters
@@ -310,13 +310,13 @@ module Amazonka.DevOpsGuru.Types
     -- * LogAnomalyClass
     LogAnomalyClass (..),
     newLogAnomalyClass,
-    logAnomalyClass_numberOfLogLinesOccurrences,
-    logAnomalyClass_logEventTimestamp,
-    logAnomalyClass_logEventId,
+    logAnomalyClass_explanation,
     logAnomalyClass_logAnomalyToken,
     logAnomalyClass_logAnomalyType,
-    logAnomalyClass_explanation,
+    logAnomalyClass_logEventId,
+    logAnomalyClass_logEventTimestamp,
     logAnomalyClass_logStreamName,
+    logAnomalyClass_numberOfLogLinesOccurrences,
 
     -- * LogAnomalyShowcase
     LogAnomalyShowcase (..),
@@ -336,17 +336,17 @@ module Amazonka.DevOpsGuru.Types
     -- * MonitoredResourceIdentifier
     MonitoredResourceIdentifier (..),
     newMonitoredResourceIdentifier,
-    monitoredResourceIdentifier_type,
-    monitoredResourceIdentifier_resourceCollection,
     monitoredResourceIdentifier_lastUpdated,
-    monitoredResourceIdentifier_resourcePermission,
     monitoredResourceIdentifier_monitoredResourceName,
+    monitoredResourceIdentifier_resourceCollection,
+    monitoredResourceIdentifier_resourcePermission,
+    monitoredResourceIdentifier_type,
 
     -- * NotificationChannel
     NotificationChannel (..),
     newNotificationChannel,
-    notificationChannel_id,
     notificationChannel_config,
+    notificationChannel_id,
 
     -- * NotificationChannelConfig
     NotificationChannelConfig (..),
@@ -374,37 +374,37 @@ module Amazonka.DevOpsGuru.Types
     PerformanceInsightsMetricDimensionGroup (..),
     newPerformanceInsightsMetricDimensionGroup,
     performanceInsightsMetricDimensionGroup_dimensions,
-    performanceInsightsMetricDimensionGroup_limit,
     performanceInsightsMetricDimensionGroup_group,
+    performanceInsightsMetricDimensionGroup_limit,
 
     -- * PerformanceInsightsMetricQuery
     PerformanceInsightsMetricQuery (..),
     newPerformanceInsightsMetricQuery,
-    performanceInsightsMetricQuery_groupBy,
     performanceInsightsMetricQuery_filter,
+    performanceInsightsMetricQuery_groupBy,
     performanceInsightsMetricQuery_metric,
 
     -- * PerformanceInsightsMetricsDetail
     PerformanceInsightsMetricsDetail (..),
     newPerformanceInsightsMetricsDetail,
     performanceInsightsMetricsDetail_metricDisplayName,
+    performanceInsightsMetricsDetail_metricQuery,
     performanceInsightsMetricsDetail_referenceData,
     performanceInsightsMetricsDetail_statsAtAnomaly,
-    performanceInsightsMetricsDetail_unit,
     performanceInsightsMetricsDetail_statsAtBaseline,
-    performanceInsightsMetricsDetail_metricQuery,
+    performanceInsightsMetricsDetail_unit,
 
     -- * PerformanceInsightsReferenceComparisonValues
     PerformanceInsightsReferenceComparisonValues (..),
     newPerformanceInsightsReferenceComparisonValues,
-    performanceInsightsReferenceComparisonValues_referenceScalar,
     performanceInsightsReferenceComparisonValues_referenceMetric,
+    performanceInsightsReferenceComparisonValues_referenceScalar,
 
     -- * PerformanceInsightsReferenceData
     PerformanceInsightsReferenceData (..),
     newPerformanceInsightsReferenceData,
-    performanceInsightsReferenceData_name,
     performanceInsightsReferenceData_comparisonValues,
+    performanceInsightsReferenceData_name,
 
     -- * PerformanceInsightsReferenceMetric
     PerformanceInsightsReferenceMetric (..),
@@ -431,165 +431,165 @@ module Amazonka.DevOpsGuru.Types
     -- * ProactiveAnomaly
     ProactiveAnomaly (..),
     newProactiveAnomaly,
-    proactiveAnomaly_anomalyTimeRange,
-    proactiveAnomaly_severity,
     proactiveAnomaly_anomalyReportedTimeRange,
-    proactiveAnomaly_associatedInsightId,
     proactiveAnomaly_anomalyResources,
-    proactiveAnomaly_resourceCollection,
-    proactiveAnomaly_sourceDetails,
-    proactiveAnomaly_status,
+    proactiveAnomaly_anomalyTimeRange,
+    proactiveAnomaly_associatedInsightId,
     proactiveAnomaly_id,
-    proactiveAnomaly_predictionTimeRange,
     proactiveAnomaly_limit,
+    proactiveAnomaly_predictionTimeRange,
+    proactiveAnomaly_resourceCollection,
+    proactiveAnomaly_severity,
+    proactiveAnomaly_sourceDetails,
     proactiveAnomaly_sourceMetadata,
+    proactiveAnomaly_status,
     proactiveAnomaly_updateTime,
 
     -- * ProactiveAnomalySummary
     ProactiveAnomalySummary (..),
     newProactiveAnomalySummary,
-    proactiveAnomalySummary_anomalyTimeRange,
-    proactiveAnomalySummary_severity,
     proactiveAnomalySummary_anomalyReportedTimeRange,
-    proactiveAnomalySummary_associatedInsightId,
     proactiveAnomalySummary_anomalyResources,
-    proactiveAnomalySummary_resourceCollection,
-    proactiveAnomalySummary_sourceDetails,
-    proactiveAnomalySummary_status,
+    proactiveAnomalySummary_anomalyTimeRange,
+    proactiveAnomalySummary_associatedInsightId,
     proactiveAnomalySummary_id,
-    proactiveAnomalySummary_predictionTimeRange,
     proactiveAnomalySummary_limit,
+    proactiveAnomalySummary_predictionTimeRange,
+    proactiveAnomalySummary_resourceCollection,
+    proactiveAnomalySummary_severity,
+    proactiveAnomalySummary_sourceDetails,
     proactiveAnomalySummary_sourceMetadata,
+    proactiveAnomalySummary_status,
     proactiveAnomalySummary_updateTime,
 
     -- * ProactiveInsight
     ProactiveInsight (..),
     newProactiveInsight,
-    proactiveInsight_severity,
-    proactiveInsight_name,
-    proactiveInsight_resourceCollection,
-    proactiveInsight_status,
-    proactiveInsight_id,
     proactiveInsight_description,
-    proactiveInsight_ssmOpsItemId,
-    proactiveInsight_predictionTimeRange,
+    proactiveInsight_id,
     proactiveInsight_insightTimeRange,
+    proactiveInsight_name,
+    proactiveInsight_predictionTimeRange,
+    proactiveInsight_resourceCollection,
+    proactiveInsight_severity,
+    proactiveInsight_ssmOpsItemId,
+    proactiveInsight_status,
 
     -- * ProactiveInsightSummary
     ProactiveInsightSummary (..),
     newProactiveInsightSummary,
-    proactiveInsightSummary_severity,
+    proactiveInsightSummary_associatedResourceArns,
+    proactiveInsightSummary_id,
+    proactiveInsightSummary_insightTimeRange,
     proactiveInsightSummary_name,
+    proactiveInsightSummary_predictionTimeRange,
     proactiveInsightSummary_resourceCollection,
     proactiveInsightSummary_serviceCollection,
-    proactiveInsightSummary_associatedResourceArns,
+    proactiveInsightSummary_severity,
     proactiveInsightSummary_status,
-    proactiveInsightSummary_id,
-    proactiveInsightSummary_predictionTimeRange,
-    proactiveInsightSummary_insightTimeRange,
 
     -- * ProactiveOrganizationInsightSummary
     ProactiveOrganizationInsightSummary (..),
     newProactiveOrganizationInsightSummary,
-    proactiveOrganizationInsightSummary_severity,
+    proactiveOrganizationInsightSummary_accountId,
+    proactiveOrganizationInsightSummary_id,
+    proactiveOrganizationInsightSummary_insightTimeRange,
     proactiveOrganizationInsightSummary_name,
+    proactiveOrganizationInsightSummary_organizationalUnitId,
+    proactiveOrganizationInsightSummary_predictionTimeRange,
     proactiveOrganizationInsightSummary_resourceCollection,
     proactiveOrganizationInsightSummary_serviceCollection,
+    proactiveOrganizationInsightSummary_severity,
     proactiveOrganizationInsightSummary_status,
-    proactiveOrganizationInsightSummary_id,
-    proactiveOrganizationInsightSummary_predictionTimeRange,
-    proactiveOrganizationInsightSummary_accountId,
-    proactiveOrganizationInsightSummary_insightTimeRange,
-    proactiveOrganizationInsightSummary_organizationalUnitId,
 
     -- * ReactiveAnomaly
     ReactiveAnomaly (..),
     newReactiveAnomaly,
-    reactiveAnomaly_anomalyTimeRange,
-    reactiveAnomaly_severity,
-    reactiveAnomaly_name,
     reactiveAnomaly_anomalyReportedTimeRange,
-    reactiveAnomaly_type,
-    reactiveAnomaly_associatedInsightId,
     reactiveAnomaly_anomalyResources,
+    reactiveAnomaly_anomalyTimeRange,
+    reactiveAnomaly_associatedInsightId,
+    reactiveAnomaly_causalAnomalyId,
+    reactiveAnomaly_description,
+    reactiveAnomaly_id,
+    reactiveAnomaly_name,
     reactiveAnomaly_resourceCollection,
+    reactiveAnomaly_severity,
     reactiveAnomaly_sourceDetails,
     reactiveAnomaly_status,
-    reactiveAnomaly_id,
-    reactiveAnomaly_description,
-    reactiveAnomaly_causalAnomalyId,
+    reactiveAnomaly_type,
 
     -- * ReactiveAnomalySummary
     ReactiveAnomalySummary (..),
     newReactiveAnomalySummary,
-    reactiveAnomalySummary_anomalyTimeRange,
-    reactiveAnomalySummary_severity,
-    reactiveAnomalySummary_name,
     reactiveAnomalySummary_anomalyReportedTimeRange,
-    reactiveAnomalySummary_type,
-    reactiveAnomalySummary_associatedInsightId,
     reactiveAnomalySummary_anomalyResources,
+    reactiveAnomalySummary_anomalyTimeRange,
+    reactiveAnomalySummary_associatedInsightId,
+    reactiveAnomalySummary_causalAnomalyId,
+    reactiveAnomalySummary_description,
+    reactiveAnomalySummary_id,
+    reactiveAnomalySummary_name,
     reactiveAnomalySummary_resourceCollection,
+    reactiveAnomalySummary_severity,
     reactiveAnomalySummary_sourceDetails,
     reactiveAnomalySummary_status,
-    reactiveAnomalySummary_id,
-    reactiveAnomalySummary_description,
-    reactiveAnomalySummary_causalAnomalyId,
+    reactiveAnomalySummary_type,
 
     -- * ReactiveInsight
     ReactiveInsight (..),
     newReactiveInsight,
-    reactiveInsight_severity,
+    reactiveInsight_description,
+    reactiveInsight_id,
+    reactiveInsight_insightTimeRange,
     reactiveInsight_name,
     reactiveInsight_resourceCollection,
-    reactiveInsight_status,
-    reactiveInsight_id,
-    reactiveInsight_description,
+    reactiveInsight_severity,
     reactiveInsight_ssmOpsItemId,
-    reactiveInsight_insightTimeRange,
+    reactiveInsight_status,
 
     -- * ReactiveInsightSummary
     ReactiveInsightSummary (..),
     newReactiveInsightSummary,
-    reactiveInsightSummary_severity,
+    reactiveInsightSummary_associatedResourceArns,
+    reactiveInsightSummary_id,
+    reactiveInsightSummary_insightTimeRange,
     reactiveInsightSummary_name,
     reactiveInsightSummary_resourceCollection,
     reactiveInsightSummary_serviceCollection,
-    reactiveInsightSummary_associatedResourceArns,
+    reactiveInsightSummary_severity,
     reactiveInsightSummary_status,
-    reactiveInsightSummary_id,
-    reactiveInsightSummary_insightTimeRange,
 
     -- * ReactiveOrganizationInsightSummary
     ReactiveOrganizationInsightSummary (..),
     newReactiveOrganizationInsightSummary,
-    reactiveOrganizationInsightSummary_severity,
+    reactiveOrganizationInsightSummary_accountId,
+    reactiveOrganizationInsightSummary_id,
+    reactiveOrganizationInsightSummary_insightTimeRange,
     reactiveOrganizationInsightSummary_name,
+    reactiveOrganizationInsightSummary_organizationalUnitId,
     reactiveOrganizationInsightSummary_resourceCollection,
     reactiveOrganizationInsightSummary_serviceCollection,
+    reactiveOrganizationInsightSummary_severity,
     reactiveOrganizationInsightSummary_status,
-    reactiveOrganizationInsightSummary_id,
-    reactiveOrganizationInsightSummary_accountId,
-    reactiveOrganizationInsightSummary_insightTimeRange,
-    reactiveOrganizationInsightSummary_organizationalUnitId,
 
     -- * Recommendation
     Recommendation (..),
     newRecommendation,
-    recommendation_name,
-    recommendation_link,
-    recommendation_description,
-    recommendation_relatedAnomalies,
-    recommendation_reason,
     recommendation_category,
+    recommendation_description,
+    recommendation_link,
+    recommendation_name,
+    recommendation_reason,
+    recommendation_relatedAnomalies,
     recommendation_relatedEvents,
 
     -- * RecommendationRelatedAnomaly
     RecommendationRelatedAnomaly (..),
     newRecommendationRelatedAnomaly,
     recommendationRelatedAnomaly_anomalyId,
-    recommendationRelatedAnomaly_sourceDetails,
     recommendationRelatedAnomaly_resources,
+    recommendationRelatedAnomaly_sourceDetails,
 
     -- * RecommendationRelatedAnomalyResource
     RecommendationRelatedAnomalyResource (..),
@@ -623,29 +623,29 @@ module Amazonka.DevOpsGuru.Types
     -- * ResourceCollection
     ResourceCollection (..),
     newResourceCollection,
-    resourceCollection_tags,
     resourceCollection_cloudFormation,
+    resourceCollection_tags,
 
     -- * ResourceCollectionFilter
     ResourceCollectionFilter (..),
     newResourceCollectionFilter,
-    resourceCollectionFilter_tags,
     resourceCollectionFilter_cloudFormation,
+    resourceCollectionFilter_tags,
 
     -- * SearchInsightsFilters
     SearchInsightsFilters (..),
     newSearchInsightsFilters,
-    searchInsightsFilters_severities,
     searchInsightsFilters_resourceCollection,
     searchInsightsFilters_serviceCollection,
+    searchInsightsFilters_severities,
     searchInsightsFilters_statuses,
 
     -- * SearchOrganizationInsightsFilters
     SearchOrganizationInsightsFilters (..),
     newSearchOrganizationInsightsFilters,
-    searchOrganizationInsightsFilters_severities,
     searchOrganizationInsightsFilters_resourceCollection,
     searchOrganizationInsightsFilters_serviceCollection,
+    searchOrganizationInsightsFilters_severities,
     searchOrganizationInsightsFilters_statuses,
 
     -- * ServiceCollection
@@ -656,30 +656,30 @@ module Amazonka.DevOpsGuru.Types
     -- * ServiceHealth
     ServiceHealth (..),
     newServiceHealth,
-    serviceHealth_insight,
     serviceHealth_analyzedResourceCount,
+    serviceHealth_insight,
     serviceHealth_serviceName,
 
     -- * ServiceInsightHealth
     ServiceInsightHealth (..),
     newServiceInsightHealth,
-    serviceInsightHealth_openReactiveInsights,
     serviceInsightHealth_openProactiveInsights,
+    serviceInsightHealth_openReactiveInsights,
 
     -- * ServiceIntegrationConfig
     ServiceIntegrationConfig (..),
     newServiceIntegrationConfig,
-    serviceIntegrationConfig_opsCenter,
     serviceIntegrationConfig_logsAnomalyDetection,
+    serviceIntegrationConfig_opsCenter,
 
     -- * ServiceResourceCost
     ServiceResourceCost (..),
     newServiceResourceCost,
-    serviceResourceCost_type,
-    serviceResourceCost_state,
-    serviceResourceCost_count,
-    serviceResourceCost_unitCost,
     serviceResourceCost_cost,
+    serviceResourceCost_count,
+    serviceResourceCost_state,
+    serviceResourceCost_type,
+    serviceResourceCost_unitCost,
 
     -- * SnsChannelConfig
     SnsChannelConfig (..),
@@ -689,8 +689,8 @@ module Amazonka.DevOpsGuru.Types
     -- * StartTimeRange
     StartTimeRange (..),
     newStartTimeRange,
-    startTimeRange_toTime,
     startTimeRange_fromTime,
+    startTimeRange_toTime,
 
     -- * TagCollection
     TagCollection (..),
@@ -713,10 +713,10 @@ module Amazonka.DevOpsGuru.Types
     -- * TagHealth
     TagHealth (..),
     newTagHealth,
-    tagHealth_insight,
-    tagHealth_tagValue,
     tagHealth_analyzedResourceCount,
     tagHealth_appBoundaryKey,
+    tagHealth_insight,
+    tagHealth_tagValue,
 
     -- * TimestampMetricValuePair
     TimestampMetricValuePair (..),
@@ -732,14 +732,14 @@ module Amazonka.DevOpsGuru.Types
     -- * UpdateResourceCollectionFilter
     UpdateResourceCollectionFilter (..),
     newUpdateResourceCollectionFilter,
-    updateResourceCollectionFilter_tags,
     updateResourceCollectionFilter_cloudFormation,
+    updateResourceCollectionFilter_tags,
 
     -- * UpdateServiceIntegrationConfig
     UpdateServiceIntegrationConfig (..),
     newUpdateServiceIntegrationConfig,
-    updateServiceIntegrationConfig_opsCenter,
     updateServiceIntegrationConfig_logsAnomalyDetection,
+    updateServiceIntegrationConfig_opsCenter,
 
     -- * UpdateTagCollectionFilter
     UpdateTagCollectionFilter (..),
@@ -891,28 +891,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -920,13 +914,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -934,6 +932,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permissions to perform the requested operation. The user
@@ -949,6 +949,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | An exception that is thrown when a conflict occurs.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | An internal failure in an Amazon service occurred.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -956,14 +964,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The request contains a value that exceeds a maximum quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | A requested resource could not be found
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -973,13 +973,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | An exception that is thrown when a conflict occurs.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request contains a value that exceeds a maximum quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to a request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

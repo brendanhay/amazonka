@@ -34,24 +34,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReactiveOrganizationInsightSummary' smart constructor.
 data ReactiveOrganizationInsightSummary = ReactiveOrganizationInsightSummary'
-  { -- | An array of severity values used to search for insights. For more
+  { -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the insight summary.
+    id :: Prelude.Maybe Prelude.Text,
+    insightTimeRange :: Prelude.Maybe InsightTimeRange,
+    -- | The name of the insight summary.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the organizational unit.
+    organizationalUnitId :: Prelude.Maybe Prelude.Text,
+    resourceCollection :: Prelude.Maybe ResourceCollection,
+    serviceCollection :: Prelude.Maybe ServiceCollection,
+    -- | An array of severity values used to search for insights. For more
     -- information, see
     -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
     -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe InsightSeverity,
-    -- | The name of the insight summary.
-    name :: Prelude.Maybe Prelude.Text,
-    resourceCollection :: Prelude.Maybe ResourceCollection,
-    serviceCollection :: Prelude.Maybe ServiceCollection,
     -- | An array of status values used to search for insights.
-    status :: Prelude.Maybe InsightStatus,
-    -- | The ID of the insight summary.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text,
-    insightTimeRange :: Prelude.Maybe InsightTimeRange,
-    -- | The ID of the organizational unit.
-    organizationalUnitId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe InsightStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,52 +63,61 @@ data ReactiveOrganizationInsightSummary = ReactiveOrganizationInsightSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'reactiveOrganizationInsightSummary_severity' - An array of severity values used to search for insights. For more
--- information, see
--- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
--- in the /Amazon DevOps Guru User Guide/.
+-- 'accountId', 'reactiveOrganizationInsightSummary_accountId' - The ID of the Amazon Web Services account.
+--
+-- 'id', 'reactiveOrganizationInsightSummary_id' - The ID of the insight summary.
+--
+-- 'insightTimeRange', 'reactiveOrganizationInsightSummary_insightTimeRange' - Undocumented member.
 --
 -- 'name', 'reactiveOrganizationInsightSummary_name' - The name of the insight summary.
+--
+-- 'organizationalUnitId', 'reactiveOrganizationInsightSummary_organizationalUnitId' - The ID of the organizational unit.
 --
 -- 'resourceCollection', 'reactiveOrganizationInsightSummary_resourceCollection' - Undocumented member.
 --
 -- 'serviceCollection', 'reactiveOrganizationInsightSummary_serviceCollection' - Undocumented member.
 --
+-- 'severity', 'reactiveOrganizationInsightSummary_severity' - An array of severity values used to search for insights. For more
+-- information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
+--
 -- 'status', 'reactiveOrganizationInsightSummary_status' - An array of status values used to search for insights.
---
--- 'id', 'reactiveOrganizationInsightSummary_id' - The ID of the insight summary.
---
--- 'accountId', 'reactiveOrganizationInsightSummary_accountId' - The ID of the Amazon Web Services account.
---
--- 'insightTimeRange', 'reactiveOrganizationInsightSummary_insightTimeRange' - Undocumented member.
---
--- 'organizationalUnitId', 'reactiveOrganizationInsightSummary_organizationalUnitId' - The ID of the organizational unit.
 newReactiveOrganizationInsightSummary ::
   ReactiveOrganizationInsightSummary
 newReactiveOrganizationInsightSummary =
   ReactiveOrganizationInsightSummary'
-    { severity =
+    { accountId =
         Prelude.Nothing,
+      id = Prelude.Nothing,
+      insightTimeRange = Prelude.Nothing,
       name = Prelude.Nothing,
+      organizationalUnitId = Prelude.Nothing,
       resourceCollection = Prelude.Nothing,
       serviceCollection = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      insightTimeRange = Prelude.Nothing,
-      organizationalUnitId = Prelude.Nothing
+      severity = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | An array of severity values used to search for insights. For more
--- information, see
--- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
--- in the /Amazon DevOps Guru User Guide/.
-reactiveOrganizationInsightSummary_severity :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe InsightSeverity)
-reactiveOrganizationInsightSummary_severity = Lens.lens (\ReactiveOrganizationInsightSummary' {severity} -> severity) (\s@ReactiveOrganizationInsightSummary' {} a -> s {severity = a} :: ReactiveOrganizationInsightSummary)
+-- | The ID of the Amazon Web Services account.
+reactiveOrganizationInsightSummary_accountId :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
+reactiveOrganizationInsightSummary_accountId = Lens.lens (\ReactiveOrganizationInsightSummary' {accountId} -> accountId) (\s@ReactiveOrganizationInsightSummary' {} a -> s {accountId = a} :: ReactiveOrganizationInsightSummary)
+
+-- | The ID of the insight summary.
+reactiveOrganizationInsightSummary_id :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
+reactiveOrganizationInsightSummary_id = Lens.lens (\ReactiveOrganizationInsightSummary' {id} -> id) (\s@ReactiveOrganizationInsightSummary' {} a -> s {id = a} :: ReactiveOrganizationInsightSummary)
+
+-- | Undocumented member.
+reactiveOrganizationInsightSummary_insightTimeRange :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe InsightTimeRange)
+reactiveOrganizationInsightSummary_insightTimeRange = Lens.lens (\ReactiveOrganizationInsightSummary' {insightTimeRange} -> insightTimeRange) (\s@ReactiveOrganizationInsightSummary' {} a -> s {insightTimeRange = a} :: ReactiveOrganizationInsightSummary)
 
 -- | The name of the insight summary.
 reactiveOrganizationInsightSummary_name :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
 reactiveOrganizationInsightSummary_name = Lens.lens (\ReactiveOrganizationInsightSummary' {name} -> name) (\s@ReactiveOrganizationInsightSummary' {} a -> s {name = a} :: ReactiveOrganizationInsightSummary)
+
+-- | The ID of the organizational unit.
+reactiveOrganizationInsightSummary_organizationalUnitId :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
+reactiveOrganizationInsightSummary_organizationalUnitId = Lens.lens (\ReactiveOrganizationInsightSummary' {organizationalUnitId} -> organizationalUnitId) (\s@ReactiveOrganizationInsightSummary' {} a -> s {organizationalUnitId = a} :: ReactiveOrganizationInsightSummary)
 
 -- | Undocumented member.
 reactiveOrganizationInsightSummary_resourceCollection :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe ResourceCollection)
@@ -118,25 +127,16 @@ reactiveOrganizationInsightSummary_resourceCollection = Lens.lens (\ReactiveOrga
 reactiveOrganizationInsightSummary_serviceCollection :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe ServiceCollection)
 reactiveOrganizationInsightSummary_serviceCollection = Lens.lens (\ReactiveOrganizationInsightSummary' {serviceCollection} -> serviceCollection) (\s@ReactiveOrganizationInsightSummary' {} a -> s {serviceCollection = a} :: ReactiveOrganizationInsightSummary)
 
+-- | An array of severity values used to search for insights. For more
+-- information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
+reactiveOrganizationInsightSummary_severity :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe InsightSeverity)
+reactiveOrganizationInsightSummary_severity = Lens.lens (\ReactiveOrganizationInsightSummary' {severity} -> severity) (\s@ReactiveOrganizationInsightSummary' {} a -> s {severity = a} :: ReactiveOrganizationInsightSummary)
+
 -- | An array of status values used to search for insights.
 reactiveOrganizationInsightSummary_status :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe InsightStatus)
 reactiveOrganizationInsightSummary_status = Lens.lens (\ReactiveOrganizationInsightSummary' {status} -> status) (\s@ReactiveOrganizationInsightSummary' {} a -> s {status = a} :: ReactiveOrganizationInsightSummary)
-
--- | The ID of the insight summary.
-reactiveOrganizationInsightSummary_id :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
-reactiveOrganizationInsightSummary_id = Lens.lens (\ReactiveOrganizationInsightSummary' {id} -> id) (\s@ReactiveOrganizationInsightSummary' {} a -> s {id = a} :: ReactiveOrganizationInsightSummary)
-
--- | The ID of the Amazon Web Services account.
-reactiveOrganizationInsightSummary_accountId :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
-reactiveOrganizationInsightSummary_accountId = Lens.lens (\ReactiveOrganizationInsightSummary' {accountId} -> accountId) (\s@ReactiveOrganizationInsightSummary' {} a -> s {accountId = a} :: ReactiveOrganizationInsightSummary)
-
--- | Undocumented member.
-reactiveOrganizationInsightSummary_insightTimeRange :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe InsightTimeRange)
-reactiveOrganizationInsightSummary_insightTimeRange = Lens.lens (\ReactiveOrganizationInsightSummary' {insightTimeRange} -> insightTimeRange) (\s@ReactiveOrganizationInsightSummary' {} a -> s {insightTimeRange = a} :: ReactiveOrganizationInsightSummary)
-
--- | The ID of the organizational unit.
-reactiveOrganizationInsightSummary_organizationalUnitId :: Lens.Lens' ReactiveOrganizationInsightSummary (Prelude.Maybe Prelude.Text)
-reactiveOrganizationInsightSummary_organizationalUnitId = Lens.lens (\ReactiveOrganizationInsightSummary' {organizationalUnitId} -> organizationalUnitId) (\s@ReactiveOrganizationInsightSummary' {} a -> s {organizationalUnitId = a} :: ReactiveOrganizationInsightSummary)
 
 instance
   Data.FromJSON
@@ -147,15 +147,15 @@ instance
       "ReactiveOrganizationInsightSummary"
       ( \x ->
           ReactiveOrganizationInsightSummary'
-            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "InsightTimeRange")
             Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OrganizationalUnitId")
             Prelude.<*> (x Data..:? "ResourceCollection")
             Prelude.<*> (x Data..:? "ServiceCollection")
+            Prelude.<*> (x Data..:? "Severity")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "AccountId")
-            Prelude.<*> (x Data..:? "InsightTimeRange")
-            Prelude.<*> (x Data..:? "OrganizationalUnitId")
       )
 
 instance
@@ -165,27 +165,27 @@ instance
   hashWithSalt
     _salt
     ReactiveOrganizationInsightSummary' {..} =
-      _salt `Prelude.hashWithSalt` severity
+      _salt `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` insightTimeRange
         `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` organizationalUnitId
         `Prelude.hashWithSalt` resourceCollection
         `Prelude.hashWithSalt` serviceCollection
+        `Prelude.hashWithSalt` severity
         `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` accountId
-        `Prelude.hashWithSalt` insightTimeRange
-        `Prelude.hashWithSalt` organizationalUnitId
 
 instance
   Prelude.NFData
     ReactiveOrganizationInsightSummary
   where
   rnf ReactiveOrganizationInsightSummary' {..} =
-    Prelude.rnf severity
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf insightTimeRange
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf organizationalUnitId
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf serviceCollection
+      `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf insightTimeRange
-      `Prelude.seq` Prelude.rnf organizationalUnitId

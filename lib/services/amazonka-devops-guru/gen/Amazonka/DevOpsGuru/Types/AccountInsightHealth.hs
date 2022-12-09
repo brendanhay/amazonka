@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountInsightHealth' smart constructor.
 data AccountInsightHealth = AccountInsightHealth'
-  { -- | An integer that specifies the number of open reactive insights in your
+  { -- | An integer that specifies the number of open proactive insights in your
     -- Amazon Web Services account.
-    openReactiveInsights :: Prelude.Maybe Prelude.Int,
-    -- | An integer that specifies the number of open proactive insights in your
+    openProactiveInsights :: Prelude.Maybe Prelude.Int,
+    -- | An integer that specifies the number of open reactive insights in your
     -- Amazon Web Services account.
-    openProactiveInsights :: Prelude.Maybe Prelude.Int
+    openReactiveInsights :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data AccountInsightHealth = AccountInsightHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openReactiveInsights', 'accountInsightHealth_openReactiveInsights' - An integer that specifies the number of open reactive insights in your
+-- 'openProactiveInsights', 'accountInsightHealth_openProactiveInsights' - An integer that specifies the number of open proactive insights in your
 -- Amazon Web Services account.
 --
--- 'openProactiveInsights', 'accountInsightHealth_openProactiveInsights' - An integer that specifies the number of open proactive insights in your
+-- 'openReactiveInsights', 'accountInsightHealth_openReactiveInsights' - An integer that specifies the number of open reactive insights in your
 -- Amazon Web Services account.
 newAccountInsightHealth ::
   AccountInsightHealth
 newAccountInsightHealth =
   AccountInsightHealth'
-    { openReactiveInsights =
+    { openProactiveInsights =
         Prelude.Nothing,
-      openProactiveInsights = Prelude.Nothing
+      openReactiveInsights = Prelude.Nothing
     }
-
--- | An integer that specifies the number of open reactive insights in your
--- Amazon Web Services account.
-accountInsightHealth_openReactiveInsights :: Lens.Lens' AccountInsightHealth (Prelude.Maybe Prelude.Int)
-accountInsightHealth_openReactiveInsights = Lens.lens (\AccountInsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@AccountInsightHealth' {} a -> s {openReactiveInsights = a} :: AccountInsightHealth)
 
 -- | An integer that specifies the number of open proactive insights in your
 -- Amazon Web Services account.
 accountInsightHealth_openProactiveInsights :: Lens.Lens' AccountInsightHealth (Prelude.Maybe Prelude.Int)
 accountInsightHealth_openProactiveInsights = Lens.lens (\AccountInsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@AccountInsightHealth' {} a -> s {openProactiveInsights = a} :: AccountInsightHealth)
+
+-- | An integer that specifies the number of open reactive insights in your
+-- Amazon Web Services account.
+accountInsightHealth_openReactiveInsights :: Lens.Lens' AccountInsightHealth (Prelude.Maybe Prelude.Int)
+accountInsightHealth_openReactiveInsights = Lens.lens (\AccountInsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@AccountInsightHealth' {} a -> s {openReactiveInsights = a} :: AccountInsightHealth)
 
 instance Data.FromJSON AccountInsightHealth where
   parseJSON =
@@ -76,16 +76,16 @@ instance Data.FromJSON AccountInsightHealth where
       "AccountInsightHealth"
       ( \x ->
           AccountInsightHealth'
-            Prelude.<$> (x Data..:? "OpenReactiveInsights")
-            Prelude.<*> (x Data..:? "OpenProactiveInsights")
+            Prelude.<$> (x Data..:? "OpenProactiveInsights")
+            Prelude.<*> (x Data..:? "OpenReactiveInsights")
       )
 
 instance Prelude.Hashable AccountInsightHealth where
   hashWithSalt _salt AccountInsightHealth' {..} =
-    _salt `Prelude.hashWithSalt` openReactiveInsights
-      `Prelude.hashWithSalt` openProactiveInsights
+    _salt `Prelude.hashWithSalt` openProactiveInsights
+      `Prelude.hashWithSalt` openReactiveInsights
 
 instance Prelude.NFData AccountInsightHealth where
   rnf AccountInsightHealth' {..} =
-    Prelude.rnf openReactiveInsights
-      `Prelude.seq` Prelude.rnf openProactiveInsights
+    Prelude.rnf openProactiveInsights
+      `Prelude.seq` Prelude.rnf openReactiveInsights

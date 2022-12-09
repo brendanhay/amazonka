@@ -31,7 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceCollectionFilter' smart constructor.
 data ResourceCollectionFilter = ResourceCollectionFilter'
-  { -- | The Amazon Web Services tags used to filter the resources in the
+  { -- | Information about Amazon Web Services CloudFormation stacks. You can use
+    -- up to 500 stacks to specify which Amazon Web Services resources in your
+    -- account to analyze. For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
+    -- in the /Amazon Web Services CloudFormation User Guide/.
+    cloudFormation :: Prelude.Maybe CloudFormationCollectionFilter,
+    -- | The Amazon Web Services tags used to filter the resources in the
     -- resource collection.
     --
     -- Tags help you identify and organize your Amazon Web Services resources.
@@ -65,13 +71,7 @@ data ResourceCollectionFilter = ResourceCollectionFilter'
     -- act as two different /keys/. Possible /key/\//value/ pairs in your
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
-    tags :: Prelude.Maybe [TagCollectionFilter],
-    -- | Information about Amazon Web Services CloudFormation stacks. You can use
-    -- up to 500 stacks to specify which Amazon Web Services resources in your
-    -- account to analyze. For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
-    -- in the /Amazon Web Services CloudFormation User Guide/.
-    cloudFormation :: Prelude.Maybe CloudFormationCollectionFilter
+    tags :: Prelude.Maybe [TagCollectionFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,12 @@ data ResourceCollectionFilter = ResourceCollectionFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cloudFormation', 'resourceCollectionFilter_cloudFormation' - Information about Amazon Web Services CloudFormation stacks. You can use
+-- up to 500 stacks to specify which Amazon Web Services resources in your
+-- account to analyze. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
+-- in the /Amazon Web Services CloudFormation User Guide/.
 --
 -- 'tags', 'resourceCollectionFilter_tags' - The Amazon Web Services tags used to filter the resources in the
 -- resource collection.
@@ -117,19 +123,22 @@ data ResourceCollectionFilter = ResourceCollectionFilter'
 -- act as two different /keys/. Possible /key/\//value/ pairs in your
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
---
--- 'cloudFormation', 'resourceCollectionFilter_cloudFormation' - Information about Amazon Web Services CloudFormation stacks. You can use
--- up to 500 stacks to specify which Amazon Web Services resources in your
--- account to analyze. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
--- in the /Amazon Web Services CloudFormation User Guide/.
 newResourceCollectionFilter ::
   ResourceCollectionFilter
 newResourceCollectionFilter =
   ResourceCollectionFilter'
-    { tags = Prelude.Nothing,
-      cloudFormation = Prelude.Nothing
+    { cloudFormation =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
+
+-- | Information about Amazon Web Services CloudFormation stacks. You can use
+-- up to 500 stacks to specify which Amazon Web Services resources in your
+-- account to analyze. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
+-- in the /Amazon Web Services CloudFormation User Guide/.
+resourceCollectionFilter_cloudFormation :: Lens.Lens' ResourceCollectionFilter (Prelude.Maybe CloudFormationCollectionFilter)
+resourceCollectionFilter_cloudFormation = Lens.lens (\ResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@ResourceCollectionFilter' {} a -> s {cloudFormation = a} :: ResourceCollectionFilter)
 
 -- | The Amazon Web Services tags used to filter the resources in the
 -- resource collection.
@@ -168,30 +177,22 @@ newResourceCollectionFilter =
 resourceCollectionFilter_tags :: Lens.Lens' ResourceCollectionFilter (Prelude.Maybe [TagCollectionFilter])
 resourceCollectionFilter_tags = Lens.lens (\ResourceCollectionFilter' {tags} -> tags) (\s@ResourceCollectionFilter' {} a -> s {tags = a} :: ResourceCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about Amazon Web Services CloudFormation stacks. You can use
--- up to 500 stacks to specify which Amazon Web Services resources in your
--- account to analyze. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
--- in the /Amazon Web Services CloudFormation User Guide/.
-resourceCollectionFilter_cloudFormation :: Lens.Lens' ResourceCollectionFilter (Prelude.Maybe CloudFormationCollectionFilter)
-resourceCollectionFilter_cloudFormation = Lens.lens (\ResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@ResourceCollectionFilter' {} a -> s {cloudFormation = a} :: ResourceCollectionFilter)
-
 instance Data.FromJSON ResourceCollectionFilter where
   parseJSON =
     Data.withObject
       "ResourceCollectionFilter"
       ( \x ->
           ResourceCollectionFilter'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CloudFormation")
+            Prelude.<$> (x Data..:? "CloudFormation")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResourceCollectionFilter where
   hashWithSalt _salt ResourceCollectionFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` cloudFormation
+    _salt `Prelude.hashWithSalt` cloudFormation
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceCollectionFilter where
   rnf ResourceCollectionFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cloudFormation
+    Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf tags

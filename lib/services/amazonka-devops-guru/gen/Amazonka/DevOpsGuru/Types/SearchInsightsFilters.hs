@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchInsightsFilters' smart constructor.
 data SearchInsightsFilters = SearchInsightsFilters'
-  { -- | An array of severity values used to search for insights.
-    severities :: Prelude.Maybe [InsightSeverity],
-    resourceCollection :: Prelude.Maybe ResourceCollection,
+  { resourceCollection :: Prelude.Maybe ResourceCollection,
     -- | A collection of the names of Amazon Web Services services.
     serviceCollection :: Prelude.Maybe ServiceCollection,
+    -- | An array of severity values used to search for insights.
+    severities :: Prelude.Maybe [InsightSeverity],
     -- | An array of status values used to search for insights.
     statuses :: Prelude.Maybe [InsightStatus]
   }
@@ -51,27 +51,23 @@ data SearchInsightsFilters = SearchInsightsFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severities', 'searchInsightsFilters_severities' - An array of severity values used to search for insights.
---
 -- 'resourceCollection', 'searchInsightsFilters_resourceCollection' - Undocumented member.
 --
 -- 'serviceCollection', 'searchInsightsFilters_serviceCollection' - A collection of the names of Amazon Web Services services.
+--
+-- 'severities', 'searchInsightsFilters_severities' - An array of severity values used to search for insights.
 --
 -- 'statuses', 'searchInsightsFilters_statuses' - An array of status values used to search for insights.
 newSearchInsightsFilters ::
   SearchInsightsFilters
 newSearchInsightsFilters =
   SearchInsightsFilters'
-    { severities =
+    { resourceCollection =
         Prelude.Nothing,
-      resourceCollection = Prelude.Nothing,
       serviceCollection = Prelude.Nothing,
+      severities = Prelude.Nothing,
       statuses = Prelude.Nothing
     }
-
--- | An array of severity values used to search for insights.
-searchInsightsFilters_severities :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe [InsightSeverity])
-searchInsightsFilters_severities = Lens.lens (\SearchInsightsFilters' {severities} -> severities) (\s@SearchInsightsFilters' {} a -> s {severities = a} :: SearchInsightsFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 searchInsightsFilters_resourceCollection :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe ResourceCollection)
@@ -81,33 +77,37 @@ searchInsightsFilters_resourceCollection = Lens.lens (\SearchInsightsFilters' {r
 searchInsightsFilters_serviceCollection :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe ServiceCollection)
 searchInsightsFilters_serviceCollection = Lens.lens (\SearchInsightsFilters' {serviceCollection} -> serviceCollection) (\s@SearchInsightsFilters' {} a -> s {serviceCollection = a} :: SearchInsightsFilters)
 
+-- | An array of severity values used to search for insights.
+searchInsightsFilters_severities :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe [InsightSeverity])
+searchInsightsFilters_severities = Lens.lens (\SearchInsightsFilters' {severities} -> severities) (\s@SearchInsightsFilters' {} a -> s {severities = a} :: SearchInsightsFilters) Prelude.. Lens.mapping Lens.coerced
+
 -- | An array of status values used to search for insights.
 searchInsightsFilters_statuses :: Lens.Lens' SearchInsightsFilters (Prelude.Maybe [InsightStatus])
 searchInsightsFilters_statuses = Lens.lens (\SearchInsightsFilters' {statuses} -> statuses) (\s@SearchInsightsFilters' {} a -> s {statuses = a} :: SearchInsightsFilters) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable SearchInsightsFilters where
   hashWithSalt _salt SearchInsightsFilters' {..} =
-    _salt `Prelude.hashWithSalt` severities
-      `Prelude.hashWithSalt` resourceCollection
+    _salt `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` serviceCollection
+      `Prelude.hashWithSalt` severities
       `Prelude.hashWithSalt` statuses
 
 instance Prelude.NFData SearchInsightsFilters where
   rnf SearchInsightsFilters' {..} =
-    Prelude.rnf severities
-      `Prelude.seq` Prelude.rnf resourceCollection
+    Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf serviceCollection
+      `Prelude.seq` Prelude.rnf severities
       `Prelude.seq` Prelude.rnf statuses
 
 instance Data.ToJSON SearchInsightsFilters where
   toJSON SearchInsightsFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Severities" Data..=) Prelude.<$> severities,
-            ("ResourceCollection" Data..=)
+          [ ("ResourceCollection" Data..=)
               Prelude.<$> resourceCollection,
             ("ServiceCollection" Data..=)
               Prelude.<$> serviceCollection,
+            ("Severities" Data..=) Prelude.<$> severities,
             ("Statuses" Data..=) Prelude.<$> statuses
           ]
       )

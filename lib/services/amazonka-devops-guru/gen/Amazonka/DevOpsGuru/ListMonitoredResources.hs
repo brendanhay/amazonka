@@ -30,9 +30,9 @@ module Amazonka.DevOpsGuru.ListMonitoredResources
     newListMonitoredResources,
 
     -- * Request Lenses
-    listMonitoredResources_nextToken,
     listMonitoredResources_filters,
     listMonitoredResources_maxResults,
+    listMonitoredResources_nextToken,
 
     -- * Destructuring the Response
     ListMonitoredResourcesResponse (..),
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMonitoredResources' smart constructor.
 data ListMonitoredResources = ListMonitoredResources'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to determine which monitored resources you want to retrieve. You
+  { -- | Filters to determine which monitored resources you want to retrieve. You
     -- can filter by resource type or resource permission status.
     filters :: Prelude.Maybe ListMonitoredResourcesFilters,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,29 +76,23 @@ data ListMonitoredResources = ListMonitoredResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMonitoredResources_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
---
 -- 'filters', 'listMonitoredResources_filters' - Filters to determine which monitored resources you want to retrieve. You
 -- can filter by resource type or resource permission status.
 --
 -- 'maxResults', 'listMonitoredResources_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listMonitoredResources_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 newListMonitoredResources ::
   ListMonitoredResources
 newListMonitoredResources =
   ListMonitoredResources'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-listMonitoredResources_nextToken :: Lens.Lens' ListMonitoredResources (Prelude.Maybe Prelude.Text)
-listMonitoredResources_nextToken = Lens.lens (\ListMonitoredResources' {nextToken} -> nextToken) (\s@ListMonitoredResources' {} a -> s {nextToken = a} :: ListMonitoredResources)
 
 -- | Filters to determine which monitored resources you want to retrieve. You
 -- can filter by resource type or resource permission status.
@@ -110,6 +104,11 @@ listMonitoredResources_filters = Lens.lens (\ListMonitoredResources' {filters} -
 -- value.
 listMonitoredResources_maxResults :: Lens.Lens' ListMonitoredResources (Prelude.Maybe Prelude.Natural)
 listMonitoredResources_maxResults = Lens.lens (\ListMonitoredResources' {maxResults} -> maxResults) (\s@ListMonitoredResources' {} a -> s {maxResults = a} :: ListMonitoredResources)
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+listMonitoredResources_nextToken :: Lens.Lens' ListMonitoredResources (Prelude.Maybe Prelude.Text)
+listMonitoredResources_nextToken = Lens.lens (\ListMonitoredResources' {nextToken} -> nextToken) (\s@ListMonitoredResources' {} a -> s {nextToken = a} :: ListMonitoredResources)
 
 instance Core.AWSPager ListMonitoredResources where
   page rq rs
@@ -151,15 +150,15 @@ instance Core.AWSRequest ListMonitoredResources where
 
 instance Prelude.Hashable ListMonitoredResources where
   hashWithSalt _salt ListMonitoredResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMonitoredResources where
   rnf ListMonitoredResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMonitoredResources where
   toHeaders =
@@ -176,9 +175,9 @@ instance Data.ToJSON ListMonitoredResources where
   toJSON ListMonitoredResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

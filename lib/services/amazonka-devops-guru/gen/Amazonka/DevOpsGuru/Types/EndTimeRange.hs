@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndTimeRange' smart constructor.
 data EndTimeRange = EndTimeRange'
-  { -- | The latest end time in the time range.
-    toTime :: Prelude.Maybe Data.POSIX,
-    -- | The earliest end time in the time range.
-    fromTime :: Prelude.Maybe Data.POSIX
+  { -- | The earliest end time in the time range.
+    fromTime :: Prelude.Maybe Data.POSIX,
+    -- | The latest end time in the time range.
+    toTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data EndTimeRange = EndTimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toTime', 'endTimeRange_toTime' - The latest end time in the time range.
---
 -- 'fromTime', 'endTimeRange_fromTime' - The earliest end time in the time range.
+--
+-- 'toTime', 'endTimeRange_toTime' - The latest end time in the time range.
 newEndTimeRange ::
   EndTimeRange
 newEndTimeRange =
   EndTimeRange'
-    { toTime = Prelude.Nothing,
-      fromTime = Prelude.Nothing
+    { fromTime = Prelude.Nothing,
+      toTime = Prelude.Nothing
     }
-
--- | The latest end time in the time range.
-endTimeRange_toTime :: Lens.Lens' EndTimeRange (Prelude.Maybe Prelude.UTCTime)
-endTimeRange_toTime = Lens.lens (\EndTimeRange' {toTime} -> toTime) (\s@EndTimeRange' {} a -> s {toTime = a} :: EndTimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The earliest end time in the time range.
 endTimeRange_fromTime :: Lens.Lens' EndTimeRange (Prelude.Maybe Prelude.UTCTime)
 endTimeRange_fromTime = Lens.lens (\EndTimeRange' {fromTime} -> fromTime) (\s@EndTimeRange' {} a -> s {fromTime = a} :: EndTimeRange) Prelude.. Lens.mapping Data._Time
 
+-- | The latest end time in the time range.
+endTimeRange_toTime :: Lens.Lens' EndTimeRange (Prelude.Maybe Prelude.UTCTime)
+endTimeRange_toTime = Lens.lens (\EndTimeRange' {toTime} -> toTime) (\s@EndTimeRange' {} a -> s {toTime = a} :: EndTimeRange) Prelude.. Lens.mapping Data._Time
+
 instance Prelude.Hashable EndTimeRange where
   hashWithSalt _salt EndTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` toTime
-      `Prelude.hashWithSalt` fromTime
+    _salt `Prelude.hashWithSalt` fromTime
+      `Prelude.hashWithSalt` toTime
 
 instance Prelude.NFData EndTimeRange where
   rnf EndTimeRange' {..} =
-    Prelude.rnf toTime
-      `Prelude.seq` Prelude.rnf fromTime
+    Prelude.rnf fromTime
+      `Prelude.seq` Prelude.rnf toTime
 
 instance Data.ToJSON EndTimeRange where
   toJSON EndTimeRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ToTime" Data..=) Prelude.<$> toTime,
-            ("FromTime" Data..=) Prelude.<$> fromTime
+          [ ("FromTime" Data..=) Prelude.<$> fromTime,
+            ("ToTime" Data..=) Prelude.<$> toTime
           ]
       )

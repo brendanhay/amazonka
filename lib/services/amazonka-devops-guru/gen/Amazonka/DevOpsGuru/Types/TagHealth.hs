@@ -30,21 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagHealth' smart constructor.
 data TagHealth = TagHealth'
-  { -- | Information about the health of the Amazon Web Services resources in
-    -- your account that are specified by an Amazon Web Services tag, including
-    -- the number of open proactive, open reactive insights, and the Mean Time
-    -- to Recover (MTTR) of closed insights.
-    insight :: Prelude.Maybe InsightHealth,
-    -- | The value in an Amazon Web Services tag.
-    --
-    -- The tag\'s /value/ is an optional field used to associate a string with
-    -- the tag /key/ (for example, @111122223333@, @Production@, or a team
-    -- name). The /key/ and /value/ are the tag\'s /key/ pair. Omitting the tag
-    -- /value/ is the same as using an empty string. Like tag /keys/, tag
-    -- /values/ are case-sensitive. You can specify a maximum of 256 characters
-    -- for a tag value.
-    tagValue :: Prelude.Maybe Prelude.Text,
-    -- | Number of resources that DevOps Guru is monitoring in your account that
+  { -- | Number of resources that DevOps Guru is monitoring in your account that
     -- are specified by an Amazon Web Services tag.
     analyzedResourceCount :: Prelude.Maybe Prelude.Integer,
     -- | An Amazon Web Services tag /key/ that is used to identify the Amazon Web
@@ -62,7 +48,21 @@ data TagHealth = TagHealth'
     -- act as two different /keys/. Possible /key/\//value/ pairs in your
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
-    appBoundaryKey :: Prelude.Maybe Prelude.Text
+    appBoundaryKey :: Prelude.Maybe Prelude.Text,
+    -- | Information about the health of the Amazon Web Services resources in
+    -- your account that are specified by an Amazon Web Services tag, including
+    -- the number of open proactive, open reactive insights, and the Mean Time
+    -- to Recover (MTTR) of closed insights.
+    insight :: Prelude.Maybe InsightHealth,
+    -- | The value in an Amazon Web Services tag.
+    --
+    -- The tag\'s /value/ is an optional field used to associate a string with
+    -- the tag /key/ (for example, @111122223333@, @Production@, or a team
+    -- name). The /key/ and /value/ are the tag\'s /key/ pair. Omitting the tag
+    -- /value/ is the same as using an empty string. Like tag /keys/, tag
+    -- /values/ are case-sensitive. You can specify a maximum of 256 characters
+    -- for a tag value.
+    tagValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,6 @@ data TagHealth = TagHealth'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'insight', 'tagHealth_insight' - Information about the health of the Amazon Web Services resources in
--- your account that are specified by an Amazon Web Services tag, including
--- the number of open proactive, open reactive insights, and the Mean Time
--- to Recover (MTTR) of closed insights.
---
--- 'tagValue', 'tagHealth_tagValue' - The value in an Amazon Web Services tag.
---
--- The tag\'s /value/ is an optional field used to associate a string with
--- the tag /key/ (for example, @111122223333@, @Production@, or a team
--- name). The /key/ and /value/ are the tag\'s /key/ pair. Omitting the tag
--- /value/ is the same as using an empty string. Like tag /keys/, tag
--- /values/ are case-sensitive. You can specify a maximum of 256 characters
--- for a tag value.
 --
 -- 'analyzedResourceCount', 'tagHealth_analyzedResourceCount' - Number of resources that DevOps Guru is monitoring in your account that
 -- are specified by an Amazon Web Services tag.
@@ -106,24 +92,13 @@ data TagHealth = TagHealth'
 -- act as two different /keys/. Possible /key/\//value/ pairs in your
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
-newTagHealth ::
-  TagHealth
-newTagHealth =
-  TagHealth'
-    { insight = Prelude.Nothing,
-      tagValue = Prelude.Nothing,
-      analyzedResourceCount = Prelude.Nothing,
-      appBoundaryKey = Prelude.Nothing
-    }
-
--- | Information about the health of the Amazon Web Services resources in
+--
+-- 'insight', 'tagHealth_insight' - Information about the health of the Amazon Web Services resources in
 -- your account that are specified by an Amazon Web Services tag, including
 -- the number of open proactive, open reactive insights, and the Mean Time
 -- to Recover (MTTR) of closed insights.
-tagHealth_insight :: Lens.Lens' TagHealth (Prelude.Maybe InsightHealth)
-tagHealth_insight = Lens.lens (\TagHealth' {insight} -> insight) (\s@TagHealth' {} a -> s {insight = a} :: TagHealth)
-
--- | The value in an Amazon Web Services tag.
+--
+-- 'tagValue', 'tagHealth_tagValue' - The value in an Amazon Web Services tag.
 --
 -- The tag\'s /value/ is an optional field used to associate a string with
 -- the tag /key/ (for example, @111122223333@, @Production@, or a team
@@ -131,8 +106,15 @@ tagHealth_insight = Lens.lens (\TagHealth' {insight} -> insight) (\s@TagHealth' 
 -- /value/ is the same as using an empty string. Like tag /keys/, tag
 -- /values/ are case-sensitive. You can specify a maximum of 256 characters
 -- for a tag value.
-tagHealth_tagValue :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
-tagHealth_tagValue = Lens.lens (\TagHealth' {tagValue} -> tagValue) (\s@TagHealth' {} a -> s {tagValue = a} :: TagHealth)
+newTagHealth ::
+  TagHealth
+newTagHealth =
+  TagHealth'
+    { analyzedResourceCount = Prelude.Nothing,
+      appBoundaryKey = Prelude.Nothing,
+      insight = Prelude.Nothing,
+      tagValue = Prelude.Nothing
+    }
 
 -- | Number of resources that DevOps Guru is monitoring in your account that
 -- are specified by an Amazon Web Services tag.
@@ -157,28 +139,46 @@ tagHealth_analyzedResourceCount = Lens.lens (\TagHealth' {analyzedResourceCount}
 tagHealth_appBoundaryKey :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
 tagHealth_appBoundaryKey = Lens.lens (\TagHealth' {appBoundaryKey} -> appBoundaryKey) (\s@TagHealth' {} a -> s {appBoundaryKey = a} :: TagHealth)
 
+-- | Information about the health of the Amazon Web Services resources in
+-- your account that are specified by an Amazon Web Services tag, including
+-- the number of open proactive, open reactive insights, and the Mean Time
+-- to Recover (MTTR) of closed insights.
+tagHealth_insight :: Lens.Lens' TagHealth (Prelude.Maybe InsightHealth)
+tagHealth_insight = Lens.lens (\TagHealth' {insight} -> insight) (\s@TagHealth' {} a -> s {insight = a} :: TagHealth)
+
+-- | The value in an Amazon Web Services tag.
+--
+-- The tag\'s /value/ is an optional field used to associate a string with
+-- the tag /key/ (for example, @111122223333@, @Production@, or a team
+-- name). The /key/ and /value/ are the tag\'s /key/ pair. Omitting the tag
+-- /value/ is the same as using an empty string. Like tag /keys/, tag
+-- /values/ are case-sensitive. You can specify a maximum of 256 characters
+-- for a tag value.
+tagHealth_tagValue :: Lens.Lens' TagHealth (Prelude.Maybe Prelude.Text)
+tagHealth_tagValue = Lens.lens (\TagHealth' {tagValue} -> tagValue) (\s@TagHealth' {} a -> s {tagValue = a} :: TagHealth)
+
 instance Data.FromJSON TagHealth where
   parseJSON =
     Data.withObject
       "TagHealth"
       ( \x ->
           TagHealth'
-            Prelude.<$> (x Data..:? "Insight")
-            Prelude.<*> (x Data..:? "TagValue")
-            Prelude.<*> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<$> (x Data..:? "AnalyzedResourceCount")
             Prelude.<*> (x Data..:? "AppBoundaryKey")
+            Prelude.<*> (x Data..:? "Insight")
+            Prelude.<*> (x Data..:? "TagValue")
       )
 
 instance Prelude.Hashable TagHealth where
   hashWithSalt _salt TagHealth' {..} =
-    _salt `Prelude.hashWithSalt` insight
-      `Prelude.hashWithSalt` tagValue
-      `Prelude.hashWithSalt` analyzedResourceCount
+    _salt `Prelude.hashWithSalt` analyzedResourceCount
       `Prelude.hashWithSalt` appBoundaryKey
+      `Prelude.hashWithSalt` insight
+      `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData TagHealth where
   rnf TagHealth' {..} =
-    Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf tagValue
-      `Prelude.seq` Prelude.rnf analyzedResourceCount
+    Prelude.rnf analyzedResourceCount
       `Prelude.seq` Prelude.rnf appBoundaryKey
+      `Prelude.seq` Prelude.rnf insight
+      `Prelude.seq` Prelude.rnf tagValue

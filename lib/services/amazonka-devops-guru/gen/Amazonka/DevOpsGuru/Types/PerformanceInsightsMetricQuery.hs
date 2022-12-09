@@ -50,14 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPerformanceInsightsMetricQuery' smart constructor.
 data PerformanceInsightsMetricQuery = PerformanceInsightsMetricQuery'
-  { -- | The specification for how to aggregate the data points from a
-    -- Performance Insights @GetResourceMetrics@ API query. The Performance
-    -- Insights query returns all of the dimensions within that group, unless
-    -- you provide the names of specific dimensions within that group. You can
-    -- also request that Performance Insights return a limited number of values
-    -- for a dimension.
-    groupBy :: Prelude.Maybe PerformanceInsightsMetricDimensionGroup,
-    -- | One or more filters to apply to a Performance Insights
+  { -- | One or more filters to apply to a Performance Insights
     -- @GetResourceMetrics@ API query. Restrictions:
     --
     -- -   Any number of filters by the same dimension, as specified in the
@@ -65,6 +58,13 @@ data PerformanceInsightsMetricQuery = PerformanceInsightsMetricQuery'
     --
     -- -   A single filter for any other dimension in this dimension group.
     filter' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The specification for how to aggregate the data points from a
+    -- Performance Insights @GetResourceMetrics@ API query. The Performance
+    -- Insights query returns all of the dimensions within that group, unless
+    -- you provide the names of specific dimensions within that group. You can
+    -- also request that Performance Insights return a limited number of values
+    -- for a dimension.
+    groupBy :: Prelude.Maybe PerformanceInsightsMetricDimensionGroup,
     -- | The name of the meteric used used when querying an Performance Insights
     -- @GetResourceMetrics@ API for anomaly metrics.
     --
@@ -95,13 +95,6 @@ data PerformanceInsightsMetricQuery = PerformanceInsightsMetricQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupBy', 'performanceInsightsMetricQuery_groupBy' - The specification for how to aggregate the data points from a
--- Performance Insights @GetResourceMetrics@ API query. The Performance
--- Insights query returns all of the dimensions within that group, unless
--- you provide the names of specific dimensions within that group. You can
--- also request that Performance Insights return a limited number of values
--- for a dimension.
---
 -- 'filter'', 'performanceInsightsMetricQuery_filter' - One or more filters to apply to a Performance Insights
 -- @GetResourceMetrics@ API query. Restrictions:
 --
@@ -109,6 +102,13 @@ data PerformanceInsightsMetricQuery = PerformanceInsightsMetricQuery'
 --     @GroupBy@ parameter.
 --
 -- -   A single filter for any other dimension in this dimension group.
+--
+-- 'groupBy', 'performanceInsightsMetricQuery_groupBy' - The specification for how to aggregate the data points from a
+-- Performance Insights @GetResourceMetrics@ API query. The Performance
+-- Insights query returns all of the dimensions within that group, unless
+-- you provide the names of specific dimensions within that group. You can
+-- also request that Performance Insights return a limited number of values
+-- for a dimension.
 --
 -- 'metric', 'performanceInsightsMetricQuery_metric' - The name of the meteric used used when querying an Performance Insights
 -- @GetResourceMetrics@ API for anomaly metrics.
@@ -132,20 +132,11 @@ newPerformanceInsightsMetricQuery ::
   PerformanceInsightsMetricQuery
 newPerformanceInsightsMetricQuery =
   PerformanceInsightsMetricQuery'
-    { groupBy =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
+      groupBy = Prelude.Nothing,
       metric = Prelude.Nothing
     }
-
--- | The specification for how to aggregate the data points from a
--- Performance Insights @GetResourceMetrics@ API query. The Performance
--- Insights query returns all of the dimensions within that group, unless
--- you provide the names of specific dimensions within that group. You can
--- also request that Performance Insights return a limited number of values
--- for a dimension.
-performanceInsightsMetricQuery_groupBy :: Lens.Lens' PerformanceInsightsMetricQuery (Prelude.Maybe PerformanceInsightsMetricDimensionGroup)
-performanceInsightsMetricQuery_groupBy = Lens.lens (\PerformanceInsightsMetricQuery' {groupBy} -> groupBy) (\s@PerformanceInsightsMetricQuery' {} a -> s {groupBy = a} :: PerformanceInsightsMetricQuery)
 
 -- | One or more filters to apply to a Performance Insights
 -- @GetResourceMetrics@ API query. Restrictions:
@@ -156,6 +147,15 @@ performanceInsightsMetricQuery_groupBy = Lens.lens (\PerformanceInsightsMetricQu
 -- -   A single filter for any other dimension in this dimension group.
 performanceInsightsMetricQuery_filter :: Lens.Lens' PerformanceInsightsMetricQuery (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 performanceInsightsMetricQuery_filter = Lens.lens (\PerformanceInsightsMetricQuery' {filter'} -> filter') (\s@PerformanceInsightsMetricQuery' {} a -> s {filter' = a} :: PerformanceInsightsMetricQuery) Prelude.. Lens.mapping Lens.coerced
+
+-- | The specification for how to aggregate the data points from a
+-- Performance Insights @GetResourceMetrics@ API query. The Performance
+-- Insights query returns all of the dimensions within that group, unless
+-- you provide the names of specific dimensions within that group. You can
+-- also request that Performance Insights return a limited number of values
+-- for a dimension.
+performanceInsightsMetricQuery_groupBy :: Lens.Lens' PerformanceInsightsMetricQuery (Prelude.Maybe PerformanceInsightsMetricDimensionGroup)
+performanceInsightsMetricQuery_groupBy = Lens.lens (\PerformanceInsightsMetricQuery' {groupBy} -> groupBy) (\s@PerformanceInsightsMetricQuery' {} a -> s {groupBy = a} :: PerformanceInsightsMetricQuery)
 
 -- | The name of the meteric used used when querying an Performance Insights
 -- @GetResourceMetrics@ API for anomaly metrics.
@@ -184,8 +184,8 @@ instance Data.FromJSON PerformanceInsightsMetricQuery where
       "PerformanceInsightsMetricQuery"
       ( \x ->
           PerformanceInsightsMetricQuery'
-            Prelude.<$> (x Data..:? "GroupBy")
-            Prelude.<*> (x Data..:? "Filter" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Filter" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "GroupBy")
             Prelude.<*> (x Data..:? "Metric")
       )
 
@@ -196,8 +196,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsMetricQuery' {..} =
-      _salt `Prelude.hashWithSalt` groupBy
-        `Prelude.hashWithSalt` filter'
+      _salt `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` groupBy
         `Prelude.hashWithSalt` metric
 
 instance
@@ -205,6 +205,6 @@ instance
     PerformanceInsightsMetricQuery
   where
   rnf PerformanceInsightsMetricQuery' {..} =
-    Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf groupBy
       `Prelude.seq` Prelude.rnf metric

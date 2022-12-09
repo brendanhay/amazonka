@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudFormationHealth' smart constructor.
 data CloudFormationHealth = CloudFormationHealth'
-  { -- | Information about the health of the Amazon Web Services resources in
+  { -- | Number of resources that DevOps Guru is monitoring in your account that
+    -- are specified by an Amazon Web Services CloudFormation stack.
+    analyzedResourceCount :: Prelude.Maybe Prelude.Integer,
+    -- | Information about the health of the Amazon Web Services resources in
     -- your account that are specified by an Amazon Web Services CloudFormation
     -- stack, including the number of open proactive, open reactive insights,
     -- and the Mean Time to Recover (MTTR) of closed insights.
     insight :: Prelude.Maybe InsightHealth,
-    -- | Number of resources that DevOps Guru is monitoring in your account that
-    -- are specified by an Amazon Web Services CloudFormation stack.
-    analyzedResourceCount :: Prelude.Maybe Prelude.Integer,
     -- | The name of the CloudFormation stack.
     stackName :: Prelude.Maybe Prelude.Text
   }
@@ -52,23 +52,29 @@ data CloudFormationHealth = CloudFormationHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'analyzedResourceCount', 'cloudFormationHealth_analyzedResourceCount' - Number of resources that DevOps Guru is monitoring in your account that
+-- are specified by an Amazon Web Services CloudFormation stack.
+--
 -- 'insight', 'cloudFormationHealth_insight' - Information about the health of the Amazon Web Services resources in
 -- your account that are specified by an Amazon Web Services CloudFormation
 -- stack, including the number of open proactive, open reactive insights,
 -- and the Mean Time to Recover (MTTR) of closed insights.
---
--- 'analyzedResourceCount', 'cloudFormationHealth_analyzedResourceCount' - Number of resources that DevOps Guru is monitoring in your account that
--- are specified by an Amazon Web Services CloudFormation stack.
 --
 -- 'stackName', 'cloudFormationHealth_stackName' - The name of the CloudFormation stack.
 newCloudFormationHealth ::
   CloudFormationHealth
 newCloudFormationHealth =
   CloudFormationHealth'
-    { insight = Prelude.Nothing,
-      analyzedResourceCount = Prelude.Nothing,
+    { analyzedResourceCount =
+        Prelude.Nothing,
+      insight = Prelude.Nothing,
       stackName = Prelude.Nothing
     }
+
+-- | Number of resources that DevOps Guru is monitoring in your account that
+-- are specified by an Amazon Web Services CloudFormation stack.
+cloudFormationHealth_analyzedResourceCount :: Lens.Lens' CloudFormationHealth (Prelude.Maybe Prelude.Integer)
+cloudFormationHealth_analyzedResourceCount = Lens.lens (\CloudFormationHealth' {analyzedResourceCount} -> analyzedResourceCount) (\s@CloudFormationHealth' {} a -> s {analyzedResourceCount = a} :: CloudFormationHealth)
 
 -- | Information about the health of the Amazon Web Services resources in
 -- your account that are specified by an Amazon Web Services CloudFormation
@@ -76,11 +82,6 @@ newCloudFormationHealth =
 -- and the Mean Time to Recover (MTTR) of closed insights.
 cloudFormationHealth_insight :: Lens.Lens' CloudFormationHealth (Prelude.Maybe InsightHealth)
 cloudFormationHealth_insight = Lens.lens (\CloudFormationHealth' {insight} -> insight) (\s@CloudFormationHealth' {} a -> s {insight = a} :: CloudFormationHealth)
-
--- | Number of resources that DevOps Guru is monitoring in your account that
--- are specified by an Amazon Web Services CloudFormation stack.
-cloudFormationHealth_analyzedResourceCount :: Lens.Lens' CloudFormationHealth (Prelude.Maybe Prelude.Integer)
-cloudFormationHealth_analyzedResourceCount = Lens.lens (\CloudFormationHealth' {analyzedResourceCount} -> analyzedResourceCount) (\s@CloudFormationHealth' {} a -> s {analyzedResourceCount = a} :: CloudFormationHealth)
 
 -- | The name of the CloudFormation stack.
 cloudFormationHealth_stackName :: Lens.Lens' CloudFormationHealth (Prelude.Maybe Prelude.Text)
@@ -92,19 +93,19 @@ instance Data.FromJSON CloudFormationHealth where
       "CloudFormationHealth"
       ( \x ->
           CloudFormationHealth'
-            Prelude.<$> (x Data..:? "Insight")
-            Prelude.<*> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<$> (x Data..:? "AnalyzedResourceCount")
+            Prelude.<*> (x Data..:? "Insight")
             Prelude.<*> (x Data..:? "StackName")
       )
 
 instance Prelude.Hashable CloudFormationHealth where
   hashWithSalt _salt CloudFormationHealth' {..} =
-    _salt `Prelude.hashWithSalt` insight
-      `Prelude.hashWithSalt` analyzedResourceCount
+    _salt `Prelude.hashWithSalt` analyzedResourceCount
+      `Prelude.hashWithSalt` insight
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData CloudFormationHealth where
   rnf CloudFormationHealth' {..} =
-    Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf analyzedResourceCount
+    Prelude.rnf analyzedResourceCount
+      `Prelude.seq` Prelude.rnf insight
       `Prelude.seq` Prelude.rnf stackName

@@ -35,8 +35,8 @@ module Amazonka.DevOpsGuru.DescribeAnomaly
     newDescribeAnomalyResponse,
 
     -- * Response Lenses
-    describeAnomalyResponse_reactiveAnomaly,
     describeAnomalyResponse_proactiveAnomaly,
+    describeAnomalyResponse_reactiveAnomaly,
     describeAnomalyResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance Core.AWSRequest DescribeAnomaly where
     Response.receiveJSON
       ( \s h x ->
           DescribeAnomalyResponse'
-            Prelude.<$> (x Data..?> "ReactiveAnomaly")
-            Prelude.<*> (x Data..?> "ProactiveAnomaly")
+            Prelude.<$> (x Data..?> "ProactiveAnomaly")
+            Prelude.<*> (x Data..?> "ReactiveAnomaly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,10 +132,10 @@ instance Data.ToQuery DescribeAnomaly where
 
 -- | /See:/ 'newDescribeAnomalyResponse' smart constructor.
 data DescribeAnomalyResponse = DescribeAnomalyResponse'
-  { -- | A @ReactiveAnomaly@ object that represents the requested anomaly.
-    reactiveAnomaly :: Prelude.Maybe ReactiveAnomaly,
-    -- | A @ProactiveAnomaly@ object that represents the requested anomaly.
+  { -- | A @ProactiveAnomaly@ object that represents the requested anomaly.
     proactiveAnomaly :: Prelude.Maybe ProactiveAnomaly,
+    -- | A @ReactiveAnomaly@ object that represents the requested anomaly.
+    reactiveAnomaly :: Prelude.Maybe ReactiveAnomaly,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,9 +149,9 @@ data DescribeAnomalyResponse = DescribeAnomalyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reactiveAnomaly', 'describeAnomalyResponse_reactiveAnomaly' - A @ReactiveAnomaly@ object that represents the requested anomaly.
---
 -- 'proactiveAnomaly', 'describeAnomalyResponse_proactiveAnomaly' - A @ProactiveAnomaly@ object that represents the requested anomaly.
+--
+-- 'reactiveAnomaly', 'describeAnomalyResponse_reactiveAnomaly' - A @ReactiveAnomaly@ object that represents the requested anomaly.
 --
 -- 'httpStatus', 'describeAnomalyResponse_httpStatus' - The response's http status code.
 newDescribeAnomalyResponse ::
@@ -160,19 +160,19 @@ newDescribeAnomalyResponse ::
   DescribeAnomalyResponse
 newDescribeAnomalyResponse pHttpStatus_ =
   DescribeAnomalyResponse'
-    { reactiveAnomaly =
+    { proactiveAnomaly =
         Prelude.Nothing,
-      proactiveAnomaly = Prelude.Nothing,
+      reactiveAnomaly = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A @ReactiveAnomaly@ object that represents the requested anomaly.
-describeAnomalyResponse_reactiveAnomaly :: Lens.Lens' DescribeAnomalyResponse (Prelude.Maybe ReactiveAnomaly)
-describeAnomalyResponse_reactiveAnomaly = Lens.lens (\DescribeAnomalyResponse' {reactiveAnomaly} -> reactiveAnomaly) (\s@DescribeAnomalyResponse' {} a -> s {reactiveAnomaly = a} :: DescribeAnomalyResponse)
 
 -- | A @ProactiveAnomaly@ object that represents the requested anomaly.
 describeAnomalyResponse_proactiveAnomaly :: Lens.Lens' DescribeAnomalyResponse (Prelude.Maybe ProactiveAnomaly)
 describeAnomalyResponse_proactiveAnomaly = Lens.lens (\DescribeAnomalyResponse' {proactiveAnomaly} -> proactiveAnomaly) (\s@DescribeAnomalyResponse' {} a -> s {proactiveAnomaly = a} :: DescribeAnomalyResponse)
+
+-- | A @ReactiveAnomaly@ object that represents the requested anomaly.
+describeAnomalyResponse_reactiveAnomaly :: Lens.Lens' DescribeAnomalyResponse (Prelude.Maybe ReactiveAnomaly)
+describeAnomalyResponse_reactiveAnomaly = Lens.lens (\DescribeAnomalyResponse' {reactiveAnomaly} -> reactiveAnomaly) (\s@DescribeAnomalyResponse' {} a -> s {reactiveAnomaly = a} :: DescribeAnomalyResponse)
 
 -- | The response's http status code.
 describeAnomalyResponse_httpStatus :: Lens.Lens' DescribeAnomalyResponse Prelude.Int
@@ -180,6 +180,6 @@ describeAnomalyResponse_httpStatus = Lens.lens (\DescribeAnomalyResponse' {httpS
 
 instance Prelude.NFData DescribeAnomalyResponse where
   rnf DescribeAnomalyResponse' {..} =
-    Prelude.rnf reactiveAnomaly
-      `Prelude.seq` Prelude.rnf proactiveAnomaly
+    Prelude.rnf proactiveAnomaly
+      `Prelude.seq` Prelude.rnf reactiveAnomaly
       `Prelude.seq` Prelude.rnf httpStatus

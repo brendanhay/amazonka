@@ -106,8 +106,6 @@ data PerformanceInsightsMetricDimensionGroup = PerformanceInsightsMetricDimensio
     -- -   @db.wait_event_type.name@ - The name of the event type for which the
     --     backend is waiting (all engines)
     dimensions :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of items to fetch for this dimension group.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the dimension group. Its valid values are:
     --
     -- -   @db@ - The name of the database to which the client is connected
@@ -133,7 +131,9 @@ data PerformanceInsightsMetricDimensionGroup = PerformanceInsightsMetricDimensio
     --     backend is waiting (all engines)
     --
     -- -   @db.user@ - The user logged in to the database (all engines)
-    group' :: Prelude.Maybe Prelude.Text
+    group' :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to fetch for this dimension group.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -199,8 +199,6 @@ data PerformanceInsightsMetricDimensionGroup = PerformanceInsightsMetricDimensio
 -- -   @db.wait_event_type.name@ - The name of the event type for which the
 --     backend is waiting (all engines)
 --
--- 'limit', 'performanceInsightsMetricDimensionGroup_limit' - The maximum number of items to fetch for this dimension group.
---
 -- 'group'', 'performanceInsightsMetricDimensionGroup_group' - The name of the dimension group. Its valid values are:
 --
 -- -   @db@ - The name of the database to which the client is connected
@@ -226,14 +224,16 @@ data PerformanceInsightsMetricDimensionGroup = PerformanceInsightsMetricDimensio
 --     backend is waiting (all engines)
 --
 -- -   @db.user@ - The user logged in to the database (all engines)
+--
+-- 'limit', 'performanceInsightsMetricDimensionGroup_limit' - The maximum number of items to fetch for this dimension group.
 newPerformanceInsightsMetricDimensionGroup ::
   PerformanceInsightsMetricDimensionGroup
 newPerformanceInsightsMetricDimensionGroup =
   PerformanceInsightsMetricDimensionGroup'
     { dimensions =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
-      group' = Prelude.Nothing
+      group' = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | A list of specific dimensions from a dimension group. If this parameter
@@ -292,10 +292,6 @@ newPerformanceInsightsMetricDimensionGroup =
 performanceInsightsMetricDimensionGroup_dimensions :: Lens.Lens' PerformanceInsightsMetricDimensionGroup (Prelude.Maybe [Prelude.Text])
 performanceInsightsMetricDimensionGroup_dimensions = Lens.lens (\PerformanceInsightsMetricDimensionGroup' {dimensions} -> dimensions) (\s@PerformanceInsightsMetricDimensionGroup' {} a -> s {dimensions = a} :: PerformanceInsightsMetricDimensionGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of items to fetch for this dimension group.
-performanceInsightsMetricDimensionGroup_limit :: Lens.Lens' PerformanceInsightsMetricDimensionGroup (Prelude.Maybe Prelude.Natural)
-performanceInsightsMetricDimensionGroup_limit = Lens.lens (\PerformanceInsightsMetricDimensionGroup' {limit} -> limit) (\s@PerformanceInsightsMetricDimensionGroup' {} a -> s {limit = a} :: PerformanceInsightsMetricDimensionGroup)
-
 -- | The name of the dimension group. Its valid values are:
 --
 -- -   @db@ - The name of the database to which the client is connected
@@ -324,6 +320,10 @@ performanceInsightsMetricDimensionGroup_limit = Lens.lens (\PerformanceInsightsM
 performanceInsightsMetricDimensionGroup_group :: Lens.Lens' PerformanceInsightsMetricDimensionGroup (Prelude.Maybe Prelude.Text)
 performanceInsightsMetricDimensionGroup_group = Lens.lens (\PerformanceInsightsMetricDimensionGroup' {group'} -> group') (\s@PerformanceInsightsMetricDimensionGroup' {} a -> s {group' = a} :: PerformanceInsightsMetricDimensionGroup)
 
+-- | The maximum number of items to fetch for this dimension group.
+performanceInsightsMetricDimensionGroup_limit :: Lens.Lens' PerformanceInsightsMetricDimensionGroup (Prelude.Maybe Prelude.Natural)
+performanceInsightsMetricDimensionGroup_limit = Lens.lens (\PerformanceInsightsMetricDimensionGroup' {limit} -> limit) (\s@PerformanceInsightsMetricDimensionGroup' {} a -> s {limit = a} :: PerformanceInsightsMetricDimensionGroup)
+
 instance
   Data.FromJSON
     PerformanceInsightsMetricDimensionGroup
@@ -334,8 +334,8 @@ instance
       ( \x ->
           PerformanceInsightsMetricDimensionGroup'
             Prelude.<$> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Limit")
             Prelude.<*> (x Data..:? "Group")
+            Prelude.<*> (x Data..:? "Limit")
       )
 
 instance
@@ -346,8 +346,8 @@ instance
     _salt
     PerformanceInsightsMetricDimensionGroup' {..} =
       _salt `Prelude.hashWithSalt` dimensions
-        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` group'
+        `Prelude.hashWithSalt` limit
 
 instance
   Prelude.NFData
@@ -355,5 +355,5 @@ instance
   where
   rnf PerformanceInsightsMetricDimensionGroup' {..} =
     Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf limit

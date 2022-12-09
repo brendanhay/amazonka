@@ -33,25 +33,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceResourceCost' smart constructor.
 data ServiceResourceCost = ServiceResourceCost'
-  { -- | The type of the Amazon Web Services resource.
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | The total estimated monthly cost to analyze the active resources for
+    -- this resource.
+    cost :: Prelude.Maybe Prelude.Double,
+    -- | The number of active resources analyzed for this service to create a
+    -- monthly cost estimate.
+    count :: Prelude.Maybe Prelude.Int,
     -- | The state of the resource. The resource is @ACTIVE@ if it produces
     -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
     -- pay for the number of active Amazon Web Services resource hours analyzed
     -- for each resource. Inactive resources are not charged.
     state :: Prelude.Maybe CostEstimationServiceResourceState,
-    -- | The number of active resources analyzed for this service to create a
-    -- monthly cost estimate.
-    count :: Prelude.Maybe Prelude.Int,
+    -- | The type of the Amazon Web Services resource.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The price per hour to analyze the resources in the service. For more
     -- information, see
     -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html Estimate your Amazon DevOps Guru costs>
     -- and
     -- <http://aws.amazon.com/devops-guru/pricing/ Amazon DevOps Guru pricing>.
-    unitCost :: Prelude.Maybe Prelude.Double,
-    -- | The total estimated monthly cost to analyze the active resources for
-    -- this resource.
-    cost :: Prelude.Maybe Prelude.Double
+    unitCost :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,38 +63,44 @@ data ServiceResourceCost = ServiceResourceCost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'serviceResourceCost_type' - The type of the Amazon Web Services resource.
+-- 'cost', 'serviceResourceCost_cost' - The total estimated monthly cost to analyze the active resources for
+-- this resource.
+--
+-- 'count', 'serviceResourceCost_count' - The number of active resources analyzed for this service to create a
+-- monthly cost estimate.
 --
 -- 'state', 'serviceResourceCost_state' - The state of the resource. The resource is @ACTIVE@ if it produces
 -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
 -- pay for the number of active Amazon Web Services resource hours analyzed
 -- for each resource. Inactive resources are not charged.
 --
--- 'count', 'serviceResourceCost_count' - The number of active resources analyzed for this service to create a
--- monthly cost estimate.
+-- 'type'', 'serviceResourceCost_type' - The type of the Amazon Web Services resource.
 --
 -- 'unitCost', 'serviceResourceCost_unitCost' - The price per hour to analyze the resources in the service. For more
 -- information, see
 -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html Estimate your Amazon DevOps Guru costs>
 -- and
 -- <http://aws.amazon.com/devops-guru/pricing/ Amazon DevOps Guru pricing>.
---
--- 'cost', 'serviceResourceCost_cost' - The total estimated monthly cost to analyze the active resources for
--- this resource.
 newServiceResourceCost ::
   ServiceResourceCost
 newServiceResourceCost =
   ServiceResourceCost'
-    { type' = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { cost = Prelude.Nothing,
       count = Prelude.Nothing,
-      unitCost = Prelude.Nothing,
-      cost = Prelude.Nothing
+      state = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      unitCost = Prelude.Nothing
     }
 
--- | The type of the Amazon Web Services resource.
-serviceResourceCost_type :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Text)
-serviceResourceCost_type = Lens.lens (\ServiceResourceCost' {type'} -> type') (\s@ServiceResourceCost' {} a -> s {type' = a} :: ServiceResourceCost)
+-- | The total estimated monthly cost to analyze the active resources for
+-- this resource.
+serviceResourceCost_cost :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Double)
+serviceResourceCost_cost = Lens.lens (\ServiceResourceCost' {cost} -> cost) (\s@ServiceResourceCost' {} a -> s {cost = a} :: ServiceResourceCost)
+
+-- | The number of active resources analyzed for this service to create a
+-- monthly cost estimate.
+serviceResourceCost_count :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Int)
+serviceResourceCost_count = Lens.lens (\ServiceResourceCost' {count} -> count) (\s@ServiceResourceCost' {} a -> s {count = a} :: ServiceResourceCost)
 
 -- | The state of the resource. The resource is @ACTIVE@ if it produces
 -- metrics, events, or logs within an hour, otherwise it is @INACTIVE@. You
@@ -103,10 +109,9 @@ serviceResourceCost_type = Lens.lens (\ServiceResourceCost' {type'} -> type') (\
 serviceResourceCost_state :: Lens.Lens' ServiceResourceCost (Prelude.Maybe CostEstimationServiceResourceState)
 serviceResourceCost_state = Lens.lens (\ServiceResourceCost' {state} -> state) (\s@ServiceResourceCost' {} a -> s {state = a} :: ServiceResourceCost)
 
--- | The number of active resources analyzed for this service to create a
--- monthly cost estimate.
-serviceResourceCost_count :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Int)
-serviceResourceCost_count = Lens.lens (\ServiceResourceCost' {count} -> count) (\s@ServiceResourceCost' {} a -> s {count = a} :: ServiceResourceCost)
+-- | The type of the Amazon Web Services resource.
+serviceResourceCost_type :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Text)
+serviceResourceCost_type = Lens.lens (\ServiceResourceCost' {type'} -> type') (\s@ServiceResourceCost' {} a -> s {type' = a} :: ServiceResourceCost)
 
 -- | The price per hour to analyze the resources in the service. For more
 -- information, see
@@ -116,36 +121,31 @@ serviceResourceCost_count = Lens.lens (\ServiceResourceCost' {count} -> count) (
 serviceResourceCost_unitCost :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Double)
 serviceResourceCost_unitCost = Lens.lens (\ServiceResourceCost' {unitCost} -> unitCost) (\s@ServiceResourceCost' {} a -> s {unitCost = a} :: ServiceResourceCost)
 
--- | The total estimated monthly cost to analyze the active resources for
--- this resource.
-serviceResourceCost_cost :: Lens.Lens' ServiceResourceCost (Prelude.Maybe Prelude.Double)
-serviceResourceCost_cost = Lens.lens (\ServiceResourceCost' {cost} -> cost) (\s@ServiceResourceCost' {} a -> s {cost = a} :: ServiceResourceCost)
-
 instance Data.FromJSON ServiceResourceCost where
   parseJSON =
     Data.withObject
       "ServiceResourceCost"
       ( \x ->
           ServiceResourceCost'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "Cost")
             Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "UnitCost")
-            Prelude.<*> (x Data..:? "Cost")
       )
 
 instance Prelude.Hashable ServiceResourceCost where
   hashWithSalt _salt ServiceResourceCost' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` unitCost
-      `Prelude.hashWithSalt` cost
 
 instance Prelude.NFData ServiceResourceCost where
   rnf ServiceResourceCost' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf cost
       `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf unitCost
-      `Prelude.seq` Prelude.rnf cost

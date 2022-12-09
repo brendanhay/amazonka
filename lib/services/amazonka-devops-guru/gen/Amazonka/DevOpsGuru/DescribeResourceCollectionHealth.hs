@@ -46,10 +46,10 @@ module Amazonka.DevOpsGuru.DescribeResourceCollectionHealth
     newDescribeResourceCollectionHealthResponse,
 
     -- * Response Lenses
-    describeResourceCollectionHealthResponse_tags,
+    describeResourceCollectionHealthResponse_cloudFormation,
     describeResourceCollectionHealthResponse_nextToken,
     describeResourceCollectionHealthResponse_service,
-    describeResourceCollectionHealthResponse_cloudFormation,
+    describeResourceCollectionHealthResponse_tags,
     describeResourceCollectionHealthResponse_httpStatus,
   )
 where
@@ -177,10 +177,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceCollectionHealthResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,7 +232,18 @@ instance
 
 -- | /See:/ 'newDescribeResourceCollectionHealthResponse' smart constructor.
 data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealthResponse'
-  { -- | The Amazon Web Services tags that are used by resources in the resource
+  { -- | The returned @CloudFormationHealthOverview@ object that contains an
+    -- @InsightHealthOverview@ object with the requested system health
+    -- information.
+    cloudFormation :: Prelude.Maybe [CloudFormationHealth],
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If there are no more pages, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @ServiceHealth@ objects that describes the health of the
+    -- Amazon Web Services services associated with the resources in the
+    -- collection.
+    service :: Prelude.Maybe [ServiceHealth],
+    -- | The Amazon Web Services tags that are used by resources in the resource
     -- collection.
     --
     -- Tags help you identify and organize your Amazon Web Services resources.
@@ -267,17 +278,6 @@ data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealth
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
     tags :: Prelude.Maybe [TagHealth],
-    -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If there are no more pages, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ServiceHealth@ objects that describes the health of the
-    -- Amazon Web Services services associated with the resources in the
-    -- collection.
-    service :: Prelude.Maybe [ServiceHealth],
-    -- | The returned @CloudFormationHealthOverview@ object that contains an
-    -- @InsightHealthOverview@ object with the requested system health
-    -- information.
-    cloudFormation :: Prelude.Maybe [CloudFormationHealth],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -290,6 +290,17 @@ data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealth
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cloudFormation', 'describeResourceCollectionHealthResponse_cloudFormation' - The returned @CloudFormationHealthOverview@ object that contains an
+-- @InsightHealthOverview@ object with the requested system health
+-- information.
+--
+-- 'nextToken', 'describeResourceCollectionHealthResponse_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+--
+-- 'service', 'describeResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
 --
 -- 'tags', 'describeResourceCollectionHealthResponse_tags' - The Amazon Web Services tags that are used by resources in the resource
 -- collection.
@@ -326,17 +337,6 @@ data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealth
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
 --
--- 'nextToken', 'describeResourceCollectionHealthResponse_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
---
--- 'service', 'describeResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the
--- Amazon Web Services services associated with the resources in the
--- collection.
---
--- 'cloudFormation', 'describeResourceCollectionHealthResponse_cloudFormation' - The returned @CloudFormationHealthOverview@ object that contains an
--- @InsightHealthOverview@ object with the requested system health
--- information.
---
 -- 'httpStatus', 'describeResourceCollectionHealthResponse_httpStatus' - The response's http status code.
 newDescribeResourceCollectionHealthResponse ::
   -- | 'httpStatus'
@@ -345,13 +345,30 @@ newDescribeResourceCollectionHealthResponse ::
 newDescribeResourceCollectionHealthResponse
   pHttpStatus_ =
     DescribeResourceCollectionHealthResponse'
-      { tags =
+      { cloudFormation =
           Prelude.Nothing,
         nextToken = Prelude.Nothing,
         service = Prelude.Nothing,
-        cloudFormation = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The returned @CloudFormationHealthOverview@ object that contains an
+-- @InsightHealthOverview@ object with the requested system health
+-- information.
+describeResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [CloudFormationHealth])
+describeResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+describeResourceCollectionHealthResponse_nextToken :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe Prelude.Text)
+describeResourceCollectionHealthResponse_nextToken = Lens.lens (\DescribeResourceCollectionHealthResponse' {nextToken} -> nextToken) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {nextToken = a} :: DescribeResourceCollectionHealthResponse)
+
+-- | An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
+describeResourceCollectionHealthResponse_service :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [ServiceHealth])
+describeResourceCollectionHealthResponse_service = Lens.lens (\DescribeResourceCollectionHealthResponse' {service} -> service) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {service = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services tags that are used by resources in the resource
 -- collection.
@@ -390,23 +407,6 @@ newDescribeResourceCollectionHealthResponse
 describeResourceCollectionHealthResponse_tags :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [TagHealth])
 describeResourceCollectionHealthResponse_tags = Lens.lens (\DescribeResourceCollectionHealthResponse' {tags} -> tags) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {tags = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
-describeResourceCollectionHealthResponse_nextToken :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe Prelude.Text)
-describeResourceCollectionHealthResponse_nextToken = Lens.lens (\DescribeResourceCollectionHealthResponse' {nextToken} -> nextToken) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {nextToken = a} :: DescribeResourceCollectionHealthResponse)
-
--- | An array of @ServiceHealth@ objects that describes the health of the
--- Amazon Web Services services associated with the resources in the
--- collection.
-describeResourceCollectionHealthResponse_service :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [ServiceHealth])
-describeResourceCollectionHealthResponse_service = Lens.lens (\DescribeResourceCollectionHealthResponse' {service} -> service) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {service = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The returned @CloudFormationHealthOverview@ object that contains an
--- @InsightHealthOverview@ object with the requested system health
--- information.
-describeResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [CloudFormationHealth])
-describeResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeResourceCollectionHealthResponse_httpStatus :: Lens.Lens' DescribeResourceCollectionHealthResponse Prelude.Int
 describeResourceCollectionHealthResponse_httpStatus = Lens.lens (\DescribeResourceCollectionHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {httpStatus = a} :: DescribeResourceCollectionHealthResponse)
@@ -416,8 +416,8 @@ instance
     DescribeResourceCollectionHealthResponse
   where
   rnf DescribeResourceCollectionHealthResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf cloudFormation
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

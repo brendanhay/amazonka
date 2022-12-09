@@ -32,9 +32,9 @@ module Amazonka.DevOpsGuru.DescribeOrganizationResourceCollectionHealth
 
     -- * Request Lenses
     describeOrganizationResourceCollectionHealth_accountIds,
+    describeOrganizationResourceCollectionHealth_maxResults,
     describeOrganizationResourceCollectionHealth_nextToken,
     describeOrganizationResourceCollectionHealth_organizationalUnitIds,
-    describeOrganizationResourceCollectionHealth_maxResults,
     describeOrganizationResourceCollectionHealth_organizationResourceCollectionType,
 
     -- * Destructuring the Response
@@ -42,11 +42,11 @@ module Amazonka.DevOpsGuru.DescribeOrganizationResourceCollectionHealth
     newDescribeOrganizationResourceCollectionHealthResponse,
 
     -- * Response Lenses
-    describeOrganizationResourceCollectionHealthResponse_tags,
-    describeOrganizationResourceCollectionHealthResponse_nextToken,
     describeOrganizationResourceCollectionHealthResponse_account,
-    describeOrganizationResourceCollectionHealthResponse_service,
     describeOrganizationResourceCollectionHealthResponse_cloudFormation,
+    describeOrganizationResourceCollectionHealthResponse_nextToken,
+    describeOrganizationResourceCollectionHealthResponse_service,
+    describeOrganizationResourceCollectionHealthResponse_tags,
     describeOrganizationResourceCollectionHealthResponse_httpStatus,
   )
 where
@@ -63,15 +63,15 @@ import qualified Amazonka.Response as Response
 data DescribeOrganizationResourceCollectionHealth = DescribeOrganizationResourceCollectionHealth'
   { -- | The ID of the Amazon Web Services account.
     accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the organizational unit.
     organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An Amazon Web Services resource collection type. This type specifies how
     -- analyzed Amazon Web Services resources are defined. The two types of
     -- Amazon Web Services resource collections supported are Amazon Web
@@ -94,14 +94,14 @@ data DescribeOrganizationResourceCollectionHealth = DescribeOrganizationResource
 --
 -- 'accountIds', 'describeOrganizationResourceCollectionHealth_accountIds' - The ID of the Amazon Web Services account.
 --
+-- 'maxResults', 'describeOrganizationResourceCollectionHealth_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'nextToken', 'describeOrganizationResourceCollectionHealth_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
 -- 'organizationalUnitIds', 'describeOrganizationResourceCollectionHealth_organizationalUnitIds' - The ID of the organizational unit.
---
--- 'maxResults', 'describeOrganizationResourceCollectionHealth_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'organizationResourceCollectionType', 'describeOrganizationResourceCollectionHealth_organizationResourceCollectionType' - An Amazon Web Services resource collection type. This type specifies how
 -- analyzed Amazon Web Services resources are defined. The two types of
@@ -120,10 +120,10 @@ newDescribeOrganizationResourceCollectionHealth
     DescribeOrganizationResourceCollectionHealth'
       { accountIds =
           Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         nextToken = Prelude.Nothing,
         organizationalUnitIds =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         organizationResourceCollectionType =
           pOrganizationResourceCollectionType_
       }
@@ -131,6 +131,12 @@ newDescribeOrganizationResourceCollectionHealth
 -- | The ID of the Amazon Web Services account.
 describeOrganizationResourceCollectionHealth_accountIds :: Lens.Lens' DescribeOrganizationResourceCollectionHealth (Prelude.Maybe [Prelude.Text])
 describeOrganizationResourceCollectionHealth_accountIds = Lens.lens (\DescribeOrganizationResourceCollectionHealth' {accountIds} -> accountIds) (\s@DescribeOrganizationResourceCollectionHealth' {} a -> s {accountIds = a} :: DescribeOrganizationResourceCollectionHealth) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeOrganizationResourceCollectionHealth_maxResults :: Lens.Lens' DescribeOrganizationResourceCollectionHealth (Prelude.Maybe Prelude.Natural)
+describeOrganizationResourceCollectionHealth_maxResults = Lens.lens (\DescribeOrganizationResourceCollectionHealth' {maxResults} -> maxResults) (\s@DescribeOrganizationResourceCollectionHealth' {} a -> s {maxResults = a} :: DescribeOrganizationResourceCollectionHealth)
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
@@ -140,12 +146,6 @@ describeOrganizationResourceCollectionHealth_nextToken = Lens.lens (\DescribeOrg
 -- | The ID of the organizational unit.
 describeOrganizationResourceCollectionHealth_organizationalUnitIds :: Lens.Lens' DescribeOrganizationResourceCollectionHealth (Prelude.Maybe [Prelude.Text])
 describeOrganizationResourceCollectionHealth_organizationalUnitIds = Lens.lens (\DescribeOrganizationResourceCollectionHealth' {organizationalUnitIds} -> organizationalUnitIds) (\s@DescribeOrganizationResourceCollectionHealth' {} a -> s {organizationalUnitIds = a} :: DescribeOrganizationResourceCollectionHealth) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeOrganizationResourceCollectionHealth_maxResults :: Lens.Lens' DescribeOrganizationResourceCollectionHealth (Prelude.Maybe Prelude.Natural)
-describeOrganizationResourceCollectionHealth_maxResults = Lens.lens (\DescribeOrganizationResourceCollectionHealth' {maxResults} -> maxResults) (\s@DescribeOrganizationResourceCollectionHealth' {} a -> s {maxResults = a} :: DescribeOrganizationResourceCollectionHealth)
 
 -- | An Amazon Web Services resource collection type. This type specifies how
 -- analyzed Amazon Web Services resources are defined. The two types of
@@ -215,11 +215,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResourceCollectionHealthResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Account" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Account" Core..!@ Prelude.mempty)
               Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
+              Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,9 +231,9 @@ instance
     _salt
     DescribeOrganizationResourceCollectionHealth' {..} =
       _salt `Prelude.hashWithSalt` accountIds
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationalUnitIds
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` organizationResourceCollectionType
 
 instance
@@ -242,9 +242,9 @@ instance
   where
   rnf DescribeOrganizationResourceCollectionHealth' {..} =
     Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf organizationResourceCollectionType
 
 instance
@@ -270,10 +270,10 @@ instance
       Data.object
         ( Prelude.catMaybes
             [ ("AccountIds" Data..=) Prelude.<$> accountIds,
+              ("MaxResults" Data..=) Prelude.<$> maxResults,
               ("NextToken" Data..=) Prelude.<$> nextToken,
               ("OrganizationalUnitIds" Data..=)
                 Prelude.<$> organizationalUnitIds,
-              ("MaxResults" Data..=) Prelude.<$> maxResults,
               Prelude.Just
                 ( "OrganizationResourceCollectionType"
                     Data..= organizationResourceCollectionType
@@ -297,7 +297,20 @@ instance
 
 -- | /See:/ 'newDescribeOrganizationResourceCollectionHealthResponse' smart constructor.
 data DescribeOrganizationResourceCollectionHealthResponse = DescribeOrganizationResourceCollectionHealthResponse'
-  { -- | Tags help you identify and organize your Amazon Web Services resources.
+  { -- | The name of the organization\'s account.
+    account :: Prelude.Maybe [AccountHealth],
+    -- | The returned @CloudFormationHealthOverview@ object that contains an
+    -- @InsightHealthOverview@ object with the requested system health
+    -- information.
+    cloudFormation :: Prelude.Maybe [CloudFormationHealth],
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If there are no more pages, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @ServiceHealth@ objects that describes the health of the
+    -- Amazon Web Services services associated with the resources in the
+    -- collection.
+    service :: Prelude.Maybe [ServiceHealth],
+    -- | Tags help you identify and organize your Amazon Web Services resources.
     -- Many Amazon Web Services services support tagging, so you can assign the
     -- same tag to resources from different services to indicate that the
     -- resources are related. For example, you can assign the same tag to an
@@ -329,19 +342,6 @@ data DescribeOrganizationResourceCollectionHealthResponse = DescribeOrganization
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
     tags :: Prelude.Maybe [TagHealth],
-    -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If there are no more pages, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the organization\'s account.
-    account :: Prelude.Maybe [AccountHealth],
-    -- | An array of @ServiceHealth@ objects that describes the health of the
-    -- Amazon Web Services services associated with the resources in the
-    -- collection.
-    service :: Prelude.Maybe [ServiceHealth],
-    -- | The returned @CloudFormationHealthOverview@ object that contains an
-    -- @InsightHealthOverview@ object with the requested system health
-    -- information.
-    cloudFormation :: Prelude.Maybe [CloudFormationHealth],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -354,6 +354,19 @@ data DescribeOrganizationResourceCollectionHealthResponse = DescribeOrganization
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'account', 'describeOrganizationResourceCollectionHealthResponse_account' - The name of the organization\'s account.
+--
+-- 'cloudFormation', 'describeOrganizationResourceCollectionHealthResponse_cloudFormation' - The returned @CloudFormationHealthOverview@ object that contains an
+-- @InsightHealthOverview@ object with the requested system health
+-- information.
+--
+-- 'nextToken', 'describeOrganizationResourceCollectionHealthResponse_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+--
+-- 'service', 'describeOrganizationResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
 --
 -- 'tags', 'describeOrganizationResourceCollectionHealthResponse_tags' - Tags help you identify and organize your Amazon Web Services resources.
 -- Many Amazon Web Services services support tagging, so you can assign the
@@ -387,19 +400,6 @@ data DescribeOrganizationResourceCollectionHealthResponse = DescribeOrganization
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
 --
--- 'nextToken', 'describeOrganizationResourceCollectionHealthResponse_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
---
--- 'account', 'describeOrganizationResourceCollectionHealthResponse_account' - The name of the organization\'s account.
---
--- 'service', 'describeOrganizationResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the
--- Amazon Web Services services associated with the resources in the
--- collection.
---
--- 'cloudFormation', 'describeOrganizationResourceCollectionHealthResponse_cloudFormation' - The returned @CloudFormationHealthOverview@ object that contains an
--- @InsightHealthOverview@ object with the requested system health
--- information.
---
 -- 'httpStatus', 'describeOrganizationResourceCollectionHealthResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationResourceCollectionHealthResponse ::
   -- | 'httpStatus'
@@ -408,19 +408,40 @@ newDescribeOrganizationResourceCollectionHealthResponse ::
 newDescribeOrganizationResourceCollectionHealthResponse
   pHttpStatus_ =
     DescribeOrganizationResourceCollectionHealthResponse'
-      { tags =
+      { account =
+          Prelude.Nothing,
+        cloudFormation =
           Prelude.Nothing,
         nextToken =
           Prelude.Nothing,
-        account =
-          Prelude.Nothing,
         service =
           Prelude.Nothing,
-        cloudFormation =
+        tags =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
+
+-- | The name of the organization\'s account.
+describeOrganizationResourceCollectionHealthResponse_account :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [AccountHealth])
+describeOrganizationResourceCollectionHealthResponse_account = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {account} -> account) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {account = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The returned @CloudFormationHealthOverview@ object that contains an
+-- @InsightHealthOverview@ object with the requested system health
+-- information.
+describeOrganizationResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [CloudFormationHealth])
+describeOrganizationResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+describeOrganizationResourceCollectionHealthResponse_nextToken :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe Prelude.Text)
+describeOrganizationResourceCollectionHealthResponse_nextToken = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {nextToken} -> nextToken) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {nextToken = a} :: DescribeOrganizationResourceCollectionHealthResponse)
+
+-- | An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
+describeOrganizationResourceCollectionHealthResponse_service :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [ServiceHealth])
+describeOrganizationResourceCollectionHealthResponse_service = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {service} -> service) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {service = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Tags help you identify and organize your Amazon Web Services resources.
 -- Many Amazon Web Services services support tagging, so you can assign the
@@ -456,27 +477,6 @@ newDescribeOrganizationResourceCollectionHealthResponse
 describeOrganizationResourceCollectionHealthResponse_tags :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [TagHealth])
 describeOrganizationResourceCollectionHealthResponse_tags = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {tags} -> tags) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {tags = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If there are no more pages, this value is null.
-describeOrganizationResourceCollectionHealthResponse_nextToken :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe Prelude.Text)
-describeOrganizationResourceCollectionHealthResponse_nextToken = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {nextToken} -> nextToken) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {nextToken = a} :: DescribeOrganizationResourceCollectionHealthResponse)
-
--- | The name of the organization\'s account.
-describeOrganizationResourceCollectionHealthResponse_account :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [AccountHealth])
-describeOrganizationResourceCollectionHealthResponse_account = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {account} -> account) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {account = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of @ServiceHealth@ objects that describes the health of the
--- Amazon Web Services services associated with the resources in the
--- collection.
-describeOrganizationResourceCollectionHealthResponse_service :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [ServiceHealth])
-describeOrganizationResourceCollectionHealthResponse_service = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {service} -> service) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {service = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The returned @CloudFormationHealthOverview@ object that contains an
--- @InsightHealthOverview@ object with the requested system health
--- information.
-describeOrganizationResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse (Prelude.Maybe [CloudFormationHealth])
-describeOrganizationResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeOrganizationResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeOrganizationResourceCollectionHealthResponse_httpStatus :: Lens.Lens' DescribeOrganizationResourceCollectionHealthResponse Prelude.Int
 describeOrganizationResourceCollectionHealthResponse_httpStatus = Lens.lens (\DescribeOrganizationResourceCollectionHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationResourceCollectionHealthResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationResourceCollectionHealthResponse)
@@ -487,9 +487,9 @@ instance
   where
   rnf
     DescribeOrganizationResourceCollectionHealthResponse' {..} =
-      Prelude.rnf tags
-        `Prelude.seq` Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf account
-        `Prelude.seq` Prelude.rnf service
+      Prelude.rnf account
         `Prelude.seq` Prelude.rnf cloudFormation
+        `Prelude.seq` Prelude.rnf nextToken
+        `Prelude.seq` Prelude.rnf service
+        `Prelude.seq` Prelude.rnf tags
         `Prelude.seq` Prelude.rnf httpStatus

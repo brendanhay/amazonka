@@ -39,8 +39,8 @@ module Amazonka.KinesisVideo.ListTagsForStream
     newListTagsForStreamResponse,
 
     -- * Response Lenses
-    listTagsForStreamResponse_tags,
     listTagsForStreamResponse_nextToken,
+    listTagsForStreamResponse_tags,
     listTagsForStreamResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest ListTagsForStream where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForStreamResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,12 +155,12 @@ instance Data.ToQuery ListTagsForStream where
 
 -- | /See:/ 'newListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { -- | A map of tag keys and values associated with the specified stream.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | If you specify this parameter and the result of a @ListTags@ call is
+  { -- | If you specify this parameter and the result of a @ListTags@ call is
     -- truncated, the response includes a token that you can use in the next
     -- request to fetch the next set of tags.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A map of tag keys and values associated with the specified stream.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,11 +174,11 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForStreamResponse_tags' - A map of tag keys and values associated with the specified stream.
---
 -- 'nextToken', 'listTagsForStreamResponse_nextToken' - If you specify this parameter and the result of a @ListTags@ call is
 -- truncated, the response includes a token that you can use in the next
 -- request to fetch the next set of tags.
+--
+-- 'tags', 'listTagsForStreamResponse_tags' - A map of tag keys and values associated with the specified stream.
 --
 -- 'httpStatus', 'listTagsForStreamResponse_httpStatus' - The response's http status code.
 newListTagsForStreamResponse ::
@@ -187,14 +187,11 @@ newListTagsForStreamResponse ::
   ListTagsForStreamResponse
 newListTagsForStreamResponse pHttpStatus_ =
   ListTagsForStreamResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A map of tag keys and values associated with the specified stream.
-listTagsForStreamResponse_tags :: Lens.Lens' ListTagsForStreamResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you specify this parameter and the result of a @ListTags@ call is
 -- truncated, the response includes a token that you can use in the next
@@ -202,12 +199,16 @@ listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -
 listTagsForStreamResponse_nextToken :: Lens.Lens' ListTagsForStreamResponse (Prelude.Maybe Prelude.Text)
 listTagsForStreamResponse_nextToken = Lens.lens (\ListTagsForStreamResponse' {nextToken} -> nextToken) (\s@ListTagsForStreamResponse' {} a -> s {nextToken = a} :: ListTagsForStreamResponse)
 
+-- | A map of tag keys and values associated with the specified stream.
+listTagsForStreamResponse_tags :: Lens.Lens' ListTagsForStreamResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Prelude.Int
 listTagsForStreamResponse_httpStatus = Lens.lens (\ListTagsForStreamResponse' {httpStatus} -> httpStatus) (\s@ListTagsForStreamResponse' {} a -> s {httpStatus = a} :: ListTagsForStreamResponse)
 
 instance Prelude.NFData ListTagsForStreamResponse where
   rnf ListTagsForStreamResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

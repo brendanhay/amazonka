@@ -17,47 +17,47 @@ module Amazonka.KinesisVideo
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
-    -- ** ClientLimitExceededException
-    _ClientLimitExceededException,
-
-    -- ** NoDataRetentionException
-    _NoDataRetentionException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InvalidDeviceException
-    _InvalidDeviceException,
-
-    -- ** TagsPerResourceExceededLimitException
-    _TagsPerResourceExceededLimitException,
-
-    -- ** InvalidResourceFormatException
-    _InvalidResourceFormatException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** AccountStreamLimitExceededException
-    _AccountStreamLimitExceededException,
-
-    -- ** VersionMismatchException
-    _VersionMismatchException,
 
     -- ** AccountChannelLimitExceededException
     _AccountChannelLimitExceededException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
+    -- ** AccountStreamLimitExceededException
+    _AccountStreamLimitExceededException,
+
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
 
     -- ** DeviceStreamLimitExceededException
     _DeviceStreamLimitExceededException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
+
+    -- ** InvalidResourceFormatException
+    _InvalidResourceFormatException,
+
+    -- ** NoDataRetentionException
+    _NoDataRetentionException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TagsPerResourceExceededLimitException
+    _TagsPerResourceExceededLimitException,
+
+    -- ** VersionMismatchException
+    _VersionMismatchException,
 
     -- * Waiters
     -- $waiters

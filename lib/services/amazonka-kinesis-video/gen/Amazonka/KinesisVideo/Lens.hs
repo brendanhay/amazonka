@@ -15,19 +15,19 @@ module Amazonka.KinesisVideo.Lens
   ( -- * Operations
 
     -- ** CreateSignalingChannel
-    createSignalingChannel_tags,
-    createSignalingChannel_singleMasterConfiguration,
     createSignalingChannel_channelType,
+    createSignalingChannel_singleMasterConfiguration,
+    createSignalingChannel_tags,
     createSignalingChannel_channelName,
     createSignalingChannelResponse_channelARN,
     createSignalingChannelResponse_httpStatus,
 
     -- ** CreateStream
-    createStream_tags,
-    createStream_deviceName,
-    createStream_mediaType,
-    createStream_kmsKeyId,
     createStream_dataRetentionInHours,
+    createStream_deviceName,
+    createStream_kmsKeyId,
+    createStream_mediaType,
+    createStream_tags,
     createStream_streamName,
     createStreamResponse_streamARN,
     createStreamResponse_httpStatus,
@@ -55,8 +55,8 @@ module Amazonka.KinesisVideo.Lens
     describeNotificationConfigurationResponse_httpStatus,
 
     -- ** DescribeSignalingChannel
-    describeSignalingChannel_channelName,
     describeSignalingChannel_channelARN,
+    describeSignalingChannel_channelName,
     describeSignalingChannelResponse_channelInfo,
     describeSignalingChannelResponse_httpStatus,
 
@@ -80,16 +80,16 @@ module Amazonka.KinesisVideo.Lens
     getSignalingChannelEndpointResponse_httpStatus,
 
     -- ** ListSignalingChannels
-    listSignalingChannels_nextToken,
     listSignalingChannels_channelNameCondition,
     listSignalingChannels_maxResults,
-    listSignalingChannelsResponse_nextToken,
+    listSignalingChannels_nextToken,
     listSignalingChannelsResponse_channelInfoList,
+    listSignalingChannelsResponse_nextToken,
     listSignalingChannelsResponse_httpStatus,
 
     -- ** ListStreams
-    listStreams_nextToken,
     listStreams_maxResults,
+    listStreams_nextToken,
     listStreams_streamNameCondition,
     listStreamsResponse_nextToken,
     listStreamsResponse_streamInfoList,
@@ -98,16 +98,16 @@ module Amazonka.KinesisVideo.Lens
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTagsForStream
     listTagsForStream_nextToken,
     listTagsForStream_streamARN,
     listTagsForStream_streamName,
-    listTagsForStreamResponse_tags,
     listTagsForStreamResponse_nextToken,
+    listTagsForStreamResponse_tags,
     listTagsForStreamResponse_httpStatus,
 
     -- ** TagResource
@@ -169,17 +169,17 @@ module Amazonka.KinesisVideo.Lens
     -- * Types
 
     -- ** ChannelInfo
-    channelInfo_channelStatus,
-    channelInfo_singleMasterConfiguration,
-    channelInfo_channelName,
     channelInfo_channelARN,
-    channelInfo_creationTime,
+    channelInfo_channelName,
+    channelInfo_channelStatus,
     channelInfo_channelType,
+    channelInfo_creationTime,
+    channelInfo_singleMasterConfiguration,
     channelInfo_version,
 
     -- ** ChannelNameCondition
-    channelNameCondition_comparisonValue,
     channelNameCondition_comparisonOperator,
+    channelNameCondition_comparisonValue,
 
     -- ** ImageGenerationConfiguration
     imageGenerationConfiguration_formatConfig,
@@ -214,19 +214,19 @@ module Amazonka.KinesisVideo.Lens
     singleMasterConfiguration_messageTtlSeconds,
 
     -- ** StreamInfo
+    streamInfo_creationTime,
+    streamInfo_dataRetentionInHours,
     streamInfo_deviceName,
+    streamInfo_kmsKeyId,
     streamInfo_mediaType,
     streamInfo_status,
-    streamInfo_kmsKeyId,
-    streamInfo_creationTime,
     streamInfo_streamARN,
-    streamInfo_dataRetentionInHours,
     streamInfo_streamName,
     streamInfo_version,
 
     -- ** StreamNameCondition
-    streamNameCondition_comparisonValue,
     streamNameCondition_comparisonOperator,
+    streamNameCondition_comparisonValue,
 
     -- ** Tag
     tag_key,

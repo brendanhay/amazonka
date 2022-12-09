@@ -29,11 +29,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newTaskSubmittedEventDetails' smart constructor.
 data TaskSubmittedEventDetails = TaskSubmittedEventDetails'
-  { -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The response from a resource when a task has started. Length constraints
+  { -- | The response from a resource when a task has started. Length constraints
     -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
     output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -49,10 +49,10 @@ data TaskSubmittedEventDetails = TaskSubmittedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputDetails', 'taskSubmittedEventDetails_outputDetails' - Contains details about the output of an execution history event.
---
 -- 'output', 'taskSubmittedEventDetails_output' - The response from a resource when a task has started. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'outputDetails', 'taskSubmittedEventDetails_outputDetails' - Contains details about the output of an execution history event.
 --
 -- 'resourceType', 'taskSubmittedEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -67,21 +67,21 @@ newTaskSubmittedEventDetails
   pResourceType_
   pResource_ =
     TaskSubmittedEventDetails'
-      { outputDetails =
+      { output =
           Prelude.Nothing,
-        output = Prelude.Nothing,
+        outputDetails = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
-
--- | Contains details about the output of an execution history event.
-taskSubmittedEventDetails_outputDetails :: Lens.Lens' TaskSubmittedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-taskSubmittedEventDetails_outputDetails = Lens.lens (\TaskSubmittedEventDetails' {outputDetails} -> outputDetails) (\s@TaskSubmittedEventDetails' {} a -> s {outputDetails = a} :: TaskSubmittedEventDetails)
 
 -- | The response from a resource when a task has started. Length constraints
 -- apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 taskSubmittedEventDetails_output :: Lens.Lens' TaskSubmittedEventDetails (Prelude.Maybe Prelude.Text)
 taskSubmittedEventDetails_output = Lens.lens (\TaskSubmittedEventDetails' {output} -> output) (\s@TaskSubmittedEventDetails' {} a -> s {output = a} :: TaskSubmittedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Contains details about the output of an execution history event.
+taskSubmittedEventDetails_outputDetails :: Lens.Lens' TaskSubmittedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+taskSubmittedEventDetails_outputDetails = Lens.lens (\TaskSubmittedEventDetails' {outputDetails} -> outputDetails) (\s@TaskSubmittedEventDetails' {} a -> s {outputDetails = a} :: TaskSubmittedEventDetails)
 
 -- | The service name of the resource in a task state.
 taskSubmittedEventDetails_resourceType :: Lens.Lens' TaskSubmittedEventDetails Prelude.Text
@@ -97,22 +97,22 @@ instance Data.FromJSON TaskSubmittedEventDetails where
       "TaskSubmittedEventDetails"
       ( \x ->
           TaskSubmittedEventDetails'
-            Prelude.<$> (x Data..:? "outputDetails")
-            Prelude.<*> (x Data..:? "output")
+            Prelude.<$> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "outputDetails")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskSubmittedEventDetails where
   hashWithSalt _salt TaskSubmittedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` outputDetails
-      `Prelude.hashWithSalt` output
+    _salt `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` outputDetails
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskSubmittedEventDetails where
   rnf TaskSubmittedEventDetails' {..} =
-    Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

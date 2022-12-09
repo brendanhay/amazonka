@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskFailedEventDetails' smart constructor.
 data TaskFailedEventDetails = TaskFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
+  { -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -47,9 +47,9 @@ data TaskFailedEventDetails = TaskFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'taskFailedEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'taskFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'taskFailedEventDetails_error' - The error code of the failure.
 --
 -- 'resourceType', 'taskFailedEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -62,19 +62,19 @@ newTaskFailedEventDetails ::
   TaskFailedEventDetails
 newTaskFailedEventDetails pResourceType_ pResource_ =
   TaskFailedEventDetails'
-    { error = Prelude.Nothing,
-      cause = Prelude.Nothing,
+    { cause = Prelude.Nothing,
+      error = Prelude.Nothing,
       resourceType = pResourceType_,
       resource = pResource_
     }
 
--- | The error code of the failure.
-taskFailedEventDetails_error :: Lens.Lens' TaskFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskFailedEventDetails_error = Lens.lens (\TaskFailedEventDetails' {error} -> error) (\s@TaskFailedEventDetails' {} a -> s {error = a} :: TaskFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A more detailed explanation of the cause of the failure.
 taskFailedEventDetails_cause :: Lens.Lens' TaskFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskFailedEventDetails_cause = Lens.lens (\TaskFailedEventDetails' {cause} -> cause) (\s@TaskFailedEventDetails' {} a -> s {cause = a} :: TaskFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+taskFailedEventDetails_error :: Lens.Lens' TaskFailedEventDetails (Prelude.Maybe Prelude.Text)
+taskFailedEventDetails_error = Lens.lens (\TaskFailedEventDetails' {error} -> error) (\s@TaskFailedEventDetails' {} a -> s {error = a} :: TaskFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskFailedEventDetails_resourceType :: Lens.Lens' TaskFailedEventDetails Prelude.Text
@@ -90,22 +90,22 @@ instance Data.FromJSON TaskFailedEventDetails where
       "TaskFailedEventDetails"
       ( \x ->
           TaskFailedEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskFailedEventDetails where
   hashWithSalt _salt TaskFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` cause
+    _salt `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskFailedEventDetails where
   rnf TaskFailedEventDetails' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

@@ -29,8 +29,8 @@ module Amazonka.StepFunctions.StopExecution
     newStopExecution,
 
     -- * Request Lenses
-    stopExecution_error,
     stopExecution_cause,
+    stopExecution_error,
     stopExecution_executionArn,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newStopExecution' smart constructor.
 data StopExecution = StopExecution'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
+  { -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the execution to stop.
     executionArn :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data StopExecution = StopExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'stopExecution_error' - The error code of the failure.
---
 -- 'cause', 'stopExecution_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'stopExecution_error' - The error code of the failure.
 --
 -- 'executionArn', 'stopExecution_executionArn' - The Amazon Resource Name (ARN) of the execution to stop.
 newStopExecution ::
@@ -81,18 +81,18 @@ newStopExecution ::
   StopExecution
 newStopExecution pExecutionArn_ =
   StopExecution'
-    { error = Prelude.Nothing,
-      cause = Prelude.Nothing,
+    { cause = Prelude.Nothing,
+      error = Prelude.Nothing,
       executionArn = pExecutionArn_
     }
-
--- | The error code of the failure.
-stopExecution_error :: Lens.Lens' StopExecution (Prelude.Maybe Prelude.Text)
-stopExecution_error = Lens.lens (\StopExecution' {error} -> error) (\s@StopExecution' {} a -> s {error = a} :: StopExecution) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 stopExecution_cause :: Lens.Lens' StopExecution (Prelude.Maybe Prelude.Text)
 stopExecution_cause = Lens.lens (\StopExecution' {cause} -> cause) (\s@StopExecution' {} a -> s {cause = a} :: StopExecution) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+stopExecution_error :: Lens.Lens' StopExecution (Prelude.Maybe Prelude.Text)
+stopExecution_error = Lens.lens (\StopExecution' {error} -> error) (\s@StopExecution' {} a -> s {error = a} :: StopExecution) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the execution to stop.
 stopExecution_executionArn :: Lens.Lens' StopExecution Prelude.Text
@@ -114,14 +114,14 @@ instance Core.AWSRequest StopExecution where
 
 instance Prelude.Hashable StopExecution where
   hashWithSalt _salt StopExecution' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` cause
+    _salt `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` executionArn
 
 instance Prelude.NFData StopExecution where
   rnf StopExecution' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf executionArn
 
 instance Data.ToHeaders StopExecution where
@@ -143,8 +143,8 @@ instance Data.ToJSON StopExecution where
   toJSON StopExecution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("error" Data..=) Prelude.<$> error,
-            ("cause" Data..=) Prelude.<$> cause,
+          [ ("cause" Data..=) Prelude.<$> cause,
+            ("error" Data..=) Prelude.<$> error,
             Prelude.Just ("executionArn" Data..= executionArn)
           ]
       )

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionScheduleFailedEventDetails' smart constructor.
 data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | A more detailed explanation of the cause of the failure.
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data LambdaFunctionScheduleFailedEventDetails = LambdaFunctionScheduleFailedEven
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'lambdaFunctionScheduleFailedEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'lambdaFunctionScheduleFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'lambdaFunctionScheduleFailedEventDetails_error' - The error code of the failure.
 newLambdaFunctionScheduleFailedEventDetails ::
   LambdaFunctionScheduleFailedEventDetails
 newLambdaFunctionScheduleFailedEventDetails =
   LambdaFunctionScheduleFailedEventDetails'
-    { error =
+    { cause =
         Prelude.Nothing,
-      cause = Prelude.Nothing
+      error = Prelude.Nothing
     }
-
--- | The error code of the failure.
-lambdaFunctionScheduleFailedEventDetails_error :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduleFailedEventDetails_error = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {error} -> error) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {error = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the failure.
 lambdaFunctionScheduleFailedEventDetails_cause :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionScheduleFailedEventDetails_cause = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {cause} -> cause) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {cause = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+lambdaFunctionScheduleFailedEventDetails_error :: Lens.Lens' LambdaFunctionScheduleFailedEventDetails (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduleFailedEventDetails_error = Lens.lens (\LambdaFunctionScheduleFailedEventDetails' {error} -> error) (\s@LambdaFunctionScheduleFailedEventDetails' {} a -> s {error = a} :: LambdaFunctionScheduleFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "LambdaFunctionScheduleFailedEventDetails"
       ( \x ->
           LambdaFunctionScheduleFailedEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance
@@ -84,12 +84,12 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionScheduleFailedEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` error
-        `Prelude.hashWithSalt` cause
+      _salt `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     LambdaFunctionScheduleFailedEventDetails
   where
   rnf LambdaFunctionScheduleFailedEventDetails' {..} =
-    Prelude.rnf error `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause `Prelude.seq` Prelude.rnf error

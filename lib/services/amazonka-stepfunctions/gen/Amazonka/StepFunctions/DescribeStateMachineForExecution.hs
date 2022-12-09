@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the state machine associated with a specific execution.
+-- Provides information about a state machine\'s definition, its execution
+-- role ARN, and configuration. If an execution was dispatched by a Map
+-- Run, the Map Run is returned in the response. Additionally, the state
+-- machine returned will be the state machine associated with the Map Run.
 --
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
@@ -39,8 +42,10 @@ module Amazonka.StepFunctions.DescribeStateMachineForExecution
     newDescribeStateMachineForExecutionResponse,
 
     -- * Response Lenses
-    describeStateMachineForExecutionResponse_tracingConfiguration,
+    describeStateMachineForExecutionResponse_label,
     describeStateMachineForExecutionResponse_loggingConfiguration,
+    describeStateMachineForExecutionResponse_mapRunArn,
+    describeStateMachineForExecutionResponse_tracingConfiguration,
     describeStateMachineForExecutionResponse_httpStatus,
     describeStateMachineForExecutionResponse_stateMachineArn,
     describeStateMachineForExecutionResponse_name,
@@ -104,8 +109,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineForExecutionResponse'
-            Prelude.<$> (x Data..?> "tracingConfiguration")
+            Prelude.<$> (x Data..?> "label")
             Prelude.<*> (x Data..?> "loggingConfiguration")
+            Prelude.<*> (x Data..?> "mapRunArn")
+            Prelude.<*> (x Data..?> "tracingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "stateMachineArn")
             Prelude.<*> (x Data..:> "name")
@@ -166,9 +173,17 @@ instance
 
 -- | /See:/ 'newDescribeStateMachineForExecutionResponse' smart constructor.
 data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecutionResponse'
-  { -- | Selects whether X-Ray tracing is enabled.
-    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
+  { -- | A user-defined or an auto-generated string that identifies a @Map@
+    -- state. This ﬁeld is returned only if the @executionArn@ is a child
+    -- workflow execution that was started by a Distributed Map state.
+    label :: Prelude.Maybe Prelude.Text,
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the Map Run that started the child
+    -- workflow execution. This field is returned only if the @executionArn@ is
+    -- a child workflow execution that was started by a Distributed Map state.
+    mapRunArn :: Prelude.Maybe Prelude.Text,
+    -- | Selects whether X-Ray tracing is enabled.
+    tracingConfiguration :: Prelude.Maybe TracingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the state machine associated with the
@@ -196,9 +211,17 @@ data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecution
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tracingConfiguration', 'describeStateMachineForExecutionResponse_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
+-- 'label', 'describeStateMachineForExecutionResponse_label' - A user-defined or an auto-generated string that identifies a @Map@
+-- state. This ﬁeld is returned only if the @executionArn@ is a child
+-- workflow execution that was started by a Distributed Map state.
 --
 -- 'loggingConfiguration', 'describeStateMachineForExecutionResponse_loggingConfiguration' - Undocumented member.
+--
+-- 'mapRunArn', 'describeStateMachineForExecutionResponse_mapRunArn' - The Amazon Resource Name (ARN) of the Map Run that started the child
+-- workflow execution. This field is returned only if the @executionArn@ is
+-- a child workflow execution that was started by a Distributed Map state.
+--
+-- 'tracingConfiguration', 'describeStateMachineForExecutionResponse_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
 --
 -- 'httpStatus', 'describeStateMachineForExecutionResponse_httpStatus' - The response's http status code.
 --
@@ -237,9 +260,12 @@ newDescribeStateMachineForExecutionResponse
   pRoleArn_
   pUpdateDate_ =
     DescribeStateMachineForExecutionResponse'
-      { tracingConfiguration =
+      { label =
           Prelude.Nothing,
         loggingConfiguration =
+          Prelude.Nothing,
+        mapRunArn = Prelude.Nothing,
+        tracingConfiguration =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         stateMachineArn =
@@ -253,13 +279,25 @@ newDescribeStateMachineForExecutionResponse
           Data._Time Lens.# pUpdateDate_
       }
 
--- | Selects whether X-Ray tracing is enabled.
-describeStateMachineForExecutionResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe TracingConfiguration)
-describeStateMachineForExecutionResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
+-- | A user-defined or an auto-generated string that identifies a @Map@
+-- state. This ﬁeld is returned only if the @executionArn@ is a child
+-- workflow execution that was started by a Distributed Map state.
+describeStateMachineForExecutionResponse_label :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe Prelude.Text)
+describeStateMachineForExecutionResponse_label = Lens.lens (\DescribeStateMachineForExecutionResponse' {label} -> label) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {label = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | Undocumented member.
 describeStateMachineForExecutionResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe LoggingConfiguration)
 describeStateMachineForExecutionResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
+
+-- | The Amazon Resource Name (ARN) of the Map Run that started the child
+-- workflow execution. This field is returned only if the @executionArn@ is
+-- a child workflow execution that was started by a Distributed Map state.
+describeStateMachineForExecutionResponse_mapRunArn :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe Prelude.Text)
+describeStateMachineForExecutionResponse_mapRunArn = Lens.lens (\DescribeStateMachineForExecutionResponse' {mapRunArn} -> mapRunArn) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {mapRunArn = a} :: DescribeStateMachineForExecutionResponse)
+
+-- | Selects whether X-Ray tracing is enabled.
+describeStateMachineForExecutionResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Prelude.Maybe TracingConfiguration)
+describeStateMachineForExecutionResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineForExecutionResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineForExecutionResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
 
 -- | The response's http status code.
 describeStateMachineForExecutionResponse_httpStatus :: Lens.Lens' DescribeStateMachineForExecutionResponse Prelude.Int
@@ -294,8 +332,10 @@ instance
     DescribeStateMachineForExecutionResponse
   where
   rnf DescribeStateMachineForExecutionResponse' {..} =
-    Prelude.rnf tracingConfiguration
+    Prelude.rnf label
       `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf mapRunArn
+      `Prelude.seq` Prelude.rnf tracingConfiguration
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf stateMachineArn
       `Prelude.seq` Prelude.rnf name

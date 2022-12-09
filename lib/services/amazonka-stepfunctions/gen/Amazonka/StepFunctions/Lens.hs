@@ -22,10 +22,10 @@ module Amazonka.StepFunctions.Lens
     createActivityResponse_creationDate,
 
     -- ** CreateStateMachine
-    createStateMachine_tags,
-    createStateMachine_type,
-    createStateMachine_tracingConfiguration,
     createStateMachine_loggingConfiguration,
+    createStateMachine_tags,
+    createStateMachine_tracingConfiguration,
+    createStateMachine_type,
     createStateMachine_name,
     createStateMachine_definition,
     createStateMachine_roleArn,
@@ -50,12 +50,15 @@ module Amazonka.StepFunctions.Lens
 
     -- ** DescribeExecution
     describeExecution_executionArn,
-    describeExecutionResponse_name,
-    describeExecutionResponse_stopDate,
-    describeExecutionResponse_inputDetails,
-    describeExecutionResponse_outputDetails,
+    describeExecutionResponse_cause,
+    describeExecutionResponse_error,
     describeExecutionResponse_input,
+    describeExecutionResponse_inputDetails,
+    describeExecutionResponse_mapRunArn,
+    describeExecutionResponse_name,
     describeExecutionResponse_output,
+    describeExecutionResponse_outputDetails,
+    describeExecutionResponse_stopDate,
     describeExecutionResponse_traceHeader,
     describeExecutionResponse_httpStatus,
     describeExecutionResponse_executionArn,
@@ -63,11 +66,26 @@ module Amazonka.StepFunctions.Lens
     describeExecutionResponse_status,
     describeExecutionResponse_startDate,
 
+    -- ** DescribeMapRun
+    describeMapRun_mapRunArn,
+    describeMapRunResponse_stopDate,
+    describeMapRunResponse_httpStatus,
+    describeMapRunResponse_mapRunArn,
+    describeMapRunResponse_executionArn,
+    describeMapRunResponse_status,
+    describeMapRunResponse_startDate,
+    describeMapRunResponse_maxConcurrency,
+    describeMapRunResponse_toleratedFailurePercentage,
+    describeMapRunResponse_toleratedFailureCount,
+    describeMapRunResponse_itemCounts,
+    describeMapRunResponse_executionCounts,
+
     -- ** DescribeStateMachine
     describeStateMachine_stateMachineArn,
+    describeStateMachineResponse_label,
+    describeStateMachineResponse_loggingConfiguration,
     describeStateMachineResponse_status,
     describeStateMachineResponse_tracingConfiguration,
-    describeStateMachineResponse_loggingConfiguration,
     describeStateMachineResponse_httpStatus,
     describeStateMachineResponse_stateMachineArn,
     describeStateMachineResponse_name,
@@ -78,8 +96,10 @@ module Amazonka.StepFunctions.Lens
 
     -- ** DescribeStateMachineForExecution
     describeStateMachineForExecution_executionArn,
-    describeStateMachineForExecutionResponse_tracingConfiguration,
+    describeStateMachineForExecutionResponse_label,
     describeStateMachineForExecutionResponse_loggingConfiguration,
+    describeStateMachineForExecutionResponse_mapRunArn,
+    describeStateMachineForExecutionResponse_tracingConfiguration,
     describeStateMachineForExecutionResponse_httpStatus,
     describeStateMachineForExecutionResponse_stateMachineArn,
     describeStateMachineForExecutionResponse_name,
@@ -90,14 +110,14 @@ module Amazonka.StepFunctions.Lens
     -- ** GetActivityTask
     getActivityTask_workerName,
     getActivityTask_activityArn,
-    getActivityTaskResponse_taskToken,
     getActivityTaskResponse_input,
+    getActivityTaskResponse_taskToken,
     getActivityTaskResponse_httpStatus,
 
     -- ** GetExecutionHistory
-    getExecutionHistory_nextToken,
-    getExecutionHistory_maxResults,
     getExecutionHistory_includeExecutionData,
+    getExecutionHistory_maxResults,
+    getExecutionHistory_nextToken,
     getExecutionHistory_reverseOrder,
     getExecutionHistory_executionArn,
     getExecutionHistoryResponse_nextToken,
@@ -105,24 +125,33 @@ module Amazonka.StepFunctions.Lens
     getExecutionHistoryResponse_events,
 
     -- ** ListActivities
-    listActivities_nextToken,
     listActivities_maxResults,
+    listActivities_nextToken,
     listActivitiesResponse_nextToken,
     listActivitiesResponse_httpStatus,
     listActivitiesResponse_activities,
 
     -- ** ListExecutions
-    listExecutions_nextToken,
+    listExecutions_mapRunArn,
     listExecutions_maxResults,
-    listExecutions_statusFilter,
+    listExecutions_nextToken,
     listExecutions_stateMachineArn,
+    listExecutions_statusFilter,
     listExecutionsResponse_nextToken,
     listExecutionsResponse_httpStatus,
     listExecutionsResponse_executions,
 
+    -- ** ListMapRuns
+    listMapRuns_maxResults,
+    listMapRuns_nextToken,
+    listMapRuns_executionArn,
+    listMapRunsResponse_nextToken,
+    listMapRunsResponse_httpStatus,
+    listMapRunsResponse_mapRuns,
+
     -- ** ListStateMachines
-    listStateMachines_nextToken,
     listStateMachines_maxResults,
+    listStateMachines_nextToken,
     listStateMachinesResponse_nextToken,
     listStateMachinesResponse_httpStatus,
     listStateMachinesResponse_stateMachines,
@@ -133,8 +162,8 @@ module Amazonka.StepFunctions.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** SendTaskFailure
-    sendTaskFailure_error,
     sendTaskFailure_cause,
+    sendTaskFailure_error,
     sendTaskFailure_taskToken,
     sendTaskFailureResponse_httpStatus,
 
@@ -148,8 +177,8 @@ module Amazonka.StepFunctions.Lens
     sendTaskSuccessResponse_httpStatus,
 
     -- ** StartExecution
-    startExecution_name,
     startExecution_input,
+    startExecution_name,
     startExecution_traceHeader,
     startExecution_stateMachineArn,
     startExecutionResponse_httpStatus,
@@ -157,19 +186,19 @@ module Amazonka.StepFunctions.Lens
     startExecutionResponse_startDate,
 
     -- ** StartSyncExecution
-    startSyncExecution_name,
     startSyncExecution_input,
+    startSyncExecution_name,
     startSyncExecution_traceHeader,
     startSyncExecution_stateMachineArn,
-    startSyncExecutionResponse_name,
     startSyncExecutionResponse_billingDetails,
+    startSyncExecutionResponse_cause,
+    startSyncExecutionResponse_error,
+    startSyncExecutionResponse_input,
     startSyncExecutionResponse_inputDetails,
+    startSyncExecutionResponse_name,
+    startSyncExecutionResponse_output,
     startSyncExecutionResponse_outputDetails,
     startSyncExecutionResponse_stateMachineArn,
-    startSyncExecutionResponse_input,
-    startSyncExecutionResponse_output,
-    startSyncExecutionResponse_error,
-    startSyncExecutionResponse_cause,
     startSyncExecutionResponse_traceHeader,
     startSyncExecutionResponse_httpStatus,
     startSyncExecutionResponse_executionArn,
@@ -178,8 +207,8 @@ module Amazonka.StepFunctions.Lens
     startSyncExecutionResponse_status,
 
     -- ** StopExecution
-    stopExecution_error,
     stopExecution_cause,
+    stopExecution_error,
     stopExecution_executionArn,
     stopExecutionResponse_httpStatus,
     stopExecutionResponse_stopDate,
@@ -194,11 +223,18 @@ module Amazonka.StepFunctions.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateMapRun
+    updateMapRun_maxConcurrency,
+    updateMapRun_toleratedFailureCount,
+    updateMapRun_toleratedFailurePercentage,
+    updateMapRun_mapRunArn,
+    updateMapRunResponse_httpStatus,
+
     -- ** UpdateStateMachine
-    updateStateMachine_roleArn,
-    updateStateMachine_tracingConfiguration,
     updateStateMachine_definition,
     updateStateMachine_loggingConfiguration,
+    updateStateMachine_roleArn,
+    updateStateMachine_tracingConfiguration,
     updateStateMachine_stateMachineArn,
     updateStateMachineResponse_httpStatus,
     updateStateMachineResponse_updateDate,
@@ -206,8 +242,8 @@ module Amazonka.StepFunctions.Lens
     -- * Types
 
     -- ** ActivityFailedEventDetails
-    activityFailedEventDetails_error,
     activityFailedEventDetails_cause,
+    activityFailedEventDetails_error,
 
     -- ** ActivityListItem
     activityListItem_activityArn,
@@ -215,26 +251,26 @@ module Amazonka.StepFunctions.Lens
     activityListItem_creationDate,
 
     -- ** ActivityScheduleFailedEventDetails
-    activityScheduleFailedEventDetails_error,
     activityScheduleFailedEventDetails_cause,
+    activityScheduleFailedEventDetails_error,
 
     -- ** ActivityScheduledEventDetails
+    activityScheduledEventDetails_heartbeatInSeconds,
+    activityScheduledEventDetails_input,
     activityScheduledEventDetails_inputDetails,
     activityScheduledEventDetails_timeoutInSeconds,
-    activityScheduledEventDetails_input,
-    activityScheduledEventDetails_heartbeatInSeconds,
     activityScheduledEventDetails_resource,
 
     -- ** ActivityStartedEventDetails
     activityStartedEventDetails_workerName,
 
     -- ** ActivitySucceededEventDetails
-    activitySucceededEventDetails_outputDetails,
     activitySucceededEventDetails_output,
+    activitySucceededEventDetails_outputDetails,
 
     -- ** ActivityTimedOutEventDetails
-    activityTimedOutEventDetails_error,
     activityTimedOutEventDetails_cause,
+    activityTimedOutEventDetails_error,
 
     -- ** BillingDetails
     billingDetails_billedDurationInMilliseconds,
@@ -247,14 +283,16 @@ module Amazonka.StepFunctions.Lens
     cloudWatchLogsLogGroup_logGroupArn,
 
     -- ** ExecutionAbortedEventDetails
-    executionAbortedEventDetails_error,
     executionAbortedEventDetails_cause,
+    executionAbortedEventDetails_error,
 
     -- ** ExecutionFailedEventDetails
-    executionFailedEventDetails_error,
     executionFailedEventDetails_cause,
+    executionFailedEventDetails_error,
 
     -- ** ExecutionListItem
+    executionListItem_itemCount,
+    executionListItem_mapRunArn,
     executionListItem_stopDate,
     executionListItem_executionArn,
     executionListItem_stateMachineArn,
@@ -263,52 +301,54 @@ module Amazonka.StepFunctions.Lens
     executionListItem_startDate,
 
     -- ** ExecutionStartedEventDetails
-    executionStartedEventDetails_roleArn,
-    executionStartedEventDetails_inputDetails,
     executionStartedEventDetails_input,
+    executionStartedEventDetails_inputDetails,
+    executionStartedEventDetails_roleArn,
 
     -- ** ExecutionSucceededEventDetails
-    executionSucceededEventDetails_outputDetails,
     executionSucceededEventDetails_output,
+    executionSucceededEventDetails_outputDetails,
 
     -- ** ExecutionTimedOutEventDetails
-    executionTimedOutEventDetails_error,
     executionTimedOutEventDetails_cause,
+    executionTimedOutEventDetails_error,
 
     -- ** HistoryEvent
-    historyEvent_lambdaFunctionTimedOutEventDetails,
+    historyEvent_activityFailedEventDetails,
+    historyEvent_activityScheduleFailedEventDetails,
+    historyEvent_activityScheduledEventDetails,
+    historyEvent_activityStartedEventDetails,
     historyEvent_activitySucceededEventDetails,
+    historyEvent_activityTimedOutEventDetails,
+    historyEvent_executionAbortedEventDetails,
+    historyEvent_executionFailedEventDetails,
+    historyEvent_executionStartedEventDetails,
+    historyEvent_executionSucceededEventDetails,
+    historyEvent_executionTimedOutEventDetails,
+    historyEvent_lambdaFunctionFailedEventDetails,
+    historyEvent_lambdaFunctionScheduleFailedEventDetails,
+    historyEvent_lambdaFunctionScheduledEventDetails,
+    historyEvent_lambdaFunctionStartFailedEventDetails,
+    historyEvent_lambdaFunctionSucceededEventDetails,
+    historyEvent_lambdaFunctionTimedOutEventDetails,
+    historyEvent_mapIterationAbortedEventDetails,
+    historyEvent_mapIterationFailedEventDetails,
+    historyEvent_mapIterationStartedEventDetails,
+    historyEvent_mapIterationSucceededEventDetails,
+    historyEvent_mapRunFailedEventDetails,
+    historyEvent_mapRunStartedEventDetails,
+    historyEvent_mapStateStartedEventDetails,
+    historyEvent_previousEventId,
+    historyEvent_stateEnteredEventDetails,
+    historyEvent_stateExitedEventDetails,
+    historyEvent_taskFailedEventDetails,
+    historyEvent_taskScheduledEventDetails,
+    historyEvent_taskStartFailedEventDetails,
     historyEvent_taskStartedEventDetails,
     historyEvent_taskSubmitFailedEventDetails,
     historyEvent_taskSubmittedEventDetails,
-    historyEvent_stateExitedEventDetails,
-    historyEvent_previousEventId,
-    historyEvent_executionAbortedEventDetails,
-    historyEvent_mapIterationAbortedEventDetails,
-    historyEvent_taskTimedOutEventDetails,
-    historyEvent_mapIterationStartedEventDetails,
-    historyEvent_executionStartedEventDetails,
-    historyEvent_lambdaFunctionSucceededEventDetails,
-    historyEvent_activityScheduleFailedEventDetails,
-    historyEvent_executionTimedOutEventDetails,
-    historyEvent_mapStateStartedEventDetails,
-    historyEvent_taskScheduledEventDetails,
-    historyEvent_taskFailedEventDetails,
-    historyEvent_activityStartedEventDetails,
-    historyEvent_lambdaFunctionScheduledEventDetails,
-    historyEvent_taskStartFailedEventDetails,
     historyEvent_taskSucceededEventDetails,
-    historyEvent_lambdaFunctionFailedEventDetails,
-    historyEvent_mapIterationFailedEventDetails,
-    historyEvent_lambdaFunctionScheduleFailedEventDetails,
-    historyEvent_executionFailedEventDetails,
-    historyEvent_lambdaFunctionStartFailedEventDetails,
-    historyEvent_executionSucceededEventDetails,
-    historyEvent_activityScheduledEventDetails,
-    historyEvent_mapIterationSucceededEventDetails,
-    historyEvent_activityFailedEventDetails,
-    historyEvent_stateEnteredEventDetails,
-    historyEvent_activityTimedOutEventDetails,
+    historyEvent_taskTimedOutEventDetails,
     historyEvent_timestamp,
     historyEvent_type,
     historyEvent_id,
@@ -317,55 +357,89 @@ module Amazonka.StepFunctions.Lens
     historyEventExecutionDataDetails_truncated,
 
     -- ** LambdaFunctionFailedEventDetails
-    lambdaFunctionFailedEventDetails_error,
     lambdaFunctionFailedEventDetails_cause,
+    lambdaFunctionFailedEventDetails_error,
 
     -- ** LambdaFunctionScheduleFailedEventDetails
-    lambdaFunctionScheduleFailedEventDetails_error,
     lambdaFunctionScheduleFailedEventDetails_cause,
+    lambdaFunctionScheduleFailedEventDetails_error,
 
     -- ** LambdaFunctionScheduledEventDetails
-    lambdaFunctionScheduledEventDetails_taskCredentials,
-    lambdaFunctionScheduledEventDetails_inputDetails,
-    lambdaFunctionScheduledEventDetails_timeoutInSeconds,
     lambdaFunctionScheduledEventDetails_input,
+    lambdaFunctionScheduledEventDetails_inputDetails,
+    lambdaFunctionScheduledEventDetails_taskCredentials,
+    lambdaFunctionScheduledEventDetails_timeoutInSeconds,
     lambdaFunctionScheduledEventDetails_resource,
 
     -- ** LambdaFunctionStartFailedEventDetails
-    lambdaFunctionStartFailedEventDetails_error,
     lambdaFunctionStartFailedEventDetails_cause,
+    lambdaFunctionStartFailedEventDetails_error,
 
     -- ** LambdaFunctionSucceededEventDetails
-    lambdaFunctionSucceededEventDetails_outputDetails,
     lambdaFunctionSucceededEventDetails_output,
+    lambdaFunctionSucceededEventDetails_outputDetails,
 
     -- ** LambdaFunctionTimedOutEventDetails
-    lambdaFunctionTimedOutEventDetails_error,
     lambdaFunctionTimedOutEventDetails_cause,
+    lambdaFunctionTimedOutEventDetails_error,
 
     -- ** LogDestination
     logDestination_cloudWatchLogsLogGroup,
 
     -- ** LoggingConfiguration
+    loggingConfiguration_destinations,
     loggingConfiguration_includeExecutionData,
     loggingConfiguration_level,
-    loggingConfiguration_destinations,
 
     -- ** MapIterationEventDetails
-    mapIterationEventDetails_name,
     mapIterationEventDetails_index,
+    mapIterationEventDetails_name,
+
+    -- ** MapRunExecutionCounts
+    mapRunExecutionCounts_pending,
+    mapRunExecutionCounts_running,
+    mapRunExecutionCounts_succeeded,
+    mapRunExecutionCounts_failed,
+    mapRunExecutionCounts_timedOut,
+    mapRunExecutionCounts_aborted,
+    mapRunExecutionCounts_total,
+    mapRunExecutionCounts_resultsWritten,
+
+    -- ** MapRunFailedEventDetails
+    mapRunFailedEventDetails_cause,
+    mapRunFailedEventDetails_error,
+
+    -- ** MapRunItemCounts
+    mapRunItemCounts_pending,
+    mapRunItemCounts_running,
+    mapRunItemCounts_succeeded,
+    mapRunItemCounts_failed,
+    mapRunItemCounts_timedOut,
+    mapRunItemCounts_aborted,
+    mapRunItemCounts_total,
+    mapRunItemCounts_resultsWritten,
+
+    -- ** MapRunListItem
+    mapRunListItem_stopDate,
+    mapRunListItem_executionArn,
+    mapRunListItem_mapRunArn,
+    mapRunListItem_stateMachineArn,
+    mapRunListItem_startDate,
+
+    -- ** MapRunStartedEventDetails
+    mapRunStartedEventDetails_mapRunArn,
 
     -- ** MapStateStartedEventDetails
     mapStateStartedEventDetails_length,
 
     -- ** StateEnteredEventDetails
-    stateEnteredEventDetails_inputDetails,
     stateEnteredEventDetails_input,
+    stateEnteredEventDetails_inputDetails,
     stateEnteredEventDetails_name,
 
     -- ** StateExitedEventDetails
-    stateExitedEventDetails_outputDetails,
     stateExitedEventDetails_output,
+    stateExitedEventDetails_outputDetails,
     stateExitedEventDetails_name,
 
     -- ** StateMachineListItem
@@ -382,23 +456,23 @@ module Amazonka.StepFunctions.Lens
     taskCredentials_roleArn,
 
     -- ** TaskFailedEventDetails
-    taskFailedEventDetails_error,
     taskFailedEventDetails_cause,
+    taskFailedEventDetails_error,
     taskFailedEventDetails_resourceType,
     taskFailedEventDetails_resource,
 
     -- ** TaskScheduledEventDetails
+    taskScheduledEventDetails_heartbeatInSeconds,
     taskScheduledEventDetails_taskCredentials,
     taskScheduledEventDetails_timeoutInSeconds,
-    taskScheduledEventDetails_heartbeatInSeconds,
     taskScheduledEventDetails_resourceType,
     taskScheduledEventDetails_resource,
     taskScheduledEventDetails_region,
     taskScheduledEventDetails_parameters,
 
     -- ** TaskStartFailedEventDetails
-    taskStartFailedEventDetails_error,
     taskStartFailedEventDetails_cause,
+    taskStartFailedEventDetails_error,
     taskStartFailedEventDetails_resourceType,
     taskStartFailedEventDetails_resource,
 
@@ -407,26 +481,26 @@ module Amazonka.StepFunctions.Lens
     taskStartedEventDetails_resource,
 
     -- ** TaskSubmitFailedEventDetails
-    taskSubmitFailedEventDetails_error,
     taskSubmitFailedEventDetails_cause,
+    taskSubmitFailedEventDetails_error,
     taskSubmitFailedEventDetails_resourceType,
     taskSubmitFailedEventDetails_resource,
 
     -- ** TaskSubmittedEventDetails
-    taskSubmittedEventDetails_outputDetails,
     taskSubmittedEventDetails_output,
+    taskSubmittedEventDetails_outputDetails,
     taskSubmittedEventDetails_resourceType,
     taskSubmittedEventDetails_resource,
 
     -- ** TaskSucceededEventDetails
-    taskSucceededEventDetails_outputDetails,
     taskSucceededEventDetails_output,
+    taskSucceededEventDetails_outputDetails,
     taskSucceededEventDetails_resourceType,
     taskSucceededEventDetails_resource,
 
     -- ** TaskTimedOutEventDetails
-    taskTimedOutEventDetails_error,
     taskTimedOutEventDetails_cause,
+    taskTimedOutEventDetails_error,
     taskTimedOutEventDetails_resourceType,
     taskTimedOutEventDetails_resource,
 
@@ -441,12 +515,14 @@ import Amazonka.StepFunctions.DeleteActivity
 import Amazonka.StepFunctions.DeleteStateMachine
 import Amazonka.StepFunctions.DescribeActivity
 import Amazonka.StepFunctions.DescribeExecution
+import Amazonka.StepFunctions.DescribeMapRun
 import Amazonka.StepFunctions.DescribeStateMachine
 import Amazonka.StepFunctions.DescribeStateMachineForExecution
 import Amazonka.StepFunctions.GetActivityTask
 import Amazonka.StepFunctions.GetExecutionHistory
 import Amazonka.StepFunctions.ListActivities
 import Amazonka.StepFunctions.ListExecutions
+import Amazonka.StepFunctions.ListMapRuns
 import Amazonka.StepFunctions.ListStateMachines
 import Amazonka.StepFunctions.ListTagsForResource
 import Amazonka.StepFunctions.SendTaskFailure
@@ -483,6 +559,11 @@ import Amazonka.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
 import Amazonka.StepFunctions.Types.LogDestination
 import Amazonka.StepFunctions.Types.LoggingConfiguration
 import Amazonka.StepFunctions.Types.MapIterationEventDetails
+import Amazonka.StepFunctions.Types.MapRunExecutionCounts
+import Amazonka.StepFunctions.Types.MapRunFailedEventDetails
+import Amazonka.StepFunctions.Types.MapRunItemCounts
+import Amazonka.StepFunctions.Types.MapRunListItem
+import Amazonka.StepFunctions.Types.MapRunStartedEventDetails
 import Amazonka.StepFunctions.Types.MapStateStartedEventDetails
 import Amazonka.StepFunctions.Types.StateEnteredEventDetails
 import Amazonka.StepFunctions.Types.StateExitedEventDetails
@@ -499,4 +580,5 @@ import Amazonka.StepFunctions.Types.TaskSucceededEventDetails
 import Amazonka.StepFunctions.Types.TaskTimedOutEventDetails
 import Amazonka.StepFunctions.Types.TracingConfiguration
 import Amazonka.StepFunctions.UntagResource
+import Amazonka.StepFunctions.UpdateMapRun
 import Amazonka.StepFunctions.UpdateStateMachine

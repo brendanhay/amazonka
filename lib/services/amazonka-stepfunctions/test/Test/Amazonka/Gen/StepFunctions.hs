@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestDescribeExecution $
 --             newDescribeExecution
 --
+--         , requestDescribeMapRun $
+--             newDescribeMapRun
+--
 --         , requestDescribeStateMachine $
 --             newDescribeStateMachine
 --
@@ -62,6 +65,9 @@ import Test.Tasty
 --
 --         , requestListExecutions $
 --             newListExecutions
+--
+--         , requestListMapRuns $
+--             newListMapRuns
 --
 --         , requestListStateMachines $
 --             newListStateMachines
@@ -93,6 +99,9 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateMapRun $
+--             newUpdateMapRun
+--
 --         , requestUpdateStateMachine $
 --             newUpdateStateMachine
 --
@@ -117,6 +126,9 @@ import Test.Tasty
 --         , responseDescribeExecution $
 --             newDescribeExecutionResponse
 --
+--         , responseDescribeMapRun $
+--             newDescribeMapRunResponse
+--
 --         , responseDescribeStateMachine $
 --             newDescribeStateMachineResponse
 --
@@ -134,6 +146,9 @@ import Test.Tasty
 --
 --         , responseListExecutions $
 --             newListExecutionsResponse
+--
+--         , responseListMapRuns $
+--             newListMapRunsResponse
 --
 --         , responseListStateMachines $
 --             newListStateMachinesResponse
@@ -164,6 +179,9 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateMapRun $
+--             newUpdateMapRunResponse
 --
 --         , responseUpdateStateMachine $
 --             newUpdateStateMachineResponse
@@ -209,6 +227,12 @@ requestDescribeExecution =
     "DescribeExecution"
     "fixture/DescribeExecution.yaml"
 
+requestDescribeMapRun :: DescribeMapRun -> TestTree
+requestDescribeMapRun =
+  req
+    "DescribeMapRun"
+    "fixture/DescribeMapRun.yaml"
+
 requestDescribeStateMachine :: DescribeStateMachine -> TestTree
 requestDescribeStateMachine =
   req
@@ -244,6 +268,12 @@ requestListExecutions =
   req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
+
+requestListMapRuns :: ListMapRuns -> TestTree
+requestListMapRuns =
+  req
+    "ListMapRuns"
+    "fixture/ListMapRuns.yaml"
 
 requestListStateMachines :: ListStateMachines -> TestTree
 requestListStateMachines =
@@ -305,6 +335,12 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateMapRun :: UpdateMapRun -> TestTree
+requestUpdateMapRun =
+  req
+    "UpdateMapRun"
+    "fixture/UpdateMapRun.yaml"
+
 requestUpdateStateMachine :: UpdateStateMachine -> TestTree
 requestUpdateStateMachine =
   req
@@ -361,6 +397,14 @@ responseDescribeExecution =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
 
+responseDescribeMapRun :: DescribeMapRunResponse -> TestTree
+responseDescribeMapRun =
+  res
+    "DescribeMapRunResponse"
+    "fixture/DescribeMapRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMapRun)
+
 responseDescribeStateMachine :: DescribeStateMachineResponse -> TestTree
 responseDescribeStateMachine =
   res
@@ -408,6 +452,14 @@ responseListExecutions =
     "fixture/ListExecutionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListExecutions)
+
+responseListMapRuns :: ListMapRunsResponse -> TestTree
+responseListMapRuns =
+  res
+    "ListMapRunsResponse"
+    "fixture/ListMapRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMapRuns)
 
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
 responseListStateMachines =
@@ -488,6 +540,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateMapRun :: UpdateMapRunResponse -> TestTree
+responseUpdateMapRun =
+  res
+    "UpdateMapRunResponse"
+    "fixture/UpdateMapRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMapRun)
 
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
 responseUpdateStateMachine =

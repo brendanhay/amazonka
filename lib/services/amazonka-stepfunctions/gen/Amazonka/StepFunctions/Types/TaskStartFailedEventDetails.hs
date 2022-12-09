@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskStartFailedEventDetails' smart constructor.
 data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
+  { -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -47,9 +47,9 @@ data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'taskStartFailedEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'taskStartFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'taskStartFailedEventDetails_error' - The error code of the failure.
 --
 -- 'resourceType', 'taskStartFailedEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -64,20 +64,20 @@ newTaskStartFailedEventDetails
   pResourceType_
   pResource_ =
     TaskStartFailedEventDetails'
-      { error =
+      { cause =
           Prelude.Nothing,
-        cause = Prelude.Nothing,
+        error = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
 
--- | The error code of the failure.
-taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A more detailed explanation of the cause of the failure.
 taskStartFailedEventDetails_cause :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskStartFailedEventDetails_cause = Lens.lens (\TaskStartFailedEventDetails' {cause} -> cause) (\s@TaskStartFailedEventDetails' {} a -> s {cause = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+taskStartFailedEventDetails_error :: Lens.Lens' TaskStartFailedEventDetails (Prelude.Maybe Prelude.Text)
+taskStartFailedEventDetails_error = Lens.lens (\TaskStartFailedEventDetails' {error} -> error) (\s@TaskStartFailedEventDetails' {} a -> s {error = a} :: TaskStartFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskStartFailedEventDetails_resourceType :: Lens.Lens' TaskStartFailedEventDetails Prelude.Text
@@ -93,22 +93,22 @@ instance Data.FromJSON TaskStartFailedEventDetails where
       "TaskStartFailedEventDetails"
       ( \x ->
           TaskStartFailedEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskStartFailedEventDetails where
   hashWithSalt _salt TaskStartFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` cause
+    _salt `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskStartFailedEventDetails where
   rnf TaskStartFailedEventDetails' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

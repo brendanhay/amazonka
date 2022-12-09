@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskTimedOutEventDetails' smart constructor.
 data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
+  { -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -48,9 +48,9 @@ data TaskTimedOutEventDetails = TaskTimedOutEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'taskTimedOutEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'taskTimedOutEventDetails_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'taskTimedOutEventDetails_error' - The error code of the failure.
 --
 -- 'resourceType', 'taskTimedOutEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -63,19 +63,19 @@ newTaskTimedOutEventDetails ::
   TaskTimedOutEventDetails
 newTaskTimedOutEventDetails pResourceType_ pResource_ =
   TaskTimedOutEventDetails'
-    { error = Prelude.Nothing,
-      cause = Prelude.Nothing,
+    { cause = Prelude.Nothing,
+      error = Prelude.Nothing,
       resourceType = pResourceType_,
       resource = pResource_
     }
 
--- | The error code of the failure.
-taskTimedOutEventDetails_error :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A more detailed explanation of the cause of the failure.
 taskTimedOutEventDetails_cause :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
 taskTimedOutEventDetails_cause = Lens.lens (\TaskTimedOutEventDetails' {cause} -> cause) (\s@TaskTimedOutEventDetails' {} a -> s {cause = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+taskTimedOutEventDetails_error :: Lens.Lens' TaskTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+taskTimedOutEventDetails_error = Lens.lens (\TaskTimedOutEventDetails' {error} -> error) (\s@TaskTimedOutEventDetails' {} a -> s {error = a} :: TaskTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskTimedOutEventDetails_resourceType :: Lens.Lens' TaskTimedOutEventDetails Prelude.Text
@@ -91,22 +91,22 @@ instance Data.FromJSON TaskTimedOutEventDetails where
       "TaskTimedOutEventDetails"
       ( \x ->
           TaskTimedOutEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
       )
 
 instance Prelude.Hashable TaskTimedOutEventDetails where
   hashWithSalt _salt TaskTimedOutEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` cause
+    _salt `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskTimedOutEventDetails where
   rnf TaskTimedOutEventDetails' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

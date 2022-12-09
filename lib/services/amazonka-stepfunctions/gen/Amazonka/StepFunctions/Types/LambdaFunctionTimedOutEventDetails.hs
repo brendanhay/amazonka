@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionTimedOutEventDetails' smart constructor.
 data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the timeout.
-    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | A more detailed explanation of the cause of the timeout.
+    cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data LambdaFunctionTimedOutEventDetails = LambdaFunctionTimedOutEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'lambdaFunctionTimedOutEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'lambdaFunctionTimedOutEventDetails_cause' - A more detailed explanation of the cause of the timeout.
+--
+-- 'error', 'lambdaFunctionTimedOutEventDetails_error' - The error code of the failure.
 newLambdaFunctionTimedOutEventDetails ::
   LambdaFunctionTimedOutEventDetails
 newLambdaFunctionTimedOutEventDetails =
   LambdaFunctionTimedOutEventDetails'
-    { error =
+    { cause =
         Prelude.Nothing,
-      cause = Prelude.Nothing
+      error = Prelude.Nothing
     }
-
--- | The error code of the failure.
-lambdaFunctionTimedOutEventDetails_error :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Prelude.Maybe Prelude.Text)
-lambdaFunctionTimedOutEventDetails_error = Lens.lens (\LambdaFunctionTimedOutEventDetails' {error} -> error) (\s@LambdaFunctionTimedOutEventDetails' {} a -> s {error = a} :: LambdaFunctionTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A more detailed explanation of the cause of the timeout.
 lambdaFunctionTimedOutEventDetails_cause :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionTimedOutEventDetails_cause = Lens.lens (\LambdaFunctionTimedOutEventDetails' {cause} -> cause) (\s@LambdaFunctionTimedOutEventDetails' {} a -> s {cause = a} :: LambdaFunctionTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+lambdaFunctionTimedOutEventDetails_error :: Lens.Lens' LambdaFunctionTimedOutEventDetails (Prelude.Maybe Prelude.Text)
+lambdaFunctionTimedOutEventDetails_error = Lens.lens (\LambdaFunctionTimedOutEventDetails' {error} -> error) (\s@LambdaFunctionTimedOutEventDetails' {} a -> s {error = a} :: LambdaFunctionTimedOutEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "LambdaFunctionTimedOutEventDetails"
       ( \x ->
           LambdaFunctionTimedOutEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
       )
 
 instance
@@ -84,12 +84,12 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionTimedOutEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` error
-        `Prelude.hashWithSalt` cause
+      _salt `Prelude.hashWithSalt` cause
+        `Prelude.hashWithSalt` error
 
 instance
   Prelude.NFData
     LambdaFunctionTimedOutEventDetails
   where
   rnf LambdaFunctionTimedOutEventDetails' {..} =
-    Prelude.rnf error `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause `Prelude.seq` Prelude.rnf error

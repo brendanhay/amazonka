@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaskSubmitFailedEventDetails' smart constructor.
 data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
-  { -- | The error code of the failure.
-    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A more detailed explanation of the cause of the failure.
+  { -- | A more detailed explanation of the cause of the failure.
     cause :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The error code of the failure.
+    error :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -47,9 +47,9 @@ data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'error', 'taskSubmitFailedEventDetails_error' - The error code of the failure.
---
 -- 'cause', 'taskSubmitFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
+--
+-- 'error', 'taskSubmitFailedEventDetails_error' - The error code of the failure.
 --
 -- 'resourceType', 'taskSubmitFailedEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -64,20 +64,20 @@ newTaskSubmitFailedEventDetails
   pResourceType_
   pResource_ =
     TaskSubmitFailedEventDetails'
-      { error =
+      { cause =
           Prelude.Nothing,
-        cause = Prelude.Nothing,
+        error = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_
       }
 
--- | The error code of the failure.
-taskSubmitFailedEventDetails_error :: Lens.Lens' TaskSubmitFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskSubmitFailedEventDetails_error = Lens.lens (\TaskSubmitFailedEventDetails' {error} -> error) (\s@TaskSubmitFailedEventDetails' {} a -> s {error = a} :: TaskSubmitFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A more detailed explanation of the cause of the failure.
 taskSubmitFailedEventDetails_cause :: Lens.Lens' TaskSubmitFailedEventDetails (Prelude.Maybe Prelude.Text)
 taskSubmitFailedEventDetails_cause = Lens.lens (\TaskSubmitFailedEventDetails' {cause} -> cause) (\s@TaskSubmitFailedEventDetails' {} a -> s {cause = a} :: TaskSubmitFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The error code of the failure.
+taskSubmitFailedEventDetails_error :: Lens.Lens' TaskSubmitFailedEventDetails (Prelude.Maybe Prelude.Text)
+taskSubmitFailedEventDetails_error = Lens.lens (\TaskSubmitFailedEventDetails' {error} -> error) (\s@TaskSubmitFailedEventDetails' {} a -> s {error = a} :: TaskSubmitFailedEventDetails) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service name of the resource in a task state.
 taskSubmitFailedEventDetails_resourceType :: Lens.Lens' TaskSubmitFailedEventDetails Prelude.Text
@@ -93,8 +93,8 @@ instance Data.FromJSON TaskSubmitFailedEventDetails where
       "TaskSubmitFailedEventDetails"
       ( \x ->
           TaskSubmitFailedEventDetails'
-            Prelude.<$> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "cause")
+            Prelude.<$> (x Data..:? "cause")
+            Prelude.<*> (x Data..:? "error")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
       )
@@ -104,14 +104,14 @@ instance
     TaskSubmitFailedEventDetails
   where
   hashWithSalt _salt TaskSubmitFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` cause
+    _salt `Prelude.hashWithSalt` cause
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskSubmitFailedEventDetails where
   rnf TaskSubmitFailedEventDetails' {..} =
-    Prelude.rnf error
-      `Prelude.seq` Prelude.rnf cause
+    Prelude.rnf cause
+      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource

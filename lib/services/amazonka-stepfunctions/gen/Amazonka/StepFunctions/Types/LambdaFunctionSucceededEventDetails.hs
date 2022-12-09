@@ -30,11 +30,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newLambdaFunctionSucceededEventDetails' smart constructor.
 data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
-  { -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON data output by the Lambda function. Length constraints apply to
+  { -- | The JSON data output by the Lambda function. Length constraints apply to
     -- the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputDetails', 'lambdaFunctionSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
---
 -- 'output', 'lambdaFunctionSucceededEventDetails_output' - The JSON data output by the Lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'outputDetails', 'lambdaFunctionSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
 newLambdaFunctionSucceededEventDetails ::
   LambdaFunctionSucceededEventDetails
 newLambdaFunctionSucceededEventDetails =
   LambdaFunctionSucceededEventDetails'
-    { outputDetails =
+    { output =
         Prelude.Nothing,
-      output = Prelude.Nothing
+      outputDetails = Prelude.Nothing
     }
-
--- | Contains details about the output of an execution history event.
-lambdaFunctionSucceededEventDetails_outputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-lambdaFunctionSucceededEventDetails_outputDetails = Lens.lens (\LambdaFunctionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {outputDetails = a} :: LambdaFunctionSucceededEventDetails)
 
 -- | The JSON data output by the Lambda function. Length constraints apply to
 -- the payload size, and are expressed as bytes in UTF-8 encoding.
 lambdaFunctionSucceededEventDetails_output :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe Prelude.Text)
 lambdaFunctionSucceededEventDetails_output = Lens.lens (\LambdaFunctionSucceededEventDetails' {output} -> output) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {output = a} :: LambdaFunctionSucceededEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Contains details about the output of an execution history event.
+lambdaFunctionSucceededEventDetails_outputDetails :: Lens.Lens' LambdaFunctionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+lambdaFunctionSucceededEventDetails_outputDetails = Lens.lens (\LambdaFunctionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@LambdaFunctionSucceededEventDetails' {} a -> s {outputDetails = a} :: LambdaFunctionSucceededEventDetails)
 
 instance
   Data.FromJSON
@@ -77,8 +77,8 @@ instance
       "LambdaFunctionSucceededEventDetails"
       ( \x ->
           LambdaFunctionSucceededEventDetails'
-            Prelude.<$> (x Data..:? "outputDetails")
-            Prelude.<*> (x Data..:? "output")
+            Prelude.<$> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "outputDetails")
       )
 
 instance
@@ -88,13 +88,13 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionSucceededEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` outputDetails
-        `Prelude.hashWithSalt` output
+      _salt `Prelude.hashWithSalt` output
+        `Prelude.hashWithSalt` outputDetails
 
 instance
   Prelude.NFData
     LambdaFunctionSucceededEventDetails
   where
   rnf LambdaFunctionSucceededEventDetails' {..} =
-    Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails

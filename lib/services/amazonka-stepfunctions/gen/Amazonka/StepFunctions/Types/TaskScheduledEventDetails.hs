@@ -29,12 +29,12 @@ import Amazonka.StepFunctions.Types.TaskCredentials
 --
 -- /See:/ 'newTaskScheduledEventDetails' smart constructor.
 data TaskScheduledEventDetails = TaskScheduledEventDetails'
-  { -- | The credentials that Step Functions uses for the task.
+  { -- | The maximum allowed duration between two heartbeats for the task.
+    heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The credentials that Step Functions uses for the task.
     taskCredentials :: Prelude.Maybe TaskCredentials,
     -- | The maximum allowed duration of the task.
     timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The maximum allowed duration between two heartbeats for the task.
-    heartbeatInSeconds :: Prelude.Maybe Prelude.Integer,
     -- | The service name of the resource in a task state.
     resourceType :: Prelude.Text,
     -- | The action of the resource called by a task state.
@@ -56,11 +56,11 @@ data TaskScheduledEventDetails = TaskScheduledEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'heartbeatInSeconds', 'taskScheduledEventDetails_heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
+--
 -- 'taskCredentials', 'taskScheduledEventDetails_taskCredentials' - The credentials that Step Functions uses for the task.
 --
 -- 'timeoutInSeconds', 'taskScheduledEventDetails_timeoutInSeconds' - The maximum allowed duration of the task.
---
--- 'heartbeatInSeconds', 'taskScheduledEventDetails_heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
 --
 -- 'resourceType', 'taskScheduledEventDetails_resourceType' - The service name of the resource in a task state.
 --
@@ -87,15 +87,19 @@ newTaskScheduledEventDetails
   pRegion_
   pParameters_ =
     TaskScheduledEventDetails'
-      { taskCredentials =
+      { heartbeatInSeconds =
           Prelude.Nothing,
+        taskCredentials = Prelude.Nothing,
         timeoutInSeconds = Prelude.Nothing,
-        heartbeatInSeconds = Prelude.Nothing,
         resourceType = pResourceType_,
         resource = pResource_,
         region = pRegion_,
         parameters = Data._Sensitive Lens.# pParameters_
       }
+
+-- | The maximum allowed duration between two heartbeats for the task.
+taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
+taskScheduledEventDetails_heartbeatInSeconds = Lens.lens (\TaskScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
 
 -- | The credentials that Step Functions uses for the task.
 taskScheduledEventDetails_taskCredentials :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe TaskCredentials)
@@ -104,10 +108,6 @@ taskScheduledEventDetails_taskCredentials = Lens.lens (\TaskScheduledEventDetail
 -- | The maximum allowed duration of the task.
 taskScheduledEventDetails_timeoutInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
 taskScheduledEventDetails_timeoutInSeconds = Lens.lens (\TaskScheduledEventDetails' {timeoutInSeconds} -> timeoutInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {timeoutInSeconds = a} :: TaskScheduledEventDetails)
-
--- | The maximum allowed duration between two heartbeats for the task.
-taskScheduledEventDetails_heartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Prelude.Maybe Prelude.Integer)
-taskScheduledEventDetails_heartbeatInSeconds = Lens.lens (\TaskScheduledEventDetails' {heartbeatInSeconds} -> heartbeatInSeconds) (\s@TaskScheduledEventDetails' {} a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
 
 -- | The service name of the resource in a task state.
 taskScheduledEventDetails_resourceType :: Lens.Lens' TaskScheduledEventDetails Prelude.Text
@@ -133,9 +133,9 @@ instance Data.FromJSON TaskScheduledEventDetails where
       "TaskScheduledEventDetails"
       ( \x ->
           TaskScheduledEventDetails'
-            Prelude.<$> (x Data..:? "taskCredentials")
+            Prelude.<$> (x Data..:? "heartbeatInSeconds")
+            Prelude.<*> (x Data..:? "taskCredentials")
             Prelude.<*> (x Data..:? "timeoutInSeconds")
-            Prelude.<*> (x Data..:? "heartbeatInSeconds")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "resource")
             Prelude.<*> (x Data..: "region")
@@ -144,9 +144,9 @@ instance Data.FromJSON TaskScheduledEventDetails where
 
 instance Prelude.Hashable TaskScheduledEventDetails where
   hashWithSalt _salt TaskScheduledEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` taskCredentials
+    _salt `Prelude.hashWithSalt` heartbeatInSeconds
+      `Prelude.hashWithSalt` taskCredentials
       `Prelude.hashWithSalt` timeoutInSeconds
-      `Prelude.hashWithSalt` heartbeatInSeconds
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` region
@@ -154,9 +154,9 @@ instance Prelude.Hashable TaskScheduledEventDetails where
 
 instance Prelude.NFData TaskScheduledEventDetails where
   rnf TaskScheduledEventDetails' {..} =
-    Prelude.rnf taskCredentials
+    Prelude.rnf heartbeatInSeconds
+      `Prelude.seq` Prelude.rnf taskCredentials
       `Prelude.seq` Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf heartbeatInSeconds
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf region

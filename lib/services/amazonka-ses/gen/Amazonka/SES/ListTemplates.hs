@@ -32,8 +32,8 @@ module Amazonka.SES.ListTemplates
     newListTemplates,
 
     -- * Request Lenses
-    listTemplates_nextToken,
     listTemplates_maxItems,
+    listTemplates_nextToken,
 
     -- * Destructuring the Response
     ListTemplatesResponse (..),
@@ -56,14 +56,14 @@ import Amazonka.SES.Types
 
 -- | /See:/ 'newListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { -- | A token returned from a previous call to @ListTemplates@ to indicate the
-    -- position in the list of email templates.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of templates to return. This value must be at least 1
+  { -- | The maximum number of templates to return. This value must be at least 1
     -- and less than or equal to 10. If you do not specify a value, or if you
     -- specify a value less than 1 or greater than 10, the operation will
     -- return up to 10 results.
-    maxItems :: Prelude.Maybe Prelude.Int
+    maxItems :: Prelude.Maybe Prelude.Int,
+    -- | A token returned from a previous call to @ListTemplates@ to indicate the
+    -- position in the list of email templates.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,25 +75,20 @@ data ListTemplates = ListTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTemplates_nextToken' - A token returned from a previous call to @ListTemplates@ to indicate the
--- position in the list of email templates.
---
 -- 'maxItems', 'listTemplates_maxItems' - The maximum number of templates to return. This value must be at least 1
 -- and less than or equal to 10. If you do not specify a value, or if you
 -- specify a value less than 1 or greater than 10, the operation will
 -- return up to 10 results.
+--
+-- 'nextToken', 'listTemplates_nextToken' - A token returned from a previous call to @ListTemplates@ to indicate the
+-- position in the list of email templates.
 newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
-    { nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+    { maxItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token returned from a previous call to @ListTemplates@ to indicate the
--- position in the list of email templates.
-listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
-listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
 
 -- | The maximum number of templates to return. This value must be at least 1
 -- and less than or equal to 10. If you do not specify a value, or if you
@@ -101,6 +96,11 @@ listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (
 -- return up to 10 results.
 listTemplates_maxItems :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Int)
 listTemplates_maxItems = Lens.lens (\ListTemplates' {maxItems} -> maxItems) (\s@ListTemplates' {} a -> s {maxItems = a} :: ListTemplates)
+
+-- | A token returned from a previous call to @ListTemplates@ to indicate the
+-- position in the list of email templates.
+listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
+listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
 
 instance Core.AWSPager ListTemplates where
   page rq rs
@@ -143,13 +143,13 @@ instance Core.AWSRequest ListTemplates where
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTemplates where
   rnf ListTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -164,8 +164,8 @@ instance Data.ToQuery ListTemplates where
           Data.=: ("ListTemplates" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        "MaxItems" Data.=: maxItems
+        "MaxItems" Data.=: maxItems,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.

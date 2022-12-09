@@ -36,8 +36,8 @@ module Amazonka.SES.SetIdentityMailFromDomain
     newSetIdentityMailFromDomain,
 
     -- * Request Lenses
-    setIdentityMailFromDomain_mailFromDomain,
     setIdentityMailFromDomain_behaviorOnMXFailure,
+    setIdentityMailFromDomain_mailFromDomain,
     setIdentityMailFromDomain_identity,
 
     -- * Destructuring the Response
@@ -64,15 +64,7 @@ import Amazonka.SES.Types
 --
 -- /See:/ 'newSetIdentityMailFromDomain' smart constructor.
 data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
-  { -- | The custom MAIL FROM domain that you want the verified identity to use.
-    -- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
-    -- not be used in a \"From\" address if the MAIL FROM domain is the
-    -- destination of email feedback forwarding (for more information, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
-    -- and 3) not be used to receive emails. A value of @null@ disables the
-    -- custom MAIL FROM setting for the identity.
-    mailFromDomain :: Prelude.Maybe Prelude.Text,
-    -- | The action that you want Amazon SES to take if it cannot successfully
+  { -- | The action that you want Amazon SES to take if it cannot successfully
     -- read the required MX record when you send an email. If you choose
     -- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of
     -- that) as the MAIL FROM domain. If you choose @RejectMessage@, Amazon SES
@@ -82,6 +74,14 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
     -- MAIL FROM domain setup is in the @Pending@, @Failed@, and
     -- @TemporaryFailure@ states.
     behaviorOnMXFailure :: Prelude.Maybe BehaviorOnMXFailure,
+    -- | The custom MAIL FROM domain that you want the verified identity to use.
+    -- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
+    -- not be used in a \"From\" address if the MAIL FROM domain is the
+    -- destination of email feedback forwarding (for more information, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
+    -- and 3) not be used to receive emails. A value of @null@ disables the
+    -- custom MAIL FROM setting for the identity.
+    mailFromDomain :: Prelude.Maybe Prelude.Text,
     -- | The verified identity for which you want to enable or disable the
     -- specified custom MAIL FROM domain.
     identity :: Prelude.Text
@@ -96,14 +96,6 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mailFromDomain', 'setIdentityMailFromDomain_mailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use.
--- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
--- not be used in a \"From\" address if the MAIL FROM domain is the
--- destination of email feedback forwarding (for more information, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
--- and 3) not be used to receive emails. A value of @null@ disables the
--- custom MAIL FROM setting for the identity.
---
 -- 'behaviorOnMXFailure', 'setIdentityMailFromDomain_behaviorOnMXFailure' - The action that you want Amazon SES to take if it cannot successfully
 -- read the required MX record when you send an email. If you choose
 -- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of
@@ -114,6 +106,14 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
 -- MAIL FROM domain setup is in the @Pending@, @Failed@, and
 -- @TemporaryFailure@ states.
 --
+-- 'mailFromDomain', 'setIdentityMailFromDomain_mailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use.
+-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
+-- not be used in a \"From\" address if the MAIL FROM domain is the
+-- destination of email feedback forwarding (for more information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
+-- and 3) not be used to receive emails. A value of @null@ disables the
+-- custom MAIL FROM setting for the identity.
+--
 -- 'identity', 'setIdentityMailFromDomain_identity' - The verified identity for which you want to enable or disable the
 -- specified custom MAIL FROM domain.
 newSetIdentityMailFromDomain ::
@@ -122,21 +122,11 @@ newSetIdentityMailFromDomain ::
   SetIdentityMailFromDomain
 newSetIdentityMailFromDomain pIdentity_ =
   SetIdentityMailFromDomain'
-    { mailFromDomain =
+    { behaviorOnMXFailure =
         Prelude.Nothing,
-      behaviorOnMXFailure = Prelude.Nothing,
+      mailFromDomain = Prelude.Nothing,
       identity = pIdentity_
     }
-
--- | The custom MAIL FROM domain that you want the verified identity to use.
--- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
--- not be used in a \"From\" address if the MAIL FROM domain is the
--- destination of email feedback forwarding (for more information, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
--- and 3) not be used to receive emails. A value of @null@ disables the
--- custom MAIL FROM setting for the identity.
-setIdentityMailFromDomain_mailFromDomain :: Lens.Lens' SetIdentityMailFromDomain (Prelude.Maybe Prelude.Text)
-setIdentityMailFromDomain_mailFromDomain = Lens.lens (\SetIdentityMailFromDomain' {mailFromDomain} -> mailFromDomain) (\s@SetIdentityMailFromDomain' {} a -> s {mailFromDomain = a} :: SetIdentityMailFromDomain)
 
 -- | The action that you want Amazon SES to take if it cannot successfully
 -- read the required MX record when you send an email. If you choose
@@ -149,6 +139,16 @@ setIdentityMailFromDomain_mailFromDomain = Lens.lens (\SetIdentityMailFromDomain
 -- @TemporaryFailure@ states.
 setIdentityMailFromDomain_behaviorOnMXFailure :: Lens.Lens' SetIdentityMailFromDomain (Prelude.Maybe BehaviorOnMXFailure)
 setIdentityMailFromDomain_behaviorOnMXFailure = Lens.lens (\SetIdentityMailFromDomain' {behaviorOnMXFailure} -> behaviorOnMXFailure) (\s@SetIdentityMailFromDomain' {} a -> s {behaviorOnMXFailure = a} :: SetIdentityMailFromDomain)
+
+-- | The custom MAIL FROM domain that you want the verified identity to use.
+-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)
+-- not be used in a \"From\" address if the MAIL FROM domain is the
+-- destination of email feedback forwarding (for more information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
+-- and 3) not be used to receive emails. A value of @null@ disables the
+-- custom MAIL FROM setting for the identity.
+setIdentityMailFromDomain_mailFromDomain :: Lens.Lens' SetIdentityMailFromDomain (Prelude.Maybe Prelude.Text)
+setIdentityMailFromDomain_mailFromDomain = Lens.lens (\SetIdentityMailFromDomain' {mailFromDomain} -> mailFromDomain) (\s@SetIdentityMailFromDomain' {} a -> s {mailFromDomain = a} :: SetIdentityMailFromDomain)
 
 -- | The verified identity for which you want to enable or disable the
 -- specified custom MAIL FROM domain.
@@ -171,14 +171,14 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
 
 instance Prelude.Hashable SetIdentityMailFromDomain where
   hashWithSalt _salt SetIdentityMailFromDomain' {..} =
-    _salt `Prelude.hashWithSalt` mailFromDomain
-      `Prelude.hashWithSalt` behaviorOnMXFailure
+    _salt `Prelude.hashWithSalt` behaviorOnMXFailure
+      `Prelude.hashWithSalt` mailFromDomain
       `Prelude.hashWithSalt` identity
 
 instance Prelude.NFData SetIdentityMailFromDomain where
   rnf SetIdentityMailFromDomain' {..} =
-    Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf behaviorOnMXFailure
+    Prelude.rnf behaviorOnMXFailure
+      `Prelude.seq` Prelude.rnf mailFromDomain
       `Prelude.seq` Prelude.rnf identity
 
 instance Data.ToHeaders SetIdentityMailFromDomain where
@@ -194,8 +194,8 @@ instance Data.ToQuery SetIdentityMailFromDomain where
           Data.=: ("SetIdentityMailFromDomain" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "MailFromDomain" Data.=: mailFromDomain,
         "BehaviorOnMXFailure" Data.=: behaviorOnMXFailure,
+        "MailFromDomain" Data.=: mailFromDomain,
         "Identity" Data.=: identity
       ]
 

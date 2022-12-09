@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBounceAction' smart constructor.
 data BounceAction = BounceAction'
-  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
+  { -- | The SMTP enhanced status code, as defined by
+    -- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
+    statusCode :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
     -- the bounce action is taken. An example of an Amazon SNS topic ARN is
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
     topicArn :: Prelude.Maybe Prelude.Text,
-    -- | The SMTP enhanced status code, as defined by
-    -- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
-    statusCode :: Prelude.Maybe Prelude.Text,
     -- | The SMTP reply code, as defined by
     -- <https://tools.ietf.org/html/rfc5321 RFC 5321>.
     smtpReplyCode :: Prelude.Text,
@@ -62,14 +62,14 @@ data BounceAction = BounceAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'statusCode', 'bounceAction_statusCode' - The SMTP enhanced status code, as defined by
+-- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
+--
 -- 'topicArn', 'bounceAction_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
 -- the bounce action is taken. An example of an Amazon SNS topic ARN is
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
---
--- 'statusCode', 'bounceAction_statusCode' - The SMTP enhanced status code, as defined by
--- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
 --
 -- 'smtpReplyCode', 'bounceAction_smtpReplyCode' - The SMTP reply code, as defined by
 -- <https://tools.ietf.org/html/rfc5321 RFC 5321>.
@@ -88,12 +88,17 @@ newBounceAction ::
   BounceAction
 newBounceAction pSmtpReplyCode_ pMessage_ pSender_ =
   BounceAction'
-    { topicArn = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
+    { statusCode = Prelude.Nothing,
+      topicArn = Prelude.Nothing,
       smtpReplyCode = pSmtpReplyCode_,
       message = pMessage_,
       sender = pSender_
     }
+
+-- | The SMTP enhanced status code, as defined by
+-- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
+bounceAction_statusCode :: Lens.Lens' BounceAction (Prelude.Maybe Prelude.Text)
+bounceAction_statusCode = Lens.lens (\BounceAction' {statusCode} -> statusCode) (\s@BounceAction' {} a -> s {statusCode = a} :: BounceAction)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when
 -- the bounce action is taken. An example of an Amazon SNS topic ARN is
@@ -102,11 +107,6 @@ newBounceAction pSmtpReplyCode_ pMessage_ pSender_ =
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 bounceAction_topicArn :: Lens.Lens' BounceAction (Prelude.Maybe Prelude.Text)
 bounceAction_topicArn = Lens.lens (\BounceAction' {topicArn} -> topicArn) (\s@BounceAction' {} a -> s {topicArn = a} :: BounceAction)
-
--- | The SMTP enhanced status code, as defined by
--- <https://tools.ietf.org/html/rfc3463 RFC 3463>.
-bounceAction_statusCode :: Lens.Lens' BounceAction (Prelude.Maybe Prelude.Text)
-bounceAction_statusCode = Lens.lens (\BounceAction' {statusCode} -> statusCode) (\s@BounceAction' {} a -> s {statusCode = a} :: BounceAction)
 
 -- | The SMTP reply code, as defined by
 -- <https://tools.ietf.org/html/rfc5321 RFC 5321>.
@@ -125,24 +125,24 @@ bounceAction_sender = Lens.lens (\BounceAction' {sender} -> sender) (\s@BounceAc
 instance Data.FromXML BounceAction where
   parseXML x =
     BounceAction'
-      Prelude.<$> (x Data..@? "TopicArn")
-      Prelude.<*> (x Data..@? "StatusCode")
+      Prelude.<$> (x Data..@? "StatusCode")
+      Prelude.<*> (x Data..@? "TopicArn")
       Prelude.<*> (x Data..@ "SmtpReplyCode")
       Prelude.<*> (x Data..@ "Message")
       Prelude.<*> (x Data..@ "Sender")
 
 instance Prelude.Hashable BounceAction where
   hashWithSalt _salt BounceAction' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
-      `Prelude.hashWithSalt` statusCode
+    _salt `Prelude.hashWithSalt` statusCode
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` smtpReplyCode
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` sender
 
 instance Prelude.NFData BounceAction where
   rnf BounceAction' {..} =
-    Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf statusCode
+    Prelude.rnf statusCode
+      `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf smtpReplyCode
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf sender
@@ -150,8 +150,8 @@ instance Prelude.NFData BounceAction where
 instance Data.ToQuery BounceAction where
   toQuery BounceAction' {..} =
     Prelude.mconcat
-      [ "TopicArn" Data.=: topicArn,
-        "StatusCode" Data.=: statusCode,
+      [ "StatusCode" Data.=: statusCode,
+        "TopicArn" Data.=: topicArn,
         "SmtpReplyCode" Data.=: smtpReplyCode,
         "Message" Data.=: message,
         "Sender" Data.=: sender

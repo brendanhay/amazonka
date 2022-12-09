@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newIdentityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
   { -- | Describes whether Amazon SES includes the original email headers in
-    -- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
-    -- that Amazon SES will include headers in delivery notifications, and a
+    -- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
+    -- that Amazon SES will include headers in bounce notifications, and a
     -- value of @false@ specifies that Amazon SES will not include headers in
-    -- delivery notifications.
-    headersInDeliveryNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- bounce notifications.
+    headersInBounceNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Describes whether Amazon SES includes the original email headers in
     -- Amazon SNS notifications of type @Complaint@. A value of @true@
     -- specifies that Amazon SES will include headers in complaint
@@ -44,11 +44,11 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
     -- include headers in complaint notifications.
     headersInComplaintNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Describes whether Amazon SES includes the original email headers in
-    -- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
-    -- that Amazon SES will include headers in bounce notifications, and a
+    -- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
+    -- that Amazon SES will include headers in delivery notifications, and a
     -- value of @false@ specifies that Amazon SES will not include headers in
-    -- bounce notifications.
-    headersInBounceNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- delivery notifications.
+    headersInDeliveryNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
     -- will publish bounce notifications.
     bounceTopic :: Prelude.Text,
@@ -75,11 +75,11 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'headersInDeliveryNotificationsEnabled', 'identityNotificationAttributes_headersInDeliveryNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in
--- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
--- that Amazon SES will include headers in delivery notifications, and a
+-- 'headersInBounceNotificationsEnabled', 'identityNotificationAttributes_headersInBounceNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in
+-- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
+-- that Amazon SES will include headers in bounce notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
--- delivery notifications.
+-- bounce notifications.
 --
 -- 'headersInComplaintNotificationsEnabled', 'identityNotificationAttributes_headersInComplaintNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in
 -- Amazon SNS notifications of type @Complaint@. A value of @true@
@@ -87,11 +87,11 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
 -- notifications, and a value of @false@ specifies that Amazon SES will not
 -- include headers in complaint notifications.
 --
--- 'headersInBounceNotificationsEnabled', 'identityNotificationAttributes_headersInBounceNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in
--- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
--- that Amazon SES will include headers in bounce notifications, and a
+-- 'headersInDeliveryNotificationsEnabled', 'identityNotificationAttributes_headersInDeliveryNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in
+-- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
+-- that Amazon SES will include headers in delivery notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
--- bounce notifications.
+-- delivery notifications.
 --
 -- 'bounceTopic', 'identityNotificationAttributes_bounceTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
@@ -123,11 +123,11 @@ newIdentityNotificationAttributes
   pDeliveryTopic_
   pForwardingEnabled_ =
     IdentityNotificationAttributes'
-      { headersInDeliveryNotificationsEnabled =
+      { headersInBounceNotificationsEnabled =
           Prelude.Nothing,
         headersInComplaintNotificationsEnabled =
           Prelude.Nothing,
-        headersInBounceNotificationsEnabled =
+        headersInDeliveryNotificationsEnabled =
           Prelude.Nothing,
         bounceTopic = pBounceTopic_,
         complaintTopic = pComplaintTopic_,
@@ -136,12 +136,12 @@ newIdentityNotificationAttributes
       }
 
 -- | Describes whether Amazon SES includes the original email headers in
--- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
--- that Amazon SES will include headers in delivery notifications, and a
+-- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
+-- that Amazon SES will include headers in bounce notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
--- delivery notifications.
-identityNotificationAttributes_headersInDeliveryNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
-identityNotificationAttributes_headersInDeliveryNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInDeliveryNotificationsEnabled} -> headersInDeliveryNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInDeliveryNotificationsEnabled = a} :: IdentityNotificationAttributes)
+-- bounce notifications.
+identityNotificationAttributes_headersInBounceNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
+identityNotificationAttributes_headersInBounceNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInBounceNotificationsEnabled} -> headersInBounceNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInBounceNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | Describes whether Amazon SES includes the original email headers in
 -- Amazon SNS notifications of type @Complaint@. A value of @true@
@@ -152,12 +152,12 @@ identityNotificationAttributes_headersInComplaintNotificationsEnabled :: Lens.Le
 identityNotificationAttributes_headersInComplaintNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInComplaintNotificationsEnabled} -> headersInComplaintNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInComplaintNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | Describes whether Amazon SES includes the original email headers in
--- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
--- that Amazon SES will include headers in bounce notifications, and a
+-- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
+-- that Amazon SES will include headers in delivery notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
--- bounce notifications.
-identityNotificationAttributes_headersInBounceNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
-identityNotificationAttributes_headersInBounceNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInBounceNotificationsEnabled} -> headersInBounceNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInBounceNotificationsEnabled = a} :: IdentityNotificationAttributes)
+-- delivery notifications.
+identityNotificationAttributes_headersInDeliveryNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
+identityNotificationAttributes_headersInDeliveryNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInDeliveryNotificationsEnabled} -> headersInDeliveryNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInDeliveryNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
@@ -185,9 +185,9 @@ identityNotificationAttributes_forwardingEnabled = Lens.lens (\IdentityNotificat
 instance Data.FromXML IdentityNotificationAttributes where
   parseXML x =
     IdentityNotificationAttributes'
-      Prelude.<$> (x Data..@? "HeadersInDeliveryNotificationsEnabled")
+      Prelude.<$> (x Data..@? "HeadersInBounceNotificationsEnabled")
       Prelude.<*> (x Data..@? "HeadersInComplaintNotificationsEnabled")
-      Prelude.<*> (x Data..@? "HeadersInBounceNotificationsEnabled")
+      Prelude.<*> (x Data..@? "HeadersInDeliveryNotificationsEnabled")
       Prelude.<*> (x Data..@ "BounceTopic")
       Prelude.<*> (x Data..@ "ComplaintTopic")
       Prelude.<*> (x Data..@ "DeliveryTopic")
@@ -201,9 +201,9 @@ instance
     _salt
     IdentityNotificationAttributes' {..} =
       _salt
-        `Prelude.hashWithSalt` headersInDeliveryNotificationsEnabled
-        `Prelude.hashWithSalt` headersInComplaintNotificationsEnabled
         `Prelude.hashWithSalt` headersInBounceNotificationsEnabled
+        `Prelude.hashWithSalt` headersInComplaintNotificationsEnabled
+        `Prelude.hashWithSalt` headersInDeliveryNotificationsEnabled
         `Prelude.hashWithSalt` bounceTopic
         `Prelude.hashWithSalt` complaintTopic
         `Prelude.hashWithSalt` deliveryTopic
@@ -214,9 +214,9 @@ instance
     IdentityNotificationAttributes
   where
   rnf IdentityNotificationAttributes' {..} =
-    Prelude.rnf headersInDeliveryNotificationsEnabled
+    Prelude.rnf headersInBounceNotificationsEnabled
       `Prelude.seq` Prelude.rnf headersInComplaintNotificationsEnabled
-      `Prelude.seq` Prelude.rnf headersInBounceNotificationsEnabled
+      `Prelude.seq` Prelude.rnf headersInDeliveryNotificationsEnabled
       `Prelude.seq` Prelude.rnf bounceTopic
       `Prelude.seq` Prelude.rnf complaintTopic
       `Prelude.seq` Prelude.rnf deliveryTopic

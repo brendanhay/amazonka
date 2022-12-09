@@ -34,12 +34,12 @@ import Amazonka.SES.Types.ExtensionField
 --
 -- /See:/ 'newMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-  { -- | Additional X-headers to include in the DSN.
-    extensionFields :: Prelude.Maybe [ExtensionField],
-    -- | When the message was received by the reporting mail transfer agent
+  { -- | When the message was received by the reporting mail transfer agent
     -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
     -- format.
     arrivalDate :: Prelude.Maybe Data.ISO8601,
+    -- | Additional X-headers to include in the DSN.
+    extensionFields :: Prelude.Maybe [ExtensionField],
     -- | The reporting MTA that attempted to deliver the message, formatted as
     -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
     -- (@mta-name-type; mta-name@). The default value is
@@ -56,11 +56,11 @@ data MessageDsn = MessageDsn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'extensionFields', 'messageDsn_extensionFields' - Additional X-headers to include in the DSN.
---
 -- 'arrivalDate', 'messageDsn_arrivalDate' - When the message was received by the reporting mail transfer agent
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
+--
+-- 'extensionFields', 'messageDsn_extensionFields' - Additional X-headers to include in the DSN.
 --
 -- 'reportingMta', 'messageDsn_reportingMta' - The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
@@ -72,20 +72,20 @@ newMessageDsn ::
   MessageDsn
 newMessageDsn pReportingMta_ =
   MessageDsn'
-    { extensionFields = Prelude.Nothing,
-      arrivalDate = Prelude.Nothing,
+    { arrivalDate = Prelude.Nothing,
+      extensionFields = Prelude.Nothing,
       reportingMta = pReportingMta_
     }
-
--- | Additional X-headers to include in the DSN.
-messageDsn_extensionFields :: Lens.Lens' MessageDsn (Prelude.Maybe [ExtensionField])
-messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Prelude.. Lens.mapping Lens.coerced
 
 -- | When the message was received by the reporting mail transfer agent
 -- (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time
 -- format.
 messageDsn_arrivalDate :: Lens.Lens' MessageDsn (Prelude.Maybe Prelude.UTCTime)
 messageDsn_arrivalDate = Lens.lens (\MessageDsn' {arrivalDate} -> arrivalDate) (\s@MessageDsn' {} a -> s {arrivalDate = a} :: MessageDsn) Prelude.. Lens.mapping Data._Time
+
+-- | Additional X-headers to include in the DSN.
+messageDsn_extensionFields :: Lens.Lens' MessageDsn (Prelude.Maybe [ExtensionField])
+messageDsn_extensionFields = Lens.lens (\MessageDsn' {extensionFields} -> extensionFields) (\s@MessageDsn' {} a -> s {extensionFields = a} :: MessageDsn) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reporting MTA that attempted to deliver the message, formatted as
 -- specified in <https://tools.ietf.org/html/rfc3464 RFC 3464>
@@ -96,24 +96,24 @@ messageDsn_reportingMta = Lens.lens (\MessageDsn' {reportingMta} -> reportingMta
 
 instance Prelude.Hashable MessageDsn where
   hashWithSalt _salt MessageDsn' {..} =
-    _salt `Prelude.hashWithSalt` extensionFields
-      `Prelude.hashWithSalt` arrivalDate
+    _salt `Prelude.hashWithSalt` arrivalDate
+      `Prelude.hashWithSalt` extensionFields
       `Prelude.hashWithSalt` reportingMta
 
 instance Prelude.NFData MessageDsn where
   rnf MessageDsn' {..} =
-    Prelude.rnf extensionFields
-      `Prelude.seq` Prelude.rnf arrivalDate
+    Prelude.rnf arrivalDate
+      `Prelude.seq` Prelude.rnf extensionFields
       `Prelude.seq` Prelude.rnf reportingMta
 
 instance Data.ToQuery MessageDsn where
   toQuery MessageDsn' {..} =
     Prelude.mconcat
-      [ "ExtensionFields"
+      [ "ArrivalDate" Data.=: arrivalDate,
+        "ExtensionFields"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> extensionFields
             ),
-        "ArrivalDate" Data.=: arrivalDate,
         "ReportingMta" Data.=: reportingMta
       ]

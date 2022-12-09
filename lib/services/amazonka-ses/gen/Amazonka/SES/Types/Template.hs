@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplate' smart constructor.
 data Template = Template'
-  { -- | The subject line of the email.
+  { -- | The HTML body of the email.
+    htmlPart :: Prelude.Maybe Prelude.Text,
+    -- | The subject line of the email.
     subjectPart :: Prelude.Maybe Prelude.Text,
     -- | The email body that will be visible to recipients whose email clients do
     -- not display HTML.
     textPart :: Prelude.Maybe Prelude.Text,
-    -- | The HTML body of the email.
-    htmlPart :: Prelude.Maybe Prelude.Text,
     -- | The name of the template. You will refer to this name when you send
     -- email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@
     -- operations.
@@ -51,12 +51,12 @@ data Template = Template'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'htmlPart', 'template_htmlPart' - The HTML body of the email.
+--
 -- 'subjectPart', 'template_subjectPart' - The subject line of the email.
 --
 -- 'textPart', 'template_textPart' - The email body that will be visible to recipients whose email clients do
 -- not display HTML.
---
--- 'htmlPart', 'template_htmlPart' - The HTML body of the email.
 --
 -- 'templateName', 'template_templateName' - The name of the template. You will refer to this name when you send
 -- email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@
@@ -67,11 +67,15 @@ newTemplate ::
   Template
 newTemplate pTemplateName_ =
   Template'
-    { subjectPart = Prelude.Nothing,
+    { htmlPart = Prelude.Nothing,
+      subjectPart = Prelude.Nothing,
       textPart = Prelude.Nothing,
-      htmlPart = Prelude.Nothing,
       templateName = pTemplateName_
     }
+
+-- | The HTML body of the email.
+template_htmlPart :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
+template_htmlPart = Lens.lens (\Template' {htmlPart} -> htmlPart) (\s@Template' {} a -> s {htmlPart = a} :: Template)
 
 -- | The subject line of the email.
 template_subjectPart :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
@@ -82,10 +86,6 @@ template_subjectPart = Lens.lens (\Template' {subjectPart} -> subjectPart) (\s@T
 template_textPart :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
 template_textPart = Lens.lens (\Template' {textPart} -> textPart) (\s@Template' {} a -> s {textPart = a} :: Template)
 
--- | The HTML body of the email.
-template_htmlPart :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
-template_htmlPart = Lens.lens (\Template' {htmlPart} -> htmlPart) (\s@Template' {} a -> s {htmlPart = a} :: Template)
-
 -- | The name of the template. You will refer to this name when you send
 -- email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@
 -- operations.
@@ -95,30 +95,30 @@ template_templateName = Lens.lens (\Template' {templateName} -> templateName) (\
 instance Data.FromXML Template where
   parseXML x =
     Template'
-      Prelude.<$> (x Data..@? "SubjectPart")
+      Prelude.<$> (x Data..@? "HtmlPart")
+      Prelude.<*> (x Data..@? "SubjectPart")
       Prelude.<*> (x Data..@? "TextPart")
-      Prelude.<*> (x Data..@? "HtmlPart")
       Prelude.<*> (x Data..@ "TemplateName")
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` subjectPart
+    _salt `Prelude.hashWithSalt` htmlPart
+      `Prelude.hashWithSalt` subjectPart
       `Prelude.hashWithSalt` textPart
-      `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData Template where
   rnf Template' {..} =
-    Prelude.rnf subjectPart
+    Prelude.rnf htmlPart
+      `Prelude.seq` Prelude.rnf subjectPart
       `Prelude.seq` Prelude.rnf textPart
-      `Prelude.seq` Prelude.rnf htmlPart
       `Prelude.seq` Prelude.rnf templateName
 
 instance Data.ToQuery Template where
   toQuery Template' {..} =
     Prelude.mconcat
-      [ "SubjectPart" Data.=: subjectPart,
+      [ "HtmlPart" Data.=: htmlPart,
+        "SubjectPart" Data.=: subjectPart,
         "TextPart" Data.=: textPart,
-        "HtmlPart" Data.=: htmlPart,
         "TemplateName" Data.=: templateName
       ]

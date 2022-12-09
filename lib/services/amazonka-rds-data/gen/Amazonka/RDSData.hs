@@ -33,20 +33,20 @@ module Amazonka.RDSData
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** ServiceUnavailableError
     _ServiceUnavailableError,
-
-    -- ** BadRequestException
-    _BadRequestException,
 
     -- ** StatementTimeoutException
     _StatementTimeoutException,

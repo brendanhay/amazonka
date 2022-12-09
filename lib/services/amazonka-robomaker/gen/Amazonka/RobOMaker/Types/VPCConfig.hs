@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVPCConfig' smart constructor.
 data VPCConfig = VPCConfig'
-  { -- | A list of one or more security groups IDs in your VPC.
-    securityGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A boolean indicating whether to assign a public IP address.
+  { -- | A boolean indicating whether to assign a public IP address.
     assignPublicIp :: Prelude.Maybe Prelude.Bool,
+    -- | A list of one or more security groups IDs in your VPC.
+    securityGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of one or more subnet IDs in your VPC.
     subnets :: Prelude.NonEmpty Prelude.Text
   }
@@ -48,9 +48,9 @@ data VPCConfig = VPCConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroups', 'vPCConfig_securityGroups' - A list of one or more security groups IDs in your VPC.
---
 -- 'assignPublicIp', 'vPCConfig_assignPublicIp' - A boolean indicating whether to assign a public IP address.
+--
+-- 'securityGroups', 'vPCConfig_securityGroups' - A list of one or more security groups IDs in your VPC.
 --
 -- 'subnets', 'vPCConfig_subnets' - A list of one or more subnet IDs in your VPC.
 newVPCConfig ::
@@ -59,18 +59,18 @@ newVPCConfig ::
   VPCConfig
 newVPCConfig pSubnets_ =
   VPCConfig'
-    { securityGroups = Prelude.Nothing,
-      assignPublicIp = Prelude.Nothing,
+    { assignPublicIp = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       subnets = Lens.coerced Lens.# pSubnets_
     }
-
--- | A list of one or more security groups IDs in your VPC.
-vPCConfig_securityGroups :: Lens.Lens' VPCConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-vPCConfig_securityGroups = Lens.lens (\VPCConfig' {securityGroups} -> securityGroups) (\s@VPCConfig' {} a -> s {securityGroups = a} :: VPCConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | A boolean indicating whether to assign a public IP address.
 vPCConfig_assignPublicIp :: Lens.Lens' VPCConfig (Prelude.Maybe Prelude.Bool)
 vPCConfig_assignPublicIp = Lens.lens (\VPCConfig' {assignPublicIp} -> assignPublicIp) (\s@VPCConfig' {} a -> s {assignPublicIp = a} :: VPCConfig)
+
+-- | A list of one or more security groups IDs in your VPC.
+vPCConfig_securityGroups :: Lens.Lens' VPCConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+vPCConfig_securityGroups = Lens.lens (\VPCConfig' {securityGroups} -> securityGroups) (\s@VPCConfig' {} a -> s {securityGroups = a} :: VPCConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of one or more subnet IDs in your VPC.
 vPCConfig_subnets :: Lens.Lens' VPCConfig (Prelude.NonEmpty Prelude.Text)
@@ -82,31 +82,31 @@ instance Data.FromJSON VPCConfig where
       "VPCConfig"
       ( \x ->
           VPCConfig'
-            Prelude.<$> (x Data..:? "securityGroups")
-            Prelude.<*> (x Data..:? "assignPublicIp")
+            Prelude.<$> (x Data..:? "assignPublicIp")
+            Prelude.<*> (x Data..:? "securityGroups")
             Prelude.<*> (x Data..: "subnets")
       )
 
 instance Prelude.Hashable VPCConfig where
   hashWithSalt _salt VPCConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` assignPublicIp
+    _salt `Prelude.hashWithSalt` assignPublicIp
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData VPCConfig where
   rnf VPCConfig' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf assignPublicIp
+    Prelude.rnf assignPublicIp
+      `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf subnets
 
 instance Data.ToJSON VPCConfig where
   toJSON VPCConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("securityGroups" Data..=)
-              Prelude.<$> securityGroups,
-            ("assignPublicIp" Data..=)
+          [ ("assignPublicIp" Data..=)
               Prelude.<$> assignPublicIp,
+            ("securityGroups" Data..=)
+              Prelude.<$> securityGroups,
             Prelude.Just ("subnets" Data..= subnets)
           ]
       )

@@ -29,13 +29,13 @@ import Amazonka.RobOMaker.Types.RobotSoftwareSuite
 --
 -- /See:/ 'newRobotApplicationSummary' smart constructor.
 data RobotApplicationSummary = RobotApplicationSummary'
-  { -- | The name of the robot application.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the robot.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the robot application
     -- was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the robot.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the robot application.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about a robot software suite (ROS distribution).
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
     -- | The version of the robot application.
@@ -51,12 +51,12 @@ data RobotApplicationSummary = RobotApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'robotApplicationSummary_name' - The name of the robot application.
+-- 'arn', 'robotApplicationSummary_arn' - The Amazon Resource Name (ARN) of the robot.
 --
 -- 'lastUpdatedAt', 'robotApplicationSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 --
--- 'arn', 'robotApplicationSummary_arn' - The Amazon Resource Name (ARN) of the robot.
+-- 'name', 'robotApplicationSummary_name' - The name of the robot application.
 --
 -- 'robotSoftwareSuite', 'robotApplicationSummary_robotSoftwareSuite' - Information about a robot software suite (ROS distribution).
 --
@@ -65,25 +65,25 @@ newRobotApplicationSummary ::
   RobotApplicationSummary
 newRobotApplicationSummary =
   RobotApplicationSummary'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       robotSoftwareSuite = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
--- | The name of the robot application.
-robotApplicationSummary_name :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
-robotApplicationSummary_name = Lens.lens (\RobotApplicationSummary' {name} -> name) (\s@RobotApplicationSummary' {} a -> s {name = a} :: RobotApplicationSummary)
+-- | The Amazon Resource Name (ARN) of the robot.
+robotApplicationSummary_arn :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
+robotApplicationSummary_arn = Lens.lens (\RobotApplicationSummary' {arn} -> arn) (\s@RobotApplicationSummary' {} a -> s {arn = a} :: RobotApplicationSummary)
 
 -- | The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 robotApplicationSummary_lastUpdatedAt :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.UTCTime)
 robotApplicationSummary_lastUpdatedAt = Lens.lens (\RobotApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@RobotApplicationSummary' {} a -> s {lastUpdatedAt = a} :: RobotApplicationSummary) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the robot.
-robotApplicationSummary_arn :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
-robotApplicationSummary_arn = Lens.lens (\RobotApplicationSummary' {arn} -> arn) (\s@RobotApplicationSummary' {} a -> s {arn = a} :: RobotApplicationSummary)
+-- | The name of the robot application.
+robotApplicationSummary_name :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe Prelude.Text)
+robotApplicationSummary_name = Lens.lens (\RobotApplicationSummary' {name} -> name) (\s@RobotApplicationSummary' {} a -> s {name = a} :: RobotApplicationSummary)
 
 -- | Information about a robot software suite (ROS distribution).
 robotApplicationSummary_robotSoftwareSuite :: Lens.Lens' RobotApplicationSummary (Prelude.Maybe RobotSoftwareSuite)
@@ -99,25 +99,25 @@ instance Data.FromJSON RobotApplicationSummary where
       "RobotApplicationSummary"
       ( \x ->
           RobotApplicationSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "robotSoftwareSuite")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable RobotApplicationSummary where
   hashWithSalt _salt RobotApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` robotSoftwareSuite
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData RobotApplicationSummary where
   rnf RobotApplicationSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
       `Prelude.seq` Prelude.rnf version

@@ -34,12 +34,12 @@ module Amazonka.RobOMaker.DescribeWorld
     newDescribeWorldResponse,
 
     -- * Response Lenses
-    describeWorldResponse_tags,
     describeWorldResponse_arn,
-    describeWorldResponse_generationJob,
-    describeWorldResponse_worldDescriptionBody,
     describeWorldResponse_createdAt,
+    describeWorldResponse_generationJob,
+    describeWorldResponse_tags,
     describeWorldResponse_template,
+    describeWorldResponse_worldDescriptionBody,
     describeWorldResponse_httpStatus,
   )
 where
@@ -89,12 +89,12 @@ instance Core.AWSRequest DescribeWorld where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "generationJob")
-            Prelude.<*> (x Data..?> "worldDescriptionBody")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "generationJob")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "template")
+            Prelude.<*> (x Data..?> "worldDescriptionBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,21 +131,21 @@ instance Data.ToQuery DescribeWorld where
 
 -- | /See:/ 'newDescribeWorldResponse' smart constructor.
 data DescribeWorldResponse = DescribeWorldResponse'
-  { -- | A map that contains tag keys and tag values that are attached to the
-    -- world.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (arn) of the world.
+  { -- | The Amazon Resource Name (arn) of the world.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the world was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (arn) of the world generation job that
     -- generated the world.
     generationJob :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- world.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The world template.
+    template :: Prelude.Maybe Prelude.Text,
     -- | Returns the JSON formatted string that describes the contents of your
     -- world.
     worldDescriptionBody :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the world was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The world template.
-    template :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,20 +159,20 @@ data DescribeWorldResponse = DescribeWorldResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeWorldResponse_tags' - A map that contains tag keys and tag values that are attached to the
--- world.
---
 -- 'arn', 'describeWorldResponse_arn' - The Amazon Resource Name (arn) of the world.
+--
+-- 'createdAt', 'describeWorldResponse_createdAt' - The time, in milliseconds since the epoch, when the world was created.
 --
 -- 'generationJob', 'describeWorldResponse_generationJob' - The Amazon Resource Name (arn) of the world generation job that
 -- generated the world.
 --
--- 'worldDescriptionBody', 'describeWorldResponse_worldDescriptionBody' - Returns the JSON formatted string that describes the contents of your
+-- 'tags', 'describeWorldResponse_tags' - A map that contains tag keys and tag values that are attached to the
 -- world.
 --
--- 'createdAt', 'describeWorldResponse_createdAt' - The time, in milliseconds since the epoch, when the world was created.
---
 -- 'template', 'describeWorldResponse_template' - The world template.
+--
+-- 'worldDescriptionBody', 'describeWorldResponse_worldDescriptionBody' - Returns the JSON formatted string that describes the contents of your
+-- world.
 --
 -- 'httpStatus', 'describeWorldResponse_httpStatus' - The response's http status code.
 newDescribeWorldResponse ::
@@ -181,41 +181,41 @@ newDescribeWorldResponse ::
   DescribeWorldResponse
 newDescribeWorldResponse pHttpStatus_ =
   DescribeWorldResponse'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      generationJob = Prelude.Nothing,
-      worldDescriptionBody = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      generationJob = Prelude.Nothing,
+      tags = Prelude.Nothing,
       template = Prelude.Nothing,
+      worldDescriptionBody = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A map that contains tag keys and tag values that are attached to the
--- world.
-describeWorldResponse_tags :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeWorldResponse_tags = Lens.lens (\DescribeWorldResponse' {tags} -> tags) (\s@DescribeWorldResponse' {} a -> s {tags = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (arn) of the world.
 describeWorldResponse_arn :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)
 describeWorldResponse_arn = Lens.lens (\DescribeWorldResponse' {arn} -> arn) (\s@DescribeWorldResponse' {} a -> s {arn = a} :: DescribeWorldResponse)
+
+-- | The time, in milliseconds since the epoch, when the world was created.
+describeWorldResponse_createdAt :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.UTCTime)
+describeWorldResponse_createdAt = Lens.lens (\DescribeWorldResponse' {createdAt} -> createdAt) (\s@DescribeWorldResponse' {} a -> s {createdAt = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (arn) of the world generation job that
 -- generated the world.
 describeWorldResponse_generationJob :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)
 describeWorldResponse_generationJob = Lens.lens (\DescribeWorldResponse' {generationJob} -> generationJob) (\s@DescribeWorldResponse' {} a -> s {generationJob = a} :: DescribeWorldResponse)
 
--- | Returns the JSON formatted string that describes the contents of your
+-- | A map that contains tag keys and tag values that are attached to the
 -- world.
-describeWorldResponse_worldDescriptionBody :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)
-describeWorldResponse_worldDescriptionBody = Lens.lens (\DescribeWorldResponse' {worldDescriptionBody} -> worldDescriptionBody) (\s@DescribeWorldResponse' {} a -> s {worldDescriptionBody = a} :: DescribeWorldResponse)
-
--- | The time, in milliseconds since the epoch, when the world was created.
-describeWorldResponse_createdAt :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorldResponse_createdAt = Lens.lens (\DescribeWorldResponse' {createdAt} -> createdAt) (\s@DescribeWorldResponse' {} a -> s {createdAt = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Data._Time
+describeWorldResponse_tags :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeWorldResponse_tags = Lens.lens (\DescribeWorldResponse' {tags} -> tags) (\s@DescribeWorldResponse' {} a -> s {tags = a} :: DescribeWorldResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The world template.
 describeWorldResponse_template :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)
 describeWorldResponse_template = Lens.lens (\DescribeWorldResponse' {template} -> template) (\s@DescribeWorldResponse' {} a -> s {template = a} :: DescribeWorldResponse)
+
+-- | Returns the JSON formatted string that describes the contents of your
+-- world.
+describeWorldResponse_worldDescriptionBody :: Lens.Lens' DescribeWorldResponse (Prelude.Maybe Prelude.Text)
+describeWorldResponse_worldDescriptionBody = Lens.lens (\DescribeWorldResponse' {worldDescriptionBody} -> worldDescriptionBody) (\s@DescribeWorldResponse' {} a -> s {worldDescriptionBody = a} :: DescribeWorldResponse)
 
 -- | The response's http status code.
 describeWorldResponse_httpStatus :: Lens.Lens' DescribeWorldResponse Prelude.Int
@@ -223,10 +223,10 @@ describeWorldResponse_httpStatus = Lens.lens (\DescribeWorldResponse' {httpStatu
 
 instance Prelude.NFData DescribeWorldResponse where
   rnf DescribeWorldResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf generationJob
-      `Prelude.seq` Prelude.rnf worldDescriptionBody
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf generationJob
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf template
+      `Prelude.seq` Prelude.rnf worldDescriptionBody
       `Prelude.seq` Prelude.rnf httpStatus

@@ -37,10 +37,10 @@ module Amazonka.RobOMaker.UpdateWorldTemplate
     newUpdateWorldTemplateResponse,
 
     -- * Response Lenses
-    updateWorldTemplateResponse_name,
-    updateWorldTemplateResponse_lastUpdatedAt,
     updateWorldTemplateResponse_arn,
     updateWorldTemplateResponse_createdAt,
+    updateWorldTemplateResponse_lastUpdatedAt,
+    updateWorldTemplateResponse_name,
     updateWorldTemplateResponse_httpStatus,
   )
 where
@@ -119,10 +119,10 @@ instance Core.AWSRequest UpdateWorldTemplate where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorldTemplateResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,16 +171,16 @@ instance Data.ToQuery UpdateWorldTemplate where
 
 -- | /See:/ 'newUpdateWorldTemplateResponse' smart constructor.
 data UpdateWorldTemplateResponse = UpdateWorldTemplateResponse'
-  { -- | The name of the world template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the world template was
-    -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (arn) of the world template.
+  { -- | The Amazon Resource Name (arn) of the world template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world template was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The time, in milliseconds since the epoch, when the world template was
+    -- last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the world template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,15 +194,15 @@ data UpdateWorldTemplateResponse = UpdateWorldTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateWorldTemplateResponse_name' - The name of the world template.
---
--- 'lastUpdatedAt', 'updateWorldTemplateResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the world template was
--- last updated.
---
 -- 'arn', 'updateWorldTemplateResponse_arn' - The Amazon Resource Name (arn) of the world template.
 --
 -- 'createdAt', 'updateWorldTemplateResponse_createdAt' - The time, in milliseconds since the epoch, when the world template was
 -- created.
+--
+-- 'lastUpdatedAt', 'updateWorldTemplateResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the world template was
+-- last updated.
+--
+-- 'name', 'updateWorldTemplateResponse_name' - The name of the world template.
 --
 -- 'httpStatus', 'updateWorldTemplateResponse_httpStatus' - The response's http status code.
 newUpdateWorldTemplateResponse ::
@@ -211,22 +211,12 @@ newUpdateWorldTemplateResponse ::
   UpdateWorldTemplateResponse
 newUpdateWorldTemplateResponse pHttpStatus_ =
   UpdateWorldTemplateResponse'
-    { name =
-        Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the world template.
-updateWorldTemplateResponse_name :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.Text)
-updateWorldTemplateResponse_name = Lens.lens (\UpdateWorldTemplateResponse' {name} -> name) (\s@UpdateWorldTemplateResponse' {} a -> s {name = a} :: UpdateWorldTemplateResponse)
-
--- | The time, in milliseconds since the epoch, when the world template was
--- last updated.
-updateWorldTemplateResponse_lastUpdatedAt :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-updateWorldTemplateResponse_lastUpdatedAt = Lens.lens (\UpdateWorldTemplateResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateWorldTemplateResponse' {} a -> s {lastUpdatedAt = a} :: UpdateWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (arn) of the world template.
 updateWorldTemplateResponse_arn :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -237,14 +227,23 @@ updateWorldTemplateResponse_arn = Lens.lens (\UpdateWorldTemplateResponse' {arn}
 updateWorldTemplateResponse_createdAt :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
 updateWorldTemplateResponse_createdAt = Lens.lens (\UpdateWorldTemplateResponse' {createdAt} -> createdAt) (\s@UpdateWorldTemplateResponse' {} a -> s {createdAt = a} :: UpdateWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The time, in milliseconds since the epoch, when the world template was
+-- last updated.
+updateWorldTemplateResponse_lastUpdatedAt :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+updateWorldTemplateResponse_lastUpdatedAt = Lens.lens (\UpdateWorldTemplateResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateWorldTemplateResponse' {} a -> s {lastUpdatedAt = a} :: UpdateWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the world template.
+updateWorldTemplateResponse_name :: Lens.Lens' UpdateWorldTemplateResponse (Prelude.Maybe Prelude.Text)
+updateWorldTemplateResponse_name = Lens.lens (\UpdateWorldTemplateResponse' {name} -> name) (\s@UpdateWorldTemplateResponse' {} a -> s {name = a} :: UpdateWorldTemplateResponse)
+
 -- | The response's http status code.
 updateWorldTemplateResponse_httpStatus :: Lens.Lens' UpdateWorldTemplateResponse Prelude.Int
 updateWorldTemplateResponse_httpStatus = Lens.lens (\UpdateWorldTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateWorldTemplateResponse' {} a -> s {httpStatus = a} :: UpdateWorldTemplateResponse)
 
 instance Prelude.NFData UpdateWorldTemplateResponse where
   rnf UpdateWorldTemplateResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

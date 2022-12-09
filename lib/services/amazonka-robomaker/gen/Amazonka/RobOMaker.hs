@@ -20,32 +20,32 @@ module Amazonka.RobOMaker
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** ConcurrentDeploymentException
     _ConcurrentDeploymentException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

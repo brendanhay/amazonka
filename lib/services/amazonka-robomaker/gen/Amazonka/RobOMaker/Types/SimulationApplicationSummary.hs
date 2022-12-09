@@ -30,13 +30,13 @@ import Amazonka.RobOMaker.Types.SimulationSoftwareSuite
 --
 -- /See:/ 'newSimulationApplicationSummary' smart constructor.
 data SimulationApplicationSummary = SimulationApplicationSummary'
-  { -- | The name of the simulation application.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the simulation application.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the simulation application.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the simulation application.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about a robot software suite (ROS distribution).
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
     -- | Information about a simulation software suite.
@@ -54,12 +54,12 @@ data SimulationApplicationSummary = SimulationApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'simulationApplicationSummary_name' - The name of the simulation application.
+-- 'arn', 'simulationApplicationSummary_arn' - The Amazon Resource Name (ARN) of the simulation application.
 --
 -- 'lastUpdatedAt', 'simulationApplicationSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 --
--- 'arn', 'simulationApplicationSummary_arn' - The Amazon Resource Name (ARN) of the simulation application.
+-- 'name', 'simulationApplicationSummary_name' - The name of the simulation application.
 --
 -- 'robotSoftwareSuite', 'simulationApplicationSummary_robotSoftwareSuite' - Information about a robot software suite (ROS distribution).
 --
@@ -70,27 +70,27 @@ newSimulationApplicationSummary ::
   SimulationApplicationSummary
 newSimulationApplicationSummary =
   SimulationApplicationSummary'
-    { name =
+    { arn =
         Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       robotSoftwareSuite = Prelude.Nothing,
       simulationSoftwareSuite = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
--- | The name of the simulation application.
-simulationApplicationSummary_name :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
-simulationApplicationSummary_name = Lens.lens (\SimulationApplicationSummary' {name} -> name) (\s@SimulationApplicationSummary' {} a -> s {name = a} :: SimulationApplicationSummary)
+-- | The Amazon Resource Name (ARN) of the simulation application.
+simulationApplicationSummary_arn :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
+simulationApplicationSummary_arn = Lens.lens (\SimulationApplicationSummary' {arn} -> arn) (\s@SimulationApplicationSummary' {} a -> s {arn = a} :: SimulationApplicationSummary)
 
 -- | The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 simulationApplicationSummary_lastUpdatedAt :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.UTCTime)
 simulationApplicationSummary_lastUpdatedAt = Lens.lens (\SimulationApplicationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@SimulationApplicationSummary' {} a -> s {lastUpdatedAt = a} :: SimulationApplicationSummary) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the simulation application.
-simulationApplicationSummary_arn :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
-simulationApplicationSummary_arn = Lens.lens (\SimulationApplicationSummary' {arn} -> arn) (\s@SimulationApplicationSummary' {} a -> s {arn = a} :: SimulationApplicationSummary)
+-- | The name of the simulation application.
+simulationApplicationSummary_name :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe Prelude.Text)
+simulationApplicationSummary_name = Lens.lens (\SimulationApplicationSummary' {name} -> name) (\s@SimulationApplicationSummary' {} a -> s {name = a} :: SimulationApplicationSummary)
 
 -- | Information about a robot software suite (ROS distribution).
 simulationApplicationSummary_robotSoftwareSuite :: Lens.Lens' SimulationApplicationSummary (Prelude.Maybe RobotSoftwareSuite)
@@ -110,9 +110,9 @@ instance Data.FromJSON SimulationApplicationSummary where
       "SimulationApplicationSummary"
       ( \x ->
           SimulationApplicationSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "robotSoftwareSuite")
             Prelude.<*> (x Data..:? "simulationSoftwareSuite")
             Prelude.<*> (x Data..:? "version")
@@ -123,18 +123,18 @@ instance
     SimulationApplicationSummary
   where
   hashWithSalt _salt SimulationApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` robotSoftwareSuite
       `Prelude.hashWithSalt` simulationSoftwareSuite
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData SimulationApplicationSummary where
   rnf SimulationApplicationSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
       `Prelude.seq` Prelude.rnf simulationSoftwareSuite
       `Prelude.seq` Prelude.rnf version

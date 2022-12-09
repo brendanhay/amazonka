@@ -27,9 +27,9 @@ module Amazonka.RobOMaker.UpdateRobotApplication
     newUpdateRobotApplication,
 
     -- * Request Lenses
-    updateRobotApplication_sources,
-    updateRobotApplication_environment,
     updateRobotApplication_currentRevisionId,
+    updateRobotApplication_environment,
+    updateRobotApplication_sources,
     updateRobotApplication_application,
     updateRobotApplication_robotSoftwareSuite,
 
@@ -38,13 +38,13 @@ module Amazonka.RobOMaker.UpdateRobotApplication
     newUpdateRobotApplicationResponse,
 
     -- * Response Lenses
-    updateRobotApplicationResponse_name,
-    updateRobotApplicationResponse_sources,
+    updateRobotApplicationResponse_arn,
     updateRobotApplicationResponse_environment,
     updateRobotApplicationResponse_lastUpdatedAt,
-    updateRobotApplicationResponse_arn,
-    updateRobotApplicationResponse_robotSoftwareSuite,
+    updateRobotApplicationResponse_name,
     updateRobotApplicationResponse_revisionId,
+    updateRobotApplicationResponse_robotSoftwareSuite,
+    updateRobotApplicationResponse_sources,
     updateRobotApplicationResponse_version,
     updateRobotApplicationResponse_httpStatus,
   )
@@ -60,13 +60,13 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newUpdateRobotApplication' smart constructor.
 data UpdateRobotApplication = UpdateRobotApplication'
-  { -- | The sources of the robot application.
-    sources :: Prelude.Maybe [SourceConfig],
+  { -- | The revision id for the robot application.
+    currentRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI for your robot
     -- application.
     environment :: Prelude.Maybe Environment,
-    -- | The revision id for the robot application.
-    currentRevisionId :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the robot application.
+    sources :: Prelude.Maybe [SourceConfig],
     -- | The application information for the robot application.
     application :: Prelude.Text,
     -- | The robot software suite (ROS distribution) used by the robot
@@ -83,12 +83,12 @@ data UpdateRobotApplication = UpdateRobotApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'updateRobotApplication_sources' - The sources of the robot application.
+-- 'currentRevisionId', 'updateRobotApplication_currentRevisionId' - The revision id for the robot application.
 --
 -- 'environment', 'updateRobotApplication_environment' - The object that contains the Docker image URI for your robot
 -- application.
 --
--- 'currentRevisionId', 'updateRobotApplication_currentRevisionId' - The revision id for the robot application.
+-- 'sources', 'updateRobotApplication_sources' - The sources of the robot application.
 --
 -- 'application', 'updateRobotApplication_application' - The application information for the robot application.
 --
@@ -104,25 +104,26 @@ newUpdateRobotApplication
   pApplication_
   pRobotSoftwareSuite_ =
     UpdateRobotApplication'
-      { sources = Prelude.Nothing,
+      { currentRevisionId =
+          Prelude.Nothing,
         environment = Prelude.Nothing,
-        currentRevisionId = Prelude.Nothing,
+        sources = Prelude.Nothing,
         application = pApplication_,
         robotSoftwareSuite = pRobotSoftwareSuite_
       }
 
--- | The sources of the robot application.
-updateRobotApplication_sources :: Lens.Lens' UpdateRobotApplication (Prelude.Maybe [SourceConfig])
-updateRobotApplication_sources = Lens.lens (\UpdateRobotApplication' {sources} -> sources) (\s@UpdateRobotApplication' {} a -> s {sources = a} :: UpdateRobotApplication) Prelude.. Lens.mapping Lens.coerced
+-- | The revision id for the robot application.
+updateRobotApplication_currentRevisionId :: Lens.Lens' UpdateRobotApplication (Prelude.Maybe Prelude.Text)
+updateRobotApplication_currentRevisionId = Lens.lens (\UpdateRobotApplication' {currentRevisionId} -> currentRevisionId) (\s@UpdateRobotApplication' {} a -> s {currentRevisionId = a} :: UpdateRobotApplication)
 
 -- | The object that contains the Docker image URI for your robot
 -- application.
 updateRobotApplication_environment :: Lens.Lens' UpdateRobotApplication (Prelude.Maybe Environment)
 updateRobotApplication_environment = Lens.lens (\UpdateRobotApplication' {environment} -> environment) (\s@UpdateRobotApplication' {} a -> s {environment = a} :: UpdateRobotApplication)
 
--- | The revision id for the robot application.
-updateRobotApplication_currentRevisionId :: Lens.Lens' UpdateRobotApplication (Prelude.Maybe Prelude.Text)
-updateRobotApplication_currentRevisionId = Lens.lens (\UpdateRobotApplication' {currentRevisionId} -> currentRevisionId) (\s@UpdateRobotApplication' {} a -> s {currentRevisionId = a} :: UpdateRobotApplication)
+-- | The sources of the robot application.
+updateRobotApplication_sources :: Lens.Lens' UpdateRobotApplication (Prelude.Maybe [SourceConfig])
+updateRobotApplication_sources = Lens.lens (\UpdateRobotApplication' {sources} -> sources) (\s@UpdateRobotApplication' {} a -> s {sources = a} :: UpdateRobotApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application information for the robot application.
 updateRobotApplication_application :: Lens.Lens' UpdateRobotApplication Prelude.Text
@@ -143,30 +144,30 @@ instance Core.AWSRequest UpdateRobotApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateRobotApplicationResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "environment")
             Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateRobotApplication where
   hashWithSalt _salt UpdateRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` sources
+    _salt `Prelude.hashWithSalt` currentRevisionId
       `Prelude.hashWithSalt` environment
-      `Prelude.hashWithSalt` currentRevisionId
+      `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` robotSoftwareSuite
 
 instance Prelude.NFData UpdateRobotApplication where
   rnf UpdateRobotApplication' {..} =
-    Prelude.rnf sources
+    Prelude.rnf currentRevisionId
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf currentRevisionId
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
 
@@ -185,10 +186,10 @@ instance Data.ToJSON UpdateRobotApplication where
   toJSON UpdateRobotApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sources" Data..=) Prelude.<$> sources,
-            ("environment" Data..=) Prelude.<$> environment,
-            ("currentRevisionId" Data..=)
+          [ ("currentRevisionId" Data..=)
               Prelude.<$> currentRevisionId,
+            ("environment" Data..=) Prelude.<$> environment,
+            ("sources" Data..=) Prelude.<$> sources,
             Prelude.Just ("application" Data..= application),
             Prelude.Just
               ("robotSoftwareSuite" Data..= robotSoftwareSuite)
@@ -203,23 +204,23 @@ instance Data.ToQuery UpdateRobotApplication where
 
 -- | /See:/ 'newUpdateRobotApplicationResponse' smart constructor.
 data UpdateRobotApplicationResponse = UpdateRobotApplicationResponse'
-  { -- | The name of the robot application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The sources of the robot application.
-    sources :: Prelude.Maybe [Source],
+  { -- | The Amazon Resource Name (ARN) of the updated robot application.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI for your robot
     -- application.
     environment :: Prelude.Maybe Environment,
     -- | The time, in milliseconds since the epoch, when the robot application
     -- was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the updated robot application.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the robot application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The revision id of the robot application.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The robot software suite (ROS distribution) used by the robot
     -- application.
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
-    -- | The revision id of the robot application.
-    revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the robot application.
+    sources :: Prelude.Maybe [Source],
     -- | The version of the robot application.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -235,9 +236,7 @@ data UpdateRobotApplicationResponse = UpdateRobotApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateRobotApplicationResponse_name' - The name of the robot application.
---
--- 'sources', 'updateRobotApplicationResponse_sources' - The sources of the robot application.
+-- 'arn', 'updateRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the updated robot application.
 --
 -- 'environment', 'updateRobotApplicationResponse_environment' - The object that contains the Docker image URI for your robot
 -- application.
@@ -245,12 +244,14 @@ data UpdateRobotApplicationResponse = UpdateRobotApplicationResponse'
 -- 'lastUpdatedAt', 'updateRobotApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 --
--- 'arn', 'updateRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the updated robot application.
+-- 'name', 'updateRobotApplicationResponse_name' - The name of the robot application.
+--
+-- 'revisionId', 'updateRobotApplicationResponse_revisionId' - The revision id of the robot application.
 --
 -- 'robotSoftwareSuite', 'updateRobotApplicationResponse_robotSoftwareSuite' - The robot software suite (ROS distribution) used by the robot
 -- application.
 --
--- 'revisionId', 'updateRobotApplicationResponse_revisionId' - The revision id of the robot application.
+-- 'sources', 'updateRobotApplicationResponse_sources' - The sources of the robot application.
 --
 -- 'version', 'updateRobotApplicationResponse_version' - The version of the robot application.
 --
@@ -261,25 +262,21 @@ newUpdateRobotApplicationResponse ::
   UpdateRobotApplicationResponse
 newUpdateRobotApplicationResponse pHttpStatus_ =
   UpdateRobotApplicationResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      sources = Prelude.Nothing,
       environment = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      robotSoftwareSuite = Prelude.Nothing,
+      name = Prelude.Nothing,
       revisionId = Prelude.Nothing,
+      robotSoftwareSuite = Prelude.Nothing,
+      sources = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the robot application.
-updateRobotApplicationResponse_name :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-updateRobotApplicationResponse_name = Lens.lens (\UpdateRobotApplicationResponse' {name} -> name) (\s@UpdateRobotApplicationResponse' {} a -> s {name = a} :: UpdateRobotApplicationResponse)
-
--- | The sources of the robot application.
-updateRobotApplicationResponse_sources :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe [Source])
-updateRobotApplicationResponse_sources = Lens.lens (\UpdateRobotApplicationResponse' {sources} -> sources) (\s@UpdateRobotApplicationResponse' {} a -> s {sources = a} :: UpdateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the updated robot application.
+updateRobotApplicationResponse_arn :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+updateRobotApplicationResponse_arn = Lens.lens (\UpdateRobotApplicationResponse' {arn} -> arn) (\s@UpdateRobotApplicationResponse' {} a -> s {arn = a} :: UpdateRobotApplicationResponse)
 
 -- | The object that contains the Docker image URI for your robot
 -- application.
@@ -291,18 +288,22 @@ updateRobotApplicationResponse_environment = Lens.lens (\UpdateRobotApplicationR
 updateRobotApplicationResponse_lastUpdatedAt :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 updateRobotApplicationResponse_lastUpdatedAt = Lens.lens (\UpdateRobotApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateRobotApplicationResponse' {} a -> s {lastUpdatedAt = a} :: UpdateRobotApplicationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the updated robot application.
-updateRobotApplicationResponse_arn :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-updateRobotApplicationResponse_arn = Lens.lens (\UpdateRobotApplicationResponse' {arn} -> arn) (\s@UpdateRobotApplicationResponse' {} a -> s {arn = a} :: UpdateRobotApplicationResponse)
+-- | The name of the robot application.
+updateRobotApplicationResponse_name :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+updateRobotApplicationResponse_name = Lens.lens (\UpdateRobotApplicationResponse' {name} -> name) (\s@UpdateRobotApplicationResponse' {} a -> s {name = a} :: UpdateRobotApplicationResponse)
+
+-- | The revision id of the robot application.
+updateRobotApplicationResponse_revisionId :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+updateRobotApplicationResponse_revisionId = Lens.lens (\UpdateRobotApplicationResponse' {revisionId} -> revisionId) (\s@UpdateRobotApplicationResponse' {} a -> s {revisionId = a} :: UpdateRobotApplicationResponse)
 
 -- | The robot software suite (ROS distribution) used by the robot
 -- application.
 updateRobotApplicationResponse_robotSoftwareSuite :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe RobotSoftwareSuite)
 updateRobotApplicationResponse_robotSoftwareSuite = Lens.lens (\UpdateRobotApplicationResponse' {robotSoftwareSuite} -> robotSoftwareSuite) (\s@UpdateRobotApplicationResponse' {} a -> s {robotSoftwareSuite = a} :: UpdateRobotApplicationResponse)
 
--- | The revision id of the robot application.
-updateRobotApplicationResponse_revisionId :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-updateRobotApplicationResponse_revisionId = Lens.lens (\UpdateRobotApplicationResponse' {revisionId} -> revisionId) (\s@UpdateRobotApplicationResponse' {} a -> s {revisionId = a} :: UpdateRobotApplicationResponse)
+-- | The sources of the robot application.
+updateRobotApplicationResponse_sources :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe [Source])
+updateRobotApplicationResponse_sources = Lens.lens (\UpdateRobotApplicationResponse' {sources} -> sources) (\s@UpdateRobotApplicationResponse' {} a -> s {sources = a} :: UpdateRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the robot application.
 updateRobotApplicationResponse_version :: Lens.Lens' UpdateRobotApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -317,12 +318,12 @@ instance
     UpdateRobotApplicationResponse
   where
   rnf UpdateRobotApplicationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

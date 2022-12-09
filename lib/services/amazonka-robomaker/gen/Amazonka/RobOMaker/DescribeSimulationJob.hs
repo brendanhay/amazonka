@@ -34,27 +34,27 @@ module Amazonka.RobOMaker.DescribeSimulationJob
     newDescribeSimulationJobResponse,
 
     -- * Response Lenses
-    describeSimulationJobResponse_tags,
-    describeSimulationJobResponse_lastStartedAt,
-    describeSimulationJobResponse_name,
-    describeSimulationJobResponse_iamRole,
-    describeSimulationJobResponse_maxJobDurationInSeconds,
-    describeSimulationJobResponse_failureCode,
-    describeSimulationJobResponse_clientRequestToken,
-    describeSimulationJobResponse_lastUpdatedAt,
-    describeSimulationJobResponse_dataSources,
-    describeSimulationJobResponse_vpcConfig,
     describeSimulationJobResponse_arn,
+    describeSimulationJobResponse_clientRequestToken,
+    describeSimulationJobResponse_compute,
+    describeSimulationJobResponse_dataSources,
+    describeSimulationJobResponse_failureBehavior,
+    describeSimulationJobResponse_failureCode,
+    describeSimulationJobResponse_failureReason,
+    describeSimulationJobResponse_iamRole,
+    describeSimulationJobResponse_lastStartedAt,
+    describeSimulationJobResponse_lastUpdatedAt,
+    describeSimulationJobResponse_loggingConfig,
+    describeSimulationJobResponse_maxJobDurationInSeconds,
+    describeSimulationJobResponse_name,
+    describeSimulationJobResponse_networkInterface,
     describeSimulationJobResponse_outputLocation,
-    describeSimulationJobResponse_status,
+    describeSimulationJobResponse_robotApplications,
     describeSimulationJobResponse_simulationApplications,
     describeSimulationJobResponse_simulationTimeMillis,
-    describeSimulationJobResponse_failureBehavior,
-    describeSimulationJobResponse_robotApplications,
-    describeSimulationJobResponse_networkInterface,
-    describeSimulationJobResponse_loggingConfig,
-    describeSimulationJobResponse_failureReason,
-    describeSimulationJobResponse_compute,
+    describeSimulationJobResponse_status,
+    describeSimulationJobResponse_tags,
+    describeSimulationJobResponse_vpcConfig,
     describeSimulationJobResponse_httpStatus,
   )
 where
@@ -104,27 +104,27 @@ instance Core.AWSRequest DescribeSimulationJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeSimulationJobResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "lastStartedAt")
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "iamRole")
-            Prelude.<*> (x Data..?> "maxJobDurationInSeconds")
-            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "clientRequestToken")
-            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "compute")
             Prelude.<*> (x Data..?> "dataSources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "vpcConfig")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "failureBehavior")
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> (x Data..?> "iamRole")
+            Prelude.<*> (x Data..?> "lastStartedAt")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "loggingConfig")
+            Prelude.<*> (x Data..?> "maxJobDurationInSeconds")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "networkInterface")
             Prelude.<*> (x Data..?> "outputLocation")
-            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "robotApplications")
             Prelude.<*> (x Data..?> "simulationApplications")
             Prelude.<*> (x Data..?> "simulationTimeMillis")
-            Prelude.<*> (x Data..?> "failureBehavior")
-            Prelude.<*> (x Data..?> "robotApplications")
-            Prelude.<*> (x Data..?> "networkInterface")
-            Prelude.<*> (x Data..?> "loggingConfig")
-            Prelude.<*> (x Data..?> "failureReason")
-            Prelude.<*> (x Data..?> "compute")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,19 +161,17 @@ instance Data.ToQuery DescribeSimulationJob where
 
 -- | /See:/ 'newDescribeSimulationJobResponse' smart constructor.
 data DescribeSimulationJobResponse = DescribeSimulationJobResponse'
-  { -- | The list of all tags added to the specified simulation job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The time, in milliseconds since the epoch, when the simulation job was
-    -- last started.
-    lastStartedAt :: Prelude.Maybe Data.POSIX,
-    -- | The name of the simulation job.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that allows the simulation instance to call the AWS APIs
-    -- that are specified in its associated policies on your behalf.
-    iamRole :: Prelude.Maybe Prelude.Text,
-    -- | The maximum job duration in seconds. The value must be 8 days (691,200
-    -- seconds) or less.
-    maxJobDurationInSeconds :: Prelude.Maybe Prelude.Integer,
+  { -- | The Amazon Resource Name (ARN) of the simulation job.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | Compute information for the simulation job.
+    compute :: Prelude.Maybe ComputeResponse,
+    -- | The data sources for the simulation job.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | The failure behavior for the simulation job.
+    failureBehavior :: Prelude.Maybe FailureBehavior,
     -- | The failure code of the simulation job if it failed:
     --
     -- [InternalServiceError]
@@ -223,40 +221,42 @@ data DescribeSimulationJobResponse = DescribeSimulationJobResponse'
     --     Etag for SimulationApplication does not match value during version
     --     creation.
     failureCode :: Prelude.Maybe SimulationJobErrorCode,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the simulation job was
-    -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The data sources for the simulation job.
-    dataSources :: Prelude.Maybe [DataSource],
-    -- | The VPC configuration.
-    vpcConfig :: Prelude.Maybe VPCConfigResponse,
-    -- | The Amazon Resource Name (ARN) of the simulation job.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Location for output files generated by the simulation job.
-    outputLocation :: Prelude.Maybe OutputLocation,
-    -- | The status of the simulation job.
-    status :: Prelude.Maybe SimulationJobStatus,
-    -- | A list of simulation applications.
-    simulationApplications :: Prelude.Maybe (Prelude.NonEmpty SimulationApplicationConfig),
-    -- | The simulation job execution duration in milliseconds.
-    simulationTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The failure behavior for the simulation job.
-    failureBehavior :: Prelude.Maybe FailureBehavior,
-    -- | A list of robot applications.
-    robotApplications :: Prelude.Maybe (Prelude.NonEmpty RobotApplicationConfig),
-    -- | The network interface information for the simulation job.
-    networkInterface :: Prelude.Maybe NetworkInterface,
-    -- | The logging configuration.
-    loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | Details about why the simulation job failed. For more information about
     -- troubleshooting, see
     -- <https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html Troubleshooting>.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | Compute information for the simulation job.
-    compute :: Prelude.Maybe ComputeResponse,
+    -- | The IAM role that allows the simulation instance to call the AWS APIs
+    -- that are specified in its associated policies on your behalf.
+    iamRole :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the simulation job was
+    -- last started.
+    lastStartedAt :: Prelude.Maybe Data.POSIX,
+    -- | The time, in milliseconds since the epoch, when the simulation job was
+    -- last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The logging configuration.
+    loggingConfig :: Prelude.Maybe LoggingConfig,
+    -- | The maximum job duration in seconds. The value must be 8 days (691,200
+    -- seconds) or less.
+    maxJobDurationInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the simulation job.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The network interface information for the simulation job.
+    networkInterface :: Prelude.Maybe NetworkInterface,
+    -- | Location for output files generated by the simulation job.
+    outputLocation :: Prelude.Maybe OutputLocation,
+    -- | A list of robot applications.
+    robotApplications :: Prelude.Maybe (Prelude.NonEmpty RobotApplicationConfig),
+    -- | A list of simulation applications.
+    simulationApplications :: Prelude.Maybe (Prelude.NonEmpty SimulationApplicationConfig),
+    -- | The simulation job execution duration in milliseconds.
+    simulationTimeMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The status of the simulation job.
+    status :: Prelude.Maybe SimulationJobStatus,
+    -- | The list of all tags added to the specified simulation job.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The VPC configuration.
+    vpcConfig :: Prelude.Maybe VPCConfigResponse,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,18 +270,16 @@ data DescribeSimulationJobResponse = DescribeSimulationJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeSimulationJobResponse_tags' - The list of all tags added to the specified simulation job.
+-- 'arn', 'describeSimulationJobResponse_arn' - The Amazon Resource Name (ARN) of the simulation job.
 --
--- 'lastStartedAt', 'describeSimulationJobResponse_lastStartedAt' - The time, in milliseconds since the epoch, when the simulation job was
--- last started.
+-- 'clientRequestToken', 'describeSimulationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
--- 'name', 'describeSimulationJobResponse_name' - The name of the simulation job.
+-- 'compute', 'describeSimulationJobResponse_compute' - Compute information for the simulation job.
 --
--- 'iamRole', 'describeSimulationJobResponse_iamRole' - The IAM role that allows the simulation instance to call the AWS APIs
--- that are specified in its associated policies on your behalf.
+-- 'dataSources', 'describeSimulationJobResponse_dataSources' - The data sources for the simulation job.
 --
--- 'maxJobDurationInSeconds', 'describeSimulationJobResponse_maxJobDurationInSeconds' - The maximum job duration in seconds. The value must be 8 days (691,200
--- seconds) or less.
+-- 'failureBehavior', 'describeSimulationJobResponse_failureBehavior' - The failure behavior for the simulation job.
 --
 -- 'failureCode', 'describeSimulationJobResponse_failureCode' - The failure code of the simulation job if it failed:
 --
@@ -332,39 +330,41 @@ data DescribeSimulationJobResponse = DescribeSimulationJobResponse'
 --     Etag for SimulationApplication does not match value during version
 --     creation.
 --
--- 'clientRequestToken', 'describeSimulationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'failureReason', 'describeSimulationJobResponse_failureReason' - Details about why the simulation job failed. For more information about
+-- troubleshooting, see
+-- <https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html Troubleshooting>.
+--
+-- 'iamRole', 'describeSimulationJobResponse_iamRole' - The IAM role that allows the simulation instance to call the AWS APIs
+-- that are specified in its associated policies on your behalf.
+--
+-- 'lastStartedAt', 'describeSimulationJobResponse_lastStartedAt' - The time, in milliseconds since the epoch, when the simulation job was
+-- last started.
 --
 -- 'lastUpdatedAt', 'describeSimulationJobResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation job was
 -- last updated.
 --
--- 'dataSources', 'describeSimulationJobResponse_dataSources' - The data sources for the simulation job.
+-- 'loggingConfig', 'describeSimulationJobResponse_loggingConfig' - The logging configuration.
 --
--- 'vpcConfig', 'describeSimulationJobResponse_vpcConfig' - The VPC configuration.
+-- 'maxJobDurationInSeconds', 'describeSimulationJobResponse_maxJobDurationInSeconds' - The maximum job duration in seconds. The value must be 8 days (691,200
+-- seconds) or less.
 --
--- 'arn', 'describeSimulationJobResponse_arn' - The Amazon Resource Name (ARN) of the simulation job.
+-- 'name', 'describeSimulationJobResponse_name' - The name of the simulation job.
+--
+-- 'networkInterface', 'describeSimulationJobResponse_networkInterface' - The network interface information for the simulation job.
 --
 -- 'outputLocation', 'describeSimulationJobResponse_outputLocation' - Location for output files generated by the simulation job.
 --
--- 'status', 'describeSimulationJobResponse_status' - The status of the simulation job.
+-- 'robotApplications', 'describeSimulationJobResponse_robotApplications' - A list of robot applications.
 --
 -- 'simulationApplications', 'describeSimulationJobResponse_simulationApplications' - A list of simulation applications.
 --
 -- 'simulationTimeMillis', 'describeSimulationJobResponse_simulationTimeMillis' - The simulation job execution duration in milliseconds.
 --
--- 'failureBehavior', 'describeSimulationJobResponse_failureBehavior' - The failure behavior for the simulation job.
+-- 'status', 'describeSimulationJobResponse_status' - The status of the simulation job.
 --
--- 'robotApplications', 'describeSimulationJobResponse_robotApplications' - A list of robot applications.
+-- 'tags', 'describeSimulationJobResponse_tags' - The list of all tags added to the specified simulation job.
 --
--- 'networkInterface', 'describeSimulationJobResponse_networkInterface' - The network interface information for the simulation job.
---
--- 'loggingConfig', 'describeSimulationJobResponse_loggingConfig' - The logging configuration.
---
--- 'failureReason', 'describeSimulationJobResponse_failureReason' - Details about why the simulation job failed. For more information about
--- troubleshooting, see
--- <https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html Troubleshooting>.
---
--- 'compute', 'describeSimulationJobResponse_compute' - Compute information for the simulation job.
+-- 'vpcConfig', 'describeSimulationJobResponse_vpcConfig' - The VPC configuration.
 --
 -- 'httpStatus', 'describeSimulationJobResponse_httpStatus' - The response's http status code.
 newDescribeSimulationJobResponse ::
@@ -373,53 +373,51 @@ newDescribeSimulationJobResponse ::
   DescribeSimulationJobResponse
 newDescribeSimulationJobResponse pHttpStatus_ =
   DescribeSimulationJobResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      lastStartedAt = Prelude.Nothing,
-      name = Prelude.Nothing,
-      iamRole = Prelude.Nothing,
-      maxJobDurationInSeconds = Prelude.Nothing,
-      failureCode = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
+      compute = Prelude.Nothing,
       dataSources = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      failureBehavior = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      iamRole = Prelude.Nothing,
+      lastStartedAt = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      loggingConfig = Prelude.Nothing,
+      maxJobDurationInSeconds = Prelude.Nothing,
+      name = Prelude.Nothing,
+      networkInterface = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
-      status = Prelude.Nothing,
+      robotApplications = Prelude.Nothing,
       simulationApplications = Prelude.Nothing,
       simulationTimeMillis = Prelude.Nothing,
-      failureBehavior = Prelude.Nothing,
-      robotApplications = Prelude.Nothing,
-      networkInterface = Prelude.Nothing,
-      loggingConfig = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      compute = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of all tags added to the specified simulation job.
-describeSimulationJobResponse_tags :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeSimulationJobResponse_tags = Lens.lens (\DescribeSimulationJobResponse' {tags} -> tags) (\s@DescribeSimulationJobResponse' {} a -> s {tags = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the simulation job.
+describeSimulationJobResponse_arn :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobResponse_arn = Lens.lens (\DescribeSimulationJobResponse' {arn} -> arn) (\s@DescribeSimulationJobResponse' {} a -> s {arn = a} :: DescribeSimulationJobResponse)
 
--- | The time, in milliseconds since the epoch, when the simulation job was
--- last started.
-describeSimulationJobResponse_lastStartedAt :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeSimulationJobResponse_lastStartedAt = Lens.lens (\DescribeSimulationJobResponse' {lastStartedAt} -> lastStartedAt) (\s@DescribeSimulationJobResponse' {} a -> s {lastStartedAt = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Data._Time
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+describeSimulationJobResponse_clientRequestToken :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobResponse_clientRequestToken = Lens.lens (\DescribeSimulationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeSimulationJobResponse' {} a -> s {clientRequestToken = a} :: DescribeSimulationJobResponse)
 
--- | The name of the simulation job.
-describeSimulationJobResponse_name :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobResponse_name = Lens.lens (\DescribeSimulationJobResponse' {name} -> name) (\s@DescribeSimulationJobResponse' {} a -> s {name = a} :: DescribeSimulationJobResponse)
+-- | Compute information for the simulation job.
+describeSimulationJobResponse_compute :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe ComputeResponse)
+describeSimulationJobResponse_compute = Lens.lens (\DescribeSimulationJobResponse' {compute} -> compute) (\s@DescribeSimulationJobResponse' {} a -> s {compute = a} :: DescribeSimulationJobResponse)
 
--- | The IAM role that allows the simulation instance to call the AWS APIs
--- that are specified in its associated policies on your behalf.
-describeSimulationJobResponse_iamRole :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobResponse_iamRole = Lens.lens (\DescribeSimulationJobResponse' {iamRole} -> iamRole) (\s@DescribeSimulationJobResponse' {} a -> s {iamRole = a} :: DescribeSimulationJobResponse)
+-- | The data sources for the simulation job.
+describeSimulationJobResponse_dataSources :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe [DataSource])
+describeSimulationJobResponse_dataSources = Lens.lens (\DescribeSimulationJobResponse' {dataSources} -> dataSources) (\s@DescribeSimulationJobResponse' {} a -> s {dataSources = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum job duration in seconds. The value must be 8 days (691,200
--- seconds) or less.
-describeSimulationJobResponse_maxJobDurationInSeconds :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Integer)
-describeSimulationJobResponse_maxJobDurationInSeconds = Lens.lens (\DescribeSimulationJobResponse' {maxJobDurationInSeconds} -> maxJobDurationInSeconds) (\s@DescribeSimulationJobResponse' {} a -> s {maxJobDurationInSeconds = a} :: DescribeSimulationJobResponse)
+-- | The failure behavior for the simulation job.
+describeSimulationJobResponse_failureBehavior :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe FailureBehavior)
+describeSimulationJobResponse_failureBehavior = Lens.lens (\DescribeSimulationJobResponse' {failureBehavior} -> failureBehavior) (\s@DescribeSimulationJobResponse' {} a -> s {failureBehavior = a} :: DescribeSimulationJobResponse)
 
 -- | The failure code of the simulation job if it failed:
 --
@@ -472,35 +470,51 @@ describeSimulationJobResponse_maxJobDurationInSeconds = Lens.lens (\DescribeSimu
 describeSimulationJobResponse_failureCode :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe SimulationJobErrorCode)
 describeSimulationJobResponse_failureCode = Lens.lens (\DescribeSimulationJobResponse' {failureCode} -> failureCode) (\s@DescribeSimulationJobResponse' {} a -> s {failureCode = a} :: DescribeSimulationJobResponse)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-describeSimulationJobResponse_clientRequestToken :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobResponse_clientRequestToken = Lens.lens (\DescribeSimulationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeSimulationJobResponse' {} a -> s {clientRequestToken = a} :: DescribeSimulationJobResponse)
+-- | Details about why the simulation job failed. For more information about
+-- troubleshooting, see
+-- <https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html Troubleshooting>.
+describeSimulationJobResponse_failureReason :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobResponse_failureReason = Lens.lens (\DescribeSimulationJobResponse' {failureReason} -> failureReason) (\s@DescribeSimulationJobResponse' {} a -> s {failureReason = a} :: DescribeSimulationJobResponse)
+
+-- | The IAM role that allows the simulation instance to call the AWS APIs
+-- that are specified in its associated policies on your behalf.
+describeSimulationJobResponse_iamRole :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobResponse_iamRole = Lens.lens (\DescribeSimulationJobResponse' {iamRole} -> iamRole) (\s@DescribeSimulationJobResponse' {} a -> s {iamRole = a} :: DescribeSimulationJobResponse)
+
+-- | The time, in milliseconds since the epoch, when the simulation job was
+-- last started.
+describeSimulationJobResponse_lastStartedAt :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeSimulationJobResponse_lastStartedAt = Lens.lens (\DescribeSimulationJobResponse' {lastStartedAt} -> lastStartedAt) (\s@DescribeSimulationJobResponse' {} a -> s {lastStartedAt = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time, in milliseconds since the epoch, when the simulation job was
 -- last updated.
 describeSimulationJobResponse_lastUpdatedAt :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeSimulationJobResponse_lastUpdatedAt = Lens.lens (\DescribeSimulationJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeSimulationJobResponse' {} a -> s {lastUpdatedAt = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | The data sources for the simulation job.
-describeSimulationJobResponse_dataSources :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe [DataSource])
-describeSimulationJobResponse_dataSources = Lens.lens (\DescribeSimulationJobResponse' {dataSources} -> dataSources) (\s@DescribeSimulationJobResponse' {} a -> s {dataSources = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The logging configuration.
+describeSimulationJobResponse_loggingConfig :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe LoggingConfig)
+describeSimulationJobResponse_loggingConfig = Lens.lens (\DescribeSimulationJobResponse' {loggingConfig} -> loggingConfig) (\s@DescribeSimulationJobResponse' {} a -> s {loggingConfig = a} :: DescribeSimulationJobResponse)
 
--- | The VPC configuration.
-describeSimulationJobResponse_vpcConfig :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe VPCConfigResponse)
-describeSimulationJobResponse_vpcConfig = Lens.lens (\DescribeSimulationJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeSimulationJobResponse' {} a -> s {vpcConfig = a} :: DescribeSimulationJobResponse)
+-- | The maximum job duration in seconds. The value must be 8 days (691,200
+-- seconds) or less.
+describeSimulationJobResponse_maxJobDurationInSeconds :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Integer)
+describeSimulationJobResponse_maxJobDurationInSeconds = Lens.lens (\DescribeSimulationJobResponse' {maxJobDurationInSeconds} -> maxJobDurationInSeconds) (\s@DescribeSimulationJobResponse' {} a -> s {maxJobDurationInSeconds = a} :: DescribeSimulationJobResponse)
 
--- | The Amazon Resource Name (ARN) of the simulation job.
-describeSimulationJobResponse_arn :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobResponse_arn = Lens.lens (\DescribeSimulationJobResponse' {arn} -> arn) (\s@DescribeSimulationJobResponse' {} a -> s {arn = a} :: DescribeSimulationJobResponse)
+-- | The name of the simulation job.
+describeSimulationJobResponse_name :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
+describeSimulationJobResponse_name = Lens.lens (\DescribeSimulationJobResponse' {name} -> name) (\s@DescribeSimulationJobResponse' {} a -> s {name = a} :: DescribeSimulationJobResponse)
+
+-- | The network interface information for the simulation job.
+describeSimulationJobResponse_networkInterface :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe NetworkInterface)
+describeSimulationJobResponse_networkInterface = Lens.lens (\DescribeSimulationJobResponse' {networkInterface} -> networkInterface) (\s@DescribeSimulationJobResponse' {} a -> s {networkInterface = a} :: DescribeSimulationJobResponse)
 
 -- | Location for output files generated by the simulation job.
 describeSimulationJobResponse_outputLocation :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe OutputLocation)
 describeSimulationJobResponse_outputLocation = Lens.lens (\DescribeSimulationJobResponse' {outputLocation} -> outputLocation) (\s@DescribeSimulationJobResponse' {} a -> s {outputLocation = a} :: DescribeSimulationJobResponse)
 
--- | The status of the simulation job.
-describeSimulationJobResponse_status :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe SimulationJobStatus)
-describeSimulationJobResponse_status = Lens.lens (\DescribeSimulationJobResponse' {status} -> status) (\s@DescribeSimulationJobResponse' {} a -> s {status = a} :: DescribeSimulationJobResponse)
+-- | A list of robot applications.
+describeSimulationJobResponse_robotApplications :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe (Prelude.NonEmpty RobotApplicationConfig))
+describeSimulationJobResponse_robotApplications = Lens.lens (\DescribeSimulationJobResponse' {robotApplications} -> robotApplications) (\s@DescribeSimulationJobResponse' {} a -> s {robotApplications = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of simulation applications.
 describeSimulationJobResponse_simulationApplications :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe (Prelude.NonEmpty SimulationApplicationConfig))
@@ -510,31 +524,17 @@ describeSimulationJobResponse_simulationApplications = Lens.lens (\DescribeSimul
 describeSimulationJobResponse_simulationTimeMillis :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Integer)
 describeSimulationJobResponse_simulationTimeMillis = Lens.lens (\DescribeSimulationJobResponse' {simulationTimeMillis} -> simulationTimeMillis) (\s@DescribeSimulationJobResponse' {} a -> s {simulationTimeMillis = a} :: DescribeSimulationJobResponse)
 
--- | The failure behavior for the simulation job.
-describeSimulationJobResponse_failureBehavior :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe FailureBehavior)
-describeSimulationJobResponse_failureBehavior = Lens.lens (\DescribeSimulationJobResponse' {failureBehavior} -> failureBehavior) (\s@DescribeSimulationJobResponse' {} a -> s {failureBehavior = a} :: DescribeSimulationJobResponse)
+-- | The status of the simulation job.
+describeSimulationJobResponse_status :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe SimulationJobStatus)
+describeSimulationJobResponse_status = Lens.lens (\DescribeSimulationJobResponse' {status} -> status) (\s@DescribeSimulationJobResponse' {} a -> s {status = a} :: DescribeSimulationJobResponse)
 
--- | A list of robot applications.
-describeSimulationJobResponse_robotApplications :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe (Prelude.NonEmpty RobotApplicationConfig))
-describeSimulationJobResponse_robotApplications = Lens.lens (\DescribeSimulationJobResponse' {robotApplications} -> robotApplications) (\s@DescribeSimulationJobResponse' {} a -> s {robotApplications = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The list of all tags added to the specified simulation job.
+describeSimulationJobResponse_tags :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeSimulationJobResponse_tags = Lens.lens (\DescribeSimulationJobResponse' {tags} -> tags) (\s@DescribeSimulationJobResponse' {} a -> s {tags = a} :: DescribeSimulationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The network interface information for the simulation job.
-describeSimulationJobResponse_networkInterface :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe NetworkInterface)
-describeSimulationJobResponse_networkInterface = Lens.lens (\DescribeSimulationJobResponse' {networkInterface} -> networkInterface) (\s@DescribeSimulationJobResponse' {} a -> s {networkInterface = a} :: DescribeSimulationJobResponse)
-
--- | The logging configuration.
-describeSimulationJobResponse_loggingConfig :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe LoggingConfig)
-describeSimulationJobResponse_loggingConfig = Lens.lens (\DescribeSimulationJobResponse' {loggingConfig} -> loggingConfig) (\s@DescribeSimulationJobResponse' {} a -> s {loggingConfig = a} :: DescribeSimulationJobResponse)
-
--- | Details about why the simulation job failed. For more information about
--- troubleshooting, see
--- <https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting.html Troubleshooting>.
-describeSimulationJobResponse_failureReason :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe Prelude.Text)
-describeSimulationJobResponse_failureReason = Lens.lens (\DescribeSimulationJobResponse' {failureReason} -> failureReason) (\s@DescribeSimulationJobResponse' {} a -> s {failureReason = a} :: DescribeSimulationJobResponse)
-
--- | Compute information for the simulation job.
-describeSimulationJobResponse_compute :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe ComputeResponse)
-describeSimulationJobResponse_compute = Lens.lens (\DescribeSimulationJobResponse' {compute} -> compute) (\s@DescribeSimulationJobResponse' {} a -> s {compute = a} :: DescribeSimulationJobResponse)
+-- | The VPC configuration.
+describeSimulationJobResponse_vpcConfig :: Lens.Lens' DescribeSimulationJobResponse (Prelude.Maybe VPCConfigResponse)
+describeSimulationJobResponse_vpcConfig = Lens.lens (\DescribeSimulationJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeSimulationJobResponse' {} a -> s {vpcConfig = a} :: DescribeSimulationJobResponse)
 
 -- | The response's http status code.
 describeSimulationJobResponse_httpStatus :: Lens.Lens' DescribeSimulationJobResponse Prelude.Int
@@ -542,25 +542,25 @@ describeSimulationJobResponse_httpStatus = Lens.lens (\DescribeSimulationJobResp
 
 instance Prelude.NFData DescribeSimulationJobResponse where
   rnf DescribeSimulationJobResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastStartedAt
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf iamRole
-      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
-      `Prelude.seq` Prelude.rnf failureCode
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf compute
       `Prelude.seq` Prelude.rnf dataSources
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf failureBehavior
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf iamRole
+      `Prelude.seq` Prelude.rnf lastStartedAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf loggingConfig
+      `Prelude.seq` Prelude.rnf maxJobDurationInSeconds
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf networkInterface
       `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf robotApplications
       `Prelude.seq` Prelude.rnf simulationApplications
       `Prelude.seq` Prelude.rnf simulationTimeMillis
-      `Prelude.seq` Prelude.rnf failureBehavior
-      `Prelude.seq` Prelude.rnf robotApplications
-      `Prelude.seq` Prelude.rnf networkInterface
-      `Prelude.seq` Prelude.rnf loggingConfig
-      `Prelude.seq` Prelude.rnf failureReason
-      `Prelude.seq` Prelude.rnf compute
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf httpStatus

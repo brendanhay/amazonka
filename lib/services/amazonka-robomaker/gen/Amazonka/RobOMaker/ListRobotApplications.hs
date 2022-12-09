@@ -30,10 +30,10 @@ module Amazonka.RobOMaker.ListRobotApplications
     newListRobotApplications,
 
     -- * Request Lenses
-    listRobotApplications_nextToken,
     listRobotApplications_filters,
-    listRobotApplications_versionQualifier,
     listRobotApplications_maxResults,
+    listRobotApplications_nextToken,
+    listRobotApplications_versionQualifier,
 
     -- * Destructuring the Response
     ListRobotApplicationsResponse (..),
@@ -56,20 +56,11 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListRobotApplications' smart constructor.
 data ListRobotApplications = ListRobotApplications'
-  { -- | If the previous paginated request did not return all of the remaining
-    -- results, the response object\'s @nextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call @ListRobotApplications@
-    -- again and assign that token to the request object\'s @nextToken@
-    -- parameter. If there are no remaining results, the previous response
-    -- object\'s NextToken parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters to limit results.
+  { -- | Optional filters to limit results.
     --
     -- The filter name @name@ is supported. When filtering, you must use the
     -- complete value of the filtered item. You can use up to three filters.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | The version qualifier of the robot application.
-    versionQualifier :: Prelude.Maybe Prelude.Text,
     -- | When this parameter is used, @ListRobotApplications@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
     -- element. The remaining results of the initial request can be seen by
@@ -77,7 +68,16 @@ data ListRobotApplications = ListRobotApplications'
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter is not used, then @ListRobotApplications@ returns up to 100
     -- results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the previous paginated request did not return all of the remaining
+    -- results, the response object\'s @nextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call @ListRobotApplications@
+    -- again and assign that token to the request object\'s @nextToken@
+    -- parameter. If there are no remaining results, the previous response
+    -- object\'s NextToken parameter is set to null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The version qualifier of the robot application.
+    versionQualifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,19 +89,10 @@ data ListRobotApplications = ListRobotApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRobotApplications_nextToken' - If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListRobotApplications@
--- again and assign that token to the request object\'s @nextToken@
--- parameter. If there are no remaining results, the previous response
--- object\'s NextToken parameter is set to null.
---
 -- 'filters', 'listRobotApplications_filters' - Optional filters to limit results.
 --
 -- The filter name @name@ is supported. When filtering, you must use the
 -- complete value of the filtered item. You can use up to three filters.
---
--- 'versionQualifier', 'listRobotApplications_versionQualifier' - The version qualifier of the robot application.
 --
 -- 'maxResults', 'listRobotApplications_maxResults' - When this parameter is used, @ListRobotApplications@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -110,24 +101,24 @@ data ListRobotApplications = ListRobotApplications'
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter is not used, then @ListRobotApplications@ returns up to 100
 -- results and a @nextToken@ value if applicable.
-newListRobotApplications ::
-  ListRobotApplications
-newListRobotApplications =
-  ListRobotApplications'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      versionQualifier = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | If the previous paginated request did not return all of the remaining
+--
+-- 'nextToken', 'listRobotApplications_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListRobotApplications@
 -- again and assign that token to the request object\'s @nextToken@
 -- parameter. If there are no remaining results, the previous response
 -- object\'s NextToken parameter is set to null.
-listRobotApplications_nextToken :: Lens.Lens' ListRobotApplications (Prelude.Maybe Prelude.Text)
-listRobotApplications_nextToken = Lens.lens (\ListRobotApplications' {nextToken} -> nextToken) (\s@ListRobotApplications' {} a -> s {nextToken = a} :: ListRobotApplications)
+--
+-- 'versionQualifier', 'listRobotApplications_versionQualifier' - The version qualifier of the robot application.
+newListRobotApplications ::
+  ListRobotApplications
+newListRobotApplications =
+  ListRobotApplications'
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      versionQualifier = Prelude.Nothing
+    }
 
 -- | Optional filters to limit results.
 --
@@ -135,10 +126,6 @@ listRobotApplications_nextToken = Lens.lens (\ListRobotApplications' {nextToken}
 -- complete value of the filtered item. You can use up to three filters.
 listRobotApplications_filters :: Lens.Lens' ListRobotApplications (Prelude.Maybe (Prelude.NonEmpty Filter))
 listRobotApplications_filters = Lens.lens (\ListRobotApplications' {filters} -> filters) (\s@ListRobotApplications' {} a -> s {filters = a} :: ListRobotApplications) Prelude.. Lens.mapping Lens.coerced
-
--- | The version qualifier of the robot application.
-listRobotApplications_versionQualifier :: Lens.Lens' ListRobotApplications (Prelude.Maybe Prelude.Text)
-listRobotApplications_versionQualifier = Lens.lens (\ListRobotApplications' {versionQualifier} -> versionQualifier) (\s@ListRobotApplications' {} a -> s {versionQualifier = a} :: ListRobotApplications)
 
 -- | When this parameter is used, @ListRobotApplications@ only returns
 -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -149,6 +136,19 @@ listRobotApplications_versionQualifier = Lens.lens (\ListRobotApplications' {ver
 -- results and a @nextToken@ value if applicable.
 listRobotApplications_maxResults :: Lens.Lens' ListRobotApplications (Prelude.Maybe Prelude.Int)
 listRobotApplications_maxResults = Lens.lens (\ListRobotApplications' {maxResults} -> maxResults) (\s@ListRobotApplications' {} a -> s {maxResults = a} :: ListRobotApplications)
+
+-- | If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListRobotApplications@
+-- again and assign that token to the request object\'s @nextToken@
+-- parameter. If there are no remaining results, the previous response
+-- object\'s NextToken parameter is set to null.
+listRobotApplications_nextToken :: Lens.Lens' ListRobotApplications (Prelude.Maybe Prelude.Text)
+listRobotApplications_nextToken = Lens.lens (\ListRobotApplications' {nextToken} -> nextToken) (\s@ListRobotApplications' {} a -> s {nextToken = a} :: ListRobotApplications)
+
+-- | The version qualifier of the robot application.
+listRobotApplications_versionQualifier :: Lens.Lens' ListRobotApplications (Prelude.Maybe Prelude.Text)
+listRobotApplications_versionQualifier = Lens.lens (\ListRobotApplications' {versionQualifier} -> versionQualifier) (\s@ListRobotApplications' {} a -> s {versionQualifier = a} :: ListRobotApplications)
 
 instance Core.AWSPager ListRobotApplications where
   page rq rs
@@ -191,17 +191,17 @@ instance Core.AWSRequest ListRobotApplications where
 
 instance Prelude.Hashable ListRobotApplications where
   hashWithSalt _salt ListRobotApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` versionQualifier
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` versionQualifier
 
 instance Prelude.NFData ListRobotApplications where
   rnf ListRobotApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf versionQualifier
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionQualifier
 
 instance Data.ToHeaders ListRobotApplications where
   toHeaders =
@@ -218,11 +218,11 @@ instance Data.ToJSON ListRobotApplications where
   toJSON ListRobotApplications' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("versionQualifier" Data..=)
-              Prelude.<$> versionQualifier,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> versionQualifier
           ]
       )
 

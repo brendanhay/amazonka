@@ -29,9 +29,9 @@ module Amazonka.RobOMaker.ListWorldGenerationJobs
     newListWorldGenerationJobs,
 
     -- * Request Lenses
-    listWorldGenerationJobs_nextToken,
     listWorldGenerationJobs_filters,
     listWorldGenerationJobs_maxResults,
+    listWorldGenerationJobs_nextToken,
 
     -- * Destructuring the Response
     ListWorldGenerationJobsResponse (..),
@@ -54,15 +54,7 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListWorldGenerationJobs' smart constructor.
 data ListWorldGenerationJobs = ListWorldGenerationJobs'
-  { -- | If the previous paginated request did not return all of the remaining
-    -- results, the response object\'s @nextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call
-    -- @ListWorldGenerationJobsRequest@ again and assign that token to the
-    -- request object\'s @nextToken@ parameter. If there are no remaining
-    -- results, the previous response object\'s NextToken parameter is set to
-    -- null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters to limit results. You can use @status@ and
+  { -- | Optional filters to limit results. You can use @status@ and
     -- @templateId@.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | When this parameter is used, @ListWorldGeneratorJobs@ only returns
@@ -72,7 +64,15 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter is not used, then @ListWorldGeneratorJobs@ returns up to 100
     -- results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the previous paginated request did not return all of the remaining
+    -- results, the response object\'s @nextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call
+    -- @ListWorldGenerationJobsRequest@ again and assign that token to the
+    -- request object\'s @nextToken@ parameter. If there are no remaining
+    -- results, the previous response object\'s NextToken parameter is set to
+    -- null.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,14 +84,6 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorldGenerationJobs_nextToken' - If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call
--- @ListWorldGenerationJobsRequest@ again and assign that token to the
--- request object\'s @nextToken@ parameter. If there are no remaining
--- results, the previous response object\'s NextToken parameter is set to
--- null.
---
 -- 'filters', 'listWorldGenerationJobs_filters' - Optional filters to limit results. You can use @status@ and
 -- @templateId@.
 --
@@ -102,25 +94,22 @@ data ListWorldGenerationJobs = ListWorldGenerationJobs'
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter is not used, then @ListWorldGeneratorJobs@ returns up to 100
 -- results and a @nextToken@ value if applicable.
-newListWorldGenerationJobs ::
-  ListWorldGenerationJobs
-newListWorldGenerationJobs =
-  ListWorldGenerationJobs'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | If the previous paginated request did not return all of the remaining
+--
+-- 'nextToken', 'listWorldGenerationJobs_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call
 -- @ListWorldGenerationJobsRequest@ again and assign that token to the
 -- request object\'s @nextToken@ parameter. If there are no remaining
 -- results, the previous response object\'s NextToken parameter is set to
 -- null.
-listWorldGenerationJobs_nextToken :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe Prelude.Text)
-listWorldGenerationJobs_nextToken = Lens.lens (\ListWorldGenerationJobs' {nextToken} -> nextToken) (\s@ListWorldGenerationJobs' {} a -> s {nextToken = a} :: ListWorldGenerationJobs)
+newListWorldGenerationJobs ::
+  ListWorldGenerationJobs
+newListWorldGenerationJobs =
+  ListWorldGenerationJobs'
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | Optional filters to limit results. You can use @status@ and
 -- @templateId@.
@@ -136,6 +125,16 @@ listWorldGenerationJobs_filters = Lens.lens (\ListWorldGenerationJobs' {filters}
 -- results and a @nextToken@ value if applicable.
 listWorldGenerationJobs_maxResults :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe Prelude.Int)
 listWorldGenerationJobs_maxResults = Lens.lens (\ListWorldGenerationJobs' {maxResults} -> maxResults) (\s@ListWorldGenerationJobs' {} a -> s {maxResults = a} :: ListWorldGenerationJobs)
+
+-- | If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call
+-- @ListWorldGenerationJobsRequest@ again and assign that token to the
+-- request object\'s @nextToken@ parameter. If there are no remaining
+-- results, the previous response object\'s NextToken parameter is set to
+-- null.
+listWorldGenerationJobs_nextToken :: Lens.Lens' ListWorldGenerationJobs (Prelude.Maybe Prelude.Text)
+listWorldGenerationJobs_nextToken = Lens.lens (\ListWorldGenerationJobs' {nextToken} -> nextToken) (\s@ListWorldGenerationJobs' {} a -> s {nextToken = a} :: ListWorldGenerationJobs)
 
 instance Core.AWSPager ListWorldGenerationJobs where
   page rq rs
@@ -177,15 +176,15 @@ instance Core.AWSRequest ListWorldGenerationJobs where
 
 instance Prelude.Hashable ListWorldGenerationJobs where
   hashWithSalt _salt ListWorldGenerationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorldGenerationJobs where
   rnf ListWorldGenerationJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorldGenerationJobs where
   toHeaders =
@@ -202,9 +201,9 @@ instance Data.ToJSON ListWorldGenerationJobs where
   toJSON ListWorldGenerationJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

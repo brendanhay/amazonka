@@ -29,9 +29,9 @@ module Amazonka.RobOMaker.ListWorlds
     newListWorlds,
 
     -- * Request Lenses
-    listWorlds_nextToken,
     listWorlds_filters,
     listWorlds_maxResults,
+    listWorlds_nextToken,
 
     -- * Destructuring the Response
     ListWorldsResponse (..),
@@ -54,14 +54,7 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListWorlds' smart constructor.
 data ListWorlds = ListWorlds'
-  { -- | If the previous paginated request did not return all of the remaining
-    -- results, the response object\'s @nextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call @ListWorlds@ again and
-    -- assign that token to the request object\'s @nextToken@ parameter. If
-    -- there are no remaining results, the previous response object\'s
-    -- NextToken parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters to limit results. You can use @status@.
+  { -- | Optional filters to limit results. You can use @status@.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | When this parameter is used, @ListWorlds@ only returns @maxResults@
     -- results in a single page along with a @nextToken@ response element. The
@@ -69,7 +62,14 @@ data ListWorlds = ListWorlds'
     -- @ListWorlds@ request with the returned @nextToken@ value. This value can
     -- be between 1 and 100. If this parameter is not used, then @ListWorlds@
     -- returns up to 100 results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the previous paginated request did not return all of the remaining
+    -- results, the response object\'s @nextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call @ListWorlds@ again and
+    -- assign that token to the request object\'s @nextToken@ parameter. If
+    -- there are no remaining results, the previous response object\'s
+    -- NextToken parameter is set to null.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,13 +81,6 @@ data ListWorlds = ListWorlds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorlds_nextToken' - If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListWorlds@ again and
--- assign that token to the request object\'s @nextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- NextToken parameter is set to null.
---
 -- 'filters', 'listWorlds_filters' - Optional filters to limit results. You can use @status@.
 --
 -- 'maxResults', 'listWorlds_maxResults' - When this parameter is used, @ListWorlds@ only returns @maxResults@
@@ -96,23 +89,21 @@ data ListWorlds = ListWorlds'
 -- @ListWorlds@ request with the returned @nextToken@ value. This value can
 -- be between 1 and 100. If this parameter is not used, then @ListWorlds@
 -- returns up to 100 results and a @nextToken@ value if applicable.
-newListWorlds ::
-  ListWorlds
-newListWorlds =
-  ListWorlds'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | If the previous paginated request did not return all of the remaining
+--
+-- 'nextToken', 'listWorlds_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListWorlds@ again and
 -- assign that token to the request object\'s @nextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- NextToken parameter is set to null.
-listWorlds_nextToken :: Lens.Lens' ListWorlds (Prelude.Maybe Prelude.Text)
-listWorlds_nextToken = Lens.lens (\ListWorlds' {nextToken} -> nextToken) (\s@ListWorlds' {} a -> s {nextToken = a} :: ListWorlds)
+newListWorlds ::
+  ListWorlds
+newListWorlds =
+  ListWorlds'
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | Optional filters to limit results. You can use @status@.
 listWorlds_filters :: Lens.Lens' ListWorlds (Prelude.Maybe (Prelude.NonEmpty Filter))
@@ -126,6 +117,15 @@ listWorlds_filters = Lens.lens (\ListWorlds' {filters} -> filters) (\s@ListWorld
 -- returns up to 100 results and a @nextToken@ value if applicable.
 listWorlds_maxResults :: Lens.Lens' ListWorlds (Prelude.Maybe Prelude.Int)
 listWorlds_maxResults = Lens.lens (\ListWorlds' {maxResults} -> maxResults) (\s@ListWorlds' {} a -> s {maxResults = a} :: ListWorlds)
+
+-- | If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListWorlds@ again and
+-- assign that token to the request object\'s @nextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- NextToken parameter is set to null.
+listWorlds_nextToken :: Lens.Lens' ListWorlds (Prelude.Maybe Prelude.Text)
+listWorlds_nextToken = Lens.lens (\ListWorlds' {nextToken} -> nextToken) (\s@ListWorlds' {} a -> s {nextToken = a} :: ListWorlds)
 
 instance Core.AWSPager ListWorlds where
   page rq rs
@@ -162,15 +162,15 @@ instance Core.AWSRequest ListWorlds where
 
 instance Prelude.Hashable ListWorlds where
   hashWithSalt _salt ListWorlds' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorlds where
   rnf ListWorlds' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorlds where
   toHeaders =
@@ -187,9 +187,9 @@ instance Data.ToJSON ListWorlds where
   toJSON ListWorlds' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

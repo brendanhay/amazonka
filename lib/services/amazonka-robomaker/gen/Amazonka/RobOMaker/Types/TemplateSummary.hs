@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateSummary' smart constructor.
 data TemplateSummary = TemplateSummary'
-  { -- | The name of the template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the template was last
-    -- updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the template.
+  { -- | The Amazon Resource Name (ARN) of the template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the template was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The time, in milliseconds since the epoch, when the template was last
+    -- updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the template.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the template that you\'re using.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -51,36 +51,27 @@ data TemplateSummary = TemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'templateSummary_name' - The name of the template.
---
--- 'lastUpdatedAt', 'templateSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the template was last
--- updated.
---
 -- 'arn', 'templateSummary_arn' - The Amazon Resource Name (ARN) of the template.
 --
 -- 'createdAt', 'templateSummary_createdAt' - The time, in milliseconds since the epoch, when the template was
 -- created.
+--
+-- 'lastUpdatedAt', 'templateSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the template was last
+-- updated.
+--
+-- 'name', 'templateSummary_name' - The name of the template.
 --
 -- 'version', 'templateSummary_version' - The version of the template that you\'re using.
 newTemplateSummary ::
   TemplateSummary
 newTemplateSummary =
   TemplateSummary'
-    { name = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      name = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the template.
-templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
-templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
-
--- | The time, in milliseconds since the epoch, when the template was last
--- updated.
-templateSummary_lastUpdatedAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
-templateSummary_lastUpdatedAt = Lens.lens (\TemplateSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TemplateSummary' {} a -> s {lastUpdatedAt = a} :: TemplateSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the template.
 templateSummary_arn :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
@@ -90,6 +81,15 @@ templateSummary_arn = Lens.lens (\TemplateSummary' {arn} -> arn) (\s@TemplateSum
 -- created.
 templateSummary_createdAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
 templateSummary_createdAt = Lens.lens (\TemplateSummary' {createdAt} -> createdAt) (\s@TemplateSummary' {} a -> s {createdAt = a} :: TemplateSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The time, in milliseconds since the epoch, when the template was last
+-- updated.
+templateSummary_lastUpdatedAt :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.UTCTime)
+templateSummary_lastUpdatedAt = Lens.lens (\TemplateSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TemplateSummary' {} a -> s {lastUpdatedAt = a} :: TemplateSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the template.
+templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
+templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
 
 -- | The version of the template that you\'re using.
 templateSummary_version :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
@@ -101,25 +101,25 @@ instance Data.FromJSON TemplateSummary where
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable TemplateSummary where
   hashWithSalt _salt TemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData TemplateSummary where
   rnf TemplateSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version

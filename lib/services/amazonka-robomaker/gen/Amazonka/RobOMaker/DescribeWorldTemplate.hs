@@ -34,12 +34,12 @@ module Amazonka.RobOMaker.DescribeWorldTemplate
     newDescribeWorldTemplateResponse,
 
     -- * Response Lenses
-    describeWorldTemplateResponse_tags,
-    describeWorldTemplateResponse_name,
-    describeWorldTemplateResponse_clientRequestToken,
-    describeWorldTemplateResponse_lastUpdatedAt,
     describeWorldTemplateResponse_arn,
+    describeWorldTemplateResponse_clientRequestToken,
     describeWorldTemplateResponse_createdAt,
+    describeWorldTemplateResponse_lastUpdatedAt,
+    describeWorldTemplateResponse_name,
+    describeWorldTemplateResponse_tags,
     describeWorldTemplateResponse_version,
     describeWorldTemplateResponse_httpStatus,
   )
@@ -93,12 +93,12 @@ instance Core.AWSRequest DescribeWorldTemplate where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorldTemplateResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "clientRequestToken")
-            Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -136,22 +136,22 @@ instance Data.ToQuery DescribeWorldTemplate where
 
 -- | /See:/ 'newDescribeWorldTemplateResponse' smart constructor.
 data DescribeWorldTemplateResponse = DescribeWorldTemplateResponse'
-  { -- | A map that contains tag keys and tag values that are attached to the
-    -- world template.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the world template.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the world template.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the world template was
-    -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the world template.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the world template was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The time, in milliseconds since the epoch, when the world template was
+    -- last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the world template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- world template.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the world template that you\'re using.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -167,21 +167,21 @@ data DescribeWorldTemplateResponse = DescribeWorldTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeWorldTemplateResponse_tags' - A map that contains tag keys and tag values that are attached to the
--- world template.
---
--- 'name', 'describeWorldTemplateResponse_name' - The name of the world template.
+-- 'arn', 'describeWorldTemplateResponse_arn' - The Amazon Resource Name (ARN) of the world template.
 --
 -- 'clientRequestToken', 'describeWorldTemplateResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
+-- 'createdAt', 'describeWorldTemplateResponse_createdAt' - The time, in milliseconds since the epoch, when the world template was
+-- created.
+--
 -- 'lastUpdatedAt', 'describeWorldTemplateResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the world template was
 -- last updated.
 --
--- 'arn', 'describeWorldTemplateResponse_arn' - The Amazon Resource Name (ARN) of the world template.
+-- 'name', 'describeWorldTemplateResponse_name' - The name of the world template.
 --
--- 'createdAt', 'describeWorldTemplateResponse_createdAt' - The time, in milliseconds since the epoch, when the world template was
--- created.
+-- 'tags', 'describeWorldTemplateResponse_tags' - A map that contains tag keys and tag values that are attached to the
+-- world template.
 --
 -- 'version', 'describeWorldTemplateResponse_version' - The version of the world template that you\'re using.
 --
@@ -192,25 +192,20 @@ newDescribeWorldTemplateResponse ::
   DescribeWorldTemplateResponse
 newDescribeWorldTemplateResponse pHttpStatus_ =
   DescribeWorldTemplateResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A map that contains tag keys and tag values that are attached to the
--- world template.
-describeWorldTemplateResponse_tags :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeWorldTemplateResponse_tags = Lens.lens (\DescribeWorldTemplateResponse' {tags} -> tags) (\s@DescribeWorldTemplateResponse' {} a -> s {tags = a} :: DescribeWorldTemplateResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the world template.
-describeWorldTemplateResponse_name :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.Text)
-describeWorldTemplateResponse_name = Lens.lens (\DescribeWorldTemplateResponse' {name} -> name) (\s@DescribeWorldTemplateResponse' {} a -> s {name = a} :: DescribeWorldTemplateResponse)
+-- | The Amazon Resource Name (ARN) of the world template.
+describeWorldTemplateResponse_arn :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.Text)
+describeWorldTemplateResponse_arn = Lens.lens (\DescribeWorldTemplateResponse' {arn} -> arn) (\s@DescribeWorldTemplateResponse' {} a -> s {arn = a} :: DescribeWorldTemplateResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -218,18 +213,23 @@ describeWorldTemplateResponse_clientRequestToken :: Lens.Lens' DescribeWorldTemp
 describeWorldTemplateResponse_clientRequestToken = Lens.lens (\DescribeWorldTemplateResponse' {clientRequestToken} -> clientRequestToken) (\s@DescribeWorldTemplateResponse' {} a -> s {clientRequestToken = a} :: DescribeWorldTemplateResponse)
 
 -- | The time, in milliseconds since the epoch, when the world template was
+-- created.
+describeWorldTemplateResponse_createdAt :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+describeWorldTemplateResponse_createdAt = Lens.lens (\DescribeWorldTemplateResponse' {createdAt} -> createdAt) (\s@DescribeWorldTemplateResponse' {} a -> s {createdAt = a} :: DescribeWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The time, in milliseconds since the epoch, when the world template was
 -- last updated.
 describeWorldTemplateResponse_lastUpdatedAt :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
 describeWorldTemplateResponse_lastUpdatedAt = Lens.lens (\DescribeWorldTemplateResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeWorldTemplateResponse' {} a -> s {lastUpdatedAt = a} :: DescribeWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the world template.
-describeWorldTemplateResponse_arn :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.Text)
-describeWorldTemplateResponse_arn = Lens.lens (\DescribeWorldTemplateResponse' {arn} -> arn) (\s@DescribeWorldTemplateResponse' {} a -> s {arn = a} :: DescribeWorldTemplateResponse)
+-- | The name of the world template.
+describeWorldTemplateResponse_name :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.Text)
+describeWorldTemplateResponse_name = Lens.lens (\DescribeWorldTemplateResponse' {name} -> name) (\s@DescribeWorldTemplateResponse' {} a -> s {name = a} :: DescribeWorldTemplateResponse)
 
--- | The time, in milliseconds since the epoch, when the world template was
--- created.
-describeWorldTemplateResponse_createdAt :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-describeWorldTemplateResponse_createdAt = Lens.lens (\DescribeWorldTemplateResponse' {createdAt} -> createdAt) (\s@DescribeWorldTemplateResponse' {} a -> s {createdAt = a} :: DescribeWorldTemplateResponse) Prelude.. Lens.mapping Data._Time
+-- | A map that contains tag keys and tag values that are attached to the
+-- world template.
+describeWorldTemplateResponse_tags :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeWorldTemplateResponse_tags = Lens.lens (\DescribeWorldTemplateResponse' {tags} -> tags) (\s@DescribeWorldTemplateResponse' {} a -> s {tags = a} :: DescribeWorldTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the world template that you\'re using.
 describeWorldTemplateResponse_version :: Lens.Lens' DescribeWorldTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -241,11 +241,11 @@ describeWorldTemplateResponse_httpStatus = Lens.lens (\DescribeWorldTemplateResp
 
 instance Prelude.NFData DescribeWorldTemplateResponse where
   rnf DescribeWorldTemplateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

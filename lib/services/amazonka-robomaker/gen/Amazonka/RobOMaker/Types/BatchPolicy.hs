@@ -28,7 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPolicy' smart constructor.
 data BatchPolicy = BatchPolicy'
-  { -- | The amount of time, in seconds, to wait for the batch to complete.
+  { -- | The number of active simulation jobs create as part of the batch that
+    -- can be in an active state at the same time.
+    --
+    -- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
+    -- @RunningFailed@ and @Terminating@. All other states are terminal states.
+    maxConcurrency :: Prelude.Maybe Prelude.Int,
+    -- | The amount of time, in seconds, to wait for the batch to complete.
     --
     -- If a batch times out, and there are pending requests that were failing
     -- due to an internal failure (like @InternalServiceError@), they will be
@@ -36,13 +42,7 @@ data BatchPolicy = BatchPolicy'
     -- pending requests were failing for any other reason, the failed pending
     -- requests will be moved to the failed list and the batch status will be
     -- @TimedOut@.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The number of active simulation jobs create as part of the batch that
-    -- can be in an active state at the same time.
-    --
-    -- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
-    -- @RunningFailed@ and @Terminating@. All other states are terminal states.
-    maxConcurrency :: Prelude.Maybe Prelude.Int
+    timeoutInSeconds :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,12 @@ data BatchPolicy = BatchPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxConcurrency', 'batchPolicy_maxConcurrency' - The number of active simulation jobs create as part of the batch that
+-- can be in an active state at the same time.
+--
+-- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
+-- @RunningFailed@ and @Terminating@. All other states are terminal states.
+--
 -- 'timeoutInSeconds', 'batchPolicy_timeoutInSeconds' - The amount of time, in seconds, to wait for the batch to complete.
 --
 -- If a batch times out, and there are pending requests that were failing
@@ -62,19 +68,21 @@ data BatchPolicy = BatchPolicy'
 -- pending requests were failing for any other reason, the failed pending
 -- requests will be moved to the failed list and the batch status will be
 -- @TimedOut@.
---
--- 'maxConcurrency', 'batchPolicy_maxConcurrency' - The number of active simulation jobs create as part of the batch that
--- can be in an active state at the same time.
---
--- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
--- @RunningFailed@ and @Terminating@. All other states are terminal states.
 newBatchPolicy ::
   BatchPolicy
 newBatchPolicy =
   BatchPolicy'
-    { timeoutInSeconds = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing
+    { maxConcurrency = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
     }
+
+-- | The number of active simulation jobs create as part of the batch that
+-- can be in an active state at the same time.
+--
+-- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
+-- @RunningFailed@ and @Terminating@. All other states are terminal states.
+batchPolicy_maxConcurrency :: Lens.Lens' BatchPolicy (Prelude.Maybe Prelude.Int)
+batchPolicy_maxConcurrency = Lens.lens (\BatchPolicy' {maxConcurrency} -> maxConcurrency) (\s@BatchPolicy' {} a -> s {maxConcurrency = a} :: BatchPolicy)
 
 -- | The amount of time, in seconds, to wait for the batch to complete.
 --
@@ -87,41 +95,33 @@ newBatchPolicy =
 batchPolicy_timeoutInSeconds :: Lens.Lens' BatchPolicy (Prelude.Maybe Prelude.Integer)
 batchPolicy_timeoutInSeconds = Lens.lens (\BatchPolicy' {timeoutInSeconds} -> timeoutInSeconds) (\s@BatchPolicy' {} a -> s {timeoutInSeconds = a} :: BatchPolicy)
 
--- | The number of active simulation jobs create as part of the batch that
--- can be in an active state at the same time.
---
--- Active states include: @Pending@,@Preparing@, @Running@, @Restarting@,
--- @RunningFailed@ and @Terminating@. All other states are terminal states.
-batchPolicy_maxConcurrency :: Lens.Lens' BatchPolicy (Prelude.Maybe Prelude.Int)
-batchPolicy_maxConcurrency = Lens.lens (\BatchPolicy' {maxConcurrency} -> maxConcurrency) (\s@BatchPolicy' {} a -> s {maxConcurrency = a} :: BatchPolicy)
-
 instance Data.FromJSON BatchPolicy where
   parseJSON =
     Data.withObject
       "BatchPolicy"
       ( \x ->
           BatchPolicy'
-            Prelude.<$> (x Data..:? "timeoutInSeconds")
-            Prelude.<*> (x Data..:? "maxConcurrency")
+            Prelude.<$> (x Data..:? "maxConcurrency")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
       )
 
 instance Prelude.Hashable BatchPolicy where
   hashWithSalt _salt BatchPolicy' {..} =
-    _salt `Prelude.hashWithSalt` timeoutInSeconds
-      `Prelude.hashWithSalt` maxConcurrency
+    _salt `Prelude.hashWithSalt` maxConcurrency
+      `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData BatchPolicy where
   rnf BatchPolicy' {..} =
-    Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf maxConcurrency
+    Prelude.rnf maxConcurrency
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON BatchPolicy where
   toJSON BatchPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInSeconds" Data..=)
-              Prelude.<$> timeoutInSeconds,
-            ("maxConcurrency" Data..=)
-              Prelude.<$> maxConcurrency
+          [ ("maxConcurrency" Data..=)
+              Prelude.<$> maxConcurrency,
+            ("timeoutInSeconds" Data..=)
+              Prelude.<$> timeoutInSeconds
           ]
       )

@@ -27,9 +27,9 @@ module Amazonka.RobOMaker.CreateWorldGenerationJob
     newCreateWorldGenerationJob,
 
     -- * Request Lenses
+    createWorldGenerationJob_clientRequestToken,
     createWorldGenerationJob_tags,
     createWorldGenerationJob_worldTags,
-    createWorldGenerationJob_clientRequestToken,
     createWorldGenerationJob_template,
     createWorldGenerationJob_worldCount,
 
@@ -38,15 +38,15 @@ module Amazonka.RobOMaker.CreateWorldGenerationJob
     newCreateWorldGenerationJobResponse,
 
     -- * Response Lenses
+    createWorldGenerationJobResponse_arn,
+    createWorldGenerationJobResponse_clientRequestToken,
+    createWorldGenerationJobResponse_createdAt,
+    createWorldGenerationJobResponse_failureCode,
+    createWorldGenerationJobResponse_status,
     createWorldGenerationJobResponse_tags,
+    createWorldGenerationJobResponse_template,
     createWorldGenerationJobResponse_worldCount,
     createWorldGenerationJobResponse_worldTags,
-    createWorldGenerationJobResponse_failureCode,
-    createWorldGenerationJobResponse_clientRequestToken,
-    createWorldGenerationJobResponse_arn,
-    createWorldGenerationJobResponse_status,
-    createWorldGenerationJobResponse_createdAt,
-    createWorldGenerationJobResponse_template,
     createWorldGenerationJobResponse_httpStatus,
   )
 where
@@ -61,15 +61,15 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newCreateWorldGenerationJob' smart constructor.
 data CreateWorldGenerationJob = CreateWorldGenerationJob'
-  { -- | A map that contains tag keys and tag values that are attached to the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values that are attached to the
     -- world generator job.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A map that contains tag keys and tag values that are attached to the
     -- generated worlds.
     worldTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (arn) of the world template describing the
     -- worlds you want to create.
     template :: Prelude.Text,
@@ -86,14 +86,14 @@ data CreateWorldGenerationJob = CreateWorldGenerationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'createWorldGenerationJob_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
 -- 'tags', 'createWorldGenerationJob_tags' - A map that contains tag keys and tag values that are attached to the
 -- world generator job.
 --
 -- 'worldTags', 'createWorldGenerationJob_worldTags' - A map that contains tag keys and tag values that are attached to the
 -- generated worlds.
---
--- 'clientRequestToken', 'createWorldGenerationJob_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
 --
 -- 'template', 'createWorldGenerationJob_template' - The Amazon Resource Name (arn) of the world template describing the
 -- worlds you want to create.
@@ -107,12 +107,18 @@ newCreateWorldGenerationJob ::
   CreateWorldGenerationJob
 newCreateWorldGenerationJob pTemplate_ pWorldCount_ =
   CreateWorldGenerationJob'
-    { tags = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       worldTags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       template = pTemplate_,
       worldCount = pWorldCount_
     }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createWorldGenerationJob_clientRequestToken :: Lens.Lens' CreateWorldGenerationJob (Prelude.Maybe Prelude.Text)
+createWorldGenerationJob_clientRequestToken = Lens.lens (\CreateWorldGenerationJob' {clientRequestToken} -> clientRequestToken) (\s@CreateWorldGenerationJob' {} a -> s {clientRequestToken = a} :: CreateWorldGenerationJob)
 
 -- | A map that contains tag keys and tag values that are attached to the
 -- world generator job.
@@ -123,11 +129,6 @@ createWorldGenerationJob_tags = Lens.lens (\CreateWorldGenerationJob' {tags} -> 
 -- generated worlds.
 createWorldGenerationJob_worldTags :: Lens.Lens' CreateWorldGenerationJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createWorldGenerationJob_worldTags = Lens.lens (\CreateWorldGenerationJob' {worldTags} -> worldTags) (\s@CreateWorldGenerationJob' {} a -> s {worldTags = a} :: CreateWorldGenerationJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createWorldGenerationJob_clientRequestToken :: Lens.Lens' CreateWorldGenerationJob (Prelude.Maybe Prelude.Text)
-createWorldGenerationJob_clientRequestToken = Lens.lens (\CreateWorldGenerationJob' {clientRequestToken} -> clientRequestToken) (\s@CreateWorldGenerationJob' {} a -> s {clientRequestToken = a} :: CreateWorldGenerationJob)
 
 -- | The Amazon Resource Name (arn) of the world template describing the
 -- worlds you want to create.
@@ -148,31 +149,31 @@ instance Core.AWSRequest CreateWorldGenerationJob where
     Response.receiveJSON
       ( \s h x ->
           CreateWorldGenerationJobResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "clientRequestToken")
+            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "failureCode")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "template")
             Prelude.<*> (x Data..?> "worldCount")
             Prelude.<*> (x Data..?> "worldTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "failureCode")
-            Prelude.<*> (x Data..?> "clientRequestToken")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "createdAt")
-            Prelude.<*> (x Data..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateWorldGenerationJob where
   hashWithSalt _salt CreateWorldGenerationJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` worldTags
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` template
       `Prelude.hashWithSalt` worldCount
 
 instance Prelude.NFData CreateWorldGenerationJob where
   rnf CreateWorldGenerationJob' {..} =
-    Prelude.rnf tags
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf worldTags
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf worldCount
 
@@ -191,10 +192,10 @@ instance Data.ToJSON CreateWorldGenerationJob where
   toJSON CreateWorldGenerationJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("worldTags" Data..=) Prelude.<$> worldTags,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("worldTags" Data..=) Prelude.<$> worldTags,
             Prelude.Just ("template" Data..= template),
             Prelude.Just ("worldCount" Data..= worldCount)
           ]
@@ -208,14 +209,14 @@ instance Data.ToQuery CreateWorldGenerationJob where
 
 -- | /See:/ 'newCreateWorldGenerationJobResponse' smart constructor.
 data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
-  { -- | A map that contains tag keys and tag values that are attached to the
-    -- world generator job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Information about the world count.
-    worldCount :: Prelude.Maybe WorldCount,
-    -- | A map that contains tag keys and tag values that are attached to the
-    -- generated worlds.
-    worldTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The Amazon Resource Name (ARN) of the world generator job.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the world generator job
+    -- was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The failure code of the world generator job if it failed:
     --
     -- [InternalServiceError]
@@ -235,11 +236,6 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
     -- [InvalidInput]
     --     An input parameter in the request is not valid.
     failureCode :: Prelude.Maybe WorldGenerationJobErrorCode,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the world generator job.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the world generator job.
     --
     -- [Pending]
@@ -264,11 +260,16 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
     -- [Canceling]
     --     The world generator job is being cancelled.
     status :: Prelude.Maybe WorldGenerationJobStatus,
-    -- | The time, in milliseconds since the epoch, when the world generator job
-    -- was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- world generator job.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (arn) of the world template.
     template :: Prelude.Maybe Prelude.Text,
+    -- | Information about the world count.
+    worldCount :: Prelude.Maybe WorldCount,
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- generated worlds.
+    worldTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -282,13 +283,13 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createWorldGenerationJobResponse_tags' - A map that contains tag keys and tag values that are attached to the
--- world generator job.
+-- 'arn', 'createWorldGenerationJobResponse_arn' - The Amazon Resource Name (ARN) of the world generator job.
 --
--- 'worldCount', 'createWorldGenerationJobResponse_worldCount' - Information about the world count.
+-- 'clientRequestToken', 'createWorldGenerationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
--- 'worldTags', 'createWorldGenerationJobResponse_worldTags' - A map that contains tag keys and tag values that are attached to the
--- generated worlds.
+-- 'createdAt', 'createWorldGenerationJobResponse_createdAt' - The time, in milliseconds since the epoch, when the world generator job
+-- was created.
 --
 -- 'failureCode', 'createWorldGenerationJobResponse_failureCode' - The failure code of the world generator job if it failed:
 --
@@ -308,11 +309,6 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
 --
 -- [InvalidInput]
 --     An input parameter in the request is not valid.
---
--- 'clientRequestToken', 'createWorldGenerationJobResponse_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
--- 'arn', 'createWorldGenerationJobResponse_arn' - The Amazon Resource Name (ARN) of the world generator job.
 --
 -- 'status', 'createWorldGenerationJobResponse_status' - The status of the world generator job.
 --
@@ -338,10 +334,15 @@ data CreateWorldGenerationJobResponse = CreateWorldGenerationJobResponse'
 -- [Canceling]
 --     The world generator job is being cancelled.
 --
--- 'createdAt', 'createWorldGenerationJobResponse_createdAt' - The time, in milliseconds since the epoch, when the world generator job
--- was created.
+-- 'tags', 'createWorldGenerationJobResponse_tags' - A map that contains tag keys and tag values that are attached to the
+-- world generator job.
 --
 -- 'template', 'createWorldGenerationJobResponse_template' - The Amazon Resource Name (arn) of the world template.
+--
+-- 'worldCount', 'createWorldGenerationJobResponse_worldCount' - Information about the world count.
+--
+-- 'worldTags', 'createWorldGenerationJobResponse_worldTags' - A map that contains tag keys and tag values that are attached to the
+-- generated worlds.
 --
 -- 'httpStatus', 'createWorldGenerationJobResponse_httpStatus' - The response's http status code.
 newCreateWorldGenerationJobResponse ::
@@ -350,32 +351,32 @@ newCreateWorldGenerationJobResponse ::
   CreateWorldGenerationJobResponse
 newCreateWorldGenerationJobResponse pHttpStatus_ =
   CreateWorldGenerationJobResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      template = Prelude.Nothing,
       worldCount = Prelude.Nothing,
       worldTags = Prelude.Nothing,
-      failureCode = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      template = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A map that contains tag keys and tag values that are attached to the
--- world generator job.
-createWorldGenerationJobResponse_tags :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorldGenerationJobResponse_tags = Lens.lens (\CreateWorldGenerationJobResponse' {tags} -> tags) (\s@CreateWorldGenerationJobResponse' {} a -> s {tags = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the world generator job.
+createWorldGenerationJobResponse_arn :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
+createWorldGenerationJobResponse_arn = Lens.lens (\CreateWorldGenerationJobResponse' {arn} -> arn) (\s@CreateWorldGenerationJobResponse' {} a -> s {arn = a} :: CreateWorldGenerationJobResponse)
 
--- | Information about the world count.
-createWorldGenerationJobResponse_worldCount :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe WorldCount)
-createWorldGenerationJobResponse_worldCount = Lens.lens (\CreateWorldGenerationJobResponse' {worldCount} -> worldCount) (\s@CreateWorldGenerationJobResponse' {} a -> s {worldCount = a} :: CreateWorldGenerationJobResponse)
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createWorldGenerationJobResponse_clientRequestToken :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
+createWorldGenerationJobResponse_clientRequestToken = Lens.lens (\CreateWorldGenerationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@CreateWorldGenerationJobResponse' {} a -> s {clientRequestToken = a} :: CreateWorldGenerationJobResponse)
 
--- | A map that contains tag keys and tag values that are attached to the
--- generated worlds.
-createWorldGenerationJobResponse_worldTags :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorldGenerationJobResponse_worldTags = Lens.lens (\CreateWorldGenerationJobResponse' {worldTags} -> worldTags) (\s@CreateWorldGenerationJobResponse' {} a -> s {worldTags = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The time, in milliseconds since the epoch, when the world generator job
+-- was created.
+createWorldGenerationJobResponse_createdAt :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.UTCTime)
+createWorldGenerationJobResponse_createdAt = Lens.lens (\CreateWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@CreateWorldGenerationJobResponse' {} a -> s {createdAt = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The failure code of the world generator job if it failed:
 --
@@ -397,15 +398,6 @@ createWorldGenerationJobResponse_worldTags = Lens.lens (\CreateWorldGenerationJo
 --     An input parameter in the request is not valid.
 createWorldGenerationJobResponse_failureCode :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe WorldGenerationJobErrorCode)
 createWorldGenerationJobResponse_failureCode = Lens.lens (\CreateWorldGenerationJobResponse' {failureCode} -> failureCode) (\s@CreateWorldGenerationJobResponse' {} a -> s {failureCode = a} :: CreateWorldGenerationJobResponse)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createWorldGenerationJobResponse_clientRequestToken :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
-createWorldGenerationJobResponse_clientRequestToken = Lens.lens (\CreateWorldGenerationJobResponse' {clientRequestToken} -> clientRequestToken) (\s@CreateWorldGenerationJobResponse' {} a -> s {clientRequestToken = a} :: CreateWorldGenerationJobResponse)
-
--- | The Amazon Resource Name (ARN) of the world generator job.
-createWorldGenerationJobResponse_arn :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
-createWorldGenerationJobResponse_arn = Lens.lens (\CreateWorldGenerationJobResponse' {arn} -> arn) (\s@CreateWorldGenerationJobResponse' {} a -> s {arn = a} :: CreateWorldGenerationJobResponse)
 
 -- | The status of the world generator job.
 --
@@ -433,14 +425,23 @@ createWorldGenerationJobResponse_arn = Lens.lens (\CreateWorldGenerationJobRespo
 createWorldGenerationJobResponse_status :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe WorldGenerationJobStatus)
 createWorldGenerationJobResponse_status = Lens.lens (\CreateWorldGenerationJobResponse' {status} -> status) (\s@CreateWorldGenerationJobResponse' {} a -> s {status = a} :: CreateWorldGenerationJobResponse)
 
--- | The time, in milliseconds since the epoch, when the world generator job
--- was created.
-createWorldGenerationJobResponse_createdAt :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.UTCTime)
-createWorldGenerationJobResponse_createdAt = Lens.lens (\CreateWorldGenerationJobResponse' {createdAt} -> createdAt) (\s@CreateWorldGenerationJobResponse' {} a -> s {createdAt = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Data._Time
+-- | A map that contains tag keys and tag values that are attached to the
+-- world generator job.
+createWorldGenerationJobResponse_tags :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorldGenerationJobResponse_tags = Lens.lens (\CreateWorldGenerationJobResponse' {tags} -> tags) (\s@CreateWorldGenerationJobResponse' {} a -> s {tags = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (arn) of the world template.
 createWorldGenerationJobResponse_template :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe Prelude.Text)
 createWorldGenerationJobResponse_template = Lens.lens (\CreateWorldGenerationJobResponse' {template} -> template) (\s@CreateWorldGenerationJobResponse' {} a -> s {template = a} :: CreateWorldGenerationJobResponse)
+
+-- | Information about the world count.
+createWorldGenerationJobResponse_worldCount :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe WorldCount)
+createWorldGenerationJobResponse_worldCount = Lens.lens (\CreateWorldGenerationJobResponse' {worldCount} -> worldCount) (\s@CreateWorldGenerationJobResponse' {} a -> s {worldCount = a} :: CreateWorldGenerationJobResponse)
+
+-- | A map that contains tag keys and tag values that are attached to the
+-- generated worlds.
+createWorldGenerationJobResponse_worldTags :: Lens.Lens' CreateWorldGenerationJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorldGenerationJobResponse_worldTags = Lens.lens (\CreateWorldGenerationJobResponse' {worldTags} -> worldTags) (\s@CreateWorldGenerationJobResponse' {} a -> s {worldTags = a} :: CreateWorldGenerationJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createWorldGenerationJobResponse_httpStatus :: Lens.Lens' CreateWorldGenerationJobResponse Prelude.Int
@@ -451,13 +452,13 @@ instance
     CreateWorldGenerationJobResponse
   where
   rnf CreateWorldGenerationJobResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf failureCode
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf worldCount
       `Prelude.seq` Prelude.rnf worldTags
-      `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf template
       `Prelude.seq` Prelude.rnf httpStatus

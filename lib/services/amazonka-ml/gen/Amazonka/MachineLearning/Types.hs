@@ -18,14 +18,14 @@ module Amazonka.MachineLearning.Types
     defaultService,
 
     -- * Errors
-    _InvalidInputException,
-    _PredictorNotMountedException,
-    _InternalServerException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _TagLimitExceededException,
-    _InvalidTagException,
     _IdempotentParameterMismatchException,
+    _InternalServerException,
+    _InvalidInputException,
+    _InvalidTagException,
+    _LimitExceededException,
+    _PredictorNotMountedException,
+    _ResourceNotFoundException,
+    _TagLimitExceededException,
 
     -- * Algorithm
     Algorithm (..),
@@ -63,84 +63,84 @@ module Amazonka.MachineLearning.Types
     -- * BatchPrediction
     BatchPrediction (..),
     newBatchPrediction,
+    batchPrediction_batchPredictionDataSourceId,
+    batchPrediction_batchPredictionId,
+    batchPrediction_computeTime,
+    batchPrediction_createdAt,
+    batchPrediction_createdByIamUser,
+    batchPrediction_finishedAt,
+    batchPrediction_inputDataLocationS3,
     batchPrediction_invalidRecordCount,
+    batchPrediction_lastUpdatedAt,
+    batchPrediction_mLModelId,
     batchPrediction_message,
     batchPrediction_name,
-    batchPrediction_totalRecordCount,
-    batchPrediction_lastUpdatedAt,
-    batchPrediction_batchPredictionDataSourceId,
-    batchPrediction_finishedAt,
-    batchPrediction_mLModelId,
-    batchPrediction_status,
     batchPrediction_outputUri,
     batchPrediction_startedAt,
-    batchPrediction_computeTime,
-    batchPrediction_batchPredictionId,
-    batchPrediction_createdAt,
-    batchPrediction_inputDataLocationS3,
-    batchPrediction_createdByIamUser,
+    batchPrediction_status,
+    batchPrediction_totalRecordCount,
 
     -- * DataSource
     DataSource (..),
     newDataSource,
-    dataSource_dataSizeInBytes,
-    dataSource_message,
-    dataSource_name,
-    dataSource_roleARN,
-    dataSource_dataSourceId,
-    dataSource_numberOfFiles,
-    dataSource_rDSMetadata,
-    dataSource_lastUpdatedAt,
-    dataSource_finishedAt,
-    dataSource_redshiftMetadata,
-    dataSource_dataRearrangement,
-    dataSource_dataLocationS3,
-    dataSource_status,
-    dataSource_startedAt,
-    dataSource_computeTime,
     dataSource_computeStatistics,
+    dataSource_computeTime,
     dataSource_createdAt,
     dataSource_createdByIamUser,
+    dataSource_dataLocationS3,
+    dataSource_dataRearrangement,
+    dataSource_dataSizeInBytes,
+    dataSource_dataSourceId,
+    dataSource_finishedAt,
+    dataSource_lastUpdatedAt,
+    dataSource_message,
+    dataSource_name,
+    dataSource_numberOfFiles,
+    dataSource_rDSMetadata,
+    dataSource_redshiftMetadata,
+    dataSource_roleARN,
+    dataSource_startedAt,
+    dataSource_status,
 
     -- * Evaluation
     Evaluation (..),
     newEvaluation,
+    evaluation_computeTime,
+    evaluation_createdAt,
+    evaluation_createdByIamUser,
+    evaluation_evaluationDataSourceId,
+    evaluation_evaluationId,
+    evaluation_finishedAt,
+    evaluation_inputDataLocationS3,
+    evaluation_lastUpdatedAt,
+    evaluation_mLModelId,
     evaluation_message,
     evaluation_name,
-    evaluation_lastUpdatedAt,
     evaluation_performanceMetrics,
-    evaluation_finishedAt,
-    evaluation_mLModelId,
-    evaluation_status,
-    evaluation_evaluationDataSourceId,
     evaluation_startedAt,
-    evaluation_computeTime,
-    evaluation_evaluationId,
-    evaluation_createdAt,
-    evaluation_inputDataLocationS3,
-    evaluation_createdByIamUser,
+    evaluation_status,
 
     -- * MLModel
     MLModel (..),
     newMLModel,
+    mLModel_algorithm,
+    mLModel_computeTime,
+    mLModel_createdAt,
+    mLModel_createdByIamUser,
+    mLModel_endpointInfo,
+    mLModel_finishedAt,
+    mLModel_inputDataLocationS3,
+    mLModel_lastUpdatedAt,
+    mLModel_mLModelId,
+    mLModel_mLModelType,
     mLModel_message,
     mLModel_name,
-    mLModel_trainingDataSourceId,
-    mLModel_scoreThresholdLastUpdatedAt,
-    mLModel_lastUpdatedAt,
-    mLModel_finishedAt,
-    mLModel_mLModelId,
     mLModel_scoreThreshold,
-    mLModel_endpointInfo,
-    mLModel_status,
-    mLModel_mLModelType,
-    mLModel_startedAt,
-    mLModel_computeTime,
+    mLModel_scoreThresholdLastUpdatedAt,
     mLModel_sizeInBytes,
-    mLModel_algorithm,
-    mLModel_createdAt,
-    mLModel_inputDataLocationS3,
-    mLModel_createdByIamUser,
+    mLModel_startedAt,
+    mLModel_status,
+    mLModel_trainingDataSourceId,
     mLModel_trainingParameters,
 
     -- * PerformanceMetrics
@@ -151,9 +151,9 @@ module Amazonka.MachineLearning.Types
     -- * Prediction
     Prediction (..),
     newPrediction,
-    prediction_predictedScores,
     prediction_details,
     prediction_predictedLabel,
+    prediction_predictedScores,
     prediction_predictedValue,
 
     -- * RDSDataSpec
@@ -186,20 +186,20 @@ module Amazonka.MachineLearning.Types
     -- * RDSMetadata
     RDSMetadata (..),
     newRDSMetadata,
+    rDSMetadata_dataPipelineId,
+    rDSMetadata_database,
     rDSMetadata_databaseUserName,
     rDSMetadata_resourceRole,
     rDSMetadata_selectSqlQuery,
     rDSMetadata_serviceRole,
-    rDSMetadata_database,
-    rDSMetadata_dataPipelineId,
 
     -- * RealtimeEndpointInfo
     RealtimeEndpointInfo (..),
     newRealtimeEndpointInfo,
-    realtimeEndpointInfo_peakRequestsPerSecond,
-    realtimeEndpointInfo_endpointUrl,
-    realtimeEndpointInfo_endpointStatus,
     realtimeEndpointInfo_createdAt,
+    realtimeEndpointInfo_endpointStatus,
+    realtimeEndpointInfo_endpointUrl,
+    realtimeEndpointInfo_peakRequestsPerSecond,
 
     -- * RedshiftDataSpec
     RedshiftDataSpec (..),
@@ -228,15 +228,15 @@ module Amazonka.MachineLearning.Types
     RedshiftMetadata (..),
     newRedshiftMetadata,
     redshiftMetadata_databaseUserName,
-    redshiftMetadata_selectSqlQuery,
     redshiftMetadata_redshiftDatabase,
+    redshiftMetadata_selectSqlQuery,
 
     -- * S3DataSpec
     S3DataSpec (..),
     newS3DataSpec,
-    s3DataSpec_dataSchemaLocationS3,
     s3DataSpec_dataRearrangement,
     s3DataSpec_dataSchema,
+    s3DataSpec_dataSchemaLocationS3,
     s3DataSpec_dataLocationS3,
 
     -- * Tag
@@ -305,28 +305,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -334,13 +328,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -348,59 +346,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | An error on the client occurred. Typically, the cause is an invalid
--- input value.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-
--- | The exception is thrown when a predict request is made to an unmounted
--- @MLModel@.
-_PredictorNotMountedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PredictorNotMountedException =
-  Core._MatchServiceError
-    defaultService
-    "PredictorNotMountedException"
-
--- | An error on the server occurred when trying to process a request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | A specified resource cannot be located.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The subscriber exceeded the maximum number of operations. This exception
--- can occur when listing objects such as @DataSource@.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | Prism for TagLimitExceededException' errors.
-_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TagLimitExceededException"
-
--- | Prism for InvalidTagException' errors.
-_InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTagException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTagException"
 
 -- | A second request to use or change an object was not allowed. This can
 -- result from retrying a request using a parameter that was not present in
@@ -410,3 +358,55 @@ _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
+
+-- | An error on the server occurred when trying to process a request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+
+-- | An error on the client occurred. Typically, the cause is an invalid
+-- input value.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInputException"
+
+-- | Prism for InvalidTagException' errors.
+_InvalidTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTagException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTagException"
+
+-- | The subscriber exceeded the maximum number of operations. This exception
+-- can occur when listing objects such as @DataSource@.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The exception is thrown when a predict request is made to an unmounted
+-- @MLModel@.
+_PredictorNotMountedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PredictorNotMountedException =
+  Core._MatchServiceError
+    defaultService
+    "PredictorNotMountedException"
+
+-- | A specified resource cannot be located.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | Prism for TagLimitExceededException' errors.
+_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TagLimitExceededException"

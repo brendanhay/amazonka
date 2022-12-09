@@ -34,8 +34,8 @@ module Amazonka.MachineLearning.DeleteRealtimeEndpoint
     newDeleteRealtimeEndpointResponse,
 
     -- * Response Lenses
-    deleteRealtimeEndpointResponse_realtimeEndpointInfo,
     deleteRealtimeEndpointResponse_mLModelId,
+    deleteRealtimeEndpointResponse_realtimeEndpointInfo,
     deleteRealtimeEndpointResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest DeleteRealtimeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DeleteRealtimeEndpointResponse'
-            Prelude.<$> (x Data..?> "RealtimeEndpointInfo")
-            Prelude.<*> (x Data..?> "MLModelId")
+            Prelude.<$> (x Data..?> "MLModelId")
+            Prelude.<*> (x Data..?> "RealtimeEndpointInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,11 +133,11 @@ instance Data.ToQuery DeleteRealtimeEndpoint where
 --
 -- /See:/ 'newDeleteRealtimeEndpointResponse' smart constructor.
 data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
-  { -- | The endpoint information of the @MLModel@
-    realtimeEndpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
-    -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
+  { -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
     -- should be identical to the value of the @MLModelId@ in the request.
     mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint information of the @MLModel@
+    realtimeEndpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,10 +151,10 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'realtimeEndpointInfo', 'deleteRealtimeEndpointResponse_realtimeEndpointInfo' - The endpoint information of the @MLModel@
---
 -- 'mLModelId', 'deleteRealtimeEndpointResponse_mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
+--
+-- 'realtimeEndpointInfo', 'deleteRealtimeEndpointResponse_realtimeEndpointInfo' - The endpoint information of the @MLModel@
 --
 -- 'httpStatus', 'deleteRealtimeEndpointResponse_httpStatus' - The response's http status code.
 newDeleteRealtimeEndpointResponse ::
@@ -163,20 +163,20 @@ newDeleteRealtimeEndpointResponse ::
   DeleteRealtimeEndpointResponse
 newDeleteRealtimeEndpointResponse pHttpStatus_ =
   DeleteRealtimeEndpointResponse'
-    { realtimeEndpointInfo =
+    { mLModelId =
         Prelude.Nothing,
-      mLModelId = Prelude.Nothing,
+      realtimeEndpointInfo = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The endpoint information of the @MLModel@
-deleteRealtimeEndpointResponse_realtimeEndpointInfo :: Lens.Lens' DeleteRealtimeEndpointResponse (Prelude.Maybe RealtimeEndpointInfo)
-deleteRealtimeEndpointResponse_realtimeEndpointInfo = Lens.lens (\DeleteRealtimeEndpointResponse' {realtimeEndpointInfo} -> realtimeEndpointInfo) (\s@DeleteRealtimeEndpointResponse' {} a -> s {realtimeEndpointInfo = a} :: DeleteRealtimeEndpointResponse)
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
 deleteRealtimeEndpointResponse_mLModelId :: Lens.Lens' DeleteRealtimeEndpointResponse (Prelude.Maybe Prelude.Text)
 deleteRealtimeEndpointResponse_mLModelId = Lens.lens (\DeleteRealtimeEndpointResponse' {mLModelId} -> mLModelId) (\s@DeleteRealtimeEndpointResponse' {} a -> s {mLModelId = a} :: DeleteRealtimeEndpointResponse)
+
+-- | The endpoint information of the @MLModel@
+deleteRealtimeEndpointResponse_realtimeEndpointInfo :: Lens.Lens' DeleteRealtimeEndpointResponse (Prelude.Maybe RealtimeEndpointInfo)
+deleteRealtimeEndpointResponse_realtimeEndpointInfo = Lens.lens (\DeleteRealtimeEndpointResponse' {realtimeEndpointInfo} -> realtimeEndpointInfo) (\s@DeleteRealtimeEndpointResponse' {} a -> s {realtimeEndpointInfo = a} :: DeleteRealtimeEndpointResponse)
 
 -- | The response's http status code.
 deleteRealtimeEndpointResponse_httpStatus :: Lens.Lens' DeleteRealtimeEndpointResponse Prelude.Int
@@ -187,6 +187,6 @@ instance
     DeleteRealtimeEndpointResponse
   where
   rnf DeleteRealtimeEndpointResponse' {..} =
-    Prelude.rnf realtimeEndpointInfo
-      `Prelude.seq` Prelude.rnf mLModelId
+    Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf realtimeEndpointInfo
       `Prelude.seq` Prelude.rnf httpStatus

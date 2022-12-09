@@ -30,17 +30,17 @@ module Amazonka.MachineLearning.DescribeBatchPredictions
     newDescribeBatchPredictions,
 
     -- * Request Lenses
-    describeBatchPredictions_sortOrder,
-    describeBatchPredictions_nextToken,
+    describeBatchPredictions_eq,
     describeBatchPredictions_filterVariable,
-    describeBatchPredictions_limit,
+    describeBatchPredictions_ge,
+    describeBatchPredictions_gt,
     describeBatchPredictions_le,
     describeBatchPredictions_lt,
-    describeBatchPredictions_eq,
-    describeBatchPredictions_prefix,
-    describeBatchPredictions_gt,
+    describeBatchPredictions_limit,
     describeBatchPredictions_ne,
-    describeBatchPredictions_ge,
+    describeBatchPredictions_nextToken,
+    describeBatchPredictions_prefix,
+    describeBatchPredictions_sortOrder,
 
     -- * Destructuring the Response
     DescribeBatchPredictionsResponse (..),
@@ -63,17 +63,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @MLModel@s.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    --
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | An ID of the page in the paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The equal to operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values that exactly match the value specified with
+    -- @EQ@.
+    eq :: Prelude.Maybe Prelude.Text,
     -- | Use one of the following variables to filter a list of
     -- @BatchPrediction@:
     --
@@ -98,9 +91,14 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     --     @BatchPrediction@. The URL can identify either a file or an Amazon
     --     Simple Storage Solution (Amazon S3) bucket or directory.
     filterVariable :: Prelude.Maybe BatchPredictionFilterVariable,
-    -- | The number of pages of information to include in the result. The range
-    -- of acceptable values is @1@ through @100@. The default value is @100@.
-    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The greater than or equal to operator. The @BatchPrediction@ results
+    -- will have @FilterVariable@ values that are greater than or equal to the
+    -- value specified with @GE@.
+    ge :: Prelude.Maybe Prelude.Text,
+    -- | The greater than operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values that are greater than the value specified with
+    -- @GT@.
+    gt :: Prelude.Maybe Prelude.Text,
     -- | The less than or equal to operator. The @BatchPrediction@ results will
     -- have @FilterVariable@ values that are less than or equal to the value
     -- specified with @LE@.
@@ -109,10 +107,14 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     -- @FilterVariable@ values that are less than the value specified with
     -- @LT@.
     lt :: Prelude.Maybe Prelude.Text,
-    -- | The equal to operator. The @BatchPrediction@ results will have
-    -- @FilterVariable@ values that exactly match the value specified with
-    -- @EQ@.
-    eq :: Prelude.Maybe Prelude.Text,
+    -- | The number of pages of information to include in the result. The range
+    -- of acceptable values is @1@ through @100@. The default value is @100@.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The not equal to operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values not equal to the value specified with @NE@.
+    ne :: Prelude.Maybe Prelude.Text,
+    -- | An ID of the page in the paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string that is found at the beginning of a variable, such as @Name@ or
     -- @Id@.
     --
@@ -127,17 +129,15 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     --
     -- -   2014-09-09-Holiday
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The greater than operator. The @BatchPrediction@ results will have
-    -- @FilterVariable@ values that are greater than the value specified with
-    -- @GT@.
-    gt :: Prelude.Maybe Prelude.Text,
-    -- | The not equal to operator. The @BatchPrediction@ results will have
-    -- @FilterVariable@ values not equal to the value specified with @NE@.
-    ne :: Prelude.Maybe Prelude.Text,
-    -- | The greater than or equal to operator. The @BatchPrediction@ results
-    -- will have @FilterVariable@ values that are greater than or equal to the
-    -- value specified with @GE@.
-    ge :: Prelude.Maybe Prelude.Text
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @MLModel@s.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -149,16 +149,9 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeBatchPredictions_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@s.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
--- 'nextToken', 'describeBatchPredictions_nextToken' - An ID of the page in the paginated results.
+-- 'eq', 'describeBatchPredictions_eq' - The equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
 --
 -- 'filterVariable', 'describeBatchPredictions_filterVariable' - Use one of the following variables to filter a list of
 -- @BatchPrediction@:
@@ -184,8 +177,13 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Solution (Amazon S3) bucket or directory.
 --
--- 'limit', 'describeBatchPredictions_limit' - The number of pages of information to include in the result. The range
--- of acceptable values is @1@ through @100@. The default value is @100@.
+-- 'ge', 'describeBatchPredictions_ge' - The greater than or equal to operator. The @BatchPrediction@ results
+-- will have @FilterVariable@ values that are greater than or equal to the
+-- value specified with @GE@.
+--
+-- 'gt', 'describeBatchPredictions_gt' - The greater than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
 --
 -- 'le', 'describeBatchPredictions_le' - The less than or equal to operator. The @BatchPrediction@ results will
 -- have @FilterVariable@ values that are less than or equal to the value
@@ -195,9 +193,13 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
 --
--- 'eq', 'describeBatchPredictions_eq' - The equal to operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values that exactly match the value specified with
--- @EQ@.
+-- 'limit', 'describeBatchPredictions_limit' - The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+--
+-- 'ne', 'describeBatchPredictions_ne' - The not equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+--
+-- 'nextToken', 'describeBatchPredictions_nextToken' - An ID of the page in the paginated results.
 --
 -- 'prefix', 'describeBatchPredictions_prefix' - A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -213,35 +215,7 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 --
 -- -   2014-09-09-Holiday
 --
--- 'gt', 'describeBatchPredictions_gt' - The greater than operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
---
--- 'ne', 'describeBatchPredictions_ne' - The not equal to operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
---
--- 'ge', 'describeBatchPredictions_ge' - The greater than or equal to operator. The @BatchPrediction@ results
--- will have @FilterVariable@ values that are greater than or equal to the
--- value specified with @GE@.
-newDescribeBatchPredictions ::
-  DescribeBatchPredictions
-newDescribeBatchPredictions =
-  DescribeBatchPredictions'
-    { sortOrder =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filterVariable = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      le = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      eq = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      ne = Prelude.Nothing,
-      ge = Prelude.Nothing
-    }
-
--- | A two-value parameter that determines the sequence of the resulting list
+-- 'sortOrder', 'describeBatchPredictions_sortOrder' - A two-value parameter that determines the sequence of the resulting list
 -- of @MLModel@s.
 --
 -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
@@ -249,12 +223,28 @@ newDescribeBatchPredictions =
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
-describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
+newDescribeBatchPredictions ::
+  DescribeBatchPredictions
+newDescribeBatchPredictions =
+  DescribeBatchPredictions'
+    { eq = Prelude.Nothing,
+      filterVariable = Prelude.Nothing,
+      ge = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      le = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      ne = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
 
--- | An ID of the page in the paginated results.
-describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
-describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {nextToken} -> nextToken) (\s@DescribeBatchPredictions' {} a -> s {nextToken = a} :: DescribeBatchPredictions)
+-- | The equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+describeBatchPredictions_eq :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) (\s@DescribeBatchPredictions' {} a -> s {eq = a} :: DescribeBatchPredictions)
 
 -- | Use one of the following variables to filter a list of
 -- @BatchPrediction@:
@@ -282,10 +272,17 @@ describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {next
 describeBatchPredictions_filterVariable :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe BatchPredictionFilterVariable)
 describeBatchPredictions_filterVariable = Lens.lens (\DescribeBatchPredictions' {filterVariable} -> filterVariable) (\s@DescribeBatchPredictions' {} a -> s {filterVariable = a} :: DescribeBatchPredictions)
 
--- | The number of pages of information to include in the result. The range
--- of acceptable values is @1@ through @100@. The default value is @100@.
-describeBatchPredictions_limit :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Natural)
-describeBatchPredictions_limit = Lens.lens (\DescribeBatchPredictions' {limit} -> limit) (\s@DescribeBatchPredictions' {} a -> s {limit = a} :: DescribeBatchPredictions)
+-- | The greater than or equal to operator. The @BatchPrediction@ results
+-- will have @FilterVariable@ values that are greater than or equal to the
+-- value specified with @GE@.
+describeBatchPredictions_ge :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ge = Lens.lens (\DescribeBatchPredictions' {ge} -> ge) (\s@DescribeBatchPredictions' {} a -> s {ge = a} :: DescribeBatchPredictions)
+
+-- | The greater than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+describeBatchPredictions_gt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_gt = Lens.lens (\DescribeBatchPredictions' {gt} -> gt) (\s@DescribeBatchPredictions' {} a -> s {gt = a} :: DescribeBatchPredictions)
 
 -- | The less than or equal to operator. The @BatchPrediction@ results will
 -- have @FilterVariable@ values that are less than or equal to the value
@@ -299,11 +296,19 @@ describeBatchPredictions_le = Lens.lens (\DescribeBatchPredictions' {le} -> le) 
 describeBatchPredictions_lt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
 describeBatchPredictions_lt = Lens.lens (\DescribeBatchPredictions' {lt} -> lt) (\s@DescribeBatchPredictions' {} a -> s {lt = a} :: DescribeBatchPredictions)
 
--- | The equal to operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values that exactly match the value specified with
--- @EQ@.
-describeBatchPredictions_eq :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
-describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) (\s@DescribeBatchPredictions' {} a -> s {eq = a} :: DescribeBatchPredictions)
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+describeBatchPredictions_limit :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Natural)
+describeBatchPredictions_limit = Lens.lens (\DescribeBatchPredictions' {limit} -> limit) (\s@DescribeBatchPredictions' {} a -> s {limit = a} :: DescribeBatchPredictions)
+
+-- | The not equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+describeBatchPredictions_ne :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ne = Lens.lens (\DescribeBatchPredictions' {ne} -> ne) (\s@DescribeBatchPredictions' {} a -> s {ne = a} :: DescribeBatchPredictions)
+
+-- | An ID of the page in the paginated results.
+describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {nextToken} -> nextToken) (\s@DescribeBatchPredictions' {} a -> s {nextToken = a} :: DescribeBatchPredictions)
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -321,22 +326,16 @@ describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) 
 describeBatchPredictions_prefix :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
 describeBatchPredictions_prefix = Lens.lens (\DescribeBatchPredictions' {prefix} -> prefix) (\s@DescribeBatchPredictions' {} a -> s {prefix = a} :: DescribeBatchPredictions)
 
--- | The greater than operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
-describeBatchPredictions_gt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
-describeBatchPredictions_gt = Lens.lens (\DescribeBatchPredictions' {gt} -> gt) (\s@DescribeBatchPredictions' {} a -> s {gt = a} :: DescribeBatchPredictions)
-
--- | The not equal to operator. The @BatchPrediction@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
-describeBatchPredictions_ne :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
-describeBatchPredictions_ne = Lens.lens (\DescribeBatchPredictions' {ne} -> ne) (\s@DescribeBatchPredictions' {} a -> s {ne = a} :: DescribeBatchPredictions)
-
--- | The greater than or equal to operator. The @BatchPrediction@ results
--- will have @FilterVariable@ values that are greater than or equal to the
--- value specified with @GE@.
-describeBatchPredictions_ge :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
-describeBatchPredictions_ge = Lens.lens (\DescribeBatchPredictions' {ge} -> ge) (\s@DescribeBatchPredictions' {} a -> s {ge = a} :: DescribeBatchPredictions)
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
+describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
 
 instance Core.AWSPager DescribeBatchPredictions where
   page rq rs
@@ -377,31 +376,31 @@ instance Core.AWSRequest DescribeBatchPredictions where
 
 instance Prelude.Hashable DescribeBatchPredictions where
   hashWithSalt _salt DescribeBatchPredictions' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` filterVariable
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` gt
       `Prelude.hashWithSalt` le
       `Prelude.hashWithSalt` lt
-      `Prelude.hashWithSalt` eq
-      `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` ne
-      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData DescribeBatchPredictions where
   rnf DescribeBatchPredictions' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf eq
       `Prelude.seq` Prelude.rnf filterVariable
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf gt
       `Prelude.seq` Prelude.rnf le
       `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf ne
-      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders DescribeBatchPredictions where
   toHeaders =
@@ -422,18 +421,18 @@ instance Data.ToJSON DescribeBatchPredictions where
   toJSON DescribeBatchPredictions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("EQ" Data..=) Prelude.<$> eq,
             ("FilterVariable" Data..=)
               Prelude.<$> filterVariable,
-            ("Limit" Data..=) Prelude.<$> limit,
+            ("GE" Data..=) Prelude.<$> ge,
+            ("GT" Data..=) Prelude.<$> gt,
             ("LE" Data..=) Prelude.<$> le,
             ("LT" Data..=) Prelude.<$> lt,
-            ("EQ" Data..=) Prelude.<$> eq,
-            ("Prefix" Data..=) Prelude.<$> prefix,
-            ("GT" Data..=) Prelude.<$> gt,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("NE" Data..=) Prelude.<$> ne,
-            ("GE" Data..=) Prelude.<$> ge
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

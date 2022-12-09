@@ -35,25 +35,53 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMLModel' smart constructor.
 data MLModel = MLModel'
-  { -- | A description of the most recent details about accessing the @MLModel@.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @MLModel@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses
-    -- the @TrainingDataSourceId@.
-    trainingDataSourceId :: Prelude.Maybe Prelude.Text,
-    -- | The time of the most recent edit to the @ScoreThreshold@. The time is
-    -- expressed in epoch time.
-    scoreThresholdLastUpdatedAt :: Prelude.Maybe Data.POSIX,
+  { -- | The algorithm used to train the @MLModel@. The following algorithm is
+    -- supported:
+    --
+    -- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
+    --     minimize the gradient of the loss function.
+    algorithm :: Prelude.Maybe Algorithm,
+    computeTime :: Prelude.Maybe Prelude.Integer,
+    -- | The time that the @MLModel@ was created. The time is expressed in epoch
+    -- time.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The AWS user account from which the @MLModel@ was created. The account
+    -- type can be either an AWS root account or an AWS Identity and Access
+    -- Management (IAM) user account.
+    createdByIamUser :: Prelude.Maybe Prelude.Text,
+    -- | The current endpoint of the @MLModel@.
+    endpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
+    finishedAt :: Prelude.Maybe Data.POSIX,
+    -- | The location of the data file or directory in Amazon Simple Storage
+    -- Service (Amazon S3).
+    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
     -- | The time of the most recent edit to the @MLModel@. The time is expressed
     -- in epoch time.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    finishedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID assigned to the @MLModel@ at creation.
     mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the @MLModel@ category. The following are the available
+    -- types:
+    --
+    -- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
+    --     should a house be listed at?\"
+    --
+    -- -   @BINARY@ - Produces one of two possible results. For example, \"Is
+    --     this a child-friendly web site?\".
+    --
+    -- -   @MULTICLASS@ - Produces one of several possible results. For
+    --     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
+    mLModelType :: Prelude.Maybe MLModelType,
+    -- | A description of the most recent details about accessing the @MLModel@.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | A user-supplied name or description of the @MLModel@.
+    name :: Prelude.Maybe Prelude.Text,
     scoreThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The current endpoint of the @MLModel@.
-    endpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
+    -- | The time of the most recent edit to the @ScoreThreshold@. The time is
+    -- expressed in epoch time.
+    scoreThresholdLastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    sizeInBytes :: Prelude.Maybe Prelude.Integer,
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The current status of an @MLModel@. This element can have one of the
     -- following values:
     --
@@ -69,37 +97,9 @@ data MLModel = MLModel'
     --
     -- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.
     status :: Prelude.Maybe EntityStatus,
-    -- | Identifies the @MLModel@ category. The following are the available
-    -- types:
-    --
-    -- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
-    --     should a house be listed at?\"
-    --
-    -- -   @BINARY@ - Produces one of two possible results. For example, \"Is
-    --     this a child-friendly web site?\".
-    --
-    -- -   @MULTICLASS@ - Produces one of several possible results. For
-    --     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
-    mLModelType :: Prelude.Maybe MLModelType,
-    startedAt :: Prelude.Maybe Data.POSIX,
-    computeTime :: Prelude.Maybe Prelude.Integer,
-    sizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The algorithm used to train the @MLModel@. The following algorithm is
-    -- supported:
-    --
-    -- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
-    --     minimize the gradient of the loss function.
-    algorithm :: Prelude.Maybe Algorithm,
-    -- | The time that the @MLModel@ was created. The time is expressed in epoch
-    -- time.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The location of the data file or directory in Amazon Simple Storage
-    -- Service (Amazon S3).
-    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
-    -- | The AWS user account from which the @MLModel@ was created. The account
-    -- type can be either an AWS root account or an AWS Identity and Access
-    -- Management (IAM) user account.
-    createdByIamUser :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses
+    -- the @TrainingDataSourceId@.
+    trainingDataSourceId :: Prelude.Maybe Prelude.Text,
     -- | A list of the training parameters in the @MLModel@. The list is
     -- implemented as a map of key-value pairs.
     --
@@ -152,26 +152,57 @@ data MLModel = MLModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'mLModel_message' - A description of the most recent details about accessing the @MLModel@.
+-- 'algorithm', 'mLModel_algorithm' - The algorithm used to train the @MLModel@. The following algorithm is
+-- supported:
 --
--- 'name', 'mLModel_name' - A user-supplied name or description of the @MLModel@.
+-- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
+--     minimize the gradient of the loss function.
 --
--- 'trainingDataSourceId', 'mLModel_trainingDataSourceId' - The ID of the training @DataSource@. The @CreateMLModel@ operation uses
--- the @TrainingDataSourceId@.
+-- 'computeTime', 'mLModel_computeTime' - Undocumented member.
 --
--- 'scoreThresholdLastUpdatedAt', 'mLModel_scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@. The time is
--- expressed in epoch time.
+-- 'createdAt', 'mLModel_createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch
+-- time.
+--
+-- 'createdByIamUser', 'mLModel_createdByIamUser' - The AWS user account from which the @MLModel@ was created. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
+--
+-- 'endpointInfo', 'mLModel_endpointInfo' - The current endpoint of the @MLModel@.
+--
+-- 'finishedAt', 'mLModel_finishedAt' - Undocumented member.
+--
+-- 'inputDataLocationS3', 'mLModel_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
 --
 -- 'lastUpdatedAt', 'mLModel_lastUpdatedAt' - The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
 --
--- 'finishedAt', 'mLModel_finishedAt' - Undocumented member.
---
 -- 'mLModelId', 'mLModel_mLModelId' - The ID assigned to the @MLModel@ at creation.
+--
+-- 'mLModelType', 'mLModel_mLModelType' - Identifies the @MLModel@ category. The following are the available
+-- types:
+--
+-- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
+--     should a house be listed at?\"
+--
+-- -   @BINARY@ - Produces one of two possible results. For example, \"Is
+--     this a child-friendly web site?\".
+--
+-- -   @MULTICLASS@ - Produces one of several possible results. For
+--     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
+--
+-- 'message', 'mLModel_message' - A description of the most recent details about accessing the @MLModel@.
+--
+-- 'name', 'mLModel_name' - A user-supplied name or description of the @MLModel@.
 --
 -- 'scoreThreshold', 'mLModel_scoreThreshold' - Undocumented member.
 --
--- 'endpointInfo', 'mLModel_endpointInfo' - The current endpoint of the @MLModel@.
+-- 'scoreThresholdLastUpdatedAt', 'mLModel_scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@. The time is
+-- expressed in epoch time.
+--
+-- 'sizeInBytes', 'mLModel_sizeInBytes' - Undocumented member.
+--
+-- 'startedAt', 'mLModel_startedAt' - Undocumented member.
 --
 -- 'status', 'mLModel_status' - The current status of an @MLModel@. This element can have one of the
 -- following values:
@@ -188,39 +219,8 @@ data MLModel = MLModel'
 --
 -- -   @DELETED@ - The @MLModel@ is marked as deleted. It isn\'t usable.
 --
--- 'mLModelType', 'mLModel_mLModelType' - Identifies the @MLModel@ category. The following are the available
--- types:
---
--- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
---     should a house be listed at?\"
---
--- -   @BINARY@ - Produces one of two possible results. For example, \"Is
---     this a child-friendly web site?\".
---
--- -   @MULTICLASS@ - Produces one of several possible results. For
---     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
---
--- 'startedAt', 'mLModel_startedAt' - Undocumented member.
---
--- 'computeTime', 'mLModel_computeTime' - Undocumented member.
---
--- 'sizeInBytes', 'mLModel_sizeInBytes' - Undocumented member.
---
--- 'algorithm', 'mLModel_algorithm' - The algorithm used to train the @MLModel@. The following algorithm is
--- supported:
---
--- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
---     minimize the gradient of the loss function.
---
--- 'createdAt', 'mLModel_createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch
--- time.
---
--- 'inputDataLocationS3', 'mLModel_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
---
--- 'createdByIamUser', 'mLModel_createdByIamUser' - The AWS user account from which the @MLModel@ was created. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
+-- 'trainingDataSourceId', 'mLModel_trainingDataSourceId' - The ID of the training @DataSource@. The @CreateMLModel@ operation uses
+-- the @TrainingDataSourceId@.
 --
 -- 'trainingParameters', 'mLModel_trainingParameters' - A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -266,26 +266,85 @@ newMLModel ::
   MLModel
 newMLModel =
   MLModel'
-    { message = Prelude.Nothing,
-      name = Prelude.Nothing,
-      trainingDataSourceId = Prelude.Nothing,
-      scoreThresholdLastUpdatedAt = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      mLModelId = Prelude.Nothing,
-      scoreThreshold = Prelude.Nothing,
-      endpointInfo = Prelude.Nothing,
-      status = Prelude.Nothing,
-      mLModelType = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
+    { algorithm = Prelude.Nothing,
       computeTime = Prelude.Nothing,
-      sizeInBytes = Prelude.Nothing,
-      algorithm = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      inputDataLocationS3 = Prelude.Nothing,
       createdByIamUser = Prelude.Nothing,
+      endpointInfo = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
+      inputDataLocationS3 = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      mLModelId = Prelude.Nothing,
+      mLModelType = Prelude.Nothing,
+      message = Prelude.Nothing,
+      name = Prelude.Nothing,
+      scoreThreshold = Prelude.Nothing,
+      scoreThresholdLastUpdatedAt = Prelude.Nothing,
+      sizeInBytes = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
+      trainingDataSourceId = Prelude.Nothing,
       trainingParameters = Prelude.Nothing
     }
+
+-- | The algorithm used to train the @MLModel@. The following algorithm is
+-- supported:
+--
+-- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
+--     minimize the gradient of the loss function.
+mLModel_algorithm :: Lens.Lens' MLModel (Prelude.Maybe Algorithm)
+mLModel_algorithm = Lens.lens (\MLModel' {algorithm} -> algorithm) (\s@MLModel' {} a -> s {algorithm = a} :: MLModel)
+
+-- | Undocumented member.
+mLModel_computeTime :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Integer)
+mLModel_computeTime = Lens.lens (\MLModel' {computeTime} -> computeTime) (\s@MLModel' {} a -> s {computeTime = a} :: MLModel)
+
+-- | The time that the @MLModel@ was created. The time is expressed in epoch
+-- time.
+mLModel_createdAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
+mLModel_createdAt = Lens.lens (\MLModel' {createdAt} -> createdAt) (\s@MLModel' {} a -> s {createdAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
+
+-- | The AWS user account from which the @MLModel@ was created. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
+mLModel_createdByIamUser :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
+mLModel_createdByIamUser = Lens.lens (\MLModel' {createdByIamUser} -> createdByIamUser) (\s@MLModel' {} a -> s {createdByIamUser = a} :: MLModel)
+
+-- | The current endpoint of the @MLModel@.
+mLModel_endpointInfo :: Lens.Lens' MLModel (Prelude.Maybe RealtimeEndpointInfo)
+mLModel_endpointInfo = Lens.lens (\MLModel' {endpointInfo} -> endpointInfo) (\s@MLModel' {} a -> s {endpointInfo = a} :: MLModel)
+
+-- | Undocumented member.
+mLModel_finishedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
+mLModel_finishedAt = Lens.lens (\MLModel' {finishedAt} -> finishedAt) (\s@MLModel' {} a -> s {finishedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
+
+-- | The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+mLModel_inputDataLocationS3 :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
+mLModel_inputDataLocationS3 = Lens.lens (\MLModel' {inputDataLocationS3} -> inputDataLocationS3) (\s@MLModel' {} a -> s {inputDataLocationS3 = a} :: MLModel)
+
+-- | The time of the most recent edit to the @MLModel@. The time is expressed
+-- in epoch time.
+mLModel_lastUpdatedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
+mLModel_lastUpdatedAt = Lens.lens (\MLModel' {lastUpdatedAt} -> lastUpdatedAt) (\s@MLModel' {} a -> s {lastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
+
+-- | The ID assigned to the @MLModel@ at creation.
+mLModel_mLModelId :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
+mLModel_mLModelId = Lens.lens (\MLModel' {mLModelId} -> mLModelId) (\s@MLModel' {} a -> s {mLModelId = a} :: MLModel)
+
+-- | Identifies the @MLModel@ category. The following are the available
+-- types:
+--
+-- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
+--     should a house be listed at?\"
+--
+-- -   @BINARY@ - Produces one of two possible results. For example, \"Is
+--     this a child-friendly web site?\".
+--
+-- -   @MULTICLASS@ - Produces one of several possible results. For
+--     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
+mLModel_mLModelType :: Lens.Lens' MLModel (Prelude.Maybe MLModelType)
+mLModel_mLModelType = Lens.lens (\MLModel' {mLModelType} -> mLModelType) (\s@MLModel' {} a -> s {mLModelType = a} :: MLModel)
 
 -- | A description of the most recent details about accessing the @MLModel@.
 mLModel_message :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
@@ -295,36 +354,22 @@ mLModel_message = Lens.lens (\MLModel' {message} -> message) (\s@MLModel' {} a -
 mLModel_name :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
 mLModel_name = Lens.lens (\MLModel' {name} -> name) (\s@MLModel' {} a -> s {name = a} :: MLModel)
 
--- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses
--- the @TrainingDataSourceId@.
-mLModel_trainingDataSourceId :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
-mLModel_trainingDataSourceId = Lens.lens (\MLModel' {trainingDataSourceId} -> trainingDataSourceId) (\s@MLModel' {} a -> s {trainingDataSourceId = a} :: MLModel)
+-- | Undocumented member.
+mLModel_scoreThreshold :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Double)
+mLModel_scoreThreshold = Lens.lens (\MLModel' {scoreThreshold} -> scoreThreshold) (\s@MLModel' {} a -> s {scoreThreshold = a} :: MLModel)
 
 -- | The time of the most recent edit to the @ScoreThreshold@. The time is
 -- expressed in epoch time.
 mLModel_scoreThresholdLastUpdatedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
 mLModel_scoreThresholdLastUpdatedAt = Lens.lens (\MLModel' {scoreThresholdLastUpdatedAt} -> scoreThresholdLastUpdatedAt) (\s@MLModel' {} a -> s {scoreThresholdLastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
--- | The time of the most recent edit to the @MLModel@. The time is expressed
--- in epoch time.
-mLModel_lastUpdatedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_lastUpdatedAt = Lens.lens (\MLModel' {lastUpdatedAt} -> lastUpdatedAt) (\s@MLModel' {} a -> s {lastUpdatedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
+-- | Undocumented member.
+mLModel_sizeInBytes :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Integer)
+mLModel_sizeInBytes = Lens.lens (\MLModel' {sizeInBytes} -> sizeInBytes) (\s@MLModel' {} a -> s {sizeInBytes = a} :: MLModel)
 
 -- | Undocumented member.
-mLModel_finishedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_finishedAt = Lens.lens (\MLModel' {finishedAt} -> finishedAt) (\s@MLModel' {} a -> s {finishedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
-
--- | The ID assigned to the @MLModel@ at creation.
-mLModel_mLModelId :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
-mLModel_mLModelId = Lens.lens (\MLModel' {mLModelId} -> mLModelId) (\s@MLModel' {} a -> s {mLModelId = a} :: MLModel)
-
--- | Undocumented member.
-mLModel_scoreThreshold :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Double)
-mLModel_scoreThreshold = Lens.lens (\MLModel' {scoreThreshold} -> scoreThreshold) (\s@MLModel' {} a -> s {scoreThreshold = a} :: MLModel)
-
--- | The current endpoint of the @MLModel@.
-mLModel_endpointInfo :: Lens.Lens' MLModel (Prelude.Maybe RealtimeEndpointInfo)
-mLModel_endpointInfo = Lens.lens (\MLModel' {endpointInfo} -> endpointInfo) (\s@MLModel' {} a -> s {endpointInfo = a} :: MLModel)
+mLModel_startedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
+mLModel_startedAt = Lens.lens (\MLModel' {startedAt} -> startedAt) (\s@MLModel' {} a -> s {startedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of an @MLModel@. This element can have one of the
 -- following values:
@@ -343,55 +388,10 @@ mLModel_endpointInfo = Lens.lens (\MLModel' {endpointInfo} -> endpointInfo) (\s@
 mLModel_status :: Lens.Lens' MLModel (Prelude.Maybe EntityStatus)
 mLModel_status = Lens.lens (\MLModel' {status} -> status) (\s@MLModel' {} a -> s {status = a} :: MLModel)
 
--- | Identifies the @MLModel@ category. The following are the available
--- types:
---
--- -   @REGRESSION@ - Produces a numeric result. For example, \"What price
---     should a house be listed at?\"
---
--- -   @BINARY@ - Produces one of two possible results. For example, \"Is
---     this a child-friendly web site?\".
---
--- -   @MULTICLASS@ - Produces one of several possible results. For
---     example, \"Is this a HIGH-, LOW-, or MEDIUM-risk trade?\".
-mLModel_mLModelType :: Lens.Lens' MLModel (Prelude.Maybe MLModelType)
-mLModel_mLModelType = Lens.lens (\MLModel' {mLModelType} -> mLModelType) (\s@MLModel' {} a -> s {mLModelType = a} :: MLModel)
-
--- | Undocumented member.
-mLModel_startedAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_startedAt = Lens.lens (\MLModel' {startedAt} -> startedAt) (\s@MLModel' {} a -> s {startedAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-mLModel_computeTime :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Integer)
-mLModel_computeTime = Lens.lens (\MLModel' {computeTime} -> computeTime) (\s@MLModel' {} a -> s {computeTime = a} :: MLModel)
-
--- | Undocumented member.
-mLModel_sizeInBytes :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Integer)
-mLModel_sizeInBytes = Lens.lens (\MLModel' {sizeInBytes} -> sizeInBytes) (\s@MLModel' {} a -> s {sizeInBytes = a} :: MLModel)
-
--- | The algorithm used to train the @MLModel@. The following algorithm is
--- supported:
---
--- -   @SGD@ -- Stochastic gradient descent. The goal of @SGD@ is to
---     minimize the gradient of the loss function.
-mLModel_algorithm :: Lens.Lens' MLModel (Prelude.Maybe Algorithm)
-mLModel_algorithm = Lens.lens (\MLModel' {algorithm} -> algorithm) (\s@MLModel' {} a -> s {algorithm = a} :: MLModel)
-
--- | The time that the @MLModel@ was created. The time is expressed in epoch
--- time.
-mLModel_createdAt :: Lens.Lens' MLModel (Prelude.Maybe Prelude.UTCTime)
-mLModel_createdAt = Lens.lens (\MLModel' {createdAt} -> createdAt) (\s@MLModel' {} a -> s {createdAt = a} :: MLModel) Prelude.. Lens.mapping Data._Time
-
--- | The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
-mLModel_inputDataLocationS3 :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
-mLModel_inputDataLocationS3 = Lens.lens (\MLModel' {inputDataLocationS3} -> inputDataLocationS3) (\s@MLModel' {} a -> s {inputDataLocationS3 = a} :: MLModel)
-
--- | The AWS user account from which the @MLModel@ was created. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
-mLModel_createdByIamUser :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
-mLModel_createdByIamUser = Lens.lens (\MLModel' {createdByIamUser} -> createdByIamUser) (\s@MLModel' {} a -> s {createdByIamUser = a} :: MLModel)
+-- | The ID of the training @DataSource@. The @CreateMLModel@ operation uses
+-- the @TrainingDataSourceId@.
+mLModel_trainingDataSourceId :: Lens.Lens' MLModel (Prelude.Maybe Prelude.Text)
+mLModel_trainingDataSourceId = Lens.lens (\MLModel' {trainingDataSourceId} -> trainingDataSourceId) (\s@MLModel' {} a -> s {trainingDataSourceId = a} :: MLModel)
 
 -- | A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key-value pairs.
@@ -442,24 +442,24 @@ instance Data.FromJSON MLModel where
       "MLModel"
       ( \x ->
           MLModel'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "TrainingDataSourceId")
-            Prelude.<*> (x Data..:? "ScoreThresholdLastUpdatedAt")
-            Prelude.<*> (x Data..:? "LastUpdatedAt")
-            Prelude.<*> (x Data..:? "FinishedAt")
-            Prelude.<*> (x Data..:? "MLModelId")
-            Prelude.<*> (x Data..:? "ScoreThreshold")
-            Prelude.<*> (x Data..:? "EndpointInfo")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "MLModelType")
-            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<$> (x Data..:? "Algorithm")
             Prelude.<*> (x Data..:? "ComputeTime")
-            Prelude.<*> (x Data..:? "SizeInBytes")
-            Prelude.<*> (x Data..:? "Algorithm")
             Prelude.<*> (x Data..:? "CreatedAt")
-            Prelude.<*> (x Data..:? "InputDataLocationS3")
             Prelude.<*> (x Data..:? "CreatedByIamUser")
+            Prelude.<*> (x Data..:? "EndpointInfo")
+            Prelude.<*> (x Data..:? "FinishedAt")
+            Prelude.<*> (x Data..:? "InputDataLocationS3")
+            Prelude.<*> (x Data..:? "LastUpdatedAt")
+            Prelude.<*> (x Data..:? "MLModelId")
+            Prelude.<*> (x Data..:? "MLModelType")
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ScoreThreshold")
+            Prelude.<*> (x Data..:? "ScoreThresholdLastUpdatedAt")
+            Prelude.<*> (x Data..:? "SizeInBytes")
+            Prelude.<*> (x Data..:? "StartedAt")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TrainingDataSourceId")
             Prelude.<*> ( x Data..:? "TrainingParameters"
                             Data..!= Prelude.mempty
                         )
@@ -467,44 +467,44 @@ instance Data.FromJSON MLModel where
 
 instance Prelude.Hashable MLModel where
   hashWithSalt _salt MLModel' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` trainingDataSourceId
-      `Prelude.hashWithSalt` scoreThresholdLastUpdatedAt
-      `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` finishedAt
-      `Prelude.hashWithSalt` mLModelId
-      `Prelude.hashWithSalt` scoreThreshold
-      `Prelude.hashWithSalt` endpointInfo
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` mLModelType
-      `Prelude.hashWithSalt` startedAt
+    _salt `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` computeTime
-      `Prelude.hashWithSalt` sizeInBytes
-      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` inputDataLocationS3
       `Prelude.hashWithSalt` createdByIamUser
+      `Prelude.hashWithSalt` endpointInfo
+      `Prelude.hashWithSalt` finishedAt
+      `Prelude.hashWithSalt` inputDataLocationS3
+      `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` mLModelId
+      `Prelude.hashWithSalt` mLModelType
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` scoreThreshold
+      `Prelude.hashWithSalt` scoreThresholdLastUpdatedAt
+      `Prelude.hashWithSalt` sizeInBytes
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` trainingDataSourceId
       `Prelude.hashWithSalt` trainingParameters
 
 instance Prelude.NFData MLModel where
   rnf MLModel' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf trainingDataSourceId
-      `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf finishedAt
-      `Prelude.seq` Prelude.rnf mLModelId
-      `Prelude.seq` Prelude.rnf scoreThreshold
-      `Prelude.seq` Prelude.rnf endpointInfo
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf mLModelType
-      `Prelude.seq` Prelude.rnf startedAt
+    Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf computeTime
-      `Prelude.seq` Prelude.rnf sizeInBytes
-      `Prelude.seq` Prelude.rnf algorithm
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf inputDataLocationS3
       `Prelude.seq` Prelude.rnf createdByIamUser
+      `Prelude.seq` Prelude.rnf endpointInfo
+      `Prelude.seq` Prelude.rnf finishedAt
+      `Prelude.seq` Prelude.rnf inputDataLocationS3
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf mLModelId
+      `Prelude.seq` Prelude.rnf mLModelType
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf scoreThreshold
+      `Prelude.seq` Prelude.rnf scoreThresholdLastUpdatedAt
+      `Prelude.seq` Prelude.rnf sizeInBytes
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trainingDataSourceId
       `Prelude.seq` Prelude.rnf trainingParameters

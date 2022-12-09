@@ -30,9 +30,9 @@ module Amazonka.CloudHSMV2.DeleteHsm
     newDeleteHsm,
 
     -- * Request Lenses
-    deleteHsm_hsmId,
-    deleteHsm_eniIp,
     deleteHsm_eniId,
+    deleteHsm_eniIp,
+    deleteHsm_hsmId,
     deleteHsm_clusterId,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteHsm' smart constructor.
 data DeleteHsm = DeleteHsm'
-  { -- | The identifier (ID) of the HSM that you are deleting.
-    hsmId :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
+    -- that you are deleting.
+    eniId :: Prelude.Maybe Prelude.Text,
     -- | The IP address of the elastic network interface (ENI) of the HSM that
     -- you are deleting.
     eniIp :: Prelude.Maybe Prelude.Text,
-    -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
-    -- that you are deleting.
-    eniId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier (ID) of the HSM that you are deleting.
+    hsmId :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the cluster that contains the HSM that you are
     -- deleting.
     clusterId :: Prelude.Text
@@ -77,13 +77,13 @@ data DeleteHsm = DeleteHsm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hsmId', 'deleteHsm_hsmId' - The identifier (ID) of the HSM that you are deleting.
+-- 'eniId', 'deleteHsm_eniId' - The identifier (ID) of the elastic network interface (ENI) of the HSM
+-- that you are deleting.
 --
 -- 'eniIp', 'deleteHsm_eniIp' - The IP address of the elastic network interface (ENI) of the HSM that
 -- you are deleting.
 --
--- 'eniId', 'deleteHsm_eniId' - The identifier (ID) of the elastic network interface (ENI) of the HSM
--- that you are deleting.
+-- 'hsmId', 'deleteHsm_hsmId' - The identifier (ID) of the HSM that you are deleting.
 --
 -- 'clusterId', 'deleteHsm_clusterId' - The identifier (ID) of the cluster that contains the HSM that you are
 -- deleting.
@@ -93,25 +93,25 @@ newDeleteHsm ::
   DeleteHsm
 newDeleteHsm pClusterId_ =
   DeleteHsm'
-    { hsmId = Prelude.Nothing,
+    { eniId = Prelude.Nothing,
       eniIp = Prelude.Nothing,
-      eniId = Prelude.Nothing,
+      hsmId = Prelude.Nothing,
       clusterId = pClusterId_
     }
 
--- | The identifier (ID) of the HSM that you are deleting.
-deleteHsm_hsmId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
-deleteHsm_hsmId = Lens.lens (\DeleteHsm' {hsmId} -> hsmId) (\s@DeleteHsm' {} a -> s {hsmId = a} :: DeleteHsm)
+-- | The identifier (ID) of the elastic network interface (ENI) of the HSM
+-- that you are deleting.
+deleteHsm_eniId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_eniId = Lens.lens (\DeleteHsm' {eniId} -> eniId) (\s@DeleteHsm' {} a -> s {eniId = a} :: DeleteHsm)
 
 -- | The IP address of the elastic network interface (ENI) of the HSM that
 -- you are deleting.
 deleteHsm_eniIp :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
 deleteHsm_eniIp = Lens.lens (\DeleteHsm' {eniIp} -> eniIp) (\s@DeleteHsm' {} a -> s {eniIp = a} :: DeleteHsm)
 
--- | The identifier (ID) of the elastic network interface (ENI) of the HSM
--- that you are deleting.
-deleteHsm_eniId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
-deleteHsm_eniId = Lens.lens (\DeleteHsm' {eniId} -> eniId) (\s@DeleteHsm' {} a -> s {eniId = a} :: DeleteHsm)
+-- | The identifier (ID) of the HSM that you are deleting.
+deleteHsm_hsmId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_hsmId = Lens.lens (\DeleteHsm' {hsmId} -> hsmId) (\s@DeleteHsm' {} a -> s {hsmId = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are
 -- deleting.
@@ -132,16 +132,16 @@ instance Core.AWSRequest DeleteHsm where
 
 instance Prelude.Hashable DeleteHsm where
   hashWithSalt _salt DeleteHsm' {..} =
-    _salt `Prelude.hashWithSalt` hsmId
+    _salt `Prelude.hashWithSalt` eniId
       `Prelude.hashWithSalt` eniIp
-      `Prelude.hashWithSalt` eniId
+      `Prelude.hashWithSalt` hsmId
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData DeleteHsm where
   rnf DeleteHsm' {..} =
-    Prelude.rnf hsmId
+    Prelude.rnf eniId
       `Prelude.seq` Prelude.rnf eniIp
-      `Prelude.seq` Prelude.rnf eniId
+      `Prelude.seq` Prelude.rnf hsmId
       `Prelude.seq` Prelude.rnf clusterId
 
 instance Data.ToHeaders DeleteHsm where
@@ -161,9 +161,9 @@ instance Data.ToJSON DeleteHsm where
   toJSON DeleteHsm' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HsmId" Data..=) Prelude.<$> hsmId,
+          [ ("EniId" Data..=) Prelude.<$> eniId,
             ("EniIp" Data..=) Prelude.<$> eniIp,
-            ("EniId" Data..=) Prelude.<$> eniId,
+            ("HsmId" Data..=) Prelude.<$> hsmId,
             Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )

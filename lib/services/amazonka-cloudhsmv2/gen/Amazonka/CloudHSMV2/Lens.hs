@@ -22,9 +22,9 @@ module Amazonka.CloudHSMV2.Lens
     copyBackupToRegionResponse_httpStatus,
 
     -- ** CreateCluster
-    createCluster_tagList,
     createCluster_backupRetentionPolicy,
     createCluster_sourceBackupId,
+    createCluster_tagList,
     createCluster_hsmType,
     createCluster_subnetIds,
     createClusterResponse_cluster,
@@ -48,28 +48,28 @@ module Amazonka.CloudHSMV2.Lens
     deleteClusterResponse_httpStatus,
 
     -- ** DeleteHsm
-    deleteHsm_hsmId,
-    deleteHsm_eniIp,
     deleteHsm_eniId,
+    deleteHsm_eniIp,
+    deleteHsm_hsmId,
     deleteHsm_clusterId,
     deleteHsmResponse_hsmId,
     deleteHsmResponse_httpStatus,
 
     -- ** DescribeBackups
-    describeBackups_nextToken,
     describeBackups_filters,
-    describeBackups_sortAscending,
     describeBackups_maxResults,
-    describeBackupsResponse_nextToken,
+    describeBackups_nextToken,
+    describeBackups_sortAscending,
     describeBackupsResponse_backups,
+    describeBackupsResponse_nextToken,
     describeBackupsResponse_httpStatus,
 
     -- ** DescribeClusters
-    describeClusters_nextToken,
     describeClusters_filters,
     describeClusters_maxResults,
-    describeClustersResponse_nextToken,
+    describeClusters_nextToken,
     describeClustersResponse_clusters,
+    describeClustersResponse_nextToken,
     describeClustersResponse_httpStatus,
 
     -- ** InitializeCluster
@@ -81,8 +81,8 @@ module Amazonka.CloudHSMV2.Lens
     initializeClusterResponse_httpStatus,
 
     -- ** ListTags
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_resourceId,
     listTagsResponse_nextToken,
     listTagsResponse_httpStatus,
@@ -118,16 +118,16 @@ module Amazonka.CloudHSMV2.Lens
     -- * Types
 
     -- ** Backup
+    backup_backupState,
+    backup_clusterId,
+    backup_copyTimestamp,
+    backup_createTimestamp,
+    backup_deleteTimestamp,
     backup_neverExpires,
+    backup_sourceBackup,
     backup_sourceCluster,
     backup_sourceRegion,
-    backup_deleteTimestamp,
-    backup_createTimestamp,
     backup_tagList,
-    backup_clusterId,
-    backup_sourceBackup,
-    backup_backupState,
-    backup_copyTimestamp,
     backup_backupId,
 
     -- ** BackupRetentionPolicy
@@ -135,43 +135,43 @@ module Amazonka.CloudHSMV2.Lens
     backupRetentionPolicy_value,
 
     -- ** Certificates
-    certificates_hsmCertificate,
+    certificates_awsHardwareCertificate,
     certificates_clusterCertificate,
     certificates_clusterCsr,
+    certificates_hsmCertificate,
     certificates_manufacturerHardwareCertificate,
-    certificates_awsHardwareCertificate,
 
     -- ** Cluster
-    cluster_subnetMapping,
-    cluster_securityGroup,
-    cluster_createTimestamp,
-    cluster_tagList,
-    cluster_hsmType,
-    cluster_state,
-    cluster_backupRetentionPolicy,
-    cluster_hsms,
-    cluster_certificates,
-    cluster_preCoPassword,
     cluster_backupPolicy,
+    cluster_backupRetentionPolicy,
+    cluster_certificates,
     cluster_clusterId,
-    cluster_stateMessage,
-    cluster_vpcId,
+    cluster_createTimestamp,
+    cluster_hsmType,
+    cluster_hsms,
+    cluster_preCoPassword,
+    cluster_securityGroup,
     cluster_sourceBackupId,
+    cluster_state,
+    cluster_stateMessage,
+    cluster_subnetMapping,
+    cluster_tagList,
+    cluster_vpcId,
 
     -- ** DestinationBackup
-    destinationBackup_sourceCluster,
-    destinationBackup_sourceRegion,
     destinationBackup_createTimestamp,
     destinationBackup_sourceBackup,
+    destinationBackup_sourceCluster,
+    destinationBackup_sourceRegion,
 
     -- ** Hsm
-    hsm_subnetId,
-    hsm_state,
     hsm_availabilityZone,
     hsm_clusterId,
-    hsm_stateMessage,
-    hsm_eniIp,
     hsm_eniId,
+    hsm_eniIp,
+    hsm_state,
+    hsm_stateMessage,
+    hsm_subnetId,
     hsm_hsmId,
 
     -- ** Tag

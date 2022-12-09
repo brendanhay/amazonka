@@ -27,9 +27,9 @@ module Amazonka.CloudHSMV2.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_tagList,
     createCluster_backupRetentionPolicy,
     createCluster_sourceBackupId,
+    createCluster_tagList,
     createCluster_hsmType,
     createCluster_subnetIds,
 
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | Tags to apply to the CloudHSM cluster during creation.
-    tagList :: Prelude.Maybe [Tag],
-    -- | A policy that defines how the service retains backups.
+  { -- | A policy that defines how the service retains backups.
     backupRetentionPolicy :: Prelude.Maybe BackupRetentionPolicy,
     -- | The identifier (ID) of the cluster backup to restore. Use this value to
     -- restore the cluster from a backup instead of creating a new cluster. To
     -- find the backup ID, use DescribeBackups.
     sourceBackupId :: Prelude.Maybe Prelude.Text,
+    -- | Tags to apply to the CloudHSM cluster during creation.
+    tagList :: Prelude.Maybe [Tag],
     -- | The type of HSM to use in the cluster. Currently the only allowed value
     -- is @hsm1.medium@.
     hsmType :: Prelude.Text,
@@ -83,13 +83,13 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagList', 'createCluster_tagList' - Tags to apply to the CloudHSM cluster during creation.
---
 -- 'backupRetentionPolicy', 'createCluster_backupRetentionPolicy' - A policy that defines how the service retains backups.
 --
 -- 'sourceBackupId', 'createCluster_sourceBackupId' - The identifier (ID) of the cluster backup to restore. Use this value to
 -- restore the cluster from a backup instead of creating a new cluster. To
 -- find the backup ID, use DescribeBackups.
+--
+-- 'tagList', 'createCluster_tagList' - Tags to apply to the CloudHSM cluster during creation.
 --
 -- 'hsmType', 'createCluster_hsmType' - The type of HSM to use in the cluster. Currently the only allowed value
 -- is @hsm1.medium@.
@@ -109,16 +109,13 @@ newCreateCluster ::
   CreateCluster
 newCreateCluster pHsmType_ pSubnetIds_ =
   CreateCluster'
-    { tagList = Prelude.Nothing,
-      backupRetentionPolicy = Prelude.Nothing,
+    { backupRetentionPolicy =
+        Prelude.Nothing,
       sourceBackupId = Prelude.Nothing,
+      tagList = Prelude.Nothing,
       hsmType = pHsmType_,
       subnetIds = Lens.coerced Lens.# pSubnetIds_
     }
-
--- | Tags to apply to the CloudHSM cluster during creation.
-createCluster_tagList :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
-createCluster_tagList = Lens.lens (\CreateCluster' {tagList} -> tagList) (\s@CreateCluster' {} a -> s {tagList = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | A policy that defines how the service retains backups.
 createCluster_backupRetentionPolicy :: Lens.Lens' CreateCluster (Prelude.Maybe BackupRetentionPolicy)
@@ -129,6 +126,10 @@ createCluster_backupRetentionPolicy = Lens.lens (\CreateCluster' {backupRetentio
 -- find the backup ID, use DescribeBackups.
 createCluster_sourceBackupId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_sourceBackupId = Lens.lens (\CreateCluster' {sourceBackupId} -> sourceBackupId) (\s@CreateCluster' {} a -> s {sourceBackupId = a} :: CreateCluster)
+
+-- | Tags to apply to the CloudHSM cluster during creation.
+createCluster_tagList :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
+createCluster_tagList = Lens.lens (\CreateCluster' {tagList} -> tagList) (\s@CreateCluster' {} a -> s {tagList = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of HSM to use in the cluster. Currently the only allowed value
 -- is @hsm1.medium@.
@@ -161,17 +162,17 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` tagList
-      `Prelude.hashWithSalt` backupRetentionPolicy
+    _salt `Prelude.hashWithSalt` backupRetentionPolicy
       `Prelude.hashWithSalt` sourceBackupId
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` hsmType
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf tagList
-      `Prelude.seq` Prelude.rnf backupRetentionPolicy
+    Prelude.rnf backupRetentionPolicy
       `Prelude.seq` Prelude.rnf sourceBackupId
+      `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf hsmType
       `Prelude.seq` Prelude.rnf subnetIds
 
@@ -194,11 +195,11 @@ instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TagList" Data..=) Prelude.<$> tagList,
-            ("BackupRetentionPolicy" Data..=)
+          [ ("BackupRetentionPolicy" Data..=)
               Prelude.<$> backupRetentionPolicy,
             ("SourceBackupId" Data..=)
               Prelude.<$> sourceBackupId,
+            ("TagList" Data..=) Prelude.<$> tagList,
             Prelude.Just ("HsmType" Data..= hsmType),
             Prelude.Just ("SubnetIds" Data..= subnetIds)
           ]

@@ -21,23 +21,23 @@ module Amazonka.CloudHSMV2
     -- * Errors
     -- $errors
 
-    -- ** CloudHsmResourceNotFoundException
-    _CloudHsmResourceNotFoundException,
-
     -- ** CloudHsmAccessDeniedException
     _CloudHsmAccessDeniedException,
 
+    -- ** CloudHsmInternalFailureException
+    _CloudHsmInternalFailureException,
+
     -- ** CloudHsmInvalidRequestException
     _CloudHsmInvalidRequestException,
+
+    -- ** CloudHsmResourceNotFoundException
+    _CloudHsmResourceNotFoundException,
 
     -- ** CloudHsmServiceException
     _CloudHsmServiceException,
 
     -- ** CloudHsmTagException
     _CloudHsmTagException,
-
-    -- ** CloudHsmInternalFailureException
-    _CloudHsmInternalFailureException,
 
     -- * Waiters
     -- $waiters

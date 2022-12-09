@@ -28,8 +28,8 @@ module Amazonka.IVSChat.ListLoggingConfigurations
     newListLoggingConfigurations,
 
     -- * Request Lenses
-    listLoggingConfigurations_nextToken,
     listLoggingConfigurations_maxResults,
+    listLoggingConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListLoggingConfigurationsResponse (..),
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLoggingConfigurations' smart constructor.
 data ListLoggingConfigurations = ListLoggingConfigurations'
-  { -- | The first logging configurations to retrieve. This is used for
+  { -- | Maximum number of logging configurations to return. Default: 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first logging configurations to retrieve. This is used for
     -- pagination; see the @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of logging configurations to return. Default: 50.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,27 +68,27 @@ data ListLoggingConfigurations = ListLoggingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLoggingConfigurations_maxResults' - Maximum number of logging configurations to return. Default: 50.
+--
 -- 'nextToken', 'listLoggingConfigurations_nextToken' - The first logging configurations to retrieve. This is used for
 -- pagination; see the @nextToken@ response field.
---
--- 'maxResults', 'listLoggingConfigurations_maxResults' - Maximum number of logging configurations to return. Default: 50.
 newListLoggingConfigurations ::
   ListLoggingConfigurations
 newListLoggingConfigurations =
   ListLoggingConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of logging configurations to return. Default: 50.
+listLoggingConfigurations_maxResults :: Lens.Lens' ListLoggingConfigurations (Prelude.Maybe Prelude.Natural)
+listLoggingConfigurations_maxResults = Lens.lens (\ListLoggingConfigurations' {maxResults} -> maxResults) (\s@ListLoggingConfigurations' {} a -> s {maxResults = a} :: ListLoggingConfigurations)
 
 -- | The first logging configurations to retrieve. This is used for
 -- pagination; see the @nextToken@ response field.
 listLoggingConfigurations_nextToken :: Lens.Lens' ListLoggingConfigurations (Prelude.Maybe Prelude.Text)
 listLoggingConfigurations_nextToken = Lens.lens (\ListLoggingConfigurations' {nextToken} -> nextToken) (\s@ListLoggingConfigurations' {} a -> s {nextToken = a} :: ListLoggingConfigurations)
-
--- | Maximum number of logging configurations to return. Default: 50.
-listLoggingConfigurations_maxResults :: Lens.Lens' ListLoggingConfigurations (Prelude.Maybe Prelude.Natural)
-listLoggingConfigurations_maxResults = Lens.lens (\ListLoggingConfigurations' {maxResults} -> maxResults) (\s@ListLoggingConfigurations' {} a -> s {maxResults = a} :: ListLoggingConfigurations)
 
 instance Core.AWSRequest ListLoggingConfigurations where
   type
@@ -109,13 +109,13 @@ instance Core.AWSRequest ListLoggingConfigurations where
 
 instance Prelude.Hashable ListLoggingConfigurations where
   hashWithSalt _salt ListLoggingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLoggingConfigurations where
   rnf ListLoggingConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLoggingConfigurations where
   toHeaders =
@@ -132,8 +132,8 @@ instance Data.ToJSON ListLoggingConfigurations where
   toJSON ListLoggingConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,13 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinationConfiguration' smart constructor.
 data DestinationConfiguration = DestinationConfiguration'
-  { -- | Name of the Amazon CloudWatch Logs destination where chat activity will
-    -- be logged.
+  { -- | An Amazon CloudWatch Logs destination configuration where chat activity
+    -- will be logged.
     cloudWatchLogs :: Prelude.Maybe CloudWatchLogsDestinationConfiguration,
-    -- | Name of the Amazon Kinesis Data Firehose destination where chat activity
-    -- will be logged
+    -- | An Amazon Kinesis Data Firehose destination configuration where chat
+    -- activity will be logged.
     firehose :: Prelude.Maybe FirehoseDestinationConfiguration,
-    -- | Name of the Amazon S3 bucket where chat activity will be logged.
+    -- | An Amazon S3 destination configuration where chat activity will be
+    -- logged.
     s3 :: Prelude.Maybe S3DestinationConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,13 +54,14 @@ data DestinationConfiguration = DestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudWatchLogs', 'destinationConfiguration_cloudWatchLogs' - Name of the Amazon CloudWatch Logs destination where chat activity will
--- be logged.
+-- 'cloudWatchLogs', 'destinationConfiguration_cloudWatchLogs' - An Amazon CloudWatch Logs destination configuration where chat activity
+-- will be logged.
 --
--- 'firehose', 'destinationConfiguration_firehose' - Name of the Amazon Kinesis Data Firehose destination where chat activity
--- will be logged
+-- 'firehose', 'destinationConfiguration_firehose' - An Amazon Kinesis Data Firehose destination configuration where chat
+-- activity will be logged.
 --
--- 's3', 'destinationConfiguration_s3' - Name of the Amazon S3 bucket where chat activity will be logged.
+-- 's3', 'destinationConfiguration_s3' - An Amazon S3 destination configuration where chat activity will be
+-- logged.
 newDestinationConfiguration ::
   DestinationConfiguration
 newDestinationConfiguration =
@@ -70,17 +72,18 @@ newDestinationConfiguration =
       s3 = Prelude.Nothing
     }
 
--- | Name of the Amazon CloudWatch Logs destination where chat activity will
--- be logged.
+-- | An Amazon CloudWatch Logs destination configuration where chat activity
+-- will be logged.
 destinationConfiguration_cloudWatchLogs :: Lens.Lens' DestinationConfiguration (Prelude.Maybe CloudWatchLogsDestinationConfiguration)
 destinationConfiguration_cloudWatchLogs = Lens.lens (\DestinationConfiguration' {cloudWatchLogs} -> cloudWatchLogs) (\s@DestinationConfiguration' {} a -> s {cloudWatchLogs = a} :: DestinationConfiguration)
 
--- | Name of the Amazon Kinesis Data Firehose destination where chat activity
--- will be logged
+-- | An Amazon Kinesis Data Firehose destination configuration where chat
+-- activity will be logged.
 destinationConfiguration_firehose :: Lens.Lens' DestinationConfiguration (Prelude.Maybe FirehoseDestinationConfiguration)
 destinationConfiguration_firehose = Lens.lens (\DestinationConfiguration' {firehose} -> firehose) (\s@DestinationConfiguration' {} a -> s {firehose = a} :: DestinationConfiguration)
 
--- | Name of the Amazon S3 bucket where chat activity will be logged.
+-- | An Amazon S3 destination configuration where chat activity will be
+-- logged.
 destinationConfiguration_s3 :: Lens.Lens' DestinationConfiguration (Prelude.Maybe S3DestinationConfiguration)
 destinationConfiguration_s3 = Lens.lens (\DestinationConfiguration' {s3} -> s3) (\s@DestinationConfiguration' {} a -> s {s3 = a} :: DestinationConfiguration)
 

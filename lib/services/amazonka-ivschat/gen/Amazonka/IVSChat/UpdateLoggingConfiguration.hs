@@ -27,8 +27,8 @@ module Amazonka.IVSChat.UpdateLoggingConfiguration
     newUpdateLoggingConfiguration,
 
     -- * Request Lenses
-    updateLoggingConfiguration_name,
     updateLoggingConfiguration_destinationConfiguration,
+    updateLoggingConfiguration_name,
     updateLoggingConfiguration_identifier,
 
     -- * Destructuring the Response
@@ -36,14 +36,14 @@ module Amazonka.IVSChat.UpdateLoggingConfiguration
     newUpdateLoggingConfigurationResponse,
 
     -- * Response Lenses
-    updateLoggingConfigurationResponse_tags,
-    updateLoggingConfigurationResponse_name,
     updateLoggingConfigurationResponse_arn,
-    updateLoggingConfigurationResponse_state,
-    updateLoggingConfigurationResponse_id,
-    updateLoggingConfigurationResponse_updateTime,
     updateLoggingConfigurationResponse_createTime,
     updateLoggingConfigurationResponse_destinationConfiguration,
+    updateLoggingConfigurationResponse_id,
+    updateLoggingConfigurationResponse_name,
+    updateLoggingConfigurationResponse_state,
+    updateLoggingConfigurationResponse_tags,
+    updateLoggingConfigurationResponse_updateTime,
     updateLoggingConfigurationResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLoggingConfiguration' smart constructor.
 data UpdateLoggingConfiguration = UpdateLoggingConfiguration'
-  { -- | Logging-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains a destination configuration for where chat
+  { -- | A complex type that contains a destination configuration for where chat
     -- content will be logged. There can be only one type of destination
     -- (@cloudWatchLogs@, @firehose@, or @s3@) in a @destinationConfiguration@.
     destinationConfiguration :: Prelude.Maybe DestinationConfiguration,
+    -- | Logging-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Identifier of the logging configuration to be updated.
     identifier :: Prelude.Text
   }
@@ -77,11 +77,11 @@ data UpdateLoggingConfiguration = UpdateLoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateLoggingConfiguration_name' - Logging-configuration name. The value does not need to be unique.
---
 -- 'destinationConfiguration', 'updateLoggingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where chat
 -- content will be logged. There can be only one type of destination
 -- (@cloudWatchLogs@, @firehose@, or @s3@) in a @destinationConfiguration@.
+--
+-- 'name', 'updateLoggingConfiguration_name' - Logging-configuration name. The value does not need to be unique.
 --
 -- 'identifier', 'updateLoggingConfiguration_identifier' - Identifier of the logging configuration to be updated.
 newUpdateLoggingConfiguration ::
@@ -90,20 +90,21 @@ newUpdateLoggingConfiguration ::
   UpdateLoggingConfiguration
 newUpdateLoggingConfiguration pIdentifier_ =
   UpdateLoggingConfiguration'
-    { name = Prelude.Nothing,
-      destinationConfiguration = Prelude.Nothing,
+    { destinationConfiguration =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       identifier = pIdentifier_
     }
-
--- | Logging-configuration name. The value does not need to be unique.
-updateLoggingConfiguration_name :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe Prelude.Text)
-updateLoggingConfiguration_name = Lens.lens (\UpdateLoggingConfiguration' {name} -> name) (\s@UpdateLoggingConfiguration' {} a -> s {name = a} :: UpdateLoggingConfiguration)
 
 -- | A complex type that contains a destination configuration for where chat
 -- content will be logged. There can be only one type of destination
 -- (@cloudWatchLogs@, @firehose@, or @s3@) in a @destinationConfiguration@.
 updateLoggingConfiguration_destinationConfiguration :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe DestinationConfiguration)
 updateLoggingConfiguration_destinationConfiguration = Lens.lens (\UpdateLoggingConfiguration' {destinationConfiguration} -> destinationConfiguration) (\s@UpdateLoggingConfiguration' {} a -> s {destinationConfiguration = a} :: UpdateLoggingConfiguration)
+
+-- | Logging-configuration name. The value does not need to be unique.
+updateLoggingConfiguration_name :: Lens.Lens' UpdateLoggingConfiguration (Prelude.Maybe Prelude.Text)
+updateLoggingConfiguration_name = Lens.lens (\UpdateLoggingConfiguration' {name} -> name) (\s@UpdateLoggingConfiguration' {} a -> s {name = a} :: UpdateLoggingConfiguration)
 
 -- | Identifier of the logging configuration to be updated.
 updateLoggingConfiguration_identifier :: Lens.Lens' UpdateLoggingConfiguration Prelude.Text
@@ -119,27 +120,28 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateLoggingConfigurationResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "state")
-            Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "updateTime")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (x Data..?> "destinationConfiguration")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "updateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
       `Prelude.hashWithSalt` destinationConfiguration
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData UpdateLoggingConfiguration where
   rnf UpdateLoggingConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf destinationConfiguration
+    Prelude.rnf destinationConfiguration
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf identifier
 
 instance Data.ToHeaders UpdateLoggingConfiguration where
@@ -157,9 +159,9 @@ instance Data.ToJSON UpdateLoggingConfiguration where
   toJSON UpdateLoggingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("destinationConfiguration" Data..=)
+          [ ("destinationConfiguration" Data..=)
               Prelude.<$> destinationConfiguration,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just ("identifier" Data..= identifier)
           ]
       )
@@ -172,23 +174,9 @@ instance Data.ToQuery UpdateLoggingConfiguration where
 
 -- | /See:/ 'newUpdateLoggingConfigurationResponse' smart constructor.
 data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
-  { -- | Tags attached to the resource. Array of maps, each of the form
-    -- @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Logging-configuration name, from the request (if specified).
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Logging-configuration ARN, from the request (if @identifier@ was an
+  { -- | Logging-configuration ARN, from the request (if @identifier@ was an
     -- ARN).
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the logging configuration. When the state is @ACTIVE@, the
-    -- configuration is ready to log chat content.
-    state :: Prelude.Maybe UpdateLoggingConfigurationState,
-    -- | Logging-configuration ID, generated by the system. This is a relative
-    -- identifier, the part of the ARN that uniquely identifies the room.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Time of the logging configuration’s last update. This is an ISO 8601
-    -- timestamp; /note that this is returned as a string/.
-    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the logging configuration was created. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
     createTime :: Prelude.Maybe Data.POSIX,
@@ -197,6 +185,20 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
     -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
     -- @destinationConfiguration@.
     destinationConfiguration :: Prelude.Maybe DestinationConfiguration,
+    -- | Logging-configuration ID, generated by the system. This is a relative
+    -- identifier, the part of the ARN that uniquely identifies the room.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Logging-configuration name, from the request (if specified).
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The state of the logging configuration. When the state is @ACTIVE@, the
+    -- configuration is ready to log chat content.
+    state :: Prelude.Maybe UpdateLoggingConfigurationState,
+    -- | Tags attached to the resource. Array of maps, each of the form
+    -- @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Time of the logging configuration’s last update. This is an ISO 8601
+    -- timestamp; /note that this is returned as a string/.
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,22 +212,8 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateLoggingConfigurationResponse_tags' - Tags attached to the resource. Array of maps, each of the form
--- @string:string (key:value)@.
---
--- 'name', 'updateLoggingConfigurationResponse_name' - Logging-configuration name, from the request (if specified).
---
 -- 'arn', 'updateLoggingConfigurationResponse_arn' - Logging-configuration ARN, from the request (if @identifier@ was an
 -- ARN).
---
--- 'state', 'updateLoggingConfigurationResponse_state' - The state of the logging configuration. When the state is @ACTIVE@, the
--- configuration is ready to log chat content.
---
--- 'id', 'updateLoggingConfigurationResponse_id' - Logging-configuration ID, generated by the system. This is a relative
--- identifier, the part of the ARN that uniquely identifies the room.
---
--- 'updateTime', 'updateLoggingConfigurationResponse_updateTime' - Time of the logging configuration’s last update. This is an ISO 8601
--- timestamp; /note that this is returned as a string/.
 --
 -- 'createTime', 'updateLoggingConfigurationResponse_createTime' - Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
@@ -235,6 +223,20 @@ data UpdateLoggingConfigurationResponse = UpdateLoggingConfigurationResponse'
 -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
 -- @destinationConfiguration@.
 --
+-- 'id', 'updateLoggingConfigurationResponse_id' - Logging-configuration ID, generated by the system. This is a relative
+-- identifier, the part of the ARN that uniquely identifies the room.
+--
+-- 'name', 'updateLoggingConfigurationResponse_name' - Logging-configuration name, from the request (if specified).
+--
+-- 'state', 'updateLoggingConfigurationResponse_state' - The state of the logging configuration. When the state is @ACTIVE@, the
+-- configuration is ready to log chat content.
+--
+-- 'tags', 'updateLoggingConfigurationResponse_tags' - Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
+--
+-- 'updateTime', 'updateLoggingConfigurationResponse_updateTime' - Time of the logging configuration’s last update. This is an ISO 8601
+-- timestamp; /note that this is returned as a string/.
+--
 -- 'httpStatus', 'updateLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateLoggingConfigurationResponse ::
   -- | 'httpStatus'
@@ -242,47 +244,23 @@ newUpdateLoggingConfigurationResponse ::
   UpdateLoggingConfigurationResponse
 newUpdateLoggingConfigurationResponse pHttpStatus_ =
   UpdateLoggingConfigurationResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      id = Prelude.Nothing,
-      updateTime = Prelude.Nothing,
       createTime = Prelude.Nothing,
       destinationConfiguration =
         Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      updateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Tags attached to the resource. Array of maps, each of the form
--- @string:string (key:value)@.
-updateLoggingConfigurationResponse_tags :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateLoggingConfigurationResponse_tags = Lens.lens (\UpdateLoggingConfigurationResponse' {tags} -> tags) (\s@UpdateLoggingConfigurationResponse' {} a -> s {tags = a} :: UpdateLoggingConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Logging-configuration name, from the request (if specified).
-updateLoggingConfigurationResponse_name :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateLoggingConfigurationResponse_name = Lens.lens (\UpdateLoggingConfigurationResponse' {name} -> name) (\s@UpdateLoggingConfigurationResponse' {} a -> s {name = a} :: UpdateLoggingConfigurationResponse)
 
 -- | Logging-configuration ARN, from the request (if @identifier@ was an
 -- ARN).
 updateLoggingConfigurationResponse_arn :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateLoggingConfigurationResponse_arn = Lens.lens (\UpdateLoggingConfigurationResponse' {arn} -> arn) (\s@UpdateLoggingConfigurationResponse' {} a -> s {arn = a} :: UpdateLoggingConfigurationResponse)
-
--- | The state of the logging configuration. When the state is @ACTIVE@, the
--- configuration is ready to log chat content.
-updateLoggingConfigurationResponse_state :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe UpdateLoggingConfigurationState)
-updateLoggingConfigurationResponse_state = Lens.lens (\UpdateLoggingConfigurationResponse' {state} -> state) (\s@UpdateLoggingConfigurationResponse' {} a -> s {state = a} :: UpdateLoggingConfigurationResponse)
-
--- | Logging-configuration ID, generated by the system. This is a relative
--- identifier, the part of the ARN that uniquely identifies the room.
-updateLoggingConfigurationResponse_id :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateLoggingConfigurationResponse_id = Lens.lens (\UpdateLoggingConfigurationResponse' {id} -> id) (\s@UpdateLoggingConfigurationResponse' {} a -> s {id = a} :: UpdateLoggingConfigurationResponse)
-
--- | Time of the logging configuration’s last update. This is an ISO 8601
--- timestamp; /note that this is returned as a string/.
-updateLoggingConfigurationResponse_updateTime :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-updateLoggingConfigurationResponse_updateTime = Lens.lens (\UpdateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@UpdateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: UpdateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
@@ -296,6 +274,30 @@ updateLoggingConfigurationResponse_createTime = Lens.lens (\UpdateLoggingConfigu
 updateLoggingConfigurationResponse_destinationConfiguration :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe DestinationConfiguration)
 updateLoggingConfigurationResponse_destinationConfiguration = Lens.lens (\UpdateLoggingConfigurationResponse' {destinationConfiguration} -> destinationConfiguration) (\s@UpdateLoggingConfigurationResponse' {} a -> s {destinationConfiguration = a} :: UpdateLoggingConfigurationResponse)
 
+-- | Logging-configuration ID, generated by the system. This is a relative
+-- identifier, the part of the ARN that uniquely identifies the room.
+updateLoggingConfigurationResponse_id :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateLoggingConfigurationResponse_id = Lens.lens (\UpdateLoggingConfigurationResponse' {id} -> id) (\s@UpdateLoggingConfigurationResponse' {} a -> s {id = a} :: UpdateLoggingConfigurationResponse)
+
+-- | Logging-configuration name, from the request (if specified).
+updateLoggingConfigurationResponse_name :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateLoggingConfigurationResponse_name = Lens.lens (\UpdateLoggingConfigurationResponse' {name} -> name) (\s@UpdateLoggingConfigurationResponse' {} a -> s {name = a} :: UpdateLoggingConfigurationResponse)
+
+-- | The state of the logging configuration. When the state is @ACTIVE@, the
+-- configuration is ready to log chat content.
+updateLoggingConfigurationResponse_state :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe UpdateLoggingConfigurationState)
+updateLoggingConfigurationResponse_state = Lens.lens (\UpdateLoggingConfigurationResponse' {state} -> state) (\s@UpdateLoggingConfigurationResponse' {} a -> s {state = a} :: UpdateLoggingConfigurationResponse)
+
+-- | Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
+updateLoggingConfigurationResponse_tags :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateLoggingConfigurationResponse_tags = Lens.lens (\UpdateLoggingConfigurationResponse' {tags} -> tags) (\s@UpdateLoggingConfigurationResponse' {} a -> s {tags = a} :: UpdateLoggingConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Time of the logging configuration’s last update. This is an ISO 8601
+-- timestamp; /note that this is returned as a string/.
+updateLoggingConfigurationResponse_updateTime :: Lens.Lens' UpdateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+updateLoggingConfigurationResponse_updateTime = Lens.lens (\UpdateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@UpdateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: UpdateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The response's http status code.
 updateLoggingConfigurationResponse_httpStatus :: Lens.Lens' UpdateLoggingConfigurationResponse Prelude.Int
 updateLoggingConfigurationResponse_httpStatus = Lens.lens (\UpdateLoggingConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateLoggingConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateLoggingConfigurationResponse)
@@ -305,12 +307,12 @@ instance
     UpdateLoggingConfigurationResponse
   where
   rnf UpdateLoggingConfigurationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf destinationConfiguration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf updateTime
       `Prelude.seq` Prelude.rnf httpStatus

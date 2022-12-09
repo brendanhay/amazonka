@@ -19,11 +19,11 @@ module Amazonka.IVSChat.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _PendingVerification,
     _ConflictException,
+    _InternalServerException,
+    _PendingVerification,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -62,32 +62,32 @@ module Amazonka.IVSChat.Types
     -- * LoggingConfigurationSummary
     LoggingConfigurationSummary (..),
     newLoggingConfigurationSummary,
-    loggingConfigurationSummary_tags,
-    loggingConfigurationSummary_name,
     loggingConfigurationSummary_arn,
-    loggingConfigurationSummary_state,
-    loggingConfigurationSummary_id,
-    loggingConfigurationSummary_updateTime,
     loggingConfigurationSummary_createTime,
     loggingConfigurationSummary_destinationConfiguration,
+    loggingConfigurationSummary_id,
+    loggingConfigurationSummary_name,
+    loggingConfigurationSummary_state,
+    loggingConfigurationSummary_tags,
+    loggingConfigurationSummary_updateTime,
 
     -- * MessageReviewHandler
     MessageReviewHandler (..),
     newMessageReviewHandler,
-    messageReviewHandler_uri,
     messageReviewHandler_fallbackResult,
+    messageReviewHandler_uri,
 
     -- * RoomSummary
     RoomSummary (..),
     newRoomSummary,
-    roomSummary_tags,
-    roomSummary_loggingConfigurationIdentifiers,
-    roomSummary_name,
-    roomSummary_messageReviewHandler,
     roomSummary_arn,
-    roomSummary_id,
-    roomSummary_updateTime,
     roomSummary_createTime,
+    roomSummary_id,
+    roomSummary_loggingConfigurationIdentifiers,
+    roomSummary_messageReviewHandler,
+    roomSummary_name,
+    roomSummary_tags,
+    roomSummary_updateTime,
 
     -- * S3DestinationConfiguration
     S3DestinationConfiguration (..),
@@ -138,28 +138,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -167,13 +161,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -181,6 +179,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- |
@@ -192,28 +192,20 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- |
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- |
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- |
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- |
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- |
 _PendingVerification :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -224,12 +216,20 @@ _PendingVerification =
     Prelude.. Core.hasStatus 403
 
 -- |
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- |
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- |
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

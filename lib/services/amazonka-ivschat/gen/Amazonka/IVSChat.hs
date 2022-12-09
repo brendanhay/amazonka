@@ -196,20 +196,20 @@ module Amazonka.IVSChat
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** PendingVerification
     _PendingVerification,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,

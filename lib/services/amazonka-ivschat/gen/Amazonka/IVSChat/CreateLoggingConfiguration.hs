@@ -28,8 +28,8 @@ module Amazonka.IVSChat.CreateLoggingConfiguration
     newCreateLoggingConfiguration,
 
     -- * Request Lenses
-    createLoggingConfiguration_tags,
     createLoggingConfiguration_name,
+    createLoggingConfiguration_tags,
     createLoggingConfiguration_destinationConfiguration,
 
     -- * Destructuring the Response
@@ -37,14 +37,14 @@ module Amazonka.IVSChat.CreateLoggingConfiguration
     newCreateLoggingConfigurationResponse,
 
     -- * Response Lenses
-    createLoggingConfigurationResponse_tags,
-    createLoggingConfigurationResponse_name,
     createLoggingConfigurationResponse_arn,
-    createLoggingConfigurationResponse_state,
-    createLoggingConfigurationResponse_id,
-    createLoggingConfigurationResponse_updateTime,
     createLoggingConfigurationResponse_createTime,
     createLoggingConfigurationResponse_destinationConfiguration,
+    createLoggingConfigurationResponse_id,
+    createLoggingConfigurationResponse_name,
+    createLoggingConfigurationResponse_state,
+    createLoggingConfigurationResponse_tags,
+    createLoggingConfigurationResponse_updateTime,
     createLoggingConfigurationResponse_httpStatus,
   )
 where
@@ -59,15 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLoggingConfiguration' smart constructor.
 data CreateLoggingConfiguration = CreateLoggingConfiguration'
-  { -- | Tags to attach to the resource. Array of maps, each of the form
+  { -- | Logging-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Tags to attach to the resource. Array of maps, each of the form
     -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
     -- for details, including restrictions that apply to tags and \"Tag naming
     -- limits and requirements\"; Amazon IVS Chat has no constraints on tags
     -- beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Logging-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A complex type that contains a destination configuration for where chat
     -- content will be logged. There can be only one type of destination
     -- (@cloudWatchLogs@, @firehose@, or @s3@) in a @destinationConfiguration@.
@@ -83,14 +83,14 @@ data CreateLoggingConfiguration = CreateLoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createLoggingConfiguration_name' - Logging-configuration name. The value does not need to be unique.
+--
 -- 'tags', 'createLoggingConfiguration_tags' - Tags to attach to the resource. Array of maps, each of the form
 -- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
 -- for details, including restrictions that apply to tags and \"Tag naming
 -- limits and requirements\"; Amazon IVS Chat has no constraints on tags
 -- beyond what is documented there.
---
--- 'name', 'createLoggingConfiguration_name' - Logging-configuration name. The value does not need to be unique.
 --
 -- 'destinationConfiguration', 'createLoggingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where chat
 -- content will be logged. There can be only one type of destination
@@ -102,11 +102,15 @@ newCreateLoggingConfiguration ::
 newCreateLoggingConfiguration
   pDestinationConfiguration_ =
     CreateLoggingConfiguration'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
+      { name = Prelude.Nothing,
+        tags = Prelude.Nothing,
         destinationConfiguration =
           pDestinationConfiguration_
       }
+
+-- | Logging-configuration name. The value does not need to be unique.
+createLoggingConfiguration_name :: Lens.Lens' CreateLoggingConfiguration (Prelude.Maybe Prelude.Text)
+createLoggingConfiguration_name = Lens.lens (\CreateLoggingConfiguration' {name} -> name) (\s@CreateLoggingConfiguration' {} a -> s {name = a} :: CreateLoggingConfiguration)
 
 -- | Tags to attach to the resource. Array of maps, each of the form
 -- @string:string (key:value)@. See
@@ -116,10 +120,6 @@ newCreateLoggingConfiguration
 -- beyond what is documented there.
 createLoggingConfiguration_tags :: Lens.Lens' CreateLoggingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLoggingConfiguration_tags = Lens.lens (\CreateLoggingConfiguration' {tags} -> tags) (\s@CreateLoggingConfiguration' {} a -> s {tags = a} :: CreateLoggingConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Logging-configuration name. The value does not need to be unique.
-createLoggingConfiguration_name :: Lens.Lens' CreateLoggingConfiguration (Prelude.Maybe Prelude.Text)
-createLoggingConfiguration_name = Lens.lens (\CreateLoggingConfiguration' {name} -> name) (\s@CreateLoggingConfiguration' {} a -> s {name = a} :: CreateLoggingConfiguration)
 
 -- | A complex type that contains a destination configuration for where chat
 -- content will be logged. There can be only one type of destination
@@ -137,27 +137,27 @@ instance Core.AWSRequest CreateLoggingConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateLoggingConfigurationResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "state")
-            Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "updateTime")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createTime")
             Prelude.<*> (x Data..?> "destinationConfiguration")
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "updateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateLoggingConfiguration where
   hashWithSalt _salt CreateLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` destinationConfiguration
 
 instance Prelude.NFData CreateLoggingConfiguration where
   rnf CreateLoggingConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
 instance Data.ToHeaders CreateLoggingConfiguration where
@@ -175,8 +175,8 @@ instance Data.ToJSON CreateLoggingConfiguration where
   toJSON CreateLoggingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("name" Data..=) Prelude.<$> name,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "destinationConfiguration"
                   Data..= destinationConfiguration
@@ -192,23 +192,8 @@ instance Data.ToQuery CreateLoggingConfiguration where
 
 -- | /See:/ 'newCreateLoggingConfigurationResponse' smart constructor.
 data CreateLoggingConfigurationResponse = CreateLoggingConfigurationResponse'
-  { -- | Tags attached to the resource, from the request (if specified). Array of
-    -- maps, each of the form @string:string (key:value)@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Logging-configuration name, from the request (if specified).
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Logging-configuration ARN, assigned by the system.
+  { -- | Logging-configuration ARN, assigned by the system.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the logging configuration. When the state is @ACTIVE@, the
-    -- configuration is ready to log chat content.
-    state :: Prelude.Maybe CreateLoggingConfigurationState,
-    -- | Logging-configuration ID, generated by the system. This is a relative
-    -- identifier, the part of the ARN that uniquely identifies the logging
-    -- configuration.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Time of the logging configuration’s last update. This is an ISO 8601
-    -- timestamp; /note that this is returned as a string/.
-    updateTime :: Prelude.Maybe Data.POSIX,
     -- | Time when the logging configuration was created. This is an ISO 8601
     -- timestamp; /note that this is returned as a string/.
     createTime :: Prelude.Maybe Data.POSIX,
@@ -217,6 +202,21 @@ data CreateLoggingConfigurationResponse = CreateLoggingConfigurationResponse'
     -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
     -- @destinationConfiguration@.
     destinationConfiguration :: Prelude.Maybe DestinationConfiguration,
+    -- | Logging-configuration ID, generated by the system. This is a relative
+    -- identifier, the part of the ARN that uniquely identifies the logging
+    -- configuration.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Logging-configuration name, from the request (if specified).
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The state of the logging configuration. When the state is @ACTIVE@, the
+    -- configuration is ready to log chat content.
+    state :: Prelude.Maybe CreateLoggingConfigurationState,
+    -- | Tags attached to the resource, from the request (if specified). Array of
+    -- maps, each of the form @string:string (key:value)@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Time of the logging configuration’s last update. This is an ISO 8601
+    -- timestamp; /note that this is returned as a string/.
+    updateTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,22 +230,7 @@ data CreateLoggingConfigurationResponse = CreateLoggingConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLoggingConfigurationResponse_tags' - Tags attached to the resource, from the request (if specified). Array of
--- maps, each of the form @string:string (key:value)@.
---
--- 'name', 'createLoggingConfigurationResponse_name' - Logging-configuration name, from the request (if specified).
---
 -- 'arn', 'createLoggingConfigurationResponse_arn' - Logging-configuration ARN, assigned by the system.
---
--- 'state', 'createLoggingConfigurationResponse_state' - The state of the logging configuration. When the state is @ACTIVE@, the
--- configuration is ready to log chat content.
---
--- 'id', 'createLoggingConfigurationResponse_id' - Logging-configuration ID, generated by the system. This is a relative
--- identifier, the part of the ARN that uniquely identifies the logging
--- configuration.
---
--- 'updateTime', 'createLoggingConfigurationResponse_updateTime' - Time of the logging configuration’s last update. This is an ISO 8601
--- timestamp; /note that this is returned as a string/.
 --
 -- 'createTime', 'createLoggingConfigurationResponse_createTime' - Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
@@ -255,6 +240,21 @@ data CreateLoggingConfigurationResponse = CreateLoggingConfigurationResponse'
 -- destination (@cloudWatchLogs@, @firehose@, or @s3@) in a
 -- @destinationConfiguration@.
 --
+-- 'id', 'createLoggingConfigurationResponse_id' - Logging-configuration ID, generated by the system. This is a relative
+-- identifier, the part of the ARN that uniquely identifies the logging
+-- configuration.
+--
+-- 'name', 'createLoggingConfigurationResponse_name' - Logging-configuration name, from the request (if specified).
+--
+-- 'state', 'createLoggingConfigurationResponse_state' - The state of the logging configuration. When the state is @ACTIVE@, the
+-- configuration is ready to log chat content.
+--
+-- 'tags', 'createLoggingConfigurationResponse_tags' - Tags attached to the resource, from the request (if specified). Array of
+-- maps, each of the form @string:string (key:value)@.
+--
+-- 'updateTime', 'createLoggingConfigurationResponse_updateTime' - Time of the logging configuration’s last update. This is an ISO 8601
+-- timestamp; /note that this is returned as a string/.
+--
 -- 'httpStatus', 'createLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newCreateLoggingConfigurationResponse ::
   -- | 'httpStatus'
@@ -262,47 +262,22 @@ newCreateLoggingConfigurationResponse ::
   CreateLoggingConfigurationResponse
 newCreateLoggingConfigurationResponse pHttpStatus_ =
   CreateLoggingConfigurationResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      id = Prelude.Nothing,
-      updateTime = Prelude.Nothing,
       createTime = Prelude.Nothing,
       destinationConfiguration =
         Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      updateTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Tags attached to the resource, from the request (if specified). Array of
--- maps, each of the form @string:string (key:value)@.
-createLoggingConfigurationResponse_tags :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLoggingConfigurationResponse_tags = Lens.lens (\CreateLoggingConfigurationResponse' {tags} -> tags) (\s@CreateLoggingConfigurationResponse' {} a -> s {tags = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Logging-configuration name, from the request (if specified).
-createLoggingConfigurationResponse_name :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
-createLoggingConfigurationResponse_name = Lens.lens (\CreateLoggingConfigurationResponse' {name} -> name) (\s@CreateLoggingConfigurationResponse' {} a -> s {name = a} :: CreateLoggingConfigurationResponse)
 
 -- | Logging-configuration ARN, assigned by the system.
 createLoggingConfigurationResponse_arn :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
 createLoggingConfigurationResponse_arn = Lens.lens (\CreateLoggingConfigurationResponse' {arn} -> arn) (\s@CreateLoggingConfigurationResponse' {} a -> s {arn = a} :: CreateLoggingConfigurationResponse)
-
--- | The state of the logging configuration. When the state is @ACTIVE@, the
--- configuration is ready to log chat content.
-createLoggingConfigurationResponse_state :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe CreateLoggingConfigurationState)
-createLoggingConfigurationResponse_state = Lens.lens (\CreateLoggingConfigurationResponse' {state} -> state) (\s@CreateLoggingConfigurationResponse' {} a -> s {state = a} :: CreateLoggingConfigurationResponse)
-
--- | Logging-configuration ID, generated by the system. This is a relative
--- identifier, the part of the ARN that uniquely identifies the logging
--- configuration.
-createLoggingConfigurationResponse_id :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
-createLoggingConfigurationResponse_id = Lens.lens (\CreateLoggingConfigurationResponse' {id} -> id) (\s@CreateLoggingConfigurationResponse' {} a -> s {id = a} :: CreateLoggingConfigurationResponse)
-
--- | Time of the logging configuration’s last update. This is an ISO 8601
--- timestamp; /note that this is returned as a string/.
-createLoggingConfigurationResponse_updateTime :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createLoggingConfigurationResponse_updateTime = Lens.lens (\CreateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Time when the logging configuration was created. This is an ISO 8601
 -- timestamp; /note that this is returned as a string/.
@@ -316,6 +291,31 @@ createLoggingConfigurationResponse_createTime = Lens.lens (\CreateLoggingConfigu
 createLoggingConfigurationResponse_destinationConfiguration :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe DestinationConfiguration)
 createLoggingConfigurationResponse_destinationConfiguration = Lens.lens (\CreateLoggingConfigurationResponse' {destinationConfiguration} -> destinationConfiguration) (\s@CreateLoggingConfigurationResponse' {} a -> s {destinationConfiguration = a} :: CreateLoggingConfigurationResponse)
 
+-- | Logging-configuration ID, generated by the system. This is a relative
+-- identifier, the part of the ARN that uniquely identifies the logging
+-- configuration.
+createLoggingConfigurationResponse_id :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
+createLoggingConfigurationResponse_id = Lens.lens (\CreateLoggingConfigurationResponse' {id} -> id) (\s@CreateLoggingConfigurationResponse' {} a -> s {id = a} :: CreateLoggingConfigurationResponse)
+
+-- | Logging-configuration name, from the request (if specified).
+createLoggingConfigurationResponse_name :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.Text)
+createLoggingConfigurationResponse_name = Lens.lens (\CreateLoggingConfigurationResponse' {name} -> name) (\s@CreateLoggingConfigurationResponse' {} a -> s {name = a} :: CreateLoggingConfigurationResponse)
+
+-- | The state of the logging configuration. When the state is @ACTIVE@, the
+-- configuration is ready to log chat content.
+createLoggingConfigurationResponse_state :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe CreateLoggingConfigurationState)
+createLoggingConfigurationResponse_state = Lens.lens (\CreateLoggingConfigurationResponse' {state} -> state) (\s@CreateLoggingConfigurationResponse' {} a -> s {state = a} :: CreateLoggingConfigurationResponse)
+
+-- | Tags attached to the resource, from the request (if specified). Array of
+-- maps, each of the form @string:string (key:value)@.
+createLoggingConfigurationResponse_tags :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLoggingConfigurationResponse_tags = Lens.lens (\CreateLoggingConfigurationResponse' {tags} -> tags) (\s@CreateLoggingConfigurationResponse' {} a -> s {tags = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Time of the logging configuration’s last update. This is an ISO 8601
+-- timestamp; /note that this is returned as a string/.
+createLoggingConfigurationResponse_updateTime :: Lens.Lens' CreateLoggingConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+createLoggingConfigurationResponse_updateTime = Lens.lens (\CreateLoggingConfigurationResponse' {updateTime} -> updateTime) (\s@CreateLoggingConfigurationResponse' {} a -> s {updateTime = a} :: CreateLoggingConfigurationResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The response's http status code.
 createLoggingConfigurationResponse_httpStatus :: Lens.Lens' CreateLoggingConfigurationResponse Prelude.Int
 createLoggingConfigurationResponse_httpStatus = Lens.lens (\CreateLoggingConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateLoggingConfigurationResponse' {} a -> s {httpStatus = a} :: CreateLoggingConfigurationResponse)
@@ -325,12 +325,12 @@ instance
     CreateLoggingConfigurationResponse
   where
   rnf CreateLoggingConfigurationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf updateTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf destinationConfiguration
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf updateTime
       `Prelude.seq` Prelude.rnf httpStatus

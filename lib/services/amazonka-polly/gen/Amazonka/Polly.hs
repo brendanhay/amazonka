@@ -25,26 +25,44 @@ module Amazonka.Polly
     -- * Errors
     -- $errors
 
+    -- ** EngineNotSupportedException
+    _EngineNotSupportedException,
+
+    -- ** InvalidLexiconException
+    _InvalidLexiconException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidS3BucketException
+    _InvalidS3BucketException,
+
+    -- ** InvalidS3KeyException
+    _InvalidS3KeyException,
+
+    -- ** InvalidSampleRateException
+    _InvalidSampleRateException,
+
+    -- ** InvalidSnsTopicArnException
+    _InvalidSnsTopicArnException,
+
+    -- ** InvalidSsmlException
+    _InvalidSsmlException,
+
+    -- ** InvalidTaskIdException
+    _InvalidTaskIdException,
+
     -- ** LanguageNotSupportedException
     _LanguageNotSupportedException,
 
     -- ** LexiconNotFoundException
     _LexiconNotFoundException,
 
-    -- ** InvalidS3KeyException
-    _InvalidS3KeyException,
-
-    -- ** UnsupportedPlsLanguageException
-    _UnsupportedPlsLanguageException,
-
     -- ** LexiconSizeExceededException
     _LexiconSizeExceededException,
 
-    -- ** InvalidSampleRateException
-    _InvalidSampleRateException,
-
-    -- ** InvalidSsmlException
-    _InvalidSsmlException,
+    -- ** MarksNotSupportedForFormatException
+    _MarksNotSupportedForFormatException,
 
     -- ** MaxLexemeLengthExceededException
     _MaxLexemeLengthExceededException,
@@ -52,41 +70,23 @@ module Amazonka.Polly
     -- ** MaxLexiconsNumberExceededException
     _MaxLexiconsNumberExceededException,
 
-    -- ** InvalidSnsTopicArnException
-    _InvalidSnsTopicArnException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** EngineNotSupportedException
-    _EngineNotSupportedException,
-
-    -- ** MarksNotSupportedForFormatException
-    _MarksNotSupportedForFormatException,
-
-    -- ** TextLengthExceededException
-    _TextLengthExceededException,
-
-    -- ** InvalidLexiconException
-    _InvalidLexiconException,
+    -- ** ServiceFailureException
+    _ServiceFailureException,
 
     -- ** SsmlMarksNotSupportedForTextTypeException
     _SsmlMarksNotSupportedForTextTypeException,
 
-    -- ** UnsupportedPlsAlphabetException
-    _UnsupportedPlsAlphabetException,
-
-    -- ** InvalidTaskIdException
-    _InvalidTaskIdException,
-
     -- ** SynthesisTaskNotFoundException
     _SynthesisTaskNotFoundException,
 
-    -- ** ServiceFailureException
-    _ServiceFailureException,
+    -- ** TextLengthExceededException
+    _TextLengthExceededException,
 
-    -- ** InvalidS3BucketException
-    _InvalidS3BucketException,
+    -- ** UnsupportedPlsAlphabetException
+    _UnsupportedPlsAlphabetException,
+
+    -- ** UnsupportedPlsLanguageException
+    _UnsupportedPlsLanguageException,
 
     -- * Waiters
     -- $waiters

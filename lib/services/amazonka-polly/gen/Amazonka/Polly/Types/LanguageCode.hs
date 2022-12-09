@@ -38,6 +38,7 @@ module Amazonka.Polly.Types.LanguageCode
         LanguageCode_Es_ES,
         LanguageCode_Es_MX,
         LanguageCode_Es_US,
+        LanguageCode_Fi_FI,
         LanguageCode_Fr_CA,
         LanguageCode_Fr_FR,
         LanguageCode_Hi_IN,
@@ -145,6 +146,9 @@ pattern LanguageCode_Es_MX = LanguageCode' "es-MX"
 pattern LanguageCode_Es_US :: LanguageCode
 pattern LanguageCode_Es_US = LanguageCode' "es-US"
 
+pattern LanguageCode_Fi_FI :: LanguageCode
+pattern LanguageCode_Fi_FI = LanguageCode' "fi-FI"
+
 pattern LanguageCode_Fr_CA :: LanguageCode
 pattern LanguageCode_Fr_CA = LanguageCode' "fr-CA"
 
@@ -215,6 +219,7 @@ pattern LanguageCode_Yue_CN = LanguageCode' "yue-CN"
   LanguageCode_Es_ES,
   LanguageCode_Es_MX,
   LanguageCode_Es_US,
+  LanguageCode_Fi_FI,
   LanguageCode_Fr_CA,
   LanguageCode_Fr_FR,
   LanguageCode_Hi_IN,

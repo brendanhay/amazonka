@@ -31,15 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMemberSummary' smart constructor.
 data MemberSummary = MemberSummary'
-  { -- | The name of the member.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the member. For more information about
+  { -- | The Amazon Resource Name (ARN) of the member. For more information about
     -- ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the member was created.
     creationDate :: Prelude.Maybe Data.POSIX,
+    -- | An optional description of the member.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the member.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | An indicator of whether the member is owned by your Amazon Web Services
+    -- account or a different Amazon Web Services account.
+    isOwned :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the member.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the member.
     --
     -- -   @CREATING@ - The Amazon Web Services account is in the process of
@@ -74,14 +81,7 @@ data MemberSummary = MemberSummary'
     --     isn\'t immediate. It might take some time for the member resource to
     --     discover that the key is inaccessible. When a resource is in this
     --     state, we recommend deleting and recreating the resource.
-    status :: Prelude.Maybe MemberStatus,
-    -- | The unique identifier of the member.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | An optional description of the member.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An indicator of whether the member is owned by your Amazon Web Services
-    -- account or a different Amazon Web Services account.
-    isOwned :: Prelude.Maybe Prelude.Bool
+    status :: Prelude.Maybe MemberStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,14 +93,21 @@ data MemberSummary = MemberSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'memberSummary_name' - The name of the member.
---
 -- 'arn', 'memberSummary_arn' - The Amazon Resource Name (ARN) of the member. For more information about
 -- ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'creationDate', 'memberSummary_creationDate' - The date and time that the member was created.
+--
+-- 'description', 'memberSummary_description' - An optional description of the member.
+--
+-- 'id', 'memberSummary_id' - The unique identifier of the member.
+--
+-- 'isOwned', 'memberSummary_isOwned' - An indicator of whether the member is owned by your Amazon Web Services
+-- account or a different Amazon Web Services account.
+--
+-- 'name', 'memberSummary_name' - The name of the member.
 --
 -- 'status', 'memberSummary_status' - The status of the member.
 --
@@ -136,29 +143,18 @@ data MemberSummary = MemberSummary'
 --     isn\'t immediate. It might take some time for the member resource to
 --     discover that the key is inaccessible. When a resource is in this
 --     state, we recommend deleting and recreating the resource.
---
--- 'id', 'memberSummary_id' - The unique identifier of the member.
---
--- 'description', 'memberSummary_description' - An optional description of the member.
---
--- 'isOwned', 'memberSummary_isOwned' - An indicator of whether the member is owned by your Amazon Web Services
--- account or a different Amazon Web Services account.
 newMemberSummary ::
   MemberSummary
 newMemberSummary =
   MemberSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
       description = Prelude.Nothing,
-      isOwned = Prelude.Nothing
+      id = Prelude.Nothing,
+      isOwned = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the member.
-memberSummary_name :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
-memberSummary_name = Lens.lens (\MemberSummary' {name} -> name) (\s@MemberSummary' {} a -> s {name = a} :: MemberSummary)
 
 -- | The Amazon Resource Name (ARN) of the member. For more information about
 -- ARNs and their format, see
@@ -170,6 +166,23 @@ memberSummary_arn = Lens.lens (\MemberSummary' {arn} -> arn) (\s@MemberSummary' 
 -- | The date and time that the member was created.
 memberSummary_creationDate :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.UTCTime)
 memberSummary_creationDate = Lens.lens (\MemberSummary' {creationDate} -> creationDate) (\s@MemberSummary' {} a -> s {creationDate = a} :: MemberSummary) Prelude.. Lens.mapping Data._Time
+
+-- | An optional description of the member.
+memberSummary_description :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
+memberSummary_description = Lens.lens (\MemberSummary' {description} -> description) (\s@MemberSummary' {} a -> s {description = a} :: MemberSummary)
+
+-- | The unique identifier of the member.
+memberSummary_id :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
+memberSummary_id = Lens.lens (\MemberSummary' {id} -> id) (\s@MemberSummary' {} a -> s {id = a} :: MemberSummary)
+
+-- | An indicator of whether the member is owned by your Amazon Web Services
+-- account or a different Amazon Web Services account.
+memberSummary_isOwned :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Bool)
+memberSummary_isOwned = Lens.lens (\MemberSummary' {isOwned} -> isOwned) (\s@MemberSummary' {} a -> s {isOwned = a} :: MemberSummary)
+
+-- | The name of the member.
+memberSummary_name :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
+memberSummary_name = Lens.lens (\MemberSummary' {name} -> name) (\s@MemberSummary' {} a -> s {name = a} :: MemberSummary)
 
 -- | The status of the member.
 --
@@ -208,50 +221,37 @@ memberSummary_creationDate = Lens.lens (\MemberSummary' {creationDate} -> creati
 memberSummary_status :: Lens.Lens' MemberSummary (Prelude.Maybe MemberStatus)
 memberSummary_status = Lens.lens (\MemberSummary' {status} -> status) (\s@MemberSummary' {} a -> s {status = a} :: MemberSummary)
 
--- | The unique identifier of the member.
-memberSummary_id :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
-memberSummary_id = Lens.lens (\MemberSummary' {id} -> id) (\s@MemberSummary' {} a -> s {id = a} :: MemberSummary)
-
--- | An optional description of the member.
-memberSummary_description :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Text)
-memberSummary_description = Lens.lens (\MemberSummary' {description} -> description) (\s@MemberSummary' {} a -> s {description = a} :: MemberSummary)
-
--- | An indicator of whether the member is owned by your Amazon Web Services
--- account or a different Amazon Web Services account.
-memberSummary_isOwned :: Lens.Lens' MemberSummary (Prelude.Maybe Prelude.Bool)
-memberSummary_isOwned = Lens.lens (\MemberSummary' {isOwned} -> isOwned) (\s@MemberSummary' {} a -> s {isOwned = a} :: MemberSummary)
-
 instance Data.FromJSON MemberSummary where
   parseJSON =
     Data.withObject
       "MemberSummary"
       ( \x ->
           MemberSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "IsOwned")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable MemberSummary where
   hashWithSalt _salt MemberSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` isOwned
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData MemberSummary where
   rnf MemberSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf isOwned
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

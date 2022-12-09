@@ -41,6 +41,10 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
     -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
     -- aren\'t carried out.
     proposalDurationInHours :: Prelude.Maybe Prelude.Natural,
+    -- | Determines whether the vote percentage must be greater than the
+    -- @ThresholdPercentage@ or must be greater than or equal to the
+    -- @ThreholdPercentage@ to be approved.
+    thresholdComparator :: Prelude.Maybe ThresholdComparator,
     -- | The percentage of votes among all members that must be @YES@ for a
     -- proposal to be approved. For example, a @ThresholdPercentage@ value of
     -- @50@ indicates 50%. The @ThresholdComparator@ determines the precise
@@ -48,11 +52,7 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
     -- network with 10 members, along with a @ThresholdComparator@ value of
     -- @GREATER_THAN@, this indicates that 6 @YES@ votes are required for the
     -- proposal to be approved.
-    thresholdPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | Determines whether the vote percentage must be greater than the
-    -- @ThresholdPercentage@ or must be greater than or equal to the
-    -- @ThreholdPercentage@ to be approved.
-    thresholdComparator :: Prelude.Maybe ThresholdComparator
+    thresholdPercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,10 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
 -- the duration expires, the proposal is @EXPIRED@ and @ProposalActions@
 -- aren\'t carried out.
 --
+-- 'thresholdComparator', 'approvalThresholdPolicy_thresholdComparator' - Determines whether the vote percentage must be greater than the
+-- @ThresholdPercentage@ or must be greater than or equal to the
+-- @ThreholdPercentage@ to be approved.
+--
 -- 'thresholdPercentage', 'approvalThresholdPolicy_thresholdPercentage' - The percentage of votes among all members that must be @YES@ for a
 -- proposal to be approved. For example, a @ThresholdPercentage@ value of
 -- @50@ indicates 50%. The @ThresholdComparator@ determines the precise
@@ -77,18 +81,14 @@ data ApprovalThresholdPolicy = ApprovalThresholdPolicy'
 -- network with 10 members, along with a @ThresholdComparator@ value of
 -- @GREATER_THAN@, this indicates that 6 @YES@ votes are required for the
 -- proposal to be approved.
---
--- 'thresholdComparator', 'approvalThresholdPolicy_thresholdComparator' - Determines whether the vote percentage must be greater than the
--- @ThresholdPercentage@ or must be greater than or equal to the
--- @ThreholdPercentage@ to be approved.
 newApprovalThresholdPolicy ::
   ApprovalThresholdPolicy
 newApprovalThresholdPolicy =
   ApprovalThresholdPolicy'
     { proposalDurationInHours =
         Prelude.Nothing,
-      thresholdPercentage = Prelude.Nothing,
-      thresholdComparator = Prelude.Nothing
+      thresholdComparator = Prelude.Nothing,
+      thresholdPercentage = Prelude.Nothing
     }
 
 -- | The duration from the time that a proposal is created until it expires.
@@ -98,6 +98,12 @@ newApprovalThresholdPolicy =
 -- aren\'t carried out.
 approvalThresholdPolicy_proposalDurationInHours :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe Prelude.Natural)
 approvalThresholdPolicy_proposalDurationInHours = Lens.lens (\ApprovalThresholdPolicy' {proposalDurationInHours} -> proposalDurationInHours) (\s@ApprovalThresholdPolicy' {} a -> s {proposalDurationInHours = a} :: ApprovalThresholdPolicy)
+
+-- | Determines whether the vote percentage must be greater than the
+-- @ThresholdPercentage@ or must be greater than or equal to the
+-- @ThreholdPercentage@ to be approved.
+approvalThresholdPolicy_thresholdComparator :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe ThresholdComparator)
+approvalThresholdPolicy_thresholdComparator = Lens.lens (\ApprovalThresholdPolicy' {thresholdComparator} -> thresholdComparator) (\s@ApprovalThresholdPolicy' {} a -> s {thresholdComparator = a} :: ApprovalThresholdPolicy)
 
 -- | The percentage of votes among all members that must be @YES@ for a
 -- proposal to be approved. For example, a @ThresholdPercentage@ value of
@@ -109,12 +115,6 @@ approvalThresholdPolicy_proposalDurationInHours = Lens.lens (\ApprovalThresholdP
 approvalThresholdPolicy_thresholdPercentage :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe Prelude.Natural)
 approvalThresholdPolicy_thresholdPercentage = Lens.lens (\ApprovalThresholdPolicy' {thresholdPercentage} -> thresholdPercentage) (\s@ApprovalThresholdPolicy' {} a -> s {thresholdPercentage = a} :: ApprovalThresholdPolicy)
 
--- | Determines whether the vote percentage must be greater than the
--- @ThresholdPercentage@ or must be greater than or equal to the
--- @ThreholdPercentage@ to be approved.
-approvalThresholdPolicy_thresholdComparator :: Lens.Lens' ApprovalThresholdPolicy (Prelude.Maybe ThresholdComparator)
-approvalThresholdPolicy_thresholdComparator = Lens.lens (\ApprovalThresholdPolicy' {thresholdComparator} -> thresholdComparator) (\s@ApprovalThresholdPolicy' {} a -> s {thresholdComparator = a} :: ApprovalThresholdPolicy)
-
 instance Data.FromJSON ApprovalThresholdPolicy where
   parseJSON =
     Data.withObject
@@ -122,22 +122,22 @@ instance Data.FromJSON ApprovalThresholdPolicy where
       ( \x ->
           ApprovalThresholdPolicy'
             Prelude.<$> (x Data..:? "ProposalDurationInHours")
-            Prelude.<*> (x Data..:? "ThresholdPercentage")
             Prelude.<*> (x Data..:? "ThresholdComparator")
+            Prelude.<*> (x Data..:? "ThresholdPercentage")
       )
 
 instance Prelude.Hashable ApprovalThresholdPolicy where
   hashWithSalt _salt ApprovalThresholdPolicy' {..} =
     _salt
       `Prelude.hashWithSalt` proposalDurationInHours
-      `Prelude.hashWithSalt` thresholdPercentage
       `Prelude.hashWithSalt` thresholdComparator
+      `Prelude.hashWithSalt` thresholdPercentage
 
 instance Prelude.NFData ApprovalThresholdPolicy where
   rnf ApprovalThresholdPolicy' {..} =
     Prelude.rnf proposalDurationInHours
-      `Prelude.seq` Prelude.rnf thresholdPercentage
       `Prelude.seq` Prelude.rnf thresholdComparator
+      `Prelude.seq` Prelude.rnf thresholdPercentage
 
 instance Data.ToJSON ApprovalThresholdPolicy where
   toJSON ApprovalThresholdPolicy' {..} =
@@ -145,9 +145,9 @@ instance Data.ToJSON ApprovalThresholdPolicy where
       ( Prelude.catMaybes
           [ ("ProposalDurationInHours" Data..=)
               Prelude.<$> proposalDurationInHours,
-            ("ThresholdPercentage" Data..=)
-              Prelude.<$> thresholdPercentage,
             ("ThresholdComparator" Data..=)
-              Prelude.<$> thresholdComparator
+              Prelude.<$> thresholdComparator,
+            ("ThresholdPercentage" Data..=)
+              Prelude.<$> thresholdPercentage
           ]
       )

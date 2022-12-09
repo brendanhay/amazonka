@@ -35,21 +35,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessorSummary' smart constructor.
 data AccessorSummary = AccessorSummary'
-  { -- | The type of the accessor.
-    --
-    -- Currently accessor type is restricted to @BILLING_TOKEN@.
-    type' :: Prelude.Maybe AccessorType,
-    -- | The Amazon Resource Name (ARN) of the accessor. For more information
+  { -- | The Amazon Resource Name (ARN) of the accessor. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the accessor.
     creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the accessor.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The current status of the accessor.
     status :: Prelude.Maybe AccessorStatus,
-    -- | The unique identifier of the accessor.
-    id :: Prelude.Maybe Prelude.Text
+    -- | The type of the accessor.
+    --
+    -- Currently accessor type is restricted to @BILLING_TOKEN@.
+    type' :: Prelude.Maybe AccessorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,10 +61,6 @@ data AccessorSummary = AccessorSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'accessorSummary_type' - The type of the accessor.
---
--- Currently accessor type is restricted to @BILLING_TOKEN@.
---
 -- 'arn', 'accessorSummary_arn' - The Amazon Resource Name (ARN) of the accessor. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -72,25 +68,23 @@ data AccessorSummary = AccessorSummary'
 --
 -- 'creationDate', 'accessorSummary_creationDate' - The creation date and time of the accessor.
 --
+-- 'id', 'accessorSummary_id' - The unique identifier of the accessor.
+--
 -- 'status', 'accessorSummary_status' - The current status of the accessor.
 --
--- 'id', 'accessorSummary_id' - The unique identifier of the accessor.
+-- 'type'', 'accessorSummary_type' - The type of the accessor.
+--
+-- Currently accessor type is restricted to @BILLING_TOKEN@.
 newAccessorSummary ::
   AccessorSummary
 newAccessorSummary =
   AccessorSummary'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       status = Prelude.Nothing,
-      id = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of the accessor.
---
--- Currently accessor type is restricted to @BILLING_TOKEN@.
-accessorSummary_type :: Lens.Lens' AccessorSummary (Prelude.Maybe AccessorType)
-accessorSummary_type = Lens.lens (\AccessorSummary' {type'} -> type') (\s@AccessorSummary' {} a -> s {type' = a} :: AccessorSummary)
 
 -- | The Amazon Resource Name (ARN) of the accessor. For more information
 -- about ARNs and their format, see
@@ -103,13 +97,19 @@ accessorSummary_arn = Lens.lens (\AccessorSummary' {arn} -> arn) (\s@AccessorSum
 accessorSummary_creationDate :: Lens.Lens' AccessorSummary (Prelude.Maybe Prelude.UTCTime)
 accessorSummary_creationDate = Lens.lens (\AccessorSummary' {creationDate} -> creationDate) (\s@AccessorSummary' {} a -> s {creationDate = a} :: AccessorSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The unique identifier of the accessor.
+accessorSummary_id :: Lens.Lens' AccessorSummary (Prelude.Maybe Prelude.Text)
+accessorSummary_id = Lens.lens (\AccessorSummary' {id} -> id) (\s@AccessorSummary' {} a -> s {id = a} :: AccessorSummary)
+
 -- | The current status of the accessor.
 accessorSummary_status :: Lens.Lens' AccessorSummary (Prelude.Maybe AccessorStatus)
 accessorSummary_status = Lens.lens (\AccessorSummary' {status} -> status) (\s@AccessorSummary' {} a -> s {status = a} :: AccessorSummary)
 
--- | The unique identifier of the accessor.
-accessorSummary_id :: Lens.Lens' AccessorSummary (Prelude.Maybe Prelude.Text)
-accessorSummary_id = Lens.lens (\AccessorSummary' {id} -> id) (\s@AccessorSummary' {} a -> s {id = a} :: AccessorSummary)
+-- | The type of the accessor.
+--
+-- Currently accessor type is restricted to @BILLING_TOKEN@.
+accessorSummary_type :: Lens.Lens' AccessorSummary (Prelude.Maybe AccessorType)
+accessorSummary_type = Lens.lens (\AccessorSummary' {type'} -> type') (\s@AccessorSummary' {} a -> s {type' = a} :: AccessorSummary)
 
 instance Data.FromJSON AccessorSummary where
   parseJSON =
@@ -117,25 +117,25 @@ instance Data.FromJSON AccessorSummary where
       "AccessorSummary"
       ( \x ->
           AccessorSummary'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AccessorSummary where
   hashWithSalt _salt AccessorSummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AccessorSummary where
   rnf AccessorSummary' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

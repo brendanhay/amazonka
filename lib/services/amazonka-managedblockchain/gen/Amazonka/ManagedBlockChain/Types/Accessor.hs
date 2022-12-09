@@ -35,26 +35,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessor' smart constructor.
 data Accessor = Accessor'
-  { -- | The billing token is a property of the accessor. Use this token to make
-    -- Ethereum API calls to your Ethereum node. The billing token is used to
-    -- track your accessor object for billing Ethereum API requests made to
-    -- your Ethereum nodes.
-    billingToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of the accessor.
-    --
-    -- Currently accessor type is restricted to @BILLING_TOKEN@.
-    type' :: Prelude.Maybe AccessorType,
-    -- | The Amazon Resource Name (ARN) of the accessor. For more information
+  { -- | The Amazon Resource Name (ARN) of the accessor. For more information
     -- about ARNs and their format, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The billing token is a property of the accessor. Use this token to make
+    -- Ethereum API calls to your Ethereum node. The billing token is used to
+    -- track your accessor object for billing Ethereum API requests made to
+    -- your Ethereum nodes.
+    billingToken :: Prelude.Maybe Prelude.Text,
     -- | The creation date and time of the accessor.
     creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the accessor.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The current status of the accessor.
     status :: Prelude.Maybe AccessorStatus,
-    -- | The unique identifier of the accessor.
-    id :: Prelude.Maybe Prelude.Text
+    -- | The type of the accessor.
+    --
+    -- Currently accessor type is restricted to @BILLING_TOKEN@.
+    type' :: Prelude.Maybe AccessorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,49 +66,36 @@ data Accessor = Accessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingToken', 'accessor_billingToken' - The billing token is a property of the accessor. Use this token to make
--- Ethereum API calls to your Ethereum node. The billing token is used to
--- track your accessor object for billing Ethereum API requests made to
--- your Ethereum nodes.
---
--- 'type'', 'accessor_type' - The type of the accessor.
---
--- Currently accessor type is restricted to @BILLING_TOKEN@.
---
 -- 'arn', 'accessor_arn' - The Amazon Resource Name (ARN) of the accessor. For more information
 -- about ARNs and their format, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
+-- 'billingToken', 'accessor_billingToken' - The billing token is a property of the accessor. Use this token to make
+-- Ethereum API calls to your Ethereum node. The billing token is used to
+-- track your accessor object for billing Ethereum API requests made to
+-- your Ethereum nodes.
+--
 -- 'creationDate', 'accessor_creationDate' - The creation date and time of the accessor.
+--
+-- 'id', 'accessor_id' - The unique identifier of the accessor.
 --
 -- 'status', 'accessor_status' - The current status of the accessor.
 --
--- 'id', 'accessor_id' - The unique identifier of the accessor.
+-- 'type'', 'accessor_type' - The type of the accessor.
+--
+-- Currently accessor type is restricted to @BILLING_TOKEN@.
 newAccessor ::
   Accessor
 newAccessor =
   Accessor'
-    { billingToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      billingToken = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       status = Prelude.Nothing,
-      id = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The billing token is a property of the accessor. Use this token to make
--- Ethereum API calls to your Ethereum node. The billing token is used to
--- track your accessor object for billing Ethereum API requests made to
--- your Ethereum nodes.
-accessor_billingToken :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
-accessor_billingToken = Lens.lens (\Accessor' {billingToken} -> billingToken) (\s@Accessor' {} a -> s {billingToken = a} :: Accessor)
-
--- | The type of the accessor.
---
--- Currently accessor type is restricted to @BILLING_TOKEN@.
-accessor_type :: Lens.Lens' Accessor (Prelude.Maybe AccessorType)
-accessor_type = Lens.lens (\Accessor' {type'} -> type') (\s@Accessor' {} a -> s {type' = a} :: Accessor)
 
 -- | The Amazon Resource Name (ARN) of the accessor. For more information
 -- about ARNs and their format, see
@@ -117,17 +104,30 @@ accessor_type = Lens.lens (\Accessor' {type'} -> type') (\s@Accessor' {} a -> s 
 accessor_arn :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
 accessor_arn = Lens.lens (\Accessor' {arn} -> arn) (\s@Accessor' {} a -> s {arn = a} :: Accessor)
 
+-- | The billing token is a property of the accessor. Use this token to make
+-- Ethereum API calls to your Ethereum node. The billing token is used to
+-- track your accessor object for billing Ethereum API requests made to
+-- your Ethereum nodes.
+accessor_billingToken :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
+accessor_billingToken = Lens.lens (\Accessor' {billingToken} -> billingToken) (\s@Accessor' {} a -> s {billingToken = a} :: Accessor)
+
 -- | The creation date and time of the accessor.
 accessor_creationDate :: Lens.Lens' Accessor (Prelude.Maybe Prelude.UTCTime)
 accessor_creationDate = Lens.lens (\Accessor' {creationDate} -> creationDate) (\s@Accessor' {} a -> s {creationDate = a} :: Accessor) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the accessor.
+accessor_id :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
+accessor_id = Lens.lens (\Accessor' {id} -> id) (\s@Accessor' {} a -> s {id = a} :: Accessor)
 
 -- | The current status of the accessor.
 accessor_status :: Lens.Lens' Accessor (Prelude.Maybe AccessorStatus)
 accessor_status = Lens.lens (\Accessor' {status} -> status) (\s@Accessor' {} a -> s {status = a} :: Accessor)
 
--- | The unique identifier of the accessor.
-accessor_id :: Lens.Lens' Accessor (Prelude.Maybe Prelude.Text)
-accessor_id = Lens.lens (\Accessor' {id} -> id) (\s@Accessor' {} a -> s {id = a} :: Accessor)
+-- | The type of the accessor.
+--
+-- Currently accessor type is restricted to @BILLING_TOKEN@.
+accessor_type :: Lens.Lens' Accessor (Prelude.Maybe AccessorType)
+accessor_type = Lens.lens (\Accessor' {type'} -> type') (\s@Accessor' {} a -> s {type' = a} :: Accessor)
 
 instance Data.FromJSON Accessor where
   parseJSON =
@@ -135,28 +135,28 @@ instance Data.FromJSON Accessor where
       "Accessor"
       ( \x ->
           Accessor'
-            Prelude.<$> (x Data..:? "BillingToken")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "BillingToken")
             Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Accessor where
   hashWithSalt _salt Accessor' {..} =
-    _salt `Prelude.hashWithSalt` billingToken
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` billingToken
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Accessor where
   rnf Accessor' {..} =
-    Prelude.rnf billingToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf billingToken
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

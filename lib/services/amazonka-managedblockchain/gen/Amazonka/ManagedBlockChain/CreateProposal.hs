@@ -31,8 +31,8 @@ module Amazonka.ManagedBlockChain.CreateProposal
     newCreateProposal,
 
     -- * Request Lenses
-    createProposal_tags,
     createProposal_description,
+    createProposal_tags,
     createProposal_clientRequestToken,
     createProposal_networkId,
     createProposal_memberId,
@@ -58,7 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProposal' smart constructor.
 data CreateProposal = CreateProposal'
-  { -- | Tags to assign to the proposal. Each tag consists of a key and optional
+  { -- | A description for the proposal that is visible to voting members, for
+    -- example, \"Proposal to add Example Corp. as member.\"
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Tags to assign to the proposal. Each tag consists of a key and optional
     -- value.
     --
     -- When specifying tags during creation, you can specify multiple key-value
@@ -72,9 +75,6 @@ data CreateProposal = CreateProposal'
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
     -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description for the proposal that is visible to voting members, for
-    -- example, \"Proposal to add Example Corp. as member.\"
-    description :: Prelude.Maybe Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time. This identifier is required only if you make a service
@@ -104,6 +104,9 @@ data CreateProposal = CreateProposal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createProposal_description' - A description for the proposal that is visible to voting members, for
+-- example, \"Proposal to add Example Corp. as member.\"
+--
 -- 'tags', 'createProposal_tags' - Tags to assign to the proposal. Each tag consists of a key and optional
 -- value.
 --
@@ -117,9 +120,6 @@ data CreateProposal = CreateProposal'
 -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
---
--- 'description', 'createProposal_description' - A description for the proposal that is visible to voting members, for
--- example, \"Proposal to add Example Corp. as member.\"
 --
 -- 'clientRequestToken', 'createProposal_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
@@ -154,13 +154,18 @@ newCreateProposal
   pMemberId_
   pActions_ =
     CreateProposal'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = pClientRequestToken_,
         networkId = pNetworkId_,
         memberId = pMemberId_,
         actions = pActions_
       }
+
+-- | A description for the proposal that is visible to voting members, for
+-- example, \"Proposal to add Example Corp. as member.\"
+createProposal_description :: Lens.Lens' CreateProposal (Prelude.Maybe Prelude.Text)
+createProposal_description = Lens.lens (\CreateProposal' {description} -> description) (\s@CreateProposal' {} a -> s {description = a} :: CreateProposal)
 
 -- | Tags to assign to the proposal. Each tag consists of a key and optional
 -- value.
@@ -177,11 +182,6 @@ newCreateProposal
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 createProposal_tags :: Lens.Lens' CreateProposal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createProposal_tags = Lens.lens (\CreateProposal' {tags} -> tags) (\s@CreateProposal' {} a -> s {tags = a} :: CreateProposal) Prelude.. Lens.mapping Lens.coerced
-
--- | A description for the proposal that is visible to voting members, for
--- example, \"Proposal to add Example Corp. as member.\"
-createProposal_description :: Lens.Lens' CreateProposal (Prelude.Maybe Prelude.Text)
-createProposal_description = Lens.lens (\CreateProposal' {description} -> description) (\s@CreateProposal' {} a -> s {description = a} :: CreateProposal)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
@@ -225,8 +225,8 @@ instance Core.AWSRequest CreateProposal where
 
 instance Prelude.Hashable CreateProposal where
   hashWithSalt _salt CreateProposal' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` memberId
@@ -234,8 +234,8 @@ instance Prelude.Hashable CreateProposal where
 
 instance Prelude.NFData CreateProposal where
   rnf CreateProposal' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf memberId
@@ -256,8 +256,8 @@ instance Data.ToJSON CreateProposal where
   toJSON CreateProposal' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just ("MemberId" Data..= memberId),

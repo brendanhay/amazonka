@@ -29,9 +29,9 @@ module Amazonka.ManagedBlockChain.CreateNetwork
     newCreateNetwork,
 
     -- * Request Lenses
-    createNetwork_tags,
-    createNetwork_frameworkConfiguration,
     createNetwork_description,
+    createNetwork_frameworkConfiguration,
+    createNetwork_tags,
     createNetwork_clientRequestToken,
     createNetwork_name,
     createNetwork_framework,
@@ -60,7 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNetwork' smart constructor.
 data CreateNetwork = CreateNetwork'
-  { -- | Tags to assign to the network. Each tag consists of a key and optional
+  { -- | An optional description for the network.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration properties of the blockchain framework relevant to the
+    -- network configuration.
+    frameworkConfiguration :: Prelude.Maybe NetworkFrameworkConfiguration,
+    -- | Tags to assign to the network. Each tag consists of a key and optional
     -- value.
     --
     -- When specifying tags during creation, you can specify multiple key-value
@@ -73,11 +78,6 @@ data CreateNetwork = CreateNetwork'
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
     -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Configuration properties of the blockchain framework relevant to the
-    -- network configuration.
-    frameworkConfiguration :: Prelude.Maybe NetworkFrameworkConfiguration,
-    -- | An optional description for the network.
-    description :: Prelude.Maybe Prelude.Text,
     -- | This is a unique, case-sensitive identifier that you provide to ensure
     -- the idempotency of the operation. An idempotent operation completes no
     -- more than once. This identifier is required only if you make a service
@@ -106,6 +106,11 @@ data CreateNetwork = CreateNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createNetwork_description' - An optional description for the network.
+--
+-- 'frameworkConfiguration', 'createNetwork_frameworkConfiguration' - Configuration properties of the blockchain framework relevant to the
+-- network configuration.
+--
 -- 'tags', 'createNetwork_tags' - Tags to assign to the network. Each tag consists of a key and optional
 -- value.
 --
@@ -118,11 +123,6 @@ data CreateNetwork = CreateNetwork'
 -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
---
--- 'frameworkConfiguration', 'createNetwork_frameworkConfiguration' - Configuration properties of the blockchain framework relevant to the
--- network configuration.
---
--- 'description', 'createNetwork_description' - An optional description for the network.
 --
 -- 'clientRequestToken', 'createNetwork_clientRequestToken' - This is a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the operation. An idempotent operation completes no
@@ -162,9 +162,9 @@ newCreateNetwork
   pVotingPolicy_
   pMemberConfiguration_ =
     CreateNetwork'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         frameworkConfiguration = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientRequestToken = pClientRequestToken_,
         name = pName_,
         framework = pFramework_,
@@ -172,6 +172,15 @@ newCreateNetwork
         votingPolicy = pVotingPolicy_,
         memberConfiguration = pMemberConfiguration_
       }
+
+-- | An optional description for the network.
+createNetwork_description :: Lens.Lens' CreateNetwork (Prelude.Maybe Prelude.Text)
+createNetwork_description = Lens.lens (\CreateNetwork' {description} -> description) (\s@CreateNetwork' {} a -> s {description = a} :: CreateNetwork)
+
+-- | Configuration properties of the blockchain framework relevant to the
+-- network configuration.
+createNetwork_frameworkConfiguration :: Lens.Lens' CreateNetwork (Prelude.Maybe NetworkFrameworkConfiguration)
+createNetwork_frameworkConfiguration = Lens.lens (\CreateNetwork' {frameworkConfiguration} -> frameworkConfiguration) (\s@CreateNetwork' {} a -> s {frameworkConfiguration = a} :: CreateNetwork)
 
 -- | Tags to assign to the network. Each tag consists of a key and optional
 -- value.
@@ -187,15 +196,6 @@ newCreateNetwork
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 createNetwork_tags :: Lens.Lens' CreateNetwork (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createNetwork_tags = Lens.lens (\CreateNetwork' {tags} -> tags) (\s@CreateNetwork' {} a -> s {tags = a} :: CreateNetwork) Prelude.. Lens.mapping Lens.coerced
-
--- | Configuration properties of the blockchain framework relevant to the
--- network configuration.
-createNetwork_frameworkConfiguration :: Lens.Lens' CreateNetwork (Prelude.Maybe NetworkFrameworkConfiguration)
-createNetwork_frameworkConfiguration = Lens.lens (\CreateNetwork' {frameworkConfiguration} -> frameworkConfiguration) (\s@CreateNetwork' {} a -> s {frameworkConfiguration = a} :: CreateNetwork)
-
--- | An optional description for the network.
-createNetwork_description :: Lens.Lens' CreateNetwork (Prelude.Maybe Prelude.Text)
-createNetwork_description = Lens.lens (\CreateNetwork' {description} -> description) (\s@CreateNetwork' {} a -> s {description = a} :: CreateNetwork)
 
 -- | This is a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the operation. An idempotent operation completes no
@@ -243,9 +243,9 @@ instance Core.AWSRequest CreateNetwork where
 
 instance Prelude.Hashable CreateNetwork where
   hashWithSalt _salt CreateNetwork' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkConfiguration
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` framework
@@ -255,9 +255,9 @@ instance Prelude.Hashable CreateNetwork where
 
 instance Prelude.NFData CreateNetwork where
   rnf CreateNetwork' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf frameworkConfiguration
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf framework
@@ -280,10 +280,10 @@ instance Data.ToJSON CreateNetwork where
   toJSON CreateNetwork' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("FrameworkConfiguration" Data..=)
               Prelude.<$> frameworkConfiguration,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just ("Name" Data..= name),

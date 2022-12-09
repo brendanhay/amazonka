@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFrameworkAttributes' smart constructor.
 data NetworkFrameworkAttributes = NetworkFrameworkAttributes'
-  { -- | Attributes of Hyperledger Fabric for a Managed Blockchain network that
-    -- uses Hyperledger Fabric.
-    fabric :: Prelude.Maybe NetworkFabricAttributes,
-    -- | Attributes of an Ethereum network for Managed Blockchain resources
+  { -- | Attributes of an Ethereum network for Managed Blockchain resources
     -- participating in an Ethereum network.
-    ethereum :: Prelude.Maybe NetworkEthereumAttributes
+    ethereum :: Prelude.Maybe NetworkEthereumAttributes,
+    -- | Attributes of Hyperledger Fabric for a Managed Blockchain network that
+    -- uses Hyperledger Fabric.
+    fabric :: Prelude.Maybe NetworkFabricAttributes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data NetworkFrameworkAttributes = NetworkFrameworkAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fabric', 'networkFrameworkAttributes_fabric' - Attributes of Hyperledger Fabric for a Managed Blockchain network that
--- uses Hyperledger Fabric.
---
 -- 'ethereum', 'networkFrameworkAttributes_ethereum' - Attributes of an Ethereum network for Managed Blockchain resources
 -- participating in an Ethereum network.
+--
+-- 'fabric', 'networkFrameworkAttributes_fabric' - Attributes of Hyperledger Fabric for a Managed Blockchain network that
+-- uses Hyperledger Fabric.
 newNetworkFrameworkAttributes ::
   NetworkFrameworkAttributes
 newNetworkFrameworkAttributes =
   NetworkFrameworkAttributes'
-    { fabric =
+    { ethereum =
         Prelude.Nothing,
-      ethereum = Prelude.Nothing
+      fabric = Prelude.Nothing
     }
-
--- | Attributes of Hyperledger Fabric for a Managed Blockchain network that
--- uses Hyperledger Fabric.
-networkFrameworkAttributes_fabric :: Lens.Lens' NetworkFrameworkAttributes (Prelude.Maybe NetworkFabricAttributes)
-networkFrameworkAttributes_fabric = Lens.lens (\NetworkFrameworkAttributes' {fabric} -> fabric) (\s@NetworkFrameworkAttributes' {} a -> s {fabric = a} :: NetworkFrameworkAttributes)
 
 -- | Attributes of an Ethereum network for Managed Blockchain resources
 -- participating in an Ethereum network.
 networkFrameworkAttributes_ethereum :: Lens.Lens' NetworkFrameworkAttributes (Prelude.Maybe NetworkEthereumAttributes)
 networkFrameworkAttributes_ethereum = Lens.lens (\NetworkFrameworkAttributes' {ethereum} -> ethereum) (\s@NetworkFrameworkAttributes' {} a -> s {ethereum = a} :: NetworkFrameworkAttributes)
+
+-- | Attributes of Hyperledger Fabric for a Managed Blockchain network that
+-- uses Hyperledger Fabric.
+networkFrameworkAttributes_fabric :: Lens.Lens' NetworkFrameworkAttributes (Prelude.Maybe NetworkFabricAttributes)
+networkFrameworkAttributes_fabric = Lens.lens (\NetworkFrameworkAttributes' {fabric} -> fabric) (\s@NetworkFrameworkAttributes' {} a -> s {fabric = a} :: NetworkFrameworkAttributes)
 
 instance Data.FromJSON NetworkFrameworkAttributes where
   parseJSON =
@@ -78,16 +78,16 @@ instance Data.FromJSON NetworkFrameworkAttributes where
       "NetworkFrameworkAttributes"
       ( \x ->
           NetworkFrameworkAttributes'
-            Prelude.<$> (x Data..:? "Fabric")
-            Prelude.<*> (x Data..:? "Ethereum")
+            Prelude.<$> (x Data..:? "Ethereum")
+            Prelude.<*> (x Data..:? "Fabric")
       )
 
 instance Prelude.Hashable NetworkFrameworkAttributes where
   hashWithSalt _salt NetworkFrameworkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` fabric
-      `Prelude.hashWithSalt` ethereum
+    _salt `Prelude.hashWithSalt` ethereum
+      `Prelude.hashWithSalt` fabric
 
 instance Prelude.NFData NetworkFrameworkAttributes where
   rnf NetworkFrameworkAttributes' {..} =
-    Prelude.rnf fabric
-      `Prelude.seq` Prelude.rnf ethereum
+    Prelude.rnf ethereum
+      `Prelude.seq` Prelude.rnf fabric

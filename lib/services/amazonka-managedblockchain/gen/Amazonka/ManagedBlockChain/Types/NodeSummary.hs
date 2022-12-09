@@ -34,16 +34,16 @@ data NodeSummary = NodeSummary'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the node was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The status of the node.
-    status :: Prelude.Maybe NodeStatus,
     -- | The Availability Zone in which the node exists.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the node was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the node.
     id :: Prelude.Maybe Prelude.Text,
     -- | The EC2 instance type for the node.
-    instanceType :: Prelude.Maybe Prelude.Text
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The status of the node.
+    status :: Prelude.Maybe NodeStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,25 +60,25 @@ data NodeSummary = NodeSummary'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
--- 'creationDate', 'nodeSummary_creationDate' - The date and time that the node was created.
---
--- 'status', 'nodeSummary_status' - The status of the node.
---
 -- 'availabilityZone', 'nodeSummary_availabilityZone' - The Availability Zone in which the node exists.
+--
+-- 'creationDate', 'nodeSummary_creationDate' - The date and time that the node was created.
 --
 -- 'id', 'nodeSummary_id' - The unique identifier of the node.
 --
 -- 'instanceType', 'nodeSummary_instanceType' - The EC2 instance type for the node.
+--
+-- 'status', 'nodeSummary_status' - The status of the node.
 newNodeSummary ::
   NodeSummary
 newNodeSummary =
   NodeSummary'
     { arn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       id = Prelude.Nothing,
-      instanceType = Prelude.Nothing
+      instanceType = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the node. For more information about
@@ -88,17 +88,13 @@ newNodeSummary =
 nodeSummary_arn :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
 nodeSummary_arn = Lens.lens (\NodeSummary' {arn} -> arn) (\s@NodeSummary' {} a -> s {arn = a} :: NodeSummary)
 
--- | The date and time that the node was created.
-nodeSummary_creationDate :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.UTCTime)
-nodeSummary_creationDate = Lens.lens (\NodeSummary' {creationDate} -> creationDate) (\s@NodeSummary' {} a -> s {creationDate = a} :: NodeSummary) Prelude.. Lens.mapping Data._Time
-
--- | The status of the node.
-nodeSummary_status :: Lens.Lens' NodeSummary (Prelude.Maybe NodeStatus)
-nodeSummary_status = Lens.lens (\NodeSummary' {status} -> status) (\s@NodeSummary' {} a -> s {status = a} :: NodeSummary)
-
 -- | The Availability Zone in which the node exists.
 nodeSummary_availabilityZone :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
 nodeSummary_availabilityZone = Lens.lens (\NodeSummary' {availabilityZone} -> availabilityZone) (\s@NodeSummary' {} a -> s {availabilityZone = a} :: NodeSummary)
+
+-- | The date and time that the node was created.
+nodeSummary_creationDate :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.UTCTime)
+nodeSummary_creationDate = Lens.lens (\NodeSummary' {creationDate} -> creationDate) (\s@NodeSummary' {} a -> s {creationDate = a} :: NodeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the node.
 nodeSummary_id :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
@@ -108,6 +104,10 @@ nodeSummary_id = Lens.lens (\NodeSummary' {id} -> id) (\s@NodeSummary' {} a -> s
 nodeSummary_instanceType :: Lens.Lens' NodeSummary (Prelude.Maybe Prelude.Text)
 nodeSummary_instanceType = Lens.lens (\NodeSummary' {instanceType} -> instanceType) (\s@NodeSummary' {} a -> s {instanceType = a} :: NodeSummary)
 
+-- | The status of the node.
+nodeSummary_status :: Lens.Lens' NodeSummary (Prelude.Maybe NodeStatus)
+nodeSummary_status = Lens.lens (\NodeSummary' {status} -> status) (\s@NodeSummary' {} a -> s {status = a} :: NodeSummary)
+
 instance Data.FromJSON NodeSummary where
   parseJSON =
     Data.withObject
@@ -115,27 +115,27 @@ instance Data.FromJSON NodeSummary where
       ( \x ->
           NodeSummary'
             Prelude.<$> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable NodeSummary where
   hashWithSalt _salt NodeSummary' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData NodeSummary where
   rnf NodeSummary' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf status

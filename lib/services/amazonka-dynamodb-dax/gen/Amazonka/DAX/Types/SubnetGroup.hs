@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubnetGroup' smart constructor.
 data SubnetGroup = SubnetGroup'
-  { -- | The name of the subnet group.
+  { -- | The description of the subnet group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the subnet group.
     subnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | A list of subnets associated with the subnet group.
     subnets :: Prelude.Maybe [Subnet],
-    -- | The description of the subnet group.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
     -- group.
     vpcId :: Prelude.Maybe Prelude.Text
@@ -53,11 +53,11 @@ data SubnetGroup = SubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'subnetGroup_description' - The description of the subnet group.
+--
 -- 'subnetGroupName', 'subnetGroup_subnetGroupName' - The name of the subnet group.
 --
 -- 'subnets', 'subnetGroup_subnets' - A list of subnets associated with the subnet group.
---
--- 'description', 'subnetGroup_description' - The description of the subnet group.
 --
 -- 'vpcId', 'subnetGroup_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
@@ -65,11 +65,15 @@ newSubnetGroup ::
   SubnetGroup
 newSubnetGroup =
   SubnetGroup'
-    { subnetGroupName = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      subnetGroupName = Prelude.Nothing,
       subnets = Prelude.Nothing,
-      description = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
+
+-- | The description of the subnet group.
+subnetGroup_description :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
+subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description) (\s@SubnetGroup' {} a -> s {description = a} :: SubnetGroup)
 
 -- | The name of the subnet group.
 subnetGroup_subnetGroupName :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
@@ -78,10 +82,6 @@ subnetGroup_subnetGroupName = Lens.lens (\SubnetGroup' {subnetGroupName} -> subn
 -- | A list of subnets associated with the subnet group.
 subnetGroup_subnets :: Lens.Lens' SubnetGroup (Prelude.Maybe [Subnet])
 subnetGroup_subnets = Lens.lens (\SubnetGroup' {subnets} -> subnets) (\s@SubnetGroup' {} a -> s {subnets = a} :: SubnetGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the subnet group.
-subnetGroup_description :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
-subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description) (\s@SubnetGroup' {} a -> s {description = a} :: SubnetGroup)
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
@@ -94,22 +94,22 @@ instance Data.FromJSON SubnetGroup where
       "SubnetGroup"
       ( \x ->
           SubnetGroup'
-            Prelude.<$> (x Data..:? "SubnetGroupName")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "SubnetGroupName")
             Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable SubnetGroup where
   hashWithSalt _salt SubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` subnetGroupName
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` subnetGroupName
       `Prelude.hashWithSalt` subnets
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData SubnetGroup where
   rnf SubnetGroup' {..} =
-    Prelude.rnf subnetGroupName
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf subnetGroupName
       `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf vpcId

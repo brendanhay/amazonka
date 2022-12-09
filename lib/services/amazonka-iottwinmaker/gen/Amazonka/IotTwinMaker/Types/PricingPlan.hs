@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPricingPlan' smart constructor.
 data PricingPlan = PricingPlan'
-  { -- | The pricing plan\'s bundle information.
-    bundleInformation :: Prelude.Maybe BundleInformation,
-    -- | The billable entity count.
+  { -- | The billable entity count.
     billableEntityCount :: Prelude.Maybe Prelude.Integer,
+    -- | The pricing plan\'s bundle information.
+    bundleInformation :: Prelude.Maybe BundleInformation,
     -- | The effective date and time of the pricing plan.
     effectiveDateTime :: Data.POSIX,
     -- | The pricing mode.
@@ -54,9 +54,9 @@ data PricingPlan = PricingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bundleInformation', 'pricingPlan_bundleInformation' - The pricing plan\'s bundle information.
---
 -- 'billableEntityCount', 'pricingPlan_billableEntityCount' - The billable entity count.
+--
+-- 'bundleInformation', 'pricingPlan_bundleInformation' - The pricing plan\'s bundle information.
 --
 -- 'effectiveDateTime', 'pricingPlan_effectiveDateTime' - The effective date and time of the pricing plan.
 --
@@ -81,8 +81,8 @@ newPricingPlan
   pUpdateDateTime_
   pUpdateReason_ =
     PricingPlan'
-      { bundleInformation = Prelude.Nothing,
-        billableEntityCount = Prelude.Nothing,
+      { billableEntityCount = Prelude.Nothing,
+        bundleInformation = Prelude.Nothing,
         effectiveDateTime =
           Data._Time Lens.# pEffectiveDateTime_,
         pricingMode = pPricingMode_,
@@ -90,13 +90,13 @@ newPricingPlan
         updateReason = pUpdateReason_
       }
 
--- | The pricing plan\'s bundle information.
-pricingPlan_bundleInformation :: Lens.Lens' PricingPlan (Prelude.Maybe BundleInformation)
-pricingPlan_bundleInformation = Lens.lens (\PricingPlan' {bundleInformation} -> bundleInformation) (\s@PricingPlan' {} a -> s {bundleInformation = a} :: PricingPlan)
-
 -- | The billable entity count.
 pricingPlan_billableEntityCount :: Lens.Lens' PricingPlan (Prelude.Maybe Prelude.Integer)
 pricingPlan_billableEntityCount = Lens.lens (\PricingPlan' {billableEntityCount} -> billableEntityCount) (\s@PricingPlan' {} a -> s {billableEntityCount = a} :: PricingPlan)
+
+-- | The pricing plan\'s bundle information.
+pricingPlan_bundleInformation :: Lens.Lens' PricingPlan (Prelude.Maybe BundleInformation)
+pricingPlan_bundleInformation = Lens.lens (\PricingPlan' {bundleInformation} -> bundleInformation) (\s@PricingPlan' {} a -> s {bundleInformation = a} :: PricingPlan)
 
 -- | The effective date and time of the pricing plan.
 pricingPlan_effectiveDateTime :: Lens.Lens' PricingPlan Prelude.UTCTime
@@ -120,8 +120,8 @@ instance Data.FromJSON PricingPlan where
       "PricingPlan"
       ( \x ->
           PricingPlan'
-            Prelude.<$> (x Data..:? "bundleInformation")
-            Prelude.<*> (x Data..:? "billableEntityCount")
+            Prelude.<$> (x Data..:? "billableEntityCount")
+            Prelude.<*> (x Data..:? "bundleInformation")
             Prelude.<*> (x Data..: "effectiveDateTime")
             Prelude.<*> (x Data..: "pricingMode")
             Prelude.<*> (x Data..: "updateDateTime")
@@ -130,8 +130,8 @@ instance Data.FromJSON PricingPlan where
 
 instance Prelude.Hashable PricingPlan where
   hashWithSalt _salt PricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` bundleInformation
-      `Prelude.hashWithSalt` billableEntityCount
+    _salt `Prelude.hashWithSalt` billableEntityCount
+      `Prelude.hashWithSalt` bundleInformation
       `Prelude.hashWithSalt` effectiveDateTime
       `Prelude.hashWithSalt` pricingMode
       `Prelude.hashWithSalt` updateDateTime
@@ -139,8 +139,8 @@ instance Prelude.Hashable PricingPlan where
 
 instance Prelude.NFData PricingPlan where
   rnf PricingPlan' {..} =
-    Prelude.rnf bundleInformation
-      `Prelude.seq` Prelude.rnf billableEntityCount
+    Prelude.rnf billableEntityCount
+      `Prelude.seq` Prelude.rnf bundleInformation
       `Prelude.seq` Prelude.rnf effectiveDateTime
       `Prelude.seq` Prelude.rnf pricingMode
       `Prelude.seq` Prelude.rnf updateDateTime

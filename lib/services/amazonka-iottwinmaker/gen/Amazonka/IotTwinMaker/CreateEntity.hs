@@ -27,11 +27,11 @@ module Amazonka.IotTwinMaker.CreateEntity
     newCreateEntity,
 
     -- * Request Lenses
-    createEntity_tags,
+    createEntity_components,
+    createEntity_description,
     createEntity_entityId,
     createEntity_parentEntityId,
-    createEntity_description,
-    createEntity_components,
+    createEntity_tags,
     createEntity_workspaceId,
     createEntity_entityName,
 
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEntity' smart constructor.
 data CreateEntity = CreateEntity'
-  { -- | Metadata that you can use to manage the entity.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | An object that maps strings to the components in the entity. Each string
+    -- in the mapping must be unique to this object.
+    components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest),
+    -- | The description of the entity.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the entity.
     entityId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the entity\'s parent entity.
     parentEntityId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the entity.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An object that maps strings to the components in the entity. Each string
-    -- in the mapping must be unique to this object.
-    components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest),
+    -- | Metadata that you can use to manage the entity.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace that contains the entity.
     workspaceId :: Prelude.Text,
     -- | The name of the entity.
@@ -84,16 +84,16 @@ data CreateEntity = CreateEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEntity_tags' - Metadata that you can use to manage the entity.
+-- 'components', 'createEntity_components' - An object that maps strings to the components in the entity. Each string
+-- in the mapping must be unique to this object.
+--
+-- 'description', 'createEntity_description' - The description of the entity.
 --
 -- 'entityId', 'createEntity_entityId' - The ID of the entity.
 --
 -- 'parentEntityId', 'createEntity_parentEntityId' - The ID of the entity\'s parent entity.
 --
--- 'description', 'createEntity_description' - The description of the entity.
---
--- 'components', 'createEntity_components' - An object that maps strings to the components in the entity. Each string
--- in the mapping must be unique to this object.
+-- 'tags', 'createEntity_tags' - Metadata that you can use to manage the entity.
 --
 -- 'workspaceId', 'createEntity_workspaceId' - The ID of the workspace that contains the entity.
 --
@@ -106,18 +106,23 @@ newCreateEntity ::
   CreateEntity
 newCreateEntity pWorkspaceId_ pEntityName_ =
   CreateEntity'
-    { tags = Prelude.Nothing,
+    { components = Prelude.Nothing,
+      description = Prelude.Nothing,
       entityId = Prelude.Nothing,
       parentEntityId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      components = Prelude.Nothing,
+      tags = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       entityName = pEntityName_
     }
 
--- | Metadata that you can use to manage the entity.
-createEntity_tags :: Lens.Lens' CreateEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEntity_tags = Lens.lens (\CreateEntity' {tags} -> tags) (\s@CreateEntity' {} a -> s {tags = a} :: CreateEntity) Prelude.. Lens.mapping Lens.coerced
+-- | An object that maps strings to the components in the entity. Each string
+-- in the mapping must be unique to this object.
+createEntity_components :: Lens.Lens' CreateEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest))
+createEntity_components = Lens.lens (\CreateEntity' {components} -> components) (\s@CreateEntity' {} a -> s {components = a} :: CreateEntity) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the entity.
+createEntity_description :: Lens.Lens' CreateEntity (Prelude.Maybe Prelude.Text)
+createEntity_description = Lens.lens (\CreateEntity' {description} -> description) (\s@CreateEntity' {} a -> s {description = a} :: CreateEntity)
 
 -- | The ID of the entity.
 createEntity_entityId :: Lens.Lens' CreateEntity (Prelude.Maybe Prelude.Text)
@@ -127,14 +132,9 @@ createEntity_entityId = Lens.lens (\CreateEntity' {entityId} -> entityId) (\s@Cr
 createEntity_parentEntityId :: Lens.Lens' CreateEntity (Prelude.Maybe Prelude.Text)
 createEntity_parentEntityId = Lens.lens (\CreateEntity' {parentEntityId} -> parentEntityId) (\s@CreateEntity' {} a -> s {parentEntityId = a} :: CreateEntity)
 
--- | The description of the entity.
-createEntity_description :: Lens.Lens' CreateEntity (Prelude.Maybe Prelude.Text)
-createEntity_description = Lens.lens (\CreateEntity' {description} -> description) (\s@CreateEntity' {} a -> s {description = a} :: CreateEntity)
-
--- | An object that maps strings to the components in the entity. Each string
--- in the mapping must be unique to this object.
-createEntity_components :: Lens.Lens' CreateEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentRequest))
-createEntity_components = Lens.lens (\CreateEntity' {components} -> components) (\s@CreateEntity' {} a -> s {components = a} :: CreateEntity) Prelude.. Lens.mapping Lens.coerced
+-- | Metadata that you can use to manage the entity.
+createEntity_tags :: Lens.Lens' CreateEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEntity_tags = Lens.lens (\CreateEntity' {tags} -> tags) (\s@CreateEntity' {} a -> s {tags = a} :: CreateEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace that contains the entity.
 createEntity_workspaceId :: Lens.Lens' CreateEntity Prelude.Text
@@ -161,21 +161,21 @@ instance Core.AWSRequest CreateEntity where
 
 instance Prelude.Hashable CreateEntity where
   hashWithSalt _salt CreateEntity' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` components
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` parentEntityId
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` components
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` entityName
 
 instance Prelude.NFData CreateEntity where
   rnf CreateEntity' {..} =
-    Prelude.rnf tags
+    Prelude.rnf components
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf components
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityName
 
@@ -194,12 +194,12 @@ instance Data.ToJSON CreateEntity where
   toJSON CreateEntity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("components" Data..=) Prelude.<$> components,
+            ("description" Data..=) Prelude.<$> description,
             ("entityId" Data..=) Prelude.<$> entityId,
             ("parentEntityId" Data..=)
               Prelude.<$> parentEntityId,
-            ("description" Data..=) Prelude.<$> description,
-            ("components" Data..=) Prelude.<$> components,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("entityName" Data..= entityName)
           ]
       )

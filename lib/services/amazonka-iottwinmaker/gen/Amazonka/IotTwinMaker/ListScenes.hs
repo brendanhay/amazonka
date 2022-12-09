@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.ListScenes
     newListScenes,
 
     -- * Request Lenses
-    listScenes_nextToken,
     listScenes_maxResults,
+    listScenes_nextToken,
     listScenes_workspaceId,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListScenes' smart constructor.
 data ListScenes = ListScenes'
-  { -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of results to display.
+  { -- | Specifies the maximum number of results to display.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace that contains the scenes.
     workspaceId :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data ListScenes = ListScenes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listScenes_nextToken' - The string that specifies the next page of results.
---
 -- 'maxResults', 'listScenes_maxResults' - Specifies the maximum number of results to display.
+--
+-- 'nextToken', 'listScenes_nextToken' - The string that specifies the next page of results.
 --
 -- 'workspaceId', 'listScenes_workspaceId' - The ID of the workspace that contains the scenes.
 newListScenes ::
@@ -80,18 +80,18 @@ newListScenes ::
   ListScenes
 newListScenes pWorkspaceId_ =
   ListScenes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
-
--- | The string that specifies the next page of results.
-listScenes_nextToken :: Lens.Lens' ListScenes (Prelude.Maybe Prelude.Text)
-listScenes_nextToken = Lens.lens (\ListScenes' {nextToken} -> nextToken) (\s@ListScenes' {} a -> s {nextToken = a} :: ListScenes)
 
 -- | Specifies the maximum number of results to display.
 listScenes_maxResults :: Lens.Lens' ListScenes (Prelude.Maybe Prelude.Natural)
 listScenes_maxResults = Lens.lens (\ListScenes' {maxResults} -> maxResults) (\s@ListScenes' {} a -> s {maxResults = a} :: ListScenes)
+
+-- | The string that specifies the next page of results.
+listScenes_nextToken :: Lens.Lens' ListScenes (Prelude.Maybe Prelude.Text)
+listScenes_nextToken = Lens.lens (\ListScenes' {nextToken} -> nextToken) (\s@ListScenes' {} a -> s {nextToken = a} :: ListScenes)
 
 -- | The ID of the workspace that contains the scenes.
 listScenes_workspaceId :: Lens.Lens' ListScenes Prelude.Text
@@ -112,14 +112,14 @@ instance Core.AWSRequest ListScenes where
 
 instance Prelude.Hashable ListScenes where
   hashWithSalt _salt ListScenes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData ListScenes where
   rnf ListScenes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListScenes where
@@ -137,8 +137,8 @@ instance Data.ToJSON ListScenes where
   toJSON ListScenes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

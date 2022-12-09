@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionResponse' smart constructor.
 data FunctionResponse = FunctionResponse'
-  { -- | The required properties of the function.
-    requiredProperties :: Prelude.Maybe [Prelude.Text],
-    -- | The data connector.
+  { -- | The data connector.
     implementedBy :: Prelude.Maybe DataConnector,
-    -- | The scope of the function.
-    scope :: Prelude.Maybe Scope,
     -- | Indicates whether this function is inherited.
-    isInherited :: Prelude.Maybe Prelude.Bool
+    isInherited :: Prelude.Maybe Prelude.Bool,
+    -- | The required properties of the function.
+    requiredProperties :: Prelude.Maybe [Prelude.Text],
+    -- | The scope of the function.
+    scope :: Prelude.Maybe Scope
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,39 +49,38 @@ data FunctionResponse = FunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requiredProperties', 'functionResponse_requiredProperties' - The required properties of the function.
---
 -- 'implementedBy', 'functionResponse_implementedBy' - The data connector.
 --
--- 'scope', 'functionResponse_scope' - The scope of the function.
---
 -- 'isInherited', 'functionResponse_isInherited' - Indicates whether this function is inherited.
+--
+-- 'requiredProperties', 'functionResponse_requiredProperties' - The required properties of the function.
+--
+-- 'scope', 'functionResponse_scope' - The scope of the function.
 newFunctionResponse ::
   FunctionResponse
 newFunctionResponse =
   FunctionResponse'
-    { requiredProperties =
-        Prelude.Nothing,
-      implementedBy = Prelude.Nothing,
-      scope = Prelude.Nothing,
-      isInherited = Prelude.Nothing
+    { implementedBy = Prelude.Nothing,
+      isInherited = Prelude.Nothing,
+      requiredProperties = Prelude.Nothing,
+      scope = Prelude.Nothing
     }
-
--- | The required properties of the function.
-functionResponse_requiredProperties :: Lens.Lens' FunctionResponse (Prelude.Maybe [Prelude.Text])
-functionResponse_requiredProperties = Lens.lens (\FunctionResponse' {requiredProperties} -> requiredProperties) (\s@FunctionResponse' {} a -> s {requiredProperties = a} :: FunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data connector.
 functionResponse_implementedBy :: Lens.Lens' FunctionResponse (Prelude.Maybe DataConnector)
 functionResponse_implementedBy = Lens.lens (\FunctionResponse' {implementedBy} -> implementedBy) (\s@FunctionResponse' {} a -> s {implementedBy = a} :: FunctionResponse)
 
--- | The scope of the function.
-functionResponse_scope :: Lens.Lens' FunctionResponse (Prelude.Maybe Scope)
-functionResponse_scope = Lens.lens (\FunctionResponse' {scope} -> scope) (\s@FunctionResponse' {} a -> s {scope = a} :: FunctionResponse)
-
 -- | Indicates whether this function is inherited.
 functionResponse_isInherited :: Lens.Lens' FunctionResponse (Prelude.Maybe Prelude.Bool)
 functionResponse_isInherited = Lens.lens (\FunctionResponse' {isInherited} -> isInherited) (\s@FunctionResponse' {} a -> s {isInherited = a} :: FunctionResponse)
+
+-- | The required properties of the function.
+functionResponse_requiredProperties :: Lens.Lens' FunctionResponse (Prelude.Maybe [Prelude.Text])
+functionResponse_requiredProperties = Lens.lens (\FunctionResponse' {requiredProperties} -> requiredProperties) (\s@FunctionResponse' {} a -> s {requiredProperties = a} :: FunctionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The scope of the function.
+functionResponse_scope :: Lens.Lens' FunctionResponse (Prelude.Maybe Scope)
+functionResponse_scope = Lens.lens (\FunctionResponse' {scope} -> scope) (\s@FunctionResponse' {} a -> s {scope = a} :: FunctionResponse)
 
 instance Data.FromJSON FunctionResponse where
   parseJSON =
@@ -89,24 +88,24 @@ instance Data.FromJSON FunctionResponse where
       "FunctionResponse"
       ( \x ->
           FunctionResponse'
-            Prelude.<$> ( x Data..:? "requiredProperties"
+            Prelude.<$> (x Data..:? "implementedBy")
+            Prelude.<*> (x Data..:? "isInherited")
+            Prelude.<*> ( x Data..:? "requiredProperties"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "implementedBy")
             Prelude.<*> (x Data..:? "scope")
-            Prelude.<*> (x Data..:? "isInherited")
       )
 
 instance Prelude.Hashable FunctionResponse where
   hashWithSalt _salt FunctionResponse' {..} =
-    _salt `Prelude.hashWithSalt` requiredProperties
-      `Prelude.hashWithSalt` implementedBy
-      `Prelude.hashWithSalt` scope
+    _salt `Prelude.hashWithSalt` implementedBy
       `Prelude.hashWithSalt` isInherited
+      `Prelude.hashWithSalt` requiredProperties
+      `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData FunctionResponse where
   rnf FunctionResponse' {..} =
-    Prelude.rnf requiredProperties
-      `Prelude.seq` Prelude.rnf implementedBy
-      `Prelude.seq` Prelude.rnf scope
+    Prelude.rnf implementedBy
       `Prelude.seq` Prelude.rnf isInherited
+      `Prelude.seq` Prelude.rnf requiredProperties
+      `Prelude.seq` Prelude.rnf scope

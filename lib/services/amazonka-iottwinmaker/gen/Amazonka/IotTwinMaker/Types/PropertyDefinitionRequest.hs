@@ -30,22 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPropertyDefinitionRequest' smart constructor.
 data PropertyDefinitionRequest = PropertyDefinitionRequest'
-  { -- | A Boolean value that specifies whether the property ID comes from an
-    -- external data store.
-    isExternalId :: Prelude.Maybe Prelude.Bool,
-    -- | A Boolean value that specifies whether the property is stored
-    -- externally.
-    isStoredExternally :: Prelude.Maybe Prelude.Bool,
-    -- | A mapping that specifies configuration information about the property.
+  { -- | A mapping that specifies configuration information about the property.
     -- Use this field to specify information that you read from and write to an
     -- external source.
     configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An object that contains the default value.
-    defaultValue :: Prelude.Maybe DataValue,
-    -- | A Boolean value that specifies whether the property is required.
-    isRequiredInEntity :: Prelude.Maybe Prelude.Bool,
     -- | An object that contains information about the data type.
     dataType :: Prelude.Maybe DataType,
+    -- | An object that contains the default value.
+    defaultValue :: Prelude.Maybe DataValue,
+    -- | A friendly name for the property.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that specifies whether the property ID comes from an
+    -- external data store.
+    isExternalId :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value that specifies whether the property is required.
+    isRequiredInEntity :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value that specifies whether the property is stored
+    -- externally.
+    isStoredExternally :: Prelude.Maybe Prelude.Bool,
     -- | A Boolean value that specifies whether the property consists of time
     -- series data.
     isTimeSeries :: Prelude.Maybe Prelude.Bool
@@ -60,21 +62,23 @@ data PropertyDefinitionRequest = PropertyDefinitionRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isExternalId', 'propertyDefinitionRequest_isExternalId' - A Boolean value that specifies whether the property ID comes from an
--- external data store.
---
--- 'isStoredExternally', 'propertyDefinitionRequest_isStoredExternally' - A Boolean value that specifies whether the property is stored
--- externally.
---
 -- 'configuration', 'propertyDefinitionRequest_configuration' - A mapping that specifies configuration information about the property.
 -- Use this field to specify information that you read from and write to an
 -- external source.
 --
+-- 'dataType', 'propertyDefinitionRequest_dataType' - An object that contains information about the data type.
+--
 -- 'defaultValue', 'propertyDefinitionRequest_defaultValue' - An object that contains the default value.
+--
+-- 'displayName', 'propertyDefinitionRequest_displayName' - A friendly name for the property.
+--
+-- 'isExternalId', 'propertyDefinitionRequest_isExternalId' - A Boolean value that specifies whether the property ID comes from an
+-- external data store.
 --
 -- 'isRequiredInEntity', 'propertyDefinitionRequest_isRequiredInEntity' - A Boolean value that specifies whether the property is required.
 --
--- 'dataType', 'propertyDefinitionRequest_dataType' - An object that contains information about the data type.
+-- 'isStoredExternally', 'propertyDefinitionRequest_isStoredExternally' - A Boolean value that specifies whether the property is stored
+-- externally.
 --
 -- 'isTimeSeries', 'propertyDefinitionRequest_isTimeSeries' - A Boolean value that specifies whether the property consists of time
 -- series data.
@@ -82,25 +86,16 @@ newPropertyDefinitionRequest ::
   PropertyDefinitionRequest
 newPropertyDefinitionRequest =
   PropertyDefinitionRequest'
-    { isExternalId =
+    { configuration =
         Prelude.Nothing,
-      isStoredExternally = Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      isRequiredInEntity = Prelude.Nothing,
       dataType = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      isExternalId = Prelude.Nothing,
+      isRequiredInEntity = Prelude.Nothing,
+      isStoredExternally = Prelude.Nothing,
       isTimeSeries = Prelude.Nothing
     }
-
--- | A Boolean value that specifies whether the property ID comes from an
--- external data store.
-propertyDefinitionRequest_isExternalId :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Bool)
-propertyDefinitionRequest_isExternalId = Lens.lens (\PropertyDefinitionRequest' {isExternalId} -> isExternalId) (\s@PropertyDefinitionRequest' {} a -> s {isExternalId = a} :: PropertyDefinitionRequest)
-
--- | A Boolean value that specifies whether the property is stored
--- externally.
-propertyDefinitionRequest_isStoredExternally :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Bool)
-propertyDefinitionRequest_isStoredExternally = Lens.lens (\PropertyDefinitionRequest' {isStoredExternally} -> isStoredExternally) (\s@PropertyDefinitionRequest' {} a -> s {isStoredExternally = a} :: PropertyDefinitionRequest)
 
 -- | A mapping that specifies configuration information about the property.
 -- Use this field to specify information that you read from and write to an
@@ -108,17 +103,31 @@ propertyDefinitionRequest_isStoredExternally = Lens.lens (\PropertyDefinitionReq
 propertyDefinitionRequest_configuration :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 propertyDefinitionRequest_configuration = Lens.lens (\PropertyDefinitionRequest' {configuration} -> configuration) (\s@PropertyDefinitionRequest' {} a -> s {configuration = a} :: PropertyDefinitionRequest) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object that contains information about the data type.
+propertyDefinitionRequest_dataType :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe DataType)
+propertyDefinitionRequest_dataType = Lens.lens (\PropertyDefinitionRequest' {dataType} -> dataType) (\s@PropertyDefinitionRequest' {} a -> s {dataType = a} :: PropertyDefinitionRequest)
+
 -- | An object that contains the default value.
 propertyDefinitionRequest_defaultValue :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe DataValue)
 propertyDefinitionRequest_defaultValue = Lens.lens (\PropertyDefinitionRequest' {defaultValue} -> defaultValue) (\s@PropertyDefinitionRequest' {} a -> s {defaultValue = a} :: PropertyDefinitionRequest)
+
+-- | A friendly name for the property.
+propertyDefinitionRequest_displayName :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Text)
+propertyDefinitionRequest_displayName = Lens.lens (\PropertyDefinitionRequest' {displayName} -> displayName) (\s@PropertyDefinitionRequest' {} a -> s {displayName = a} :: PropertyDefinitionRequest)
+
+-- | A Boolean value that specifies whether the property ID comes from an
+-- external data store.
+propertyDefinitionRequest_isExternalId :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Bool)
+propertyDefinitionRequest_isExternalId = Lens.lens (\PropertyDefinitionRequest' {isExternalId} -> isExternalId) (\s@PropertyDefinitionRequest' {} a -> s {isExternalId = a} :: PropertyDefinitionRequest)
 
 -- | A Boolean value that specifies whether the property is required.
 propertyDefinitionRequest_isRequiredInEntity :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Bool)
 propertyDefinitionRequest_isRequiredInEntity = Lens.lens (\PropertyDefinitionRequest' {isRequiredInEntity} -> isRequiredInEntity) (\s@PropertyDefinitionRequest' {} a -> s {isRequiredInEntity = a} :: PropertyDefinitionRequest)
 
--- | An object that contains information about the data type.
-propertyDefinitionRequest_dataType :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe DataType)
-propertyDefinitionRequest_dataType = Lens.lens (\PropertyDefinitionRequest' {dataType} -> dataType) (\s@PropertyDefinitionRequest' {} a -> s {dataType = a} :: PropertyDefinitionRequest)
+-- | A Boolean value that specifies whether the property is stored
+-- externally.
+propertyDefinitionRequest_isStoredExternally :: Lens.Lens' PropertyDefinitionRequest (Prelude.Maybe Prelude.Bool)
+propertyDefinitionRequest_isStoredExternally = Lens.lens (\PropertyDefinitionRequest' {isStoredExternally} -> isStoredExternally) (\s@PropertyDefinitionRequest' {} a -> s {isStoredExternally = a} :: PropertyDefinitionRequest)
 
 -- | A Boolean value that specifies whether the property consists of time
 -- series data.
@@ -127,36 +136,39 @@ propertyDefinitionRequest_isTimeSeries = Lens.lens (\PropertyDefinitionRequest' 
 
 instance Prelude.Hashable PropertyDefinitionRequest where
   hashWithSalt _salt PropertyDefinitionRequest' {..} =
-    _salt `Prelude.hashWithSalt` isExternalId
-      `Prelude.hashWithSalt` isStoredExternally
-      `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` defaultValue
-      `Prelude.hashWithSalt` isRequiredInEntity
+    _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` isExternalId
+      `Prelude.hashWithSalt` isRequiredInEntity
+      `Prelude.hashWithSalt` isStoredExternally
       `Prelude.hashWithSalt` isTimeSeries
 
 instance Prelude.NFData PropertyDefinitionRequest where
   rnf PropertyDefinitionRequest' {..} =
-    Prelude.rnf isExternalId
-      `Prelude.seq` Prelude.rnf isStoredExternally
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf isRequiredInEntity
+    Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf isExternalId
+      `Prelude.seq` Prelude.rnf isRequiredInEntity
+      `Prelude.seq` Prelude.rnf isStoredExternally
       `Prelude.seq` Prelude.rnf isTimeSeries
 
 instance Data.ToJSON PropertyDefinitionRequest where
   toJSON PropertyDefinitionRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("isExternalId" Data..=) Prelude.<$> isExternalId,
-            ("isStoredExternally" Data..=)
-              Prelude.<$> isStoredExternally,
-            ("configuration" Data..=) Prelude.<$> configuration,
+          [ ("configuration" Data..=) Prelude.<$> configuration,
+            ("dataType" Data..=) Prelude.<$> dataType,
             ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("displayName" Data..=) Prelude.<$> displayName,
+            ("isExternalId" Data..=) Prelude.<$> isExternalId,
             ("isRequiredInEntity" Data..=)
               Prelude.<$> isRequiredInEntity,
-            ("dataType" Data..=) Prelude.<$> dataType,
+            ("isStoredExternally" Data..=)
+              Prelude.<$> isStoredExternally,
             ("isTimeSeries" Data..=) Prelude.<$> isTimeSeries
           ]
       )

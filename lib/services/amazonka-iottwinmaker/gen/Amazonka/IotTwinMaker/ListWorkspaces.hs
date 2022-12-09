@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.ListWorkspaces
     newListWorkspaces,
 
     -- * Request Lenses
-    listWorkspaces_nextToken,
     listWorkspaces_maxResults,
+    listWorkspaces_nextToken,
 
     -- * Destructuring the Response
     ListWorkspacesResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkspaces' smart constructor.
 data ListWorkspaces = ListWorkspaces'
-  { -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
+  { -- | The maximum number of results to return at one time. The default is 25.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,28 @@ data ListWorkspaces = ListWorkspaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkspaces_nextToken' - The string that specifies the next page of results.
---
 -- 'maxResults', 'listWorkspaces_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
+--
+-- 'nextToken', 'listWorkspaces_nextToken' - The string that specifies the next page of results.
 newListWorkspaces ::
   ListWorkspaces
 newListWorkspaces =
   ListWorkspaces'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The string that specifies the next page of results.
-listWorkspaces_nextToken :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Text)
-listWorkspaces_nextToken = Lens.lens (\ListWorkspaces' {nextToken} -> nextToken) (\s@ListWorkspaces' {} a -> s {nextToken = a} :: ListWorkspaces)
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
 listWorkspaces_maxResults :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Natural)
 listWorkspaces_maxResults = Lens.lens (\ListWorkspaces' {maxResults} -> maxResults) (\s@ListWorkspaces' {} a -> s {maxResults = a} :: ListWorkspaces)
+
+-- | The string that specifies the next page of results.
+listWorkspaces_nextToken :: Lens.Lens' ListWorkspaces (Prelude.Maybe Prelude.Text)
+listWorkspaces_nextToken = Lens.lens (\ListWorkspaces' {nextToken} -> nextToken) (\s@ListWorkspaces' {} a -> s {nextToken = a} :: ListWorkspaces)
 
 instance Core.AWSRequest ListWorkspaces where
   type
@@ -110,13 +110,13 @@ instance Core.AWSRequest ListWorkspaces where
 
 instance Prelude.Hashable ListWorkspaces where
   hashWithSalt _salt ListWorkspaces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkspaces where
   rnf ListWorkspaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkspaces where
   toHeaders =
@@ -133,8 +133,8 @@ instance Data.ToJSON ListWorkspaces where
   toJSON ListWorkspaces' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

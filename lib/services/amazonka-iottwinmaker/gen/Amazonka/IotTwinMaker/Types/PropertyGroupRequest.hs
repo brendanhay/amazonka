@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPropertyGroupRequest' smart constructor.
 data PropertyGroupRequest = PropertyGroupRequest'
-  { -- | The names of properties.
-    propertyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The group type.
-    groupType :: Prelude.Maybe GroupType
+  { -- | The group type.
+    groupType :: Prelude.Maybe GroupType,
+    -- | The names of properties.
+    propertyNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,41 +44,40 @@ data PropertyGroupRequest = PropertyGroupRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'propertyNames', 'propertyGroupRequest_propertyNames' - The names of properties.
---
 -- 'groupType', 'propertyGroupRequest_groupType' - The group type.
+--
+-- 'propertyNames', 'propertyGroupRequest_propertyNames' - The names of properties.
 newPropertyGroupRequest ::
   PropertyGroupRequest
 newPropertyGroupRequest =
   PropertyGroupRequest'
-    { propertyNames =
-        Prelude.Nothing,
-      groupType = Prelude.Nothing
+    { groupType = Prelude.Nothing,
+      propertyNames = Prelude.Nothing
     }
-
--- | The names of properties.
-propertyGroupRequest_propertyNames :: Lens.Lens' PropertyGroupRequest (Prelude.Maybe [Prelude.Text])
-propertyGroupRequest_propertyNames = Lens.lens (\PropertyGroupRequest' {propertyNames} -> propertyNames) (\s@PropertyGroupRequest' {} a -> s {propertyNames = a} :: PropertyGroupRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The group type.
 propertyGroupRequest_groupType :: Lens.Lens' PropertyGroupRequest (Prelude.Maybe GroupType)
 propertyGroupRequest_groupType = Lens.lens (\PropertyGroupRequest' {groupType} -> groupType) (\s@PropertyGroupRequest' {} a -> s {groupType = a} :: PropertyGroupRequest)
 
+-- | The names of properties.
+propertyGroupRequest_propertyNames :: Lens.Lens' PropertyGroupRequest (Prelude.Maybe [Prelude.Text])
+propertyGroupRequest_propertyNames = Lens.lens (\PropertyGroupRequest' {propertyNames} -> propertyNames) (\s@PropertyGroupRequest' {} a -> s {propertyNames = a} :: PropertyGroupRequest) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable PropertyGroupRequest where
   hashWithSalt _salt PropertyGroupRequest' {..} =
-    _salt `Prelude.hashWithSalt` propertyNames
-      `Prelude.hashWithSalt` groupType
+    _salt `Prelude.hashWithSalt` groupType
+      `Prelude.hashWithSalt` propertyNames
 
 instance Prelude.NFData PropertyGroupRequest where
   rnf PropertyGroupRequest' {..} =
-    Prelude.rnf propertyNames
-      `Prelude.seq` Prelude.rnf groupType
+    Prelude.rnf groupType
+      `Prelude.seq` Prelude.rnf propertyNames
 
 instance Data.ToJSON PropertyGroupRequest where
   toJSON PropertyGroupRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyNames" Data..=) Prelude.<$> propertyNames,
-            ("groupType" Data..=) Prelude.<$> groupType
+          [ ("groupType" Data..=) Prelude.<$> groupType,
+            ("propertyNames" Data..=) Prelude.<$> propertyNames
           ]
       )

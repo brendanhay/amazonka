@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntitySummary' smart constructor.
 data EntitySummary = EntitySummary'
-  { -- | A Boolean value that specifies whether the entity has child entities or
+  { -- | The description of the entity.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that specifies whether the entity has child entities or
     -- not.
     hasChildEntities :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the parent entity.
     parentEntityId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the entity.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the entity.
     entityId :: Prelude.Text,
     -- | The name of the entity.
@@ -59,12 +59,12 @@ data EntitySummary = EntitySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'entitySummary_description' - The description of the entity.
+--
 -- 'hasChildEntities', 'entitySummary_hasChildEntities' - A Boolean value that specifies whether the entity has child entities or
 -- not.
 --
 -- 'parentEntityId', 'entitySummary_parentEntityId' - The ID of the parent entity.
---
--- 'description', 'entitySummary_description' - The description of the entity.
 --
 -- 'entityId', 'entitySummary_entityId' - The ID of the entity.
 --
@@ -99,9 +99,9 @@ newEntitySummary
   pCreationDateTime_
   pUpdateDateTime_ =
     EntitySummary'
-      { hasChildEntities = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        hasChildEntities = Prelude.Nothing,
         parentEntityId = Prelude.Nothing,
-        description = Prelude.Nothing,
         entityId = pEntityId_,
         entityName = pEntityName_,
         arn = pArn_,
@@ -111,6 +111,10 @@ newEntitySummary
         updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
+-- | The description of the entity.
+entitySummary_description :: Lens.Lens' EntitySummary (Prelude.Maybe Prelude.Text)
+entitySummary_description = Lens.lens (\EntitySummary' {description} -> description) (\s@EntitySummary' {} a -> s {description = a} :: EntitySummary)
+
 -- | A Boolean value that specifies whether the entity has child entities or
 -- not.
 entitySummary_hasChildEntities :: Lens.Lens' EntitySummary (Prelude.Maybe Prelude.Bool)
@@ -119,10 +123,6 @@ entitySummary_hasChildEntities = Lens.lens (\EntitySummary' {hasChildEntities} -
 -- | The ID of the parent entity.
 entitySummary_parentEntityId :: Lens.Lens' EntitySummary (Prelude.Maybe Prelude.Text)
 entitySummary_parentEntityId = Lens.lens (\EntitySummary' {parentEntityId} -> parentEntityId) (\s@EntitySummary' {} a -> s {parentEntityId = a} :: EntitySummary)
-
--- | The description of the entity.
-entitySummary_description :: Lens.Lens' EntitySummary (Prelude.Maybe Prelude.Text)
-entitySummary_description = Lens.lens (\EntitySummary' {description} -> description) (\s@EntitySummary' {} a -> s {description = a} :: EntitySummary)
 
 -- | The ID of the entity.
 entitySummary_entityId :: Lens.Lens' EntitySummary Prelude.Text
@@ -154,9 +154,9 @@ instance Data.FromJSON EntitySummary where
       "EntitySummary"
       ( \x ->
           EntitySummary'
-            Prelude.<$> (x Data..:? "hasChildEntities")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "hasChildEntities")
             Prelude.<*> (x Data..:? "parentEntityId")
-            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..: "entityId")
             Prelude.<*> (x Data..: "entityName")
             Prelude.<*> (x Data..: "arn")
@@ -167,9 +167,9 @@ instance Data.FromJSON EntitySummary where
 
 instance Prelude.Hashable EntitySummary where
   hashWithSalt _salt EntitySummary' {..} =
-    _salt `Prelude.hashWithSalt` hasChildEntities
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` hasChildEntities
       `Prelude.hashWithSalt` parentEntityId
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` entityName
       `Prelude.hashWithSalt` arn
@@ -179,9 +179,9 @@ instance Prelude.Hashable EntitySummary where
 
 instance Prelude.NFData EntitySummary where
   rnf EntitySummary' {..} =
-    Prelude.rnf hasChildEntities
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf hasChildEntities
       `Prelude.seq` Prelude.rnf parentEntityId
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf entityName
       `Prelude.seq` Prelude.rnf arn

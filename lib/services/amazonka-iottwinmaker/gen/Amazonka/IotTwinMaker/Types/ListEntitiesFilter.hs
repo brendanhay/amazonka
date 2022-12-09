@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListEntitiesFilter' smart constructor.
 data ListEntitiesFilter = ListEntitiesFilter'
-  { -- | The parent of the entities in the list.
-    parentEntityId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the component type in the entities in the list.
+    componentTypeId :: Prelude.Maybe Prelude.Text,
     -- | The external-Id property of a component. The external-Id property is the
     -- primary key of an external storage system.
     externalId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the component type in the entities in the list.
-    componentTypeId :: Prelude.Maybe Prelude.Text
+    -- | The parent of the entities in the list.
+    parentEntityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,55 +46,55 @@ data ListEntitiesFilter = ListEntitiesFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentEntityId', 'listEntitiesFilter_parentEntityId' - The parent of the entities in the list.
+-- 'componentTypeId', 'listEntitiesFilter_componentTypeId' - The ID of the component type in the entities in the list.
 --
 -- 'externalId', 'listEntitiesFilter_externalId' - The external-Id property of a component. The external-Id property is the
 -- primary key of an external storage system.
 --
--- 'componentTypeId', 'listEntitiesFilter_componentTypeId' - The ID of the component type in the entities in the list.
+-- 'parentEntityId', 'listEntitiesFilter_parentEntityId' - The parent of the entities in the list.
 newListEntitiesFilter ::
   ListEntitiesFilter
 newListEntitiesFilter =
   ListEntitiesFilter'
-    { parentEntityId =
+    { componentTypeId =
         Prelude.Nothing,
       externalId = Prelude.Nothing,
-      componentTypeId = Prelude.Nothing
+      parentEntityId = Prelude.Nothing
     }
 
--- | The parent of the entities in the list.
-listEntitiesFilter_parentEntityId :: Lens.Lens' ListEntitiesFilter (Prelude.Maybe Prelude.Text)
-listEntitiesFilter_parentEntityId = Lens.lens (\ListEntitiesFilter' {parentEntityId} -> parentEntityId) (\s@ListEntitiesFilter' {} a -> s {parentEntityId = a} :: ListEntitiesFilter)
+-- | The ID of the component type in the entities in the list.
+listEntitiesFilter_componentTypeId :: Lens.Lens' ListEntitiesFilter (Prelude.Maybe Prelude.Text)
+listEntitiesFilter_componentTypeId = Lens.lens (\ListEntitiesFilter' {componentTypeId} -> componentTypeId) (\s@ListEntitiesFilter' {} a -> s {componentTypeId = a} :: ListEntitiesFilter)
 
 -- | The external-Id property of a component. The external-Id property is the
 -- primary key of an external storage system.
 listEntitiesFilter_externalId :: Lens.Lens' ListEntitiesFilter (Prelude.Maybe Prelude.Text)
 listEntitiesFilter_externalId = Lens.lens (\ListEntitiesFilter' {externalId} -> externalId) (\s@ListEntitiesFilter' {} a -> s {externalId = a} :: ListEntitiesFilter)
 
--- | The ID of the component type in the entities in the list.
-listEntitiesFilter_componentTypeId :: Lens.Lens' ListEntitiesFilter (Prelude.Maybe Prelude.Text)
-listEntitiesFilter_componentTypeId = Lens.lens (\ListEntitiesFilter' {componentTypeId} -> componentTypeId) (\s@ListEntitiesFilter' {} a -> s {componentTypeId = a} :: ListEntitiesFilter)
+-- | The parent of the entities in the list.
+listEntitiesFilter_parentEntityId :: Lens.Lens' ListEntitiesFilter (Prelude.Maybe Prelude.Text)
+listEntitiesFilter_parentEntityId = Lens.lens (\ListEntitiesFilter' {parentEntityId} -> parentEntityId) (\s@ListEntitiesFilter' {} a -> s {parentEntityId = a} :: ListEntitiesFilter)
 
 instance Prelude.Hashable ListEntitiesFilter where
   hashWithSalt _salt ListEntitiesFilter' {..} =
-    _salt `Prelude.hashWithSalt` parentEntityId
+    _salt `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` externalId
-      `Prelude.hashWithSalt` componentTypeId
+      `Prelude.hashWithSalt` parentEntityId
 
 instance Prelude.NFData ListEntitiesFilter where
   rnf ListEntitiesFilter' {..} =
-    Prelude.rnf parentEntityId
+    Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf componentTypeId
+      `Prelude.seq` Prelude.rnf parentEntityId
 
 instance Data.ToJSON ListEntitiesFilter where
   toJSON ListEntitiesFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("parentEntityId" Data..=)
-              Prelude.<$> parentEntityId,
+          [ ("componentTypeId" Data..=)
+              Prelude.<$> componentTypeId,
             ("externalId" Data..=) Prelude.<$> externalId,
-            ("componentTypeId" Data..=)
-              Prelude.<$> componentTypeId
+            ("parentEntityId" Data..=)
+              Prelude.<$> parentEntityId
           ]
       )

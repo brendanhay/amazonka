@@ -21,6 +21,9 @@ module Amazonka.IotTwinMaker.Types.ErrorCode
   ( ErrorCode
       ( ..,
         ErrorCode_INTERNAL_FAILURE,
+        ErrorCode_SYNC_CREATING_ERROR,
+        ErrorCode_SYNC_INITIALIZING_ERROR,
+        ErrorCode_SYNC_PROCESSING_ERROR,
         ErrorCode_VALIDATION_ERROR
       ),
   )
@@ -61,11 +64,23 @@ newtype ErrorCode = ErrorCode'
 pattern ErrorCode_INTERNAL_FAILURE :: ErrorCode
 pattern ErrorCode_INTERNAL_FAILURE = ErrorCode' "INTERNAL_FAILURE"
 
+pattern ErrorCode_SYNC_CREATING_ERROR :: ErrorCode
+pattern ErrorCode_SYNC_CREATING_ERROR = ErrorCode' "SYNC_CREATING_ERROR"
+
+pattern ErrorCode_SYNC_INITIALIZING_ERROR :: ErrorCode
+pattern ErrorCode_SYNC_INITIALIZING_ERROR = ErrorCode' "SYNC_INITIALIZING_ERROR"
+
+pattern ErrorCode_SYNC_PROCESSING_ERROR :: ErrorCode
+pattern ErrorCode_SYNC_PROCESSING_ERROR = ErrorCode' "SYNC_PROCESSING_ERROR"
+
 pattern ErrorCode_VALIDATION_ERROR :: ErrorCode
 pattern ErrorCode_VALIDATION_ERROR = ErrorCode' "VALIDATION_ERROR"
 
 {-# COMPLETE
   ErrorCode_INTERNAL_FAILURE,
+  ErrorCode_SYNC_CREATING_ERROR,
+  ErrorCode_SYNC_INITIALIZING_ERROR,
+  ErrorCode_SYNC_PROCESSING_ERROR,
   ErrorCode_VALIDATION_ERROR,
   ErrorCode'
   #-}

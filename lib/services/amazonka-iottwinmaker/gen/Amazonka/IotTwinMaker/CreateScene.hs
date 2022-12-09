@@ -27,9 +27,9 @@ module Amazonka.IotTwinMaker.CreateScene
     newCreateScene,
 
     -- * Request Lenses
-    createScene_tags,
-    createScene_description,
     createScene_capabilities,
+    createScene_description,
+    createScene_tags,
     createScene_workspaceId,
     createScene_sceneId,
     createScene_contentLocation,
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateScene' smart constructor.
 data CreateScene = CreateScene'
-  { -- | Metadata that you can use to manage the scene.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A list of capabilities that the scene uses to render itself.
+    capabilities :: Prelude.Maybe [Prelude.Text],
     -- | The description for this scene.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of capabilities that the scene uses to render itself.
-    capabilities :: Prelude.Maybe [Prelude.Text],
+    -- | Metadata that you can use to manage the scene.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace that contains the scene.
     workspaceId :: Prelude.Text,
     -- | The ID of the scene.
@@ -79,11 +79,11 @@ data CreateScene = CreateScene'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createScene_tags' - Metadata that you can use to manage the scene.
+-- 'capabilities', 'createScene_capabilities' - A list of capabilities that the scene uses to render itself.
 --
 -- 'description', 'createScene_description' - The description for this scene.
 --
--- 'capabilities', 'createScene_capabilities' - A list of capabilities that the scene uses to render itself.
+-- 'tags', 'createScene_tags' - Metadata that you can use to manage the scene.
 --
 -- 'workspaceId', 'createScene_workspaceId' - The ID of the workspace that contains the scene.
 --
@@ -104,25 +104,25 @@ newCreateScene
   pSceneId_
   pContentLocation_ =
     CreateScene'
-      { tags = Prelude.Nothing,
+      { capabilities = Prelude.Nothing,
         description = Prelude.Nothing,
-        capabilities = Prelude.Nothing,
+        tags = Prelude.Nothing,
         workspaceId = pWorkspaceId_,
         sceneId = pSceneId_,
         contentLocation = pContentLocation_
       }
 
--- | Metadata that you can use to manage the scene.
-createScene_tags :: Lens.Lens' CreateScene (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createScene_tags = Lens.lens (\CreateScene' {tags} -> tags) (\s@CreateScene' {} a -> s {tags = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
+-- | A list of capabilities that the scene uses to render itself.
+createScene_capabilities :: Lens.Lens' CreateScene (Prelude.Maybe [Prelude.Text])
+createScene_capabilities = Lens.lens (\CreateScene' {capabilities} -> capabilities) (\s@CreateScene' {} a -> s {capabilities = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description for this scene.
 createScene_description :: Lens.Lens' CreateScene (Prelude.Maybe Prelude.Text)
 createScene_description = Lens.lens (\CreateScene' {description} -> description) (\s@CreateScene' {} a -> s {description = a} :: CreateScene)
 
--- | A list of capabilities that the scene uses to render itself.
-createScene_capabilities :: Lens.Lens' CreateScene (Prelude.Maybe [Prelude.Text])
-createScene_capabilities = Lens.lens (\CreateScene' {capabilities} -> capabilities) (\s@CreateScene' {} a -> s {capabilities = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
+-- | Metadata that you can use to manage the scene.
+createScene_tags :: Lens.Lens' CreateScene (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createScene_tags = Lens.lens (\CreateScene' {tags} -> tags) (\s@CreateScene' {} a -> s {tags = a} :: CreateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace that contains the scene.
 createScene_workspaceId :: Lens.Lens' CreateScene Prelude.Text
@@ -152,18 +152,18 @@ instance Core.AWSRequest CreateScene where
 
 instance Prelude.Hashable CreateScene where
   hashWithSalt _salt CreateScene' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
       `Prelude.hashWithSalt` contentLocation
 
 instance Prelude.NFData CreateScene where
   rnf CreateScene' {..} =
-    Prelude.rnf tags
+    Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
       `Prelude.seq` Prelude.rnf contentLocation
@@ -183,9 +183,9 @@ instance Data.ToJSON CreateScene where
   toJSON CreateScene' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("capabilities" Data..=) Prelude.<$> capabilities,
             ("description" Data..=) Prelude.<$> description,
-            ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("sceneId" Data..= sceneId),
             Prelude.Just
               ("contentLocation" Data..= contentLocation)

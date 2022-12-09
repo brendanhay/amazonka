@@ -27,13 +27,14 @@ module Amazonka.IotTwinMaker.CreateComponentType
     newCreateComponentType,
 
     -- * Request Lenses
-    createComponentType_tags,
-    createComponentType_functions,
-    createComponentType_propertyDefinitions,
+    createComponentType_componentTypeName,
     createComponentType_description,
-    createComponentType_propertyGroups,
-    createComponentType_isSingleton,
     createComponentType_extendsFrom,
+    createComponentType_functions,
+    createComponentType_isSingleton,
+    createComponentType_propertyDefinitions,
+    createComponentType_propertyGroups,
+    createComponentType_tags,
     createComponentType_workspaceId,
     createComponentType_componentTypeId,
 
@@ -59,22 +60,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateComponentType' smart constructor.
 data CreateComponentType = CreateComponentType'
-  { -- | Metadata that you can use to manage the component type.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A friendly name for the component type.
+    componentTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the component type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the parent component type to extend.
+    extendsFrom :: Prelude.Maybe [Prelude.Text],
     -- | An object that maps strings to the functions in the component type. Each
     -- string in the mapping must be unique to this object.
     functions :: Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionRequest),
-    -- | An object that maps strings to the property definitions in the component
-    -- type. Each string in the mapping must be unique to this object.
-    propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
-    -- | The description of the component type.
-    description :: Prelude.Maybe Prelude.Text,
-    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
     -- | A Boolean value that specifies whether an entity can have more than one
     -- component of this type.
     isSingleton :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the parent component type to extend.
-    extendsFrom :: Prelude.Maybe [Prelude.Text],
+    -- | An object that maps strings to the property definitions in the component
+    -- type. Each string in the mapping must be unique to this object.
+    propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
+    -- | Metadata that you can use to manage the component type.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace that contains the component type.
     workspaceId :: Prelude.Text,
     -- | The ID of the component type.
@@ -90,22 +93,24 @@ data CreateComponentType = CreateComponentType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createComponentType_tags' - Metadata that you can use to manage the component type.
+-- 'componentTypeName', 'createComponentType_componentTypeName' - A friendly name for the component type.
+--
+-- 'description', 'createComponentType_description' - The description of the component type.
+--
+-- 'extendsFrom', 'createComponentType_extendsFrom' - Specifies the parent component type to extend.
 --
 -- 'functions', 'createComponentType_functions' - An object that maps strings to the functions in the component type. Each
 -- string in the mapping must be unique to this object.
 --
--- 'propertyDefinitions', 'createComponentType_propertyDefinitions' - An object that maps strings to the property definitions in the component
--- type. Each string in the mapping must be unique to this object.
---
--- 'description', 'createComponentType_description' - The description of the component type.
---
--- 'propertyGroups', 'createComponentType_propertyGroups' -
---
 -- 'isSingleton', 'createComponentType_isSingleton' - A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 --
--- 'extendsFrom', 'createComponentType_extendsFrom' - Specifies the parent component type to extend.
+-- 'propertyDefinitions', 'createComponentType_propertyDefinitions' - An object that maps strings to the property definitions in the component
+-- type. Each string in the mapping must be unique to this object.
+--
+-- 'propertyGroups', 'createComponentType_propertyGroups' -
+--
+-- 'tags', 'createComponentType_tags' - Metadata that you can use to manage the component type.
 --
 -- 'workspaceId', 'createComponentType_workspaceId' - The ID of the workspace that contains the component type.
 --
@@ -120,47 +125,53 @@ newCreateComponentType
   pWorkspaceId_
   pComponentTypeId_ =
     CreateComponentType'
-      { tags = Prelude.Nothing,
-        functions = Prelude.Nothing,
-        propertyDefinitions = Prelude.Nothing,
+      { componentTypeName =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        propertyGroups = Prelude.Nothing,
-        isSingleton = Prelude.Nothing,
         extendsFrom = Prelude.Nothing,
+        functions = Prelude.Nothing,
+        isSingleton = Prelude.Nothing,
+        propertyDefinitions = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
+        tags = Prelude.Nothing,
         workspaceId = pWorkspaceId_,
         componentTypeId = pComponentTypeId_
       }
 
--- | Metadata that you can use to manage the component type.
-createComponentType_tags :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComponentType_tags = Lens.lens (\CreateComponentType' {tags} -> tags) (\s@CreateComponentType' {} a -> s {tags = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
+-- | A friendly name for the component type.
+createComponentType_componentTypeName :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Text)
+createComponentType_componentTypeName = Lens.lens (\CreateComponentType' {componentTypeName} -> componentTypeName) (\s@CreateComponentType' {} a -> s {componentTypeName = a} :: CreateComponentType)
+
+-- | The description of the component type.
+createComponentType_description :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Text)
+createComponentType_description = Lens.lens (\CreateComponentType' {description} -> description) (\s@CreateComponentType' {} a -> s {description = a} :: CreateComponentType)
+
+-- | Specifies the parent component type to extend.
+createComponentType_extendsFrom :: Lens.Lens' CreateComponentType (Prelude.Maybe [Prelude.Text])
+createComponentType_extendsFrom = Lens.lens (\CreateComponentType' {extendsFrom} -> extendsFrom) (\s@CreateComponentType' {} a -> s {extendsFrom = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that maps strings to the functions in the component type. Each
 -- string in the mapping must be unique to this object.
 createComponentType_functions :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionRequest))
 createComponentType_functions = Lens.lens (\CreateComponentType' {functions} -> functions) (\s@CreateComponentType' {} a -> s {functions = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that maps strings to the property definitions in the component
--- type. Each string in the mapping must be unique to this object.
-createComponentType_propertyDefinitions :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest))
-createComponentType_propertyDefinitions = Lens.lens (\CreateComponentType' {propertyDefinitions} -> propertyDefinitions) (\s@CreateComponentType' {} a -> s {propertyDefinitions = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the component type.
-createComponentType_description :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Text)
-createComponentType_description = Lens.lens (\CreateComponentType' {description} -> description) (\s@CreateComponentType' {} a -> s {description = a} :: CreateComponentType)
-
--- |
-createComponentType_propertyGroups :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
-createComponentType_propertyGroups = Lens.lens (\CreateComponentType' {propertyGroups} -> propertyGroups) (\s@CreateComponentType' {} a -> s {propertyGroups = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
-
 -- | A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 createComponentType_isSingleton :: Lens.Lens' CreateComponentType (Prelude.Maybe Prelude.Bool)
 createComponentType_isSingleton = Lens.lens (\CreateComponentType' {isSingleton} -> isSingleton) (\s@CreateComponentType' {} a -> s {isSingleton = a} :: CreateComponentType)
 
--- | Specifies the parent component type to extend.
-createComponentType_extendsFrom :: Lens.Lens' CreateComponentType (Prelude.Maybe [Prelude.Text])
-createComponentType_extendsFrom = Lens.lens (\CreateComponentType' {extendsFrom} -> extendsFrom) (\s@CreateComponentType' {} a -> s {extendsFrom = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
+-- | An object that maps strings to the property definitions in the component
+-- type. Each string in the mapping must be unique to this object.
+createComponentType_propertyDefinitions :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest))
+createComponentType_propertyDefinitions = Lens.lens (\CreateComponentType' {propertyDefinitions} -> propertyDefinitions) (\s@CreateComponentType' {} a -> s {propertyDefinitions = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+createComponentType_propertyGroups :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
+createComponentType_propertyGroups = Lens.lens (\CreateComponentType' {propertyGroups} -> propertyGroups) (\s@CreateComponentType' {} a -> s {propertyGroups = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata that you can use to manage the component type.
+createComponentType_tags :: Lens.Lens' CreateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComponentType_tags = Lens.lens (\CreateComponentType' {tags} -> tags) (\s@CreateComponentType' {} a -> s {tags = a} :: CreateComponentType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace that contains the component type.
 createComponentType_workspaceId :: Lens.Lens' CreateComponentType Prelude.Text
@@ -188,25 +199,27 @@ instance Core.AWSRequest CreateComponentType where
 
 instance Prelude.Hashable CreateComponentType where
   hashWithSalt _salt CreateComponentType' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` functions
-      `Prelude.hashWithSalt` propertyDefinitions
+    _salt `Prelude.hashWithSalt` componentTypeName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` propertyGroups
-      `Prelude.hashWithSalt` isSingleton
       `Prelude.hashWithSalt` extendsFrom
+      `Prelude.hashWithSalt` functions
+      `Prelude.hashWithSalt` isSingleton
+      `Prelude.hashWithSalt` propertyDefinitions
+      `Prelude.hashWithSalt` propertyGroups
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData CreateComponentType where
   rnf CreateComponentType' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf propertyDefinitions
+    Prelude.rnf componentTypeName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf isSingleton
       `Prelude.seq` Prelude.rnf extendsFrom
+      `Prelude.seq` Prelude.rnf functions
+      `Prelude.seq` Prelude.rnf isSingleton
+      `Prelude.seq` Prelude.rnf propertyDefinitions
+      `Prelude.seq` Prelude.rnf propertyGroups
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
 
@@ -225,15 +238,17 @@ instance Data.ToJSON CreateComponentType where
   toJSON CreateComponentType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("componentTypeName" Data..=)
+              Prelude.<$> componentTypeName,
+            ("description" Data..=) Prelude.<$> description,
+            ("extendsFrom" Data..=) Prelude.<$> extendsFrom,
             ("functions" Data..=) Prelude.<$> functions,
+            ("isSingleton" Data..=) Prelude.<$> isSingleton,
             ("propertyDefinitions" Data..=)
               Prelude.<$> propertyDefinitions,
-            ("description" Data..=) Prelude.<$> description,
             ("propertyGroups" Data..=)
               Prelude.<$> propertyGroups,
-            ("isSingleton" Data..=) Prelude.<$> isSingleton,
-            ("extendsFrom" Data..=) Prelude.<$> extendsFrom
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

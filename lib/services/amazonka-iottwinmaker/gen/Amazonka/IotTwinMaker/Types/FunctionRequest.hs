@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionRequest' smart constructor.
 data FunctionRequest = FunctionRequest'
-  { -- | The required properties of the function.
-    requiredProperties :: Prelude.Maybe [Prelude.Text],
-    -- | The data connector.
+  { -- | The data connector.
     implementedBy :: Prelude.Maybe DataConnector,
+    -- | The required properties of the function.
+    requiredProperties :: Prelude.Maybe [Prelude.Text],
     -- | The scope of the function.
     scope :: Prelude.Maybe Scope
   }
@@ -47,28 +47,27 @@ data FunctionRequest = FunctionRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requiredProperties', 'functionRequest_requiredProperties' - The required properties of the function.
---
 -- 'implementedBy', 'functionRequest_implementedBy' - The data connector.
+--
+-- 'requiredProperties', 'functionRequest_requiredProperties' - The required properties of the function.
 --
 -- 'scope', 'functionRequest_scope' - The scope of the function.
 newFunctionRequest ::
   FunctionRequest
 newFunctionRequest =
   FunctionRequest'
-    { requiredProperties =
-        Prelude.Nothing,
-      implementedBy = Prelude.Nothing,
+    { implementedBy = Prelude.Nothing,
+      requiredProperties = Prelude.Nothing,
       scope = Prelude.Nothing
     }
-
--- | The required properties of the function.
-functionRequest_requiredProperties :: Lens.Lens' FunctionRequest (Prelude.Maybe [Prelude.Text])
-functionRequest_requiredProperties = Lens.lens (\FunctionRequest' {requiredProperties} -> requiredProperties) (\s@FunctionRequest' {} a -> s {requiredProperties = a} :: FunctionRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data connector.
 functionRequest_implementedBy :: Lens.Lens' FunctionRequest (Prelude.Maybe DataConnector)
 functionRequest_implementedBy = Lens.lens (\FunctionRequest' {implementedBy} -> implementedBy) (\s@FunctionRequest' {} a -> s {implementedBy = a} :: FunctionRequest)
+
+-- | The required properties of the function.
+functionRequest_requiredProperties :: Lens.Lens' FunctionRequest (Prelude.Maybe [Prelude.Text])
+functionRequest_requiredProperties = Lens.lens (\FunctionRequest' {requiredProperties} -> requiredProperties) (\s@FunctionRequest' {} a -> s {requiredProperties = a} :: FunctionRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The scope of the function.
 functionRequest_scope :: Lens.Lens' FunctionRequest (Prelude.Maybe Scope)
@@ -76,23 +75,23 @@ functionRequest_scope = Lens.lens (\FunctionRequest' {scope} -> scope) (\s@Funct
 
 instance Prelude.Hashable FunctionRequest where
   hashWithSalt _salt FunctionRequest' {..} =
-    _salt `Prelude.hashWithSalt` requiredProperties
-      `Prelude.hashWithSalt` implementedBy
+    _salt `Prelude.hashWithSalt` implementedBy
+      `Prelude.hashWithSalt` requiredProperties
       `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData FunctionRequest where
   rnf FunctionRequest' {..} =
-    Prelude.rnf requiredProperties
-      `Prelude.seq` Prelude.rnf implementedBy
+    Prelude.rnf implementedBy
+      `Prelude.seq` Prelude.rnf requiredProperties
       `Prelude.seq` Prelude.rnf scope
 
 instance Data.ToJSON FunctionRequest where
   toJSON FunctionRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("requiredProperties" Data..=)
+          [ ("implementedBy" Data..=) Prelude.<$> implementedBy,
+            ("requiredProperties" Data..=)
               Prelude.<$> requiredProperties,
-            ("implementedBy" Data..=) Prelude.<$> implementedBy,
             ("scope" Data..=) Prelude.<$> scope
           ]
       )

@@ -27,9 +27,9 @@ module Amazonka.IotTwinMaker.UpdateEntity
     newUpdateEntity,
 
     -- * Request Lenses
-    updateEntity_entityName,
     updateEntity_componentUpdates,
     updateEntity_description,
+    updateEntity_entityName,
     updateEntity_parentEntityUpdate,
     updateEntity_workspaceId,
     updateEntity_entityId,
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEntity' smart constructor.
 data UpdateEntity = UpdateEntity'
-  { -- | The name of the entity.
-    entityName :: Prelude.Maybe Prelude.Text,
-    -- | An object that maps strings to the component updates in the request.
+  { -- | An object that maps strings to the component updates in the request.
     -- Each string in the mapping must be unique to this object.
     componentUpdates :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentUpdateRequest),
     -- | The description of the entity.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the entity.
+    entityName :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the update request for a parent entity.
     parentEntityUpdate :: Prelude.Maybe ParentEntityUpdateRequest,
     -- | The ID of the workspace that contains the entity.
@@ -79,12 +79,12 @@ data UpdateEntity = UpdateEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityName', 'updateEntity_entityName' - The name of the entity.
---
 -- 'componentUpdates', 'updateEntity_componentUpdates' - An object that maps strings to the component updates in the request.
 -- Each string in the mapping must be unique to this object.
 --
 -- 'description', 'updateEntity_description' - The description of the entity.
+--
+-- 'entityName', 'updateEntity_entityName' - The name of the entity.
 --
 -- 'parentEntityUpdate', 'updateEntity_parentEntityUpdate' - An object that describes the update request for a parent entity.
 --
@@ -99,17 +99,13 @@ newUpdateEntity ::
   UpdateEntity
 newUpdateEntity pWorkspaceId_ pEntityId_ =
   UpdateEntity'
-    { entityName = Prelude.Nothing,
-      componentUpdates = Prelude.Nothing,
+    { componentUpdates = Prelude.Nothing,
       description = Prelude.Nothing,
+      entityName = Prelude.Nothing,
       parentEntityUpdate = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       entityId = pEntityId_
     }
-
--- | The name of the entity.
-updateEntity_entityName :: Lens.Lens' UpdateEntity (Prelude.Maybe Prelude.Text)
-updateEntity_entityName = Lens.lens (\UpdateEntity' {entityName} -> entityName) (\s@UpdateEntity' {} a -> s {entityName = a} :: UpdateEntity)
 
 -- | An object that maps strings to the component updates in the request.
 -- Each string in the mapping must be unique to this object.
@@ -119,6 +115,10 @@ updateEntity_componentUpdates = Lens.lens (\UpdateEntity' {componentUpdates} -> 
 -- | The description of the entity.
 updateEntity_description :: Lens.Lens' UpdateEntity (Prelude.Maybe Prelude.Text)
 updateEntity_description = Lens.lens (\UpdateEntity' {description} -> description) (\s@UpdateEntity' {} a -> s {description = a} :: UpdateEntity)
+
+-- | The name of the entity.
+updateEntity_entityName :: Lens.Lens' UpdateEntity (Prelude.Maybe Prelude.Text)
+updateEntity_entityName = Lens.lens (\UpdateEntity' {entityName} -> entityName) (\s@UpdateEntity' {} a -> s {entityName = a} :: UpdateEntity)
 
 -- | An object that describes the update request for a parent entity.
 updateEntity_parentEntityUpdate :: Lens.Lens' UpdateEntity (Prelude.Maybe ParentEntityUpdateRequest)
@@ -147,18 +147,18 @@ instance Core.AWSRequest UpdateEntity where
 
 instance Prelude.Hashable UpdateEntity where
   hashWithSalt _salt UpdateEntity' {..} =
-    _salt `Prelude.hashWithSalt` entityName
-      `Prelude.hashWithSalt` componentUpdates
+    _salt `Prelude.hashWithSalt` componentUpdates
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` entityName
       `Prelude.hashWithSalt` parentEntityUpdate
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData UpdateEntity where
   rnf UpdateEntity' {..} =
-    Prelude.rnf entityName
-      `Prelude.seq` Prelude.rnf componentUpdates
+    Prelude.rnf componentUpdates
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf entityName
       `Prelude.seq` Prelude.rnf parentEntityUpdate
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf entityId
@@ -178,10 +178,10 @@ instance Data.ToJSON UpdateEntity where
   toJSON UpdateEntity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("entityName" Data..=) Prelude.<$> entityName,
-            ("componentUpdates" Data..=)
+          [ ("componentUpdates" Data..=)
               Prelude.<$> componentUpdates,
             ("description" Data..=) Prelude.<$> description,
+            ("entityName" Data..=) Prelude.<$> entityName,
             ("parentEntityUpdate" Data..=)
               Prelude.<$> parentEntityUpdate
           ]

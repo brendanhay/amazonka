@@ -27,35 +27,35 @@ module Amazonka.IotTwinMaker
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** QueryTimeoutException
-    _QueryTimeoutException,
-
     -- ** ConflictException
     _ConflictException,
 
     -- ** ConnectorFailureException
     _ConnectorFailureException,
 
+    -- ** ConnectorTimeoutException
+    _ConnectorTimeoutException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** QueryTimeoutException
+    _QueryTimeoutException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ThrottlingException
     _ThrottlingException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- ** ValidationException
     _ValidationException,
-
-    -- ** ConnectorTimeoutException
-    _ConnectorTimeoutException,
 
     -- * Waiters
     -- $waiters
@@ -87,6 +87,12 @@ module Amazonka.IotTwinMaker
     CreateSceneResponse (CreateSceneResponse'),
     newCreateSceneResponse,
 
+    -- ** CreateSyncJob
+    CreateSyncJob (CreateSyncJob'),
+    newCreateSyncJob,
+    CreateSyncJobResponse (CreateSyncJobResponse'),
+    newCreateSyncJobResponse,
+
     -- ** CreateWorkspace
     CreateWorkspace (CreateWorkspace'),
     newCreateWorkspace,
@@ -110,6 +116,12 @@ module Amazonka.IotTwinMaker
     newDeleteScene,
     DeleteSceneResponse (DeleteSceneResponse'),
     newDeleteSceneResponse,
+
+    -- ** DeleteSyncJob
+    DeleteSyncJob (DeleteSyncJob'),
+    newDeleteSyncJob,
+    DeleteSyncJobResponse (DeleteSyncJobResponse'),
+    newDeleteSyncJobResponse,
 
     -- ** DeleteWorkspace
     DeleteWorkspace (DeleteWorkspace'),
@@ -159,6 +171,12 @@ module Amazonka.IotTwinMaker
     GetSceneResponse (GetSceneResponse'),
     newGetSceneResponse,
 
+    -- ** GetSyncJob
+    GetSyncJob (GetSyncJob'),
+    newGetSyncJob,
+    GetSyncJobResponse (GetSyncJobResponse'),
+    newGetSyncJobResponse,
+
     -- ** GetWorkspace
     GetWorkspace (GetWorkspace'),
     newGetWorkspace,
@@ -182,6 +200,18 @@ module Amazonka.IotTwinMaker
     newListScenes,
     ListScenesResponse (ListScenesResponse'),
     newListScenesResponse,
+
+    -- ** ListSyncJobs
+    ListSyncJobs (ListSyncJobs'),
+    newListSyncJobs,
+    ListSyncJobsResponse (ListSyncJobsResponse'),
+    newListSyncJobsResponse,
+
+    -- ** ListSyncResources
+    ListSyncResources (ListSyncResources'),
+    newListSyncResources,
+    ListSyncResourcesResponse (ListSyncResourcesResponse'),
+    newListSyncResourcesResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -280,6 +310,15 @@ module Amazonka.IotTwinMaker
 
     -- ** State
     State (..),
+
+    -- ** SyncJobState
+    SyncJobState (..),
+
+    -- ** SyncResourceState
+    SyncResourceState (..),
+
+    -- ** SyncResourceType
+    SyncResourceType (..),
 
     -- ** Type
     Type (..),
@@ -455,6 +494,26 @@ module Amazonka.IotTwinMaker
     Status (Status'),
     newStatus,
 
+    -- ** SyncJobStatus
+    SyncJobStatus (SyncJobStatus'),
+    newSyncJobStatus,
+
+    -- ** SyncJobSummary
+    SyncJobSummary (SyncJobSummary'),
+    newSyncJobSummary,
+
+    -- ** SyncResourceFilter
+    SyncResourceFilter (SyncResourceFilter'),
+    newSyncResourceFilter,
+
+    -- ** SyncResourceStatus
+    SyncResourceStatus (SyncResourceStatus'),
+    newSyncResourceStatus,
+
+    -- ** SyncResourceSummary
+    SyncResourceSummary (SyncResourceSummary'),
+    newSyncResourceSummary,
+
     -- ** TabularConditions
     TabularConditions (TabularConditions'),
     newTabularConditions,
@@ -469,10 +528,12 @@ import Amazonka.IotTwinMaker.BatchPutPropertyValues
 import Amazonka.IotTwinMaker.CreateComponentType
 import Amazonka.IotTwinMaker.CreateEntity
 import Amazonka.IotTwinMaker.CreateScene
+import Amazonka.IotTwinMaker.CreateSyncJob
 import Amazonka.IotTwinMaker.CreateWorkspace
 import Amazonka.IotTwinMaker.DeleteComponentType
 import Amazonka.IotTwinMaker.DeleteEntity
 import Amazonka.IotTwinMaker.DeleteScene
+import Amazonka.IotTwinMaker.DeleteSyncJob
 import Amazonka.IotTwinMaker.DeleteWorkspace
 import Amazonka.IotTwinMaker.ExecuteQuery
 import Amazonka.IotTwinMaker.GetComponentType
@@ -481,11 +542,14 @@ import Amazonka.IotTwinMaker.GetPricingPlan
 import Amazonka.IotTwinMaker.GetPropertyValue
 import Amazonka.IotTwinMaker.GetPropertyValueHistory
 import Amazonka.IotTwinMaker.GetScene
+import Amazonka.IotTwinMaker.GetSyncJob
 import Amazonka.IotTwinMaker.GetWorkspace
 import Amazonka.IotTwinMaker.Lens
 import Amazonka.IotTwinMaker.ListComponentTypes
 import Amazonka.IotTwinMaker.ListEntities
 import Amazonka.IotTwinMaker.ListScenes
+import Amazonka.IotTwinMaker.ListSyncJobs
+import Amazonka.IotTwinMaker.ListSyncResources
 import Amazonka.IotTwinMaker.ListTagsForResource
 import Amazonka.IotTwinMaker.ListWorkspaces
 import Amazonka.IotTwinMaker.TagResource

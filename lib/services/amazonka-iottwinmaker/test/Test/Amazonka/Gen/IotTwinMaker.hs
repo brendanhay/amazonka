@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestCreateScene $
 --             newCreateScene
 --
+--         , requestCreateSyncJob $
+--             newCreateSyncJob
+--
 --         , requestCreateWorkspace $
 --             newCreateWorkspace
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestDeleteScene $
 --             newDeleteScene
+--
+--         , requestDeleteSyncJob $
+--             newDeleteSyncJob
 --
 --         , requestDeleteWorkspace $
 --             newDeleteWorkspace
@@ -75,6 +81,9 @@ import Test.Tasty
 --         , requestGetScene $
 --             newGetScene
 --
+--         , requestGetSyncJob $
+--             newGetSyncJob
+--
 --         , requestGetWorkspace $
 --             newGetWorkspace
 --
@@ -86,6 +95,12 @@ import Test.Tasty
 --
 --         , requestListScenes $
 --             newListScenes
+--
+--         , requestListSyncJobs $
+--             newListSyncJobs
+--
+--         , requestListSyncResources $
+--             newListSyncResources
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -129,6 +144,9 @@ import Test.Tasty
 --         , responseCreateScene $
 --             newCreateSceneResponse
 --
+--         , responseCreateSyncJob $
+--             newCreateSyncJobResponse
+--
 --         , responseCreateWorkspace $
 --             newCreateWorkspaceResponse
 --
@@ -140,6 +158,9 @@ import Test.Tasty
 --
 --         , responseDeleteScene $
 --             newDeleteSceneResponse
+--
+--         , responseDeleteSyncJob $
+--             newDeleteSyncJobResponse
 --
 --         , responseDeleteWorkspace $
 --             newDeleteWorkspaceResponse
@@ -165,6 +186,9 @@ import Test.Tasty
 --         , responseGetScene $
 --             newGetSceneResponse
 --
+--         , responseGetSyncJob $
+--             newGetSyncJobResponse
+--
 --         , responseGetWorkspace $
 --             newGetWorkspaceResponse
 --
@@ -176,6 +200,12 @@ import Test.Tasty
 --
 --         , responseListScenes $
 --             newListScenesResponse
+--
+--         , responseListSyncJobs $
+--             newListSyncJobsResponse
+--
+--         , responseListSyncResources $
+--             newListSyncResourcesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -233,6 +263,12 @@ requestCreateScene =
     "CreateScene"
     "fixture/CreateScene.yaml"
 
+requestCreateSyncJob :: CreateSyncJob -> TestTree
+requestCreateSyncJob =
+  req
+    "CreateSyncJob"
+    "fixture/CreateSyncJob.yaml"
+
 requestCreateWorkspace :: CreateWorkspace -> TestTree
 requestCreateWorkspace =
   req
@@ -256,6 +292,12 @@ requestDeleteScene =
   req
     "DeleteScene"
     "fixture/DeleteScene.yaml"
+
+requestDeleteSyncJob :: DeleteSyncJob -> TestTree
+requestDeleteSyncJob =
+  req
+    "DeleteSyncJob"
+    "fixture/DeleteSyncJob.yaml"
 
 requestDeleteWorkspace :: DeleteWorkspace -> TestTree
 requestDeleteWorkspace =
@@ -305,6 +347,12 @@ requestGetScene =
     "GetScene"
     "fixture/GetScene.yaml"
 
+requestGetSyncJob :: GetSyncJob -> TestTree
+requestGetSyncJob =
+  req
+    "GetSyncJob"
+    "fixture/GetSyncJob.yaml"
+
 requestGetWorkspace :: GetWorkspace -> TestTree
 requestGetWorkspace =
   req
@@ -328,6 +376,18 @@ requestListScenes =
   req
     "ListScenes"
     "fixture/ListScenes.yaml"
+
+requestListSyncJobs :: ListSyncJobs -> TestTree
+requestListSyncJobs =
+  req
+    "ListSyncJobs"
+    "fixture/ListSyncJobs.yaml"
+
+requestListSyncResources :: ListSyncResources -> TestTree
+requestListSyncResources =
+  req
+    "ListSyncResources"
+    "fixture/ListSyncResources.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -417,6 +477,14 @@ responseCreateScene =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateScene)
 
+responseCreateSyncJob :: CreateSyncJobResponse -> TestTree
+responseCreateSyncJob =
+  res
+    "CreateSyncJobResponse"
+    "fixture/CreateSyncJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSyncJob)
+
 responseCreateWorkspace :: CreateWorkspaceResponse -> TestTree
 responseCreateWorkspace =
   res
@@ -448,6 +516,14 @@ responseDeleteScene =
     "fixture/DeleteSceneResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteScene)
+
+responseDeleteSyncJob :: DeleteSyncJobResponse -> TestTree
+responseDeleteSyncJob =
+  res
+    "DeleteSyncJobResponse"
+    "fixture/DeleteSyncJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSyncJob)
 
 responseDeleteWorkspace :: DeleteWorkspaceResponse -> TestTree
 responseDeleteWorkspace =
@@ -513,6 +589,14 @@ responseGetScene =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetScene)
 
+responseGetSyncJob :: GetSyncJobResponse -> TestTree
+responseGetSyncJob =
+  res
+    "GetSyncJobResponse"
+    "fixture/GetSyncJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSyncJob)
+
 responseGetWorkspace :: GetWorkspaceResponse -> TestTree
 responseGetWorkspace =
   res
@@ -544,6 +628,22 @@ responseListScenes =
     "fixture/ListScenesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListScenes)
+
+responseListSyncJobs :: ListSyncJobsResponse -> TestTree
+responseListSyncJobs =
+  res
+    "ListSyncJobsResponse"
+    "fixture/ListSyncJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSyncJobs)
+
+responseListSyncResources :: ListSyncResourcesResponse -> TestTree
+responseListSyncResources =
+  res
+    "ListSyncResourcesResponse"
+    "fixture/ListSyncResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSyncResources)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

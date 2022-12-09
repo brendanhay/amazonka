@@ -31,13 +31,13 @@ module Amazonka.IotTwinMaker.GetPropertyValue
     newGetPropertyValue,
 
     -- * Request Lenses
+    getPropertyValue_componentName,
+    getPropertyValue_componentTypeId,
     getPropertyValue_entityId,
+    getPropertyValue_maxResults,
     getPropertyValue_nextToken,
     getPropertyValue_propertyGroupName,
-    getPropertyValue_componentName,
-    getPropertyValue_maxResults,
     getPropertyValue_tabularConditions,
-    getPropertyValue_componentTypeId,
     getPropertyValue_selectedProperties,
     getPropertyValue_workspaceId,
 
@@ -47,8 +47,8 @@ module Amazonka.IotTwinMaker.GetPropertyValue
 
     -- * Response Lenses
     getPropertyValueResponse_nextToken,
-    getPropertyValueResponse_tabularPropertyValues,
     getPropertyValueResponse_propertyValues,
+    getPropertyValueResponse_tabularPropertyValues,
     getPropertyValueResponse_httpStatus,
   )
 where
@@ -63,23 +63,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPropertyValue' smart constructor.
 data GetPropertyValue = GetPropertyValue'
-  { -- | The ID of the entity whose property values the operation returns.
-    entityId :: Prelude.Maybe Prelude.Text,
-    -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The property group name.
-    propertyGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the component whose property values the operation returns.
+  { -- | The name of the component whose property values the operation returns.
     componentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component type whose property values the operation
+    -- returns.
+    componentTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the entity whose property values the operation returns.
+    entityId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time. The default is 25.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The property group name.
+    propertyGroupName :: Prelude.Maybe Prelude.Text,
     -- | The tabular conditions.
     tabularConditions :: Prelude.Maybe TabularConditions,
-    -- | The ID of the component type whose property values the operation
-    -- returns.
-    componentTypeId :: Prelude.Maybe Prelude.Text,
     -- | The properties whose values the operation returns.
     selectedProperties :: Prelude.NonEmpty Prelude.Text,
     -- | The ID of the workspace whose values the operation returns.
@@ -95,22 +95,22 @@ data GetPropertyValue = GetPropertyValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'getPropertyValue_entityId' - The ID of the entity whose property values the operation returns.
---
--- 'nextToken', 'getPropertyValue_nextToken' - The string that specifies the next page of results.
---
--- 'propertyGroupName', 'getPropertyValue_propertyGroupName' - The property group name.
---
 -- 'componentName', 'getPropertyValue_componentName' - The name of the component whose property values the operation returns.
+--
+-- 'componentTypeId', 'getPropertyValue_componentTypeId' - The ID of the component type whose property values the operation
+-- returns.
+--
+-- 'entityId', 'getPropertyValue_entityId' - The ID of the entity whose property values the operation returns.
 --
 -- 'maxResults', 'getPropertyValue_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
 --
--- 'tabularConditions', 'getPropertyValue_tabularConditions' - The tabular conditions.
+-- 'nextToken', 'getPropertyValue_nextToken' - The string that specifies the next page of results.
 --
--- 'componentTypeId', 'getPropertyValue_componentTypeId' - The ID of the component type whose property values the operation
--- returns.
+-- 'propertyGroupName', 'getPropertyValue_propertyGroupName' - The property group name.
+--
+-- 'tabularConditions', 'getPropertyValue_tabularConditions' - The tabular conditions.
 --
 -- 'selectedProperties', 'getPropertyValue_selectedProperties' - The properties whose values the operation returns.
 --
@@ -125,21 +125,36 @@ newGetPropertyValue
   pSelectedProperties_
   pWorkspaceId_ =
     GetPropertyValue'
-      { entityId = Prelude.Nothing,
+      { componentName = Prelude.Nothing,
+        componentTypeId = Prelude.Nothing,
+        entityId = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         nextToken = Prelude.Nothing,
         propertyGroupName = Prelude.Nothing,
-        componentName = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         tabularConditions = Prelude.Nothing,
-        componentTypeId = Prelude.Nothing,
         selectedProperties =
           Lens.coerced Lens.# pSelectedProperties_,
         workspaceId = pWorkspaceId_
       }
 
+-- | The name of the component whose property values the operation returns.
+getPropertyValue_componentName :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
+getPropertyValue_componentName = Lens.lens (\GetPropertyValue' {componentName} -> componentName) (\s@GetPropertyValue' {} a -> s {componentName = a} :: GetPropertyValue)
+
+-- | The ID of the component type whose property values the operation
+-- returns.
+getPropertyValue_componentTypeId :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
+getPropertyValue_componentTypeId = Lens.lens (\GetPropertyValue' {componentTypeId} -> componentTypeId) (\s@GetPropertyValue' {} a -> s {componentTypeId = a} :: GetPropertyValue)
+
 -- | The ID of the entity whose property values the operation returns.
 getPropertyValue_entityId :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
 getPropertyValue_entityId = Lens.lens (\GetPropertyValue' {entityId} -> entityId) (\s@GetPropertyValue' {} a -> s {entityId = a} :: GetPropertyValue)
+
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
+getPropertyValue_maxResults :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Natural)
+getPropertyValue_maxResults = Lens.lens (\GetPropertyValue' {maxResults} -> maxResults) (\s@GetPropertyValue' {} a -> s {maxResults = a} :: GetPropertyValue)
 
 -- | The string that specifies the next page of results.
 getPropertyValue_nextToken :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
@@ -149,24 +164,9 @@ getPropertyValue_nextToken = Lens.lens (\GetPropertyValue' {nextToken} -> nextTo
 getPropertyValue_propertyGroupName :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
 getPropertyValue_propertyGroupName = Lens.lens (\GetPropertyValue' {propertyGroupName} -> propertyGroupName) (\s@GetPropertyValue' {} a -> s {propertyGroupName = a} :: GetPropertyValue)
 
--- | The name of the component whose property values the operation returns.
-getPropertyValue_componentName :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
-getPropertyValue_componentName = Lens.lens (\GetPropertyValue' {componentName} -> componentName) (\s@GetPropertyValue' {} a -> s {componentName = a} :: GetPropertyValue)
-
--- | The maximum number of results to return at one time. The default is 25.
---
--- Valid Range: Minimum value of 1. Maximum value of 250.
-getPropertyValue_maxResults :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Natural)
-getPropertyValue_maxResults = Lens.lens (\GetPropertyValue' {maxResults} -> maxResults) (\s@GetPropertyValue' {} a -> s {maxResults = a} :: GetPropertyValue)
-
 -- | The tabular conditions.
 getPropertyValue_tabularConditions :: Lens.Lens' GetPropertyValue (Prelude.Maybe TabularConditions)
 getPropertyValue_tabularConditions = Lens.lens (\GetPropertyValue' {tabularConditions} -> tabularConditions) (\s@GetPropertyValue' {} a -> s {tabularConditions = a} :: GetPropertyValue)
-
--- | The ID of the component type whose property values the operation
--- returns.
-getPropertyValue_componentTypeId :: Lens.Lens' GetPropertyValue (Prelude.Maybe Prelude.Text)
-getPropertyValue_componentTypeId = Lens.lens (\GetPropertyValue' {componentTypeId} -> componentTypeId) (\s@GetPropertyValue' {} a -> s {componentTypeId = a} :: GetPropertyValue)
 
 -- | The properties whose values the operation returns.
 getPropertyValue_selectedProperties :: Lens.Lens' GetPropertyValue (Prelude.NonEmpty Prelude.Text)
@@ -187,34 +187,34 @@ instance Core.AWSRequest GetPropertyValue where
       ( \s h x ->
           GetPropertyValueResponse'
             Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "propertyValues" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Data..?> "tabularPropertyValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "propertyValues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetPropertyValue where
   hashWithSalt _salt GetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` componentTypeId
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` propertyGroupName
-      `Prelude.hashWithSalt` componentName
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` tabularConditions
-      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` selectedProperties
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData GetPropertyValue where
   rnf GetPropertyValue' {..} =
-    Prelude.rnf entityId
+    Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf componentTypeId
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf propertyGroupName
-      `Prelude.seq` Prelude.rnf componentName
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf tabularConditions
-      `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf selectedProperties
       `Prelude.seq` Prelude.rnf workspaceId
 
@@ -233,16 +233,16 @@ instance Data.ToJSON GetPropertyValue where
   toJSON GetPropertyValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Data..=) Prelude.<$> entityId,
+          [ ("componentName" Data..=) Prelude.<$> componentName,
+            ("componentTypeId" Data..=)
+              Prelude.<$> componentTypeId,
+            ("entityId" Data..=) Prelude.<$> entityId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("propertyGroupName" Data..=)
               Prelude.<$> propertyGroupName,
-            ("componentName" Data..=) Prelude.<$> componentName,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("tabularConditions" Data..=)
               Prelude.<$> tabularConditions,
-            ("componentTypeId" Data..=)
-              Prelude.<$> componentTypeId,
             Prelude.Just
               ("selectedProperties" Data..= selectedProperties)
           ]
@@ -263,12 +263,12 @@ instance Data.ToQuery GetPropertyValue where
 data GetPropertyValueResponse = GetPropertyValueResponse'
   { -- | The string that specifies the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A table of property values.
-    tabularPropertyValues :: Prelude.Maybe [[Prelude.HashMap Prelude.Text DataValue]],
     -- | An object that maps strings to the properties and latest property values
     -- in the response. Each string in the mapping must be unique to this
     -- object.
     propertyValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyLatestValue),
+    -- | A table of property values.
+    tabularPropertyValues :: Prelude.Maybe [[Prelude.HashMap Prelude.Text DataValue]],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -284,11 +284,11 @@ data GetPropertyValueResponse = GetPropertyValueResponse'
 --
 -- 'nextToken', 'getPropertyValueResponse_nextToken' - The string that specifies the next page of results.
 --
--- 'tabularPropertyValues', 'getPropertyValueResponse_tabularPropertyValues' - A table of property values.
---
 -- 'propertyValues', 'getPropertyValueResponse_propertyValues' - An object that maps strings to the properties and latest property values
 -- in the response. Each string in the mapping must be unique to this
 -- object.
+--
+-- 'tabularPropertyValues', 'getPropertyValueResponse_tabularPropertyValues' - A table of property values.
 --
 -- 'httpStatus', 'getPropertyValueResponse_httpStatus' - The response's http status code.
 newGetPropertyValueResponse ::
@@ -299,8 +299,8 @@ newGetPropertyValueResponse pHttpStatus_ =
   GetPropertyValueResponse'
     { nextToken =
         Prelude.Nothing,
-      tabularPropertyValues = Prelude.Nothing,
       propertyValues = Prelude.Nothing,
+      tabularPropertyValues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -308,15 +308,15 @@ newGetPropertyValueResponse pHttpStatus_ =
 getPropertyValueResponse_nextToken :: Lens.Lens' GetPropertyValueResponse (Prelude.Maybe Prelude.Text)
 getPropertyValueResponse_nextToken = Lens.lens (\GetPropertyValueResponse' {nextToken} -> nextToken) (\s@GetPropertyValueResponse' {} a -> s {nextToken = a} :: GetPropertyValueResponse)
 
--- | A table of property values.
-getPropertyValueResponse_tabularPropertyValues :: Lens.Lens' GetPropertyValueResponse (Prelude.Maybe [[Prelude.HashMap Prelude.Text DataValue]])
-getPropertyValueResponse_tabularPropertyValues = Lens.lens (\GetPropertyValueResponse' {tabularPropertyValues} -> tabularPropertyValues) (\s@GetPropertyValueResponse' {} a -> s {tabularPropertyValues = a} :: GetPropertyValueResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | An object that maps strings to the properties and latest property values
 -- in the response. Each string in the mapping must be unique to this
 -- object.
 getPropertyValueResponse_propertyValues :: Lens.Lens' GetPropertyValueResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyLatestValue))
 getPropertyValueResponse_propertyValues = Lens.lens (\GetPropertyValueResponse' {propertyValues} -> propertyValues) (\s@GetPropertyValueResponse' {} a -> s {propertyValues = a} :: GetPropertyValueResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A table of property values.
+getPropertyValueResponse_tabularPropertyValues :: Lens.Lens' GetPropertyValueResponse (Prelude.Maybe [[Prelude.HashMap Prelude.Text DataValue]])
+getPropertyValueResponse_tabularPropertyValues = Lens.lens (\GetPropertyValueResponse' {tabularPropertyValues} -> tabularPropertyValues) (\s@GetPropertyValueResponse' {} a -> s {tabularPropertyValues = a} :: GetPropertyValueResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getPropertyValueResponse_httpStatus :: Lens.Lens' GetPropertyValueResponse Prelude.Int
@@ -325,6 +325,6 @@ getPropertyValueResponse_httpStatus = Lens.lens (\GetPropertyValueResponse' {htt
 instance Prelude.NFData GetPropertyValueResponse where
   rnf GetPropertyValueResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf tabularPropertyValues
       `Prelude.seq` Prelude.rnf propertyValues
+      `Prelude.seq` Prelude.rnf tabularPropertyValues
       `Prelude.seq` Prelude.rnf httpStatus

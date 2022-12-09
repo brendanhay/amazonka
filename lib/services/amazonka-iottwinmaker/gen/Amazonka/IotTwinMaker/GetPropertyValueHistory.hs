@@ -32,18 +32,18 @@ module Amazonka.IotTwinMaker.GetPropertyValueHistory
     newGetPropertyValueHistory,
 
     -- * Request Lenses
-    getPropertyValueHistory_entityId,
-    getPropertyValueHistory_nextToken,
     getPropertyValueHistory_componentName,
+    getPropertyValueHistory_componentTypeId,
+    getPropertyValueHistory_endDateTime,
+    getPropertyValueHistory_endTime,
+    getPropertyValueHistory_entityId,
+    getPropertyValueHistory_interpolation,
+    getPropertyValueHistory_maxResults,
+    getPropertyValueHistory_nextToken,
+    getPropertyValueHistory_orderByTime,
     getPropertyValueHistory_propertyFilters,
     getPropertyValueHistory_startDateTime,
-    getPropertyValueHistory_endTime,
-    getPropertyValueHistory_maxResults,
-    getPropertyValueHistory_interpolation,
-    getPropertyValueHistory_orderByTime,
     getPropertyValueHistory_startTime,
-    getPropertyValueHistory_endDateTime,
-    getPropertyValueHistory_componentTypeId,
     getPropertyValueHistory_workspaceId,
     getPropertyValueHistory_selectedProperties,
 
@@ -68,41 +68,41 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPropertyValueHistory' smart constructor.
 data GetPropertyValueHistory = GetPropertyValueHistory'
-  { -- | The ID of the entity.
-    entityId :: Prelude.Maybe Prelude.Text,
-    -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the component.
+  { -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects that filter the property value history request.
-    propertyFilters :: Prelude.Maybe (Prelude.NonEmpty PropertyFilter),
-    -- | The date and time of the earliest property value to return.
-    startDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the component type.
+    componentTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time of the latest property value to return.
+    endDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO8601 DateTime of the latest property value to return.
     --
     -- For more information about the ISO8601 DateTime format, see the data
     -- type
     -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
     endTime :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the entity.
+    entityId :: Prelude.Maybe Prelude.Text,
+    -- | An object that specifies the interpolation type and the interval over
+    -- which to interpolate data.
+    interpolation :: Prelude.Maybe InterpolationParameters,
     -- | The maximum number of results to return at one time. The default is 25.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An object that specifies the interpolation type and the interval over
-    -- which to interpolate data.
-    interpolation :: Prelude.Maybe InterpolationParameters,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time direction to use in the result order.
     orderByTime :: Prelude.Maybe OrderByTime,
+    -- | A list of objects that filter the property value history request.
+    propertyFilters :: Prelude.Maybe (Prelude.NonEmpty PropertyFilter),
+    -- | The date and time of the earliest property value to return.
+    startDateTime :: Prelude.Maybe Data.POSIX,
     -- | The ISO8601 DateTime of the earliest property value to return.
     --
     -- For more information about the ISO8601 DateTime format, see the data
     -- type
     -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
     startTime :: Prelude.Maybe Prelude.Text,
-    -- | The date and time of the latest property value to return.
-    endDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the component type.
-    componentTypeId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text,
     -- | A list of properties whose value histories the request retrieves.
@@ -118,15 +118,11 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'getPropertyValueHistory_entityId' - The ID of the entity.
---
--- 'nextToken', 'getPropertyValueHistory_nextToken' - The string that specifies the next page of results.
---
 -- 'componentName', 'getPropertyValueHistory_componentName' - The name of the component.
 --
--- 'propertyFilters', 'getPropertyValueHistory_propertyFilters' - A list of objects that filter the property value history request.
+-- 'componentTypeId', 'getPropertyValueHistory_componentTypeId' - The ID of the component type.
 --
--- 'startDateTime', 'getPropertyValueHistory_startDateTime' - The date and time of the earliest property value to return.
+-- 'endDateTime', 'getPropertyValueHistory_endDateTime' - The date and time of the latest property value to return.
 --
 -- 'endTime', 'getPropertyValueHistory_endTime' - The ISO8601 DateTime of the latest property value to return.
 --
@@ -134,24 +130,28 @@ data GetPropertyValueHistory = GetPropertyValueHistory'
 -- type
 -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 --
--- 'maxResults', 'getPropertyValueHistory_maxResults' - The maximum number of results to return at one time. The default is 25.
---
--- Valid Range: Minimum value of 1. Maximum value of 250.
+-- 'entityId', 'getPropertyValueHistory_entityId' - The ID of the entity.
 --
 -- 'interpolation', 'getPropertyValueHistory_interpolation' - An object that specifies the interpolation type and the interval over
 -- which to interpolate data.
 --
+-- 'maxResults', 'getPropertyValueHistory_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
+--
+-- 'nextToken', 'getPropertyValueHistory_nextToken' - The string that specifies the next page of results.
+--
 -- 'orderByTime', 'getPropertyValueHistory_orderByTime' - The time direction to use in the result order.
+--
+-- 'propertyFilters', 'getPropertyValueHistory_propertyFilters' - A list of objects that filter the property value history request.
+--
+-- 'startDateTime', 'getPropertyValueHistory_startDateTime' - The date and time of the earliest property value to return.
 --
 -- 'startTime', 'getPropertyValueHistory_startTime' - The ISO8601 DateTime of the earliest property value to return.
 --
 -- For more information about the ISO8601 DateTime format, see the data
 -- type
 -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
---
--- 'endDateTime', 'getPropertyValueHistory_endDateTime' - The date and time of the latest property value to return.
---
--- 'componentTypeId', 'getPropertyValueHistory_componentTypeId' - The ID of the component type.
 --
 -- 'workspaceId', 'getPropertyValueHistory_workspaceId' - The ID of the workspace.
 --
@@ -166,43 +166,35 @@ newGetPropertyValueHistory
   pWorkspaceId_
   pSelectedProperties_ =
     GetPropertyValueHistory'
-      { entityId =
+      { componentName =
           Prelude.Nothing,
+        componentTypeId = Prelude.Nothing,
+        endDateTime = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        entityId = Prelude.Nothing,
+        interpolation = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         nextToken = Prelude.Nothing,
-        componentName = Prelude.Nothing,
+        orderByTime = Prelude.Nothing,
         propertyFilters = Prelude.Nothing,
         startDateTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        interpolation = Prelude.Nothing,
-        orderByTime = Prelude.Nothing,
         startTime = Prelude.Nothing,
-        endDateTime = Prelude.Nothing,
-        componentTypeId = Prelude.Nothing,
         workspaceId = pWorkspaceId_,
         selectedProperties =
           Lens.coerced Lens.# pSelectedProperties_
       }
 
--- | The ID of the entity.
-getPropertyValueHistory_entityId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-getPropertyValueHistory_entityId = Lens.lens (\GetPropertyValueHistory' {entityId} -> entityId) (\s@GetPropertyValueHistory' {} a -> s {entityId = a} :: GetPropertyValueHistory)
-
--- | The string that specifies the next page of results.
-getPropertyValueHistory_nextToken :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-getPropertyValueHistory_nextToken = Lens.lens (\GetPropertyValueHistory' {nextToken} -> nextToken) (\s@GetPropertyValueHistory' {} a -> s {nextToken = a} :: GetPropertyValueHistory)
-
 -- | The name of the component.
 getPropertyValueHistory_componentName :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_componentName = Lens.lens (\GetPropertyValueHistory' {componentName} -> componentName) (\s@GetPropertyValueHistory' {} a -> s {componentName = a} :: GetPropertyValueHistory)
 
--- | A list of objects that filter the property value history request.
-getPropertyValueHistory_propertyFilters :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe (Prelude.NonEmpty PropertyFilter))
-getPropertyValueHistory_propertyFilters = Lens.lens (\GetPropertyValueHistory' {propertyFilters} -> propertyFilters) (\s@GetPropertyValueHistory' {} a -> s {propertyFilters = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the component type.
+getPropertyValueHistory_componentTypeId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+getPropertyValueHistory_componentTypeId = Lens.lens (\GetPropertyValueHistory' {componentTypeId} -> componentTypeId) (\s@GetPropertyValueHistory' {} a -> s {componentTypeId = a} :: GetPropertyValueHistory)
 
--- | The date and time of the earliest property value to return.
-getPropertyValueHistory_startDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {startDateTime} -> startDateTime) (\s@GetPropertyValueHistory' {} a -> s {startDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
+-- | The date and time of the latest property value to return.
+getPropertyValueHistory_endDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
+getPropertyValueHistory_endDateTime = Lens.lens (\GetPropertyValueHistory' {endDateTime} -> endDateTime) (\s@GetPropertyValueHistory' {} a -> s {endDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO8601 DateTime of the latest property value to return.
 --
@@ -212,20 +204,36 @@ getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {st
 getPropertyValueHistory_endTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_endTime = Lens.lens (\GetPropertyValueHistory' {endTime} -> endTime) (\s@GetPropertyValueHistory' {} a -> s {endTime = a} :: GetPropertyValueHistory)
 
--- | The maximum number of results to return at one time. The default is 25.
---
--- Valid Range: Minimum value of 1. Maximum value of 250.
-getPropertyValueHistory_maxResults :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
-getPropertyValueHistory_maxResults = Lens.lens (\GetPropertyValueHistory' {maxResults} -> maxResults) (\s@GetPropertyValueHistory' {} a -> s {maxResults = a} :: GetPropertyValueHistory)
+-- | The ID of the entity.
+getPropertyValueHistory_entityId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+getPropertyValueHistory_entityId = Lens.lens (\GetPropertyValueHistory' {entityId} -> entityId) (\s@GetPropertyValueHistory' {} a -> s {entityId = a} :: GetPropertyValueHistory)
 
 -- | An object that specifies the interpolation type and the interval over
 -- which to interpolate data.
 getPropertyValueHistory_interpolation :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe InterpolationParameters)
 getPropertyValueHistory_interpolation = Lens.lens (\GetPropertyValueHistory' {interpolation} -> interpolation) (\s@GetPropertyValueHistory' {} a -> s {interpolation = a} :: GetPropertyValueHistory)
 
+-- | The maximum number of results to return at one time. The default is 25.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 250.
+getPropertyValueHistory_maxResults :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
+getPropertyValueHistory_maxResults = Lens.lens (\GetPropertyValueHistory' {maxResults} -> maxResults) (\s@GetPropertyValueHistory' {} a -> s {maxResults = a} :: GetPropertyValueHistory)
+
+-- | The string that specifies the next page of results.
+getPropertyValueHistory_nextToken :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+getPropertyValueHistory_nextToken = Lens.lens (\GetPropertyValueHistory' {nextToken} -> nextToken) (\s@GetPropertyValueHistory' {} a -> s {nextToken = a} :: GetPropertyValueHistory)
+
 -- | The time direction to use in the result order.
 getPropertyValueHistory_orderByTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe OrderByTime)
 getPropertyValueHistory_orderByTime = Lens.lens (\GetPropertyValueHistory' {orderByTime} -> orderByTime) (\s@GetPropertyValueHistory' {} a -> s {orderByTime = a} :: GetPropertyValueHistory)
+
+-- | A list of objects that filter the property value history request.
+getPropertyValueHistory_propertyFilters :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe (Prelude.NonEmpty PropertyFilter))
+getPropertyValueHistory_propertyFilters = Lens.lens (\GetPropertyValueHistory' {propertyFilters} -> propertyFilters) (\s@GetPropertyValueHistory' {} a -> s {propertyFilters = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time of the earliest property value to return.
+getPropertyValueHistory_startDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
+getPropertyValueHistory_startDateTime = Lens.lens (\GetPropertyValueHistory' {startDateTime} -> startDateTime) (\s@GetPropertyValueHistory' {} a -> s {startDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO8601 DateTime of the earliest property value to return.
 --
@@ -234,14 +242,6 @@ getPropertyValueHistory_orderByTime = Lens.lens (\GetPropertyValueHistory' {orde
 -- <https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html PropertyValue>.
 getPropertyValueHistory_startTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
 getPropertyValueHistory_startTime = Lens.lens (\GetPropertyValueHistory' {startTime} -> startTime) (\s@GetPropertyValueHistory' {} a -> s {startTime = a} :: GetPropertyValueHistory)
-
--- | The date and time of the latest property value to return.
-getPropertyValueHistory_endDateTime :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
-getPropertyValueHistory_endDateTime = Lens.lens (\GetPropertyValueHistory' {endDateTime} -> endDateTime) (\s@GetPropertyValueHistory' {} a -> s {endDateTime = a} :: GetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the component type.
-getPropertyValueHistory_componentTypeId :: Lens.Lens' GetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-getPropertyValueHistory_componentTypeId = Lens.lens (\GetPropertyValueHistory' {componentTypeId} -> componentTypeId) (\s@GetPropertyValueHistory' {} a -> s {componentTypeId = a} :: GetPropertyValueHistory)
 
 -- | The ID of the workspace.
 getPropertyValueHistory_workspaceId :: Lens.Lens' GetPropertyValueHistory Prelude.Text
@@ -270,35 +270,35 @@ instance Core.AWSRequest GetPropertyValueHistory where
 
 instance Prelude.Hashable GetPropertyValueHistory where
   hashWithSalt _salt GetPropertyValueHistory' {..} =
-    _salt `Prelude.hashWithSalt` entityId
+    _salt `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` componentTypeId
+      `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` entityId
+      `Prelude.hashWithSalt` interpolation
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` orderByTime
       `Prelude.hashWithSalt` propertyFilters
       `Prelude.hashWithSalt` startDateTime
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` interpolation
-      `Prelude.hashWithSalt` orderByTime
       `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` endDateTime
-      `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` selectedProperties
 
 instance Prelude.NFData GetPropertyValueHistory where
   rnf GetPropertyValueHistory' {..} =
-    Prelude.rnf entityId
+    Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf componentTypeId
+      `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf interpolation
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf orderByTime
       `Prelude.seq` Prelude.rnf propertyFilters
       `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf interpolation
-      `Prelude.seq` Prelude.rnf orderByTime
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf endDateTime
-      `Prelude.seq` Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf selectedProperties
 
@@ -317,20 +317,20 @@ instance Data.ToJSON GetPropertyValueHistory where
   toJSON GetPropertyValueHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Data..=) Prelude.<$> entityId,
+          [ ("componentName" Data..=) Prelude.<$> componentName,
+            ("componentTypeId" Data..=)
+              Prelude.<$> componentTypeId,
+            ("endDateTime" Data..=) Prelude.<$> endDateTime,
+            ("endTime" Data..=) Prelude.<$> endTime,
+            ("entityId" Data..=) Prelude.<$> entityId,
+            ("interpolation" Data..=) Prelude.<$> interpolation,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("componentName" Data..=) Prelude.<$> componentName,
+            ("orderByTime" Data..=) Prelude.<$> orderByTime,
             ("propertyFilters" Data..=)
               Prelude.<$> propertyFilters,
             ("startDateTime" Data..=) Prelude.<$> startDateTime,
-            ("endTime" Data..=) Prelude.<$> endTime,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("interpolation" Data..=) Prelude.<$> interpolation,
-            ("orderByTime" Data..=) Prelude.<$> orderByTime,
             ("startTime" Data..=) Prelude.<$> startTime,
-            ("endDateTime" Data..=) Prelude.<$> endDateTime,
-            ("componentTypeId" Data..=)
-              Prelude.<$> componentTypeId,
             Prelude.Just
               ("selectedProperties" Data..= selectedProperties)
           ]

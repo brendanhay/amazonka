@@ -29,21 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThirdPartyFirewallMissingExpectedRouteTableViolation' smart constructor.
 data ThirdPartyFirewallMissingExpectedRouteTableViolation = ThirdPartyFirewallMissingExpectedRouteTableViolation'
-  { -- | The resource ID of the VPC associated with a fireawll subnet that\'s
+  { -- | The Availability Zone of the firewall subnet that\'s causing the
+    -- violation.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID of the current route table that\'s associated with the
+    -- subnet, if one is available.
+    currentRouteTable :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID of the route table that should be associated with the
+    -- subnet.
+    expectedRouteTable :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID of the VPC associated with a fireawll subnet that\'s
     -- causing the violation.
     vpc :: Prelude.Maybe Prelude.Text,
     -- | The ID of the third-party firewall or VPC resource that\'s causing the
     -- violation.
-    violationTarget :: Prelude.Maybe Prelude.Text,
-    -- | The resource ID of the current route table that\'s associated with the
-    -- subnet, if one is available.
-    currentRouteTable :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone of the firewall subnet that\'s causing the
-    -- violation.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The resource ID of the route table that should be associated with the
-    -- subnet.
-    expectedRouteTable :: Prelude.Maybe Prelude.Text
+    violationTarget :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,35 +55,49 @@ data ThirdPartyFirewallMissingExpectedRouteTableViolation = ThirdPartyFirewallMi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpc', 'thirdPartyFirewallMissingExpectedRouteTableViolation_vpc' - The resource ID of the VPC associated with a fireawll subnet that\'s
--- causing the violation.
---
--- 'violationTarget', 'thirdPartyFirewallMissingExpectedRouteTableViolation_violationTarget' - The ID of the third-party firewall or VPC resource that\'s causing the
+-- 'availabilityZone', 'thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone' - The Availability Zone of the firewall subnet that\'s causing the
 -- violation.
 --
 -- 'currentRouteTable', 'thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable' - The resource ID of the current route table that\'s associated with the
 -- subnet, if one is available.
 --
--- 'availabilityZone', 'thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone' - The Availability Zone of the firewall subnet that\'s causing the
--- violation.
---
 -- 'expectedRouteTable', 'thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable' - The resource ID of the route table that should be associated with the
 -- subnet.
+--
+-- 'vpc', 'thirdPartyFirewallMissingExpectedRouteTableViolation_vpc' - The resource ID of the VPC associated with a fireawll subnet that\'s
+-- causing the violation.
+--
+-- 'violationTarget', 'thirdPartyFirewallMissingExpectedRouteTableViolation_violationTarget' - The ID of the third-party firewall or VPC resource that\'s causing the
+-- violation.
 newThirdPartyFirewallMissingExpectedRouteTableViolation ::
   ThirdPartyFirewallMissingExpectedRouteTableViolation
 newThirdPartyFirewallMissingExpectedRouteTableViolation =
   ThirdPartyFirewallMissingExpectedRouteTableViolation'
-    { vpc =
-        Prelude.Nothing,
-      violationTarget =
+    { availabilityZone =
         Prelude.Nothing,
       currentRouteTable =
         Prelude.Nothing,
-      availabilityZone =
-        Prelude.Nothing,
       expectedRouteTable =
+        Prelude.Nothing,
+      vpc = Prelude.Nothing,
+      violationTarget =
         Prelude.Nothing
     }
+
+-- | The Availability Zone of the firewall subnet that\'s causing the
+-- violation.
+thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {availabilityZone} -> availabilityZone) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {availabilityZone = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
+
+-- | The resource ID of the current route table that\'s associated with the
+-- subnet, if one is available.
+thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {currentRouteTable} -> currentRouteTable) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {currentRouteTable = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
+
+-- | The resource ID of the route table that should be associated with the
+-- subnet.
+thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {expectedRouteTable} -> expectedRouteTable) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {expectedRouteTable = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
 
 -- | The resource ID of the VPC associated with a fireawll subnet that\'s
 -- causing the violation.
@@ -95,21 +109,6 @@ thirdPartyFirewallMissingExpectedRouteTableViolation_vpc = Lens.lens (\ThirdPart
 thirdPartyFirewallMissingExpectedRouteTableViolation_violationTarget :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
 thirdPartyFirewallMissingExpectedRouteTableViolation_violationTarget = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {violationTarget} -> violationTarget) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {violationTarget = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
 
--- | The resource ID of the current route table that\'s associated with the
--- subnet, if one is available.
-thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {currentRouteTable} -> currentRouteTable) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {currentRouteTable = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
-
--- | The Availability Zone of the firewall subnet that\'s causing the
--- violation.
-thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {availabilityZone} -> availabilityZone) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {availabilityZone = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
-
--- | The resource ID of the route table that should be associated with the
--- subnet.
-thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable :: Lens.Lens' ThirdPartyFirewallMissingExpectedRouteTableViolation (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable = Lens.lens (\ThirdPartyFirewallMissingExpectedRouteTableViolation' {expectedRouteTable} -> expectedRouteTable) (\s@ThirdPartyFirewallMissingExpectedRouteTableViolation' {} a -> s {expectedRouteTable = a} :: ThirdPartyFirewallMissingExpectedRouteTableViolation)
-
 instance
   Data.FromJSON
     ThirdPartyFirewallMissingExpectedRouteTableViolation
@@ -119,11 +118,11 @@ instance
       "ThirdPartyFirewallMissingExpectedRouteTableViolation"
       ( \x ->
           ThirdPartyFirewallMissingExpectedRouteTableViolation'
-            Prelude.<$> (x Data..:? "VPC")
-              Prelude.<*> (x Data..:? "ViolationTarget")
+            Prelude.<$> (x Data..:? "AvailabilityZone")
               Prelude.<*> (x Data..:? "CurrentRouteTable")
-              Prelude.<*> (x Data..:? "AvailabilityZone")
               Prelude.<*> (x Data..:? "ExpectedRouteTable")
+              Prelude.<*> (x Data..:? "VPC")
+              Prelude.<*> (x Data..:? "ViolationTarget")
       )
 
 instance
@@ -133,11 +132,11 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallMissingExpectedRouteTableViolation' {..} =
-      _salt `Prelude.hashWithSalt` vpc
-        `Prelude.hashWithSalt` violationTarget
+      _salt `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` currentRouteTable
-        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` expectedRouteTable
+        `Prelude.hashWithSalt` vpc
+        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
@@ -145,8 +144,8 @@ instance
   where
   rnf
     ThirdPartyFirewallMissingExpectedRouteTableViolation' {..} =
-      Prelude.rnf vpc
-        `Prelude.seq` Prelude.rnf violationTarget
+      Prelude.rnf availabilityZone
         `Prelude.seq` Prelude.rnf currentRouteTable
-        `Prelude.seq` Prelude.rnf availabilityZone
         `Prelude.seq` Prelude.rnf expectedRouteTable
+        `Prelude.seq` Prelude.rnf vpc
+        `Prelude.seq` Prelude.rnf violationTarget

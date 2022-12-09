@@ -28,8 +28,8 @@ module Amazonka.FMS.ListDiscoveredResources
     newListDiscoveredResources,
 
     -- * Request Lenses
-    listDiscoveredResources_nextToken,
     listDiscoveredResources_maxResults,
+    listDiscoveredResources_nextToken,
     listDiscoveredResources_memberAccountIds,
     listDiscoveredResources_resourceType,
 
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-  { -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | The maximum number of objects that you want Firewall Manager to return
+    -- for this request. If more objects are available, in the response,
+    -- Firewall Manager provides a @NextToken@ value that you can use in a
+    -- subsequent call to get the next batch of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Firewall Manager returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects that you want Firewall Manager to return
-    -- for this request. If more objects are available, in the response,
-    -- Firewall Manager provides a @NextToken@ value that you can use in a
-    -- subsequent call to get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Web Services account IDs to discover resources in. Only one
     -- account is supported per request. The account must be a member of your
     -- organization.
@@ -82,16 +82,16 @@ data ListDiscoveredResources = ListDiscoveredResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDiscoveredResources_maxResults' - The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+--
 -- 'nextToken', 'listDiscoveredResources_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Firewall Manager returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
---
--- 'maxResults', 'listDiscoveredResources_maxResults' - The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
 --
 -- 'memberAccountIds', 'listDiscoveredResources_memberAccountIds' - The Amazon Web Services account IDs to discover resources in. Only one
 -- account is supported per request. The account must be a member of your
@@ -104,12 +104,19 @@ newListDiscoveredResources ::
   ListDiscoveredResources
 newListDiscoveredResources pResourceType_ =
   ListDiscoveredResources'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       memberAccountIds = Prelude.mempty,
       resourceType = pResourceType_
     }
+
+-- | The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+listDiscoveredResources_maxResults :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Natural)
+listDiscoveredResources_maxResults = Lens.lens (\ListDiscoveredResources' {maxResults} -> maxResults) (\s@ListDiscoveredResources' {} a -> s {maxResults = a} :: ListDiscoveredResources)
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -118,13 +125,6 @@ newListDiscoveredResources pResourceType_ =
 -- returned from the prior request in your next request.
 listDiscoveredResources_nextToken :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
 listDiscoveredResources_nextToken = Lens.lens (\ListDiscoveredResources' {nextToken} -> nextToken) (\s@ListDiscoveredResources' {} a -> s {nextToken = a} :: ListDiscoveredResources)
-
--- | The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
-listDiscoveredResources_maxResults :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Natural)
-listDiscoveredResources_maxResults = Lens.lens (\ListDiscoveredResources' {maxResults} -> maxResults) (\s@ListDiscoveredResources' {} a -> s {maxResults = a} :: ListDiscoveredResources)
 
 -- | The Amazon Web Services account IDs to discover resources in. Only one
 -- account is supported per request. The account must be a member of your
@@ -153,15 +153,15 @@ instance Core.AWSRequest ListDiscoveredResources where
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` memberAccountIds
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListDiscoveredResources where
   rnf ListDiscoveredResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf memberAccountIds
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -184,8 +184,8 @@ instance Data.ToJSON ListDiscoveredResources where
   toJSON ListDiscoveredResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("MemberAccountIds" Data..= memberAccountIds),
             Prelude.Just ("ResourceType" Data..= resourceType)

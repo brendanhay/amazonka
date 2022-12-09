@@ -27,23 +27,23 @@ module Amazonka.FMS
     -- * Errors
     -- $errors
 
+    -- ** InternalErrorException
+    _InternalErrorException,
+
     -- ** InvalidInputException
     _InvalidInputException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** InvalidTypeException
     _InvalidTypeException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

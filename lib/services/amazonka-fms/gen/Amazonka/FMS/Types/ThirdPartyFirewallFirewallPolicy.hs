@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThirdPartyFirewallFirewallPolicy' smart constructor.
 data ThirdPartyFirewallFirewallPolicy = ThirdPartyFirewallFirewallPolicy'
-  { -- | The name of the specified firewall policy.
-    firewallPolicyName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the specified firewall policy.
-    firewallPolicyId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the specified firewall policy.
+    firewallPolicyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the specified firewall policy.
+    firewallPolicyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ThirdPartyFirewallFirewallPolicy = ThirdPartyFirewallFirewallPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicyName', 'thirdPartyFirewallFirewallPolicy_firewallPolicyName' - The name of the specified firewall policy.
---
 -- 'firewallPolicyId', 'thirdPartyFirewallFirewallPolicy_firewallPolicyId' - The ID of the specified firewall policy.
+--
+-- 'firewallPolicyName', 'thirdPartyFirewallFirewallPolicy_firewallPolicyName' - The name of the specified firewall policy.
 newThirdPartyFirewallFirewallPolicy ::
   ThirdPartyFirewallFirewallPolicy
 newThirdPartyFirewallFirewallPolicy =
   ThirdPartyFirewallFirewallPolicy'
-    { firewallPolicyName =
+    { firewallPolicyId =
         Prelude.Nothing,
-      firewallPolicyId = Prelude.Nothing
+      firewallPolicyName = Prelude.Nothing
     }
-
--- | The name of the specified firewall policy.
-thirdPartyFirewallFirewallPolicy_firewallPolicyName :: Lens.Lens' ThirdPartyFirewallFirewallPolicy (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallFirewallPolicy_firewallPolicyName = Lens.lens (\ThirdPartyFirewallFirewallPolicy' {firewallPolicyName} -> firewallPolicyName) (\s@ThirdPartyFirewallFirewallPolicy' {} a -> s {firewallPolicyName = a} :: ThirdPartyFirewallFirewallPolicy)
 
 -- | The ID of the specified firewall policy.
 thirdPartyFirewallFirewallPolicy_firewallPolicyId :: Lens.Lens' ThirdPartyFirewallFirewallPolicy (Prelude.Maybe Prelude.Text)
 thirdPartyFirewallFirewallPolicy_firewallPolicyId = Lens.lens (\ThirdPartyFirewallFirewallPolicy' {firewallPolicyId} -> firewallPolicyId) (\s@ThirdPartyFirewallFirewallPolicy' {} a -> s {firewallPolicyId = a} :: ThirdPartyFirewallFirewallPolicy)
+
+-- | The name of the specified firewall policy.
+thirdPartyFirewallFirewallPolicy_firewallPolicyName :: Lens.Lens' ThirdPartyFirewallFirewallPolicy (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallFirewallPolicy_firewallPolicyName = Lens.lens (\ThirdPartyFirewallFirewallPolicy' {firewallPolicyName} -> firewallPolicyName) (\s@ThirdPartyFirewallFirewallPolicy' {} a -> s {firewallPolicyName = a} :: ThirdPartyFirewallFirewallPolicy)
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "ThirdPartyFirewallFirewallPolicy"
       ( \x ->
           ThirdPartyFirewallFirewallPolicy'
-            Prelude.<$> (x Data..:? "FirewallPolicyName")
-            Prelude.<*> (x Data..:? "FirewallPolicyId")
+            Prelude.<$> (x Data..:? "FirewallPolicyId")
+            Prelude.<*> (x Data..:? "FirewallPolicyName")
       )
 
 instance
@@ -83,13 +83,13 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallFirewallPolicy' {..} =
-      _salt `Prelude.hashWithSalt` firewallPolicyName
-        `Prelude.hashWithSalt` firewallPolicyId
+      _salt `Prelude.hashWithSalt` firewallPolicyId
+        `Prelude.hashWithSalt` firewallPolicyName
 
 instance
   Prelude.NFData
     ThirdPartyFirewallFirewallPolicy
   where
   rnf ThirdPartyFirewallFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf firewallPolicyId
+    Prelude.rnf firewallPolicyId
+      `Prelude.seq` Prelude.rnf firewallPolicyName

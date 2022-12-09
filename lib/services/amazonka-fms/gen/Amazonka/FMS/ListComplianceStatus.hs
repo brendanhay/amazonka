@@ -31,8 +31,8 @@ module Amazonka.FMS.ListComplianceStatus
     newListComplianceStatus,
 
     -- * Request Lenses
-    listComplianceStatus_nextToken,
     listComplianceStatus_maxResults,
+    listComplianceStatus_nextToken,
     listComplianceStatus_policyId,
 
     -- * Destructuring the Response
@@ -56,7 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComplianceStatus' smart constructor.
 data ListComplianceStatus = ListComplianceStatus'
-  { -- | If you specify a value for @MaxResults@ and you have more
+  { -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
+    -- Firewall Manager to return for this request. If you have more
+    -- @PolicyComplianceStatus@ objects than the number that you specify for
+    -- @MaxResults@, the response includes a @NextToken@ value that you can use
+    -- to get another batch of @PolicyComplianceStatus@ objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @MaxResults@ and you have more
     -- @PolicyComplianceStatus@ objects than the number that you specify for
     -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
     -- response that allows you to list another group of
@@ -65,12 +71,6 @@ data ListComplianceStatus = ListComplianceStatus'
     -- the previous response to get information about another batch of
     -- @PolicyComplianceStatus@ objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
-    -- Firewall Manager to return for this request. If you have more
-    -- @PolicyComplianceStatus@ objects than the number that you specify for
-    -- @MaxResults@, the response includes a @NextToken@ value that you can use
-    -- to get another batch of @PolicyComplianceStatus@ objects.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Firewall Manager policy that you want the details for.
     policyId :: Prelude.Text
   }
@@ -84,6 +84,12 @@ data ListComplianceStatus = ListComplianceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listComplianceStatus_maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want
+-- Firewall Manager to return for this request. If you have more
+-- @PolicyComplianceStatus@ objects than the number that you specify for
+-- @MaxResults@, the response includes a @NextToken@ value that you can use
+-- to get another batch of @PolicyComplianceStatus@ objects.
+--
 -- 'nextToken', 'listComplianceStatus_nextToken' - If you specify a value for @MaxResults@ and you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
 -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
@@ -93,12 +99,6 @@ data ListComplianceStatus = ListComplianceStatus'
 -- the previous response to get information about another batch of
 -- @PolicyComplianceStatus@ objects.
 --
--- 'maxResults', 'listComplianceStatus_maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want
--- Firewall Manager to return for this request. If you have more
--- @PolicyComplianceStatus@ objects than the number that you specify for
--- @MaxResults@, the response includes a @NextToken@ value that you can use
--- to get another batch of @PolicyComplianceStatus@ objects.
---
 -- 'policyId', 'listComplianceStatus_policyId' - The ID of the Firewall Manager policy that you want the details for.
 newListComplianceStatus ::
   -- | 'policyId'
@@ -106,10 +106,18 @@ newListComplianceStatus ::
   ListComplianceStatus
 newListComplianceStatus pPolicyId_ =
   ListComplianceStatus'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       policyId = pPolicyId_
     }
+
+-- | Specifies the number of @PolicyComplianceStatus@ objects that you want
+-- Firewall Manager to return for this request. If you have more
+-- @PolicyComplianceStatus@ objects than the number that you specify for
+-- @MaxResults@, the response includes a @NextToken@ value that you can use
+-- to get another batch of @PolicyComplianceStatus@ objects.
+listComplianceStatus_maxResults :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Natural)
+listComplianceStatus_maxResults = Lens.lens (\ListComplianceStatus' {maxResults} -> maxResults) (\s@ListComplianceStatus' {} a -> s {maxResults = a} :: ListComplianceStatus)
 
 -- | If you specify a value for @MaxResults@ and you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
@@ -121,14 +129,6 @@ newListComplianceStatus pPolicyId_ =
 -- @PolicyComplianceStatus@ objects.
 listComplianceStatus_nextToken :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Text)
 listComplianceStatus_nextToken = Lens.lens (\ListComplianceStatus' {nextToken} -> nextToken) (\s@ListComplianceStatus' {} a -> s {nextToken = a} :: ListComplianceStatus)
-
--- | Specifies the number of @PolicyComplianceStatus@ objects that you want
--- Firewall Manager to return for this request. If you have more
--- @PolicyComplianceStatus@ objects than the number that you specify for
--- @MaxResults@, the response includes a @NextToken@ value that you can use
--- to get another batch of @PolicyComplianceStatus@ objects.
-listComplianceStatus_maxResults :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Natural)
-listComplianceStatus_maxResults = Lens.lens (\ListComplianceStatus' {maxResults} -> maxResults) (\s@ListComplianceStatus' {} a -> s {maxResults = a} :: ListComplianceStatus)
 
 -- | The ID of the Firewall Manager policy that you want the details for.
 listComplianceStatus_policyId :: Lens.Lens' ListComplianceStatus Prelude.Text
@@ -175,14 +175,14 @@ instance Core.AWSRequest ListComplianceStatus where
 
 instance Prelude.Hashable ListComplianceStatus where
   hashWithSalt _salt ListComplianceStatus' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyId
 
 instance Prelude.NFData ListComplianceStatus where
   rnf ListComplianceStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf policyId
 
 instance Data.ToHeaders ListComplianceStatus where
@@ -204,8 +204,8 @@ instance Data.ToJSON ListComplianceStatus where
   toJSON ListComplianceStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("PolicyId" Data..= policyId)
           ]
       )

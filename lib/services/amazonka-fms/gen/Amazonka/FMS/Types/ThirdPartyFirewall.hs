@@ -20,6 +20,7 @@
 module Amazonka.FMS.Types.ThirdPartyFirewall
   ( ThirdPartyFirewall
       ( ..,
+        ThirdPartyFirewall_FORTIGATE_CLOUD_NATIVE_FIREWALL,
         ThirdPartyFirewall_PALO_ALTO_NETWORKS_CLOUD_NGFW
       ),
   )
@@ -57,10 +58,14 @@ newtype ThirdPartyFirewall = ThirdPartyFirewall'
       Data.ToXML
     )
 
+pattern ThirdPartyFirewall_FORTIGATE_CLOUD_NATIVE_FIREWALL :: ThirdPartyFirewall
+pattern ThirdPartyFirewall_FORTIGATE_CLOUD_NATIVE_FIREWALL = ThirdPartyFirewall' "FORTIGATE_CLOUD_NATIVE_FIREWALL"
+
 pattern ThirdPartyFirewall_PALO_ALTO_NETWORKS_CLOUD_NGFW :: ThirdPartyFirewall
 pattern ThirdPartyFirewall_PALO_ALTO_NETWORKS_CLOUD_NGFW = ThirdPartyFirewall' "PALO_ALTO_NETWORKS_CLOUD_NGFW"
 
 {-# COMPLETE
+  ThirdPartyFirewall_FORTIGATE_CLOUD_NATIVE_FIREWALL,
   ThirdPartyFirewall_PALO_ALTO_NETWORKS_CLOUD_NGFW,
   ThirdPartyFirewall'
   #-}

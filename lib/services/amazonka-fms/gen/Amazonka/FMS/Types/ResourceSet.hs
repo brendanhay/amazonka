@@ -28,7 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceSet' smart constructor.
 data ResourceSet = ResourceSet'
-  { -- | An optional token that you can use for optimistic locking. Firewall
+  { -- | A description of the resource set.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the resource set. This ID is returned in the
+    -- responses to create and list commands. You provide it to operations like
+    -- update and delete.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The last time that the resource set was changed.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | An optional token that you can use for optimistic locking. Firewall
     -- Manager returns a token to your requests that access the resource set.
     -- The token marks the state of the resource set resource at the time of
     -- the request. Update tokens are not allowed when creating a resource set.
@@ -48,14 +56,6 @@ data ResourceSet = ResourceSet'
     -- with a new token. Reapply your changes as needed, then try the operation
     -- again using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the resource set. This ID is returned in the
-    -- responses to create and list commands. You provide it to operations like
-    -- update and delete.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the resource set.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The last time that the resource set was changed.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The descriptive name of the resource set. You can\'t change the name of
     -- a resource set after you create it.
     name :: Prelude.Text,
@@ -73,6 +73,14 @@ data ResourceSet = ResourceSet'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'resourceSet_description' - A description of the resource set.
+--
+-- 'id', 'resourceSet_id' - A unique identifier for the resource set. This ID is returned in the
+-- responses to create and list commands. You provide it to operations like
+-- update and delete.
+--
+-- 'lastUpdateTime', 'resourceSet_lastUpdateTime' - The last time that the resource set was changed.
 --
 -- 'updateToken', 'resourceSet_updateToken' - An optional token that you can use for optimistic locking. Firewall
 -- Manager returns a token to your requests that access the resource set.
@@ -94,14 +102,6 @@ data ResourceSet = ResourceSet'
 -- with a new token. Reapply your changes as needed, then try the operation
 -- again using the new token.
 --
--- 'id', 'resourceSet_id' - A unique identifier for the resource set. This ID is returned in the
--- responses to create and list commands. You provide it to operations like
--- update and delete.
---
--- 'description', 'resourceSet_description' - A description of the resource set.
---
--- 'lastUpdateTime', 'resourceSet_lastUpdateTime' - The last time that the resource set was changed.
---
 -- 'name', 'resourceSet_name' - The descriptive name of the resource set. You can\'t change the name of
 -- a resource set after you create it.
 --
@@ -114,13 +114,27 @@ newResourceSet ::
   ResourceSet
 newResourceSet pName_ =
   ResourceSet'
-    { updateToken = Prelude.Nothing,
+    { description = Prelude.Nothing,
       id = Prelude.Nothing,
-      description = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
+      updateToken = Prelude.Nothing,
       name = pName_,
       resourceTypeList = Prelude.mempty
     }
+
+-- | A description of the resource set.
+resourceSet_description :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.Text)
+resourceSet_description = Lens.lens (\ResourceSet' {description} -> description) (\s@ResourceSet' {} a -> s {description = a} :: ResourceSet)
+
+-- | A unique identifier for the resource set. This ID is returned in the
+-- responses to create and list commands. You provide it to operations like
+-- update and delete.
+resourceSet_id :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.Text)
+resourceSet_id = Lens.lens (\ResourceSet' {id} -> id) (\s@ResourceSet' {} a -> s {id = a} :: ResourceSet)
+
+-- | The last time that the resource set was changed.
+resourceSet_lastUpdateTime :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.UTCTime)
+resourceSet_lastUpdateTime = Lens.lens (\ResourceSet' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSet' {} a -> s {lastUpdateTime = a} :: ResourceSet) Prelude.. Lens.mapping Data._Time
 
 -- | An optional token that you can use for optimistic locking. Firewall
 -- Manager returns a token to your requests that access the resource set.
@@ -144,20 +158,6 @@ newResourceSet pName_ =
 resourceSet_updateToken :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.Text)
 resourceSet_updateToken = Lens.lens (\ResourceSet' {updateToken} -> updateToken) (\s@ResourceSet' {} a -> s {updateToken = a} :: ResourceSet)
 
--- | A unique identifier for the resource set. This ID is returned in the
--- responses to create and list commands. You provide it to operations like
--- update and delete.
-resourceSet_id :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.Text)
-resourceSet_id = Lens.lens (\ResourceSet' {id} -> id) (\s@ResourceSet' {} a -> s {id = a} :: ResourceSet)
-
--- | A description of the resource set.
-resourceSet_description :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.Text)
-resourceSet_description = Lens.lens (\ResourceSet' {description} -> description) (\s@ResourceSet' {} a -> s {description = a} :: ResourceSet)
-
--- | The last time that the resource set was changed.
-resourceSet_lastUpdateTime :: Lens.Lens' ResourceSet (Prelude.Maybe Prelude.UTCTime)
-resourceSet_lastUpdateTime = Lens.lens (\ResourceSet' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSet' {} a -> s {lastUpdateTime = a} :: ResourceSet) Prelude.. Lens.mapping Data._Time
-
 -- | The descriptive name of the resource set. You can\'t change the name of
 -- a resource set after you create it.
 resourceSet_name :: Lens.Lens' ResourceSet Prelude.Text
@@ -175,10 +175,10 @@ instance Data.FromJSON ResourceSet where
       "ResourceSet"
       ( \x ->
           ResourceSet'
-            Prelude.<$> (x Data..:? "UpdateToken")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "UpdateToken")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> ( x Data..:? "ResourceTypeList"
                             Data..!= Prelude.mempty
@@ -187,19 +187,19 @@ instance Data.FromJSON ResourceSet where
 
 instance Prelude.Hashable ResourceSet where
   hashWithSalt _salt ResourceSet' {..} =
-    _salt `Prelude.hashWithSalt` updateToken
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceTypeList
 
 instance Prelude.NFData ResourceSet where
   rnf ResourceSet' {..} =
-    Prelude.rnf updateToken
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceTypeList
 
@@ -207,11 +207,11 @@ instance Data.ToJSON ResourceSet where
   toJSON ResourceSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("Id" Data..=) Prelude.<$> id,
-            ("Description" Data..=) Prelude.<$> description,
             ("LastUpdateTime" Data..=)
               Prelude.<$> lastUpdateTime,
+            ("UpdateToken" Data..=) Prelude.<$> updateToken,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ResourceTypeList" Data..= resourceTypeList)

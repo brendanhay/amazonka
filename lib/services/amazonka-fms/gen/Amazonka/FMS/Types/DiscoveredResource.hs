@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDiscoveredResource' smart constructor.
 data DiscoveredResource = DiscoveredResource'
-  { -- | The name of the discovered resource.
+  { -- | The Amazon Web Services account ID associated with the discovered
+    -- resource.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the discovered resource.
     name :: Prelude.Maybe Prelude.Text,
     -- | The type of the discovered resource.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The universal resource identifier (URI) of the discovered resource.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID associated with the discovered
-    -- resource.
-    accountId :: Prelude.Maybe Prelude.Text
+    uri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,28 @@ data DiscoveredResource = DiscoveredResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'discoveredResource_accountId' - The Amazon Web Services account ID associated with the discovered
+-- resource.
+--
 -- 'name', 'discoveredResource_name' - The name of the discovered resource.
 --
 -- 'type'', 'discoveredResource_type' - The type of the discovered resource.
 --
 -- 'uri', 'discoveredResource_uri' - The universal resource identifier (URI) of the discovered resource.
---
--- 'accountId', 'discoveredResource_accountId' - The Amazon Web Services account ID associated with the discovered
--- resource.
 newDiscoveredResource ::
   DiscoveredResource
 newDiscoveredResource =
   DiscoveredResource'
-    { name = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      name = Prelude.Nothing,
       type' = Prelude.Nothing,
-      uri = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      uri = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID associated with the discovered
+-- resource.
+discoveredResource_accountId :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
+discoveredResource_accountId = Lens.lens (\DiscoveredResource' {accountId} -> accountId) (\s@DiscoveredResource' {} a -> s {accountId = a} :: DiscoveredResource)
 
 -- | The name of the discovered resource.
 discoveredResource_name :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
@@ -79,33 +84,28 @@ discoveredResource_type = Lens.lens (\DiscoveredResource' {type'} -> type') (\s@
 discoveredResource_uri :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
 discoveredResource_uri = Lens.lens (\DiscoveredResource' {uri} -> uri) (\s@DiscoveredResource' {} a -> s {uri = a} :: DiscoveredResource)
 
--- | The Amazon Web Services account ID associated with the discovered
--- resource.
-discoveredResource_accountId :: Lens.Lens' DiscoveredResource (Prelude.Maybe Prelude.Text)
-discoveredResource_accountId = Lens.lens (\DiscoveredResource' {accountId} -> accountId) (\s@DiscoveredResource' {} a -> s {accountId = a} :: DiscoveredResource)
-
 instance Data.FromJSON DiscoveredResource where
   parseJSON =
     Data.withObject
       "DiscoveredResource"
       ( \x ->
           DiscoveredResource'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "URI")
-            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable DiscoveredResource where
   hashWithSalt _salt DiscoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData DiscoveredResource where
   rnf DiscoveredResource' {..} =
-    Prelude.rnf name
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf accountId

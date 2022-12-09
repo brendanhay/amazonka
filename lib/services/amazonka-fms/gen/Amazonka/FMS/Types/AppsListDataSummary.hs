@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppsListDataSummary' smart constructor.
 data AppsListDataSummary = AppsListDataSummary'
-  { -- | The ID of the applications list.
-    listId :: Prelude.Maybe Prelude.Text,
-    -- | An array of @App@ objects in the Firewall Manager applications list.
+  { -- | An array of @App@ objects in the Firewall Manager applications list.
     appsList :: Prelude.Maybe [App],
-    -- | The name of the applications list.
-    listName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the applications list.
-    listArn :: Prelude.Maybe Prelude.Text
+    listArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the applications list.
+    listId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the applications list.
+    listName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data AppsListDataSummary = AppsListDataSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'listId', 'appsListDataSummary_listId' - The ID of the applications list.
---
 -- 'appsList', 'appsListDataSummary_appsList' - An array of @App@ objects in the Firewall Manager applications list.
 --
--- 'listName', 'appsListDataSummary_listName' - The name of the applications list.
---
 -- 'listArn', 'appsListDataSummary_listArn' - The Amazon Resource Name (ARN) of the applications list.
+--
+-- 'listId', 'appsListDataSummary_listId' - The ID of the applications list.
+--
+-- 'listName', 'appsListDataSummary_listName' - The name of the applications list.
 newAppsListDataSummary ::
   AppsListDataSummary
 newAppsListDataSummary =
   AppsListDataSummary'
-    { listId = Prelude.Nothing,
-      appsList = Prelude.Nothing,
-      listName = Prelude.Nothing,
-      listArn = Prelude.Nothing
+    { appsList = Prelude.Nothing,
+      listArn = Prelude.Nothing,
+      listId = Prelude.Nothing,
+      listName = Prelude.Nothing
     }
-
--- | The ID of the applications list.
-appsListDataSummary_listId :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
-appsListDataSummary_listId = Lens.lens (\AppsListDataSummary' {listId} -> listId) (\s@AppsListDataSummary' {} a -> s {listId = a} :: AppsListDataSummary)
 
 -- | An array of @App@ objects in the Firewall Manager applications list.
 appsListDataSummary_appsList :: Lens.Lens' AppsListDataSummary (Prelude.Maybe [App])
 appsListDataSummary_appsList = Lens.lens (\AppsListDataSummary' {appsList} -> appsList) (\s@AppsListDataSummary' {} a -> s {appsList = a} :: AppsListDataSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the applications list.
-appsListDataSummary_listName :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
-appsListDataSummary_listName = Lens.lens (\AppsListDataSummary' {listName} -> listName) (\s@AppsListDataSummary' {} a -> s {listName = a} :: AppsListDataSummary)
-
 -- | The Amazon Resource Name (ARN) of the applications list.
 appsListDataSummary_listArn :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
 appsListDataSummary_listArn = Lens.lens (\AppsListDataSummary' {listArn} -> listArn) (\s@AppsListDataSummary' {} a -> s {listArn = a} :: AppsListDataSummary)
+
+-- | The ID of the applications list.
+appsListDataSummary_listId :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
+appsListDataSummary_listId = Lens.lens (\AppsListDataSummary' {listId} -> listId) (\s@AppsListDataSummary' {} a -> s {listId = a} :: AppsListDataSummary)
+
+-- | The name of the applications list.
+appsListDataSummary_listName :: Lens.Lens' AppsListDataSummary (Prelude.Maybe Prelude.Text)
+appsListDataSummary_listName = Lens.lens (\AppsListDataSummary' {listName} -> listName) (\s@AppsListDataSummary' {} a -> s {listName = a} :: AppsListDataSummary)
 
 instance Data.FromJSON AppsListDataSummary where
   parseJSON =
@@ -87,22 +87,22 @@ instance Data.FromJSON AppsListDataSummary where
       "AppsListDataSummary"
       ( \x ->
           AppsListDataSummary'
-            Prelude.<$> (x Data..:? "ListId")
-            Prelude.<*> (x Data..:? "AppsList" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ListName")
+            Prelude.<$> (x Data..:? "AppsList" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ListArn")
+            Prelude.<*> (x Data..:? "ListId")
+            Prelude.<*> (x Data..:? "ListName")
       )
 
 instance Prelude.Hashable AppsListDataSummary where
   hashWithSalt _salt AppsListDataSummary' {..} =
-    _salt `Prelude.hashWithSalt` listId
-      `Prelude.hashWithSalt` appsList
-      `Prelude.hashWithSalt` listName
+    _salt `Prelude.hashWithSalt` appsList
       `Prelude.hashWithSalt` listArn
+      `Prelude.hashWithSalt` listId
+      `Prelude.hashWithSalt` listName
 
 instance Prelude.NFData AppsListDataSummary where
   rnf AppsListDataSummary' {..} =
-    Prelude.rnf listId
-      `Prelude.seq` Prelude.rnf appsList
-      `Prelude.seq` Prelude.rnf listName
+    Prelude.rnf appsList
       `Prelude.seq` Prelude.rnf listArn
+      `Prelude.seq` Prelude.rnf listId
+      `Prelude.seq` Prelude.rnf listName

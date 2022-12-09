@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedItem' smart constructor.
 data FailedItem = FailedItem'
-  { -- | The univeral resource indicator (URI) of the resource that failed.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The reason the resource\'s association could not be updated.
-    reason :: Prelude.Maybe FailedItemReason
+  { -- | The reason the resource\'s association could not be updated.
+    reason :: Prelude.Maybe FailedItemReason,
+    -- | The univeral resource indicator (URI) of the resource that failed.
+    uri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data FailedItem = FailedItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uri', 'failedItem_uri' - The univeral resource indicator (URI) of the resource that failed.
---
 -- 'reason', 'failedItem_reason' - The reason the resource\'s association could not be updated.
+--
+-- 'uri', 'failedItem_uri' - The univeral resource indicator (URI) of the resource that failed.
 newFailedItem ::
   FailedItem
 newFailedItem =
   FailedItem'
-    { uri = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      uri = Prelude.Nothing
     }
-
--- | The univeral resource indicator (URI) of the resource that failed.
-failedItem_uri :: Lens.Lens' FailedItem (Prelude.Maybe Prelude.Text)
-failedItem_uri = Lens.lens (\FailedItem' {uri} -> uri) (\s@FailedItem' {} a -> s {uri = a} :: FailedItem)
 
 -- | The reason the resource\'s association could not be updated.
 failedItem_reason :: Lens.Lens' FailedItem (Prelude.Maybe FailedItemReason)
 failedItem_reason = Lens.lens (\FailedItem' {reason} -> reason) (\s@FailedItem' {} a -> s {reason = a} :: FailedItem)
+
+-- | The univeral resource indicator (URI) of the resource that failed.
+failedItem_uri :: Lens.Lens' FailedItem (Prelude.Maybe Prelude.Text)
+failedItem_uri = Lens.lens (\FailedItem' {uri} -> uri) (\s@FailedItem' {} a -> s {uri = a} :: FailedItem)
 
 instance Data.FromJSON FailedItem where
   parseJSON =
@@ -70,14 +70,14 @@ instance Data.FromJSON FailedItem where
       "FailedItem"
       ( \x ->
           FailedItem'
-            Prelude.<$> (x Data..:? "URI") Prelude.<*> (x Data..:? "Reason")
+            Prelude.<$> (x Data..:? "Reason") Prelude.<*> (x Data..:? "URI")
       )
 
 instance Prelude.Hashable FailedItem where
   hashWithSalt _salt FailedItem' {..} =
-    _salt `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData FailedItem where
   rnf FailedItem' {..} =
-    Prelude.rnf uri `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf uri

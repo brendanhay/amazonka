@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyOption' smart constructor.
 data PolicyOption = PolicyOption'
-  { -- | Defines the policy options for a third-party firewall policy.
-    thirdPartyFirewallPolicy :: Prelude.Maybe ThirdPartyFirewallPolicy,
-    -- | Defines the deployment model to use for the firewall policy.
-    networkFirewallPolicy :: Prelude.Maybe NetworkFirewallPolicy
+  { -- | Defines the deployment model to use for the firewall policy.
+    networkFirewallPolicy :: Prelude.Maybe NetworkFirewallPolicy,
+    -- | Defines the policy options for a third-party firewall policy.
+    thirdPartyFirewallPolicy :: Prelude.Maybe ThirdPartyFirewallPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data PolicyOption = PolicyOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thirdPartyFirewallPolicy', 'policyOption_thirdPartyFirewallPolicy' - Defines the policy options for a third-party firewall policy.
---
 -- 'networkFirewallPolicy', 'policyOption_networkFirewallPolicy' - Defines the deployment model to use for the firewall policy.
+--
+-- 'thirdPartyFirewallPolicy', 'policyOption_thirdPartyFirewallPolicy' - Defines the policy options for a third-party firewall policy.
 newPolicyOption ::
   PolicyOption
 newPolicyOption =
   PolicyOption'
-    { thirdPartyFirewallPolicy =
+    { networkFirewallPolicy =
         Prelude.Nothing,
-      networkFirewallPolicy = Prelude.Nothing
+      thirdPartyFirewallPolicy = Prelude.Nothing
     }
-
--- | Defines the policy options for a third-party firewall policy.
-policyOption_thirdPartyFirewallPolicy :: Lens.Lens' PolicyOption (Prelude.Maybe ThirdPartyFirewallPolicy)
-policyOption_thirdPartyFirewallPolicy = Lens.lens (\PolicyOption' {thirdPartyFirewallPolicy} -> thirdPartyFirewallPolicy) (\s@PolicyOption' {} a -> s {thirdPartyFirewallPolicy = a} :: PolicyOption)
 
 -- | Defines the deployment model to use for the firewall policy.
 policyOption_networkFirewallPolicy :: Lens.Lens' PolicyOption (Prelude.Maybe NetworkFirewallPolicy)
 policyOption_networkFirewallPolicy = Lens.lens (\PolicyOption' {networkFirewallPolicy} -> networkFirewallPolicy) (\s@PolicyOption' {} a -> s {networkFirewallPolicy = a} :: PolicyOption)
+
+-- | Defines the policy options for a third-party firewall policy.
+policyOption_thirdPartyFirewallPolicy :: Lens.Lens' PolicyOption (Prelude.Maybe ThirdPartyFirewallPolicy)
+policyOption_thirdPartyFirewallPolicy = Lens.lens (\PolicyOption' {thirdPartyFirewallPolicy} -> thirdPartyFirewallPolicy) (\s@PolicyOption' {} a -> s {thirdPartyFirewallPolicy = a} :: PolicyOption)
 
 instance Data.FromJSON PolicyOption where
   parseJSON =
@@ -72,28 +72,27 @@ instance Data.FromJSON PolicyOption where
       "PolicyOption"
       ( \x ->
           PolicyOption'
-            Prelude.<$> (x Data..:? "ThirdPartyFirewallPolicy")
-            Prelude.<*> (x Data..:? "NetworkFirewallPolicy")
+            Prelude.<$> (x Data..:? "NetworkFirewallPolicy")
+            Prelude.<*> (x Data..:? "ThirdPartyFirewallPolicy")
       )
 
 instance Prelude.Hashable PolicyOption where
   hashWithSalt _salt PolicyOption' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` networkFirewallPolicy
       `Prelude.hashWithSalt` thirdPartyFirewallPolicy
-      `Prelude.hashWithSalt` networkFirewallPolicy
 
 instance Prelude.NFData PolicyOption where
   rnf PolicyOption' {..} =
-    Prelude.rnf thirdPartyFirewallPolicy
-      `Prelude.seq` Prelude.rnf networkFirewallPolicy
+    Prelude.rnf networkFirewallPolicy
+      `Prelude.seq` Prelude.rnf thirdPartyFirewallPolicy
 
 instance Data.ToJSON PolicyOption where
   toJSON PolicyOption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ThirdPartyFirewallPolicy" Data..=)
-              Prelude.<$> thirdPartyFirewallPolicy,
-            ("NetworkFirewallPolicy" Data..=)
-              Prelude.<$> networkFirewallPolicy
+          [ ("NetworkFirewallPolicy" Data..=)
+              Prelude.<$> networkFirewallPolicy,
+            ("ThirdPartyFirewallPolicy" Data..=)
+              Prelude.<$> thirdPartyFirewallPolicy
           ]
       )

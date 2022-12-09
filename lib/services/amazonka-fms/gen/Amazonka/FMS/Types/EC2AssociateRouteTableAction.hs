@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEC2AssociateRouteTableAction' smart constructor.
 data EC2AssociateRouteTableAction = EC2AssociateRouteTableAction'
-  { -- | The ID of the subnet for the EC2 route table that is associated with the
-    -- remediation action.
-    subnetId :: Prelude.Maybe ActionTarget,
-    -- | A description of the EC2 route table that is associated with the
+  { -- | A description of the EC2 route table that is associated with the
     -- remediation action.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the gateway to be used with the EC2 route table that is
     -- associated with the remediation action.
     gatewayId :: Prelude.Maybe ActionTarget,
+    -- | The ID of the subnet for the EC2 route table that is associated with the
+    -- remediation action.
+    subnetId :: Prelude.Maybe ActionTarget,
     -- | The ID of the EC2 route table that is associated with the remediation
     -- action.
     routeTableId :: ActionTarget
@@ -53,14 +53,14 @@ data EC2AssociateRouteTableAction = EC2AssociateRouteTableAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetId', 'eC2AssociateRouteTableAction_subnetId' - The ID of the subnet for the EC2 route table that is associated with the
--- remediation action.
---
 -- 'description', 'eC2AssociateRouteTableAction_description' - A description of the EC2 route table that is associated with the
 -- remediation action.
 --
 -- 'gatewayId', 'eC2AssociateRouteTableAction_gatewayId' - The ID of the gateway to be used with the EC2 route table that is
 -- associated with the remediation action.
+--
+-- 'subnetId', 'eC2AssociateRouteTableAction_subnetId' - The ID of the subnet for the EC2 route table that is associated with the
+-- remediation action.
 --
 -- 'routeTableId', 'eC2AssociateRouteTableAction_routeTableId' - The ID of the EC2 route table that is associated with the remediation
 -- action.
@@ -70,17 +70,12 @@ newEC2AssociateRouteTableAction ::
   EC2AssociateRouteTableAction
 newEC2AssociateRouteTableAction pRouteTableId_ =
   EC2AssociateRouteTableAction'
-    { subnetId =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       routeTableId = pRouteTableId_
     }
-
--- | The ID of the subnet for the EC2 route table that is associated with the
--- remediation action.
-eC2AssociateRouteTableAction_subnetId :: Lens.Lens' EC2AssociateRouteTableAction (Prelude.Maybe ActionTarget)
-eC2AssociateRouteTableAction_subnetId = Lens.lens (\EC2AssociateRouteTableAction' {subnetId} -> subnetId) (\s@EC2AssociateRouteTableAction' {} a -> s {subnetId = a} :: EC2AssociateRouteTableAction)
 
 -- | A description of the EC2 route table that is associated with the
 -- remediation action.
@@ -91,6 +86,11 @@ eC2AssociateRouteTableAction_description = Lens.lens (\EC2AssociateRouteTableAct
 -- associated with the remediation action.
 eC2AssociateRouteTableAction_gatewayId :: Lens.Lens' EC2AssociateRouteTableAction (Prelude.Maybe ActionTarget)
 eC2AssociateRouteTableAction_gatewayId = Lens.lens (\EC2AssociateRouteTableAction' {gatewayId} -> gatewayId) (\s@EC2AssociateRouteTableAction' {} a -> s {gatewayId = a} :: EC2AssociateRouteTableAction)
+
+-- | The ID of the subnet for the EC2 route table that is associated with the
+-- remediation action.
+eC2AssociateRouteTableAction_subnetId :: Lens.Lens' EC2AssociateRouteTableAction (Prelude.Maybe ActionTarget)
+eC2AssociateRouteTableAction_subnetId = Lens.lens (\EC2AssociateRouteTableAction' {subnetId} -> subnetId) (\s@EC2AssociateRouteTableAction' {} a -> s {subnetId = a} :: EC2AssociateRouteTableAction)
 
 -- | The ID of the EC2 route table that is associated with the remediation
 -- action.
@@ -103,9 +103,9 @@ instance Data.FromJSON EC2AssociateRouteTableAction where
       "EC2AssociateRouteTableAction"
       ( \x ->
           EC2AssociateRouteTableAction'
-            Prelude.<$> (x Data..:? "SubnetId")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "GatewayId")
+            Prelude.<*> (x Data..:? "SubnetId")
             Prelude.<*> (x Data..: "RouteTableId")
       )
 
@@ -114,14 +114,14 @@ instance
     EC2AssociateRouteTableAction
   where
   hashWithSalt _salt EC2AssociateRouteTableAction' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` gatewayId
+      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` routeTableId
 
 instance Prelude.NFData EC2AssociateRouteTableAction where
   rnf EC2AssociateRouteTableAction' {..} =
-    Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf routeTableId

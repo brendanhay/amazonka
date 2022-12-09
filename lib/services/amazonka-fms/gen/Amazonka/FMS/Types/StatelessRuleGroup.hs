@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatelessRuleGroup' smart constructor.
 data StatelessRuleGroup = StatelessRuleGroup'
-  { -- | The resource ID of the rule group.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the rule group.
-    ruleGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The priority of the rule group. Network Firewall evaluates the stateless
+  { -- | The priority of the rule group. Network Firewall evaluates the stateless
     -- rule groups in a firewall policy starting from the lowest priority
     -- setting.
-    priority :: Prelude.Maybe Prelude.Natural
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The resource ID of the rule group.
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule group.
+    ruleGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,27 @@ data StatelessRuleGroup = StatelessRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'statelessRuleGroup_resourceId' - The resource ID of the rule group.
---
--- 'ruleGroupName', 'statelessRuleGroup_ruleGroupName' - The name of the rule group.
---
 -- 'priority', 'statelessRuleGroup_priority' - The priority of the rule group. Network Firewall evaluates the stateless
 -- rule groups in a firewall policy starting from the lowest priority
 -- setting.
+--
+-- 'resourceId', 'statelessRuleGroup_resourceId' - The resource ID of the rule group.
+--
+-- 'ruleGroupName', 'statelessRuleGroup_ruleGroupName' - The name of the rule group.
 newStatelessRuleGroup ::
   StatelessRuleGroup
 newStatelessRuleGroup =
   StatelessRuleGroup'
-    { resourceId = Prelude.Nothing,
-      ruleGroupName = Prelude.Nothing,
-      priority = Prelude.Nothing
+    { priority = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      ruleGroupName = Prelude.Nothing
     }
+
+-- | The priority of the rule group. Network Firewall evaluates the stateless
+-- rule groups in a firewall policy starting from the lowest priority
+-- setting.
+statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Natural)
+statelessRuleGroup_priority = Lens.lens (\StatelessRuleGroup' {priority} -> priority) (\s@StatelessRuleGroup' {} a -> s {priority = a} :: StatelessRuleGroup)
 
 -- | The resource ID of the rule group.
 statelessRuleGroup_resourceId :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Text)
@@ -72,31 +78,25 @@ statelessRuleGroup_resourceId = Lens.lens (\StatelessRuleGroup' {resourceId} -> 
 statelessRuleGroup_ruleGroupName :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Text)
 statelessRuleGroup_ruleGroupName = Lens.lens (\StatelessRuleGroup' {ruleGroupName} -> ruleGroupName) (\s@StatelessRuleGroup' {} a -> s {ruleGroupName = a} :: StatelessRuleGroup)
 
--- | The priority of the rule group. Network Firewall evaluates the stateless
--- rule groups in a firewall policy starting from the lowest priority
--- setting.
-statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Natural)
-statelessRuleGroup_priority = Lens.lens (\StatelessRuleGroup' {priority} -> priority) (\s@StatelessRuleGroup' {} a -> s {priority = a} :: StatelessRuleGroup)
-
 instance Data.FromJSON StatelessRuleGroup where
   parseJSON =
     Data.withObject
       "StatelessRuleGroup"
       ( \x ->
           StatelessRuleGroup'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "ResourceId")
             Prelude.<*> (x Data..:? "RuleGroupName")
-            Prelude.<*> (x Data..:? "Priority")
       )
 
 instance Prelude.Hashable StatelessRuleGroup where
   hashWithSalt _salt StatelessRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` ruleGroupName
-      `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData StatelessRuleGroup where
   rnf StatelessRuleGroup' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf ruleGroupName
-      `Prelude.seq` Prelude.rnf priority

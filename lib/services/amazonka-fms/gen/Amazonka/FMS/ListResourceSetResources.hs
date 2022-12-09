@@ -28,8 +28,8 @@ module Amazonka.FMS.ListResourceSetResources
     newListResourceSetResources,
 
     -- * Request Lenses
-    listResourceSetResources_nextToken,
     listResourceSetResources_maxResults,
+    listResourceSetResources_nextToken,
     listResourceSetResources_identifier,
 
     -- * Destructuring the Response
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceSetResources' smart constructor.
 data ListResourceSetResources = ListResourceSetResources'
-  { -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | The maximum number of objects that you want Firewall Manager to return
+    -- for this request. If more objects are available, in the response,
+    -- Firewall Manager provides a @NextToken@ value that you can use in a
+    -- subsequent call to get the next batch of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Firewall Manager returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects that you want Firewall Manager to return
-    -- for this request. If more objects are available, in the response,
-    -- Firewall Manager provides a @NextToken@ value that you can use in a
-    -- subsequent call to get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the resource set, used in a TODO to refer to the
     -- resource set.
     identifier :: Prelude.Text
@@ -78,16 +78,16 @@ data ListResourceSetResources = ListResourceSetResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResourceSetResources_maxResults' - The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+--
 -- 'nextToken', 'listResourceSetResources_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Firewall Manager returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
---
--- 'maxResults', 'listResourceSetResources_maxResults' - The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
 --
 -- 'identifier', 'listResourceSetResources_identifier' - A unique identifier for the resource set, used in a TODO to refer to the
 -- resource set.
@@ -97,11 +97,18 @@ newListResourceSetResources ::
   ListResourceSetResources
 newListResourceSetResources pIdentifier_ =
   ListResourceSetResources'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       identifier = pIdentifier_
     }
+
+-- | The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+listResourceSetResources_maxResults :: Lens.Lens' ListResourceSetResources (Prelude.Maybe Prelude.Natural)
+listResourceSetResources_maxResults = Lens.lens (\ListResourceSetResources' {maxResults} -> maxResults) (\s@ListResourceSetResources' {} a -> s {maxResults = a} :: ListResourceSetResources)
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -110,13 +117,6 @@ newListResourceSetResources pIdentifier_ =
 -- returned from the prior request in your next request.
 listResourceSetResources_nextToken :: Lens.Lens' ListResourceSetResources (Prelude.Maybe Prelude.Text)
 listResourceSetResources_nextToken = Lens.lens (\ListResourceSetResources' {nextToken} -> nextToken) (\s@ListResourceSetResources' {} a -> s {nextToken = a} :: ListResourceSetResources)
-
--- | The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
-listResourceSetResources_maxResults :: Lens.Lens' ListResourceSetResources (Prelude.Maybe Prelude.Natural)
-listResourceSetResources_maxResults = Lens.lens (\ListResourceSetResources' {maxResults} -> maxResults) (\s@ListResourceSetResources' {} a -> s {maxResults = a} :: ListResourceSetResources)
 
 -- | A unique identifier for the resource set, used in a TODO to refer to the
 -- resource set.
@@ -140,14 +140,14 @@ instance Core.AWSRequest ListResourceSetResources where
 
 instance Prelude.Hashable ListResourceSetResources where
   hashWithSalt _salt ListResourceSetResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData ListResourceSetResources where
   rnf ListResourceSetResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf identifier
 
 instance Data.ToHeaders ListResourceSetResources where
@@ -169,8 +169,8 @@ instance Data.ToJSON ListResourceSetResources where
   toJSON ListResourceSetResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Identifier" Data..= identifier)
           ]
       )

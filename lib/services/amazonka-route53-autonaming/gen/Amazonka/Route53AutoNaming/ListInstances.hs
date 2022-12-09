@@ -30,8 +30,8 @@ module Amazonka.Route53AutoNaming.ListInstances
     newListInstances,
 
     -- * Request Lenses
-    listInstances_nextToken,
     listInstances_maxResults,
+    listInstances_nextToken,
     listInstances_serviceId,
 
     -- * Destructuring the Response
@@ -55,17 +55,17 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | For the first @ListInstances@ request, omit this value.
+  { -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @ListInstances@ request. If you don\'t specify a value for
+    -- @MaxResults@, Cloud Map returns up to 100 instances.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first @ListInstances@ request, omit this value.
     --
     -- If more than @MaxResults@ instances match the specified criteria, you
     -- can submit another @ListInstances@ request to get the next group of
     -- results. Specify the value of @NextToken@ from the previous response in
     -- the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that you want Cloud Map to return in the
-    -- response to a @ListInstances@ request. If you don\'t specify a value for
-    -- @MaxResults@, Cloud Map returns up to 100 instances.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the service that you want to list instances for.
     serviceId :: Prelude.Text
   }
@@ -79,16 +79,16 @@ data ListInstances = ListInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @ListInstances@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 instances.
+--
 -- 'nextToken', 'listInstances_nextToken' - For the first @ListInstances@ request, omit this value.
 --
 -- If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @ListInstances@ request to get the next group of
 -- results. Specify the value of @NextToken@ from the previous response in
 -- the next request.
---
--- 'maxResults', 'listInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
--- response to a @ListInstances@ request. If you don\'t specify a value for
--- @MaxResults@, Cloud Map returns up to 100 instances.
 --
 -- 'serviceId', 'listInstances_serviceId' - The ID of the service that you want to list instances for.
 newListInstances ::
@@ -97,10 +97,16 @@ newListInstances ::
   ListInstances
 newListInstances pServiceId_ =
   ListInstances'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serviceId = pServiceId_
     }
+
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @ListInstances@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 instances.
+listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
+listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 -- | For the first @ListInstances@ request, omit this value.
 --
@@ -110,12 +116,6 @@ newListInstances pServiceId_ =
 -- the next request.
 listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
 listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
-
--- | The maximum number of instances that you want Cloud Map to return in the
--- response to a @ListInstances@ request. If you don\'t specify a value for
--- @MaxResults@, Cloud Map returns up to 100 instances.
-listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
-listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 -- | The ID of the service that you want to list instances for.
 listInstances_serviceId :: Lens.Lens' ListInstances Prelude.Text
@@ -157,14 +157,14 @@ instance Core.AWSRequest ListInstances where
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceId
 
 instance Prelude.NFData ListInstances where
   rnf ListInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceId
 
 instance Data.ToHeaders ListInstances where
@@ -186,8 +186,8 @@ instance Data.ToJSON ListInstances where
   toJSON ListInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServiceId" Data..= serviceId)
           ]
       )

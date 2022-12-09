@@ -27,47 +27,47 @@ module Amazonka.Route53AutoNaming
     -- * Errors
     -- $errors
 
-    -- ** InvalidInput
-    _InvalidInput,
-
-    -- ** ServiceNotFound
-    _ServiceNotFound,
-
-    -- ** RequestLimitExceeded
-    _RequestLimitExceeded,
-
-    -- ** ResourceLimitExceeded
-    _ResourceLimitExceeded,
-
     -- ** CustomHealthNotFound
     _CustomHealthNotFound,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** NamespaceAlreadyExists
-    _NamespaceAlreadyExists,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** OperationNotFound
-    _OperationNotFound,
-
-    -- ** InstanceNotFound
-    _InstanceNotFound,
-
-    -- ** ServiceAlreadyExists
-    _ServiceAlreadyExists,
-
-    -- ** ResourceInUse
-    _ResourceInUse,
 
     -- ** DuplicateRequest
     _DuplicateRequest,
 
+    -- ** InstanceNotFound
+    _InstanceNotFound,
+
+    -- ** InvalidInput
+    _InvalidInput,
+
+    -- ** NamespaceAlreadyExists
+    _NamespaceAlreadyExists,
+
     -- ** NamespaceNotFound
     _NamespaceNotFound,
+
+    -- ** OperationNotFound
+    _OperationNotFound,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** ResourceLimitExceeded
+    _ResourceLimitExceeded,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceAlreadyExists
+    _ServiceAlreadyExists,
+
+    -- ** ServiceNotFound
+    _ServiceNotFound,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

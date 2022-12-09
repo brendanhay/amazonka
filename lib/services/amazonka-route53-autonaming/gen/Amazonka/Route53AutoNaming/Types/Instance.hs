@@ -29,15 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | A unique string that identifies the request and that allows failed
-    -- @RegisterInstance@ requests to be retried without the risk of executing
-    -- the operation twice. You must use a unique @CreatorRequestId@ string
-    -- every time you submit a @RegisterInstance@ request if you\'re
-    -- registering additional instances for the same namespace and service.
-    -- @CreatorRequestId@ can be any unique string (for example, a date\/time
-    -- stamp).
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | A string map that contains the following information for the service
+  { -- | A string map that contains the following information for the service
     -- that you specify in @ServiceId@:
     --
     -- -   The attributes that apply to the records that are defined in the
@@ -129,6 +121,14 @@ data Instance = Instance'
     --     This value is required if you specified settings for an @SRV@ record
     --     or a Route 53 health check when you created the service.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique string that identifies the request and that allows failed
+    -- @RegisterInstance@ requests to be retried without the risk of executing
+    -- the operation twice. You must use a unique @CreatorRequestId@ string
+    -- every time you submit a @RegisterInstance@ request if you\'re
+    -- registering additional instances for the same namespace and service.
+    -- @CreatorRequestId@ can be any unique string (for example, a date\/time
+    -- stamp).
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | An identifier that you want to associate with the instance. Note the
     -- following:
     --
@@ -161,14 +161,6 @@ data Instance = Instance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'creatorRequestId', 'instance_creatorRequestId' - A unique string that identifies the request and that allows failed
--- @RegisterInstance@ requests to be retried without the risk of executing
--- the operation twice. You must use a unique @CreatorRequestId@ string
--- every time you submit a @RegisterInstance@ request if you\'re
--- registering additional instances for the same namespace and service.
--- @CreatorRequestId@ can be any unique string (for example, a date\/time
--- stamp).
 --
 -- 'attributes', 'instance_attributes' - A string map that contains the following information for the service
 -- that you specify in @ServiceId@:
@@ -262,6 +254,14 @@ data Instance = Instance'
 --     This value is required if you specified settings for an @SRV@ record
 --     or a Route 53 health check when you created the service.
 --
+-- 'creatorRequestId', 'instance_creatorRequestId' - A unique string that identifies the request and that allows failed
+-- @RegisterInstance@ requests to be retried without the risk of executing
+-- the operation twice. You must use a unique @CreatorRequestId@ string
+-- every time you submit a @RegisterInstance@ request if you\'re
+-- registering additional instances for the same namespace and service.
+-- @CreatorRequestId@ can be any unique string (for example, a date\/time
+-- stamp).
+--
 -- 'id', 'instance_id' - An identifier that you want to associate with the instance. Note the
 -- following:
 --
@@ -289,20 +289,10 @@ newInstance ::
   Instance
 newInstance pId_ =
   Instance'
-    { creatorRequestId = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
+      creatorRequestId = Prelude.Nothing,
       id = pId_
     }
-
--- | A unique string that identifies the request and that allows failed
--- @RegisterInstance@ requests to be retried without the risk of executing
--- the operation twice. You must use a unique @CreatorRequestId@ string
--- every time you submit a @RegisterInstance@ request if you\'re
--- registering additional instances for the same namespace and service.
--- @CreatorRequestId@ can be any unique string (for example, a date\/time
--- stamp).
-instance_creatorRequestId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorRequestId) (\s@Instance' {} a -> s {creatorRequestId = a} :: Instance)
 
 -- | A string map that contains the following information for the service
 -- that you specify in @ServiceId@:
@@ -398,6 +388,16 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 instance_attributes :: Lens.Lens' Instance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instance_attributes = Lens.lens (\Instance' {attributes} -> attributes) (\s@Instance' {} a -> s {attributes = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
+-- | A unique string that identifies the request and that allows failed
+-- @RegisterInstance@ requests to be retried without the risk of executing
+-- the operation twice. You must use a unique @CreatorRequestId@ string
+-- every time you submit a @RegisterInstance@ request if you\'re
+-- registering additional instances for the same namespace and service.
+-- @CreatorRequestId@ can be any unique string (for example, a date\/time
+-- stamp).
+instance_creatorRequestId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorRequestId) (\s@Instance' {} a -> s {creatorRequestId = a} :: Instance)
+
 -- | An identifier that you want to associate with the instance. Note the
 -- following:
 --
@@ -428,19 +428,19 @@ instance Data.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Data..:? "CreatorRequestId")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CreatorRequestId")
             Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf creatorRequestId
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf id

@@ -29,10 +29,10 @@ import Amazonka.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
 --
 -- /See:/ 'newPrivateDnsNamespaceChange' smart constructor.
 data PrivateDnsNamespaceChange = PrivateDnsNamespaceChange'
-  { -- | Properties to be updated in the private DNS namespace.
-    properties :: Prelude.Maybe PrivateDnsNamespacePropertiesChange,
-    -- | An updated description for the private DNS namespace.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | An updated description for the private DNS namespace.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Properties to be updated in the private DNS namespace.
+    properties :: Prelude.Maybe PrivateDnsNamespacePropertiesChange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,41 +44,41 @@ data PrivateDnsNamespaceChange = PrivateDnsNamespaceChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'privateDnsNamespaceChange_properties' - Properties to be updated in the private DNS namespace.
---
 -- 'description', 'privateDnsNamespaceChange_description' - An updated description for the private DNS namespace.
+--
+-- 'properties', 'privateDnsNamespaceChange_properties' - Properties to be updated in the private DNS namespace.
 newPrivateDnsNamespaceChange ::
   PrivateDnsNamespaceChange
 newPrivateDnsNamespaceChange =
   PrivateDnsNamespaceChange'
-    { properties =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      properties = Prelude.Nothing
     }
-
--- | Properties to be updated in the private DNS namespace.
-privateDnsNamespaceChange_properties :: Lens.Lens' PrivateDnsNamespaceChange (Prelude.Maybe PrivateDnsNamespacePropertiesChange)
-privateDnsNamespaceChange_properties = Lens.lens (\PrivateDnsNamespaceChange' {properties} -> properties) (\s@PrivateDnsNamespaceChange' {} a -> s {properties = a} :: PrivateDnsNamespaceChange)
 
 -- | An updated description for the private DNS namespace.
 privateDnsNamespaceChange_description :: Lens.Lens' PrivateDnsNamespaceChange (Prelude.Maybe Prelude.Text)
 privateDnsNamespaceChange_description = Lens.lens (\PrivateDnsNamespaceChange' {description} -> description) (\s@PrivateDnsNamespaceChange' {} a -> s {description = a} :: PrivateDnsNamespaceChange)
 
+-- | Properties to be updated in the private DNS namespace.
+privateDnsNamespaceChange_properties :: Lens.Lens' PrivateDnsNamespaceChange (Prelude.Maybe PrivateDnsNamespacePropertiesChange)
+privateDnsNamespaceChange_properties = Lens.lens (\PrivateDnsNamespaceChange' {properties} -> properties) (\s@PrivateDnsNamespaceChange' {} a -> s {properties = a} :: PrivateDnsNamespaceChange)
+
 instance Prelude.Hashable PrivateDnsNamespaceChange where
   hashWithSalt _salt PrivateDnsNamespaceChange' {..} =
-    _salt `Prelude.hashWithSalt` properties
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData PrivateDnsNamespaceChange where
   rnf PrivateDnsNamespaceChange' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
 
 instance Data.ToJSON PrivateDnsNamespaceChange where
   toJSON PrivateDnsNamespaceChange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Properties" Data..=) Prelude.<$> properties,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Properties" Data..=) Prelude.<$> properties
           ]
       )

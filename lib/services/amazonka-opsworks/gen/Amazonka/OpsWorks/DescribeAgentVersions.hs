@@ -30,8 +30,8 @@ module Amazonka.OpsWorks.DescribeAgentVersions
     newDescribeAgentVersions,
 
     -- * Request Lenses
-    describeAgentVersions_stackId,
     describeAgentVersions_configurationManager,
+    describeAgentVersions_stackId,
 
     -- * Destructuring the Response
     DescribeAgentVersionsResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAgentVersions' smart constructor.
 data DescribeAgentVersions = DescribeAgentVersions'
-  { -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | The configuration manager.
-    configurationManager :: Prelude.Maybe StackConfigurationManager
+  { -- | The configuration manager.
+    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    -- | The stack ID.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,25 @@ data DescribeAgentVersions = DescribeAgentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'describeAgentVersions_stackId' - The stack ID.
---
 -- 'configurationManager', 'describeAgentVersions_configurationManager' - The configuration manager.
+--
+-- 'stackId', 'describeAgentVersions_stackId' - The stack ID.
 newDescribeAgentVersions ::
   DescribeAgentVersions
 newDescribeAgentVersions =
   DescribeAgentVersions'
-    { stackId = Prelude.Nothing,
-      configurationManager = Prelude.Nothing
+    { configurationManager =
+        Prelude.Nothing,
+      stackId = Prelude.Nothing
     }
-
--- | The stack ID.
-describeAgentVersions_stackId :: Lens.Lens' DescribeAgentVersions (Prelude.Maybe Prelude.Text)
-describeAgentVersions_stackId = Lens.lens (\DescribeAgentVersions' {stackId} -> stackId) (\s@DescribeAgentVersions' {} a -> s {stackId = a} :: DescribeAgentVersions)
 
 -- | The configuration manager.
 describeAgentVersions_configurationManager :: Lens.Lens' DescribeAgentVersions (Prelude.Maybe StackConfigurationManager)
 describeAgentVersions_configurationManager = Lens.lens (\DescribeAgentVersions' {configurationManager} -> configurationManager) (\s@DescribeAgentVersions' {} a -> s {configurationManager = a} :: DescribeAgentVersions)
+
+-- | The stack ID.
+describeAgentVersions_stackId :: Lens.Lens' DescribeAgentVersions (Prelude.Maybe Prelude.Text)
+describeAgentVersions_stackId = Lens.lens (\DescribeAgentVersions' {stackId} -> stackId) (\s@DescribeAgentVersions' {} a -> s {stackId = a} :: DescribeAgentVersions)
 
 instance Core.AWSRequest DescribeAgentVersions where
   type
@@ -103,13 +104,13 @@ instance Core.AWSRequest DescribeAgentVersions where
 
 instance Prelude.Hashable DescribeAgentVersions where
   hashWithSalt _salt DescribeAgentVersions' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` configurationManager
+    _salt `Prelude.hashWithSalt` configurationManager
+      `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeAgentVersions where
   rnf DescribeAgentVersions' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf configurationManager
+    Prelude.rnf configurationManager
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeAgentVersions where
   toHeaders =
@@ -130,9 +131,9 @@ instance Data.ToJSON DescribeAgentVersions where
   toJSON DescribeAgentVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Data..=) Prelude.<$> stackId,
-            ("ConfigurationManager" Data..=)
-              Prelude.<$> configurationManager
+          [ ("ConfigurationManager" Data..=)
+              Prelude.<$> configurationManager,
+            ("StackId" Data..=) Prelude.<$> stackId
           ]
       )
 

@@ -34,9 +34,9 @@ module Amazonka.OpsWorks.SetPermission
     newSetPermission,
 
     -- * Request Lenses
+    setPermission_allowSsh,
     setPermission_allowSudo,
     setPermission_level,
-    setPermission_allowSsh,
     setPermission_stackId,
     setPermission_iamUserArn,
 
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetPermission' smart constructor.
 data SetPermission = SetPermission'
-  { -- | The user is allowed to use __sudo__ to elevate privileges.
+  { -- | The user is allowed to use SSH to communicate with the instance.
+    allowSsh :: Prelude.Maybe Prelude.Bool,
+    -- | The user is allowed to use __sudo__ to elevate privileges.
     allowSudo :: Prelude.Maybe Prelude.Bool,
     -- | The user\'s permission level, which must be set to one of the following
     -- strings. You cannot set your own permissions level.
@@ -75,8 +77,6 @@ data SetPermission = SetPermission'
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
     level :: Prelude.Maybe Prelude.Text,
-    -- | The user is allowed to use SSH to communicate with the instance.
-    allowSsh :: Prelude.Maybe Prelude.Bool,
     -- | The stack ID.
     stackId :: Prelude.Text,
     -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
@@ -91,6 +91,8 @@ data SetPermission = SetPermission'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.
 --
 -- 'allowSudo', 'setPermission_allowSudo' - The user is allowed to use __sudo__ to elevate privileges.
 --
@@ -111,8 +113,6 @@ data SetPermission = SetPermission'
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.
---
 -- 'stackId', 'setPermission_stackId' - The stack ID.
 --
 -- 'iamUserArn', 'setPermission_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.
@@ -124,12 +124,16 @@ newSetPermission ::
   SetPermission
 newSetPermission pStackId_ pIamUserArn_ =
   SetPermission'
-    { allowSudo = Prelude.Nothing,
+    { allowSsh = Prelude.Nothing,
+      allowSudo = Prelude.Nothing,
       level = Prelude.Nothing,
-      allowSsh = Prelude.Nothing,
       stackId = pStackId_,
       iamUserArn = pIamUserArn_
     }
+
+-- | The user is allowed to use SSH to communicate with the instance.
+setPermission_allowSsh :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
+setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@SetPermission' {} a -> s {allowSsh = a} :: SetPermission)
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
 setPermission_allowSudo :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
@@ -154,10 +158,6 @@ setPermission_allowSudo = Lens.lens (\SetPermission' {allowSudo} -> allowSudo) (
 setPermission_level :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Text)
 setPermission_level = Lens.lens (\SetPermission' {level} -> level) (\s@SetPermission' {} a -> s {level = a} :: SetPermission)
 
--- | The user is allowed to use SSH to communicate with the instance.
-setPermission_allowSsh :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
-setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@SetPermission' {} a -> s {allowSsh = a} :: SetPermission)
-
 -- | The stack ID.
 setPermission_stackId :: Lens.Lens' SetPermission Prelude.Text
 setPermission_stackId = Lens.lens (\SetPermission' {stackId} -> stackId) (\s@SetPermission' {} a -> s {stackId = a} :: SetPermission)
@@ -177,17 +177,17 @@ instance Core.AWSRequest SetPermission where
 
 instance Prelude.Hashable SetPermission where
   hashWithSalt _salt SetPermission' {..} =
-    _salt `Prelude.hashWithSalt` allowSudo
+    _salt `Prelude.hashWithSalt` allowSsh
+      `Prelude.hashWithSalt` allowSudo
       `Prelude.hashWithSalt` level
-      `Prelude.hashWithSalt` allowSsh
       `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` iamUserArn
 
 instance Prelude.NFData SetPermission where
   rnf SetPermission' {..} =
-    Prelude.rnf allowSudo
+    Prelude.rnf allowSsh
+      `Prelude.seq` Prelude.rnf allowSudo
       `Prelude.seq` Prelude.rnf level
-      `Prelude.seq` Prelude.rnf allowSsh
       `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf iamUserArn
 
@@ -210,9 +210,9 @@ instance Data.ToJSON SetPermission where
   toJSON SetPermission' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AllowSudo" Data..=) Prelude.<$> allowSudo,
+          [ ("AllowSsh" Data..=) Prelude.<$> allowSsh,
+            ("AllowSudo" Data..=) Prelude.<$> allowSudo,
             ("Level" Data..=) Prelude.<$> level,
-            ("AllowSsh" Data..=) Prelude.<$> allowSsh,
             Prelude.Just ("StackId" Data..= stackId),
             Prelude.Just ("IamUserArn" Data..= iamUserArn)
           ]

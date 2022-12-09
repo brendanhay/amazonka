@@ -28,7 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-  { -- | The volume type. For more information, see
+  { -- | Specifies whether an Amazon EBS volume is encrypted. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | For PIOPS volumes, the IOPS per disk.
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The volume
+    -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+    raidLevel :: Prelude.Maybe Prelude.Int,
+    -- | The volume type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>.
     --
     -- -   @standard@ - Magnetic. Magnetic volumes must have a minimum size of
@@ -47,15 +56,6 @@ data VolumeConfiguration = VolumeConfiguration'
     -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
     --     GiB and a maximum size of 16384 GiB.
     volumeType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether an Amazon EBS volume is encrypted. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The volume
-    -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-    raidLevel :: Prelude.Maybe Prelude.Int,
-    -- | For PIOPS volumes, the IOPS per disk.
-    iops :: Prelude.Maybe Prelude.Int,
     -- | The volume mount point. For example \"\/dev\/sdh\".
     mountPoint :: Prelude.Text,
     -- | The number of disks in the volume.
@@ -72,6 +72,15 @@ data VolumeConfiguration = VolumeConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'encrypted', 'volumeConfiguration_encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
+--
+-- 'iops', 'volumeConfiguration_iops' - For PIOPS volumes, the IOPS per disk.
+--
+-- 'raidLevel', 'volumeConfiguration_raidLevel' - The volume
+-- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
 --
 -- 'volumeType', 'volumeConfiguration_volumeType' - The volume type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>.
@@ -92,15 +101,6 @@ data VolumeConfiguration = VolumeConfiguration'
 -- -   @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500
 --     GiB and a maximum size of 16384 GiB.
 --
--- 'encrypted', 'volumeConfiguration_encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
---
--- 'raidLevel', 'volumeConfiguration_raidLevel' - The volume
--- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
---
--- 'iops', 'volumeConfiguration_iops' - For PIOPS volumes, the IOPS per disk.
---
 -- 'mountPoint', 'volumeConfiguration_mountPoint' - The volume mount point. For example \"\/dev\/sdh\".
 --
 -- 'numberOfDisks', 'volumeConfiguration_numberOfDisks' - The number of disks in the volume.
@@ -119,14 +119,29 @@ newVolumeConfiguration
   pNumberOfDisks_
   pSize_ =
     VolumeConfiguration'
-      { volumeType = Prelude.Nothing,
-        encrypted = Prelude.Nothing,
-        raidLevel = Prelude.Nothing,
+      { encrypted = Prelude.Nothing,
         iops = Prelude.Nothing,
+        raidLevel = Prelude.Nothing,
+        volumeType = Prelude.Nothing,
         mountPoint = pMountPoint_,
         numberOfDisks = pNumberOfDisks_,
         size = pSize_
       }
+
+-- | Specifies whether an Amazon EBS volume is encrypted. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
+volumeConfiguration_encrypted :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Bool)
+volumeConfiguration_encrypted = Lens.lens (\VolumeConfiguration' {encrypted} -> encrypted) (\s@VolumeConfiguration' {} a -> s {encrypted = a} :: VolumeConfiguration)
+
+-- | For PIOPS volumes, the IOPS per disk.
+volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
+volumeConfiguration_iops = Lens.lens (\VolumeConfiguration' {iops} -> iops) (\s@VolumeConfiguration' {} a -> s {iops = a} :: VolumeConfiguration)
+
+-- | The volume
+-- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
+volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
+volumeConfiguration_raidLevel = Lens.lens (\VolumeConfiguration' {raidLevel} -> raidLevel) (\s@VolumeConfiguration' {} a -> s {raidLevel = a} :: VolumeConfiguration)
 
 -- | The volume type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>.
@@ -149,21 +164,6 @@ newVolumeConfiguration
 volumeConfiguration_volumeType :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Text)
 volumeConfiguration_volumeType = Lens.lens (\VolumeConfiguration' {volumeType} -> volumeType) (\s@VolumeConfiguration' {} a -> s {volumeType = a} :: VolumeConfiguration)
 
--- | Specifies whether an Amazon EBS volume is encrypted. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>.
-volumeConfiguration_encrypted :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Bool)
-volumeConfiguration_encrypted = Lens.lens (\VolumeConfiguration' {encrypted} -> encrypted) (\s@VolumeConfiguration' {} a -> s {encrypted = a} :: VolumeConfiguration)
-
--- | The volume
--- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-volumeConfiguration_raidLevel :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
-volumeConfiguration_raidLevel = Lens.lens (\VolumeConfiguration' {raidLevel} -> raidLevel) (\s@VolumeConfiguration' {} a -> s {raidLevel = a} :: VolumeConfiguration)
-
--- | For PIOPS volumes, the IOPS per disk.
-volumeConfiguration_iops :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
-volumeConfiguration_iops = Lens.lens (\VolumeConfiguration' {iops} -> iops) (\s@VolumeConfiguration' {} a -> s {iops = a} :: VolumeConfiguration)
-
 -- | The volume mount point. For example \"\/dev\/sdh\".
 volumeConfiguration_mountPoint :: Lens.Lens' VolumeConfiguration Prelude.Text
 volumeConfiguration_mountPoint = Lens.lens (\VolumeConfiguration' {mountPoint} -> mountPoint) (\s@VolumeConfiguration' {} a -> s {mountPoint = a} :: VolumeConfiguration)
@@ -182,10 +182,10 @@ instance Data.FromJSON VolumeConfiguration where
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Prelude.<$> (x Data..:? "VolumeType")
-            Prelude.<*> (x Data..:? "Encrypted")
-            Prelude.<*> (x Data..:? "RaidLevel")
+            Prelude.<$> (x Data..:? "Encrypted")
             Prelude.<*> (x Data..:? "Iops")
+            Prelude.<*> (x Data..:? "RaidLevel")
+            Prelude.<*> (x Data..:? "VolumeType")
             Prelude.<*> (x Data..: "MountPoint")
             Prelude.<*> (x Data..: "NumberOfDisks")
             Prelude.<*> (x Data..: "Size")
@@ -193,20 +193,20 @@ instance Data.FromJSON VolumeConfiguration where
 
 instance Prelude.Hashable VolumeConfiguration where
   hashWithSalt _salt VolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` volumeType
-      `Prelude.hashWithSalt` encrypted
-      `Prelude.hashWithSalt` raidLevel
+    _salt `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` raidLevel
+      `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` mountPoint
       `Prelude.hashWithSalt` numberOfDisks
       `Prelude.hashWithSalt` size
 
 instance Prelude.NFData VolumeConfiguration where
   rnf VolumeConfiguration' {..} =
-    Prelude.rnf volumeType
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf raidLevel
+    Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf raidLevel
+      `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf mountPoint
       `Prelude.seq` Prelude.rnf numberOfDisks
       `Prelude.seq` Prelude.rnf size
@@ -215,10 +215,10 @@ instance Data.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VolumeType" Data..=) Prelude.<$> volumeType,
-            ("Encrypted" Data..=) Prelude.<$> encrypted,
-            ("RaidLevel" Data..=) Prelude.<$> raidLevel,
+          [ ("Encrypted" Data..=) Prelude.<$> encrypted,
             ("Iops" Data..=) Prelude.<$> iops,
+            ("RaidLevel" Data..=) Prelude.<$> raidLevel,
+            ("VolumeType" Data..=) Prelude.<$> volumeType,
             Prelude.Just ("MountPoint" Data..= mountPoint),
             Prelude.Just ("NumberOfDisks" Data..= numberOfDisks),
             Prelude.Just ("Size" Data..= size)

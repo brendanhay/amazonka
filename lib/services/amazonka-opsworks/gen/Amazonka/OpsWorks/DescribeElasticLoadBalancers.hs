@@ -35,8 +35,8 @@ module Amazonka.OpsWorks.DescribeElasticLoadBalancers
     newDescribeElasticLoadBalancers,
 
     -- * Request Lenses
-    describeElasticLoadBalancers_stackId,
     describeElasticLoadBalancers_layerIds,
+    describeElasticLoadBalancers_stackId,
 
     -- * Destructuring the Response
     DescribeElasticLoadBalancersResponse (..),
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeElasticLoadBalancers' smart constructor.
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
-  { -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
-    -- instances.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | A list of layer IDs. The action describes the Elastic Load Balancing
+  { -- | A list of layer IDs. The action describes the Elastic Load Balancing
     -- instances for the specified layers.
-    layerIds :: Prelude.Maybe [Prelude.Text]
+    layerIds :: Prelude.Maybe [Prelude.Text],
+    -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
+    -- instances.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,29 +75,29 @@ data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'describeElasticLoadBalancers_stackId' - A stack ID. The action describes the stack\'s Elastic Load Balancing
--- instances.
---
 -- 'layerIds', 'describeElasticLoadBalancers_layerIds' - A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
+--
+-- 'stackId', 'describeElasticLoadBalancers_stackId' - A stack ID. The action describes the stack\'s Elastic Load Balancing
+-- instances.
 newDescribeElasticLoadBalancers ::
   DescribeElasticLoadBalancers
 newDescribeElasticLoadBalancers =
   DescribeElasticLoadBalancers'
-    { stackId =
+    { layerIds =
         Prelude.Nothing,
-      layerIds = Prelude.Nothing
+      stackId = Prelude.Nothing
     }
-
--- | A stack ID. The action describes the stack\'s Elastic Load Balancing
--- instances.
-describeElasticLoadBalancers_stackId :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe Prelude.Text)
-describeElasticLoadBalancers_stackId = Lens.lens (\DescribeElasticLoadBalancers' {stackId} -> stackId) (\s@DescribeElasticLoadBalancers' {} a -> s {stackId = a} :: DescribeElasticLoadBalancers)
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 describeElasticLoadBalancers_layerIds :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe [Prelude.Text])
 describeElasticLoadBalancers_layerIds = Lens.lens (\DescribeElasticLoadBalancers' {layerIds} -> layerIds) (\s@DescribeElasticLoadBalancers' {} a -> s {layerIds = a} :: DescribeElasticLoadBalancers) Prelude.. Lens.mapping Lens.coerced
+
+-- | A stack ID. The action describes the stack\'s Elastic Load Balancing
+-- instances.
+describeElasticLoadBalancers_stackId :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe Prelude.Text)
+describeElasticLoadBalancers_stackId = Lens.lens (\DescribeElasticLoadBalancers' {stackId} -> stackId) (\s@DescribeElasticLoadBalancers' {} a -> s {stackId = a} :: DescribeElasticLoadBalancers)
 
 instance Core.AWSRequest DescribeElasticLoadBalancers where
   type
@@ -120,13 +120,13 @@ instance
     DescribeElasticLoadBalancers
   where
   hashWithSalt _salt DescribeElasticLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` layerIds
+    _salt `Prelude.hashWithSalt` layerIds
+      `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeElasticLoadBalancers where
   rnf DescribeElasticLoadBalancers' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf layerIds
+    Prelude.rnf layerIds
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeElasticLoadBalancers where
   toHeaders =
@@ -147,8 +147,8 @@ instance Data.ToJSON DescribeElasticLoadBalancers where
   toJSON DescribeElasticLoadBalancers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Data..=) Prelude.<$> stackId,
-            ("LayerIds" Data..=) Prelude.<$> layerIds
+          [ ("LayerIds" Data..=) Prelude.<$> layerIds,
+            ("StackId" Data..=) Prelude.<$> stackId
           ]
       )
 

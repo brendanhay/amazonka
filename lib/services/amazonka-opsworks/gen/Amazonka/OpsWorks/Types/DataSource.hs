@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
-    -- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | The data source\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The database name.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The data source\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text
+    -- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
+    -- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,33 +46,33 @@ data DataSource = DataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'dataSource_type' - The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
--- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
+-- 'arn', 'dataSource_arn' - The data source\'s ARN.
 --
 -- 'databaseName', 'dataSource_databaseName' - The database name.
 --
--- 'arn', 'dataSource_arn' - The data source\'s ARN.
+-- 'type'', 'dataSource_type' - The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
+-- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
 newDataSource ::
   DataSource
 newDataSource =
   DataSource'
-    { type' = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       databaseName = Prelude.Nothing,
-      arn = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
--- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
-dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
+-- | The data source\'s ARN.
+dataSource_arn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_arn = Lens.lens (\DataSource' {arn} -> arn) (\s@DataSource' {} a -> s {arn = a} :: DataSource)
 
 -- | The database name.
 dataSource_databaseName :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
 dataSource_databaseName = Lens.lens (\DataSource' {databaseName} -> databaseName) (\s@DataSource' {} a -> s {databaseName = a} :: DataSource)
 
--- | The data source\'s ARN.
-dataSource_arn :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
-dataSource_arn = Lens.lens (\DataSource' {arn} -> arn) (\s@DataSource' {} a -> s {arn = a} :: DataSource)
+-- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
+-- @OpsworksMysqlInstance@, @RdsDbInstance@, or @None@.
+dataSource_type :: Lens.Lens' DataSource (Prelude.Maybe Prelude.Text)
+dataSource_type = Lens.lens (\DataSource' {type'} -> type') (\s@DataSource' {} a -> s {type' = a} :: DataSource)
 
 instance Data.FromJSON DataSource where
   parseJSON =
@@ -80,29 +80,29 @@ instance Data.FromJSON DataSource where
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataSource where
   rnf DataSource' {..} =
-    Prelude.rnf type'
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON DataSource where
   toJSON DataSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
+          [ ("Arn" Data..=) Prelude.<$> arn,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("Arn" Data..=) Prelude.<$> arn
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

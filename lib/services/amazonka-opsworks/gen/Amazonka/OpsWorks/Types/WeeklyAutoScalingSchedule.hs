@@ -46,20 +46,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWeeklyAutoScalingSchedule' smart constructor.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-  { -- | The schedule for Tuesday.
-    tuesday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The schedule for Friday.
+  { -- | The schedule for Friday.
     friday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The schedule for Monday.
+    monday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The schedule for Saturday.
     saturday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The schedule for Thursday.
-    thursday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The schedule for Sunday.
     sunday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The schedule for Thursday.
+    thursday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The schedule for Tuesday.
+    tuesday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The schedule for Wednesday.
-    wednesday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The schedule for Monday.
-    monday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    wednesday :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,60 +71,60 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tuesday', 'weeklyAutoScalingSchedule_tuesday' - The schedule for Tuesday.
---
 -- 'friday', 'weeklyAutoScalingSchedule_friday' - The schedule for Friday.
+--
+-- 'monday', 'weeklyAutoScalingSchedule_monday' - The schedule for Monday.
 --
 -- 'saturday', 'weeklyAutoScalingSchedule_saturday' - The schedule for Saturday.
 --
--- 'thursday', 'weeklyAutoScalingSchedule_thursday' - The schedule for Thursday.
---
 -- 'sunday', 'weeklyAutoScalingSchedule_sunday' - The schedule for Sunday.
 --
--- 'wednesday', 'weeklyAutoScalingSchedule_wednesday' - The schedule for Wednesday.
+-- 'thursday', 'weeklyAutoScalingSchedule_thursday' - The schedule for Thursday.
 --
--- 'monday', 'weeklyAutoScalingSchedule_monday' - The schedule for Monday.
+-- 'tuesday', 'weeklyAutoScalingSchedule_tuesday' - The schedule for Tuesday.
+--
+-- 'wednesday', 'weeklyAutoScalingSchedule_wednesday' - The schedule for Wednesday.
 newWeeklyAutoScalingSchedule ::
   WeeklyAutoScalingSchedule
 newWeeklyAutoScalingSchedule =
   WeeklyAutoScalingSchedule'
-    { tuesday =
+    { friday =
         Prelude.Nothing,
-      friday = Prelude.Nothing,
+      monday = Prelude.Nothing,
       saturday = Prelude.Nothing,
-      thursday = Prelude.Nothing,
       sunday = Prelude.Nothing,
-      wednesday = Prelude.Nothing,
-      monday = Prelude.Nothing
+      thursday = Prelude.Nothing,
+      tuesday = Prelude.Nothing,
+      wednesday = Prelude.Nothing
     }
-
--- | The schedule for Tuesday.
-weeklyAutoScalingSchedule_tuesday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-weeklyAutoScalingSchedule_tuesday = Lens.lens (\WeeklyAutoScalingSchedule' {tuesday} -> tuesday) (\s@WeeklyAutoScalingSchedule' {} a -> s {tuesday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The schedule for Friday.
 weeklyAutoScalingSchedule_friday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 weeklyAutoScalingSchedule_friday = Lens.lens (\WeeklyAutoScalingSchedule' {friday} -> friday) (\s@WeeklyAutoScalingSchedule' {} a -> s {friday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
+-- | The schedule for Monday.
+weeklyAutoScalingSchedule_monday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+weeklyAutoScalingSchedule_monday = Lens.lens (\WeeklyAutoScalingSchedule' {monday} -> monday) (\s@WeeklyAutoScalingSchedule' {} a -> s {monday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
+
 -- | The schedule for Saturday.
 weeklyAutoScalingSchedule_saturday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 weeklyAutoScalingSchedule_saturday = Lens.lens (\WeeklyAutoScalingSchedule' {saturday} -> saturday) (\s@WeeklyAutoScalingSchedule' {} a -> s {saturday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
-
--- | The schedule for Thursday.
-weeklyAutoScalingSchedule_thursday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-weeklyAutoScalingSchedule_thursday = Lens.lens (\WeeklyAutoScalingSchedule' {thursday} -> thursday) (\s@WeeklyAutoScalingSchedule' {} a -> s {thursday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The schedule for Sunday.
 weeklyAutoScalingSchedule_sunday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 weeklyAutoScalingSchedule_sunday = Lens.lens (\WeeklyAutoScalingSchedule' {sunday} -> sunday) (\s@WeeklyAutoScalingSchedule' {} a -> s {sunday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
+-- | The schedule for Thursday.
+weeklyAutoScalingSchedule_thursday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+weeklyAutoScalingSchedule_thursday = Lens.lens (\WeeklyAutoScalingSchedule' {thursday} -> thursday) (\s@WeeklyAutoScalingSchedule' {} a -> s {thursday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The schedule for Tuesday.
+weeklyAutoScalingSchedule_tuesday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+weeklyAutoScalingSchedule_tuesday = Lens.lens (\WeeklyAutoScalingSchedule' {tuesday} -> tuesday) (\s@WeeklyAutoScalingSchedule' {} a -> s {tuesday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
+
 -- | The schedule for Wednesday.
 weeklyAutoScalingSchedule_wednesday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 weeklyAutoScalingSchedule_wednesday = Lens.lens (\WeeklyAutoScalingSchedule' {wednesday} -> wednesday) (\s@WeeklyAutoScalingSchedule' {} a -> s {wednesday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
-
--- | The schedule for Monday.
-weeklyAutoScalingSchedule_monday :: Lens.Lens' WeeklyAutoScalingSchedule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-weeklyAutoScalingSchedule_monday = Lens.lens (\WeeklyAutoScalingSchedule' {monday} -> monday) (\s@WeeklyAutoScalingSchedule' {} a -> s {monday = a} :: WeeklyAutoScalingSchedule) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON WeeklyAutoScalingSchedule where
   parseJSON =
@@ -132,45 +132,45 @@ instance Data.FromJSON WeeklyAutoScalingSchedule where
       "WeeklyAutoScalingSchedule"
       ( \x ->
           WeeklyAutoScalingSchedule'
-            Prelude.<$> (x Data..:? "Tuesday" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Friday" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Saturday" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Thursday" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Sunday" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Wednesday" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Friday" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Monday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Saturday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Sunday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Thursday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Tuesday" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Wednesday" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WeeklyAutoScalingSchedule where
   hashWithSalt _salt WeeklyAutoScalingSchedule' {..} =
-    _salt `Prelude.hashWithSalt` tuesday
-      `Prelude.hashWithSalt` friday
-      `Prelude.hashWithSalt` saturday
-      `Prelude.hashWithSalt` thursday
-      `Prelude.hashWithSalt` sunday
-      `Prelude.hashWithSalt` wednesday
+    _salt `Prelude.hashWithSalt` friday
       `Prelude.hashWithSalt` monday
+      `Prelude.hashWithSalt` saturday
+      `Prelude.hashWithSalt` sunday
+      `Prelude.hashWithSalt` thursday
+      `Prelude.hashWithSalt` tuesday
+      `Prelude.hashWithSalt` wednesday
 
 instance Prelude.NFData WeeklyAutoScalingSchedule where
   rnf WeeklyAutoScalingSchedule' {..} =
-    Prelude.rnf tuesday
-      `Prelude.seq` Prelude.rnf friday
-      `Prelude.seq` Prelude.rnf saturday
-      `Prelude.seq` Prelude.rnf thursday
-      `Prelude.seq` Prelude.rnf sunday
-      `Prelude.seq` Prelude.rnf wednesday
+    Prelude.rnf friday
       `Prelude.seq` Prelude.rnf monday
+      `Prelude.seq` Prelude.rnf saturday
+      `Prelude.seq` Prelude.rnf sunday
+      `Prelude.seq` Prelude.rnf thursday
+      `Prelude.seq` Prelude.rnf tuesday
+      `Prelude.seq` Prelude.rnf wednesday
 
 instance Data.ToJSON WeeklyAutoScalingSchedule where
   toJSON WeeklyAutoScalingSchedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tuesday" Data..=) Prelude.<$> tuesday,
-            ("Friday" Data..=) Prelude.<$> friday,
+          [ ("Friday" Data..=) Prelude.<$> friday,
+            ("Monday" Data..=) Prelude.<$> monday,
             ("Saturday" Data..=) Prelude.<$> saturday,
-            ("Thursday" Data..=) Prelude.<$> thursday,
             ("Sunday" Data..=) Prelude.<$> sunday,
-            ("Wednesday" Data..=) Prelude.<$> wednesday,
-            ("Monday" Data..=) Prelude.<$> monday
+            ("Thursday" Data..=) Prelude.<$> thursday,
+            ("Tuesday" Data..=) Prelude.<$> tuesday,
+            ("Wednesday" Data..=) Prelude.<$> wednesday
           ]
       )

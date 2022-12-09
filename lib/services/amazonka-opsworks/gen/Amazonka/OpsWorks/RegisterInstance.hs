@@ -49,12 +49,12 @@ module Amazonka.OpsWorks.RegisterInstance
     newRegisterInstance,
 
     -- * Request Lenses
-    registerInstance_rsaPublicKeyFingerprint,
     registerInstance_hostname,
     registerInstance_instanceIdentity,
+    registerInstance_privateIp,
     registerInstance_publicIp,
     registerInstance_rsaPublicKey,
-    registerInstance_privateIp,
+    registerInstance_rsaPublicKeyFingerprint,
     registerInstance_stackId,
 
     -- * Destructuring the Response
@@ -77,19 +77,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
-  { -- | The instances public RSA key fingerprint.
-    rsaPublicKeyFingerprint :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s hostname.
+  { -- | The instance\'s hostname.
     hostname :: Prelude.Maybe Prelude.Text,
     -- | An InstanceIdentity object that contains the instance\'s identity.
     instanceIdentity :: Prelude.Maybe InstanceIdentity,
+    -- | The instance\'s private IP address.
+    privateIp :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s public IP address.
     publicIp :: Prelude.Maybe Prelude.Text,
     -- | The instances public RSA key. This key is used to encrypt communication
     -- between the instance and the service.
     rsaPublicKey :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s private IP address.
-    privateIp :: Prelude.Maybe Prelude.Text,
+    -- | The instances public RSA key fingerprint.
+    rsaPublicKeyFingerprint :: Prelude.Maybe Prelude.Text,
     -- | The ID of the stack that the instance is to be registered with.
     stackId :: Prelude.Text
   }
@@ -103,18 +103,18 @@ data RegisterInstance = RegisterInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rsaPublicKeyFingerprint', 'registerInstance_rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
---
 -- 'hostname', 'registerInstance_hostname' - The instance\'s hostname.
 --
 -- 'instanceIdentity', 'registerInstance_instanceIdentity' - An InstanceIdentity object that contains the instance\'s identity.
+--
+-- 'privateIp', 'registerInstance_privateIp' - The instance\'s private IP address.
 --
 -- 'publicIp', 'registerInstance_publicIp' - The instance\'s public IP address.
 --
 -- 'rsaPublicKey', 'registerInstance_rsaPublicKey' - The instances public RSA key. This key is used to encrypt communication
 -- between the instance and the service.
 --
--- 'privateIp', 'registerInstance_privateIp' - The instance\'s private IP address.
+-- 'rsaPublicKeyFingerprint', 'registerInstance_rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
 --
 -- 'stackId', 'registerInstance_stackId' - The ID of the stack that the instance is to be registered with.
 newRegisterInstance ::
@@ -123,19 +123,14 @@ newRegisterInstance ::
   RegisterInstance
 newRegisterInstance pStackId_ =
   RegisterInstance'
-    { rsaPublicKeyFingerprint =
-        Prelude.Nothing,
-      hostname = Prelude.Nothing,
+    { hostname = Prelude.Nothing,
       instanceIdentity = Prelude.Nothing,
+      privateIp = Prelude.Nothing,
       publicIp = Prelude.Nothing,
       rsaPublicKey = Prelude.Nothing,
-      privateIp = Prelude.Nothing,
+      rsaPublicKeyFingerprint = Prelude.Nothing,
       stackId = pStackId_
     }
-
--- | The instances public RSA key fingerprint.
-registerInstance_rsaPublicKeyFingerprint :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
-registerInstance_rsaPublicKeyFingerprint = Lens.lens (\RegisterInstance' {rsaPublicKeyFingerprint} -> rsaPublicKeyFingerprint) (\s@RegisterInstance' {} a -> s {rsaPublicKeyFingerprint = a} :: RegisterInstance)
 
 -- | The instance\'s hostname.
 registerInstance_hostname :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
@@ -144,6 +139,10 @@ registerInstance_hostname = Lens.lens (\RegisterInstance' {hostname} -> hostname
 -- | An InstanceIdentity object that contains the instance\'s identity.
 registerInstance_instanceIdentity :: Lens.Lens' RegisterInstance (Prelude.Maybe InstanceIdentity)
 registerInstance_instanceIdentity = Lens.lens (\RegisterInstance' {instanceIdentity} -> instanceIdentity) (\s@RegisterInstance' {} a -> s {instanceIdentity = a} :: RegisterInstance)
+
+-- | The instance\'s private IP address.
+registerInstance_privateIp :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_privateIp = Lens.lens (\RegisterInstance' {privateIp} -> privateIp) (\s@RegisterInstance' {} a -> s {privateIp = a} :: RegisterInstance)
 
 -- | The instance\'s public IP address.
 registerInstance_publicIp :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
@@ -154,9 +153,9 @@ registerInstance_publicIp = Lens.lens (\RegisterInstance' {publicIp} -> publicIp
 registerInstance_rsaPublicKey :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
 registerInstance_rsaPublicKey = Lens.lens (\RegisterInstance' {rsaPublicKey} -> rsaPublicKey) (\s@RegisterInstance' {} a -> s {rsaPublicKey = a} :: RegisterInstance)
 
--- | The instance\'s private IP address.
-registerInstance_privateIp :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
-registerInstance_privateIp = Lens.lens (\RegisterInstance' {privateIp} -> privateIp) (\s@RegisterInstance' {} a -> s {privateIp = a} :: RegisterInstance)
+-- | The instances public RSA key fingerprint.
+registerInstance_rsaPublicKeyFingerprint :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_rsaPublicKeyFingerprint = Lens.lens (\RegisterInstance' {rsaPublicKeyFingerprint} -> rsaPublicKeyFingerprint) (\s@RegisterInstance' {} a -> s {rsaPublicKeyFingerprint = a} :: RegisterInstance)
 
 -- | The ID of the stack that the instance is to be registered with.
 registerInstance_stackId :: Lens.Lens' RegisterInstance Prelude.Text
@@ -178,23 +177,22 @@ instance Core.AWSRequest RegisterInstance where
 
 instance Prelude.Hashable RegisterInstance where
   hashWithSalt _salt RegisterInstance' {..} =
-    _salt
-      `Prelude.hashWithSalt` rsaPublicKeyFingerprint
-      `Prelude.hashWithSalt` hostname
+    _salt `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` instanceIdentity
+      `Prelude.hashWithSalt` privateIp
       `Prelude.hashWithSalt` publicIp
       `Prelude.hashWithSalt` rsaPublicKey
-      `Prelude.hashWithSalt` privateIp
+      `Prelude.hashWithSalt` rsaPublicKeyFingerprint
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData RegisterInstance where
   rnf RegisterInstance' {..} =
-    Prelude.rnf rsaPublicKeyFingerprint
-      `Prelude.seq` Prelude.rnf hostname
+    Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf instanceIdentity
+      `Prelude.seq` Prelude.rnf privateIp
       `Prelude.seq` Prelude.rnf publicIp
       `Prelude.seq` Prelude.rnf rsaPublicKey
-      `Prelude.seq` Prelude.rnf privateIp
+      `Prelude.seq` Prelude.rnf rsaPublicKeyFingerprint
       `Prelude.seq` Prelude.rnf stackId
 
 instance Data.ToHeaders RegisterInstance where
@@ -216,14 +214,14 @@ instance Data.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RsaPublicKeyFingerprint" Data..=)
-              Prelude.<$> rsaPublicKeyFingerprint,
-            ("Hostname" Data..=) Prelude.<$> hostname,
+          [ ("Hostname" Data..=) Prelude.<$> hostname,
             ("InstanceIdentity" Data..=)
               Prelude.<$> instanceIdentity,
+            ("PrivateIp" Data..=) Prelude.<$> privateIp,
             ("PublicIp" Data..=) Prelude.<$> publicIp,
             ("RsaPublicKey" Data..=) Prelude.<$> rsaPublicKey,
-            ("PrivateIp" Data..=) Prelude.<$> privateIp,
+            ("RsaPublicKeyFingerprint" Data..=)
+              Prelude.<$> rsaPublicKeyFingerprint,
             Prelude.Just ("StackId" Data..= stackId)
           ]
       )

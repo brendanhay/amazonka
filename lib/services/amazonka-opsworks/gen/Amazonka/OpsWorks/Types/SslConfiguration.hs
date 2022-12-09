@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSslConfiguration' smart constructor.
 data SslConfiguration = SslConfiguration'
-  { -- | Optional. Can be used to specify an intermediate certificate authority
+  { -- | The contents of the certificate\'s domain.crt file.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | Optional. Can be used to specify an intermediate certificate authority
     -- key or client authentication.
     chain :: Prelude.Maybe Prelude.Text,
     -- | The private key; the contents of the certificate\'s domain.kex file.
-    privateKey :: Prelude.Maybe Prelude.Text,
-    -- | The contents of the certificate\'s domain.crt file.
-    certificate :: Prelude.Maybe Prelude.Text
+    privateKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data SslConfiguration = SslConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificate', 'sslConfiguration_certificate' - The contents of the certificate\'s domain.crt file.
+--
 -- 'chain', 'sslConfiguration_chain' - Optional. Can be used to specify an intermediate certificate authority
 -- key or client authentication.
 --
 -- 'privateKey', 'sslConfiguration_privateKey' - The private key; the contents of the certificate\'s domain.kex file.
---
--- 'certificate', 'sslConfiguration_certificate' - The contents of the certificate\'s domain.crt file.
 newSslConfiguration ::
   SslConfiguration
 newSslConfiguration =
   SslConfiguration'
-    { chain = Prelude.Nothing,
-      privateKey = Prelude.Nothing,
-      certificate = Prelude.Nothing
+    { certificate = Prelude.Nothing,
+      chain = Prelude.Nothing,
+      privateKey = Prelude.Nothing
     }
+
+-- | The contents of the certificate\'s domain.crt file.
+sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
+sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
 
 -- | Optional. Can be used to specify an intermediate certificate authority
 -- key or client authentication.
@@ -70,39 +74,35 @@ sslConfiguration_chain = Lens.lens (\SslConfiguration' {chain} -> chain) (\s@Ssl
 sslConfiguration_privateKey :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
 sslConfiguration_privateKey = Lens.lens (\SslConfiguration' {privateKey} -> privateKey) (\s@SslConfiguration' {} a -> s {privateKey = a} :: SslConfiguration)
 
--- | The contents of the certificate\'s domain.crt file.
-sslConfiguration_certificate :: Lens.Lens' SslConfiguration (Prelude.Maybe Prelude.Text)
-sslConfiguration_certificate = Lens.lens (\SslConfiguration' {certificate} -> certificate) (\s@SslConfiguration' {} a -> s {certificate = a} :: SslConfiguration)
-
 instance Data.FromJSON SslConfiguration where
   parseJSON =
     Data.withObject
       "SslConfiguration"
       ( \x ->
           SslConfiguration'
-            Prelude.<$> (x Data..:? "Chain")
+            Prelude.<$> (x Data..:? "Certificate")
+            Prelude.<*> (x Data..:? "Chain")
             Prelude.<*> (x Data..:? "PrivateKey")
-            Prelude.<*> (x Data..:? "Certificate")
       )
 
 instance Prelude.Hashable SslConfiguration where
   hashWithSalt _salt SslConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` chain
+    _salt `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` chain
       `Prelude.hashWithSalt` privateKey
-      `Prelude.hashWithSalt` certificate
 
 instance Prelude.NFData SslConfiguration where
   rnf SslConfiguration' {..} =
-    Prelude.rnf chain
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf chain
       `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf certificate
 
 instance Data.ToJSON SslConfiguration where
   toJSON SslConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Chain" Data..=) Prelude.<$> chain,
-            ("PrivateKey" Data..=) Prelude.<$> privateKey,
-            ("Certificate" Data..=) Prelude.<$> certificate
+          [ ("Certificate" Data..=) Prelude.<$> certificate,
+            ("Chain" Data..=) Prelude.<$> chain,
+            ("PrivateKey" Data..=) Prelude.<$> privateKey
           ]
       )

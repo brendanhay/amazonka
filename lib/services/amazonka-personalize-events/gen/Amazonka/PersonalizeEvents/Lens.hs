@@ -31,13 +31,13 @@ module Amazonka.PersonalizeEvents.Lens
     -- * Types
 
     -- ** Event
+    event_eventId,
+    event_eventValue,
+    event_impression,
+    event_itemId,
+    event_metricAttribution,
     event_properties,
     event_recommendationId,
-    event_eventValue,
-    event_eventId,
-    event_impression,
-    event_metricAttribution,
-    event_itemId,
     event_eventType,
     event_sentAt,
 

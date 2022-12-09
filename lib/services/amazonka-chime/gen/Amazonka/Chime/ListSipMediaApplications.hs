@@ -27,16 +27,16 @@ module Amazonka.Chime.ListSipMediaApplications
     newListSipMediaApplications,
 
     -- * Request Lenses
-    listSipMediaApplications_nextToken,
     listSipMediaApplications_maxResults,
+    listSipMediaApplications_nextToken,
 
     -- * Destructuring the Response
     ListSipMediaApplicationsResponse (..),
     newListSipMediaApplicationsResponse,
 
     -- * Response Lenses
-    listSipMediaApplicationsResponse_sipMediaApplications,
     listSipMediaApplicationsResponse_nextToken,
+    listSipMediaApplicationsResponse_sipMediaApplications,
     listSipMediaApplicationsResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSipMediaApplications' smart constructor.
 data ListSipMediaApplications = ListSipMediaApplications'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Defaults to
+  { -- | The maximum number of results to return in a single call. Defaults to
     -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,27 +67,27 @@ data ListSipMediaApplications = ListSipMediaApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSipMediaApplications_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listSipMediaApplications_maxResults' - The maximum number of results to return in a single call. Defaults to
 -- 100.
+--
+-- 'nextToken', 'listSipMediaApplications_nextToken' - The token to use to retrieve the next page of results.
 newListSipMediaApplications ::
   ListSipMediaApplications
 newListSipMediaApplications =
   ListSipMediaApplications'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listSipMediaApplications_nextToken :: Lens.Lens' ListSipMediaApplications (Prelude.Maybe Prelude.Text)
-listSipMediaApplications_nextToken = Lens.lens (\ListSipMediaApplications' {nextToken} -> nextToken) (\s@ListSipMediaApplications' {} a -> s {nextToken = a} :: ListSipMediaApplications)
 
 -- | The maximum number of results to return in a single call. Defaults to
 -- 100.
 listSipMediaApplications_maxResults :: Lens.Lens' ListSipMediaApplications (Prelude.Maybe Prelude.Natural)
 listSipMediaApplications_maxResults = Lens.lens (\ListSipMediaApplications' {maxResults} -> maxResults) (\s@ListSipMediaApplications' {} a -> s {maxResults = a} :: ListSipMediaApplications)
+
+-- | The token to use to retrieve the next page of results.
+listSipMediaApplications_nextToken :: Lens.Lens' ListSipMediaApplications (Prelude.Maybe Prelude.Text)
+listSipMediaApplications_nextToken = Lens.lens (\ListSipMediaApplications' {nextToken} -> nextToken) (\s@ListSipMediaApplications' {} a -> s {nextToken = a} :: ListSipMediaApplications)
 
 instance Core.AWSRequest ListSipMediaApplications where
   type
@@ -99,22 +99,22 @@ instance Core.AWSRequest ListSipMediaApplications where
     Response.receiveJSON
       ( \s h x ->
           ListSipMediaApplicationsResponse'
-            Prelude.<$> ( x Data..?> "SipMediaApplications"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SipMediaApplications"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSipMediaApplications where
   hashWithSalt _salt ListSipMediaApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSipMediaApplications where
   rnf ListSipMediaApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSipMediaApplications where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,16 +125,16 @@ instance Data.ToPath ListSipMediaApplications where
 instance Data.ToQuery ListSipMediaApplications where
   toQuery ListSipMediaApplications' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSipMediaApplicationsResponse' smart constructor.
 data ListSipMediaApplicationsResponse = ListSipMediaApplicationsResponse'
-  { -- | List of SIP media applications and application details.
-    sipMediaApplications :: Prelude.Maybe [SipMediaApplication],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of SIP media applications and application details.
+    sipMediaApplications :: Prelude.Maybe [SipMediaApplication],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,9 +148,9 @@ data ListSipMediaApplicationsResponse = ListSipMediaApplicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplications', 'listSipMediaApplicationsResponse_sipMediaApplications' - List of SIP media applications and application details.
---
 -- 'nextToken', 'listSipMediaApplicationsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'sipMediaApplications', 'listSipMediaApplicationsResponse_sipMediaApplications' - List of SIP media applications and application details.
 --
 -- 'httpStatus', 'listSipMediaApplicationsResponse_httpStatus' - The response's http status code.
 newListSipMediaApplicationsResponse ::
@@ -159,19 +159,19 @@ newListSipMediaApplicationsResponse ::
   ListSipMediaApplicationsResponse
 newListSipMediaApplicationsResponse pHttpStatus_ =
   ListSipMediaApplicationsResponse'
-    { sipMediaApplications =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sipMediaApplications = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of SIP media applications and application details.
-listSipMediaApplicationsResponse_sipMediaApplications :: Lens.Lens' ListSipMediaApplicationsResponse (Prelude.Maybe [SipMediaApplication])
-listSipMediaApplicationsResponse_sipMediaApplications = Lens.lens (\ListSipMediaApplicationsResponse' {sipMediaApplications} -> sipMediaApplications) (\s@ListSipMediaApplicationsResponse' {} a -> s {sipMediaApplications = a} :: ListSipMediaApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listSipMediaApplicationsResponse_nextToken :: Lens.Lens' ListSipMediaApplicationsResponse (Prelude.Maybe Prelude.Text)
 listSipMediaApplicationsResponse_nextToken = Lens.lens (\ListSipMediaApplicationsResponse' {nextToken} -> nextToken) (\s@ListSipMediaApplicationsResponse' {} a -> s {nextToken = a} :: ListSipMediaApplicationsResponse)
+
+-- | List of SIP media applications and application details.
+listSipMediaApplicationsResponse_sipMediaApplications :: Lens.Lens' ListSipMediaApplicationsResponse (Prelude.Maybe [SipMediaApplication])
+listSipMediaApplicationsResponse_sipMediaApplications = Lens.lens (\ListSipMediaApplicationsResponse' {sipMediaApplications} -> sipMediaApplications) (\s@ListSipMediaApplicationsResponse' {} a -> s {sipMediaApplications = a} :: ListSipMediaApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSipMediaApplicationsResponse_httpStatus :: Lens.Lens' ListSipMediaApplicationsResponse Prelude.Int
@@ -182,6 +182,6 @@ instance
     ListSipMediaApplicationsResponse
   where
   rnf ListSipMediaApplicationsResponse' {..} =
-    Prelude.rnf sipMediaApplications
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sipMediaApplications
       `Prelude.seq` Prelude.rnf httpStatus

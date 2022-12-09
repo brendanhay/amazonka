@@ -28,8 +28,8 @@ module Amazonka.Chime.CreateUser
 
     -- * Request Lenses
     createUser_email,
-    createUser_username,
     createUser_userType,
+    createUser_username,
     createUser_accountId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 data CreateUser = CreateUser'
   { -- | The user\'s email address.
     email :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The user name.
-    username :: Prelude.Maybe Prelude.Text,
     -- | The user type.
     userType :: Prelude.Maybe UserType,
+    -- | The user name.
+    username :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data CreateUser = CreateUser'
 --
 -- 'email', 'createUser_email' - The user\'s email address.
 --
--- 'username', 'createUser_username' - The user name.
---
 -- 'userType', 'createUser_userType' - The user type.
+--
+-- 'username', 'createUser_username' - The user name.
 --
 -- 'accountId', 'createUser_accountId' - The Amazon Chime account ID.
 newCreateUser ::
@@ -85,8 +85,8 @@ newCreateUser ::
 newCreateUser pAccountId_ =
   CreateUser'
     { email = Prelude.Nothing,
-      username = Prelude.Nothing,
       userType = Prelude.Nothing,
+      username = Prelude.Nothing,
       accountId = pAccountId_
     }
 
@@ -94,13 +94,13 @@ newCreateUser pAccountId_ =
 createUser_email :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_email = Lens.lens (\CreateUser' {email} -> email) (\s@CreateUser' {} a -> s {email = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | The user name.
-createUser_username :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_username = Lens.lens (\CreateUser' {username} -> username) (\s@CreateUser' {} a -> s {username = a} :: CreateUser)
-
 -- | The user type.
 createUser_userType :: Lens.Lens' CreateUser (Prelude.Maybe UserType)
 createUser_userType = Lens.lens (\CreateUser' {userType} -> userType) (\s@CreateUser' {} a -> s {userType = a} :: CreateUser)
+
+-- | The user name.
+createUser_username :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_username = Lens.lens (\CreateUser' {username} -> username) (\s@CreateUser' {} a -> s {username = a} :: CreateUser)
 
 -- | The Amazon Chime account ID.
 createUser_accountId :: Lens.Lens' CreateUser Prelude.Text
@@ -121,15 +121,15 @@ instance Core.AWSRequest CreateUser where
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
     _salt `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userType
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
     Prelude.rnf email
-      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf userType
+      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf accountId
 
 instance Data.ToHeaders CreateUser where
@@ -140,8 +140,8 @@ instance Data.ToJSON CreateUser where
     Data.object
       ( Prelude.catMaybes
           [ ("Email" Data..=) Prelude.<$> email,
-            ("Username" Data..=) Prelude.<$> username,
-            ("UserType" Data..=) Prelude.<$> userType
+            ("UserType" Data..=) Prelude.<$> userType,
+            ("Username" Data..=) Prelude.<$> username
           ]
       )
 

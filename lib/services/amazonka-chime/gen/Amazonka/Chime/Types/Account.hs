@@ -33,21 +33,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccount' smart constructor.
 data Account = Account'
-  { -- | Supported licenses for the Amazon Chime account.
-    supportedLicenses :: Prelude.Maybe [License],
-    -- | The Amazon Chime account creation timestamp, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The sign-in delegate groups associated with the account.
-    signinDelegateGroups :: Prelude.Maybe [SigninDelegateGroup],
+  { -- | The status of the account.
+    accountStatus :: Prelude.Maybe AccountStatus,
     -- | The Amazon Chime account type. For more information about different
     -- account types, see
     -- <https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html Managing Your Amazon Chime Accounts>
     -- in the /Amazon Chime Administration Guide/.
     accountType :: Prelude.Maybe AccountType,
-    -- | The status of the account.
-    accountStatus :: Prelude.Maybe AccountStatus,
+    -- | The Amazon Chime account creation timestamp, in ISO 8601 format.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The default license for the Amazon Chime account.
     defaultLicense :: Prelude.Maybe License,
+    -- | The sign-in delegate groups associated with the account.
+    signinDelegateGroups :: Prelude.Maybe [SigninDelegateGroup],
+    -- | Supported licenses for the Amazon Chime account.
+    supportedLicenses :: Prelude.Maybe [License],
     -- | The AWS account ID.
     awsAccountId :: Prelude.Text,
     -- | The Amazon Chime account ID.
@@ -65,20 +65,20 @@ data Account = Account'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedLicenses', 'account_supportedLicenses' - Supported licenses for the Amazon Chime account.
---
--- 'createdTimestamp', 'account_createdTimestamp' - The Amazon Chime account creation timestamp, in ISO 8601 format.
---
--- 'signinDelegateGroups', 'account_signinDelegateGroups' - The sign-in delegate groups associated with the account.
+-- 'accountStatus', 'account_accountStatus' - The status of the account.
 --
 -- 'accountType', 'account_accountType' - The Amazon Chime account type. For more information about different
 -- account types, see
 -- <https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html Managing Your Amazon Chime Accounts>
 -- in the /Amazon Chime Administration Guide/.
 --
--- 'accountStatus', 'account_accountStatus' - The status of the account.
+-- 'createdTimestamp', 'account_createdTimestamp' - The Amazon Chime account creation timestamp, in ISO 8601 format.
 --
 -- 'defaultLicense', 'account_defaultLicense' - The default license for the Amazon Chime account.
+--
+-- 'signinDelegateGroups', 'account_signinDelegateGroups' - The sign-in delegate groups associated with the account.
+--
+-- 'supportedLicenses', 'account_supportedLicenses' - Supported licenses for the Amazon Chime account.
 --
 -- 'awsAccountId', 'account_awsAccountId' - The AWS account ID.
 --
@@ -95,28 +95,20 @@ newAccount ::
   Account
 newAccount pAwsAccountId_ pAccountId_ pName_ =
   Account'
-    { supportedLicenses = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      signinDelegateGroups = Prelude.Nothing,
+    { accountStatus = Prelude.Nothing,
       accountType = Prelude.Nothing,
-      accountStatus = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       defaultLicense = Prelude.Nothing,
+      signinDelegateGroups = Prelude.Nothing,
+      supportedLicenses = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       accountId = pAccountId_,
       name = pName_
     }
 
--- | Supported licenses for the Amazon Chime account.
-account_supportedLicenses :: Lens.Lens' Account (Prelude.Maybe [License])
-account_supportedLicenses = Lens.lens (\Account' {supportedLicenses} -> supportedLicenses) (\s@Account' {} a -> s {supportedLicenses = a} :: Account) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Chime account creation timestamp, in ISO 8601 format.
-account_createdTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
-account_createdTimestamp = Lens.lens (\Account' {createdTimestamp} -> createdTimestamp) (\s@Account' {} a -> s {createdTimestamp = a} :: Account) Prelude.. Lens.mapping Data._Time
-
--- | The sign-in delegate groups associated with the account.
-account_signinDelegateGroups :: Lens.Lens' Account (Prelude.Maybe [SigninDelegateGroup])
-account_signinDelegateGroups = Lens.lens (\Account' {signinDelegateGroups} -> signinDelegateGroups) (\s@Account' {} a -> s {signinDelegateGroups = a} :: Account) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the account.
+account_accountStatus :: Lens.Lens' Account (Prelude.Maybe AccountStatus)
+account_accountStatus = Lens.lens (\Account' {accountStatus} -> accountStatus) (\s@Account' {} a -> s {accountStatus = a} :: Account)
 
 -- | The Amazon Chime account type. For more information about different
 -- account types, see
@@ -125,13 +117,21 @@ account_signinDelegateGroups = Lens.lens (\Account' {signinDelegateGroups} -> si
 account_accountType :: Lens.Lens' Account (Prelude.Maybe AccountType)
 account_accountType = Lens.lens (\Account' {accountType} -> accountType) (\s@Account' {} a -> s {accountType = a} :: Account)
 
--- | The status of the account.
-account_accountStatus :: Lens.Lens' Account (Prelude.Maybe AccountStatus)
-account_accountStatus = Lens.lens (\Account' {accountStatus} -> accountStatus) (\s@Account' {} a -> s {accountStatus = a} :: Account)
+-- | The Amazon Chime account creation timestamp, in ISO 8601 format.
+account_createdTimestamp :: Lens.Lens' Account (Prelude.Maybe Prelude.UTCTime)
+account_createdTimestamp = Lens.lens (\Account' {createdTimestamp} -> createdTimestamp) (\s@Account' {} a -> s {createdTimestamp = a} :: Account) Prelude.. Lens.mapping Data._Time
 
 -- | The default license for the Amazon Chime account.
 account_defaultLicense :: Lens.Lens' Account (Prelude.Maybe License)
 account_defaultLicense = Lens.lens (\Account' {defaultLicense} -> defaultLicense) (\s@Account' {} a -> s {defaultLicense = a} :: Account)
+
+-- | The sign-in delegate groups associated with the account.
+account_signinDelegateGroups :: Lens.Lens' Account (Prelude.Maybe [SigninDelegateGroup])
+account_signinDelegateGroups = Lens.lens (\Account' {signinDelegateGroups} -> signinDelegateGroups) (\s@Account' {} a -> s {signinDelegateGroups = a} :: Account) Prelude.. Lens.mapping Lens.coerced
+
+-- | Supported licenses for the Amazon Chime account.
+account_supportedLicenses :: Lens.Lens' Account (Prelude.Maybe [License])
+account_supportedLicenses = Lens.lens (\Account' {supportedLicenses} -> supportedLicenses) (\s@Account' {} a -> s {supportedLicenses = a} :: Account) Prelude.. Lens.mapping Lens.coerced
 
 -- | The AWS account ID.
 account_awsAccountId :: Lens.Lens' Account Prelude.Text
@@ -151,16 +151,16 @@ instance Data.FromJSON Account where
       "Account"
       ( \x ->
           Account'
-            Prelude.<$> ( x Data..:? "SupportedLicenses"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "AccountStatus")
+            Prelude.<*> (x Data..:? "AccountType")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "DefaultLicense")
             Prelude.<*> ( x Data..:? "SigninDelegateGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "AccountType")
-            Prelude.<*> (x Data..:? "AccountStatus")
-            Prelude.<*> (x Data..:? "DefaultLicense")
+            Prelude.<*> ( x Data..:? "SupportedLicenses"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..: "AwsAccountId")
             Prelude.<*> (x Data..: "AccountId")
             Prelude.<*> (x Data..: "Name")
@@ -168,24 +168,24 @@ instance Data.FromJSON Account where
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` supportedLicenses
-      `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` signinDelegateGroups
+    _salt `Prelude.hashWithSalt` accountStatus
       `Prelude.hashWithSalt` accountType
-      `Prelude.hashWithSalt` accountStatus
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` defaultLicense
+      `Prelude.hashWithSalt` signinDelegateGroups
+      `Prelude.hashWithSalt` supportedLicenses
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Account where
   rnf Account' {..} =
-    Prelude.rnf supportedLicenses
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf signinDelegateGroups
+    Prelude.rnf accountStatus
       `Prelude.seq` Prelude.rnf accountType
-      `Prelude.seq` Prelude.rnf accountStatus
+      `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf defaultLicense
+      `Prelude.seq` Prelude.rnf signinDelegateGroups
+      `Prelude.seq` Prelude.rnf supportedLicenses
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf name

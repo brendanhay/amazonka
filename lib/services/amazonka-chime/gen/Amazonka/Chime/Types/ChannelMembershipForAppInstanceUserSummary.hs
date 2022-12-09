@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMembershipForAppInstanceUserSummary' smart constructor.
 data ChannelMembershipForAppInstanceUserSummary = ChannelMembershipForAppInstanceUserSummary'
-  { channelSummary :: Prelude.Maybe ChannelSummary,
-    appInstanceUserMembershipSummary :: Prelude.Maybe AppInstanceUserMembershipSummary
+  { appInstanceUserMembershipSummary :: Prelude.Maybe AppInstanceUserMembershipSummary,
+    channelSummary :: Prelude.Maybe ChannelSummary
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data ChannelMembershipForAppInstanceUserSummary = ChannelMembershipForAppInstanc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelSummary', 'channelMembershipForAppInstanceUserSummary_channelSummary' - Undocumented member.
---
 -- 'appInstanceUserMembershipSummary', 'channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary' - Undocumented member.
+--
+-- 'channelSummary', 'channelMembershipForAppInstanceUserSummary_channelSummary' - Undocumented member.
 newChannelMembershipForAppInstanceUserSummary ::
   ChannelMembershipForAppInstanceUserSummary
 newChannelMembershipForAppInstanceUserSummary =
   ChannelMembershipForAppInstanceUserSummary'
-    { channelSummary =
+    { appInstanceUserMembershipSummary =
         Prelude.Nothing,
-      appInstanceUserMembershipSummary =
+      channelSummary =
         Prelude.Nothing
     }
 
 -- | Undocumented member.
-channelMembershipForAppInstanceUserSummary_channelSummary :: Lens.Lens' ChannelMembershipForAppInstanceUserSummary (Prelude.Maybe ChannelSummary)
-channelMembershipForAppInstanceUserSummary_channelSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {channelSummary} -> channelSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {channelSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
-
--- | Undocumented member.
 channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary :: Lens.Lens' ChannelMembershipForAppInstanceUserSummary (Prelude.Maybe AppInstanceUserMembershipSummary)
 channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {appInstanceUserMembershipSummary} -> appInstanceUserMembershipSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {appInstanceUserMembershipSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
+
+-- | Undocumented member.
+channelMembershipForAppInstanceUserSummary_channelSummary :: Lens.Lens' ChannelMembershipForAppInstanceUserSummary (Prelude.Maybe ChannelSummary)
+channelMembershipForAppInstanceUserSummary_channelSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {channelSummary} -> channelSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {channelSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "ChannelMembershipForAppInstanceUserSummary"
       ( \x ->
           ChannelMembershipForAppInstanceUserSummary'
-            Prelude.<$> (x Data..:? "ChannelSummary")
-              Prelude.<*> (x Data..:? "AppInstanceUserMembershipSummary")
+            Prelude.<$> (x Data..:? "AppInstanceUserMembershipSummary")
+              Prelude.<*> (x Data..:? "ChannelSummary")
       )
 
 instance
@@ -84,13 +84,14 @@ instance
   hashWithSalt
     _salt
     ChannelMembershipForAppInstanceUserSummary' {..} =
-      _salt `Prelude.hashWithSalt` channelSummary
+      _salt
         `Prelude.hashWithSalt` appInstanceUserMembershipSummary
+        `Prelude.hashWithSalt` channelSummary
 
 instance
   Prelude.NFData
     ChannelMembershipForAppInstanceUserSummary
   where
   rnf ChannelMembershipForAppInstanceUserSummary' {..} =
-    Prelude.rnf channelSummary
-      `Prelude.seq` Prelude.rnf appInstanceUserMembershipSummary
+    Prelude.rnf appInstanceUserMembershipSummary
+      `Prelude.seq` Prelude.rnf channelSummary

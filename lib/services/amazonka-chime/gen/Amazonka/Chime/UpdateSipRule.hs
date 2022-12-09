@@ -27,8 +27,8 @@ module Amazonka.Chime.UpdateSipRule
     newUpdateSipRule,
 
     -- * Request Lenses
-    updateSipRule_targetApplications,
     updateSipRule_disabled,
+    updateSipRule_targetApplications,
     updateSipRule_sipRuleId,
     updateSipRule_name,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSipRule' smart constructor.
 data UpdateSipRule = UpdateSipRule'
-  { -- | The new value of the list of target applications.
-    targetApplications :: Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication),
-    -- | The new value specified to indicate whether the rule is disabled.
+  { -- | The new value specified to indicate whether the rule is disabled.
     disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The new value of the list of target applications.
+    targetApplications :: Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication),
     -- | The SIP rule ID.
     sipRuleId :: Prelude.Text,
     -- | The new name for the specified SIP rule.
@@ -71,9 +71,9 @@ data UpdateSipRule = UpdateSipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetApplications', 'updateSipRule_targetApplications' - The new value of the list of target applications.
---
 -- 'disabled', 'updateSipRule_disabled' - The new value specified to indicate whether the rule is disabled.
+--
+-- 'targetApplications', 'updateSipRule_targetApplications' - The new value of the list of target applications.
 --
 -- 'sipRuleId', 'updateSipRule_sipRuleId' - The SIP rule ID.
 --
@@ -86,20 +86,19 @@ newUpdateSipRule ::
   UpdateSipRule
 newUpdateSipRule pSipRuleId_ pName_ =
   UpdateSipRule'
-    { targetApplications =
-        Prelude.Nothing,
-      disabled = Prelude.Nothing,
+    { disabled = Prelude.Nothing,
+      targetApplications = Prelude.Nothing,
       sipRuleId = pSipRuleId_,
       name = pName_
     }
 
--- | The new value of the list of target applications.
-updateSipRule_targetApplications :: Lens.Lens' UpdateSipRule (Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication))
-updateSipRule_targetApplications = Lens.lens (\UpdateSipRule' {targetApplications} -> targetApplications) (\s@UpdateSipRule' {} a -> s {targetApplications = a} :: UpdateSipRule) Prelude.. Lens.mapping Lens.coerced
-
 -- | The new value specified to indicate whether the rule is disabled.
 updateSipRule_disabled :: Lens.Lens' UpdateSipRule (Prelude.Maybe Prelude.Bool)
 updateSipRule_disabled = Lens.lens (\UpdateSipRule' {disabled} -> disabled) (\s@UpdateSipRule' {} a -> s {disabled = a} :: UpdateSipRule)
+
+-- | The new value of the list of target applications.
+updateSipRule_targetApplications :: Lens.Lens' UpdateSipRule (Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication))
+updateSipRule_targetApplications = Lens.lens (\UpdateSipRule' {targetApplications} -> targetApplications) (\s@UpdateSipRule' {} a -> s {targetApplications = a} :: UpdateSipRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The SIP rule ID.
 updateSipRule_sipRuleId :: Lens.Lens' UpdateSipRule Prelude.Text
@@ -125,15 +124,15 @@ instance Core.AWSRequest UpdateSipRule where
 
 instance Prelude.Hashable UpdateSipRule where
   hashWithSalt _salt UpdateSipRule' {..} =
-    _salt `Prelude.hashWithSalt` targetApplications
-      `Prelude.hashWithSalt` disabled
+    _salt `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` targetApplications
       `Prelude.hashWithSalt` sipRuleId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateSipRule where
   rnf UpdateSipRule' {..} =
-    Prelude.rnf targetApplications
-      `Prelude.seq` Prelude.rnf disabled
+    Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf targetApplications
       `Prelude.seq` Prelude.rnf sipRuleId
       `Prelude.seq` Prelude.rnf name
 
@@ -144,9 +143,9 @@ instance Data.ToJSON UpdateSipRule where
   toJSON UpdateSipRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetApplications" Data..=)
+          [ ("Disabled" Data..=) Prelude.<$> disabled,
+            ("TargetApplications" Data..=)
               Prelude.<$> targetApplications,
-            ("Disabled" Data..=) Prelude.<$> disabled,
             Prelude.Just ("Name" Data..= name)
           ]
       )

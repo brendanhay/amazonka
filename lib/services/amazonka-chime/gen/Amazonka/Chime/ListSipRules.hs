@@ -27,8 +27,8 @@ module Amazonka.Chime.ListSipRules
     newListSipRules,
 
     -- * Request Lenses
-    listSipRules_nextToken,
     listSipRules_maxResults,
+    listSipRules_nextToken,
     listSipRules_sipMediaApplicationId,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSipRules' smart constructor.
 data ListSipRules = ListSipRules'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Defaults to
+  { -- | The maximum number of results to return in a single call. Defaults to
     -- 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Maybe Prelude.Text
   }
@@ -70,29 +70,29 @@ data ListSipRules = ListSipRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSipRules_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listSipRules_maxResults' - The maximum number of results to return in a single call. Defaults to
 -- 100.
+--
+-- 'nextToken', 'listSipRules_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'sipMediaApplicationId', 'listSipRules_sipMediaApplicationId' - The SIP media application ID.
 newListSipRules ::
   ListSipRules
 newListSipRules =
   ListSipRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sipMediaApplicationId = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listSipRules_nextToken :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Text)
-listSipRules_nextToken = Lens.lens (\ListSipRules' {nextToken} -> nextToken) (\s@ListSipRules' {} a -> s {nextToken = a} :: ListSipRules)
 
 -- | The maximum number of results to return in a single call. Defaults to
 -- 100.
 listSipRules_maxResults :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Natural)
 listSipRules_maxResults = Lens.lens (\ListSipRules' {maxResults} -> maxResults) (\s@ListSipRules' {} a -> s {maxResults = a} :: ListSipRules)
+
+-- | The token to use to retrieve the next page of results.
+listSipRules_nextToken :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Text)
+listSipRules_nextToken = Lens.lens (\ListSipRules' {nextToken} -> nextToken) (\s@ListSipRules' {} a -> s {nextToken = a} :: ListSipRules)
 
 -- | The SIP media application ID.
 listSipRules_sipMediaApplicationId :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Text)
@@ -113,14 +113,14 @@ instance Core.AWSRequest ListSipRules where
 
 instance Prelude.Hashable ListSipRules where
   hashWithSalt _salt ListSipRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sipMediaApplicationId
 
 instance Prelude.NFData ListSipRules where
   rnf ListSipRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
 
 instance Data.ToHeaders ListSipRules where
@@ -132,8 +132,8 @@ instance Data.ToPath ListSipRules where
 instance Data.ToQuery ListSipRules where
   toQuery ListSipRules' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults,
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "sip-media-application"
           Data.=: sipMediaApplicationId
       ]

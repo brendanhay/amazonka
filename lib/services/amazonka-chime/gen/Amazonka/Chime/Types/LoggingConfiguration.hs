@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { -- | When true, enables SIP message logs for sending to Amazon CloudWatch
-    -- Logs.
-    enableSIPLogs :: Prelude.Maybe Prelude.Bool,
-    -- | Boolean that enables the logging of Voice Connector metrics to
+  { -- | Boolean that enables the logging of Voice Connector metrics to
     -- Cloudwatch.
-    enableMediaMetricLogs :: Prelude.Maybe Prelude.Bool
+    enableMediaMetricLogs :: Prelude.Maybe Prelude.Bool,
+    -- | When true, enables SIP message logs for sending to Amazon CloudWatch
+    -- Logs.
+    enableSIPLogs :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data LoggingConfiguration = LoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableSIPLogs', 'loggingConfiguration_enableSIPLogs' - When true, enables SIP message logs for sending to Amazon CloudWatch
--- Logs.
---
 -- 'enableMediaMetricLogs', 'loggingConfiguration_enableMediaMetricLogs' - Boolean that enables the logging of Voice Connector metrics to
 -- Cloudwatch.
+--
+-- 'enableSIPLogs', 'loggingConfiguration_enableSIPLogs' - When true, enables SIP message logs for sending to Amazon CloudWatch
+-- Logs.
 newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
-    { enableSIPLogs =
+    { enableMediaMetricLogs =
         Prelude.Nothing,
-      enableMediaMetricLogs = Prelude.Nothing
+      enableSIPLogs = Prelude.Nothing
     }
-
--- | When true, enables SIP message logs for sending to Amazon CloudWatch
--- Logs.
-loggingConfiguration_enableSIPLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
-loggingConfiguration_enableSIPLogs = Lens.lens (\LoggingConfiguration' {enableSIPLogs} -> enableSIPLogs) (\s@LoggingConfiguration' {} a -> s {enableSIPLogs = a} :: LoggingConfiguration)
 
 -- | Boolean that enables the logging of Voice Connector metrics to
 -- Cloudwatch.
 loggingConfiguration_enableMediaMetricLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_enableMediaMetricLogs = Lens.lens (\LoggingConfiguration' {enableMediaMetricLogs} -> enableMediaMetricLogs) (\s@LoggingConfiguration' {} a -> s {enableMediaMetricLogs = a} :: LoggingConfiguration)
+
+-- | When true, enables SIP message logs for sending to Amazon CloudWatch
+-- Logs.
+loggingConfiguration_enableSIPLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
+loggingConfiguration_enableSIPLogs = Lens.lens (\LoggingConfiguration' {enableSIPLogs} -> enableSIPLogs) (\s@LoggingConfiguration' {} a -> s {enableSIPLogs = a} :: LoggingConfiguration)
 
 instance Data.FromJSON LoggingConfiguration where
   parseJSON =
@@ -77,26 +77,26 @@ instance Data.FromJSON LoggingConfiguration where
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Data..:? "EnableSIPLogs")
-            Prelude.<*> (x Data..:? "EnableMediaMetricLogs")
+            Prelude.<$> (x Data..:? "EnableMediaMetricLogs")
+            Prelude.<*> (x Data..:? "EnableSIPLogs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enableSIPLogs
-      `Prelude.hashWithSalt` enableMediaMetricLogs
+    _salt `Prelude.hashWithSalt` enableMediaMetricLogs
+      `Prelude.hashWithSalt` enableSIPLogs
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf enableSIPLogs
-      `Prelude.seq` Prelude.rnf enableMediaMetricLogs
+    Prelude.rnf enableMediaMetricLogs
+      `Prelude.seq` Prelude.rnf enableSIPLogs
 
 instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EnableSIPLogs" Data..=) Prelude.<$> enableSIPLogs,
-            ("EnableMediaMetricLogs" Data..=)
-              Prelude.<$> enableMediaMetricLogs
+          [ ("EnableMediaMetricLogs" Data..=)
+              Prelude.<$> enableMediaMetricLogs,
+            ("EnableSIPLogs" Data..=) Prelude.<$> enableSIPLogs
           ]
       )

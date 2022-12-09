@@ -28,8 +28,8 @@ module Amazonka.Chime.ListPhoneNumberOrders
     newListPhoneNumberOrders,
 
     -- * Request Lenses
-    listPhoneNumberOrders_nextToken,
     listPhoneNumberOrders_maxResults,
+    listPhoneNumberOrders_nextToken,
 
     -- * Destructuring the Response
     ListPhoneNumberOrdersResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPhoneNumberOrders' smart constructor.
 data ListPhoneNumberOrders = ListPhoneNumberOrders'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,25 @@ data ListPhoneNumberOrders = ListPhoneNumberOrders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPhoneNumberOrders_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listPhoneNumberOrders_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listPhoneNumberOrders_nextToken' - The token to use to retrieve the next page of results.
 newListPhoneNumberOrders ::
   ListPhoneNumberOrders
 newListPhoneNumberOrders =
   ListPhoneNumberOrders'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listPhoneNumberOrders_nextToken :: Lens.Lens' ListPhoneNumberOrders (Prelude.Maybe Prelude.Text)
-listPhoneNumberOrders_nextToken = Lens.lens (\ListPhoneNumberOrders' {nextToken} -> nextToken) (\s@ListPhoneNumberOrders' {} a -> s {nextToken = a} :: ListPhoneNumberOrders)
 
 -- | The maximum number of results to return in a single call.
 listPhoneNumberOrders_maxResults :: Lens.Lens' ListPhoneNumberOrders (Prelude.Maybe Prelude.Natural)
 listPhoneNumberOrders_maxResults = Lens.lens (\ListPhoneNumberOrders' {maxResults} -> maxResults) (\s@ListPhoneNumberOrders' {} a -> s {maxResults = a} :: ListPhoneNumberOrders)
+
+-- | The token to use to retrieve the next page of results.
+listPhoneNumberOrders_nextToken :: Lens.Lens' ListPhoneNumberOrders (Prelude.Maybe Prelude.Text)
+listPhoneNumberOrders_nextToken = Lens.lens (\ListPhoneNumberOrders' {nextToken} -> nextToken) (\s@ListPhoneNumberOrders' {} a -> s {nextToken = a} :: ListPhoneNumberOrders)
 
 instance Core.AWSRequest ListPhoneNumberOrders where
   type
@@ -105,13 +106,13 @@ instance Core.AWSRequest ListPhoneNumberOrders where
 
 instance Prelude.Hashable ListPhoneNumberOrders where
   hashWithSalt _salt ListPhoneNumberOrders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPhoneNumberOrders where
   rnf ListPhoneNumberOrders' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPhoneNumberOrders where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,8 +123,8 @@ instance Data.ToPath ListPhoneNumberOrders where
 instance Data.ToQuery ListPhoneNumberOrders where
   toQuery ListPhoneNumberOrders' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPhoneNumberOrdersResponse' smart constructor.

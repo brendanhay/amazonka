@@ -27,8 +27,8 @@ module Amazonka.Chime.CreateMediaCapturePipeline
     newCreateMediaCapturePipeline,
 
     -- * Request Lenses
-    createMediaCapturePipeline_clientRequestToken,
     createMediaCapturePipeline_chimeSdkMeetingConfiguration,
+    createMediaCapturePipeline_clientRequestToken,
     createMediaCapturePipeline_sourceType,
     createMediaCapturePipeline_sourceArn,
     createMediaCapturePipeline_sinkType,
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMediaCapturePipeline' smart constructor.
 data CreateMediaCapturePipeline = CreateMediaCapturePipeline'
-  { -- | The token assigned to the client making the pipeline request.
-    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The configuration for a specified media capture pipeline. @SourceType@
+  { -- | The configuration for a specified media capture pipeline. @SourceType@
     -- must be @ChimeSdkMeeting@.
     chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
+    -- | The token assigned to the client making the pipeline request.
+    clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Source type from which the media artifacts will be captured. A Chime SDK
     -- Meeting is the only supported source.
     sourceType :: MediaPipelineSourceType,
@@ -80,10 +80,10 @@ data CreateMediaCapturePipeline = CreateMediaCapturePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientRequestToken', 'createMediaCapturePipeline_clientRequestToken' - The token assigned to the client making the pipeline request.
---
 -- 'chimeSdkMeetingConfiguration', 'createMediaCapturePipeline_chimeSdkMeetingConfiguration' - The configuration for a specified media capture pipeline. @SourceType@
 -- must be @ChimeSdkMeeting@.
+--
+-- 'clientRequestToken', 'createMediaCapturePipeline_clientRequestToken' - The token assigned to the client making the pipeline request.
 --
 -- 'sourceType', 'createMediaCapturePipeline_sourceType' - Source type from which the media artifacts will be captured. A Chime SDK
 -- Meeting is the only supported source.
@@ -110,23 +110,23 @@ newCreateMediaCapturePipeline
   pSinkType_
   pSinkArn_ =
     CreateMediaCapturePipeline'
-      { clientRequestToken =
+      { chimeSdkMeetingConfiguration =
           Prelude.Nothing,
-        chimeSdkMeetingConfiguration = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         sourceType = pSourceType_,
         sourceArn = Data._Sensitive Lens.# pSourceArn_,
         sinkType = pSinkType_,
         sinkArn = Data._Sensitive Lens.# pSinkArn_
       }
 
--- | The token assigned to the client making the pipeline request.
-createMediaCapturePipeline_clientRequestToken :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe Prelude.Text)
-createMediaCapturePipeline_clientRequestToken = Lens.lens (\CreateMediaCapturePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaCapturePipeline' {} a -> s {clientRequestToken = a} :: CreateMediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The configuration for a specified media capture pipeline. @SourceType@
 -- must be @ChimeSdkMeeting@.
 createMediaCapturePipeline_chimeSdkMeetingConfiguration :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe ChimeSdkMeetingConfiguration)
 createMediaCapturePipeline_chimeSdkMeetingConfiguration = Lens.lens (\CreateMediaCapturePipeline' {chimeSdkMeetingConfiguration} -> chimeSdkMeetingConfiguration) (\s@CreateMediaCapturePipeline' {} a -> s {chimeSdkMeetingConfiguration = a} :: CreateMediaCapturePipeline)
+
+-- | The token assigned to the client making the pipeline request.
+createMediaCapturePipeline_clientRequestToken :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe Prelude.Text)
+createMediaCapturePipeline_clientRequestToken = Lens.lens (\CreateMediaCapturePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaCapturePipeline' {} a -> s {clientRequestToken = a} :: CreateMediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Source type from which the media artifacts will be captured. A Chime SDK
 -- Meeting is the only supported source.
@@ -162,8 +162,9 @@ instance Core.AWSRequest CreateMediaCapturePipeline where
 
 instance Prelude.Hashable CreateMediaCapturePipeline where
   hashWithSalt _salt CreateMediaCapturePipeline' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
       `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` sinkType
@@ -171,8 +172,8 @@ instance Prelude.Hashable CreateMediaCapturePipeline where
 
 instance Prelude.NFData CreateMediaCapturePipeline where
   rnf CreateMediaCapturePipeline' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf chimeSdkMeetingConfiguration
+    Prelude.rnf chimeSdkMeetingConfiguration
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf sinkType
@@ -185,10 +186,10 @@ instance Data.ToJSON CreateMediaCapturePipeline where
   toJSON CreateMediaCapturePipeline' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Data..=)
-              Prelude.<$> clientRequestToken,
-            ("ChimeSdkMeetingConfiguration" Data..=)
+          [ ("ChimeSdkMeetingConfiguration" Data..=)
               Prelude.<$> chimeSdkMeetingConfiguration,
+            ("ClientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just ("SourceType" Data..= sourceType),
             Prelude.Just ("SourceArn" Data..= sourceArn),
             Prelude.Just ("SinkType" Data..= sinkType),

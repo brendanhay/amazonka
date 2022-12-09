@@ -30,16 +30,16 @@ module Amazonka.Chime.ListMeetings
     newListMeetings,
 
     -- * Request Lenses
-    listMeetings_nextToken,
     listMeetings_maxResults,
+    listMeetings_nextToken,
 
     -- * Destructuring the Response
     ListMeetingsResponse (..),
     newListMeetingsResponse,
 
     -- * Response Lenses
-    listMeetingsResponse_nextToken,
     listMeetingsResponse_meetings,
+    listMeetingsResponse_nextToken,
     listMeetingsResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMeetings' smart constructor.
 data ListMeetings = ListMeetings'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,24 +69,24 @@ data ListMeetings = ListMeetings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMeetings_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listMeetings_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listMeetings_nextToken' - The token to use to retrieve the next page of results.
 newListMeetings ::
   ListMeetings
 newListMeetings =
   ListMeetings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listMeetings_nextToken :: Lens.Lens' ListMeetings (Prelude.Maybe Prelude.Text)
-listMeetings_nextToken = Lens.lens (\ListMeetings' {nextToken} -> nextToken) (\s@ListMeetings' {} a -> s {nextToken = a} :: ListMeetings)
 
 -- | The maximum number of results to return in a single call.
 listMeetings_maxResults :: Lens.Lens' ListMeetings (Prelude.Maybe Prelude.Natural)
 listMeetings_maxResults = Lens.lens (\ListMeetings' {maxResults} -> maxResults) (\s@ListMeetings' {} a -> s {maxResults = a} :: ListMeetings)
+
+-- | The token to use to retrieve the next page of results.
+listMeetings_nextToken :: Lens.Lens' ListMeetings (Prelude.Maybe Prelude.Text)
+listMeetings_nextToken = Lens.lens (\ListMeetings' {nextToken} -> nextToken) (\s@ListMeetings' {} a -> s {nextToken = a} :: ListMeetings)
 
 instance Core.AWSRequest ListMeetings where
   type AWSResponse ListMeetings = ListMeetingsResponse
@@ -96,20 +96,20 @@ instance Core.AWSRequest ListMeetings where
     Response.receiveJSON
       ( \s h x ->
           ListMeetingsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Meetings" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Meetings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMeetings where
   hashWithSalt _salt ListMeetings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMeetings where
   rnf ListMeetings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMeetings where
   toHeaders = Prelude.const Prelude.mempty
@@ -120,16 +120,16 @@ instance Data.ToPath ListMeetings where
 instance Data.ToQuery ListMeetings where
   toQuery ListMeetings' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListMeetingsResponse' smart constructor.
 data ListMeetingsResponse = ListMeetingsResponse'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Chime SDK meeting information.
+  { -- | The Amazon Chime SDK meeting information.
     meetings :: Prelude.Maybe [Meeting],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data ListMeetingsResponse = ListMeetingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMeetingsResponse_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'meetings', 'listMeetingsResponse_meetings' - The Amazon Chime SDK meeting information.
+--
+-- 'nextToken', 'listMeetingsResponse_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'httpStatus', 'listMeetingsResponse_httpStatus' - The response's http status code.
 newListMeetingsResponse ::
@@ -154,18 +154,18 @@ newListMeetingsResponse ::
   ListMeetingsResponse
 newListMeetingsResponse pHttpStatus_ =
   ListMeetingsResponse'
-    { nextToken = Prelude.Nothing,
-      meetings = Prelude.Nothing,
+    { meetings = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results.
-listMeetingsResponse_nextToken :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe Prelude.Text)
-listMeetingsResponse_nextToken = Lens.lens (\ListMeetingsResponse' {nextToken} -> nextToken) (\s@ListMeetingsResponse' {} a -> s {nextToken = a} :: ListMeetingsResponse)
 
 -- | The Amazon Chime SDK meeting information.
 listMeetingsResponse_meetings :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe [Meeting])
 listMeetingsResponse_meetings = Lens.lens (\ListMeetingsResponse' {meetings} -> meetings) (\s@ListMeetingsResponse' {} a -> s {meetings = a} :: ListMeetingsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results.
+listMeetingsResponse_nextToken :: Lens.Lens' ListMeetingsResponse (Prelude.Maybe Prelude.Text)
+listMeetingsResponse_nextToken = Lens.lens (\ListMeetingsResponse' {nextToken} -> nextToken) (\s@ListMeetingsResponse' {} a -> s {nextToken = a} :: ListMeetingsResponse)
 
 -- | The response's http status code.
 listMeetingsResponse_httpStatus :: Lens.Lens' ListMeetingsResponse Prelude.Int
@@ -173,6 +173,6 @@ listMeetingsResponse_httpStatus = Lens.lens (\ListMeetingsResponse' {httpStatus}
 
 instance Prelude.NFData ListMeetingsResponse where
   rnf ListMeetingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf meetings
+    Prelude.rnf meetings
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

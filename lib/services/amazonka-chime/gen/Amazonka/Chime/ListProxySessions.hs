@@ -27,9 +27,9 @@ module Amazonka.Chime.ListProxySessions
     newListProxySessions,
 
     -- * Request Lenses
+    listProxySessions_maxResults,
     listProxySessions_nextToken,
     listProxySessions_status,
-    listProxySessions_maxResults,
     listProxySessions_voiceConnectorId,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProxySessions' smart constructor.
 data ListProxySessions = ListProxySessions'
-  { -- | The token to use to retrieve the next page of results.
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The proxy session status.
     status :: Prelude.Maybe ProxySessionStatus,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Chime voice connector ID.
     voiceConnectorId :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data ListProxySessions = ListProxySessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProxySessions_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listProxySessions_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'status', 'listProxySessions_status' - The proxy session status.
---
--- 'maxResults', 'listProxySessions_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'voiceConnectorId', 'listProxySessions_voiceConnectorId' - The Amazon Chime voice connector ID.
 newListProxySessions ::
@@ -85,11 +85,15 @@ newListProxySessions ::
   ListProxySessions
 newListProxySessions pVoiceConnectorId_ =
   ListProxySessions'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       voiceConnectorId = pVoiceConnectorId_
     }
+
+-- | The maximum number of results to return in a single call.
+listProxySessions_maxResults :: Lens.Lens' ListProxySessions (Prelude.Maybe Prelude.Natural)
+listProxySessions_maxResults = Lens.lens (\ListProxySessions' {maxResults} -> maxResults) (\s@ListProxySessions' {} a -> s {maxResults = a} :: ListProxySessions)
 
 -- | The token to use to retrieve the next page of results.
 listProxySessions_nextToken :: Lens.Lens' ListProxySessions (Prelude.Maybe Prelude.Text)
@@ -98,10 +102,6 @@ listProxySessions_nextToken = Lens.lens (\ListProxySessions' {nextToken} -> next
 -- | The proxy session status.
 listProxySessions_status :: Lens.Lens' ListProxySessions (Prelude.Maybe ProxySessionStatus)
 listProxySessions_status = Lens.lens (\ListProxySessions' {status} -> status) (\s@ListProxySessions' {} a -> s {status = a} :: ListProxySessions)
-
--- | The maximum number of results to return in a single call.
-listProxySessions_maxResults :: Lens.Lens' ListProxySessions (Prelude.Maybe Prelude.Natural)
-listProxySessions_maxResults = Lens.lens (\ListProxySessions' {maxResults} -> maxResults) (\s@ListProxySessions' {} a -> s {maxResults = a} :: ListProxySessions)
 
 -- | The Amazon Chime voice connector ID.
 listProxySessions_voiceConnectorId :: Lens.Lens' ListProxySessions Prelude.Text
@@ -124,16 +124,16 @@ instance Core.AWSRequest ListProxySessions where
 
 instance Prelude.Hashable ListProxySessions where
   hashWithSalt _salt ListProxySessions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` voiceConnectorId
 
 instance Prelude.NFData ListProxySessions where
   rnf ListProxySessions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf voiceConnectorId
 
 instance Data.ToHeaders ListProxySessions where
@@ -150,9 +150,9 @@ instance Data.ToPath ListProxySessions where
 instance Data.ToQuery ListProxySessions where
   toQuery ListProxySessions' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "status" Data.=: status,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListProxySessionsResponse' smart constructor.

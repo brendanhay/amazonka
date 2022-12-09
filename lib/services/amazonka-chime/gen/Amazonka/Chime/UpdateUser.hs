@@ -28,8 +28,8 @@ module Amazonka.Chime.UpdateUser
     newUpdateUser,
 
     -- * Request Lenses
-    updateUser_licenseType,
     updateUser_alexaForBusinessMetadata,
+    updateUser_licenseType,
     updateUser_userType,
     updateUser_accountId,
     updateUser_userId,
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | The user license type to update. This must be a supported license type
+  { -- | The Alexa for Business metadata.
+    alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
+    -- | The user license type to update. This must be a supported license type
     -- for the Amazon Chime account that the user belongs to.
     licenseType :: Prelude.Maybe License,
-    -- | The Alexa for Business metadata.
-    alexaForBusinessMetadata :: Prelude.Maybe AlexaForBusinessMetadata,
     -- | The user type.
     userType :: Prelude.Maybe UserType,
     -- | The Amazon Chime account ID.
@@ -76,10 +76,10 @@ data UpdateUser = UpdateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alexaForBusinessMetadata', 'updateUser_alexaForBusinessMetadata' - The Alexa for Business metadata.
+--
 -- 'licenseType', 'updateUser_licenseType' - The user license type to update. This must be a supported license type
 -- for the Amazon Chime account that the user belongs to.
---
--- 'alexaForBusinessMetadata', 'updateUser_alexaForBusinessMetadata' - The Alexa for Business metadata.
 --
 -- 'userType', 'updateUser_userType' - The user type.
 --
@@ -94,21 +94,22 @@ newUpdateUser ::
   UpdateUser
 newUpdateUser pAccountId_ pUserId_ =
   UpdateUser'
-    { licenseType = Prelude.Nothing,
-      alexaForBusinessMetadata = Prelude.Nothing,
+    { alexaForBusinessMetadata =
+        Prelude.Nothing,
+      licenseType = Prelude.Nothing,
       userType = Prelude.Nothing,
       accountId = pAccountId_,
       userId = pUserId_
     }
 
+-- | The Alexa for Business metadata.
+updateUser_alexaForBusinessMetadata :: Lens.Lens' UpdateUser (Prelude.Maybe AlexaForBusinessMetadata)
+updateUser_alexaForBusinessMetadata = Lens.lens (\UpdateUser' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@UpdateUser' {} a -> s {alexaForBusinessMetadata = a} :: UpdateUser)
+
 -- | The user license type to update. This must be a supported license type
 -- for the Amazon Chime account that the user belongs to.
 updateUser_licenseType :: Lens.Lens' UpdateUser (Prelude.Maybe License)
 updateUser_licenseType = Lens.lens (\UpdateUser' {licenseType} -> licenseType) (\s@UpdateUser' {} a -> s {licenseType = a} :: UpdateUser)
-
--- | The Alexa for Business metadata.
-updateUser_alexaForBusinessMetadata :: Lens.Lens' UpdateUser (Prelude.Maybe AlexaForBusinessMetadata)
-updateUser_alexaForBusinessMetadata = Lens.lens (\UpdateUser' {alexaForBusinessMetadata} -> alexaForBusinessMetadata) (\s@UpdateUser' {} a -> s {alexaForBusinessMetadata = a} :: UpdateUser)
 
 -- | The user type.
 updateUser_userType :: Lens.Lens' UpdateUser (Prelude.Maybe UserType)
@@ -136,16 +137,17 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` licenseType
+    _salt
       `Prelude.hashWithSalt` alexaForBusinessMetadata
+      `Prelude.hashWithSalt` licenseType
       `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData UpdateUser where
   rnf UpdateUser' {..} =
-    Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf alexaForBusinessMetadata
+    Prelude.rnf alexaForBusinessMetadata
+      `Prelude.seq` Prelude.rnf licenseType
       `Prelude.seq` Prelude.rnf userType
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf userId
@@ -157,9 +159,9 @@ instance Data.ToJSON UpdateUser where
   toJSON UpdateUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LicenseType" Data..=) Prelude.<$> licenseType,
-            ("AlexaForBusinessMetadata" Data..=)
+          [ ("AlexaForBusinessMetadata" Data..=)
               Prelude.<$> alexaForBusinessMetadata,
+            ("LicenseType" Data..=) Prelude.<$> licenseType,
             ("UserType" Data..=) Prelude.<$> userType
           ]
       )

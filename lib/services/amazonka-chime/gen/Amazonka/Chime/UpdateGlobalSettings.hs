@@ -28,8 +28,8 @@ module Amazonka.Chime.UpdateGlobalSettings
     newUpdateGlobalSettings,
 
     -- * Request Lenses
-    updateGlobalSettings_voiceConnector,
     updateGlobalSettings_businessCalling,
+    updateGlobalSettings_voiceConnector,
 
     -- * Destructuring the Response
     UpdateGlobalSettingsResponse (..),
@@ -47,10 +47,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGlobalSettings' smart constructor.
 data UpdateGlobalSettings = UpdateGlobalSettings'
-  { -- | The Amazon Chime Voice Connector settings.
-    voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
-    -- | The Amazon Chime Business Calling settings.
-    businessCalling :: Prelude.Maybe BusinessCallingSettings
+  { -- | The Amazon Chime Business Calling settings.
+    businessCalling :: Prelude.Maybe BusinessCallingSettings,
+    -- | The Amazon Chime Voice Connector settings.
+    voiceConnector :: Prelude.Maybe VoiceConnectorSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,25 +62,25 @@ data UpdateGlobalSettings = UpdateGlobalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'updateGlobalSettings_voiceConnector' - The Amazon Chime Voice Connector settings.
---
 -- 'businessCalling', 'updateGlobalSettings_businessCalling' - The Amazon Chime Business Calling settings.
+--
+-- 'voiceConnector', 'updateGlobalSettings_voiceConnector' - The Amazon Chime Voice Connector settings.
 newUpdateGlobalSettings ::
   UpdateGlobalSettings
 newUpdateGlobalSettings =
   UpdateGlobalSettings'
-    { voiceConnector =
+    { businessCalling =
         Prelude.Nothing,
-      businessCalling = Prelude.Nothing
+      voiceConnector = Prelude.Nothing
     }
-
--- | The Amazon Chime Voice Connector settings.
-updateGlobalSettings_voiceConnector :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe VoiceConnectorSettings)
-updateGlobalSettings_voiceConnector = Lens.lens (\UpdateGlobalSettings' {voiceConnector} -> voiceConnector) (\s@UpdateGlobalSettings' {} a -> s {voiceConnector = a} :: UpdateGlobalSettings)
 
 -- | The Amazon Chime Business Calling settings.
 updateGlobalSettings_businessCalling :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe BusinessCallingSettings)
 updateGlobalSettings_businessCalling = Lens.lens (\UpdateGlobalSettings' {businessCalling} -> businessCalling) (\s@UpdateGlobalSettings' {} a -> s {businessCalling = a} :: UpdateGlobalSettings)
+
+-- | The Amazon Chime Voice Connector settings.
+updateGlobalSettings_voiceConnector :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe VoiceConnectorSettings)
+updateGlobalSettings_voiceConnector = Lens.lens (\UpdateGlobalSettings' {voiceConnector} -> voiceConnector) (\s@UpdateGlobalSettings' {} a -> s {voiceConnector = a} :: UpdateGlobalSettings)
 
 instance Core.AWSRequest UpdateGlobalSettings where
   type
@@ -93,13 +93,13 @@ instance Core.AWSRequest UpdateGlobalSettings where
 
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnector
-      `Prelude.hashWithSalt` businessCalling
+    _salt `Prelude.hashWithSalt` businessCalling
+      `Prelude.hashWithSalt` voiceConnector
 
 instance Prelude.NFData UpdateGlobalSettings where
   rnf UpdateGlobalSettings' {..} =
-    Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf businessCalling
+    Prelude.rnf businessCalling
+      `Prelude.seq` Prelude.rnf voiceConnector
 
 instance Data.ToHeaders UpdateGlobalSettings where
   toHeaders = Prelude.const Prelude.mempty
@@ -108,10 +108,10 @@ instance Data.ToJSON UpdateGlobalSettings where
   toJSON UpdateGlobalSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VoiceConnector" Data..=)
-              Prelude.<$> voiceConnector,
-            ("BusinessCalling" Data..=)
-              Prelude.<$> businessCalling
+          [ ("BusinessCalling" Data..=)
+              Prelude.<$> businessCalling,
+            ("VoiceConnector" Data..=)
+              Prelude.<$> voiceConnector
           ]
       )
 

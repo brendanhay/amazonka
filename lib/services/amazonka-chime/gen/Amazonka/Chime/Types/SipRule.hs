@@ -31,14 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSipRule' smart constructor.
 data SipRule = SipRule'
-  { -- | The SIP rule ID.
-    sipRuleId :: Prelude.Maybe Prelude.Text,
+  { -- | The time at which the SIP rule was created, in ISO 8601 format.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | Indicates whether the SIP rule is enabled or disabled. You must disable
+    -- a rule before you can delete it.
+    disabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the SIP rule.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the SIP rule was created, in ISO 8601 format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The time at which the SIP rule was last updated, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The SIP rule ID.
+    sipRuleId :: Prelude.Maybe Prelude.Text,
     -- | Target SIP media application and other details, such as priority and AWS
     -- Region, to be specified in the SIP rule. Only one SIP rule per AWS
     -- Region can be provided.
@@ -52,9 +53,8 @@ data SipRule = SipRule'
     -- in E164 format. @SipRule@ is triggered when a SIP rule requests host
     -- name or @ToPhoneNumber@ matches in the incoming SIP request.
     triggerValue :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the SIP rule is enabled or disabled. You must disable
-    -- a rule before you can delete it.
-    disabled :: Prelude.Maybe Prelude.Bool
+    -- | The time at which the SIP rule was last updated, in ISO 8601 format.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,13 +66,14 @@ data SipRule = SipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRuleId', 'sipRule_sipRuleId' - The SIP rule ID.
+-- 'createdTimestamp', 'sipRule_createdTimestamp' - The time at which the SIP rule was created, in ISO 8601 format.
+--
+-- 'disabled', 'sipRule_disabled' - Indicates whether the SIP rule is enabled or disabled. You must disable
+-- a rule before you can delete it.
 --
 -- 'name', 'sipRule_name' - The name of the SIP rule.
 --
--- 'createdTimestamp', 'sipRule_createdTimestamp' - The time at which the SIP rule was created, in ISO 8601 format.
---
--- 'updatedTimestamp', 'sipRule_updatedTimestamp' - The time at which the SIP rule was last updated, in ISO 8601 format.
+-- 'sipRuleId', 'sipRule_sipRuleId' - The SIP rule ID.
 --
 -- 'targetApplications', 'sipRule_targetApplications' - Target SIP media application and other details, such as priority and AWS
 -- Region, to be specified in the SIP rule. Only one SIP rule per AWS
@@ -87,37 +88,37 @@ data SipRule = SipRule'
 -- in E164 format. @SipRule@ is triggered when a SIP rule requests host
 -- name or @ToPhoneNumber@ matches in the incoming SIP request.
 --
--- 'disabled', 'sipRule_disabled' - Indicates whether the SIP rule is enabled or disabled. You must disable
--- a rule before you can delete it.
+-- 'updatedTimestamp', 'sipRule_updatedTimestamp' - The time at which the SIP rule was last updated, in ISO 8601 format.
 newSipRule ::
   SipRule
 newSipRule =
   SipRule'
-    { sipRuleId = Prelude.Nothing,
+    { createdTimestamp = Prelude.Nothing,
+      disabled = Prelude.Nothing,
       name = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
+      sipRuleId = Prelude.Nothing,
       targetApplications = Prelude.Nothing,
       triggerType = Prelude.Nothing,
       triggerValue = Prelude.Nothing,
-      disabled = Prelude.Nothing
+      updatedTimestamp = Prelude.Nothing
     }
-
--- | The SIP rule ID.
-sipRule_sipRuleId :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Text)
-sipRule_sipRuleId = Lens.lens (\SipRule' {sipRuleId} -> sipRuleId) (\s@SipRule' {} a -> s {sipRuleId = a} :: SipRule)
-
--- | The name of the SIP rule.
-sipRule_name :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Text)
-sipRule_name = Lens.lens (\SipRule' {name} -> name) (\s@SipRule' {} a -> s {name = a} :: SipRule)
 
 -- | The time at which the SIP rule was created, in ISO 8601 format.
 sipRule_createdTimestamp :: Lens.Lens' SipRule (Prelude.Maybe Prelude.UTCTime)
 sipRule_createdTimestamp = Lens.lens (\SipRule' {createdTimestamp} -> createdTimestamp) (\s@SipRule' {} a -> s {createdTimestamp = a} :: SipRule) Prelude.. Lens.mapping Data._Time
 
--- | The time at which the SIP rule was last updated, in ISO 8601 format.
-sipRule_updatedTimestamp :: Lens.Lens' SipRule (Prelude.Maybe Prelude.UTCTime)
-sipRule_updatedTimestamp = Lens.lens (\SipRule' {updatedTimestamp} -> updatedTimestamp) (\s@SipRule' {} a -> s {updatedTimestamp = a} :: SipRule) Prelude.. Lens.mapping Data._Time
+-- | Indicates whether the SIP rule is enabled or disabled. You must disable
+-- a rule before you can delete it.
+sipRule_disabled :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Bool)
+sipRule_disabled = Lens.lens (\SipRule' {disabled} -> disabled) (\s@SipRule' {} a -> s {disabled = a} :: SipRule)
+
+-- | The name of the SIP rule.
+sipRule_name :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Text)
+sipRule_name = Lens.lens (\SipRule' {name} -> name) (\s@SipRule' {} a -> s {name = a} :: SipRule)
+
+-- | The SIP rule ID.
+sipRule_sipRuleId :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Text)
+sipRule_sipRuleId = Lens.lens (\SipRule' {sipRuleId} -> sipRuleId) (\s@SipRule' {} a -> s {sipRuleId = a} :: SipRule)
 
 -- | Target SIP media application and other details, such as priority and AWS
 -- Region, to be specified in the SIP rule. Only one SIP rule per AWS
@@ -138,10 +139,9 @@ sipRule_triggerType = Lens.lens (\SipRule' {triggerType} -> triggerType) (\s@Sip
 sipRule_triggerValue :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Text)
 sipRule_triggerValue = Lens.lens (\SipRule' {triggerValue} -> triggerValue) (\s@SipRule' {} a -> s {triggerValue = a} :: SipRule)
 
--- | Indicates whether the SIP rule is enabled or disabled. You must disable
--- a rule before you can delete it.
-sipRule_disabled :: Lens.Lens' SipRule (Prelude.Maybe Prelude.Bool)
-sipRule_disabled = Lens.lens (\SipRule' {disabled} -> disabled) (\s@SipRule' {} a -> s {disabled = a} :: SipRule)
+-- | The time at which the SIP rule was last updated, in ISO 8601 format.
+sipRule_updatedTimestamp :: Lens.Lens' SipRule (Prelude.Maybe Prelude.UTCTime)
+sipRule_updatedTimestamp = Lens.lens (\SipRule' {updatedTimestamp} -> updatedTimestamp) (\s@SipRule' {} a -> s {updatedTimestamp = a} :: SipRule) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON SipRule where
   parseJSON =
@@ -149,34 +149,34 @@ instance Data.FromJSON SipRule where
       "SipRule"
       ( \x ->
           SipRule'
-            Prelude.<$> (x Data..:? "SipRuleId")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "Disabled")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CreatedTimestamp")
-            Prelude.<*> (x Data..:? "UpdatedTimestamp")
+            Prelude.<*> (x Data..:? "SipRuleId")
             Prelude.<*> (x Data..:? "TargetApplications")
             Prelude.<*> (x Data..:? "TriggerType")
             Prelude.<*> (x Data..:? "TriggerValue")
-            Prelude.<*> (x Data..:? "Disabled")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable SipRule where
   hashWithSalt _salt SipRule' {..} =
-    _salt `Prelude.hashWithSalt` sipRuleId
+    _salt `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` updatedTimestamp
+      `Prelude.hashWithSalt` sipRuleId
       `Prelude.hashWithSalt` targetApplications
       `Prelude.hashWithSalt` triggerType
       `Prelude.hashWithSalt` triggerValue
-      `Prelude.hashWithSalt` disabled
+      `Prelude.hashWithSalt` updatedTimestamp
 
 instance Prelude.NFData SipRule where
   rnf SipRule' {..} =
-    Prelude.rnf sipRuleId
+    Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf disabled
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf updatedTimestamp
+      `Prelude.seq` Prelude.rnf sipRuleId
       `Prelude.seq` Prelude.rnf targetApplications
       `Prelude.seq` Prelude.rnf triggerType
       `Prelude.seq` Prelude.rnf triggerValue
-      `Prelude.seq` Prelude.rnf disabled
+      `Prelude.seq` Prelude.rnf updatedTimestamp

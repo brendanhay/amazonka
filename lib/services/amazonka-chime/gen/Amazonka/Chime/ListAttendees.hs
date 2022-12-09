@@ -30,8 +30,8 @@ module Amazonka.Chime.ListAttendees
     newListAttendees,
 
     -- * Request Lenses
-    listAttendees_nextToken,
     listAttendees_maxResults,
+    listAttendees_nextToken,
     listAttendees_meetingId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.Chime.ListAttendees
     newListAttendeesResponse,
 
     -- * Response Lenses
-    listAttendeesResponse_nextToken,
     listAttendeesResponse_attendees,
+    listAttendeesResponse_nextToken,
     listAttendeesResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAttendees' smart constructor.
 data ListAttendees = ListAttendees'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
+  { -- | The maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime SDK meeting ID.
     meetingId :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ListAttendees = ListAttendees'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttendees_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listAttendees_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listAttendees_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'meetingId', 'listAttendees_meetingId' - The Amazon Chime SDK meeting ID.
 newListAttendees ::
@@ -83,18 +83,18 @@ newListAttendees ::
   ListAttendees
 newListAttendees pMeetingId_ =
   ListAttendees'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       meetingId = pMeetingId_
     }
-
--- | The token to use to retrieve the next page of results.
-listAttendees_nextToken :: Lens.Lens' ListAttendees (Prelude.Maybe Prelude.Text)
-listAttendees_nextToken = Lens.lens (\ListAttendees' {nextToken} -> nextToken) (\s@ListAttendees' {} a -> s {nextToken = a} :: ListAttendees)
 
 -- | The maximum number of results to return in a single call.
 listAttendees_maxResults :: Lens.Lens' ListAttendees (Prelude.Maybe Prelude.Natural)
 listAttendees_maxResults = Lens.lens (\ListAttendees' {maxResults} -> maxResults) (\s@ListAttendees' {} a -> s {maxResults = a} :: ListAttendees)
+
+-- | The token to use to retrieve the next page of results.
+listAttendees_nextToken :: Lens.Lens' ListAttendees (Prelude.Maybe Prelude.Text)
+listAttendees_nextToken = Lens.lens (\ListAttendees' {nextToken} -> nextToken) (\s@ListAttendees' {} a -> s {nextToken = a} :: ListAttendees)
 
 -- | The Amazon Chime SDK meeting ID.
 listAttendees_meetingId :: Lens.Lens' ListAttendees Prelude.Text
@@ -110,21 +110,21 @@ instance Core.AWSRequest ListAttendees where
     Response.receiveJSON
       ( \s h x ->
           ListAttendeesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttendees where
   hashWithSalt _salt ListAttendees' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meetingId
 
 instance Prelude.NFData ListAttendees where
   rnf ListAttendees' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf meetingId
 
 instance Data.ToHeaders ListAttendees where
@@ -138,16 +138,16 @@ instance Data.ToPath ListAttendees where
 instance Data.ToQuery ListAttendees where
   toQuery ListAttendees' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAttendeesResponse' smart constructor.
 data ListAttendeesResponse = ListAttendeesResponse'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Chime SDK attendee information.
+  { -- | The Amazon Chime SDK attendee information.
     attendees :: Prelude.Maybe [Attendee],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +161,9 @@ data ListAttendeesResponse = ListAttendeesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttendeesResponse_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'attendees', 'listAttendeesResponse_attendees' - The Amazon Chime SDK attendee information.
+--
+-- 'nextToken', 'listAttendeesResponse_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'httpStatus', 'listAttendeesResponse_httpStatus' - The response's http status code.
 newListAttendeesResponse ::
@@ -172,18 +172,18 @@ newListAttendeesResponse ::
   ListAttendeesResponse
 newListAttendeesResponse pHttpStatus_ =
   ListAttendeesResponse'
-    { nextToken = Prelude.Nothing,
-      attendees = Prelude.Nothing,
+    { attendees = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results.
-listAttendeesResponse_nextToken :: Lens.Lens' ListAttendeesResponse (Prelude.Maybe Prelude.Text)
-listAttendeesResponse_nextToken = Lens.lens (\ListAttendeesResponse' {nextToken} -> nextToken) (\s@ListAttendeesResponse' {} a -> s {nextToken = a} :: ListAttendeesResponse)
 
 -- | The Amazon Chime SDK attendee information.
 listAttendeesResponse_attendees :: Lens.Lens' ListAttendeesResponse (Prelude.Maybe [Attendee])
 listAttendeesResponse_attendees = Lens.lens (\ListAttendeesResponse' {attendees} -> attendees) (\s@ListAttendeesResponse' {} a -> s {attendees = a} :: ListAttendeesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results.
+listAttendeesResponse_nextToken :: Lens.Lens' ListAttendeesResponse (Prelude.Maybe Prelude.Text)
+listAttendeesResponse_nextToken = Lens.lens (\ListAttendeesResponse' {nextToken} -> nextToken) (\s@ListAttendeesResponse' {} a -> s {nextToken = a} :: ListAttendeesResponse)
 
 -- | The response's http status code.
 listAttendeesResponse_httpStatus :: Lens.Lens' ListAttendeesResponse Prelude.Int
@@ -191,6 +191,6 @@ listAttendeesResponse_httpStatus = Lens.lens (\ListAttendeesResponse' {httpStatu
 
 instance Prelude.NFData ListAttendeesResponse where
   rnf ListAttendeesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attendees
+    Prelude.rnf attendees
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaPlacement' smart constructor.
 data MediaPlacement = MediaPlacement'
-  { -- | The signaling URL.
-    signalingUrl :: Prelude.Maybe Prelude.Text,
-    -- | The screen viewing URL.
-    screenViewingUrl :: Prelude.Maybe Prelude.Text,
-    -- | The event ingestion URL to which you send client meeting events.
-    eventIngestionUrl :: Prelude.Maybe Prelude.Text,
+  { -- | The audio fallback URL.
+    audioFallbackUrl :: Prelude.Maybe Prelude.Text,
     -- | The audio host URL.
     audioHostUrl :: Prelude.Maybe Prelude.Text,
-    -- | The screen sharing URL.
-    screenSharingUrl :: Prelude.Maybe Prelude.Text,
+    -- | The event ingestion URL to which you send client meeting events.
+    eventIngestionUrl :: Prelude.Maybe Prelude.Text,
     -- | The screen data URL.
     screenDataUrl :: Prelude.Maybe Prelude.Text,
-    -- | The audio fallback URL.
-    audioFallbackUrl :: Prelude.Maybe Prelude.Text,
+    -- | The screen sharing URL.
+    screenSharingUrl :: Prelude.Maybe Prelude.Text,
+    -- | The screen viewing URL.
+    screenViewingUrl :: Prelude.Maybe Prelude.Text,
+    -- | The signaling URL.
+    signalingUrl :: Prelude.Maybe Prelude.Text,
     -- | The turn control URL.
     turnControlUrl :: Prelude.Maybe Prelude.Text
   }
@@ -56,62 +56,62 @@ data MediaPlacement = MediaPlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'signalingUrl', 'mediaPlacement_signalingUrl' - The signaling URL.
---
--- 'screenViewingUrl', 'mediaPlacement_screenViewingUrl' - The screen viewing URL.
---
--- 'eventIngestionUrl', 'mediaPlacement_eventIngestionUrl' - The event ingestion URL to which you send client meeting events.
+-- 'audioFallbackUrl', 'mediaPlacement_audioFallbackUrl' - The audio fallback URL.
 --
 -- 'audioHostUrl', 'mediaPlacement_audioHostUrl' - The audio host URL.
 --
--- 'screenSharingUrl', 'mediaPlacement_screenSharingUrl' - The screen sharing URL.
+-- 'eventIngestionUrl', 'mediaPlacement_eventIngestionUrl' - The event ingestion URL to which you send client meeting events.
 --
 -- 'screenDataUrl', 'mediaPlacement_screenDataUrl' - The screen data URL.
 --
--- 'audioFallbackUrl', 'mediaPlacement_audioFallbackUrl' - The audio fallback URL.
+-- 'screenSharingUrl', 'mediaPlacement_screenSharingUrl' - The screen sharing URL.
+--
+-- 'screenViewingUrl', 'mediaPlacement_screenViewingUrl' - The screen viewing URL.
+--
+-- 'signalingUrl', 'mediaPlacement_signalingUrl' - The signaling URL.
 --
 -- 'turnControlUrl', 'mediaPlacement_turnControlUrl' - The turn control URL.
 newMediaPlacement ::
   MediaPlacement
 newMediaPlacement =
   MediaPlacement'
-    { signalingUrl = Prelude.Nothing,
-      screenViewingUrl = Prelude.Nothing,
-      eventIngestionUrl = Prelude.Nothing,
+    { audioFallbackUrl = Prelude.Nothing,
       audioHostUrl = Prelude.Nothing,
-      screenSharingUrl = Prelude.Nothing,
+      eventIngestionUrl = Prelude.Nothing,
       screenDataUrl = Prelude.Nothing,
-      audioFallbackUrl = Prelude.Nothing,
+      screenSharingUrl = Prelude.Nothing,
+      screenViewingUrl = Prelude.Nothing,
+      signalingUrl = Prelude.Nothing,
       turnControlUrl = Prelude.Nothing
     }
 
--- | The signaling URL.
-mediaPlacement_signalingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
-mediaPlacement_signalingUrl = Lens.lens (\MediaPlacement' {signalingUrl} -> signalingUrl) (\s@MediaPlacement' {} a -> s {signalingUrl = a} :: MediaPlacement)
-
--- | The screen viewing URL.
-mediaPlacement_screenViewingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
-mediaPlacement_screenViewingUrl = Lens.lens (\MediaPlacement' {screenViewingUrl} -> screenViewingUrl) (\s@MediaPlacement' {} a -> s {screenViewingUrl = a} :: MediaPlacement)
-
--- | The event ingestion URL to which you send client meeting events.
-mediaPlacement_eventIngestionUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
-mediaPlacement_eventIngestionUrl = Lens.lens (\MediaPlacement' {eventIngestionUrl} -> eventIngestionUrl) (\s@MediaPlacement' {} a -> s {eventIngestionUrl = a} :: MediaPlacement)
+-- | The audio fallback URL.
+mediaPlacement_audioFallbackUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
+mediaPlacement_audioFallbackUrl = Lens.lens (\MediaPlacement' {audioFallbackUrl} -> audioFallbackUrl) (\s@MediaPlacement' {} a -> s {audioFallbackUrl = a} :: MediaPlacement)
 
 -- | The audio host URL.
 mediaPlacement_audioHostUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
 mediaPlacement_audioHostUrl = Lens.lens (\MediaPlacement' {audioHostUrl} -> audioHostUrl) (\s@MediaPlacement' {} a -> s {audioHostUrl = a} :: MediaPlacement)
 
--- | The screen sharing URL.
-mediaPlacement_screenSharingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
-mediaPlacement_screenSharingUrl = Lens.lens (\MediaPlacement' {screenSharingUrl} -> screenSharingUrl) (\s@MediaPlacement' {} a -> s {screenSharingUrl = a} :: MediaPlacement)
+-- | The event ingestion URL to which you send client meeting events.
+mediaPlacement_eventIngestionUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
+mediaPlacement_eventIngestionUrl = Lens.lens (\MediaPlacement' {eventIngestionUrl} -> eventIngestionUrl) (\s@MediaPlacement' {} a -> s {eventIngestionUrl = a} :: MediaPlacement)
 
 -- | The screen data URL.
 mediaPlacement_screenDataUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
 mediaPlacement_screenDataUrl = Lens.lens (\MediaPlacement' {screenDataUrl} -> screenDataUrl) (\s@MediaPlacement' {} a -> s {screenDataUrl = a} :: MediaPlacement)
 
--- | The audio fallback URL.
-mediaPlacement_audioFallbackUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
-mediaPlacement_audioFallbackUrl = Lens.lens (\MediaPlacement' {audioFallbackUrl} -> audioFallbackUrl) (\s@MediaPlacement' {} a -> s {audioFallbackUrl = a} :: MediaPlacement)
+-- | The screen sharing URL.
+mediaPlacement_screenSharingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
+mediaPlacement_screenSharingUrl = Lens.lens (\MediaPlacement' {screenSharingUrl} -> screenSharingUrl) (\s@MediaPlacement' {} a -> s {screenSharingUrl = a} :: MediaPlacement)
+
+-- | The screen viewing URL.
+mediaPlacement_screenViewingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
+mediaPlacement_screenViewingUrl = Lens.lens (\MediaPlacement' {screenViewingUrl} -> screenViewingUrl) (\s@MediaPlacement' {} a -> s {screenViewingUrl = a} :: MediaPlacement)
+
+-- | The signaling URL.
+mediaPlacement_signalingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
+mediaPlacement_signalingUrl = Lens.lens (\MediaPlacement' {signalingUrl} -> signalingUrl) (\s@MediaPlacement' {} a -> s {signalingUrl = a} :: MediaPlacement)
 
 -- | The turn control URL.
 mediaPlacement_turnControlUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
@@ -123,34 +123,34 @@ instance Data.FromJSON MediaPlacement where
       "MediaPlacement"
       ( \x ->
           MediaPlacement'
-            Prelude.<$> (x Data..:? "SignalingUrl")
-            Prelude.<*> (x Data..:? "ScreenViewingUrl")
-            Prelude.<*> (x Data..:? "EventIngestionUrl")
+            Prelude.<$> (x Data..:? "AudioFallbackUrl")
             Prelude.<*> (x Data..:? "AudioHostUrl")
-            Prelude.<*> (x Data..:? "ScreenSharingUrl")
+            Prelude.<*> (x Data..:? "EventIngestionUrl")
             Prelude.<*> (x Data..:? "ScreenDataUrl")
-            Prelude.<*> (x Data..:? "AudioFallbackUrl")
+            Prelude.<*> (x Data..:? "ScreenSharingUrl")
+            Prelude.<*> (x Data..:? "ScreenViewingUrl")
+            Prelude.<*> (x Data..:? "SignalingUrl")
             Prelude.<*> (x Data..:? "TurnControlUrl")
       )
 
 instance Prelude.Hashable MediaPlacement where
   hashWithSalt _salt MediaPlacement' {..} =
-    _salt `Prelude.hashWithSalt` signalingUrl
-      `Prelude.hashWithSalt` screenViewingUrl
-      `Prelude.hashWithSalt` eventIngestionUrl
+    _salt `Prelude.hashWithSalt` audioFallbackUrl
       `Prelude.hashWithSalt` audioHostUrl
-      `Prelude.hashWithSalt` screenSharingUrl
+      `Prelude.hashWithSalt` eventIngestionUrl
       `Prelude.hashWithSalt` screenDataUrl
-      `Prelude.hashWithSalt` audioFallbackUrl
+      `Prelude.hashWithSalt` screenSharingUrl
+      `Prelude.hashWithSalt` screenViewingUrl
+      `Prelude.hashWithSalt` signalingUrl
       `Prelude.hashWithSalt` turnControlUrl
 
 instance Prelude.NFData MediaPlacement where
   rnf MediaPlacement' {..} =
-    Prelude.rnf signalingUrl
-      `Prelude.seq` Prelude.rnf screenViewingUrl
-      `Prelude.seq` Prelude.rnf eventIngestionUrl
+    Prelude.rnf audioFallbackUrl
       `Prelude.seq` Prelude.rnf audioHostUrl
-      `Prelude.seq` Prelude.rnf screenSharingUrl
+      `Prelude.seq` Prelude.rnf eventIngestionUrl
       `Prelude.seq` Prelude.rnf screenDataUrl
-      `Prelude.seq` Prelude.rnf audioFallbackUrl
+      `Prelude.seq` Prelude.rnf screenSharingUrl
+      `Prelude.seq` Prelude.rnf screenViewingUrl
+      `Prelude.seq` Prelude.rnf signalingUrl
       `Prelude.seq` Prelude.rnf turnControlUrl

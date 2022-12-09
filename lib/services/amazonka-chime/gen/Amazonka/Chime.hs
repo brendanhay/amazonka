@@ -63,38 +63,38 @@ module Amazonka.Chime
     -- * Errors
     -- $errors
 
-    -- ** ThrottledClientException
-    _ThrottledClientException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** BadRequestException
     _BadRequestException,
 
-    -- ** UnauthorizedClientException
-    _UnauthorizedClientException,
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottledClientException
+    _ThrottledClientException,
+
+    -- ** UnauthorizedClientException
+    _UnauthorizedClientException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
 
     -- * Waiters
     -- $waiters

@@ -32,8 +32,8 @@ module Amazonka.Chime.GetGlobalSettings
     newGetGlobalSettingsResponse,
 
     -- * Response Lenses
-    getGlobalSettingsResponse_voiceConnector,
     getGlobalSettingsResponse_businessCalling,
+    getGlobalSettingsResponse_voiceConnector,
     getGlobalSettingsResponse_httpStatus,
   )
 where
@@ -70,8 +70,8 @@ instance Core.AWSRequest GetGlobalSettings where
     Response.receiveJSON
       ( \s h x ->
           GetGlobalSettingsResponse'
-            Prelude.<$> (x Data..?> "VoiceConnector")
-            Prelude.<*> (x Data..?> "BusinessCalling")
+            Prelude.<$> (x Data..?> "BusinessCalling")
+            Prelude.<*> (x Data..?> "VoiceConnector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -93,10 +93,10 @@ instance Data.ToQuery GetGlobalSettings where
 
 -- | /See:/ 'newGetGlobalSettingsResponse' smart constructor.
 data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
-  { -- | The Amazon Chime Voice Connector settings.
-    voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
-    -- | The Amazon Chime Business Calling settings.
+  { -- | The Amazon Chime Business Calling settings.
     businessCalling :: Prelude.Maybe BusinessCallingSettings,
+    -- | The Amazon Chime Voice Connector settings.
+    voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -110,9 +110,9 @@ data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - The Amazon Chime Voice Connector settings.
---
 -- 'businessCalling', 'getGlobalSettingsResponse_businessCalling' - The Amazon Chime Business Calling settings.
+--
+-- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - The Amazon Chime Voice Connector settings.
 --
 -- 'httpStatus', 'getGlobalSettingsResponse_httpStatus' - The response's http status code.
 newGetGlobalSettingsResponse ::
@@ -121,19 +121,19 @@ newGetGlobalSettingsResponse ::
   GetGlobalSettingsResponse
 newGetGlobalSettingsResponse pHttpStatus_ =
   GetGlobalSettingsResponse'
-    { voiceConnector =
+    { businessCalling =
         Prelude.Nothing,
-      businessCalling = Prelude.Nothing,
+      voiceConnector = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Chime Voice Connector settings.
-getGlobalSettingsResponse_voiceConnector :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe VoiceConnectorSettings)
-getGlobalSettingsResponse_voiceConnector = Lens.lens (\GetGlobalSettingsResponse' {voiceConnector} -> voiceConnector) (\s@GetGlobalSettingsResponse' {} a -> s {voiceConnector = a} :: GetGlobalSettingsResponse)
 
 -- | The Amazon Chime Business Calling settings.
 getGlobalSettingsResponse_businessCalling :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe BusinessCallingSettings)
 getGlobalSettingsResponse_businessCalling = Lens.lens (\GetGlobalSettingsResponse' {businessCalling} -> businessCalling) (\s@GetGlobalSettingsResponse' {} a -> s {businessCalling = a} :: GetGlobalSettingsResponse)
+
+-- | The Amazon Chime Voice Connector settings.
+getGlobalSettingsResponse_voiceConnector :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe VoiceConnectorSettings)
+getGlobalSettingsResponse_voiceConnector = Lens.lens (\GetGlobalSettingsResponse' {voiceConnector} -> voiceConnector) (\s@GetGlobalSettingsResponse' {} a -> s {voiceConnector = a} :: GetGlobalSettingsResponse)
 
 -- | The response's http status code.
 getGlobalSettingsResponse_httpStatus :: Lens.Lens' GetGlobalSettingsResponse Prelude.Int
@@ -141,6 +141,6 @@ getGlobalSettingsResponse_httpStatus = Lens.lens (\GetGlobalSettingsResponse' {h
 
 instance Prelude.NFData GetGlobalSettingsResponse where
   rnf GetGlobalSettingsResponse' {..} =
-    Prelude.rnf voiceConnector
-      `Prelude.seq` Prelude.rnf businessCalling
+    Prelude.rnf businessCalling
+      `Prelude.seq` Prelude.rnf voiceConnector
       `Prelude.seq` Prelude.rnf httpStatus

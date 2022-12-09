@@ -28,8 +28,8 @@ module Amazonka.Chime.ListVoiceConnectorGroups
     newListVoiceConnectorGroups,
 
     -- * Request Lenses
-    listVoiceConnectorGroups_nextToken,
     listVoiceConnectorGroups_maxResults,
+    listVoiceConnectorGroups_nextToken,
 
     -- * Destructuring the Response
     ListVoiceConnectorGroupsResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVoiceConnectorGroups' smart constructor.
 data ListVoiceConnectorGroups = ListVoiceConnectorGroups'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,25 +67,25 @@ data ListVoiceConnectorGroups = ListVoiceConnectorGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVoiceConnectorGroups_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listVoiceConnectorGroups_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listVoiceConnectorGroups_nextToken' - The token to use to retrieve the next page of results.
 newListVoiceConnectorGroups ::
   ListVoiceConnectorGroups
 newListVoiceConnectorGroups =
   ListVoiceConnectorGroups'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listVoiceConnectorGroups_nextToken :: Lens.Lens' ListVoiceConnectorGroups (Prelude.Maybe Prelude.Text)
-listVoiceConnectorGroups_nextToken = Lens.lens (\ListVoiceConnectorGroups' {nextToken} -> nextToken) (\s@ListVoiceConnectorGroups' {} a -> s {nextToken = a} :: ListVoiceConnectorGroups)
 
 -- | The maximum number of results to return in a single call.
 listVoiceConnectorGroups_maxResults :: Lens.Lens' ListVoiceConnectorGroups (Prelude.Maybe Prelude.Natural)
 listVoiceConnectorGroups_maxResults = Lens.lens (\ListVoiceConnectorGroups' {maxResults} -> maxResults) (\s@ListVoiceConnectorGroups' {} a -> s {maxResults = a} :: ListVoiceConnectorGroups)
+
+-- | The token to use to retrieve the next page of results.
+listVoiceConnectorGroups_nextToken :: Lens.Lens' ListVoiceConnectorGroups (Prelude.Maybe Prelude.Text)
+listVoiceConnectorGroups_nextToken = Lens.lens (\ListVoiceConnectorGroups' {nextToken} -> nextToken) (\s@ListVoiceConnectorGroups' {} a -> s {nextToken = a} :: ListVoiceConnectorGroups)
 
 instance Core.AWSRequest ListVoiceConnectorGroups where
   type
@@ -106,13 +106,13 @@ instance Core.AWSRequest ListVoiceConnectorGroups where
 
 instance Prelude.Hashable ListVoiceConnectorGroups where
   hashWithSalt _salt ListVoiceConnectorGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVoiceConnectorGroups where
   rnf ListVoiceConnectorGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVoiceConnectorGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -123,8 +123,8 @@ instance Data.ToPath ListVoiceConnectorGroups where
 instance Data.ToQuery ListVoiceConnectorGroups where
   toQuery ListVoiceConnectorGroups' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListVoiceConnectorGroupsResponse' smart constructor.

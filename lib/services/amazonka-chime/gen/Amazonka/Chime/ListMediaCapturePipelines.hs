@@ -27,16 +27,16 @@ module Amazonka.Chime.ListMediaCapturePipelines
     newListMediaCapturePipelines,
 
     -- * Request Lenses
-    listMediaCapturePipelines_nextToken,
     listMediaCapturePipelines_maxResults,
+    listMediaCapturePipelines_nextToken,
 
     -- * Destructuring the Response
     ListMediaCapturePipelinesResponse (..),
     newListMediaCapturePipelinesResponse,
 
     -- * Response Lenses
-    listMediaCapturePipelinesResponse_nextToken,
     listMediaCapturePipelinesResponse_mediaCapturePipelines,
+    listMediaCapturePipelinesResponse_nextToken,
     listMediaCapturePipelinesResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMediaCapturePipelines' smart constructor.
 data ListMediaCapturePipelines = ListMediaCapturePipelines'
-  { -- | The token used to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Valid Range: 1
+  { -- | The maximum number of results to return in a single call. Valid Range: 1
     -- - 99.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,27 +67,27 @@ data ListMediaCapturePipelines = ListMediaCapturePipelines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMediaCapturePipelines_nextToken' - The token used to retrieve the next page of results.
---
 -- 'maxResults', 'listMediaCapturePipelines_maxResults' - The maximum number of results to return in a single call. Valid Range: 1
 -- - 99.
+--
+-- 'nextToken', 'listMediaCapturePipelines_nextToken' - The token used to retrieve the next page of results.
 newListMediaCapturePipelines ::
   ListMediaCapturePipelines
 newListMediaCapturePipelines =
   ListMediaCapturePipelines'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token used to retrieve the next page of results.
-listMediaCapturePipelines_nextToken :: Lens.Lens' ListMediaCapturePipelines (Prelude.Maybe Prelude.Text)
-listMediaCapturePipelines_nextToken = Lens.lens (\ListMediaCapturePipelines' {nextToken} -> nextToken) (\s@ListMediaCapturePipelines' {} a -> s {nextToken = a} :: ListMediaCapturePipelines)
 
 -- | The maximum number of results to return in a single call. Valid Range: 1
 -- - 99.
 listMediaCapturePipelines_maxResults :: Lens.Lens' ListMediaCapturePipelines (Prelude.Maybe Prelude.Natural)
 listMediaCapturePipelines_maxResults = Lens.lens (\ListMediaCapturePipelines' {maxResults} -> maxResults) (\s@ListMediaCapturePipelines' {} a -> s {maxResults = a} :: ListMediaCapturePipelines)
+
+-- | The token used to retrieve the next page of results.
+listMediaCapturePipelines_nextToken :: Lens.Lens' ListMediaCapturePipelines (Prelude.Maybe Prelude.Text)
+listMediaCapturePipelines_nextToken = Lens.lens (\ListMediaCapturePipelines' {nextToken} -> nextToken) (\s@ListMediaCapturePipelines' {} a -> s {nextToken = a} :: ListMediaCapturePipelines)
 
 instance Core.AWSRequest ListMediaCapturePipelines where
   type
@@ -99,22 +99,22 @@ instance Core.AWSRequest ListMediaCapturePipelines where
     Response.receiveJSON
       ( \s h x ->
           ListMediaCapturePipelinesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MediaCapturePipelines"
+            Prelude.<$> ( x Data..?> "MediaCapturePipelines"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMediaCapturePipelines where
   hashWithSalt _salt ListMediaCapturePipelines' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMediaCapturePipelines where
   rnf ListMediaCapturePipelines' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMediaCapturePipelines where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,16 +125,16 @@ instance Data.ToPath ListMediaCapturePipelines where
 instance Data.ToQuery ListMediaCapturePipelines where
   toQuery ListMediaCapturePipelines' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListMediaCapturePipelinesResponse' smart constructor.
 data ListMediaCapturePipelinesResponse = ListMediaCapturePipelinesResponse'
-  { -- | The token used to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The media capture pipeline objects in the list.
+  { -- | The media capture pipeline objects in the list.
     mediaCapturePipelines :: Prelude.Maybe [MediaCapturePipeline],
+    -- | The token used to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,9 +148,9 @@ data ListMediaCapturePipelinesResponse = ListMediaCapturePipelinesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMediaCapturePipelinesResponse_nextToken' - The token used to retrieve the next page of results.
---
 -- 'mediaCapturePipelines', 'listMediaCapturePipelinesResponse_mediaCapturePipelines' - The media capture pipeline objects in the list.
+--
+-- 'nextToken', 'listMediaCapturePipelinesResponse_nextToken' - The token used to retrieve the next page of results.
 --
 -- 'httpStatus', 'listMediaCapturePipelinesResponse_httpStatus' - The response's http status code.
 newListMediaCapturePipelinesResponse ::
@@ -159,19 +159,19 @@ newListMediaCapturePipelinesResponse ::
   ListMediaCapturePipelinesResponse
 newListMediaCapturePipelinesResponse pHttpStatus_ =
   ListMediaCapturePipelinesResponse'
-    { nextToken =
+    { mediaCapturePipelines =
         Prelude.Nothing,
-      mediaCapturePipelines = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token used to retrieve the next page of results.
-listMediaCapturePipelinesResponse_nextToken :: Lens.Lens' ListMediaCapturePipelinesResponse (Prelude.Maybe Prelude.Text)
-listMediaCapturePipelinesResponse_nextToken = Lens.lens (\ListMediaCapturePipelinesResponse' {nextToken} -> nextToken) (\s@ListMediaCapturePipelinesResponse' {} a -> s {nextToken = a} :: ListMediaCapturePipelinesResponse)
 
 -- | The media capture pipeline objects in the list.
 listMediaCapturePipelinesResponse_mediaCapturePipelines :: Lens.Lens' ListMediaCapturePipelinesResponse (Prelude.Maybe [MediaCapturePipeline])
 listMediaCapturePipelinesResponse_mediaCapturePipelines = Lens.lens (\ListMediaCapturePipelinesResponse' {mediaCapturePipelines} -> mediaCapturePipelines) (\s@ListMediaCapturePipelinesResponse' {} a -> s {mediaCapturePipelines = a} :: ListMediaCapturePipelinesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token used to retrieve the next page of results.
+listMediaCapturePipelinesResponse_nextToken :: Lens.Lens' ListMediaCapturePipelinesResponse (Prelude.Maybe Prelude.Text)
+listMediaCapturePipelinesResponse_nextToken = Lens.lens (\ListMediaCapturePipelinesResponse' {nextToken} -> nextToken) (\s@ListMediaCapturePipelinesResponse' {} a -> s {nextToken = a} :: ListMediaCapturePipelinesResponse)
 
 -- | The response's http status code.
 listMediaCapturePipelinesResponse_httpStatus :: Lens.Lens' ListMediaCapturePipelinesResponse Prelude.Int
@@ -182,6 +182,6 @@ instance
     ListMediaCapturePipelinesResponse
   where
   rnf ListMediaCapturePipelinesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf mediaCapturePipelines
+    Prelude.rnf mediaCapturePipelines
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

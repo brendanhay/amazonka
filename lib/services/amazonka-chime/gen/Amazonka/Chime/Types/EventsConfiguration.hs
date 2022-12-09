@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventsConfiguration' smart constructor.
 data EventsConfiguration = EventsConfiguration'
-  { -- | HTTPS endpoint that allows a bot to receive outgoing events.
-    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The bot ID.
+  { -- | The bot ID.
     botId :: Prelude.Maybe Prelude.Text,
     -- | Lambda function ARN that allows a bot to receive outgoing events.
-    lambdaFunctionArn :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    lambdaFunctionArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | HTTPS endpoint that allows a bot to receive outgoing events.
+    outboundEventsHTTPSEndpoint :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,19 @@ data EventsConfiguration = EventsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outboundEventsHTTPSEndpoint', 'eventsConfiguration_outboundEventsHTTPSEndpoint' - HTTPS endpoint that allows a bot to receive outgoing events.
---
 -- 'botId', 'eventsConfiguration_botId' - The bot ID.
 --
 -- 'lambdaFunctionArn', 'eventsConfiguration_lambdaFunctionArn' - Lambda function ARN that allows a bot to receive outgoing events.
+--
+-- 'outboundEventsHTTPSEndpoint', 'eventsConfiguration_outboundEventsHTTPSEndpoint' - HTTPS endpoint that allows a bot to receive outgoing events.
 newEventsConfiguration ::
   EventsConfiguration
 newEventsConfiguration =
   EventsConfiguration'
-    { outboundEventsHTTPSEndpoint =
-        Prelude.Nothing,
-      botId = Prelude.Nothing,
-      lambdaFunctionArn = Prelude.Nothing
+    { botId = Prelude.Nothing,
+      lambdaFunctionArn = Prelude.Nothing,
+      outboundEventsHTTPSEndpoint = Prelude.Nothing
     }
-
--- | HTTPS endpoint that allows a bot to receive outgoing events.
-eventsConfiguration_outboundEventsHTTPSEndpoint :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
-eventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\EventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@EventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: EventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The bot ID.
 eventsConfiguration_botId :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
@@ -73,26 +68,29 @@ eventsConfiguration_botId = Lens.lens (\EventsConfiguration' {botId} -> botId) (
 eventsConfiguration_lambdaFunctionArn :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
 eventsConfiguration_lambdaFunctionArn = Lens.lens (\EventsConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@EventsConfiguration' {} a -> s {lambdaFunctionArn = a} :: EventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
+-- | HTTPS endpoint that allows a bot to receive outgoing events.
+eventsConfiguration_outboundEventsHTTPSEndpoint :: Lens.Lens' EventsConfiguration (Prelude.Maybe Prelude.Text)
+eventsConfiguration_outboundEventsHTTPSEndpoint = Lens.lens (\EventsConfiguration' {outboundEventsHTTPSEndpoint} -> outboundEventsHTTPSEndpoint) (\s@EventsConfiguration' {} a -> s {outboundEventsHTTPSEndpoint = a} :: EventsConfiguration) Prelude.. Lens.mapping Data._Sensitive
+
 instance Data.FromJSON EventsConfiguration where
   parseJSON =
     Data.withObject
       "EventsConfiguration"
       ( \x ->
           EventsConfiguration'
-            Prelude.<$> (x Data..:? "OutboundEventsHTTPSEndpoint")
-            Prelude.<*> (x Data..:? "BotId")
+            Prelude.<$> (x Data..:? "BotId")
             Prelude.<*> (x Data..:? "LambdaFunctionArn")
+            Prelude.<*> (x Data..:? "OutboundEventsHTTPSEndpoint")
       )
 
 instance Prelude.Hashable EventsConfiguration where
   hashWithSalt _salt EventsConfiguration' {..} =
-    _salt
-      `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
-      `Prelude.hashWithSalt` botId
+    _salt `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` lambdaFunctionArn
+      `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
 
 instance Prelude.NFData EventsConfiguration where
   rnf EventsConfiguration' {..} =
-    Prelude.rnf outboundEventsHTTPSEndpoint
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf lambdaFunctionArn
+      `Prelude.seq` Prelude.rnf outboundEventsHTTPSEndpoint

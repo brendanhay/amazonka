@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateInput' smart constructor.
 data TemplateInput = TemplateInput'
-  { -- | Determine if an input is required from the template.
-    required :: Prelude.Maybe Prelude.Bool,
+  { -- | The data type of the template input.
+    dataType :: Prelude.Maybe DataType,
     -- | The name of the template.
     inputName :: Prelude.Maybe Prelude.Text,
-    -- | The data type of the template input.
-    dataType :: Prelude.Maybe DataType
+    -- | Determine if an input is required from the template.
+    required :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data TemplateInput = TemplateInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'required', 'templateInput_required' - Determine if an input is required from the template.
+-- 'dataType', 'templateInput_dataType' - The data type of the template input.
 --
 -- 'inputName', 'templateInput_inputName' - The name of the template.
 --
--- 'dataType', 'templateInput_dataType' - The data type of the template input.
+-- 'required', 'templateInput_required' - Determine if an input is required from the template.
 newTemplateInput ::
   TemplateInput
 newTemplateInput =
   TemplateInput'
-    { required = Prelude.Nothing,
+    { dataType = Prelude.Nothing,
       inputName = Prelude.Nothing,
-      dataType = Prelude.Nothing
+      required = Prelude.Nothing
     }
 
--- | Determine if an input is required from the template.
-templateInput_required :: Lens.Lens' TemplateInput (Prelude.Maybe Prelude.Bool)
-templateInput_required = Lens.lens (\TemplateInput' {required} -> required) (\s@TemplateInput' {} a -> s {required = a} :: TemplateInput)
+-- | The data type of the template input.
+templateInput_dataType :: Lens.Lens' TemplateInput (Prelude.Maybe DataType)
+templateInput_dataType = Lens.lens (\TemplateInput' {dataType} -> dataType) (\s@TemplateInput' {} a -> s {dataType = a} :: TemplateInput)
 
 -- | The name of the template.
 templateInput_inputName :: Lens.Lens' TemplateInput (Prelude.Maybe Prelude.Text)
 templateInput_inputName = Lens.lens (\TemplateInput' {inputName} -> inputName) (\s@TemplateInput' {} a -> s {inputName = a} :: TemplateInput)
 
--- | The data type of the template input.
-templateInput_dataType :: Lens.Lens' TemplateInput (Prelude.Maybe DataType)
-templateInput_dataType = Lens.lens (\TemplateInput' {dataType} -> dataType) (\s@TemplateInput' {} a -> s {dataType = a} :: TemplateInput)
+-- | Determine if an input is required from the template.
+templateInput_required :: Lens.Lens' TemplateInput (Prelude.Maybe Prelude.Bool)
+templateInput_required = Lens.lens (\TemplateInput' {required} -> required) (\s@TemplateInput' {} a -> s {required = a} :: TemplateInput)
 
 instance Data.FromJSON TemplateInput where
   parseJSON =
@@ -78,19 +78,19 @@ instance Data.FromJSON TemplateInput where
       "TemplateInput"
       ( \x ->
           TemplateInput'
-            Prelude.<$> (x Data..:? "required")
+            Prelude.<$> (x Data..:? "dataType")
             Prelude.<*> (x Data..:? "inputName")
-            Prelude.<*> (x Data..:? "dataType")
+            Prelude.<*> (x Data..:? "required")
       )
 
 instance Prelude.Hashable TemplateInput where
   hashWithSalt _salt TemplateInput' {..} =
-    _salt `Prelude.hashWithSalt` required
+    _salt `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` inputName
-      `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` required
 
 instance Prelude.NFData TemplateInput where
   rnf TemplateInput' {..} =
-    Prelude.rnf required
+    Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf inputName
-      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf required

@@ -27,12 +27,12 @@ module Amazonka.MigrationHubOrchestrator.CreateWorkflowStep
     newCreateWorkflowStep,
 
     -- * Request Lenses
-    createWorkflowStep_next,
     createWorkflowStep_description,
-    createWorkflowStep_workflowStepAutomationConfiguration,
-    createWorkflowStep_stepTarget,
+    createWorkflowStep_next,
     createWorkflowStep_outputs,
     createWorkflowStep_previous,
+    createWorkflowStep_stepTarget,
+    createWorkflowStep_workflowStepAutomationConfiguration,
     createWorkflowStep_name,
     createWorkflowStep_stepGroupId,
     createWorkflowStep_workflowId,
@@ -43,10 +43,10 @@ module Amazonka.MigrationHubOrchestrator.CreateWorkflowStep
     newCreateWorkflowStepResponse,
 
     -- * Response Lenses
-    createWorkflowStepResponse_name,
-    createWorkflowStepResponse_workflowId,
     createWorkflowStepResponse_id,
+    createWorkflowStepResponse_name,
     createWorkflowStepResponse_stepGroupId,
+    createWorkflowStepResponse_workflowId,
     createWorkflowStepResponse_httpStatus,
   )
 where
@@ -61,18 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkflowStep' smart constructor.
 data CreateWorkflowStep = CreateWorkflowStep'
-  { -- | The next step.
-    next :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the step.
+  { -- | The description of the step.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The custom script to run tests on source or target environments.
-    workflowStepAutomationConfiguration :: Prelude.Maybe WorkflowStepAutomationConfiguration,
-    -- | The servers on which a step will be run.
-    stepTarget :: Prelude.Maybe [Prelude.Text],
+    -- | The next step.
+    next :: Prelude.Maybe [Prelude.Text],
     -- | The key value pairs added for the expected output.
     outputs :: Prelude.Maybe [WorkflowStepOutput],
     -- | The previous step.
     previous :: Prelude.Maybe [Prelude.Text],
+    -- | The servers on which a step will be run.
+    stepTarget :: Prelude.Maybe [Prelude.Text],
+    -- | The custom script to run tests on source or target environments.
+    workflowStepAutomationConfiguration :: Prelude.Maybe WorkflowStepAutomationConfiguration,
     -- | The name of the step.
     name :: Prelude.Text,
     -- | The ID of the step group.
@@ -94,17 +94,17 @@ data CreateWorkflowStep = CreateWorkflowStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'next', 'createWorkflowStep_next' - The next step.
---
 -- 'description', 'createWorkflowStep_description' - The description of the step.
 --
--- 'workflowStepAutomationConfiguration', 'createWorkflowStep_workflowStepAutomationConfiguration' - The custom script to run tests on source or target environments.
---
--- 'stepTarget', 'createWorkflowStep_stepTarget' - The servers on which a step will be run.
+-- 'next', 'createWorkflowStep_next' - The next step.
 --
 -- 'outputs', 'createWorkflowStep_outputs' - The key value pairs added for the expected output.
 --
 -- 'previous', 'createWorkflowStep_previous' - The previous step.
+--
+-- 'stepTarget', 'createWorkflowStep_stepTarget' - The servers on which a step will be run.
+--
+-- 'workflowStepAutomationConfiguration', 'createWorkflowStep_workflowStepAutomationConfiguration' - The custom script to run tests on source or target environments.
 --
 -- 'name', 'createWorkflowStep_name' - The name of the step.
 --
@@ -131,34 +131,26 @@ newCreateWorkflowStep
   pWorkflowId_
   pStepActionType_ =
     CreateWorkflowStep'
-      { next = Prelude.Nothing,
-        description = Prelude.Nothing,
-        workflowStepAutomationConfiguration =
-          Prelude.Nothing,
-        stepTarget = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        next = Prelude.Nothing,
         outputs = Prelude.Nothing,
         previous = Prelude.Nothing,
+        stepTarget = Prelude.Nothing,
+        workflowStepAutomationConfiguration =
+          Prelude.Nothing,
         name = pName_,
         stepGroupId = pStepGroupId_,
         workflowId = pWorkflowId_,
         stepActionType = pStepActionType_
       }
 
--- | The next step.
-createWorkflowStep_next :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [Prelude.Text])
-createWorkflowStep_next = Lens.lens (\CreateWorkflowStep' {next} -> next) (\s@CreateWorkflowStep' {} a -> s {next = a} :: CreateWorkflowStep) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the step.
 createWorkflowStep_description :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe Prelude.Text)
 createWorkflowStep_description = Lens.lens (\CreateWorkflowStep' {description} -> description) (\s@CreateWorkflowStep' {} a -> s {description = a} :: CreateWorkflowStep)
 
--- | The custom script to run tests on source or target environments.
-createWorkflowStep_workflowStepAutomationConfiguration :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe WorkflowStepAutomationConfiguration)
-createWorkflowStep_workflowStepAutomationConfiguration = Lens.lens (\CreateWorkflowStep' {workflowStepAutomationConfiguration} -> workflowStepAutomationConfiguration) (\s@CreateWorkflowStep' {} a -> s {workflowStepAutomationConfiguration = a} :: CreateWorkflowStep)
-
--- | The servers on which a step will be run.
-createWorkflowStep_stepTarget :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [Prelude.Text])
-createWorkflowStep_stepTarget = Lens.lens (\CreateWorkflowStep' {stepTarget} -> stepTarget) (\s@CreateWorkflowStep' {} a -> s {stepTarget = a} :: CreateWorkflowStep) Prelude.. Lens.mapping Lens.coerced
+-- | The next step.
+createWorkflowStep_next :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [Prelude.Text])
+createWorkflowStep_next = Lens.lens (\CreateWorkflowStep' {next} -> next) (\s@CreateWorkflowStep' {} a -> s {next = a} :: CreateWorkflowStep) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key value pairs added for the expected output.
 createWorkflowStep_outputs :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [WorkflowStepOutput])
@@ -167,6 +159,14 @@ createWorkflowStep_outputs = Lens.lens (\CreateWorkflowStep' {outputs} -> output
 -- | The previous step.
 createWorkflowStep_previous :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [Prelude.Text])
 createWorkflowStep_previous = Lens.lens (\CreateWorkflowStep' {previous} -> previous) (\s@CreateWorkflowStep' {} a -> s {previous = a} :: CreateWorkflowStep) Prelude.. Lens.mapping Lens.coerced
+
+-- | The servers on which a step will be run.
+createWorkflowStep_stepTarget :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe [Prelude.Text])
+createWorkflowStep_stepTarget = Lens.lens (\CreateWorkflowStep' {stepTarget} -> stepTarget) (\s@CreateWorkflowStep' {} a -> s {stepTarget = a} :: CreateWorkflowStep) Prelude.. Lens.mapping Lens.coerced
+
+-- | The custom script to run tests on source or target environments.
+createWorkflowStep_workflowStepAutomationConfiguration :: Lens.Lens' CreateWorkflowStep (Prelude.Maybe WorkflowStepAutomationConfiguration)
+createWorkflowStep_workflowStepAutomationConfiguration = Lens.lens (\CreateWorkflowStep' {workflowStepAutomationConfiguration} -> workflowStepAutomationConfiguration) (\s@CreateWorkflowStep' {} a -> s {workflowStepAutomationConfiguration = a} :: CreateWorkflowStep)
 
 -- | The name of the step.
 createWorkflowStep_name :: Lens.Lens' CreateWorkflowStep Prelude.Text
@@ -196,21 +196,21 @@ instance Core.AWSRequest CreateWorkflowStep where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkflowStepResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "workflowId")
-            Prelude.<*> (x Data..?> "id")
+            Prelude.<$> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "stepGroupId")
+            Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateWorkflowStep where
   hashWithSalt _salt CreateWorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` next
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` workflowStepAutomationConfiguration
-      `Prelude.hashWithSalt` stepTarget
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` previous
+      `Prelude.hashWithSalt` stepTarget
+      `Prelude.hashWithSalt` workflowStepAutomationConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stepGroupId
       `Prelude.hashWithSalt` workflowId
@@ -218,12 +218,12 @@ instance Prelude.Hashable CreateWorkflowStep where
 
 instance Prelude.NFData CreateWorkflowStep where
   rnf CreateWorkflowStep' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf workflowStepAutomationConfiguration
-      `Prelude.seq` Prelude.rnf stepTarget
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf next
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf previous
+      `Prelude.seq` Prelude.rnf stepTarget
+      `Prelude.seq` Prelude.rnf workflowStepAutomationConfiguration
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stepGroupId
       `Prelude.seq` Prelude.rnf workflowId
@@ -244,13 +244,13 @@ instance Data.ToJSON CreateWorkflowStep where
   toJSON CreateWorkflowStep' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("next" Data..=) Prelude.<$> next,
-            ("description" Data..=) Prelude.<$> description,
-            ("workflowStepAutomationConfiguration" Data..=)
-              Prelude.<$> workflowStepAutomationConfiguration,
-            ("stepTarget" Data..=) Prelude.<$> stepTarget,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("next" Data..=) Prelude.<$> next,
             ("outputs" Data..=) Prelude.<$> outputs,
             ("previous" Data..=) Prelude.<$> previous,
+            ("stepTarget" Data..=) Prelude.<$> stepTarget,
+            ("workflowStepAutomationConfiguration" Data..=)
+              Prelude.<$> workflowStepAutomationConfiguration,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("stepGroupId" Data..= stepGroupId),
             Prelude.Just ("workflowId" Data..= workflowId),
@@ -267,14 +267,14 @@ instance Data.ToQuery CreateWorkflowStep where
 
 -- | /See:/ 'newCreateWorkflowStepResponse' smart constructor.
 data CreateWorkflowStepResponse = CreateWorkflowStepResponse'
-  { -- | The name of the step.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the migration workflow.
-    workflowId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the step.
+  { -- | The ID of the step.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the step.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the step group.
     stepGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the migration workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -288,13 +288,13 @@ data CreateWorkflowStepResponse = CreateWorkflowStepResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createWorkflowStepResponse_name' - The name of the step.
---
--- 'workflowId', 'createWorkflowStepResponse_workflowId' - The ID of the migration workflow.
---
 -- 'id', 'createWorkflowStepResponse_id' - The ID of the step.
 --
+-- 'name', 'createWorkflowStepResponse_name' - The name of the step.
+--
 -- 'stepGroupId', 'createWorkflowStepResponse_stepGroupId' - The ID of the step group.
+--
+-- 'workflowId', 'createWorkflowStepResponse_workflowId' - The ID of the migration workflow.
 --
 -- 'httpStatus', 'createWorkflowStepResponse_httpStatus' - The response's http status code.
 newCreateWorkflowStepResponse ::
@@ -303,28 +303,28 @@ newCreateWorkflowStepResponse ::
   CreateWorkflowStepResponse
 newCreateWorkflowStepResponse pHttpStatus_ =
   CreateWorkflowStepResponse'
-    { name = Prelude.Nothing,
-      workflowId = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
       stepGroupId = Prelude.Nothing,
+      workflowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the step.
-createWorkflowStepResponse_name :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
-createWorkflowStepResponse_name = Lens.lens (\CreateWorkflowStepResponse' {name} -> name) (\s@CreateWorkflowStepResponse' {} a -> s {name = a} :: CreateWorkflowStepResponse)
-
--- | The ID of the migration workflow.
-createWorkflowStepResponse_workflowId :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
-createWorkflowStepResponse_workflowId = Lens.lens (\CreateWorkflowStepResponse' {workflowId} -> workflowId) (\s@CreateWorkflowStepResponse' {} a -> s {workflowId = a} :: CreateWorkflowStepResponse)
 
 -- | The ID of the step.
 createWorkflowStepResponse_id :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
 createWorkflowStepResponse_id = Lens.lens (\CreateWorkflowStepResponse' {id} -> id) (\s@CreateWorkflowStepResponse' {} a -> s {id = a} :: CreateWorkflowStepResponse)
 
+-- | The name of the step.
+createWorkflowStepResponse_name :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
+createWorkflowStepResponse_name = Lens.lens (\CreateWorkflowStepResponse' {name} -> name) (\s@CreateWorkflowStepResponse' {} a -> s {name = a} :: CreateWorkflowStepResponse)
+
 -- | The ID of the step group.
 createWorkflowStepResponse_stepGroupId :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
 createWorkflowStepResponse_stepGroupId = Lens.lens (\CreateWorkflowStepResponse' {stepGroupId} -> stepGroupId) (\s@CreateWorkflowStepResponse' {} a -> s {stepGroupId = a} :: CreateWorkflowStepResponse)
+
+-- | The ID of the migration workflow.
+createWorkflowStepResponse_workflowId :: Lens.Lens' CreateWorkflowStepResponse (Prelude.Maybe Prelude.Text)
+createWorkflowStepResponse_workflowId = Lens.lens (\CreateWorkflowStepResponse' {workflowId} -> workflowId) (\s@CreateWorkflowStepResponse' {} a -> s {workflowId = a} :: CreateWorkflowStepResponse)
 
 -- | The response's http status code.
 createWorkflowStepResponse_httpStatus :: Lens.Lens' CreateWorkflowStepResponse Prelude.Int
@@ -332,8 +332,8 @@ createWorkflowStepResponse_httpStatus = Lens.lens (\CreateWorkflowStepResponse' 
 
 instance Prelude.NFData CreateWorkflowStepResponse where
   rnf CreateWorkflowStepResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stepGroupId
+      `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf httpStatus

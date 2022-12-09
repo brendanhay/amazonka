@@ -58,46 +58,46 @@ module Amazonka.MigrationHubOrchestrator.Types
     MigrationWorkflowSummary (..),
     newMigrationWorkflowSummary,
     migrationWorkflowSummary_adsApplicationConfigurationName,
-    migrationWorkflowSummary_name,
-    migrationWorkflowSummary_status,
-    migrationWorkflowSummary_templateId,
-    migrationWorkflowSummary_endTime,
-    migrationWorkflowSummary_id,
     migrationWorkflowSummary_completedSteps,
     migrationWorkflowSummary_creationTime,
+    migrationWorkflowSummary_endTime,
+    migrationWorkflowSummary_id,
+    migrationWorkflowSummary_name,
+    migrationWorkflowSummary_status,
     migrationWorkflowSummary_statusMessage,
+    migrationWorkflowSummary_templateId,
     migrationWorkflowSummary_totalSteps,
 
     -- * PlatformCommand
     PlatformCommand (..),
     newPlatformCommand,
-    platformCommand_windows,
     platformCommand_linux,
+    platformCommand_windows,
 
     -- * PlatformScriptKey
     PlatformScriptKey (..),
     newPlatformScriptKey,
-    platformScriptKey_windows,
     platformScriptKey_linux,
+    platformScriptKey_windows,
 
     -- * PluginSummary
     PluginSummary (..),
     newPluginSummary,
-    pluginSummary_pluginId,
-    pluginSummary_status,
     pluginSummary_hostname,
-    pluginSummary_registeredTime,
-    pluginSummary_version,
     pluginSummary_ipAddress,
+    pluginSummary_pluginId,
+    pluginSummary_registeredTime,
+    pluginSummary_status,
+    pluginSummary_version,
 
     -- * StepAutomationConfiguration
     StepAutomationConfiguration (..),
     newStepAutomationConfiguration,
     stepAutomationConfiguration_command,
-    stepAutomationConfiguration_targetType,
-    stepAutomationConfiguration_scriptLocationS3Key,
-    stepAutomationConfiguration_scriptLocationS3Bucket,
     stepAutomationConfiguration_runEnvironment,
+    stepAutomationConfiguration_scriptLocationS3Bucket,
+    stepAutomationConfiguration_scriptLocationS3Key,
+    stepAutomationConfiguration_targetType,
 
     -- * StepInput
     StepInput (..),
@@ -110,45 +110,45 @@ module Amazonka.MigrationHubOrchestrator.Types
     -- * StepOutput
     StepOutput (..),
     newStepOutput,
+    stepOutput_dataType,
     stepOutput_name,
     stepOutput_required,
-    stepOutput_dataType,
 
     -- * TemplateInput
     TemplateInput (..),
     newTemplateInput,
-    templateInput_required,
-    templateInput_inputName,
     templateInput_dataType,
+    templateInput_inputName,
+    templateInput_required,
 
     -- * TemplateStepGroupSummary
     TemplateStepGroupSummary (..),
     newTemplateStepGroupSummary,
+    templateStepGroupSummary_id,
     templateStepGroupSummary_name,
     templateStepGroupSummary_next,
-    templateStepGroupSummary_id,
     templateStepGroupSummary_previous,
 
     -- * TemplateStepSummary
     TemplateStepSummary (..),
     newTemplateStepSummary,
+    templateStepSummary_id,
     templateStepSummary_name,
     templateStepSummary_next,
     templateStepSummary_owner,
-    templateStepSummary_stepActionType,
-    templateStepSummary_templateId,
-    templateStepSummary_id,
-    templateStepSummary_targetType,
-    templateStepSummary_stepGroupId,
     templateStepSummary_previous,
+    templateStepSummary_stepActionType,
+    templateStepSummary_stepGroupId,
+    templateStepSummary_targetType,
+    templateStepSummary_templateId,
 
     -- * TemplateSummary
     TemplateSummary (..),
     newTemplateSummary,
-    templateSummary_name,
     templateSummary_arn,
     templateSummary_description,
     templateSummary_id,
+    templateSummary_name,
 
     -- * Tool
     Tool (..),
@@ -160,28 +160,28 @@ module Amazonka.MigrationHubOrchestrator.Types
     WorkflowStepAutomationConfiguration (..),
     newWorkflowStepAutomationConfiguration,
     workflowStepAutomationConfiguration_command,
-    workflowStepAutomationConfiguration_targetType,
-    workflowStepAutomationConfiguration_scriptLocationS3Key,
-    workflowStepAutomationConfiguration_scriptLocationS3Bucket,
     workflowStepAutomationConfiguration_runEnvironment,
+    workflowStepAutomationConfiguration_scriptLocationS3Bucket,
+    workflowStepAutomationConfiguration_scriptLocationS3Key,
+    workflowStepAutomationConfiguration_targetType,
 
     -- * WorkflowStepGroupSummary
     WorkflowStepGroupSummary (..),
     newWorkflowStepGroupSummary,
+    workflowStepGroupSummary_id,
     workflowStepGroupSummary_name,
     workflowStepGroupSummary_next,
-    workflowStepGroupSummary_status,
     workflowStepGroupSummary_owner,
-    workflowStepGroupSummary_id,
     workflowStepGroupSummary_previous,
+    workflowStepGroupSummary_status,
 
     -- * WorkflowStepOutput
     WorkflowStepOutput (..),
     newWorkflowStepOutput,
+    workflowStepOutput_dataType,
     workflowStepOutput_name,
     workflowStepOutput_required,
     workflowStepOutput_value,
-    workflowStepOutput_dataType,
 
     -- * WorkflowStepOutputUnion
     WorkflowStepOutputUnion (..),
@@ -193,18 +193,18 @@ module Amazonka.MigrationHubOrchestrator.Types
     -- * WorkflowStepSummary
     WorkflowStepSummary (..),
     newWorkflowStepSummary,
-    workflowStepSummary_name,
-    workflowStepSummary_scriptLocation,
-    workflowStepSummary_noOfSrvFailed,
-    workflowStepSummary_next,
-    workflowStepSummary_status,
-    workflowStepSummary_owner,
-    workflowStepSummary_noOfSrvCompleted,
-    workflowStepSummary_stepActionType,
     workflowStepSummary_description,
-    workflowStepSummary_statusMessage,
-    workflowStepSummary_stepId,
+    workflowStepSummary_name,
+    workflowStepSummary_next,
+    workflowStepSummary_noOfSrvCompleted,
+    workflowStepSummary_noOfSrvFailed,
+    workflowStepSummary_owner,
     workflowStepSummary_previous,
+    workflowStepSummary_scriptLocation,
+    workflowStepSummary_status,
+    workflowStepSummary_statusMessage,
+    workflowStepSummary_stepActionType,
+    workflowStepSummary_stepId,
     workflowStepSummary_totalNoOfSrv,
   )
 where
@@ -268,28 +268,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -297,13 +291,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -311,6 +309,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.

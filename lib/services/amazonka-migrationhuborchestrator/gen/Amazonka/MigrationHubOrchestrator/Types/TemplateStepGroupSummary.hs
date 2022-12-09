@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateStepGroupSummary' smart constructor.
 data TemplateStepGroupSummary = TemplateStepGroupSummary'
-  { -- | The name of the step group.
+  { -- | The ID of the step group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the step group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next step group.
     next :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the step group.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text]
   }
@@ -47,22 +47,26 @@ data TemplateStepGroupSummary = TemplateStepGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'id', 'templateStepGroupSummary_id' - The ID of the step group.
+--
 -- 'name', 'templateStepGroupSummary_name' - The name of the step group.
 --
 -- 'next', 'templateStepGroupSummary_next' - The next step group.
---
--- 'id', 'templateStepGroupSummary_id' - The ID of the step group.
 --
 -- 'previous', 'templateStepGroupSummary_previous' - The previous step group.
 newTemplateStepGroupSummary ::
   TemplateStepGroupSummary
 newTemplateStepGroupSummary =
   TemplateStepGroupSummary'
-    { name = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
       next = Prelude.Nothing,
-      id = Prelude.Nothing,
       previous = Prelude.Nothing
     }
+
+-- | The ID of the step group.
+templateStepGroupSummary_id :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe Prelude.Text)
+templateStepGroupSummary_id = Lens.lens (\TemplateStepGroupSummary' {id} -> id) (\s@TemplateStepGroupSummary' {} a -> s {id = a} :: TemplateStepGroupSummary)
 
 -- | The name of the step group.
 templateStepGroupSummary_name :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe Prelude.Text)
@@ -71,10 +75,6 @@ templateStepGroupSummary_name = Lens.lens (\TemplateStepGroupSummary' {name} -> 
 -- | The next step group.
 templateStepGroupSummary_next :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe [Prelude.Text])
 templateStepGroupSummary_next = Lens.lens (\TemplateStepGroupSummary' {next} -> next) (\s@TemplateStepGroupSummary' {} a -> s {next = a} :: TemplateStepGroupSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the step group.
-templateStepGroupSummary_id :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe Prelude.Text)
-templateStepGroupSummary_id = Lens.lens (\TemplateStepGroupSummary' {id} -> id) (\s@TemplateStepGroupSummary' {} a -> s {id = a} :: TemplateStepGroupSummary)
 
 -- | The previous step group.
 templateStepGroupSummary_previous :: Lens.Lens' TemplateStepGroupSummary (Prelude.Maybe [Prelude.Text])
@@ -86,22 +86,22 @@ instance Data.FromJSON TemplateStepGroupSummary where
       "TemplateStepGroupSummary"
       ( \x ->
           TemplateStepGroupSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TemplateStepGroupSummary where
   hashWithSalt _salt TemplateStepGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` previous
 
 instance Prelude.NFData TemplateStepGroupSummary where
   rnf TemplateStepGroupSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf previous

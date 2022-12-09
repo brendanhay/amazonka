@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkflowStepGroupSummary' smart constructor.
 data WorkflowStepGroupSummary = WorkflowStepGroupSummary'
-  { -- | The name of the step group.
+  { -- | The ID of the step group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the step group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next step group.
     next :: Prelude.Maybe [Prelude.Text],
-    -- | The status of the step group.
-    status :: Prelude.Maybe StepGroupStatus,
     -- | The owner of the step group.
     owner :: Prelude.Maybe Owner,
-    -- | The ID of the step group.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The previous step group.
-    previous :: Prelude.Maybe [Prelude.Text]
+    previous :: Prelude.Maybe [Prelude.Text],
+    -- | The status of the step group.
+    status :: Prelude.Maybe StepGroupStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,28 +53,32 @@ data WorkflowStepGroupSummary = WorkflowStepGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'id', 'workflowStepGroupSummary_id' - The ID of the step group.
+--
 -- 'name', 'workflowStepGroupSummary_name' - The name of the step group.
 --
 -- 'next', 'workflowStepGroupSummary_next' - The next step group.
 --
--- 'status', 'workflowStepGroupSummary_status' - The status of the step group.
---
 -- 'owner', 'workflowStepGroupSummary_owner' - The owner of the step group.
 --
--- 'id', 'workflowStepGroupSummary_id' - The ID of the step group.
---
 -- 'previous', 'workflowStepGroupSummary_previous' - The previous step group.
+--
+-- 'status', 'workflowStepGroupSummary_status' - The status of the step group.
 newWorkflowStepGroupSummary ::
   WorkflowStepGroupSummary
 newWorkflowStepGroupSummary =
   WorkflowStepGroupSummary'
-    { name = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing,
       next = Prelude.Nothing,
-      status = Prelude.Nothing,
       owner = Prelude.Nothing,
-      id = Prelude.Nothing,
-      previous = Prelude.Nothing
+      previous = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The ID of the step group.
+workflowStepGroupSummary_id :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe Prelude.Text)
+workflowStepGroupSummary_id = Lens.lens (\WorkflowStepGroupSummary' {id} -> id) (\s@WorkflowStepGroupSummary' {} a -> s {id = a} :: WorkflowStepGroupSummary)
 
 -- | The name of the step group.
 workflowStepGroupSummary_name :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe Prelude.Text)
@@ -84,21 +88,17 @@ workflowStepGroupSummary_name = Lens.lens (\WorkflowStepGroupSummary' {name} -> 
 workflowStepGroupSummary_next :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe [Prelude.Text])
 workflowStepGroupSummary_next = Lens.lens (\WorkflowStepGroupSummary' {next} -> next) (\s@WorkflowStepGroupSummary' {} a -> s {next = a} :: WorkflowStepGroupSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the step group.
-workflowStepGroupSummary_status :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe StepGroupStatus)
-workflowStepGroupSummary_status = Lens.lens (\WorkflowStepGroupSummary' {status} -> status) (\s@WorkflowStepGroupSummary' {} a -> s {status = a} :: WorkflowStepGroupSummary)
-
 -- | The owner of the step group.
 workflowStepGroupSummary_owner :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe Owner)
 workflowStepGroupSummary_owner = Lens.lens (\WorkflowStepGroupSummary' {owner} -> owner) (\s@WorkflowStepGroupSummary' {} a -> s {owner = a} :: WorkflowStepGroupSummary)
 
--- | The ID of the step group.
-workflowStepGroupSummary_id :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe Prelude.Text)
-workflowStepGroupSummary_id = Lens.lens (\WorkflowStepGroupSummary' {id} -> id) (\s@WorkflowStepGroupSummary' {} a -> s {id = a} :: WorkflowStepGroupSummary)
-
 -- | The previous step group.
 workflowStepGroupSummary_previous :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe [Prelude.Text])
 workflowStepGroupSummary_previous = Lens.lens (\WorkflowStepGroupSummary' {previous} -> previous) (\s@WorkflowStepGroupSummary' {} a -> s {previous = a} :: WorkflowStepGroupSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the step group.
+workflowStepGroupSummary_status :: Lens.Lens' WorkflowStepGroupSummary (Prelude.Maybe StepGroupStatus)
+workflowStepGroupSummary_status = Lens.lens (\WorkflowStepGroupSummary' {status} -> status) (\s@WorkflowStepGroupSummary' {} a -> s {status = a} :: WorkflowStepGroupSummary)
 
 instance Data.FromJSON WorkflowStepGroupSummary where
   parseJSON =
@@ -106,28 +106,28 @@ instance Data.FromJSON WorkflowStepGroupSummary where
       "WorkflowStepGroupSummary"
       ( \x ->
           WorkflowStepGroupSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "next" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "owner")
-            Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "previous" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable WorkflowStepGroupSummary where
   hashWithSalt _salt WorkflowStepGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` previous
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData WorkflowStepGroupSummary where
   rnf WorkflowStepGroupSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf previous
+      `Prelude.seq` Prelude.rnf status

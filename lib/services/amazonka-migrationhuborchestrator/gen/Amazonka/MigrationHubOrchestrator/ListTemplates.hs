@@ -30,9 +30,9 @@ module Amazonka.MigrationHubOrchestrator.ListTemplates
     newListTemplates,
 
     -- * Request Lenses
+    listTemplates_maxResults,
     listTemplates_name,
     listTemplates_nextToken,
-    listTemplates_maxResults,
 
     -- * Destructuring the Response
     ListTemplatesResponse (..),
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { -- | The name of the template.
+  { -- | The maximum number of results that can be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the template.
     name :: Prelude.Maybe Prelude.Text,
     -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that can be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,19 +72,23 @@ data ListTemplates = ListTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTemplates_maxResults' - The maximum number of results that can be returned.
+--
 -- 'name', 'listTemplates_name' - The name of the template.
 --
 -- 'nextToken', 'listTemplates_nextToken' - The pagination token.
---
--- 'maxResults', 'listTemplates_maxResults' - The maximum number of results that can be returned.
 newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results that can be returned.
+listTemplates_maxResults :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Natural)
+listTemplates_maxResults = Lens.lens (\ListTemplates' {maxResults} -> maxResults) (\s@ListTemplates' {} a -> s {maxResults = a} :: ListTemplates)
 
 -- | The name of the template.
 listTemplates_name :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
@@ -93,10 +97,6 @@ listTemplates_name = Lens.lens (\ListTemplates' {name} -> name) (\s@ListTemplate
 -- | The pagination token.
 listTemplates_nextToken :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (\s@ListTemplates' {} a -> s {nextToken = a} :: ListTemplates)
-
--- | The maximum number of results that can be returned.
-listTemplates_maxResults :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Natural)
-listTemplates_maxResults = Lens.lens (\ListTemplates' {maxResults} -> maxResults) (\s@ListTemplates' {} a -> s {maxResults = a} :: ListTemplates)
 
 instance Core.AWSPager ListTemplates where
   page rq rs
@@ -134,15 +134,15 @@ instance Core.AWSRequest ListTemplates where
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListTemplates where
   rnf ListTemplates' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListTemplates where
   toHeaders =
@@ -161,9 +161,9 @@ instance Data.ToPath ListTemplates where
 instance Data.ToQuery ListTemplates where
   toQuery ListTemplates' {..} =
     Prelude.mconcat
-      [ "name" Data.=: name,
-        "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "name" Data.=: name,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.

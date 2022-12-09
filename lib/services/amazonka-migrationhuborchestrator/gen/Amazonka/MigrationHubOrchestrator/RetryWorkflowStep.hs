@@ -36,10 +36,10 @@ module Amazonka.MigrationHubOrchestrator.RetryWorkflowStep
     newRetryWorkflowStepResponse,
 
     -- * Response Lenses
-    retryWorkflowStepResponse_workflowId,
-    retryWorkflowStepResponse_status,
     retryWorkflowStepResponse_id,
+    retryWorkflowStepResponse_status,
     retryWorkflowStepResponse_stepGroupId,
+    retryWorkflowStepResponse_workflowId,
     retryWorkflowStepResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest RetryWorkflowStep where
     Response.receiveJSON
       ( \s h x ->
           RetryWorkflowStepResponse'
-            Prelude.<$> (x Data..?> "workflowId")
+            Prelude.<$> (x Data..?> "id")
             Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "stepGroupId")
+            Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,14 +160,14 @@ instance Data.ToQuery RetryWorkflowStep where
 
 -- | /See:/ 'newRetryWorkflowStepResponse' smart constructor.
 data RetryWorkflowStepResponse = RetryWorkflowStepResponse'
-  { -- | The ID of the migration workflow.
-    workflowId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the step.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The status of the step.
     status :: Prelude.Maybe StepStatus,
-    -- | The ID of the step.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the step group.
     stepGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the migration workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,13 +181,13 @@ data RetryWorkflowStepResponse = RetryWorkflowStepResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workflowId', 'retryWorkflowStepResponse_workflowId' - The ID of the migration workflow.
+-- 'id', 'retryWorkflowStepResponse_id' - The ID of the step.
 --
 -- 'status', 'retryWorkflowStepResponse_status' - The status of the step.
 --
--- 'id', 'retryWorkflowStepResponse_id' - The ID of the step.
---
 -- 'stepGroupId', 'retryWorkflowStepResponse_stepGroupId' - The ID of the step group.
+--
+-- 'workflowId', 'retryWorkflowStepResponse_workflowId' - The ID of the migration workflow.
 --
 -- 'httpStatus', 'retryWorkflowStepResponse_httpStatus' - The response's http status code.
 newRetryWorkflowStepResponse ::
@@ -196,29 +196,28 @@ newRetryWorkflowStepResponse ::
   RetryWorkflowStepResponse
 newRetryWorkflowStepResponse pHttpStatus_ =
   RetryWorkflowStepResponse'
-    { workflowId =
-        Prelude.Nothing,
+    { id = Prelude.Nothing,
       status = Prelude.Nothing,
-      id = Prelude.Nothing,
       stepGroupId = Prelude.Nothing,
+      workflowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the migration workflow.
-retryWorkflowStepResponse_workflowId :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe Prelude.Text)
-retryWorkflowStepResponse_workflowId = Lens.lens (\RetryWorkflowStepResponse' {workflowId} -> workflowId) (\s@RetryWorkflowStepResponse' {} a -> s {workflowId = a} :: RetryWorkflowStepResponse)
-
--- | The status of the step.
-retryWorkflowStepResponse_status :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe StepStatus)
-retryWorkflowStepResponse_status = Lens.lens (\RetryWorkflowStepResponse' {status} -> status) (\s@RetryWorkflowStepResponse' {} a -> s {status = a} :: RetryWorkflowStepResponse)
 
 -- | The ID of the step.
 retryWorkflowStepResponse_id :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe Prelude.Text)
 retryWorkflowStepResponse_id = Lens.lens (\RetryWorkflowStepResponse' {id} -> id) (\s@RetryWorkflowStepResponse' {} a -> s {id = a} :: RetryWorkflowStepResponse)
 
+-- | The status of the step.
+retryWorkflowStepResponse_status :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe StepStatus)
+retryWorkflowStepResponse_status = Lens.lens (\RetryWorkflowStepResponse' {status} -> status) (\s@RetryWorkflowStepResponse' {} a -> s {status = a} :: RetryWorkflowStepResponse)
+
 -- | The ID of the step group.
 retryWorkflowStepResponse_stepGroupId :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe Prelude.Text)
 retryWorkflowStepResponse_stepGroupId = Lens.lens (\RetryWorkflowStepResponse' {stepGroupId} -> stepGroupId) (\s@RetryWorkflowStepResponse' {} a -> s {stepGroupId = a} :: RetryWorkflowStepResponse)
+
+-- | The ID of the migration workflow.
+retryWorkflowStepResponse_workflowId :: Lens.Lens' RetryWorkflowStepResponse (Prelude.Maybe Prelude.Text)
+retryWorkflowStepResponse_workflowId = Lens.lens (\RetryWorkflowStepResponse' {workflowId} -> workflowId) (\s@RetryWorkflowStepResponse' {} a -> s {workflowId = a} :: RetryWorkflowStepResponse)
 
 -- | The response's http status code.
 retryWorkflowStepResponse_httpStatus :: Lens.Lens' RetryWorkflowStepResponse Prelude.Int
@@ -226,8 +225,8 @@ retryWorkflowStepResponse_httpStatus = Lens.lens (\RetryWorkflowStepResponse' {h
 
 instance Prelude.NFData RetryWorkflowStepResponse where
   rnf RetryWorkflowStepResponse' {..} =
-    Prelude.rnf workflowId
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf stepGroupId
+      `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf httpStatus

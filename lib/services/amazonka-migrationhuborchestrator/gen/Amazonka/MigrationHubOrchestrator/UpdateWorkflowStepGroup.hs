@@ -27,9 +27,9 @@ module Amazonka.MigrationHubOrchestrator.UpdateWorkflowStepGroup
     newUpdateWorkflowStepGroup,
 
     -- * Request Lenses
+    updateWorkflowStepGroup_description,
     updateWorkflowStepGroup_name,
     updateWorkflowStepGroup_next,
-    updateWorkflowStepGroup_description,
     updateWorkflowStepGroup_previous,
     updateWorkflowStepGroup_workflowId,
     updateWorkflowStepGroup_id,
@@ -39,14 +39,14 @@ module Amazonka.MigrationHubOrchestrator.UpdateWorkflowStepGroup
     newUpdateWorkflowStepGroupResponse,
 
     -- * Response Lenses
-    updateWorkflowStepGroupResponse_name,
-    updateWorkflowStepGroupResponse_workflowId,
-    updateWorkflowStepGroupResponse_tools,
-    updateWorkflowStepGroupResponse_next,
     updateWorkflowStepGroupResponse_description,
     updateWorkflowStepGroupResponse_id,
     updateWorkflowStepGroupResponse_lastModifiedTime,
+    updateWorkflowStepGroupResponse_name,
+    updateWorkflowStepGroupResponse_next,
     updateWorkflowStepGroupResponse_previous,
+    updateWorkflowStepGroupResponse_tools,
+    updateWorkflowStepGroupResponse_workflowId,
     updateWorkflowStepGroupResponse_httpStatus,
   )
 where
@@ -61,12 +61,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkflowStepGroup' smart constructor.
 data UpdateWorkflowStepGroup = UpdateWorkflowStepGroup'
-  { -- | The name of the step group.
+  { -- | The description of the step group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the step group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next step group.
     next :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the step group.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the migration workflow.
@@ -84,11 +84,11 @@ data UpdateWorkflowStepGroup = UpdateWorkflowStepGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateWorkflowStepGroup_description' - The description of the step group.
+--
 -- 'name', 'updateWorkflowStepGroup_name' - The name of the step group.
 --
 -- 'next', 'updateWorkflowStepGroup_next' - The next step group.
---
--- 'description', 'updateWorkflowStepGroup_description' - The description of the step group.
 --
 -- 'previous', 'updateWorkflowStepGroup_previous' - The previous step group.
 --
@@ -103,13 +103,18 @@ newUpdateWorkflowStepGroup ::
   UpdateWorkflowStepGroup
 newUpdateWorkflowStepGroup pWorkflowId_ pId_ =
   UpdateWorkflowStepGroup'
-    { name = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       next = Prelude.Nothing,
-      description = Prelude.Nothing,
       previous = Prelude.Nothing,
       workflowId = pWorkflowId_,
       id = pId_
     }
+
+-- | The description of the step group.
+updateWorkflowStepGroup_description :: Lens.Lens' UpdateWorkflowStepGroup (Prelude.Maybe Prelude.Text)
+updateWorkflowStepGroup_description = Lens.lens (\UpdateWorkflowStepGroup' {description} -> description) (\s@UpdateWorkflowStepGroup' {} a -> s {description = a} :: UpdateWorkflowStepGroup)
 
 -- | The name of the step group.
 updateWorkflowStepGroup_name :: Lens.Lens' UpdateWorkflowStepGroup (Prelude.Maybe Prelude.Text)
@@ -118,10 +123,6 @@ updateWorkflowStepGroup_name = Lens.lens (\UpdateWorkflowStepGroup' {name} -> na
 -- | The next step group.
 updateWorkflowStepGroup_next :: Lens.Lens' UpdateWorkflowStepGroup (Prelude.Maybe [Prelude.Text])
 updateWorkflowStepGroup_next = Lens.lens (\UpdateWorkflowStepGroup' {next} -> next) (\s@UpdateWorkflowStepGroup' {} a -> s {next = a} :: UpdateWorkflowStepGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the step group.
-updateWorkflowStepGroup_description :: Lens.Lens' UpdateWorkflowStepGroup (Prelude.Maybe Prelude.Text)
-updateWorkflowStepGroup_description = Lens.lens (\UpdateWorkflowStepGroup' {description} -> description) (\s@UpdateWorkflowStepGroup' {} a -> s {description = a} :: UpdateWorkflowStepGroup)
 
 -- | The previous step group.
 updateWorkflowStepGroup_previous :: Lens.Lens' UpdateWorkflowStepGroup (Prelude.Maybe [Prelude.Text])
@@ -145,31 +146,31 @@ instance Core.AWSRequest UpdateWorkflowStepGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateWorkflowStepGroupResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "workflowId")
-            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateWorkflowStepGroup where
   hashWithSalt _salt UpdateWorkflowStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` previous
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWorkflowStepGroup where
   rnf UpdateWorkflowStepGroup' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf previous
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf id
@@ -189,9 +190,9 @@ instance Data.ToJSON UpdateWorkflowStepGroup where
   toJSON UpdateWorkflowStepGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name,
             ("next" Data..=) Prelude.<$> next,
-            ("description" Data..=) Prelude.<$> description,
             ("previous" Data..=) Prelude.<$> previous
           ]
       )
@@ -207,22 +208,22 @@ instance Data.ToQuery UpdateWorkflowStepGroup where
 
 -- | /See:/ 'newUpdateWorkflowStepGroupResponse' smart constructor.
 data UpdateWorkflowStepGroupResponse = UpdateWorkflowStepGroupResponse'
-  { -- | The name of the step group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the migration workflow.
-    workflowId :: Prelude.Maybe Prelude.Text,
-    -- | List of AWS services utilized in a migration workflow.
-    tools :: Prelude.Maybe [Tool],
-    -- | The next step group.
-    next :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the step group.
+  { -- | The description of the step group.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the step group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the step group was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the step group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The next step group.
+    next :: Prelude.Maybe [Prelude.Text],
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
+    -- | List of AWS services utilized in a migration workflow.
+    tools :: Prelude.Maybe [Tool],
+    -- | The ID of the migration workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,21 +237,21 @@ data UpdateWorkflowStepGroupResponse = UpdateWorkflowStepGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateWorkflowStepGroupResponse_name' - The name of the step group.
---
--- 'workflowId', 'updateWorkflowStepGroupResponse_workflowId' - The ID of the migration workflow.
---
--- 'tools', 'updateWorkflowStepGroupResponse_tools' - List of AWS services utilized in a migration workflow.
---
--- 'next', 'updateWorkflowStepGroupResponse_next' - The next step group.
---
 -- 'description', 'updateWorkflowStepGroupResponse_description' - The description of the step group.
 --
 -- 'id', 'updateWorkflowStepGroupResponse_id' - The ID of the step group.
 --
 -- 'lastModifiedTime', 'updateWorkflowStepGroupResponse_lastModifiedTime' - The time at which the step group was last modified.
 --
+-- 'name', 'updateWorkflowStepGroupResponse_name' - The name of the step group.
+--
+-- 'next', 'updateWorkflowStepGroupResponse_next' - The next step group.
+--
 -- 'previous', 'updateWorkflowStepGroupResponse_previous' - The previous step group.
+--
+-- 'tools', 'updateWorkflowStepGroupResponse_tools' - List of AWS services utilized in a migration workflow.
+--
+-- 'workflowId', 'updateWorkflowStepGroupResponse_workflowId' - The ID of the migration workflow.
 --
 -- 'httpStatus', 'updateWorkflowStepGroupResponse_httpStatus' - The response's http status code.
 newUpdateWorkflowStepGroupResponse ::
@@ -259,33 +260,17 @@ newUpdateWorkflowStepGroupResponse ::
   UpdateWorkflowStepGroupResponse
 newUpdateWorkflowStepGroupResponse pHttpStatus_ =
   UpdateWorkflowStepGroupResponse'
-    { name =
+    { description =
         Prelude.Nothing,
-      workflowId = Prelude.Nothing,
-      tools = Prelude.Nothing,
-      next = Prelude.Nothing,
-      description = Prelude.Nothing,
       id = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      next = Prelude.Nothing,
       previous = Prelude.Nothing,
+      tools = Prelude.Nothing,
+      workflowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the step group.
-updateWorkflowStepGroupResponse_name :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
-updateWorkflowStepGroupResponse_name = Lens.lens (\UpdateWorkflowStepGroupResponse' {name} -> name) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {name = a} :: UpdateWorkflowStepGroupResponse)
-
--- | The ID of the migration workflow.
-updateWorkflowStepGroupResponse_workflowId :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
-updateWorkflowStepGroupResponse_workflowId = Lens.lens (\UpdateWorkflowStepGroupResponse' {workflowId} -> workflowId) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {workflowId = a} :: UpdateWorkflowStepGroupResponse)
-
--- | List of AWS services utilized in a migration workflow.
-updateWorkflowStepGroupResponse_tools :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Tool])
-updateWorkflowStepGroupResponse_tools = Lens.lens (\UpdateWorkflowStepGroupResponse' {tools} -> tools) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {tools = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The next step group.
-updateWorkflowStepGroupResponse_next :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
-updateWorkflowStepGroupResponse_next = Lens.lens (\UpdateWorkflowStepGroupResponse' {next} -> next) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {next = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the step group.
 updateWorkflowStepGroupResponse_description :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
@@ -299,9 +284,25 @@ updateWorkflowStepGroupResponse_id = Lens.lens (\UpdateWorkflowStepGroupResponse
 updateWorkflowStepGroupResponse_lastModifiedTime :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
 updateWorkflowStepGroupResponse_lastModifiedTime = Lens.lens (\UpdateWorkflowStepGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {lastModifiedTime = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the step group.
+updateWorkflowStepGroupResponse_name :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
+updateWorkflowStepGroupResponse_name = Lens.lens (\UpdateWorkflowStepGroupResponse' {name} -> name) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {name = a} :: UpdateWorkflowStepGroupResponse)
+
+-- | The next step group.
+updateWorkflowStepGroupResponse_next :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
+updateWorkflowStepGroupResponse_next = Lens.lens (\UpdateWorkflowStepGroupResponse' {next} -> next) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {next = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The previous step group.
 updateWorkflowStepGroupResponse_previous :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
 updateWorkflowStepGroupResponse_previous = Lens.lens (\UpdateWorkflowStepGroupResponse' {previous} -> previous) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {previous = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of AWS services utilized in a migration workflow.
+updateWorkflowStepGroupResponse_tools :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe [Tool])
+updateWorkflowStepGroupResponse_tools = Lens.lens (\UpdateWorkflowStepGroupResponse' {tools} -> tools) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {tools = a} :: UpdateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the migration workflow.
+updateWorkflowStepGroupResponse_workflowId :: Lens.Lens' UpdateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
+updateWorkflowStepGroupResponse_workflowId = Lens.lens (\UpdateWorkflowStepGroupResponse' {workflowId} -> workflowId) (\s@UpdateWorkflowStepGroupResponse' {} a -> s {workflowId = a} :: UpdateWorkflowStepGroupResponse)
 
 -- | The response's http status code.
 updateWorkflowStepGroupResponse_httpStatus :: Lens.Lens' UpdateWorkflowStepGroupResponse Prelude.Int
@@ -312,12 +313,12 @@ instance
     UpdateWorkflowStepGroupResponse
   where
   rnf UpdateWorkflowStepGroupResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf next
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf next
       `Prelude.seq` Prelude.rnf previous
+      `Prelude.seq` Prelude.rnf tools
+      `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf httpStatus

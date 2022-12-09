@@ -30,11 +30,11 @@ module Amazonka.MigrationHubOrchestrator.ListWorkflows
 
     -- * Request Lenses
     listWorkflows_adsApplicationConfigurationName,
+    listWorkflows_maxResults,
     listWorkflows_name,
     listWorkflows_nextToken,
     listWorkflows_status,
     listWorkflows_templateId,
-    listWorkflows_maxResults,
 
     -- * Destructuring the Response
     ListWorkflowsResponse (..),
@@ -59,6 +59,8 @@ import qualified Amazonka.Response as Response
 data ListWorkflows = ListWorkflows'
   { -- | The name of the application configured in Application Discovery Service.
     adsApplicationConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results that can be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the migration workflow.
     name :: Prelude.Maybe Prelude.Text,
     -- | The pagination token.
@@ -66,9 +68,7 @@ data ListWorkflows = ListWorkflows'
     -- | The status of the migration workflow.
     status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The ID of the template.
-    templateId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that can be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    templateId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,8 @@ data ListWorkflows = ListWorkflows'
 --
 -- 'adsApplicationConfigurationName', 'listWorkflows_adsApplicationConfigurationName' - The name of the application configured in Application Discovery Service.
 --
+-- 'maxResults', 'listWorkflows_maxResults' - The maximum number of results that can be returned.
+--
 -- 'name', 'listWorkflows_name' - The name of the migration workflow.
 --
 -- 'nextToken', 'listWorkflows_nextToken' - The pagination token.
@@ -89,24 +91,26 @@ data ListWorkflows = ListWorkflows'
 -- 'status', 'listWorkflows_status' - The status of the migration workflow.
 --
 -- 'templateId', 'listWorkflows_templateId' - The ID of the template.
---
--- 'maxResults', 'listWorkflows_maxResults' - The maximum number of results that can be returned.
 newListWorkflows ::
   ListWorkflows
 newListWorkflows =
   ListWorkflows'
     { adsApplicationConfigurationName =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      templateId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      templateId = Prelude.Nothing
     }
 
 -- | The name of the application configured in Application Discovery Service.
 listWorkflows_adsApplicationConfigurationName :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
 listWorkflows_adsApplicationConfigurationName = Lens.lens (\ListWorkflows' {adsApplicationConfigurationName} -> adsApplicationConfigurationName) (\s@ListWorkflows' {} a -> s {adsApplicationConfigurationName = a} :: ListWorkflows)
+
+-- | The maximum number of results that can be returned.
+listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
+listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 -- | The name of the migration workflow.
 listWorkflows_name :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
@@ -123,10 +127,6 @@ listWorkflows_status = Lens.lens (\ListWorkflows' {status} -> status) (\s@ListWo
 -- | The ID of the template.
 listWorkflows_templateId :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Text)
 listWorkflows_templateId = Lens.lens (\ListWorkflows' {templateId} -> templateId) (\s@ListWorkflows' {} a -> s {templateId = a} :: ListWorkflows)
-
--- | The maximum number of results that can be returned.
-listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
-listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
 
 instance Core.AWSPager ListWorkflows where
   page rq rs
@@ -168,20 +168,20 @@ instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =
     _salt
       `Prelude.hashWithSalt` adsApplicationConfigurationName
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` templateId
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListWorkflows where
   rnf ListWorkflows' {..} =
     Prelude.rnf adsApplicationConfigurationName
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListWorkflows where
   toHeaders =
@@ -202,11 +202,11 @@ instance Data.ToQuery ListWorkflows where
     Prelude.mconcat
       [ "adsApplicationConfigurationName"
           Data.=: adsApplicationConfigurationName,
+        "maxResults" Data.=: maxResults,
         "name" Data.=: name,
         "nextToken" Data.=: nextToken,
         "status" Data.=: status,
-        "templateId" Data.=: templateId,
-        "maxResults" Data.=: maxResults
+        "templateId" Data.=: templateId
       ]
 
 -- | /See:/ 'newListWorkflowsResponse' smart constructor.

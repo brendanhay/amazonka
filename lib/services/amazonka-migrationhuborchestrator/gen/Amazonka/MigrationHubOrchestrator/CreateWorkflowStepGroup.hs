@@ -27,8 +27,8 @@ module Amazonka.MigrationHubOrchestrator.CreateWorkflowStepGroup
     newCreateWorkflowStepGroup,
 
     -- * Request Lenses
-    createWorkflowStepGroup_next,
     createWorkflowStepGroup_description,
+    createWorkflowStepGroup_next,
     createWorkflowStepGroup_previous,
     createWorkflowStepGroup_workflowId,
     createWorkflowStepGroup_name,
@@ -38,14 +38,14 @@ module Amazonka.MigrationHubOrchestrator.CreateWorkflowStepGroup
     newCreateWorkflowStepGroupResponse,
 
     -- * Response Lenses
-    createWorkflowStepGroupResponse_name,
-    createWorkflowStepGroupResponse_workflowId,
-    createWorkflowStepGroupResponse_tools,
-    createWorkflowStepGroupResponse_next,
+    createWorkflowStepGroupResponse_creationTime,
     createWorkflowStepGroupResponse_description,
     createWorkflowStepGroupResponse_id,
-    createWorkflowStepGroupResponse_creationTime,
+    createWorkflowStepGroupResponse_name,
+    createWorkflowStepGroupResponse_next,
     createWorkflowStepGroupResponse_previous,
+    createWorkflowStepGroupResponse_tools,
+    createWorkflowStepGroupResponse_workflowId,
     createWorkflowStepGroupResponse_httpStatus,
   )
 where
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkflowStepGroup' smart constructor.
 data CreateWorkflowStepGroup = CreateWorkflowStepGroup'
-  { -- | The next step group.
-    next :: Prelude.Maybe [Prelude.Text],
-    -- | The description of the step group.
+  { -- | The description of the step group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The next step group.
+    next :: Prelude.Maybe [Prelude.Text],
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the migration workflow that will contain the step group.
@@ -81,9 +81,9 @@ data CreateWorkflowStepGroup = CreateWorkflowStepGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'next', 'createWorkflowStepGroup_next' - The next step group.
---
 -- 'description', 'createWorkflowStepGroup_description' - The description of the step group.
+--
+-- 'next', 'createWorkflowStepGroup_next' - The next step group.
 --
 -- 'previous', 'createWorkflowStepGroup_previous' - The previous step group.
 --
@@ -98,20 +98,21 @@ newCreateWorkflowStepGroup ::
   CreateWorkflowStepGroup
 newCreateWorkflowStepGroup pWorkflowId_ pName_ =
   CreateWorkflowStepGroup'
-    { next = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      next = Prelude.Nothing,
       previous = Prelude.Nothing,
       workflowId = pWorkflowId_,
       name = pName_
     }
 
--- | The next step group.
-createWorkflowStepGroup_next :: Lens.Lens' CreateWorkflowStepGroup (Prelude.Maybe [Prelude.Text])
-createWorkflowStepGroup_next = Lens.lens (\CreateWorkflowStepGroup' {next} -> next) (\s@CreateWorkflowStepGroup' {} a -> s {next = a} :: CreateWorkflowStepGroup) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the step group.
 createWorkflowStepGroup_description :: Lens.Lens' CreateWorkflowStepGroup (Prelude.Maybe Prelude.Text)
 createWorkflowStepGroup_description = Lens.lens (\CreateWorkflowStepGroup' {description} -> description) (\s@CreateWorkflowStepGroup' {} a -> s {description = a} :: CreateWorkflowStepGroup)
+
+-- | The next step group.
+createWorkflowStepGroup_next :: Lens.Lens' CreateWorkflowStepGroup (Prelude.Maybe [Prelude.Text])
+createWorkflowStepGroup_next = Lens.lens (\CreateWorkflowStepGroup' {next} -> next) (\s@CreateWorkflowStepGroup' {} a -> s {next = a} :: CreateWorkflowStepGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The previous step group.
 createWorkflowStepGroup_previous :: Lens.Lens' CreateWorkflowStepGroup (Prelude.Maybe [Prelude.Text])
@@ -135,29 +136,29 @@ instance Core.AWSRequest CreateWorkflowStepGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkflowStepGroupResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "workflowId")
-            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "next" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "previous" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "workflowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateWorkflowStepGroup where
   hashWithSalt _salt CreateWorkflowStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` next
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` previous
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateWorkflowStepGroup where
   rnf CreateWorkflowStepGroup' {..} =
-    Prelude.rnf next
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf next
       `Prelude.seq` Prelude.rnf previous
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf name
@@ -177,8 +178,8 @@ instance Data.ToJSON CreateWorkflowStepGroup where
   toJSON CreateWorkflowStepGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("next" Data..=) Prelude.<$> next,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("next" Data..=) Prelude.<$> next,
             ("previous" Data..=) Prelude.<$> previous,
             Prelude.Just ("workflowId" Data..= workflowId),
             Prelude.Just ("name" Data..= name)
@@ -193,22 +194,22 @@ instance Data.ToQuery CreateWorkflowStepGroup where
 
 -- | /See:/ 'newCreateWorkflowStepGroupResponse' smart constructor.
 data CreateWorkflowStepGroupResponse = CreateWorkflowStepGroupResponse'
-  { -- | The name of the step group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the migration workflow that contains the step group.
-    workflowId :: Prelude.Maybe Prelude.Text,
-    -- | List of AWS services utilized in a migration workflow.
-    tools :: Prelude.Maybe [Tool],
-    -- | The next step group.
-    next :: Prelude.Maybe [Prelude.Text],
+  { -- | The time at which the step group is created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the step group.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the step group.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the step group is created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the step group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The next step group.
+    next :: Prelude.Maybe [Prelude.Text],
     -- | The previous step group.
     previous :: Prelude.Maybe [Prelude.Text],
+    -- | List of AWS services utilized in a migration workflow.
+    tools :: Prelude.Maybe [Tool],
+    -- | The ID of the migration workflow that contains the step group.
+    workflowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,21 +223,21 @@ data CreateWorkflowStepGroupResponse = CreateWorkflowStepGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createWorkflowStepGroupResponse_name' - The name of the step group.
---
--- 'workflowId', 'createWorkflowStepGroupResponse_workflowId' - The ID of the migration workflow that contains the step group.
---
--- 'tools', 'createWorkflowStepGroupResponse_tools' - List of AWS services utilized in a migration workflow.
---
--- 'next', 'createWorkflowStepGroupResponse_next' - The next step group.
+-- 'creationTime', 'createWorkflowStepGroupResponse_creationTime' - The time at which the step group is created.
 --
 -- 'description', 'createWorkflowStepGroupResponse_description' - The description of the step group.
 --
 -- 'id', 'createWorkflowStepGroupResponse_id' - The ID of the step group.
 --
--- 'creationTime', 'createWorkflowStepGroupResponse_creationTime' - The time at which the step group is created.
+-- 'name', 'createWorkflowStepGroupResponse_name' - The name of the step group.
+--
+-- 'next', 'createWorkflowStepGroupResponse_next' - The next step group.
 --
 -- 'previous', 'createWorkflowStepGroupResponse_previous' - The previous step group.
+--
+-- 'tools', 'createWorkflowStepGroupResponse_tools' - List of AWS services utilized in a migration workflow.
+--
+-- 'workflowId', 'createWorkflowStepGroupResponse_workflowId' - The ID of the migration workflow that contains the step group.
 --
 -- 'httpStatus', 'createWorkflowStepGroupResponse_httpStatus' - The response's http status code.
 newCreateWorkflowStepGroupResponse ::
@@ -245,33 +246,21 @@ newCreateWorkflowStepGroupResponse ::
   CreateWorkflowStepGroupResponse
 newCreateWorkflowStepGroupResponse pHttpStatus_ =
   CreateWorkflowStepGroupResponse'
-    { name =
+    { creationTime =
         Prelude.Nothing,
-      workflowId = Prelude.Nothing,
-      tools = Prelude.Nothing,
-      next = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      next = Prelude.Nothing,
       previous = Prelude.Nothing,
+      tools = Prelude.Nothing,
+      workflowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the step group.
-createWorkflowStepGroupResponse_name :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
-createWorkflowStepGroupResponse_name = Lens.lens (\CreateWorkflowStepGroupResponse' {name} -> name) (\s@CreateWorkflowStepGroupResponse' {} a -> s {name = a} :: CreateWorkflowStepGroupResponse)
-
--- | The ID of the migration workflow that contains the step group.
-createWorkflowStepGroupResponse_workflowId :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
-createWorkflowStepGroupResponse_workflowId = Lens.lens (\CreateWorkflowStepGroupResponse' {workflowId} -> workflowId) (\s@CreateWorkflowStepGroupResponse' {} a -> s {workflowId = a} :: CreateWorkflowStepGroupResponse)
-
--- | List of AWS services utilized in a migration workflow.
-createWorkflowStepGroupResponse_tools :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Tool])
-createWorkflowStepGroupResponse_tools = Lens.lens (\CreateWorkflowStepGroupResponse' {tools} -> tools) (\s@CreateWorkflowStepGroupResponse' {} a -> s {tools = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The next step group.
-createWorkflowStepGroupResponse_next :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
-createWorkflowStepGroupResponse_next = Lens.lens (\CreateWorkflowStepGroupResponse' {next} -> next) (\s@CreateWorkflowStepGroupResponse' {} a -> s {next = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The time at which the step group is created.
+createWorkflowStepGroupResponse_creationTime :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
+createWorkflowStepGroupResponse_creationTime = Lens.lens (\CreateWorkflowStepGroupResponse' {creationTime} -> creationTime) (\s@CreateWorkflowStepGroupResponse' {} a -> s {creationTime = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the step group.
 createWorkflowStepGroupResponse_description :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
@@ -281,13 +270,25 @@ createWorkflowStepGroupResponse_description = Lens.lens (\CreateWorkflowStepGrou
 createWorkflowStepGroupResponse_id :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
 createWorkflowStepGroupResponse_id = Lens.lens (\CreateWorkflowStepGroupResponse' {id} -> id) (\s@CreateWorkflowStepGroupResponse' {} a -> s {id = a} :: CreateWorkflowStepGroupResponse)
 
--- | The time at which the step group is created.
-createWorkflowStepGroupResponse_creationTime :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.UTCTime)
-createWorkflowStepGroupResponse_creationTime = Lens.lens (\CreateWorkflowStepGroupResponse' {creationTime} -> creationTime) (\s@CreateWorkflowStepGroupResponse' {} a -> s {creationTime = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Data._Time
+-- | The name of the step group.
+createWorkflowStepGroupResponse_name :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
+createWorkflowStepGroupResponse_name = Lens.lens (\CreateWorkflowStepGroupResponse' {name} -> name) (\s@CreateWorkflowStepGroupResponse' {} a -> s {name = a} :: CreateWorkflowStepGroupResponse)
+
+-- | The next step group.
+createWorkflowStepGroupResponse_next :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
+createWorkflowStepGroupResponse_next = Lens.lens (\CreateWorkflowStepGroupResponse' {next} -> next) (\s@CreateWorkflowStepGroupResponse' {} a -> s {next = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The previous step group.
 createWorkflowStepGroupResponse_previous :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Prelude.Text])
 createWorkflowStepGroupResponse_previous = Lens.lens (\CreateWorkflowStepGroupResponse' {previous} -> previous) (\s@CreateWorkflowStepGroupResponse' {} a -> s {previous = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of AWS services utilized in a migration workflow.
+createWorkflowStepGroupResponse_tools :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe [Tool])
+createWorkflowStepGroupResponse_tools = Lens.lens (\CreateWorkflowStepGroupResponse' {tools} -> tools) (\s@CreateWorkflowStepGroupResponse' {} a -> s {tools = a} :: CreateWorkflowStepGroupResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the migration workflow that contains the step group.
+createWorkflowStepGroupResponse_workflowId :: Lens.Lens' CreateWorkflowStepGroupResponse (Prelude.Maybe Prelude.Text)
+createWorkflowStepGroupResponse_workflowId = Lens.lens (\CreateWorkflowStepGroupResponse' {workflowId} -> workflowId) (\s@CreateWorkflowStepGroupResponse' {} a -> s {workflowId = a} :: CreateWorkflowStepGroupResponse)
 
 -- | The response's http status code.
 createWorkflowStepGroupResponse_httpStatus :: Lens.Lens' CreateWorkflowStepGroupResponse Prelude.Int
@@ -298,12 +299,12 @@ instance
     CreateWorkflowStepGroupResponse
   where
   rnf CreateWorkflowStepGroupResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf next
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf next
       `Prelude.seq` Prelude.rnf previous
+      `Prelude.seq` Prelude.rnf tools
+      `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf httpStatus

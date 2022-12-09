@@ -29,8 +29,8 @@ module Amazonka.MigrationHubOrchestrator.ListPlugins
     newListPlugins,
 
     -- * Request Lenses
-    listPlugins_nextToken,
     listPlugins_maxResults,
+    listPlugins_nextToken,
 
     -- * Destructuring the Response
     ListPluginsResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlugins' smart constructor.
 data ListPlugins = ListPlugins'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of plugins that can be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of plugins that can be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListPlugins = ListPlugins'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlugins_nextToken' - The pagination token.
---
 -- 'maxResults', 'listPlugins_maxResults' - The maximum number of plugins that can be returned.
+--
+-- 'nextToken', 'listPlugins_nextToken' - The pagination token.
 newListPlugins ::
   ListPlugins
 newListPlugins =
   ListPlugins'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token.
-listPlugins_nextToken :: Lens.Lens' ListPlugins (Prelude.Maybe Prelude.Text)
-listPlugins_nextToken = Lens.lens (\ListPlugins' {nextToken} -> nextToken) (\s@ListPlugins' {} a -> s {nextToken = a} :: ListPlugins)
 
 -- | The maximum number of plugins that can be returned.
 listPlugins_maxResults :: Lens.Lens' ListPlugins (Prelude.Maybe Prelude.Natural)
 listPlugins_maxResults = Lens.lens (\ListPlugins' {maxResults} -> maxResults) (\s@ListPlugins' {} a -> s {maxResults = a} :: ListPlugins)
+
+-- | The pagination token.
+listPlugins_nextToken :: Lens.Lens' ListPlugins (Prelude.Maybe Prelude.Text)
+listPlugins_nextToken = Lens.lens (\ListPlugins' {nextToken} -> nextToken) (\s@ListPlugins' {} a -> s {nextToken = a} :: ListPlugins)
 
 instance Core.AWSPager ListPlugins where
   page rq rs
@@ -121,13 +121,13 @@ instance Core.AWSRequest ListPlugins where
 
 instance Prelude.Hashable ListPlugins where
   hashWithSalt _salt ListPlugins' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlugins where
   rnf ListPlugins' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlugins where
   toHeaders =
@@ -146,8 +146,8 @@ instance Data.ToPath ListPlugins where
 instance Data.ToQuery ListPlugins where
   toQuery ListPlugins' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPluginsResponse' smart constructor.

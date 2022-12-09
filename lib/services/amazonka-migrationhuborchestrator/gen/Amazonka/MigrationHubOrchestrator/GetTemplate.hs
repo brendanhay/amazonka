@@ -34,13 +34,13 @@ module Amazonka.MigrationHubOrchestrator.GetTemplate
     newGetTemplateResponse,
 
     -- * Response Lenses
-    getTemplateResponse_name,
-    getTemplateResponse_tools,
-    getTemplateResponse_status,
+    getTemplateResponse_creationTime,
     getTemplateResponse_description,
     getTemplateResponse_id,
-    getTemplateResponse_creationTime,
     getTemplateResponse_inputs,
+    getTemplateResponse_name,
+    getTemplateResponse_status,
+    getTemplateResponse_tools,
     getTemplateResponse_httpStatus,
   )
 where
@@ -87,13 +87,13 @@ instance Core.AWSRequest GetTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "status")
+            Prelude.<$> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,20 +125,20 @@ instance Data.ToQuery GetTemplate where
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { -- | The name of the template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | List of AWS services utilized in a migration workflow.
-    tools :: Prelude.Maybe [Tool],
-    -- | The status of the template.
-    status :: Prelude.Maybe TemplateStatus,
+  { -- | The time at which the template was last created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the template was last created.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the template.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the template was last created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The inputs provided for the creation of the migration workflow.
     inputs :: Prelude.Maybe [TemplateInput],
+    -- | The name of the template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the template.
+    status :: Prelude.Maybe TemplateStatus,
+    -- | List of AWS services utilized in a migration workflow.
+    tools :: Prelude.Maybe [Tool],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,19 +152,19 @@ data GetTemplateResponse = GetTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getTemplateResponse_name' - The name of the template.
---
--- 'tools', 'getTemplateResponse_tools' - List of AWS services utilized in a migration workflow.
---
--- 'status', 'getTemplateResponse_status' - The status of the template.
+-- 'creationTime', 'getTemplateResponse_creationTime' - The time at which the template was last created.
 --
 -- 'description', 'getTemplateResponse_description' - The time at which the template was last created.
 --
 -- 'id', 'getTemplateResponse_id' - The ID of the template.
 --
--- 'creationTime', 'getTemplateResponse_creationTime' - The time at which the template was last created.
---
 -- 'inputs', 'getTemplateResponse_inputs' - The inputs provided for the creation of the migration workflow.
+--
+-- 'name', 'getTemplateResponse_name' - The name of the template.
+--
+-- 'status', 'getTemplateResponse_status' - The status of the template.
+--
+-- 'tools', 'getTemplateResponse_tools' - List of AWS services utilized in a migration workflow.
 --
 -- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.
 newGetTemplateResponse ::
@@ -173,27 +173,20 @@ newGetTemplateResponse ::
   GetTemplateResponse
 newGetTemplateResponse pHttpStatus_ =
   GetTemplateResponse'
-    { name = Prelude.Nothing,
-      tools = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       inputs = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tools = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the template.
-getTemplateResponse_name :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
-getTemplateResponse_name = Lens.lens (\GetTemplateResponse' {name} -> name) (\s@GetTemplateResponse' {} a -> s {name = a} :: GetTemplateResponse)
-
--- | List of AWS services utilized in a migration workflow.
-getTemplateResponse_tools :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [Tool])
-getTemplateResponse_tools = Lens.lens (\GetTemplateResponse' {tools} -> tools) (\s@GetTemplateResponse' {} a -> s {tools = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The status of the template.
-getTemplateResponse_status :: Lens.Lens' GetTemplateResponse (Prelude.Maybe TemplateStatus)
-getTemplateResponse_status = Lens.lens (\GetTemplateResponse' {status} -> status) (\s@GetTemplateResponse' {} a -> s {status = a} :: GetTemplateResponse)
+-- | The time at which the template was last created.
+getTemplateResponse_creationTime :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+getTemplateResponse_creationTime = Lens.lens (\GetTemplateResponse' {creationTime} -> creationTime) (\s@GetTemplateResponse' {} a -> s {creationTime = a} :: GetTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the template was last created.
 getTemplateResponse_description :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -203,13 +196,21 @@ getTemplateResponse_description = Lens.lens (\GetTemplateResponse' {description}
 getTemplateResponse_id :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
 getTemplateResponse_id = Lens.lens (\GetTemplateResponse' {id} -> id) (\s@GetTemplateResponse' {} a -> s {id = a} :: GetTemplateResponse)
 
--- | The time at which the template was last created.
-getTemplateResponse_creationTime :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-getTemplateResponse_creationTime = Lens.lens (\GetTemplateResponse' {creationTime} -> creationTime) (\s@GetTemplateResponse' {} a -> s {creationTime = a} :: GetTemplateResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The inputs provided for the creation of the migration workflow.
 getTemplateResponse_inputs :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [TemplateInput])
 getTemplateResponse_inputs = Lens.lens (\GetTemplateResponse' {inputs} -> inputs) (\s@GetTemplateResponse' {} a -> s {inputs = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the template.
+getTemplateResponse_name :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
+getTemplateResponse_name = Lens.lens (\GetTemplateResponse' {name} -> name) (\s@GetTemplateResponse' {} a -> s {name = a} :: GetTemplateResponse)
+
+-- | The status of the template.
+getTemplateResponse_status :: Lens.Lens' GetTemplateResponse (Prelude.Maybe TemplateStatus)
+getTemplateResponse_status = Lens.lens (\GetTemplateResponse' {status} -> status) (\s@GetTemplateResponse' {} a -> s {status = a} :: GetTemplateResponse)
+
+-- | List of AWS services utilized in a migration workflow.
+getTemplateResponse_tools :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [Tool])
+getTemplateResponse_tools = Lens.lens (\GetTemplateResponse' {tools} -> tools) (\s@GetTemplateResponse' {} a -> s {tools = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
@@ -217,11 +218,11 @@ getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tools
       `Prelude.seq` Prelude.rnf httpStatus

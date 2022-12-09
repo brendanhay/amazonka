@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkflowStepOutput' smart constructor.
 data WorkflowStepOutput = WorkflowStepOutput'
-  { -- | The name of the step.
+  { -- | The data type of the output.
+    dataType :: Prelude.Maybe DataType,
+    -- | The name of the step.
     name :: Prelude.Maybe Prelude.Text,
     -- | Determine if an output is required from a step.
     required :: Prelude.Maybe Prelude.Bool,
     -- | The value of the output.
-    value :: Prelude.Maybe WorkflowStepOutputUnion,
-    -- | The data type of the output.
-    dataType :: Prelude.Maybe DataType
+    value :: Prelude.Maybe WorkflowStepOutputUnion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,26 @@ data WorkflowStepOutput = WorkflowStepOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataType', 'workflowStepOutput_dataType' - The data type of the output.
+--
 -- 'name', 'workflowStepOutput_name' - The name of the step.
 --
 -- 'required', 'workflowStepOutput_required' - Determine if an output is required from a step.
 --
 -- 'value', 'workflowStepOutput_value' - The value of the output.
---
--- 'dataType', 'workflowStepOutput_dataType' - The data type of the output.
 newWorkflowStepOutput ::
   WorkflowStepOutput
 newWorkflowStepOutput =
   WorkflowStepOutput'
-    { name = Prelude.Nothing,
+    { dataType = Prelude.Nothing,
+      name = Prelude.Nothing,
       required = Prelude.Nothing,
-      value = Prelude.Nothing,
-      dataType = Prelude.Nothing
+      value = Prelude.Nothing
     }
+
+-- | The data type of the output.
+workflowStepOutput_dataType :: Lens.Lens' WorkflowStepOutput (Prelude.Maybe DataType)
+workflowStepOutput_dataType = Lens.lens (\WorkflowStepOutput' {dataType} -> dataType) (\s@WorkflowStepOutput' {} a -> s {dataType = a} :: WorkflowStepOutput)
 
 -- | The name of the step.
 workflowStepOutput_name :: Lens.Lens' WorkflowStepOutput (Prelude.Maybe Prelude.Text)
@@ -78,43 +82,39 @@ workflowStepOutput_required = Lens.lens (\WorkflowStepOutput' {required} -> requ
 workflowStepOutput_value :: Lens.Lens' WorkflowStepOutput (Prelude.Maybe WorkflowStepOutputUnion)
 workflowStepOutput_value = Lens.lens (\WorkflowStepOutput' {value} -> value) (\s@WorkflowStepOutput' {} a -> s {value = a} :: WorkflowStepOutput)
 
--- | The data type of the output.
-workflowStepOutput_dataType :: Lens.Lens' WorkflowStepOutput (Prelude.Maybe DataType)
-workflowStepOutput_dataType = Lens.lens (\WorkflowStepOutput' {dataType} -> dataType) (\s@WorkflowStepOutput' {} a -> s {dataType = a} :: WorkflowStepOutput)
-
 instance Data.FromJSON WorkflowStepOutput where
   parseJSON =
     Data.withObject
       "WorkflowStepOutput"
       ( \x ->
           WorkflowStepOutput'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "dataType")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "required")
             Prelude.<*> (x Data..:? "value")
-            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable WorkflowStepOutput where
   hashWithSalt _salt WorkflowStepOutput' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
       `Prelude.hashWithSalt` value
-      `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData WorkflowStepOutput where
   rnf WorkflowStepOutput' {..} =
-    Prelude.rnf name
+    Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf required
       `Prelude.seq` Prelude.rnf value
-      `Prelude.seq` Prelude.rnf dataType
 
 instance Data.ToJSON WorkflowStepOutput where
   toJSON WorkflowStepOutput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("dataType" Data..=) Prelude.<$> dataType,
+            ("name" Data..=) Prelude.<$> name,
             ("required" Data..=) Prelude.<$> required,
-            ("value" Data..=) Prelude.<$> value,
-            ("dataType" Data..=) Prelude.<$> dataType
+            ("value" Data..=) Prelude.<$> value
           ]
       )

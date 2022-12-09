@@ -29,9 +29,9 @@ module Amazonka.Schemas.ListRegistries
     newListRegistries,
 
     -- * Request Lenses
+    listRegistries_limit,
     listRegistries_nextToken,
     listRegistries_registryNamePrefix,
-    listRegistries_limit,
     listRegistries_scope,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListRegistries' smart constructor.
 data ListRegistries = ListRegistries'
-  { -- | The token that specifies the next page of results to return. To request
+  { limit :: Prelude.Maybe Prelude.Int,
+    -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifying this limits the results to only those registry names that
     -- start with the specified prefix.
     registryNamePrefix :: Prelude.Maybe Prelude.Text,
-    limit :: Prelude.Maybe Prelude.Int,
     -- | Can be set to Local or AWS to limit responses to your custom registries,
     -- or the ones provided by AWS.
     scope :: Prelude.Maybe Prelude.Text
@@ -77,6 +77,8 @@ data ListRegistries = ListRegistries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listRegistries_limit' - Undocumented member.
+--
 -- 'nextToken', 'listRegistries_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
@@ -84,19 +86,21 @@ data ListRegistries = ListRegistries'
 -- 'registryNamePrefix', 'listRegistries_registryNamePrefix' - Specifying this limits the results to only those registry names that
 -- start with the specified prefix.
 --
--- 'limit', 'listRegistries_limit' - Undocumented member.
---
 -- 'scope', 'listRegistries_scope' - Can be set to Local or AWS to limit responses to your custom registries,
 -- or the ones provided by AWS.
 newListRegistries ::
   ListRegistries
 newListRegistries =
   ListRegistries'
-    { nextToken = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryNamePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing,
       scope = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listRegistries_limit :: Lens.Lens' ListRegistries (Prelude.Maybe Prelude.Int)
+listRegistries_limit = Lens.lens (\ListRegistries' {limit} -> limit) (\s@ListRegistries' {} a -> s {limit = a} :: ListRegistries)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -108,10 +112,6 @@ listRegistries_nextToken = Lens.lens (\ListRegistries' {nextToken} -> nextToken)
 -- start with the specified prefix.
 listRegistries_registryNamePrefix :: Lens.Lens' ListRegistries (Prelude.Maybe Prelude.Text)
 listRegistries_registryNamePrefix = Lens.lens (\ListRegistries' {registryNamePrefix} -> registryNamePrefix) (\s@ListRegistries' {} a -> s {registryNamePrefix = a} :: ListRegistries)
-
--- | Undocumented member.
-listRegistries_limit :: Lens.Lens' ListRegistries (Prelude.Maybe Prelude.Int)
-listRegistries_limit = Lens.lens (\ListRegistries' {limit} -> limit) (\s@ListRegistries' {} a -> s {limit = a} :: ListRegistries)
 
 -- | Can be set to Local or AWS to limit responses to your custom registries,
 -- or the ones provided by AWS.
@@ -156,16 +156,16 @@ instance Core.AWSRequest ListRegistries where
 
 instance Prelude.Hashable ListRegistries where
   hashWithSalt _salt ListRegistries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryNamePrefix
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData ListRegistries where
   rnf ListRegistries' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryNamePrefix
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf scope
 
 instance Data.ToHeaders ListRegistries where
@@ -185,9 +185,9 @@ instance Data.ToPath ListRegistries where
 instance Data.ToQuery ListRegistries where
   toQuery ListRegistries' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "limit" Data.=: limit,
+        "nextToken" Data.=: nextToken,
         "registryNamePrefix" Data.=: registryNamePrefix,
-        "limit" Data.=: limit,
         "scope" Data.=: scope
       ]
 

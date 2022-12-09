@@ -19,35 +19,35 @@ module Amazonka.Schemas
     -- * Errors
     -- $errors
 
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
     -- ** GoneException
     _GoneException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

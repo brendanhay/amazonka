@@ -29,9 +29,9 @@ module Amazonka.Schemas.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
+    listSchemas_limit,
     listSchemas_nextToken,
     listSchemas_schemaNamePrefix,
-    listSchemas_limit,
     listSchemas_registryName,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | The token that specifies the next page of results to return. To request
+  { limit :: Prelude.Maybe Prelude.Int,
+    -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifying this limits the results to only those schema names that start
     -- with the specified prefix.
     schemaNamePrefix :: Prelude.Maybe Prelude.Text,
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The name of the registry.
     registryName :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSchemas_limit' - Undocumented member.
+--
 -- 'nextToken', 'listSchemas_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
 --
 -- 'schemaNamePrefix', 'listSchemas_schemaNamePrefix' - Specifying this limits the results to only those schema names that start
 -- with the specified prefix.
---
--- 'limit', 'listSchemas_limit' - Undocumented member.
 --
 -- 'registryName', 'listSchemas_registryName' - The name of the registry.
 newListSchemas ::
@@ -92,11 +92,15 @@ newListSchemas ::
   ListSchemas
 newListSchemas pRegistryName_ =
   ListSchemas'
-    { nextToken = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       schemaNamePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing,
       registryName = pRegistryName_
     }
+
+-- | Undocumented member.
+listSchemas_limit :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Int)
+listSchemas_limit = Lens.lens (\ListSchemas' {limit} -> limit) (\s@ListSchemas' {} a -> s {limit = a} :: ListSchemas)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -108,10 +112,6 @@ listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@L
 -- with the specified prefix.
 listSchemas_schemaNamePrefix :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_schemaNamePrefix = Lens.lens (\ListSchemas' {schemaNamePrefix} -> schemaNamePrefix) (\s@ListSchemas' {} a -> s {schemaNamePrefix = a} :: ListSchemas)
-
--- | Undocumented member.
-listSchemas_limit :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Int)
-listSchemas_limit = Lens.lens (\ListSchemas' {limit} -> limit) (\s@ListSchemas' {} a -> s {limit = a} :: ListSchemas)
 
 -- | The name of the registry.
 listSchemas_registryName :: Lens.Lens' ListSchemas Prelude.Text
@@ -151,16 +151,16 @@ instance Core.AWSRequest ListSchemas where
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaNamePrefix
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` registryName
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaNamePrefix
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf registryName
 
 instance Data.ToHeaders ListSchemas where
@@ -185,9 +185,9 @@ instance Data.ToPath ListSchemas where
 instance Data.ToQuery ListSchemas where
   toQuery ListSchemas' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "schemaNamePrefix" Data.=: schemaNamePrefix,
-        "limit" Data.=: limit
+      [ "limit" Data.=: limit,
+        "nextToken" Data.=: nextToken,
+        "schemaNamePrefix" Data.=: schemaNamePrefix
       ]
 
 -- | /See:/ 'newListSchemasResponse' smart constructor.

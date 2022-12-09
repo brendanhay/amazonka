@@ -29,8 +29,8 @@ module Amazonka.Schemas.ListSchemaVersions
     newListSchemaVersions,
 
     -- * Request Lenses
-    listSchemaVersions_nextToken,
     listSchemaVersions_limit,
+    listSchemaVersions_nextToken,
     listSchemaVersions_registryName,
     listSchemaVersions_schemaName,
 
@@ -39,8 +39,8 @@ module Amazonka.Schemas.ListSchemaVersions
     newListSchemaVersionsResponse,
 
     -- * Response Lenses
-    listSchemaVersionsResponse_schemaVersions,
     listSchemaVersionsResponse_nextToken,
+    listSchemaVersionsResponse_schemaVersions,
     listSchemaVersionsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import Amazonka.Schemas.Types
 
 -- | /See:/ 'newListSchemaVersions' smart constructor.
 data ListSchemaVersions = ListSchemaVersions'
-  { -- | The token that specifies the next page of results to return. To request
+  { limit :: Prelude.Maybe Prelude.Int,
+    -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The name of the registry.
     registryName :: Prelude.Text,
     -- | The name of the schema.
@@ -75,11 +75,11 @@ data ListSchemaVersions = ListSchemaVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listSchemaVersions_limit' - Undocumented member.
+--
 -- 'nextToken', 'listSchemaVersions_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
---
--- 'limit', 'listSchemaVersions_limit' - Undocumented member.
 --
 -- 'registryName', 'listSchemaVersions_registryName' - The name of the registry.
 --
@@ -92,21 +92,21 @@ newListSchemaVersions ::
   ListSchemaVersions
 newListSchemaVersions pRegistryName_ pSchemaName_ =
   ListSchemaVersions'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryName = pRegistryName_,
       schemaName = pSchemaName_
     }
+
+-- | Undocumented member.
+listSchemaVersions_limit :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Int)
+listSchemaVersions_limit = Lens.lens (\ListSchemaVersions' {limit} -> limit) (\s@ListSchemaVersions' {} a -> s {limit = a} :: ListSchemaVersions)
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
 listSchemaVersions_nextToken :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Text)
 listSchemaVersions_nextToken = Lens.lens (\ListSchemaVersions' {nextToken} -> nextToken) (\s@ListSchemaVersions' {} a -> s {nextToken = a} :: ListSchemaVersions)
-
--- | Undocumented member.
-listSchemaVersions_limit :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Int)
-listSchemaVersions_limit = Lens.lens (\ListSchemaVersions' {limit} -> limit) (\s@ListSchemaVersions' {} a -> s {limit = a} :: ListSchemaVersions)
 
 -- | The name of the registry.
 listSchemaVersions_registryName :: Lens.Lens' ListSchemaVersions Prelude.Text
@@ -148,22 +148,22 @@ instance Core.AWSRequest ListSchemaVersions where
     Response.receiveJSON
       ( \s h x ->
           ListSchemaVersionsResponse'
-            Prelude.<$> (x Data..?> "SchemaVersions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "SchemaVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSchemaVersions where
   hashWithSalt _salt ListSchemaVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
 
 instance Prelude.NFData ListSchemaVersions where
   rnf ListSchemaVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf schemaName
 
@@ -191,18 +191,18 @@ instance Data.ToPath ListSchemaVersions where
 instance Data.ToQuery ListSchemaVersions where
   toQuery ListSchemaVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "limit" Data.=: limit
+      [ "limit" Data.=: limit,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSchemaVersionsResponse' smart constructor.
 data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
-  { -- | An array of schema version summaries.
-    schemaVersions :: Prelude.Maybe [SchemaVersionSummary],
-    -- | The token that specifies the next page of results to return. To request
+  { -- | The token that specifies the next page of results to return. To request
     -- the first page, leave NextToken empty. The token will expire in 24
     -- hours, and cannot be shared with other accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of schema version summaries.
+    schemaVersions :: Prelude.Maybe [SchemaVersionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,11 +216,11 @@ data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersions', 'listSchemaVersionsResponse_schemaVersions' - An array of schema version summaries.
---
 -- 'nextToken', 'listSchemaVersionsResponse_nextToken' - The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
 -- hours, and cannot be shared with other accounts.
+--
+-- 'schemaVersions', 'listSchemaVersionsResponse_schemaVersions' - An array of schema version summaries.
 --
 -- 'httpStatus', 'listSchemaVersionsResponse_httpStatus' - The response's http status code.
 newListSchemaVersionsResponse ::
@@ -229,15 +229,11 @@ newListSchemaVersionsResponse ::
   ListSchemaVersionsResponse
 newListSchemaVersionsResponse pHttpStatus_ =
   ListSchemaVersionsResponse'
-    { schemaVersions =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      schemaVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of schema version summaries.
-listSchemaVersionsResponse_schemaVersions :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe [SchemaVersionSummary])
-listSchemaVersionsResponse_schemaVersions = Lens.lens (\ListSchemaVersionsResponse' {schemaVersions} -> schemaVersions) (\s@ListSchemaVersionsResponse' {} a -> s {schemaVersions = a} :: ListSchemaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results to return. To request
 -- the first page, leave NextToken empty. The token will expire in 24
@@ -245,12 +241,16 @@ listSchemaVersionsResponse_schemaVersions = Lens.lens (\ListSchemaVersionsRespon
 listSchemaVersionsResponse_nextToken :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe Prelude.Text)
 listSchemaVersionsResponse_nextToken = Lens.lens (\ListSchemaVersionsResponse' {nextToken} -> nextToken) (\s@ListSchemaVersionsResponse' {} a -> s {nextToken = a} :: ListSchemaVersionsResponse)
 
+-- | An array of schema version summaries.
+listSchemaVersionsResponse_schemaVersions :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe [SchemaVersionSummary])
+listSchemaVersionsResponse_schemaVersions = Lens.lens (\ListSchemaVersionsResponse' {schemaVersions} -> schemaVersions) (\s@ListSchemaVersionsResponse' {} a -> s {schemaVersions = a} :: ListSchemaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSchemaVersionsResponse_httpStatus :: Lens.Lens' ListSchemaVersionsResponse Prelude.Int
 listSchemaVersionsResponse_httpStatus = Lens.lens (\ListSchemaVersionsResponse' {httpStatus} -> httpStatus) (\s@ListSchemaVersionsResponse' {} a -> s {httpStatus = a} :: ListSchemaVersionsResponse)
 
 instance Prelude.NFData ListSchemaVersionsResponse where
   rnf ListSchemaVersionsResponse' {..} =
-    Prelude.rnf schemaVersions
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schemaVersions
       `Prelude.seq` Prelude.rnf httpStatus

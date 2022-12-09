@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrant' smart constructor.
 data Grant = Grant'
-  { -- | Specifies the permission given to the grantee.
-    permission :: Prelude.Maybe Permission,
-    -- | The grantee.
-    grantee :: Prelude.Maybe Grantee
+  { -- | The grantee.
+    grantee :: Prelude.Maybe Grantee,
+    -- | Specifies the permission given to the grantee.
+    permission :: Prelude.Maybe Permission
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Grant = Grant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permission', 'grant_permission' - Specifies the permission given to the grantee.
---
 -- 'grantee', 'grant_grantee' - The grantee.
+--
+-- 'permission', 'grant_permission' - Specifies the permission given to the grantee.
 newGrant ::
   Grant
 newGrant =
   Grant'
-    { permission = Prelude.Nothing,
-      grantee = Prelude.Nothing
+    { grantee = Prelude.Nothing,
+      permission = Prelude.Nothing
     }
-
--- | Specifies the permission given to the grantee.
-grant_permission :: Lens.Lens' Grant (Prelude.Maybe Permission)
-grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} a -> s {permission = a} :: Grant)
 
 -- | The grantee.
 grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
 grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
+
+-- | Specifies the permission given to the grantee.
+grant_permission :: Lens.Lens' Grant (Prelude.Maybe Permission)
+grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} a -> s {permission = a} :: Grant)
 
 instance Data.FromJSON Grant where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON Grant where
       "Grant"
       ( \x ->
           Grant'
-            Prelude.<$> (x Data..:? "Permission")
-            Prelude.<*> (x Data..:? "Grantee")
+            Prelude.<$> (x Data..:? "Grantee")
+            Prelude.<*> (x Data..:? "Permission")
       )
 
 instance Prelude.Hashable Grant where
   hashWithSalt _salt Grant' {..} =
-    _salt `Prelude.hashWithSalt` permission
-      `Prelude.hashWithSalt` grantee
+    _salt `Prelude.hashWithSalt` grantee
+      `Prelude.hashWithSalt` permission
 
 instance Prelude.NFData Grant where
   rnf Grant' {..} =
-    Prelude.rnf permission
-      `Prelude.seq` Prelude.rnf grantee
+    Prelude.rnf grantee
+      `Prelude.seq` Prelude.rnf permission
 
 instance Data.ToJSON Grant where
   toJSON Grant' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Permission" Data..=) Prelude.<$> permission,
-            ("Grantee" Data..=) Prelude.<$> grantee
+          [ ("Grantee" Data..=) Prelude.<$> grantee,
+            ("Permission" Data..=) Prelude.<$> permission
           ]
       )

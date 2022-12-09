@@ -70,37 +70,37 @@ module Amazonka.Glacier.Lens
     describeJob_accountId,
     describeJob_vaultName,
     describeJob_jobId,
+    glacierJobDescription_action,
+    glacierJobDescription_archiveId,
     glacierJobDescription_archiveSHA256TreeHash,
     glacierJobDescription_archiveSizeInBytes,
-    glacierJobDescription_sNSTopic,
+    glacierJobDescription_completed,
     glacierJobDescription_completionDate,
+    glacierJobDescription_creationDate,
+    glacierJobDescription_inventoryRetrievalParameters,
+    glacierJobDescription_inventorySizeInBytes,
+    glacierJobDescription_jobDescription,
+    glacierJobDescription_jobId,
+    glacierJobDescription_jobOutputPath,
     glacierJobDescription_outputLocation,
     glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_creationDate,
-    glacierJobDescription_jobId,
-    glacierJobDescription_inventoryRetrievalParameters,
-    glacierJobDescription_selectParameters,
-    glacierJobDescription_archiveId,
-    glacierJobDescription_inventorySizeInBytes,
-    glacierJobDescription_jobOutputPath,
-    glacierJobDescription_tier,
     glacierJobDescription_sHA256TreeHash,
-    glacierJobDescription_completed,
-    glacierJobDescription_vaultARN,
-    glacierJobDescription_action,
+    glacierJobDescription_sNSTopic,
+    glacierJobDescription_selectParameters,
     glacierJobDescription_statusCode,
     glacierJobDescription_statusMessage,
-    glacierJobDescription_jobDescription,
+    glacierJobDescription_tier,
+    glacierJobDescription_vaultARN,
 
     -- ** DescribeVault
     describeVault_accountId,
     describeVault_vaultName,
-    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_creationDate,
-    describeVaultOutput_vaultName,
+    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_numberOfArchives,
     describeVaultOutput_sizeInBytes,
     describeVaultOutput_vaultARN,
+    describeVaultOutput_vaultName,
 
     -- ** GetDataRetrievalPolicy
     getDataRetrievalPolicy_accountId,
@@ -113,8 +113,8 @@ module Amazonka.Glacier.Lens
     getJobOutput_vaultName,
     getJobOutput_jobId,
     getJobOutputResponse_acceptRanges,
-    getJobOutputResponse_checksum,
     getJobOutputResponse_archiveDescription,
+    getJobOutputResponse_checksum,
     getJobOutputResponse_contentRange,
     getJobOutputResponse_contentType,
     getJobOutputResponse_status,
@@ -129,10 +129,10 @@ module Amazonka.Glacier.Lens
     -- ** GetVaultLock
     getVaultLock_accountId,
     getVaultLock_vaultName,
-    getVaultLockResponse_policy,
-    getVaultLockResponse_state,
     getVaultLockResponse_creationDate,
     getVaultLockResponse_expirationDate,
+    getVaultLockResponse_policy,
+    getVaultLockResponse_state,
     getVaultLockResponse_httpStatus,
 
     -- ** GetVaultNotifications
@@ -146,8 +146,8 @@ module Amazonka.Glacier.Lens
     initiateJob_accountId,
     initiateJob_vaultName,
     initiateJobResponse_jobId,
-    initiateJobResponse_location,
     initiateJobResponse_jobOutputPath,
+    initiateJobResponse_location,
     initiateJobResponse_httpStatus,
 
     -- ** InitiateMultipartUpload
@@ -167,19 +167,19 @@ module Amazonka.Glacier.Lens
     initiateVaultLockResponse_httpStatus,
 
     -- ** ListJobs
-    listJobs_marker,
-    listJobs_limit,
     listJobs_completed,
+    listJobs_limit,
+    listJobs_marker,
     listJobs_statuscode,
     listJobs_accountId,
     listJobs_vaultName,
-    listJobsResponse_marker,
     listJobsResponse_jobList,
+    listJobsResponse_marker,
     listJobsResponse_httpStatus,
 
     -- ** ListMultipartUploads
-    listMultipartUploads_marker,
     listMultipartUploads_limit,
+    listMultipartUploads_marker,
     listMultipartUploads_accountId,
     listMultipartUploads_vaultName,
     listMultipartUploadsResponse_marker,
@@ -187,18 +187,18 @@ module Amazonka.Glacier.Lens
     listMultipartUploadsResponse_httpStatus,
 
     -- ** ListParts
-    listParts_marker,
     listParts_limit,
+    listParts_marker,
     listParts_accountId,
     listParts_vaultName,
     listParts_uploadId,
-    listPartsResponse_marker,
-    listPartsResponse_parts,
-    listPartsResponse_creationDate,
-    listPartsResponse_multipartUploadId,
     listPartsResponse_archiveDescription,
-    listPartsResponse_vaultARN,
+    listPartsResponse_creationDate,
+    listPartsResponse_marker,
+    listPartsResponse_multipartUploadId,
     listPartsResponse_partSizeInBytes,
+    listPartsResponse_parts,
+    listPartsResponse_vaultARN,
     listPartsResponse_httpStatus,
 
     -- ** ListProvisionedCapacity
@@ -213,8 +213,8 @@ module Amazonka.Glacier.Lens
     listTagsForVaultResponse_httpStatus,
 
     -- ** ListVaults
-    listVaults_marker,
     listVaults_limit,
+    listVaults_marker,
     listVaults_accountId,
     listVaultsResponse_marker,
     listVaultsResponse_vaultList,
@@ -245,8 +245,8 @@ module Amazonka.Glacier.Lens
     setVaultNotifications_vaultName,
 
     -- ** UploadArchive
-    uploadArchive_checksum,
     uploadArchive_archiveDescription,
+    uploadArchive_checksum,
     uploadArchive_vaultName,
     uploadArchive_accountId,
     uploadArchive_body,
@@ -272,18 +272,18 @@ module Amazonka.Glacier.Lens
     archiveCreationOutput_location,
 
     -- ** CSVInput
-    cSVInput_quoteCharacter,
     cSVInput_comments,
-    cSVInput_quoteEscapeCharacter,
     cSVInput_fieldDelimiter,
-    cSVInput_recordDelimiter,
     cSVInput_fileHeaderInfo,
+    cSVInput_quoteCharacter,
+    cSVInput_quoteEscapeCharacter,
+    cSVInput_recordDelimiter,
 
     -- ** CSVOutput
-    cSVOutput_quoteCharacter,
-    cSVOutput_quoteFields,
-    cSVOutput_quoteEscapeCharacter,
     cSVOutput_fieldDelimiter,
+    cSVOutput_quoteCharacter,
+    cSVOutput_quoteEscapeCharacter,
+    cSVOutput_quoteFields,
     cSVOutput_recordDelimiter,
 
     -- ** DataRetrievalPolicy
@@ -294,79 +294,79 @@ module Amazonka.Glacier.Lens
     dataRetrievalRule_strategy,
 
     -- ** DescribeVaultOutput
-    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_creationDate,
-    describeVaultOutput_vaultName,
+    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_numberOfArchives,
     describeVaultOutput_sizeInBytes,
     describeVaultOutput_vaultARN,
+    describeVaultOutput_vaultName,
 
     -- ** Encryption
-    encryption_kmsContext,
     encryption_encryptionType,
+    encryption_kmsContext,
     encryption_kmsKeyId,
 
     -- ** GlacierJobDescription
+    glacierJobDescription_action,
+    glacierJobDescription_archiveId,
     glacierJobDescription_archiveSHA256TreeHash,
     glacierJobDescription_archiveSizeInBytes,
-    glacierJobDescription_sNSTopic,
+    glacierJobDescription_completed,
     glacierJobDescription_completionDate,
+    glacierJobDescription_creationDate,
+    glacierJobDescription_inventoryRetrievalParameters,
+    glacierJobDescription_inventorySizeInBytes,
+    glacierJobDescription_jobDescription,
+    glacierJobDescription_jobId,
+    glacierJobDescription_jobOutputPath,
     glacierJobDescription_outputLocation,
     glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_creationDate,
-    glacierJobDescription_jobId,
-    glacierJobDescription_inventoryRetrievalParameters,
-    glacierJobDescription_selectParameters,
-    glacierJobDescription_archiveId,
-    glacierJobDescription_inventorySizeInBytes,
-    glacierJobDescription_jobOutputPath,
-    glacierJobDescription_tier,
     glacierJobDescription_sHA256TreeHash,
-    glacierJobDescription_completed,
-    glacierJobDescription_vaultARN,
-    glacierJobDescription_action,
+    glacierJobDescription_sNSTopic,
+    glacierJobDescription_selectParameters,
     glacierJobDescription_statusCode,
     glacierJobDescription_statusMessage,
-    glacierJobDescription_jobDescription,
+    glacierJobDescription_tier,
+    glacierJobDescription_vaultARN,
 
     -- ** Grant
-    grant_permission,
     grant_grantee,
+    grant_permission,
 
     -- ** Grantee
     grantee_displayName,
-    grantee_uri,
-    grantee_id,
     grantee_emailAddress,
+    grantee_id,
+    grantee_uri,
     grantee_type,
 
     -- ** InputSerialization
     inputSerialization_csv,
 
     -- ** InventoryRetrievalJobDescription
-    inventoryRetrievalJobDescription_marker,
-    inventoryRetrievalJobDescription_format,
     inventoryRetrievalJobDescription_endDate,
+    inventoryRetrievalJobDescription_format,
     inventoryRetrievalJobDescription_limit,
+    inventoryRetrievalJobDescription_marker,
     inventoryRetrievalJobDescription_startDate,
 
     -- ** InventoryRetrievalJobInput
-    inventoryRetrievalJobInput_marker,
     inventoryRetrievalJobInput_endDate,
     inventoryRetrievalJobInput_limit,
+    inventoryRetrievalJobInput_marker,
     inventoryRetrievalJobInput_startDate,
 
     -- ** JobParameters
-    jobParameters_type,
-    jobParameters_sNSTopic,
+    jobParameters_archiveId,
+    jobParameters_description,
     jobParameters_format,
+    jobParameters_inventoryRetrievalParameters,
     jobParameters_outputLocation,
     jobParameters_retrievalByteRange,
-    jobParameters_inventoryRetrievalParameters,
+    jobParameters_sNSTopic,
     jobParameters_selectParameters,
-    jobParameters_description,
-    jobParameters_archiveId,
     jobParameters_tier,
+    jobParameters_type,
 
     -- ** OutputLocation
     outputLocation_s3,
@@ -379,32 +379,32 @@ module Amazonka.Glacier.Lens
     partListElement_sHA256TreeHash,
 
     -- ** ProvisionedCapacityDescription
-    provisionedCapacityDescription_startDate,
     provisionedCapacityDescription_capacityId,
     provisionedCapacityDescription_expirationDate,
+    provisionedCapacityDescription_startDate,
 
     -- ** S3Location
     s3Location_accessControlList,
     s3Location_bucketName,
-    s3Location_tagging,
+    s3Location_cannedACL,
     s3Location_encryption,
     s3Location_prefix,
     s3Location_storageClass,
-    s3Location_cannedACL,
+    s3Location_tagging,
     s3Location_userMetadata,
 
     -- ** SelectParameters
-    selectParameters_inputSerialization,
     selectParameters_expression,
-    selectParameters_outputSerialization,
     selectParameters_expressionType,
+    selectParameters_inputSerialization,
+    selectParameters_outputSerialization,
 
     -- ** UploadListElement
+    uploadListElement_archiveDescription,
     uploadListElement_creationDate,
     uploadListElement_multipartUploadId,
-    uploadListElement_archiveDescription,
-    uploadListElement_vaultARN,
     uploadListElement_partSizeInBytes,
+    uploadListElement_vaultARN,
 
     -- ** VaultAccessPolicy
     vaultAccessPolicy_policy,
@@ -413,8 +413,8 @@ module Amazonka.Glacier.Lens
     vaultLockPolicy_policy,
 
     -- ** VaultNotificationConfig
-    vaultNotificationConfig_sNSTopic,
     vaultNotificationConfig_events,
+    vaultNotificationConfig_sNSTopic,
   )
 where
 

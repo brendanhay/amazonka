@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data Grantee = Grantee'
   { -- | Screen name of the grantee.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | URI of the grantee group.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The canonical user ID of the grantee.
-    id :: Prelude.Maybe Prelude.Text,
     -- | Email address of the grantee.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The canonical user ID of the grantee.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | URI of the grantee group.
+    uri :: Prelude.Maybe Prelude.Text,
     -- | Type of grantee
     type' :: Type
   }
@@ -52,11 +52,11 @@ data Grantee = Grantee'
 --
 -- 'displayName', 'grantee_displayName' - Screen name of the grantee.
 --
--- 'uri', 'grantee_uri' - URI of the grantee group.
+-- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
 --
 -- 'id', 'grantee_id' - The canonical user ID of the grantee.
 --
--- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
+-- 'uri', 'grantee_uri' - URI of the grantee group.
 --
 -- 'type'', 'grantee_type' - Type of grantee
 newGrantee ::
@@ -66,9 +66,9 @@ newGrantee ::
 newGrantee pType_ =
   Grantee'
     { displayName = Prelude.Nothing,
-      uri = Prelude.Nothing,
-      id = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
+      id = Prelude.Nothing,
+      uri = Prelude.Nothing,
       type' = pType_
     }
 
@@ -76,17 +76,17 @@ newGrantee pType_ =
 grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
 
--- | URI of the grantee group.
-grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
+-- | Email address of the grantee.
+grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 
 -- | The canonical user ID of the grantee.
 grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
 
--- | Email address of the grantee.
-grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
+-- | URI of the grantee group.
+grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
 
 -- | Type of grantee
 grantee_type :: Lens.Lens' Grantee Type
@@ -99,26 +99,26 @@ instance Data.FromJSON Grantee where
       ( \x ->
           Grantee'
             Prelude.<$> (x Data..:? "DisplayName")
-            Prelude.<*> (x Data..:? "URI")
-            Prelude.<*> (x Data..:? "ID")
             Prelude.<*> (x Data..:? "EmailAddress")
+            Prelude.<*> (x Data..:? "ID")
+            Prelude.<*> (x Data..:? "URI")
             Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Grantee where
   hashWithSalt _salt Grantee' {..} =
     _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Grantee where
   rnf Grantee' {..} =
     Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON Grantee where
@@ -126,9 +126,9 @@ instance Data.ToJSON Grantee where
     Data.object
       ( Prelude.catMaybes
           [ ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("URI" Data..=) Prelude.<$> uri,
-            ("ID" Data..=) Prelude.<$> id,
             ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            ("ID" Data..=) Prelude.<$> id,
+            ("URI" Data..=) Prelude.<$> uri,
             Prelude.Just ("Type" Data..= type')
           ]
       )

@@ -67,8 +67,8 @@ module Amazonka.Glacier.UploadArchive
     newUploadArchive,
 
     -- * Request Lenses
-    uploadArchive_checksum,
     uploadArchive_archiveDescription,
+    uploadArchive_checksum,
     uploadArchive_vaultName,
     uploadArchive_accountId,
     uploadArchive_body,
@@ -96,10 +96,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUploadArchive' smart constructor.
 data UploadArchive = UploadArchive'
-  { -- | The SHA256 tree hash of the data being uploaded.
-    checksum :: Prelude.Maybe Prelude.Text,
-    -- | The optional description of the archive you are uploading.
+  { -- | The optional description of the archive you are uploading.
     archiveDescription :: Prelude.Maybe Prelude.Text,
+    -- | The SHA256 tree hash of the data being uploaded.
+    checksum :: Prelude.Maybe Prelude.Text,
     -- | The name of the vault.
     vaultName :: Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -121,9 +121,9 @@ data UploadArchive = UploadArchive'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checksum', 'uploadArchive_checksum' - The SHA256 tree hash of the data being uploaded.
---
 -- 'archiveDescription', 'uploadArchive_archiveDescription' - The optional description of the archive you are uploading.
+--
+-- 'checksum', 'uploadArchive_checksum' - The SHA256 tree hash of the data being uploaded.
 --
 -- 'vaultName', 'uploadArchive_vaultName' - The name of the vault.
 --
@@ -144,20 +144,21 @@ newUploadArchive ::
   UploadArchive
 newUploadArchive pVaultName_ pAccountId_ pBody_ =
   UploadArchive'
-    { checksum = Prelude.Nothing,
-      archiveDescription = Prelude.Nothing,
+    { archiveDescription =
+        Prelude.Nothing,
+      checksum = Prelude.Nothing,
       vaultName = pVaultName_,
       accountId = pAccountId_,
       body = pBody_
     }
 
--- | The SHA256 tree hash of the data being uploaded.
-uploadArchive_checksum :: Lens.Lens' UploadArchive (Prelude.Maybe Prelude.Text)
-uploadArchive_checksum = Lens.lens (\UploadArchive' {checksum} -> checksum) (\s@UploadArchive' {} a -> s {checksum = a} :: UploadArchive)
-
 -- | The optional description of the archive you are uploading.
 uploadArchive_archiveDescription :: Lens.Lens' UploadArchive (Prelude.Maybe Prelude.Text)
 uploadArchive_archiveDescription = Lens.lens (\UploadArchive' {archiveDescription} -> archiveDescription) (\s@UploadArchive' {} a -> s {archiveDescription = a} :: UploadArchive)
+
+-- | The SHA256 tree hash of the data being uploaded.
+uploadArchive_checksum :: Lens.Lens' UploadArchive (Prelude.Maybe Prelude.Text)
+uploadArchive_checksum = Lens.lens (\UploadArchive' {checksum} -> checksum) (\s@UploadArchive' {} a -> s {checksum = a} :: UploadArchive)
 
 -- | The name of the vault.
 uploadArchive_vaultName :: Lens.Lens' UploadArchive Prelude.Text
@@ -197,9 +198,9 @@ instance Data.ToBody UploadArchive where
 instance Data.ToHeaders UploadArchive where
   toHeaders UploadArchive' {..} =
     Prelude.mconcat
-      [ "x-amz-sha256-tree-hash" Data.=# checksum,
-        "x-amz-archive-description"
-          Data.=# archiveDescription
+      [ "x-amz-archive-description"
+          Data.=# archiveDescription,
+        "x-amz-sha256-tree-hash" Data.=# checksum
       ]
 
 instance Data.ToPath UploadArchive where

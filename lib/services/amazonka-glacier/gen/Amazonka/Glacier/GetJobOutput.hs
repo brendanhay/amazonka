@@ -84,8 +84,8 @@ module Amazonka.Glacier.GetJobOutput
 
     -- * Response Lenses
     getJobOutputResponse_acceptRanges,
-    getJobOutputResponse_checksum,
     getJobOutputResponse_archiveDescription,
+    getJobOutputResponse_checksum,
     getJobOutputResponse_contentRange,
     getJobOutputResponse_contentType,
     getJobOutputResponse_status,
@@ -275,8 +275,8 @@ instance Core.AWSRequest GetJobOutput where
       ( \s h x ->
           GetJobOutputResponse'
             Prelude.<$> (h Data..#? "Accept-Ranges")
-            Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Data..#? "x-amz-archive-description")
+            Prelude.<*> (h Data..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Data..#? "Content-Range")
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -323,6 +323,8 @@ data GetJobOutputResponse = GetJobOutputResponse'
   { -- | Indicates the range units accepted. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
     acceptRanges :: Prelude.Maybe Prelude.Text,
+    -- | The description of an archive.
+    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The checksum of the data in the response. This header is returned only
     -- when retrieving the output for an archive retrieval job. Furthermore,
     -- this header appears only under the following conditions:
@@ -340,8 +342,6 @@ data GetJobOutputResponse = GetJobOutputResponse'
     --     MB and ends at 3.1 MB (the end of the archive), then the
     --     x-amz-sha256-tree-hash is returned as a response header.
     checksum :: Prelude.Maybe Prelude.Text,
-    -- | The description of an archive.
-    archiveDescription :: Prelude.Maybe Prelude.Text,
     -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
     -- is downloaded, the response provides the range of bytes Amazon S3
     -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
@@ -373,6 +373,8 @@ data GetJobOutputResponse = GetJobOutputResponse'
 -- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
 --
+-- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
+--
 -- 'checksum', 'getJobOutputResponse_checksum' - The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
 -- this header appears only under the following conditions:
@@ -389,8 +391,6 @@ data GetJobOutputResponse = GetJobOutputResponse'
 --     you have a 3.1 MB archive and you specify a range that starts at 2
 --     MB and ends at 3.1 MB (the end of the archive), then the
 --     x-amz-sha256-tree-hash is returned as a response header.
---
--- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
 --
 -- 'contentRange', 'getJobOutputResponse_contentRange' - The range of bytes returned by Amazon S3 Glacier. If only partial output
 -- is downloaded, the response provides the range of bytes Amazon S3
@@ -418,8 +418,8 @@ newGetJobOutputResponse pStatus_ pBody_ =
   GetJobOutputResponse'
     { acceptRanges =
         Prelude.Nothing,
-      checksum = Prelude.Nothing,
       archiveDescription = Prelude.Nothing,
+      checksum = Prelude.Nothing,
       contentRange = Prelude.Nothing,
       contentType = Prelude.Nothing,
       status = pStatus_,
@@ -430,6 +430,10 @@ newGetJobOutputResponse pStatus_ pBody_ =
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
 getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
+
+-- | The description of an archive.
+getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -449,10 +453,6 @@ getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRan
 --     x-amz-sha256-tree-hash is returned as a response header.
 getJobOutputResponse_checksum :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_checksum = Lens.lens (\GetJobOutputResponse' {checksum} -> checksum) (\s@GetJobOutputResponse' {} a -> s {checksum = a} :: GetJobOutputResponse)
-
--- | The description of an archive.
-getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
 
 -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
 -- is downloaded, the response provides the range of bytes Amazon S3

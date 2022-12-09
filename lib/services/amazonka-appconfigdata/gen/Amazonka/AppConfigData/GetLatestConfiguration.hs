@@ -52,9 +52,9 @@ module Amazonka.AppConfigData.GetLatestConfiguration
 
     -- * Response Lenses
     getLatestConfigurationResponse_configuration,
+    getLatestConfigurationResponse_contentType,
     getLatestConfigurationResponse_nextPollConfigurationToken,
     getLatestConfigurationResponse_nextPollIntervalInSeconds,
-    getLatestConfigurationResponse_contentType,
     getLatestConfigurationResponse_httpStatus,
   )
 where
@@ -120,9 +120,9 @@ instance Core.AWSRequest GetLatestConfiguration where
       ( \s h x ->
           GetLatestConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (h Data..#? "Next-Poll-Configuration-Token")
             Prelude.<*> (h Data..#? "Next-Poll-Interval-In-Seconds")
-            Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,6 +158,8 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
   { -- | The data of the configuration. This may be empty if the client already
     -- has the latest version of configuration.
     configuration :: Prelude.Maybe (Data.Sensitive Prelude.ByteString),
+    -- | A standard MIME type describing the format of the configuration content.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The latest token describing the current state of the configuration
     -- session. This MUST be provided to the next call to
     -- @GetLatestConfiguration.@
@@ -166,8 +168,6 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
     -- configuration updates again. Use @RequiredMinimumPollIntervalInSeconds@
     -- to set the desired poll interval.
     nextPollIntervalInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | A standard MIME type describing the format of the configuration content.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,6 +184,8 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
 -- 'configuration', 'getLatestConfigurationResponse_configuration' - The data of the configuration. This may be empty if the client already
 -- has the latest version of configuration.
 --
+-- 'contentType', 'getLatestConfigurationResponse_contentType' - A standard MIME type describing the format of the configuration content.
+--
 -- 'nextPollConfigurationToken', 'getLatestConfigurationResponse_nextPollConfigurationToken' - The latest token describing the current state of the configuration
 -- session. This MUST be provided to the next call to
 -- @GetLatestConfiguration.@
@@ -191,8 +193,6 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
 -- 'nextPollIntervalInSeconds', 'getLatestConfigurationResponse_nextPollIntervalInSeconds' - The amount of time the client should wait before polling for
 -- configuration updates again. Use @RequiredMinimumPollIntervalInSeconds@
 -- to set the desired poll interval.
---
--- 'contentType', 'getLatestConfigurationResponse_contentType' - A standard MIME type describing the format of the configuration content.
 --
 -- 'httpStatus', 'getLatestConfigurationResponse_httpStatus' - The response's http status code.
 newGetLatestConfigurationResponse ::
@@ -203,10 +203,10 @@ newGetLatestConfigurationResponse pHttpStatus_ =
   GetLatestConfigurationResponse'
     { configuration =
         Prelude.Nothing,
+      contentType = Prelude.Nothing,
       nextPollConfigurationToken =
         Prelude.Nothing,
       nextPollIntervalInSeconds = Prelude.Nothing,
-      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,6 +214,10 @@ newGetLatestConfigurationResponse pHttpStatus_ =
 -- has the latest version of configuration.
 getLatestConfigurationResponse_configuration :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.ByteString)
 getLatestConfigurationResponse_configuration = Lens.lens (\GetLatestConfigurationResponse' {configuration} -> configuration) (\s@GetLatestConfigurationResponse' {} a -> s {configuration = a} :: GetLatestConfigurationResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A standard MIME type describing the format of the configuration content.
+getLatestConfigurationResponse_contentType :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLatestConfigurationResponse_contentType = Lens.lens (\GetLatestConfigurationResponse' {contentType} -> contentType) (\s@GetLatestConfigurationResponse' {} a -> s {contentType = a} :: GetLatestConfigurationResponse)
 
 -- | The latest token describing the current state of the configuration
 -- session. This MUST be provided to the next call to
@@ -227,10 +231,6 @@ getLatestConfigurationResponse_nextPollConfigurationToken = Lens.lens (\GetLates
 getLatestConfigurationResponse_nextPollIntervalInSeconds :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Int)
 getLatestConfigurationResponse_nextPollIntervalInSeconds = Lens.lens (\GetLatestConfigurationResponse' {nextPollIntervalInSeconds} -> nextPollIntervalInSeconds) (\s@GetLatestConfigurationResponse' {} a -> s {nextPollIntervalInSeconds = a} :: GetLatestConfigurationResponse)
 
--- | A standard MIME type describing the format of the configuration content.
-getLatestConfigurationResponse_contentType :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Text)
-getLatestConfigurationResponse_contentType = Lens.lens (\GetLatestConfigurationResponse' {contentType} -> contentType) (\s@GetLatestConfigurationResponse' {} a -> s {contentType = a} :: GetLatestConfigurationResponse)
-
 -- | The response's http status code.
 getLatestConfigurationResponse_httpStatus :: Lens.Lens' GetLatestConfigurationResponse Prelude.Int
 getLatestConfigurationResponse_httpStatus = Lens.lens (\GetLatestConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetLatestConfigurationResponse' {} a -> s {httpStatus = a} :: GetLatestConfigurationResponse)
@@ -241,7 +241,7 @@ instance
   where
   rnf GetLatestConfigurationResponse' {..} =
     Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf nextPollConfigurationToken
       `Prelude.seq` Prelude.rnf nextPollIntervalInSeconds
-      `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

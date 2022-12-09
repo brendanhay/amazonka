@@ -17,9 +17,9 @@ module Amazonka.AppConfigData.Lens
     -- ** GetLatestConfiguration
     getLatestConfiguration_configurationToken,
     getLatestConfigurationResponse_configuration,
+    getLatestConfigurationResponse_contentType,
     getLatestConfigurationResponse_nextPollConfigurationToken,
     getLatestConfigurationResponse_nextPollIntervalInSeconds,
-    getLatestConfigurationResponse_contentType,
     getLatestConfigurationResponse_httpStatus,
 
     -- ** StartConfigurationSession

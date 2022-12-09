@@ -62,6 +62,9 @@ module Amazonka.AppConfigData
     -- * Errors
     -- $errors
 
+    -- ** BadRequestException
+    _BadRequestException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -70,9 +73,6 @@ module Amazonka.AppConfigData
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** BadRequestException
-    _BadRequestException,
 
     -- * Waiters
     -- $waiters

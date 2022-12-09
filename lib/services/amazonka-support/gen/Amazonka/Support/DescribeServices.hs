@@ -49,8 +49,8 @@ module Amazonka.Support.DescribeServices
     newDescribeServices,
 
     -- * Request Lenses
-    describeServices_serviceCodeList,
     describeServices_language,
+    describeServices_serviceCodeList,
 
     -- * Destructuring the Response
     DescribeServicesResponse (..),
@@ -72,14 +72,14 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { -- | A JSON-formatted list of service codes available for Amazon Web Services
-    -- services.
-    serviceCodeList :: Prelude.Maybe [Prelude.Text],
-    -- | The ISO 639-1 code for the language in which Amazon Web Services
+  { -- | The ISO 639-1 code for the language in which Amazon Web Services
     -- provides support. Amazon Web Services Support currently supports English
     -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
     -- explicitly for operations that take them.
-    language :: Prelude.Maybe Prelude.Text
+    language :: Prelude.Maybe Prelude.Text,
+    -- | A JSON-formatted list of service codes available for Amazon Web Services
+    -- services.
+    serviceCodeList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,26 +91,20 @@ data DescribeServices = DescribeServices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceCodeList', 'describeServices_serviceCodeList' - A JSON-formatted list of service codes available for Amazon Web Services
--- services.
---
 -- 'language', 'describeServices_language' - The ISO 639-1 code for the language in which Amazon Web Services
 -- provides support. Amazon Web Services Support currently supports English
 -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
 -- explicitly for operations that take them.
+--
+-- 'serviceCodeList', 'describeServices_serviceCodeList' - A JSON-formatted list of service codes available for Amazon Web Services
+-- services.
 newDescribeServices ::
   DescribeServices
 newDescribeServices =
   DescribeServices'
-    { serviceCodeList =
-        Prelude.Nothing,
-      language = Prelude.Nothing
+    { language = Prelude.Nothing,
+      serviceCodeList = Prelude.Nothing
     }
-
--- | A JSON-formatted list of service codes available for Amazon Web Services
--- services.
-describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Prelude.Maybe [Prelude.Text])
-describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ISO 639-1 code for the language in which Amazon Web Services
 -- provides support. Amazon Web Services Support currently supports English
@@ -118,6 +112,11 @@ describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeLis
 -- explicitly for operations that take them.
 describeServices_language :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_language = Lens.lens (\DescribeServices' {language} -> language) (\s@DescribeServices' {} a -> s {language = a} :: DescribeServices)
+
+-- | A JSON-formatted list of service codes available for Amazon Web Services
+-- services.
+describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Prelude.Maybe [Prelude.Text])
+describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeServices where
   type
@@ -135,13 +134,13 @@ instance Core.AWSRequest DescribeServices where
 
 instance Prelude.Hashable DescribeServices where
   hashWithSalt _salt DescribeServices' {..} =
-    _salt `Prelude.hashWithSalt` serviceCodeList
-      `Prelude.hashWithSalt` language
+    _salt `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` serviceCodeList
 
 instance Prelude.NFData DescribeServices where
   rnf DescribeServices' {..} =
-    Prelude.rnf serviceCodeList
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf language
+      `Prelude.seq` Prelude.rnf serviceCodeList
 
 instance Data.ToHeaders DescribeServices where
   toHeaders =
@@ -162,9 +161,9 @@ instance Data.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("serviceCodeList" Data..=)
-              Prelude.<$> serviceCodeList,
-            ("language" Data..=) Prelude.<$> language
+          [ ("language" Data..=) Prelude.<$> language,
+            ("serviceCodeList" Data..=)
+              Prelude.<$> serviceCodeList
           ]
       )
 

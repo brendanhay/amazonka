@@ -62,12 +62,12 @@ module Amazonka.Support.CreateCase
     newCreateCase,
 
     -- * Request Lenses
+    createCase_attachmentSetId,
+    createCase_categoryCode,
     createCase_ccEmailAddresses,
     createCase_issueType,
-    createCase_categoryCode,
-    createCase_serviceCode,
-    createCase_attachmentSetId,
     createCase_language,
+    createCase_serviceCode,
     createCase_severityCode,
     createCase_subject,
     createCase_communicationBody,
@@ -92,7 +92,14 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newCreateCase' smart constructor.
 data CreateCase = CreateCase'
-  { -- | A list of email addresses that Amazon Web Services Support copies on
+  { -- | The ID of a set of one or more attachments for the case. Create the set
+    -- by using the AddAttachmentsToSet operation.
+    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    -- | The category of problem for the support case. You also use the
+    -- DescribeServices operation to get the category code for a service. Each
+    -- Amazon Web Services service defines its own set of category codes.
+    categoryCode :: Prelude.Maybe Prelude.Text,
+    -- | A list of email addresses that Amazon Web Services Support copies on
     -- case correspondence. Amazon Web Services Support identifies the account
     -- that creates the case when you specify your Amazon Web Services
     -- credentials in an HTTP POST method or use the
@@ -101,21 +108,14 @@ data CreateCase = CreateCase'
     -- | The type of issue for the case. You can specify @customer-service@ or
     -- @technical@. If you don\'t specify a value, the default is @technical@.
     issueType :: Prelude.Maybe Prelude.Text,
-    -- | The category of problem for the support case. You also use the
-    -- DescribeServices operation to get the category code for a service. Each
-    -- Amazon Web Services service defines its own set of category codes.
-    categoryCode :: Prelude.Maybe Prelude.Text,
-    -- | The code for the Amazon Web Services service. You can use the
-    -- DescribeServices operation to get the possible @serviceCode@ values.
-    serviceCode :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a set of one or more attachments for the case. Create the set
-    -- by using the AddAttachmentsToSet operation.
-    attachmentSetId :: Prelude.Maybe Prelude.Text,
     -- | The language in which Amazon Web Services Support handles the case. You
     -- must specify the ISO 639-1 code for the @language@ parameter if you want
     -- support in that language. Currently, English (\"en\") and Japanese
     -- (\"ja\") are supported.
     language :: Prelude.Maybe Prelude.Text,
+    -- | The code for the Amazon Web Services service. You can use the
+    -- DescribeServices operation to get the possible @serviceCode@ values.
+    serviceCode :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates the urgency of the case. This value determines
     -- the response time according to your service level agreement with Amazon
     -- Web Services Support. You can use the DescribeSeverityLevels operation
@@ -149,6 +149,13 @@ data CreateCase = CreateCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set
+-- by using the AddAttachmentsToSet operation.
+--
+-- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the
+-- DescribeServices operation to get the category code for a service. Each
+-- Amazon Web Services service defines its own set of category codes.
+--
 -- 'ccEmailAddresses', 'createCase_ccEmailAddresses' - A list of email addresses that Amazon Web Services Support copies on
 -- case correspondence. Amazon Web Services Support identifies the account
 -- that creates the case when you specify your Amazon Web Services
@@ -158,20 +165,13 @@ data CreateCase = CreateCase'
 -- 'issueType', 'createCase_issueType' - The type of issue for the case. You can specify @customer-service@ or
 -- @technical@. If you don\'t specify a value, the default is @technical@.
 --
--- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the
--- DescribeServices operation to get the category code for a service. Each
--- Amazon Web Services service defines its own set of category codes.
---
--- 'serviceCode', 'createCase_serviceCode' - The code for the Amazon Web Services service. You can use the
--- DescribeServices operation to get the possible @serviceCode@ values.
---
--- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set
--- by using the AddAttachmentsToSet operation.
---
 -- 'language', 'createCase_language' - The language in which Amazon Web Services Support handles the case. You
 -- must specify the ISO 639-1 code for the @language@ parameter if you want
 -- support in that language. Currently, English (\"en\") and Japanese
 -- (\"ja\") are supported.
+--
+-- 'serviceCode', 'createCase_serviceCode' - The code for the Amazon Web Services service. You can use the
+-- DescribeServices operation to get the possible @serviceCode@ values.
 --
 -- 'severityCode', 'createCase_severityCode' - A value that indicates the urgency of the case. This value determines
 -- the response time according to your service level agreement with Amazon
@@ -202,16 +202,27 @@ newCreateCase ::
   CreateCase
 newCreateCase pSubject_ pCommunicationBody_ =
   CreateCase'
-    { ccEmailAddresses = Prelude.Nothing,
-      issueType = Prelude.Nothing,
+    { attachmentSetId = Prelude.Nothing,
       categoryCode = Prelude.Nothing,
-      serviceCode = Prelude.Nothing,
-      attachmentSetId = Prelude.Nothing,
+      ccEmailAddresses = Prelude.Nothing,
+      issueType = Prelude.Nothing,
       language = Prelude.Nothing,
+      serviceCode = Prelude.Nothing,
       severityCode = Prelude.Nothing,
       subject = pSubject_,
       communicationBody = pCommunicationBody_
     }
+
+-- | The ID of a set of one or more attachments for the case. Create the set
+-- by using the AddAttachmentsToSet operation.
+createCase_attachmentSetId :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_attachmentSetId = Lens.lens (\CreateCase' {attachmentSetId} -> attachmentSetId) (\s@CreateCase' {} a -> s {attachmentSetId = a} :: CreateCase)
+
+-- | The category of problem for the support case. You also use the
+-- DescribeServices operation to get the category code for a service. Each
+-- Amazon Web Services service defines its own set of category codes.
+createCase_categoryCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_categoryCode = Lens.lens (\CreateCase' {categoryCode} -> categoryCode) (\s@CreateCase' {} a -> s {categoryCode = a} :: CreateCase)
 
 -- | A list of email addresses that Amazon Web Services Support copies on
 -- case correspondence. Amazon Web Services Support identifies the account
@@ -226,28 +237,17 @@ createCase_ccEmailAddresses = Lens.lens (\CreateCase' {ccEmailAddresses} -> ccEm
 createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
--- | The category of problem for the support case. You also use the
--- DescribeServices operation to get the category code for a service. Each
--- Amazon Web Services service defines its own set of category codes.
-createCase_categoryCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_categoryCode = Lens.lens (\CreateCase' {categoryCode} -> categoryCode) (\s@CreateCase' {} a -> s {categoryCode = a} :: CreateCase)
-
--- | The code for the Amazon Web Services service. You can use the
--- DescribeServices operation to get the possible @serviceCode@ values.
-createCase_serviceCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_serviceCode = Lens.lens (\CreateCase' {serviceCode} -> serviceCode) (\s@CreateCase' {} a -> s {serviceCode = a} :: CreateCase)
-
--- | The ID of a set of one or more attachments for the case. Create the set
--- by using the AddAttachmentsToSet operation.
-createCase_attachmentSetId :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
-createCase_attachmentSetId = Lens.lens (\CreateCase' {attachmentSetId} -> attachmentSetId) (\s@CreateCase' {} a -> s {attachmentSetId = a} :: CreateCase)
-
 -- | The language in which Amazon Web Services Support handles the case. You
 -- must specify the ISO 639-1 code for the @language@ parameter if you want
 -- support in that language. Currently, English (\"en\") and Japanese
 -- (\"ja\") are supported.
 createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
+
+-- | The code for the Amazon Web Services service. You can use the
+-- DescribeServices operation to get the possible @serviceCode@ values.
+createCase_serviceCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_serviceCode = Lens.lens (\CreateCase' {serviceCode} -> serviceCode) (\s@CreateCase' {} a -> s {serviceCode = a} :: CreateCase)
 
 -- | A value that indicates the urgency of the case. This value determines
 -- the response time according to your service level agreement with Amazon
@@ -291,24 +291,24 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` ccEmailAddresses
-      `Prelude.hashWithSalt` issueType
+    _salt `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` categoryCode
-      `Prelude.hashWithSalt` serviceCode
-      `Prelude.hashWithSalt` attachmentSetId
+      `Prelude.hashWithSalt` ccEmailAddresses
+      `Prelude.hashWithSalt` issueType
       `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` serviceCode
       `Prelude.hashWithSalt` severityCode
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` communicationBody
 
 instance Prelude.NFData CreateCase where
   rnf CreateCase' {..} =
-    Prelude.rnf ccEmailAddresses
-      `Prelude.seq` Prelude.rnf issueType
+    Prelude.rnf attachmentSetId
       `Prelude.seq` Prelude.rnf categoryCode
-      `Prelude.seq` Prelude.rnf serviceCode
-      `Prelude.seq` Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf ccEmailAddresses
+      `Prelude.seq` Prelude.rnf issueType
       `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf severityCode
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf communicationBody
@@ -332,14 +332,14 @@ instance Data.ToJSON CreateCase where
   toJSON CreateCase' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ccEmailAddresses" Data..=)
+          [ ("attachmentSetId" Data..=)
+              Prelude.<$> attachmentSetId,
+            ("categoryCode" Data..=) Prelude.<$> categoryCode,
+            ("ccEmailAddresses" Data..=)
               Prelude.<$> ccEmailAddresses,
             ("issueType" Data..=) Prelude.<$> issueType,
-            ("categoryCode" Data..=) Prelude.<$> categoryCode,
-            ("serviceCode" Data..=) Prelude.<$> serviceCode,
-            ("attachmentSetId" Data..=)
-              Prelude.<$> attachmentSetId,
             ("language" Data..=) Prelude.<$> language,
+            ("serviceCode" Data..=) Prelude.<$> serviceCode,
             ("severityCode" Data..=) Prelude.<$> severityCode,
             Prelude.Just ("subject" Data..= subject),
             Prelude.Just

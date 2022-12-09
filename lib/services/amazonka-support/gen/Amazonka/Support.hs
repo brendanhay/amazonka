@@ -88,8 +88,14 @@ module Amazonka.Support
     -- * Errors
     -- $errors
 
-    -- ** DescribeAttachmentLimitExceeded
-    _DescribeAttachmentLimitExceeded,
+    -- ** AttachmentIdNotFound
+    _AttachmentIdNotFound,
+
+    -- ** AttachmentLimitExceeded
+    _AttachmentLimitExceeded,
+
+    -- ** AttachmentSetExpired
+    _AttachmentSetExpired,
 
     -- ** AttachmentSetIdNotFound
     _AttachmentSetIdNotFound,
@@ -97,23 +103,17 @@ module Amazonka.Support
     -- ** AttachmentSetSizeLimitExceeded
     _AttachmentSetSizeLimitExceeded,
 
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** AttachmentIdNotFound
-    _AttachmentIdNotFound,
+    -- ** CaseCreationLimitExceeded
+    _CaseCreationLimitExceeded,
 
     -- ** CaseIdNotFound
     _CaseIdNotFound,
 
-    -- ** CaseCreationLimitExceeded
-    _CaseCreationLimitExceeded,
+    -- ** DescribeAttachmentLimitExceeded
+    _DescribeAttachmentLimitExceeded,
 
-    -- ** AttachmentLimitExceeded
-    _AttachmentLimitExceeded,
-
-    -- ** AttachmentSetExpired
-    _AttachmentSetExpired,
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- * Waiters
     -- $waiters

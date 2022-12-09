@@ -50,10 +50,10 @@ module Amazonka.Support.DescribeCommunications
     newDescribeCommunications,
 
     -- * Request Lenses
-    describeCommunications_nextToken,
     describeCommunications_afterTime,
-    describeCommunications_maxResults,
     describeCommunications_beforeTime,
+    describeCommunications_maxResults,
+    describeCommunications_nextToken,
     describeCommunications_caseId,
 
     -- * Destructuring the Response
@@ -61,8 +61,8 @@ module Amazonka.Support.DescribeCommunications
     newDescribeCommunicationsResponse,
 
     -- * Response Lenses
-    describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_communications,
+    describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_httpStatus,
   )
 where
@@ -77,17 +77,17 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeCommunications' smart constructor.
 data DescribeCommunications = DescribeCommunications'
-  { -- | A resumption point for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The start date for a filtered date search on support case
+  { -- | The start date for a filtered date search on support case
     -- communications. Case communications are available for 12 months after
     -- creation.
     afterTime :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return before paginating.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The end date for a filtered date search on support case communications.
     -- Case communications are available for 12 months after creation.
     beforeTime :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return before paginating.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A resumption point for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The support case ID requested or returned in the call. The case ID is an
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
@@ -103,16 +103,16 @@ data DescribeCommunications = DescribeCommunications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.
---
 -- 'afterTime', 'describeCommunications_afterTime' - The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
 -- creation.
 --
--- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.
---
 -- 'beforeTime', 'describeCommunications_beforeTime' - The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
+--
+-- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.
+--
+-- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.
 --
 -- 'caseId', 'describeCommunications_caseId' - The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
@@ -123,17 +123,13 @@ newDescribeCommunications ::
   DescribeCommunications
 newDescribeCommunications pCaseId_ =
   DescribeCommunications'
-    { nextToken =
+    { afterTime =
         Prelude.Nothing,
-      afterTime = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       beforeTime = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       caseId = pCaseId_
     }
-
--- | A resumption point for pagination.
-describeCommunications_nextToken :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
-describeCommunications_nextToken = Lens.lens (\DescribeCommunications' {nextToken} -> nextToken) (\s@DescribeCommunications' {} a -> s {nextToken = a} :: DescribeCommunications)
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -141,14 +137,18 @@ describeCommunications_nextToken = Lens.lens (\DescribeCommunications' {nextToke
 describeCommunications_afterTime :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
 describeCommunications_afterTime = Lens.lens (\DescribeCommunications' {afterTime} -> afterTime) (\s@DescribeCommunications' {} a -> s {afterTime = a} :: DescribeCommunications)
 
--- | The maximum number of results to return before paginating.
-describeCommunications_maxResults :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Natural)
-describeCommunications_maxResults = Lens.lens (\DescribeCommunications' {maxResults} -> maxResults) (\s@DescribeCommunications' {} a -> s {maxResults = a} :: DescribeCommunications)
-
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 describeCommunications_beforeTime :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
 describeCommunications_beforeTime = Lens.lens (\DescribeCommunications' {beforeTime} -> beforeTime) (\s@DescribeCommunications' {} a -> s {beforeTime = a} :: DescribeCommunications)
+
+-- | The maximum number of results to return before paginating.
+describeCommunications_maxResults :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Natural)
+describeCommunications_maxResults = Lens.lens (\DescribeCommunications' {maxResults} -> maxResults) (\s@DescribeCommunications' {} a -> s {maxResults = a} :: DescribeCommunications)
+
+-- | A resumption point for pagination.
+describeCommunications_nextToken :: Lens.Lens' DescribeCommunications (Prelude.Maybe Prelude.Text)
+describeCommunications_nextToken = Lens.lens (\DescribeCommunications' {nextToken} -> nextToken) (\s@DescribeCommunications' {} a -> s {nextToken = a} :: DescribeCommunications)
 
 -- | The support case ID requested or returned in the call. The case ID is an
 -- alphanumeric string formatted as shown in this example:
@@ -188,25 +188,25 @@ instance Core.AWSRequest DescribeCommunications where
     Response.receiveJSON
       ( \s h x ->
           DescribeCommunicationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "communications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "communications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeCommunications where
   hashWithSalt _salt DescribeCommunications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` afterTime
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` afterTime
       `Prelude.hashWithSalt` beforeTime
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` caseId
 
 instance Prelude.NFData DescribeCommunications where
   rnf DescribeCommunications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf afterTime
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf afterTime
       `Prelude.seq` Prelude.rnf beforeTime
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf caseId
 
 instance Data.ToHeaders DescribeCommunications where
@@ -228,10 +228,10 @@ instance Data.ToJSON DescribeCommunications where
   toJSON DescribeCommunications' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("afterTime" Data..=) Prelude.<$> afterTime,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("afterTime" Data..=) Prelude.<$> afterTime,
             ("beforeTime" Data..=) Prelude.<$> beforeTime,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("caseId" Data..= caseId)
           ]
       )
@@ -246,10 +246,10 @@ instance Data.ToQuery DescribeCommunications where
 --
 -- /See:/ 'newDescribeCommunicationsResponse' smart constructor.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-  { -- | A resumption point for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The communications for the case.
+  { -- | The communications for the case.
     communications :: Prelude.Maybe [Communication],
+    -- | A resumption point for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -263,9 +263,9 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeCommunicationsResponse_nextToken' - A resumption point for pagination.
---
 -- 'communications', 'describeCommunicationsResponse_communications' - The communications for the case.
+--
+-- 'nextToken', 'describeCommunicationsResponse_nextToken' - A resumption point for pagination.
 --
 -- 'httpStatus', 'describeCommunicationsResponse_httpStatus' - The response's http status code.
 newDescribeCommunicationsResponse ::
@@ -274,19 +274,19 @@ newDescribeCommunicationsResponse ::
   DescribeCommunicationsResponse
 newDescribeCommunicationsResponse pHttpStatus_ =
   DescribeCommunicationsResponse'
-    { nextToken =
+    { communications =
         Prelude.Nothing,
-      communications = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A resumption point for pagination.
-describeCommunicationsResponse_nextToken :: Lens.Lens' DescribeCommunicationsResponse (Prelude.Maybe Prelude.Text)
-describeCommunicationsResponse_nextToken = Lens.lens (\DescribeCommunicationsResponse' {nextToken} -> nextToken) (\s@DescribeCommunicationsResponse' {} a -> s {nextToken = a} :: DescribeCommunicationsResponse)
 
 -- | The communications for the case.
 describeCommunicationsResponse_communications :: Lens.Lens' DescribeCommunicationsResponse (Prelude.Maybe [Communication])
 describeCommunicationsResponse_communications = Lens.lens (\DescribeCommunicationsResponse' {communications} -> communications) (\s@DescribeCommunicationsResponse' {} a -> s {communications = a} :: DescribeCommunicationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A resumption point for pagination.
+describeCommunicationsResponse_nextToken :: Lens.Lens' DescribeCommunicationsResponse (Prelude.Maybe Prelude.Text)
+describeCommunicationsResponse_nextToken = Lens.lens (\DescribeCommunicationsResponse' {nextToken} -> nextToken) (\s@DescribeCommunicationsResponse' {} a -> s {nextToken = a} :: DescribeCommunicationsResponse)
 
 -- | The response's http status code.
 describeCommunicationsResponse_httpStatus :: Lens.Lens' DescribeCommunicationsResponse Prelude.Int
@@ -297,6 +297,6 @@ instance
     DescribeCommunicationsResponse
   where
   rnf DescribeCommunicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf communications
+    Prelude.rnf communications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

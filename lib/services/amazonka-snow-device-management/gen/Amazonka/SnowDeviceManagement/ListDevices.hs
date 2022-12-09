@@ -31,9 +31,9 @@ module Amazonka.SnowDeviceManagement.ListDevices
     newListDevices,
 
     -- * Request Lenses
-    listDevices_nextToken,
     listDevices_jobId,
     listDevices_maxResults,
+    listDevices_nextToken,
 
     -- * Destructuring the Response
     ListDevicesResponse (..),
@@ -56,12 +56,12 @@ import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { -- | A pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the job used to order the device.
+  { -- | The ID of the job used to order the device.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of devices to list per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,23 +73,19 @@ data ListDevices = ListDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDevices_nextToken' - A pagination token to continue to the next page of results.
---
 -- 'jobId', 'listDevices_jobId' - The ID of the job used to order the device.
 --
 -- 'maxResults', 'listDevices_maxResults' - The maximum number of devices to list per page.
+--
+-- 'nextToken', 'listDevices_nextToken' - A pagination token to continue to the next page of results.
 newListDevices ::
   ListDevices
 newListDevices =
   ListDevices'
-    { nextToken = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { jobId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token to continue to the next page of results.
-listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
-listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
 -- | The ID of the job used to order the device.
 listDevices_jobId :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
@@ -98,6 +94,10 @@ listDevices_jobId = Lens.lens (\ListDevices' {jobId} -> jobId) (\s@ListDevices' 
 -- | The maximum number of devices to list per page.
 listDevices_maxResults :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Natural)
 listDevices_maxResults = Lens.lens (\ListDevices' {maxResults} -> maxResults) (\s@ListDevices' {} a -> s {maxResults = a} :: ListDevices)
+
+-- | A pagination token to continue to the next page of results.
+listDevices_nextToken :: Lens.Lens' ListDevices (Prelude.Maybe Prelude.Text)
+listDevices_nextToken = Lens.lens (\ListDevices' {nextToken} -> nextToken) (\s@ListDevices' {} a -> s {nextToken = a} :: ListDevices)
 
 instance Core.AWSPager ListDevices where
   page rq rs
@@ -133,15 +133,15 @@ instance Core.AWSRequest ListDevices where
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobId
+    _salt `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDevices where
   rnf ListDevices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDevices where
   toHeaders =
@@ -160,9 +160,9 @@ instance Data.ToPath ListDevices where
 instance Data.ToQuery ListDevices where
   toQuery ListDevices' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "jobId" Data.=: jobId,
-        "maxResults" Data.=: maxResults
+      [ "jobId" Data.=: jobId,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDevicesResponse' smart constructor.

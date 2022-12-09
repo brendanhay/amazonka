@@ -20,9 +20,9 @@ module Amazonka.SnowDeviceManagement.Lens
     cancelTaskResponse_httpStatus,
 
     -- ** CreateTask
-    createTask_tags,
     createTask_clientToken,
     createTask_description,
+    createTask_tags,
     createTask_command,
     createTask_targets,
     createTaskResponse_taskArn,
@@ -31,17 +31,17 @@ module Amazonka.SnowDeviceManagement.Lens
 
     -- ** DescribeDevice
     describeDevice_managedDeviceId,
-    describeDeviceResponse_tags,
-    describeDeviceResponse_deviceState,
-    describeDeviceResponse_lastUpdatedAt,
-    describeDeviceResponse_software,
-    describeDeviceResponse_lastReachedOutAt,
-    describeDeviceResponse_deviceCapacities,
-    describeDeviceResponse_physicalNetworkInterfaces,
     describeDeviceResponse_associatedWithJob,
+    describeDeviceResponse_deviceCapacities,
+    describeDeviceResponse_deviceState,
+    describeDeviceResponse_deviceType,
+    describeDeviceResponse_lastReachedOutAt,
+    describeDeviceResponse_lastUpdatedAt,
     describeDeviceResponse_managedDeviceArn,
     describeDeviceResponse_managedDeviceId,
-    describeDeviceResponse_deviceType,
+    describeDeviceResponse_physicalNetworkInterfaces,
+    describeDeviceResponse_software,
+    describeDeviceResponse_tags,
     describeDeviceResponse_httpStatus,
 
     -- ** DescribeDeviceEc2Instances
@@ -53,48 +53,48 @@ module Amazonka.SnowDeviceManagement.Lens
     -- ** DescribeExecution
     describeExecution_managedDeviceId,
     describeExecution_taskId,
-    describeExecutionResponse_lastUpdatedAt,
-    describeExecutionResponse_taskId,
-    describeExecutionResponse_state,
     describeExecutionResponse_executionId,
-    describeExecutionResponse_startedAt,
+    describeExecutionResponse_lastUpdatedAt,
     describeExecutionResponse_managedDeviceId,
+    describeExecutionResponse_startedAt,
+    describeExecutionResponse_state,
+    describeExecutionResponse_taskId,
     describeExecutionResponse_httpStatus,
 
     -- ** DescribeTask
     describeTask_taskId,
-    describeTaskResponse_tags,
-    describeTaskResponse_lastUpdatedAt,
-    describeTaskResponse_taskArn,
-    describeTaskResponse_taskId,
-    describeTaskResponse_state,
-    describeTaskResponse_targets,
-    describeTaskResponse_description,
     describeTaskResponse_completedAt,
     describeTaskResponse_createdAt,
+    describeTaskResponse_description,
+    describeTaskResponse_lastUpdatedAt,
+    describeTaskResponse_state,
+    describeTaskResponse_tags,
+    describeTaskResponse_targets,
+    describeTaskResponse_taskArn,
+    describeTaskResponse_taskId,
     describeTaskResponse_httpStatus,
 
     -- ** ListDeviceResources
+    listDeviceResources_maxResults,
     listDeviceResources_nextToken,
     listDeviceResources_type,
-    listDeviceResources_maxResults,
     listDeviceResources_managedDeviceId,
     listDeviceResourcesResponse_nextToken,
     listDeviceResourcesResponse_resources,
     listDeviceResourcesResponse_httpStatus,
 
     -- ** ListDevices
-    listDevices_nextToken,
     listDevices_jobId,
     listDevices_maxResults,
+    listDevices_nextToken,
     listDevicesResponse_devices,
     listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
 
     -- ** ListExecutions
+    listExecutions_maxResults,
     listExecutions_nextToken,
     listExecutions_state,
-    listExecutions_maxResults,
     listExecutions_taskId,
     listExecutionsResponse_executions,
     listExecutionsResponse_nextToken,
@@ -106,11 +106,11 @@ module Amazonka.SnowDeviceManagement.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTasks
+    listTasks_maxResults,
     listTasks_nextToken,
     listTasks_state,
-    listTasks_maxResults,
-    listTasksResponse_tasks,
     listTasksResponse_nextToken,
+    listTasksResponse_tasks,
     listTasksResponse_httpStatus,
 
     -- ** TagResource
@@ -127,8 +127,8 @@ module Amazonka.SnowDeviceManagement.Lens
     capacity_available,
     capacity_name,
     capacity_total,
-    capacity_used,
     capacity_unit,
+    capacity_used,
 
     -- ** Command
     command_reboot,
@@ -139,58 +139,58 @@ module Amazonka.SnowDeviceManagement.Lens
     cpuOptions_threadsPerCore,
 
     -- ** DeviceSummary
-    deviceSummary_tags,
     deviceSummary_associatedWithJob,
     deviceSummary_managedDeviceArn,
     deviceSummary_managedDeviceId,
+    deviceSummary_tags,
 
     -- ** EbsInstanceBlockDevice
+    ebsInstanceBlockDevice_attachTime,
     ebsInstanceBlockDevice_deleteOnTermination,
     ebsInstanceBlockDevice_status,
-    ebsInstanceBlockDevice_attachTime,
     ebsInstanceBlockDevice_volumeId,
 
     -- ** ExecutionSummary
-    executionSummary_taskId,
-    executionSummary_state,
     executionSummary_executionId,
     executionSummary_managedDeviceId,
+    executionSummary_state,
+    executionSummary_taskId,
 
     -- ** Instance
-    instance_blockDeviceMappings,
     instance_amiLaunchIndex,
-    instance_state,
-    instance_instanceType,
-    instance_instanceId,
-    instance_publicIpAddress,
-    instance_securityGroups,
-    instance_privateIpAddress,
+    instance_blockDeviceMappings,
     instance_cpuOptions,
     instance_createdAt,
     instance_imageId,
-    instance_updatedAt,
+    instance_instanceId,
+    instance_instanceType,
+    instance_privateIpAddress,
+    instance_publicIpAddress,
     instance_rootDeviceName,
+    instance_securityGroups,
+    instance_state,
+    instance_updatedAt,
 
     -- ** InstanceBlockDeviceMapping
-    instanceBlockDeviceMapping_ebs,
     instanceBlockDeviceMapping_deviceName,
+    instanceBlockDeviceMapping_ebs,
 
     -- ** InstanceState
-    instanceState_name,
     instanceState_code,
+    instanceState_name,
 
     -- ** InstanceSummary
-    instanceSummary_lastUpdatedAt,
     instanceSummary_instance,
+    instanceSummary_lastUpdatedAt,
 
     -- ** PhysicalNetworkInterface
+    physicalNetworkInterface_defaultGateway,
+    physicalNetworkInterface_ipAddress,
     physicalNetworkInterface_ipAddressAssignment,
+    physicalNetworkInterface_macAddress,
     physicalNetworkInterface_netmask,
     physicalNetworkInterface_physicalConnectorType,
-    physicalNetworkInterface_macAddress,
-    physicalNetworkInterface_defaultGateway,
     physicalNetworkInterface_physicalNetworkInterfaceId,
-    physicalNetworkInterface_ipAddress,
 
     -- ** Reboot
 
@@ -200,18 +200,18 @@ module Amazonka.SnowDeviceManagement.Lens
     resourceSummary_resourceType,
 
     -- ** SecurityGroupIdentifier
-    securityGroupIdentifier_groupName,
     securityGroupIdentifier_groupId,
+    securityGroupIdentifier_groupName,
 
     -- ** SoftwareInformation
-    softwareInformation_installingVersion,
-    softwareInformation_installedVersion,
     softwareInformation_installState,
+    softwareInformation_installedVersion,
+    softwareInformation_installingVersion,
 
     -- ** TaskSummary
+    taskSummary_state,
     taskSummary_tags,
     taskSummary_taskArn,
-    taskSummary_state,
     taskSummary_taskId,
 
     -- ** Unlock

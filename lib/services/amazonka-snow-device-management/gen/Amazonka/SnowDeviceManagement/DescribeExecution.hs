@@ -36,12 +36,12 @@ module Amazonka.SnowDeviceManagement.DescribeExecution
     newDescribeExecutionResponse,
 
     -- * Response Lenses
-    describeExecutionResponse_lastUpdatedAt,
-    describeExecutionResponse_taskId,
-    describeExecutionResponse_state,
     describeExecutionResponse_executionId,
-    describeExecutionResponse_startedAt,
+    describeExecutionResponse_lastUpdatedAt,
     describeExecutionResponse_managedDeviceId,
+    describeExecutionResponse_startedAt,
+    describeExecutionResponse_state,
+    describeExecutionResponse_taskId,
     describeExecutionResponse_httpStatus,
   )
 where
@@ -105,12 +105,12 @@ instance Core.AWSRequest DescribeExecution where
     Response.receiveJSON
       ( \s h x ->
           DescribeExecutionResponse'
-            Prelude.<$> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "taskId")
-            Prelude.<*> (x Data..?> "state")
-            Prelude.<*> (x Data..?> "executionId")
-            Prelude.<*> (x Data..?> "startedAt")
+            Prelude.<$> (x Data..?> "executionId")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
             Prelude.<*> (x Data..?> "managedDeviceId")
+            Prelude.<*> (x Data..?> "startedAt")
+            Prelude.<*> (x Data..?> "state")
+            Prelude.<*> (x Data..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,18 +152,18 @@ instance Data.ToQuery DescribeExecution where
 
 -- | /See:/ 'newDescribeExecutionResponse' smart constructor.
 data DescribeExecutionResponse = DescribeExecutionResponse'
-  { -- | When the status of the execution was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the task being executed on the device.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the execution.
-    state :: Prelude.Maybe ExecutionState,
-    -- | The ID of the execution.
+  { -- | The ID of the execution.
     executionId :: Prelude.Maybe Prelude.Text,
-    -- | When the execution began.
-    startedAt :: Prelude.Maybe Data.POSIX,
+    -- | When the status of the execution was last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the managed device that the task is being executed on.
     managedDeviceId :: Prelude.Maybe Prelude.Text,
+    -- | When the execution began.
+    startedAt :: Prelude.Maybe Data.POSIX,
+    -- | The current state of the execution.
+    state :: Prelude.Maybe ExecutionState,
+    -- | The ID of the task being executed on the device.
+    taskId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,17 +177,17 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'executionId', 'describeExecutionResponse_executionId' - The ID of the execution.
+--
 -- 'lastUpdatedAt', 'describeExecutionResponse_lastUpdatedAt' - When the status of the execution was last updated.
 --
--- 'taskId', 'describeExecutionResponse_taskId' - The ID of the task being executed on the device.
---
--- 'state', 'describeExecutionResponse_state' - The current state of the execution.
---
--- 'executionId', 'describeExecutionResponse_executionId' - The ID of the execution.
+-- 'managedDeviceId', 'describeExecutionResponse_managedDeviceId' - The ID of the managed device that the task is being executed on.
 --
 -- 'startedAt', 'describeExecutionResponse_startedAt' - When the execution began.
 --
--- 'managedDeviceId', 'describeExecutionResponse_managedDeviceId' - The ID of the managed device that the task is being executed on.
+-- 'state', 'describeExecutionResponse_state' - The current state of the execution.
+--
+-- 'taskId', 'describeExecutionResponse_taskId' - The ID of the task being executed on the device.
 --
 -- 'httpStatus', 'describeExecutionResponse_httpStatus' - The response's http status code.
 newDescribeExecutionResponse ::
@@ -196,39 +196,39 @@ newDescribeExecutionResponse ::
   DescribeExecutionResponse
 newDescribeExecutionResponse pHttpStatus_ =
   DescribeExecutionResponse'
-    { lastUpdatedAt =
+    { executionId =
         Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      state = Prelude.Nothing,
-      executionId = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       managedDeviceId = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      state = Prelude.Nothing,
+      taskId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | When the status of the execution was last updated.
-describeExecutionResponse_lastUpdatedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_lastUpdatedAt = Lens.lens (\DescribeExecutionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeExecutionResponse' {} a -> s {lastUpdatedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the task being executed on the device.
-describeExecutionResponse_taskId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
-describeExecutionResponse_taskId = Lens.lens (\DescribeExecutionResponse' {taskId} -> taskId) (\s@DescribeExecutionResponse' {} a -> s {taskId = a} :: DescribeExecutionResponse)
-
--- | The current state of the execution.
-describeExecutionResponse_state :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe ExecutionState)
-describeExecutionResponse_state = Lens.lens (\DescribeExecutionResponse' {state} -> state) (\s@DescribeExecutionResponse' {} a -> s {state = a} :: DescribeExecutionResponse)
 
 -- | The ID of the execution.
 describeExecutionResponse_executionId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_executionId = Lens.lens (\DescribeExecutionResponse' {executionId} -> executionId) (\s@DescribeExecutionResponse' {} a -> s {executionId = a} :: DescribeExecutionResponse)
 
--- | When the execution began.
-describeExecutionResponse_startedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describeExecutionResponse_startedAt = Lens.lens (\DescribeExecutionResponse' {startedAt} -> startedAt) (\s@DescribeExecutionResponse' {} a -> s {startedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
+-- | When the status of the execution was last updated.
+describeExecutionResponse_lastUpdatedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+describeExecutionResponse_lastUpdatedAt = Lens.lens (\DescribeExecutionResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeExecutionResponse' {} a -> s {lastUpdatedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the managed device that the task is being executed on.
 describeExecutionResponse_managedDeviceId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_managedDeviceId = Lens.lens (\DescribeExecutionResponse' {managedDeviceId} -> managedDeviceId) (\s@DescribeExecutionResponse' {} a -> s {managedDeviceId = a} :: DescribeExecutionResponse)
+
+-- | When the execution began.
+describeExecutionResponse_startedAt :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+describeExecutionResponse_startedAt = Lens.lens (\DescribeExecutionResponse' {startedAt} -> startedAt) (\s@DescribeExecutionResponse' {} a -> s {startedAt = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The current state of the execution.
+describeExecutionResponse_state :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe ExecutionState)
+describeExecutionResponse_state = Lens.lens (\DescribeExecutionResponse' {state} -> state) (\s@DescribeExecutionResponse' {} a -> s {state = a} :: DescribeExecutionResponse)
+
+-- | The ID of the task being executed on the device.
+describeExecutionResponse_taskId :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
+describeExecutionResponse_taskId = Lens.lens (\DescribeExecutionResponse' {taskId} -> taskId) (\s@DescribeExecutionResponse' {} a -> s {taskId = a} :: DescribeExecutionResponse)
 
 -- | The response's http status code.
 describeExecutionResponse_httpStatus :: Lens.Lens' DescribeExecutionResponse Prelude.Int
@@ -236,10 +236,10 @@ describeExecutionResponse_httpStatus = Lens.lens (\DescribeExecutionResponse' {h
 
 instance Prelude.NFData DescribeExecutionResponse where
   rnf DescribeExecutionResponse' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf startedAt
+    Prelude.rnf executionId
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf httpStatus

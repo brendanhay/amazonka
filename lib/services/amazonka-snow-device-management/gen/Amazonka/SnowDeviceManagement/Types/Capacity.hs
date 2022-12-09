@@ -34,10 +34,10 @@ data Capacity = Capacity'
     name :: Prelude.Maybe Prelude.Text,
     -- | The total capacity on the device.
     total :: Prelude.Maybe Prelude.Integer,
-    -- | The amount of capacity used on the device.
-    used :: Prelude.Maybe Prelude.Integer,
     -- | The unit of measure for the type of capacity.
-    unit :: Prelude.Maybe Prelude.Text
+    unit :: Prelude.Maybe Prelude.Text,
+    -- | The amount of capacity used on the device.
+    used :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,9 @@ data Capacity = Capacity'
 --
 -- 'total', 'capacity_total' - The total capacity on the device.
 --
--- 'used', 'capacity_used' - The amount of capacity used on the device.
---
 -- 'unit', 'capacity_unit' - The unit of measure for the type of capacity.
+--
+-- 'used', 'capacity_used' - The amount of capacity used on the device.
 newCapacity ::
   Capacity
 newCapacity =
@@ -65,8 +65,8 @@ newCapacity =
     { available = Prelude.Nothing,
       name = Prelude.Nothing,
       total = Prelude.Nothing,
-      used = Prelude.Nothing,
-      unit = Prelude.Nothing
+      unit = Prelude.Nothing,
+      used = Prelude.Nothing
     }
 
 -- | The amount of capacity available for use on the device.
@@ -81,13 +81,13 @@ capacity_name = Lens.lens (\Capacity' {name} -> name) (\s@Capacity' {} a -> s {n
 capacity_total :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
 capacity_total = Lens.lens (\Capacity' {total} -> total) (\s@Capacity' {} a -> s {total = a} :: Capacity)
 
--- | The amount of capacity used on the device.
-capacity_used :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
-capacity_used = Lens.lens (\Capacity' {used} -> used) (\s@Capacity' {} a -> s {used = a} :: Capacity)
-
 -- | The unit of measure for the type of capacity.
 capacity_unit :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Text)
 capacity_unit = Lens.lens (\Capacity' {unit} -> unit) (\s@Capacity' {} a -> s {unit = a} :: Capacity)
+
+-- | The amount of capacity used on the device.
+capacity_used :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Integer)
+capacity_used = Lens.lens (\Capacity' {used} -> used) (\s@Capacity' {} a -> s {used = a} :: Capacity)
 
 instance Data.FromJSON Capacity where
   parseJSON =
@@ -98,8 +98,8 @@ instance Data.FromJSON Capacity where
             Prelude.<$> (x Data..:? "available")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "total")
-            Prelude.<*> (x Data..:? "used")
             Prelude.<*> (x Data..:? "unit")
+            Prelude.<*> (x Data..:? "used")
       )
 
 instance Prelude.Hashable Capacity where
@@ -107,13 +107,13 @@ instance Prelude.Hashable Capacity where
     _salt `Prelude.hashWithSalt` available
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` used
       `Prelude.hashWithSalt` unit
+      `Prelude.hashWithSalt` used
 
 instance Prelude.NFData Capacity where
   rnf Capacity' {..} =
     Prelude.rnf available
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf used
       `Prelude.seq` Prelude.rnf unit
+      `Prelude.seq` Prelude.rnf used

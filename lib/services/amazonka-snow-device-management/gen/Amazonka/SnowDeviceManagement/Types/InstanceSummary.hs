@@ -29,10 +29,10 @@ import Amazonka.SnowDeviceManagement.Types.Instance
 --
 -- /See:/ 'newInstanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
-  { -- | When the instance summary was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | A structure containing details about the instance.
-    instance' :: Prelude.Maybe Instance
+  { -- | A structure containing details about the instance.
+    instance' :: Prelude.Maybe Instance,
+    -- | When the instance summary was last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data InstanceSummary = InstanceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedAt', 'instanceSummary_lastUpdatedAt' - When the instance summary was last updated.
---
 -- 'instance'', 'instanceSummary_instance' - A structure containing details about the instance.
+--
+-- 'lastUpdatedAt', 'instanceSummary_lastUpdatedAt' - When the instance summary was last updated.
 newInstanceSummary ::
   InstanceSummary
 newInstanceSummary =
   InstanceSummary'
-    { lastUpdatedAt = Prelude.Nothing,
-      instance' = Prelude.Nothing
+    { instance' = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing
     }
-
--- | When the instance summary was last updated.
-instanceSummary_lastUpdatedAt :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.UTCTime)
-instanceSummary_lastUpdatedAt = Lens.lens (\InstanceSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceSummary' {} a -> s {lastUpdatedAt = a} :: InstanceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | A structure containing details about the instance.
 instanceSummary_instance :: Lens.Lens' InstanceSummary (Prelude.Maybe Instance)
 instanceSummary_instance = Lens.lens (\InstanceSummary' {instance'} -> instance') (\s@InstanceSummary' {} a -> s {instance' = a} :: InstanceSummary)
+
+-- | When the instance summary was last updated.
+instanceSummary_lastUpdatedAt :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.UTCTime)
+instanceSummary_lastUpdatedAt = Lens.lens (\InstanceSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@InstanceSummary' {} a -> s {lastUpdatedAt = a} :: InstanceSummary) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON InstanceSummary where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON InstanceSummary where
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Prelude.<$> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "instance")
+            Prelude.<$> (x Data..:? "instance")
+            Prelude.<*> (x Data..:? "lastUpdatedAt")
       )
 
 instance Prelude.Hashable InstanceSummary where
   hashWithSalt _salt InstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` instance'
+    _salt `Prelude.hashWithSalt` instance'
+      `Prelude.hashWithSalt` lastUpdatedAt
 
 instance Prelude.NFData InstanceSummary where
   rnf InstanceSummary' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf instance'
+    Prelude.rnf instance'
+      `Prelude.seq` Prelude.rnf lastUpdatedAt

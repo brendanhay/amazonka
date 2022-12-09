@@ -33,32 +33,32 @@ import Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | Any block device mapping entries for the instance.
-    blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
-    -- | The Amazon Machine Image (AMI) launch index, which you can use to find
+  { -- | The Amazon Machine Image (AMI) launch index, which you can use to find
     -- this instance in the launch group.
     amiLaunchIndex :: Prelude.Maybe Prelude.Int,
-    state :: Prelude.Maybe InstanceState,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The public IPv4 address assigned to the instance.
-    publicIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The security groups for the instance.
-    securityGroups :: Prelude.Maybe [SecurityGroupIdentifier],
-    -- | The private IPv4 address assigned to the instance.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Any block device mapping entries for the instance.
+    blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
     -- | The CPU options for the instance.
     cpuOptions :: Prelude.Maybe CpuOptions,
     -- | When the instance was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ID of the AMI used to launch the instance.
     imageId :: Prelude.Maybe Prelude.Text,
-    -- | When the instance was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The private IPv4 address assigned to the instance.
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The public IPv4 address assigned to the instance.
+    publicIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Prelude.Maybe Prelude.Text
+    rootDeviceName :: Prelude.Maybe Prelude.Text,
+    -- | The security groups for the instance.
+    securityGroups :: Prelude.Maybe [SecurityGroupIdentifier],
+    state :: Prelude.Maybe InstanceState,
+    -- | When the instance was last updated.
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,22 +70,10 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockDeviceMappings', 'instance_blockDeviceMappings' - Any block device mapping entries for the instance.
---
 -- 'amiLaunchIndex', 'instance_amiLaunchIndex' - The Amazon Machine Image (AMI) launch index, which you can use to find
 -- this instance in the launch group.
 --
--- 'state', 'instance_state' - Undocumented member.
---
--- 'instanceType', 'instance_instanceType' - The instance type.
---
--- 'instanceId', 'instance_instanceId' - The ID of the instance.
---
--- 'publicIpAddress', 'instance_publicIpAddress' - The public IPv4 address assigned to the instance.
---
--- 'securityGroups', 'instance_securityGroups' - The security groups for the instance.
---
--- 'privateIpAddress', 'instance_privateIpAddress' - The private IPv4 address assigned to the instance.
+-- 'blockDeviceMappings', 'instance_blockDeviceMappings' - Any block device mapping entries for the instance.
 --
 -- 'cpuOptions', 'instance_cpuOptions' - The CPU options for the instance.
 --
@@ -93,60 +81,48 @@ data Instance = Instance'
 --
 -- 'imageId', 'instance_imageId' - The ID of the AMI used to launch the instance.
 --
--- 'updatedAt', 'instance_updatedAt' - When the instance was last updated.
+-- 'instanceId', 'instance_instanceId' - The ID of the instance.
+--
+-- 'instanceType', 'instance_instanceType' - The instance type.
+--
+-- 'privateIpAddress', 'instance_privateIpAddress' - The private IPv4 address assigned to the instance.
+--
+-- 'publicIpAddress', 'instance_publicIpAddress' - The public IPv4 address assigned to the instance.
 --
 -- 'rootDeviceName', 'instance_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
+--
+-- 'securityGroups', 'instance_securityGroups' - The security groups for the instance.
+--
+-- 'state', 'instance_state' - Undocumented member.
+--
+-- 'updatedAt', 'instance_updatedAt' - When the instance was last updated.
 newInstance ::
   Instance
 newInstance =
   Instance'
-    { blockDeviceMappings = Prelude.Nothing,
-      amiLaunchIndex = Prelude.Nothing,
-      state = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      publicIpAddress = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing,
+    { amiLaunchIndex = Prelude.Nothing,
+      blockDeviceMappings = Prelude.Nothing,
       cpuOptions = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       imageId = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      rootDeviceName = Prelude.Nothing
+      instanceId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing,
+      publicIpAddress = Prelude.Nothing,
+      rootDeviceName = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      state = Prelude.Nothing,
+      updatedAt = Prelude.Nothing
     }
-
--- | Any block device mapping entries for the instance.
-instance_blockDeviceMappings :: Lens.Lens' Instance (Prelude.Maybe [InstanceBlockDeviceMapping])
-instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Machine Image (AMI) launch index, which you can use to find
 -- this instance in the launch group.
 instance_amiLaunchIndex :: Lens.Lens' Instance (Prelude.Maybe Prelude.Int)
 instance_amiLaunchIndex = Lens.lens (\Instance' {amiLaunchIndex} -> amiLaunchIndex) (\s@Instance' {} a -> s {amiLaunchIndex = a} :: Instance)
 
--- | Undocumented member.
-instance_state :: Lens.Lens' Instance (Prelude.Maybe InstanceState)
-instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s {state = a} :: Instance)
-
--- | The instance type.
-instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
-
--- | The ID of the instance.
-instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
-
--- | The public IPv4 address assigned to the instance.
-instance_publicIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_publicIpAddress = Lens.lens (\Instance' {publicIpAddress} -> publicIpAddress) (\s@Instance' {} a -> s {publicIpAddress = a} :: Instance)
-
--- | The security groups for the instance.
-instance_securityGroups :: Lens.Lens' Instance (Prelude.Maybe [SecurityGroupIdentifier])
-instance_securityGroups = Lens.lens (\Instance' {securityGroups} -> securityGroups) (\s@Instance' {} a -> s {securityGroups = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
-
--- | The private IPv4 address assigned to the instance.
-instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
+-- | Any block device mapping entries for the instance.
+instance_blockDeviceMappings :: Lens.Lens' Instance (Prelude.Maybe [InstanceBlockDeviceMapping])
+instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The CPU options for the instance.
 instance_cpuOptions :: Lens.Lens' Instance (Prelude.Maybe CpuOptions)
@@ -160,13 +136,37 @@ instance_createdAt = Lens.lens (\Instance' {createdAt} -> createdAt) (\s@Instanc
 instance_imageId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_imageId = Lens.lens (\Instance' {imageId} -> imageId) (\s@Instance' {} a -> s {imageId = a} :: Instance)
 
--- | When the instance was last updated.
-instance_updatedAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
-instance_updatedAt = Lens.lens (\Instance' {updatedAt} -> updatedAt) (\s@Instance' {} a -> s {updatedAt = a} :: Instance) Prelude.. Lens.mapping Data._Time
+-- | The ID of the instance.
+instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
+
+-- | The instance type.
+instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
+
+-- | The private IPv4 address assigned to the instance.
+instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
+
+-- | The public IPv4 address assigned to the instance.
+instance_publicIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_publicIpAddress = Lens.lens (\Instance' {publicIpAddress} -> publicIpAddress) (\s@Instance' {} a -> s {publicIpAddress = a} :: Instance)
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
 instance_rootDeviceName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_rootDeviceName = Lens.lens (\Instance' {rootDeviceName} -> rootDeviceName) (\s@Instance' {} a -> s {rootDeviceName = a} :: Instance)
+
+-- | The security groups for the instance.
+instance_securityGroups :: Lens.Lens' Instance (Prelude.Maybe [SecurityGroupIdentifier])
+instance_securityGroups = Lens.lens (\Instance' {securityGroups} -> securityGroups) (\s@Instance' {} a -> s {securityGroups = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+instance_state :: Lens.Lens' Instance (Prelude.Maybe InstanceState)
+instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s {state = a} :: Instance)
+
+-- | When the instance was last updated.
+instance_updatedAt :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
+instance_updatedAt = Lens.lens (\Instance' {updatedAt} -> updatedAt) (\s@Instance' {} a -> s {updatedAt = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON Instance where
   parseJSON =
@@ -174,51 +174,51 @@ instance Data.FromJSON Instance where
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> ( x Data..:? "blockDeviceMappings"
+            Prelude.<$> (x Data..:? "amiLaunchIndex")
+            Prelude.<*> ( x Data..:? "blockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "amiLaunchIndex")
-            Prelude.<*> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "instanceType")
-            Prelude.<*> (x Data..:? "instanceId")
-            Prelude.<*> (x Data..:? "publicIpAddress")
-            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "privateIpAddress")
             Prelude.<*> (x Data..:? "cpuOptions")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "imageId")
-            Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "instanceId")
+            Prelude.<*> (x Data..:? "instanceType")
+            Prelude.<*> (x Data..:? "privateIpAddress")
+            Prelude.<*> (x Data..:? "publicIpAddress")
             Prelude.<*> (x Data..:? "rootDeviceName")
+            Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
-      `Prelude.hashWithSalt` amiLaunchIndex
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` publicIpAddress
-      `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` privateIpAddress
+    _salt `Prelude.hashWithSalt` amiLaunchIndex
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` imageId
-      `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` publicIpAddress
       `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData Instance where
   rnf Instance' {..} =
-    Prelude.rnf blockDeviceMappings
-      `Prelude.seq` Prelude.rnf amiLaunchIndex
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf publicIpAddress
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf privateIpAddress
+    Prelude.rnf amiLaunchIndex
+      `Prelude.seq` Prelude.rnf blockDeviceMappings
       `Prelude.seq` Prelude.rnf cpuOptions
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf imageId
-      `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf publicIpAddress
       `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf updatedAt

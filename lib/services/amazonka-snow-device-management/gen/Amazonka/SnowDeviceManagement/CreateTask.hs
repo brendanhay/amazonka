@@ -28,9 +28,9 @@ module Amazonka.SnowDeviceManagement.CreateTask
     newCreateTask,
 
     -- * Request Lenses
-    createTask_tags,
     createTask_clientToken,
     createTask_description,
+    createTask_tags,
     createTask_command,
     createTask_targets,
 
@@ -55,15 +55,15 @@ import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newCreateTask' smart constructor.
 data CreateTask = CreateTask'
-  { -- | Optional metadata that you assign to a resource. You can use tags to
-    -- categorize a resource in different ways, such as by purpose, owner, or
-    -- environment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A token ensuring that the action is called only once with the specified
+  { -- | A token ensuring that the action is called only once with the specified
     -- details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the task and its targets.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata that you assign to a resource. You can use tags to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The task to be performed. Only one task is executed on a device at a
     -- time.
     command :: Command,
@@ -80,14 +80,14 @@ data CreateTask = CreateTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTask_tags' - Optional metadata that you assign to a resource. You can use tags to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment.
---
 -- 'clientToken', 'createTask_clientToken' - A token ensuring that the action is called only once with the specified
 -- details.
 --
 -- 'description', 'createTask_description' - A description of the task and its targets.
+--
+-- 'tags', 'createTask_tags' - Optional metadata that you assign to a resource. You can use tags to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment.
 --
 -- 'command', 'createTask_command' - The task to be performed. Only one task is executed on a device at a
 -- time.
@@ -101,18 +101,12 @@ newCreateTask ::
   CreateTask
 newCreateTask pCommand_ pTargets_ =
   CreateTask'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       command = pCommand_,
       targets = Lens.coerced Lens.# pTargets_
     }
-
--- | Optional metadata that you assign to a resource. You can use tags to
--- categorize a resource in different ways, such as by purpose, owner, or
--- environment.
-createTask_tags :: Lens.Lens' CreateTask (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTask_tags = Lens.lens (\CreateTask' {tags} -> tags) (\s@CreateTask' {} a -> s {tags = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token ensuring that the action is called only once with the specified
 -- details.
@@ -122,6 +116,12 @@ createTask_clientToken = Lens.lens (\CreateTask' {clientToken} -> clientToken) (
 -- | A description of the task and its targets.
 createTask_description :: Lens.Lens' CreateTask (Prelude.Maybe Prelude.Text)
 createTask_description = Lens.lens (\CreateTask' {description} -> description) (\s@CreateTask' {} a -> s {description = a} :: CreateTask)
+
+-- | Optional metadata that you assign to a resource. You can use tags to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment.
+createTask_tags :: Lens.Lens' CreateTask (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTask_tags = Lens.lens (\CreateTask' {tags} -> tags) (\s@CreateTask' {} a -> s {tags = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The task to be performed. Only one task is executed on a device at a
 -- time.
@@ -147,17 +147,17 @@ instance Core.AWSRequest CreateTask where
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` targets
 
 instance Prelude.NFData CreateTask where
   rnf CreateTask' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf command
       `Prelude.seq` Prelude.rnf targets
 
@@ -176,9 +176,9 @@ instance Data.ToJSON CreateTask where
   toJSON CreateTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("command" Data..= command),
             Prelude.Just ("targets" Data..= targets)
           ]

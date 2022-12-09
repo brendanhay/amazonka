@@ -29,8 +29,8 @@ module Amazonka.Greengrass.ListDeployments
     newListDeployments,
 
     -- * Request Lenses
-    listDeployments_nextToken,
     listDeployments_maxResults,
+    listDeployments_nextToken,
     listDeployments_groupId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.Greengrass.ListDeployments
     newListDeploymentsResponse,
 
     -- * Response Lenses
-    listDeploymentsResponse_nextToken,
     listDeploymentsResponse_deployments,
+    listDeploymentsResponse_nextToken,
     listDeploymentsResponse_httpStatus,
   )
 where
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Greengrass group.
     groupId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListDeployments = ListDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDeployments_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDeployments_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listDeployments_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'groupId', 'listDeployments_groupId' - The ID of the Greengrass group.
 newListDeployments ::
@@ -84,19 +84,19 @@ newListDeployments ::
   ListDeployments
 newListDeployments pGroupId_ =
   ListDeployments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       groupId = pGroupId_
     }
+
+-- | The maximum number of results to be returned per request.
+listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
-
--- | The maximum number of results to be returned per request.
-listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
-listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 -- | The ID of the Greengrass group.
 listDeployments_groupId :: Lens.Lens' ListDeployments Prelude.Text
@@ -134,21 +134,21 @@ instance Core.AWSRequest ListDeployments where
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Deployments" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData ListDeployments where
   rnf ListDeployments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf groupId
 
 instance Data.ToHeaders ListDeployments where
@@ -173,17 +173,17 @@ instance Data.ToPath ListDeployments where
 instance Data.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | A list of deployments for the requested groups.
+    deployments :: Prelude.Maybe [Deployment],
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of deployments for the requested groups.
-    deployments :: Prelude.Maybe [Deployment],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deployments', 'listDeploymentsResponse_deployments' - A list of deployments for the requested groups.
+--
 -- 'nextToken', 'listDeploymentsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'deployments', 'listDeploymentsResponse_deployments' - A list of deployments for the requested groups.
 --
 -- 'httpStatus', 'listDeploymentsResponse_httpStatus' - The response's http status code.
 newListDeploymentsResponse ::
@@ -209,20 +209,20 @@ newListDeploymentsResponse ::
   ListDeploymentsResponse
 newListDeploymentsResponse pHttpStatus_ =
   ListDeploymentsResponse'
-    { nextToken =
+    { deployments =
         Prelude.Nothing,
-      deployments = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of deployments for the requested groups.
+listDeploymentsResponse_deployments :: Lens.Lens' ListDeploymentsResponse (Prelude.Maybe [Deployment])
+listDeploymentsResponse_deployments = Lens.lens (\ListDeploymentsResponse' {deployments} -> deployments) (\s@ListDeploymentsResponse' {} a -> s {deployments = a} :: ListDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeploymentsResponse_nextToken :: Lens.Lens' ListDeploymentsResponse (Prelude.Maybe Prelude.Text)
 listDeploymentsResponse_nextToken = Lens.lens (\ListDeploymentsResponse' {nextToken} -> nextToken) (\s@ListDeploymentsResponse' {} a -> s {nextToken = a} :: ListDeploymentsResponse)
-
--- | A list of deployments for the requested groups.
-listDeploymentsResponse_deployments :: Lens.Lens' ListDeploymentsResponse (Prelude.Maybe [Deployment])
-listDeploymentsResponse_deployments = Lens.lens (\ListDeploymentsResponse' {deployments} -> deployments) (\s@ListDeploymentsResponse' {} a -> s {deployments = a} :: ListDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeploymentsResponse_httpStatus :: Lens.Lens' ListDeploymentsResponse Prelude.Int
@@ -230,6 +230,6 @@ listDeploymentsResponse_httpStatus = Lens.lens (\ListDeploymentsResponse' {httpS
 
 instance Prelude.NFData ListDeploymentsResponse where
   rnf ListDeploymentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deployments
+    Prelude.rnf deployments
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

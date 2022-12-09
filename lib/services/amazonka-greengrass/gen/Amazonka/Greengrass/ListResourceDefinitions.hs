@@ -29,16 +29,16 @@ module Amazonka.Greengrass.ListResourceDefinitions
     newListResourceDefinitions,
 
     -- * Request Lenses
-    listResourceDefinitions_nextToken,
     listResourceDefinitions_maxResults,
+    listResourceDefinitions_nextToken,
 
     -- * Destructuring the Response
     ListResourceDefinitionsResponse (..),
     newListResourceDefinitionsResponse,
 
     -- * Response Lenses
-    listResourceDefinitionsResponse_nextToken,
     listResourceDefinitionsResponse_definitions,
+    listResourceDefinitionsResponse_nextToken,
     listResourceDefinitionsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceDefinitions' smart constructor.
 data ListResourceDefinitions = ListResourceDefinitions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,27 +69,27 @@ data ListResourceDefinitions = ListResourceDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResourceDefinitions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listResourceDefinitions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listResourceDefinitions_maxResults' - The maximum number of results to be returned per request.
 newListResourceDefinitions ::
   ListResourceDefinitions
 newListResourceDefinitions =
   ListResourceDefinitions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be returned per request.
+listResourceDefinitions_maxResults :: Lens.Lens' ListResourceDefinitions (Prelude.Maybe Prelude.Text)
+listResourceDefinitions_maxResults = Lens.lens (\ListResourceDefinitions' {maxResults} -> maxResults) (\s@ListResourceDefinitions' {} a -> s {maxResults = a} :: ListResourceDefinitions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listResourceDefinitions_nextToken :: Lens.Lens' ListResourceDefinitions (Prelude.Maybe Prelude.Text)
 listResourceDefinitions_nextToken = Lens.lens (\ListResourceDefinitions' {nextToken} -> nextToken) (\s@ListResourceDefinitions' {} a -> s {nextToken = a} :: ListResourceDefinitions)
-
--- | The maximum number of results to be returned per request.
-listResourceDefinitions_maxResults :: Lens.Lens' ListResourceDefinitions (Prelude.Maybe Prelude.Text)
-listResourceDefinitions_maxResults = Lens.lens (\ListResourceDefinitions' {maxResults} -> maxResults) (\s@ListResourceDefinitions' {} a -> s {maxResults = a} :: ListResourceDefinitions)
 
 instance Core.AWSPager ListResourceDefinitions where
   page rq rs
@@ -123,20 +123,20 @@ instance Core.AWSRequest ListResourceDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListResourceDefinitionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListResourceDefinitions where
   hashWithSalt _salt ListResourceDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResourceDefinitions where
   rnf ListResourceDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceDefinitions where
   toHeaders =
@@ -156,17 +156,17 @@ instance Data.ToPath ListResourceDefinitions where
 instance Data.ToQuery ListResourceDefinitions where
   toQuery ListResourceDefinitions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListResourceDefinitionsResponse' smart constructor.
 data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | Information about a definition.
+    definitions :: Prelude.Maybe [DefinitionInformation],
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about a definition.
-    definitions :: Prelude.Maybe [DefinitionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,10 +180,10 @@ data ListResourceDefinitionsResponse = ListResourceDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'definitions', 'listResourceDefinitionsResponse_definitions' - Information about a definition.
+--
 -- 'nextToken', 'listResourceDefinitionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'definitions', 'listResourceDefinitionsResponse_definitions' - Information about a definition.
 --
 -- 'httpStatus', 'listResourceDefinitionsResponse_httpStatus' - The response's http status code.
 newListResourceDefinitionsResponse ::
@@ -192,20 +192,20 @@ newListResourceDefinitionsResponse ::
   ListResourceDefinitionsResponse
 newListResourceDefinitionsResponse pHttpStatus_ =
   ListResourceDefinitionsResponse'
-    { nextToken =
+    { definitions =
         Prelude.Nothing,
-      definitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about a definition.
+listResourceDefinitionsResponse_definitions :: Lens.Lens' ListResourceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
+listResourceDefinitionsResponse_definitions = Lens.lens (\ListResourceDefinitionsResponse' {definitions} -> definitions) (\s@ListResourceDefinitionsResponse' {} a -> s {definitions = a} :: ListResourceDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listResourceDefinitionsResponse_nextToken :: Lens.Lens' ListResourceDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listResourceDefinitionsResponse_nextToken = Lens.lens (\ListResourceDefinitionsResponse' {nextToken} -> nextToken) (\s@ListResourceDefinitionsResponse' {} a -> s {nextToken = a} :: ListResourceDefinitionsResponse)
-
--- | Information about a definition.
-listResourceDefinitionsResponse_definitions :: Lens.Lens' ListResourceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listResourceDefinitionsResponse_definitions = Lens.lens (\ListResourceDefinitionsResponse' {definitions} -> definitions) (\s@ListResourceDefinitionsResponse' {} a -> s {definitions = a} :: ListResourceDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourceDefinitionsResponse_httpStatus :: Lens.Lens' ListResourceDefinitionsResponse Prelude.Int
@@ -216,6 +216,6 @@ instance
     ListResourceDefinitionsResponse
   where
   rnf ListResourceDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf definitions
+    Prelude.rnf definitions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

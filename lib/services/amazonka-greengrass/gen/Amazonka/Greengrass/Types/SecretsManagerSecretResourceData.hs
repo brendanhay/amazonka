@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecretsManagerSecretResourceData' smart constructor.
 data SecretsManagerSecretResourceData = SecretsManagerSecretResourceData'
-  { -- | Optional. The staging labels whose values you want to make available on
-    -- the core, in addition to \'\'AWSCURRENT\'\'.
-    additionalStagingLabelsToDownload :: Prelude.Maybe [Prelude.Text],
-    -- | The ARN of the Secrets Manager secret to make available on the core. The
+  { -- | The ARN of the Secrets Manager secret to make available on the core. The
     -- value of the secret\'s latest version (represented by the
     -- \'\'AWSCURRENT\'\' staging label) is included by default.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The staging labels whose values you want to make available on
+    -- the core, in addition to \'\'AWSCURRENT\'\'.
+    additionalStagingLabelsToDownload :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,32 @@ data SecretsManagerSecretResourceData = SecretsManagerSecretResourceData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalStagingLabelsToDownload', 'secretsManagerSecretResourceData_additionalStagingLabelsToDownload' - Optional. The staging labels whose values you want to make available on
--- the core, in addition to \'\'AWSCURRENT\'\'.
---
 -- 'arn', 'secretsManagerSecretResourceData_arn' - The ARN of the Secrets Manager secret to make available on the core. The
 -- value of the secret\'s latest version (represented by the
 -- \'\'AWSCURRENT\'\' staging label) is included by default.
+--
+-- 'additionalStagingLabelsToDownload', 'secretsManagerSecretResourceData_additionalStagingLabelsToDownload' - Optional. The staging labels whose values you want to make available on
+-- the core, in addition to \'\'AWSCURRENT\'\'.
 newSecretsManagerSecretResourceData ::
   SecretsManagerSecretResourceData
 newSecretsManagerSecretResourceData =
   SecretsManagerSecretResourceData'
-    { additionalStagingLabelsToDownload =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing
+      additionalStagingLabelsToDownload =
+        Prelude.Nothing
     }
-
--- | Optional. The staging labels whose values you want to make available on
--- the core, in addition to \'\'AWSCURRENT\'\'.
-secretsManagerSecretResourceData_additionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Prelude.Maybe [Prelude.Text])
-secretsManagerSecretResourceData_additionalStagingLabelsToDownload = Lens.lens (\SecretsManagerSecretResourceData' {additionalStagingLabelsToDownload} -> additionalStagingLabelsToDownload) (\s@SecretsManagerSecretResourceData' {} a -> s {additionalStagingLabelsToDownload = a} :: SecretsManagerSecretResourceData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the Secrets Manager secret to make available on the core. The
 -- value of the secret\'s latest version (represented by the
 -- \'\'AWSCURRENT\'\' staging label) is included by default.
 secretsManagerSecretResourceData_arn :: Lens.Lens' SecretsManagerSecretResourceData (Prelude.Maybe Prelude.Text)
 secretsManagerSecretResourceData_arn = Lens.lens (\SecretsManagerSecretResourceData' {arn} -> arn) (\s@SecretsManagerSecretResourceData' {} a -> s {arn = a} :: SecretsManagerSecretResourceData)
+
+-- | Optional. The staging labels whose values you want to make available on
+-- the core, in addition to \'\'AWSCURRENT\'\'.
+secretsManagerSecretResourceData_additionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Prelude.Maybe [Prelude.Text])
+secretsManagerSecretResourceData_additionalStagingLabelsToDownload = Lens.lens (\SecretsManagerSecretResourceData' {additionalStagingLabelsToDownload} -> additionalStagingLabelsToDownload) (\s@SecretsManagerSecretResourceData' {} a -> s {additionalStagingLabelsToDownload = a} :: SecretsManagerSecretResourceData) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -84,10 +85,10 @@ instance
       "SecretsManagerSecretResourceData"
       ( \x ->
           SecretsManagerSecretResourceData'
-            Prelude.<$> ( x Data..:? "AdditionalStagingLabelsToDownload"
+            Prelude.<$> (x Data..:? "ARN")
+            Prelude.<*> ( x Data..:? "AdditionalStagingLabelsToDownload"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ARN")
       )
 
 instance
@@ -97,24 +98,23 @@ instance
   hashWithSalt
     _salt
     SecretsManagerSecretResourceData' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` additionalStagingLabelsToDownload
-        `Prelude.hashWithSalt` arn
 
 instance
   Prelude.NFData
     SecretsManagerSecretResourceData
   where
   rnf SecretsManagerSecretResourceData' {..} =
-    Prelude.rnf additionalStagingLabelsToDownload
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf additionalStagingLabelsToDownload
 
 instance Data.ToJSON SecretsManagerSecretResourceData where
   toJSON SecretsManagerSecretResourceData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalStagingLabelsToDownload" Data..=)
-              Prelude.<$> additionalStagingLabelsToDownload,
-            ("ARN" Data..=) Prelude.<$> arn
+          [ ("ARN" Data..=) Prelude.<$> arn,
+            ("AdditionalStagingLabelsToDownload" Data..=)
+              Prelude.<$> additionalStagingLabelsToDownload
           ]
       )

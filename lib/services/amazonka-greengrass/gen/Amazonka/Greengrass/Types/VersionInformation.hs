@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data VersionInformation = VersionInformation'
   { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the version was created.
     creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -49,9 +49,9 @@ data VersionInformation = VersionInformation'
 --
 -- 'arn', 'versionInformation_arn' - The ARN of the version.
 --
--- 'id', 'versionInformation_id' - The ID of the parent definition that the version is associated with.
---
 -- 'creationTimestamp', 'versionInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+--
+-- 'id', 'versionInformation_id' - The ID of the parent definition that the version is associated with.
 --
 -- 'version', 'versionInformation_version' - The ID of the version.
 newVersionInformation ::
@@ -59,8 +59,8 @@ newVersionInformation ::
 newVersionInformation =
   VersionInformation'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -68,13 +68,13 @@ newVersionInformation =
 versionInformation_arn :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
 versionInformation_arn = Lens.lens (\VersionInformation' {arn} -> arn) (\s@VersionInformation' {} a -> s {arn = a} :: VersionInformation)
 
--- | The ID of the parent definition that the version is associated with.
-versionInformation_id :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
-versionInformation_id = Lens.lens (\VersionInformation' {id} -> id) (\s@VersionInformation' {} a -> s {id = a} :: VersionInformation)
-
 -- | The time, in milliseconds since the epoch, when the version was created.
 versionInformation_creationTimestamp :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
 versionInformation_creationTimestamp = Lens.lens (\VersionInformation' {creationTimestamp} -> creationTimestamp) (\s@VersionInformation' {} a -> s {creationTimestamp = a} :: VersionInformation)
+
+-- | The ID of the parent definition that the version is associated with.
+versionInformation_id :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
+versionInformation_id = Lens.lens (\VersionInformation' {id} -> id) (\s@VersionInformation' {} a -> s {id = a} :: VersionInformation)
 
 -- | The ID of the version.
 versionInformation_version :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
@@ -87,21 +87,21 @@ instance Data.FromJSON VersionInformation where
       ( \x ->
           VersionInformation'
             Prelude.<$> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable VersionInformation where
   hashWithSalt _salt VersionInformation' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData VersionInformation where
   rnf VersionInformation' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf version

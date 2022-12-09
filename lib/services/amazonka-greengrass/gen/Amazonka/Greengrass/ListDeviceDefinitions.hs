@@ -29,16 +29,16 @@ module Amazonka.Greengrass.ListDeviceDefinitions
     newListDeviceDefinitions,
 
     -- * Request Lenses
-    listDeviceDefinitions_nextToken,
     listDeviceDefinitions_maxResults,
+    listDeviceDefinitions_nextToken,
 
     -- * Destructuring the Response
     ListDeviceDefinitionsResponse (..),
     newListDeviceDefinitionsResponse,
 
     -- * Response Lenses
-    listDeviceDefinitionsResponse_nextToken,
     listDeviceDefinitionsResponse_definitions,
+    listDeviceDefinitionsResponse_nextToken,
     listDeviceDefinitionsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeviceDefinitions' smart constructor.
 data ListDeviceDefinitions = ListDeviceDefinitions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,27 @@ data ListDeviceDefinitions = ListDeviceDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDeviceDefinitions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDeviceDefinitions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listDeviceDefinitions_maxResults' - The maximum number of results to be returned per request.
 newListDeviceDefinitions ::
   ListDeviceDefinitions
 newListDeviceDefinitions =
   ListDeviceDefinitions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be returned per request.
+listDeviceDefinitions_maxResults :: Lens.Lens' ListDeviceDefinitions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitions_maxResults = Lens.lens (\ListDeviceDefinitions' {maxResults} -> maxResults) (\s@ListDeviceDefinitions' {} a -> s {maxResults = a} :: ListDeviceDefinitions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeviceDefinitions_nextToken :: Lens.Lens' ListDeviceDefinitions (Prelude.Maybe Prelude.Text)
 listDeviceDefinitions_nextToken = Lens.lens (\ListDeviceDefinitions' {nextToken} -> nextToken) (\s@ListDeviceDefinitions' {} a -> s {nextToken = a} :: ListDeviceDefinitions)
-
--- | The maximum number of results to be returned per request.
-listDeviceDefinitions_maxResults :: Lens.Lens' ListDeviceDefinitions (Prelude.Maybe Prelude.Text)
-listDeviceDefinitions_maxResults = Lens.lens (\ListDeviceDefinitions' {maxResults} -> maxResults) (\s@ListDeviceDefinitions' {} a -> s {maxResults = a} :: ListDeviceDefinitions)
 
 instance Core.AWSPager ListDeviceDefinitions where
   page rq rs
@@ -122,20 +123,20 @@ instance Core.AWSRequest ListDeviceDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceDefinitionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDeviceDefinitions where
   hashWithSalt _salt ListDeviceDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeviceDefinitions where
   rnf ListDeviceDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDeviceDefinitions where
   toHeaders =
@@ -155,17 +156,17 @@ instance Data.ToPath ListDeviceDefinitions where
 instance Data.ToQuery ListDeviceDefinitions where
   toQuery ListDeviceDefinitions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDeviceDefinitionsResponse' smart constructor.
 data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | Information about a definition.
+    definitions :: Prelude.Maybe [DefinitionInformation],
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about a definition.
-    definitions :: Prelude.Maybe [DefinitionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,10 +180,10 @@ data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'definitions', 'listDeviceDefinitionsResponse_definitions' - Information about a definition.
+--
 -- 'nextToken', 'listDeviceDefinitionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'definitions', 'listDeviceDefinitionsResponse_definitions' - Information about a definition.
 --
 -- 'httpStatus', 'listDeviceDefinitionsResponse_httpStatus' - The response's http status code.
 newListDeviceDefinitionsResponse ::
@@ -191,20 +192,20 @@ newListDeviceDefinitionsResponse ::
   ListDeviceDefinitionsResponse
 newListDeviceDefinitionsResponse pHttpStatus_ =
   ListDeviceDefinitionsResponse'
-    { nextToken =
+    { definitions =
         Prelude.Nothing,
-      definitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about a definition.
+listDeviceDefinitionsResponse_definitions :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
+listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsResponse' {definitions} -> definitions) (\s@ListDeviceDefinitionsResponse' {} a -> s {definitions = a} :: ListDeviceDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeviceDefinitionsResponse_nextToken :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listDeviceDefinitionsResponse_nextToken = Lens.lens (\ListDeviceDefinitionsResponse' {nextToken} -> nextToken) (\s@ListDeviceDefinitionsResponse' {} a -> s {nextToken = a} :: ListDeviceDefinitionsResponse)
-
--- | Information about a definition.
-listDeviceDefinitionsResponse_definitions :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsResponse' {definitions} -> definitions) (\s@ListDeviceDefinitionsResponse' {} a -> s {definitions = a} :: ListDeviceDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceDefinitionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionsResponse Prelude.Int
@@ -212,6 +213,6 @@ listDeviceDefinitionsResponse_httpStatus = Lens.lens (\ListDeviceDefinitionsResp
 
 instance Prelude.NFData ListDeviceDefinitionsResponse where
   rnf ListDeviceDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf definitions
+    Prelude.rnf definitions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

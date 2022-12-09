@@ -38,17 +38,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceDataContainer' smart constructor.
 data ResourceDataContainer = ResourceDataContainer'
-  { -- | Attributes that define the local volume resource.
+  { -- | Attributes that define the local device resource.
+    localDeviceResourceData :: Prelude.Maybe LocalDeviceResourceData,
+    -- | Attributes that define the local volume resource.
     localVolumeResourceData :: Prelude.Maybe LocalVolumeResourceData,
-    -- | Attributes that define a secret resource, which references a secret from
-    -- AWS Secrets Manager.
-    secretsManagerSecretResourceData :: Prelude.Maybe SecretsManagerSecretResourceData,
     -- | Attributes that define an Amazon S3 machine learning resource.
     s3MachineLearningModelResourceData :: Prelude.Maybe S3MachineLearningModelResourceData,
     -- | Attributes that define an Amazon SageMaker machine learning resource.
     sageMakerMachineLearningModelResourceData :: Prelude.Maybe SageMakerMachineLearningModelResourceData,
-    -- | Attributes that define the local device resource.
-    localDeviceResourceData :: Prelude.Maybe LocalDeviceResourceData
+    -- | Attributes that define a secret resource, which references a secret from
+    -- AWS Secrets Manager.
+    secretsManagerSecretResourceData :: Prelude.Maybe SecretsManagerSecretResourceData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,37 +60,36 @@ data ResourceDataContainer = ResourceDataContainer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localVolumeResourceData', 'resourceDataContainer_localVolumeResourceData' - Attributes that define the local volume resource.
+-- 'localDeviceResourceData', 'resourceDataContainer_localDeviceResourceData' - Attributes that define the local device resource.
 --
--- 'secretsManagerSecretResourceData', 'resourceDataContainer_secretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from
--- AWS Secrets Manager.
+-- 'localVolumeResourceData', 'resourceDataContainer_localVolumeResourceData' - Attributes that define the local volume resource.
 --
 -- 's3MachineLearningModelResourceData', 'resourceDataContainer_s3MachineLearningModelResourceData' - Attributes that define an Amazon S3 machine learning resource.
 --
 -- 'sageMakerMachineLearningModelResourceData', 'resourceDataContainer_sageMakerMachineLearningModelResourceData' - Attributes that define an Amazon SageMaker machine learning resource.
 --
--- 'localDeviceResourceData', 'resourceDataContainer_localDeviceResourceData' - Attributes that define the local device resource.
+-- 'secretsManagerSecretResourceData', 'resourceDataContainer_secretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from
+-- AWS Secrets Manager.
 newResourceDataContainer ::
   ResourceDataContainer
 newResourceDataContainer =
   ResourceDataContainer'
-    { localVolumeResourceData =
+    { localDeviceResourceData =
         Prelude.Nothing,
-      secretsManagerSecretResourceData = Prelude.Nothing,
+      localVolumeResourceData = Prelude.Nothing,
       s3MachineLearningModelResourceData = Prelude.Nothing,
       sageMakerMachineLearningModelResourceData =
         Prelude.Nothing,
-      localDeviceResourceData = Prelude.Nothing
+      secretsManagerSecretResourceData = Prelude.Nothing
     }
+
+-- | Attributes that define the local device resource.
+resourceDataContainer_localDeviceResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe LocalDeviceResourceData)
+resourceDataContainer_localDeviceResourceData = Lens.lens (\ResourceDataContainer' {localDeviceResourceData} -> localDeviceResourceData) (\s@ResourceDataContainer' {} a -> s {localDeviceResourceData = a} :: ResourceDataContainer)
 
 -- | Attributes that define the local volume resource.
 resourceDataContainer_localVolumeResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe LocalVolumeResourceData)
 resourceDataContainer_localVolumeResourceData = Lens.lens (\ResourceDataContainer' {localVolumeResourceData} -> localVolumeResourceData) (\s@ResourceDataContainer' {} a -> s {localVolumeResourceData = a} :: ResourceDataContainer)
-
--- | Attributes that define a secret resource, which references a secret from
--- AWS Secrets Manager.
-resourceDataContainer_secretsManagerSecretResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe SecretsManagerSecretResourceData)
-resourceDataContainer_secretsManagerSecretResourceData = Lens.lens (\ResourceDataContainer' {secretsManagerSecretResourceData} -> secretsManagerSecretResourceData) (\s@ResourceDataContainer' {} a -> s {secretsManagerSecretResourceData = a} :: ResourceDataContainer)
 
 -- | Attributes that define an Amazon S3 machine learning resource.
 resourceDataContainer_s3MachineLearningModelResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe S3MachineLearningModelResourceData)
@@ -100,9 +99,10 @@ resourceDataContainer_s3MachineLearningModelResourceData = Lens.lens (\ResourceD
 resourceDataContainer_sageMakerMachineLearningModelResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe SageMakerMachineLearningModelResourceData)
 resourceDataContainer_sageMakerMachineLearningModelResourceData = Lens.lens (\ResourceDataContainer' {sageMakerMachineLearningModelResourceData} -> sageMakerMachineLearningModelResourceData) (\s@ResourceDataContainer' {} a -> s {sageMakerMachineLearningModelResourceData = a} :: ResourceDataContainer)
 
--- | Attributes that define the local device resource.
-resourceDataContainer_localDeviceResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe LocalDeviceResourceData)
-resourceDataContainer_localDeviceResourceData = Lens.lens (\ResourceDataContainer' {localDeviceResourceData} -> localDeviceResourceData) (\s@ResourceDataContainer' {} a -> s {localDeviceResourceData = a} :: ResourceDataContainer)
+-- | Attributes that define a secret resource, which references a secret from
+-- AWS Secrets Manager.
+resourceDataContainer_secretsManagerSecretResourceData :: Lens.Lens' ResourceDataContainer (Prelude.Maybe SecretsManagerSecretResourceData)
+resourceDataContainer_secretsManagerSecretResourceData = Lens.lens (\ResourceDataContainer' {secretsManagerSecretResourceData} -> secretsManagerSecretResourceData) (\s@ResourceDataContainer' {} a -> s {secretsManagerSecretResourceData = a} :: ResourceDataContainer)
 
 instance Data.FromJSON ResourceDataContainer where
   parseJSON =
@@ -110,45 +110,45 @@ instance Data.FromJSON ResourceDataContainer where
       "ResourceDataContainer"
       ( \x ->
           ResourceDataContainer'
-            Prelude.<$> (x Data..:? "LocalVolumeResourceData")
-            Prelude.<*> (x Data..:? "SecretsManagerSecretResourceData")
+            Prelude.<$> (x Data..:? "LocalDeviceResourceData")
+            Prelude.<*> (x Data..:? "LocalVolumeResourceData")
             Prelude.<*> (x Data..:? "S3MachineLearningModelResourceData")
             Prelude.<*> ( x
                             Data..:? "SageMakerMachineLearningModelResourceData"
                         )
-            Prelude.<*> (x Data..:? "LocalDeviceResourceData")
+            Prelude.<*> (x Data..:? "SecretsManagerSecretResourceData")
       )
 
 instance Prelude.Hashable ResourceDataContainer where
   hashWithSalt _salt ResourceDataContainer' {..} =
     _salt
+      `Prelude.hashWithSalt` localDeviceResourceData
       `Prelude.hashWithSalt` localVolumeResourceData
-      `Prelude.hashWithSalt` secretsManagerSecretResourceData
       `Prelude.hashWithSalt` s3MachineLearningModelResourceData
       `Prelude.hashWithSalt` sageMakerMachineLearningModelResourceData
-      `Prelude.hashWithSalt` localDeviceResourceData
+      `Prelude.hashWithSalt` secretsManagerSecretResourceData
 
 instance Prelude.NFData ResourceDataContainer where
   rnf ResourceDataContainer' {..} =
-    Prelude.rnf localVolumeResourceData
-      `Prelude.seq` Prelude.rnf secretsManagerSecretResourceData
+    Prelude.rnf localDeviceResourceData
+      `Prelude.seq` Prelude.rnf localVolumeResourceData
       `Prelude.seq` Prelude.rnf s3MachineLearningModelResourceData
       `Prelude.seq` Prelude.rnf sageMakerMachineLearningModelResourceData
-      `Prelude.seq` Prelude.rnf localDeviceResourceData
+      `Prelude.seq` Prelude.rnf secretsManagerSecretResourceData
 
 instance Data.ToJSON ResourceDataContainer where
   toJSON ResourceDataContainer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LocalVolumeResourceData" Data..=)
+          [ ("LocalDeviceResourceData" Data..=)
+              Prelude.<$> localDeviceResourceData,
+            ("LocalVolumeResourceData" Data..=)
               Prelude.<$> localVolumeResourceData,
-            ("SecretsManagerSecretResourceData" Data..=)
-              Prelude.<$> secretsManagerSecretResourceData,
             ("S3MachineLearningModelResourceData" Data..=)
               Prelude.<$> s3MachineLearningModelResourceData,
             ("SageMakerMachineLearningModelResourceData" Data..=)
               Prelude.<$> sageMakerMachineLearningModelResourceData,
-            ("LocalDeviceResourceData" Data..=)
-              Prelude.<$> localDeviceResourceData
+            ("SecretsManagerSecretResourceData" Data..=)
+              Prelude.<$> secretsManagerSecretResourceData
           ]
       )

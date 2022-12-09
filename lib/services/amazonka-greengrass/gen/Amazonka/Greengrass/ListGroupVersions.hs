@@ -29,8 +29,8 @@ module Amazonka.Greengrass.ListGroupVersions
     newListGroupVersions,
 
     -- * Request Lenses
-    listGroupVersions_nextToken,
     listGroupVersions_maxResults,
+    listGroupVersions_nextToken,
     listGroupVersions_groupId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGroupVersions' smart constructor.
 data ListGroupVersions = ListGroupVersions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Greengrass group.
     groupId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListGroupVersions = ListGroupVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listGroupVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listGroupVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listGroupVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'groupId', 'listGroupVersions_groupId' - The ID of the Greengrass group.
 newListGroupVersions ::
@@ -84,19 +84,19 @@ newListGroupVersions ::
   ListGroupVersions
 newListGroupVersions pGroupId_ =
   ListGroupVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       groupId = pGroupId_
     }
+
+-- | The maximum number of results to be returned per request.
+listGroupVersions_maxResults :: Lens.Lens' ListGroupVersions (Prelude.Maybe Prelude.Text)
+listGroupVersions_maxResults = Lens.lens (\ListGroupVersions' {maxResults} -> maxResults) (\s@ListGroupVersions' {} a -> s {maxResults = a} :: ListGroupVersions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listGroupVersions_nextToken :: Lens.Lens' ListGroupVersions (Prelude.Maybe Prelude.Text)
 listGroupVersions_nextToken = Lens.lens (\ListGroupVersions' {nextToken} -> nextToken) (\s@ListGroupVersions' {} a -> s {nextToken = a} :: ListGroupVersions)
-
--- | The maximum number of results to be returned per request.
-listGroupVersions_maxResults :: Lens.Lens' ListGroupVersions (Prelude.Maybe Prelude.Text)
-listGroupVersions_maxResults = Lens.lens (\ListGroupVersions' {maxResults} -> maxResults) (\s@ListGroupVersions' {} a -> s {maxResults = a} :: ListGroupVersions)
 
 -- | The ID of the Greengrass group.
 listGroupVersions_groupId :: Lens.Lens' ListGroupVersions Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListGroupVersions where
 
 instance Prelude.Hashable ListGroupVersions where
   hashWithSalt _salt ListGroupVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData ListGroupVersions where
   rnf ListGroupVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf groupId
 
 instance Data.ToHeaders ListGroupVersions where
@@ -173,8 +173,8 @@ instance Data.ToPath ListGroupVersions where
 instance Data.ToQuery ListGroupVersions where
   toQuery ListGroupVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListGroupVersionsResponse' smart constructor.

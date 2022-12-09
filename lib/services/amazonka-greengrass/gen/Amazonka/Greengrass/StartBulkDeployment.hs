@@ -33,8 +33,8 @@ module Amazonka.Greengrass.StartBulkDeployment
     newStartBulkDeployment,
 
     -- * Request Lenses
-    startBulkDeployment_tags,
     startBulkDeployment_amznClientToken,
+    startBulkDeployment_tags,
     startBulkDeployment_executionRoleArn,
     startBulkDeployment_inputFileUri,
 
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartBulkDeployment' smart constructor.
 data StartBulkDeployment = StartBulkDeployment'
-  { -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token used to correlate requests and responses.
+  { -- | A client token used to correlate requests and responses.
     amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) to add to the new resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the execution role to associate with the bulk deployment
     -- operation. This IAM role must allow the
     -- \'\'greengrass:CreateDeployment\'\' action for all group versions that
@@ -87,9 +87,9 @@ data StartBulkDeployment = StartBulkDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startBulkDeployment_tags' - Tag(s) to add to the new resource.
---
 -- 'amznClientToken', 'startBulkDeployment_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'tags', 'startBulkDeployment_tags' - Tag(s) to add to the new resource.
 --
 -- 'executionRoleArn', 'startBulkDeployment_executionRoleArn' - The ARN of the execution role to associate with the bulk deployment
 -- operation. This IAM role must allow the
@@ -113,19 +113,20 @@ newStartBulkDeployment
   pExecutionRoleArn_
   pInputFileUri_ =
     StartBulkDeployment'
-      { tags = Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+      { amznClientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         executionRoleArn = pExecutionRoleArn_,
         inputFileUri = pInputFileUri_
       }
 
--- | Tag(s) to add to the new resource.
-startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Prelude.. Lens.mapping Lens.coerced
-
 -- | A client token used to correlate requests and responses.
 startBulkDeployment_amznClientToken :: Lens.Lens' StartBulkDeployment (Prelude.Maybe Prelude.Text)
 startBulkDeployment_amznClientToken = Lens.lens (\StartBulkDeployment' {amznClientToken} -> amznClientToken) (\s@StartBulkDeployment' {} a -> s {amznClientToken = a} :: StartBulkDeployment)
+
+-- | Tag(s) to add to the new resource.
+startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the execution role to associate with the bulk deployment
 -- operation. This IAM role must allow the
@@ -161,15 +162,15 @@ instance Core.AWSRequest StartBulkDeployment where
 
 instance Prelude.Hashable StartBulkDeployment where
   hashWithSalt _salt StartBulkDeployment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` amznClientToken
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inputFileUri
 
 instance Prelude.NFData StartBulkDeployment where
   rnf StartBulkDeployment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf amznClientToken
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf inputFileUri
 

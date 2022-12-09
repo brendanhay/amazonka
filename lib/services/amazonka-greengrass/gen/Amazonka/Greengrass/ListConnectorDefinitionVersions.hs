@@ -32,8 +32,8 @@ module Amazonka.Greengrass.ListConnectorDefinitionVersions
     newListConnectorDefinitionVersions,
 
     -- * Request Lenses
-    listConnectorDefinitionVersions_nextToken,
     listConnectorDefinitionVersions_maxResults,
+    listConnectorDefinitionVersions_nextToken,
     listConnectorDefinitionVersions_connectorDefinitionId,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConnectorDefinitionVersions' smart constructor.
 data ListConnectorDefinitionVersions = ListConnectorDefinitionVersions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector definition.
     connectorDefinitionId :: Prelude.Text
   }
@@ -75,10 +75,10 @@ data ListConnectorDefinitionVersions = ListConnectorDefinitionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listConnectorDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listConnectorDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listConnectorDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'connectorDefinitionId', 'listConnectorDefinitionVersions_connectorDefinitionId' - The ID of the connector definition.
 newListConnectorDefinitionVersions ::
@@ -88,21 +88,21 @@ newListConnectorDefinitionVersions ::
 newListConnectorDefinitionVersions
   pConnectorDefinitionId_ =
     ListConnectorDefinitionVersions'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         connectorDefinitionId =
           pConnectorDefinitionId_
       }
+
+-- | The maximum number of results to be returned per request.
+listConnectorDefinitionVersions_maxResults :: Lens.Lens' ListConnectorDefinitionVersions (Prelude.Maybe Prelude.Text)
+listConnectorDefinitionVersions_maxResults = Lens.lens (\ListConnectorDefinitionVersions' {maxResults} -> maxResults) (\s@ListConnectorDefinitionVersions' {} a -> s {maxResults = a} :: ListConnectorDefinitionVersions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listConnectorDefinitionVersions_nextToken :: Lens.Lens' ListConnectorDefinitionVersions (Prelude.Maybe Prelude.Text)
 listConnectorDefinitionVersions_nextToken = Lens.lens (\ListConnectorDefinitionVersions' {nextToken} -> nextToken) (\s@ListConnectorDefinitionVersions' {} a -> s {nextToken = a} :: ListConnectorDefinitionVersions)
-
--- | The maximum number of results to be returned per request.
-listConnectorDefinitionVersions_maxResults :: Lens.Lens' ListConnectorDefinitionVersions (Prelude.Maybe Prelude.Text)
-listConnectorDefinitionVersions_maxResults = Lens.lens (\ListConnectorDefinitionVersions' {maxResults} -> maxResults) (\s@ListConnectorDefinitionVersions' {} a -> s {maxResults = a} :: ListConnectorDefinitionVersions)
 
 -- | The ID of the connector definition.
 listConnectorDefinitionVersions_connectorDefinitionId :: Lens.Lens' ListConnectorDefinitionVersions Prelude.Text
@@ -158,8 +158,8 @@ instance
   hashWithSalt
     _salt
     ListConnectorDefinitionVersions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` connectorDefinitionId
 
 instance
@@ -167,8 +167,8 @@ instance
     ListConnectorDefinitionVersions
   where
   rnf ListConnectorDefinitionVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf connectorDefinitionId
 
 instance
@@ -196,8 +196,8 @@ instance Data.ToPath ListConnectorDefinitionVersions where
 instance Data.ToQuery ListConnectorDefinitionVersions where
   toQuery ListConnectorDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListConnectorDefinitionVersionsResponse' smart constructor.

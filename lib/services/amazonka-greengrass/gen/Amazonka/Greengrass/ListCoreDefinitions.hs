@@ -29,16 +29,16 @@ module Amazonka.Greengrass.ListCoreDefinitions
     newListCoreDefinitions,
 
     -- * Request Lenses
-    listCoreDefinitions_nextToken,
     listCoreDefinitions_maxResults,
+    listCoreDefinitions_nextToken,
 
     -- * Destructuring the Response
     ListCoreDefinitionsResponse (..),
     newListCoreDefinitionsResponse,
 
     -- * Response Lenses
-    listCoreDefinitionsResponse_nextToken,
     listCoreDefinitionsResponse_definitions,
+    listCoreDefinitionsResponse_nextToken,
     listCoreDefinitionsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoreDefinitions' smart constructor.
 data ListCoreDefinitions = ListCoreDefinitions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListCoreDefinitions = ListCoreDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCoreDefinitions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listCoreDefinitions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listCoreDefinitions_maxResults' - The maximum number of results to be returned per request.
 newListCoreDefinitions ::
   ListCoreDefinitions
 newListCoreDefinitions =
   ListCoreDefinitions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be returned per request.
+listCoreDefinitions_maxResults :: Lens.Lens' ListCoreDefinitions (Prelude.Maybe Prelude.Text)
+listCoreDefinitions_maxResults = Lens.lens (\ListCoreDefinitions' {maxResults} -> maxResults) (\s@ListCoreDefinitions' {} a -> s {maxResults = a} :: ListCoreDefinitions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listCoreDefinitions_nextToken :: Lens.Lens' ListCoreDefinitions (Prelude.Maybe Prelude.Text)
 listCoreDefinitions_nextToken = Lens.lens (\ListCoreDefinitions' {nextToken} -> nextToken) (\s@ListCoreDefinitions' {} a -> s {nextToken = a} :: ListCoreDefinitions)
-
--- | The maximum number of results to be returned per request.
-listCoreDefinitions_maxResults :: Lens.Lens' ListCoreDefinitions (Prelude.Maybe Prelude.Text)
-listCoreDefinitions_maxResults = Lens.lens (\ListCoreDefinitions' {maxResults} -> maxResults) (\s@ListCoreDefinitions' {} a -> s {maxResults = a} :: ListCoreDefinitions)
 
 instance Core.AWSPager ListCoreDefinitions where
   page rq rs
@@ -122,20 +122,20 @@ instance Core.AWSRequest ListCoreDefinitions where
     Response.receiveJSON
       ( \s h x ->
           ListCoreDefinitionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCoreDefinitions where
   hashWithSalt _salt ListCoreDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCoreDefinitions where
   rnf ListCoreDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoreDefinitions where
   toHeaders =
@@ -154,17 +154,17 @@ instance Data.ToPath ListCoreDefinitions where
 instance Data.ToQuery ListCoreDefinitions where
   toQuery ListCoreDefinitions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCoreDefinitionsResponse' smart constructor.
 data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | Information about a definition.
+    definitions :: Prelude.Maybe [DefinitionInformation],
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about a definition.
-    definitions :: Prelude.Maybe [DefinitionInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,10 +178,10 @@ data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'definitions', 'listCoreDefinitionsResponse_definitions' - Information about a definition.
+--
 -- 'nextToken', 'listCoreDefinitionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'definitions', 'listCoreDefinitionsResponse_definitions' - Information about a definition.
 --
 -- 'httpStatus', 'listCoreDefinitionsResponse_httpStatus' - The response's http status code.
 newListCoreDefinitionsResponse ::
@@ -190,20 +190,20 @@ newListCoreDefinitionsResponse ::
   ListCoreDefinitionsResponse
 newListCoreDefinitionsResponse pHttpStatus_ =
   ListCoreDefinitionsResponse'
-    { nextToken =
+    { definitions =
         Prelude.Nothing,
-      definitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about a definition.
+listCoreDefinitionsResponse_definitions :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
+listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listCoreDefinitionsResponse_nextToken :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listCoreDefinitionsResponse_nextToken = Lens.lens (\ListCoreDefinitionsResponse' {nextToken} -> nextToken) (\s@ListCoreDefinitionsResponse' {} a -> s {nextToken = a} :: ListCoreDefinitionsResponse)
-
--- | Information about a definition.
-listCoreDefinitionsResponse_definitions :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCoreDefinitionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionsResponse Prelude.Int
@@ -211,6 +211,6 @@ listCoreDefinitionsResponse_httpStatus = Lens.lens (\ListCoreDefinitionsResponse
 
 instance Prelude.NFData ListCoreDefinitionsResponse where
   rnf ListCoreDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf definitions
+    Prelude.rnf definitions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

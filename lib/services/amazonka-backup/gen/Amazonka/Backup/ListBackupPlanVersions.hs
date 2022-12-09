@@ -31,8 +31,8 @@ module Amazonka.Backup.ListBackupPlanVersions
     newListBackupPlanVersions,
 
     -- * Request Lenses
-    listBackupPlanVersions_nextToken,
     listBackupPlanVersions_maxResults,
+    listBackupPlanVersions_nextToken,
     listBackupPlanVersions_backupPlanId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Backup.ListBackupPlanVersions
     newListBackupPlanVersionsResponse,
 
     -- * Response Lenses
-    listBackupPlanVersionsResponse_nextToken,
     listBackupPlanVersionsResponse_backupPlanVersionsList,
+    listBackupPlanVersionsResponse_nextToken,
     listBackupPlanVersionsResponse_httpStatus,
   )
 where
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBackupPlanVersions' smart constructor.
 data ListBackupPlanVersions = ListBackupPlanVersions'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Uniquely identifies a backup plan.
     backupPlanId :: Prelude.Text
   }
@@ -76,12 +76,12 @@ data ListBackupPlanVersions = ListBackupPlanVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBackupPlanVersions_maxResults' - The maximum number of items to be returned.
+--
 -- 'nextToken', 'listBackupPlanVersions_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'maxResults', 'listBackupPlanVersions_maxResults' - The maximum number of items to be returned.
 --
 -- 'backupPlanId', 'listBackupPlanVersions_backupPlanId' - Uniquely identifies a backup plan.
 newListBackupPlanVersions ::
@@ -90,11 +90,15 @@ newListBackupPlanVersions ::
   ListBackupPlanVersions
 newListBackupPlanVersions pBackupPlanId_ =
   ListBackupPlanVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       backupPlanId = pBackupPlanId_
     }
+
+-- | The maximum number of items to be returned.
+listBackupPlanVersions_maxResults :: Lens.Lens' ListBackupPlanVersions (Prelude.Maybe Prelude.Natural)
+listBackupPlanVersions_maxResults = Lens.lens (\ListBackupPlanVersions' {maxResults} -> maxResults) (\s@ListBackupPlanVersions' {} a -> s {maxResults = a} :: ListBackupPlanVersions)
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -102,10 +106,6 @@ newListBackupPlanVersions pBackupPlanId_ =
 -- pointed to by the next token.
 listBackupPlanVersions_nextToken :: Lens.Lens' ListBackupPlanVersions (Prelude.Maybe Prelude.Text)
 listBackupPlanVersions_nextToken = Lens.lens (\ListBackupPlanVersions' {nextToken} -> nextToken) (\s@ListBackupPlanVersions' {} a -> s {nextToken = a} :: ListBackupPlanVersions)
-
--- | The maximum number of items to be returned.
-listBackupPlanVersions_maxResults :: Lens.Lens' ListBackupPlanVersions (Prelude.Maybe Prelude.Natural)
-listBackupPlanVersions_maxResults = Lens.lens (\ListBackupPlanVersions' {maxResults} -> maxResults) (\s@ListBackupPlanVersions' {} a -> s {maxResults = a} :: ListBackupPlanVersions)
 
 -- | Uniquely identifies a backup plan.
 listBackupPlanVersions_backupPlanId :: Lens.Lens' ListBackupPlanVersions Prelude.Text
@@ -143,23 +143,23 @@ instance Core.AWSRequest ListBackupPlanVersions where
     Response.receiveJSON
       ( \s h x ->
           ListBackupPlanVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "BackupPlanVersionsList"
+            Prelude.<$> ( x Data..?> "BackupPlanVersionsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBackupPlanVersions where
   hashWithSalt _salt ListBackupPlanVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` backupPlanId
 
 instance Prelude.NFData ListBackupPlanVersions where
   rnf ListBackupPlanVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf backupPlanId
 
 instance Data.ToHeaders ListBackupPlanVersions where
@@ -184,20 +184,20 @@ instance Data.ToPath ListBackupPlanVersions where
 instance Data.ToQuery ListBackupPlanVersions where
   toQuery ListBackupPlanVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListBackupPlanVersionsResponse' smart constructor.
 data ListBackupPlanVersionsResponse = ListBackupPlanVersionsResponse'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | An array of version list items containing metadata about your backup
+    -- plans.
+    backupPlanVersionsList :: Prelude.Maybe [BackupPlansListMember],
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of version list items containing metadata about your backup
-    -- plans.
-    backupPlanVersionsList :: Prelude.Maybe [BackupPlansListMember],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,13 +211,13 @@ data ListBackupPlanVersionsResponse = ListBackupPlanVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'backupPlanVersionsList', 'listBackupPlanVersionsResponse_backupPlanVersionsList' - An array of version list items containing metadata about your backup
+-- plans.
+--
 -- 'nextToken', 'listBackupPlanVersionsResponse_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'backupPlanVersionsList', 'listBackupPlanVersionsResponse_backupPlanVersionsList' - An array of version list items containing metadata about your backup
--- plans.
 --
 -- 'httpStatus', 'listBackupPlanVersionsResponse_httpStatus' - The response's http status code.
 newListBackupPlanVersionsResponse ::
@@ -226,11 +226,16 @@ newListBackupPlanVersionsResponse ::
   ListBackupPlanVersionsResponse
 newListBackupPlanVersionsResponse pHttpStatus_ =
   ListBackupPlanVersionsResponse'
-    { nextToken =
+    { backupPlanVersionsList =
         Prelude.Nothing,
-      backupPlanVersionsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of version list items containing metadata about your backup
+-- plans.
+listBackupPlanVersionsResponse_backupPlanVersionsList :: Lens.Lens' ListBackupPlanVersionsResponse (Prelude.Maybe [BackupPlansListMember])
+listBackupPlanVersionsResponse_backupPlanVersionsList = Lens.lens (\ListBackupPlanVersionsResponse' {backupPlanVersionsList} -> backupPlanVersionsList) (\s@ListBackupPlanVersionsResponse' {} a -> s {backupPlanVersionsList = a} :: ListBackupPlanVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -238,11 +243,6 @@ newListBackupPlanVersionsResponse pHttpStatus_ =
 -- pointed to by the next token.
 listBackupPlanVersionsResponse_nextToken :: Lens.Lens' ListBackupPlanVersionsResponse (Prelude.Maybe Prelude.Text)
 listBackupPlanVersionsResponse_nextToken = Lens.lens (\ListBackupPlanVersionsResponse' {nextToken} -> nextToken) (\s@ListBackupPlanVersionsResponse' {} a -> s {nextToken = a} :: ListBackupPlanVersionsResponse)
-
--- | An array of version list items containing metadata about your backup
--- plans.
-listBackupPlanVersionsResponse_backupPlanVersionsList :: Lens.Lens' ListBackupPlanVersionsResponse (Prelude.Maybe [BackupPlansListMember])
-listBackupPlanVersionsResponse_backupPlanVersionsList = Lens.lens (\ListBackupPlanVersionsResponse' {backupPlanVersionsList} -> backupPlanVersionsList) (\s@ListBackupPlanVersionsResponse' {} a -> s {backupPlanVersionsList = a} :: ListBackupPlanVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBackupPlanVersionsResponse_httpStatus :: Lens.Lens' ListBackupPlanVersionsResponse Prelude.Int
@@ -253,6 +253,6 @@ instance
     ListBackupPlanVersionsResponse
   where
   rnf ListBackupPlanVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backupPlanVersionsList
+    Prelude.rnf backupPlanVersionsList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

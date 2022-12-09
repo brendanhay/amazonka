@@ -14,14 +14,20 @@
 module Amazonka.Backup.Lens
   ( -- * Operations
 
+    -- ** CancelLegalHold
+    cancelLegalHold_retainRecordInDays,
+    cancelLegalHold_legalHoldId,
+    cancelLegalHold_cancelDescription,
+    cancelLegalHoldResponse_httpStatus,
+
     -- ** CreateBackupPlan
     createBackupPlan_backupPlanTags,
     createBackupPlan_creatorRequestId,
     createBackupPlan_backupPlan,
-    createBackupPlanResponse_creationDate,
+    createBackupPlanResponse_advancedBackupSettings,
     createBackupPlanResponse_backupPlanArn,
     createBackupPlanResponse_backupPlanId,
-    createBackupPlanResponse_advancedBackupSettings,
+    createBackupPlanResponse_creationDate,
     createBackupPlanResponse_versionId,
     createBackupPlanResponse_httpStatus,
 
@@ -29,41 +35,56 @@ module Amazonka.Backup.Lens
     createBackupSelection_creatorRequestId,
     createBackupSelection_backupPlanId,
     createBackupSelection_backupSelection,
+    createBackupSelectionResponse_backupPlanId,
     createBackupSelectionResponse_creationDate,
     createBackupSelectionResponse_selectionId,
-    createBackupSelectionResponse_backupPlanId,
     createBackupSelectionResponse_httpStatus,
 
     -- ** CreateBackupVault
-    createBackupVault_encryptionKeyArn,
-    createBackupVault_creatorRequestId,
     createBackupVault_backupVaultTags,
+    createBackupVault_creatorRequestId,
+    createBackupVault_encryptionKeyArn,
     createBackupVault_backupVaultName,
+    createBackupVaultResponse_backupVaultArn,
     createBackupVaultResponse_backupVaultName,
     createBackupVaultResponse_creationDate,
-    createBackupVaultResponse_backupVaultArn,
     createBackupVaultResponse_httpStatus,
 
     -- ** CreateFramework
     createFramework_frameworkDescription,
-    createFramework_idempotencyToken,
     createFramework_frameworkTags,
+    createFramework_idempotencyToken,
     createFramework_frameworkName,
     createFramework_frameworkControls,
     createFrameworkResponse_frameworkArn,
     createFrameworkResponse_frameworkName,
     createFrameworkResponse_httpStatus,
 
+    -- ** CreateLegalHold
+    createLegalHold_idempotencyToken,
+    createLegalHold_recoveryPointSelection,
+    createLegalHold_tags,
+    createLegalHold_title,
+    createLegalHold_description,
+    createLegalHoldResponse_creationDate,
+    createLegalHoldResponse_description,
+    createLegalHoldResponse_legalHoldArn,
+    createLegalHoldResponse_legalHoldId,
+    createLegalHoldResponse_recoveryPointSelection,
+    createLegalHoldResponse_status,
+    createLegalHoldResponse_title,
+    createLegalHoldResponse_httpStatus,
+
     -- ** CreateReportPlan
     createReportPlan_idempotencyToken,
-    createReportPlan_reportPlanTags,
     createReportPlan_reportPlanDescription,
+    createReportPlan_reportPlanTags,
     createReportPlan_reportPlanName,
     createReportPlan_reportDeliveryChannel,
     createReportPlan_reportSetting,
+    createReportPlanResponse_creationTime,
     createReportPlanResponse_reportPlanArn,
     createReportPlanResponse_reportPlanName,
-    createReportPlanResponse_creationTime,
     createReportPlanResponse_httpStatus,
 
     -- ** DeleteBackupPlan
@@ -102,40 +123,44 @@ module Amazonka.Backup.Lens
 
     -- ** DescribeBackupJob
     describeBackupJob_backupJobId,
-    describeBackupJobResponse_resourceType,
-    describeBackupJobResponse_recoveryPointArn,
-    describeBackupJobResponse_completionDate,
-    describeBackupJobResponse_backupVaultName,
-    describeBackupJobResponse_state,
-    describeBackupJobResponse_creationDate,
-    describeBackupJobResponse_backupSizeInBytes,
-    describeBackupJobResponse_backupVaultArn,
-    describeBackupJobResponse_backupOptions,
-    describeBackupJobResponse_iamRoleArn,
     describeBackupJobResponse_accountId,
-    describeBackupJobResponse_backupType,
-    describeBackupJobResponse_percentDone,
-    describeBackupJobResponse_expectedCompletionDate,
     describeBackupJobResponse_backupJobId,
-    describeBackupJobResponse_resourceArn,
-    describeBackupJobResponse_startBy,
-    describeBackupJobResponse_statusMessage,
-    describeBackupJobResponse_createdBy,
+    describeBackupJobResponse_backupOptions,
+    describeBackupJobResponse_backupSizeInBytes,
+    describeBackupJobResponse_backupType,
+    describeBackupJobResponse_backupVaultArn,
+    describeBackupJobResponse_backupVaultName,
     describeBackupJobResponse_bytesTransferred,
+    describeBackupJobResponse_childJobsInState,
+    describeBackupJobResponse_completionDate,
+    describeBackupJobResponse_createdBy,
+    describeBackupJobResponse_creationDate,
+    describeBackupJobResponse_expectedCompletionDate,
+    describeBackupJobResponse_iamRoleArn,
+    describeBackupJobResponse_isParent,
+    describeBackupJobResponse_numberOfChildJobs,
+    describeBackupJobResponse_parentJobId,
+    describeBackupJobResponse_percentDone,
+    describeBackupJobResponse_recoveryPointArn,
+    describeBackupJobResponse_resourceArn,
+    describeBackupJobResponse_resourceType,
+    describeBackupJobResponse_startBy,
+    describeBackupJobResponse_state,
+    describeBackupJobResponse_statusMessage,
     describeBackupJobResponse_httpStatus,
 
     -- ** DescribeBackupVault
     describeBackupVault_backupVaultName,
-    describeBackupVaultResponse_encryptionKeyArn,
-    describeBackupVaultResponse_minRetentionDays,
-    describeBackupVaultResponse_maxRetentionDays,
+    describeBackupVaultResponse_backupVaultArn,
     describeBackupVaultResponse_backupVaultName,
     describeBackupVaultResponse_creationDate,
-    describeBackupVaultResponse_backupVaultArn,
     describeBackupVaultResponse_creatorRequestId,
-    describeBackupVaultResponse_numberOfRecoveryPoints,
-    describeBackupVaultResponse_locked,
+    describeBackupVaultResponse_encryptionKeyArn,
     describeBackupVaultResponse_lockDate,
+    describeBackupVaultResponse_locked,
+    describeBackupVaultResponse_maxRetentionDays,
+    describeBackupVaultResponse_minRetentionDays,
+    describeBackupVaultResponse_numberOfRecoveryPoints,
     describeBackupVaultResponse_httpStatus,
 
     -- ** DescribeCopyJob
@@ -145,14 +170,14 @@ module Amazonka.Backup.Lens
 
     -- ** DescribeFramework
     describeFramework_frameworkName,
+    describeFrameworkResponse_creationTime,
     describeFrameworkResponse_deploymentStatus,
     describeFrameworkResponse_frameworkArn,
-    describeFrameworkResponse_frameworkStatus,
-    describeFrameworkResponse_frameworkDescription,
-    describeFrameworkResponse_idempotencyToken,
     describeFrameworkResponse_frameworkControls,
+    describeFrameworkResponse_frameworkDescription,
     describeFrameworkResponse_frameworkName,
-    describeFrameworkResponse_creationTime,
+    describeFrameworkResponse_frameworkStatus,
+    describeFrameworkResponse_idempotencyToken,
     describeFrameworkResponse_httpStatus,
 
     -- ** DescribeGlobalSettings
@@ -162,33 +187,36 @@ module Amazonka.Backup.Lens
 
     -- ** DescribeProtectedResource
     describeProtectedResource_resourceArn,
-    describeProtectedResourceResponse_resourceType,
-    describeProtectedResourceResponse_resourceArn,
     describeProtectedResourceResponse_lastBackupTime,
+    describeProtectedResourceResponse_resourceArn,
+    describeProtectedResourceResponse_resourceType,
     describeProtectedResourceResponse_httpStatus,
 
     -- ** DescribeRecoveryPoint
     describeRecoveryPoint_backupVaultName,
     describeRecoveryPoint_recoveryPointArn,
-    describeRecoveryPointResponse_encryptionKeyArn,
-    describeRecoveryPointResponse_resourceType,
-    describeRecoveryPointResponse_lifecycle,
-    describeRecoveryPointResponse_recoveryPointArn,
-    describeRecoveryPointResponse_completionDate,
-    describeRecoveryPointResponse_backupVaultName,
-    describeRecoveryPointResponse_creationDate,
     describeRecoveryPointResponse_backupSizeInBytes,
-    describeRecoveryPointResponse_status,
     describeRecoveryPointResponse_backupVaultArn,
-    describeRecoveryPointResponse_isEncrypted,
-    describeRecoveryPointResponse_iamRoleArn,
-    describeRecoveryPointResponse_sourceBackupVaultArn,
-    describeRecoveryPointResponse_resourceArn,
-    describeRecoveryPointResponse_storageClass,
-    describeRecoveryPointResponse_statusMessage,
-    describeRecoveryPointResponse_createdBy,
-    describeRecoveryPointResponse_lastRestoreTime,
+    describeRecoveryPointResponse_backupVaultName,
     describeRecoveryPointResponse_calculatedLifecycle,
+    describeRecoveryPointResponse_completionDate,
+    describeRecoveryPointResponse_compositeMemberIdentifier,
+    describeRecoveryPointResponse_createdBy,
+    describeRecoveryPointResponse_creationDate,
+    describeRecoveryPointResponse_encryptionKeyArn,
+    describeRecoveryPointResponse_iamRoleArn,
+    describeRecoveryPointResponse_isEncrypted,
+    describeRecoveryPointResponse_isParent,
+    describeRecoveryPointResponse_lastRestoreTime,
+    describeRecoveryPointResponse_lifecycle,
+    describeRecoveryPointResponse_parentRecoveryPointArn,
+    describeRecoveryPointResponse_recoveryPointArn,
+    describeRecoveryPointResponse_resourceArn,
+    describeRecoveryPointResponse_resourceType,
+    describeRecoveryPointResponse_sourceBackupVaultArn,
+    describeRecoveryPointResponse_status,
+    describeRecoveryPointResponse_statusMessage,
+    describeRecoveryPointResponse_storageClass,
     describeRecoveryPointResponse_httpStatus,
 
     -- ** DescribeRegionSettings
@@ -208,24 +236,28 @@ module Amazonka.Backup.Lens
 
     -- ** DescribeRestoreJob
     describeRestoreJob_restoreJobId,
-    describeRestoreJobResponse_createdResourceArn,
-    describeRestoreJobResponse_resourceType,
-    describeRestoreJobResponse_expectedCompletionTimeMinutes,
-    describeRestoreJobResponse_recoveryPointArn,
-    describeRestoreJobResponse_completionDate,
-    describeRestoreJobResponse_creationDate,
-    describeRestoreJobResponse_backupSizeInBytes,
-    describeRestoreJobResponse_status,
-    describeRestoreJobResponse_restoreJobId,
-    describeRestoreJobResponse_iamRoleArn,
     describeRestoreJobResponse_accountId,
+    describeRestoreJobResponse_backupSizeInBytes,
+    describeRestoreJobResponse_completionDate,
+    describeRestoreJobResponse_createdResourceArn,
+    describeRestoreJobResponse_creationDate,
+    describeRestoreJobResponse_expectedCompletionTimeMinutes,
+    describeRestoreJobResponse_iamRoleArn,
     describeRestoreJobResponse_percentDone,
+    describeRestoreJobResponse_recoveryPointArn,
+    describeRestoreJobResponse_resourceType,
+    describeRestoreJobResponse_restoreJobId,
+    describeRestoreJobResponse_status,
     describeRestoreJobResponse_statusMessage,
     describeRestoreJobResponse_httpStatus,
 
     -- ** DisassociateRecoveryPoint
     disassociateRecoveryPoint_backupVaultName,
     disassociateRecoveryPoint_recoveryPointArn,
+
+    -- ** DisassociateRecoveryPointFromParent
+    disassociateRecoveryPointFromParent_backupVaultName,
+    disassociateRecoveryPointFromParent_recoveryPointArn,
 
     -- ** ExportBackupPlanTemplate
     exportBackupPlanTemplate_backupPlanId,
@@ -235,14 +267,14 @@ module Amazonka.Backup.Lens
     -- ** GetBackupPlan
     getBackupPlan_versionId,
     getBackupPlan_backupPlanId,
+    getBackupPlanResponse_advancedBackupSettings,
     getBackupPlanResponse_backupPlan,
-    getBackupPlanResponse_creationDate,
-    getBackupPlanResponse_creatorRequestId,
     getBackupPlanResponse_backupPlanArn,
     getBackupPlanResponse_backupPlanId,
-    getBackupPlanResponse_advancedBackupSettings,
-    getBackupPlanResponse_lastExecutionDate,
+    getBackupPlanResponse_creationDate,
+    getBackupPlanResponse_creatorRequestId,
     getBackupPlanResponse_deletionDate,
+    getBackupPlanResponse_lastExecutionDate,
     getBackupPlanResponse_versionId,
     getBackupPlanResponse_httpStatus,
 
@@ -259,33 +291,47 @@ module Amazonka.Backup.Lens
     -- ** GetBackupSelection
     getBackupSelection_backupPlanId,
     getBackupSelection_selectionId,
+    getBackupSelectionResponse_backupPlanId,
+    getBackupSelectionResponse_backupSelection,
     getBackupSelectionResponse_creationDate,
     getBackupSelectionResponse_creatorRequestId,
-    getBackupSelectionResponse_backupSelection,
     getBackupSelectionResponse_selectionId,
-    getBackupSelectionResponse_backupPlanId,
     getBackupSelectionResponse_httpStatus,
 
     -- ** GetBackupVaultAccessPolicy
     getBackupVaultAccessPolicy_backupVaultName,
-    getBackupVaultAccessPolicyResponse_policy,
-    getBackupVaultAccessPolicyResponse_backupVaultName,
     getBackupVaultAccessPolicyResponse_backupVaultArn,
+    getBackupVaultAccessPolicyResponse_backupVaultName,
+    getBackupVaultAccessPolicyResponse_policy,
     getBackupVaultAccessPolicyResponse_httpStatus,
 
     -- ** GetBackupVaultNotifications
     getBackupVaultNotifications_backupVaultName,
-    getBackupVaultNotificationsResponse_backupVaultName,
-    getBackupVaultNotificationsResponse_backupVaultEvents,
     getBackupVaultNotificationsResponse_backupVaultArn,
+    getBackupVaultNotificationsResponse_backupVaultEvents,
+    getBackupVaultNotificationsResponse_backupVaultName,
     getBackupVaultNotificationsResponse_sNSTopicArn,
     getBackupVaultNotificationsResponse_httpStatus,
+
+    -- ** GetLegalHold
+    getLegalHold_legalHoldId,
+    getLegalHoldResponse_cancelDescription,
+    getLegalHoldResponse_cancellationDate,
+    getLegalHoldResponse_creationDate,
+    getLegalHoldResponse_description,
+    getLegalHoldResponse_legalHoldArn,
+    getLegalHoldResponse_legalHoldId,
+    getLegalHoldResponse_recoveryPointSelection,
+    getLegalHoldResponse_retainRecordUntil,
+    getLegalHoldResponse_status,
+    getLegalHoldResponse_title,
+    getLegalHoldResponse_httpStatus,
 
     -- ** GetRecoveryPointRestoreMetadata
     getRecoveryPointRestoreMetadata_backupVaultName,
     getRecoveryPointRestoreMetadata_recoveryPointArn,
-    getRecoveryPointRestoreMetadataResponse_recoveryPointArn,
     getRecoveryPointRestoreMetadataResponse_backupVaultArn,
+    getRecoveryPointRestoreMetadataResponse_recoveryPointArn,
     getRecoveryPointRestoreMetadataResponse_restoreMetadata,
     getRecoveryPointRestoreMetadataResponse_httpStatus,
 
@@ -295,146 +341,164 @@ module Amazonka.Backup.Lens
 
     -- ** ListBackupJobs
     listBackupJobs_byAccountId,
-    listBackupJobs_nextToken,
-    listBackupJobs_byCreatedAfter,
+    listBackupJobs_byBackupVaultName,
     listBackupJobs_byCompleteAfter,
     listBackupJobs_byCompleteBefore,
-    listBackupJobs_byResourceType,
+    listBackupJobs_byCreatedAfter,
     listBackupJobs_byCreatedBefore,
-    listBackupJobs_maxResults,
-    listBackupJobs_byState,
-    listBackupJobs_byBackupVaultName,
+    listBackupJobs_byParentJobId,
     listBackupJobs_byResourceArn,
-    listBackupJobsResponse_nextToken,
+    listBackupJobs_byResourceType,
+    listBackupJobs_byState,
+    listBackupJobs_maxResults,
+    listBackupJobs_nextToken,
     listBackupJobsResponse_backupJobs,
+    listBackupJobsResponse_nextToken,
     listBackupJobsResponse_httpStatus,
 
     -- ** ListBackupPlanTemplates
-    listBackupPlanTemplates_nextToken,
     listBackupPlanTemplates_maxResults,
-    listBackupPlanTemplatesResponse_nextToken,
+    listBackupPlanTemplates_nextToken,
     listBackupPlanTemplatesResponse_backupPlanTemplatesList,
+    listBackupPlanTemplatesResponse_nextToken,
     listBackupPlanTemplatesResponse_httpStatus,
 
     -- ** ListBackupPlanVersions
-    listBackupPlanVersions_nextToken,
     listBackupPlanVersions_maxResults,
+    listBackupPlanVersions_nextToken,
     listBackupPlanVersions_backupPlanId,
-    listBackupPlanVersionsResponse_nextToken,
     listBackupPlanVersionsResponse_backupPlanVersionsList,
+    listBackupPlanVersionsResponse_nextToken,
     listBackupPlanVersionsResponse_httpStatus,
 
     -- ** ListBackupPlans
-    listBackupPlans_nextToken,
     listBackupPlans_includeDeleted,
     listBackupPlans_maxResults,
-    listBackupPlansResponse_nextToken,
+    listBackupPlans_nextToken,
     listBackupPlansResponse_backupPlansList,
+    listBackupPlansResponse_nextToken,
     listBackupPlansResponse_httpStatus,
 
     -- ** ListBackupSelections
-    listBackupSelections_nextToken,
     listBackupSelections_maxResults,
+    listBackupSelections_nextToken,
     listBackupSelections_backupPlanId,
-    listBackupSelectionsResponse_nextToken,
     listBackupSelectionsResponse_backupSelectionsList,
+    listBackupSelectionsResponse_nextToken,
     listBackupSelectionsResponse_httpStatus,
 
     -- ** ListBackupVaults
-    listBackupVaults_nextToken,
     listBackupVaults_maxResults,
-    listBackupVaultsResponse_nextToken,
+    listBackupVaults_nextToken,
     listBackupVaultsResponse_backupVaultList,
+    listBackupVaultsResponse_nextToken,
     listBackupVaultsResponse_httpStatus,
 
     -- ** ListCopyJobs
     listCopyJobs_byAccountId,
-    listCopyJobs_nextToken,
-    listCopyJobs_byCreatedAfter,
     listCopyJobs_byCompleteAfter,
-    listCopyJobs_byDestinationVaultArn,
     listCopyJobs_byCompleteBefore,
-    listCopyJobs_byResourceType,
+    listCopyJobs_byCreatedAfter,
     listCopyJobs_byCreatedBefore,
-    listCopyJobs_maxResults,
-    listCopyJobs_byState,
+    listCopyJobs_byDestinationVaultArn,
+    listCopyJobs_byParentJobId,
     listCopyJobs_byResourceArn,
-    listCopyJobsResponse_nextToken,
+    listCopyJobs_byResourceType,
+    listCopyJobs_byState,
+    listCopyJobs_maxResults,
+    listCopyJobs_nextToken,
     listCopyJobsResponse_copyJobs,
+    listCopyJobsResponse_nextToken,
     listCopyJobsResponse_httpStatus,
 
     -- ** ListFrameworks
-    listFrameworks_nextToken,
     listFrameworks_maxResults,
-    listFrameworksResponse_nextToken,
+    listFrameworks_nextToken,
     listFrameworksResponse_frameworks,
+    listFrameworksResponse_nextToken,
     listFrameworksResponse_httpStatus,
 
+    -- ** ListLegalHolds
+    listLegalHolds_maxResults,
+    listLegalHolds_nextToken,
+    listLegalHoldsResponse_legalHolds,
+    listLegalHoldsResponse_nextToken,
+    listLegalHoldsResponse_httpStatus,
+
     -- ** ListProtectedResources
-    listProtectedResources_nextToken,
     listProtectedResources_maxResults,
+    listProtectedResources_nextToken,
     listProtectedResourcesResponse_nextToken,
     listProtectedResourcesResponse_results,
     listProtectedResourcesResponse_httpStatus,
 
     -- ** ListRecoveryPointsByBackupVault
     listRecoveryPointsByBackupVault_byBackupPlanId,
-    listRecoveryPointsByBackupVault_nextToken,
     listRecoveryPointsByBackupVault_byCreatedAfter,
-    listRecoveryPointsByBackupVault_byResourceType,
     listRecoveryPointsByBackupVault_byCreatedBefore,
-    listRecoveryPointsByBackupVault_maxResults,
+    listRecoveryPointsByBackupVault_byParentRecoveryPointArn,
     listRecoveryPointsByBackupVault_byResourceArn,
+    listRecoveryPointsByBackupVault_byResourceType,
+    listRecoveryPointsByBackupVault_maxResults,
+    listRecoveryPointsByBackupVault_nextToken,
     listRecoveryPointsByBackupVault_backupVaultName,
     listRecoveryPointsByBackupVaultResponse_nextToken,
     listRecoveryPointsByBackupVaultResponse_recoveryPoints,
     listRecoveryPointsByBackupVaultResponse_httpStatus,
 
+    -- ** ListRecoveryPointsByLegalHold
+    listRecoveryPointsByLegalHold_maxResults,
+    listRecoveryPointsByLegalHold_nextToken,
+    listRecoveryPointsByLegalHold_legalHoldId,
+    listRecoveryPointsByLegalHoldResponse_nextToken,
+    listRecoveryPointsByLegalHoldResponse_recoveryPoints,
+    listRecoveryPointsByLegalHoldResponse_httpStatus,
+
     -- ** ListRecoveryPointsByResource
-    listRecoveryPointsByResource_nextToken,
     listRecoveryPointsByResource_maxResults,
+    listRecoveryPointsByResource_nextToken,
     listRecoveryPointsByResource_resourceArn,
     listRecoveryPointsByResourceResponse_nextToken,
     listRecoveryPointsByResourceResponse_recoveryPoints,
     listRecoveryPointsByResourceResponse_httpStatus,
 
     -- ** ListReportJobs
-    listReportJobs_byCreationBefore,
-    listReportJobs_nextToken,
     listReportJobs_byCreationAfter,
-    listReportJobs_maxResults,
+    listReportJobs_byCreationBefore,
     listReportJobs_byReportPlanName,
     listReportJobs_byStatus,
+    listReportJobs_maxResults,
+    listReportJobs_nextToken,
     listReportJobsResponse_nextToken,
     listReportJobsResponse_reportJobs,
     listReportJobsResponse_httpStatus,
 
     -- ** ListReportPlans
-    listReportPlans_nextToken,
     listReportPlans_maxResults,
+    listReportPlans_nextToken,
     listReportPlansResponse_nextToken,
     listReportPlansResponse_reportPlans,
     listReportPlansResponse_httpStatus,
 
     -- ** ListRestoreJobs
     listRestoreJobs_byAccountId,
-    listRestoreJobs_nextToken,
-    listRestoreJobs_byCreatedAfter,
     listRestoreJobs_byCompleteAfter,
     listRestoreJobs_byCompleteBefore,
+    listRestoreJobs_byCreatedAfter,
     listRestoreJobs_byCreatedBefore,
-    listRestoreJobs_maxResults,
     listRestoreJobs_byStatus,
+    listRestoreJobs_maxResults,
+    listRestoreJobs_nextToken,
     listRestoreJobsResponse_nextToken,
     listRestoreJobsResponse_restoreJobs,
     listRestoreJobsResponse_httpStatus,
 
     -- ** ListTags
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_resourceArn,
-    listTagsResponse_tags,
     listTagsResponse_nextToken,
+    listTagsResponse_tags,
     listTagsResponse_httpStatus,
 
     -- ** PutBackupVaultAccessPolicy
@@ -442,9 +506,9 @@ module Amazonka.Backup.Lens
     putBackupVaultAccessPolicy_backupVaultName,
 
     -- ** PutBackupVaultLockConfiguration
-    putBackupVaultLockConfiguration_minRetentionDays,
     putBackupVaultLockConfiguration_changeableForDays,
     putBackupVaultLockConfiguration_maxRetentionDays,
+    putBackupVaultLockConfiguration_minRetentionDays,
     putBackupVaultLockConfiguration_backupVaultName,
 
     -- ** PutBackupVaultNotifications
@@ -453,29 +517,31 @@ module Amazonka.Backup.Lens
     putBackupVaultNotifications_backupVaultEvents,
 
     -- ** StartBackupJob
-    startBackupJob_startWindowMinutes,
-    startBackupJob_lifecycle,
-    startBackupJob_idempotencyToken,
     startBackupJob_backupOptions,
     startBackupJob_completeWindowMinutes,
+    startBackupJob_idempotencyToken,
+    startBackupJob_lifecycle,
     startBackupJob_recoveryPointTags,
+    startBackupJob_startWindowMinutes,
     startBackupJob_backupVaultName,
     startBackupJob_resourceArn,
     startBackupJob_iamRoleArn,
-    startBackupJobResponse_recoveryPointArn,
-    startBackupJobResponse_creationDate,
     startBackupJobResponse_backupJobId,
+    startBackupJobResponse_creationDate,
+    startBackupJobResponse_isParent,
+    startBackupJobResponse_recoveryPointArn,
     startBackupJobResponse_httpStatus,
 
     -- ** StartCopyJob
-    startCopyJob_lifecycle,
     startCopyJob_idempotencyToken,
+    startCopyJob_lifecycle,
     startCopyJob_recoveryPointArn,
     startCopyJob_sourceBackupVaultName,
     startCopyJob_destinationBackupVaultArn,
     startCopyJob_iamRoleArn,
-    startCopyJobResponse_creationDate,
     startCopyJobResponse_copyJobId,
+    startCopyJobResponse_creationDate,
+    startCopyJobResponse_isParent,
     startCopyJobResponse_httpStatus,
 
     -- ** StartReportJob
@@ -485,9 +551,9 @@ module Amazonka.Backup.Lens
     startReportJobResponse_httpStatus,
 
     -- ** StartRestoreJob
-    startRestoreJob_resourceType,
-    startRestoreJob_idempotencyToken,
     startRestoreJob_iamRoleArn,
+    startRestoreJob_idempotencyToken,
+    startRestoreJob_resourceType,
     startRestoreJob_recoveryPointArn,
     startRestoreJob_metadata,
     startRestoreJobResponse_restoreJobId,
@@ -507,21 +573,21 @@ module Amazonka.Backup.Lens
     -- ** UpdateBackupPlan
     updateBackupPlan_backupPlanId,
     updateBackupPlan_backupPlan,
-    updateBackupPlanResponse_creationDate,
+    updateBackupPlanResponse_advancedBackupSettings,
     updateBackupPlanResponse_backupPlanArn,
     updateBackupPlanResponse_backupPlanId,
-    updateBackupPlanResponse_advancedBackupSettings,
+    updateBackupPlanResponse_creationDate,
     updateBackupPlanResponse_versionId,
     updateBackupPlanResponse_httpStatus,
 
     -- ** UpdateFramework
+    updateFramework_frameworkControls,
     updateFramework_frameworkDescription,
     updateFramework_idempotencyToken,
-    updateFramework_frameworkControls,
     updateFramework_frameworkName,
+    updateFrameworkResponse_creationTime,
     updateFrameworkResponse_frameworkArn,
     updateFrameworkResponse_frameworkName,
-    updateFrameworkResponse_creationTime,
     updateFrameworkResponse_httpStatus,
 
     -- ** UpdateGlobalSettings
@@ -531,10 +597,10 @@ module Amazonka.Backup.Lens
     updateRecoveryPointLifecycle_lifecycle,
     updateRecoveryPointLifecycle_backupVaultName,
     updateRecoveryPointLifecycle_recoveryPointArn,
-    updateRecoveryPointLifecycleResponse_lifecycle,
-    updateRecoveryPointLifecycleResponse_recoveryPointArn,
     updateRecoveryPointLifecycleResponse_backupVaultArn,
     updateRecoveryPointLifecycleResponse_calculatedLifecycle,
+    updateRecoveryPointLifecycleResponse_lifecycle,
+    updateRecoveryPointLifecycleResponse_recoveryPointArn,
     updateRecoveryPointLifecycleResponse_httpStatus,
 
     -- ** UpdateRegionSettings
@@ -542,43 +608,45 @@ module Amazonka.Backup.Lens
     updateRegionSettings_resourceTypeOptInPreference,
 
     -- ** UpdateReportPlan
-    updateReportPlan_reportDeliveryChannel,
     updateReportPlan_idempotencyToken,
-    updateReportPlan_reportSetting,
+    updateReportPlan_reportDeliveryChannel,
     updateReportPlan_reportPlanDescription,
+    updateReportPlan_reportSetting,
     updateReportPlan_reportPlanName,
+    updateReportPlanResponse_creationTime,
     updateReportPlanResponse_reportPlanArn,
     updateReportPlanResponse_reportPlanName,
-    updateReportPlanResponse_creationTime,
     updateReportPlanResponse_httpStatus,
 
     -- * Types
 
     -- ** AdvancedBackupSetting
-    advancedBackupSetting_resourceType,
     advancedBackupSetting_backupOptions,
+    advancedBackupSetting_resourceType,
 
     -- ** BackupJob
-    backupJob_resourceType,
-    backupJob_recoveryPointArn,
-    backupJob_completionDate,
-    backupJob_backupVaultName,
-    backupJob_state,
-    backupJob_creationDate,
-    backupJob_backupSizeInBytes,
-    backupJob_backupVaultArn,
-    backupJob_backupOptions,
-    backupJob_iamRoleArn,
     backupJob_accountId,
-    backupJob_backupType,
-    backupJob_percentDone,
-    backupJob_expectedCompletionDate,
     backupJob_backupJobId,
-    backupJob_resourceArn,
-    backupJob_startBy,
-    backupJob_statusMessage,
-    backupJob_createdBy,
+    backupJob_backupOptions,
+    backupJob_backupSizeInBytes,
+    backupJob_backupType,
+    backupJob_backupVaultArn,
+    backupJob_backupVaultName,
     backupJob_bytesTransferred,
+    backupJob_completionDate,
+    backupJob_createdBy,
+    backupJob_creationDate,
+    backupJob_expectedCompletionDate,
+    backupJob_iamRoleArn,
+    backupJob_isParent,
+    backupJob_parentJobId,
+    backupJob_percentDone,
+    backupJob_recoveryPointArn,
+    backupJob_resourceArn,
+    backupJob_resourceType,
+    backupJob_startBy,
+    backupJob_state,
+    backupJob_statusMessage,
 
     -- ** BackupPlan
     backupPlan_advancedBackupSettings,
@@ -591,74 +659,74 @@ module Amazonka.Backup.Lens
     backupPlanInput_rules,
 
     -- ** BackupPlanTemplatesListMember
-    backupPlanTemplatesListMember_backupPlanTemplateName,
     backupPlanTemplatesListMember_backupPlanTemplateId,
+    backupPlanTemplatesListMember_backupPlanTemplateName,
 
     -- ** BackupPlansListMember
+    backupPlansListMember_advancedBackupSettings,
+    backupPlansListMember_backupPlanArn,
+    backupPlansListMember_backupPlanId,
     backupPlansListMember_backupPlanName,
     backupPlansListMember_creationDate,
     backupPlansListMember_creatorRequestId,
-    backupPlansListMember_backupPlanArn,
-    backupPlansListMember_backupPlanId,
-    backupPlansListMember_advancedBackupSettings,
-    backupPlansListMember_lastExecutionDate,
     backupPlansListMember_deletionDate,
+    backupPlansListMember_lastExecutionDate,
     backupPlansListMember_versionId,
 
     -- ** BackupRule
-    backupRule_startWindowMinutes,
-    backupRule_lifecycle,
-    backupRule_ruleId,
-    backupRule_copyActions,
-    backupRule_scheduleExpression,
-    backupRule_enableContinuousBackup,
     backupRule_completionWindowMinutes,
+    backupRule_copyActions,
+    backupRule_enableContinuousBackup,
+    backupRule_lifecycle,
     backupRule_recoveryPointTags,
+    backupRule_ruleId,
+    backupRule_scheduleExpression,
+    backupRule_startWindowMinutes,
     backupRule_ruleName,
     backupRule_targetBackupVaultName,
 
     -- ** BackupRuleInput
-    backupRuleInput_startWindowMinutes,
-    backupRuleInput_lifecycle,
-    backupRuleInput_copyActions,
-    backupRuleInput_scheduleExpression,
-    backupRuleInput_enableContinuousBackup,
     backupRuleInput_completionWindowMinutes,
+    backupRuleInput_copyActions,
+    backupRuleInput_enableContinuousBackup,
+    backupRuleInput_lifecycle,
     backupRuleInput_recoveryPointTags,
+    backupRuleInput_scheduleExpression,
+    backupRuleInput_startWindowMinutes,
     backupRuleInput_ruleName,
     backupRuleInput_targetBackupVaultName,
 
     -- ** BackupSelection
     backupSelection_conditions,
-    backupSelection_resources,
     backupSelection_listOfTags,
     backupSelection_notResources,
+    backupSelection_resources,
     backupSelection_selectionName,
     backupSelection_iamRoleArn,
 
     -- ** BackupSelectionsListMember
-    backupSelectionsListMember_selectionName,
+    backupSelectionsListMember_backupPlanId,
     backupSelectionsListMember_creationDate,
     backupSelectionsListMember_creatorRequestId,
     backupSelectionsListMember_iamRoleArn,
     backupSelectionsListMember_selectionId,
-    backupSelectionsListMember_backupPlanId,
+    backupSelectionsListMember_selectionName,
 
     -- ** BackupVaultListMember
-    backupVaultListMember_encryptionKeyArn,
-    backupVaultListMember_minRetentionDays,
-    backupVaultListMember_maxRetentionDays,
+    backupVaultListMember_backupVaultArn,
     backupVaultListMember_backupVaultName,
     backupVaultListMember_creationDate,
-    backupVaultListMember_backupVaultArn,
     backupVaultListMember_creatorRequestId,
-    backupVaultListMember_numberOfRecoveryPoints,
-    backupVaultListMember_locked,
+    backupVaultListMember_encryptionKeyArn,
     backupVaultListMember_lockDate,
+    backupVaultListMember_locked,
+    backupVaultListMember_maxRetentionDays,
+    backupVaultListMember_minRetentionDays,
+    backupVaultListMember_numberOfRecoveryPoints,
 
     -- ** CalculatedLifecycle
-    calculatedLifecycle_moveToColdStorageAt,
     calculatedLifecycle_deleteAt,
+    calculatedLifecycle_moveToColdStorageAt,
 
     -- ** Condition
     condition_conditionType,
@@ -666,105 +734,136 @@ module Amazonka.Backup.Lens
     condition_conditionValue,
 
     -- ** ConditionParameter
-    conditionParameter_conditionValue,
     conditionParameter_conditionKey,
+    conditionParameter_conditionValue,
 
     -- ** Conditions
-    conditions_stringNotEquals,
-    conditions_stringNotLike,
     conditions_stringEquals,
     conditions_stringLike,
+    conditions_stringNotEquals,
+    conditions_stringNotLike,
 
     -- ** ControlInputParameter
-    controlInputParameter_parameterValue,
     controlInputParameter_parameterName,
+    controlInputParameter_parameterValue,
 
     -- ** ControlScope
-    controlScope_tags,
     controlScope_complianceResourceIds,
     controlScope_complianceResourceTypes,
+    controlScope_tags,
 
     -- ** CopyAction
     copyAction_lifecycle,
     copyAction_destinationBackupVaultArn,
 
     -- ** CopyJob
-    copyJob_resourceType,
+    copyJob_accountId,
+    copyJob_backupSizeInBytes,
+    copyJob_childJobsInState,
     copyJob_completionDate,
-    copyJob_state,
+    copyJob_compositeMemberIdentifier,
+    copyJob_copyJobId,
+    copyJob_createdBy,
     copyJob_creationDate,
     copyJob_destinationBackupVaultArn,
-    copyJob_backupSizeInBytes,
-    copyJob_iamRoleArn,
-    copyJob_accountId,
     copyJob_destinationRecoveryPointArn,
-    copyJob_copyJobId,
-    copyJob_sourceBackupVaultArn,
+    copyJob_iamRoleArn,
+    copyJob_isParent,
+    copyJob_numberOfChildJobs,
+    copyJob_parentJobId,
     copyJob_resourceArn,
-    copyJob_statusMessage,
-    copyJob_createdBy,
+    copyJob_resourceType,
+    copyJob_sourceBackupVaultArn,
     copyJob_sourceRecoveryPointArn,
+    copyJob_state,
+    copyJob_statusMessage,
+
+    -- ** DateRange
+    dateRange_fromDate,
+    dateRange_toDate,
 
     -- ** Framework
+    framework_creationTime,
     framework_deploymentStatus,
     framework_frameworkArn,
     framework_frameworkDescription,
     framework_frameworkName,
     framework_numberOfControls,
-    framework_creationTime,
 
     -- ** FrameworkControl
     frameworkControl_controlInputParameters,
     frameworkControl_controlScope,
     frameworkControl_controlName,
 
+    -- ** LegalHold
+    legalHold_cancellationDate,
+    legalHold_creationDate,
+    legalHold_description,
+    legalHold_legalHoldArn,
+    legalHold_legalHoldId,
+    legalHold_status,
+    legalHold_title,
+
     -- ** Lifecycle
     lifecycle_deleteAfterDays,
     lifecycle_moveToColdStorageAfterDays,
 
     -- ** ProtectedResource
-    protectedResource_resourceType,
-    protectedResource_resourceArn,
     protectedResource_lastBackupTime,
+    protectedResource_resourceArn,
+    protectedResource_resourceType,
 
     -- ** RecoveryPointByBackupVault
-    recoveryPointByBackupVault_encryptionKeyArn,
-    recoveryPointByBackupVault_resourceType,
-    recoveryPointByBackupVault_lifecycle,
-    recoveryPointByBackupVault_recoveryPointArn,
-    recoveryPointByBackupVault_completionDate,
-    recoveryPointByBackupVault_backupVaultName,
-    recoveryPointByBackupVault_creationDate,
     recoveryPointByBackupVault_backupSizeInBytes,
-    recoveryPointByBackupVault_status,
     recoveryPointByBackupVault_backupVaultArn,
-    recoveryPointByBackupVault_isEncrypted,
-    recoveryPointByBackupVault_iamRoleArn,
-    recoveryPointByBackupVault_sourceBackupVaultArn,
-    recoveryPointByBackupVault_resourceArn,
-    recoveryPointByBackupVault_statusMessage,
-    recoveryPointByBackupVault_createdBy,
-    recoveryPointByBackupVault_lastRestoreTime,
+    recoveryPointByBackupVault_backupVaultName,
     recoveryPointByBackupVault_calculatedLifecycle,
+    recoveryPointByBackupVault_completionDate,
+    recoveryPointByBackupVault_compositeMemberIdentifier,
+    recoveryPointByBackupVault_createdBy,
+    recoveryPointByBackupVault_creationDate,
+    recoveryPointByBackupVault_encryptionKeyArn,
+    recoveryPointByBackupVault_iamRoleArn,
+    recoveryPointByBackupVault_isEncrypted,
+    recoveryPointByBackupVault_isParent,
+    recoveryPointByBackupVault_lastRestoreTime,
+    recoveryPointByBackupVault_lifecycle,
+    recoveryPointByBackupVault_parentRecoveryPointArn,
+    recoveryPointByBackupVault_recoveryPointArn,
+    recoveryPointByBackupVault_resourceArn,
+    recoveryPointByBackupVault_resourceType,
+    recoveryPointByBackupVault_sourceBackupVaultArn,
+    recoveryPointByBackupVault_status,
+    recoveryPointByBackupVault_statusMessage,
 
     -- ** RecoveryPointByResource
-    recoveryPointByResource_encryptionKeyArn,
-    recoveryPointByResource_recoveryPointArn,
     recoveryPointByResource_backupSizeBytes,
     recoveryPointByResource_backupVaultName,
     recoveryPointByResource_creationDate,
+    recoveryPointByResource_encryptionKeyArn,
+    recoveryPointByResource_isParent,
+    recoveryPointByResource_parentRecoveryPointArn,
+    recoveryPointByResource_recoveryPointArn,
     recoveryPointByResource_status,
     recoveryPointByResource_statusMessage,
 
     -- ** RecoveryPointCreator
-    recoveryPointCreator_backupPlanVersion,
     recoveryPointCreator_backupPlanArn,
     recoveryPointCreator_backupPlanId,
+    recoveryPointCreator_backupPlanVersion,
     recoveryPointCreator_backupRuleId,
 
+    -- ** RecoveryPointMember
+    recoveryPointMember_recoveryPointArn,
+
+    -- ** RecoveryPointSelection
+    recoveryPointSelection_dateRange,
+    recoveryPointSelection_resourceIdentifiers,
+    recoveryPointSelection_vaultNames,
+
     -- ** ReportDeliveryChannel
-    reportDeliveryChannel_s3KeyPrefix,
     reportDeliveryChannel_formats,
+    reportDeliveryChannel_s3KeyPrefix,
     reportDeliveryChannel_s3BucketName,
 
     -- ** ReportDestination
@@ -772,52 +871,57 @@ module Amazonka.Backup.Lens
     reportDestination_s3Keys,
 
     -- ** ReportJob
-    reportJob_reportPlanArn,
-    reportJob_reportTemplate,
-    reportJob_reportJobId,
-    reportJob_reportDestination,
-    reportJob_status,
     reportJob_completionTime,
     reportJob_creationTime,
+    reportJob_reportDestination,
+    reportJob_reportJobId,
+    reportJob_reportPlanArn,
+    reportJob_reportTemplate,
+    reportJob_status,
     reportJob_statusMessage,
 
     -- ** ReportPlan
-    reportPlan_deploymentStatus,
-    reportPlan_reportPlanArn,
-    reportPlan_reportDeliveryChannel,
-    reportPlan_lastSuccessfulExecutionTime,
-    reportPlan_reportSetting,
-    reportPlan_lastAttemptedExecutionTime,
-    reportPlan_reportPlanName,
     reportPlan_creationTime,
+    reportPlan_deploymentStatus,
+    reportPlan_lastAttemptedExecutionTime,
+    reportPlan_lastSuccessfulExecutionTime,
+    reportPlan_reportDeliveryChannel,
+    reportPlan_reportPlanArn,
     reportPlan_reportPlanDescription,
+    reportPlan_reportPlanName,
+    reportPlan_reportSetting,
 
     -- ** ReportSetting
+    reportSetting_accounts,
     reportSetting_frameworkArns,
     reportSetting_numberOfFrameworks,
+    reportSetting_organizationUnits,
+    reportSetting_regions,
     reportSetting_reportTemplate,
 
     -- ** RestoreJobsListMember
-    restoreJobsListMember_createdResourceArn,
-    restoreJobsListMember_resourceType,
-    restoreJobsListMember_expectedCompletionTimeMinutes,
-    restoreJobsListMember_recoveryPointArn,
-    restoreJobsListMember_completionDate,
-    restoreJobsListMember_creationDate,
-    restoreJobsListMember_backupSizeInBytes,
-    restoreJobsListMember_status,
-    restoreJobsListMember_restoreJobId,
-    restoreJobsListMember_iamRoleArn,
     restoreJobsListMember_accountId,
+    restoreJobsListMember_backupSizeInBytes,
+    restoreJobsListMember_completionDate,
+    restoreJobsListMember_createdResourceArn,
+    restoreJobsListMember_creationDate,
+    restoreJobsListMember_expectedCompletionTimeMinutes,
+    restoreJobsListMember_iamRoleArn,
     restoreJobsListMember_percentDone,
+    restoreJobsListMember_recoveryPointArn,
+    restoreJobsListMember_resourceType,
+    restoreJobsListMember_restoreJobId,
+    restoreJobsListMember_status,
     restoreJobsListMember_statusMessage,
   )
 where
 
+import Amazonka.Backup.CancelLegalHold
 import Amazonka.Backup.CreateBackupPlan
 import Amazonka.Backup.CreateBackupSelection
 import Amazonka.Backup.CreateBackupVault
 import Amazonka.Backup.CreateFramework
+import Amazonka.Backup.CreateLegalHold
 import Amazonka.Backup.CreateReportPlan
 import Amazonka.Backup.DeleteBackupPlan
 import Amazonka.Backup.DeleteBackupSelection
@@ -840,6 +944,7 @@ import Amazonka.Backup.DescribeReportJob
 import Amazonka.Backup.DescribeReportPlan
 import Amazonka.Backup.DescribeRestoreJob
 import Amazonka.Backup.DisassociateRecoveryPoint
+import Amazonka.Backup.DisassociateRecoveryPointFromParent
 import Amazonka.Backup.ExportBackupPlanTemplate
 import Amazonka.Backup.GetBackupPlan
 import Amazonka.Backup.GetBackupPlanFromJSON
@@ -847,6 +952,7 @@ import Amazonka.Backup.GetBackupPlanFromTemplate
 import Amazonka.Backup.GetBackupSelection
 import Amazonka.Backup.GetBackupVaultAccessPolicy
 import Amazonka.Backup.GetBackupVaultNotifications
+import Amazonka.Backup.GetLegalHold
 import Amazonka.Backup.GetRecoveryPointRestoreMetadata
 import Amazonka.Backup.GetSupportedResourceTypes
 import Amazonka.Backup.ListBackupJobs
@@ -857,8 +963,10 @@ import Amazonka.Backup.ListBackupSelections
 import Amazonka.Backup.ListBackupVaults
 import Amazonka.Backup.ListCopyJobs
 import Amazonka.Backup.ListFrameworks
+import Amazonka.Backup.ListLegalHolds
 import Amazonka.Backup.ListProtectedResources
 import Amazonka.Backup.ListRecoveryPointsByBackupVault
+import Amazonka.Backup.ListRecoveryPointsByLegalHold
 import Amazonka.Backup.ListRecoveryPointsByResource
 import Amazonka.Backup.ListReportJobs
 import Amazonka.Backup.ListReportPlans
@@ -892,13 +1000,17 @@ import Amazonka.Backup.Types.ControlInputParameter
 import Amazonka.Backup.Types.ControlScope
 import Amazonka.Backup.Types.CopyAction
 import Amazonka.Backup.Types.CopyJob
+import Amazonka.Backup.Types.DateRange
 import Amazonka.Backup.Types.Framework
 import Amazonka.Backup.Types.FrameworkControl
+import Amazonka.Backup.Types.LegalHold
 import Amazonka.Backup.Types.Lifecycle
 import Amazonka.Backup.Types.ProtectedResource
 import Amazonka.Backup.Types.RecoveryPointByBackupVault
 import Amazonka.Backup.Types.RecoveryPointByResource
 import Amazonka.Backup.Types.RecoveryPointCreator
+import Amazonka.Backup.Types.RecoveryPointMember
+import Amazonka.Backup.Types.RecoveryPointSelection
 import Amazonka.Backup.Types.ReportDeliveryChannel
 import Amazonka.Backup.Types.ReportDestination
 import Amazonka.Backup.Types.ReportJob

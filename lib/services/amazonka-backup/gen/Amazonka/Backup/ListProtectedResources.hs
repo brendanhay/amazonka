@@ -31,8 +31,8 @@ module Amazonka.Backup.ListProtectedResources
     newListProtectedResources,
 
     -- * Request Lenses
-    listProtectedResources_nextToken,
     listProtectedResources_maxResults,
+    listProtectedResources_nextToken,
 
     -- * Destructuring the Response
     ListProtectedResourcesResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProtectedResources' smart constructor.
 data ListProtectedResources = ListProtectedResources'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,24 @@ data ListProtectedResources = ListProtectedResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProtectedResources_maxResults' - The maximum number of items to be returned.
+--
 -- 'nextToken', 'listProtectedResources_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'maxResults', 'listProtectedResources_maxResults' - The maximum number of items to be returned.
 newListProtectedResources ::
   ListProtectedResources
 newListProtectedResources =
   ListProtectedResources'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to be returned.
+listProtectedResources_maxResults :: Lens.Lens' ListProtectedResources (Prelude.Maybe Prelude.Natural)
+listProtectedResources_maxResults = Lens.lens (\ListProtectedResources' {maxResults} -> maxResults) (\s@ListProtectedResources' {} a -> s {maxResults = a} :: ListProtectedResources)
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -94,10 +98,6 @@ newListProtectedResources =
 -- pointed to by the next token.
 listProtectedResources_nextToken :: Lens.Lens' ListProtectedResources (Prelude.Maybe Prelude.Text)
 listProtectedResources_nextToken = Lens.lens (\ListProtectedResources' {nextToken} -> nextToken) (\s@ListProtectedResources' {} a -> s {nextToken = a} :: ListProtectedResources)
-
--- | The maximum number of items to be returned.
-listProtectedResources_maxResults :: Lens.Lens' ListProtectedResources (Prelude.Maybe Prelude.Natural)
-listProtectedResources_maxResults = Lens.lens (\ListProtectedResources' {maxResults} -> maxResults) (\s@ListProtectedResources' {} a -> s {maxResults = a} :: ListProtectedResources)
 
 instance Core.AWSPager ListProtectedResources where
   page rq rs
@@ -138,13 +138,13 @@ instance Core.AWSRequest ListProtectedResources where
 
 instance Prelude.Hashable ListProtectedResources where
   hashWithSalt _salt ListProtectedResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProtectedResources where
   rnf ListProtectedResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtectedResources where
   toHeaders =
@@ -163,8 +163,8 @@ instance Data.ToPath ListProtectedResources where
 instance Data.ToQuery ListProtectedResources where
   toQuery ListProtectedResources' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProtectedResourcesResponse' smart constructor.

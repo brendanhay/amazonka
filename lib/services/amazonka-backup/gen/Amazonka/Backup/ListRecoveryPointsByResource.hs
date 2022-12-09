@@ -33,8 +33,8 @@ module Amazonka.Backup.ListRecoveryPointsByResource
     newListRecoveryPointsByResource,
 
     -- * Request Lenses
-    listRecoveryPointsByResource_nextToken,
     listRecoveryPointsByResource_maxResults,
+    listRecoveryPointsByResource_nextToken,
     listRecoveryPointsByResource_resourceArn,
 
     -- * Destructuring the Response
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecoveryPointsByResource' smart constructor.
 data ListRecoveryPointsByResource = ListRecoveryPointsByResource'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | The maximum number of items to be returned.
+    --
+    -- Amazon RDS requires a value of at least 20.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be returned.
-    --
-    -- Amazon RDS requires a value of at least 20.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An ARN that uniquely identifies a resource. The format of the ARN
     -- depends on the resource type.
     resourceArn :: Prelude.Text
@@ -81,14 +81,14 @@ data ListRecoveryPointsByResource = ListRecoveryPointsByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRecoveryPointsByResource_maxResults' - The maximum number of items to be returned.
+--
+-- Amazon RDS requires a value of at least 20.
+--
 -- 'nextToken', 'listRecoveryPointsByResource_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'maxResults', 'listRecoveryPointsByResource_maxResults' - The maximum number of items to be returned.
---
--- Amazon RDS requires a value of at least 20.
 --
 -- 'resourceArn', 'listRecoveryPointsByResource_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
 -- depends on the resource type.
@@ -98,11 +98,17 @@ newListRecoveryPointsByResource ::
   ListRecoveryPointsByResource
 newListRecoveryPointsByResource pResourceArn_ =
   ListRecoveryPointsByResource'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
+
+-- | The maximum number of items to be returned.
+--
+-- Amazon RDS requires a value of at least 20.
+listRecoveryPointsByResource_maxResults :: Lens.Lens' ListRecoveryPointsByResource (Prelude.Maybe Prelude.Natural)
+listRecoveryPointsByResource_maxResults = Lens.lens (\ListRecoveryPointsByResource' {maxResults} -> maxResults) (\s@ListRecoveryPointsByResource' {} a -> s {maxResults = a} :: ListRecoveryPointsByResource)
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -110,12 +116,6 @@ newListRecoveryPointsByResource pResourceArn_ =
 -- pointed to by the next token.
 listRecoveryPointsByResource_nextToken :: Lens.Lens' ListRecoveryPointsByResource (Prelude.Maybe Prelude.Text)
 listRecoveryPointsByResource_nextToken = Lens.lens (\ListRecoveryPointsByResource' {nextToken} -> nextToken) (\s@ListRecoveryPointsByResource' {} a -> s {nextToken = a} :: ListRecoveryPointsByResource)
-
--- | The maximum number of items to be returned.
---
--- Amazon RDS requires a value of at least 20.
-listRecoveryPointsByResource_maxResults :: Lens.Lens' ListRecoveryPointsByResource (Prelude.Maybe Prelude.Natural)
-listRecoveryPointsByResource_maxResults = Lens.lens (\ListRecoveryPointsByResource' {maxResults} -> maxResults) (\s@ListRecoveryPointsByResource' {} a -> s {maxResults = a} :: ListRecoveryPointsByResource)
 
 -- | An ARN that uniquely identifies a resource. The format of the ARN
 -- depends on the resource type.
@@ -164,14 +164,14 @@ instance
     ListRecoveryPointsByResource
   where
   hashWithSalt _salt ListRecoveryPointsByResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListRecoveryPointsByResource where
   rnf ListRecoveryPointsByResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListRecoveryPointsByResource where
@@ -196,8 +196,8 @@ instance Data.ToPath ListRecoveryPointsByResource where
 instance Data.ToQuery ListRecoveryPointsByResource where
   toQuery ListRecoveryPointsByResource' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRecoveryPointsByResourceResponse' smart constructor.

@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConditions' smart constructor.
 data Conditions = Conditions'
   { -- | Filters the values of your tagged resources for only those resources
-    -- that you tagged that do not have the same value. Also called \"negated
-    -- matching.\"
-    stringNotEquals :: Prelude.Maybe [ConditionParameter],
-    -- | Filters the values of your tagged resources for non-matching tag values
-    -- with the use of a wildcard character (*) anywhere in the string.
-    stringNotLike :: Prelude.Maybe [ConditionParameter],
-    -- | Filters the values of your tagged resources for only those resources
     -- that you tagged with the same value. Also called \"exact matching.\"
     stringEquals :: Prelude.Maybe [ConditionParameter],
     -- | Filters the values of your tagged resources for matching tag values with
     -- the use of a wildcard character (*) anywhere in the string. For example,
     -- \"prod*\" or \"*rod*\" matches the tag value \"production\".
-    stringLike :: Prelude.Maybe [ConditionParameter]
+    stringLike :: Prelude.Maybe [ConditionParameter],
+    -- | Filters the values of your tagged resources for only those resources
+    -- that you tagged that do not have the same value. Also called \"negated
+    -- matching.\"
+    stringNotEquals :: Prelude.Maybe [ConditionParameter],
+    -- | Filters the values of your tagged resources for non-matching tag values
+    -- with the use of a wildcard character (*) anywhere in the string.
+    stringNotLike :: Prelude.Maybe [ConditionParameter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,39 +55,28 @@ data Conditions = Conditions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringNotEquals', 'conditions_stringNotEquals' - Filters the values of your tagged resources for only those resources
--- that you tagged that do not have the same value. Also called \"negated
--- matching.\"
---
--- 'stringNotLike', 'conditions_stringNotLike' - Filters the values of your tagged resources for non-matching tag values
--- with the use of a wildcard character (*) anywhere in the string.
---
 -- 'stringEquals', 'conditions_stringEquals' - Filters the values of your tagged resources for only those resources
 -- that you tagged with the same value. Also called \"exact matching.\"
 --
 -- 'stringLike', 'conditions_stringLike' - Filters the values of your tagged resources for matching tag values with
 -- the use of a wildcard character (*) anywhere in the string. For example,
 -- \"prod*\" or \"*rod*\" matches the tag value \"production\".
+--
+-- 'stringNotEquals', 'conditions_stringNotEquals' - Filters the values of your tagged resources for only those resources
+-- that you tagged that do not have the same value. Also called \"negated
+-- matching.\"
+--
+-- 'stringNotLike', 'conditions_stringNotLike' - Filters the values of your tagged resources for non-matching tag values
+-- with the use of a wildcard character (*) anywhere in the string.
 newConditions ::
   Conditions
 newConditions =
   Conditions'
-    { stringNotEquals = Prelude.Nothing,
-      stringNotLike = Prelude.Nothing,
-      stringEquals = Prelude.Nothing,
-      stringLike = Prelude.Nothing
+    { stringEquals = Prelude.Nothing,
+      stringLike = Prelude.Nothing,
+      stringNotEquals = Prelude.Nothing,
+      stringNotLike = Prelude.Nothing
     }
-
--- | Filters the values of your tagged resources for only those resources
--- that you tagged that do not have the same value. Also called \"negated
--- matching.\"
-conditions_stringNotEquals :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
-conditions_stringNotEquals = Lens.lens (\Conditions' {stringNotEquals} -> stringNotEquals) (\s@Conditions' {} a -> s {stringNotEquals = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
-
--- | Filters the values of your tagged resources for non-matching tag values
--- with the use of a wildcard character (*) anywhere in the string.
-conditions_stringNotLike :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
-conditions_stringNotLike = Lens.lens (\Conditions' {stringNotLike} -> stringNotLike) (\s@Conditions' {} a -> s {stringNotLike = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters the values of your tagged resources for only those resources
 -- that you tagged with the same value. Also called \"exact matching.\"
@@ -100,42 +89,53 @@ conditions_stringEquals = Lens.lens (\Conditions' {stringEquals} -> stringEquals
 conditions_stringLike :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
 conditions_stringLike = Lens.lens (\Conditions' {stringLike} -> stringLike) (\s@Conditions' {} a -> s {stringLike = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
 
+-- | Filters the values of your tagged resources for only those resources
+-- that you tagged that do not have the same value. Also called \"negated
+-- matching.\"
+conditions_stringNotEquals :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
+conditions_stringNotEquals = Lens.lens (\Conditions' {stringNotEquals} -> stringNotEquals) (\s@Conditions' {} a -> s {stringNotEquals = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters the values of your tagged resources for non-matching tag values
+-- with the use of a wildcard character (*) anywhere in the string.
+conditions_stringNotLike :: Lens.Lens' Conditions (Prelude.Maybe [ConditionParameter])
+conditions_stringNotLike = Lens.lens (\Conditions' {stringNotLike} -> stringNotLike) (\s@Conditions' {} a -> s {stringNotLike = a} :: Conditions) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON Conditions where
   parseJSON =
     Data.withObject
       "Conditions"
       ( \x ->
           Conditions'
-            Prelude.<$> ( x Data..:? "StringNotEquals"
+            Prelude.<$> (x Data..:? "StringEquals" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "StringLike" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "StringNotEquals"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StringNotLike" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "StringEquals" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "StringLike" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Conditions where
   hashWithSalt _salt Conditions' {..} =
-    _salt `Prelude.hashWithSalt` stringNotEquals
-      `Prelude.hashWithSalt` stringNotLike
-      `Prelude.hashWithSalt` stringEquals
+    _salt `Prelude.hashWithSalt` stringEquals
       `Prelude.hashWithSalt` stringLike
+      `Prelude.hashWithSalt` stringNotEquals
+      `Prelude.hashWithSalt` stringNotLike
 
 instance Prelude.NFData Conditions where
   rnf Conditions' {..} =
-    Prelude.rnf stringNotEquals
-      `Prelude.seq` Prelude.rnf stringNotLike
-      `Prelude.seq` Prelude.rnf stringEquals
+    Prelude.rnf stringEquals
       `Prelude.seq` Prelude.rnf stringLike
+      `Prelude.seq` Prelude.rnf stringNotEquals
+      `Prelude.seq` Prelude.rnf stringNotLike
 
 instance Data.ToJSON Conditions where
   toJSON Conditions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StringNotEquals" Data..=)
+          [ ("StringEquals" Data..=) Prelude.<$> stringEquals,
+            ("StringLike" Data..=) Prelude.<$> stringLike,
+            ("StringNotEquals" Data..=)
               Prelude.<$> stringNotEquals,
-            ("StringNotLike" Data..=) Prelude.<$> stringNotLike,
-            ("StringEquals" Data..=) Prelude.<$> stringEquals,
-            ("StringLike" Data..=) Prelude.<$> stringLike
+            ("StringNotLike" Data..=) Prelude.<$> stringNotLike
           ]
       )

@@ -31,12 +31,13 @@ module Amazonka.Backup.ListRecoveryPointsByBackupVault
 
     -- * Request Lenses
     listRecoveryPointsByBackupVault_byBackupPlanId,
-    listRecoveryPointsByBackupVault_nextToken,
     listRecoveryPointsByBackupVault_byCreatedAfter,
-    listRecoveryPointsByBackupVault_byResourceType,
     listRecoveryPointsByBackupVault_byCreatedBefore,
-    listRecoveryPointsByBackupVault_maxResults,
+    listRecoveryPointsByBackupVault_byParentRecoveryPointArn,
     listRecoveryPointsByBackupVault_byResourceArn,
+    listRecoveryPointsByBackupVault_byResourceType,
+    listRecoveryPointsByBackupVault_maxResults,
+    listRecoveryPointsByBackupVault_nextToken,
     listRecoveryPointsByBackupVault_backupVaultName,
 
     -- * Destructuring the Response
@@ -62,24 +63,27 @@ import qualified Amazonka.Response as Response
 data ListRecoveryPointsByBackupVault = ListRecoveryPointsByBackupVault'
   { -- | Returns only recovery points that match the specified backup plan ID.
     byBackupPlanId :: Prelude.Maybe Prelude.Text,
+    -- | Returns only recovery points that were created after the specified
+    -- timestamp.
+    byCreatedAfter :: Prelude.Maybe Data.POSIX,
+    -- | Returns only recovery points that were created before the specified
+    -- timestamp.
+    byCreatedBefore :: Prelude.Maybe Data.POSIX,
+    -- | This returns only recovery points that match the specified parent
+    -- (composite) recovery point Amazon Resource Name (ARN).
+    byParentRecoveryPointArn :: Prelude.Maybe Prelude.Text,
+    -- | Returns only recovery points that match the specified resource Amazon
+    -- Resource Name (ARN).
+    byResourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Returns only recovery points that match the specified resource type.
+    byResourceType :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns only recovery points that were created after the specified
-    -- timestamp.
-    byCreatedAfter :: Prelude.Maybe Data.POSIX,
-    -- | Returns only recovery points that match the specified resource type.
-    byResourceType :: Prelude.Maybe Prelude.Text,
-    -- | Returns only recovery points that were created before the specified
-    -- timestamp.
-    byCreatedBefore :: Prelude.Maybe Data.POSIX,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Returns only recovery points that match the specified resource Amazon
-    -- Resource Name (ARN).
-    byResourceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Amazon Web Services Region where they are created. They
@@ -101,23 +105,26 @@ data ListRecoveryPointsByBackupVault = ListRecoveryPointsByBackupVault'
 --
 -- 'byBackupPlanId', 'listRecoveryPointsByBackupVault_byBackupPlanId' - Returns only recovery points that match the specified backup plan ID.
 --
--- 'nextToken', 'listRecoveryPointsByBackupVault_nextToken' - The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
---
 -- 'byCreatedAfter', 'listRecoveryPointsByBackupVault_byCreatedAfter' - Returns only recovery points that were created after the specified
 -- timestamp.
---
--- 'byResourceType', 'listRecoveryPointsByBackupVault_byResourceType' - Returns only recovery points that match the specified resource type.
 --
 -- 'byCreatedBefore', 'listRecoveryPointsByBackupVault_byCreatedBefore' - Returns only recovery points that were created before the specified
 -- timestamp.
 --
--- 'maxResults', 'listRecoveryPointsByBackupVault_maxResults' - The maximum number of items to be returned.
+-- 'byParentRecoveryPointArn', 'listRecoveryPointsByBackupVault_byParentRecoveryPointArn' - This returns only recovery points that match the specified parent
+-- (composite) recovery point Amazon Resource Name (ARN).
 --
 -- 'byResourceArn', 'listRecoveryPointsByBackupVault_byResourceArn' - Returns only recovery points that match the specified resource Amazon
 -- Resource Name (ARN).
+--
+-- 'byResourceType', 'listRecoveryPointsByBackupVault_byResourceType' - Returns only recovery points that match the specified resource type.
+--
+-- 'maxResults', 'listRecoveryPointsByBackupVault_maxResults' - The maximum number of items to be returned.
+--
+-- 'nextToken', 'listRecoveryPointsByBackupVault_nextToken' - The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
 --
 -- 'backupVaultName', 'listRecoveryPointsByBackupVault_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -134,12 +141,13 @@ newListRecoveryPointsByBackupVault pBackupVaultName_ =
   ListRecoveryPointsByBackupVault'
     { byBackupPlanId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       byCreatedAfter = Prelude.Nothing,
-      byResourceType = Prelude.Nothing,
       byCreatedBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      byParentRecoveryPointArn = Prelude.Nothing,
       byResourceArn = Prelude.Nothing,
+      byResourceType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       backupVaultName = pBackupVaultName_
     }
 
@@ -147,35 +155,40 @@ newListRecoveryPointsByBackupVault pBackupVaultName_ =
 listRecoveryPointsByBackupVault_byBackupPlanId :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
 listRecoveryPointsByBackupVault_byBackupPlanId = Lens.lens (\ListRecoveryPointsByBackupVault' {byBackupPlanId} -> byBackupPlanId) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byBackupPlanId = a} :: ListRecoveryPointsByBackupVault)
 
--- | The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
-listRecoveryPointsByBackupVault_nextToken :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
-listRecoveryPointsByBackupVault_nextToken = Lens.lens (\ListRecoveryPointsByBackupVault' {nextToken} -> nextToken) (\s@ListRecoveryPointsByBackupVault' {} a -> s {nextToken = a} :: ListRecoveryPointsByBackupVault)
-
 -- | Returns only recovery points that were created after the specified
 -- timestamp.
 listRecoveryPointsByBackupVault_byCreatedAfter :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.UTCTime)
 listRecoveryPointsByBackupVault_byCreatedAfter = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedAfter} -> byCreatedAfter) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedAfter = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Data._Time
-
--- | Returns only recovery points that match the specified resource type.
-listRecoveryPointsByBackupVault_byResourceType :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
-listRecoveryPointsByBackupVault_byResourceType = Lens.lens (\ListRecoveryPointsByBackupVault' {byResourceType} -> byResourceType) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byResourceType = a} :: ListRecoveryPointsByBackupVault)
 
 -- | Returns only recovery points that were created before the specified
 -- timestamp.
 listRecoveryPointsByBackupVault_byCreatedBefore :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.UTCTime)
 listRecoveryPointsByBackupVault_byCreatedBefore = Lens.lens (\ListRecoveryPointsByBackupVault' {byCreatedBefore} -> byCreatedBefore) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byCreatedBefore = a} :: ListRecoveryPointsByBackupVault) Prelude.. Lens.mapping Data._Time
 
--- | The maximum number of items to be returned.
-listRecoveryPointsByBackupVault_maxResults :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Natural)
-listRecoveryPointsByBackupVault_maxResults = Lens.lens (\ListRecoveryPointsByBackupVault' {maxResults} -> maxResults) (\s@ListRecoveryPointsByBackupVault' {} a -> s {maxResults = a} :: ListRecoveryPointsByBackupVault)
+-- | This returns only recovery points that match the specified parent
+-- (composite) recovery point Amazon Resource Name (ARN).
+listRecoveryPointsByBackupVault_byParentRecoveryPointArn :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
+listRecoveryPointsByBackupVault_byParentRecoveryPointArn = Lens.lens (\ListRecoveryPointsByBackupVault' {byParentRecoveryPointArn} -> byParentRecoveryPointArn) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byParentRecoveryPointArn = a} :: ListRecoveryPointsByBackupVault)
 
 -- | Returns only recovery points that match the specified resource Amazon
 -- Resource Name (ARN).
 listRecoveryPointsByBackupVault_byResourceArn :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
 listRecoveryPointsByBackupVault_byResourceArn = Lens.lens (\ListRecoveryPointsByBackupVault' {byResourceArn} -> byResourceArn) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byResourceArn = a} :: ListRecoveryPointsByBackupVault)
+
+-- | Returns only recovery points that match the specified resource type.
+listRecoveryPointsByBackupVault_byResourceType :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
+listRecoveryPointsByBackupVault_byResourceType = Lens.lens (\ListRecoveryPointsByBackupVault' {byResourceType} -> byResourceType) (\s@ListRecoveryPointsByBackupVault' {} a -> s {byResourceType = a} :: ListRecoveryPointsByBackupVault)
+
+-- | The maximum number of items to be returned.
+listRecoveryPointsByBackupVault_maxResults :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Natural)
+listRecoveryPointsByBackupVault_maxResults = Lens.lens (\ListRecoveryPointsByBackupVault' {maxResults} -> maxResults) (\s@ListRecoveryPointsByBackupVault' {} a -> s {maxResults = a} :: ListRecoveryPointsByBackupVault)
+
+-- | The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
+listRecoveryPointsByBackupVault_nextToken :: Lens.Lens' ListRecoveryPointsByBackupVault (Prelude.Maybe Prelude.Text)
+listRecoveryPointsByBackupVault_nextToken = Lens.lens (\ListRecoveryPointsByBackupVault' {nextToken} -> nextToken) (\s@ListRecoveryPointsByBackupVault' {} a -> s {nextToken = a} :: ListRecoveryPointsByBackupVault)
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -238,12 +251,13 @@ instance
     _salt
     ListRecoveryPointsByBackupVault' {..} =
       _salt `Prelude.hashWithSalt` byBackupPlanId
-        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` byCreatedAfter
-        `Prelude.hashWithSalt` byResourceType
         `Prelude.hashWithSalt` byCreatedBefore
-        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` byParentRecoveryPointArn
         `Prelude.hashWithSalt` byResourceArn
+        `Prelude.hashWithSalt` byResourceType
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` backupVaultName
 
 instance
@@ -252,12 +266,13 @@ instance
   where
   rnf ListRecoveryPointsByBackupVault' {..} =
     Prelude.rnf byBackupPlanId
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf byCreatedAfter
-      `Prelude.seq` Prelude.rnf byResourceType
       `Prelude.seq` Prelude.rnf byCreatedBefore
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf byParentRecoveryPointArn
       `Prelude.seq` Prelude.rnf byResourceArn
+      `Prelude.seq` Prelude.rnf byResourceType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf backupVaultName
 
 instance
@@ -286,12 +301,14 @@ instance Data.ToQuery ListRecoveryPointsByBackupVault where
   toQuery ListRecoveryPointsByBackupVault' {..} =
     Prelude.mconcat
       [ "backupPlanId" Data.=: byBackupPlanId,
-        "nextToken" Data.=: nextToken,
         "createdAfter" Data.=: byCreatedAfter,
-        "resourceType" Data.=: byResourceType,
         "createdBefore" Data.=: byCreatedBefore,
+        "parentRecoveryPointArn"
+          Data.=: byParentRecoveryPointArn,
+        "resourceArn" Data.=: byResourceArn,
+        "resourceType" Data.=: byResourceType,
         "maxResults" Data.=: maxResults,
-        "resourceArn" Data.=: byResourceArn
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRecoveryPointsByBackupVaultResponse' smart constructor.

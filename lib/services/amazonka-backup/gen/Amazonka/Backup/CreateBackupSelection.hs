@@ -38,9 +38,9 @@ module Amazonka.Backup.CreateBackupSelection
     newCreateBackupSelectionResponse,
 
     -- * Response Lenses
+    createBackupSelectionResponse_backupPlanId,
     createBackupSelectionResponse_creationDate,
     createBackupSelectionResponse_selectionId,
-    createBackupSelectionResponse_backupPlanId,
     createBackupSelectionResponse_httpStatus,
   )
 where
@@ -136,9 +136,9 @@ instance Core.AWSRequest CreateBackupSelection where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupSelectionResponse'
-            Prelude.<$> (x Data..?> "CreationDate")
+            Prelude.<$> (x Data..?> "BackupPlanId")
+            Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (x Data..?> "SelectionId")
-            Prelude.<*> (x Data..?> "BackupPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,7 +189,9 @@ instance Data.ToQuery CreateBackupSelection where
 
 -- | /See:/ 'newCreateBackupSelectionResponse' smart constructor.
 data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
-  { -- | The date and time a backup selection is created, in Unix format and
+  { -- | Uniquely identifies a backup plan.
+    backupPlanId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time a backup selection is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
@@ -197,8 +199,6 @@ data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
     -- | Uniquely identifies the body of a request to assign a set of resources
     -- to a backup plan.
     selectionId :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies a backup plan.
-    backupPlanId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,6 +212,8 @@ data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'backupPlanId', 'createBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
+--
 -- 'creationDate', 'createBackupSelectionResponse_creationDate' - The date and time a backup selection is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
@@ -220,8 +222,6 @@ data CreateBackupSelectionResponse = CreateBackupSelectionResponse'
 -- 'selectionId', 'createBackupSelectionResponse_selectionId' - Uniquely identifies the body of a request to assign a set of resources
 -- to a backup plan.
 --
--- 'backupPlanId', 'createBackupSelectionResponse_backupPlanId' - Uniquely identifies a backup plan.
---
 -- 'httpStatus', 'createBackupSelectionResponse_httpStatus' - The response's http status code.
 newCreateBackupSelectionResponse ::
   -- | 'httpStatus'
@@ -229,12 +229,16 @@ newCreateBackupSelectionResponse ::
   CreateBackupSelectionResponse
 newCreateBackupSelectionResponse pHttpStatus_ =
   CreateBackupSelectionResponse'
-    { creationDate =
+    { backupPlanId =
         Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       selectionId = Prelude.Nothing,
-      backupPlanId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Uniquely identifies a backup plan.
+createBackupSelectionResponse_backupPlanId :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.Text)
+createBackupSelectionResponse_backupPlanId = Lens.lens (\CreateBackupSelectionResponse' {backupPlanId} -> backupPlanId) (\s@CreateBackupSelectionResponse' {} a -> s {backupPlanId = a} :: CreateBackupSelectionResponse)
 
 -- | The date and time a backup selection is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
@@ -248,17 +252,13 @@ createBackupSelectionResponse_creationDate = Lens.lens (\CreateBackupSelectionRe
 createBackupSelectionResponse_selectionId :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.Text)
 createBackupSelectionResponse_selectionId = Lens.lens (\CreateBackupSelectionResponse' {selectionId} -> selectionId) (\s@CreateBackupSelectionResponse' {} a -> s {selectionId = a} :: CreateBackupSelectionResponse)
 
--- | Uniquely identifies a backup plan.
-createBackupSelectionResponse_backupPlanId :: Lens.Lens' CreateBackupSelectionResponse (Prelude.Maybe Prelude.Text)
-createBackupSelectionResponse_backupPlanId = Lens.lens (\CreateBackupSelectionResponse' {backupPlanId} -> backupPlanId) (\s@CreateBackupSelectionResponse' {} a -> s {backupPlanId = a} :: CreateBackupSelectionResponse)
-
 -- | The response's http status code.
 createBackupSelectionResponse_httpStatus :: Lens.Lens' CreateBackupSelectionResponse Prelude.Int
 createBackupSelectionResponse_httpStatus = Lens.lens (\CreateBackupSelectionResponse' {httpStatus} -> httpStatus) (\s@CreateBackupSelectionResponse' {} a -> s {httpStatus = a} :: CreateBackupSelectionResponse)
 
 instance Prelude.NFData CreateBackupSelectionResponse where
   rnf CreateBackupSelectionResponse' {..} =
-    Prelude.rnf creationDate
+    Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf selectionId
-      `Prelude.seq` Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupPlanTemplatesListMember' smart constructor.
 data BackupPlanTemplatesListMember = BackupPlanTemplatesListMember'
-  { -- | The optional display name of a backup plan template.
-    backupPlanTemplateName :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies a stored backup plan template.
-    backupPlanTemplateId :: Prelude.Maybe Prelude.Text
+  { -- | Uniquely identifies a stored backup plan template.
+    backupPlanTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The optional display name of a backup plan template.
+    backupPlanTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data BackupPlanTemplatesListMember = BackupPlanTemplatesListMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupPlanTemplateName', 'backupPlanTemplatesListMember_backupPlanTemplateName' - The optional display name of a backup plan template.
---
 -- 'backupPlanTemplateId', 'backupPlanTemplatesListMember_backupPlanTemplateId' - Uniquely identifies a stored backup plan template.
+--
+-- 'backupPlanTemplateName', 'backupPlanTemplatesListMember_backupPlanTemplateName' - The optional display name of a backup plan template.
 newBackupPlanTemplatesListMember ::
   BackupPlanTemplatesListMember
 newBackupPlanTemplatesListMember =
   BackupPlanTemplatesListMember'
-    { backupPlanTemplateName =
+    { backupPlanTemplateId =
         Prelude.Nothing,
-      backupPlanTemplateId = Prelude.Nothing
+      backupPlanTemplateName = Prelude.Nothing
     }
-
--- | The optional display name of a backup plan template.
-backupPlanTemplatesListMember_backupPlanTemplateName :: Lens.Lens' BackupPlanTemplatesListMember (Prelude.Maybe Prelude.Text)
-backupPlanTemplatesListMember_backupPlanTemplateName = Lens.lens (\BackupPlanTemplatesListMember' {backupPlanTemplateName} -> backupPlanTemplateName) (\s@BackupPlanTemplatesListMember' {} a -> s {backupPlanTemplateName = a} :: BackupPlanTemplatesListMember)
 
 -- | Uniquely identifies a stored backup plan template.
 backupPlanTemplatesListMember_backupPlanTemplateId :: Lens.Lens' BackupPlanTemplatesListMember (Prelude.Maybe Prelude.Text)
 backupPlanTemplatesListMember_backupPlanTemplateId = Lens.lens (\BackupPlanTemplatesListMember' {backupPlanTemplateId} -> backupPlanTemplateId) (\s@BackupPlanTemplatesListMember' {} a -> s {backupPlanTemplateId = a} :: BackupPlanTemplatesListMember)
+
+-- | The optional display name of a backup plan template.
+backupPlanTemplatesListMember_backupPlanTemplateName :: Lens.Lens' BackupPlanTemplatesListMember (Prelude.Maybe Prelude.Text)
+backupPlanTemplatesListMember_backupPlanTemplateName = Lens.lens (\BackupPlanTemplatesListMember' {backupPlanTemplateName} -> backupPlanTemplateName) (\s@BackupPlanTemplatesListMember' {} a -> s {backupPlanTemplateName = a} :: BackupPlanTemplatesListMember)
 
 instance Data.FromJSON BackupPlanTemplatesListMember where
   parseJSON =
@@ -69,8 +69,8 @@ instance Data.FromJSON BackupPlanTemplatesListMember where
       "BackupPlanTemplatesListMember"
       ( \x ->
           BackupPlanTemplatesListMember'
-            Prelude.<$> (x Data..:? "BackupPlanTemplateName")
-            Prelude.<*> (x Data..:? "BackupPlanTemplateId")
+            Prelude.<$> (x Data..:? "BackupPlanTemplateId")
+            Prelude.<*> (x Data..:? "BackupPlanTemplateName")
       )
 
 instance
@@ -78,10 +78,10 @@ instance
     BackupPlanTemplatesListMember
   where
   hashWithSalt _salt BackupPlanTemplatesListMember' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanTemplateName
-      `Prelude.hashWithSalt` backupPlanTemplateId
+    _salt `Prelude.hashWithSalt` backupPlanTemplateId
+      `Prelude.hashWithSalt` backupPlanTemplateName
 
 instance Prelude.NFData BackupPlanTemplatesListMember where
   rnf BackupPlanTemplatesListMember' {..} =
-    Prelude.rnf backupPlanTemplateName
-      `Prelude.seq` Prelude.rnf backupPlanTemplateId
+    Prelude.rnf backupPlanTemplateId
+      `Prelude.seq` Prelude.rnf backupPlanTemplateName

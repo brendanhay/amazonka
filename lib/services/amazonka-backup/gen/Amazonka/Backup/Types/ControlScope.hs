@@ -37,18 +37,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlScope' smart constructor.
 data ControlScope = ControlScope'
-  { -- | The tag key-value pair applied to those Amazon Web Services resources
-    -- that you want to trigger an evaluation for a rule. A maximum of one
-    -- key-value pair can be provided. The tag value is optional, but it cannot
-    -- be an empty string. The structure to assign a tag is:
-    -- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ID of the only Amazon Web Services resource that you want your
+  { -- | The ID of the only Amazon Web Services resource that you want your
     -- control scope to contain.
     complianceResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Describes whether the control scope includes one or more types of
     -- resources, such as @EFS@ or @RDS@.
-    complianceResourceTypes :: Prelude.Maybe [Prelude.Text]
+    complianceResourceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The tag key-value pair applied to those Amazon Web Services resources
+    -- that you want to trigger an evaluation for a rule. A maximum of one
+    -- key-value pair can be provided. The tag value is optional, but it cannot
+    -- be an empty string. The structure to assign a tag is:
+    -- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,33 +60,26 @@ data ControlScope = ControlScope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'controlScope_tags' - The tag key-value pair applied to those Amazon Web Services resources
--- that you want to trigger an evaluation for a rule. A maximum of one
--- key-value pair can be provided. The tag value is optional, but it cannot
--- be an empty string. The structure to assign a tag is:
--- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
---
 -- 'complianceResourceIds', 'controlScope_complianceResourceIds' - The ID of the only Amazon Web Services resource that you want your
 -- control scope to contain.
 --
 -- 'complianceResourceTypes', 'controlScope_complianceResourceTypes' - Describes whether the control scope includes one or more types of
 -- resources, such as @EFS@ or @RDS@.
-newControlScope ::
-  ControlScope
-newControlScope =
-  ControlScope'
-    { tags = Prelude.Nothing,
-      complianceResourceIds = Prelude.Nothing,
-      complianceResourceTypes = Prelude.Nothing
-    }
-
--- | The tag key-value pair applied to those Amazon Web Services resources
+--
+-- 'tags', 'controlScope_tags' - The tag key-value pair applied to those Amazon Web Services resources
 -- that you want to trigger an evaluation for a rule. A maximum of one
 -- key-value pair can be provided. The tag value is optional, but it cannot
 -- be an empty string. The structure to assign a tag is:
 -- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
-controlScope_tags :: Lens.Lens' ControlScope (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-controlScope_tags = Lens.lens (\ControlScope' {tags} -> tags) (\s@ControlScope' {} a -> s {tags = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
+newControlScope ::
+  ControlScope
+newControlScope =
+  ControlScope'
+    { complianceResourceIds =
+        Prelude.Nothing,
+      complianceResourceTypes = Prelude.Nothing,
+      tags = Prelude.Nothing
+    }
 
 -- | The ID of the only Amazon Web Services resource that you want your
 -- control scope to contain.
@@ -98,39 +91,47 @@ controlScope_complianceResourceIds = Lens.lens (\ControlScope' {complianceResour
 controlScope_complianceResourceTypes :: Lens.Lens' ControlScope (Prelude.Maybe [Prelude.Text])
 controlScope_complianceResourceTypes = Lens.lens (\ControlScope' {complianceResourceTypes} -> complianceResourceTypes) (\s@ControlScope' {} a -> s {complianceResourceTypes = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
 
+-- | The tag key-value pair applied to those Amazon Web Services resources
+-- that you want to trigger an evaluation for a rule. A maximum of one
+-- key-value pair can be provided. The tag value is optional, but it cannot
+-- be an empty string. The structure to assign a tag is:
+-- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
+controlScope_tags :: Lens.Lens' ControlScope (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+controlScope_tags = Lens.lens (\ControlScope' {tags} -> tags) (\s@ControlScope' {} a -> s {tags = a} :: ControlScope) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ControlScope where
   parseJSON =
     Data.withObject
       "ControlScope"
       ( \x ->
           ControlScope'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ComplianceResourceIds")
+            Prelude.<$> (x Data..:? "ComplianceResourceIds")
             Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ControlScope where
   hashWithSalt _salt ControlScope' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` complianceResourceIds
+    _salt `Prelude.hashWithSalt` complianceResourceIds
       `Prelude.hashWithSalt` complianceResourceTypes
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ControlScope where
   rnf ControlScope' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf complianceResourceIds
+    Prelude.rnf complianceResourceIds
       `Prelude.seq` Prelude.rnf complianceResourceTypes
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON ControlScope where
   toJSON ControlScope' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ComplianceResourceIds" Data..=)
+          [ ("ComplianceResourceIds" Data..=)
               Prelude.<$> complianceResourceIds,
             ("ComplianceResourceTypes" Data..=)
-              Prelude.<$> complianceResourceTypes
+              Prelude.<$> complianceResourceTypes,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

@@ -27,12 +27,12 @@ module Amazonka.Backup.ListReportJobs
     newListReportJobs,
 
     -- * Request Lenses
-    listReportJobs_byCreationBefore,
-    listReportJobs_nextToken,
     listReportJobs_byCreationAfter,
-    listReportJobs_maxResults,
+    listReportJobs_byCreationBefore,
     listReportJobs_byReportPlanName,
     listReportJobs_byStatus,
+    listReportJobs_maxResults,
+    listReportJobs_nextToken,
 
     -- * Destructuring the Response
     ListReportJobsResponse (..),
@@ -55,30 +55,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReportJobs' smart constructor.
 data ListReportJobs = ListReportJobs'
-  { -- | Returns only report jobs that were created before the date and time
-    -- specified in Unix format and Coordinated Universal Time (UTC). For
-    -- example, the value 1516925490 represents Friday, January 26, 2018
-    -- 12:11:30 AM.
-    byCreationBefore :: Prelude.Maybe Data.POSIX,
-    -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns only report jobs that were created after the date and time
+  { -- | Returns only report jobs that were created after the date and time
     -- specified in Unix format and Coordinated Universal Time (UTC). For
     -- example, the value 1516925490 represents Friday, January 26, 2018
     -- 12:11:30 AM.
     byCreationAfter :: Prelude.Maybe Data.POSIX,
-    -- | The number of desired results from 1 to 1000. Optional. If unspecified,
-    -- the query will return 1 MB of data.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Returns only report jobs that were created before the date and time
+    -- specified in Unix format and Coordinated Universal Time (UTC). For
+    -- example, the value 1516925490 represents Friday, January 26, 2018
+    -- 12:11:30 AM.
+    byCreationBefore :: Prelude.Maybe Data.POSIX,
     -- | Returns only report jobs with the specified report plan name.
     byReportPlanName :: Prelude.Maybe Prelude.Text,
     -- | Returns only report jobs that are in the specified status. The statuses
     -- are:
     --
     -- @CREATED | RUNNING | COMPLETED | FAILED@
-    byStatus :: Prelude.Maybe Prelude.Text
+    byStatus :: Prelude.Maybe Prelude.Text,
+    -- | The number of desired results from 1 to 1000. Optional. If unspecified,
+    -- the query will return 1 MB of data.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,22 +90,15 @@ data ListReportJobs = ListReportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'byCreationBefore', 'listReportJobs_byCreationBefore' - Returns only report jobs that were created before the date and time
--- specified in Unix format and Coordinated Universal Time (UTC). For
--- example, the value 1516925490 represents Friday, January 26, 2018
--- 12:11:30 AM.
---
--- 'nextToken', 'listReportJobs_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
---
 -- 'byCreationAfter', 'listReportJobs_byCreationAfter' - Returns only report jobs that were created after the date and time
 -- specified in Unix format and Coordinated Universal Time (UTC). For
 -- example, the value 1516925490 represents Friday, January 26, 2018
 -- 12:11:30 AM.
 --
--- 'maxResults', 'listReportJobs_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,
--- the query will return 1 MB of data.
+-- 'byCreationBefore', 'listReportJobs_byCreationBefore' - Returns only report jobs that were created before the date and time
+-- specified in Unix format and Coordinated Universal Time (UTC). For
+-- example, the value 1516925490 represents Friday, January 26, 2018
+-- 12:11:30 AM.
 --
 -- 'byReportPlanName', 'listReportJobs_byReportPlanName' - Returns only report jobs with the specified report plan name.
 --
@@ -113,30 +106,24 @@ data ListReportJobs = ListReportJobs'
 -- are:
 --
 -- @CREATED | RUNNING | COMPLETED | FAILED@
+--
+-- 'maxResults', 'listReportJobs_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+--
+-- 'nextToken', 'listReportJobs_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 newListReportJobs ::
   ListReportJobs
 newListReportJobs =
   ListReportJobs'
-    { byCreationBefore = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      byCreationAfter = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { byCreationAfter = Prelude.Nothing,
+      byCreationBefore = Prelude.Nothing,
       byReportPlanName = Prelude.Nothing,
-      byStatus = Prelude.Nothing
+      byStatus = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Returns only report jobs that were created before the date and time
--- specified in Unix format and Coordinated Universal Time (UTC). For
--- example, the value 1516925490 represents Friday, January 26, 2018
--- 12:11:30 AM.
-listReportJobs_byCreationBefore :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.UTCTime)
-listReportJobs_byCreationBefore = Lens.lens (\ListReportJobs' {byCreationBefore} -> byCreationBefore) (\s@ListReportJobs' {} a -> s {byCreationBefore = a} :: ListReportJobs) Prelude.. Lens.mapping Data._Time
-
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listReportJobs_nextToken :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Text)
-listReportJobs_nextToken = Lens.lens (\ListReportJobs' {nextToken} -> nextToken) (\s@ListReportJobs' {} a -> s {nextToken = a} :: ListReportJobs)
 
 -- | Returns only report jobs that were created after the date and time
 -- specified in Unix format and Coordinated Universal Time (UTC). For
@@ -145,10 +132,12 @@ listReportJobs_nextToken = Lens.lens (\ListReportJobs' {nextToken} -> nextToken)
 listReportJobs_byCreationAfter :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.UTCTime)
 listReportJobs_byCreationAfter = Lens.lens (\ListReportJobs' {byCreationAfter} -> byCreationAfter) (\s@ListReportJobs' {} a -> s {byCreationAfter = a} :: ListReportJobs) Prelude.. Lens.mapping Data._Time
 
--- | The number of desired results from 1 to 1000. Optional. If unspecified,
--- the query will return 1 MB of data.
-listReportJobs_maxResults :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Natural)
-listReportJobs_maxResults = Lens.lens (\ListReportJobs' {maxResults} -> maxResults) (\s@ListReportJobs' {} a -> s {maxResults = a} :: ListReportJobs)
+-- | Returns only report jobs that were created before the date and time
+-- specified in Unix format and Coordinated Universal Time (UTC). For
+-- example, the value 1516925490 represents Friday, January 26, 2018
+-- 12:11:30 AM.
+listReportJobs_byCreationBefore :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.UTCTime)
+listReportJobs_byCreationBefore = Lens.lens (\ListReportJobs' {byCreationBefore} -> byCreationBefore) (\s@ListReportJobs' {} a -> s {byCreationBefore = a} :: ListReportJobs) Prelude.. Lens.mapping Data._Time
 
 -- | Returns only report jobs with the specified report plan name.
 listReportJobs_byReportPlanName :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Text)
@@ -160,6 +149,17 @@ listReportJobs_byReportPlanName = Lens.lens (\ListReportJobs' {byReportPlanName}
 -- @CREATED | RUNNING | COMPLETED | FAILED@
 listReportJobs_byStatus :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Text)
 listReportJobs_byStatus = Lens.lens (\ListReportJobs' {byStatus} -> byStatus) (\s@ListReportJobs' {} a -> s {byStatus = a} :: ListReportJobs)
+
+-- | The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+listReportJobs_maxResults :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Natural)
+listReportJobs_maxResults = Lens.lens (\ListReportJobs' {maxResults} -> maxResults) (\s@ListReportJobs' {} a -> s {maxResults = a} :: ListReportJobs)
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listReportJobs_nextToken :: Lens.Lens' ListReportJobs (Prelude.Maybe Prelude.Text)
+listReportJobs_nextToken = Lens.lens (\ListReportJobs' {nextToken} -> nextToken) (\s@ListReportJobs' {} a -> s {nextToken = a} :: ListReportJobs)
 
 instance Core.AWSRequest ListReportJobs where
   type
@@ -178,21 +178,21 @@ instance Core.AWSRequest ListReportJobs where
 
 instance Prelude.Hashable ListReportJobs where
   hashWithSalt _salt ListReportJobs' {..} =
-    _salt `Prelude.hashWithSalt` byCreationBefore
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` byCreationAfter
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` byCreationAfter
+      `Prelude.hashWithSalt` byCreationBefore
       `Prelude.hashWithSalt` byReportPlanName
       `Prelude.hashWithSalt` byStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReportJobs where
   rnf ListReportJobs' {..} =
-    Prelude.rnf byCreationBefore
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf byCreationAfter
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf byCreationAfter
+      `Prelude.seq` Prelude.rnf byCreationBefore
       `Prelude.seq` Prelude.rnf byReportPlanName
       `Prelude.seq` Prelude.rnf byStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReportJobs where
   toHeaders =
@@ -211,12 +211,12 @@ instance Data.ToPath ListReportJobs where
 instance Data.ToQuery ListReportJobs where
   toQuery ListReportJobs' {..} =
     Prelude.mconcat
-      [ "CreationBefore" Data.=: byCreationBefore,
-        "NextToken" Data.=: nextToken,
-        "CreationAfter" Data.=: byCreationAfter,
-        "MaxResults" Data.=: maxResults,
+      [ "CreationAfter" Data.=: byCreationAfter,
+        "CreationBefore" Data.=: byCreationBefore,
         "ReportPlanName" Data.=: byReportPlanName,
-        "Status" Data.=: byStatus
+        "Status" Data.=: byStatus,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListReportJobsResponse' smart constructor.

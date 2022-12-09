@@ -30,7 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFramework' smart constructor.
 data Framework = Framework'
-  { -- | The deployment status of a framework. The statuses are:
+  { -- | The date and time that a framework is created, in ISO 8601
+    -- representation. The value of @CreationTime@ is accurate to milliseconds.
+    -- For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July
+    -- 2020 at 3:00 PM 8 hours behind UTC.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The deployment status of a framework. The statuses are:
     --
     -- @CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED@
     deploymentStatus :: Prelude.Maybe Prelude.Text,
@@ -45,12 +50,7 @@ data Framework = Framework'
     -- A-Z), numbers (0-9), and underscores (_).
     frameworkName :: Prelude.Maybe Prelude.Text,
     -- | The number of controls contained by the framework.
-    numberOfControls :: Prelude.Maybe Prelude.Int,
-    -- | The date and time that a framework is created, in Unix format and
-    -- Coordinated Universal Time (UTC). The value of @CreationTime@ is
-    -- accurate to milliseconds. For example, the value 1516925490.087
-    -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationTime :: Prelude.Maybe Data.POSIX
+    numberOfControls :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +61,11 @@ data Framework = Framework'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'framework_creationTime' - The date and time that a framework is created, in ISO 8601
+-- representation. The value of @CreationTime@ is accurate to milliseconds.
+-- For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July
+-- 2020 at 3:00 PM 8 hours behind UTC.
 --
 -- 'deploymentStatus', 'framework_deploymentStatus' - The deployment status of a framework. The statuses are:
 --
@@ -77,22 +82,24 @@ data Framework = Framework'
 -- A-Z), numbers (0-9), and underscores (_).
 --
 -- 'numberOfControls', 'framework_numberOfControls' - The number of controls contained by the framework.
---
--- 'creationTime', 'framework_creationTime' - The date and time that a framework is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationTime@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
 newFramework ::
   Framework
 newFramework =
   Framework'
-    { deploymentStatus = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      deploymentStatus = Prelude.Nothing,
       frameworkArn = Prelude.Nothing,
       frameworkDescription = Prelude.Nothing,
       frameworkName = Prelude.Nothing,
-      numberOfControls = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      numberOfControls = Prelude.Nothing
     }
+
+-- | The date and time that a framework is created, in ISO 8601
+-- representation. The value of @CreationTime@ is accurate to milliseconds.
+-- For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July
+-- 2020 at 3:00 PM 8 hours behind UTC.
+framework_creationTime :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
+framework_creationTime = Lens.lens (\Framework' {creationTime} -> creationTime) (\s@Framework' {} a -> s {creationTime = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
 -- | The deployment status of a framework. The statuses are:
 --
@@ -120,41 +127,34 @@ framework_frameworkName = Lens.lens (\Framework' {frameworkName} -> frameworkNam
 framework_numberOfControls :: Lens.Lens' Framework (Prelude.Maybe Prelude.Int)
 framework_numberOfControls = Lens.lens (\Framework' {numberOfControls} -> numberOfControls) (\s@Framework' {} a -> s {numberOfControls = a} :: Framework)
 
--- | The date and time that a framework is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationTime@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-framework_creationTime :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
-framework_creationTime = Lens.lens (\Framework' {creationTime} -> creationTime) (\s@Framework' {} a -> s {creationTime = a} :: Framework) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON Framework where
   parseJSON =
     Data.withObject
       "Framework"
       ( \x ->
           Framework'
-            Prelude.<$> (x Data..:? "DeploymentStatus")
+            Prelude.<$> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DeploymentStatus")
             Prelude.<*> (x Data..:? "FrameworkArn")
             Prelude.<*> (x Data..:? "FrameworkDescription")
             Prelude.<*> (x Data..:? "FrameworkName")
             Prelude.<*> (x Data..:? "NumberOfControls")
-            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable Framework where
   hashWithSalt _salt Framework' {..} =
-    _salt `Prelude.hashWithSalt` deploymentStatus
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` frameworkArn
       `Prelude.hashWithSalt` frameworkDescription
       `Prelude.hashWithSalt` frameworkName
       `Prelude.hashWithSalt` numberOfControls
-      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData Framework where
   rnf Framework' {..} =
-    Prelude.rnf deploymentStatus
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf deploymentStatus
       `Prelude.seq` Prelude.rnf frameworkArn
       `Prelude.seq` Prelude.rnf frameworkDescription
       `Prelude.seq` Prelude.rnf frameworkName
       `Prelude.seq` Prelude.rnf numberOfControls
-      `Prelude.seq` Prelude.rnf creationTime

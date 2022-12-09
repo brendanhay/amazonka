@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupSelectionsListMember' smart constructor.
 data BackupSelectionsListMember = BackupSelectionsListMember'
-  { -- | The display name of a resource selection document.
-    selectionName :: Prelude.Maybe Prelude.Text,
+  { -- | Uniquely identifies a backup plan.
+    backupPlanId :: Prelude.Maybe Prelude.Text,
     -- | The date and time a backup plan is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
@@ -48,8 +48,8 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
     -- | Uniquely identifies a request to assign a set of resources to a backup
     -- plan.
     selectionId :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies a backup plan.
-    backupPlanId :: Prelude.Maybe Prelude.Text
+    -- | The display name of a resource selection document.
+    selectionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +61,7 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'selectionName', 'backupSelectionsListMember_selectionName' - The display name of a resource selection document.
+-- 'backupPlanId', 'backupSelectionsListMember_backupPlanId' - Uniquely identifies a backup plan.
 --
 -- 'creationDate', 'backupSelectionsListMember_creationDate' - The date and time a backup plan is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
@@ -81,23 +81,23 @@ data BackupSelectionsListMember = BackupSelectionsListMember'
 -- 'selectionId', 'backupSelectionsListMember_selectionId' - Uniquely identifies a request to assign a set of resources to a backup
 -- plan.
 --
--- 'backupPlanId', 'backupSelectionsListMember_backupPlanId' - Uniquely identifies a backup plan.
+-- 'selectionName', 'backupSelectionsListMember_selectionName' - The display name of a resource selection document.
 newBackupSelectionsListMember ::
   BackupSelectionsListMember
 newBackupSelectionsListMember =
   BackupSelectionsListMember'
-    { selectionName =
+    { backupPlanId =
         Prelude.Nothing,
       creationDate = Prelude.Nothing,
       creatorRequestId = Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
       selectionId = Prelude.Nothing,
-      backupPlanId = Prelude.Nothing
+      selectionName = Prelude.Nothing
     }
 
--- | The display name of a resource selection document.
-backupSelectionsListMember_selectionName :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
-backupSelectionsListMember_selectionName = Lens.lens (\BackupSelectionsListMember' {selectionName} -> selectionName) (\s@BackupSelectionsListMember' {} a -> s {selectionName = a} :: BackupSelectionsListMember)
+-- | Uniquely identifies a backup plan.
+backupSelectionsListMember_backupPlanId :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
+backupSelectionsListMember_backupPlanId = Lens.lens (\BackupSelectionsListMember' {backupPlanId} -> backupPlanId) (\s@BackupSelectionsListMember' {} a -> s {backupPlanId = a} :: BackupSelectionsListMember)
 
 -- | The date and time a backup plan is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
@@ -125,9 +125,9 @@ backupSelectionsListMember_iamRoleArn = Lens.lens (\BackupSelectionsListMember' 
 backupSelectionsListMember_selectionId :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
 backupSelectionsListMember_selectionId = Lens.lens (\BackupSelectionsListMember' {selectionId} -> selectionId) (\s@BackupSelectionsListMember' {} a -> s {selectionId = a} :: BackupSelectionsListMember)
 
--- | Uniquely identifies a backup plan.
-backupSelectionsListMember_backupPlanId :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
-backupSelectionsListMember_backupPlanId = Lens.lens (\BackupSelectionsListMember' {backupPlanId} -> backupPlanId) (\s@BackupSelectionsListMember' {} a -> s {backupPlanId = a} :: BackupSelectionsListMember)
+-- | The display name of a resource selection document.
+backupSelectionsListMember_selectionName :: Lens.Lens' BackupSelectionsListMember (Prelude.Maybe Prelude.Text)
+backupSelectionsListMember_selectionName = Lens.lens (\BackupSelectionsListMember' {selectionName} -> selectionName) (\s@BackupSelectionsListMember' {} a -> s {selectionName = a} :: BackupSelectionsListMember)
 
 instance Data.FromJSON BackupSelectionsListMember where
   parseJSON =
@@ -135,28 +135,28 @@ instance Data.FromJSON BackupSelectionsListMember where
       "BackupSelectionsListMember"
       ( \x ->
           BackupSelectionsListMember'
-            Prelude.<$> (x Data..:? "SelectionName")
+            Prelude.<$> (x Data..:? "BackupPlanId")
             Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "CreatorRequestId")
             Prelude.<*> (x Data..:? "IamRoleArn")
             Prelude.<*> (x Data..:? "SelectionId")
-            Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> (x Data..:? "SelectionName")
       )
 
 instance Prelude.Hashable BackupSelectionsListMember where
   hashWithSalt _salt BackupSelectionsListMember' {..} =
-    _salt `Prelude.hashWithSalt` selectionName
+    _salt `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` selectionId
-      `Prelude.hashWithSalt` backupPlanId
+      `Prelude.hashWithSalt` selectionName
 
 instance Prelude.NFData BackupSelectionsListMember where
   rnf BackupSelectionsListMember' {..} =
-    Prelude.rnf selectionName
+    Prelude.rnf backupPlanId
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf selectionId
-      `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf selectionName

@@ -23,6 +23,7 @@ module Amazonka.Backup.Types.CopyJobState
         CopyJobState_COMPLETED,
         CopyJobState_CREATED,
         CopyJobState_FAILED,
+        CopyJobState_PARTIAL,
         CopyJobState_RUNNING
       ),
   )
@@ -69,6 +70,9 @@ pattern CopyJobState_CREATED = CopyJobState' "CREATED"
 pattern CopyJobState_FAILED :: CopyJobState
 pattern CopyJobState_FAILED = CopyJobState' "FAILED"
 
+pattern CopyJobState_PARTIAL :: CopyJobState
+pattern CopyJobState_PARTIAL = CopyJobState' "PARTIAL"
+
 pattern CopyJobState_RUNNING :: CopyJobState
 pattern CopyJobState_RUNNING = CopyJobState' "RUNNING"
 
@@ -76,6 +80,7 @@ pattern CopyJobState_RUNNING = CopyJobState' "RUNNING"
   CopyJobState_COMPLETED,
   CopyJobState_CREATED,
   CopyJobState_FAILED,
+  CopyJobState_PARTIAL,
   CopyJobState_RUNNING,
   CopyJobState'
   #-}

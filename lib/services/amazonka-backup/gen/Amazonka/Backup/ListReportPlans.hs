@@ -28,8 +28,8 @@ module Amazonka.Backup.ListReportPlans
     newListReportPlans,
 
     -- * Request Lenses
-    listReportPlans_nextToken,
     listReportPlans_maxResults,
+    listReportPlans_nextToken,
 
     -- * Destructuring the Response
     ListReportPlansResponse (..),
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReportPlans' smart constructor.
 data ListReportPlans = ListReportPlans'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The number of desired results from 1 to 1000. Optional. If unspecified,
+    -- the query will return 1 MB of data.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of desired results from 1 to 1000. Optional. If unspecified,
-    -- the query will return 1 MB of data.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,30 +70,30 @@ data ListReportPlans = ListReportPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listReportPlans_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+--
 -- 'nextToken', 'listReportPlans_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listReportPlans_maxResults' - The number of desired results from 1 to 1000. Optional. If unspecified,
--- the query will return 1 MB of data.
 newListReportPlans ::
   ListReportPlans
 newListReportPlans =
   ListReportPlans'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The number of desired results from 1 to 1000. Optional. If unspecified,
+-- the query will return 1 MB of data.
+listReportPlans_maxResults :: Lens.Lens' ListReportPlans (Prelude.Maybe Prelude.Natural)
+listReportPlans_maxResults = Lens.lens (\ListReportPlans' {maxResults} -> maxResults) (\s@ListReportPlans' {} a -> s {maxResults = a} :: ListReportPlans)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listReportPlans_nextToken :: Lens.Lens' ListReportPlans (Prelude.Maybe Prelude.Text)
 listReportPlans_nextToken = Lens.lens (\ListReportPlans' {nextToken} -> nextToken) (\s@ListReportPlans' {} a -> s {nextToken = a} :: ListReportPlans)
-
--- | The number of desired results from 1 to 1000. Optional. If unspecified,
--- the query will return 1 MB of data.
-listReportPlans_maxResults :: Lens.Lens' ListReportPlans (Prelude.Maybe Prelude.Natural)
-listReportPlans_maxResults = Lens.lens (\ListReportPlans' {maxResults} -> maxResults) (\s@ListReportPlans' {} a -> s {maxResults = a} :: ListReportPlans)
 
 instance Core.AWSRequest ListReportPlans where
   type
@@ -112,13 +112,13 @@ instance Core.AWSRequest ListReportPlans where
 
 instance Prelude.Hashable ListReportPlans where
   hashWithSalt _salt ListReportPlans' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReportPlans where
   rnf ListReportPlans' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReportPlans where
   toHeaders =
@@ -137,8 +137,8 @@ instance Data.ToPath ListReportPlans where
 instance Data.ToQuery ListReportPlans where
   toQuery ListReportPlans' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListReportPlansResponse' smart constructor.

@@ -44,10 +44,12 @@ library
 
   exposed-modules:
     Amazonka.Backup
+    Amazonka.Backup.CancelLegalHold
     Amazonka.Backup.CreateBackupPlan
     Amazonka.Backup.CreateBackupSelection
     Amazonka.Backup.CreateBackupVault
     Amazonka.Backup.CreateFramework
+    Amazonka.Backup.CreateLegalHold
     Amazonka.Backup.CreateReportPlan
     Amazonka.Backup.DeleteBackupPlan
     Amazonka.Backup.DeleteBackupSelection
@@ -70,6 +72,7 @@ library
     Amazonka.Backup.DescribeReportPlan
     Amazonka.Backup.DescribeRestoreJob
     Amazonka.Backup.DisassociateRecoveryPoint
+    Amazonka.Backup.DisassociateRecoveryPointFromParent
     Amazonka.Backup.ExportBackupPlanTemplate
     Amazonka.Backup.GetBackupPlan
     Amazonka.Backup.GetBackupPlanFromJSON
@@ -77,6 +80,7 @@ library
     Amazonka.Backup.GetBackupSelection
     Amazonka.Backup.GetBackupVaultAccessPolicy
     Amazonka.Backup.GetBackupVaultNotifications
+    Amazonka.Backup.GetLegalHold
     Amazonka.Backup.GetRecoveryPointRestoreMetadata
     Amazonka.Backup.GetSupportedResourceTypes
     Amazonka.Backup.Lens
@@ -88,8 +92,10 @@ library
     Amazonka.Backup.ListBackupVaults
     Amazonka.Backup.ListCopyJobs
     Amazonka.Backup.ListFrameworks
+    Amazonka.Backup.ListLegalHolds
     Amazonka.Backup.ListProtectedResources
     Amazonka.Backup.ListRecoveryPointsByBackupVault
+    Amazonka.Backup.ListRecoveryPointsByLegalHold
     Amazonka.Backup.ListRecoveryPointsByResource
     Amazonka.Backup.ListReportJobs
     Amazonka.Backup.ListReportPlans
@@ -128,13 +134,18 @@ library
     Amazonka.Backup.Types.CopyAction
     Amazonka.Backup.Types.CopyJob
     Amazonka.Backup.Types.CopyJobState
+    Amazonka.Backup.Types.DateRange
     Amazonka.Backup.Types.Framework
     Amazonka.Backup.Types.FrameworkControl
+    Amazonka.Backup.Types.LegalHold
+    Amazonka.Backup.Types.LegalHoldStatus
     Amazonka.Backup.Types.Lifecycle
     Amazonka.Backup.Types.ProtectedResource
     Amazonka.Backup.Types.RecoveryPointByBackupVault
     Amazonka.Backup.Types.RecoveryPointByResource
     Amazonka.Backup.Types.RecoveryPointCreator
+    Amazonka.Backup.Types.RecoveryPointMember
+    Amazonka.Backup.Types.RecoveryPointSelection
     Amazonka.Backup.Types.RecoveryPointStatus
     Amazonka.Backup.Types.ReportDeliveryChannel
     Amazonka.Backup.Types.ReportDestination

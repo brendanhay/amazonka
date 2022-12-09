@@ -37,10 +37,10 @@ module Amazonka.Backup.UpdateBackupPlan
     newUpdateBackupPlanResponse,
 
     -- * Response Lenses
-    updateBackupPlanResponse_creationDate,
+    updateBackupPlanResponse_advancedBackupSettings,
     updateBackupPlanResponse_backupPlanArn,
     updateBackupPlanResponse_backupPlanId,
-    updateBackupPlanResponse_advancedBackupSettings,
+    updateBackupPlanResponse_creationDate,
     updateBackupPlanResponse_versionId,
     updateBackupPlanResponse_httpStatus,
   )
@@ -107,12 +107,12 @@ instance Core.AWSRequest UpdateBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           UpdateBackupPlanResponse'
-            Prelude.<$> (x Data..?> "CreationDate")
-            Prelude.<*> (x Data..?> "BackupPlanArn")
-            Prelude.<*> (x Data..?> "BackupPlanId")
-            Prelude.<*> ( x Data..?> "AdvancedBackupSettings"
+            Prelude.<$> ( x Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -155,19 +155,19 @@ instance Data.ToQuery UpdateBackupPlan where
 
 -- | /See:/ 'newUpdateBackupPlanResponse' smart constructor.
 data UpdateBackupPlanResponse = UpdateBackupPlanResponse'
-  { -- | The date and time a backup plan is created, in Unix format and
-    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
-    -- accurate to milliseconds. For example, the value 1516925490.087
-    -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Data.POSIX,
+  { -- | Contains a list of @BackupOptions@ for each resource type.
+    advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50@.
     backupPlanArn :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies a backup plan.
     backupPlanId :: Prelude.Maybe Prelude.Text,
-    -- | Contains a list of @BackupOptions@ for each resource type.
-    advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
+    -- | The date and time a backup plan is created, in Unix format and
+    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+    -- accurate to milliseconds. For example, the value 1516925490.087
+    -- represents Friday, January 26, 2018 12:11:30.087 AM.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
     -- most 1,024 bytes long. Version Ids cannot be edited.
     versionId :: Prelude.Maybe Prelude.Text,
@@ -184,10 +184,7 @@ data UpdateBackupPlanResponse = UpdateBackupPlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationDate', 'updateBackupPlanResponse_creationDate' - The date and time a backup plan is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
+-- 'advancedBackupSettings', 'updateBackupPlanResponse_advancedBackupSettings' - Contains a list of @BackupOptions@ for each resource type.
 --
 -- 'backupPlanArn', 'updateBackupPlanResponse_backupPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,
@@ -195,7 +192,10 @@ data UpdateBackupPlanResponse = UpdateBackupPlanResponse'
 --
 -- 'backupPlanId', 'updateBackupPlanResponse_backupPlanId' - Uniquely identifies a backup plan.
 --
--- 'advancedBackupSettings', 'updateBackupPlanResponse_advancedBackupSettings' - Contains a list of @BackupOptions@ for each resource type.
+-- 'creationDate', 'updateBackupPlanResponse_creationDate' - The date and time a backup plan is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'versionId', 'updateBackupPlanResponse_versionId' - Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. Version Ids cannot be edited.
@@ -207,21 +207,18 @@ newUpdateBackupPlanResponse ::
   UpdateBackupPlanResponse
 newUpdateBackupPlanResponse pHttpStatus_ =
   UpdateBackupPlanResponse'
-    { creationDate =
+    { advancedBackupSettings =
         Prelude.Nothing,
       backupPlanArn = Prelude.Nothing,
       backupPlanId = Prelude.Nothing,
-      advancedBackupSettings = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time a backup plan is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-updateBackupPlanResponse_creationDate :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-updateBackupPlanResponse_creationDate = Lens.lens (\UpdateBackupPlanResponse' {creationDate} -> creationDate) (\s@UpdateBackupPlanResponse' {} a -> s {creationDate = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
+-- | Contains a list of @BackupOptions@ for each resource type.
+updateBackupPlanResponse_advancedBackupSettings :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe [AdvancedBackupSetting])
+updateBackupPlanResponse_advancedBackupSettings = Lens.lens (\UpdateBackupPlanResponse' {advancedBackupSettings} -> advancedBackupSettings) (\s@UpdateBackupPlanResponse' {} a -> s {advancedBackupSettings = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,
@@ -233,9 +230,12 @@ updateBackupPlanResponse_backupPlanArn = Lens.lens (\UpdateBackupPlanResponse' {
 updateBackupPlanResponse_backupPlanId :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe Prelude.Text)
 updateBackupPlanResponse_backupPlanId = Lens.lens (\UpdateBackupPlanResponse' {backupPlanId} -> backupPlanId) (\s@UpdateBackupPlanResponse' {} a -> s {backupPlanId = a} :: UpdateBackupPlanResponse)
 
--- | Contains a list of @BackupOptions@ for each resource type.
-updateBackupPlanResponse_advancedBackupSettings :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe [AdvancedBackupSetting])
-updateBackupPlanResponse_advancedBackupSettings = Lens.lens (\UpdateBackupPlanResponse' {advancedBackupSettings} -> advancedBackupSettings) (\s@UpdateBackupPlanResponse' {} a -> s {advancedBackupSettings = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time a backup plan is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+updateBackupPlanResponse_creationDate :: Lens.Lens' UpdateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
+updateBackupPlanResponse_creationDate = Lens.lens (\UpdateBackupPlanResponse' {creationDate} -> creationDate) (\s@UpdateBackupPlanResponse' {} a -> s {creationDate = a} :: UpdateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. Version Ids cannot be edited.
@@ -248,9 +248,9 @@ updateBackupPlanResponse_httpStatus = Lens.lens (\UpdateBackupPlanResponse' {htt
 
 instance Prelude.NFData UpdateBackupPlanResponse where
   rnf UpdateBackupPlanResponse' {..} =
-    Prelude.rnf creationDate
+    Prelude.rnf advancedBackupSettings
       `Prelude.seq` Prelude.rnf backupPlanArn
       `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

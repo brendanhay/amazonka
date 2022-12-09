@@ -35,9 +35,9 @@ module Amazonka.Backup.GetBackupVaultAccessPolicy
     newGetBackupVaultAccessPolicyResponse,
 
     -- * Response Lenses
-    getBackupVaultAccessPolicyResponse_policy,
-    getBackupVaultAccessPolicyResponse_backupVaultName,
     getBackupVaultAccessPolicyResponse_backupVaultArn,
+    getBackupVaultAccessPolicyResponse_backupVaultName,
+    getBackupVaultAccessPolicyResponse_policy,
     getBackupVaultAccessPolicyResponse_httpStatus,
   )
 where
@@ -99,9 +99,9 @@ instance Core.AWSRequest GetBackupVaultAccessPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetBackupVaultAccessPolicyResponse'
-            Prelude.<$> (x Data..?> "Policy")
+            Prelude.<$> (x Data..?> "BackupVaultArn")
             Prelude.<*> (x Data..?> "BackupVaultName")
-            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<*> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,16 +137,16 @@ instance Data.ToQuery GetBackupVaultAccessPolicy where
 
 -- | /See:/ 'newGetBackupVaultAccessPolicyResponse' smart constructor.
 data GetBackupVaultAccessPolicyResponse = GetBackupVaultAccessPolicyResponse'
-  { -- | The backup vault access policy document in JSON format.
-    policy :: Prelude.Maybe Prelude.Text,
+  { -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+    -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
     -- them and the Region where they are created. They consist of lowercase
     -- letters, numbers, and hyphens.
     backupVaultName :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
-    -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | The backup vault access policy document in JSON format.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,15 +160,15 @@ data GetBackupVaultAccessPolicyResponse = GetBackupVaultAccessPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'getBackupVaultAccessPolicyResponse_policy' - The backup vault access policy document in JSON format.
+-- 'backupVaultArn', 'getBackupVaultAccessPolicyResponse_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+-- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 --
 -- 'backupVaultName', 'getBackupVaultAccessPolicyResponse_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
 -- them and the Region where they are created. They consist of lowercase
 -- letters, numbers, and hyphens.
 --
--- 'backupVaultArn', 'getBackupVaultAccessPolicyResponse_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
--- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+-- 'policy', 'getBackupVaultAccessPolicyResponse_policy' - The backup vault access policy document in JSON format.
 --
 -- 'httpStatus', 'getBackupVaultAccessPolicyResponse_httpStatus' - The response's http status code.
 newGetBackupVaultAccessPolicyResponse ::
@@ -177,16 +177,17 @@ newGetBackupVaultAccessPolicyResponse ::
   GetBackupVaultAccessPolicyResponse
 newGetBackupVaultAccessPolicyResponse pHttpStatus_ =
   GetBackupVaultAccessPolicyResponse'
-    { policy =
+    { backupVaultArn =
         Prelude.Nothing,
       backupVaultName = Prelude.Nothing,
-      backupVaultArn = Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The backup vault access policy document in JSON format.
-getBackupVaultAccessPolicyResponse_policy :: Lens.Lens' GetBackupVaultAccessPolicyResponse (Prelude.Maybe Prelude.Text)
-getBackupVaultAccessPolicyResponse_policy = Lens.lens (\GetBackupVaultAccessPolicyResponse' {policy} -> policy) (\s@GetBackupVaultAccessPolicyResponse' {} a -> s {policy = a} :: GetBackupVaultAccessPolicyResponse)
+-- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
+-- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+getBackupVaultAccessPolicyResponse_backupVaultArn :: Lens.Lens' GetBackupVaultAccessPolicyResponse (Prelude.Maybe Prelude.Text)
+getBackupVaultAccessPolicyResponse_backupVaultArn = Lens.lens (\GetBackupVaultAccessPolicyResponse' {backupVaultArn} -> backupVaultArn) (\s@GetBackupVaultAccessPolicyResponse' {} a -> s {backupVaultArn = a} :: GetBackupVaultAccessPolicyResponse)
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -195,10 +196,9 @@ getBackupVaultAccessPolicyResponse_policy = Lens.lens (\GetBackupVaultAccessPoli
 getBackupVaultAccessPolicyResponse_backupVaultName :: Lens.Lens' GetBackupVaultAccessPolicyResponse (Prelude.Maybe Prelude.Text)
 getBackupVaultAccessPolicyResponse_backupVaultName = Lens.lens (\GetBackupVaultAccessPolicyResponse' {backupVaultName} -> backupVaultName) (\s@GetBackupVaultAccessPolicyResponse' {} a -> s {backupVaultName = a} :: GetBackupVaultAccessPolicyResponse)
 
--- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault;
--- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-getBackupVaultAccessPolicyResponse_backupVaultArn :: Lens.Lens' GetBackupVaultAccessPolicyResponse (Prelude.Maybe Prelude.Text)
-getBackupVaultAccessPolicyResponse_backupVaultArn = Lens.lens (\GetBackupVaultAccessPolicyResponse' {backupVaultArn} -> backupVaultArn) (\s@GetBackupVaultAccessPolicyResponse' {} a -> s {backupVaultArn = a} :: GetBackupVaultAccessPolicyResponse)
+-- | The backup vault access policy document in JSON format.
+getBackupVaultAccessPolicyResponse_policy :: Lens.Lens' GetBackupVaultAccessPolicyResponse (Prelude.Maybe Prelude.Text)
+getBackupVaultAccessPolicyResponse_policy = Lens.lens (\GetBackupVaultAccessPolicyResponse' {policy} -> policy) (\s@GetBackupVaultAccessPolicyResponse' {} a -> s {policy = a} :: GetBackupVaultAccessPolicyResponse)
 
 -- | The response's http status code.
 getBackupVaultAccessPolicyResponse_httpStatus :: Lens.Lens' GetBackupVaultAccessPolicyResponse Prelude.Int
@@ -209,7 +209,7 @@ instance
     GetBackupVaultAccessPolicyResponse
   where
   rnf GetBackupVaultAccessPolicyResponse' {..} =
-    Prelude.rnf policy
+    Prelude.rnf backupVaultArn
       `Prelude.seq` Prelude.rnf backupVaultName
-      `Prelude.seq` Prelude.rnf backupVaultArn
+      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,15 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdvancedBackupSetting' smart constructor.
 data AdvancedBackupSetting = AdvancedBackupSetting'
-  { -- | Specifies an object containing resource type and backup options. The
-    -- only supported resource type is Amazon EC2 instances with Windows Volume
-    -- Shadow Copy Service (VSS). For a CloudFormation example, see the
-    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html sample CloudFormation template to enable Windows VSS>
-    -- in the /Backup User Guide/.
-    --
-    -- Valid values: @EC2@.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the backup option for a selected resource. This option is only
+  { -- | Specifies the backup option for a selected resource. This option is only
     -- available for Windows VSS backup jobs.
     --
     -- Valid values:
@@ -52,7 +44,15 @@ data AdvancedBackupSetting = AdvancedBackupSetting'
     --
     -- For more information about Windows VSS backups, see
     -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html Creating a VSS-Enabled Windows Backup>.
-    backupOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    backupOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies an object containing resource type and backup options. The
+    -- only supported resource type is Amazon EC2 instances with Windows Volume
+    -- Shadow Copy Service (VSS). For a CloudFormation example, see the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html sample CloudFormation template to enable Windows VSS>
+    -- in the /Backup User Guide/.
+    --
+    -- Valid values: @EC2@.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,14 +63,6 @@ data AdvancedBackupSetting = AdvancedBackupSetting'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'resourceType', 'advancedBackupSetting_resourceType' - Specifies an object containing resource type and backup options. The
--- only supported resource type is Amazon EC2 instances with Windows Volume
--- Shadow Copy Service (VSS). For a CloudFormation example, see the
--- <https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html sample CloudFormation template to enable Windows VSS>
--- in the /Backup User Guide/.
---
--- Valid values: @EC2@.
 --
 -- 'backupOptions', 'advancedBackupSetting_backupOptions' - Specifies the backup option for a selected resource. This option is only
 -- available for Windows VSS backup jobs.
@@ -88,24 +80,22 @@ data AdvancedBackupSetting = AdvancedBackupSetting'
 --
 -- For more information about Windows VSS backups, see
 -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html Creating a VSS-Enabled Windows Backup>.
-newAdvancedBackupSetting ::
-  AdvancedBackupSetting
-newAdvancedBackupSetting =
-  AdvancedBackupSetting'
-    { resourceType =
-        Prelude.Nothing,
-      backupOptions = Prelude.Nothing
-    }
-
--- | Specifies an object containing resource type and backup options. The
+--
+-- 'resourceType', 'advancedBackupSetting_resourceType' - Specifies an object containing resource type and backup options. The
 -- only supported resource type is Amazon EC2 instances with Windows Volume
 -- Shadow Copy Service (VSS). For a CloudFormation example, see the
 -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html sample CloudFormation template to enable Windows VSS>
 -- in the /Backup User Guide/.
 --
 -- Valid values: @EC2@.
-advancedBackupSetting_resourceType :: Lens.Lens' AdvancedBackupSetting (Prelude.Maybe Prelude.Text)
-advancedBackupSetting_resourceType = Lens.lens (\AdvancedBackupSetting' {resourceType} -> resourceType) (\s@AdvancedBackupSetting' {} a -> s {resourceType = a} :: AdvancedBackupSetting)
+newAdvancedBackupSetting ::
+  AdvancedBackupSetting
+newAdvancedBackupSetting =
+  AdvancedBackupSetting'
+    { backupOptions =
+        Prelude.Nothing,
+      resourceType = Prelude.Nothing
+    }
 
 -- | Specifies the backup option for a selected resource. This option is only
 -- available for Windows VSS backup jobs.
@@ -126,31 +116,41 @@ advancedBackupSetting_resourceType = Lens.lens (\AdvancedBackupSetting' {resourc
 advancedBackupSetting_backupOptions :: Lens.Lens' AdvancedBackupSetting (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 advancedBackupSetting_backupOptions = Lens.lens (\AdvancedBackupSetting' {backupOptions} -> backupOptions) (\s@AdvancedBackupSetting' {} a -> s {backupOptions = a} :: AdvancedBackupSetting) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies an object containing resource type and backup options. The
+-- only supported resource type is Amazon EC2 instances with Windows Volume
+-- Shadow Copy Service (VSS). For a CloudFormation example, see the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html sample CloudFormation template to enable Windows VSS>
+-- in the /Backup User Guide/.
+--
+-- Valid values: @EC2@.
+advancedBackupSetting_resourceType :: Lens.Lens' AdvancedBackupSetting (Prelude.Maybe Prelude.Text)
+advancedBackupSetting_resourceType = Lens.lens (\AdvancedBackupSetting' {resourceType} -> resourceType) (\s@AdvancedBackupSetting' {} a -> s {resourceType = a} :: AdvancedBackupSetting)
+
 instance Data.FromJSON AdvancedBackupSetting where
   parseJSON =
     Data.withObject
       "AdvancedBackupSetting"
       ( \x ->
           AdvancedBackupSetting'
-            Prelude.<$> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable AdvancedBackupSetting where
   hashWithSalt _salt AdvancedBackupSetting' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` backupOptions
+    _salt `Prelude.hashWithSalt` backupOptions
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData AdvancedBackupSetting where
   rnf AdvancedBackupSetting' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf backupOptions
+    Prelude.rnf backupOptions
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToJSON AdvancedBackupSetting where
   toJSON AdvancedBackupSetting' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
-            ("BackupOptions" Data..=) Prelude.<$> backupOptions
+          [ ("BackupOptions" Data..=) Prelude.<$> backupOptions,
+            ("ResourceType" Data..=) Prelude.<$> resourceType
           ]
       )

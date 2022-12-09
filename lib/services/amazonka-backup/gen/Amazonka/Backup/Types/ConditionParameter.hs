@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConditionParameter' smart constructor.
 data ConditionParameter = ConditionParameter'
-  { -- | The value in a key-value pair. For example, in the tag
-    -- @Department: Accounting@, @Accounting@ is the value.
-    conditionValue :: Prelude.Maybe Prelude.Text,
-    -- | The key in a key-value pair. For example, in the tag
+  { -- | The key in a key-value pair. For example, in the tag
     -- @Department: Accounting@, @Department@ is the key.
-    conditionKey :: Prelude.Maybe Prelude.Text
+    conditionKey :: Prelude.Maybe Prelude.Text,
+    -- | The value in a key-value pair. For example, in the tag
+    -- @Department: Accounting@, @Accounting@ is the value.
+    conditionValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,28 @@ data ConditionParameter = ConditionParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'conditionValue', 'conditionParameter_conditionValue' - The value in a key-value pair. For example, in the tag
--- @Department: Accounting@, @Accounting@ is the value.
---
 -- 'conditionKey', 'conditionParameter_conditionKey' - The key in a key-value pair. For example, in the tag
 -- @Department: Accounting@, @Department@ is the key.
+--
+-- 'conditionValue', 'conditionParameter_conditionValue' - The value in a key-value pair. For example, in the tag
+-- @Department: Accounting@, @Accounting@ is the value.
 newConditionParameter ::
   ConditionParameter
 newConditionParameter =
   ConditionParameter'
-    { conditionValue =
-        Prelude.Nothing,
-      conditionKey = Prelude.Nothing
+    { conditionKey = Prelude.Nothing,
+      conditionValue = Prelude.Nothing
     }
-
--- | The value in a key-value pair. For example, in the tag
--- @Department: Accounting@, @Accounting@ is the value.
-conditionParameter_conditionValue :: Lens.Lens' ConditionParameter (Prelude.Maybe Prelude.Text)
-conditionParameter_conditionValue = Lens.lens (\ConditionParameter' {conditionValue} -> conditionValue) (\s@ConditionParameter' {} a -> s {conditionValue = a} :: ConditionParameter)
 
 -- | The key in a key-value pair. For example, in the tag
 -- @Department: Accounting@, @Department@ is the key.
 conditionParameter_conditionKey :: Lens.Lens' ConditionParameter (Prelude.Maybe Prelude.Text)
 conditionParameter_conditionKey = Lens.lens (\ConditionParameter' {conditionKey} -> conditionKey) (\s@ConditionParameter' {} a -> s {conditionKey = a} :: ConditionParameter)
+
+-- | The value in a key-value pair. For example, in the tag
+-- @Department: Accounting@, @Accounting@ is the value.
+conditionParameter_conditionValue :: Lens.Lens' ConditionParameter (Prelude.Maybe Prelude.Text)
+conditionParameter_conditionValue = Lens.lens (\ConditionParameter' {conditionValue} -> conditionValue) (\s@ConditionParameter' {} a -> s {conditionValue = a} :: ConditionParameter)
 
 instance Data.FromJSON ConditionParameter where
   parseJSON =
@@ -76,26 +75,26 @@ instance Data.FromJSON ConditionParameter where
       "ConditionParameter"
       ( \x ->
           ConditionParameter'
-            Prelude.<$> (x Data..:? "ConditionValue")
-            Prelude.<*> (x Data..:? "ConditionKey")
+            Prelude.<$> (x Data..:? "ConditionKey")
+            Prelude.<*> (x Data..:? "ConditionValue")
       )
 
 instance Prelude.Hashable ConditionParameter where
   hashWithSalt _salt ConditionParameter' {..} =
-    _salt `Prelude.hashWithSalt` conditionValue
-      `Prelude.hashWithSalt` conditionKey
+    _salt `Prelude.hashWithSalt` conditionKey
+      `Prelude.hashWithSalt` conditionValue
 
 instance Prelude.NFData ConditionParameter where
   rnf ConditionParameter' {..} =
-    Prelude.rnf conditionValue
-      `Prelude.seq` Prelude.rnf conditionKey
+    Prelude.rnf conditionKey
+      `Prelude.seq` Prelude.rnf conditionValue
 
 instance Data.ToJSON ConditionParameter where
   toJSON ConditionParameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConditionValue" Data..=)
-              Prelude.<$> conditionValue,
-            ("ConditionKey" Data..=) Prelude.<$> conditionKey
+          [ ("ConditionKey" Data..=) Prelude.<$> conditionKey,
+            ("ConditionValue" Data..=)
+              Prelude.<$> conditionValue
           ]
       )

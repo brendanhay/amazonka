@@ -44,28 +44,46 @@ library
 
   exposed-modules:
     Amazonka.MGN
+    Amazonka.MGN.ArchiveApplication
+    Amazonka.MGN.ArchiveWave
+    Amazonka.MGN.AssociateApplications
+    Amazonka.MGN.AssociateSourceServers
     Amazonka.MGN.ChangeServerLifeCycleState
+    Amazonka.MGN.CreateApplication
     Amazonka.MGN.CreateLaunchConfigurationTemplate
     Amazonka.MGN.CreateReplicationConfigurationTemplate
+    Amazonka.MGN.CreateWave
+    Amazonka.MGN.DeleteApplication
     Amazonka.MGN.DeleteJob
     Amazonka.MGN.DeleteLaunchConfigurationTemplate
     Amazonka.MGN.DeleteReplicationConfigurationTemplate
     Amazonka.MGN.DeleteSourceServer
     Amazonka.MGN.DeleteVcenterClient
+    Amazonka.MGN.DeleteWave
     Amazonka.MGN.DescribeJobLogItems
     Amazonka.MGN.DescribeJobs
     Amazonka.MGN.DescribeLaunchConfigurationTemplates
     Amazonka.MGN.DescribeReplicationConfigurationTemplates
     Amazonka.MGN.DescribeSourceServers
     Amazonka.MGN.DescribeVcenterClients
+    Amazonka.MGN.DisassociateApplications
+    Amazonka.MGN.DisassociateSourceServers
     Amazonka.MGN.DisconnectFromService
     Amazonka.MGN.FinalizeCutover
     Amazonka.MGN.GetLaunchConfiguration
     Amazonka.MGN.GetReplicationConfiguration
     Amazonka.MGN.InitializeService
     Amazonka.MGN.Lens
+    Amazonka.MGN.ListApplications
+    Amazonka.MGN.ListSourceServerActions
     Amazonka.MGN.ListTagsForResource
+    Amazonka.MGN.ListTemplateActions
+    Amazonka.MGN.ListWaves
     Amazonka.MGN.MarkAsArchived
+    Amazonka.MGN.PutSourceServerAction
+    Amazonka.MGN.PutTemplateAction
+    Amazonka.MGN.RemoveSourceServerAction
+    Amazonka.MGN.RemoveTemplateAction
     Amazonka.MGN.RetryDataReplication
     Amazonka.MGN.StartCutover
     Amazonka.MGN.StartReplication
@@ -73,6 +91,10 @@ library
     Amazonka.MGN.TagResource
     Amazonka.MGN.TerminateTargetInstances
     Amazonka.MGN.Types
+    Amazonka.MGN.Types.Application
+    Amazonka.MGN.Types.ApplicationAggregatedStatus
+    Amazonka.MGN.Types.ApplicationHealthStatus
+    Amazonka.MGN.Types.ApplicationProgressStatus
     Amazonka.MGN.Types.BootMode
     Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
     Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
@@ -104,6 +126,7 @@ library
     Amazonka.MGN.Types.LaunchDisposition
     Amazonka.MGN.Types.LaunchedInstance
     Amazonka.MGN.Types.LaunchStatus
+    Amazonka.MGN.Types.LaunchTemplateDiskConf
     Amazonka.MGN.Types.Licensing
     Amazonka.MGN.Types.LifeCycle
     Amazonka.MGN.Types.LifeCycleLastCutover
@@ -115,6 +138,8 @@ library
     Amazonka.MGN.Types.LifeCycleLastTestInitiated
     Amazonka.MGN.Types.LifeCycleLastTestReverted
     Amazonka.MGN.Types.LifeCycleState
+    Amazonka.MGN.Types.ListApplicationsRequestFilters
+    Amazonka.MGN.Types.ListWavesRequestFilters
     Amazonka.MGN.Types.NetworkInterface
     Amazonka.MGN.Types.OS
     Amazonka.MGN.Types.ParticipatingServer
@@ -132,18 +157,31 @@ library
     Amazonka.MGN.Types.ReplicationType
     Amazonka.MGN.Types.SourceProperties
     Amazonka.MGN.Types.SourceServer
+    Amazonka.MGN.Types.SourceServerActionDocument
+    Amazonka.MGN.Types.SourceServerActionsRequestFilters
     Amazonka.MGN.Types.SsmDocument
     Amazonka.MGN.Types.SsmDocumentType
     Amazonka.MGN.Types.SsmParameterStoreParameter
     Amazonka.MGN.Types.SsmParameterStoreParameterType
     Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
+    Amazonka.MGN.Types.TemplateActionDocument
+    Amazonka.MGN.Types.TemplateActionsRequestFilters
     Amazonka.MGN.Types.VcenterClient
+    Amazonka.MGN.Types.VolumeType
+    Amazonka.MGN.Types.Wave
+    Amazonka.MGN.Types.WaveAggregatedStatus
+    Amazonka.MGN.Types.WaveHealthStatus
+    Amazonka.MGN.Types.WaveProgressStatus
+    Amazonka.MGN.UnarchiveApplication
+    Amazonka.MGN.UnarchiveWave
     Amazonka.MGN.UntagResource
+    Amazonka.MGN.UpdateApplication
     Amazonka.MGN.UpdateLaunchConfiguration
     Amazonka.MGN.UpdateLaunchConfigurationTemplate
     Amazonka.MGN.UpdateReplicationConfiguration
     Amazonka.MGN.UpdateReplicationConfigurationTemplate
     Amazonka.MGN.UpdateSourceServerReplicationType
+    Amazonka.MGN.UpdateWave
     Amazonka.MGN.Waiters
 
   build-depends:

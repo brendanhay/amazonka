@@ -25,19 +25,19 @@ import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import qualified Amazonka.Prelude as Prelude
 
--- | Source server replication type.
+-- | AWS Systems Manager Document.
 --
 -- /See:/ 'newSsmDocument' smart constructor.
 data SsmDocument = SsmDocument'
-  { -- | Source server replication type.
-    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Source server replication type.
+  { -- | If true, Cutover will not be enabled if the document has failed.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
-    -- | Source server replication type.
+    -- | AWS Systems Manager Document parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [SsmParameterStoreParameter]),
-    -- | Source server replication type.
+    -- | AWS Systems Manager Document timeout seconds.
+    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | User-friendly name for the AWS Systems Manager Document.
     actionName :: Prelude.Text,
-    -- | Source server replication type.
+    -- | AWS Systems Manager Document name or full ARN.
     ssmDocumentName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +50,15 @@ data SsmDocument = SsmDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutSeconds', 'ssmDocument_timeoutSeconds' - Source server replication type.
+-- 'mustSucceedForCutover', 'ssmDocument_mustSucceedForCutover' - If true, Cutover will not be enabled if the document has failed.
 --
--- 'mustSucceedForCutover', 'ssmDocument_mustSucceedForCutover' - Source server replication type.
+-- 'parameters', 'ssmDocument_parameters' - AWS Systems Manager Document parameters.
 --
--- 'parameters', 'ssmDocument_parameters' - Source server replication type.
+-- 'timeoutSeconds', 'ssmDocument_timeoutSeconds' - AWS Systems Manager Document timeout seconds.
 --
--- 'actionName', 'ssmDocument_actionName' - Source server replication type.
+-- 'actionName', 'ssmDocument_actionName' - User-friendly name for the AWS Systems Manager Document.
 --
--- 'ssmDocumentName', 'ssmDocument_ssmDocumentName' - Source server replication type.
+-- 'ssmDocumentName', 'ssmDocument_ssmDocumentName' - AWS Systems Manager Document name or full ARN.
 newSsmDocument ::
   -- | 'actionName'
   Prelude.Text ->
@@ -67,30 +67,31 @@ newSsmDocument ::
   SsmDocument
 newSsmDocument pActionName_ pSsmDocumentName_ =
   SsmDocument'
-    { timeoutSeconds = Prelude.Nothing,
-      mustSucceedForCutover = Prelude.Nothing,
+    { mustSucceedForCutover =
+        Prelude.Nothing,
       parameters = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing,
       actionName = pActionName_,
       ssmDocumentName = pSsmDocumentName_
     }
 
--- | Source server replication type.
-ssmDocument_timeoutSeconds :: Lens.Lens' SsmDocument (Prelude.Maybe Prelude.Natural)
-ssmDocument_timeoutSeconds = Lens.lens (\SsmDocument' {timeoutSeconds} -> timeoutSeconds) (\s@SsmDocument' {} a -> s {timeoutSeconds = a} :: SsmDocument)
-
--- | Source server replication type.
+-- | If true, Cutover will not be enabled if the document has failed.
 ssmDocument_mustSucceedForCutover :: Lens.Lens' SsmDocument (Prelude.Maybe Prelude.Bool)
 ssmDocument_mustSucceedForCutover = Lens.lens (\SsmDocument' {mustSucceedForCutover} -> mustSucceedForCutover) (\s@SsmDocument' {} a -> s {mustSucceedForCutover = a} :: SsmDocument)
 
--- | Source server replication type.
+-- | AWS Systems Manager Document parameters.
 ssmDocument_parameters :: Lens.Lens' SsmDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text [SsmParameterStoreParameter]))
 ssmDocument_parameters = Lens.lens (\SsmDocument' {parameters} -> parameters) (\s@SsmDocument' {} a -> s {parameters = a} :: SsmDocument) Prelude.. Lens.mapping Lens.coerced
 
--- | Source server replication type.
+-- | AWS Systems Manager Document timeout seconds.
+ssmDocument_timeoutSeconds :: Lens.Lens' SsmDocument (Prelude.Maybe Prelude.Natural)
+ssmDocument_timeoutSeconds = Lens.lens (\SsmDocument' {timeoutSeconds} -> timeoutSeconds) (\s@SsmDocument' {} a -> s {timeoutSeconds = a} :: SsmDocument)
+
+-- | User-friendly name for the AWS Systems Manager Document.
 ssmDocument_actionName :: Lens.Lens' SsmDocument Prelude.Text
 ssmDocument_actionName = Lens.lens (\SsmDocument' {actionName} -> actionName) (\s@SsmDocument' {} a -> s {actionName = a} :: SsmDocument)
 
--- | Source server replication type.
+-- | AWS Systems Manager Document name or full ARN.
 ssmDocument_ssmDocumentName :: Lens.Lens' SsmDocument Prelude.Text
 ssmDocument_ssmDocumentName = Lens.lens (\SsmDocument' {ssmDocumentName} -> ssmDocumentName) (\s@SsmDocument' {} a -> s {ssmDocumentName = a} :: SsmDocument)
 
@@ -100,26 +101,26 @@ instance Data.FromJSON SsmDocument where
       "SsmDocument"
       ( \x ->
           SsmDocument'
-            Prelude.<$> (x Data..:? "timeoutSeconds")
-            Prelude.<*> (x Data..:? "mustSucceedForCutover")
+            Prelude.<$> (x Data..:? "mustSucceedForCutover")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "timeoutSeconds")
             Prelude.<*> (x Data..: "actionName")
             Prelude.<*> (x Data..: "ssmDocumentName")
       )
 
 instance Prelude.Hashable SsmDocument where
   hashWithSalt _salt SsmDocument' {..} =
-    _salt `Prelude.hashWithSalt` timeoutSeconds
-      `Prelude.hashWithSalt` mustSucceedForCutover
+    _salt `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` timeoutSeconds
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` ssmDocumentName
 
 instance Prelude.NFData SsmDocument where
   rnf SsmDocument' {..} =
-    Prelude.rnf timeoutSeconds
-      `Prelude.seq` Prelude.rnf mustSucceedForCutover
+    Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf timeoutSeconds
       `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf ssmDocumentName
 
@@ -127,11 +128,11 @@ instance Data.ToJSON SsmDocument where
   toJSON SsmDocument' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutSeconds" Data..=)
-              Prelude.<$> timeoutSeconds,
-            ("mustSucceedForCutover" Data..=)
+          [ ("mustSucceedForCutover" Data..=)
               Prelude.<$> mustSucceedForCutover,
             ("parameters" Data..=) Prelude.<$> parameters,
+            ("timeoutSeconds" Data..=)
+              Prelude.<$> timeoutSeconds,
             Prelude.Just ("actionName" Data..= actionName),
             Prelude.Just
               ("ssmDocumentName" Data..= ssmDocumentName)

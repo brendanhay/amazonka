@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data LaunchedInstance = LaunchedInstance'
   { -- | Launched instance EC2 ID.
     ec2InstanceID :: Prelude.Maybe Prelude.Text,
-    -- | Launched instance Job ID.
-    jobID :: Prelude.Maybe Prelude.Text,
     -- | Launched instance first boot.
-    firstBoot :: Prelude.Maybe FirstBoot
+    firstBoot :: Prelude.Maybe FirstBoot,
+    -- | Launched instance Job ID.
+    jobID :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data LaunchedInstance = LaunchedInstance'
 --
 -- 'ec2InstanceID', 'launchedInstance_ec2InstanceID' - Launched instance EC2 ID.
 --
--- 'jobID', 'launchedInstance_jobID' - Launched instance Job ID.
---
 -- 'firstBoot', 'launchedInstance_firstBoot' - Launched instance first boot.
+--
+-- 'jobID', 'launchedInstance_jobID' - Launched instance Job ID.
 newLaunchedInstance ::
   LaunchedInstance
 newLaunchedInstance =
   LaunchedInstance'
     { ec2InstanceID = Prelude.Nothing,
-      jobID = Prelude.Nothing,
-      firstBoot = Prelude.Nothing
+      firstBoot = Prelude.Nothing,
+      jobID = Prelude.Nothing
     }
 
 -- | Launched instance EC2 ID.
 launchedInstance_ec2InstanceID :: Lens.Lens' LaunchedInstance (Prelude.Maybe Prelude.Text)
 launchedInstance_ec2InstanceID = Lens.lens (\LaunchedInstance' {ec2InstanceID} -> ec2InstanceID) (\s@LaunchedInstance' {} a -> s {ec2InstanceID = a} :: LaunchedInstance)
 
--- | Launched instance Job ID.
-launchedInstance_jobID :: Lens.Lens' LaunchedInstance (Prelude.Maybe Prelude.Text)
-launchedInstance_jobID = Lens.lens (\LaunchedInstance' {jobID} -> jobID) (\s@LaunchedInstance' {} a -> s {jobID = a} :: LaunchedInstance)
-
 -- | Launched instance first boot.
 launchedInstance_firstBoot :: Lens.Lens' LaunchedInstance (Prelude.Maybe FirstBoot)
 launchedInstance_firstBoot = Lens.lens (\LaunchedInstance' {firstBoot} -> firstBoot) (\s@LaunchedInstance' {} a -> s {firstBoot = a} :: LaunchedInstance)
+
+-- | Launched instance Job ID.
+launchedInstance_jobID :: Lens.Lens' LaunchedInstance (Prelude.Maybe Prelude.Text)
+launchedInstance_jobID = Lens.lens (\LaunchedInstance' {jobID} -> jobID) (\s@LaunchedInstance' {} a -> s {jobID = a} :: LaunchedInstance)
 
 instance Data.FromJSON LaunchedInstance where
   parseJSON =
@@ -79,18 +79,18 @@ instance Data.FromJSON LaunchedInstance where
       ( \x ->
           LaunchedInstance'
             Prelude.<$> (x Data..:? "ec2InstanceID")
-            Prelude.<*> (x Data..:? "jobID")
             Prelude.<*> (x Data..:? "firstBoot")
+            Prelude.<*> (x Data..:? "jobID")
       )
 
 instance Prelude.Hashable LaunchedInstance where
   hashWithSalt _salt LaunchedInstance' {..} =
     _salt `Prelude.hashWithSalt` ec2InstanceID
-      `Prelude.hashWithSalt` jobID
       `Prelude.hashWithSalt` firstBoot
+      `Prelude.hashWithSalt` jobID
 
 instance Prelude.NFData LaunchedInstance where
   rnf LaunchedInstance' {..} =
     Prelude.rnf ec2InstanceID
-      `Prelude.seq` Prelude.rnf jobID
       `Prelude.seq` Prelude.rnf firstBoot
+      `Prelude.seq` Prelude.rnf jobID

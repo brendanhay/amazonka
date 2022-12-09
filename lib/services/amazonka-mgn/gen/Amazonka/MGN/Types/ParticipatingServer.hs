@@ -32,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 data ParticipatingServer = ParticipatingServer'
   { -- | Participating server launch status.
     launchStatus :: Prelude.Maybe LaunchStatus,
-    -- | Participating server Source Server ID.
+    -- | Participating server\'s launched ec2 instance ID.
     launchedEc2InstanceID :: Prelude.Maybe Prelude.Text,
-    -- | Participating server Source Server ID.
+    -- | Participating server\'s Post Launch Actions Status.
     postLaunchActionsStatus :: Prelude.Maybe PostLaunchActionsStatus,
     -- | Participating server Source Server ID.
     sourceServerID :: Prelude.Text
@@ -51,9 +51,9 @@ data ParticipatingServer = ParticipatingServer'
 --
 -- 'launchStatus', 'participatingServer_launchStatus' - Participating server launch status.
 --
--- 'launchedEc2InstanceID', 'participatingServer_launchedEc2InstanceID' - Participating server Source Server ID.
+-- 'launchedEc2InstanceID', 'participatingServer_launchedEc2InstanceID' - Participating server\'s launched ec2 instance ID.
 --
--- 'postLaunchActionsStatus', 'participatingServer_postLaunchActionsStatus' - Participating server Source Server ID.
+-- 'postLaunchActionsStatus', 'participatingServer_postLaunchActionsStatus' - Participating server\'s Post Launch Actions Status.
 --
 -- 'sourceServerID', 'participatingServer_sourceServerID' - Participating server Source Server ID.
 newParticipatingServer ::
@@ -73,11 +73,11 @@ newParticipatingServer pSourceServerID_ =
 participatingServer_launchStatus :: Lens.Lens' ParticipatingServer (Prelude.Maybe LaunchStatus)
 participatingServer_launchStatus = Lens.lens (\ParticipatingServer' {launchStatus} -> launchStatus) (\s@ParticipatingServer' {} a -> s {launchStatus = a} :: ParticipatingServer)
 
--- | Participating server Source Server ID.
+-- | Participating server\'s launched ec2 instance ID.
 participatingServer_launchedEc2InstanceID :: Lens.Lens' ParticipatingServer (Prelude.Maybe Prelude.Text)
 participatingServer_launchedEc2InstanceID = Lens.lens (\ParticipatingServer' {launchedEc2InstanceID} -> launchedEc2InstanceID) (\s@ParticipatingServer' {} a -> s {launchedEc2InstanceID = a} :: ParticipatingServer)
 
--- | Participating server Source Server ID.
+-- | Participating server\'s Post Launch Actions Status.
 participatingServer_postLaunchActionsStatus :: Lens.Lens' ParticipatingServer (Prelude.Maybe PostLaunchActionsStatus)
 participatingServer_postLaunchActionsStatus = Lens.lens (\ParticipatingServer' {postLaunchActionsStatus} -> postLaunchActionsStatus) (\s@ParticipatingServer' {} a -> s {postLaunchActionsStatus = a} :: ParticipatingServer)
 

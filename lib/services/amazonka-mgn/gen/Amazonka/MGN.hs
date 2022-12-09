@@ -19,26 +19,26 @@ module Amazonka.MGN
     -- * Errors
     -- $errors
 
-    -- ** UninitializedAccountException
-    _UninitializedAccountException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** UninitializedAccountException
+    _UninitializedAccountException,
 
     -- ** ValidationException
     _ValidationException,
@@ -49,11 +49,41 @@ module Amazonka.MGN
     -- * Operations
     -- $operations
 
+    -- ** ArchiveApplication
+    ArchiveApplication (ArchiveApplication'),
+    newArchiveApplication,
+    Application (Application'),
+    newApplication,
+
+    -- ** ArchiveWave
+    ArchiveWave (ArchiveWave'),
+    newArchiveWave,
+    Wave (Wave'),
+    newWave,
+
+    -- ** AssociateApplications
+    AssociateApplications (AssociateApplications'),
+    newAssociateApplications,
+    AssociateApplicationsResponse (AssociateApplicationsResponse'),
+    newAssociateApplicationsResponse,
+
+    -- ** AssociateSourceServers
+    AssociateSourceServers (AssociateSourceServers'),
+    newAssociateSourceServers,
+    AssociateSourceServersResponse (AssociateSourceServersResponse'),
+    newAssociateSourceServersResponse,
+
     -- ** ChangeServerLifeCycleState
     ChangeServerLifeCycleState (ChangeServerLifeCycleState'),
     newChangeServerLifeCycleState,
     SourceServer (SourceServer'),
     newSourceServer,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    Application (Application'),
+    newApplication,
 
     -- ** CreateLaunchConfigurationTemplate
     CreateLaunchConfigurationTemplate (CreateLaunchConfigurationTemplate'),
@@ -66,6 +96,18 @@ module Amazonka.MGN
     newCreateReplicationConfigurationTemplate,
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
+
+    -- ** CreateWave
+    CreateWave (CreateWave'),
+    newCreateWave,
+    Wave (Wave'),
+    newWave,
+
+    -- ** DeleteApplication
+    DeleteApplication (DeleteApplication'),
+    newDeleteApplication,
+    DeleteApplicationResponse (DeleteApplicationResponse'),
+    newDeleteApplicationResponse,
 
     -- ** DeleteJob
     DeleteJob (DeleteJob'),
@@ -96,6 +138,12 @@ module Amazonka.MGN
     newDeleteVcenterClient,
     DeleteVcenterClientResponse (DeleteVcenterClientResponse'),
     newDeleteVcenterClientResponse,
+
+    -- ** DeleteWave
+    DeleteWave (DeleteWave'),
+    newDeleteWave,
+    DeleteWaveResponse (DeleteWaveResponse'),
+    newDeleteWaveResponse,
 
     -- ** DescribeJobLogItems (Paginated)
     DescribeJobLogItems (DescribeJobLogItems'),
@@ -133,6 +181,18 @@ module Amazonka.MGN
     DescribeVcenterClientsResponse (DescribeVcenterClientsResponse'),
     newDescribeVcenterClientsResponse,
 
+    -- ** DisassociateApplications
+    DisassociateApplications (DisassociateApplications'),
+    newDisassociateApplications,
+    DisassociateApplicationsResponse (DisassociateApplicationsResponse'),
+    newDisassociateApplicationsResponse,
+
+    -- ** DisassociateSourceServers
+    DisassociateSourceServers (DisassociateSourceServers'),
+    newDisassociateSourceServers,
+    DisassociateSourceServersResponse (DisassociateSourceServersResponse'),
+    newDisassociateSourceServersResponse,
+
     -- ** DisconnectFromService
     DisconnectFromService (DisconnectFromService'),
     newDisconnectFromService,
@@ -163,17 +223,65 @@ module Amazonka.MGN
     InitializeServiceResponse (InitializeServiceResponse'),
     newInitializeServiceResponse,
 
+    -- ** ListApplications (Paginated)
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
+
+    -- ** ListSourceServerActions (Paginated)
+    ListSourceServerActions (ListSourceServerActions'),
+    newListSourceServerActions,
+    ListSourceServerActionsResponse (ListSourceServerActionsResponse'),
+    newListSourceServerActionsResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** ListTemplateActions (Paginated)
+    ListTemplateActions (ListTemplateActions'),
+    newListTemplateActions,
+    ListTemplateActionsResponse (ListTemplateActionsResponse'),
+    newListTemplateActionsResponse,
+
+    -- ** ListWaves (Paginated)
+    ListWaves (ListWaves'),
+    newListWaves,
+    ListWavesResponse (ListWavesResponse'),
+    newListWavesResponse,
+
     -- ** MarkAsArchived
     MarkAsArchived (MarkAsArchived'),
     newMarkAsArchived,
     SourceServer (SourceServer'),
     newSourceServer,
+
+    -- ** PutSourceServerAction
+    PutSourceServerAction (PutSourceServerAction'),
+    newPutSourceServerAction,
+    SourceServerActionDocument (SourceServerActionDocument'),
+    newSourceServerActionDocument,
+
+    -- ** PutTemplateAction
+    PutTemplateAction (PutTemplateAction'),
+    newPutTemplateAction,
+    TemplateActionDocument (TemplateActionDocument'),
+    newTemplateActionDocument,
+
+    -- ** RemoveSourceServerAction
+    RemoveSourceServerAction (RemoveSourceServerAction'),
+    newRemoveSourceServerAction,
+    RemoveSourceServerActionResponse (RemoveSourceServerActionResponse'),
+    newRemoveSourceServerActionResponse,
+
+    -- ** RemoveTemplateAction
+    RemoveTemplateAction (RemoveTemplateAction'),
+    newRemoveTemplateAction,
+    RemoveTemplateActionResponse (RemoveTemplateActionResponse'),
+    newRemoveTemplateActionResponse,
 
     -- ** RetryDataReplication
     RetryDataReplication (RetryDataReplication'),
@@ -211,11 +319,29 @@ module Amazonka.MGN
     TerminateTargetInstancesResponse (TerminateTargetInstancesResponse'),
     newTerminateTargetInstancesResponse,
 
+    -- ** UnarchiveApplication
+    UnarchiveApplication (UnarchiveApplication'),
+    newUnarchiveApplication,
+    Application (Application'),
+    newApplication,
+
+    -- ** UnarchiveWave
+    UnarchiveWave (UnarchiveWave'),
+    newUnarchiveWave,
+    Wave (Wave'),
+    newWave,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** UpdateApplication
+    UpdateApplication (UpdateApplication'),
+    newUpdateApplication,
+    Application (Application'),
+    newApplication,
 
     -- ** UpdateLaunchConfiguration
     UpdateLaunchConfiguration (UpdateLaunchConfiguration'),
@@ -247,7 +373,19 @@ module Amazonka.MGN
     SourceServer (SourceServer'),
     newSourceServer,
 
+    -- ** UpdateWave
+    UpdateWave (UpdateWave'),
+    newUpdateWave,
+    Wave (Wave'),
+    newWave,
+
     -- * Types
+
+    -- ** ApplicationHealthStatus
+    ApplicationHealthStatus (..),
+
+    -- ** ApplicationProgressStatus
+    ApplicationProgressStatus (..),
 
     -- ** BootMode
     BootMode (..),
@@ -321,6 +459,23 @@ module Amazonka.MGN
     -- ** TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
 
+    -- ** VolumeType
+    VolumeType (..),
+
+    -- ** WaveHealthStatus
+    WaveHealthStatus (..),
+
+    -- ** WaveProgressStatus
+    WaveProgressStatus (..),
+
+    -- ** Application
+    Application (Application'),
+    newApplication,
+
+    -- ** ApplicationAggregatedStatus
+    ApplicationAggregatedStatus (ApplicationAggregatedStatus'),
+    newApplicationAggregatedStatus,
+
     -- ** CPU
     CPU (CPU'),
     newCPU,
@@ -389,6 +544,10 @@ module Amazonka.MGN
     LaunchConfigurationTemplate (LaunchConfigurationTemplate'),
     newLaunchConfigurationTemplate,
 
+    -- ** LaunchTemplateDiskConf
+    LaunchTemplateDiskConf (LaunchTemplateDiskConf'),
+    newLaunchTemplateDiskConf,
+
     -- ** LaunchedInstance
     LaunchedInstance (LaunchedInstance'),
     newLaunchedInstance,
@@ -433,6 +592,14 @@ module Amazonka.MGN
     LifeCycleLastTestReverted (LifeCycleLastTestReverted'),
     newLifeCycleLastTestReverted,
 
+    -- ** ListApplicationsRequestFilters
+    ListApplicationsRequestFilters (ListApplicationsRequestFilters'),
+    newListApplicationsRequestFilters,
+
+    -- ** ListWavesRequestFilters
+    ListWavesRequestFilters (ListWavesRequestFilters'),
+    newListWavesRequestFilters,
+
     -- ** NetworkInterface
     NetworkInterface (NetworkInterface'),
     newNetworkInterface,
@@ -473,6 +640,14 @@ module Amazonka.MGN
     SourceServer (SourceServer'),
     newSourceServer,
 
+    -- ** SourceServerActionDocument
+    SourceServerActionDocument (SourceServerActionDocument'),
+    newSourceServerActionDocument,
+
+    -- ** SourceServerActionsRequestFilters
+    SourceServerActionsRequestFilters (SourceServerActionsRequestFilters'),
+    newSourceServerActionsRequestFilters,
+
     -- ** SsmDocument
     SsmDocument (SsmDocument'),
     newSsmDocument,
@@ -481,34 +656,68 @@ module Amazonka.MGN
     SsmParameterStoreParameter (SsmParameterStoreParameter'),
     newSsmParameterStoreParameter,
 
+    -- ** TemplateActionDocument
+    TemplateActionDocument (TemplateActionDocument'),
+    newTemplateActionDocument,
+
+    -- ** TemplateActionsRequestFilters
+    TemplateActionsRequestFilters (TemplateActionsRequestFilters'),
+    newTemplateActionsRequestFilters,
+
     -- ** VcenterClient
     VcenterClient (VcenterClient'),
     newVcenterClient,
+
+    -- ** Wave
+    Wave (Wave'),
+    newWave,
+
+    -- ** WaveAggregatedStatus
+    WaveAggregatedStatus (WaveAggregatedStatus'),
+    newWaveAggregatedStatus,
   )
 where
 
+import Amazonka.MGN.ArchiveApplication
+import Amazonka.MGN.ArchiveWave
+import Amazonka.MGN.AssociateApplications
+import Amazonka.MGN.AssociateSourceServers
 import Amazonka.MGN.ChangeServerLifeCycleState
+import Amazonka.MGN.CreateApplication
 import Amazonka.MGN.CreateLaunchConfigurationTemplate
 import Amazonka.MGN.CreateReplicationConfigurationTemplate
+import Amazonka.MGN.CreateWave
+import Amazonka.MGN.DeleteApplication
 import Amazonka.MGN.DeleteJob
 import Amazonka.MGN.DeleteLaunchConfigurationTemplate
 import Amazonka.MGN.DeleteReplicationConfigurationTemplate
 import Amazonka.MGN.DeleteSourceServer
 import Amazonka.MGN.DeleteVcenterClient
+import Amazonka.MGN.DeleteWave
 import Amazonka.MGN.DescribeJobLogItems
 import Amazonka.MGN.DescribeJobs
 import Amazonka.MGN.DescribeLaunchConfigurationTemplates
 import Amazonka.MGN.DescribeReplicationConfigurationTemplates
 import Amazonka.MGN.DescribeSourceServers
 import Amazonka.MGN.DescribeVcenterClients
+import Amazonka.MGN.DisassociateApplications
+import Amazonka.MGN.DisassociateSourceServers
 import Amazonka.MGN.DisconnectFromService
 import Amazonka.MGN.FinalizeCutover
 import Amazonka.MGN.GetLaunchConfiguration
 import Amazonka.MGN.GetReplicationConfiguration
 import Amazonka.MGN.InitializeService
 import Amazonka.MGN.Lens
+import Amazonka.MGN.ListApplications
+import Amazonka.MGN.ListSourceServerActions
 import Amazonka.MGN.ListTagsForResource
+import Amazonka.MGN.ListTemplateActions
+import Amazonka.MGN.ListWaves
 import Amazonka.MGN.MarkAsArchived
+import Amazonka.MGN.PutSourceServerAction
+import Amazonka.MGN.PutTemplateAction
+import Amazonka.MGN.RemoveSourceServerAction
+import Amazonka.MGN.RemoveTemplateAction
 import Amazonka.MGN.RetryDataReplication
 import Amazonka.MGN.StartCutover
 import Amazonka.MGN.StartReplication
@@ -516,12 +725,16 @@ import Amazonka.MGN.StartTest
 import Amazonka.MGN.TagResource
 import Amazonka.MGN.TerminateTargetInstances
 import Amazonka.MGN.Types
+import Amazonka.MGN.UnarchiveApplication
+import Amazonka.MGN.UnarchiveWave
 import Amazonka.MGN.UntagResource
+import Amazonka.MGN.UpdateApplication
 import Amazonka.MGN.UpdateLaunchConfiguration
 import Amazonka.MGN.UpdateLaunchConfigurationTemplate
 import Amazonka.MGN.UpdateReplicationConfiguration
 import Amazonka.MGN.UpdateReplicationConfigurationTemplate
 import Amazonka.MGN.UpdateSourceServerReplicationType
+import Amazonka.MGN.UpdateWave
 import Amazonka.MGN.Waiters
 
 -- $errors

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLifeCycleLastTest' smart constructor.
 data LifeCycleLastTest = LifeCycleLastTest'
-  { -- | Lifecycle last Test reverted.
-    reverted :: Prelude.Maybe LifeCycleLastTestReverted,
-    -- | Lifecycle last Test finalized.
+  { -- | Lifecycle last Test finalized.
     finalized :: Prelude.Maybe LifeCycleLastTestFinalized,
     -- | Lifecycle last Test initiated.
-    initiated :: Prelude.Maybe LifeCycleLastTestInitiated
+    initiated :: Prelude.Maybe LifeCycleLastTestInitiated,
+    -- | Lifecycle last Test reverted.
+    reverted :: Prelude.Maybe LifeCycleLastTestReverted
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,19 @@ data LifeCycleLastTest = LifeCycleLastTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reverted', 'lifeCycleLastTest_reverted' - Lifecycle last Test reverted.
---
 -- 'finalized', 'lifeCycleLastTest_finalized' - Lifecycle last Test finalized.
 --
 -- 'initiated', 'lifeCycleLastTest_initiated' - Lifecycle last Test initiated.
+--
+-- 'reverted', 'lifeCycleLastTest_reverted' - Lifecycle last Test reverted.
 newLifeCycleLastTest ::
   LifeCycleLastTest
 newLifeCycleLastTest =
   LifeCycleLastTest'
-    { reverted = Prelude.Nothing,
-      finalized = Prelude.Nothing,
-      initiated = Prelude.Nothing
+    { finalized = Prelude.Nothing,
+      initiated = Prelude.Nothing,
+      reverted = Prelude.Nothing
     }
-
--- | Lifecycle last Test reverted.
-lifeCycleLastTest_reverted :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestReverted)
-lifeCycleLastTest_reverted = Lens.lens (\LifeCycleLastTest' {reverted} -> reverted) (\s@LifeCycleLastTest' {} a -> s {reverted = a} :: LifeCycleLastTest)
 
 -- | Lifecycle last Test finalized.
 lifeCycleLastTest_finalized :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestFinalized)
@@ -74,25 +70,29 @@ lifeCycleLastTest_finalized = Lens.lens (\LifeCycleLastTest' {finalized} -> fina
 lifeCycleLastTest_initiated :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestInitiated)
 lifeCycleLastTest_initiated = Lens.lens (\LifeCycleLastTest' {initiated} -> initiated) (\s@LifeCycleLastTest' {} a -> s {initiated = a} :: LifeCycleLastTest)
 
+-- | Lifecycle last Test reverted.
+lifeCycleLastTest_reverted :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestReverted)
+lifeCycleLastTest_reverted = Lens.lens (\LifeCycleLastTest' {reverted} -> reverted) (\s@LifeCycleLastTest' {} a -> s {reverted = a} :: LifeCycleLastTest)
+
 instance Data.FromJSON LifeCycleLastTest where
   parseJSON =
     Data.withObject
       "LifeCycleLastTest"
       ( \x ->
           LifeCycleLastTest'
-            Prelude.<$> (x Data..:? "reverted")
-            Prelude.<*> (x Data..:? "finalized")
+            Prelude.<$> (x Data..:? "finalized")
             Prelude.<*> (x Data..:? "initiated")
+            Prelude.<*> (x Data..:? "reverted")
       )
 
 instance Prelude.Hashable LifeCycleLastTest where
   hashWithSalt _salt LifeCycleLastTest' {..} =
-    _salt `Prelude.hashWithSalt` reverted
-      `Prelude.hashWithSalt` finalized
+    _salt `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` initiated
+      `Prelude.hashWithSalt` reverted
 
 instance Prelude.NFData LifeCycleLastTest where
   rnf LifeCycleLastTest' {..} =
-    Prelude.rnf reverted
-      `Prelude.seq` Prelude.rnf finalized
+    Prelude.rnf finalized
       `Prelude.seq` Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf reverted

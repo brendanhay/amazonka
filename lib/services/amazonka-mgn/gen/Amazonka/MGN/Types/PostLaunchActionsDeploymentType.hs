@@ -21,7 +21,8 @@ module Amazonka.MGN.Types.PostLaunchActionsDeploymentType
   ( PostLaunchActionsDeploymentType
       ( ..,
         PostLaunchActionsDeploymentType_CUTOVER_ONLY,
-        PostLaunchActionsDeploymentType_TEST_AND_CUTOVER
+        PostLaunchActionsDeploymentType_TEST_AND_CUTOVER,
+        PostLaunchActionsDeploymentType_TEST_ONLY
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern PostLaunchActionsDeploymentType_CUTOVER_ONLY = PostLaunchActionsDeployme
 pattern PostLaunchActionsDeploymentType_TEST_AND_CUTOVER :: PostLaunchActionsDeploymentType
 pattern PostLaunchActionsDeploymentType_TEST_AND_CUTOVER = PostLaunchActionsDeploymentType' "TEST_AND_CUTOVER"
 
+pattern PostLaunchActionsDeploymentType_TEST_ONLY :: PostLaunchActionsDeploymentType
+pattern PostLaunchActionsDeploymentType_TEST_ONLY = PostLaunchActionsDeploymentType' "TEST_ONLY"
+
 {-# COMPLETE
   PostLaunchActionsDeploymentType_CUTOVER_ONLY,
   PostLaunchActionsDeploymentType_TEST_AND_CUTOVER,
+  PostLaunchActionsDeploymentType_TEST_ONLY,
   PostLaunchActionsDeploymentType'
   #-}

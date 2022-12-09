@@ -29,8 +29,8 @@ module Amazonka.MGN.DescribeVcenterClients
     newDescribeVcenterClients,
 
     -- * Request Lenses
-    describeVcenterClients_nextToken,
     describeVcenterClients_maxResults,
+    describeVcenterClients_nextToken,
 
     -- * Destructuring the Response
     DescribeVcenterClientsResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVcenterClients' smart constructor.
 data DescribeVcenterClients = DescribeVcenterClients'
-  { -- | Next pagination token to be provided for DescribeVcenterClients.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum results to be returned in DescribeVcenterClients.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | Maximum results to be returned in DescribeVcenterClients.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next pagination token to be provided for DescribeVcenterClients.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data DescribeVcenterClients = DescribeVcenterClients'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVcenterClients_nextToken' - Next pagination token to be provided for DescribeVcenterClients.
---
 -- 'maxResults', 'describeVcenterClients_maxResults' - Maximum results to be returned in DescribeVcenterClients.
+--
+-- 'nextToken', 'describeVcenterClients_nextToken' - Next pagination token to be provided for DescribeVcenterClients.
 newDescribeVcenterClients ::
   DescribeVcenterClients
 newDescribeVcenterClients =
   DescribeVcenterClients'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Next pagination token to be provided for DescribeVcenterClients.
-describeVcenterClients_nextToken :: Lens.Lens' DescribeVcenterClients (Prelude.Maybe Prelude.Text)
-describeVcenterClients_nextToken = Lens.lens (\DescribeVcenterClients' {nextToken} -> nextToken) (\s@DescribeVcenterClients' {} a -> s {nextToken = a} :: DescribeVcenterClients)
 
 -- | Maximum results to be returned in DescribeVcenterClients.
 describeVcenterClients_maxResults :: Lens.Lens' DescribeVcenterClients (Prelude.Maybe Prelude.Natural)
 describeVcenterClients_maxResults = Lens.lens (\DescribeVcenterClients' {maxResults} -> maxResults) (\s@DescribeVcenterClients' {} a -> s {maxResults = a} :: DescribeVcenterClients)
+
+-- | Next pagination token to be provided for DescribeVcenterClients.
+describeVcenterClients_nextToken :: Lens.Lens' DescribeVcenterClients (Prelude.Maybe Prelude.Text)
+describeVcenterClients_nextToken = Lens.lens (\DescribeVcenterClients' {nextToken} -> nextToken) (\s@DescribeVcenterClients' {} a -> s {nextToken = a} :: DescribeVcenterClients)
 
 instance Core.AWSPager DescribeVcenterClients where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest DescribeVcenterClients where
 
 instance Prelude.Hashable DescribeVcenterClients where
   hashWithSalt _salt DescribeVcenterClients' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeVcenterClients where
   rnf DescribeVcenterClients' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeVcenterClients where
   toHeaders =
@@ -152,8 +152,8 @@ instance Data.ToPath DescribeVcenterClients where
 instance Data.ToQuery DescribeVcenterClients where
   toQuery DescribeVcenterClients' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeVcenterClientsResponse' smart constructor.

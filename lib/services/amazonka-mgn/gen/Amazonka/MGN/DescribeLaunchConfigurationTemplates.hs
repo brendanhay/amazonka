@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new ReplicationConfigurationTemplate.
+-- Lists all Launch Configuration Templates, filtered by Launch
+-- Configuration Template IDs
 --
 -- This operation returns paginated results.
 module Amazonka.MGN.DescribeLaunchConfigurationTemplates
@@ -29,9 +30,9 @@ module Amazonka.MGN.DescribeLaunchConfigurationTemplates
     newDescribeLaunchConfigurationTemplates,
 
     -- * Request Lenses
-    describeLaunchConfigurationTemplates_nextToken,
     describeLaunchConfigurationTemplates_launchConfigurationTemplateIDs,
     describeLaunchConfigurationTemplates_maxResults,
+    describeLaunchConfigurationTemplates_nextToken,
 
     -- * Destructuring the Response
     DescribeLaunchConfigurationTemplatesResponse (..),
@@ -54,12 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLaunchConfigurationTemplates' smart constructor.
 data DescribeLaunchConfigurationTemplates = DescribeLaunchConfigurationTemplates'
-  { -- | Request to disconnect Source Server from service by Server ID.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request to disconnect Source Server from service by Server ID.
+  { -- | Request to filter Launch Configuration Templates list by Launch
+    -- Configuration Template ID.
     launchConfigurationTemplateIDs :: Prelude.Maybe [Prelude.Text],
-    -- | Request to disconnect Source Server from service by Server ID.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Maximum results to be returned in DescribeLaunchConfigurationTemplates.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next pagination token returned from
+    -- DescribeLaunchConfigurationTemplates.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,33 +74,36 @@ data DescribeLaunchConfigurationTemplates = DescribeLaunchConfigurationTemplates
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLaunchConfigurationTemplates_nextToken' - Request to disconnect Source Server from service by Server ID.
+-- 'launchConfigurationTemplateIDs', 'describeLaunchConfigurationTemplates_launchConfigurationTemplateIDs' - Request to filter Launch Configuration Templates list by Launch
+-- Configuration Template ID.
 --
--- 'launchConfigurationTemplateIDs', 'describeLaunchConfigurationTemplates_launchConfigurationTemplateIDs' - Request to disconnect Source Server from service by Server ID.
+-- 'maxResults', 'describeLaunchConfigurationTemplates_maxResults' - Maximum results to be returned in DescribeLaunchConfigurationTemplates.
 --
--- 'maxResults', 'describeLaunchConfigurationTemplates_maxResults' - Request to disconnect Source Server from service by Server ID.
+-- 'nextToken', 'describeLaunchConfigurationTemplates_nextToken' - Next pagination token returned from
+-- DescribeLaunchConfigurationTemplates.
 newDescribeLaunchConfigurationTemplates ::
   DescribeLaunchConfigurationTemplates
 newDescribeLaunchConfigurationTemplates =
   DescribeLaunchConfigurationTemplates'
-    { nextToken =
+    { launchConfigurationTemplateIDs =
         Prelude.Nothing,
-      launchConfigurationTemplateIDs =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | Request to disconnect Source Server from service by Server ID.
-describeLaunchConfigurationTemplates_nextToken :: Lens.Lens' DescribeLaunchConfigurationTemplates (Prelude.Maybe Prelude.Text)
-describeLaunchConfigurationTemplates_nextToken = Lens.lens (\DescribeLaunchConfigurationTemplates' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurationTemplates' {} a -> s {nextToken = a} :: DescribeLaunchConfigurationTemplates)
-
--- | Request to disconnect Source Server from service by Server ID.
+-- | Request to filter Launch Configuration Templates list by Launch
+-- Configuration Template ID.
 describeLaunchConfigurationTemplates_launchConfigurationTemplateIDs :: Lens.Lens' DescribeLaunchConfigurationTemplates (Prelude.Maybe [Prelude.Text])
 describeLaunchConfigurationTemplates_launchConfigurationTemplateIDs = Lens.lens (\DescribeLaunchConfigurationTemplates' {launchConfigurationTemplateIDs} -> launchConfigurationTemplateIDs) (\s@DescribeLaunchConfigurationTemplates' {} a -> s {launchConfigurationTemplateIDs = a} :: DescribeLaunchConfigurationTemplates) Prelude.. Lens.mapping Lens.coerced
 
--- | Request to disconnect Source Server from service by Server ID.
+-- | Maximum results to be returned in DescribeLaunchConfigurationTemplates.
 describeLaunchConfigurationTemplates_maxResults :: Lens.Lens' DescribeLaunchConfigurationTemplates (Prelude.Maybe Prelude.Natural)
 describeLaunchConfigurationTemplates_maxResults = Lens.lens (\DescribeLaunchConfigurationTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchConfigurationTemplates' {} a -> s {maxResults = a} :: DescribeLaunchConfigurationTemplates)
+
+-- | Next pagination token returned from
+-- DescribeLaunchConfigurationTemplates.
+describeLaunchConfigurationTemplates_nextToken :: Lens.Lens' DescribeLaunchConfigurationTemplates (Prelude.Maybe Prelude.Text)
+describeLaunchConfigurationTemplates_nextToken = Lens.lens (\DescribeLaunchConfigurationTemplates' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurationTemplates' {} a -> s {nextToken = a} :: DescribeLaunchConfigurationTemplates)
 
 instance
   Core.AWSPager
@@ -149,18 +155,19 @@ instance
   hashWithSalt
     _salt
     DescribeLaunchConfigurationTemplates' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
         `Prelude.hashWithSalt` launchConfigurationTemplateIDs
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeLaunchConfigurationTemplates
   where
   rnf DescribeLaunchConfigurationTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf launchConfigurationTemplateIDs
+    Prelude.rnf launchConfigurationTemplateIDs
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -183,10 +190,10 @@ instance
   toJSON DescribeLaunchConfigurationTemplates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("launchConfigurationTemplateIDs" Data..=)
+          [ ("launchConfigurationTemplateIDs" Data..=)
               Prelude.<$> launchConfigurationTemplateIDs,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -206,9 +213,10 @@ instance
 
 -- | /See:/ 'newDescribeLaunchConfigurationTemplatesResponse' smart constructor.
 data DescribeLaunchConfigurationTemplatesResponse = DescribeLaunchConfigurationTemplatesResponse'
-  { -- | Request to disconnect Source Server from service by Server ID.
+  { -- | List of items returned by DescribeLaunchConfigurationTemplates.
     items :: Prelude.Maybe [LaunchConfigurationTemplate],
-    -- | Request to disconnect Source Server from service by Server ID.
+    -- | Next pagination token returned from
+    -- DescribeLaunchConfigurationTemplates.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -223,9 +231,10 @@ data DescribeLaunchConfigurationTemplatesResponse = DescribeLaunchConfigurationT
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'describeLaunchConfigurationTemplatesResponse_items' - Request to disconnect Source Server from service by Server ID.
+-- 'items', 'describeLaunchConfigurationTemplatesResponse_items' - List of items returned by DescribeLaunchConfigurationTemplates.
 --
--- 'nextToken', 'describeLaunchConfigurationTemplatesResponse_nextToken' - Request to disconnect Source Server from service by Server ID.
+-- 'nextToken', 'describeLaunchConfigurationTemplatesResponse_nextToken' - Next pagination token returned from
+-- DescribeLaunchConfigurationTemplates.
 --
 -- 'httpStatus', 'describeLaunchConfigurationTemplatesResponse_httpStatus' - The response's http status code.
 newDescribeLaunchConfigurationTemplatesResponse ::
@@ -241,11 +250,12 @@ newDescribeLaunchConfigurationTemplatesResponse
         httpStatus = pHttpStatus_
       }
 
--- | Request to disconnect Source Server from service by Server ID.
+-- | List of items returned by DescribeLaunchConfigurationTemplates.
 describeLaunchConfigurationTemplatesResponse_items :: Lens.Lens' DescribeLaunchConfigurationTemplatesResponse (Prelude.Maybe [LaunchConfigurationTemplate])
 describeLaunchConfigurationTemplatesResponse_items = Lens.lens (\DescribeLaunchConfigurationTemplatesResponse' {items} -> items) (\s@DescribeLaunchConfigurationTemplatesResponse' {} a -> s {items = a} :: DescribeLaunchConfigurationTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Request to disconnect Source Server from service by Server ID.
+-- | Next pagination token returned from
+-- DescribeLaunchConfigurationTemplates.
 describeLaunchConfigurationTemplatesResponse_nextToken :: Lens.Lens' DescribeLaunchConfigurationTemplatesResponse (Prelude.Maybe Prelude.Text)
 describeLaunchConfigurationTemplatesResponse_nextToken = Lens.lens (\DescribeLaunchConfigurationTemplatesResponse' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurationTemplatesResponse' {} a -> s {nextToken = a} :: DescribeLaunchConfigurationTemplatesResponse)
 

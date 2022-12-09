@@ -34,7 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRdsDbClusterSnapshotConfiguration' smart constructor.
 data RdsDbClusterSnapshotConfiguration = RdsDbClusterSnapshotConfiguration'
-  { -- | The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot.
+  { -- | The names and values of manual DB cluster snapshot attributes. Manual DB
+    -- cluster snapshot attributes are used to authorize other Amazon Web
+    -- Services accounts to restore a manual DB cluster snapshot. The only
+    -- valid value for @AttributeName@ for the attribute map is @restore@
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbClusterSnapshotAttributeValue),
+    -- | The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot.
     -- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
     -- for the KMS key.
     --
@@ -46,12 +51,7 @@ data RdsDbClusterSnapshotConfiguration = RdsDbClusterSnapshotConfiguration'
     -- -   If the access preview is for a new resource and you do not specify
     --     the specify the @kmsKeyId@, then the access preview considers the
     --     snapshot as unencrypted.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The names and values of manual DB cluster snapshot attributes. Manual DB
-    -- cluster snapshot attributes are used to authorize other Amazon Web
-    -- Services accounts to restore a manual DB cluster snapshot. The only
-    -- valid value for @AttributeName@ for the attribute map is @restore@
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbClusterSnapshotAttributeValue)
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,11 @@ data RdsDbClusterSnapshotConfiguration = RdsDbClusterSnapshotConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'attributes', 'rdsDbClusterSnapshotConfiguration_attributes' - The names and values of manual DB cluster snapshot attributes. Manual DB
+-- cluster snapshot attributes are used to authorize other Amazon Web
+-- Services accounts to restore a manual DB cluster snapshot. The only
+-- valid value for @AttributeName@ for the attribute map is @restore@
 --
 -- 'kmsKeyId', 'rdsDbClusterSnapshotConfiguration_kmsKeyId' - The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot.
 -- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
@@ -75,19 +80,21 @@ data RdsDbClusterSnapshotConfiguration = RdsDbClusterSnapshotConfiguration'
 -- -   If the access preview is for a new resource and you do not specify
 --     the specify the @kmsKeyId@, then the access preview considers the
 --     snapshot as unencrypted.
---
--- 'attributes', 'rdsDbClusterSnapshotConfiguration_attributes' - The names and values of manual DB cluster snapshot attributes. Manual DB
--- cluster snapshot attributes are used to authorize other Amazon Web
--- Services accounts to restore a manual DB cluster snapshot. The only
--- valid value for @AttributeName@ for the attribute map is @restore@
 newRdsDbClusterSnapshotConfiguration ::
   RdsDbClusterSnapshotConfiguration
 newRdsDbClusterSnapshotConfiguration =
   RdsDbClusterSnapshotConfiguration'
-    { kmsKeyId =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing
     }
+
+-- | The names and values of manual DB cluster snapshot attributes. Manual DB
+-- cluster snapshot attributes are used to authorize other Amazon Web
+-- Services accounts to restore a manual DB cluster snapshot. The only
+-- valid value for @AttributeName@ for the attribute map is @restore@
+rdsDbClusterSnapshotConfiguration_attributes :: Lens.Lens' RdsDbClusterSnapshotConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbClusterSnapshotAttributeValue))
+rdsDbClusterSnapshotConfiguration_attributes = Lens.lens (\RdsDbClusterSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbClusterSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbClusterSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KMS key identifier for an encrypted Amazon RDS DB cluster snapshot.
 -- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
@@ -104,13 +111,6 @@ newRdsDbClusterSnapshotConfiguration =
 rdsDbClusterSnapshotConfiguration_kmsKeyId :: Lens.Lens' RdsDbClusterSnapshotConfiguration (Prelude.Maybe Prelude.Text)
 rdsDbClusterSnapshotConfiguration_kmsKeyId = Lens.lens (\RdsDbClusterSnapshotConfiguration' {kmsKeyId} -> kmsKeyId) (\s@RdsDbClusterSnapshotConfiguration' {} a -> s {kmsKeyId = a} :: RdsDbClusterSnapshotConfiguration)
 
--- | The names and values of manual DB cluster snapshot attributes. Manual DB
--- cluster snapshot attributes are used to authorize other Amazon Web
--- Services accounts to restore a manual DB cluster snapshot. The only
--- valid value for @AttributeName@ for the attribute map is @restore@
-rdsDbClusterSnapshotConfiguration_attributes :: Lens.Lens' RdsDbClusterSnapshotConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbClusterSnapshotAttributeValue))
-rdsDbClusterSnapshotConfiguration_attributes = Lens.lens (\RdsDbClusterSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbClusterSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbClusterSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Data.FromJSON
     RdsDbClusterSnapshotConfiguration
@@ -120,8 +120,8 @@ instance
       "RdsDbClusterSnapshotConfiguration"
       ( \x ->
           RdsDbClusterSnapshotConfiguration'
-            Prelude.<$> (x Data..:? "kmsKeyId")
-            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kmsKeyId")
       )
 
 instance
@@ -131,16 +131,16 @@ instance
   hashWithSalt
     _salt
     RdsDbClusterSnapshotConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
-        `Prelude.hashWithSalt` attributes
+      _salt `Prelude.hashWithSalt` attributes
+        `Prelude.hashWithSalt` kmsKeyId
 
 instance
   Prelude.NFData
     RdsDbClusterSnapshotConfiguration
   where
   rnf RdsDbClusterSnapshotConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance
   Data.ToJSON
@@ -149,7 +149,7 @@ instance
   toJSON RdsDbClusterSnapshotConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("attributes" Data..=) Prelude.<$> attributes
+          [ ("attributes" Data..=) Prelude.<$> attributes,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

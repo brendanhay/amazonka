@@ -29,8 +29,8 @@ module Amazonka.AccessAnalyzer.ListArchiveRules
     newListArchiveRules,
 
     -- * Request Lenses
-    listArchiveRules_nextToken,
     listArchiveRules_maxResults,
+    listArchiveRules_nextToken,
     listArchiveRules_analyzerName,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListArchiveRules' smart constructor.
 data ListArchiveRules = ListArchiveRules'
-  { -- | A token used for pagination of results returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the request.
+  { -- | The maximum number of results to return in the request.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token used for pagination of results returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the analyzer to retrieve rules from.
     analyzerName :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data ListArchiveRules = ListArchiveRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listArchiveRules_nextToken' - A token used for pagination of results returned.
---
 -- 'maxResults', 'listArchiveRules_maxResults' - The maximum number of results to return in the request.
+--
+-- 'nextToken', 'listArchiveRules_nextToken' - A token used for pagination of results returned.
 --
 -- 'analyzerName', 'listArchiveRules_analyzerName' - The name of the analyzer to retrieve rules from.
 newListArchiveRules ::
@@ -84,18 +84,18 @@ newListArchiveRules ::
   ListArchiveRules
 newListArchiveRules pAnalyzerName_ =
   ListArchiveRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       analyzerName = pAnalyzerName_
     }
-
--- | A token used for pagination of results returned.
-listArchiveRules_nextToken :: Lens.Lens' ListArchiveRules (Prelude.Maybe Prelude.Text)
-listArchiveRules_nextToken = Lens.lens (\ListArchiveRules' {nextToken} -> nextToken) (\s@ListArchiveRules' {} a -> s {nextToken = a} :: ListArchiveRules)
 
 -- | The maximum number of results to return in the request.
 listArchiveRules_maxResults :: Lens.Lens' ListArchiveRules (Prelude.Maybe Prelude.Int)
 listArchiveRules_maxResults = Lens.lens (\ListArchiveRules' {maxResults} -> maxResults) (\s@ListArchiveRules' {} a -> s {maxResults = a} :: ListArchiveRules)
+
+-- | A token used for pagination of results returned.
+listArchiveRules_nextToken :: Lens.Lens' ListArchiveRules (Prelude.Maybe Prelude.Text)
+listArchiveRules_nextToken = Lens.lens (\ListArchiveRules' {nextToken} -> nextToken) (\s@ListArchiveRules' {} a -> s {nextToken = a} :: ListArchiveRules)
 
 -- | The name of the analyzer to retrieve rules from.
 listArchiveRules_analyzerName :: Lens.Lens' ListArchiveRules Prelude.Text
@@ -137,14 +137,14 @@ instance Core.AWSRequest ListArchiveRules where
 
 instance Prelude.Hashable ListArchiveRules where
   hashWithSalt _salt ListArchiveRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` analyzerName
 
 instance Prelude.NFData ListArchiveRules where
   rnf ListArchiveRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf analyzerName
 
 instance Data.ToHeaders ListArchiveRules where
@@ -169,8 +169,8 @@ instance Data.ToPath ListArchiveRules where
 instance Data.ToQuery ListArchiveRules where
   toQuery ListArchiveRules' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The response to the request.

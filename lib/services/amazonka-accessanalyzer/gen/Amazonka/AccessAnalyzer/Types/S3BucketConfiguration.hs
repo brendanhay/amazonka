@@ -47,8 +47,6 @@ data S3BucketConfiguration = S3BucketConfiguration'
     -- points for the bucket. You can propose up to 10 new access points per
     -- bucket.
     accessPoints :: Prelude.Maybe (Prelude.HashMap Prelude.Text S3AccessPointConfiguration),
-    -- | The proposed block public access configuration for the Amazon S3 bucket.
-    bucketPublicAccessBlock :: Prelude.Maybe S3PublicAccessBlockConfiguration,
     -- | The proposed list of ACL grants for the Amazon S3 bucket. You can
     -- propose up to 100 ACL grants per bucket. If the proposed grant
     -- configuration is for an existing bucket, the access preview uses the
@@ -56,7 +54,9 @@ data S3BucketConfiguration = S3BucketConfiguration'
     -- Otherwise, the access preview uses the existing grants for the bucket.
     bucketAclGrants :: Prelude.Maybe [S3BucketAclGrantConfiguration],
     -- | The proposed bucket policy for the Amazon S3 bucket.
-    bucketPolicy :: Prelude.Maybe Prelude.Text
+    bucketPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The proposed block public access configuration for the Amazon S3 bucket.
+    bucketPublicAccessBlock :: Prelude.Maybe S3PublicAccessBlockConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,8 +72,6 @@ data S3BucketConfiguration = S3BucketConfiguration'
 -- points for the bucket. You can propose up to 10 new access points per
 -- bucket.
 --
--- 'bucketPublicAccessBlock', 's3BucketConfiguration_bucketPublicAccessBlock' - The proposed block public access configuration for the Amazon S3 bucket.
---
 -- 'bucketAclGrants', 's3BucketConfiguration_bucketAclGrants' - The proposed list of ACL grants for the Amazon S3 bucket. You can
 -- propose up to 100 ACL grants per bucket. If the proposed grant
 -- configuration is for an existing bucket, the access preview uses the
@@ -81,15 +79,17 @@ data S3BucketConfiguration = S3BucketConfiguration'
 -- Otherwise, the access preview uses the existing grants for the bucket.
 --
 -- 'bucketPolicy', 's3BucketConfiguration_bucketPolicy' - The proposed bucket policy for the Amazon S3 bucket.
+--
+-- 'bucketPublicAccessBlock', 's3BucketConfiguration_bucketPublicAccessBlock' - The proposed block public access configuration for the Amazon S3 bucket.
 newS3BucketConfiguration ::
   S3BucketConfiguration
 newS3BucketConfiguration =
   S3BucketConfiguration'
     { accessPoints =
         Prelude.Nothing,
-      bucketPublicAccessBlock = Prelude.Nothing,
       bucketAclGrants = Prelude.Nothing,
-      bucketPolicy = Prelude.Nothing
+      bucketPolicy = Prelude.Nothing,
+      bucketPublicAccessBlock = Prelude.Nothing
     }
 
 -- | The configuration of Amazon S3 access points or multi-region access
@@ -97,10 +97,6 @@ newS3BucketConfiguration =
 -- bucket.
 s3BucketConfiguration_accessPoints :: Lens.Lens' S3BucketConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text S3AccessPointConfiguration))
 s3BucketConfiguration_accessPoints = Lens.lens (\S3BucketConfiguration' {accessPoints} -> accessPoints) (\s@S3BucketConfiguration' {} a -> s {accessPoints = a} :: S3BucketConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The proposed block public access configuration for the Amazon S3 bucket.
-s3BucketConfiguration_bucketPublicAccessBlock :: Lens.Lens' S3BucketConfiguration (Prelude.Maybe S3PublicAccessBlockConfiguration)
-s3BucketConfiguration_bucketPublicAccessBlock = Lens.lens (\S3BucketConfiguration' {bucketPublicAccessBlock} -> bucketPublicAccessBlock) (\s@S3BucketConfiguration' {} a -> s {bucketPublicAccessBlock = a} :: S3BucketConfiguration)
 
 -- | The proposed list of ACL grants for the Amazon S3 bucket. You can
 -- propose up to 100 ACL grants per bucket. If the proposed grant
@@ -114,6 +110,10 @@ s3BucketConfiguration_bucketAclGrants = Lens.lens (\S3BucketConfiguration' {buck
 s3BucketConfiguration_bucketPolicy :: Lens.Lens' S3BucketConfiguration (Prelude.Maybe Prelude.Text)
 s3BucketConfiguration_bucketPolicy = Lens.lens (\S3BucketConfiguration' {bucketPolicy} -> bucketPolicy) (\s@S3BucketConfiguration' {} a -> s {bucketPolicy = a} :: S3BucketConfiguration)
 
+-- | The proposed block public access configuration for the Amazon S3 bucket.
+s3BucketConfiguration_bucketPublicAccessBlock :: Lens.Lens' S3BucketConfiguration (Prelude.Maybe S3PublicAccessBlockConfiguration)
+s3BucketConfiguration_bucketPublicAccessBlock = Lens.lens (\S3BucketConfiguration' {bucketPublicAccessBlock} -> bucketPublicAccessBlock) (\s@S3BucketConfiguration' {} a -> s {bucketPublicAccessBlock = a} :: S3BucketConfiguration)
+
 instance Data.FromJSON S3BucketConfiguration where
   parseJSON =
     Data.withObject
@@ -121,36 +121,36 @@ instance Data.FromJSON S3BucketConfiguration where
       ( \x ->
           S3BucketConfiguration'
             Prelude.<$> (x Data..:? "accessPoints" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "bucketPublicAccessBlock")
             Prelude.<*> ( x Data..:? "bucketAclGrants"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "bucketPolicy")
+            Prelude.<*> (x Data..:? "bucketPublicAccessBlock")
       )
 
 instance Prelude.Hashable S3BucketConfiguration where
   hashWithSalt _salt S3BucketConfiguration' {..} =
     _salt `Prelude.hashWithSalt` accessPoints
-      `Prelude.hashWithSalt` bucketPublicAccessBlock
       `Prelude.hashWithSalt` bucketAclGrants
       `Prelude.hashWithSalt` bucketPolicy
+      `Prelude.hashWithSalt` bucketPublicAccessBlock
 
 instance Prelude.NFData S3BucketConfiguration where
   rnf S3BucketConfiguration' {..} =
     Prelude.rnf accessPoints
-      `Prelude.seq` Prelude.rnf bucketPublicAccessBlock
       `Prelude.seq` Prelude.rnf bucketAclGrants
       `Prelude.seq` Prelude.rnf bucketPolicy
+      `Prelude.seq` Prelude.rnf bucketPublicAccessBlock
 
 instance Data.ToJSON S3BucketConfiguration where
   toJSON S3BucketConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("accessPoints" Data..=) Prelude.<$> accessPoints,
-            ("bucketPublicAccessBlock" Data..=)
-              Prelude.<$> bucketPublicAccessBlock,
             ("bucketAclGrants" Data..=)
               Prelude.<$> bucketAclGrants,
-            ("bucketPolicy" Data..=) Prelude.<$> bucketPolicy
+            ("bucketPolicy" Data..=) Prelude.<$> bucketPolicy,
+            ("bucketPublicAccessBlock" Data..=)
+              Prelude.<$> bucketPublicAccessBlock
           ]
       )

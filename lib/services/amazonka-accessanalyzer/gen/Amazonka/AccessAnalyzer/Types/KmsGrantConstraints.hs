@@ -34,19 +34,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKmsGrantConstraints' smart constructor.
 data KmsGrantConstraints = KmsGrantConstraints'
-  { -- | A list of key-value pairs that must be included in the encryption
+  { -- | A list of key-value pairs that must match the encryption context in the
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
+    -- request. The grant allows the operation only when the encryption context
+    -- in the request is the same as the encryption context specified in this
+    -- constraint.
+    encryptionContextEquals :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of key-value pairs that must be included in the encryption
     -- context of the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
     -- request. The grant allows the cryptographic operation only when the
     -- encryption context in the request includes the key-value pairs specified
     -- in this constraint, although it can include additional key-value pairs.
-    encryptionContextSubset :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of key-value pairs that must match the encryption context in the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
-    -- request. The grant allows the operation only when the encryption context
-    -- in the request is the same as the encryption context specified in this
-    -- constraint.
-    encryptionContextEquals :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    encryptionContextSubset :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,26 +58,34 @@ data KmsGrantConstraints = KmsGrantConstraints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionContextEquals', 'kmsGrantConstraints_encryptionContextEquals' - A list of key-value pairs that must match the encryption context in the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
+-- request. The grant allows the operation only when the encryption context
+-- in the request is the same as the encryption context specified in this
+-- constraint.
+--
 -- 'encryptionContextSubset', 'kmsGrantConstraints_encryptionContextSubset' - A list of key-value pairs that must be included in the encryption
 -- context of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
 -- request. The grant allows the cryptographic operation only when the
 -- encryption context in the request includes the key-value pairs specified
 -- in this constraint, although it can include additional key-value pairs.
---
--- 'encryptionContextEquals', 'kmsGrantConstraints_encryptionContextEquals' - A list of key-value pairs that must match the encryption context in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
--- request. The grant allows the operation only when the encryption context
--- in the request is the same as the encryption context specified in this
--- constraint.
 newKmsGrantConstraints ::
   KmsGrantConstraints
 newKmsGrantConstraints =
   KmsGrantConstraints'
-    { encryptionContextSubset =
+    { encryptionContextEquals =
         Prelude.Nothing,
-      encryptionContextEquals = Prelude.Nothing
+      encryptionContextSubset = Prelude.Nothing
     }
+
+-- | A list of key-value pairs that must match the encryption context in the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
+-- request. The grant allows the operation only when the encryption context
+-- in the request is the same as the encryption context specified in this
+-- constraint.
+kmsGrantConstraints_encryptionContextEquals :: Lens.Lens' KmsGrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+kmsGrantConstraints_encryptionContextEquals = Lens.lens (\KmsGrantConstraints' {encryptionContextEquals} -> encryptionContextEquals) (\s@KmsGrantConstraints' {} a -> s {encryptionContextEquals = a} :: KmsGrantConstraints) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of key-value pairs that must be included in the encryption
 -- context of the
@@ -88,24 +96,16 @@ newKmsGrantConstraints =
 kmsGrantConstraints_encryptionContextSubset :: Lens.Lens' KmsGrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 kmsGrantConstraints_encryptionContextSubset = Lens.lens (\KmsGrantConstraints' {encryptionContextSubset} -> encryptionContextSubset) (\s@KmsGrantConstraints' {} a -> s {encryptionContextSubset = a} :: KmsGrantConstraints) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of key-value pairs that must match the encryption context in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation>
--- request. The grant allows the operation only when the encryption context
--- in the request is the same as the encryption context specified in this
--- constraint.
-kmsGrantConstraints_encryptionContextEquals :: Lens.Lens' KmsGrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-kmsGrantConstraints_encryptionContextEquals = Lens.lens (\KmsGrantConstraints' {encryptionContextEquals} -> encryptionContextEquals) (\s@KmsGrantConstraints' {} a -> s {encryptionContextEquals = a} :: KmsGrantConstraints) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON KmsGrantConstraints where
   parseJSON =
     Data.withObject
       "KmsGrantConstraints"
       ( \x ->
           KmsGrantConstraints'
-            Prelude.<$> ( x Data..:? "encryptionContextSubset"
+            Prelude.<$> ( x Data..:? "encryptionContextEquals"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "encryptionContextEquals"
+            Prelude.<*> ( x Data..:? "encryptionContextSubset"
                             Data..!= Prelude.mempty
                         )
       )
@@ -113,21 +113,21 @@ instance Data.FromJSON KmsGrantConstraints where
 instance Prelude.Hashable KmsGrantConstraints where
   hashWithSalt _salt KmsGrantConstraints' {..} =
     _salt
-      `Prelude.hashWithSalt` encryptionContextSubset
       `Prelude.hashWithSalt` encryptionContextEquals
+      `Prelude.hashWithSalt` encryptionContextSubset
 
 instance Prelude.NFData KmsGrantConstraints where
   rnf KmsGrantConstraints' {..} =
-    Prelude.rnf encryptionContextSubset
-      `Prelude.seq` Prelude.rnf encryptionContextEquals
+    Prelude.rnf encryptionContextEquals
+      `Prelude.seq` Prelude.rnf encryptionContextSubset
 
 instance Data.ToJSON KmsGrantConstraints where
   toJSON KmsGrantConstraints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("encryptionContextSubset" Data..=)
-              Prelude.<$> encryptionContextSubset,
-            ("encryptionContextEquals" Data..=)
-              Prelude.<$> encryptionContextEquals
+          [ ("encryptionContextEquals" Data..=)
+              Prelude.<$> encryptionContextEquals,
+            ("encryptionContextSubset" Data..=)
+              Prelude.<$> encryptionContextSubset
           ]
       )

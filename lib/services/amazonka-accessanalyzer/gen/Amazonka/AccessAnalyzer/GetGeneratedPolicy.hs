@@ -27,8 +27,8 @@ module Amazonka.AccessAnalyzer.GetGeneratedPolicy
     newGetGeneratedPolicy,
 
     -- * Request Lenses
-    getGeneratedPolicy_includeServiceLevelTemplate,
     getGeneratedPolicy_includeResourcePlaceholders,
+    getGeneratedPolicy_includeServiceLevelTemplate,
     getGeneratedPolicy_jobId,
 
     -- * Destructuring the Response
@@ -53,12 +53,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetGeneratedPolicy' smart constructor.
 data GetGeneratedPolicy = GetGeneratedPolicy'
   { -- | The level of detail that you want to generate. You can specify whether
-    -- to generate service-level policies.
-    --
-    -- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
-    -- that have been used recently to create this service-level template.
-    includeServiceLevelTemplate :: Prelude.Maybe Prelude.Bool,
-    -- | The level of detail that you want to generate. You can specify whether
     -- to generate policies with placeholders for resource ARNs for actions
     -- that support resource level granularity in policies.
     --
@@ -66,6 +60,12 @@ data GetGeneratedPolicy = GetGeneratedPolicy'
     -- placeholder such as @\"Resource\":\"arn:aws:s3:::${BucketName}\"@
     -- instead of @\"*\"@.
     includeResourcePlaceholders :: Prelude.Maybe Prelude.Bool,
+    -- | The level of detail that you want to generate. You can specify whether
+    -- to generate service-level policies.
+    --
+    -- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
+    -- that have been used recently to create this service-level template.
+    includeServiceLevelTemplate :: Prelude.Maybe Prelude.Bool,
     -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
     -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
     -- generated policies or used with @CancelPolicyGeneration@ to cancel the
@@ -82,12 +82,6 @@ data GetGeneratedPolicy = GetGeneratedPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeServiceLevelTemplate', 'getGeneratedPolicy_includeServiceLevelTemplate' - The level of detail that you want to generate. You can specify whether
--- to generate service-level policies.
---
--- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
--- that have been used recently to create this service-level template.
---
 -- 'includeResourcePlaceholders', 'getGeneratedPolicy_includeResourcePlaceholders' - The level of detail that you want to generate. You can specify whether
 -- to generate policies with placeholders for resource ARNs for actions
 -- that support resource level granularity in policies.
@@ -95,6 +89,12 @@ data GetGeneratedPolicy = GetGeneratedPolicy'
 -- For example, in the resource section of a policy, you can receive a
 -- placeholder such as @\"Resource\":\"arn:aws:s3:::${BucketName}\"@
 -- instead of @\"*\"@.
+--
+-- 'includeServiceLevelTemplate', 'getGeneratedPolicy_includeServiceLevelTemplate' - The level of detail that you want to generate. You can specify whether
+-- to generate service-level policies.
+--
+-- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
+-- that have been used recently to create this service-level template.
 --
 -- 'jobId', 'getGeneratedPolicy_jobId' - The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
 -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
@@ -106,19 +106,11 @@ newGetGeneratedPolicy ::
   GetGeneratedPolicy
 newGetGeneratedPolicy pJobId_ =
   GetGeneratedPolicy'
-    { includeServiceLevelTemplate =
+    { includeResourcePlaceholders =
         Prelude.Nothing,
-      includeResourcePlaceholders = Prelude.Nothing,
+      includeServiceLevelTemplate = Prelude.Nothing,
       jobId = pJobId_
     }
-
--- | The level of detail that you want to generate. You can specify whether
--- to generate service-level policies.
---
--- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
--- that have been used recently to create this service-level template.
-getGeneratedPolicy_includeServiceLevelTemplate :: Lens.Lens' GetGeneratedPolicy (Prelude.Maybe Prelude.Bool)
-getGeneratedPolicy_includeServiceLevelTemplate = Lens.lens (\GetGeneratedPolicy' {includeServiceLevelTemplate} -> includeServiceLevelTemplate) (\s@GetGeneratedPolicy' {} a -> s {includeServiceLevelTemplate = a} :: GetGeneratedPolicy)
 
 -- | The level of detail that you want to generate. You can specify whether
 -- to generate policies with placeholders for resource ARNs for actions
@@ -129,6 +121,14 @@ getGeneratedPolicy_includeServiceLevelTemplate = Lens.lens (\GetGeneratedPolicy'
 -- instead of @\"*\"@.
 getGeneratedPolicy_includeResourcePlaceholders :: Lens.Lens' GetGeneratedPolicy (Prelude.Maybe Prelude.Bool)
 getGeneratedPolicy_includeResourcePlaceholders = Lens.lens (\GetGeneratedPolicy' {includeResourcePlaceholders} -> includeResourcePlaceholders) (\s@GetGeneratedPolicy' {} a -> s {includeResourcePlaceholders = a} :: GetGeneratedPolicy)
+
+-- | The level of detail that you want to generate. You can specify whether
+-- to generate service-level policies.
+--
+-- IAM Access Analyzer uses @iam:servicelastaccessed@ to identify services
+-- that have been used recently to create this service-level template.
+getGeneratedPolicy_includeServiceLevelTemplate :: Lens.Lens' GetGeneratedPolicy (Prelude.Maybe Prelude.Bool)
+getGeneratedPolicy_includeServiceLevelTemplate = Lens.lens (\GetGeneratedPolicy' {includeServiceLevelTemplate} -> includeServiceLevelTemplate) (\s@GetGeneratedPolicy' {} a -> s {includeServiceLevelTemplate = a} :: GetGeneratedPolicy)
 
 -- | The @JobId@ that is returned by the @StartPolicyGeneration@ operation.
 -- The @JobId@ can be used with @GetGeneratedPolicy@ to retrieve the
@@ -155,14 +155,14 @@ instance Core.AWSRequest GetGeneratedPolicy where
 instance Prelude.Hashable GetGeneratedPolicy where
   hashWithSalt _salt GetGeneratedPolicy' {..} =
     _salt
-      `Prelude.hashWithSalt` includeServiceLevelTemplate
       `Prelude.hashWithSalt` includeResourcePlaceholders
+      `Prelude.hashWithSalt` includeServiceLevelTemplate
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetGeneratedPolicy where
   rnf GetGeneratedPolicy' {..} =
-    Prelude.rnf includeServiceLevelTemplate
-      `Prelude.seq` Prelude.rnf includeResourcePlaceholders
+    Prelude.rnf includeResourcePlaceholders
+      `Prelude.seq` Prelude.rnf includeServiceLevelTemplate
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders GetGeneratedPolicy where
@@ -184,10 +184,10 @@ instance Data.ToPath GetGeneratedPolicy where
 instance Data.ToQuery GetGeneratedPolicy where
   toQuery GetGeneratedPolicy' {..} =
     Prelude.mconcat
-      [ "includeServiceLevelTemplate"
-          Data.=: includeServiceLevelTemplate,
-        "includeResourcePlaceholders"
-          Data.=: includeResourcePlaceholders
+      [ "includeResourcePlaceholders"
+          Data.=: includeResourcePlaceholders,
+        "includeServiceLevelTemplate"
+          Data.=: includeServiceLevelTemplate
       ]
 
 -- | /See:/ 'newGetGeneratedPolicyResponse' smart constructor.

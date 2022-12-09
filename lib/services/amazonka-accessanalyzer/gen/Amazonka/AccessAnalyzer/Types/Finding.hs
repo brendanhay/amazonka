@@ -31,22 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFinding' smart constructor.
 data Finding = Finding'
-  { -- | The external principal that access to a resource within the zone of
-    -- trust.
-    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The sources of the finding. This indicates how the access that generated
-    -- the finding is granted. It is populated for Amazon S3 bucket findings.
-    sources :: Prelude.Maybe [FindingSource],
-    -- | Indicates whether the policy that generated the finding allows public
-    -- access to the resource.
-    isPublic :: Prelude.Maybe Prelude.Bool,
-    -- | The action in the analyzed policy statement that an external principal
+  { -- | The action in the analyzed policy statement that an external principal
     -- has permission to use.
     action :: Prelude.Maybe [Prelude.Text],
     -- | An error.
     error :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the policy that generated the finding allows public
+    -- access to the resource.
+    isPublic :: Prelude.Maybe Prelude.Bool,
+    -- | The external principal that access to a resource within the zone of
+    -- trust.
+    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The resource that an external principal has access to.
     resource :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the finding. This indicates how the access that generated
+    -- the finding is granted. It is populated for Amazon S3 bucket findings.
+    sources :: Prelude.Maybe [FindingSource],
     -- | The ID of the finding.
     id :: Prelude.Text,
     -- | The type of the resource identified in the finding.
@@ -75,21 +75,21 @@ data Finding = Finding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'finding_principal' - The external principal that access to a resource within the zone of
--- trust.
---
--- 'sources', 'finding_sources' - The sources of the finding. This indicates how the access that generated
--- the finding is granted. It is populated for Amazon S3 bucket findings.
---
--- 'isPublic', 'finding_isPublic' - Indicates whether the policy that generated the finding allows public
--- access to the resource.
---
 -- 'action', 'finding_action' - The action in the analyzed policy statement that an external principal
 -- has permission to use.
 --
 -- 'error', 'finding_error' - An error.
 --
+-- 'isPublic', 'finding_isPublic' - Indicates whether the policy that generated the finding allows public
+-- access to the resource.
+--
+-- 'principal', 'finding_principal' - The external principal that access to a resource within the zone of
+-- trust.
+--
 -- 'resource', 'finding_resource' - The resource that an external principal has access to.
+--
+-- 'sources', 'finding_sources' - The sources of the finding. This indicates how the access that generated
+-- the finding is granted. It is populated for Amazon S3 bucket findings.
 --
 -- 'id', 'finding_id' - The ID of the finding.
 --
@@ -132,12 +132,12 @@ newFinding
   pStatus_
   pResourceOwnerAccount_ =
     Finding'
-      { principal = Prelude.Nothing,
-        sources = Prelude.Nothing,
-        isPublic = Prelude.Nothing,
-        action = Prelude.Nothing,
+      { action = Prelude.Nothing,
         error = Prelude.Nothing,
+        isPublic = Prelude.Nothing,
+        principal = Prelude.Nothing,
         resource = Prelude.Nothing,
+        sources = Prelude.Nothing,
         id = pId_,
         resourceType = pResourceType_,
         condition = Prelude.mempty,
@@ -148,21 +148,6 @@ newFinding
         resourceOwnerAccount = pResourceOwnerAccount_
       }
 
--- | The external principal that access to a resource within the zone of
--- trust.
-finding_principal :: Lens.Lens' Finding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-finding_principal = Lens.lens (\Finding' {principal} -> principal) (\s@Finding' {} a -> s {principal = a} :: Finding) Prelude.. Lens.mapping Lens.coerced
-
--- | The sources of the finding. This indicates how the access that generated
--- the finding is granted. It is populated for Amazon S3 bucket findings.
-finding_sources :: Lens.Lens' Finding (Prelude.Maybe [FindingSource])
-finding_sources = Lens.lens (\Finding' {sources} -> sources) (\s@Finding' {} a -> s {sources = a} :: Finding) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether the policy that generated the finding allows public
--- access to the resource.
-finding_isPublic :: Lens.Lens' Finding (Prelude.Maybe Prelude.Bool)
-finding_isPublic = Lens.lens (\Finding' {isPublic} -> isPublic) (\s@Finding' {} a -> s {isPublic = a} :: Finding)
-
 -- | The action in the analyzed policy statement that an external principal
 -- has permission to use.
 finding_action :: Lens.Lens' Finding (Prelude.Maybe [Prelude.Text])
@@ -172,9 +157,24 @@ finding_action = Lens.lens (\Finding' {action} -> action) (\s@Finding' {} a -> s
 finding_error :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_error = Lens.lens (\Finding' {error} -> error) (\s@Finding' {} a -> s {error = a} :: Finding)
 
+-- | Indicates whether the policy that generated the finding allows public
+-- access to the resource.
+finding_isPublic :: Lens.Lens' Finding (Prelude.Maybe Prelude.Bool)
+finding_isPublic = Lens.lens (\Finding' {isPublic} -> isPublic) (\s@Finding' {} a -> s {isPublic = a} :: Finding)
+
+-- | The external principal that access to a resource within the zone of
+-- trust.
+finding_principal :: Lens.Lens' Finding (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+finding_principal = Lens.lens (\Finding' {principal} -> principal) (\s@Finding' {} a -> s {principal = a} :: Finding) Prelude.. Lens.mapping Lens.coerced
+
 -- | The resource that an external principal has access to.
 finding_resource :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_resource = Lens.lens (\Finding' {resource} -> resource) (\s@Finding' {} a -> s {resource = a} :: Finding)
+
+-- | The sources of the finding. This indicates how the access that generated
+-- the finding is granted. It is populated for Amazon S3 bucket findings.
+finding_sources :: Lens.Lens' Finding (Prelude.Maybe [FindingSource])
+finding_sources = Lens.lens (\Finding' {sources} -> sources) (\s@Finding' {} a -> s {sources = a} :: Finding) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the finding.
 finding_id :: Lens.Lens' Finding Prelude.Text
@@ -215,12 +215,12 @@ instance Data.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Data..:? "principal" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "isPublic")
-            Prelude.<*> (x Data..:? "action" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "action" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "isPublic")
+            Prelude.<*> (x Data..:? "principal" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resource")
+            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..:? "condition" Data..!= Prelude.mempty)
@@ -233,12 +233,12 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` isPublic
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` condition
@@ -250,12 +250,12 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf isPublic
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf isPublic
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf condition

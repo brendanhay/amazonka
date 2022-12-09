@@ -33,20 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEbsSnapshotConfiguration' smart constructor.
 data EbsSnapshotConfiguration = EbsSnapshotConfiguration'
-  { -- | The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
-    -- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
-    -- the KMS key.
-    --
-    -- -   If the configuration is for an existing Amazon EBS volume snapshot
-    --     and you do not specify the @kmsKeyId@, or you specify an empty
-    --     string, then the access preview uses the existing @kmsKeyId@ of the
-    --     snapshot.
-    --
-    -- -   If the access preview is for a new resource and you do not specify
-    --     the @kmsKeyId@, the access preview considers the snapshot as
-    --     unencrypted.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The groups that have access to the Amazon EBS volume snapshot. If the
+  { -- | The groups that have access to the Amazon EBS volume snapshot. If the
     -- value @all@ is specified, then the Amazon EBS volume snapshot is public.
     --
     -- -   If the configuration is for an existing Amazon EBS volume snapshot
@@ -60,6 +47,19 @@ data EbsSnapshotConfiguration = EbsSnapshotConfiguration'
     -- -   To propose deletion of existing shared @groups@, you can specify an
     --     empty list for @groups@.
     groups :: Prelude.Maybe [Prelude.Text],
+    -- | The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
+    -- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+    -- the KMS key.
+    --
+    -- -   If the configuration is for an existing Amazon EBS volume snapshot
+    --     and you do not specify the @kmsKeyId@, or you specify an empty
+    --     string, then the access preview uses the existing @kmsKeyId@ of the
+    --     snapshot.
+    --
+    -- -   If the access preview is for a new resource and you do not specify
+    --     the @kmsKeyId@, the access preview considers the snapshot as
+    --     unencrypted.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Amazon Web Services accounts that have access to the
     -- Amazon EBS volume snapshot.
     --
@@ -85,19 +85,6 @@ data EbsSnapshotConfiguration = EbsSnapshotConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'ebsSnapshotConfiguration_kmsKeyId' - The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
--- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
--- the KMS key.
---
--- -   If the configuration is for an existing Amazon EBS volume snapshot
---     and you do not specify the @kmsKeyId@, or you specify an empty
---     string, then the access preview uses the existing @kmsKeyId@ of the
---     snapshot.
---
--- -   If the access preview is for a new resource and you do not specify
---     the @kmsKeyId@, the access preview considers the snapshot as
---     unencrypted.
---
 -- 'groups', 'ebsSnapshotConfiguration_groups' - The groups that have access to the Amazon EBS volume snapshot. If the
 -- value @all@ is specified, then the Amazon EBS volume snapshot is public.
 --
@@ -111,6 +98,19 @@ data EbsSnapshotConfiguration = EbsSnapshotConfiguration'
 --
 -- -   To propose deletion of existing shared @groups@, you can specify an
 --     empty list for @groups@.
+--
+-- 'kmsKeyId', 'ebsSnapshotConfiguration_kmsKeyId' - The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
+-- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+-- the KMS key.
+--
+-- -   If the configuration is for an existing Amazon EBS volume snapshot
+--     and you do not specify the @kmsKeyId@, or you specify an empty
+--     string, then the access preview uses the existing @kmsKeyId@ of the
+--     snapshot.
+--
+-- -   If the access preview is for a new resource and you do not specify
+--     the @kmsKeyId@, the access preview considers the snapshot as
+--     unencrypted.
 --
 -- 'userIds', 'ebsSnapshotConfiguration_userIds' - The IDs of the Amazon Web Services accounts that have access to the
 -- Amazon EBS volume snapshot.
@@ -129,26 +129,10 @@ newEbsSnapshotConfiguration ::
   EbsSnapshotConfiguration
 newEbsSnapshotConfiguration =
   EbsSnapshotConfiguration'
-    { kmsKeyId =
-        Prelude.Nothing,
-      groups = Prelude.Nothing,
+    { groups = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       userIds = Prelude.Nothing
     }
-
--- | The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
--- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
--- the KMS key.
---
--- -   If the configuration is for an existing Amazon EBS volume snapshot
---     and you do not specify the @kmsKeyId@, or you specify an empty
---     string, then the access preview uses the existing @kmsKeyId@ of the
---     snapshot.
---
--- -   If the access preview is for a new resource and you do not specify
---     the @kmsKeyId@, the access preview considers the snapshot as
---     unencrypted.
-ebsSnapshotConfiguration_kmsKeyId :: Lens.Lens' EbsSnapshotConfiguration (Prelude.Maybe Prelude.Text)
-ebsSnapshotConfiguration_kmsKeyId = Lens.lens (\EbsSnapshotConfiguration' {kmsKeyId} -> kmsKeyId) (\s@EbsSnapshotConfiguration' {} a -> s {kmsKeyId = a} :: EbsSnapshotConfiguration)
 
 -- | The groups that have access to the Amazon EBS volume snapshot. If the
 -- value @all@ is specified, then the Amazon EBS volume snapshot is public.
@@ -165,6 +149,21 @@ ebsSnapshotConfiguration_kmsKeyId = Lens.lens (\EbsSnapshotConfiguration' {kmsKe
 --     empty list for @groups@.
 ebsSnapshotConfiguration_groups :: Lens.Lens' EbsSnapshotConfiguration (Prelude.Maybe [Prelude.Text])
 ebsSnapshotConfiguration_groups = Lens.lens (\EbsSnapshotConfiguration' {groups} -> groups) (\s@EbsSnapshotConfiguration' {} a -> s {groups = a} :: EbsSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The KMS key identifier for an encrypted Amazon EBS volume snapshot. The
+-- KMS key identifier is the key ARN, key ID, alias ARN, or alias name for
+-- the KMS key.
+--
+-- -   If the configuration is for an existing Amazon EBS volume snapshot
+--     and you do not specify the @kmsKeyId@, or you specify an empty
+--     string, then the access preview uses the existing @kmsKeyId@ of the
+--     snapshot.
+--
+-- -   If the access preview is for a new resource and you do not specify
+--     the @kmsKeyId@, the access preview considers the snapshot as
+--     unencrypted.
+ebsSnapshotConfiguration_kmsKeyId :: Lens.Lens' EbsSnapshotConfiguration (Prelude.Maybe Prelude.Text)
+ebsSnapshotConfiguration_kmsKeyId = Lens.lens (\EbsSnapshotConfiguration' {kmsKeyId} -> kmsKeyId) (\s@EbsSnapshotConfiguration' {} a -> s {kmsKeyId = a} :: EbsSnapshotConfiguration)
 
 -- | The IDs of the Amazon Web Services accounts that have access to the
 -- Amazon EBS volume snapshot.
@@ -188,29 +187,29 @@ instance Data.FromJSON EbsSnapshotConfiguration where
       "EbsSnapshotConfiguration"
       ( \x ->
           EbsSnapshotConfiguration'
-            Prelude.<$> (x Data..:? "kmsKeyId")
-            Prelude.<*> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kmsKeyId")
             Prelude.<*> (x Data..:? "userIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EbsSnapshotConfiguration where
   hashWithSalt _salt EbsSnapshotConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` userIds
 
 instance Prelude.NFData EbsSnapshotConfiguration where
   rnf EbsSnapshotConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf userIds
 
 instance Data.ToJSON EbsSnapshotConfiguration where
   toJSON EbsSnapshotConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("groups" Data..=) Prelude.<$> groups,
+          [ ("groups" Data..=) Prelude.<$> groups,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("userIds" Data..=) Prelude.<$> userIds
           ]
       )

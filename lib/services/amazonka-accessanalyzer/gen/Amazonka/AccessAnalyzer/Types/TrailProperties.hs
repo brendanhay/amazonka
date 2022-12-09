@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrailProperties' smart constructor.
 data TrailProperties = TrailProperties'
-  { -- | A list of regions to get CloudTrail data from and analyze to generate a
-    -- policy.
-    regions :: Prelude.Maybe [Prelude.Text],
-    -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
+  { -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
     -- Analyzer retrieves CloudTrail data from all regions to analyze and
     -- generate a policy.
     allRegions :: Prelude.Maybe Prelude.Bool,
+    -- | A list of regions to get CloudTrail data from and analyze to generate a
+    -- policy.
+    regions :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the ARN of the trail. The format of a trail ARN is
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
     cloudTrailArn :: Prelude.Text
@@ -50,12 +50,12 @@ data TrailProperties = TrailProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regions', 'trailProperties_regions' - A list of regions to get CloudTrail data from and analyze to generate a
--- policy.
---
 -- 'allRegions', 'trailProperties_allRegions' - Possible values are @true@ or @false@. If set to @true@, IAM Access
 -- Analyzer retrieves CloudTrail data from all regions to analyze and
 -- generate a policy.
+--
+-- 'regions', 'trailProperties_regions' - A list of regions to get CloudTrail data from and analyze to generate a
+-- policy.
 --
 -- 'cloudTrailArn', 'trailProperties_cloudTrailArn' - Specifies the ARN of the trail. The format of a trail ARN is
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
@@ -65,21 +65,21 @@ newTrailProperties ::
   TrailProperties
 newTrailProperties pCloudTrailArn_ =
   TrailProperties'
-    { regions = Prelude.Nothing,
-      allRegions = Prelude.Nothing,
+    { allRegions = Prelude.Nothing,
+      regions = Prelude.Nothing,
       cloudTrailArn = pCloudTrailArn_
     }
-
--- | A list of regions to get CloudTrail data from and analyze to generate a
--- policy.
-trailProperties_regions :: Lens.Lens' TrailProperties (Prelude.Maybe [Prelude.Text])
-trailProperties_regions = Lens.lens (\TrailProperties' {regions} -> regions) (\s@TrailProperties' {} a -> s {regions = a} :: TrailProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
 -- Analyzer retrieves CloudTrail data from all regions to analyze and
 -- generate a policy.
 trailProperties_allRegions :: Lens.Lens' TrailProperties (Prelude.Maybe Prelude.Bool)
 trailProperties_allRegions = Lens.lens (\TrailProperties' {allRegions} -> allRegions) (\s@TrailProperties' {} a -> s {allRegions = a} :: TrailProperties)
+
+-- | A list of regions to get CloudTrail data from and analyze to generate a
+-- policy.
+trailProperties_regions :: Lens.Lens' TrailProperties (Prelude.Maybe [Prelude.Text])
+trailProperties_regions = Lens.lens (\TrailProperties' {regions} -> regions) (\s@TrailProperties' {} a -> s {regions = a} :: TrailProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the ARN of the trail. The format of a trail ARN is
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
@@ -92,19 +92,19 @@ instance Data.FromJSON TrailProperties where
       "TrailProperties"
       ( \x ->
           TrailProperties'
-            Prelude.<$> (x Data..:? "regions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "allRegions")
+            Prelude.<$> (x Data..:? "allRegions")
+            Prelude.<*> (x Data..:? "regions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "cloudTrailArn")
       )
 
 instance Prelude.Hashable TrailProperties where
   hashWithSalt _salt TrailProperties' {..} =
-    _salt `Prelude.hashWithSalt` regions
-      `Prelude.hashWithSalt` allRegions
+    _salt `Prelude.hashWithSalt` allRegions
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` cloudTrailArn
 
 instance Prelude.NFData TrailProperties where
   rnf TrailProperties' {..} =
-    Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf allRegions
+    Prelude.rnf allRegions
+      `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf cloudTrailArn

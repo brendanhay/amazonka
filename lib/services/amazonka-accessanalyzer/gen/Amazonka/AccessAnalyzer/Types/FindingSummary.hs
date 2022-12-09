@@ -31,22 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingSummary' smart constructor.
 data FindingSummary = FindingSummary'
-  { -- | The external principal that has access to a resource within the zone of
-    -- trust.
-    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The sources of the finding. This indicates how the access that generated
-    -- the finding is granted. It is populated for Amazon S3 bucket findings.
-    sources :: Prelude.Maybe [FindingSource],
-    -- | Indicates whether the finding reports a resource that has a policy that
-    -- allows public access.
-    isPublic :: Prelude.Maybe Prelude.Bool,
-    -- | The action in the analyzed policy statement that an external principal
+  { -- | The action in the analyzed policy statement that an external principal
     -- has permission to use.
     action :: Prelude.Maybe [Prelude.Text],
     -- | The error that resulted in an Error finding.
     error :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the finding reports a resource that has a policy that
+    -- allows public access.
+    isPublic :: Prelude.Maybe Prelude.Bool,
+    -- | The external principal that has access to a resource within the zone of
+    -- trust.
+    principal :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The resource that the external principal has access to.
     resource :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the finding. This indicates how the access that generated
+    -- the finding is granted. It is populated for Amazon S3 bucket findings.
+    sources :: Prelude.Maybe [FindingSource],
     -- | The ID of the finding.
     id :: Prelude.Text,
     -- | The type of the resource that the external principal has access to.
@@ -76,21 +76,21 @@ data FindingSummary = FindingSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'findingSummary_principal' - The external principal that has access to a resource within the zone of
--- trust.
---
--- 'sources', 'findingSummary_sources' - The sources of the finding. This indicates how the access that generated
--- the finding is granted. It is populated for Amazon S3 bucket findings.
---
--- 'isPublic', 'findingSummary_isPublic' - Indicates whether the finding reports a resource that has a policy that
--- allows public access.
---
 -- 'action', 'findingSummary_action' - The action in the analyzed policy statement that an external principal
 -- has permission to use.
 --
 -- 'error', 'findingSummary_error' - The error that resulted in an Error finding.
 --
+-- 'isPublic', 'findingSummary_isPublic' - Indicates whether the finding reports a resource that has a policy that
+-- allows public access.
+--
+-- 'principal', 'findingSummary_principal' - The external principal that has access to a resource within the zone of
+-- trust.
+--
 -- 'resource', 'findingSummary_resource' - The resource that the external principal has access to.
+--
+-- 'sources', 'findingSummary_sources' - The sources of the finding. This indicates how the access that generated
+-- the finding is granted. It is populated for Amazon S3 bucket findings.
 --
 -- 'id', 'findingSummary_id' - The ID of the finding.
 --
@@ -134,12 +134,12 @@ newFindingSummary
   pStatus_
   pResourceOwnerAccount_ =
     FindingSummary'
-      { principal = Prelude.Nothing,
-        sources = Prelude.Nothing,
-        isPublic = Prelude.Nothing,
-        action = Prelude.Nothing,
+      { action = Prelude.Nothing,
         error = Prelude.Nothing,
+        isPublic = Prelude.Nothing,
+        principal = Prelude.Nothing,
         resource = Prelude.Nothing,
+        sources = Prelude.Nothing,
         id = pId_,
         resourceType = pResourceType_,
         condition = Prelude.mempty,
@@ -150,21 +150,6 @@ newFindingSummary
         resourceOwnerAccount = pResourceOwnerAccount_
       }
 
--- | The external principal that has access to a resource within the zone of
--- trust.
-findingSummary_principal :: Lens.Lens' FindingSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-findingSummary_principal = Lens.lens (\FindingSummary' {principal} -> principal) (\s@FindingSummary' {} a -> s {principal = a} :: FindingSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The sources of the finding. This indicates how the access that generated
--- the finding is granted. It is populated for Amazon S3 bucket findings.
-findingSummary_sources :: Lens.Lens' FindingSummary (Prelude.Maybe [FindingSource])
-findingSummary_sources = Lens.lens (\FindingSummary' {sources} -> sources) (\s@FindingSummary' {} a -> s {sources = a} :: FindingSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether the finding reports a resource that has a policy that
--- allows public access.
-findingSummary_isPublic :: Lens.Lens' FindingSummary (Prelude.Maybe Prelude.Bool)
-findingSummary_isPublic = Lens.lens (\FindingSummary' {isPublic} -> isPublic) (\s@FindingSummary' {} a -> s {isPublic = a} :: FindingSummary)
-
 -- | The action in the analyzed policy statement that an external principal
 -- has permission to use.
 findingSummary_action :: Lens.Lens' FindingSummary (Prelude.Maybe [Prelude.Text])
@@ -174,9 +159,24 @@ findingSummary_action = Lens.lens (\FindingSummary' {action} -> action) (\s@Find
 findingSummary_error :: Lens.Lens' FindingSummary (Prelude.Maybe Prelude.Text)
 findingSummary_error = Lens.lens (\FindingSummary' {error} -> error) (\s@FindingSummary' {} a -> s {error = a} :: FindingSummary)
 
+-- | Indicates whether the finding reports a resource that has a policy that
+-- allows public access.
+findingSummary_isPublic :: Lens.Lens' FindingSummary (Prelude.Maybe Prelude.Bool)
+findingSummary_isPublic = Lens.lens (\FindingSummary' {isPublic} -> isPublic) (\s@FindingSummary' {} a -> s {isPublic = a} :: FindingSummary)
+
+-- | The external principal that has access to a resource within the zone of
+-- trust.
+findingSummary_principal :: Lens.Lens' FindingSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+findingSummary_principal = Lens.lens (\FindingSummary' {principal} -> principal) (\s@FindingSummary' {} a -> s {principal = a} :: FindingSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The resource that the external principal has access to.
 findingSummary_resource :: Lens.Lens' FindingSummary (Prelude.Maybe Prelude.Text)
 findingSummary_resource = Lens.lens (\FindingSummary' {resource} -> resource) (\s@FindingSummary' {} a -> s {resource = a} :: FindingSummary)
+
+-- | The sources of the finding. This indicates how the access that generated
+-- the finding is granted. It is populated for Amazon S3 bucket findings.
+findingSummary_sources :: Lens.Lens' FindingSummary (Prelude.Maybe [FindingSource])
+findingSummary_sources = Lens.lens (\FindingSummary' {sources} -> sources) (\s@FindingSummary' {} a -> s {sources = a} :: FindingSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the finding.
 findingSummary_id :: Lens.Lens' FindingSummary Prelude.Text
@@ -218,12 +218,12 @@ instance Data.FromJSON FindingSummary where
       "FindingSummary"
       ( \x ->
           FindingSummary'
-            Prelude.<$> (x Data..:? "principal" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "isPublic")
-            Prelude.<*> (x Data..:? "action" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "action" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "isPublic")
+            Prelude.<*> (x Data..:? "principal" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resource")
+            Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..:? "condition" Data..!= Prelude.mempty)
@@ -236,12 +236,12 @@ instance Data.FromJSON FindingSummary where
 
 instance Prelude.Hashable FindingSummary where
   hashWithSalt _salt FindingSummary' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` isPublic
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` isPublic
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` condition
@@ -253,12 +253,12 @@ instance Prelude.Hashable FindingSummary where
 
 instance Prelude.NFData FindingSummary where
   rnf FindingSummary' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf isPublic
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf isPublic
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf condition

@@ -31,9 +31,9 @@ module Amazonka.AccessAnalyzer.Lens
     createAccessPreviewResponse_id,
 
     -- ** CreateAnalyzer
-    createAnalyzer_tags,
-    createAnalyzer_clientToken,
     createAnalyzer_archiveRules,
+    createAnalyzer_clientToken,
+    createAnalyzer_tags,
     createAnalyzer_analyzerName,
     createAnalyzer_type,
     createAnalyzerResponse_arn,
@@ -84,17 +84,17 @@ module Amazonka.AccessAnalyzer.Lens
     getFindingResponse_httpStatus,
 
     -- ** GetGeneratedPolicy
-    getGeneratedPolicy_includeServiceLevelTemplate,
     getGeneratedPolicy_includeResourcePlaceholders,
+    getGeneratedPolicy_includeServiceLevelTemplate,
     getGeneratedPolicy_jobId,
     getGeneratedPolicyResponse_httpStatus,
     getGeneratedPolicyResponse_jobDetails,
     getGeneratedPolicyResponse_generatedPolicyResult,
 
     -- ** ListAccessPreviewFindings
-    listAccessPreviewFindings_nextToken,
     listAccessPreviewFindings_filter,
     listAccessPreviewFindings_maxResults,
+    listAccessPreviewFindings_nextToken,
     listAccessPreviewFindings_accessPreviewId,
     listAccessPreviewFindings_analyzerArn,
     listAccessPreviewFindingsResponse_nextToken,
@@ -102,52 +102,52 @@ module Amazonka.AccessAnalyzer.Lens
     listAccessPreviewFindingsResponse_findings,
 
     -- ** ListAccessPreviews
-    listAccessPreviews_nextToken,
     listAccessPreviews_maxResults,
+    listAccessPreviews_nextToken,
     listAccessPreviews_analyzerArn,
     listAccessPreviewsResponse_nextToken,
     listAccessPreviewsResponse_httpStatus,
     listAccessPreviewsResponse_accessPreviews,
 
     -- ** ListAnalyzedResources
-    listAnalyzedResources_resourceType,
-    listAnalyzedResources_nextToken,
     listAnalyzedResources_maxResults,
+    listAnalyzedResources_nextToken,
+    listAnalyzedResources_resourceType,
     listAnalyzedResources_analyzerArn,
     listAnalyzedResourcesResponse_nextToken,
     listAnalyzedResourcesResponse_httpStatus,
     listAnalyzedResourcesResponse_analyzedResources,
 
     -- ** ListAnalyzers
+    listAnalyzers_maxResults,
     listAnalyzers_nextToken,
     listAnalyzers_type,
-    listAnalyzers_maxResults,
     listAnalyzersResponse_nextToken,
     listAnalyzersResponse_httpStatus,
     listAnalyzersResponse_analyzers,
 
     -- ** ListArchiveRules
-    listArchiveRules_nextToken,
     listArchiveRules_maxResults,
+    listArchiveRules_nextToken,
     listArchiveRules_analyzerName,
     listArchiveRulesResponse_nextToken,
     listArchiveRulesResponse_httpStatus,
     listArchiveRulesResponse_archiveRules,
 
     -- ** ListFindings
-    listFindings_nextToken,
-    listFindings_sort,
     listFindings_filter,
     listFindings_maxResults,
+    listFindings_nextToken,
+    listFindings_sort,
     listFindings_analyzerArn,
     listFindingsResponse_nextToken,
     listFindingsResponse_httpStatus,
     listFindingsResponse_findings,
 
     -- ** ListPolicyGenerations
+    listPolicyGenerations_maxResults,
     listPolicyGenerations_nextToken,
     listPolicyGenerations_principalArn,
-    listPolicyGenerations_maxResults,
     listPolicyGenerationsResponse_nextToken,
     listPolicyGenerationsResponse_httpStatus,
     listPolicyGenerationsResponse_policyGenerations,
@@ -193,9 +193,9 @@ module Amazonka.AccessAnalyzer.Lens
     updateFindings_status,
 
     -- ** ValidatePolicy
-    validatePolicy_nextToken,
     validatePolicy_locale,
     validatePolicy_maxResults,
+    validatePolicy_nextToken,
     validatePolicy_validatePolicyResourceType,
     validatePolicy_policyDocument,
     validatePolicy_policyType,
@@ -214,15 +214,15 @@ module Amazonka.AccessAnalyzer.Lens
     accessPreview_status,
 
     -- ** AccessPreviewFinding
-    accessPreviewFinding_principal,
-    accessPreviewFinding_sources,
-    accessPreviewFinding_isPublic,
-    accessPreviewFinding_existingFindingId,
-    accessPreviewFinding_condition,
     accessPreviewFinding_action,
+    accessPreviewFinding_condition,
     accessPreviewFinding_error,
+    accessPreviewFinding_existingFindingId,
     accessPreviewFinding_existingFindingStatus,
+    accessPreviewFinding_isPublic,
+    accessPreviewFinding_principal,
     accessPreviewFinding_resource,
+    accessPreviewFinding_sources,
     accessPreviewFinding_id,
     accessPreviewFinding_resourceType,
     accessPreviewFinding_createdAt,
@@ -241,14 +241,14 @@ module Amazonka.AccessAnalyzer.Lens
     accessPreviewSummary_status,
 
     -- ** AclGrantee
-    aclGrantee_uri,
     aclGrantee_id,
+    aclGrantee_uri,
 
     -- ** AnalyzedResource
-    analyzedResource_status,
-    analyzedResource_sharedVia,
-    analyzedResource_error,
     analyzedResource_actions,
+    analyzedResource_error,
+    analyzedResource_sharedVia,
+    analyzedResource_status,
     analyzedResource_resourceArn,
     analyzedResource_resourceType,
     analyzedResource_createdAt,
@@ -263,10 +263,10 @@ module Amazonka.AccessAnalyzer.Lens
     analyzedResourceSummary_resourceType,
 
     -- ** AnalyzerSummary
-    analyzerSummary_tags,
-    analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_lastResourceAnalyzed,
+    analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_statusReason,
+    analyzerSummary_tags,
     analyzerSummary_arn,
     analyzerSummary_name,
     analyzerSummary_type,
@@ -291,27 +291,27 @@ module Amazonka.AccessAnalyzer.Lens
     cloudTrailProperties_endTime,
 
     -- ** Configuration
-    configuration_ecrRepository,
-    configuration_s3Bucket,
-    configuration_iamRole,
-    configuration_snsTopic,
-    configuration_kmsKey,
-    configuration_rdsDbSnapshot,
-    configuration_rdsDbClusterSnapshot,
-    configuration_efsFileSystem,
-    configuration_sqsQueue,
-    configuration_secretsManagerSecret,
     configuration_ebsSnapshot,
+    configuration_ecrRepository,
+    configuration_efsFileSystem,
+    configuration_iamRole,
+    configuration_kmsKey,
+    configuration_rdsDbClusterSnapshot,
+    configuration_rdsDbSnapshot,
+    configuration_s3Bucket,
+    configuration_secretsManagerSecret,
+    configuration_snsTopic,
+    configuration_sqsQueue,
 
     -- ** Criterion
-    criterion_neq,
-    criterion_exists,
     criterion_contains,
     criterion_eq,
+    criterion_exists,
+    criterion_neq,
 
     -- ** EbsSnapshotConfiguration
-    ebsSnapshotConfiguration_kmsKeyId,
     ebsSnapshotConfiguration_groups,
+    ebsSnapshotConfiguration_kmsKeyId,
     ebsSnapshotConfiguration_userIds,
 
     -- ** EcrRepositoryConfiguration
@@ -321,12 +321,12 @@ module Amazonka.AccessAnalyzer.Lens
     efsFileSystemConfiguration_fileSystemPolicy,
 
     -- ** Finding
-    finding_principal,
-    finding_sources,
-    finding_isPublic,
     finding_action,
     finding_error,
+    finding_isPublic,
+    finding_principal,
     finding_resource,
+    finding_sources,
     finding_id,
     finding_resourceType,
     finding_condition,
@@ -341,15 +341,16 @@ module Amazonka.AccessAnalyzer.Lens
     findingSource_type,
 
     -- ** FindingSourceDetail
+    findingSourceDetail_accessPointAccount,
     findingSourceDetail_accessPointArn,
 
     -- ** FindingSummary
-    findingSummary_principal,
-    findingSummary_sources,
-    findingSummary_isPublic,
     findingSummary_action,
     findingSummary_error,
+    findingSummary_isPublic,
+    findingSummary_principal,
     findingSummary_resource,
+    findingSummary_sources,
     findingSummary_id,
     findingSummary_resourceType,
     findingSummary_condition,
@@ -363,8 +364,8 @@ module Amazonka.AccessAnalyzer.Lens
     generatedPolicy_policy,
 
     -- ** GeneratedPolicyProperties
-    generatedPolicyProperties_isComplete,
     generatedPolicyProperties_cloudTrailProperties,
+    generatedPolicyProperties_isComplete,
     generatedPolicyProperties_principalArn,
 
     -- ** GeneratedPolicyResult
@@ -381,8 +382,8 @@ module Amazonka.AccessAnalyzer.Lens
     -- ** InternetConfiguration
 
     -- ** JobDetails
-    jobDetails_jobError,
     jobDetails_completedOn,
+    jobDetails_jobError,
     jobDetails_jobId,
     jobDetails_status,
     jobDetails_startedOn,
@@ -399,8 +400,8 @@ module Amazonka.AccessAnalyzer.Lens
     kmsGrantConfiguration_issuingAccount,
 
     -- ** KmsGrantConstraints
-    kmsGrantConstraints_encryptionContextSubset,
     kmsGrantConstraints_encryptionContextEquals,
+    kmsGrantConstraints_encryptionContextSubset,
 
     -- ** KmsKeyConfiguration
     kmsKeyConfiguration_grants,
@@ -411,12 +412,12 @@ module Amazonka.AccessAnalyzer.Lens
     location_span,
 
     -- ** NetworkOriginConfiguration
-    networkOriginConfiguration_vpcConfiguration,
     networkOriginConfiguration_internetConfiguration,
+    networkOriginConfiguration_vpcConfiguration,
 
     -- ** PathElement
-    pathElement_key,
     pathElement_index,
+    pathElement_key,
     pathElement_substring,
     pathElement_value,
 
@@ -439,20 +440,20 @@ module Amazonka.AccessAnalyzer.Lens
     rdsDbClusterSnapshotAttributeValue_accountIds,
 
     -- ** RdsDbClusterSnapshotConfiguration
-    rdsDbClusterSnapshotConfiguration_kmsKeyId,
     rdsDbClusterSnapshotConfiguration_attributes,
+    rdsDbClusterSnapshotConfiguration_kmsKeyId,
 
     -- ** RdsDbSnapshotAttributeValue
     rdsDbSnapshotAttributeValue_accountIds,
 
     -- ** RdsDbSnapshotConfiguration
-    rdsDbSnapshotConfiguration_kmsKeyId,
     rdsDbSnapshotConfiguration_attributes,
+    rdsDbSnapshotConfiguration_kmsKeyId,
 
     -- ** S3AccessPointConfiguration
-    s3AccessPointConfiguration_publicAccessBlock,
-    s3AccessPointConfiguration_networkOrigin,
     s3AccessPointConfiguration_accessPointPolicy,
+    s3AccessPointConfiguration_networkOrigin,
+    s3AccessPointConfiguration_publicAccessBlock,
 
     -- ** S3BucketAclGrantConfiguration
     s3BucketAclGrantConfiguration_permission,
@@ -460,24 +461,24 @@ module Amazonka.AccessAnalyzer.Lens
 
     -- ** S3BucketConfiguration
     s3BucketConfiguration_accessPoints,
-    s3BucketConfiguration_bucketPublicAccessBlock,
     s3BucketConfiguration_bucketAclGrants,
     s3BucketConfiguration_bucketPolicy,
+    s3BucketConfiguration_bucketPublicAccessBlock,
 
     -- ** S3PublicAccessBlockConfiguration
     s3PublicAccessBlockConfiguration_ignorePublicAcls,
     s3PublicAccessBlockConfiguration_restrictPublicBuckets,
 
     -- ** SecretsManagerSecretConfiguration
-    secretsManagerSecretConfiguration_secretPolicy,
     secretsManagerSecretConfiguration_kmsKeyId,
+    secretsManagerSecretConfiguration_secretPolicy,
 
     -- ** SnsTopicConfiguration
     snsTopicConfiguration_topicPolicy,
 
     -- ** SortCriteria
-    sortCriteria_orderBy,
     sortCriteria_attributeName,
+    sortCriteria_orderBy,
 
     -- ** Span
     span_start,
@@ -494,13 +495,13 @@ module Amazonka.AccessAnalyzer.Lens
     substring_length,
 
     -- ** Trail
-    trail_regions,
     trail_allRegions,
+    trail_regions,
     trail_cloudTrailArn,
 
     -- ** TrailProperties
-    trailProperties_regions,
     trailProperties_allRegions,
+    trailProperties_regions,
     trailProperties_cloudTrailArn,
 
     -- ** ValidatePolicyFinding

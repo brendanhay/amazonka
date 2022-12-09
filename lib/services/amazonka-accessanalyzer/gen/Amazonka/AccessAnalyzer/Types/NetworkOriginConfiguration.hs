@@ -37,10 +37,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkOriginConfiguration' smart constructor.
 data NetworkOriginConfiguration = NetworkOriginConfiguration'
-  { vpcConfiguration :: Prelude.Maybe VpcConfiguration,
-    -- | The configuration for the Amazon S3 access point or multi-region access
+  { -- | The configuration for the Amazon S3 access point or multi-region access
     -- point with an @Internet@ origin.
-    internetConfiguration :: Prelude.Maybe InternetConfiguration
+    internetConfiguration :: Prelude.Maybe InternetConfiguration,
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,27 +52,27 @@ data NetworkOriginConfiguration = NetworkOriginConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfiguration', 'networkOriginConfiguration_vpcConfiguration' - Undocumented member.
---
 -- 'internetConfiguration', 'networkOriginConfiguration_internetConfiguration' - The configuration for the Amazon S3 access point or multi-region access
 -- point with an @Internet@ origin.
+--
+-- 'vpcConfiguration', 'networkOriginConfiguration_vpcConfiguration' - Undocumented member.
 newNetworkOriginConfiguration ::
   NetworkOriginConfiguration
 newNetworkOriginConfiguration =
   NetworkOriginConfiguration'
-    { vpcConfiguration =
+    { internetConfiguration =
         Prelude.Nothing,
-      internetConfiguration = Prelude.Nothing
+      vpcConfiguration = Prelude.Nothing
     }
-
--- | Undocumented member.
-networkOriginConfiguration_vpcConfiguration :: Lens.Lens' NetworkOriginConfiguration (Prelude.Maybe VpcConfiguration)
-networkOriginConfiguration_vpcConfiguration = Lens.lens (\NetworkOriginConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@NetworkOriginConfiguration' {} a -> s {vpcConfiguration = a} :: NetworkOriginConfiguration)
 
 -- | The configuration for the Amazon S3 access point or multi-region access
 -- point with an @Internet@ origin.
 networkOriginConfiguration_internetConfiguration :: Lens.Lens' NetworkOriginConfiguration (Prelude.Maybe InternetConfiguration)
 networkOriginConfiguration_internetConfiguration = Lens.lens (\NetworkOriginConfiguration' {internetConfiguration} -> internetConfiguration) (\s@NetworkOriginConfiguration' {} a -> s {internetConfiguration = a} :: NetworkOriginConfiguration)
+
+-- | Undocumented member.
+networkOriginConfiguration_vpcConfiguration :: Lens.Lens' NetworkOriginConfiguration (Prelude.Maybe VpcConfiguration)
+networkOriginConfiguration_vpcConfiguration = Lens.lens (\NetworkOriginConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@NetworkOriginConfiguration' {} a -> s {vpcConfiguration = a} :: NetworkOriginConfiguration)
 
 instance Data.FromJSON NetworkOriginConfiguration where
   parseJSON =
@@ -80,27 +80,27 @@ instance Data.FromJSON NetworkOriginConfiguration where
       "NetworkOriginConfiguration"
       ( \x ->
           NetworkOriginConfiguration'
-            Prelude.<$> (x Data..:? "vpcConfiguration")
-            Prelude.<*> (x Data..:? "internetConfiguration")
+            Prelude.<$> (x Data..:? "internetConfiguration")
+            Prelude.<*> (x Data..:? "vpcConfiguration")
       )
 
 instance Prelude.Hashable NetworkOriginConfiguration where
   hashWithSalt _salt NetworkOriginConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfiguration
-      `Prelude.hashWithSalt` internetConfiguration
+    _salt `Prelude.hashWithSalt` internetConfiguration
+      `Prelude.hashWithSalt` vpcConfiguration
 
 instance Prelude.NFData NetworkOriginConfiguration where
   rnf NetworkOriginConfiguration' {..} =
-    Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf internetConfiguration
+    Prelude.rnf internetConfiguration
+      `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance Data.ToJSON NetworkOriginConfiguration where
   toJSON NetworkOriginConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfiguration" Data..=)
-              Prelude.<$> vpcConfiguration,
-            ("internetConfiguration" Data..=)
-              Prelude.<$> internetConfiguration
+          [ ("internetConfiguration" Data..=)
+              Prelude.<$> internetConfiguration,
+            ("vpcConfiguration" Data..=)
+              Prelude.<$> vpcConfiguration
           ]
       )

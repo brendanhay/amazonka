@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalyzedResource' smart constructor.
 data AnalyzedResource = AnalyzedResource'
-  { -- | The current status of the finding generated from the analyzed resource.
-    status :: Prelude.Maybe FindingStatus,
+  { -- | The actions that an external principal is granted permission to use by
+    -- the policy that generated the finding.
+    actions :: Prelude.Maybe [Prelude.Text],
+    -- | An error message.
+    error :: Prelude.Maybe Prelude.Text,
     -- | Indicates how the access that generated the finding is granted. This is
     -- populated for Amazon S3 bucket findings.
     sharedVia :: Prelude.Maybe [Prelude.Text],
-    -- | An error message.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The actions that an external principal is granted permission to use by
-    -- the policy that generated the finding.
-    actions :: Prelude.Maybe [Prelude.Text],
+    -- | The current status of the finding generated from the analyzed resource.
+    status :: Prelude.Maybe FindingStatus,
     -- | The ARN of the resource that was analyzed.
     resourceArn :: Prelude.Text,
     -- | The type of the resource that was analyzed.
@@ -66,15 +66,15 @@ data AnalyzedResource = AnalyzedResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'analyzedResource_status' - The current status of the finding generated from the analyzed resource.
+-- 'actions', 'analyzedResource_actions' - The actions that an external principal is granted permission to use by
+-- the policy that generated the finding.
+--
+-- 'error', 'analyzedResource_error' - An error message.
 --
 -- 'sharedVia', 'analyzedResource_sharedVia' - Indicates how the access that generated the finding is granted. This is
 -- populated for Amazon S3 bucket findings.
 --
--- 'error', 'analyzedResource_error' - An error message.
---
--- 'actions', 'analyzedResource_actions' - The actions that an external principal is granted permission to use by
--- the policy that generated the finding.
+-- 'status', 'analyzedResource_status' - The current status of the finding generated from the analyzed resource.
 --
 -- 'resourceArn', 'analyzedResource_resourceArn' - The ARN of the resource that was analyzed.
 --
@@ -115,10 +115,10 @@ newAnalyzedResource
   pIsPublic_
   pResourceOwnerAccount_ =
     AnalyzedResource'
-      { status = Prelude.Nothing,
-        sharedVia = Prelude.Nothing,
+      { actions = Prelude.Nothing,
         error = Prelude.Nothing,
-        actions = Prelude.Nothing,
+        sharedVia = Prelude.Nothing,
+        status = Prelude.Nothing,
         resourceArn = pResourceArn_,
         resourceType = pResourceType_,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -128,23 +128,23 @@ newAnalyzedResource
         resourceOwnerAccount = pResourceOwnerAccount_
       }
 
--- | The current status of the finding generated from the analyzed resource.
-analyzedResource_status :: Lens.Lens' AnalyzedResource (Prelude.Maybe FindingStatus)
-analyzedResource_status = Lens.lens (\AnalyzedResource' {status} -> status) (\s@AnalyzedResource' {} a -> s {status = a} :: AnalyzedResource)
+-- | The actions that an external principal is granted permission to use by
+-- the policy that generated the finding.
+analyzedResource_actions :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
+analyzedResource_actions = Lens.lens (\AnalyzedResource' {actions} -> actions) (\s@AnalyzedResource' {} a -> s {actions = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | An error message.
+analyzedResource_error :: Lens.Lens' AnalyzedResource (Prelude.Maybe Prelude.Text)
+analyzedResource_error = Lens.lens (\AnalyzedResource' {error} -> error) (\s@AnalyzedResource' {} a -> s {error = a} :: AnalyzedResource)
 
 -- | Indicates how the access that generated the finding is granted. This is
 -- populated for Amazon S3 bucket findings.
 analyzedResource_sharedVia :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
 analyzedResource_sharedVia = Lens.lens (\AnalyzedResource' {sharedVia} -> sharedVia) (\s@AnalyzedResource' {} a -> s {sharedVia = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
 
--- | An error message.
-analyzedResource_error :: Lens.Lens' AnalyzedResource (Prelude.Maybe Prelude.Text)
-analyzedResource_error = Lens.lens (\AnalyzedResource' {error} -> error) (\s@AnalyzedResource' {} a -> s {error = a} :: AnalyzedResource)
-
--- | The actions that an external principal is granted permission to use by
--- the policy that generated the finding.
-analyzedResource_actions :: Lens.Lens' AnalyzedResource (Prelude.Maybe [Prelude.Text])
-analyzedResource_actions = Lens.lens (\AnalyzedResource' {actions} -> actions) (\s@AnalyzedResource' {} a -> s {actions = a} :: AnalyzedResource) Prelude.. Lens.mapping Lens.coerced
+-- | The current status of the finding generated from the analyzed resource.
+analyzedResource_status :: Lens.Lens' AnalyzedResource (Prelude.Maybe FindingStatus)
+analyzedResource_status = Lens.lens (\AnalyzedResource' {status} -> status) (\s@AnalyzedResource' {} a -> s {status = a} :: AnalyzedResource)
 
 -- | The ARN of the resource that was analyzed.
 analyzedResource_resourceArn :: Lens.Lens' AnalyzedResource Prelude.Text
@@ -181,10 +181,10 @@ instance Data.FromJSON AnalyzedResource where
       "AnalyzedResource"
       ( \x ->
           AnalyzedResource'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "sharedVia" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "actions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sharedVia" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..: "resourceArn")
             Prelude.<*> (x Data..: "resourceType")
             Prelude.<*> (x Data..: "createdAt")
@@ -196,10 +196,10 @@ instance Data.FromJSON AnalyzedResource where
 
 instance Prelude.Hashable AnalyzedResource where
   hashWithSalt _salt AnalyzedResource' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sharedVia
+    _salt `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` sharedVia
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` createdAt
@@ -210,10 +210,10 @@ instance Prelude.Hashable AnalyzedResource where
 
 instance Prelude.NFData AnalyzedResource where
   rnf AnalyzedResource' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sharedVia
+    Prelude.rnf actions
       `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf sharedVia
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf createdAt

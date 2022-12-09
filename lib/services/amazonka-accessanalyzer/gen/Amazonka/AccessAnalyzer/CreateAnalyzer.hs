@@ -27,9 +27,9 @@ module Amazonka.AccessAnalyzer.CreateAnalyzer
     newCreateAnalyzer,
 
     -- * Request Lenses
-    createAnalyzer_tags,
-    createAnalyzer_clientToken,
     createAnalyzer_archiveRules,
+    createAnalyzer_clientToken,
+    createAnalyzer_tags,
     createAnalyzer_analyzerName,
     createAnalyzer_type,
 
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateAnalyzer' smart constructor.
 data CreateAnalyzer = CreateAnalyzer'
-  { -- | The tags to apply to the analyzer.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the archive rules to add for the analyzer. Archive rules
+  { -- | Specifies the archive rules to add for the analyzer. Archive rules
     -- automatically archive findings that meet the criteria you define for the
     -- rule.
     archiveRules :: Prelude.Maybe [InlineArchiveRule],
+    -- | A client token.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the analyzer.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the analyzer to create.
     analyzerName :: Prelude.Text,
     -- | The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers
@@ -80,13 +80,13 @@ data CreateAnalyzer = CreateAnalyzer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAnalyzer_tags' - The tags to apply to the analyzer.
---
--- 'clientToken', 'createAnalyzer_clientToken' - A client token.
---
 -- 'archiveRules', 'createAnalyzer_archiveRules' - Specifies the archive rules to add for the analyzer. Archive rules
 -- automatically archive findings that meet the criteria you define for the
 -- rule.
+--
+-- 'clientToken', 'createAnalyzer_clientToken' - A client token.
+--
+-- 'tags', 'createAnalyzer_tags' - The tags to apply to the analyzer.
 --
 -- 'analyzerName', 'createAnalyzer_analyzerName' - The name of the analyzer to create.
 --
@@ -101,26 +101,26 @@ newCreateAnalyzer ::
   CreateAnalyzer
 newCreateAnalyzer pAnalyzerName_ pType_ =
   CreateAnalyzer'
-    { tags = Prelude.Nothing,
+    { archiveRules = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      archiveRules = Prelude.Nothing,
+      tags = Prelude.Nothing,
       analyzerName = pAnalyzerName_,
       type' = pType_
     }
-
--- | The tags to apply to the analyzer.
-createAnalyzer_tags :: Lens.Lens' CreateAnalyzer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAnalyzer_tags = Lens.lens (\CreateAnalyzer' {tags} -> tags) (\s@CreateAnalyzer' {} a -> s {tags = a} :: CreateAnalyzer) Prelude.. Lens.mapping Lens.coerced
-
--- | A client token.
-createAnalyzer_clientToken :: Lens.Lens' CreateAnalyzer (Prelude.Maybe Prelude.Text)
-createAnalyzer_clientToken = Lens.lens (\CreateAnalyzer' {clientToken} -> clientToken) (\s@CreateAnalyzer' {} a -> s {clientToken = a} :: CreateAnalyzer)
 
 -- | Specifies the archive rules to add for the analyzer. Archive rules
 -- automatically archive findings that meet the criteria you define for the
 -- rule.
 createAnalyzer_archiveRules :: Lens.Lens' CreateAnalyzer (Prelude.Maybe [InlineArchiveRule])
 createAnalyzer_archiveRules = Lens.lens (\CreateAnalyzer' {archiveRules} -> archiveRules) (\s@CreateAnalyzer' {} a -> s {archiveRules = a} :: CreateAnalyzer) Prelude.. Lens.mapping Lens.coerced
+
+-- | A client token.
+createAnalyzer_clientToken :: Lens.Lens' CreateAnalyzer (Prelude.Maybe Prelude.Text)
+createAnalyzer_clientToken = Lens.lens (\CreateAnalyzer' {clientToken} -> clientToken) (\s@CreateAnalyzer' {} a -> s {clientToken = a} :: CreateAnalyzer)
+
+-- | The tags to apply to the analyzer.
+createAnalyzer_tags :: Lens.Lens' CreateAnalyzer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAnalyzer_tags = Lens.lens (\CreateAnalyzer' {tags} -> tags) (\s@CreateAnalyzer' {} a -> s {tags = a} :: CreateAnalyzer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the analyzer to create.
 createAnalyzer_analyzerName :: Lens.Lens' CreateAnalyzer Prelude.Text
@@ -148,17 +148,17 @@ instance Core.AWSRequest CreateAnalyzer where
 
 instance Prelude.Hashable CreateAnalyzer where
   hashWithSalt _salt CreateAnalyzer' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` archiveRules
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` archiveRules
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` analyzerName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateAnalyzer where
   rnf CreateAnalyzer' {..} =
-    Prelude.rnf tags
+    Prelude.rnf archiveRules
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf archiveRules
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf analyzerName
       `Prelude.seq` Prelude.rnf type'
 
@@ -177,9 +177,9 @@ instance Data.ToJSON CreateAnalyzer where
   toJSON CreateAnalyzer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("archiveRules" Data..=) Prelude.<$> archiveRules,
             ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("archiveRules" Data..=) Prelude.<$> archiveRules,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("analyzerName" Data..= analyzerName),
             Prelude.Just ("type" Data..= type')
           ]

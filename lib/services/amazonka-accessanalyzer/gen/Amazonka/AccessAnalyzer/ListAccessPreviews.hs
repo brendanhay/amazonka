@@ -29,8 +29,8 @@ module Amazonka.AccessAnalyzer.ListAccessPreviews
     newListAccessPreviews,
 
     -- * Request Lenses
-    listAccessPreviews_nextToken,
     listAccessPreviews_maxResults,
+    listAccessPreviews_nextToken,
     listAccessPreviews_analyzerArn,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccessPreviews' smart constructor.
 data ListAccessPreviews = ListAccessPreviews'
-  { -- | A token used for pagination of results returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
+  { -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token used for pagination of results returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
     -- used to generate the access preview.
@@ -73,9 +73,9 @@ data ListAccessPreviews = ListAccessPreviews'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccessPreviews_nextToken' - A token used for pagination of results returned.
---
 -- 'maxResults', 'listAccessPreviews_maxResults' - The maximum number of results to return in the response.
+--
+-- 'nextToken', 'listAccessPreviews_nextToken' - A token used for pagination of results returned.
 --
 -- 'analyzerArn', 'listAccessPreviews_analyzerArn' - The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
@@ -86,18 +86,18 @@ newListAccessPreviews ::
   ListAccessPreviews
 newListAccessPreviews pAnalyzerArn_ =
   ListAccessPreviews'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       analyzerArn = pAnalyzerArn_
     }
-
--- | A token used for pagination of results returned.
-listAccessPreviews_nextToken :: Lens.Lens' ListAccessPreviews (Prelude.Maybe Prelude.Text)
-listAccessPreviews_nextToken = Lens.lens (\ListAccessPreviews' {nextToken} -> nextToken) (\s@ListAccessPreviews' {} a -> s {nextToken = a} :: ListAccessPreviews)
 
 -- | The maximum number of results to return in the response.
 listAccessPreviews_maxResults :: Lens.Lens' ListAccessPreviews (Prelude.Maybe Prelude.Int)
 listAccessPreviews_maxResults = Lens.lens (\ListAccessPreviews' {maxResults} -> maxResults) (\s@ListAccessPreviews' {} a -> s {maxResults = a} :: ListAccessPreviews)
+
+-- | A token used for pagination of results returned.
+listAccessPreviews_nextToken :: Lens.Lens' ListAccessPreviews (Prelude.Maybe Prelude.Text)
+listAccessPreviews_nextToken = Lens.lens (\ListAccessPreviews' {nextToken} -> nextToken) (\s@ListAccessPreviews' {} a -> s {nextToken = a} :: ListAccessPreviews)
 
 -- | The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListAccessPreviews where
 
 instance Prelude.Hashable ListAccessPreviews where
   hashWithSalt _salt ListAccessPreviews' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` analyzerArn
 
 instance Prelude.NFData ListAccessPreviews where
   rnf ListAccessPreviews' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf analyzerArn
 
 instance Data.ToHeaders ListAccessPreviews where
@@ -172,8 +172,8 @@ instance Data.ToPath ListAccessPreviews where
 instance Data.ToQuery ListAccessPreviews where
   toQuery ListAccessPreviews' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "analyzerArn" Data.=: analyzerArn
       ]
 

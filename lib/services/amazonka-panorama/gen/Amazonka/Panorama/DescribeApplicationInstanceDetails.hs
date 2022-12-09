@@ -35,14 +35,14 @@ module Amazonka.Panorama.DescribeApplicationInstanceDetails
     newDescribeApplicationInstanceDetailsResponse,
 
     -- * Response Lenses
-    describeApplicationInstanceDetailsResponse_name,
+    describeApplicationInstanceDetailsResponse_applicationInstanceId,
+    describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace,
     describeApplicationInstanceDetailsResponse_createdTime,
     describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice,
-    describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace,
+    describeApplicationInstanceDetailsResponse_description,
     describeApplicationInstanceDetailsResponse_manifestOverridesPayload,
     describeApplicationInstanceDetailsResponse_manifestPayload,
-    describeApplicationInstanceDetailsResponse_description,
-    describeApplicationInstanceDetailsResponse_applicationInstanceId,
+    describeApplicationInstanceDetailsResponse_name,
     describeApplicationInstanceDetailsResponse_httpStatus,
   )
 where
@@ -99,14 +99,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationInstanceDetailsResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "ApplicationInstanceId")
+              Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
               Prelude.<*> (x Data..?> "CreatedTime")
               Prelude.<*> (x Data..?> "DefaultRuntimeContextDevice")
-              Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
+              Prelude.<*> (x Data..?> "Description")
               Prelude.<*> (x Data..?> "ManifestOverridesPayload")
               Prelude.<*> (x Data..?> "ManifestPayload")
-              Prelude.<*> (x Data..?> "Description")
-              Prelude.<*> (x Data..?> "ApplicationInstanceId")
+              Prelude.<*> (x Data..?> "Name")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,22 +159,22 @@ instance
 
 -- | /See:/ 'newDescribeApplicationInstanceDetailsResponse' smart constructor.
 data DescribeApplicationInstanceDetailsResponse = DescribeApplicationInstanceDetailsResponse'
-  { -- | The application instance\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The application instance\'s ID.
+    applicationInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the application instance that this instance replaced.
+    applicationInstanceIdToReplace :: Prelude.Maybe Prelude.Text,
     -- | When the application instance was created.
     createdTime :: Prelude.Maybe Data.POSIX,
     -- | The application instance\'s default runtime context device.
     defaultRuntimeContextDevice :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the application instance that this instance replaced.
-    applicationInstanceIdToReplace :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Parameter overrides for the configuration manifest.
     manifestOverridesPayload :: Prelude.Maybe ManifestOverridesPayload,
     -- | The application instance\'s configuration manifest.
     manifestPayload :: Prelude.Maybe ManifestPayload,
-    -- | The application instance\'s description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The application instance\'s ID.
-    applicationInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The application instance\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,21 +188,21 @@ data DescribeApplicationInstanceDetailsResponse = DescribeApplicationInstanceDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describeApplicationInstanceDetailsResponse_name' - The application instance\'s name.
+-- 'applicationInstanceId', 'describeApplicationInstanceDetailsResponse_applicationInstanceId' - The application instance\'s ID.
+--
+-- 'applicationInstanceIdToReplace', 'describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace' - The ID of the application instance that this instance replaced.
 --
 -- 'createdTime', 'describeApplicationInstanceDetailsResponse_createdTime' - When the application instance was created.
 --
 -- 'defaultRuntimeContextDevice', 'describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice' - The application instance\'s default runtime context device.
 --
--- 'applicationInstanceIdToReplace', 'describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace' - The ID of the application instance that this instance replaced.
+-- 'description', 'describeApplicationInstanceDetailsResponse_description' - The application instance\'s description.
 --
 -- 'manifestOverridesPayload', 'describeApplicationInstanceDetailsResponse_manifestOverridesPayload' - Parameter overrides for the configuration manifest.
 --
 -- 'manifestPayload', 'describeApplicationInstanceDetailsResponse_manifestPayload' - The application instance\'s configuration manifest.
 --
--- 'description', 'describeApplicationInstanceDetailsResponse_description' - The application instance\'s description.
---
--- 'applicationInstanceId', 'describeApplicationInstanceDetailsResponse_applicationInstanceId' - The application instance\'s ID.
+-- 'name', 'describeApplicationInstanceDetailsResponse_name' - The application instance\'s name.
 --
 -- 'httpStatus', 'describeApplicationInstanceDetailsResponse_httpStatus' - The response's http status code.
 newDescribeApplicationInstanceDetailsResponse ::
@@ -212,26 +212,29 @@ newDescribeApplicationInstanceDetailsResponse ::
 newDescribeApplicationInstanceDetailsResponse
   pHttpStatus_ =
     DescribeApplicationInstanceDetailsResponse'
-      { name =
+      { applicationInstanceId =
+          Prelude.Nothing,
+        applicationInstanceIdToReplace =
           Prelude.Nothing,
         createdTime = Prelude.Nothing,
         defaultRuntimeContextDevice =
           Prelude.Nothing,
-        applicationInstanceIdToReplace =
-          Prelude.Nothing,
+        description = Prelude.Nothing,
         manifestOverridesPayload =
           Prelude.Nothing,
         manifestPayload =
           Prelude.Nothing,
-        description = Prelude.Nothing,
-        applicationInstanceId =
-          Prelude.Nothing,
+        name = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The application instance\'s name.
-describeApplicationInstanceDetailsResponse_name :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
-describeApplicationInstanceDetailsResponse_name = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {name} -> name) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {name = a} :: DescribeApplicationInstanceDetailsResponse)
+-- | The application instance\'s ID.
+describeApplicationInstanceDetailsResponse_applicationInstanceId :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
+describeApplicationInstanceDetailsResponse_applicationInstanceId = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {applicationInstanceId} -> applicationInstanceId) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {applicationInstanceId = a} :: DescribeApplicationInstanceDetailsResponse)
+
+-- | The ID of the application instance that this instance replaced.
+describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
+describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {applicationInstanceIdToReplace} -> applicationInstanceIdToReplace) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {applicationInstanceIdToReplace = a} :: DescribeApplicationInstanceDetailsResponse)
 
 -- | When the application instance was created.
 describeApplicationInstanceDetailsResponse_createdTime :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.UTCTime)
@@ -241,9 +244,9 @@ describeApplicationInstanceDetailsResponse_createdTime = Lens.lens (\DescribeApp
 describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
 describeApplicationInstanceDetailsResponse_defaultRuntimeContextDevice = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {defaultRuntimeContextDevice} -> defaultRuntimeContextDevice) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {defaultRuntimeContextDevice = a} :: DescribeApplicationInstanceDetailsResponse)
 
--- | The ID of the application instance that this instance replaced.
-describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
-describeApplicationInstanceDetailsResponse_applicationInstanceIdToReplace = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {applicationInstanceIdToReplace} -> applicationInstanceIdToReplace) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {applicationInstanceIdToReplace = a} :: DescribeApplicationInstanceDetailsResponse)
+-- | The application instance\'s description.
+describeApplicationInstanceDetailsResponse_description :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
+describeApplicationInstanceDetailsResponse_description = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {description} -> description) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {description = a} :: DescribeApplicationInstanceDetailsResponse)
 
 -- | Parameter overrides for the configuration manifest.
 describeApplicationInstanceDetailsResponse_manifestOverridesPayload :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe ManifestOverridesPayload)
@@ -253,13 +256,9 @@ describeApplicationInstanceDetailsResponse_manifestOverridesPayload = Lens.lens 
 describeApplicationInstanceDetailsResponse_manifestPayload :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe ManifestPayload)
 describeApplicationInstanceDetailsResponse_manifestPayload = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {manifestPayload} -> manifestPayload) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {manifestPayload = a} :: DescribeApplicationInstanceDetailsResponse)
 
--- | The application instance\'s description.
-describeApplicationInstanceDetailsResponse_description :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
-describeApplicationInstanceDetailsResponse_description = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {description} -> description) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {description = a} :: DescribeApplicationInstanceDetailsResponse)
-
--- | The application instance\'s ID.
-describeApplicationInstanceDetailsResponse_applicationInstanceId :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
-describeApplicationInstanceDetailsResponse_applicationInstanceId = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {applicationInstanceId} -> applicationInstanceId) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {applicationInstanceId = a} :: DescribeApplicationInstanceDetailsResponse)
+-- | The application instance\'s name.
+describeApplicationInstanceDetailsResponse_name :: Lens.Lens' DescribeApplicationInstanceDetailsResponse (Prelude.Maybe Prelude.Text)
+describeApplicationInstanceDetailsResponse_name = Lens.lens (\DescribeApplicationInstanceDetailsResponse' {name} -> name) (\s@DescribeApplicationInstanceDetailsResponse' {} a -> s {name = a} :: DescribeApplicationInstanceDetailsResponse)
 
 -- | The response's http status code.
 describeApplicationInstanceDetailsResponse_httpStatus :: Lens.Lens' DescribeApplicationInstanceDetailsResponse Prelude.Int
@@ -270,12 +269,12 @@ instance
     DescribeApplicationInstanceDetailsResponse
   where
   rnf DescribeApplicationInstanceDetailsResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
-      `Prelude.seq` Prelude.rnf applicationInstanceIdToReplace
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf manifestOverridesPayload
       `Prelude.seq` Prelude.rnf manifestPayload
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf applicationInstanceId
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

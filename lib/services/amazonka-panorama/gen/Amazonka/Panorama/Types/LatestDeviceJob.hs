@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLatestDeviceJob' smart constructor.
 data LatestDeviceJob = LatestDeviceJob'
-  { -- | Status of the latest device job.
-    status :: Prelude.Maybe UpdateProgress,
-    -- | The target version of the device software.
+  { -- | The target version of the device software.
     imageVersion :: Prelude.Maybe Prelude.Text,
     -- | The job\'s type.
-    jobType :: Prelude.Maybe JobType
+    jobType :: Prelude.Maybe JobType,
+    -- | Status of the latest device job.
+    status :: Prelude.Maybe UpdateProgress
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data LatestDeviceJob = LatestDeviceJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'latestDeviceJob_status' - Status of the latest device job.
---
 -- 'imageVersion', 'latestDeviceJob_imageVersion' - The target version of the device software.
 --
 -- 'jobType', 'latestDeviceJob_jobType' - The job\'s type.
+--
+-- 'status', 'latestDeviceJob_status' - Status of the latest device job.
 newLatestDeviceJob ::
   LatestDeviceJob
 newLatestDeviceJob =
   LatestDeviceJob'
-    { status = Prelude.Nothing,
-      imageVersion = Prelude.Nothing,
-      jobType = Prelude.Nothing
+    { imageVersion = Prelude.Nothing,
+      jobType = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Status of the latest device job.
-latestDeviceJob_status :: Lens.Lens' LatestDeviceJob (Prelude.Maybe UpdateProgress)
-latestDeviceJob_status = Lens.lens (\LatestDeviceJob' {status} -> status) (\s@LatestDeviceJob' {} a -> s {status = a} :: LatestDeviceJob)
 
 -- | The target version of the device software.
 latestDeviceJob_imageVersion :: Lens.Lens' LatestDeviceJob (Prelude.Maybe Prelude.Text)
@@ -73,25 +69,29 @@ latestDeviceJob_imageVersion = Lens.lens (\LatestDeviceJob' {imageVersion} -> im
 latestDeviceJob_jobType :: Lens.Lens' LatestDeviceJob (Prelude.Maybe JobType)
 latestDeviceJob_jobType = Lens.lens (\LatestDeviceJob' {jobType} -> jobType) (\s@LatestDeviceJob' {} a -> s {jobType = a} :: LatestDeviceJob)
 
+-- | Status of the latest device job.
+latestDeviceJob_status :: Lens.Lens' LatestDeviceJob (Prelude.Maybe UpdateProgress)
+latestDeviceJob_status = Lens.lens (\LatestDeviceJob' {status} -> status) (\s@LatestDeviceJob' {} a -> s {status = a} :: LatestDeviceJob)
+
 instance Data.FromJSON LatestDeviceJob where
   parseJSON =
     Data.withObject
       "LatestDeviceJob"
       ( \x ->
           LatestDeviceJob'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ImageVersion")
+            Prelude.<$> (x Data..:? "ImageVersion")
             Prelude.<*> (x Data..:? "JobType")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable LatestDeviceJob where
   hashWithSalt _salt LatestDeviceJob' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` imageVersion
+    _salt `Prelude.hashWithSalt` imageVersion
       `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LatestDeviceJob where
   rnf LatestDeviceJob' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf imageVersion
+    Prelude.rnf imageVersion
       `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf status

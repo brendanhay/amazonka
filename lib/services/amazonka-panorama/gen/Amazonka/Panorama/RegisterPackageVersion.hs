@@ -27,8 +27,8 @@ module Amazonka.Panorama.RegisterPackageVersion
     newRegisterPackageVersion,
 
     -- * Request Lenses
-    registerPackageVersion_ownerAccount,
     registerPackageVersion_markLatest,
+    registerPackageVersion_ownerAccount,
     registerPackageVersion_packageId,
     registerPackageVersion_packageVersion,
     registerPackageVersion_patchVersion,
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterPackageVersion' smart constructor.
 data RegisterPackageVersion = RegisterPackageVersion'
-  { -- | An owner account.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
-    -- | Whether to mark the new version as the latest version.
+  { -- | Whether to mark the new version as the latest version.
     markLatest :: Prelude.Maybe Prelude.Bool,
+    -- | An owner account.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | A package ID.
     packageId :: Prelude.Text,
     -- | A package version.
@@ -73,9 +73,9 @@ data RegisterPackageVersion = RegisterPackageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerAccount', 'registerPackageVersion_ownerAccount' - An owner account.
---
 -- 'markLatest', 'registerPackageVersion_markLatest' - Whether to mark the new version as the latest version.
+--
+-- 'ownerAccount', 'registerPackageVersion_ownerAccount' - An owner account.
 --
 -- 'packageId', 'registerPackageVersion_packageId' - A package ID.
 --
@@ -95,21 +95,21 @@ newRegisterPackageVersion
   pPackageVersion_
   pPatchVersion_ =
     RegisterPackageVersion'
-      { ownerAccount =
+      { markLatest =
           Prelude.Nothing,
-        markLatest = Prelude.Nothing,
+        ownerAccount = Prelude.Nothing,
         packageId = pPackageId_,
         packageVersion = pPackageVersion_,
         patchVersion = pPatchVersion_
       }
 
--- | An owner account.
-registerPackageVersion_ownerAccount :: Lens.Lens' RegisterPackageVersion (Prelude.Maybe Prelude.Text)
-registerPackageVersion_ownerAccount = Lens.lens (\RegisterPackageVersion' {ownerAccount} -> ownerAccount) (\s@RegisterPackageVersion' {} a -> s {ownerAccount = a} :: RegisterPackageVersion)
-
 -- | Whether to mark the new version as the latest version.
 registerPackageVersion_markLatest :: Lens.Lens' RegisterPackageVersion (Prelude.Maybe Prelude.Bool)
 registerPackageVersion_markLatest = Lens.lens (\RegisterPackageVersion' {markLatest} -> markLatest) (\s@RegisterPackageVersion' {} a -> s {markLatest = a} :: RegisterPackageVersion)
+
+-- | An owner account.
+registerPackageVersion_ownerAccount :: Lens.Lens' RegisterPackageVersion (Prelude.Maybe Prelude.Text)
+registerPackageVersion_ownerAccount = Lens.lens (\RegisterPackageVersion' {ownerAccount} -> ownerAccount) (\s@RegisterPackageVersion' {} a -> s {ownerAccount = a} :: RegisterPackageVersion)
 
 -- | A package ID.
 registerPackageVersion_packageId :: Lens.Lens' RegisterPackageVersion Prelude.Text
@@ -138,16 +138,16 @@ instance Core.AWSRequest RegisterPackageVersion where
 
 instance Prelude.Hashable RegisterPackageVersion where
   hashWithSalt _salt RegisterPackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
-      `Prelude.hashWithSalt` markLatest
+    _salt `Prelude.hashWithSalt` markLatest
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` patchVersion
 
 instance Prelude.NFData RegisterPackageVersion where
   rnf RegisterPackageVersion' {..} =
-    Prelude.rnf ownerAccount
-      `Prelude.seq` Prelude.rnf markLatest
+    Prelude.rnf markLatest
+      `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
@@ -167,8 +167,8 @@ instance Data.ToJSON RegisterPackageVersion where
   toJSON RegisterPackageVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OwnerAccount" Data..=) Prelude.<$> ownerAccount,
-            ("MarkLatest" Data..=) Prelude.<$> markLatest
+          [ ("MarkLatest" Data..=) Prelude.<$> markLatest,
+            ("OwnerAccount" Data..=) Prelude.<$> ownerAccount
           ]
       )
 

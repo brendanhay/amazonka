@@ -27,8 +27,8 @@ module Amazonka.Panorama.DeregisterPackageVersion
     newDeregisterPackageVersion,
 
     -- * Request Lenses
-    deregisterPackageVersion_updatedLatestPatchVersion,
     deregisterPackageVersion_ownerAccount,
+    deregisterPackageVersion_updatedLatestPatchVersion,
     deregisterPackageVersion_packageId,
     deregisterPackageVersion_packageVersion,
     deregisterPackageVersion_patchVersion,
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterPackageVersion' smart constructor.
 data DeregisterPackageVersion = DeregisterPackageVersion'
-  { -- | If the version was marked latest, the new version to maker as latest.
-    updatedLatestPatchVersion :: Prelude.Maybe Prelude.Text,
-    -- | An owner account.
+  { -- | An owner account.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | If the version was marked latest, the new version to maker as latest.
+    updatedLatestPatchVersion :: Prelude.Maybe Prelude.Text,
     -- | A package ID.
     packageId :: Prelude.Text,
     -- | A package version.
@@ -73,9 +73,9 @@ data DeregisterPackageVersion = DeregisterPackageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updatedLatestPatchVersion', 'deregisterPackageVersion_updatedLatestPatchVersion' - If the version was marked latest, the new version to maker as latest.
---
 -- 'ownerAccount', 'deregisterPackageVersion_ownerAccount' - An owner account.
+--
+-- 'updatedLatestPatchVersion', 'deregisterPackageVersion_updatedLatestPatchVersion' - If the version was marked latest, the new version to maker as latest.
 --
 -- 'packageId', 'deregisterPackageVersion_packageId' - A package ID.
 --
@@ -95,21 +95,21 @@ newDeregisterPackageVersion
   pPackageVersion_
   pPatchVersion_ =
     DeregisterPackageVersion'
-      { updatedLatestPatchVersion =
+      { ownerAccount =
           Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
+        updatedLatestPatchVersion = Prelude.Nothing,
         packageId = pPackageId_,
         packageVersion = pPackageVersion_,
         patchVersion = pPatchVersion_
       }
 
--- | If the version was marked latest, the new version to maker as latest.
-deregisterPackageVersion_updatedLatestPatchVersion :: Lens.Lens' DeregisterPackageVersion (Prelude.Maybe Prelude.Text)
-deregisterPackageVersion_updatedLatestPatchVersion = Lens.lens (\DeregisterPackageVersion' {updatedLatestPatchVersion} -> updatedLatestPatchVersion) (\s@DeregisterPackageVersion' {} a -> s {updatedLatestPatchVersion = a} :: DeregisterPackageVersion)
-
 -- | An owner account.
 deregisterPackageVersion_ownerAccount :: Lens.Lens' DeregisterPackageVersion (Prelude.Maybe Prelude.Text)
 deregisterPackageVersion_ownerAccount = Lens.lens (\DeregisterPackageVersion' {ownerAccount} -> ownerAccount) (\s@DeregisterPackageVersion' {} a -> s {ownerAccount = a} :: DeregisterPackageVersion)
+
+-- | If the version was marked latest, the new version to maker as latest.
+deregisterPackageVersion_updatedLatestPatchVersion :: Lens.Lens' DeregisterPackageVersion (Prelude.Maybe Prelude.Text)
+deregisterPackageVersion_updatedLatestPatchVersion = Lens.lens (\DeregisterPackageVersion' {updatedLatestPatchVersion} -> updatedLatestPatchVersion) (\s@DeregisterPackageVersion' {} a -> s {updatedLatestPatchVersion = a} :: DeregisterPackageVersion)
 
 -- | A package ID.
 deregisterPackageVersion_packageId :: Lens.Lens' DeregisterPackageVersion Prelude.Text
@@ -138,17 +138,16 @@ instance Core.AWSRequest DeregisterPackageVersion where
 
 instance Prelude.Hashable DeregisterPackageVersion where
   hashWithSalt _salt DeregisterPackageVersion' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` updatedLatestPatchVersion
-      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` patchVersion
 
 instance Prelude.NFData DeregisterPackageVersion where
   rnf DeregisterPackageVersion' {..} =
-    Prelude.rnf updatedLatestPatchVersion
-      `Prelude.seq` Prelude.rnf ownerAccount
+    Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf updatedLatestPatchVersion
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
@@ -178,9 +177,9 @@ instance Data.ToPath DeregisterPackageVersion where
 instance Data.ToQuery DeregisterPackageVersion where
   toQuery DeregisterPackageVersion' {..} =
     Prelude.mconcat
-      [ "UpdatedLatestPatchVersion"
-          Data.=: updatedLatestPatchVersion,
-        "OwnerAccount" Data.=: ownerAccount
+      [ "OwnerAccount" Data.=: ownerAccount,
+        "UpdatedLatestPatchVersion"
+          Data.=: updatedLatestPatchVersion
       ]
 
 -- | /See:/ 'newDeregisterPackageVersionResponse' smart constructor.

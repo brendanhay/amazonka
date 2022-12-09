@@ -27,8 +27,8 @@ module Amazonka.Panorama.ListNodeFromTemplateJobs
     newListNodeFromTemplateJobs,
 
     -- * Request Lenses
-    listNodeFromTemplateJobs_nextToken,
     listNodeFromTemplateJobs_maxResults,
+    listNodeFromTemplateJobs_nextToken,
 
     -- * Destructuring the Response
     ListNodeFromTemplateJobsResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodeFromTemplateJobs' smart constructor.
 data ListNodeFromTemplateJobs = ListNodeFromTemplateJobs'
-  { -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of node from template jobs to return in one page of
+  { -- | The maximum number of node from template jobs to return in one page of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,29 +68,29 @@ data ListNodeFromTemplateJobs = ListNodeFromTemplateJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNodeFromTemplateJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'maxResults', 'listNodeFromTemplateJobs_maxResults' - The maximum number of node from template jobs to return in one page of
 -- results.
+--
+-- 'nextToken', 'listNodeFromTemplateJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newListNodeFromTemplateJobs ::
   ListNodeFromTemplateJobs
 newListNodeFromTemplateJobs =
   ListNodeFromTemplateJobs'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listNodeFromTemplateJobs_nextToken :: Lens.Lens' ListNodeFromTemplateJobs (Prelude.Maybe Prelude.Text)
-listNodeFromTemplateJobs_nextToken = Lens.lens (\ListNodeFromTemplateJobs' {nextToken} -> nextToken) (\s@ListNodeFromTemplateJobs' {} a -> s {nextToken = a} :: ListNodeFromTemplateJobs)
 
 -- | The maximum number of node from template jobs to return in one page of
 -- results.
 listNodeFromTemplateJobs_maxResults :: Lens.Lens' ListNodeFromTemplateJobs (Prelude.Maybe Prelude.Natural)
 listNodeFromTemplateJobs_maxResults = Lens.lens (\ListNodeFromTemplateJobs' {maxResults} -> maxResults) (\s@ListNodeFromTemplateJobs' {} a -> s {maxResults = a} :: ListNodeFromTemplateJobs)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listNodeFromTemplateJobs_nextToken :: Lens.Lens' ListNodeFromTemplateJobs (Prelude.Maybe Prelude.Text)
+listNodeFromTemplateJobs_nextToken = Lens.lens (\ListNodeFromTemplateJobs' {nextToken} -> nextToken) (\s@ListNodeFromTemplateJobs' {} a -> s {nextToken = a} :: ListNodeFromTemplateJobs)
 
 instance Core.AWSRequest ListNodeFromTemplateJobs where
   type
@@ -111,13 +111,13 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
 
 instance Prelude.Hashable ListNodeFromTemplateJobs where
   hashWithSalt _salt ListNodeFromTemplateJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNodeFromTemplateJobs where
   rnf ListNodeFromTemplateJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNodeFromTemplateJobs where
   toHeaders =
@@ -136,8 +136,8 @@ instance Data.ToPath ListNodeFromTemplateJobs where
 instance Data.ToQuery ListNodeFromTemplateJobs where
   toQuery ListNodeFromTemplateJobs' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListNodeFromTemplateJobsResponse' smart constructor.

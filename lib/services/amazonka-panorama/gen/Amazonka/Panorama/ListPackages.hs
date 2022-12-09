@@ -27,8 +27,8 @@ module Amazonka.Panorama.ListPackages
     newListPackages,
 
     -- * Request Lenses
-    listPackages_nextToken,
     listPackages_maxResults,
+    listPackages_nextToken,
 
     -- * Destructuring the Response
     ListPackagesResponse (..),
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackages' smart constructor.
 data ListPackages = ListPackages'
-  { -- | Specify the pagination token from a previous request to retrieve the
+  { -- | The maximum number of packages to return in one page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
     -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of packages to return in one page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListPackages = ListPackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPackages_maxResults' - The maximum number of packages to return in one page of results.
+--
 -- 'nextToken', 'listPackages_nextToken' - Specify the pagination token from a previous request to retrieve the
 -- next page of results.
---
--- 'maxResults', 'listPackages_maxResults' - The maximum number of packages to return in one page of results.
 newListPackages ::
   ListPackages
 newListPackages =
   ListPackages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of packages to return in one page of results.
+listPackages_maxResults :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Natural)
+listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) (\s@ListPackages' {} a -> s {maxResults = a} :: ListPackages)
 
 -- | Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 listPackages_nextToken :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_nextToken = Lens.lens (\ListPackages' {nextToken} -> nextToken) (\s@ListPackages' {} a -> s {nextToken = a} :: ListPackages)
-
--- | The maximum number of packages to return in one page of results.
-listPackages_maxResults :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Natural)
-listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) (\s@ListPackages' {} a -> s {maxResults = a} :: ListPackages)
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
@@ -103,13 +103,13 @@ instance Core.AWSRequest ListPackages where
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPackages where
   rnf ListPackages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackages where
   toHeaders =
@@ -128,8 +128,8 @@ instance Data.ToPath ListPackages where
 instance Data.ToQuery ListPackages where
   toQuery ListPackages' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPackagesResponse' smart constructor.

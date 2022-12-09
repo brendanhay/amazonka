@@ -34,14 +34,14 @@ data PackageImportJob = PackageImportJob'
     createdTime :: Prelude.Maybe Data.POSIX,
     -- | The job\'s ID.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The job\'s status.
-    status :: Prelude.Maybe PackageImportJobStatus,
+    -- | The job\'s type.
+    jobType :: Prelude.Maybe PackageImportJobType,
     -- | When the job was updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The job\'s status.
+    status :: Prelude.Maybe PackageImportJobStatus,
     -- | The job\'s status message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The job\'s type.
-    jobType :: Prelude.Maybe PackageImportJobType
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,23 +57,23 @@ data PackageImportJob = PackageImportJob'
 --
 -- 'jobId', 'packageImportJob_jobId' - The job\'s ID.
 --
--- 'status', 'packageImportJob_status' - The job\'s status.
+-- 'jobType', 'packageImportJob_jobType' - The job\'s type.
 --
 -- 'lastUpdatedTime', 'packageImportJob_lastUpdatedTime' - When the job was updated.
 --
--- 'statusMessage', 'packageImportJob_statusMessage' - The job\'s status message.
+-- 'status', 'packageImportJob_status' - The job\'s status.
 --
--- 'jobType', 'packageImportJob_jobType' - The job\'s type.
+-- 'statusMessage', 'packageImportJob_statusMessage' - The job\'s status message.
 newPackageImportJob ::
   PackageImportJob
 newPackageImportJob =
   PackageImportJob'
     { createdTime = Prelude.Nothing,
       jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
+      jobType = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      jobType = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
 
 -- | When the job was created.
@@ -84,21 +84,21 @@ packageImportJob_createdTime = Lens.lens (\PackageImportJob' {createdTime} -> cr
 packageImportJob_jobId :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.Text)
 packageImportJob_jobId = Lens.lens (\PackageImportJob' {jobId} -> jobId) (\s@PackageImportJob' {} a -> s {jobId = a} :: PackageImportJob)
 
--- | The job\'s status.
-packageImportJob_status :: Lens.Lens' PackageImportJob (Prelude.Maybe PackageImportJobStatus)
-packageImportJob_status = Lens.lens (\PackageImportJob' {status} -> status) (\s@PackageImportJob' {} a -> s {status = a} :: PackageImportJob)
+-- | The job\'s type.
+packageImportJob_jobType :: Lens.Lens' PackageImportJob (Prelude.Maybe PackageImportJobType)
+packageImportJob_jobType = Lens.lens (\PackageImportJob' {jobType} -> jobType) (\s@PackageImportJob' {} a -> s {jobType = a} :: PackageImportJob)
 
 -- | When the job was updated.
 packageImportJob_lastUpdatedTime :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.UTCTime)
 packageImportJob_lastUpdatedTime = Lens.lens (\PackageImportJob' {lastUpdatedTime} -> lastUpdatedTime) (\s@PackageImportJob' {} a -> s {lastUpdatedTime = a} :: PackageImportJob) Prelude.. Lens.mapping Data._Time
 
+-- | The job\'s status.
+packageImportJob_status :: Lens.Lens' PackageImportJob (Prelude.Maybe PackageImportJobStatus)
+packageImportJob_status = Lens.lens (\PackageImportJob' {status} -> status) (\s@PackageImportJob' {} a -> s {status = a} :: PackageImportJob)
+
 -- | The job\'s status message.
 packageImportJob_statusMessage :: Lens.Lens' PackageImportJob (Prelude.Maybe Prelude.Text)
 packageImportJob_statusMessage = Lens.lens (\PackageImportJob' {statusMessage} -> statusMessage) (\s@PackageImportJob' {} a -> s {statusMessage = a} :: PackageImportJob)
-
--- | The job\'s type.
-packageImportJob_jobType :: Lens.Lens' PackageImportJob (Prelude.Maybe PackageImportJobType)
-packageImportJob_jobType = Lens.lens (\PackageImportJob' {jobType} -> jobType) (\s@PackageImportJob' {} a -> s {jobType = a} :: PackageImportJob)
 
 instance Data.FromJSON PackageImportJob where
   parseJSON =
@@ -108,26 +108,26 @@ instance Data.FromJSON PackageImportJob where
           PackageImportJob'
             Prelude.<$> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "JobId")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..:? "JobType")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable PackageImportJob where
   hashWithSalt _salt PackageImportJob' {..} =
     _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData PackageImportJob where
   rnf PackageImportJob' {..} =
     Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage

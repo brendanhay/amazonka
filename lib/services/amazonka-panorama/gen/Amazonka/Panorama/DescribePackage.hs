@@ -34,8 +34,8 @@ module Amazonka.Panorama.DescribePackage
     newDescribePackageResponse,
 
     -- * Response Lenses
-    describePackageResponse_writeAccessPrincipalArns,
     describePackageResponse_readAccessPrincipalArns,
+    describePackageResponse_writeAccessPrincipalArns,
     describePackageResponse_httpStatus,
     describePackageResponse_arn,
     describePackageResponse_createdTime,
@@ -91,10 +91,10 @@ instance Core.AWSRequest DescribePackage where
     Response.receiveJSON
       ( \s h x ->
           DescribePackageResponse'
-            Prelude.<$> ( x Data..?> "WriteAccessPrincipalArns"
+            Prelude.<$> ( x Data..?> "ReadAccessPrincipalArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReadAccessPrincipalArns"
+            Prelude.<*> ( x Data..?> "WriteAccessPrincipalArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,10 +134,10 @@ instance Data.ToQuery DescribePackage where
 
 -- | /See:/ 'newDescribePackageResponse' smart constructor.
 data DescribePackageResponse = DescribePackageResponse'
-  { -- | ARNs of accounts that have write access to the package.
-    writeAccessPrincipalArns :: Prelude.Maybe [Prelude.Text],
-    -- | ARNs of accounts that have read access to the package.
+  { -- | ARNs of accounts that have read access to the package.
     readAccessPrincipalArns :: Prelude.Maybe [Prelude.Text],
+    -- | ARNs of accounts that have write access to the package.
+    writeAccessPrincipalArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The package\'s ARN.
@@ -163,9 +163,9 @@ data DescribePackageResponse = DescribePackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'writeAccessPrincipalArns', 'describePackageResponse_writeAccessPrincipalArns' - ARNs of accounts that have write access to the package.
---
 -- 'readAccessPrincipalArns', 'describePackageResponse_readAccessPrincipalArns' - ARNs of accounts that have read access to the package.
+--
+-- 'writeAccessPrincipalArns', 'describePackageResponse_writeAccessPrincipalArns' - ARNs of accounts that have write access to the package.
 --
 -- 'httpStatus', 'describePackageResponse_httpStatus' - The response's http status code.
 --
@@ -202,9 +202,9 @@ newDescribePackageResponse
   pPackageName_
   pStorageLocation_ =
     DescribePackageResponse'
-      { writeAccessPrincipalArns =
+      { readAccessPrincipalArns =
           Prelude.Nothing,
-        readAccessPrincipalArns = Prelude.Nothing,
+        writeAccessPrincipalArns = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         arn = pArn_,
         createdTime = Data._Time Lens.# pCreatedTime_,
@@ -214,13 +214,13 @@ newDescribePackageResponse
         tags = Prelude.mempty
       }
 
--- | ARNs of accounts that have write access to the package.
-describePackageResponse_writeAccessPrincipalArns :: Lens.Lens' DescribePackageResponse (Prelude.Maybe [Prelude.Text])
-describePackageResponse_writeAccessPrincipalArns = Lens.lens (\DescribePackageResponse' {writeAccessPrincipalArns} -> writeAccessPrincipalArns) (\s@DescribePackageResponse' {} a -> s {writeAccessPrincipalArns = a} :: DescribePackageResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | ARNs of accounts that have read access to the package.
 describePackageResponse_readAccessPrincipalArns :: Lens.Lens' DescribePackageResponse (Prelude.Maybe [Prelude.Text])
 describePackageResponse_readAccessPrincipalArns = Lens.lens (\DescribePackageResponse' {readAccessPrincipalArns} -> readAccessPrincipalArns) (\s@DescribePackageResponse' {} a -> s {readAccessPrincipalArns = a} :: DescribePackageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | ARNs of accounts that have write access to the package.
+describePackageResponse_writeAccessPrincipalArns :: Lens.Lens' DescribePackageResponse (Prelude.Maybe [Prelude.Text])
+describePackageResponse_writeAccessPrincipalArns = Lens.lens (\DescribePackageResponse' {writeAccessPrincipalArns} -> writeAccessPrincipalArns) (\s@DescribePackageResponse' {} a -> s {writeAccessPrincipalArns = a} :: DescribePackageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePackageResponse_httpStatus :: Lens.Lens' DescribePackageResponse Prelude.Int
@@ -252,8 +252,8 @@ describePackageResponse_tags = Lens.lens (\DescribePackageResponse' {tags} -> ta
 
 instance Prelude.NFData DescribePackageResponse where
   rnf DescribePackageResponse' {..} =
-    Prelude.rnf writeAccessPrincipalArns
-      `Prelude.seq` Prelude.rnf readAccessPrincipalArns
+    Prelude.rnf readAccessPrincipalArns
+      `Prelude.seq` Prelude.rnf writeAccessPrincipalArns
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime

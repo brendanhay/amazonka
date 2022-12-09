@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEthernetStatus' smart constructor.
 data EthernetStatus = EthernetStatus'
-  { -- | The device\'s physical address.
-    hwAddress :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s connection status.
+  { -- | The device\'s connection status.
     connectionStatus :: Prelude.Maybe NetworkConnectionStatus,
+    -- | The device\'s physical address.
+    hwAddress :: Prelude.Maybe Prelude.Text,
     -- | The device\'s IP address.
     ipAddress :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data EthernetStatus = EthernetStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hwAddress', 'ethernetStatus_hwAddress' - The device\'s physical address.
---
 -- 'connectionStatus', 'ethernetStatus_connectionStatus' - The device\'s connection status.
+--
+-- 'hwAddress', 'ethernetStatus_hwAddress' - The device\'s physical address.
 --
 -- 'ipAddress', 'ethernetStatus_ipAddress' - The device\'s IP address.
 newEthernetStatus ::
   EthernetStatus
 newEthernetStatus =
   EthernetStatus'
-    { hwAddress = Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
+    { connectionStatus = Prelude.Nothing,
+      hwAddress = Prelude.Nothing,
       ipAddress = Prelude.Nothing
     }
-
--- | The device\'s physical address.
-ethernetStatus_hwAddress :: Lens.Lens' EthernetStatus (Prelude.Maybe Prelude.Text)
-ethernetStatus_hwAddress = Lens.lens (\EthernetStatus' {hwAddress} -> hwAddress) (\s@EthernetStatus' {} a -> s {hwAddress = a} :: EthernetStatus)
 
 -- | The device\'s connection status.
 ethernetStatus_connectionStatus :: Lens.Lens' EthernetStatus (Prelude.Maybe NetworkConnectionStatus)
 ethernetStatus_connectionStatus = Lens.lens (\EthernetStatus' {connectionStatus} -> connectionStatus) (\s@EthernetStatus' {} a -> s {connectionStatus = a} :: EthernetStatus)
+
+-- | The device\'s physical address.
+ethernetStatus_hwAddress :: Lens.Lens' EthernetStatus (Prelude.Maybe Prelude.Text)
+ethernetStatus_hwAddress = Lens.lens (\EthernetStatus' {hwAddress} -> hwAddress) (\s@EthernetStatus' {} a -> s {hwAddress = a} :: EthernetStatus)
 
 -- | The device\'s IP address.
 ethernetStatus_ipAddress :: Lens.Lens' EthernetStatus (Prelude.Maybe Prelude.Text)
@@ -78,19 +78,19 @@ instance Data.FromJSON EthernetStatus where
       "EthernetStatus"
       ( \x ->
           EthernetStatus'
-            Prelude.<$> (x Data..:? "HwAddress")
-            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<$> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "HwAddress")
             Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable EthernetStatus where
   hashWithSalt _salt EthernetStatus' {..} =
-    _salt `Prelude.hashWithSalt` hwAddress
-      `Prelude.hashWithSalt` connectionStatus
+    _salt `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` hwAddress
       `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData EthernetStatus where
   rnf EthernetStatus' {..} =
-    Prelude.rnf hwAddress
-      `Prelude.seq` Prelude.rnf connectionStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf hwAddress
       `Prelude.seq` Prelude.rnf ipAddress

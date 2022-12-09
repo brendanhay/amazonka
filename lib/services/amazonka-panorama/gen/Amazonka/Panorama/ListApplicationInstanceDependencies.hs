@@ -27,8 +27,8 @@ module Amazonka.Panorama.ListApplicationInstanceDependencies
     newListApplicationInstanceDependencies,
 
     -- * Request Lenses
-    listApplicationInstanceDependencies_nextToken,
     listApplicationInstanceDependencies_maxResults,
+    listApplicationInstanceDependencies_nextToken,
     listApplicationInstanceDependencies_applicationInstanceId,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplicationInstanceDependencies' smart constructor.
 data ListApplicationInstanceDependencies = ListApplicationInstanceDependencies'
-  { -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of application instance dependencies to return in one
+  { -- | The maximum number of application instance dependencies to return in one
     -- page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The application instance\'s ID.
     applicationInstanceId :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data ListApplicationInstanceDependencies = ListApplicationInstanceDependencies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplicationInstanceDependencies_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'maxResults', 'listApplicationInstanceDependencies_maxResults' - The maximum number of application instance dependencies to return in one
 -- page of results.
+--
+-- 'nextToken', 'listApplicationInstanceDependencies_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 --
 -- 'applicationInstanceId', 'listApplicationInstanceDependencies_applicationInstanceId' - The application instance\'s ID.
 newListApplicationInstanceDependencies ::
@@ -85,22 +85,22 @@ newListApplicationInstanceDependencies ::
 newListApplicationInstanceDependencies
   pApplicationInstanceId_ =
     ListApplicationInstanceDependencies'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         applicationInstanceId =
           pApplicationInstanceId_
       }
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listApplicationInstanceDependencies_nextToken :: Lens.Lens' ListApplicationInstanceDependencies (Prelude.Maybe Prelude.Text)
-listApplicationInstanceDependencies_nextToken = Lens.lens (\ListApplicationInstanceDependencies' {nextToken} -> nextToken) (\s@ListApplicationInstanceDependencies' {} a -> s {nextToken = a} :: ListApplicationInstanceDependencies)
 
 -- | The maximum number of application instance dependencies to return in one
 -- page of results.
 listApplicationInstanceDependencies_maxResults :: Lens.Lens' ListApplicationInstanceDependencies (Prelude.Maybe Prelude.Natural)
 listApplicationInstanceDependencies_maxResults = Lens.lens (\ListApplicationInstanceDependencies' {maxResults} -> maxResults) (\s@ListApplicationInstanceDependencies' {} a -> s {maxResults = a} :: ListApplicationInstanceDependencies)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listApplicationInstanceDependencies_nextToken :: Lens.Lens' ListApplicationInstanceDependencies (Prelude.Maybe Prelude.Text)
+listApplicationInstanceDependencies_nextToken = Lens.lens (\ListApplicationInstanceDependencies' {nextToken} -> nextToken) (\s@ListApplicationInstanceDependencies' {} a -> s {nextToken = a} :: ListApplicationInstanceDependencies)
 
 -- | The application instance\'s ID.
 listApplicationInstanceDependencies_applicationInstanceId :: Lens.Lens' ListApplicationInstanceDependencies Prelude.Text
@@ -131,8 +131,8 @@ instance
   hashWithSalt
     _salt
     ListApplicationInstanceDependencies' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` applicationInstanceId
 
 instance
@@ -140,8 +140,8 @@ instance
     ListApplicationInstanceDependencies
   where
   rnf ListApplicationInstanceDependencies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationInstanceId
 
 instance
@@ -175,8 +175,8 @@ instance
   where
   toQuery ListApplicationInstanceDependencies' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApplicationInstanceDependenciesResponse' smart constructor.

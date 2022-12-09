@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScalingPlanResource' smart constructor.
 data ScalingPlanResource = ScalingPlanResource'
-  { -- | A simple message about the current scaling status of the resource.
-    scalingStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The scaling policies.
+  { -- | The scaling policies.
     scalingPolicies :: Prelude.Maybe [ScalingPolicy],
+    -- | A simple message about the current scaling status of the resource.
+    scalingStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling plan.
     scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan.
@@ -118,9 +118,9 @@ data ScalingPlanResource = ScalingPlanResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scalingStatusMessage', 'scalingPlanResource_scalingStatusMessage' - A simple message about the current scaling status of the resource.
---
 -- 'scalingPolicies', 'scalingPlanResource_scalingPolicies' - The scaling policies.
+--
+-- 'scalingStatusMessage', 'scalingPlanResource_scalingStatusMessage' - A simple message about the current scaling status of the resource.
 --
 -- 'scalingPlanName', 'scalingPlanResource_scalingPlanName' - The name of the scaling plan.
 --
@@ -214,9 +214,9 @@ newScalingPlanResource
   pScalableDimension_
   pScalingStatusCode_ =
     ScalingPlanResource'
-      { scalingStatusMessage =
+      { scalingPolicies =
           Prelude.Nothing,
-        scalingPolicies = Prelude.Nothing,
+        scalingStatusMessage = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
         serviceNamespace = pServiceNamespace_,
@@ -225,13 +225,13 @@ newScalingPlanResource
         scalingStatusCode = pScalingStatusCode_
       }
 
--- | A simple message about the current scaling status of the resource.
-scalingPlanResource_scalingStatusMessage :: Lens.Lens' ScalingPlanResource (Prelude.Maybe Prelude.Text)
-scalingPlanResource_scalingStatusMessage = Lens.lens (\ScalingPlanResource' {scalingStatusMessage} -> scalingStatusMessage) (\s@ScalingPlanResource' {} a -> s {scalingStatusMessage = a} :: ScalingPlanResource)
-
 -- | The scaling policies.
 scalingPlanResource_scalingPolicies :: Lens.Lens' ScalingPlanResource (Prelude.Maybe [ScalingPolicy])
 scalingPlanResource_scalingPolicies = Lens.lens (\ScalingPlanResource' {scalingPolicies} -> scalingPolicies) (\s@ScalingPlanResource' {} a -> s {scalingPolicies = a} :: ScalingPlanResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | A simple message about the current scaling status of the resource.
+scalingPlanResource_scalingStatusMessage :: Lens.Lens' ScalingPlanResource (Prelude.Maybe Prelude.Text)
+scalingPlanResource_scalingStatusMessage = Lens.lens (\ScalingPlanResource' {scalingStatusMessage} -> scalingStatusMessage) (\s@ScalingPlanResource' {} a -> s {scalingStatusMessage = a} :: ScalingPlanResource)
 
 -- | The name of the scaling plan.
 scalingPlanResource_scalingPlanName :: Lens.Lens' ScalingPlanResource Prelude.Text
@@ -322,10 +322,10 @@ instance Data.FromJSON ScalingPlanResource where
       "ScalingPlanResource"
       ( \x ->
           ScalingPlanResource'
-            Prelude.<$> (x Data..:? "ScalingStatusMessage")
-            Prelude.<*> ( x Data..:? "ScalingPolicies"
+            Prelude.<$> ( x Data..:? "ScalingPolicies"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ScalingStatusMessage")
             Prelude.<*> (x Data..: "ScalingPlanName")
             Prelude.<*> (x Data..: "ScalingPlanVersion")
             Prelude.<*> (x Data..: "ServiceNamespace")
@@ -336,8 +336,8 @@ instance Data.FromJSON ScalingPlanResource where
 
 instance Prelude.Hashable ScalingPlanResource where
   hashWithSalt _salt ScalingPlanResource' {..} =
-    _salt `Prelude.hashWithSalt` scalingStatusMessage
-      `Prelude.hashWithSalt` scalingPolicies
+    _salt `Prelude.hashWithSalt` scalingPolicies
+      `Prelude.hashWithSalt` scalingStatusMessage
       `Prelude.hashWithSalt` scalingPlanName
       `Prelude.hashWithSalt` scalingPlanVersion
       `Prelude.hashWithSalt` serviceNamespace
@@ -347,8 +347,8 @@ instance Prelude.Hashable ScalingPlanResource where
 
 instance Prelude.NFData ScalingPlanResource where
   rnf ScalingPlanResource' {..} =
-    Prelude.rnf scalingStatusMessage
-      `Prelude.seq` Prelude.rnf scalingPolicies
+    Prelude.rnf scalingPolicies
+      `Prelude.seq` Prelude.rnf scalingStatusMessage
       `Prelude.seq` Prelude.rnf scalingPlanName
       `Prelude.seq` Prelude.rnf scalingPlanVersion
       `Prelude.seq` Prelude.rnf serviceNamespace

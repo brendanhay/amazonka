@@ -29,8 +29,8 @@ module Amazonka.AMP.Lens
     createLoggingConfigurationResponse_status,
 
     -- ** CreateRuleGroupsNamespace
-    createRuleGroupsNamespace_tags,
     createRuleGroupsNamespace_clientToken,
+    createRuleGroupsNamespace_tags,
     createRuleGroupsNamespace_data,
     createRuleGroupsNamespace_name,
     createRuleGroupsNamespace_workspaceId,
@@ -42,8 +42,8 @@ module Amazonka.AMP.Lens
 
     -- ** CreateWorkspace
     createWorkspace_alias,
-    createWorkspace_tags,
     createWorkspace_clientToken,
+    createWorkspace_tags,
     createWorkspaceResponse_tags,
     createWorkspaceResponse_httpStatus,
     createWorkspaceResponse_arn,
@@ -89,9 +89,9 @@ module Amazonka.AMP.Lens
     describeWorkspaceResponse_workspace,
 
     -- ** ListRuleGroupsNamespaces
+    listRuleGroupsNamespaces_maxResults,
     listRuleGroupsNamespaces_name,
     listRuleGroupsNamespaces_nextToken,
-    listRuleGroupsNamespaces_maxResults,
     listRuleGroupsNamespaces_workspaceId,
     listRuleGroupsNamespacesResponse_nextToken,
     listRuleGroupsNamespacesResponse_httpStatus,
@@ -104,8 +104,8 @@ module Amazonka.AMP.Lens
 
     -- ** ListWorkspaces
     listWorkspaces_alias,
-    listWorkspaces_nextToken,
     listWorkspaces_maxResults,
+    listWorkspaces_nextToken,
     listWorkspacesResponse_nextToken,
     listWorkspacesResponse_httpStatus,
     listWorkspacesResponse_workspaces,
@@ -196,8 +196,8 @@ module Amazonka.AMP.Lens
 
     -- ** WorkspaceDescription
     workspaceDescription_alias,
-    workspaceDescription_tags,
     workspaceDescription_prometheusEndpoint,
+    workspaceDescription_tags,
     workspaceDescription_arn,
     workspaceDescription_createdAt,
     workspaceDescription_status,

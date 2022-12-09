@@ -28,8 +28,8 @@ module Amazonka.AMP.CreateWorkspace
 
     -- * Request Lenses
     createWorkspace_alias,
-    createWorkspace_tags,
     createWorkspace_clientToken,
+    createWorkspace_tags,
 
     -- * Destructuring the Response
     CreateWorkspaceResponse (..),
@@ -59,11 +59,11 @@ data CreateWorkspace = CreateWorkspace'
   { -- | An optional user-assigned alias for this workspace. This alias is for
     -- user reference and does not need to be unique.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | Optional, user-provided tags for this workspace.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Maybe Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional, user-provided tags for this workspace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,17 +78,17 @@ data CreateWorkspace = CreateWorkspace'
 -- 'alias', 'createWorkspace_alias' - An optional user-assigned alias for this workspace. This alias is for
 -- user reference and does not need to be unique.
 --
--- 'tags', 'createWorkspace_tags' - Optional, user-provided tags for this workspace.
---
 -- 'clientToken', 'createWorkspace_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
+--
+-- 'tags', 'createWorkspace_tags' - Optional, user-provided tags for this workspace.
 newCreateWorkspace ::
   CreateWorkspace
 newCreateWorkspace =
   CreateWorkspace'
     { alias = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing
+      clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | An optional user-assigned alias for this workspace. This alias is for
@@ -96,14 +96,14 @@ newCreateWorkspace =
 createWorkspace_alias :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_alias = Lens.lens (\CreateWorkspace' {alias} -> alias) (\s@CreateWorkspace' {} a -> s {alias = a} :: CreateWorkspace)
 
--- | Optional, user-provided tags for this workspace.
-createWorkspace_tags :: Lens.Lens' CreateWorkspace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWorkspace' {} a -> s {tags = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
-
 -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
 createWorkspace_clientToken :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_clientToken = Lens.lens (\CreateWorkspace' {clientToken} -> clientToken) (\s@CreateWorkspace' {} a -> s {clientToken = a} :: CreateWorkspace)
+
+-- | Optional, user-provided tags for this workspace.
+createWorkspace_tags :: Lens.Lens' CreateWorkspace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWorkspace' {} a -> s {tags = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateWorkspace where
   type
@@ -125,14 +125,14 @@ instance Core.AWSRequest CreateWorkspace where
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateWorkspace where
   toHeaders =
@@ -150,8 +150,8 @@ instance Data.ToJSON CreateWorkspace where
     Data.object
       ( Prelude.catMaybes
           [ ("alias" Data..=) Prelude.<$> alias,
-            ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCellInput' smart constructor.
 data CellInput = CellInput'
-  { -- | A list representing the values that are entered into a ROWSET cell.
+  { -- | Fact represents the data that is entered into a cell. This data can be
+    -- free text or a formula. Formulas need to start with the equals (=) sign.
+    fact :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A list representing the values that are entered into a ROWSET cell.
     -- Facts list can have either only values or rowIDs, and rowIDs should from
     -- the same table.
-    facts :: Prelude.Maybe [Data.Sensitive Prelude.Text],
-    -- | Fact represents the data that is entered into a cell. This data can be
-    -- free text or a formula. Formulas need to start with the equals (=) sign.
-    fact :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    facts :: Prelude.Maybe [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,19 +50,24 @@ data CellInput = CellInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fact', 'cellInput_fact' - Fact represents the data that is entered into a cell. This data can be
+-- free text or a formula. Formulas need to start with the equals (=) sign.
+--
 -- 'facts', 'cellInput_facts' - A list representing the values that are entered into a ROWSET cell.
 -- Facts list can have either only values or rowIDs, and rowIDs should from
 -- the same table.
---
--- 'fact', 'cellInput_fact' - Fact represents the data that is entered into a cell. This data can be
--- free text or a formula. Formulas need to start with the equals (=) sign.
 newCellInput ::
   CellInput
 newCellInput =
   CellInput'
-    { facts = Prelude.Nothing,
-      fact = Prelude.Nothing
+    { fact = Prelude.Nothing,
+      facts = Prelude.Nothing
     }
+
+-- | Fact represents the data that is entered into a cell. This data can be
+-- free text or a formula. Formulas need to start with the equals (=) sign.
+cellInput_fact :: Lens.Lens' CellInput (Prelude.Maybe Prelude.Text)
+cellInput_fact = Lens.lens (\CellInput' {fact} -> fact) (\s@CellInput' {} a -> s {fact = a} :: CellInput) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list representing the values that are entered into a ROWSET cell.
 -- Facts list can have either only values or rowIDs, and rowIDs should from
@@ -70,25 +75,20 @@ newCellInput =
 cellInput_facts :: Lens.Lens' CellInput (Prelude.Maybe [Prelude.Text])
 cellInput_facts = Lens.lens (\CellInput' {facts} -> facts) (\s@CellInput' {} a -> s {facts = a} :: CellInput) Prelude.. Lens.mapping Lens.coerced
 
--- | Fact represents the data that is entered into a cell. This data can be
--- free text or a formula. Formulas need to start with the equals (=) sign.
-cellInput_fact :: Lens.Lens' CellInput (Prelude.Maybe Prelude.Text)
-cellInput_fact = Lens.lens (\CellInput' {fact} -> fact) (\s@CellInput' {} a -> s {fact = a} :: CellInput) Prelude.. Lens.mapping Data._Sensitive
-
 instance Prelude.Hashable CellInput where
   hashWithSalt _salt CellInput' {..} =
-    _salt `Prelude.hashWithSalt` facts
-      `Prelude.hashWithSalt` fact
+    _salt `Prelude.hashWithSalt` fact
+      `Prelude.hashWithSalt` facts
 
 instance Prelude.NFData CellInput where
   rnf CellInput' {..} =
-    Prelude.rnf facts `Prelude.seq` Prelude.rnf fact
+    Prelude.rnf fact `Prelude.seq` Prelude.rnf facts
 
 instance Data.ToJSON CellInput where
   toJSON CellInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("facts" Data..=) Prelude.<$> facts,
-            ("fact" Data..=) Prelude.<$> fact
+          [ ("fact" Data..=) Prelude.<$> fact,
+            ("facts" Data..=) Prelude.<$> facts
           ]
       )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTable' smart constructor.
 data Table = Table'
-  { -- | The name of the table.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | The id of the table.
-    tableId :: Prelude.Maybe Prelude.Text
+  { -- | The id of the table.
+    tableId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the table.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Table = Table'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'table_tableName' - The name of the table.
---
 -- 'tableId', 'table_tableId' - The id of the table.
+--
+-- 'tableName', 'table_tableName' - The name of the table.
 newTable ::
   Table
 newTable =
   Table'
-    { tableName = Prelude.Nothing,
-      tableId = Prelude.Nothing
+    { tableId = Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
-
--- | The name of the table.
-table_tableName :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
-table_tableName = Lens.lens (\Table' {tableName} -> tableName) (\s@Table' {} a -> s {tableName = a} :: Table)
 
 -- | The id of the table.
 table_tableId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_tableId = Lens.lens (\Table' {tableId} -> tableId) (\s@Table' {} a -> s {tableId = a} :: Table)
+
+-- | The name of the table.
+table_tableName :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_tableName = Lens.lens (\Table' {tableName} -> tableName) (\s@Table' {} a -> s {tableName = a} :: Table)
 
 instance Data.FromJSON Table where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON Table where
       "Table"
       ( \x ->
           Table'
-            Prelude.<$> (x Data..:? "tableName")
-            Prelude.<*> (x Data..:? "tableId")
+            Prelude.<$> (x Data..:? "tableId")
+            Prelude.<*> (x Data..:? "tableName")
       )
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` tableId
+    _salt `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Table where
   rnf Table' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableId
+    Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf tableName

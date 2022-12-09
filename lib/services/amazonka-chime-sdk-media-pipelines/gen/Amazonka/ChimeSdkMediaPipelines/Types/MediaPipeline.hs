@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaPipeline' smart constructor.
 data MediaPipeline = MediaPipeline'
-  { -- | The media concatenation pipeline in a media pipeline.
-    mediaConcatenationPipeline :: Prelude.Maybe MediaConcatenationPipeline,
-    -- | A pipeline that enables users to capture audio and video.
+  { -- | A pipeline that enables users to capture audio and video.
     mediaCapturePipeline :: Prelude.Maybe MediaCapturePipeline,
+    -- | The media concatenation pipeline in a media pipeline.
+    mediaConcatenationPipeline :: Prelude.Maybe MediaConcatenationPipeline,
     -- | The connector pipeline of the media pipeline.
     mediaLiveConnectorPipeline :: Prelude.Maybe MediaLiveConnectorPipeline
   }
@@ -49,28 +49,28 @@ data MediaPipeline = MediaPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mediaConcatenationPipeline', 'mediaPipeline_mediaConcatenationPipeline' - The media concatenation pipeline in a media pipeline.
---
 -- 'mediaCapturePipeline', 'mediaPipeline_mediaCapturePipeline' - A pipeline that enables users to capture audio and video.
+--
+-- 'mediaConcatenationPipeline', 'mediaPipeline_mediaConcatenationPipeline' - The media concatenation pipeline in a media pipeline.
 --
 -- 'mediaLiveConnectorPipeline', 'mediaPipeline_mediaLiveConnectorPipeline' - The connector pipeline of the media pipeline.
 newMediaPipeline ::
   MediaPipeline
 newMediaPipeline =
   MediaPipeline'
-    { mediaConcatenationPipeline =
+    { mediaCapturePipeline =
         Prelude.Nothing,
-      mediaCapturePipeline = Prelude.Nothing,
+      mediaConcatenationPipeline = Prelude.Nothing,
       mediaLiveConnectorPipeline = Prelude.Nothing
     }
-
--- | The media concatenation pipeline in a media pipeline.
-mediaPipeline_mediaConcatenationPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaConcatenationPipeline)
-mediaPipeline_mediaConcatenationPipeline = Lens.lens (\MediaPipeline' {mediaConcatenationPipeline} -> mediaConcatenationPipeline) (\s@MediaPipeline' {} a -> s {mediaConcatenationPipeline = a} :: MediaPipeline)
 
 -- | A pipeline that enables users to capture audio and video.
 mediaPipeline_mediaCapturePipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaCapturePipeline)
 mediaPipeline_mediaCapturePipeline = Lens.lens (\MediaPipeline' {mediaCapturePipeline} -> mediaCapturePipeline) (\s@MediaPipeline' {} a -> s {mediaCapturePipeline = a} :: MediaPipeline)
+
+-- | The media concatenation pipeline in a media pipeline.
+mediaPipeline_mediaConcatenationPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaConcatenationPipeline)
+mediaPipeline_mediaConcatenationPipeline = Lens.lens (\MediaPipeline' {mediaConcatenationPipeline} -> mediaConcatenationPipeline) (\s@MediaPipeline' {} a -> s {mediaConcatenationPipeline = a} :: MediaPipeline)
 
 -- | The connector pipeline of the media pipeline.
 mediaPipeline_mediaLiveConnectorPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaLiveConnectorPipeline)
@@ -82,20 +82,19 @@ instance Data.FromJSON MediaPipeline where
       "MediaPipeline"
       ( \x ->
           MediaPipeline'
-            Prelude.<$> (x Data..:? "MediaConcatenationPipeline")
-            Prelude.<*> (x Data..:? "MediaCapturePipeline")
+            Prelude.<$> (x Data..:? "MediaCapturePipeline")
+            Prelude.<*> (x Data..:? "MediaConcatenationPipeline")
             Prelude.<*> (x Data..:? "MediaLiveConnectorPipeline")
       )
 
 instance Prelude.Hashable MediaPipeline where
   hashWithSalt _salt MediaPipeline' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` mediaCapturePipeline
       `Prelude.hashWithSalt` mediaConcatenationPipeline
-      `Prelude.hashWithSalt` mediaCapturePipeline
       `Prelude.hashWithSalt` mediaLiveConnectorPipeline
 
 instance Prelude.NFData MediaPipeline where
   rnf MediaPipeline' {..} =
-    Prelude.rnf mediaConcatenationPipeline
-      `Prelude.seq` Prelude.rnf mediaCapturePipeline
+    Prelude.rnf mediaCapturePipeline
+      `Prelude.seq` Prelude.rnf mediaConcatenationPipeline
       `Prelude.seq` Prelude.rnf mediaLiveConnectorPipeline

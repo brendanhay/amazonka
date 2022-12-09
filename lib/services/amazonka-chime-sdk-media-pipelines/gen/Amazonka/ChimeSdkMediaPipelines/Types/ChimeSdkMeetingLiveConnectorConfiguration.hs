@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChimeSdkMeetingLiveConnectorConfiguration' smart constructor.
 data ChimeSdkMeetingLiveConnectorConfiguration = ChimeSdkMeetingLiveConnectorConfiguration'
-  { -- | The source configuration settings of the media pipeline\'s configuration
+  { -- | The media pipeline\'s composited video.
+    compositedVideo :: Prelude.Maybe CompositedVideoArtifactsConfiguration,
+    -- | The source configuration settings of the media pipeline\'s configuration
     -- object.
     sourceConfiguration :: Prelude.Maybe SourceConfiguration,
-    -- | The media pipeline\'s composited video.
-    compositedVideo :: Prelude.Maybe CompositedVideoArtifactsConfiguration,
     -- | The configuration object\'s Chime SDK meeting ARN.
     arn :: Data.Sensitive Prelude.Text,
     -- | The configuration object\'s multiplex type.
@@ -51,10 +51,10 @@ data ChimeSdkMeetingLiveConnectorConfiguration = ChimeSdkMeetingLiveConnectorCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'compositedVideo', 'chimeSdkMeetingLiveConnectorConfiguration_compositedVideo' - The media pipeline\'s composited video.
+--
 -- 'sourceConfiguration', 'chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration' - The source configuration settings of the media pipeline\'s configuration
 -- object.
---
--- 'compositedVideo', 'chimeSdkMeetingLiveConnectorConfiguration_compositedVideo' - The media pipeline\'s composited video.
 --
 -- 'arn', 'chimeSdkMeetingLiveConnectorConfiguration_arn' - The configuration object\'s Chime SDK meeting ARN.
 --
@@ -69,23 +69,23 @@ newChimeSdkMeetingLiveConnectorConfiguration
   pArn_
   pMuxType_ =
     ChimeSdkMeetingLiveConnectorConfiguration'
-      { sourceConfiguration =
+      { compositedVideo =
           Prelude.Nothing,
-        compositedVideo =
+        sourceConfiguration =
           Prelude.Nothing,
         arn =
           Data._Sensitive Lens.# pArn_,
         muxType = pMuxType_
       }
 
+-- | The media pipeline\'s composited video.
+chimeSdkMeetingLiveConnectorConfiguration_compositedVideo :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration (Prelude.Maybe CompositedVideoArtifactsConfiguration)
+chimeSdkMeetingLiveConnectorConfiguration_compositedVideo = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {compositedVideo} -> compositedVideo) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {compositedVideo = a} :: ChimeSdkMeetingLiveConnectorConfiguration)
+
 -- | The source configuration settings of the media pipeline\'s configuration
 -- object.
 chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration (Prelude.Maybe SourceConfiguration)
 chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {sourceConfiguration} -> sourceConfiguration) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {sourceConfiguration = a} :: ChimeSdkMeetingLiveConnectorConfiguration)
-
--- | The media pipeline\'s composited video.
-chimeSdkMeetingLiveConnectorConfiguration_compositedVideo :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration (Prelude.Maybe CompositedVideoArtifactsConfiguration)
-chimeSdkMeetingLiveConnectorConfiguration_compositedVideo = Lens.lens (\ChimeSdkMeetingLiveConnectorConfiguration' {compositedVideo} -> compositedVideo) (\s@ChimeSdkMeetingLiveConnectorConfiguration' {} a -> s {compositedVideo = a} :: ChimeSdkMeetingLiveConnectorConfiguration)
 
 -- | The configuration object\'s Chime SDK meeting ARN.
 chimeSdkMeetingLiveConnectorConfiguration_arn :: Lens.Lens' ChimeSdkMeetingLiveConnectorConfiguration Prelude.Text
@@ -104,8 +104,8 @@ instance
       "ChimeSdkMeetingLiveConnectorConfiguration"
       ( \x ->
           ChimeSdkMeetingLiveConnectorConfiguration'
-            Prelude.<$> (x Data..:? "SourceConfiguration")
-              Prelude.<*> (x Data..:? "CompositedVideo")
+            Prelude.<$> (x Data..:? "CompositedVideo")
+              Prelude.<*> (x Data..:? "SourceConfiguration")
               Prelude.<*> (x Data..: "Arn")
               Prelude.<*> (x Data..: "MuxType")
       )
@@ -117,8 +117,8 @@ instance
   hashWithSalt
     _salt
     ChimeSdkMeetingLiveConnectorConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sourceConfiguration
-        `Prelude.hashWithSalt` compositedVideo
+      _salt `Prelude.hashWithSalt` compositedVideo
+        `Prelude.hashWithSalt` sourceConfiguration
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` muxType
 
@@ -127,8 +127,8 @@ instance
     ChimeSdkMeetingLiveConnectorConfiguration
   where
   rnf ChimeSdkMeetingLiveConnectorConfiguration' {..} =
-    Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf compositedVideo
+    Prelude.rnf compositedVideo
+      `Prelude.seq` Prelude.rnf sourceConfiguration
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf muxType
 
@@ -139,10 +139,10 @@ instance
   toJSON ChimeSdkMeetingLiveConnectorConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourceConfiguration" Data..=)
-              Prelude.<$> sourceConfiguration,
-            ("CompositedVideo" Data..=)
+          [ ("CompositedVideo" Data..=)
               Prelude.<$> compositedVideo,
+            ("SourceConfiguration" Data..=)
+              Prelude.<$> sourceConfiguration,
             Prelude.Just ("Arn" Data..= arn),
             Prelude.Just ("MuxType" Data..= muxType)
           ]

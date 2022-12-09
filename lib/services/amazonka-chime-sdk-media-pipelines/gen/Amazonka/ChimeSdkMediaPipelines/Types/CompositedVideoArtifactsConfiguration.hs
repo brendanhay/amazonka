@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompositedVideoArtifactsConfiguration' smart constructor.
 data CompositedVideoArtifactsConfiguration = CompositedVideoArtifactsConfiguration'
-  { -- | The video resolution setting in the configuration object. Default: HD at
+  { -- | The layout setting, such as @GridView@ in the configuration object.
+    layout :: Prelude.Maybe LayoutOption,
+    -- | The video resolution setting in the configuration object. Default: HD at
     -- 1280 x 720. FHD resolution: 1920 x 1080.
     resolution :: Prelude.Maybe ResolutionOption,
-    -- | The layout setting, such as @GridView@ in the configuration object.
-    layout :: Prelude.Maybe LayoutOption,
     -- | The @GridView@ configuration setting.
     gridViewConfiguration :: GridViewConfiguration
   }
@@ -49,10 +49,10 @@ data CompositedVideoArtifactsConfiguration = CompositedVideoArtifactsConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'layout', 'compositedVideoArtifactsConfiguration_layout' - The layout setting, such as @GridView@ in the configuration object.
+--
 -- 'resolution', 'compositedVideoArtifactsConfiguration_resolution' - The video resolution setting in the configuration object. Default: HD at
 -- 1280 x 720. FHD resolution: 1920 x 1080.
---
--- 'layout', 'compositedVideoArtifactsConfiguration_layout' - The layout setting, such as @GridView@ in the configuration object.
 --
 -- 'gridViewConfiguration', 'compositedVideoArtifactsConfiguration_gridViewConfiguration' - The @GridView@ configuration setting.
 newCompositedVideoArtifactsConfiguration ::
@@ -62,21 +62,21 @@ newCompositedVideoArtifactsConfiguration ::
 newCompositedVideoArtifactsConfiguration
   pGridViewConfiguration_ =
     CompositedVideoArtifactsConfiguration'
-      { resolution =
+      { layout =
           Prelude.Nothing,
-        layout = Prelude.Nothing,
+        resolution = Prelude.Nothing,
         gridViewConfiguration =
           pGridViewConfiguration_
       }
+
+-- | The layout setting, such as @GridView@ in the configuration object.
+compositedVideoArtifactsConfiguration_layout :: Lens.Lens' CompositedVideoArtifactsConfiguration (Prelude.Maybe LayoutOption)
+compositedVideoArtifactsConfiguration_layout = Lens.lens (\CompositedVideoArtifactsConfiguration' {layout} -> layout) (\s@CompositedVideoArtifactsConfiguration' {} a -> s {layout = a} :: CompositedVideoArtifactsConfiguration)
 
 -- | The video resolution setting in the configuration object. Default: HD at
 -- 1280 x 720. FHD resolution: 1920 x 1080.
 compositedVideoArtifactsConfiguration_resolution :: Lens.Lens' CompositedVideoArtifactsConfiguration (Prelude.Maybe ResolutionOption)
 compositedVideoArtifactsConfiguration_resolution = Lens.lens (\CompositedVideoArtifactsConfiguration' {resolution} -> resolution) (\s@CompositedVideoArtifactsConfiguration' {} a -> s {resolution = a} :: CompositedVideoArtifactsConfiguration)
-
--- | The layout setting, such as @GridView@ in the configuration object.
-compositedVideoArtifactsConfiguration_layout :: Lens.Lens' CompositedVideoArtifactsConfiguration (Prelude.Maybe LayoutOption)
-compositedVideoArtifactsConfiguration_layout = Lens.lens (\CompositedVideoArtifactsConfiguration' {layout} -> layout) (\s@CompositedVideoArtifactsConfiguration' {} a -> s {layout = a} :: CompositedVideoArtifactsConfiguration)
 
 -- | The @GridView@ configuration setting.
 compositedVideoArtifactsConfiguration_gridViewConfiguration :: Lens.Lens' CompositedVideoArtifactsConfiguration GridViewConfiguration
@@ -91,8 +91,8 @@ instance
       "CompositedVideoArtifactsConfiguration"
       ( \x ->
           CompositedVideoArtifactsConfiguration'
-            Prelude.<$> (x Data..:? "Resolution")
-            Prelude.<*> (x Data..:? "Layout")
+            Prelude.<$> (x Data..:? "Layout")
+            Prelude.<*> (x Data..:? "Resolution")
             Prelude.<*> (x Data..: "GridViewConfiguration")
       )
 
@@ -103,8 +103,8 @@ instance
   hashWithSalt
     _salt
     CompositedVideoArtifactsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` resolution
-        `Prelude.hashWithSalt` layout
+      _salt `Prelude.hashWithSalt` layout
+        `Prelude.hashWithSalt` resolution
         `Prelude.hashWithSalt` gridViewConfiguration
 
 instance
@@ -112,8 +112,8 @@ instance
     CompositedVideoArtifactsConfiguration
   where
   rnf CompositedVideoArtifactsConfiguration' {..} =
-    Prelude.rnf resolution
-      `Prelude.seq` Prelude.rnf layout
+    Prelude.rnf layout
+      `Prelude.seq` Prelude.rnf resolution
       `Prelude.seq` Prelude.rnf gridViewConfiguration
 
 instance
@@ -123,8 +123,8 @@ instance
   toJSON CompositedVideoArtifactsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Resolution" Data..=) Prelude.<$> resolution,
-            ("Layout" Data..=) Prelude.<$> layout,
+          [ ("Layout" Data..=) Prelude.<$> layout,
+            ("Resolution" Data..=) Prelude.<$> resolution,
             Prelude.Just
               ( "GridViewConfiguration"
                   Data..= gridViewConfiguration

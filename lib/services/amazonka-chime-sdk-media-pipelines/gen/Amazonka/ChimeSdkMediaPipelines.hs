@@ -23,29 +23,29 @@ module Amazonka.ChimeSdkMediaPipelines
     -- * Errors
     -- $errors
 
-    -- ** ThrottledClientException
-    _ThrottledClientException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
-    -- ** UnauthorizedClientException
-    _UnauthorizedClientException,
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottledClientException
+    _ThrottledClientException,
+
+    -- ** UnauthorizedClientException
+    _UnauthorizedClientException,
 
     -- * Waiters
     -- $waiters

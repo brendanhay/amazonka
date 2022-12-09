@@ -33,29 +33,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaCapturePipeline' smart constructor.
 data MediaCapturePipeline = MediaCapturePipeline'
-  { -- | ARN of the source from which the media artifacts are saved.
-    sourceArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Destination type to which the media artifacts are saved. You must use an
-    -- S3 Bucket.
-    sinkType :: Prelude.Maybe MediaPipelineSinkType,
+  { -- | The configuration for a specified media pipeline. @SourceType@ must be
+    -- @ChimeSdkMeeting@.
+    chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
     -- | The time at which the pipeline was created, in ISO 8601 format.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the media capture pipeline
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the pipeline was updated, in ISO 8601 format.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The configuration for a specified media pipeline. @SourceType@ must be
-    -- @ChimeSdkMeeting@.
-    chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
-    -- | The status of the media pipeline.
-    status :: Prelude.Maybe MediaPipelineStatus,
-    -- | Source type from which media artifacts are saved. You must use
-    -- @ChimeMeeting@.
-    sourceType :: Prelude.Maybe MediaPipelineSourceType,
     -- | The ID of a media pipeline.
     mediaPipelineId :: Prelude.Maybe Prelude.Text,
     -- | ARN of the destination to which the media artifacts are saved.
-    sinkArn :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    sinkArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Destination type to which the media artifacts are saved. You must use an
+    -- S3 Bucket.
+    sinkType :: Prelude.Maybe MediaPipelineSinkType,
+    -- | ARN of the source from which the media artifacts are saved.
+    sourceArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Source type from which media artifacts are saved. You must use
+    -- @ChimeMeeting@.
+    sourceType :: Prelude.Maybe MediaPipelineSourceType,
+    -- | The status of the media pipeline.
+    status :: Prelude.Maybe MediaPipelineStatus,
+    -- | The time at which the pipeline was updated, in ISO 8601 format.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,52 +67,49 @@ data MediaCapturePipeline = MediaCapturePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArn', 'mediaCapturePipeline_sourceArn' - ARN of the source from which the media artifacts are saved.
---
--- 'sinkType', 'mediaCapturePipeline_sinkType' - Destination type to which the media artifacts are saved. You must use an
--- S3 Bucket.
+-- 'chimeSdkMeetingConfiguration', 'mediaCapturePipeline_chimeSdkMeetingConfiguration' - The configuration for a specified media pipeline. @SourceType@ must be
+-- @ChimeSdkMeeting@.
 --
 -- 'createdTimestamp', 'mediaCapturePipeline_createdTimestamp' - The time at which the pipeline was created, in ISO 8601 format.
 --
 -- 'mediaPipelineArn', 'mediaCapturePipeline_mediaPipelineArn' - The ARN of the media capture pipeline
 --
--- 'updatedTimestamp', 'mediaCapturePipeline_updatedTimestamp' - The time at which the pipeline was updated, in ISO 8601 format.
+-- 'mediaPipelineId', 'mediaCapturePipeline_mediaPipelineId' - The ID of a media pipeline.
 --
--- 'chimeSdkMeetingConfiguration', 'mediaCapturePipeline_chimeSdkMeetingConfiguration' - The configuration for a specified media pipeline. @SourceType@ must be
--- @ChimeSdkMeeting@.
+-- 'sinkArn', 'mediaCapturePipeline_sinkArn' - ARN of the destination to which the media artifacts are saved.
 --
--- 'status', 'mediaCapturePipeline_status' - The status of the media pipeline.
+-- 'sinkType', 'mediaCapturePipeline_sinkType' - Destination type to which the media artifacts are saved. You must use an
+-- S3 Bucket.
+--
+-- 'sourceArn', 'mediaCapturePipeline_sourceArn' - ARN of the source from which the media artifacts are saved.
 --
 -- 'sourceType', 'mediaCapturePipeline_sourceType' - Source type from which media artifacts are saved. You must use
 -- @ChimeMeeting@.
 --
--- 'mediaPipelineId', 'mediaCapturePipeline_mediaPipelineId' - The ID of a media pipeline.
+-- 'status', 'mediaCapturePipeline_status' - The status of the media pipeline.
 --
--- 'sinkArn', 'mediaCapturePipeline_sinkArn' - ARN of the destination to which the media artifacts are saved.
+-- 'updatedTimestamp', 'mediaCapturePipeline_updatedTimestamp' - The time at which the pipeline was updated, in ISO 8601 format.
 newMediaCapturePipeline ::
   MediaCapturePipeline
 newMediaCapturePipeline =
   MediaCapturePipeline'
-    { sourceArn = Prelude.Nothing,
-      sinkType = Prelude.Nothing,
+    { chimeSdkMeetingConfiguration =
+        Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       mediaPipelineArn = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      chimeSdkMeetingConfiguration = Prelude.Nothing,
-      status = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
       mediaPipelineId = Prelude.Nothing,
-      sinkArn = Prelude.Nothing
+      sinkArn = Prelude.Nothing,
+      sinkType = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
+      status = Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing
     }
 
--- | ARN of the source from which the media artifacts are saved.
-mediaCapturePipeline_sourceArn :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.Text)
-mediaCapturePipeline_sourceArn = Lens.lens (\MediaCapturePipeline' {sourceArn} -> sourceArn) (\s@MediaCapturePipeline' {} a -> s {sourceArn = a} :: MediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
-
--- | Destination type to which the media artifacts are saved. You must use an
--- S3 Bucket.
-mediaCapturePipeline_sinkType :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineSinkType)
-mediaCapturePipeline_sinkType = Lens.lens (\MediaCapturePipeline' {sinkType} -> sinkType) (\s@MediaCapturePipeline' {} a -> s {sinkType = a} :: MediaCapturePipeline)
+-- | The configuration for a specified media pipeline. @SourceType@ must be
+-- @ChimeSdkMeeting@.
+mediaCapturePipeline_chimeSdkMeetingConfiguration :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe ChimeSdkMeetingConfiguration)
+mediaCapturePipeline_chimeSdkMeetingConfiguration = Lens.lens (\MediaCapturePipeline' {chimeSdkMeetingConfiguration} -> chimeSdkMeetingConfiguration) (\s@MediaCapturePipeline' {} a -> s {chimeSdkMeetingConfiguration = a} :: MediaCapturePipeline)
 
 -- | The time at which the pipeline was created, in ISO 8601 format.
 mediaCapturePipeline_createdTimestamp :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.UTCTime)
@@ -122,24 +119,6 @@ mediaCapturePipeline_createdTimestamp = Lens.lens (\MediaCapturePipeline' {creat
 mediaCapturePipeline_mediaPipelineArn :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.Text)
 mediaCapturePipeline_mediaPipelineArn = Lens.lens (\MediaCapturePipeline' {mediaPipelineArn} -> mediaPipelineArn) (\s@MediaCapturePipeline' {} a -> s {mediaPipelineArn = a} :: MediaCapturePipeline)
 
--- | The time at which the pipeline was updated, in ISO 8601 format.
-mediaCapturePipeline_updatedTimestamp :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.UTCTime)
-mediaCapturePipeline_updatedTimestamp = Lens.lens (\MediaCapturePipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaCapturePipeline' {} a -> s {updatedTimestamp = a} :: MediaCapturePipeline) Prelude.. Lens.mapping Data._Time
-
--- | The configuration for a specified media pipeline. @SourceType@ must be
--- @ChimeSdkMeeting@.
-mediaCapturePipeline_chimeSdkMeetingConfiguration :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe ChimeSdkMeetingConfiguration)
-mediaCapturePipeline_chimeSdkMeetingConfiguration = Lens.lens (\MediaCapturePipeline' {chimeSdkMeetingConfiguration} -> chimeSdkMeetingConfiguration) (\s@MediaCapturePipeline' {} a -> s {chimeSdkMeetingConfiguration = a} :: MediaCapturePipeline)
-
--- | The status of the media pipeline.
-mediaCapturePipeline_status :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineStatus)
-mediaCapturePipeline_status = Lens.lens (\MediaCapturePipeline' {status} -> status) (\s@MediaCapturePipeline' {} a -> s {status = a} :: MediaCapturePipeline)
-
--- | Source type from which media artifacts are saved. You must use
--- @ChimeMeeting@.
-mediaCapturePipeline_sourceType :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineSourceType)
-mediaCapturePipeline_sourceType = Lens.lens (\MediaCapturePipeline' {sourceType} -> sourceType) (\s@MediaCapturePipeline' {} a -> s {sourceType = a} :: MediaCapturePipeline)
-
 -- | The ID of a media pipeline.
 mediaCapturePipeline_mediaPipelineId :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.Text)
 mediaCapturePipeline_mediaPipelineId = Lens.lens (\MediaCapturePipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaCapturePipeline' {} a -> s {mediaPipelineId = a} :: MediaCapturePipeline)
@@ -148,46 +127,69 @@ mediaCapturePipeline_mediaPipelineId = Lens.lens (\MediaCapturePipeline' {mediaP
 mediaCapturePipeline_sinkArn :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.Text)
 mediaCapturePipeline_sinkArn = Lens.lens (\MediaCapturePipeline' {sinkArn} -> sinkArn) (\s@MediaCapturePipeline' {} a -> s {sinkArn = a} :: MediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
 
+-- | Destination type to which the media artifacts are saved. You must use an
+-- S3 Bucket.
+mediaCapturePipeline_sinkType :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineSinkType)
+mediaCapturePipeline_sinkType = Lens.lens (\MediaCapturePipeline' {sinkType} -> sinkType) (\s@MediaCapturePipeline' {} a -> s {sinkType = a} :: MediaCapturePipeline)
+
+-- | ARN of the source from which the media artifacts are saved.
+mediaCapturePipeline_sourceArn :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.Text)
+mediaCapturePipeline_sourceArn = Lens.lens (\MediaCapturePipeline' {sourceArn} -> sourceArn) (\s@MediaCapturePipeline' {} a -> s {sourceArn = a} :: MediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Source type from which media artifacts are saved. You must use
+-- @ChimeMeeting@.
+mediaCapturePipeline_sourceType :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineSourceType)
+mediaCapturePipeline_sourceType = Lens.lens (\MediaCapturePipeline' {sourceType} -> sourceType) (\s@MediaCapturePipeline' {} a -> s {sourceType = a} :: MediaCapturePipeline)
+
+-- | The status of the media pipeline.
+mediaCapturePipeline_status :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe MediaPipelineStatus)
+mediaCapturePipeline_status = Lens.lens (\MediaCapturePipeline' {status} -> status) (\s@MediaCapturePipeline' {} a -> s {status = a} :: MediaCapturePipeline)
+
+-- | The time at which the pipeline was updated, in ISO 8601 format.
+mediaCapturePipeline_updatedTimestamp :: Lens.Lens' MediaCapturePipeline (Prelude.Maybe Prelude.UTCTime)
+mediaCapturePipeline_updatedTimestamp = Lens.lens (\MediaCapturePipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaCapturePipeline' {} a -> s {updatedTimestamp = a} :: MediaCapturePipeline) Prelude.. Lens.mapping Data._Time
+
 instance Data.FromJSON MediaCapturePipeline where
   parseJSON =
     Data.withObject
       "MediaCapturePipeline"
       ( \x ->
           MediaCapturePipeline'
-            Prelude.<$> (x Data..:? "SourceArn")
-            Prelude.<*> (x Data..:? "SinkType")
+            Prelude.<$> (x Data..:? "ChimeSdkMeetingConfiguration")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "MediaPipelineArn")
-            Prelude.<*> (x Data..:? "UpdatedTimestamp")
-            Prelude.<*> (x Data..:? "ChimeSdkMeetingConfiguration")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "SourceType")
             Prelude.<*> (x Data..:? "MediaPipelineId")
             Prelude.<*> (x Data..:? "SinkArn")
+            Prelude.<*> (x Data..:? "SinkType")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable MediaCapturePipeline where
   hashWithSalt _salt MediaCapturePipeline' {..} =
-    _salt `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` sinkType
+    _salt
+      `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
-      `Prelude.hashWithSalt` updatedTimestamp
-      `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` mediaPipelineId
       `Prelude.hashWithSalt` sinkArn
+      `Prelude.hashWithSalt` sinkType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updatedTimestamp
 
 instance Prelude.NFData MediaCapturePipeline where
   rnf MediaCapturePipeline' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sinkType
+    Prelude.rnf chimeSdkMeetingConfiguration
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf chimeSdkMeetingConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf mediaPipelineId
       `Prelude.seq` Prelude.rnf sinkArn
+      `Prelude.seq` Prelude.rnf sinkType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedTimestamp

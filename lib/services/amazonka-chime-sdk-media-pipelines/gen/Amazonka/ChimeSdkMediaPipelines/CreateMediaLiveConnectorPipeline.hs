@@ -27,8 +27,8 @@ module Amazonka.ChimeSdkMediaPipelines.CreateMediaLiveConnectorPipeline
     newCreateMediaLiveConnectorPipeline,
 
     -- * Request Lenses
-    createMediaLiveConnectorPipeline_tags,
     createMediaLiveConnectorPipeline_clientRequestToken,
+    createMediaLiveConnectorPipeline_tags,
     createMediaLiveConnectorPipeline_sources,
     createMediaLiveConnectorPipeline_sinks,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMediaLiveConnectorPipeline' smart constructor.
 data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
-  { -- | The tags associated with the media pipeline.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The token assigned to the client making the request.
+  { -- | The token assigned to the client making the request.
     clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tags associated with the media pipeline.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The media pipeline\'s data sources.
     sources :: Prelude.NonEmpty LiveConnectorSourceConfiguration,
     -- | The media pipeline\'s data sinks.
@@ -71,9 +71,9 @@ data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMediaLiveConnectorPipeline_tags' - The tags associated with the media pipeline.
---
 -- 'clientRequestToken', 'createMediaLiveConnectorPipeline_clientRequestToken' - The token assigned to the client making the request.
+--
+-- 'tags', 'createMediaLiveConnectorPipeline_tags' - The tags associated with the media pipeline.
 --
 -- 'sources', 'createMediaLiveConnectorPipeline_sources' - The media pipeline\'s data sources.
 --
@@ -86,20 +86,20 @@ newCreateMediaLiveConnectorPipeline ::
   CreateMediaLiveConnectorPipeline
 newCreateMediaLiveConnectorPipeline pSources_ pSinks_ =
   CreateMediaLiveConnectorPipeline'
-    { tags =
+    { clientRequestToken =
         Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       sources = Lens.coerced Lens.# pSources_,
       sinks = Lens.coerced Lens.# pSinks_
     }
 
--- | The tags associated with the media pipeline.
-createMediaLiveConnectorPipeline_tags :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
-createMediaLiveConnectorPipeline_tags = Lens.lens (\CreateMediaLiveConnectorPipeline' {tags} -> tags) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {tags = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token assigned to the client making the request.
 createMediaLiveConnectorPipeline_clientRequestToken :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
 createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The tags associated with the media pipeline.
+createMediaLiveConnectorPipeline_tags :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
+createMediaLiveConnectorPipeline_tags = Lens.lens (\CreateMediaLiveConnectorPipeline' {tags} -> tags) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {tags = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The media pipeline\'s data sources.
 createMediaLiveConnectorPipeline_sources :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.NonEmpty LiveConnectorSourceConfiguration)
@@ -133,8 +133,8 @@ instance
   hashWithSalt
     _salt
     CreateMediaLiveConnectorPipeline' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientRequestToken
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sources
         `Prelude.hashWithSalt` sinks
 
@@ -143,8 +143,8 @@ instance
     CreateMediaLiveConnectorPipeline
   where
   rnf CreateMediaLiveConnectorPipeline' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf sinks
 
@@ -158,9 +158,9 @@ instance Data.ToJSON CreateMediaLiveConnectorPipeline where
   toJSON CreateMediaLiveConnectorPipeline' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Sources" Data..= sources),
             Prelude.Just ("Sinks" Data..= sinks)
           ]

@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 data ImportFailureListItem = ImportFailureListItem'
   { -- | Provides the reason the import failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the import.
-    status :: Prelude.Maybe ImportFailureStatus,
+    -- | The type of import error.
+    errorType :: Prelude.Maybe Prelude.Text,
     -- | When the import was last updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The location of the failure in the S3 bucket.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The type of import error.
-    errorType :: Prelude.Maybe Prelude.Text
+    -- | The status of the import.
+    status :: Prelude.Maybe ImportFailureStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,32 +52,32 @@ data ImportFailureListItem = ImportFailureListItem'
 --
 -- 'errorMessage', 'importFailureListItem_errorMessage' - Provides the reason the import failed.
 --
--- 'status', 'importFailureListItem_status' - The status of the import.
+-- 'errorType', 'importFailureListItem_errorType' - The type of import error.
 --
 -- 'lastUpdatedTime', 'importFailureListItem_lastUpdatedTime' - When the import was last updated.
 --
 -- 'location', 'importFailureListItem_location' - The location of the failure in the S3 bucket.
 --
--- 'errorType', 'importFailureListItem_errorType' - The type of import error.
+-- 'status', 'importFailureListItem_status' - The status of the import.
 newImportFailureListItem ::
   ImportFailureListItem
 newImportFailureListItem =
   ImportFailureListItem'
     { errorMessage =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      errorType = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
       location = Prelude.Nothing,
-      errorType = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
 -- | Provides the reason the import failed.
 importFailureListItem_errorMessage :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
 importFailureListItem_errorMessage = Lens.lens (\ImportFailureListItem' {errorMessage} -> errorMessage) (\s@ImportFailureListItem' {} a -> s {errorMessage = a} :: ImportFailureListItem)
 
--- | The status of the import.
-importFailureListItem_status :: Lens.Lens' ImportFailureListItem (Prelude.Maybe ImportFailureStatus)
-importFailureListItem_status = Lens.lens (\ImportFailureListItem' {status} -> status) (\s@ImportFailureListItem' {} a -> s {status = a} :: ImportFailureListItem)
+-- | The type of import error.
+importFailureListItem_errorType :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
+importFailureListItem_errorType = Lens.lens (\ImportFailureListItem' {errorType} -> errorType) (\s@ImportFailureListItem' {} a -> s {errorType = a} :: ImportFailureListItem)
 
 -- | When the import was last updated.
 importFailureListItem_lastUpdatedTime :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.UTCTime)
@@ -87,9 +87,9 @@ importFailureListItem_lastUpdatedTime = Lens.lens (\ImportFailureListItem' {last
 importFailureListItem_location :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
 importFailureListItem_location = Lens.lens (\ImportFailureListItem' {location} -> location) (\s@ImportFailureListItem' {} a -> s {location = a} :: ImportFailureListItem)
 
--- | The type of import error.
-importFailureListItem_errorType :: Lens.Lens' ImportFailureListItem (Prelude.Maybe Prelude.Text)
-importFailureListItem_errorType = Lens.lens (\ImportFailureListItem' {errorType} -> errorType) (\s@ImportFailureListItem' {} a -> s {errorType = a} :: ImportFailureListItem)
+-- | The status of the import.
+importFailureListItem_status :: Lens.Lens' ImportFailureListItem (Prelude.Maybe ImportFailureStatus)
+importFailureListItem_status = Lens.lens (\ImportFailureListItem' {status} -> status) (\s@ImportFailureListItem' {} a -> s {status = a} :: ImportFailureListItem)
 
 instance Data.FromJSON ImportFailureListItem where
   parseJSON =
@@ -98,24 +98,24 @@ instance Data.FromJSON ImportFailureListItem where
       ( \x ->
           ImportFailureListItem'
             Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "ErrorType")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "Location")
-            Prelude.<*> (x Data..:? "ErrorType")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ImportFailureListItem where
   hashWithSalt _salt ImportFailureListItem' {..} =
     _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` errorType
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` errorType
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImportFailureListItem where
   rnf ImportFailureListItem' {..} =
     Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf errorType
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf errorType
+      `Prelude.seq` Prelude.rnf status

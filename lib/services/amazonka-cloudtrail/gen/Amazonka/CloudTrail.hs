@@ -44,221 +44,221 @@ module Amazonka.CloudTrail
     -- * Errors
     -- $errors
 
-    -- ** DelegatedAdminAccountLimitExceededException
-    _DelegatedAdminAccountLimitExceededException,
-
-    -- ** InvalidS3PrefixException
-    _InvalidS3PrefixException,
-
-    -- ** InvalidTokenException
-    _InvalidTokenException,
-
-    -- ** CannotDelegateManagementAccountException
-    _CannotDelegateManagementAccountException,
-
-    -- ** EventDataStoreTerminationProtectedException
-    _EventDataStoreTerminationProtectedException,
-
-    -- ** CloudTrailARNInvalidException
-    _CloudTrailARNInvalidException,
-
-    -- ** AccountRegisteredException
-    _AccountRegisteredException,
-
-    -- ** OrganizationNotInAllFeaturesModeException
-    _OrganizationNotInAllFeaturesModeException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** NoManagementAccountSLRExistsException
-    _NoManagementAccountSLRExistsException,
-
-    -- ** ChannelARNInvalidException
-    _ChannelARNInvalidException,
-
-    -- ** TagsLimitExceededException
-    _TagsLimitExceededException,
-
-    -- ** EventDataStoreHasOngoingImportException
-    _EventDataStoreHasOngoingImportException,
-
-    -- ** TrailNotFoundException
-    _TrailNotFoundException,
-
     -- ** AccountHasOngoingImportException
     _AccountHasOngoingImportException,
-
-    -- ** InvalidCloudWatchLogsLogGroupArnException
-    _InvalidCloudWatchLogsLogGroupArnException,
-
-    -- ** EventDataStoreAlreadyExistsException
-    _EventDataStoreAlreadyExistsException,
-
-    -- ** InvalidCloudWatchLogsRoleArnException
-    _InvalidCloudWatchLogsRoleArnException,
-
-    -- ** InvalidHomeRegionException
-    _InvalidHomeRegionException,
-
-    -- ** InvalidS3BucketNameException
-    _InvalidS3BucketNameException,
-
-    -- ** CloudWatchLogsDeliveryUnavailableException
-    _CloudWatchLogsDeliveryUnavailableException,
-
-    -- ** NotOrganizationManagementAccountException
-    _NotOrganizationManagementAccountException,
-
-    -- ** ResourceTypeNotSupportedException
-    _ResourceTypeNotSupportedException,
-
-    -- ** InsufficientDependencyServiceAccessPermissionException
-    _InsufficientDependencyServiceAccessPermissionException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** CloudTrailAccessNotEnabledException
-    _CloudTrailAccessNotEnabledException,
-
-    -- ** InvalidQueryStatusException
-    _InvalidQueryStatusException,
-
-    -- ** S3BucketDoesNotExistException
-    _S3BucketDoesNotExistException,
-
-    -- ** InvalidTagParameterException
-    _InvalidTagParameterException,
-
-    -- ** InactiveEventDataStoreException
-    _InactiveEventDataStoreException,
-
-    -- ** InvalidMaxResultsException
-    _InvalidMaxResultsException,
-
-    -- ** InvalidImportSourceException
-    _InvalidImportSourceException,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** ChannelNotFoundException
-    _ChannelNotFoundException,
-
-    -- ** CloudTrailInvalidClientTokenIdException
-    _CloudTrailInvalidClientTokenIdException,
-
-    -- ** InvalidEventDataStoreStatusException
-    _InvalidEventDataStoreStatusException,
 
     -- ** AccountNotFoundException
     _AccountNotFoundException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
+
+    -- ** AccountRegisteredException
+    _AccountRegisteredException,
+
+    -- ** CannotDelegateManagementAccountException
+    _CannotDelegateManagementAccountException,
+
+    -- ** ChannelARNInvalidException
+    _ChannelARNInvalidException,
+
+    -- ** ChannelNotFoundException
+    _ChannelNotFoundException,
+
+    -- ** CloudTrailARNInvalidException
+    _CloudTrailARNInvalidException,
+
+    -- ** CloudTrailAccessNotEnabledException
+    _CloudTrailAccessNotEnabledException,
+
+    -- ** CloudTrailInvalidClientTokenIdException
+    _CloudTrailInvalidClientTokenIdException,
+
+    -- ** CloudWatchLogsDeliveryUnavailableException
+    _CloudWatchLogsDeliveryUnavailableException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** InvalidEventDataStoreCategoryException
-    _InvalidEventDataStoreCategoryException,
-
-    -- ** QueryIdNotFoundException
-    _QueryIdNotFoundException,
-
-    -- ** KmsKeyNotFoundException
-    _KmsKeyNotFoundException,
-
-    -- ** InsightNotEnabledException
-    _InsightNotEnabledException,
-
-    -- ** EventDataStoreMaxLimitExceededException
-    _EventDataStoreMaxLimitExceededException,
-
-    -- ** ImportNotFoundException
-    _ImportNotFoundException,
-
-    -- ** InvalidEventCategoryException
-    _InvalidEventCategoryException,
-
-    -- ** InvalidDateRangeException
-    _InvalidDateRangeException,
+    -- ** DelegatedAdminAccountLimitExceededException
+    _DelegatedAdminAccountLimitExceededException,
 
     -- ** EventDataStoreARNInvalidException
     _EventDataStoreARNInvalidException,
 
-    -- ** InvalidQueryStatementException
-    _InvalidQueryStatementException,
+    -- ** EventDataStoreAlreadyExistsException
+    _EventDataStoreAlreadyExistsException,
 
-    -- ** InactiveQueryException
-    _InactiveQueryException,
+    -- ** EventDataStoreHasOngoingImportException
+    _EventDataStoreHasOngoingImportException,
 
-    -- ** TrailNotProvidedException
-    _TrailNotProvidedException,
-
-    -- ** AccountNotRegisteredException
-    _AccountNotRegisteredException,
-
-    -- ** InsufficientS3BucketPolicyException
-    _InsufficientS3BucketPolicyException,
-
-    -- ** InvalidInsightSelectorsException
-    _InvalidInsightSelectorsException,
-
-    -- ** KmsException
-    _KmsException,
-
-    -- ** InsufficientEncryptionPolicyException
-    _InsufficientEncryptionPolicyException,
-
-    -- ** InvalidTimeRangeException
-    _InvalidTimeRangeException,
-
-    -- ** InvalidLookupAttributesException
-    _InvalidLookupAttributesException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** InvalidTrailNameException
-    _InvalidTrailNameException,
-
-    -- ** InsufficientSnsTopicPolicyException
-    _InsufficientSnsTopicPolicyException,
-
-    -- ** InvalidKmsKeyIdException
-    _InvalidKmsKeyIdException,
-
-    -- ** MaximumNumberOfTrailsExceededException
-    _MaximumNumberOfTrailsExceededException,
+    -- ** EventDataStoreMaxLimitExceededException
+    _EventDataStoreMaxLimitExceededException,
 
     -- ** EventDataStoreNotFoundException
     _EventDataStoreNotFoundException,
 
-    -- ** TrailAlreadyExistsException
-    _TrailAlreadyExistsException,
+    -- ** EventDataStoreTerminationProtectedException
+    _EventDataStoreTerminationProtectedException,
+
+    -- ** ImportNotFoundException
+    _ImportNotFoundException,
+
+    -- ** InactiveEventDataStoreException
+    _InactiveEventDataStoreException,
+
+    -- ** InactiveQueryException
+    _InactiveQueryException,
+
+    -- ** InsightNotEnabledException
+    _InsightNotEnabledException,
+
+    -- ** InsufficientDependencyServiceAccessPermissionException
+    _InsufficientDependencyServiceAccessPermissionException,
+
+    -- ** InsufficientEncryptionPolicyException
+    _InsufficientEncryptionPolicyException,
+
+    -- ** InsufficientS3BucketPolicyException
+    _InsufficientS3BucketPolicyException,
+
+    -- ** InsufficientSnsTopicPolicyException
+    _InsufficientSnsTopicPolicyException,
+
+    -- ** InvalidCloudWatchLogsLogGroupArnException
+    _InvalidCloudWatchLogsLogGroupArnException,
+
+    -- ** InvalidCloudWatchLogsRoleArnException
+    _InvalidCloudWatchLogsRoleArnException,
+
+    -- ** InvalidDateRangeException
+    _InvalidDateRangeException,
+
+    -- ** InvalidEventCategoryException
+    _InvalidEventCategoryException,
+
+    -- ** InvalidEventDataStoreCategoryException
+    _InvalidEventDataStoreCategoryException,
+
+    -- ** InvalidEventDataStoreStatusException
+    _InvalidEventDataStoreStatusException,
 
     -- ** InvalidEventSelectorsException
     _InvalidEventSelectorsException,
 
-    -- ** InvalidSnsTopicNameException
-    _InvalidSnsTopicNameException,
+    -- ** InvalidHomeRegionException
+    _InvalidHomeRegionException,
 
-    -- ** NotOrganizationMasterAccountException
-    _NotOrganizationMasterAccountException,
+    -- ** InvalidImportSourceException
+    _InvalidImportSourceException,
 
-    -- ** MaxConcurrentQueriesException
-    _MaxConcurrentQueriesException,
+    -- ** InvalidInsightSelectorsException
+    _InvalidInsightSelectorsException,
 
-    -- ** KmsKeyDisabledException
-    _KmsKeyDisabledException,
+    -- ** InvalidKmsKeyIdException
+    _InvalidKmsKeyIdException,
+
+    -- ** InvalidLookupAttributesException
+    _InvalidLookupAttributesException,
+
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
 
+    -- ** InvalidQueryStatementException
+    _InvalidQueryStatementException,
+
+    -- ** InvalidQueryStatusException
+    _InvalidQueryStatusException,
+
+    -- ** InvalidS3BucketNameException
+    _InvalidS3BucketNameException,
+
+    -- ** InvalidS3PrefixException
+    _InvalidS3PrefixException,
+
+    -- ** InvalidSnsTopicNameException
+    _InvalidSnsTopicNameException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
+
+    -- ** InvalidTrailNameException
+    _InvalidTrailNameException,
+
+    -- ** KmsException
+    _KmsException,
+
+    -- ** KmsKeyDisabledException
+    _KmsKeyDisabledException,
+
+    -- ** KmsKeyNotFoundException
+    _KmsKeyNotFoundException,
+
+    -- ** MaxConcurrentQueriesException
+    _MaxConcurrentQueriesException,
+
+    -- ** MaximumNumberOfTrailsExceededException
+    _MaximumNumberOfTrailsExceededException,
+
+    -- ** NoManagementAccountSLRExistsException
+    _NoManagementAccountSLRExistsException,
+
+    -- ** NotOrganizationManagementAccountException
+    _NotOrganizationManagementAccountException,
+
+    -- ** NotOrganizationMasterAccountException
+    _NotOrganizationMasterAccountException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** OrganizationNotInAllFeaturesModeException
+    _OrganizationNotInAllFeaturesModeException,
+
     -- ** OrganizationsNotInUseException
     _OrganizationsNotInUseException,
+
+    -- ** QueryIdNotFoundException
+    _QueryIdNotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
+
+    -- ** S3BucketDoesNotExistException
+    _S3BucketDoesNotExistException,
+
+    -- ** TagsLimitExceededException
+    _TagsLimitExceededException,
+
+    -- ** TrailAlreadyExistsException
+    _TrailAlreadyExistsException,
+
+    -- ** TrailNotFoundException
+    _TrailNotFoundException,
+
+    -- ** TrailNotProvidedException
+    _TrailNotProvidedException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- * Waiters
     -- $waiters

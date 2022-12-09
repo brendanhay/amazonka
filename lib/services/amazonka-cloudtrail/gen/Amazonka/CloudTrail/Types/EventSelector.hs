@@ -42,7 +42,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventSelector' smart constructor.
 data EventSelector = EventSelector'
-  { -- | An optional list of service event sources from which you do not want
+  { -- | CloudTrail supports data event logging for Amazon S3 objects, Lambda
+    -- functions, and Amazon DynamoDB tables with basic event selectors. You
+    -- can specify up to 250 resources for an individual event selector, but
+    -- the total number of data resources cannot exceed 250 across all event
+    -- selectors in a trail. This limit does not apply if you configure
+    -- resource logging for all data events.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
+    -- and
+    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
+    -- in the /CloudTrail User Guide/.
+    dataResources :: Prelude.Maybe [DataResource],
+    -- | An optional list of service event sources from which you do not want
     -- management events to be logged on your trail. In this release, the list
     -- can be empty (disables the filter), or it can filter out Key Management
     -- Service or Amazon RDS Data API events by containing @kms.amazonaws.com@
@@ -66,19 +79,6 @@ data EventSelector = EventSelector'
     -- CloudTrail pricing, see
     -- <http://aws.amazon.com/cloudtrail/pricing/ CloudTrail Pricing>.
     includeManagementEvents :: Prelude.Maybe Prelude.Bool,
-    -- | CloudTrail supports data event logging for Amazon S3 objects, Lambda
-    -- functions, and Amazon DynamoDB tables with basic event selectors. You
-    -- can specify up to 250 resources for an individual event selector, but
-    -- the total number of data resources cannot exceed 250 across all event
-    -- selectors in a trail. This limit does not apply if you configure
-    -- resource logging for all data events.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
-    -- and
-    -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
-    -- in the /CloudTrail User Guide/.
-    dataResources :: Prelude.Maybe [DataResource],
     -- | Specify if you want your trail to log read-only events, write-only
     -- events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only
     -- API operation and @RunInstances@ is a write-only API operation.
@@ -95,6 +95,19 @@ data EventSelector = EventSelector'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataResources', 'eventSelector_dataResources' - CloudTrail supports data event logging for Amazon S3 objects, Lambda
+-- functions, and Amazon DynamoDB tables with basic event selectors. You
+-- can specify up to 250 resources for an individual event selector, but
+-- the total number of data resources cannot exceed 250 across all event
+-- selectors in a trail. This limit does not apply if you configure
+-- resource logging for all data events.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
+-- and
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
+-- in the /CloudTrail User Guide/.
 --
 -- 'excludeManagementEventSources', 'eventSelector_excludeManagementEventSources' - An optional list of service event sources from which you do not want
 -- management events to be logged on your trail. In this release, the list
@@ -120,7 +133,22 @@ data EventSelector = EventSelector'
 -- CloudTrail pricing, see
 -- <http://aws.amazon.com/cloudtrail/pricing/ CloudTrail Pricing>.
 --
--- 'dataResources', 'eventSelector_dataResources' - CloudTrail supports data event logging for Amazon S3 objects, Lambda
+-- 'readWriteType', 'eventSelector_readWriteType' - Specify if you want your trail to log read-only events, write-only
+-- events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only
+-- API operation and @RunInstances@ is a write-only API operation.
+--
+-- By default, the value is @All@.
+newEventSelector ::
+  EventSelector
+newEventSelector =
+  EventSelector'
+    { dataResources = Prelude.Nothing,
+      excludeManagementEventSources = Prelude.Nothing,
+      includeManagementEvents = Prelude.Nothing,
+      readWriteType = Prelude.Nothing
+    }
+
+-- | CloudTrail supports data event logging for Amazon S3 objects, Lambda
 -- functions, and Amazon DynamoDB tables with basic event selectors. You
 -- can specify up to 250 resources for an individual event selector, but
 -- the total number of data resources cannot exceed 250 across all event
@@ -132,22 +160,8 @@ data EventSelector = EventSelector'
 -- and
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
 -- in the /CloudTrail User Guide/.
---
--- 'readWriteType', 'eventSelector_readWriteType' - Specify if you want your trail to log read-only events, write-only
--- events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only
--- API operation and @RunInstances@ is a write-only API operation.
---
--- By default, the value is @All@.
-newEventSelector ::
-  EventSelector
-newEventSelector =
-  EventSelector'
-    { excludeManagementEventSources =
-        Prelude.Nothing,
-      includeManagementEvents = Prelude.Nothing,
-      dataResources = Prelude.Nothing,
-      readWriteType = Prelude.Nothing
-    }
+eventSelector_dataResources :: Lens.Lens' EventSelector (Prelude.Maybe [DataResource])
+eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> dataResources) (\s@EventSelector' {} a -> s {dataResources = a} :: EventSelector) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional list of service event sources from which you do not want
 -- management events to be logged on your trail. In this release, the list
@@ -177,21 +191,6 @@ eventSelector_excludeManagementEventSources = Lens.lens (\EventSelector' {exclud
 eventSelector_includeManagementEvents :: Lens.Lens' EventSelector (Prelude.Maybe Prelude.Bool)
 eventSelector_includeManagementEvents = Lens.lens (\EventSelector' {includeManagementEvents} -> includeManagementEvents) (\s@EventSelector' {} a -> s {includeManagementEvents = a} :: EventSelector)
 
--- | CloudTrail supports data event logging for Amazon S3 objects, Lambda
--- functions, and Amazon DynamoDB tables with basic event selectors. You
--- can specify up to 250 resources for an individual event selector, but
--- the total number of data resources cannot exceed 250 across all event
--- selectors in a trail. This limit does not apply if you configure
--- resource logging for all data events.
---
--- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Data Events>
--- and
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in CloudTrail>
--- in the /CloudTrail User Guide/.
-eventSelector_dataResources :: Lens.Lens' EventSelector (Prelude.Maybe [DataResource])
-eventSelector_dataResources = Lens.lens (\EventSelector' {dataResources} -> dataResources) (\s@EventSelector' {} a -> s {dataResources = a} :: EventSelector) Prelude.. Lens.mapping Lens.coerced
-
 -- | Specify if you want your trail to log read-only events, write-only
 -- events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only
 -- API operation and @RunInstances@ is a write-only API operation.
@@ -206,38 +205,37 @@ instance Data.FromJSON EventSelector where
       "EventSelector"
       ( \x ->
           EventSelector'
-            Prelude.<$> ( x Data..:? "ExcludeManagementEventSources"
+            Prelude.<$> (x Data..:? "DataResources" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "ExcludeManagementEventSources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IncludeManagementEvents")
-            Prelude.<*> (x Data..:? "DataResources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ReadWriteType")
       )
 
 instance Prelude.Hashable EventSelector where
   hashWithSalt _salt EventSelector' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` dataResources
       `Prelude.hashWithSalt` excludeManagementEventSources
       `Prelude.hashWithSalt` includeManagementEvents
-      `Prelude.hashWithSalt` dataResources
       `Prelude.hashWithSalt` readWriteType
 
 instance Prelude.NFData EventSelector where
   rnf EventSelector' {..} =
-    Prelude.rnf excludeManagementEventSources
+    Prelude.rnf dataResources
+      `Prelude.seq` Prelude.rnf excludeManagementEventSources
       `Prelude.seq` Prelude.rnf includeManagementEvents
-      `Prelude.seq` Prelude.rnf dataResources
       `Prelude.seq` Prelude.rnf readWriteType
 
 instance Data.ToJSON EventSelector where
   toJSON EventSelector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExcludeManagementEventSources" Data..=)
+          [ ("DataResources" Data..=) Prelude.<$> dataResources,
+            ("ExcludeManagementEventSources" Data..=)
               Prelude.<$> excludeManagementEventSources,
             ("IncludeManagementEvents" Data..=)
               Prelude.<$> includeManagementEvents,
-            ("DataResources" Data..=) Prelude.<$> dataResources,
             ("ReadWriteType" Data..=) Prelude.<$> readWriteType
           ]
       )

@@ -31,16 +31,16 @@ module Amazonka.CloudTrail.ListChannels
     newListChannels,
 
     -- * Request Lenses
-    listChannels_nextToken,
     listChannels_maxResults,
+    listChannels_nextToken,
 
     -- * Destructuring the Response
     ListChannelsResponse (..),
     newListChannelsResponse,
 
     -- * Response Lenses
-    listChannelsResponse_nextToken,
     listChannelsResponse_channels,
+    listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | The token to use to get the next page of results after a previous API
+  { -- | The maximum number of CloudTrail channels to display on a single page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to get the next page of results after a previous API
     -- call. This token must be passed in with the same parameters that were
     -- specified in the original call. For example, if the original call
     -- specified an AttributeKey of \'Username\' with a value of \'root\', the
     -- call with NextToken should include those same parameters.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of CloudTrail channels to display on a single page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,20 +74,24 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listChannels_maxResults' - The maximum number of CloudTrail channels to display on a single page.
+--
 -- 'nextToken', 'listChannels_nextToken' - The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
 -- specified in the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
---
--- 'maxResults', 'listChannels_maxResults' - The maximum number of CloudTrail channels to display on a single page.
 newListChannels ::
   ListChannels
 newListChannels =
   ListChannels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of CloudTrail channels to display on a single page.
+listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
+listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
@@ -97,10 +101,6 @@ newListChannels =
 listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
--- | The maximum number of CloudTrail channels to display on a single page.
-listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
-listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
-
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
   request overrides =
@@ -109,20 +109,20 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListChannels where
   toHeaders =
@@ -143,8 +143,8 @@ instance Data.ToJSON ListChannels where
   toJSON ListChannels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -156,11 +156,11 @@ instance Data.ToQuery ListChannels where
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { -- | The token to use to get the next page of results after a previous API
+  { -- | The list of channels in the account.
+    channels :: Prelude.Maybe [Channel],
+    -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of channels in the account.
-    channels :: Prelude.Maybe [Channel],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data ListChannelsResponse = ListChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channels', 'listChannelsResponse_channels' - The list of channels in the account.
+--
 -- 'nextToken', 'listChannelsResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
---
--- 'channels', 'listChannelsResponse_channels' - The list of channels in the account.
 --
 -- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
 newListChannelsResponse ::
@@ -186,19 +186,19 @@ newListChannelsResponse ::
   ListChannelsResponse
 newListChannelsResponse pHttpStatus_ =
   ListChannelsResponse'
-    { nextToken = Prelude.Nothing,
-      channels = Prelude.Nothing,
+    { channels = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of channels in the account.
+listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
+listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
 listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse)
-
--- | The list of channels in the account.
-listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
-listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Prelude.Int
@@ -206,6 +206,6 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 
 instance Prelude.NFData ListChannelsResponse where
   rnf ListChannelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channels
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

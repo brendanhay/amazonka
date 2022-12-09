@@ -37,8 +37,8 @@ module Amazonka.CloudTrail.ListPublicKeys
     newListPublicKeys,
 
     -- * Request Lenses
-    listPublicKeys_nextToken,
     listPublicKeys_endTime,
+    listPublicKeys_nextToken,
     listPublicKeys_startTime,
 
     -- * Destructuring the Response
@@ -64,12 +64,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optionally specifies, in UTC, the end of the time range to look up
+  { -- | Optionally specifies, in UTC, the end of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optionally specifies, in UTC, the start of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used, and the current public key is returned.
@@ -85,11 +85,11 @@ data ListPublicKeys = ListPublicKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPublicKeys_nextToken' - Reserved for future use.
---
 -- 'endTime', 'listPublicKeys_endTime' - Optionally specifies, in UTC, the end of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used.
+--
+-- 'nextToken', 'listPublicKeys_nextToken' - Reserved for future use.
 --
 -- 'startTime', 'listPublicKeys_startTime' - Optionally specifies, in UTC, the start of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
@@ -98,20 +98,20 @@ newListPublicKeys ::
   ListPublicKeys
 newListPublicKeys =
   ListPublicKeys'
-    { nextToken = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | Reserved for future use.
-listPublicKeys_nextToken :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
-listPublicKeys_nextToken = Lens.lens (\ListPublicKeys' {nextToken} -> nextToken) (\s@ListPublicKeys' {} a -> s {nextToken = a} :: ListPublicKeys)
 
 -- | Optionally specifies, in UTC, the end of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used.
 listPublicKeys_endTime :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.UTCTime)
 listPublicKeys_endTime = Lens.lens (\ListPublicKeys' {endTime} -> endTime) (\s@ListPublicKeys' {} a -> s {endTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Data._Time
+
+-- | Reserved for future use.
+listPublicKeys_nextToken :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
+listPublicKeys_nextToken = Lens.lens (\ListPublicKeys' {nextToken} -> nextToken) (\s@ListPublicKeys' {} a -> s {nextToken = a} :: ListPublicKeys)
 
 -- | Optionally specifies, in UTC, the start of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
@@ -157,14 +157,14 @@ instance Core.AWSRequest ListPublicKeys where
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListPublicKeys where
   rnf ListPublicKeys' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders ListPublicKeys where
@@ -186,8 +186,8 @@ instance Data.ToJSON ListPublicKeys where
   toJSON ListPublicKeys' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EndTime" Data..=) Prelude.<$> endTime,
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

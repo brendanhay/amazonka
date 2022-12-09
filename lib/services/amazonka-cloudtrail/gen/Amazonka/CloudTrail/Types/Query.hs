@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuery' smart constructor.
 data Query = Query'
-  { -- | The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
-    -- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
-    queryStatus :: Prelude.Maybe QueryStatus,
+  { -- | The creation time of a query.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of a query.
     queryId :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of a query.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
+    -- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
+    queryStatus :: Prelude.Maybe QueryStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data Query = Query'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryStatus', 'query_queryStatus' - The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
--- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
+-- 'creationTime', 'query_creationTime' - The creation time of a query.
 --
 -- 'queryId', 'query_queryId' - The ID of a query.
 --
--- 'creationTime', 'query_creationTime' - The creation time of a query.
+-- 'queryStatus', 'query_queryStatus' - The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
+-- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
 newQuery ::
   Query
 newQuery =
   Query'
-    { queryStatus = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       queryId = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      queryStatus = Prelude.Nothing
     }
 
--- | The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
--- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
-query_queryStatus :: Lens.Lens' Query (Prelude.Maybe QueryStatus)
-query_queryStatus = Lens.lens (\Query' {queryStatus} -> queryStatus) (\s@Query' {} a -> s {queryStatus = a} :: Query)
+-- | The creation time of a query.
+query_creationTime :: Lens.Lens' Query (Prelude.Maybe Prelude.UTCTime)
+query_creationTime = Lens.lens (\Query' {creationTime} -> creationTime) (\s@Query' {} a -> s {creationTime = a} :: Query) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of a query.
 query_queryId :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_queryId = Lens.lens (\Query' {queryId} -> queryId) (\s@Query' {} a -> s {queryId = a} :: Query)
 
--- | The creation time of a query.
-query_creationTime :: Lens.Lens' Query (Prelude.Maybe Prelude.UTCTime)
-query_creationTime = Lens.lens (\Query' {creationTime} -> creationTime) (\s@Query' {} a -> s {creationTime = a} :: Query) Prelude.. Lens.mapping Data._Time
+-- | The status of the query. This can be @QUEUED@, @RUNNING@, @FINISHED@,
+-- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
+query_queryStatus :: Lens.Lens' Query (Prelude.Maybe QueryStatus)
+query_queryStatus = Lens.lens (\Query' {queryStatus} -> queryStatus) (\s@Query' {} a -> s {queryStatus = a} :: Query)
 
 instance Data.FromJSON Query where
   parseJSON =
@@ -82,19 +82,19 @@ instance Data.FromJSON Query where
       "Query"
       ( \x ->
           Query'
-            Prelude.<$> (x Data..:? "QueryStatus")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "QueryId")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "QueryStatus")
       )
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` queryStatus
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` queryId
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` queryStatus
 
 instance Prelude.NFData Query where
   rnf Query' {..} =
-    Prelude.rnf queryStatus
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf queryStatus

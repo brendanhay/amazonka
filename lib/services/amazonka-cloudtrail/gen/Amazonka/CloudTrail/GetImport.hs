@@ -34,15 +34,15 @@ module Amazonka.CloudTrail.GetImport
     newGetImportResponse,
 
     -- * Response Lenses
-    getImportResponse_importSource,
-    getImportResponse_endEventTime,
     getImportResponse_createdTimestamp,
-    getImportResponse_updatedTimestamp,
-    getImportResponse_startEventTime,
-    getImportResponse_importStatistics,
-    getImportResponse_importId,
-    getImportResponse_importStatus,
     getImportResponse_destinations,
+    getImportResponse_endEventTime,
+    getImportResponse_importId,
+    getImportResponse_importSource,
+    getImportResponse_importStatistics,
+    getImportResponse_importStatus,
+    getImportResponse_startEventTime,
+    getImportResponse_updatedTimestamp,
     getImportResponse_httpStatus,
   )
 where
@@ -90,15 +90,15 @@ instance Core.AWSRequest GetImport where
     Response.receiveJSON
       ( \s h x ->
           GetImportResponse'
-            Prelude.<$> (x Data..?> "ImportSource")
-            Prelude.<*> (x Data..?> "EndEventTime")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
-            Prelude.<*> (x Data..?> "UpdatedTimestamp")
-            Prelude.<*> (x Data..?> "StartEventTime")
-            Prelude.<*> (x Data..?> "ImportStatistics")
-            Prelude.<*> (x Data..?> "ImportId")
-            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "Destinations")
+            Prelude.<*> (x Data..?> "EndEventTime")
+            Prelude.<*> (x Data..?> "ImportId")
+            Prelude.<*> (x Data..?> "ImportSource")
+            Prelude.<*> (x Data..?> "ImportStatistics")
+            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<*> (x Data..?> "StartEventTime")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,31 +139,31 @@ instance Data.ToQuery GetImport where
 
 -- | /See:/ 'newGetImportResponse' smart constructor.
 data GetImportResponse = GetImportResponse'
-  { -- | The source S3 bucket.
-    importSource :: Prelude.Maybe ImportSource,
+  { -- | The timestamp of the import\'s creation.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the destination event data store.
+    destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
     endEventTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the import was updated.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
-    -- imported trail events to only those events logged within a specified
-    -- time period.
-    startEventTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the import.
+    importId :: Prelude.Maybe Prelude.Text,
+    -- | The source S3 bucket.
+    importSource :: Prelude.Maybe ImportSource,
     -- | Provides statistics for the import. CloudTrail does not update import
     -- statistics in real-time. Returned values for parameters such as
     -- @EventsCompleted@ may be lower than the actual value, because CloudTrail
     -- updates statistics incrementally over the course of the import.
     importStatistics :: Prelude.Maybe ImportStatistics,
-    -- | The ID of the import.
-    importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import.
     importStatus :: Prelude.Maybe ImportStatus,
-    -- | The ARN of the destination event data store.
-    destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
+    -- imported trail events to only those events logged within a specified
+    -- time period.
+    startEventTime :: Prelude.Maybe Data.POSIX,
+    -- | The timestamp of when the import was updated.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,30 +177,30 @@ data GetImportResponse = GetImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importSource', 'getImportResponse_importSource' - The source S3 bucket.
+-- 'createdTimestamp', 'getImportResponse_createdTimestamp' - The timestamp of the import\'s creation.
+--
+-- 'destinations', 'getImportResponse_destinations' - The ARN of the destination event data store.
 --
 -- 'endEventTime', 'getImportResponse_endEventTime' - Used with @StartEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 --
--- 'createdTimestamp', 'getImportResponse_createdTimestamp' - The timestamp of the import\'s creation.
+-- 'importId', 'getImportResponse_importId' - The ID of the import.
 --
--- 'updatedTimestamp', 'getImportResponse_updatedTimestamp' - The timestamp of when the import was updated.
---
--- 'startEventTime', 'getImportResponse_startEventTime' - Used with @EndEventTime@ to bound a @StartImport@ request, and limit
--- imported trail events to only those events logged within a specified
--- time period.
+-- 'importSource', 'getImportResponse_importSource' - The source S3 bucket.
 --
 -- 'importStatistics', 'getImportResponse_importStatistics' - Provides statistics for the import. CloudTrail does not update import
 -- statistics in real-time. Returned values for parameters such as
 -- @EventsCompleted@ may be lower than the actual value, because CloudTrail
 -- updates statistics incrementally over the course of the import.
 --
--- 'importId', 'getImportResponse_importId' - The ID of the import.
---
 -- 'importStatus', 'getImportResponse_importStatus' - The status of the import.
 --
--- 'destinations', 'getImportResponse_destinations' - The ARN of the destination event data store.
+-- 'startEventTime', 'getImportResponse_startEventTime' - Used with @EndEventTime@ to bound a @StartImport@ request, and limit
+-- imported trail events to only those events logged within a specified
+-- time period.
+--
+-- 'updatedTimestamp', 'getImportResponse_updatedTimestamp' - The timestamp of when the import was updated.
 --
 -- 'httpStatus', 'getImportResponse_httpStatus' - The response's http status code.
 newGetImportResponse ::
@@ -209,21 +209,26 @@ newGetImportResponse ::
   GetImportResponse
 newGetImportResponse pHttpStatus_ =
   GetImportResponse'
-    { importSource = Prelude.Nothing,
-      endEventTime = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      startEventTime = Prelude.Nothing,
-      importStatistics = Prelude.Nothing,
-      importId = Prelude.Nothing,
-      importStatus = Prelude.Nothing,
+    { createdTimestamp =
+        Prelude.Nothing,
       destinations = Prelude.Nothing,
+      endEventTime = Prelude.Nothing,
+      importId = Prelude.Nothing,
+      importSource = Prelude.Nothing,
+      importStatistics = Prelude.Nothing,
+      importStatus = Prelude.Nothing,
+      startEventTime = Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The source S3 bucket.
-getImportResponse_importSource :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportSource)
-getImportResponse_importSource = Lens.lens (\GetImportResponse' {importSource} -> importSource) (\s@GetImportResponse' {} a -> s {importSource = a} :: GetImportResponse)
+-- | The timestamp of the import\'s creation.
+getImportResponse_createdTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
+getImportResponse_createdTimestamp = Lens.lens (\GetImportResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportResponse' {} a -> s {createdTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the destination event data store.
+getImportResponse_destinations :: Lens.Lens' GetImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getImportResponse_destinations = Lens.lens (\GetImportResponse' {destinations} -> destinations) (\s@GetImportResponse' {} a -> s {destinations = a} :: GetImportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
@@ -231,19 +236,13 @@ getImportResponse_importSource = Lens.lens (\GetImportResponse' {importSource} -
 getImportResponse_endEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
 getImportResponse_endEventTime = Lens.lens (\GetImportResponse' {endEventTime} -> endEventTime) (\s@GetImportResponse' {} a -> s {endEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp of the import\'s creation.
-getImportResponse_createdTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_createdTimestamp = Lens.lens (\GetImportResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportResponse' {} a -> s {createdTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
+-- | The ID of the import.
+getImportResponse_importId :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
+getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> importId) (\s@GetImportResponse' {} a -> s {importId = a} :: GetImportResponse)
 
--- | The timestamp of when the import was updated.
-getImportResponse_updatedTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_updatedTimestamp = Lens.lens (\GetImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetImportResponse' {} a -> s {updatedTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
-
--- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
--- imported trail events to only those events logged within a specified
--- time period.
-getImportResponse_startEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTime} -> startEventTime) (\s@GetImportResponse' {} a -> s {startEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
+-- | The source S3 bucket.
+getImportResponse_importSource :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportSource)
+getImportResponse_importSource = Lens.lens (\GetImportResponse' {importSource} -> importSource) (\s@GetImportResponse' {} a -> s {importSource = a} :: GetImportResponse)
 
 -- | Provides statistics for the import. CloudTrail does not update import
 -- statistics in real-time. Returned values for parameters such as
@@ -252,17 +251,19 @@ getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTim
 getImportResponse_importStatistics :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportStatistics)
 getImportResponse_importStatistics = Lens.lens (\GetImportResponse' {importStatistics} -> importStatistics) (\s@GetImportResponse' {} a -> s {importStatistics = a} :: GetImportResponse)
 
--- | The ID of the import.
-getImportResponse_importId :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
-getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> importId) (\s@GetImportResponse' {} a -> s {importId = a} :: GetImportResponse)
-
 -- | The status of the import.
 getImportResponse_importStatus :: Lens.Lens' GetImportResponse (Prelude.Maybe ImportStatus)
 getImportResponse_importStatus = Lens.lens (\GetImportResponse' {importStatus} -> importStatus) (\s@GetImportResponse' {} a -> s {importStatus = a} :: GetImportResponse)
 
--- | The ARN of the destination event data store.
-getImportResponse_destinations :: Lens.Lens' GetImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getImportResponse_destinations = Lens.lens (\GetImportResponse' {destinations} -> destinations) (\s@GetImportResponse' {} a -> s {destinations = a} :: GetImportResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
+-- imported trail events to only those events logged within a specified
+-- time period.
+getImportResponse_startEventTime :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
+getImportResponse_startEventTime = Lens.lens (\GetImportResponse' {startEventTime} -> startEventTime) (\s@GetImportResponse' {} a -> s {startEventTime = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The timestamp of when the import was updated.
+getImportResponse_updatedTimestamp :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
+getImportResponse_updatedTimestamp = Lens.lens (\GetImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@GetImportResponse' {} a -> s {updatedTimestamp = a} :: GetImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getImportResponse_httpStatus :: Lens.Lens' GetImportResponse Prelude.Int
@@ -270,13 +271,13 @@ getImportResponse_httpStatus = Lens.lens (\GetImportResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetImportResponse where
   rnf GetImportResponse' {..} =
-    Prelude.rnf importSource
-      `Prelude.seq` Prelude.rnf endEventTime
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf startEventTime
-      `Prelude.seq` Prelude.rnf importStatistics
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf endEventTime
+      `Prelude.seq` Prelude.rnf importId
+      `Prelude.seq` Prelude.rnf importSource
+      `Prelude.seq` Prelude.rnf importStatistics
+      `Prelude.seq` Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf startEventTime
+      `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

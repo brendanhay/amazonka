@@ -34,15 +34,15 @@ module Amazonka.CloudTrail.StopImport
     newStopImportResponse,
 
     -- * Response Lenses
-    stopImportResponse_importSource,
-    stopImportResponse_endEventTime,
     stopImportResponse_createdTimestamp,
-    stopImportResponse_updatedTimestamp,
-    stopImportResponse_startEventTime,
-    stopImportResponse_importStatistics,
-    stopImportResponse_importId,
-    stopImportResponse_importStatus,
     stopImportResponse_destinations,
+    stopImportResponse_endEventTime,
+    stopImportResponse_importId,
+    stopImportResponse_importSource,
+    stopImportResponse_importStatistics,
+    stopImportResponse_importStatus,
+    stopImportResponse_startEventTime,
+    stopImportResponse_updatedTimestamp,
     stopImportResponse_httpStatus,
   )
 where
@@ -90,15 +90,15 @@ instance Core.AWSRequest StopImport where
     Response.receiveJSON
       ( \s h x ->
           StopImportResponse'
-            Prelude.<$> (x Data..?> "ImportSource")
-            Prelude.<*> (x Data..?> "EndEventTime")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
-            Prelude.<*> (x Data..?> "UpdatedTimestamp")
-            Prelude.<*> (x Data..?> "StartEventTime")
-            Prelude.<*> (x Data..?> "ImportStatistics")
-            Prelude.<*> (x Data..?> "ImportId")
-            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "Destinations")
+            Prelude.<*> (x Data..?> "EndEventTime")
+            Prelude.<*> (x Data..?> "ImportId")
+            Prelude.<*> (x Data..?> "ImportSource")
+            Prelude.<*> (x Data..?> "ImportStatistics")
+            Prelude.<*> (x Data..?> "ImportStatus")
+            Prelude.<*> (x Data..?> "StartEventTime")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,28 +139,28 @@ instance Data.ToQuery StopImport where
 
 -- | /See:/ 'newStopImportResponse' smart constructor.
 data StopImportResponse = StopImportResponse'
-  { -- | The source S3 bucket for the import.
-    importSource :: Prelude.Maybe ImportSource,
+  { -- | The timestamp of the import\'s creation.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the destination event data store.
+    destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
     endEventTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of the import\'s creation.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of the import\'s last update.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The ID for the import.
+    importId :: Prelude.Maybe Prelude.Text,
+    -- | The source S3 bucket for the import.
+    importSource :: Prelude.Maybe ImportSource,
+    -- | Returns information on the stopped import.
+    importStatistics :: Prelude.Maybe ImportStatistics,
+    -- | The status of the import.
+    importStatus :: Prelude.Maybe ImportStatus,
     -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
     -- imported trail events to only those events logged within a specified
     -- time period.
     startEventTime :: Prelude.Maybe Data.POSIX,
-    -- | Returns information on the stopped import.
-    importStatistics :: Prelude.Maybe ImportStatistics,
-    -- | The ID for the import.
-    importId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the import.
-    importStatus :: Prelude.Maybe ImportStatus,
-    -- | The ARN of the destination event data store.
-    destinations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The timestamp of the import\'s last update.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,27 +174,27 @@ data StopImportResponse = StopImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importSource', 'stopImportResponse_importSource' - The source S3 bucket for the import.
+-- 'createdTimestamp', 'stopImportResponse_createdTimestamp' - The timestamp of the import\'s creation.
+--
+-- 'destinations', 'stopImportResponse_destinations' - The ARN of the destination event data store.
 --
 -- 'endEventTime', 'stopImportResponse_endEventTime' - Used with @StartEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 --
--- 'createdTimestamp', 'stopImportResponse_createdTimestamp' - The timestamp of the import\'s creation.
+-- 'importId', 'stopImportResponse_importId' - The ID for the import.
 --
--- 'updatedTimestamp', 'stopImportResponse_updatedTimestamp' - The timestamp of the import\'s last update.
+-- 'importSource', 'stopImportResponse_importSource' - The source S3 bucket for the import.
+--
+-- 'importStatistics', 'stopImportResponse_importStatistics' - Returns information on the stopped import.
+--
+-- 'importStatus', 'stopImportResponse_importStatus' - The status of the import.
 --
 -- 'startEventTime', 'stopImportResponse_startEventTime' - Used with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
 -- time period.
 --
--- 'importStatistics', 'stopImportResponse_importStatistics' - Returns information on the stopped import.
---
--- 'importId', 'stopImportResponse_importId' - The ID for the import.
---
--- 'importStatus', 'stopImportResponse_importStatus' - The status of the import.
---
--- 'destinations', 'stopImportResponse_destinations' - The ARN of the destination event data store.
+-- 'updatedTimestamp', 'stopImportResponse_updatedTimestamp' - The timestamp of the import\'s last update.
 --
 -- 'httpStatus', 'stopImportResponse_httpStatus' - The response's http status code.
 newStopImportResponse ::
@@ -203,21 +203,26 @@ newStopImportResponse ::
   StopImportResponse
 newStopImportResponse pHttpStatus_ =
   StopImportResponse'
-    { importSource = Prelude.Nothing,
-      endEventTime = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      startEventTime = Prelude.Nothing,
-      importStatistics = Prelude.Nothing,
-      importId = Prelude.Nothing,
-      importStatus = Prelude.Nothing,
+    { createdTimestamp =
+        Prelude.Nothing,
       destinations = Prelude.Nothing,
+      endEventTime = Prelude.Nothing,
+      importId = Prelude.Nothing,
+      importSource = Prelude.Nothing,
+      importStatistics = Prelude.Nothing,
+      importStatus = Prelude.Nothing,
+      startEventTime = Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The source S3 bucket for the import.
-stopImportResponse_importSource :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportSource)
-stopImportResponse_importSource = Lens.lens (\StopImportResponse' {importSource} -> importSource) (\s@StopImportResponse' {} a -> s {importSource = a} :: StopImportResponse)
+-- | The timestamp of the import\'s creation.
+stopImportResponse_createdTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
+stopImportResponse_createdTimestamp = Lens.lens (\StopImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StopImportResponse' {} a -> s {createdTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the destination event data store.
+stopImportResponse_destinations :: Lens.Lens' StopImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+stopImportResponse_destinations = Lens.lens (\StopImportResponse' {destinations} -> destinations) (\s@StopImportResponse' {} a -> s {destinations = a} :: StopImportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Used with @StartEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
@@ -225,13 +230,21 @@ stopImportResponse_importSource = Lens.lens (\StopImportResponse' {importSource}
 stopImportResponse_endEventTime :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
 stopImportResponse_endEventTime = Lens.lens (\StopImportResponse' {endEventTime} -> endEventTime) (\s@StopImportResponse' {} a -> s {endEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp of the import\'s creation.
-stopImportResponse_createdTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_createdTimestamp = Lens.lens (\StopImportResponse' {createdTimestamp} -> createdTimestamp) (\s@StopImportResponse' {} a -> s {createdTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
+-- | The ID for the import.
+stopImportResponse_importId :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.Text)
+stopImportResponse_importId = Lens.lens (\StopImportResponse' {importId} -> importId) (\s@StopImportResponse' {} a -> s {importId = a} :: StopImportResponse)
 
--- | The timestamp of the import\'s last update.
-stopImportResponse_updatedTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
-stopImportResponse_updatedTimestamp = Lens.lens (\StopImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StopImportResponse' {} a -> s {updatedTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
+-- | The source S3 bucket for the import.
+stopImportResponse_importSource :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportSource)
+stopImportResponse_importSource = Lens.lens (\StopImportResponse' {importSource} -> importSource) (\s@StopImportResponse' {} a -> s {importSource = a} :: StopImportResponse)
+
+-- | Returns information on the stopped import.
+stopImportResponse_importStatistics :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatistics)
+stopImportResponse_importStatistics = Lens.lens (\StopImportResponse' {importStatistics} -> importStatistics) (\s@StopImportResponse' {} a -> s {importStatistics = a} :: StopImportResponse)
+
+-- | The status of the import.
+stopImportResponse_importStatus :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatus)
+stopImportResponse_importStatus = Lens.lens (\StopImportResponse' {importStatus} -> importStatus) (\s@StopImportResponse' {} a -> s {importStatus = a} :: StopImportResponse)
 
 -- | Used with @EndEventTime@ to bound a @StartImport@ request, and limit
 -- imported trail events to only those events logged within a specified
@@ -239,21 +252,9 @@ stopImportResponse_updatedTimestamp = Lens.lens (\StopImportResponse' {updatedTi
 stopImportResponse_startEventTime :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
 stopImportResponse_startEventTime = Lens.lens (\StopImportResponse' {startEventTime} -> startEventTime) (\s@StopImportResponse' {} a -> s {startEventTime = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
--- | Returns information on the stopped import.
-stopImportResponse_importStatistics :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatistics)
-stopImportResponse_importStatistics = Lens.lens (\StopImportResponse' {importStatistics} -> importStatistics) (\s@StopImportResponse' {} a -> s {importStatistics = a} :: StopImportResponse)
-
--- | The ID for the import.
-stopImportResponse_importId :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.Text)
-stopImportResponse_importId = Lens.lens (\StopImportResponse' {importId} -> importId) (\s@StopImportResponse' {} a -> s {importId = a} :: StopImportResponse)
-
--- | The status of the import.
-stopImportResponse_importStatus :: Lens.Lens' StopImportResponse (Prelude.Maybe ImportStatus)
-stopImportResponse_importStatus = Lens.lens (\StopImportResponse' {importStatus} -> importStatus) (\s@StopImportResponse' {} a -> s {importStatus = a} :: StopImportResponse)
-
--- | The ARN of the destination event data store.
-stopImportResponse_destinations :: Lens.Lens' StopImportResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-stopImportResponse_destinations = Lens.lens (\StopImportResponse' {destinations} -> destinations) (\s@StopImportResponse' {} a -> s {destinations = a} :: StopImportResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp of the import\'s last update.
+stopImportResponse_updatedTimestamp :: Lens.Lens' StopImportResponse (Prelude.Maybe Prelude.UTCTime)
+stopImportResponse_updatedTimestamp = Lens.lens (\StopImportResponse' {updatedTimestamp} -> updatedTimestamp) (\s@StopImportResponse' {} a -> s {updatedTimestamp = a} :: StopImportResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 stopImportResponse_httpStatus :: Lens.Lens' StopImportResponse Prelude.Int
@@ -261,13 +262,13 @@ stopImportResponse_httpStatus = Lens.lens (\StopImportResponse' {httpStatus} -> 
 
 instance Prelude.NFData StopImportResponse where
   rnf StopImportResponse' {..} =
-    Prelude.rnf importSource
-      `Prelude.seq` Prelude.rnf endEventTime
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf startEventTime
-      `Prelude.seq` Prelude.rnf importStatistics
-      `Prelude.seq` Prelude.rnf importId
-      `Prelude.seq` Prelude.rnf importStatus
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf endEventTime
+      `Prelude.seq` Prelude.rnf importId
+      `Prelude.seq` Prelude.rnf importSource
+      `Prelude.seq` Prelude.rnf importStatistics
+      `Prelude.seq` Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf startEventTime
+      `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,10 +32,10 @@ module Amazonka.CloudTrail.ListQueries
     newListQueries,
 
     -- * Request Lenses
-    listQueries_nextToken,
-    listQueries_queryStatus,
     listQueries_endTime,
     listQueries_maxResults,
+    listQueries_nextToken,
+    listQueries_queryStatus,
     listQueries_startTime,
     listQueries_eventDataStore,
 
@@ -60,17 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQueries' smart constructor.
 data ListQueries = ListQueries'
-  { -- | A token you can use to get the next page of results.
+  { -- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
+    -- results to only those queries run within a specified time period.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of queries to show on a page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token you can use to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status of queries that you want to return in results. Valid values
     -- for @QueryStatus@ include @QUEUED@, @RUNNING@, @FINISHED@, @FAILED@,
     -- @TIMED_OUT@, or @CANCELLED@.
     queryStatus :: Prelude.Maybe QueryStatus,
-    -- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
-    -- results to only those queries run within a specified time period.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The maximum number of queries to show on a page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Use with @EndTime@ to bound a @ListQueries@ request, and limit its
     -- results to only those queries run within a specified time period.
     startTime :: Prelude.Maybe Data.POSIX,
@@ -88,16 +88,16 @@ data ListQueries = ListQueries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endTime', 'listQueries_endTime' - Use with @StartTime@ to bound a @ListQueries@ request, and limit its
+-- results to only those queries run within a specified time period.
+--
+-- 'maxResults', 'listQueries_maxResults' - The maximum number of queries to show on a page.
+--
 -- 'nextToken', 'listQueries_nextToken' - A token you can use to get the next page of results.
 --
 -- 'queryStatus', 'listQueries_queryStatus' - The status of queries that you want to return in results. Valid values
 -- for @QueryStatus@ include @QUEUED@, @RUNNING@, @FINISHED@, @FAILED@,
 -- @TIMED_OUT@, or @CANCELLED@.
---
--- 'endTime', 'listQueries_endTime' - Use with @StartTime@ to bound a @ListQueries@ request, and limit its
--- results to only those queries run within a specified time period.
---
--- 'maxResults', 'listQueries_maxResults' - The maximum number of queries to show on a page.
 --
 -- 'startTime', 'listQueries_startTime' - Use with @EndTime@ to bound a @ListQueries@ request, and limit its
 -- results to only those queries run within a specified time period.
@@ -110,13 +110,22 @@ newListQueries ::
   ListQueries
 newListQueries pEventDataStore_ =
   ListQueries'
-    { nextToken = Prelude.Nothing,
-      queryStatus = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      queryStatus = Prelude.Nothing,
       startTime = Prelude.Nothing,
       eventDataStore = pEventDataStore_
     }
+
+-- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
+-- results to only those queries run within a specified time period.
+listQueries_endTime :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.UTCTime)
+listQueries_endTime = Lens.lens (\ListQueries' {endTime} -> endTime) (\s@ListQueries' {} a -> s {endTime = a} :: ListQueries) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of queries to show on a page.
+listQueries_maxResults :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.Natural)
+listQueries_maxResults = Lens.lens (\ListQueries' {maxResults} -> maxResults) (\s@ListQueries' {} a -> s {maxResults = a} :: ListQueries)
 
 -- | A token you can use to get the next page of results.
 listQueries_nextToken :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.Text)
@@ -127,15 +136,6 @@ listQueries_nextToken = Lens.lens (\ListQueries' {nextToken} -> nextToken) (\s@L
 -- @TIMED_OUT@, or @CANCELLED@.
 listQueries_queryStatus :: Lens.Lens' ListQueries (Prelude.Maybe QueryStatus)
 listQueries_queryStatus = Lens.lens (\ListQueries' {queryStatus} -> queryStatus) (\s@ListQueries' {} a -> s {queryStatus = a} :: ListQueries)
-
--- | Use with @StartTime@ to bound a @ListQueries@ request, and limit its
--- results to only those queries run within a specified time period.
-listQueries_endTime :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.UTCTime)
-listQueries_endTime = Lens.lens (\ListQueries' {endTime} -> endTime) (\s@ListQueries' {} a -> s {endTime = a} :: ListQueries) Prelude.. Lens.mapping Data._Time
-
--- | The maximum number of queries to show on a page.
-listQueries_maxResults :: Lens.Lens' ListQueries (Prelude.Maybe Prelude.Natural)
-listQueries_maxResults = Lens.lens (\ListQueries' {maxResults} -> maxResults) (\s@ListQueries' {} a -> s {maxResults = a} :: ListQueries)
 
 -- | Use with @EndTime@ to bound a @ListQueries@ request, and limit its
 -- results to only those queries run within a specified time period.
@@ -162,19 +162,19 @@ instance Core.AWSRequest ListQueries where
 
 instance Prelude.Hashable ListQueries where
   hashWithSalt _salt ListQueries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` queryStatus
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` queryStatus
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` eventDataStore
 
 instance Prelude.NFData ListQueries where
   rnf ListQueries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryStatus
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf eventDataStore
 
@@ -197,10 +197,10 @@ instance Data.ToJSON ListQueries where
   toJSON ListQueries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("QueryStatus" Data..=) Prelude.<$> queryStatus,
-            ("EndTime" Data..=) Prelude.<$> endTime,
+          [ ("EndTime" Data..=) Prelude.<$> endTime,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("QueryStatus" Data..=) Prelude.<$> queryStatus,
             ("StartTime" Data..=) Prelude.<$> startTime,
             Prelude.Just
               ("EventDataStore" Data..= eventDataStore)

@@ -37,12 +37,12 @@ module Amazonka.CloudTrail.DescribeQuery
     newDescribeQueryResponse,
 
     -- * Response Lenses
-    describeQueryResponse_queryStatistics,
-    describeQueryResponse_queryStatus,
+    describeQueryResponse_deliveryS3Uri,
+    describeQueryResponse_deliveryStatus,
     describeQueryResponse_errorMessage,
     describeQueryResponse_queryId,
-    describeQueryResponse_deliveryStatus,
-    describeQueryResponse_deliveryS3Uri,
+    describeQueryResponse_queryStatistics,
+    describeQueryResponse_queryStatus,
     describeQueryResponse_queryString,
     describeQueryResponse_httpStatus,
   )
@@ -107,12 +107,12 @@ instance Core.AWSRequest DescribeQuery where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueryResponse'
-            Prelude.<$> (x Data..?> "QueryStatistics")
-            Prelude.<*> (x Data..?> "QueryStatus")
+            Prelude.<$> (x Data..?> "DeliveryS3Uri")
+            Prelude.<*> (x Data..?> "DeliveryStatus")
             Prelude.<*> (x Data..?> "ErrorMessage")
             Prelude.<*> (x Data..?> "QueryId")
-            Prelude.<*> (x Data..?> "DeliveryStatus")
-            Prelude.<*> (x Data..?> "DeliveryS3Uri")
+            Prelude.<*> (x Data..?> "QueryStatistics")
+            Prelude.<*> (x Data..?> "QueryStatus")
             Prelude.<*> (x Data..?> "QueryString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -160,22 +160,22 @@ instance Data.ToQuery DescribeQuery where
 
 -- | /See:/ 'newDescribeQueryResponse' smart constructor.
 data DescribeQueryResponse = DescribeQueryResponse'
-  { -- | Metadata about a query, including the number of events that were
+  { -- | The URI for the S3 bucket where CloudTrail delivered query results, if
+    -- applicable.
+    deliveryS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | The delivery status.
+    deliveryStatus :: Prelude.Maybe DeliveryStatus,
+    -- | The error message returned if a query failed.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the query.
+    queryId :: Prelude.Maybe Prelude.Text,
+    -- | Metadata about a query, including the number of events that were
     -- matched, the total number of events scanned, the query run time in
     -- milliseconds, and the query\'s creation time.
     queryStatistics :: Prelude.Maybe QueryStatisticsForDescribeQuery,
     -- | The status of a query. Values for @QueryStatus@ include @QUEUED@,
     -- @RUNNING@, @FINISHED@, @FAILED@, @TIMED_OUT@, or @CANCELLED@
     queryStatus :: Prelude.Maybe QueryStatus,
-    -- | The error message returned if a query failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the query.
-    queryId :: Prelude.Maybe Prelude.Text,
-    -- | The delivery status.
-    deliveryStatus :: Prelude.Maybe DeliveryStatus,
-    -- | The URI for the S3 bucket where CloudTrail delivered query results, if
-    -- applicable.
-    deliveryS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The SQL code of a query.
     queryString :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -191,21 +191,21 @@ data DescribeQueryResponse = DescribeQueryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deliveryS3Uri', 'describeQueryResponse_deliveryS3Uri' - The URI for the S3 bucket where CloudTrail delivered query results, if
+-- applicable.
+--
+-- 'deliveryStatus', 'describeQueryResponse_deliveryStatus' - The delivery status.
+--
+-- 'errorMessage', 'describeQueryResponse_errorMessage' - The error message returned if a query failed.
+--
+-- 'queryId', 'describeQueryResponse_queryId' - The ID of the query.
+--
 -- 'queryStatistics', 'describeQueryResponse_queryStatistics' - Metadata about a query, including the number of events that were
 -- matched, the total number of events scanned, the query run time in
 -- milliseconds, and the query\'s creation time.
 --
 -- 'queryStatus', 'describeQueryResponse_queryStatus' - The status of a query. Values for @QueryStatus@ include @QUEUED@,
 -- @RUNNING@, @FINISHED@, @FAILED@, @TIMED_OUT@, or @CANCELLED@
---
--- 'errorMessage', 'describeQueryResponse_errorMessage' - The error message returned if a query failed.
---
--- 'queryId', 'describeQueryResponse_queryId' - The ID of the query.
---
--- 'deliveryStatus', 'describeQueryResponse_deliveryStatus' - The delivery status.
---
--- 'deliveryS3Uri', 'describeQueryResponse_deliveryS3Uri' - The URI for the S3 bucket where CloudTrail delivered query results, if
--- applicable.
 --
 -- 'queryString', 'describeQueryResponse_queryString' - The SQL code of a query.
 --
@@ -216,16 +216,33 @@ newDescribeQueryResponse ::
   DescribeQueryResponse
 newDescribeQueryResponse pHttpStatus_ =
   DescribeQueryResponse'
-    { queryStatistics =
+    { deliveryS3Uri =
         Prelude.Nothing,
-      queryStatus = Prelude.Nothing,
+      deliveryStatus = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
       queryId = Prelude.Nothing,
-      deliveryStatus = Prelude.Nothing,
-      deliveryS3Uri = Prelude.Nothing,
+      queryStatistics = Prelude.Nothing,
+      queryStatus = Prelude.Nothing,
       queryString = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The URI for the S3 bucket where CloudTrail delivered query results, if
+-- applicable.
+describeQueryResponse_deliveryS3Uri :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
+describeQueryResponse_deliveryS3Uri = Lens.lens (\DescribeQueryResponse' {deliveryS3Uri} -> deliveryS3Uri) (\s@DescribeQueryResponse' {} a -> s {deliveryS3Uri = a} :: DescribeQueryResponse)
+
+-- | The delivery status.
+describeQueryResponse_deliveryStatus :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe DeliveryStatus)
+describeQueryResponse_deliveryStatus = Lens.lens (\DescribeQueryResponse' {deliveryStatus} -> deliveryStatus) (\s@DescribeQueryResponse' {} a -> s {deliveryStatus = a} :: DescribeQueryResponse)
+
+-- | The error message returned if a query failed.
+describeQueryResponse_errorMessage :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
+describeQueryResponse_errorMessage = Lens.lens (\DescribeQueryResponse' {errorMessage} -> errorMessage) (\s@DescribeQueryResponse' {} a -> s {errorMessage = a} :: DescribeQueryResponse)
+
+-- | The ID of the query.
+describeQueryResponse_queryId :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
+describeQueryResponse_queryId = Lens.lens (\DescribeQueryResponse' {queryId} -> queryId) (\s@DescribeQueryResponse' {} a -> s {queryId = a} :: DescribeQueryResponse)
 
 -- | Metadata about a query, including the number of events that were
 -- matched, the total number of events scanned, the query run time in
@@ -238,23 +255,6 @@ describeQueryResponse_queryStatistics = Lens.lens (\DescribeQueryResponse' {quer
 describeQueryResponse_queryStatus :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe QueryStatus)
 describeQueryResponse_queryStatus = Lens.lens (\DescribeQueryResponse' {queryStatus} -> queryStatus) (\s@DescribeQueryResponse' {} a -> s {queryStatus = a} :: DescribeQueryResponse)
 
--- | The error message returned if a query failed.
-describeQueryResponse_errorMessage :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
-describeQueryResponse_errorMessage = Lens.lens (\DescribeQueryResponse' {errorMessage} -> errorMessage) (\s@DescribeQueryResponse' {} a -> s {errorMessage = a} :: DescribeQueryResponse)
-
--- | The ID of the query.
-describeQueryResponse_queryId :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
-describeQueryResponse_queryId = Lens.lens (\DescribeQueryResponse' {queryId} -> queryId) (\s@DescribeQueryResponse' {} a -> s {queryId = a} :: DescribeQueryResponse)
-
--- | The delivery status.
-describeQueryResponse_deliveryStatus :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe DeliveryStatus)
-describeQueryResponse_deliveryStatus = Lens.lens (\DescribeQueryResponse' {deliveryStatus} -> deliveryStatus) (\s@DescribeQueryResponse' {} a -> s {deliveryStatus = a} :: DescribeQueryResponse)
-
--- | The URI for the S3 bucket where CloudTrail delivered query results, if
--- applicable.
-describeQueryResponse_deliveryS3Uri :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
-describeQueryResponse_deliveryS3Uri = Lens.lens (\DescribeQueryResponse' {deliveryS3Uri} -> deliveryS3Uri) (\s@DescribeQueryResponse' {} a -> s {deliveryS3Uri = a} :: DescribeQueryResponse)
-
 -- | The SQL code of a query.
 describeQueryResponse_queryString :: Lens.Lens' DescribeQueryResponse (Prelude.Maybe Prelude.Text)
 describeQueryResponse_queryString = Lens.lens (\DescribeQueryResponse' {queryString} -> queryString) (\s@DescribeQueryResponse' {} a -> s {queryString = a} :: DescribeQueryResponse)
@@ -265,11 +265,11 @@ describeQueryResponse_httpStatus = Lens.lens (\DescribeQueryResponse' {httpStatu
 
 instance Prelude.NFData DescribeQueryResponse where
   rnf DescribeQueryResponse' {..} =
-    Prelude.rnf queryStatistics
-      `Prelude.seq` Prelude.rnf queryStatus
+    Prelude.rnf deliveryS3Uri
+      `Prelude.seq` Prelude.rnf deliveryStatus
       `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf deliveryStatus
-      `Prelude.seq` Prelude.rnf deliveryS3Uri
+      `Prelude.seq` Prelude.rnf queryStatistics
+      `Prelude.seq` Prelude.rnf queryStatus
       `Prelude.seq` Prelude.rnf queryString
       `Prelude.seq` Prelude.rnf httpStatus

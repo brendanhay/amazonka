@@ -36,10 +36,10 @@ import Amazonka.Snowball.Types.S3Resource
 data JobResource = JobResource'
   { -- | The Amazon Machine Images (AMIs) associated with this job.
     ec2AmiResources :: Prelude.Maybe [Ec2AmiResource],
-    -- | An array of @S3Resource@ objects.
-    s3Resources :: Prelude.Maybe [S3Resource],
     -- | The Python-language Lambda functions for this job.
-    lambdaResources :: Prelude.Maybe [LambdaResource]
+    lambdaResources :: Prelude.Maybe [LambdaResource],
+    -- | An array of @S3Resource@ objects.
+    s3Resources :: Prelude.Maybe [S3Resource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,29 @@ data JobResource = JobResource'
 --
 -- 'ec2AmiResources', 'jobResource_ec2AmiResources' - The Amazon Machine Images (AMIs) associated with this job.
 --
--- 's3Resources', 'jobResource_s3Resources' - An array of @S3Resource@ objects.
---
 -- 'lambdaResources', 'jobResource_lambdaResources' - The Python-language Lambda functions for this job.
+--
+-- 's3Resources', 'jobResource_s3Resources' - An array of @S3Resource@ objects.
 newJobResource ::
   JobResource
 newJobResource =
   JobResource'
     { ec2AmiResources = Prelude.Nothing,
-      s3Resources = Prelude.Nothing,
-      lambdaResources = Prelude.Nothing
+      lambdaResources = Prelude.Nothing,
+      s3Resources = Prelude.Nothing
     }
 
 -- | The Amazon Machine Images (AMIs) associated with this job.
 jobResource_ec2AmiResources :: Lens.Lens' JobResource (Prelude.Maybe [Ec2AmiResource])
 jobResource_ec2AmiResources = Lens.lens (\JobResource' {ec2AmiResources} -> ec2AmiResources) (\s@JobResource' {} a -> s {ec2AmiResources = a} :: JobResource) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of @S3Resource@ objects.
-jobResource_s3Resources :: Lens.Lens' JobResource (Prelude.Maybe [S3Resource])
-jobResource_s3Resources = Lens.lens (\JobResource' {s3Resources} -> s3Resources) (\s@JobResource' {} a -> s {s3Resources = a} :: JobResource) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Python-language Lambda functions for this job.
 jobResource_lambdaResources :: Lens.Lens' JobResource (Prelude.Maybe [LambdaResource])
 jobResource_lambdaResources = Lens.lens (\JobResource' {lambdaResources} -> lambdaResources) (\s@JobResource' {} a -> s {lambdaResources = a} :: JobResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of @S3Resource@ objects.
+jobResource_s3Resources :: Lens.Lens' JobResource (Prelude.Maybe [S3Resource])
+jobResource_s3Resources = Lens.lens (\JobResource' {s3Resources} -> s3Resources) (\s@JobResource' {} a -> s {s3Resources = a} :: JobResource) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON JobResource where
   parseJSON =
@@ -86,23 +86,23 @@ instance Data.FromJSON JobResource where
             Prelude.<$> ( x Data..:? "Ec2AmiResources"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "S3Resources" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "LambdaResources"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "S3Resources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable JobResource where
   hashWithSalt _salt JobResource' {..} =
     _salt `Prelude.hashWithSalt` ec2AmiResources
-      `Prelude.hashWithSalt` s3Resources
       `Prelude.hashWithSalt` lambdaResources
+      `Prelude.hashWithSalt` s3Resources
 
 instance Prelude.NFData JobResource where
   rnf JobResource' {..} =
     Prelude.rnf ec2AmiResources
-      `Prelude.seq` Prelude.rnf s3Resources
       `Prelude.seq` Prelude.rnf lambdaResources
+      `Prelude.seq` Prelude.rnf s3Resources
 
 instance Data.ToJSON JobResource where
   toJSON JobResource' {..} =
@@ -110,8 +110,8 @@ instance Data.ToJSON JobResource where
       ( Prelude.catMaybes
           [ ("Ec2AmiResources" Data..=)
               Prelude.<$> ec2AmiResources,
-            ("S3Resources" Data..=) Prelude.<$> s3Resources,
             ("LambdaResources" Data..=)
-              Prelude.<$> lambdaResources
+              Prelude.<$> lambdaResources,
+            ("S3Resources" Data..=) Prelude.<$> s3Resources
           ]
       )

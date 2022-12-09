@@ -28,13 +28,13 @@ module Amazonka.Snowball.Lens
     createAddressResponse_httpStatus,
 
     -- ** CreateCluster
-    createCluster_forwardingAddressId,
     createCluster_description,
+    createCluster_forwardingAddressId,
     createCluster_kmsKeyARN,
     createCluster_notification,
+    createCluster_onDeviceServiceConfiguration,
     createCluster_remoteManagement,
     createCluster_taxDocuments,
-    createCluster_onDeviceServiceConfiguration,
     createCluster_jobType,
     createCluster_resources,
     createCluster_addressId,
@@ -45,23 +45,23 @@ module Amazonka.Snowball.Lens
     createClusterResponse_httpStatus,
 
     -- ** CreateJob
-    createJob_roleARN,
+    createJob_addressId,
+    createJob_clusterId,
+    createJob_description,
     createJob_deviceConfiguration,
     createJob_forwardingAddressId,
-    createJob_description,
+    createJob_jobType,
     createJob_kmsKeyARN,
     createJob_longTermPricingId,
     createJob_notification,
-    createJob_remoteManagement,
-    createJob_clusterId,
-    createJob_taxDocuments,
-    createJob_resources,
-    createJob_snowballCapacityPreference,
-    createJob_addressId,
-    createJob_snowballType,
-    createJob_jobType,
-    createJob_shippingOption,
     createJob_onDeviceServiceConfiguration,
+    createJob_remoteManagement,
+    createJob_resources,
+    createJob_roleARN,
+    createJob_shippingOption,
+    createJob_snowballCapacityPreference,
+    createJob_snowballType,
+    createJob_taxDocuments,
     createJobResponse_jobId,
     createJobResponse_httpStatus,
 
@@ -84,10 +84,10 @@ module Amazonka.Snowball.Lens
     describeAddressResponse_httpStatus,
 
     -- ** DescribeAddresses
-    describeAddresses_nextToken,
     describeAddresses_maxResults,
-    describeAddressesResponse_nextToken,
+    describeAddresses_nextToken,
     describeAddressesResponse_addresses,
+    describeAddressesResponse_nextToken,
     describeAddressesResponse_httpStatus,
 
     -- ** DescribeCluster
@@ -103,9 +103,9 @@ module Amazonka.Snowball.Lens
 
     -- ** DescribeReturnShippingLabel
     describeReturnShippingLabel_jobId,
-    describeReturnShippingLabelResponse_status,
-    describeReturnShippingLabelResponse_returnShippingLabelURI,
     describeReturnShippingLabelResponse_expirationDate,
+    describeReturnShippingLabelResponse_returnShippingLabelURI,
+    describeReturnShippingLabelResponse_status,
     describeReturnShippingLabelResponse_httpStatus,
 
     -- ** GetJobManifest
@@ -119,8 +119,8 @@ module Amazonka.Snowball.Lens
     getJobUnlockCodeResponse_httpStatus,
 
     -- ** GetSnowballUsage
-    getSnowballUsageResponse_snowballsInUse,
     getSnowballUsageResponse_snowballLimit,
+    getSnowballUsageResponse_snowballsInUse,
     getSnowballUsageResponse_httpStatus,
 
     -- ** GetSoftwareUpdates
@@ -129,63 +129,63 @@ module Amazonka.Snowball.Lens
     getSoftwareUpdatesResponse_httpStatus,
 
     -- ** ListClusterJobs
-    listClusterJobs_nextToken,
     listClusterJobs_maxResults,
+    listClusterJobs_nextToken,
     listClusterJobs_clusterId,
-    listClusterJobsResponse_nextToken,
     listClusterJobsResponse_jobListEntries,
+    listClusterJobsResponse_nextToken,
     listClusterJobsResponse_httpStatus,
 
     -- ** ListClusters
-    listClusters_nextToken,
     listClusters_maxResults,
-    listClustersResponse_nextToken,
+    listClusters_nextToken,
     listClustersResponse_clusterListEntries,
+    listClustersResponse_nextToken,
     listClustersResponse_httpStatus,
 
     -- ** ListCompatibleImages
-    listCompatibleImages_nextToken,
     listCompatibleImages_maxResults,
-    listCompatibleImagesResponse_nextToken,
+    listCompatibleImages_nextToken,
     listCompatibleImagesResponse_compatibleImages,
+    listCompatibleImagesResponse_nextToken,
     listCompatibleImagesResponse_httpStatus,
 
     -- ** ListJobs
-    listJobs_nextToken,
     listJobs_maxResults,
-    listJobsResponse_nextToken,
+    listJobs_nextToken,
     listJobsResponse_jobListEntries,
+    listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
 
     -- ** ListLongTermPricing
-    listLongTermPricing_nextToken,
     listLongTermPricing_maxResults,
-    listLongTermPricingResponse_nextToken,
+    listLongTermPricing_nextToken,
     listLongTermPricingResponse_longTermPricingEntries,
+    listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_httpStatus,
 
     -- ** UpdateCluster
-    updateCluster_roleARN,
-    updateCluster_forwardingAddressId,
-    updateCluster_description,
-    updateCluster_notification,
-    updateCluster_resources,
     updateCluster_addressId,
-    updateCluster_shippingOption,
+    updateCluster_description,
+    updateCluster_forwardingAddressId,
+    updateCluster_notification,
     updateCluster_onDeviceServiceConfiguration,
+    updateCluster_resources,
+    updateCluster_roleARN,
+    updateCluster_shippingOption,
     updateCluster_clusterId,
     updateClusterResponse_httpStatus,
 
     -- ** UpdateJob
-    updateJob_roleARN,
-    updateJob_forwardingAddressId,
-    updateJob_description,
-    updateJob_notification,
-    updateJob_resources,
-    updateJob_snowballCapacityPreference,
     updateJob_addressId,
-    updateJob_shippingOption,
+    updateJob_description,
+    updateJob_forwardingAddressId,
+    updateJob_notification,
     updateJob_onDeviceServiceConfiguration,
+    updateJob_resources,
+    updateJob_roleARN,
+    updateJob_shippingOption,
+    updateJob_snowballCapacityPreference,
     updateJob_jobId,
     updateJobResponse_httpStatus,
 
@@ -203,53 +203,53 @@ module Amazonka.Snowball.Lens
     -- * Types
 
     -- ** Address
+    address_addressId,
+    address_city,
+    address_company,
+    address_country,
+    address_isRestricted,
+    address_landmark,
+    address_name,
+    address_phoneNumber,
+    address_postalCode,
+    address_prefectureOrDistrict,
     address_stateOrProvince,
     address_street1,
-    address_isRestricted,
-    address_name,
-    address_postalCode,
-    address_company,
-    address_street3,
-    address_country,
-    address_prefectureOrDistrict,
-    address_city,
-    address_landmark,
-    address_phoneNumber,
     address_street2,
-    address_addressId,
+    address_street3,
 
     -- ** ClusterListEntry
+    clusterListEntry_clusterId,
+    clusterListEntry_clusterState,
     clusterListEntry_creationDate,
     clusterListEntry_description,
-    clusterListEntry_clusterState,
-    clusterListEntry_clusterId,
 
     -- ** ClusterMetadata
-    clusterMetadata_roleARN,
-    clusterMetadata_creationDate,
-    clusterMetadata_forwardingAddressId,
-    clusterMetadata_description,
-    clusterMetadata_kmsKeyARN,
-    clusterMetadata_clusterState,
-    clusterMetadata_notification,
-    clusterMetadata_clusterId,
-    clusterMetadata_taxDocuments,
-    clusterMetadata_resources,
     clusterMetadata_addressId,
-    clusterMetadata_snowballType,
+    clusterMetadata_clusterId,
+    clusterMetadata_clusterState,
+    clusterMetadata_creationDate,
+    clusterMetadata_description,
+    clusterMetadata_forwardingAddressId,
     clusterMetadata_jobType,
-    clusterMetadata_shippingOption,
+    clusterMetadata_kmsKeyARN,
+    clusterMetadata_notification,
     clusterMetadata_onDeviceServiceConfiguration,
+    clusterMetadata_resources,
+    clusterMetadata_roleARN,
+    clusterMetadata_shippingOption,
+    clusterMetadata_snowballType,
+    clusterMetadata_taxDocuments,
 
     -- ** CompatibleImage
     compatibleImage_amiId,
     compatibleImage_name,
 
     -- ** DataTransfer
+    dataTransfer_bytesTransferred,
     dataTransfer_objectsTransferred,
     dataTransfer_totalBytes,
     dataTransfer_totalObjects,
-    dataTransfer_bytesTransferred,
 
     -- ** DeviceConfiguration
     deviceConfiguration_snowconeDeviceConfiguration,
@@ -266,46 +266,46 @@ module Amazonka.Snowball.Lens
 
     -- ** JobListEntry
     jobListEntry_creationDate,
-    jobListEntry_jobId,
     jobListEntry_description,
     jobListEntry_isMaster,
+    jobListEntry_jobId,
     jobListEntry_jobState,
-    jobListEntry_snowballType,
     jobListEntry_jobType,
+    jobListEntry_snowballType,
 
     -- ** JobLogs
-    jobLogs_jobSuccessLogURI,
-    jobLogs_jobFailureLogURI,
     jobLogs_jobCompletionReportURI,
+    jobLogs_jobFailureLogURI,
+    jobLogs_jobSuccessLogURI,
 
     -- ** JobMetadata
-    jobMetadata_shippingDetails,
-    jobMetadata_roleARN,
-    jobMetadata_deviceConfiguration,
+    jobMetadata_addressId,
+    jobMetadata_clusterId,
     jobMetadata_creationDate,
-    jobMetadata_jobId,
-    jobMetadata_forwardingAddressId,
+    jobMetadata_dataTransferProgress,
     jobMetadata_description,
+    jobMetadata_deviceConfiguration,
+    jobMetadata_forwardingAddressId,
+    jobMetadata_jobId,
+    jobMetadata_jobLogInfo,
+    jobMetadata_jobState,
+    jobMetadata_jobType,
     jobMetadata_kmsKeyARN,
     jobMetadata_longTermPricingId,
     jobMetadata_notification,
-    jobMetadata_dataTransferProgress,
-    jobMetadata_remoteManagement,
-    jobMetadata_clusterId,
-    jobMetadata_jobState,
-    jobMetadata_taxDocuments,
-    jobMetadata_resources,
-    jobMetadata_snowballCapacityPreference,
-    jobMetadata_addressId,
-    jobMetadata_snowballType,
-    jobMetadata_jobType,
-    jobMetadata_jobLogInfo,
     jobMetadata_onDeviceServiceConfiguration,
+    jobMetadata_remoteManagement,
+    jobMetadata_resources,
+    jobMetadata_roleARN,
+    jobMetadata_shippingDetails,
+    jobMetadata_snowballCapacityPreference,
+    jobMetadata_snowballType,
+    jobMetadata_taxDocuments,
 
     -- ** JobResource
     jobResource_ec2AmiResources,
-    jobResource_s3Resources,
     jobResource_lambdaResources,
+    jobResource_s3Resources,
 
     -- ** KeyRange
     keyRange_beginMarker,
@@ -316,54 +316,54 @@ module Amazonka.Snowball.Lens
     lambdaResource_lambdaArn,
 
     -- ** LongTermPricingListEntry
-    longTermPricingListEntry_longTermPricingStatus,
-    longTermPricingListEntry_longTermPricingEndDate,
     longTermPricingListEntry_currentActiveJob,
-    longTermPricingListEntry_longTermPricingType,
     longTermPricingListEntry_isLongTermPricingAutoRenew,
-    longTermPricingListEntry_longTermPricingId,
-    longTermPricingListEntry_replacementJob,
-    longTermPricingListEntry_longTermPricingStartDate,
-    longTermPricingListEntry_snowballType,
     longTermPricingListEntry_jobIds,
+    longTermPricingListEntry_longTermPricingEndDate,
+    longTermPricingListEntry_longTermPricingId,
+    longTermPricingListEntry_longTermPricingStartDate,
+    longTermPricingListEntry_longTermPricingStatus,
+    longTermPricingListEntry_longTermPricingType,
+    longTermPricingListEntry_replacementJob,
+    longTermPricingListEntry_snowballType,
 
     -- ** NFSOnDeviceServiceConfiguration
-    nFSOnDeviceServiceConfiguration_storageUnit,
     nFSOnDeviceServiceConfiguration_storageLimit,
+    nFSOnDeviceServiceConfiguration_storageUnit,
 
     -- ** Notification
     notification_jobStatesToNotify,
-    notification_snsTopicARN,
     notification_notifyAll,
+    notification_snsTopicARN,
 
     -- ** OnDeviceServiceConfiguration
     onDeviceServiceConfiguration_nFSOnDeviceService,
     onDeviceServiceConfiguration_tGWOnDeviceService,
 
     -- ** S3Resource
-    s3Resource_targetOnDeviceServices,
     s3Resource_bucketArn,
     s3Resource_keyRange,
+    s3Resource_targetOnDeviceServices,
 
     -- ** Shipment
     shipment_status,
     shipment_trackingNumber,
 
     -- ** ShippingDetails
+    shippingDetails_inboundShipment,
     shippingDetails_outboundShipment,
     shippingDetails_shippingOption,
-    shippingDetails_inboundShipment,
 
     -- ** SnowconeDeviceConfiguration
     snowconeDeviceConfiguration_wirelessConnection,
 
     -- ** TGWOnDeviceServiceConfiguration
-    tGWOnDeviceServiceConfiguration_storageUnit,
     tGWOnDeviceServiceConfiguration_storageLimit,
+    tGWOnDeviceServiceConfiguration_storageUnit,
 
     -- ** TargetOnDeviceService
-    targetOnDeviceService_transferOption,
     targetOnDeviceService_serviceName,
+    targetOnDeviceService_transferOption,
 
     -- ** TaxDocuments
     taxDocuments_ind,

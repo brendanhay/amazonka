@@ -36,8 +36,8 @@ module Amazonka.Snowball.GetSnowballUsage
     newGetSnowballUsageResponse,
 
     -- * Response Lenses
-    getSnowballUsageResponse_snowballsInUse,
     getSnowballUsageResponse_snowballLimit,
+    getSnowballUsageResponse_snowballsInUse,
     getSnowballUsageResponse_httpStatus,
   )
 where
@@ -74,8 +74,8 @@ instance Core.AWSRequest GetSnowballUsage where
     Response.receiveJSON
       ( \s h x ->
           GetSnowballUsageResponse'
-            Prelude.<$> (x Data..?> "SnowballsInUse")
-            Prelude.<*> (x Data..?> "SnowballLimit")
+            Prelude.<$> (x Data..?> "SnowballLimit")
+            Prelude.<*> (x Data..?> "SnowballsInUse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -112,11 +112,11 @@ instance Data.ToQuery GetSnowballUsage where
 
 -- | /See:/ 'newGetSnowballUsageResponse' smart constructor.
 data GetSnowballUsageResponse = GetSnowballUsageResponse'
-  { -- | The number of Snow devices that this account is currently using.
-    snowballsInUse :: Prelude.Maybe Prelude.Int,
-    -- | The service limit for number of Snow devices this account can have at
+  { -- | The service limit for number of Snow devices this account can have at
     -- once. The default service limit is 1 (one).
     snowballLimit :: Prelude.Maybe Prelude.Int,
+    -- | The number of Snow devices that this account is currently using.
+    snowballsInUse :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -130,10 +130,10 @@ data GetSnowballUsageResponse = GetSnowballUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snowballsInUse', 'getSnowballUsageResponse_snowballsInUse' - The number of Snow devices that this account is currently using.
---
 -- 'snowballLimit', 'getSnowballUsageResponse_snowballLimit' - The service limit for number of Snow devices this account can have at
 -- once. The default service limit is 1 (one).
+--
+-- 'snowballsInUse', 'getSnowballUsageResponse_snowballsInUse' - The number of Snow devices that this account is currently using.
 --
 -- 'httpStatus', 'getSnowballUsageResponse_httpStatus' - The response's http status code.
 newGetSnowballUsageResponse ::
@@ -142,20 +142,20 @@ newGetSnowballUsageResponse ::
   GetSnowballUsageResponse
 newGetSnowballUsageResponse pHttpStatus_ =
   GetSnowballUsageResponse'
-    { snowballsInUse =
+    { snowballLimit =
         Prelude.Nothing,
-      snowballLimit = Prelude.Nothing,
+      snowballsInUse = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The number of Snow devices that this account is currently using.
-getSnowballUsageResponse_snowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Prelude.Maybe Prelude.Int)
-getSnowballUsageResponse_snowballsInUse = Lens.lens (\GetSnowballUsageResponse' {snowballsInUse} -> snowballsInUse) (\s@GetSnowballUsageResponse' {} a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
 
 -- | The service limit for number of Snow devices this account can have at
 -- once. The default service limit is 1 (one).
 getSnowballUsageResponse_snowballLimit :: Lens.Lens' GetSnowballUsageResponse (Prelude.Maybe Prelude.Int)
 getSnowballUsageResponse_snowballLimit = Lens.lens (\GetSnowballUsageResponse' {snowballLimit} -> snowballLimit) (\s@GetSnowballUsageResponse' {} a -> s {snowballLimit = a} :: GetSnowballUsageResponse)
+
+-- | The number of Snow devices that this account is currently using.
+getSnowballUsageResponse_snowballsInUse :: Lens.Lens' GetSnowballUsageResponse (Prelude.Maybe Prelude.Int)
+getSnowballUsageResponse_snowballsInUse = Lens.lens (\GetSnowballUsageResponse' {snowballsInUse} -> snowballsInUse) (\s@GetSnowballUsageResponse' {} a -> s {snowballsInUse = a} :: GetSnowballUsageResponse)
 
 -- | The response's http status code.
 getSnowballUsageResponse_httpStatus :: Lens.Lens' GetSnowballUsageResponse Prelude.Int
@@ -163,6 +163,6 @@ getSnowballUsageResponse_httpStatus = Lens.lens (\GetSnowballUsageResponse' {htt
 
 instance Prelude.NFData GetSnowballUsageResponse where
   rnf GetSnowballUsageResponse' {..} =
-    Prelude.rnf snowballsInUse
-      `Prelude.seq` Prelude.rnf snowballLimit
+    Prelude.rnf snowballLimit
+      `Prelude.seq` Prelude.rnf snowballsInUse
       `Prelude.seq` Prelude.rnf httpStatus

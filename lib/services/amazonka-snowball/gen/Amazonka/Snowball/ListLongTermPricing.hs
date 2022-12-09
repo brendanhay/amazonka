@@ -29,16 +29,16 @@ module Amazonka.Snowball.ListLongTermPricing
     newListLongTermPricing,
 
     -- * Request Lenses
-    listLongTermPricing_nextToken,
     listLongTermPricing_maxResults,
+    listLongTermPricing_nextToken,
 
     -- * Destructuring the Response
     ListLongTermPricingResponse (..),
     newListLongTermPricingResponse,
 
     -- * Response Lenses
-    listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_longTermPricingEntries,
+    listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newListLongTermPricing' smart constructor.
 data ListLongTermPricing = ListLongTermPricing'
-  { -- | Because HTTP requests are stateless, this is the starting point for your
+  { -- | The maximum number of @ListLongTermPricing@ objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Because HTTP requests are stateless, this is the starting point for your
     -- next list of @ListLongTermPricing@ to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of @ListLongTermPricing@ objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListLongTermPricing = ListLongTermPricing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLongTermPricing_maxResults' - The maximum number of @ListLongTermPricing@ objects to return.
+--
 -- 'nextToken', 'listLongTermPricing_nextToken' - Because HTTP requests are stateless, this is the starting point for your
 -- next list of @ListLongTermPricing@ to return.
---
--- 'maxResults', 'listLongTermPricing_maxResults' - The maximum number of @ListLongTermPricing@ objects to return.
 newListLongTermPricing ::
   ListLongTermPricing
 newListLongTermPricing =
   ListLongTermPricing'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of @ListLongTermPricing@ objects to return.
+listLongTermPricing_maxResults :: Lens.Lens' ListLongTermPricing (Prelude.Maybe Prelude.Natural)
+listLongTermPricing_maxResults = Lens.lens (\ListLongTermPricing' {maxResults} -> maxResults) (\s@ListLongTermPricing' {} a -> s {maxResults = a} :: ListLongTermPricing)
 
 -- | Because HTTP requests are stateless, this is the starting point for your
 -- next list of @ListLongTermPricing@ to return.
 listLongTermPricing_nextToken :: Lens.Lens' ListLongTermPricing (Prelude.Maybe Prelude.Text)
 listLongTermPricing_nextToken = Lens.lens (\ListLongTermPricing' {nextToken} -> nextToken) (\s@ListLongTermPricing' {} a -> s {nextToken = a} :: ListLongTermPricing)
-
--- | The maximum number of @ListLongTermPricing@ objects to return.
-listLongTermPricing_maxResults :: Lens.Lens' ListLongTermPricing (Prelude.Maybe Prelude.Natural)
-listLongTermPricing_maxResults = Lens.lens (\ListLongTermPricing' {maxResults} -> maxResults) (\s@ListLongTermPricing' {} a -> s {maxResults = a} :: ListLongTermPricing)
 
 instance Core.AWSPager ListLongTermPricing where
   page rq rs
@@ -122,22 +122,22 @@ instance Core.AWSRequest ListLongTermPricing where
     Response.receiveJSON
       ( \s h x ->
           ListLongTermPricingResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LongTermPricingEntries"
+            Prelude.<$> ( x Data..?> "LongTermPricingEntries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLongTermPricing where
   hashWithSalt _salt ListLongTermPricing' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLongTermPricing where
   rnf ListLongTermPricing' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLongTermPricing where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListLongTermPricing where
   toJSON ListLongTermPricing' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -171,12 +171,12 @@ instance Data.ToQuery ListLongTermPricing where
 
 -- | /See:/ 'newListLongTermPricingResponse' smart constructor.
 data ListLongTermPricingResponse = ListLongTermPricingResponse'
-  { -- | Because HTTP requests are stateless, this is the starting point for your
-    -- next list of returned @ListLongTermPricing@ list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each @LongTermPricingEntry@ object contains a status, ID, and other
+  { -- | Each @LongTermPricingEntry@ object contains a status, ID, and other
     -- information about the @LongTermPricing@ type.
     longTermPricingEntries :: Prelude.Maybe [LongTermPricingListEntry],
+    -- | Because HTTP requests are stateless, this is the starting point for your
+    -- next list of returned @ListLongTermPricing@ list.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,11 +190,11 @@ data ListLongTermPricingResponse = ListLongTermPricingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLongTermPricingResponse_nextToken' - Because HTTP requests are stateless, this is the starting point for your
--- next list of returned @ListLongTermPricing@ list.
---
 -- 'longTermPricingEntries', 'listLongTermPricingResponse_longTermPricingEntries' - Each @LongTermPricingEntry@ object contains a status, ID, and other
 -- information about the @LongTermPricing@ type.
+--
+-- 'nextToken', 'listLongTermPricingResponse_nextToken' - Because HTTP requests are stateless, this is the starting point for your
+-- next list of returned @ListLongTermPricing@ list.
 --
 -- 'httpStatus', 'listLongTermPricingResponse_httpStatus' - The response's http status code.
 newListLongTermPricingResponse ::
@@ -203,21 +203,21 @@ newListLongTermPricingResponse ::
   ListLongTermPricingResponse
 newListLongTermPricingResponse pHttpStatus_ =
   ListLongTermPricingResponse'
-    { nextToken =
+    { longTermPricingEntries =
         Prelude.Nothing,
-      longTermPricingEntries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Because HTTP requests are stateless, this is the starting point for your
--- next list of returned @ListLongTermPricing@ list.
-listLongTermPricingResponse_nextToken :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe Prelude.Text)
-listLongTermPricingResponse_nextToken = Lens.lens (\ListLongTermPricingResponse' {nextToken} -> nextToken) (\s@ListLongTermPricingResponse' {} a -> s {nextToken = a} :: ListLongTermPricingResponse)
 
 -- | Each @LongTermPricingEntry@ object contains a status, ID, and other
 -- information about the @LongTermPricing@ type.
 listLongTermPricingResponse_longTermPricingEntries :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe [LongTermPricingListEntry])
 listLongTermPricingResponse_longTermPricingEntries = Lens.lens (\ListLongTermPricingResponse' {longTermPricingEntries} -> longTermPricingEntries) (\s@ListLongTermPricingResponse' {} a -> s {longTermPricingEntries = a} :: ListLongTermPricingResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Because HTTP requests are stateless, this is the starting point for your
+-- next list of returned @ListLongTermPricing@ list.
+listLongTermPricingResponse_nextToken :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe Prelude.Text)
+listLongTermPricingResponse_nextToken = Lens.lens (\ListLongTermPricingResponse' {nextToken} -> nextToken) (\s@ListLongTermPricingResponse' {} a -> s {nextToken = a} :: ListLongTermPricingResponse)
 
 -- | The response's http status code.
 listLongTermPricingResponse_httpStatus :: Lens.Lens' ListLongTermPricingResponse Prelude.Int
@@ -225,6 +225,6 @@ listLongTermPricingResponse_httpStatus = Lens.lens (\ListLongTermPricingResponse
 
 instance Prelude.NFData ListLongTermPricingResponse where
   rnf ListLongTermPricingResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf longTermPricingEntries
+    Prelude.rnf longTermPricingEntries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

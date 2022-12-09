@@ -49,15 +49,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobLogs' smart constructor.
 data JobLogs = JobLogs'
-  { -- | A link to an Amazon S3 presigned URL where the job success log is
+  { -- | A link to an Amazon S3 presigned URL where the job completion report is
     -- located.
-    jobSuccessLogURI :: Prelude.Maybe Prelude.Text,
+    jobCompletionReportURI :: Prelude.Maybe Prelude.Text,
     -- | A link to an Amazon S3 presigned URL where the job failure log is
     -- located.
     jobFailureLogURI :: Prelude.Maybe Prelude.Text,
-    -- | A link to an Amazon S3 presigned URL where the job completion report is
+    -- | A link to an Amazon S3 presigned URL where the job success log is
     -- located.
-    jobCompletionReportURI :: Prelude.Maybe Prelude.Text
+    jobSuccessLogURI :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,37 +69,37 @@ data JobLogs = JobLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobSuccessLogURI', 'jobLogs_jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is
+-- 'jobCompletionReportURI', 'jobLogs_jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is
 -- located.
 --
 -- 'jobFailureLogURI', 'jobLogs_jobFailureLogURI' - A link to an Amazon S3 presigned URL where the job failure log is
 -- located.
 --
--- 'jobCompletionReportURI', 'jobLogs_jobCompletionReportURI' - A link to an Amazon S3 presigned URL where the job completion report is
+-- 'jobSuccessLogURI', 'jobLogs_jobSuccessLogURI' - A link to an Amazon S3 presigned URL where the job success log is
 -- located.
 newJobLogs ::
   JobLogs
 newJobLogs =
   JobLogs'
-    { jobSuccessLogURI = Prelude.Nothing,
+    { jobCompletionReportURI = Prelude.Nothing,
       jobFailureLogURI = Prelude.Nothing,
-      jobCompletionReportURI = Prelude.Nothing
+      jobSuccessLogURI = Prelude.Nothing
     }
 
--- | A link to an Amazon S3 presigned URL where the job success log is
+-- | A link to an Amazon S3 presigned URL where the job completion report is
 -- located.
-jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
-jobLogs_jobSuccessLogURI = Lens.lens (\JobLogs' {jobSuccessLogURI} -> jobSuccessLogURI) (\s@JobLogs' {} a -> s {jobSuccessLogURI = a} :: JobLogs)
+jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobCompletionReportURI = Lens.lens (\JobLogs' {jobCompletionReportURI} -> jobCompletionReportURI) (\s@JobLogs' {} a -> s {jobCompletionReportURI = a} :: JobLogs)
 
 -- | A link to an Amazon S3 presigned URL where the job failure log is
 -- located.
 jobLogs_jobFailureLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
 jobLogs_jobFailureLogURI = Lens.lens (\JobLogs' {jobFailureLogURI} -> jobFailureLogURI) (\s@JobLogs' {} a -> s {jobFailureLogURI = a} :: JobLogs)
 
--- | A link to an Amazon S3 presigned URL where the job completion report is
+-- | A link to an Amazon S3 presigned URL where the job success log is
 -- located.
-jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
-jobLogs_jobCompletionReportURI = Lens.lens (\JobLogs' {jobCompletionReportURI} -> jobCompletionReportURI) (\s@JobLogs' {} a -> s {jobCompletionReportURI = a} :: JobLogs)
+jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobSuccessLogURI = Lens.lens (\JobLogs' {jobSuccessLogURI} -> jobSuccessLogURI) (\s@JobLogs' {} a -> s {jobSuccessLogURI = a} :: JobLogs)
 
 instance Data.FromJSON JobLogs where
   parseJSON =
@@ -107,19 +107,19 @@ instance Data.FromJSON JobLogs where
       "JobLogs"
       ( \x ->
           JobLogs'
-            Prelude.<$> (x Data..:? "JobSuccessLogURI")
+            Prelude.<$> (x Data..:? "JobCompletionReportURI")
             Prelude.<*> (x Data..:? "JobFailureLogURI")
-            Prelude.<*> (x Data..:? "JobCompletionReportURI")
+            Prelude.<*> (x Data..:? "JobSuccessLogURI")
       )
 
 instance Prelude.Hashable JobLogs where
   hashWithSalt _salt JobLogs' {..} =
-    _salt `Prelude.hashWithSalt` jobSuccessLogURI
+    _salt `Prelude.hashWithSalt` jobCompletionReportURI
       `Prelude.hashWithSalt` jobFailureLogURI
-      `Prelude.hashWithSalt` jobCompletionReportURI
+      `Prelude.hashWithSalt` jobSuccessLogURI
 
 instance Prelude.NFData JobLogs where
   rnf JobLogs' {..} =
-    Prelude.rnf jobSuccessLogURI
+    Prelude.rnf jobCompletionReportURI
       `Prelude.seq` Prelude.rnf jobFailureLogURI
-      `Prelude.seq` Prelude.rnf jobCompletionReportURI
+      `Prelude.seq` Prelude.rnf jobSuccessLogURI

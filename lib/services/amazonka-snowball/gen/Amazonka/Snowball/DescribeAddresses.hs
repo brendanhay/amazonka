@@ -31,16 +31,16 @@ module Amazonka.Snowball.DescribeAddresses
     newDescribeAddresses,
 
     -- * Request Lenses
-    describeAddresses_nextToken,
     describeAddresses_maxResults,
+    describeAddresses_nextToken,
 
     -- * Destructuring the Response
     DescribeAddressesResponse (..),
     newDescribeAddressesResponse,
 
     -- * Response Lenses
-    describeAddressesResponse_nextToken,
     describeAddressesResponse_addresses,
+    describeAddressesResponse_nextToken,
     describeAddressesResponse_httpStatus,
   )
 where
@@ -55,13 +55,13 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { -- | HTTP requests are stateless. To identify what object comes \"next\" in
+  { -- | The number of @ADDRESS@ objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | HTTP requests are stateless. To identify what object comes \"next\" in
     -- the list of @ADDRESS@ objects, you have the option of specifying a value
     -- for @NextToken@ as the starting point for your list of returned
     -- addresses.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of @ADDRESS@ objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,19 +73,23 @@ data DescribeAddresses = DescribeAddresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeAddresses_maxResults' - The number of @ADDRESS@ objects to return.
+--
 -- 'nextToken', 'describeAddresses_nextToken' - HTTP requests are stateless. To identify what object comes \"next\" in
 -- the list of @ADDRESS@ objects, you have the option of specifying a value
 -- for @NextToken@ as the starting point for your list of returned
 -- addresses.
---
--- 'maxResults', 'describeAddresses_maxResults' - The number of @ADDRESS@ objects to return.
 newDescribeAddresses ::
   DescribeAddresses
 newDescribeAddresses =
   DescribeAddresses'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The number of @ADDRESS@ objects to return.
+describeAddresses_maxResults :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Natural)
+describeAddresses_maxResults = Lens.lens (\DescribeAddresses' {maxResults} -> maxResults) (\s@DescribeAddresses' {} a -> s {maxResults = a} :: DescribeAddresses)
 
 -- | HTTP requests are stateless. To identify what object comes \"next\" in
 -- the list of @ADDRESS@ objects, you have the option of specifying a value
@@ -93,10 +97,6 @@ newDescribeAddresses =
 -- addresses.
 describeAddresses_nextToken :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Text)
 describeAddresses_nextToken = Lens.lens (\DescribeAddresses' {nextToken} -> nextToken) (\s@DescribeAddresses' {} a -> s {nextToken = a} :: DescribeAddresses)
-
--- | The number of @ADDRESS@ objects to return.
-describeAddresses_maxResults :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Natural)
-describeAddresses_maxResults = Lens.lens (\DescribeAddresses' {maxResults} -> maxResults) (\s@DescribeAddresses' {} a -> s {maxResults = a} :: DescribeAddresses)
 
 instance Core.AWSPager DescribeAddresses where
   page rq rs
@@ -130,20 +130,20 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeAddresses where
   hashWithSalt _salt DescribeAddresses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAddresses where
   rnf DescribeAddresses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAddresses where
   toHeaders =
@@ -164,8 +164,8 @@ instance Data.ToJSON DescribeAddresses where
   toJSON DescribeAddresses' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -177,12 +177,12 @@ instance Data.ToQuery DescribeAddresses where
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { -- | HTTP requests are stateless. If you use the automatically generated
+  { -- | The Snow device shipping addresses that were created for this account.
+    addresses :: Prelude.Maybe [Address],
+    -- | HTTP requests are stateless. If you use the automatically generated
     -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
     -- returned addresses will start from this point in the array.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Snow device shipping addresses that were created for this account.
-    addresses :: Prelude.Maybe [Address],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,11 +196,11 @@ data DescribeAddressesResponse = DescribeAddressesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addresses', 'describeAddressesResponse_addresses' - The Snow device shipping addresses that were created for this account.
+--
 -- 'nextToken', 'describeAddressesResponse_nextToken' - HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
 -- returned addresses will start from this point in the array.
---
--- 'addresses', 'describeAddressesResponse_addresses' - The Snow device shipping addresses that were created for this account.
 --
 -- 'httpStatus', 'describeAddressesResponse_httpStatus' - The response's http status code.
 newDescribeAddressesResponse ::
@@ -209,11 +209,15 @@ newDescribeAddressesResponse ::
   DescribeAddressesResponse
 newDescribeAddressesResponse pHttpStatus_ =
   DescribeAddressesResponse'
-    { nextToken =
+    { addresses =
         Prelude.Nothing,
-      addresses = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Snow device shipping addresses that were created for this account.
+describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
+describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | HTTP requests are stateless. If you use the automatically generated
 -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
@@ -221,16 +225,12 @@ newDescribeAddressesResponse pHttpStatus_ =
 describeAddressesResponse_nextToken :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe Prelude.Text)
 describeAddressesResponse_nextToken = Lens.lens (\DescribeAddressesResponse' {nextToken} -> nextToken) (\s@DescribeAddressesResponse' {} a -> s {nextToken = a} :: DescribeAddressesResponse)
 
--- | The Snow device shipping addresses that were created for this account.
-describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
-describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int
 describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressesResponse' {} a -> s {httpStatus = a} :: DescribeAddressesResponse)
 
 instance Prelude.NFData DescribeAddressesResponse where
   rnf DescribeAddressesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf addresses
+    Prelude.rnf addresses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

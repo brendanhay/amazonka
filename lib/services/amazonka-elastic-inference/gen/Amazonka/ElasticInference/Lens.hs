@@ -25,10 +25,10 @@ module Amazonka.ElasticInference.Lens
     describeAcceleratorTypesResponse_httpStatus,
 
     -- ** DescribeAccelerators
-    describeAccelerators_nextToken,
     describeAccelerators_acceleratorIds,
     describeAccelerators_filters,
     describeAccelerators_maxResults,
+    describeAccelerators_nextToken,
     describeAcceleratorsResponse_acceleratorSet,
     describeAcceleratorsResponse_nextToken,
     describeAcceleratorsResponse_httpStatus,
@@ -51,8 +51,8 @@ module Amazonka.ElasticInference.Lens
     -- * Types
 
     -- ** AcceleratorType
-    acceleratorType_memoryInfo,
     acceleratorType_acceleratorTypeName,
+    acceleratorType_memoryInfo,
     acceleratorType_throughputInfo,
 
     -- ** AcceleratorTypeOffering
@@ -62,10 +62,10 @@ module Amazonka.ElasticInference.Lens
 
     -- ** ElasticInferenceAccelerator
     elasticInferenceAccelerator_acceleratorHealth,
-    elasticInferenceAccelerator_acceleratorType,
-    elasticInferenceAccelerator_availabilityZone,
-    elasticInferenceAccelerator_attachedResource,
     elasticInferenceAccelerator_acceleratorId,
+    elasticInferenceAccelerator_acceleratorType,
+    elasticInferenceAccelerator_attachedResource,
+    elasticInferenceAccelerator_availabilityZone,
 
     -- ** ElasticInferenceAcceleratorHealth
     elasticInferenceAcceleratorHealth_status,

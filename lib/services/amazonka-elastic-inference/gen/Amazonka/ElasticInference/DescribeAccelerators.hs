@@ -30,10 +30,10 @@ module Amazonka.ElasticInference.DescribeAccelerators
     newDescribeAccelerators,
 
     -- * Request Lenses
-    describeAccelerators_nextToken,
     describeAccelerators_acceleratorIds,
     describeAccelerators_filters,
     describeAccelerators_maxResults,
+    describeAccelerators_nextToken,
 
     -- * Destructuring the Response
     DescribeAcceleratorsResponse (..),
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccelerators' smart constructor.
 data DescribeAccelerators = DescribeAccelerators'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the accelerators to describe.
+  { -- | The IDs of the accelerators to describe.
     acceleratorIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters. Filter names and values are case-sensitive. Valid
     -- filter names are: accelerator-types: can provide a list of accelerator
@@ -72,7 +69,10 @@ data DescribeAccelerators = DescribeAccelerators'
     -- provide the NextToken value in the starting-token argument of a
     -- subsequent command. Do not use the NextToken response element directly
     -- outside of the AWS CLI.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,9 +83,6 @@ data DescribeAccelerators = DescribeAccelerators'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeAccelerators_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'acceleratorIds', 'describeAccelerators_acceleratorIds' - The IDs of the accelerators to describe.
 --
@@ -100,20 +97,19 @@ data DescribeAccelerators = DescribeAccelerators'
 -- provide the NextToken value in the starting-token argument of a
 -- subsequent command. Do not use the NextToken response element directly
 -- outside of the AWS CLI.
+--
+-- 'nextToken', 'describeAccelerators_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
 newDescribeAccelerators ::
   DescribeAccelerators
 newDescribeAccelerators =
   DescribeAccelerators'
-    { nextToken = Prelude.Nothing,
-      acceleratorIds = Prelude.Nothing,
+    { acceleratorIds =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-describeAccelerators_nextToken :: Lens.Lens' DescribeAccelerators (Prelude.Maybe Prelude.Text)
-describeAccelerators_nextToken = Lens.lens (\DescribeAccelerators' {nextToken} -> nextToken) (\s@DescribeAccelerators' {} a -> s {nextToken = a} :: DescribeAccelerators)
 
 -- | The IDs of the accelerators to describe.
 describeAccelerators_acceleratorIds :: Lens.Lens' DescribeAccelerators (Prelude.Maybe [Prelude.Text])
@@ -134,6 +130,11 @@ describeAccelerators_filters = Lens.lens (\DescribeAccelerators' {filters} -> fi
 -- outside of the AWS CLI.
 describeAccelerators_maxResults :: Lens.Lens' DescribeAccelerators (Prelude.Maybe Prelude.Natural)
 describeAccelerators_maxResults = Lens.lens (\DescribeAccelerators' {maxResults} -> maxResults) (\s@DescribeAccelerators' {} a -> s {maxResults = a} :: DescribeAccelerators)
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+describeAccelerators_nextToken :: Lens.Lens' DescribeAccelerators (Prelude.Maybe Prelude.Text)
+describeAccelerators_nextToken = Lens.lens (\DescribeAccelerators' {nextToken} -> nextToken) (\s@DescribeAccelerators' {} a -> s {nextToken = a} :: DescribeAccelerators)
 
 instance Core.AWSPager DescribeAccelerators where
   page rq rs
@@ -174,17 +175,17 @@ instance Core.AWSRequest DescribeAccelerators where
 
 instance Prelude.Hashable DescribeAccelerators where
   hashWithSalt _salt DescribeAccelerators' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` acceleratorIds
+    _salt `Prelude.hashWithSalt` acceleratorIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAccelerators where
   rnf DescribeAccelerators' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf acceleratorIds
+    Prelude.rnf acceleratorIds
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccelerators where
   toHeaders =
@@ -201,11 +202,11 @@ instance Data.ToJSON DescribeAccelerators where
   toJSON DescribeAccelerators' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("acceleratorIds" Data..=)
+          [ ("acceleratorIds" Data..=)
               Prelude.<$> acceleratorIds,
             ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

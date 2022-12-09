@@ -33,12 +33,12 @@ module Amazonka.ChimeSdkMeetings.CreateMeetingWithAttendees
     newCreateMeetingWithAttendees,
 
     -- * Request Lenses
-    createMeetingWithAttendees_tags,
     createMeetingWithAttendees_meetingFeatures,
-    createMeetingWithAttendees_notificationsConfiguration,
     createMeetingWithAttendees_meetingHostId,
-    createMeetingWithAttendees_tenantIds,
+    createMeetingWithAttendees_notificationsConfiguration,
     createMeetingWithAttendees_primaryMeetingId,
+    createMeetingWithAttendees_tags,
+    createMeetingWithAttendees_tenantIds,
     createMeetingWithAttendees_clientRequestToken,
     createMeetingWithAttendees_mediaRegion,
     createMeetingWithAttendees_externalMeetingId,
@@ -49,9 +49,9 @@ module Amazonka.ChimeSdkMeetings.CreateMeetingWithAttendees
     newCreateMeetingWithAttendeesResponse,
 
     -- * Response Lenses
+    createMeetingWithAttendeesResponse_attendees,
     createMeetingWithAttendeesResponse_errors,
     createMeetingWithAttendeesResponse_meeting,
-    createMeetingWithAttendeesResponse_attendees,
     createMeetingWithAttendeesResponse_httpStatus,
   )
 where
@@ -66,22 +66,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMeetingWithAttendees' smart constructor.
 data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
-  { -- | The tags in the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | Lists the audio and video features enabled for a meeting, such as echo
+  { -- | Lists the audio and video features enabled for a meeting, such as echo
     -- reduction.
     meetingFeatures :: Prelude.Maybe MeetingFeaturesConfiguration,
+    -- | Reserved.
+    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The configuration for resource targets to receive notifications when
     -- meeting and attendee events occur.
     notificationsConfiguration :: Prelude.Maybe NotificationsConfiguration,
-    -- | Reserved.
-    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A consistent and opaque identifier, created and maintained by the
-    -- builder to represent a segment of their users.
-    tenantIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | When specified, replicates the media from the primary meeting to the new
     -- meeting.
     primaryMeetingId :: Prelude.Maybe Prelude.Text,
+    -- | The tags in the request.
+    tags :: Prelude.Maybe [Tag],
+    -- | A consistent and opaque identifier, created and maintained by the
+    -- builder to represent a segment of their users.
+    tenantIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
     clientRequestToken :: Data.Sensitive Prelude.Text,
@@ -111,21 +111,21 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMeetingWithAttendees_tags' - The tags in the request.
---
 -- 'meetingFeatures', 'createMeetingWithAttendees_meetingFeatures' - Lists the audio and video features enabled for a meeting, such as echo
 -- reduction.
+--
+-- 'meetingHostId', 'createMeetingWithAttendees_meetingHostId' - Reserved.
 --
 -- 'notificationsConfiguration', 'createMeetingWithAttendees_notificationsConfiguration' - The configuration for resource targets to receive notifications when
 -- meeting and attendee events occur.
 --
--- 'meetingHostId', 'createMeetingWithAttendees_meetingHostId' - Reserved.
+-- 'primaryMeetingId', 'createMeetingWithAttendees_primaryMeetingId' - When specified, replicates the media from the primary meeting to the new
+-- meeting.
+--
+-- 'tags', 'createMeetingWithAttendees_tags' - The tags in the request.
 --
 -- 'tenantIds', 'createMeetingWithAttendees_tenantIds' - A consistent and opaque identifier, created and maintained by the
 -- builder to represent a segment of their users.
---
--- 'primaryMeetingId', 'createMeetingWithAttendees_primaryMeetingId' - When specified, replicates the media from the primary meeting to the new
--- meeting.
 --
 -- 'clientRequestToken', 'createMeetingWithAttendees_clientRequestToken' - The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -160,12 +160,13 @@ newCreateMeetingWithAttendees
   pExternalMeetingId_
   pAttendees_ =
     CreateMeetingWithAttendees'
-      { tags = Prelude.Nothing,
-        meetingFeatures = Prelude.Nothing,
-        notificationsConfiguration = Prelude.Nothing,
+      { meetingFeatures =
+          Prelude.Nothing,
         meetingHostId = Prelude.Nothing,
-        tenantIds = Prelude.Nothing,
+        notificationsConfiguration = Prelude.Nothing,
         primaryMeetingId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        tenantIds = Prelude.Nothing,
         clientRequestToken =
           Data._Sensitive Lens.# pClientRequestToken_,
         mediaRegion = pMediaRegion_,
@@ -174,33 +175,33 @@ newCreateMeetingWithAttendees
         attendees = Lens.coerced Lens.# pAttendees_
       }
 
--- | The tags in the request.
-createMeetingWithAttendees_tags :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe [Tag])
-createMeetingWithAttendees_tags = Lens.lens (\CreateMeetingWithAttendees' {tags} -> tags) (\s@CreateMeetingWithAttendees' {} a -> s {tags = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Lens.coerced
-
 -- | Lists the audio and video features enabled for a meeting, such as echo
 -- reduction.
 createMeetingWithAttendees_meetingFeatures :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe MeetingFeaturesConfiguration)
 createMeetingWithAttendees_meetingFeatures = Lens.lens (\CreateMeetingWithAttendees' {meetingFeatures} -> meetingFeatures) (\s@CreateMeetingWithAttendees' {} a -> s {meetingFeatures = a} :: CreateMeetingWithAttendees)
+
+-- | Reserved.
+createMeetingWithAttendees_meetingHostId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
+createMeetingWithAttendees_meetingHostId = Lens.lens (\CreateMeetingWithAttendees' {meetingHostId} -> meetingHostId) (\s@CreateMeetingWithAttendees' {} a -> s {meetingHostId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The configuration for resource targets to receive notifications when
 -- meeting and attendee events occur.
 createMeetingWithAttendees_notificationsConfiguration :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe NotificationsConfiguration)
 createMeetingWithAttendees_notificationsConfiguration = Lens.lens (\CreateMeetingWithAttendees' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeetingWithAttendees' {} a -> s {notificationsConfiguration = a} :: CreateMeetingWithAttendees)
 
--- | Reserved.
-createMeetingWithAttendees_meetingHostId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
-createMeetingWithAttendees_meetingHostId = Lens.lens (\CreateMeetingWithAttendees' {meetingHostId} -> meetingHostId) (\s@CreateMeetingWithAttendees' {} a -> s {meetingHostId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Data._Sensitive
+-- | When specified, replicates the media from the primary meeting to the new
+-- meeting.
+createMeetingWithAttendees_primaryMeetingId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
+createMeetingWithAttendees_primaryMeetingId = Lens.lens (\CreateMeetingWithAttendees' {primaryMeetingId} -> primaryMeetingId) (\s@CreateMeetingWithAttendees' {} a -> s {primaryMeetingId = a} :: CreateMeetingWithAttendees)
+
+-- | The tags in the request.
+createMeetingWithAttendees_tags :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe [Tag])
+createMeetingWithAttendees_tags = Lens.lens (\CreateMeetingWithAttendees' {tags} -> tags) (\s@CreateMeetingWithAttendees' {} a -> s {tags = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Lens.coerced
 
 -- | A consistent and opaque identifier, created and maintained by the
 -- builder to represent a segment of their users.
 createMeetingWithAttendees_tenantIds :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMeetingWithAttendees_tenantIds = Lens.lens (\CreateMeetingWithAttendees' {tenantIds} -> tenantIds) (\s@CreateMeetingWithAttendees' {} a -> s {tenantIds = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Lens.coerced
-
--- | When specified, replicates the media from the primary meeting to the new
--- meeting.
-createMeetingWithAttendees_primaryMeetingId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
-createMeetingWithAttendees_primaryMeetingId = Lens.lens (\CreateMeetingWithAttendees' {primaryMeetingId} -> primaryMeetingId) (\s@CreateMeetingWithAttendees' {} a -> s {primaryMeetingId = a} :: CreateMeetingWithAttendees)
 
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -238,20 +239,20 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
     Response.receiveJSON
       ( \s h x ->
           CreateMeetingWithAttendeesResponse'
-            Prelude.<$> (x Data..?> "Errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Meeting")
-            Prelude.<*> (x Data..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` meetingFeatures
-      `Prelude.hashWithSalt` notificationsConfiguration
+    _salt `Prelude.hashWithSalt` meetingFeatures
       `Prelude.hashWithSalt` meetingHostId
-      `Prelude.hashWithSalt` tenantIds
+      `Prelude.hashWithSalt` notificationsConfiguration
       `Prelude.hashWithSalt` primaryMeetingId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tenantIds
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` externalMeetingId
@@ -259,12 +260,12 @@ instance Prelude.Hashable CreateMeetingWithAttendees where
 
 instance Prelude.NFData CreateMeetingWithAttendees where
   rnf CreateMeetingWithAttendees' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meetingFeatures
-      `Prelude.seq` Prelude.rnf notificationsConfiguration
+    Prelude.rnf meetingFeatures
       `Prelude.seq` Prelude.rnf meetingHostId
-      `Prelude.seq` Prelude.rnf tenantIds
+      `Prelude.seq` Prelude.rnf notificationsConfiguration
       `Prelude.seq` Prelude.rnf primaryMeetingId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tenantIds
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf mediaRegion
       `Prelude.seq` Prelude.rnf externalMeetingId
@@ -277,15 +278,15 @@ instance Data.ToJSON CreateMeetingWithAttendees where
   toJSON CreateMeetingWithAttendees' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("MeetingFeatures" Data..=)
+          [ ("MeetingFeatures" Data..=)
               Prelude.<$> meetingFeatures,
+            ("MeetingHostId" Data..=) Prelude.<$> meetingHostId,
             ("NotificationsConfiguration" Data..=)
               Prelude.<$> notificationsConfiguration,
-            ("MeetingHostId" Data..=) Prelude.<$> meetingHostId,
-            ("TenantIds" Data..=) Prelude.<$> tenantIds,
             ("PrimaryMeetingId" Data..=)
               Prelude.<$> primaryMeetingId,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("TenantIds" Data..=) Prelude.<$> tenantIds,
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just ("MediaRegion" Data..= mediaRegion),
@@ -305,14 +306,14 @@ instance Data.ToQuery CreateMeetingWithAttendees where
 
 -- | /See:/ 'newCreateMeetingWithAttendeesResponse' smart constructor.
 data CreateMeetingWithAttendeesResponse = CreateMeetingWithAttendeesResponse'
-  { -- | If the action fails for one or more of the attendees in the request, a
+  { -- | The attendee information, including attendees\' IDs and join tokens.
+    attendees :: Prelude.Maybe [Attendee],
+    -- | If the action fails for one or more of the attendees in the request, a
     -- list of the attendees is returned, along with error codes and error
     -- messages.
     errors :: Prelude.Maybe [CreateAttendeeError],
     -- | The meeting information, including the meeting ID and @MediaPlacement@.
     meeting :: Prelude.Maybe Meeting,
-    -- | The attendee information, including attendees\' IDs and join tokens.
-    attendees :: Prelude.Maybe [Attendee],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -326,13 +327,13 @@ data CreateMeetingWithAttendeesResponse = CreateMeetingWithAttendeesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attendees', 'createMeetingWithAttendeesResponse_attendees' - The attendee information, including attendees\' IDs and join tokens.
+--
 -- 'errors', 'createMeetingWithAttendeesResponse_errors' - If the action fails for one or more of the attendees in the request, a
 -- list of the attendees is returned, along with error codes and error
 -- messages.
 --
 -- 'meeting', 'createMeetingWithAttendeesResponse_meeting' - The meeting information, including the meeting ID and @MediaPlacement@.
---
--- 'attendees', 'createMeetingWithAttendeesResponse_attendees' - The attendee information, including attendees\' IDs and join tokens.
 --
 -- 'httpStatus', 'createMeetingWithAttendeesResponse_httpStatus' - The response's http status code.
 newCreateMeetingWithAttendeesResponse ::
@@ -341,12 +342,16 @@ newCreateMeetingWithAttendeesResponse ::
   CreateMeetingWithAttendeesResponse
 newCreateMeetingWithAttendeesResponse pHttpStatus_ =
   CreateMeetingWithAttendeesResponse'
-    { errors =
+    { attendees =
         Prelude.Nothing,
+      errors = Prelude.Nothing,
       meeting = Prelude.Nothing,
-      attendees = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The attendee information, including attendees\' IDs and join tokens.
+createMeetingWithAttendeesResponse_attendees :: Lens.Lens' CreateMeetingWithAttendeesResponse (Prelude.Maybe [Attendee])
+createMeetingWithAttendeesResponse_attendees = Lens.lens (\CreateMeetingWithAttendeesResponse' {attendees} -> attendees) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {attendees = a} :: CreateMeetingWithAttendeesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the action fails for one or more of the attendees in the request, a
 -- list of the attendees is returned, along with error codes and error
@@ -358,10 +363,6 @@ createMeetingWithAttendeesResponse_errors = Lens.lens (\CreateMeetingWithAttende
 createMeetingWithAttendeesResponse_meeting :: Lens.Lens' CreateMeetingWithAttendeesResponse (Prelude.Maybe Meeting)
 createMeetingWithAttendeesResponse_meeting = Lens.lens (\CreateMeetingWithAttendeesResponse' {meeting} -> meeting) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {meeting = a} :: CreateMeetingWithAttendeesResponse)
 
--- | The attendee information, including attendees\' IDs and join tokens.
-createMeetingWithAttendeesResponse_attendees :: Lens.Lens' CreateMeetingWithAttendeesResponse (Prelude.Maybe [Attendee])
-createMeetingWithAttendeesResponse_attendees = Lens.lens (\CreateMeetingWithAttendeesResponse' {attendees} -> attendees) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {attendees = a} :: CreateMeetingWithAttendeesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 createMeetingWithAttendeesResponse_httpStatus :: Lens.Lens' CreateMeetingWithAttendeesResponse Prelude.Int
 createMeetingWithAttendeesResponse_httpStatus = Lens.lens (\CreateMeetingWithAttendeesResponse' {httpStatus} -> httpStatus) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {httpStatus = a} :: CreateMeetingWithAttendeesResponse)
@@ -371,7 +372,7 @@ instance
     CreateMeetingWithAttendeesResponse
   where
   rnf CreateMeetingWithAttendeesResponse' {..} =
-    Prelude.rnf errors
+    Prelude.rnf attendees
+      `Prelude.seq` Prelude.rnf errors
       `Prelude.seq` Prelude.rnf meeting
-      `Prelude.seq` Prelude.rnf attendees
       `Prelude.seq` Prelude.rnf httpStatus

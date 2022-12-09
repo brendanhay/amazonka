@@ -17,8 +17,8 @@ module Amazonka.ChimeSdkMeetings.Lens
     -- ** BatchCreateAttendee
     batchCreateAttendee_meetingId,
     batchCreateAttendee_attendees,
-    batchCreateAttendeeResponse_errors,
     batchCreateAttendeeResponse_attendees,
+    batchCreateAttendeeResponse_errors,
     batchCreateAttendeeResponse_httpStatus,
 
     -- ** BatchUpdateAttendeeCapabilitiesExcept
@@ -34,12 +34,12 @@ module Amazonka.ChimeSdkMeetings.Lens
     createAttendeeResponse_httpStatus,
 
     -- ** CreateMeeting
-    createMeeting_tags,
     createMeeting_meetingFeatures,
-    createMeeting_notificationsConfiguration,
     createMeeting_meetingHostId,
-    createMeeting_tenantIds,
+    createMeeting_notificationsConfiguration,
     createMeeting_primaryMeetingId,
+    createMeeting_tags,
+    createMeeting_tenantIds,
     createMeeting_clientRequestToken,
     createMeeting_mediaRegion,
     createMeeting_externalMeetingId,
@@ -47,19 +47,19 @@ module Amazonka.ChimeSdkMeetings.Lens
     createMeetingResponse_httpStatus,
 
     -- ** CreateMeetingWithAttendees
-    createMeetingWithAttendees_tags,
     createMeetingWithAttendees_meetingFeatures,
-    createMeetingWithAttendees_notificationsConfiguration,
     createMeetingWithAttendees_meetingHostId,
-    createMeetingWithAttendees_tenantIds,
+    createMeetingWithAttendees_notificationsConfiguration,
     createMeetingWithAttendees_primaryMeetingId,
+    createMeetingWithAttendees_tags,
+    createMeetingWithAttendees_tenantIds,
     createMeetingWithAttendees_clientRequestToken,
     createMeetingWithAttendees_mediaRegion,
     createMeetingWithAttendees_externalMeetingId,
     createMeetingWithAttendees_attendees,
+    createMeetingWithAttendeesResponse_attendees,
     createMeetingWithAttendeesResponse_errors,
     createMeetingWithAttendeesResponse_meeting,
-    createMeetingWithAttendeesResponse_attendees,
     createMeetingWithAttendeesResponse_httpStatus,
 
     -- ** DeleteAttendee
@@ -81,11 +81,11 @@ module Amazonka.ChimeSdkMeetings.Lens
     getMeetingResponse_httpStatus,
 
     -- ** ListAttendees
-    listAttendees_nextToken,
     listAttendees_maxResults,
+    listAttendees_nextToken,
     listAttendees_meetingId,
-    listAttendeesResponse_nextToken,
     listAttendeesResponse_attendees,
+    listAttendeesResponse_nextToken,
     listAttendeesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -120,9 +120,9 @@ module Amazonka.ChimeSdkMeetings.Lens
     -- * Types
 
     -- ** Attendee
-    attendee_externalUserId,
     attendee_attendeeId,
     attendee_capabilities,
+    attendee_externalUserId,
     attendee_joinToken,
 
     -- ** AttendeeCapabilities
@@ -137,58 +137,58 @@ module Amazonka.ChimeSdkMeetings.Lens
     audioFeatures_echoReduction,
 
     -- ** CreateAttendeeError
-    createAttendeeError_externalUserId,
-    createAttendeeError_errorMessage,
     createAttendeeError_errorCode,
+    createAttendeeError_errorMessage,
+    createAttendeeError_externalUserId,
 
     -- ** CreateAttendeeRequestItem
     createAttendeeRequestItem_capabilities,
     createAttendeeRequestItem_externalUserId,
 
     -- ** EngineTranscribeMedicalSettings
-    engineTranscribeMedicalSettings_vocabularyName,
     engineTranscribeMedicalSettings_contentIdentificationType,
     engineTranscribeMedicalSettings_region,
+    engineTranscribeMedicalSettings_vocabularyName,
     engineTranscribeMedicalSettings_languageCode,
     engineTranscribeMedicalSettings_specialty,
     engineTranscribeMedicalSettings_type,
 
     -- ** EngineTranscribeSettings
-    engineTranscribeSettings_vocabularyFilterMethod,
-    engineTranscribeSettings_vocabularyName,
     engineTranscribeSettings_contentIdentificationType,
+    engineTranscribeSettings_contentRedactionType,
     engineTranscribeSettings_enablePartialResultsStabilization,
-    engineTranscribeSettings_languageModelName,
-    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_identifyLanguage,
+    engineTranscribeSettings_languageCode,
+    engineTranscribeSettings_languageModelName,
+    engineTranscribeSettings_languageOptions,
+    engineTranscribeSettings_partialResultsStability,
+    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_preferredLanguage,
     engineTranscribeSettings_region,
-    engineTranscribeSettings_languageCode,
+    engineTranscribeSettings_vocabularyFilterMethod,
     engineTranscribeSettings_vocabularyFilterName,
-    engineTranscribeSettings_contentRedactionType,
-    engineTranscribeSettings_partialResultsStability,
-    engineTranscribeSettings_languageOptions,
+    engineTranscribeSettings_vocabularyName,
 
     -- ** MediaPlacement
-    mediaPlacement_signalingUrl,
-    mediaPlacement_screenViewingUrl,
-    mediaPlacement_eventIngestionUrl,
-    mediaPlacement_audioHostUrl,
-    mediaPlacement_screenSharingUrl,
-    mediaPlacement_screenDataUrl,
     mediaPlacement_audioFallbackUrl,
+    mediaPlacement_audioHostUrl,
+    mediaPlacement_eventIngestionUrl,
+    mediaPlacement_screenDataUrl,
+    mediaPlacement_screenSharingUrl,
+    mediaPlacement_screenViewingUrl,
+    mediaPlacement_signalingUrl,
     mediaPlacement_turnControlUrl,
 
     -- ** Meeting
-    meeting_meetingFeatures,
-    meeting_meetingHostId,
-    meeting_mediaRegion,
     meeting_externalMeetingId,
     meeting_mediaPlacement,
-    meeting_meetingId,
-    meeting_tenantIds,
+    meeting_mediaRegion,
     meeting_meetingArn,
+    meeting_meetingFeatures,
+    meeting_meetingHostId,
+    meeting_meetingId,
     meeting_primaryMeetingId,
+    meeting_tenantIds,
 
     -- ** MeetingFeaturesConfiguration
     meetingFeaturesConfiguration_audio,

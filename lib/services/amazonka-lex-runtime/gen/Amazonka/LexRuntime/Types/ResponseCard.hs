@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponseCard' smart constructor.
 data ResponseCard = ResponseCard'
-  { -- | An array of attachment objects representing options.
+  { -- | The content type of the response.
+    contentType :: Prelude.Maybe ContentType,
+    -- | An array of attachment objects representing options.
     genericAttachments :: Prelude.Maybe [GenericAttachment],
     -- | The version of the response card format.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the response.
-    contentType :: Prelude.Maybe ContentType
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,19 +50,23 @@ data ResponseCard = ResponseCard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentType', 'responseCard_contentType' - The content type of the response.
+--
 -- 'genericAttachments', 'responseCard_genericAttachments' - An array of attachment objects representing options.
 --
 -- 'version', 'responseCard_version' - The version of the response card format.
---
--- 'contentType', 'responseCard_contentType' - The content type of the response.
 newResponseCard ::
   ResponseCard
 newResponseCard =
   ResponseCard'
-    { genericAttachments = Prelude.Nothing,
-      version = Prelude.Nothing,
-      contentType = Prelude.Nothing
+    { contentType = Prelude.Nothing,
+      genericAttachments = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The content type of the response.
+responseCard_contentType :: Lens.Lens' ResponseCard (Prelude.Maybe ContentType)
+responseCard_contentType = Lens.lens (\ResponseCard' {contentType} -> contentType) (\s@ResponseCard' {} a -> s {contentType = a} :: ResponseCard)
 
 -- | An array of attachment objects representing options.
 responseCard_genericAttachments :: Lens.Lens' ResponseCard (Prelude.Maybe [GenericAttachment])
@@ -72,31 +76,27 @@ responseCard_genericAttachments = Lens.lens (\ResponseCard' {genericAttachments}
 responseCard_version :: Lens.Lens' ResponseCard (Prelude.Maybe Prelude.Text)
 responseCard_version = Lens.lens (\ResponseCard' {version} -> version) (\s@ResponseCard' {} a -> s {version = a} :: ResponseCard)
 
--- | The content type of the response.
-responseCard_contentType :: Lens.Lens' ResponseCard (Prelude.Maybe ContentType)
-responseCard_contentType = Lens.lens (\ResponseCard' {contentType} -> contentType) (\s@ResponseCard' {} a -> s {contentType = a} :: ResponseCard)
-
 instance Data.FromJSON ResponseCard where
   parseJSON =
     Data.withObject
       "ResponseCard"
       ( \x ->
           ResponseCard'
-            Prelude.<$> ( x Data..:? "genericAttachments"
+            Prelude.<$> (x Data..:? "contentType")
+            Prelude.<*> ( x Data..:? "genericAttachments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "version")
-            Prelude.<*> (x Data..:? "contentType")
       )
 
 instance Prelude.Hashable ResponseCard where
   hashWithSalt _salt ResponseCard' {..} =
-    _salt `Prelude.hashWithSalt` genericAttachments
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` genericAttachments
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` contentType
 
 instance Prelude.NFData ResponseCard where
   rnf ResponseCard' {..} =
-    Prelude.rnf genericAttachments
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf genericAttachments
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf contentType

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStagingSourceServer' smart constructor.
 data StagingSourceServer = StagingSourceServer'
-  { -- | A list of tags associated with the staging source server.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The ARN of the source server.
+  { -- | The ARN of the source server.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Hostname of staging source server.
-    hostname :: Prelude.Maybe Prelude.Text
+    hostname :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags associated with the staging source server.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data StagingSourceServer = StagingSourceServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'stagingSourceServer_tags' - A list of tags associated with the staging source server.
---
 -- 'arn', 'stagingSourceServer_arn' - The ARN of the source server.
 --
 -- 'hostname', 'stagingSourceServer_hostname' - Hostname of staging source server.
+--
+-- 'tags', 'stagingSourceServer_tags' - A list of tags associated with the staging source server.
 newStagingSourceServer ::
   StagingSourceServer
 newStagingSourceServer =
   StagingSourceServer'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      hostname = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      hostname = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | A list of tags associated with the staging source server.
-stagingSourceServer_tags :: Lens.Lens' StagingSourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-stagingSourceServer_tags = Lens.lens (\StagingSourceServer' {tags} -> tags) (\s@StagingSourceServer' {} a -> s {tags = a} :: StagingSourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The ARN of the source server.
 stagingSourceServer_arn :: Lens.Lens' StagingSourceServer (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ stagingSourceServer_arn = Lens.lens (\StagingSourceServer' {arn} -> arn) (\s@Sta
 stagingSourceServer_hostname :: Lens.Lens' StagingSourceServer (Prelude.Maybe Prelude.Text)
 stagingSourceServer_hostname = Lens.lens (\StagingSourceServer' {hostname} -> hostname) (\s@StagingSourceServer' {} a -> s {hostname = a} :: StagingSourceServer)
 
+-- | A list of tags associated with the staging source server.
+stagingSourceServer_tags :: Lens.Lens' StagingSourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+stagingSourceServer_tags = Lens.lens (\StagingSourceServer' {tags} -> tags) (\s@StagingSourceServer' {} a -> s {tags = a} :: StagingSourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
 instance Data.FromJSON StagingSourceServer where
   parseJSON =
     Data.withObject
       "StagingSourceServer"
       ( \x ->
           StagingSourceServer'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "hostname")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StagingSourceServer where
   hashWithSalt _salt StagingSourceServer' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData StagingSourceServer where
   rnf StagingSourceServer' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf tags

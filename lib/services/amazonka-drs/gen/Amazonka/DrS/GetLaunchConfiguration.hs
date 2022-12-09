@@ -34,14 +34,14 @@ module Amazonka.DrS.GetLaunchConfiguration
     newLaunchConfiguration,
 
     -- * Response Lenses
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_name,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
   )
 where
 

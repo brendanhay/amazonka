@@ -30,9 +30,9 @@ module Amazonka.DrS.DescribeReplicationConfigurationTemplates
     newDescribeReplicationConfigurationTemplates,
 
     -- * Request Lenses
+    describeReplicationConfigurationTemplates_maxResults,
     describeReplicationConfigurationTemplates_nextToken,
     describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
-    describeReplicationConfigurationTemplates_maxResults,
 
     -- * Destructuring the Response
     DescribeReplicationConfigurationTemplatesResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeReplicationConfigurationTemplates' smart constructor.
 data DescribeReplicationConfigurationTemplates = DescribeReplicationConfigurationTemplates'
-  { -- | The token of the next Replication Configuration Template to retrieve.
+  { -- | Maximum number of Replication Configuration Templates to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next Replication Configuration Template to retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Replication Configuration Templates to retrieve. An empty
     -- list means all Replication Configuration Templates.
-    replicationConfigurationTemplateIDs :: Prelude.Maybe [Prelude.Text],
-    -- | Maximum number of Replication Configuration Templates to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    replicationConfigurationTemplateIDs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,22 +73,26 @@ data DescribeReplicationConfigurationTemplates = DescribeReplicationConfiguratio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeReplicationConfigurationTemplates_maxResults' - Maximum number of Replication Configuration Templates to retrieve.
+--
 -- 'nextToken', 'describeReplicationConfigurationTemplates_nextToken' - The token of the next Replication Configuration Template to retrieve.
 --
 -- 'replicationConfigurationTemplateIDs', 'describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs' - The IDs of the Replication Configuration Templates to retrieve. An empty
 -- list means all Replication Configuration Templates.
---
--- 'maxResults', 'describeReplicationConfigurationTemplates_maxResults' - Maximum number of Replication Configuration Templates to retrieve.
 newDescribeReplicationConfigurationTemplates ::
   DescribeReplicationConfigurationTemplates
 newDescribeReplicationConfigurationTemplates =
   DescribeReplicationConfigurationTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       replicationConfigurationTemplateIDs =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | Maximum number of Replication Configuration Templates to retrieve.
+describeReplicationConfigurationTemplates_maxResults :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Natural)
+describeReplicationConfigurationTemplates_maxResults = Lens.lens (\DescribeReplicationConfigurationTemplates' {maxResults} -> maxResults) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {maxResults = a} :: DescribeReplicationConfigurationTemplates)
 
 -- | The token of the next Replication Configuration Template to retrieve.
 describeReplicationConfigurationTemplates_nextToken :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Text)
@@ -98,10 +102,6 @@ describeReplicationConfigurationTemplates_nextToken = Lens.lens (\DescribeReplic
 -- list means all Replication Configuration Templates.
 describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe [Prelude.Text])
 describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs = Lens.lens (\DescribeReplicationConfigurationTemplates' {replicationConfigurationTemplateIDs} -> replicationConfigurationTemplateIDs) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {replicationConfigurationTemplateIDs = a} :: DescribeReplicationConfigurationTemplates) Prelude.. Lens.mapping Lens.coerced
-
--- | Maximum number of Replication Configuration Templates to retrieve.
-describeReplicationConfigurationTemplates_maxResults :: Lens.Lens' DescribeReplicationConfigurationTemplates (Prelude.Maybe Prelude.Natural)
-describeReplicationConfigurationTemplates_maxResults = Lens.lens (\DescribeReplicationConfigurationTemplates' {maxResults} -> maxResults) (\s@DescribeReplicationConfigurationTemplates' {} a -> s {maxResults = a} :: DescribeReplicationConfigurationTemplates)
 
 instance
   Core.AWSPager
@@ -154,18 +154,18 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationConfigurationTemplates' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` replicationConfigurationTemplateIDs
-        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeReplicationConfigurationTemplates
   where
   rnf DescribeReplicationConfigurationTemplates' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf replicationConfigurationTemplateIDs
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Data.ToHeaders
@@ -188,10 +188,10 @@ instance
   toJSON DescribeReplicationConfigurationTemplates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("replicationConfigurationTemplateIDs" Data..=)
-              Prelude.<$> replicationConfigurationTemplateIDs,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> replicationConfigurationTemplateIDs
           ]
       )
 

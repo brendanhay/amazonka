@@ -35,9 +35,9 @@ module Amazonka.DrS.DescribeJobs
     newDescribeJobs,
 
     -- * Request Lenses
-    describeJobs_nextToken,
     describeJobs_filters,
     describeJobs_maxResults,
+    describeJobs_nextToken,
 
     -- * Destructuring the Response
     DescribeJobsResponse (..),
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeJobs' smart constructor.
 data DescribeJobs = DescribeJobs'
-  { -- | The token of the next Job to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of filters by which to return Jobs.
+  { -- | A set of filters by which to return Jobs.
     filters :: Prelude.Maybe DescribeJobsRequestFilters,
     -- | Maximum number of Jobs to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next Job to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,23 +77,19 @@ data DescribeJobs = DescribeJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeJobs_nextToken' - The token of the next Job to retrieve.
---
 -- 'filters', 'describeJobs_filters' - A set of filters by which to return Jobs.
 --
 -- 'maxResults', 'describeJobs_maxResults' - Maximum number of Jobs to retrieve.
+--
+-- 'nextToken', 'describeJobs_nextToken' - The token of the next Job to retrieve.
 newDescribeJobs ::
   DescribeJobs
 newDescribeJobs =
   DescribeJobs'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token of the next Job to retrieve.
-describeJobs_nextToken :: Lens.Lens' DescribeJobs (Prelude.Maybe Prelude.Text)
-describeJobs_nextToken = Lens.lens (\DescribeJobs' {nextToken} -> nextToken) (\s@DescribeJobs' {} a -> s {nextToken = a} :: DescribeJobs)
 
 -- | A set of filters by which to return Jobs.
 describeJobs_filters :: Lens.Lens' DescribeJobs (Prelude.Maybe DescribeJobsRequestFilters)
@@ -102,6 +98,10 @@ describeJobs_filters = Lens.lens (\DescribeJobs' {filters} -> filters) (\s@Descr
 -- | Maximum number of Jobs to retrieve.
 describeJobs_maxResults :: Lens.Lens' DescribeJobs (Prelude.Maybe Prelude.Natural)
 describeJobs_maxResults = Lens.lens (\DescribeJobs' {maxResults} -> maxResults) (\s@DescribeJobs' {} a -> s {maxResults = a} :: DescribeJobs)
+
+-- | The token of the next Job to retrieve.
+describeJobs_nextToken :: Lens.Lens' DescribeJobs (Prelude.Maybe Prelude.Text)
+describeJobs_nextToken = Lens.lens (\DescribeJobs' {nextToken} -> nextToken) (\s@DescribeJobs' {} a -> s {nextToken = a} :: DescribeJobs)
 
 instance Core.AWSPager DescribeJobs where
   page rq rs
@@ -137,15 +137,15 @@ instance Core.AWSRequest DescribeJobs where
 
 instance Prelude.Hashable DescribeJobs where
   hashWithSalt _salt DescribeJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeJobs where
   rnf DescribeJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeJobs where
   toHeaders =
@@ -162,9 +162,9 @@ instance Data.ToJSON DescribeJobs where
   toJSON DescribeJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

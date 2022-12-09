@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 data RecoveryInstanceDataReplicationInfo = RecoveryInstanceDataReplicationInfo'
   { -- | Information about Data Replication
     dataReplicationError :: Prelude.Maybe RecoveryInstanceDataReplicationError,
-    -- | Data replication lag duration.
-    lagDuration :: Prelude.Maybe Prelude.Text,
     -- | Information about whether the data replication has been initiated.
     dataReplicationInitiation :: Prelude.Maybe RecoveryInstanceDataReplicationInitiation,
-    -- | The disks that should be replicated.
-    replicatedDisks :: Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk],
     -- | The state of the data replication.
     dataReplicationState :: Prelude.Maybe RecoveryInstanceDataReplicationState,
     -- | An estimate of when the data replication will be completed.
-    etaDateTime :: Prelude.Maybe Prelude.Text
+    etaDateTime :: Prelude.Maybe Prelude.Text,
+    -- | Data replication lag duration.
+    lagDuration :: Prelude.Maybe Prelude.Text,
+    -- | The disks that should be replicated.
+    replicatedDisks :: Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,44 +57,36 @@ data RecoveryInstanceDataReplicationInfo = RecoveryInstanceDataReplicationInfo'
 --
 -- 'dataReplicationError', 'recoveryInstanceDataReplicationInfo_dataReplicationError' - Information about Data Replication
 --
--- 'lagDuration', 'recoveryInstanceDataReplicationInfo_lagDuration' - Data replication lag duration.
---
 -- 'dataReplicationInitiation', 'recoveryInstanceDataReplicationInfo_dataReplicationInitiation' - Information about whether the data replication has been initiated.
---
--- 'replicatedDisks', 'recoveryInstanceDataReplicationInfo_replicatedDisks' - The disks that should be replicated.
 --
 -- 'dataReplicationState', 'recoveryInstanceDataReplicationInfo_dataReplicationState' - The state of the data replication.
 --
 -- 'etaDateTime', 'recoveryInstanceDataReplicationInfo_etaDateTime' - An estimate of when the data replication will be completed.
+--
+-- 'lagDuration', 'recoveryInstanceDataReplicationInfo_lagDuration' - Data replication lag duration.
+--
+-- 'replicatedDisks', 'recoveryInstanceDataReplicationInfo_replicatedDisks' - The disks that should be replicated.
 newRecoveryInstanceDataReplicationInfo ::
   RecoveryInstanceDataReplicationInfo
 newRecoveryInstanceDataReplicationInfo =
   RecoveryInstanceDataReplicationInfo'
     { dataReplicationError =
         Prelude.Nothing,
-      lagDuration = Prelude.Nothing,
       dataReplicationInitiation =
         Prelude.Nothing,
-      replicatedDisks = Prelude.Nothing,
       dataReplicationState = Prelude.Nothing,
-      etaDateTime = Prelude.Nothing
+      etaDateTime = Prelude.Nothing,
+      lagDuration = Prelude.Nothing,
+      replicatedDisks = Prelude.Nothing
     }
 
 -- | Information about Data Replication
 recoveryInstanceDataReplicationInfo_dataReplicationError :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe RecoveryInstanceDataReplicationError)
 recoveryInstanceDataReplicationInfo_dataReplicationError = Lens.lens (\RecoveryInstanceDataReplicationInfo' {dataReplicationError} -> dataReplicationError) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {dataReplicationError = a} :: RecoveryInstanceDataReplicationInfo)
 
--- | Data replication lag duration.
-recoveryInstanceDataReplicationInfo_lagDuration :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe Prelude.Text)
-recoveryInstanceDataReplicationInfo_lagDuration = Lens.lens (\RecoveryInstanceDataReplicationInfo' {lagDuration} -> lagDuration) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {lagDuration = a} :: RecoveryInstanceDataReplicationInfo)
-
 -- | Information about whether the data replication has been initiated.
 recoveryInstanceDataReplicationInfo_dataReplicationInitiation :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe RecoveryInstanceDataReplicationInitiation)
 recoveryInstanceDataReplicationInfo_dataReplicationInitiation = Lens.lens (\RecoveryInstanceDataReplicationInfo' {dataReplicationInitiation} -> dataReplicationInitiation) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {dataReplicationInitiation = a} :: RecoveryInstanceDataReplicationInfo)
-
--- | The disks that should be replicated.
-recoveryInstanceDataReplicationInfo_replicatedDisks :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk])
-recoveryInstanceDataReplicationInfo_replicatedDisks = Lens.lens (\RecoveryInstanceDataReplicationInfo' {replicatedDisks} -> replicatedDisks) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {replicatedDisks = a} :: RecoveryInstanceDataReplicationInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The state of the data replication.
 recoveryInstanceDataReplicationInfo_dataReplicationState :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe RecoveryInstanceDataReplicationState)
@@ -103,6 +95,14 @@ recoveryInstanceDataReplicationInfo_dataReplicationState = Lens.lens (\RecoveryI
 -- | An estimate of when the data replication will be completed.
 recoveryInstanceDataReplicationInfo_etaDateTime :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe Prelude.Text)
 recoveryInstanceDataReplicationInfo_etaDateTime = Lens.lens (\RecoveryInstanceDataReplicationInfo' {etaDateTime} -> etaDateTime) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {etaDateTime = a} :: RecoveryInstanceDataReplicationInfo)
+
+-- | Data replication lag duration.
+recoveryInstanceDataReplicationInfo_lagDuration :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe Prelude.Text)
+recoveryInstanceDataReplicationInfo_lagDuration = Lens.lens (\RecoveryInstanceDataReplicationInfo' {lagDuration} -> lagDuration) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {lagDuration = a} :: RecoveryInstanceDataReplicationInfo)
+
+-- | The disks that should be replicated.
+recoveryInstanceDataReplicationInfo_replicatedDisks :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk])
+recoveryInstanceDataReplicationInfo_replicatedDisks = Lens.lens (\RecoveryInstanceDataReplicationInfo' {replicatedDisks} -> replicatedDisks) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {replicatedDisks = a} :: RecoveryInstanceDataReplicationInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -114,13 +114,13 @@ instance
       ( \x ->
           RecoveryInstanceDataReplicationInfo'
             Prelude.<$> (x Data..:? "dataReplicationError")
-            Prelude.<*> (x Data..:? "lagDuration")
             Prelude.<*> (x Data..:? "dataReplicationInitiation")
+            Prelude.<*> (x Data..:? "dataReplicationState")
+            Prelude.<*> (x Data..:? "etaDateTime")
+            Prelude.<*> (x Data..:? "lagDuration")
             Prelude.<*> ( x Data..:? "replicatedDisks"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "dataReplicationState")
-            Prelude.<*> (x Data..:? "etaDateTime")
       )
 
 instance
@@ -131,11 +131,11 @@ instance
     _salt
     RecoveryInstanceDataReplicationInfo' {..} =
       _salt `Prelude.hashWithSalt` dataReplicationError
-        `Prelude.hashWithSalt` lagDuration
         `Prelude.hashWithSalt` dataReplicationInitiation
-        `Prelude.hashWithSalt` replicatedDisks
         `Prelude.hashWithSalt` dataReplicationState
         `Prelude.hashWithSalt` etaDateTime
+        `Prelude.hashWithSalt` lagDuration
+        `Prelude.hashWithSalt` replicatedDisks
 
 instance
   Prelude.NFData
@@ -143,8 +143,8 @@ instance
   where
   rnf RecoveryInstanceDataReplicationInfo' {..} =
     Prelude.rnf dataReplicationError
-      `Prelude.seq` Prelude.rnf lagDuration
       `Prelude.seq` Prelude.rnf dataReplicationInitiation
-      `Prelude.seq` Prelude.rnf replicatedDisks
       `Prelude.seq` Prelude.rnf dataReplicationState
       `Prelude.seq` Prelude.rnf etaDateTime
+      `Prelude.seq` Prelude.rnf lagDuration
+      `Prelude.seq` Prelude.rnf replicatedDisks

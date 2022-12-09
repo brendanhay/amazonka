@@ -23,6 +23,8 @@ module Amazonka.DrS.Types.FailbackState
         FailbackState_FAILBACK_COMPLETED,
         FailbackState_FAILBACK_ERROR,
         FailbackState_FAILBACK_IN_PROGRESS,
+        FailbackState_FAILBACK_LAUNCH_STATE_NOT_AVAILABLE,
+        FailbackState_FAILBACK_NOT_READY_FOR_LAUNCH,
         FailbackState_FAILBACK_NOT_STARTED,
         FailbackState_FAILBACK_READY_FOR_LAUNCH
       ),
@@ -70,6 +72,12 @@ pattern FailbackState_FAILBACK_ERROR = FailbackState' "FAILBACK_ERROR"
 pattern FailbackState_FAILBACK_IN_PROGRESS :: FailbackState
 pattern FailbackState_FAILBACK_IN_PROGRESS = FailbackState' "FAILBACK_IN_PROGRESS"
 
+pattern FailbackState_FAILBACK_LAUNCH_STATE_NOT_AVAILABLE :: FailbackState
+pattern FailbackState_FAILBACK_LAUNCH_STATE_NOT_AVAILABLE = FailbackState' "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE"
+
+pattern FailbackState_FAILBACK_NOT_READY_FOR_LAUNCH :: FailbackState
+pattern FailbackState_FAILBACK_NOT_READY_FOR_LAUNCH = FailbackState' "FAILBACK_NOT_READY_FOR_LAUNCH"
+
 pattern FailbackState_FAILBACK_NOT_STARTED :: FailbackState
 pattern FailbackState_FAILBACK_NOT_STARTED = FailbackState' "FAILBACK_NOT_STARTED"
 
@@ -80,6 +88,8 @@ pattern FailbackState_FAILBACK_READY_FOR_LAUNCH = FailbackState' "FAILBACK_READY
   FailbackState_FAILBACK_COMPLETED,
   FailbackState_FAILBACK_ERROR,
   FailbackState_FAILBACK_IN_PROGRESS,
+  FailbackState_FAILBACK_LAUNCH_STATE_NOT_AVAILABLE,
+  FailbackState_FAILBACK_NOT_READY_FOR_LAUNCH,
   FailbackState_FAILBACK_NOT_STARTED,
   FailbackState_FAILBACK_READY_FOR_LAUNCH,
   FailbackState'

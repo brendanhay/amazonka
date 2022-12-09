@@ -33,12 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecoveryInstanceProperties' smart constructor.
 data RecoveryInstanceProperties = RecoveryInstanceProperties'
-  { -- | Operating system.
-    os :: Prelude.Maybe OS,
-    -- | An array of CPUs.
+  { -- | An array of CPUs.
     cpus :: Prelude.Maybe [CPU],
-    -- | The amount of RAM in bytes.
-    ramBytes :: Prelude.Maybe Prelude.Natural,
     -- | An array of disks.
     disks :: Prelude.Maybe [RecoveryInstanceDisk],
     -- | Hints used to uniquely identify a machine.
@@ -46,7 +42,11 @@ data RecoveryInstanceProperties = RecoveryInstanceProperties'
     -- | The date and time the Recovery Instance properties were last updated on.
     lastUpdatedDateTime :: Prelude.Maybe Prelude.Text,
     -- | An array of network interfaces.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
+    -- | Operating system.
+    os :: Prelude.Maybe OS,
+    -- | The amount of RAM in bytes.
+    ramBytes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,11 +58,7 @@ data RecoveryInstanceProperties = RecoveryInstanceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'os', 'recoveryInstanceProperties_os' - Operating system.
---
 -- 'cpus', 'recoveryInstanceProperties_cpus' - An array of CPUs.
---
--- 'ramBytes', 'recoveryInstanceProperties_ramBytes' - The amount of RAM in bytes.
 --
 -- 'disks', 'recoveryInstanceProperties_disks' - An array of disks.
 --
@@ -71,30 +67,26 @@ data RecoveryInstanceProperties = RecoveryInstanceProperties'
 -- 'lastUpdatedDateTime', 'recoveryInstanceProperties_lastUpdatedDateTime' - The date and time the Recovery Instance properties were last updated on.
 --
 -- 'networkInterfaces', 'recoveryInstanceProperties_networkInterfaces' - An array of network interfaces.
+--
+-- 'os', 'recoveryInstanceProperties_os' - Operating system.
+--
+-- 'ramBytes', 'recoveryInstanceProperties_ramBytes' - The amount of RAM in bytes.
 newRecoveryInstanceProperties ::
   RecoveryInstanceProperties
 newRecoveryInstanceProperties =
   RecoveryInstanceProperties'
-    { os = Prelude.Nothing,
-      cpus = Prelude.Nothing,
-      ramBytes = Prelude.Nothing,
+    { cpus = Prelude.Nothing,
       disks = Prelude.Nothing,
       identificationHints = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+      networkInterfaces = Prelude.Nothing,
+      os = Prelude.Nothing,
+      ramBytes = Prelude.Nothing
     }
-
--- | Operating system.
-recoveryInstanceProperties_os :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe OS)
-recoveryInstanceProperties_os = Lens.lens (\RecoveryInstanceProperties' {os} -> os) (\s@RecoveryInstanceProperties' {} a -> s {os = a} :: RecoveryInstanceProperties)
 
 -- | An array of CPUs.
 recoveryInstanceProperties_cpus :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe [CPU])
 recoveryInstanceProperties_cpus = Lens.lens (\RecoveryInstanceProperties' {cpus} -> cpus) (\s@RecoveryInstanceProperties' {} a -> s {cpus = a} :: RecoveryInstanceProperties) Prelude.. Lens.mapping Lens.coerced
-
--- | The amount of RAM in bytes.
-recoveryInstanceProperties_ramBytes :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe Prelude.Natural)
-recoveryInstanceProperties_ramBytes = Lens.lens (\RecoveryInstanceProperties' {ramBytes} -> ramBytes) (\s@RecoveryInstanceProperties' {} a -> s {ramBytes = a} :: RecoveryInstanceProperties)
 
 -- | An array of disks.
 recoveryInstanceProperties_disks :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe [RecoveryInstanceDisk])
@@ -112,39 +104,47 @@ recoveryInstanceProperties_lastUpdatedDateTime = Lens.lens (\RecoveryInstancePro
 recoveryInstanceProperties_networkInterfaces :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe [NetworkInterface])
 recoveryInstanceProperties_networkInterfaces = Lens.lens (\RecoveryInstanceProperties' {networkInterfaces} -> networkInterfaces) (\s@RecoveryInstanceProperties' {} a -> s {networkInterfaces = a} :: RecoveryInstanceProperties) Prelude.. Lens.mapping Lens.coerced
 
+-- | Operating system.
+recoveryInstanceProperties_os :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe OS)
+recoveryInstanceProperties_os = Lens.lens (\RecoveryInstanceProperties' {os} -> os) (\s@RecoveryInstanceProperties' {} a -> s {os = a} :: RecoveryInstanceProperties)
+
+-- | The amount of RAM in bytes.
+recoveryInstanceProperties_ramBytes :: Lens.Lens' RecoveryInstanceProperties (Prelude.Maybe Prelude.Natural)
+recoveryInstanceProperties_ramBytes = Lens.lens (\RecoveryInstanceProperties' {ramBytes} -> ramBytes) (\s@RecoveryInstanceProperties' {} a -> s {ramBytes = a} :: RecoveryInstanceProperties)
+
 instance Data.FromJSON RecoveryInstanceProperties where
   parseJSON =
     Data.withObject
       "RecoveryInstanceProperties"
       ( \x ->
           RecoveryInstanceProperties'
-            Prelude.<$> (x Data..:? "os")
-            Prelude.<*> (x Data..:? "cpus" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ramBytes")
+            Prelude.<$> (x Data..:? "cpus" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "disks" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "identificationHints")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> ( x Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "os")
+            Prelude.<*> (x Data..:? "ramBytes")
       )
 
 instance Prelude.Hashable RecoveryInstanceProperties where
   hashWithSalt _salt RecoveryInstanceProperties' {..} =
-    _salt `Prelude.hashWithSalt` os
-      `Prelude.hashWithSalt` cpus
-      `Prelude.hashWithSalt` ramBytes
+    _salt `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` disks
       `Prelude.hashWithSalt` identificationHints
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` os
+      `Prelude.hashWithSalt` ramBytes
 
 instance Prelude.NFData RecoveryInstanceProperties where
   rnf RecoveryInstanceProperties' {..} =
-    Prelude.rnf os
-      `Prelude.seq` Prelude.rnf cpus
-      `Prelude.seq` Prelude.rnf ramBytes
+    Prelude.rnf cpus
       `Prelude.seq` Prelude.rnf disks
       `Prelude.seq` Prelude.rnf identificationHints
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf os
+      `Prelude.seq` Prelude.rnf ramBytes

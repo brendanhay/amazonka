@@ -30,16 +30,16 @@ module Amazonka.DrS.ListStagingAccounts
     newListStagingAccounts,
 
     -- * Request Lenses
-    listStagingAccounts_nextToken,
     listStagingAccounts_maxResults,
+    listStagingAccounts_nextToken,
 
     -- * Destructuring the Response
     ListStagingAccountsResponse (..),
     newListStagingAccountsResponse,
 
     -- * Response Lenses
-    listStagingAccountsResponse_nextToken,
     listStagingAccountsResponse_accounts,
+    listStagingAccountsResponse_nextToken,
     listStagingAccountsResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStagingAccounts' smart constructor.
 data ListStagingAccounts = ListStagingAccounts'
-  { -- | The token of the next staging Account to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of staging Accounts to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of staging Accounts to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next staging Account to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,24 +69,24 @@ data ListStagingAccounts = ListStagingAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStagingAccounts_nextToken' - The token of the next staging Account to retrieve.
---
 -- 'maxResults', 'listStagingAccounts_maxResults' - The maximum number of staging Accounts to retrieve.
+--
+-- 'nextToken', 'listStagingAccounts_nextToken' - The token of the next staging Account to retrieve.
 newListStagingAccounts ::
   ListStagingAccounts
 newListStagingAccounts =
   ListStagingAccounts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token of the next staging Account to retrieve.
-listStagingAccounts_nextToken :: Lens.Lens' ListStagingAccounts (Prelude.Maybe Prelude.Text)
-listStagingAccounts_nextToken = Lens.lens (\ListStagingAccounts' {nextToken} -> nextToken) (\s@ListStagingAccounts' {} a -> s {nextToken = a} :: ListStagingAccounts)
 
 -- | The maximum number of staging Accounts to retrieve.
 listStagingAccounts_maxResults :: Lens.Lens' ListStagingAccounts (Prelude.Maybe Prelude.Natural)
 listStagingAccounts_maxResults = Lens.lens (\ListStagingAccounts' {maxResults} -> maxResults) (\s@ListStagingAccounts' {} a -> s {maxResults = a} :: ListStagingAccounts)
+
+-- | The token of the next staging Account to retrieve.
+listStagingAccounts_nextToken :: Lens.Lens' ListStagingAccounts (Prelude.Maybe Prelude.Text)
+listStagingAccounts_nextToken = Lens.lens (\ListStagingAccounts' {nextToken} -> nextToken) (\s@ListStagingAccounts' {} a -> s {nextToken = a} :: ListStagingAccounts)
 
 instance Core.AWSPager ListStagingAccounts where
   page rq rs
@@ -120,20 +120,20 @@ instance Core.AWSRequest ListStagingAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListStagingAccountsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListStagingAccounts where
   hashWithSalt _salt ListStagingAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStagingAccounts where
   rnf ListStagingAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStagingAccounts where
   toHeaders =
@@ -152,16 +152,16 @@ instance Data.ToPath ListStagingAccounts where
 instance Data.ToQuery ListStagingAccounts where
   toQuery ListStagingAccounts' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListStagingAccountsResponse' smart constructor.
 data ListStagingAccountsResponse = ListStagingAccountsResponse'
-  { -- | The token of the next staging Account to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of staging AWS Accounts.
+  { -- | An array of staging AWS Accounts.
     accounts :: Prelude.Maybe [Account],
+    -- | The token of the next staging Account to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data ListStagingAccountsResponse = ListStagingAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStagingAccountsResponse_nextToken' - The token of the next staging Account to retrieve.
---
 -- 'accounts', 'listStagingAccountsResponse_accounts' - An array of staging AWS Accounts.
+--
+-- 'nextToken', 'listStagingAccountsResponse_nextToken' - The token of the next staging Account to retrieve.
 --
 -- 'httpStatus', 'listStagingAccountsResponse_httpStatus' - The response's http status code.
 newListStagingAccountsResponse ::
@@ -186,19 +186,19 @@ newListStagingAccountsResponse ::
   ListStagingAccountsResponse
 newListStagingAccountsResponse pHttpStatus_ =
   ListStagingAccountsResponse'
-    { nextToken =
+    { accounts =
         Prelude.Nothing,
-      accounts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token of the next staging Account to retrieve.
-listStagingAccountsResponse_nextToken :: Lens.Lens' ListStagingAccountsResponse (Prelude.Maybe Prelude.Text)
-listStagingAccountsResponse_nextToken = Lens.lens (\ListStagingAccountsResponse' {nextToken} -> nextToken) (\s@ListStagingAccountsResponse' {} a -> s {nextToken = a} :: ListStagingAccountsResponse)
 
 -- | An array of staging AWS Accounts.
 listStagingAccountsResponse_accounts :: Lens.Lens' ListStagingAccountsResponse (Prelude.Maybe [Account])
 listStagingAccountsResponse_accounts = Lens.lens (\ListStagingAccountsResponse' {accounts} -> accounts) (\s@ListStagingAccountsResponse' {} a -> s {accounts = a} :: ListStagingAccountsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token of the next staging Account to retrieve.
+listStagingAccountsResponse_nextToken :: Lens.Lens' ListStagingAccountsResponse (Prelude.Maybe Prelude.Text)
+listStagingAccountsResponse_nextToken = Lens.lens (\ListStagingAccountsResponse' {nextToken} -> nextToken) (\s@ListStagingAccountsResponse' {} a -> s {nextToken = a} :: ListStagingAccountsResponse)
 
 -- | The response's http status code.
 listStagingAccountsResponse_httpStatus :: Lens.Lens' ListStagingAccountsResponse Prelude.Int
@@ -206,6 +206,6 @@ listStagingAccountsResponse_httpStatus = Lens.lens (\ListStagingAccountsResponse
 
 instance Prelude.NFData ListStagingAccountsResponse where
   rnf ListStagingAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

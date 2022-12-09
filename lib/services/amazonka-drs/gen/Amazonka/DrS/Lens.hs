@@ -21,8 +21,8 @@ module Amazonka.DrS.Lens
     createExtendedSourceServerResponse_httpStatus,
 
     -- ** CreateReplicationConfigurationTemplate
-    createReplicationConfigurationTemplate_tags,
     createReplicationConfigurationTemplate_ebsEncryptionKeyArn,
+    createReplicationConfigurationTemplate_tags,
     createReplicationConfigurationTemplate_associateDefaultSecurityGroup,
     createReplicationConfigurationTemplate_bandwidthThrottling,
     createReplicationConfigurationTemplate_createPublicIP,
@@ -35,21 +35,21 @@ module Amazonka.DrS.Lens
     createReplicationConfigurationTemplate_stagingAreaSubnetId,
     createReplicationConfigurationTemplate_stagingAreaTags,
     createReplicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_tags,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_replicationServerInstanceType,
-    replicationConfigurationTemplate_stagingAreaTags,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
-    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_pitPolicy,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
+    replicationConfigurationTemplate_pitPolicy,
+    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
     -- ** DeleteJob
@@ -68,33 +68,33 @@ module Amazonka.DrS.Lens
     deleteSourceServerResponse_httpStatus,
 
     -- ** DescribeJobLogItems
-    describeJobLogItems_nextToken,
     describeJobLogItems_maxResults,
+    describeJobLogItems_nextToken,
     describeJobLogItems_jobID,
     describeJobLogItemsResponse_items,
     describeJobLogItemsResponse_nextToken,
     describeJobLogItemsResponse_httpStatus,
 
     -- ** DescribeJobs
-    describeJobs_nextToken,
     describeJobs_filters,
     describeJobs_maxResults,
+    describeJobs_nextToken,
     describeJobsResponse_items,
     describeJobsResponse_nextToken,
     describeJobsResponse_httpStatus,
 
     -- ** DescribeRecoveryInstances
-    describeRecoveryInstances_nextToken,
     describeRecoveryInstances_filters,
     describeRecoveryInstances_maxResults,
+    describeRecoveryInstances_nextToken,
     describeRecoveryInstancesResponse_items,
     describeRecoveryInstancesResponse_nextToken,
     describeRecoveryInstancesResponse_httpStatus,
 
     -- ** DescribeRecoverySnapshots
-    describeRecoverySnapshots_nextToken,
     describeRecoverySnapshots_filters,
     describeRecoverySnapshots_maxResults,
+    describeRecoverySnapshots_nextToken,
     describeRecoverySnapshots_order,
     describeRecoverySnapshots_sourceServerID,
     describeRecoverySnapshotsResponse_items,
@@ -102,17 +102,17 @@ module Amazonka.DrS.Lens
     describeRecoverySnapshotsResponse_httpStatus,
 
     -- ** DescribeReplicationConfigurationTemplates
+    describeReplicationConfigurationTemplates_maxResults,
     describeReplicationConfigurationTemplates_nextToken,
     describeReplicationConfigurationTemplates_replicationConfigurationTemplateIDs,
-    describeReplicationConfigurationTemplates_maxResults,
     describeReplicationConfigurationTemplatesResponse_items,
     describeReplicationConfigurationTemplatesResponse_nextToken,
     describeReplicationConfigurationTemplatesResponse_httpStatus,
 
     -- ** DescribeSourceServers
-    describeSourceServers_nextToken,
     describeSourceServers_filters,
     describeSourceServers_maxResults,
+    describeSourceServers_nextToken,
     describeSourceServersResponse_items,
     describeSourceServersResponse_nextToken,
     describeSourceServersResponse_httpStatus,
@@ -122,15 +122,18 @@ module Amazonka.DrS.Lens
 
     -- ** DisconnectSourceServer
     disconnectSourceServer_sourceServerID,
-    sourceServer_tags,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_lastLaunchResult,
     sourceServer_lifeCycle,
     sourceServer_recoveryInstanceId,
-    sourceServer_arn,
-    sourceServer_lastLaunchResult,
-    sourceServer_dataReplicationInfo,
-    sourceServer_stagingArea,
-    sourceServer_sourceServerID,
+    sourceServer_replicationDirection,
+    sourceServer_reversedDirectionSourceServerArn,
+    sourceServer_sourceCloudProperties,
     sourceServer_sourceProperties,
+    sourceServer_sourceServerID,
+    sourceServer_stagingArea,
+    sourceServer_tags,
 
     -- ** GetFailbackReplicationConfiguration
     getFailbackReplicationConfiguration_recoveryInstanceID,
@@ -142,50 +145,50 @@ module Amazonka.DrS.Lens
 
     -- ** GetLaunchConfiguration
     getLaunchConfiguration_sourceServerID,
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_name,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
 
     -- ** GetReplicationConfiguration
     getReplicationConfiguration_sourceServerID,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_name,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_defaultLargeStagingDiskType,
     replicationConfiguration_ebsEncryption,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_pitPolicy,
-    replicationConfiguration_useDedicatedReplicationServer,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
+    replicationConfiguration_name,
+    replicationConfiguration_pitPolicy,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_useDedicatedReplicationServer,
 
     -- ** InitializeService
     initializeServiceResponse_httpStatus,
 
     -- ** ListExtensibleSourceServers
-    listExtensibleSourceServers_nextToken,
     listExtensibleSourceServers_maxResults,
+    listExtensibleSourceServers_nextToken,
     listExtensibleSourceServers_stagingAccountID,
     listExtensibleSourceServersResponse_items,
     listExtensibleSourceServersResponse_nextToken,
     listExtensibleSourceServersResponse_httpStatus,
 
     -- ** ListStagingAccounts
-    listStagingAccounts_nextToken,
     listStagingAccounts_maxResults,
-    listStagingAccountsResponse_nextToken,
+    listStagingAccounts_nextToken,
     listStagingAccountsResponse_accounts,
+    listStagingAccountsResponse_nextToken,
     listStagingAccountsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -195,15 +198,23 @@ module Amazonka.DrS.Lens
 
     -- ** RetryDataReplication
     retryDataReplication_sourceServerID,
-    sourceServer_tags,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_lastLaunchResult,
     sourceServer_lifeCycle,
     sourceServer_recoveryInstanceId,
-    sourceServer_arn,
-    sourceServer_lastLaunchResult,
-    sourceServer_dataReplicationInfo,
-    sourceServer_stagingArea,
-    sourceServer_sourceServerID,
+    sourceServer_replicationDirection,
+    sourceServer_reversedDirectionSourceServerArn,
+    sourceServer_sourceCloudProperties,
     sourceServer_sourceProperties,
+    sourceServer_sourceServerID,
+    sourceServer_stagingArea,
+    sourceServer_tags,
+
+    -- ** ReverseReplication
+    reverseReplication_recoveryInstanceID,
+    reverseReplicationResponse_reversedDirectionSourceServerArn,
+    reverseReplicationResponse_httpStatus,
 
     -- ** StartFailbackLaunch
     startFailbackLaunch_tags,
@@ -212,14 +223,24 @@ module Amazonka.DrS.Lens
     startFailbackLaunchResponse_httpStatus,
 
     -- ** StartRecovery
-    startRecovery_tags,
     startRecovery_isDrill,
+    startRecovery_tags,
     startRecovery_sourceServers,
     startRecoveryResponse_job,
     startRecoveryResponse_httpStatus,
 
+    -- ** StartReplication
+    startReplication_sourceServerID,
+    startReplicationResponse_sourceServer,
+    startReplicationResponse_httpStatus,
+
     -- ** StopFailback
     stopFailback_recoveryInstanceID,
+
+    -- ** StopReplication
+    stopReplication_sourceServerID,
+    stopReplicationResponse_sourceServer,
+    stopReplicationResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -241,87 +262,87 @@ module Amazonka.DrS.Lens
     updateFailbackReplicationConfiguration_recoveryInstanceID,
 
     -- ** UpdateLaunchConfiguration
-    updateLaunchConfiguration_name,
-    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
+    updateLaunchConfiguration_copyPrivateIp,
     updateLaunchConfiguration_copyTags,
     updateLaunchConfiguration_launchDisposition,
     updateLaunchConfiguration_licensing,
-    updateLaunchConfiguration_copyPrivateIp,
+    updateLaunchConfiguration_name,
+    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
     updateLaunchConfiguration_sourceServerID,
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_name,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
 
     -- ** UpdateReplicationConfiguration
-    updateReplicationConfiguration_bandwidthThrottling,
-    updateReplicationConfiguration_name,
-    updateReplicationConfiguration_replicationServerInstanceType,
-    updateReplicationConfiguration_stagingAreaTags,
     updateReplicationConfiguration_associateDefaultSecurityGroup,
-    updateReplicationConfiguration_defaultLargeStagingDiskType,
-    updateReplicationConfiguration_stagingAreaSubnetId,
+    updateReplicationConfiguration_bandwidthThrottling,
     updateReplicationConfiguration_createPublicIP,
     updateReplicationConfiguration_dataPlaneRouting,
+    updateReplicationConfiguration_defaultLargeStagingDiskType,
     updateReplicationConfiguration_ebsEncryption,
-    updateReplicationConfiguration_replicatedDisks,
-    updateReplicationConfiguration_pitPolicy,
-    updateReplicationConfiguration_useDedicatedReplicationServer,
-    updateReplicationConfiguration_replicationServersSecurityGroupsIDs,
     updateReplicationConfiguration_ebsEncryptionKeyArn,
+    updateReplicationConfiguration_name,
+    updateReplicationConfiguration_pitPolicy,
+    updateReplicationConfiguration_replicatedDisks,
+    updateReplicationConfiguration_replicationServerInstanceType,
+    updateReplicationConfiguration_replicationServersSecurityGroupsIDs,
+    updateReplicationConfiguration_stagingAreaSubnetId,
+    updateReplicationConfiguration_stagingAreaTags,
+    updateReplicationConfiguration_useDedicatedReplicationServer,
     updateReplicationConfiguration_sourceServerID,
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_name,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_defaultLargeStagingDiskType,
     replicationConfiguration_ebsEncryption,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_pitPolicy,
-    replicationConfiguration_useDedicatedReplicationServer,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
+    replicationConfiguration_name,
+    replicationConfiguration_pitPolicy,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_useDedicatedReplicationServer,
 
     -- ** UpdateReplicationConfigurationTemplate
-    updateReplicationConfigurationTemplate_bandwidthThrottling,
-    updateReplicationConfigurationTemplate_replicationServerInstanceType,
-    updateReplicationConfigurationTemplate_stagingAreaTags,
-    updateReplicationConfigurationTemplate_associateDefaultSecurityGroup,
-    updateReplicationConfigurationTemplate_defaultLargeStagingDiskType,
     updateReplicationConfigurationTemplate_arn,
-    updateReplicationConfigurationTemplate_stagingAreaSubnetId,
+    updateReplicationConfigurationTemplate_associateDefaultSecurityGroup,
+    updateReplicationConfigurationTemplate_bandwidthThrottling,
     updateReplicationConfigurationTemplate_createPublicIP,
     updateReplicationConfigurationTemplate_dataPlaneRouting,
+    updateReplicationConfigurationTemplate_defaultLargeStagingDiskType,
     updateReplicationConfigurationTemplate_ebsEncryption,
-    updateReplicationConfigurationTemplate_pitPolicy,
-    updateReplicationConfigurationTemplate_useDedicatedReplicationServer,
-    updateReplicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     updateReplicationConfigurationTemplate_ebsEncryptionKeyArn,
+    updateReplicationConfigurationTemplate_pitPolicy,
+    updateReplicationConfigurationTemplate_replicationServerInstanceType,
+    updateReplicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    updateReplicationConfigurationTemplate_stagingAreaSubnetId,
+    updateReplicationConfigurationTemplate_stagingAreaTags,
+    updateReplicationConfigurationTemplate_useDedicatedReplicationServer,
     updateReplicationConfigurationTemplate_replicationConfigurationTemplateID,
-    replicationConfigurationTemplate_tags,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_replicationServerInstanceType,
-    replicationConfigurationTemplate_stagingAreaTags,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
-    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_pitPolicy,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
+    replicationConfigurationTemplate_pitPolicy,
+    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
     -- * Types
@@ -334,30 +355,30 @@ module Amazonka.DrS.Lens
     cpu_modelName,
 
     -- ** ConversionProperties
-    conversionProperties_volumeToVolumeSize,
-    conversionProperties_rootVolumeName,
     conversionProperties_dataTimestamp,
-    conversionProperties_volumeToConversionMap,
     conversionProperties_forceUefi,
+    conversionProperties_rootVolumeName,
+    conversionProperties_volumeToConversionMap,
+    conversionProperties_volumeToVolumeSize,
 
     -- ** DataReplicationError
-    dataReplicationError_rawError,
     dataReplicationError_error,
+    dataReplicationError_rawError,
 
     -- ** DataReplicationInfo
     dataReplicationInfo_dataReplicationError,
-    dataReplicationInfo_lagDuration,
     dataReplicationInfo_dataReplicationInitiation,
-    dataReplicationInfo_replicatedDisks,
     dataReplicationInfo_dataReplicationState,
     dataReplicationInfo_etaDateTime,
+    dataReplicationInfo_lagDuration,
+    dataReplicationInfo_replicatedDisks,
 
     -- ** DataReplicationInfoReplicatedDisk
-    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     dataReplicationInfoReplicatedDisk_backloggedStorageBytes,
     dataReplicationInfoReplicatedDisk_deviceName,
-    dataReplicationInfoReplicatedDisk_totalStorageBytes,
     dataReplicationInfoReplicatedDisk_replicatedStorageBytes,
+    dataReplicationInfoReplicatedDisk_rescannedStorageBytes,
+    dataReplicationInfoReplicatedDisk_totalStorageBytes,
 
     -- ** DataReplicationInitiation
     dataReplicationInitiation_nextAttemptDateTime,
@@ -369,9 +390,9 @@ module Amazonka.DrS.Lens
     dataReplicationInitiationStep_status,
 
     -- ** DescribeJobsRequestFilters
-    describeJobsRequestFilters_toDate,
     describeJobsRequestFilters_fromDate,
     describeJobsRequestFilters_jobIDs,
+    describeJobsRequestFilters_toDate,
 
     -- ** DescribeRecoveryInstancesRequestFilters
     describeRecoveryInstancesRequestFilters_recoveryInstanceIDs,
@@ -397,14 +418,14 @@ module Amazonka.DrS.Lens
     identificationHints_vmWareUuid,
 
     -- ** Job
-    job_tags,
-    job_initiatedBy,
-    job_type,
-    job_creationDateTime,
     job_arn,
-    job_status,
-    job_participatingServers,
+    job_creationDateTime,
     job_endDateTime,
+    job_initiatedBy,
+    job_participatingServers,
+    job_status,
+    job_tags,
+    job_type,
     job_jobID,
 
     -- ** JobLog
@@ -413,51 +434,51 @@ module Amazonka.DrS.Lens
     jobLog_logDateTime,
 
     -- ** JobLogEventData
-    jobLogEventData_targetInstanceID,
-    jobLogEventData_rawError,
-    jobLogEventData_conversionServerID,
     jobLogEventData_conversionProperties,
+    jobLogEventData_conversionServerID,
+    jobLogEventData_rawError,
     jobLogEventData_sourceServerID,
+    jobLogEventData_targetInstanceID,
 
     -- ** LaunchConfiguration
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_name,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
 
     -- ** Licensing
     licensing_osByol,
 
     -- ** LifeCycle
     lifeCycle_addedToServiceDateTime,
-    lifeCycle_lastLaunch,
     lifeCycle_elapsedReplicationDuration,
-    lifeCycle_lastSeenByServiceDateTime,
     lifeCycle_firstByteDateTime,
+    lifeCycle_lastLaunch,
+    lifeCycle_lastSeenByServiceDateTime,
 
     -- ** LifeCycleLastLaunch
     lifeCycleLastLaunch_initiated,
 
     -- ** LifeCycleLastLaunchInitiated
     lifeCycleLastLaunchInitiated_apiCallDateTime,
-    lifeCycleLastLaunchInitiated_type,
     lifeCycleLastLaunchInitiated_jobID,
+    lifeCycleLastLaunchInitiated_type,
 
     -- ** NetworkInterface
     networkInterface_ips,
-    networkInterface_macAddress,
     networkInterface_isPrimary,
+    networkInterface_macAddress,
 
     -- ** OS
     os_fullString,
 
     -- ** PITPolicyRule
-    pITPolicyRule_ruleID,
     pITPolicyRule_enabled,
+    pITPolicyRule_ruleID,
     pITPolicyRule_interval,
     pITPolicyRule_retentionDuration,
     pITPolicyRule_units,
@@ -468,37 +489,38 @@ module Amazonka.DrS.Lens
     participatingServer_sourceServerID,
 
     -- ** RecoveryInstance
-    recoveryInstance_tags,
-    recoveryInstance_ec2InstanceID,
-    recoveryInstance_recoveryInstanceID,
     recoveryInstance_arn,
-    recoveryInstance_jobID,
-    recoveryInstance_pointInTimeSnapshotDateTime,
-    recoveryInstance_ec2InstanceState,
     recoveryInstance_dataReplicationInfo,
-    recoveryInstance_recoveryInstanceProperties,
-    recoveryInstance_sourceServerID,
+    recoveryInstance_ec2InstanceID,
+    recoveryInstance_ec2InstanceState,
     recoveryInstance_failback,
     recoveryInstance_isDrill,
+    recoveryInstance_jobID,
+    recoveryInstance_originEnvironment,
+    recoveryInstance_pointInTimeSnapshotDateTime,
+    recoveryInstance_recoveryInstanceID,
+    recoveryInstance_recoveryInstanceProperties,
+    recoveryInstance_sourceServerID,
+    recoveryInstance_tags,
 
     -- ** RecoveryInstanceDataReplicationError
-    recoveryInstanceDataReplicationError_rawError,
     recoveryInstanceDataReplicationError_error,
+    recoveryInstanceDataReplicationError_rawError,
 
     -- ** RecoveryInstanceDataReplicationInfo
     recoveryInstanceDataReplicationInfo_dataReplicationError,
-    recoveryInstanceDataReplicationInfo_lagDuration,
     recoveryInstanceDataReplicationInfo_dataReplicationInitiation,
-    recoveryInstanceDataReplicationInfo_replicatedDisks,
     recoveryInstanceDataReplicationInfo_dataReplicationState,
     recoveryInstanceDataReplicationInfo_etaDateTime,
+    recoveryInstanceDataReplicationInfo_lagDuration,
+    recoveryInstanceDataReplicationInfo_replicatedDisks,
 
     -- ** RecoveryInstanceDataReplicationInfoReplicatedDisk
-    recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes,
     recoveryInstanceDataReplicationInfoReplicatedDisk_backloggedStorageBytes,
     recoveryInstanceDataReplicationInfoReplicatedDisk_deviceName,
-    recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes,
     recoveryInstanceDataReplicationInfoReplicatedDisk_replicatedStorageBytes,
+    recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes,
+    recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes,
 
     -- ** RecoveryInstanceDataReplicationInitiation
     recoveryInstanceDataReplicationInitiation_startDateTime,
@@ -510,111 +532,120 @@ module Amazonka.DrS.Lens
 
     -- ** RecoveryInstanceDisk
     recoveryInstanceDisk_bytes,
-    recoveryInstanceDisk_internalDeviceName,
     recoveryInstanceDisk_ebsVolumeID,
+    recoveryInstanceDisk_internalDeviceName,
 
     -- ** RecoveryInstanceFailback
-    recoveryInstanceFailback_failbackToOriginalServer,
-    recoveryInstanceFailback_state,
-    recoveryInstanceFailback_failbackClientID,
-    recoveryInstanceFailback_elapsedReplicationDuration,
     recoveryInstanceFailback_agentLastSeenByServiceDateTime,
-    recoveryInstanceFailback_failbackJobID,
+    recoveryInstanceFailback_elapsedReplicationDuration,
+    recoveryInstanceFailback_failbackClientID,
     recoveryInstanceFailback_failbackClientLastSeenByServiceDateTime,
-    recoveryInstanceFailback_firstByteDateTime,
     recoveryInstanceFailback_failbackInitiationTime,
+    recoveryInstanceFailback_failbackJobID,
+    recoveryInstanceFailback_failbackLaunchType,
+    recoveryInstanceFailback_failbackToOriginalServer,
+    recoveryInstanceFailback_firstByteDateTime,
+    recoveryInstanceFailback_state,
 
     -- ** RecoveryInstanceProperties
-    recoveryInstanceProperties_os,
     recoveryInstanceProperties_cpus,
-    recoveryInstanceProperties_ramBytes,
     recoveryInstanceProperties_disks,
     recoveryInstanceProperties_identificationHints,
     recoveryInstanceProperties_lastUpdatedDateTime,
     recoveryInstanceProperties_networkInterfaces,
+    recoveryInstanceProperties_os,
+    recoveryInstanceProperties_ramBytes,
 
     -- ** RecoverySnapshot
-    recoverySnapshot_timestamp,
     recoverySnapshot_ebsSnapshots,
+    recoverySnapshot_timestamp,
     recoverySnapshot_expectedTimestamp,
     recoverySnapshot_snapshotID,
     recoverySnapshot_sourceServerID,
 
     -- ** ReplicationConfiguration
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_name,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_defaultLargeStagingDiskType,
     replicationConfiguration_ebsEncryption,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_pitPolicy,
-    replicationConfiguration_useDedicatedReplicationServer,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
+    replicationConfiguration_name,
+    replicationConfiguration_pitPolicy,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_useDedicatedReplicationServer,
 
     -- ** ReplicationConfigurationReplicatedDisk
-    replicationConfigurationReplicatedDisk_isBootDisk,
     replicationConfigurationReplicatedDisk_deviceName,
+    replicationConfigurationReplicatedDisk_iops,
+    replicationConfigurationReplicatedDisk_isBootDisk,
     replicationConfigurationReplicatedDisk_optimizedStagingDiskType,
     replicationConfigurationReplicatedDisk_stagingDiskType,
     replicationConfigurationReplicatedDisk_throughput,
-    replicationConfigurationReplicatedDisk_iops,
 
     -- ** ReplicationConfigurationTemplate
-    replicationConfigurationTemplate_tags,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_replicationServerInstanceType,
-    replicationConfigurationTemplate_stagingAreaTags,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
-    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_pitPolicy,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
+    replicationConfigurationTemplate_pitPolicy,
+    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
+    -- ** SourceCloudProperties
+    sourceCloudProperties_originAccountID,
+    sourceCloudProperties_originAvailabilityZone,
+    sourceCloudProperties_originRegion,
+
     -- ** SourceProperties
-    sourceProperties_os,
     sourceProperties_cpus,
-    sourceProperties_ramBytes,
     sourceProperties_disks,
     sourceProperties_identificationHints,
-    sourceProperties_recommendedInstanceType,
     sourceProperties_lastUpdatedDateTime,
     sourceProperties_networkInterfaces,
+    sourceProperties_os,
+    sourceProperties_ramBytes,
+    sourceProperties_recommendedInstanceType,
 
     -- ** SourceServer
-    sourceServer_tags,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_lastLaunchResult,
     sourceServer_lifeCycle,
     sourceServer_recoveryInstanceId,
-    sourceServer_arn,
-    sourceServer_lastLaunchResult,
-    sourceServer_dataReplicationInfo,
-    sourceServer_stagingArea,
-    sourceServer_sourceServerID,
+    sourceServer_replicationDirection,
+    sourceServer_reversedDirectionSourceServerArn,
+    sourceServer_sourceCloudProperties,
     sourceServer_sourceProperties,
+    sourceServer_sourceServerID,
+    sourceServer_stagingArea,
+    sourceServer_tags,
 
     -- ** StagingArea
-    stagingArea_stagingAccountID,
     stagingArea_errorMessage,
+    stagingArea_stagingAccountID,
     stagingArea_stagingSourceServerArn,
     stagingArea_status,
 
     -- ** StagingSourceServer
-    stagingSourceServer_tags,
     stagingSourceServer_arn,
     stagingSourceServer_hostname,
+    stagingSourceServer_tags,
 
     -- ** StartRecoveryRequestSourceServer
     startRecoveryRequestSourceServer_recoverySnapshotID,
@@ -644,9 +675,12 @@ import Amazonka.DrS.ListExtensibleSourceServers
 import Amazonka.DrS.ListStagingAccounts
 import Amazonka.DrS.ListTagsForResource
 import Amazonka.DrS.RetryDataReplication
+import Amazonka.DrS.ReverseReplication
 import Amazonka.DrS.StartFailbackLaunch
 import Amazonka.DrS.StartRecovery
+import Amazonka.DrS.StartReplication
 import Amazonka.DrS.StopFailback
+import Amazonka.DrS.StopReplication
 import Amazonka.DrS.TagResource
 import Amazonka.DrS.TerminateRecoveryInstances
 import Amazonka.DrS.Types.Account
@@ -688,6 +722,7 @@ import Amazonka.DrS.Types.RecoverySnapshot
 import Amazonka.DrS.Types.ReplicationConfiguration
 import Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk
 import Amazonka.DrS.Types.ReplicationConfigurationTemplate
+import Amazonka.DrS.Types.SourceCloudProperties
 import Amazonka.DrS.Types.SourceProperties
 import Amazonka.DrS.Types.SourceServer
 import Amazonka.DrS.Types.StagingArea

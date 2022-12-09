@@ -29,8 +29,8 @@ module Amazonka.DrS.StartRecovery
     newStartRecovery,
 
     -- * Request Lenses
-    startRecovery_tags,
     startRecovery_isDrill,
+    startRecovery_tags,
     startRecovery_sourceServers,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartRecovery' smart constructor.
 data StartRecovery = StartRecovery'
-  { -- | The tags to be associated with the Recovery Job.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Whether this Source Server Recovery operation is a drill or not.
+  { -- | Whether this Source Server Recovery operation is a drill or not.
     isDrill :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to be associated with the Recovery Job.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The Source Servers that we want to start a Recovery Job for.
     sourceServers :: Prelude.NonEmpty StartRecoveryRequestSourceServer
   }
@@ -70,9 +70,9 @@ data StartRecovery = StartRecovery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startRecovery_tags' - The tags to be associated with the Recovery Job.
---
 -- 'isDrill', 'startRecovery_isDrill' - Whether this Source Server Recovery operation is a drill or not.
+--
+-- 'tags', 'startRecovery_tags' - The tags to be associated with the Recovery Job.
 --
 -- 'sourceServers', 'startRecovery_sourceServers' - The Source Servers that we want to start a Recovery Job for.
 newStartRecovery ::
@@ -81,18 +81,18 @@ newStartRecovery ::
   StartRecovery
 newStartRecovery pSourceServers_ =
   StartRecovery'
-    { tags = Prelude.Nothing,
-      isDrill = Prelude.Nothing,
+    { isDrill = Prelude.Nothing,
+      tags = Prelude.Nothing,
       sourceServers = Lens.coerced Lens.# pSourceServers_
     }
-
--- | The tags to be associated with the Recovery Job.
-startRecovery_tags :: Lens.Lens' StartRecovery (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startRecovery_tags = Lens.lens (\StartRecovery' {tags} -> tags) (\s@StartRecovery' {} a -> s {tags = a} :: StartRecovery) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Whether this Source Server Recovery operation is a drill or not.
 startRecovery_isDrill :: Lens.Lens' StartRecovery (Prelude.Maybe Prelude.Bool)
 startRecovery_isDrill = Lens.lens (\StartRecovery' {isDrill} -> isDrill) (\s@StartRecovery' {} a -> s {isDrill = a} :: StartRecovery)
+
+-- | The tags to be associated with the Recovery Job.
+startRecovery_tags :: Lens.Lens' StartRecovery (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startRecovery_tags = Lens.lens (\StartRecovery' {tags} -> tags) (\s@StartRecovery' {} a -> s {tags = a} :: StartRecovery) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Source Servers that we want to start a Recovery Job for.
 startRecovery_sourceServers :: Lens.Lens' StartRecovery (Prelude.NonEmpty StartRecoveryRequestSourceServer)
@@ -114,14 +114,14 @@ instance Core.AWSRequest StartRecovery where
 
 instance Prelude.Hashable StartRecovery where
   hashWithSalt _salt StartRecovery' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` isDrill
+    _salt `Prelude.hashWithSalt` isDrill
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceServers
 
 instance Prelude.NFData StartRecovery where
   rnf StartRecovery' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf isDrill
+    Prelude.rnf isDrill
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceServers
 
 instance Data.ToHeaders StartRecovery where
@@ -139,8 +139,8 @@ instance Data.ToJSON StartRecovery where
   toJSON StartRecovery' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("isDrill" Data..=) Prelude.<$> isDrill,
+          [ ("isDrill" Data..=) Prelude.<$> isDrill,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("sourceServers" Data..= sourceServers)
           ]

@@ -47,15 +47,18 @@ module Amazonka.DrS.DisconnectSourceServer
     newSourceServer,
 
     -- * Response Lenses
-    sourceServer_tags,
+    sourceServer_arn,
+    sourceServer_dataReplicationInfo,
+    sourceServer_lastLaunchResult,
     sourceServer_lifeCycle,
     sourceServer_recoveryInstanceId,
-    sourceServer_arn,
-    sourceServer_lastLaunchResult,
-    sourceServer_dataReplicationInfo,
-    sourceServer_stagingArea,
-    sourceServer_sourceServerID,
+    sourceServer_replicationDirection,
+    sourceServer_reversedDirectionSourceServerArn,
+    sourceServer_sourceCloudProperties,
     sourceServer_sourceProperties,
+    sourceServer_sourceServerID,
+    sourceServer_stagingArea,
+    sourceServer_tags,
   )
 where
 

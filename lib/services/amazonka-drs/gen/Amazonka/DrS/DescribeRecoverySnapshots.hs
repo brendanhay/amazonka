@@ -29,9 +29,9 @@ module Amazonka.DrS.DescribeRecoverySnapshots
     newDescribeRecoverySnapshots,
 
     -- * Request Lenses
-    describeRecoverySnapshots_nextToken,
     describeRecoverySnapshots_filters,
     describeRecoverySnapshots_maxResults,
+    describeRecoverySnapshots_nextToken,
     describeRecoverySnapshots_order,
     describeRecoverySnapshots_sourceServerID,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRecoverySnapshots' smart constructor.
 data DescribeRecoverySnapshots = DescribeRecoverySnapshots'
-  { -- | The token of the next Recovery Snapshot to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of filters by which to return Recovery Snapshots.
+  { -- | A set of filters by which to return Recovery Snapshots.
     filters :: Prelude.Maybe DescribeRecoverySnapshotsRequestFilters,
     -- | Maximum number of Recovery Snapshots to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next Recovery Snapshot to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sorted ordering by which to return Recovery Snapshots.
     order :: Prelude.Maybe RecoverySnapshotsOrder,
     -- | Filter Recovery Snapshots by Source Server ID.
@@ -77,11 +77,11 @@ data DescribeRecoverySnapshots = DescribeRecoverySnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeRecoverySnapshots_nextToken' - The token of the next Recovery Snapshot to retrieve.
---
 -- 'filters', 'describeRecoverySnapshots_filters' - A set of filters by which to return Recovery Snapshots.
 --
 -- 'maxResults', 'describeRecoverySnapshots_maxResults' - Maximum number of Recovery Snapshots to retrieve.
+--
+-- 'nextToken', 'describeRecoverySnapshots_nextToken' - The token of the next Recovery Snapshot to retrieve.
 --
 -- 'order', 'describeRecoverySnapshots_order' - The sorted ordering by which to return Recovery Snapshots.
 --
@@ -92,17 +92,13 @@ newDescribeRecoverySnapshots ::
   DescribeRecoverySnapshots
 newDescribeRecoverySnapshots pSourceServerID_ =
   DescribeRecoverySnapshots'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       order = Prelude.Nothing,
       sourceServerID = pSourceServerID_
     }
-
--- | The token of the next Recovery Snapshot to retrieve.
-describeRecoverySnapshots_nextToken :: Lens.Lens' DescribeRecoverySnapshots (Prelude.Maybe Prelude.Text)
-describeRecoverySnapshots_nextToken = Lens.lens (\DescribeRecoverySnapshots' {nextToken} -> nextToken) (\s@DescribeRecoverySnapshots' {} a -> s {nextToken = a} :: DescribeRecoverySnapshots)
 
 -- | A set of filters by which to return Recovery Snapshots.
 describeRecoverySnapshots_filters :: Lens.Lens' DescribeRecoverySnapshots (Prelude.Maybe DescribeRecoverySnapshotsRequestFilters)
@@ -111,6 +107,10 @@ describeRecoverySnapshots_filters = Lens.lens (\DescribeRecoverySnapshots' {filt
 -- | Maximum number of Recovery Snapshots to retrieve.
 describeRecoverySnapshots_maxResults :: Lens.Lens' DescribeRecoverySnapshots (Prelude.Maybe Prelude.Natural)
 describeRecoverySnapshots_maxResults = Lens.lens (\DescribeRecoverySnapshots' {maxResults} -> maxResults) (\s@DescribeRecoverySnapshots' {} a -> s {maxResults = a} :: DescribeRecoverySnapshots)
+
+-- | The token of the next Recovery Snapshot to retrieve.
+describeRecoverySnapshots_nextToken :: Lens.Lens' DescribeRecoverySnapshots (Prelude.Maybe Prelude.Text)
+describeRecoverySnapshots_nextToken = Lens.lens (\DescribeRecoverySnapshots' {nextToken} -> nextToken) (\s@DescribeRecoverySnapshots' {} a -> s {nextToken = a} :: DescribeRecoverySnapshots)
 
 -- | The sorted ordering by which to return Recovery Snapshots.
 describeRecoverySnapshots_order :: Lens.Lens' DescribeRecoverySnapshots (Prelude.Maybe RecoverySnapshotsOrder)
@@ -159,17 +159,17 @@ instance Core.AWSRequest DescribeRecoverySnapshots where
 
 instance Prelude.Hashable DescribeRecoverySnapshots where
   hashWithSalt _salt DescribeRecoverySnapshots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData DescribeRecoverySnapshots where
   rnf DescribeRecoverySnapshots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf order
       `Prelude.seq` Prelude.rnf sourceServerID
 
@@ -188,9 +188,9 @@ instance Data.ToJSON DescribeRecoverySnapshots where
   toJSON DescribeRecoverySnapshots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("order" Data..=) Prelude.<$> order,
             Prelude.Just
               ("sourceServerID" Data..= sourceServerID)

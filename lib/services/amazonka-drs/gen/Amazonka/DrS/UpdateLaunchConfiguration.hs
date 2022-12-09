@@ -27,12 +27,12 @@ module Amazonka.DrS.UpdateLaunchConfiguration
     newUpdateLaunchConfiguration,
 
     -- * Request Lenses
-    updateLaunchConfiguration_name,
-    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
+    updateLaunchConfiguration_copyPrivateIp,
     updateLaunchConfiguration_copyTags,
     updateLaunchConfiguration_launchDisposition,
     updateLaunchConfiguration_licensing,
-    updateLaunchConfiguration_copyPrivateIp,
+    updateLaunchConfiguration_name,
+    updateLaunchConfiguration_targetInstanceTypeRightSizingMethod,
     updateLaunchConfiguration_sourceServerID,
 
     -- * Destructuring the Response
@@ -40,14 +40,14 @@ module Amazonka.DrS.UpdateLaunchConfiguration
     newLaunchConfiguration,
 
     -- * Response Lenses
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_ec2LaunchTemplateID,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_name,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
   )
 where
 
@@ -61,12 +61,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLaunchConfiguration' smart constructor.
 data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
-  { -- | The name of the launch configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Whether Elastic Disaster Recovery should try to automatically choose the
-    -- instance type that best matches the OS, CPU, and RAM of your Source
-    -- Server.
-    targetInstanceTypeRightSizingMethod :: Prelude.Maybe TargetInstanceTypeRightSizingMethod,
+  { -- | Whether we should copy the Private IP of the Source Server to the
+    -- Recovery Instance.
+    copyPrivateIp :: Prelude.Maybe Prelude.Bool,
     -- | Whether we want to copy the tags of the Source Server to the EC2 machine
     -- of the Recovery Instance.
     copyTags :: Prelude.Maybe Prelude.Bool,
@@ -74,9 +71,12 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
     launchDisposition :: Prelude.Maybe LaunchDisposition,
     -- | The licensing configuration to be used for this launch configuration.
     licensing :: Prelude.Maybe Licensing,
-    -- | Whether we should copy the Private IP of the Source Server to the
-    -- Recovery Instance.
-    copyPrivateIp :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the launch configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Whether Elastic Disaster Recovery should try to automatically choose the
+    -- instance type that best matches the OS, CPU, and RAM of your Source
+    -- Server.
+    targetInstanceTypeRightSizingMethod :: Prelude.Maybe TargetInstanceTypeRightSizingMethod,
     -- | The ID of the Source Server that we want to retrieve a Launch
     -- Configuration for.
     sourceServerID :: Prelude.Text
@@ -91,11 +91,8 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateLaunchConfiguration_name' - The name of the launch configuration.
---
--- 'targetInstanceTypeRightSizingMethod', 'updateLaunchConfiguration_targetInstanceTypeRightSizingMethod' - Whether Elastic Disaster Recovery should try to automatically choose the
--- instance type that best matches the OS, CPU, and RAM of your Source
--- Server.
+-- 'copyPrivateIp', 'updateLaunchConfiguration_copyPrivateIp' - Whether we should copy the Private IP of the Source Server to the
+-- Recovery Instance.
 --
 -- 'copyTags', 'updateLaunchConfiguration_copyTags' - Whether we want to copy the tags of the Source Server to the EC2 machine
 -- of the Recovery Instance.
@@ -104,8 +101,11 @@ data UpdateLaunchConfiguration = UpdateLaunchConfiguration'
 --
 -- 'licensing', 'updateLaunchConfiguration_licensing' - The licensing configuration to be used for this launch configuration.
 --
--- 'copyPrivateIp', 'updateLaunchConfiguration_copyPrivateIp' - Whether we should copy the Private IP of the Source Server to the
--- Recovery Instance.
+-- 'name', 'updateLaunchConfiguration_name' - The name of the launch configuration.
+--
+-- 'targetInstanceTypeRightSizingMethod', 'updateLaunchConfiguration_targetInstanceTypeRightSizingMethod' - Whether Elastic Disaster Recovery should try to automatically choose the
+-- instance type that best matches the OS, CPU, and RAM of your Source
+-- Server.
 --
 -- 'sourceServerID', 'updateLaunchConfiguration_sourceServerID' - The ID of the Source Server that we want to retrieve a Launch
 -- Configuration for.
@@ -115,25 +115,21 @@ newUpdateLaunchConfiguration ::
   UpdateLaunchConfiguration
 newUpdateLaunchConfiguration pSourceServerID_ =
   UpdateLaunchConfiguration'
-    { name = Prelude.Nothing,
-      targetInstanceTypeRightSizingMethod =
+    { copyPrivateIp =
         Prelude.Nothing,
       copyTags = Prelude.Nothing,
       launchDisposition = Prelude.Nothing,
       licensing = Prelude.Nothing,
-      copyPrivateIp = Prelude.Nothing,
+      name = Prelude.Nothing,
+      targetInstanceTypeRightSizingMethod =
+        Prelude.Nothing,
       sourceServerID = pSourceServerID_
     }
 
--- | The name of the launch configuration.
-updateLaunchConfiguration_name :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Text)
-updateLaunchConfiguration_name = Lens.lens (\UpdateLaunchConfiguration' {name} -> name) (\s@UpdateLaunchConfiguration' {} a -> s {name = a} :: UpdateLaunchConfiguration)
-
--- | Whether Elastic Disaster Recovery should try to automatically choose the
--- instance type that best matches the OS, CPU, and RAM of your Source
--- Server.
-updateLaunchConfiguration_targetInstanceTypeRightSizingMethod :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe TargetInstanceTypeRightSizingMethod)
-updateLaunchConfiguration_targetInstanceTypeRightSizingMethod = Lens.lens (\UpdateLaunchConfiguration' {targetInstanceTypeRightSizingMethod} -> targetInstanceTypeRightSizingMethod) (\s@UpdateLaunchConfiguration' {} a -> s {targetInstanceTypeRightSizingMethod = a} :: UpdateLaunchConfiguration)
+-- | Whether we should copy the Private IP of the Source Server to the
+-- Recovery Instance.
+updateLaunchConfiguration_copyPrivateIp :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
+updateLaunchConfiguration_copyPrivateIp = Lens.lens (\UpdateLaunchConfiguration' {copyPrivateIp} -> copyPrivateIp) (\s@UpdateLaunchConfiguration' {} a -> s {copyPrivateIp = a} :: UpdateLaunchConfiguration)
 
 -- | Whether we want to copy the tags of the Source Server to the EC2 machine
 -- of the Recovery Instance.
@@ -148,10 +144,15 @@ updateLaunchConfiguration_launchDisposition = Lens.lens (\UpdateLaunchConfigurat
 updateLaunchConfiguration_licensing :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Licensing)
 updateLaunchConfiguration_licensing = Lens.lens (\UpdateLaunchConfiguration' {licensing} -> licensing) (\s@UpdateLaunchConfiguration' {} a -> s {licensing = a} :: UpdateLaunchConfiguration)
 
--- | Whether we should copy the Private IP of the Source Server to the
--- Recovery Instance.
-updateLaunchConfiguration_copyPrivateIp :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Bool)
-updateLaunchConfiguration_copyPrivateIp = Lens.lens (\UpdateLaunchConfiguration' {copyPrivateIp} -> copyPrivateIp) (\s@UpdateLaunchConfiguration' {} a -> s {copyPrivateIp = a} :: UpdateLaunchConfiguration)
+-- | The name of the launch configuration.
+updateLaunchConfiguration_name :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe Prelude.Text)
+updateLaunchConfiguration_name = Lens.lens (\UpdateLaunchConfiguration' {name} -> name) (\s@UpdateLaunchConfiguration' {} a -> s {name = a} :: UpdateLaunchConfiguration)
+
+-- | Whether Elastic Disaster Recovery should try to automatically choose the
+-- instance type that best matches the OS, CPU, and RAM of your Source
+-- Server.
+updateLaunchConfiguration_targetInstanceTypeRightSizingMethod :: Lens.Lens' UpdateLaunchConfiguration (Prelude.Maybe TargetInstanceTypeRightSizingMethod)
+updateLaunchConfiguration_targetInstanceTypeRightSizingMethod = Lens.lens (\UpdateLaunchConfiguration' {targetInstanceTypeRightSizingMethod} -> targetInstanceTypeRightSizingMethod) (\s@UpdateLaunchConfiguration' {} a -> s {targetInstanceTypeRightSizingMethod = a} :: UpdateLaunchConfiguration)
 
 -- | The ID of the Source Server that we want to retrieve a Launch
 -- Configuration for.
@@ -170,22 +171,22 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
 
 instance Prelude.Hashable UpdateLaunchConfiguration where
   hashWithSalt _salt UpdateLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
+    _salt `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` launchDisposition
       `Prelude.hashWithSalt` licensing
-      `Prelude.hashWithSalt` copyPrivateIp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` targetInstanceTypeRightSizingMethod
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData UpdateLaunchConfiguration where
   rnf UpdateLaunchConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
+    Prelude.rnf copyPrivateIp
       `Prelude.seq` Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf launchDisposition
       `Prelude.seq` Prelude.rnf licensing
-      `Prelude.seq` Prelude.rnf copyPrivateIp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf targetInstanceTypeRightSizingMethod
       `Prelude.seq` Prelude.rnf sourceServerID
 
 instance Data.ToHeaders UpdateLaunchConfiguration where
@@ -203,14 +204,14 @@ instance Data.ToJSON UpdateLaunchConfiguration where
   toJSON UpdateLaunchConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("targetInstanceTypeRightSizingMethod" Data..=)
-              Prelude.<$> targetInstanceTypeRightSizingMethod,
+          [ ("copyPrivateIp" Data..=) Prelude.<$> copyPrivateIp,
             ("copyTags" Data..=) Prelude.<$> copyTags,
             ("launchDisposition" Data..=)
               Prelude.<$> launchDisposition,
             ("licensing" Data..=) Prelude.<$> licensing,
-            ("copyPrivateIp" Data..=) Prelude.<$> copyPrivateIp,
+            ("name" Data..=) Prelude.<$> name,
+            ("targetInstanceTypeRightSizingMethod" Data..=)
+              Prelude.<$> targetInstanceTypeRightSizingMethod,
             Prelude.Just
               ("sourceServerID" Data..= sourceServerID)
           ]

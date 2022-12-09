@@ -19,26 +19,26 @@ module Amazonka.DrS
     -- * Errors
     -- $errors
 
-    -- ** UninitializedAccountException
-    _UninitializedAccountException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** UninitializedAccountException
+    _UninitializedAccountException,
 
     -- ** ValidationException
     _ValidationException,
@@ -181,6 +181,12 @@ module Amazonka.DrS
     SourceServer (SourceServer'),
     newSourceServer,
 
+    -- ** ReverseReplication
+    ReverseReplication (ReverseReplication'),
+    newReverseReplication,
+    ReverseReplicationResponse (ReverseReplicationResponse'),
+    newReverseReplicationResponse,
+
     -- ** StartFailbackLaunch
     StartFailbackLaunch (StartFailbackLaunch'),
     newStartFailbackLaunch,
@@ -193,11 +199,23 @@ module Amazonka.DrS
     StartRecoveryResponse (StartRecoveryResponse'),
     newStartRecoveryResponse,
 
+    -- ** StartReplication
+    StartReplication (StartReplication'),
+    newStartReplication,
+    StartReplicationResponse (StartReplicationResponse'),
+    newStartReplicationResponse,
+
     -- ** StopFailback
     StopFailback (StopFailback'),
     newStopFailback,
     StopFailbackResponse (StopFailbackResponse'),
     newStopFailbackResponse,
+
+    -- ** StopReplication
+    StopReplication (StopReplication'),
+    newStopReplication,
+    StopReplicationResponse (StopReplicationResponse'),
+    newStopReplicationResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -261,6 +279,9 @@ module Amazonka.DrS
     -- ** ExtensionStatus
     ExtensionStatus (..),
 
+    -- ** FailbackLaunchType
+    FailbackLaunchType (..),
+
     -- ** FailbackReplicationError
     FailbackReplicationError (..),
 
@@ -291,6 +312,9 @@ module Amazonka.DrS
     -- ** LaunchStatus
     LaunchStatus (..),
 
+    -- ** OriginEnvironment
+    OriginEnvironment (..),
+
     -- ** PITPolicyRuleUnits
     PITPolicyRuleUnits (..),
 
@@ -317,6 +341,9 @@ module Amazonka.DrS
 
     -- ** ReplicationConfigurationReplicatedDiskStagingDiskType
     ReplicationConfigurationReplicatedDiskStagingDiskType (..),
+
+    -- ** ReplicationDirection
+    ReplicationDirection (..),
 
     -- ** TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
@@ -477,6 +504,10 @@ module Amazonka.DrS
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
 
+    -- ** SourceCloudProperties
+    SourceCloudProperties (SourceCloudProperties'),
+    newSourceCloudProperties,
+
     -- ** SourceProperties
     SourceProperties (SourceProperties'),
     newSourceProperties,
@@ -522,9 +553,12 @@ import Amazonka.DrS.ListExtensibleSourceServers
 import Amazonka.DrS.ListStagingAccounts
 import Amazonka.DrS.ListTagsForResource
 import Amazonka.DrS.RetryDataReplication
+import Amazonka.DrS.ReverseReplication
 import Amazonka.DrS.StartFailbackLaunch
 import Amazonka.DrS.StartRecovery
+import Amazonka.DrS.StartReplication
 import Amazonka.DrS.StopFailback
+import Amazonka.DrS.StopReplication
 import Amazonka.DrS.TagResource
 import Amazonka.DrS.TerminateRecoveryInstances
 import Amazonka.DrS.Types

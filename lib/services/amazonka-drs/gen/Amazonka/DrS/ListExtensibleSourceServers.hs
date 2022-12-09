@@ -32,8 +32,8 @@ module Amazonka.DrS.ListExtensibleSourceServers
     newListExtensibleSourceServers,
 
     -- * Request Lenses
-    listExtensibleSourceServers_nextToken,
     listExtensibleSourceServers_maxResults,
+    listExtensibleSourceServers_nextToken,
     listExtensibleSourceServers_stagingAccountID,
 
     -- * Destructuring the Response
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExtensibleSourceServers' smart constructor.
 data ListExtensibleSourceServers = ListExtensibleSourceServers'
-  { -- | The token of the next extensible source server to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of extensible source servers to retrieve.
+  { -- | The maximum number of extensible source servers to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next extensible source server to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Id of the staging Account to retrieve extensible source servers
     -- from.
     stagingAccountID :: Prelude.Text
@@ -75,9 +75,9 @@ data ListExtensibleSourceServers = ListExtensibleSourceServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listExtensibleSourceServers_nextToken' - The token of the next extensible source server to retrieve.
---
 -- 'maxResults', 'listExtensibleSourceServers_maxResults' - The maximum number of extensible source servers to retrieve.
+--
+-- 'nextToken', 'listExtensibleSourceServers_nextToken' - The token of the next extensible source server to retrieve.
 --
 -- 'stagingAccountID', 'listExtensibleSourceServers_stagingAccountID' - The Id of the staging Account to retrieve extensible source servers
 -- from.
@@ -87,19 +87,19 @@ newListExtensibleSourceServers ::
   ListExtensibleSourceServers
 newListExtensibleSourceServers pStagingAccountID_ =
   ListExtensibleSourceServers'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       stagingAccountID = pStagingAccountID_
     }
-
--- | The token of the next extensible source server to retrieve.
-listExtensibleSourceServers_nextToken :: Lens.Lens' ListExtensibleSourceServers (Prelude.Maybe Prelude.Text)
-listExtensibleSourceServers_nextToken = Lens.lens (\ListExtensibleSourceServers' {nextToken} -> nextToken) (\s@ListExtensibleSourceServers' {} a -> s {nextToken = a} :: ListExtensibleSourceServers)
 
 -- | The maximum number of extensible source servers to retrieve.
 listExtensibleSourceServers_maxResults :: Lens.Lens' ListExtensibleSourceServers (Prelude.Maybe Prelude.Natural)
 listExtensibleSourceServers_maxResults = Lens.lens (\ListExtensibleSourceServers' {maxResults} -> maxResults) (\s@ListExtensibleSourceServers' {} a -> s {maxResults = a} :: ListExtensibleSourceServers)
+
+-- | The token of the next extensible source server to retrieve.
+listExtensibleSourceServers_nextToken :: Lens.Lens' ListExtensibleSourceServers (Prelude.Maybe Prelude.Text)
+listExtensibleSourceServers_nextToken = Lens.lens (\ListExtensibleSourceServers' {nextToken} -> nextToken) (\s@ListExtensibleSourceServers' {} a -> s {nextToken = a} :: ListExtensibleSourceServers)
 
 -- | The Id of the staging Account to retrieve extensible source servers
 -- from.
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListExtensibleSourceServers where
 
 instance Prelude.Hashable ListExtensibleSourceServers where
   hashWithSalt _salt ListExtensibleSourceServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stagingAccountID
 
 instance Prelude.NFData ListExtensibleSourceServers where
   rnf ListExtensibleSourceServers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stagingAccountID
 
 instance Data.ToHeaders ListExtensibleSourceServers where
@@ -170,8 +170,8 @@ instance Data.ToJSON ListExtensibleSourceServers where
   toJSON ListExtensibleSourceServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("stagingAccountID" Data..= stagingAccountID)
           ]

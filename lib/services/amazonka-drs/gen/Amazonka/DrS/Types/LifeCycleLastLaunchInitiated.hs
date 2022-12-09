@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data LifeCycleLastLaunchInitiated = LifeCycleLastLaunchInitiated'
   { -- | The date and time the last Source Server launch was initiated.
     apiCallDateTime :: Prelude.Maybe Prelude.Text,
-    -- | The Job type that was used to last launch the Source Server.
-    type' :: Prelude.Maybe LastLaunchType,
     -- | The ID of the Job that was used to last launch the Source Server.
-    jobID :: Prelude.Maybe Prelude.Text
+    jobID :: Prelude.Maybe Prelude.Text,
+    -- | The Job type that was used to last launch the Source Server.
+    type' :: Prelude.Maybe LastLaunchType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,30 @@ data LifeCycleLastLaunchInitiated = LifeCycleLastLaunchInitiated'
 --
 -- 'apiCallDateTime', 'lifeCycleLastLaunchInitiated_apiCallDateTime' - The date and time the last Source Server launch was initiated.
 --
--- 'type'', 'lifeCycleLastLaunchInitiated_type' - The Job type that was used to last launch the Source Server.
---
 -- 'jobID', 'lifeCycleLastLaunchInitiated_jobID' - The ID of the Job that was used to last launch the Source Server.
+--
+-- 'type'', 'lifeCycleLastLaunchInitiated_type' - The Job type that was used to last launch the Source Server.
 newLifeCycleLastLaunchInitiated ::
   LifeCycleLastLaunchInitiated
 newLifeCycleLastLaunchInitiated =
   LifeCycleLastLaunchInitiated'
     { apiCallDateTime =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
-      jobID = Prelude.Nothing
+      jobID = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The date and time the last Source Server launch was initiated.
 lifeCycleLastLaunchInitiated_apiCallDateTime :: Lens.Lens' LifeCycleLastLaunchInitiated (Prelude.Maybe Prelude.Text)
 lifeCycleLastLaunchInitiated_apiCallDateTime = Lens.lens (\LifeCycleLastLaunchInitiated' {apiCallDateTime} -> apiCallDateTime) (\s@LifeCycleLastLaunchInitiated' {} a -> s {apiCallDateTime = a} :: LifeCycleLastLaunchInitiated)
 
--- | The Job type that was used to last launch the Source Server.
-lifeCycleLastLaunchInitiated_type :: Lens.Lens' LifeCycleLastLaunchInitiated (Prelude.Maybe LastLaunchType)
-lifeCycleLastLaunchInitiated_type = Lens.lens (\LifeCycleLastLaunchInitiated' {type'} -> type') (\s@LifeCycleLastLaunchInitiated' {} a -> s {type' = a} :: LifeCycleLastLaunchInitiated)
-
 -- | The ID of the Job that was used to last launch the Source Server.
 lifeCycleLastLaunchInitiated_jobID :: Lens.Lens' LifeCycleLastLaunchInitiated (Prelude.Maybe Prelude.Text)
 lifeCycleLastLaunchInitiated_jobID = Lens.lens (\LifeCycleLastLaunchInitiated' {jobID} -> jobID) (\s@LifeCycleLastLaunchInitiated' {} a -> s {jobID = a} :: LifeCycleLastLaunchInitiated)
+
+-- | The Job type that was used to last launch the Source Server.
+lifeCycleLastLaunchInitiated_type :: Lens.Lens' LifeCycleLastLaunchInitiated (Prelude.Maybe LastLaunchType)
+lifeCycleLastLaunchInitiated_type = Lens.lens (\LifeCycleLastLaunchInitiated' {type'} -> type') (\s@LifeCycleLastLaunchInitiated' {} a -> s {type' = a} :: LifeCycleLastLaunchInitiated)
 
 instance Data.FromJSON LifeCycleLastLaunchInitiated where
   parseJSON =
@@ -81,8 +81,8 @@ instance Data.FromJSON LifeCycleLastLaunchInitiated where
       ( \x ->
           LifeCycleLastLaunchInitiated'
             Prelude.<$> (x Data..:? "apiCallDateTime")
-            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "jobID")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance
@@ -91,11 +91,11 @@ instance
   where
   hashWithSalt _salt LifeCycleLastLaunchInitiated' {..} =
     _salt `Prelude.hashWithSalt` apiCallDateTime
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData LifeCycleLastLaunchInitiated where
   rnf LifeCycleLastLaunchInitiated' {..} =
     Prelude.rnf apiCallDateTime
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf type'

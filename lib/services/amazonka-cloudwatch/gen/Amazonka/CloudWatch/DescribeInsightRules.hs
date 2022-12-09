@@ -30,16 +30,16 @@ module Amazonka.CloudWatch.DescribeInsightRules
     newDescribeInsightRules,
 
     -- * Request Lenses
-    describeInsightRules_nextToken,
     describeInsightRules_maxResults,
+    describeInsightRules_nextToken,
 
     -- * Destructuring the Response
     DescribeInsightRulesResponse (..),
     newDescribeInsightRulesResponse,
 
     -- * Response Lenses
-    describeInsightRulesResponse_nextToken,
     describeInsightRulesResponse_insightRules,
+    describeInsightRulesResponse_nextToken,
     describeInsightRulesResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInsightRules' smart constructor.
 data DescribeInsightRules = DescribeInsightRules'
-  { -- | Include this value, if it was returned by the previous operation, to get
-    -- the next set of rules.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in one operation. If you omit
+  { -- | The maximum number of results to return in one operation. If you omit
     -- this parameter, the default of 500 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Include this value, if it was returned by the previous operation, to get
+    -- the next set of rules.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,28 +71,28 @@ data DescribeInsightRules = DescribeInsightRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInsightRules_nextToken' - Include this value, if it was returned by the previous operation, to get
--- the next set of rules.
---
 -- 'maxResults', 'describeInsightRules_maxResults' - The maximum number of results to return in one operation. If you omit
 -- this parameter, the default of 500 is used.
+--
+-- 'nextToken', 'describeInsightRules_nextToken' - Include this value, if it was returned by the previous operation, to get
+-- the next set of rules.
 newDescribeInsightRules ::
   DescribeInsightRules
 newDescribeInsightRules =
   DescribeInsightRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Include this value, if it was returned by the previous operation, to get
--- the next set of rules.
-describeInsightRules_nextToken :: Lens.Lens' DescribeInsightRules (Prelude.Maybe Prelude.Text)
-describeInsightRules_nextToken = Lens.lens (\DescribeInsightRules' {nextToken} -> nextToken) (\s@DescribeInsightRules' {} a -> s {nextToken = a} :: DescribeInsightRules)
 
 -- | The maximum number of results to return in one operation. If you omit
 -- this parameter, the default of 500 is used.
 describeInsightRules_maxResults :: Lens.Lens' DescribeInsightRules (Prelude.Maybe Prelude.Natural)
 describeInsightRules_maxResults = Lens.lens (\DescribeInsightRules' {maxResults} -> maxResults) (\s@DescribeInsightRules' {} a -> s {maxResults = a} :: DescribeInsightRules)
+
+-- | Include this value, if it was returned by the previous operation, to get
+-- the next set of rules.
+describeInsightRules_nextToken :: Lens.Lens' DescribeInsightRules (Prelude.Maybe Prelude.Text)
+describeInsightRules_nextToken = Lens.lens (\DescribeInsightRules' {nextToken} -> nextToken) (\s@DescribeInsightRules' {} a -> s {nextToken = a} :: DescribeInsightRules)
 
 instance Core.AWSRequest DescribeInsightRules where
   type
@@ -105,22 +105,22 @@ instance Core.AWSRequest DescribeInsightRules where
       "DescribeInsightRulesResult"
       ( \s h x ->
           DescribeInsightRulesResponse'
-            Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "InsightRules" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "InsightRules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeInsightRules where
   hashWithSalt _salt DescribeInsightRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInsightRules where
   rnf DescribeInsightRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInsightRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -135,17 +135,17 @@ instance Data.ToQuery DescribeInsightRules where
           Data.=: ("DescribeInsightRules" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeInsightRulesResponse' smart constructor.
 data DescribeInsightRulesResponse = DescribeInsightRulesResponse'
-  { -- | If this parameter is present, it is a token that marks the start of the
+  { -- | The rules returned by the operation.
+    insightRules :: Prelude.Maybe [InsightRule],
+    -- | If this parameter is present, it is a token that marks the start of the
     -- next batch of returned results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The rules returned by the operation.
-    insightRules :: Prelude.Maybe [InsightRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,10 +159,10 @@ data DescribeInsightRulesResponse = DescribeInsightRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'insightRules', 'describeInsightRulesResponse_insightRules' - The rules returned by the operation.
+--
 -- 'nextToken', 'describeInsightRulesResponse_nextToken' - If this parameter is present, it is a token that marks the start of the
 -- next batch of returned results.
---
--- 'insightRules', 'describeInsightRulesResponse_insightRules' - The rules returned by the operation.
 --
 -- 'httpStatus', 'describeInsightRulesResponse_httpStatus' - The response's http status code.
 newDescribeInsightRulesResponse ::
@@ -171,20 +171,20 @@ newDescribeInsightRulesResponse ::
   DescribeInsightRulesResponse
 newDescribeInsightRulesResponse pHttpStatus_ =
   DescribeInsightRulesResponse'
-    { nextToken =
+    { insightRules =
         Prelude.Nothing,
-      insightRules = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The rules returned by the operation.
+describeInsightRulesResponse_insightRules :: Lens.Lens' DescribeInsightRulesResponse (Prelude.Maybe [InsightRule])
+describeInsightRulesResponse_insightRules = Lens.lens (\DescribeInsightRulesResponse' {insightRules} -> insightRules) (\s@DescribeInsightRulesResponse' {} a -> s {insightRules = a} :: DescribeInsightRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this parameter is present, it is a token that marks the start of the
 -- next batch of returned results.
 describeInsightRulesResponse_nextToken :: Lens.Lens' DescribeInsightRulesResponse (Prelude.Maybe Prelude.Text)
 describeInsightRulesResponse_nextToken = Lens.lens (\DescribeInsightRulesResponse' {nextToken} -> nextToken) (\s@DescribeInsightRulesResponse' {} a -> s {nextToken = a} :: DescribeInsightRulesResponse)
-
--- | The rules returned by the operation.
-describeInsightRulesResponse_insightRules :: Lens.Lens' DescribeInsightRulesResponse (Prelude.Maybe [InsightRule])
-describeInsightRulesResponse_insightRules = Lens.lens (\DescribeInsightRulesResponse' {insightRules} -> insightRules) (\s@DescribeInsightRulesResponse' {} a -> s {insightRules = a} :: DescribeInsightRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInsightRulesResponse_httpStatus :: Lens.Lens' DescribeInsightRulesResponse Prelude.Int
@@ -192,6 +192,6 @@ describeInsightRulesResponse_httpStatus = Lens.lens (\DescribeInsightRulesRespon
 
 instance Prelude.NFData DescribeInsightRulesResponse where
   rnf DescribeInsightRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf insightRules
+    Prelude.rnf insightRules
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,13 +32,13 @@ module Amazonka.CloudWatch.PutAnomalyDetector
     newPutAnomalyDetector,
 
     -- * Request Lenses
-    putAnomalyDetector_singleMetricAnomalyDetector,
     putAnomalyDetector_configuration,
     putAnomalyDetector_dimensions,
     putAnomalyDetector_metricMathAnomalyDetector,
-    putAnomalyDetector_stat,
     putAnomalyDetector_metricName,
     putAnomalyDetector_namespace,
+    putAnomalyDetector_singleMetricAnomalyDetector,
+    putAnomalyDetector_stat,
 
     -- * Destructuring the Response
     PutAnomalyDetectorResponse (..),
@@ -59,26 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutAnomalyDetector' smart constructor.
 data PutAnomalyDetector = PutAnomalyDetector'
-  { -- | A single metric anomaly detector to be created.
-    --
-    -- When using @SingleMetricAnomalyDetector@, you cannot include the
-    -- following parameters in the same operation:
-    --
-    -- -   @Dimensions@
-    --
-    -- -   @MetricName@
-    --
-    -- -   @Namespace@
-    --
-    -- -   @Stat@
-    --
-    -- -   the @MetricMatchAnomalyDetector@ parameters of
-    --     @PutAnomalyDetectorInput@
-    --
-    -- Instead, specify the single metric anomaly detector attributes as part
-    -- of the property @SingleMetricAnomalyDetector@.
-    singleMetricAnomalyDetector :: Prelude.Maybe SingleMetricAnomalyDetector,
-    -- | The configuration specifies details about how the anomaly detection
+  { -- | The configuration specifies details about how the anomaly detection
     -- model is to be trained, including time ranges to exclude when training
     -- and updating the model. You can specify as many as 10 time ranges.
     --
@@ -105,12 +86,31 @@ data PutAnomalyDetector = PutAnomalyDetector'
     -- Instead, specify the metric math anomaly detector attributes as part of
     -- the property @MetricMathAnomalyDetector@.
     metricMathAnomalyDetector :: Prelude.Maybe MetricMathAnomalyDetector,
-    -- | The statistic to use for the metric and the anomaly detection model.
-    stat :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric to create the anomaly detection model for.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the metric to create the anomaly detection model for.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | A single metric anomaly detector to be created.
+    --
+    -- When using @SingleMetricAnomalyDetector@, you cannot include the
+    -- following parameters in the same operation:
+    --
+    -- -   @Dimensions@
+    --
+    -- -   @MetricName@
+    --
+    -- -   @Namespace@
+    --
+    -- -   @Stat@
+    --
+    -- -   the @MetricMatchAnomalyDetector@ parameters of
+    --     @PutAnomalyDetectorInput@
+    --
+    -- Instead, specify the single metric anomaly detector attributes as part
+    -- of the property @SingleMetricAnomalyDetector@.
+    singleMetricAnomalyDetector :: Prelude.Maybe SingleMetricAnomalyDetector,
+    -- | The statistic to use for the metric and the anomaly detection model.
+    stat :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,25 +121,6 @@ data PutAnomalyDetector = PutAnomalyDetector'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'singleMetricAnomalyDetector', 'putAnomalyDetector_singleMetricAnomalyDetector' - A single metric anomaly detector to be created.
---
--- When using @SingleMetricAnomalyDetector@, you cannot include the
--- following parameters in the same operation:
---
--- -   @Dimensions@
---
--- -   @MetricName@
---
--- -   @Namespace@
---
--- -   @Stat@
---
--- -   the @MetricMatchAnomalyDetector@ parameters of
---     @PutAnomalyDetectorInput@
---
--- Instead, specify the single metric anomaly detector attributes as part
--- of the property @SingleMetricAnomalyDetector@.
 --
 -- 'configuration', 'putAnomalyDetector_configuration' - The configuration specifies details about how the anomaly detection
 -- model is to be trained, including time ranges to exclude when training
@@ -168,26 +149,11 @@ data PutAnomalyDetector = PutAnomalyDetector'
 -- Instead, specify the metric math anomaly detector attributes as part of
 -- the property @MetricMathAnomalyDetector@.
 --
--- 'stat', 'putAnomalyDetector_stat' - The statistic to use for the metric and the anomaly detection model.
---
 -- 'metricName', 'putAnomalyDetector_metricName' - The name of the metric to create the anomaly detection model for.
 --
 -- 'namespace', 'putAnomalyDetector_namespace' - The namespace of the metric to create the anomaly detection model for.
-newPutAnomalyDetector ::
-  PutAnomalyDetector
-newPutAnomalyDetector =
-  PutAnomalyDetector'
-    { singleMetricAnomalyDetector =
-        Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      metricMathAnomalyDetector = Prelude.Nothing,
-      stat = Prelude.Nothing,
-      metricName = Prelude.Nothing,
-      namespace = Prelude.Nothing
-    }
-
--- | A single metric anomaly detector to be created.
+--
+-- 'singleMetricAnomalyDetector', 'putAnomalyDetector_singleMetricAnomalyDetector' - A single metric anomaly detector to be created.
 --
 -- When using @SingleMetricAnomalyDetector@, you cannot include the
 -- following parameters in the same operation:
@@ -205,8 +171,21 @@ newPutAnomalyDetector =
 --
 -- Instead, specify the single metric anomaly detector attributes as part
 -- of the property @SingleMetricAnomalyDetector@.
-putAnomalyDetector_singleMetricAnomalyDetector :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe SingleMetricAnomalyDetector)
-putAnomalyDetector_singleMetricAnomalyDetector = Lens.lens (\PutAnomalyDetector' {singleMetricAnomalyDetector} -> singleMetricAnomalyDetector) (\s@PutAnomalyDetector' {} a -> s {singleMetricAnomalyDetector = a} :: PutAnomalyDetector)
+--
+-- 'stat', 'putAnomalyDetector_stat' - The statistic to use for the metric and the anomaly detection model.
+newPutAnomalyDetector ::
+  PutAnomalyDetector
+newPutAnomalyDetector =
+  PutAnomalyDetector'
+    { configuration =
+        Prelude.Nothing,
+      dimensions = Prelude.Nothing,
+      metricMathAnomalyDetector = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      singleMetricAnomalyDetector = Prelude.Nothing,
+      stat = Prelude.Nothing
+    }
 
 -- | The configuration specifies details about how the anomaly detection
 -- model is to be trained, including time ranges to exclude when training
@@ -241,10 +220,6 @@ putAnomalyDetector_dimensions = Lens.lens (\PutAnomalyDetector' {dimensions} -> 
 putAnomalyDetector_metricMathAnomalyDetector :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe MetricMathAnomalyDetector)
 putAnomalyDetector_metricMathAnomalyDetector = Lens.lens (\PutAnomalyDetector' {metricMathAnomalyDetector} -> metricMathAnomalyDetector) (\s@PutAnomalyDetector' {} a -> s {metricMathAnomalyDetector = a} :: PutAnomalyDetector)
 
--- | The statistic to use for the metric and the anomaly detection model.
-putAnomalyDetector_stat :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe Prelude.Text)
-putAnomalyDetector_stat = Lens.lens (\PutAnomalyDetector' {stat} -> stat) (\s@PutAnomalyDetector' {} a -> s {stat = a} :: PutAnomalyDetector)
-
 -- | The name of the metric to create the anomaly detection model for.
 putAnomalyDetector_metricName :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe Prelude.Text)
 putAnomalyDetector_metricName = Lens.lens (\PutAnomalyDetector' {metricName} -> metricName) (\s@PutAnomalyDetector' {} a -> s {metricName = a} :: PutAnomalyDetector)
@@ -252,6 +227,31 @@ putAnomalyDetector_metricName = Lens.lens (\PutAnomalyDetector' {metricName} -> 
 -- | The namespace of the metric to create the anomaly detection model for.
 putAnomalyDetector_namespace :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe Prelude.Text)
 putAnomalyDetector_namespace = Lens.lens (\PutAnomalyDetector' {namespace} -> namespace) (\s@PutAnomalyDetector' {} a -> s {namespace = a} :: PutAnomalyDetector)
+
+-- | A single metric anomaly detector to be created.
+--
+-- When using @SingleMetricAnomalyDetector@, you cannot include the
+-- following parameters in the same operation:
+--
+-- -   @Dimensions@
+--
+-- -   @MetricName@
+--
+-- -   @Namespace@
+--
+-- -   @Stat@
+--
+-- -   the @MetricMatchAnomalyDetector@ parameters of
+--     @PutAnomalyDetectorInput@
+--
+-- Instead, specify the single metric anomaly detector attributes as part
+-- of the property @SingleMetricAnomalyDetector@.
+putAnomalyDetector_singleMetricAnomalyDetector :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe SingleMetricAnomalyDetector)
+putAnomalyDetector_singleMetricAnomalyDetector = Lens.lens (\PutAnomalyDetector' {singleMetricAnomalyDetector} -> singleMetricAnomalyDetector) (\s@PutAnomalyDetector' {} a -> s {singleMetricAnomalyDetector = a} :: PutAnomalyDetector)
+
+-- | The statistic to use for the metric and the anomaly detection model.
+putAnomalyDetector_stat :: Lens.Lens' PutAnomalyDetector (Prelude.Maybe Prelude.Text)
+putAnomalyDetector_stat = Lens.lens (\PutAnomalyDetector' {stat} -> stat) (\s@PutAnomalyDetector' {} a -> s {stat = a} :: PutAnomalyDetector)
 
 instance Core.AWSRequest PutAnomalyDetector where
   type
@@ -269,24 +269,23 @@ instance Core.AWSRequest PutAnomalyDetector where
 
 instance Prelude.Hashable PutAnomalyDetector where
   hashWithSalt _salt PutAnomalyDetector' {..} =
-    _salt
-      `Prelude.hashWithSalt` singleMetricAnomalyDetector
-      `Prelude.hashWithSalt` configuration
+    _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricMathAnomalyDetector
-      `Prelude.hashWithSalt` stat
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` singleMetricAnomalyDetector
+      `Prelude.hashWithSalt` stat
 
 instance Prelude.NFData PutAnomalyDetector where
   rnf PutAnomalyDetector' {..} =
-    Prelude.rnf singleMetricAnomalyDetector
-      `Prelude.seq` Prelude.rnf configuration
+    Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf metricMathAnomalyDetector
-      `Prelude.seq` Prelude.rnf stat
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf singleMetricAnomalyDetector
+      `Prelude.seq` Prelude.rnf stat
 
 instance Data.ToHeaders PutAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -301,17 +300,17 @@ instance Data.ToQuery PutAnomalyDetector where
           Data.=: ("PutAnomalyDetector" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
-        "SingleMetricAnomalyDetector"
-          Data.=: singleMetricAnomalyDetector,
         "Configuration" Data.=: configuration,
         "Dimensions"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> dimensions),
         "MetricMathAnomalyDetector"
           Data.=: metricMathAnomalyDetector,
-        "Stat" Data.=: stat,
         "MetricName" Data.=: metricName,
-        "Namespace" Data.=: namespace
+        "Namespace" Data.=: namespace,
+        "SingleMetricAnomalyDetector"
+          Data.=: singleMetricAnomalyDetector,
+        "Stat" Data.=: stat
       ]
 
 -- | /See:/ 'newPutAnomalyDetectorResponse' smart constructor.

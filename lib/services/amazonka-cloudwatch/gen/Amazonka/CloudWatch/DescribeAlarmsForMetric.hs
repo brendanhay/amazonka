@@ -33,9 +33,9 @@ module Amazonka.CloudWatch.DescribeAlarmsForMetric
     newDescribeAlarmsForMetric,
 
     -- * Request Lenses
+    describeAlarmsForMetric_dimensions,
     describeAlarmsForMetric_extendedStatistic,
     describeAlarmsForMetric_period,
-    describeAlarmsForMetric_dimensions,
     describeAlarmsForMetric_statistic,
     describeAlarmsForMetric_unit,
     describeAlarmsForMetric_metricName,
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-  { -- | The percentile statistic for the metric. Specify a value between p0.0
+  { -- | The dimensions associated with the metric. If the metric has any
+    -- associated dimensions, you must specify them in order for the call to
+    -- succeed.
+    dimensions :: Prelude.Maybe [Dimension],
+    -- | The percentile statistic for the metric. Specify a value between p0.0
     -- and p100.
     extendedStatistic :: Prelude.Maybe Prelude.Text,
     -- | The period, in seconds, over which the statistic is applied.
     period :: Prelude.Maybe Prelude.Natural,
-    -- | The dimensions associated with the metric. If the metric has any
-    -- associated dimensions, you must specify them in order for the call to
-    -- succeed.
-    dimensions :: Prelude.Maybe [Dimension],
     -- | The statistic for the metric, other than percentiles. For percentile
     -- statistics, use @ExtendedStatistics@.
     statistic :: Prelude.Maybe Statistic,
@@ -90,14 +90,14 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dimensions', 'describeAlarmsForMetric_dimensions' - The dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the call to
+-- succeed.
+--
 -- 'extendedStatistic', 'describeAlarmsForMetric_extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0
 -- and p100.
 --
 -- 'period', 'describeAlarmsForMetric_period' - The period, in seconds, over which the statistic is applied.
---
--- 'dimensions', 'describeAlarmsForMetric_dimensions' - The dimensions associated with the metric. If the metric has any
--- associated dimensions, you must specify them in order for the call to
--- succeed.
 --
 -- 'statistic', 'describeAlarmsForMetric_statistic' - The statistic for the metric, other than percentiles. For percentile
 -- statistics, use @ExtendedStatistics@.
@@ -115,15 +115,21 @@ newDescribeAlarmsForMetric ::
   DescribeAlarmsForMetric
 newDescribeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
-    { extendedStatistic =
+    { dimensions =
         Prelude.Nothing,
+      extendedStatistic = Prelude.Nothing,
       period = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
       statistic = Prelude.Nothing,
       unit = Prelude.Nothing,
       metricName = pMetricName_,
       namespace = pNamespace_
     }
+
+-- | The dimensions associated with the metric. If the metric has any
+-- associated dimensions, you must specify them in order for the call to
+-- succeed.
+describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe [Dimension])
+describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The percentile statistic for the metric. Specify a value between p0.0
 -- and p100.
@@ -133,12 +139,6 @@ describeAlarmsForMetric_extendedStatistic = Lens.lens (\DescribeAlarmsForMetric'
 -- | The period, in seconds, over which the statistic is applied.
 describeAlarmsForMetric_period :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Natural)
 describeAlarmsForMetric_period = Lens.lens (\DescribeAlarmsForMetric' {period} -> period) (\s@DescribeAlarmsForMetric' {} a -> s {period = a} :: DescribeAlarmsForMetric)
-
--- | The dimensions associated with the metric. If the metric has any
--- associated dimensions, you must specify them in order for the call to
--- succeed.
-describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe [Dimension])
-describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The statistic for the metric, other than percentiles. For percentile
 -- statistics, use @ExtendedStatistics@.
@@ -176,9 +176,9 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
 
 instance Prelude.Hashable DescribeAlarmsForMetric where
   hashWithSalt _salt DescribeAlarmsForMetric' {..} =
-    _salt `Prelude.hashWithSalt` extendedStatistic
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` extendedStatistic
       `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metricName
@@ -186,9 +186,9 @@ instance Prelude.Hashable DescribeAlarmsForMetric where
 
 instance Prelude.NFData DescribeAlarmsForMetric where
   rnf DescribeAlarmsForMetric' {..} =
-    Prelude.rnf extendedStatistic
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf extendedStatistic
       `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf statistic
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf metricName
@@ -207,11 +207,11 @@ instance Data.ToQuery DescribeAlarmsForMetric where
           Data.=: ("DescribeAlarmsForMetric" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
-        "ExtendedStatistic" Data.=: extendedStatistic,
-        "Period" Data.=: period,
         "Dimensions"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> dimensions),
+        "ExtendedStatistic" Data.=: extendedStatistic,
+        "Period" Data.=: period,
         "Statistic" Data.=: statistic,
         "Unit" Data.=: unit,
         "MetricName" Data.=: metricName,

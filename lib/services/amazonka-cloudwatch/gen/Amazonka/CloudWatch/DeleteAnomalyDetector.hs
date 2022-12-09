@@ -30,12 +30,12 @@ module Amazonka.CloudWatch.DeleteAnomalyDetector
     newDeleteAnomalyDetector,
 
     -- * Request Lenses
-    deleteAnomalyDetector_singleMetricAnomalyDetector,
     deleteAnomalyDetector_dimensions,
     deleteAnomalyDetector_metricMathAnomalyDetector,
-    deleteAnomalyDetector_stat,
     deleteAnomalyDetector_metricName,
     deleteAnomalyDetector_namespace,
+    deleteAnomalyDetector_singleMetricAnomalyDetector,
+    deleteAnomalyDetector_stat,
 
     -- * Destructuring the Response
     DeleteAnomalyDetectorResponse (..),
@@ -56,26 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAnomalyDetector' smart constructor.
 data DeleteAnomalyDetector = DeleteAnomalyDetector'
-  { -- | A single metric anomaly detector to be deleted.
-    --
-    -- When using @SingleMetricAnomalyDetector@, you cannot include the
-    -- following parameters in the same operation:
-    --
-    -- -   @Dimensions@,
-    --
-    -- -   @MetricName@
-    --
-    -- -   @Namespace@
-    --
-    -- -   @Stat@
-    --
-    -- -   the @MetricMathAnomalyDetector@ parameters of
-    --     @DeleteAnomalyDetectorInput@
-    --
-    -- Instead, specify the single metric anomaly detector attributes as part
-    -- of the @SingleMetricAnomalyDetector@ property.
-    singleMetricAnomalyDetector :: Prelude.Maybe SingleMetricAnomalyDetector,
-    -- | The metric dimensions associated with the anomaly detection model to
+  { -- | The metric dimensions associated with the anomaly detection model to
     -- delete.
     dimensions :: Prelude.Maybe [Dimension],
     -- | The metric math anomaly detector to be deleted.
@@ -97,12 +78,31 @@ data DeleteAnomalyDetector = DeleteAnomalyDetector'
     -- Instead, specify the metric math anomaly detector attributes as part of
     -- the @MetricMathAnomalyDetector@ property.
     metricMathAnomalyDetector :: Prelude.Maybe MetricMathAnomalyDetector,
-    -- | The statistic associated with the anomaly detection model to delete.
-    stat :: Prelude.Maybe Prelude.Text,
     -- | The metric name associated with the anomaly detection model to delete.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | The namespace associated with the anomaly detection model to delete.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | A single metric anomaly detector to be deleted.
+    --
+    -- When using @SingleMetricAnomalyDetector@, you cannot include the
+    -- following parameters in the same operation:
+    --
+    -- -   @Dimensions@,
+    --
+    -- -   @MetricName@
+    --
+    -- -   @Namespace@
+    --
+    -- -   @Stat@
+    --
+    -- -   the @MetricMathAnomalyDetector@ parameters of
+    --     @DeleteAnomalyDetectorInput@
+    --
+    -- Instead, specify the single metric anomaly detector attributes as part
+    -- of the @SingleMetricAnomalyDetector@ property.
+    singleMetricAnomalyDetector :: Prelude.Maybe SingleMetricAnomalyDetector,
+    -- | The statistic associated with the anomaly detection model to delete.
+    stat :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,25 +113,6 @@ data DeleteAnomalyDetector = DeleteAnomalyDetector'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'singleMetricAnomalyDetector', 'deleteAnomalyDetector_singleMetricAnomalyDetector' - A single metric anomaly detector to be deleted.
---
--- When using @SingleMetricAnomalyDetector@, you cannot include the
--- following parameters in the same operation:
---
--- -   @Dimensions@,
---
--- -   @MetricName@
---
--- -   @Namespace@
---
--- -   @Stat@
---
--- -   the @MetricMathAnomalyDetector@ parameters of
---     @DeleteAnomalyDetectorInput@
---
--- Instead, specify the single metric anomaly detector attributes as part
--- of the @SingleMetricAnomalyDetector@ property.
 --
 -- 'dimensions', 'deleteAnomalyDetector_dimensions' - The metric dimensions associated with the anomaly detection model to
 -- delete.
@@ -155,25 +136,11 @@ data DeleteAnomalyDetector = DeleteAnomalyDetector'
 -- Instead, specify the metric math anomaly detector attributes as part of
 -- the @MetricMathAnomalyDetector@ property.
 --
--- 'stat', 'deleteAnomalyDetector_stat' - The statistic associated with the anomaly detection model to delete.
---
 -- 'metricName', 'deleteAnomalyDetector_metricName' - The metric name associated with the anomaly detection model to delete.
 --
 -- 'namespace', 'deleteAnomalyDetector_namespace' - The namespace associated with the anomaly detection model to delete.
-newDeleteAnomalyDetector ::
-  DeleteAnomalyDetector
-newDeleteAnomalyDetector =
-  DeleteAnomalyDetector'
-    { singleMetricAnomalyDetector =
-        Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      metricMathAnomalyDetector = Prelude.Nothing,
-      stat = Prelude.Nothing,
-      metricName = Prelude.Nothing,
-      namespace = Prelude.Nothing
-    }
-
--- | A single metric anomaly detector to be deleted.
+--
+-- 'singleMetricAnomalyDetector', 'deleteAnomalyDetector_singleMetricAnomalyDetector' - A single metric anomaly detector to be deleted.
 --
 -- When using @SingleMetricAnomalyDetector@, you cannot include the
 -- following parameters in the same operation:
@@ -191,8 +158,20 @@ newDeleteAnomalyDetector =
 --
 -- Instead, specify the single metric anomaly detector attributes as part
 -- of the @SingleMetricAnomalyDetector@ property.
-deleteAnomalyDetector_singleMetricAnomalyDetector :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe SingleMetricAnomalyDetector)
-deleteAnomalyDetector_singleMetricAnomalyDetector = Lens.lens (\DeleteAnomalyDetector' {singleMetricAnomalyDetector} -> singleMetricAnomalyDetector) (\s@DeleteAnomalyDetector' {} a -> s {singleMetricAnomalyDetector = a} :: DeleteAnomalyDetector)
+--
+-- 'stat', 'deleteAnomalyDetector_stat' - The statistic associated with the anomaly detection model to delete.
+newDeleteAnomalyDetector ::
+  DeleteAnomalyDetector
+newDeleteAnomalyDetector =
+  DeleteAnomalyDetector'
+    { dimensions =
+        Prelude.Nothing,
+      metricMathAnomalyDetector = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      singleMetricAnomalyDetector = Prelude.Nothing,
+      stat = Prelude.Nothing
+    }
 
 -- | The metric dimensions associated with the anomaly detection model to
 -- delete.
@@ -220,10 +199,6 @@ deleteAnomalyDetector_dimensions = Lens.lens (\DeleteAnomalyDetector' {dimension
 deleteAnomalyDetector_metricMathAnomalyDetector :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe MetricMathAnomalyDetector)
 deleteAnomalyDetector_metricMathAnomalyDetector = Lens.lens (\DeleteAnomalyDetector' {metricMathAnomalyDetector} -> metricMathAnomalyDetector) (\s@DeleteAnomalyDetector' {} a -> s {metricMathAnomalyDetector = a} :: DeleteAnomalyDetector)
 
--- | The statistic associated with the anomaly detection model to delete.
-deleteAnomalyDetector_stat :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe Prelude.Text)
-deleteAnomalyDetector_stat = Lens.lens (\DeleteAnomalyDetector' {stat} -> stat) (\s@DeleteAnomalyDetector' {} a -> s {stat = a} :: DeleteAnomalyDetector)
-
 -- | The metric name associated with the anomaly detection model to delete.
 deleteAnomalyDetector_metricName :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe Prelude.Text)
 deleteAnomalyDetector_metricName = Lens.lens (\DeleteAnomalyDetector' {metricName} -> metricName) (\s@DeleteAnomalyDetector' {} a -> s {metricName = a} :: DeleteAnomalyDetector)
@@ -231,6 +206,31 @@ deleteAnomalyDetector_metricName = Lens.lens (\DeleteAnomalyDetector' {metricNam
 -- | The namespace associated with the anomaly detection model to delete.
 deleteAnomalyDetector_namespace :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe Prelude.Text)
 deleteAnomalyDetector_namespace = Lens.lens (\DeleteAnomalyDetector' {namespace} -> namespace) (\s@DeleteAnomalyDetector' {} a -> s {namespace = a} :: DeleteAnomalyDetector)
+
+-- | A single metric anomaly detector to be deleted.
+--
+-- When using @SingleMetricAnomalyDetector@, you cannot include the
+-- following parameters in the same operation:
+--
+-- -   @Dimensions@,
+--
+-- -   @MetricName@
+--
+-- -   @Namespace@
+--
+-- -   @Stat@
+--
+-- -   the @MetricMathAnomalyDetector@ parameters of
+--     @DeleteAnomalyDetectorInput@
+--
+-- Instead, specify the single metric anomaly detector attributes as part
+-- of the @SingleMetricAnomalyDetector@ property.
+deleteAnomalyDetector_singleMetricAnomalyDetector :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe SingleMetricAnomalyDetector)
+deleteAnomalyDetector_singleMetricAnomalyDetector = Lens.lens (\DeleteAnomalyDetector' {singleMetricAnomalyDetector} -> singleMetricAnomalyDetector) (\s@DeleteAnomalyDetector' {} a -> s {singleMetricAnomalyDetector = a} :: DeleteAnomalyDetector)
+
+-- | The statistic associated with the anomaly detection model to delete.
+deleteAnomalyDetector_stat :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe Prelude.Text)
+deleteAnomalyDetector_stat = Lens.lens (\DeleteAnomalyDetector' {stat} -> stat) (\s@DeleteAnomalyDetector' {} a -> s {stat = a} :: DeleteAnomalyDetector)
 
 instance Core.AWSRequest DeleteAnomalyDetector where
   type
@@ -248,22 +248,21 @@ instance Core.AWSRequest DeleteAnomalyDetector where
 
 instance Prelude.Hashable DeleteAnomalyDetector where
   hashWithSalt _salt DeleteAnomalyDetector' {..} =
-    _salt
-      `Prelude.hashWithSalt` singleMetricAnomalyDetector
-      `Prelude.hashWithSalt` dimensions
+    _salt `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricMathAnomalyDetector
-      `Prelude.hashWithSalt` stat
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` singleMetricAnomalyDetector
+      `Prelude.hashWithSalt` stat
 
 instance Prelude.NFData DeleteAnomalyDetector where
   rnf DeleteAnomalyDetector' {..} =
-    Prelude.rnf singleMetricAnomalyDetector
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf metricMathAnomalyDetector
-      `Prelude.seq` Prelude.rnf stat
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf singleMetricAnomalyDetector
+      `Prelude.seq` Prelude.rnf stat
 
 instance Data.ToHeaders DeleteAnomalyDetector where
   toHeaders = Prelude.const Prelude.mempty
@@ -278,16 +277,16 @@ instance Data.ToQuery DeleteAnomalyDetector where
           Data.=: ("DeleteAnomalyDetector" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
-        "SingleMetricAnomalyDetector"
-          Data.=: singleMetricAnomalyDetector,
         "Dimensions"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> dimensions),
         "MetricMathAnomalyDetector"
           Data.=: metricMathAnomalyDetector,
-        "Stat" Data.=: stat,
         "MetricName" Data.=: metricName,
-        "Namespace" Data.=: namespace
+        "Namespace" Data.=: namespace,
+        "SingleMetricAnomalyDetector"
+          Data.=: singleMetricAnomalyDetector,
+        "Stat" Data.=: stat
       ]
 
 -- | /See:/ 'newDeleteAnomalyDetectorResponse' smart constructor.

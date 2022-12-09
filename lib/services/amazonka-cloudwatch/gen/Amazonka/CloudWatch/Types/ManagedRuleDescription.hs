@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedRuleDescription' smart constructor.
 data ManagedRuleDescription = ManagedRuleDescription'
-  { -- | The template name for the managed rule. Used to enable managed rules
-    -- using @PutManagedInsightRules@.
-    templateName :: Prelude.Maybe Prelude.Text,
+  { -- | If a managed rule is enabled, this is the ARN for the related Amazon Web
+    -- Services resource.
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of a managed rule. If present, it contains
     -- information about the Contributor Insights rule that contains
     -- information about the related Amazon Web Services resource.
     ruleState :: Prelude.Maybe ManagedRuleState,
-    -- | If a managed rule is enabled, this is the ARN for the related Amazon Web
-    -- Services resource.
-    resourceARN :: Prelude.Maybe Prelude.Text
+    -- | The template name for the managed rule. Used to enable managed rules
+    -- using @PutManagedInsightRules@.
+    templateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,29 +51,29 @@ data ManagedRuleDescription = ManagedRuleDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'managedRuleDescription_templateName' - The template name for the managed rule. Used to enable managed rules
--- using @PutManagedInsightRules@.
+-- 'resourceARN', 'managedRuleDescription_resourceARN' - If a managed rule is enabled, this is the ARN for the related Amazon Web
+-- Services resource.
 --
 -- 'ruleState', 'managedRuleDescription_ruleState' - Describes the state of a managed rule. If present, it contains
 -- information about the Contributor Insights rule that contains
 -- information about the related Amazon Web Services resource.
 --
--- 'resourceARN', 'managedRuleDescription_resourceARN' - If a managed rule is enabled, this is the ARN for the related Amazon Web
--- Services resource.
+-- 'templateName', 'managedRuleDescription_templateName' - The template name for the managed rule. Used to enable managed rules
+-- using @PutManagedInsightRules@.
 newManagedRuleDescription ::
   ManagedRuleDescription
 newManagedRuleDescription =
   ManagedRuleDescription'
-    { templateName =
+    { resourceARN =
         Prelude.Nothing,
       ruleState = Prelude.Nothing,
-      resourceARN = Prelude.Nothing
+      templateName = Prelude.Nothing
     }
 
--- | The template name for the managed rule. Used to enable managed rules
--- using @PutManagedInsightRules@.
-managedRuleDescription_templateName :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe Prelude.Text)
-managedRuleDescription_templateName = Lens.lens (\ManagedRuleDescription' {templateName} -> templateName) (\s@ManagedRuleDescription' {} a -> s {templateName = a} :: ManagedRuleDescription)
+-- | If a managed rule is enabled, this is the ARN for the related Amazon Web
+-- Services resource.
+managedRuleDescription_resourceARN :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe Prelude.Text)
+managedRuleDescription_resourceARN = Lens.lens (\ManagedRuleDescription' {resourceARN} -> resourceARN) (\s@ManagedRuleDescription' {} a -> s {resourceARN = a} :: ManagedRuleDescription)
 
 -- | Describes the state of a managed rule. If present, it contains
 -- information about the Contributor Insights rule that contains
@@ -81,26 +81,26 @@ managedRuleDescription_templateName = Lens.lens (\ManagedRuleDescription' {templ
 managedRuleDescription_ruleState :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe ManagedRuleState)
 managedRuleDescription_ruleState = Lens.lens (\ManagedRuleDescription' {ruleState} -> ruleState) (\s@ManagedRuleDescription' {} a -> s {ruleState = a} :: ManagedRuleDescription)
 
--- | If a managed rule is enabled, this is the ARN for the related Amazon Web
--- Services resource.
-managedRuleDescription_resourceARN :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe Prelude.Text)
-managedRuleDescription_resourceARN = Lens.lens (\ManagedRuleDescription' {resourceARN} -> resourceARN) (\s@ManagedRuleDescription' {} a -> s {resourceARN = a} :: ManagedRuleDescription)
+-- | The template name for the managed rule. Used to enable managed rules
+-- using @PutManagedInsightRules@.
+managedRuleDescription_templateName :: Lens.Lens' ManagedRuleDescription (Prelude.Maybe Prelude.Text)
+managedRuleDescription_templateName = Lens.lens (\ManagedRuleDescription' {templateName} -> templateName) (\s@ManagedRuleDescription' {} a -> s {templateName = a} :: ManagedRuleDescription)
 
 instance Data.FromXML ManagedRuleDescription where
   parseXML x =
     ManagedRuleDescription'
-      Prelude.<$> (x Data..@? "TemplateName")
+      Prelude.<$> (x Data..@? "ResourceARN")
       Prelude.<*> (x Data..@? "RuleState")
-      Prelude.<*> (x Data..@? "ResourceARN")
+      Prelude.<*> (x Data..@? "TemplateName")
 
 instance Prelude.Hashable ManagedRuleDescription where
   hashWithSalt _salt ManagedRuleDescription' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` ruleState
-      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData ManagedRuleDescription where
   rnf ManagedRuleDescription' {..} =
-    Prelude.rnf templateName
+    Prelude.rnf resourceARN
       `Prelude.seq` Prelude.rnf ruleState
-      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf templateName

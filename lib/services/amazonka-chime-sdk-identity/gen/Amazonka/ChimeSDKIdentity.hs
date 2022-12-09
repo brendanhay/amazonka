@@ -24,29 +24,29 @@ module Amazonka.ChimeSDKIdentity
     -- * Errors
     -- $errors
 
-    -- ** ThrottledClientException
-    _ThrottledClientException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ForbiddenException
+    _ForbiddenException,
 
-    -- ** UnauthorizedClientException
-    _UnauthorizedClientException,
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottledClientException
+    _ThrottledClientException,
+
+    -- ** UnauthorizedClientException
+    _UnauthorizedClientException,
 
     -- * Waiters
     -- $waiters

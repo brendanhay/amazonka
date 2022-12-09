@@ -34,20 +34,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstanceUserEndpoint' smart constructor.
 data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
-  { -- | The time at which an @AppInstanceUserEndpoint@ was last updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The name of the @AppInstanceUserEndpoint@.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The type of the @AppInstanceUserEndpoint@.
-    type' :: Prelude.Maybe AppInstanceUserEndpointType,
-    -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
+    -- to receive messages. @ALL@ indicates the endpoint will receive all
+    -- messages. @NONE@ indicates the endpoint will receive no messages.
+    allowMessages :: Prelude.Maybe AllowMessages,
     -- | The ARN of the @AppInstanceUser@.
     appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which an @AppInstanceUserEndpoint@ was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The attributes of an @Endpoint@.
     endpointAttributes :: Prelude.Maybe EndpointAttributes,
+    -- | The unique identifier of the @AppInstanceUserEndpoint@.
+    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A read-only field that represents the state of an
     -- @AppInstanceUserEndpoint@. Supported values:
     --
@@ -66,12 +64,14 @@ data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
     --     is @INACTIVE@ due to an invalid pinpoint ARN that was input through
     --     the @ResourceArn@ field.
     endpointState :: Prelude.Maybe EndpointState,
+    -- | The time at which an @AppInstanceUserEndpoint@ was last updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The name of the @AppInstanceUserEndpoint@.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the resource to which the endpoint belongs.
     resourceArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
-    -- to receive messages. @ALL@ indicates the endpoint will receive all
-    -- messages. @NONE@ indicates the endpoint will receive no messages.
-    allowMessages :: Prelude.Maybe AllowMessages
+    -- | The type of the @AppInstanceUserEndpoint@.
+    type' :: Prelude.Maybe AppInstanceUserEndpointType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -83,19 +83,17 @@ data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTimestamp', 'appInstanceUserEndpoint_lastUpdatedTimestamp' - The time at which an @AppInstanceUserEndpoint@ was last updated.
---
--- 'name', 'appInstanceUserEndpoint_name' - The name of the @AppInstanceUserEndpoint@.
---
--- 'type'', 'appInstanceUserEndpoint_type' - The type of the @AppInstanceUserEndpoint@.
---
--- 'endpointId', 'appInstanceUserEndpoint_endpointId' - The unique identifier of the @AppInstanceUserEndpoint@.
+-- 'allowMessages', 'appInstanceUserEndpoint_allowMessages' - Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
+-- to receive messages. @ALL@ indicates the endpoint will receive all
+-- messages. @NONE@ indicates the endpoint will receive no messages.
 --
 -- 'appInstanceUserArn', 'appInstanceUserEndpoint_appInstanceUserArn' - The ARN of the @AppInstanceUser@.
 --
 -- 'createdTimestamp', 'appInstanceUserEndpoint_createdTimestamp' - The time at which an @AppInstanceUserEndpoint@ was created.
 --
 -- 'endpointAttributes', 'appInstanceUserEndpoint_endpointAttributes' - The attributes of an @Endpoint@.
+--
+-- 'endpointId', 'appInstanceUserEndpoint_endpointId' - The unique identifier of the @AppInstanceUserEndpoint@.
 --
 -- 'endpointState', 'appInstanceUserEndpoint_endpointState' - A read-only field that represents the state of an
 -- @AppInstanceUserEndpoint@. Supported values:
@@ -115,43 +113,35 @@ data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
 --     is @INACTIVE@ due to an invalid pinpoint ARN that was input through
 --     the @ResourceArn@ field.
 --
+-- 'lastUpdatedTimestamp', 'appInstanceUserEndpoint_lastUpdatedTimestamp' - The time at which an @AppInstanceUserEndpoint@ was last updated.
+--
+-- 'name', 'appInstanceUserEndpoint_name' - The name of the @AppInstanceUserEndpoint@.
+--
 -- 'resourceArn', 'appInstanceUserEndpoint_resourceArn' - The ARN of the resource to which the endpoint belongs.
 --
--- 'allowMessages', 'appInstanceUserEndpoint_allowMessages' - Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
--- to receive messages. @ALL@ indicates the endpoint will receive all
--- messages. @NONE@ indicates the endpoint will receive no messages.
+-- 'type'', 'appInstanceUserEndpoint_type' - The type of the @AppInstanceUserEndpoint@.
 newAppInstanceUserEndpoint ::
   AppInstanceUserEndpoint
 newAppInstanceUserEndpoint =
   AppInstanceUserEndpoint'
-    { lastUpdatedTimestamp =
+    { allowMessages =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      endpointId = Prelude.Nothing,
       appInstanceUserArn = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       endpointAttributes = Prelude.Nothing,
+      endpointId = Prelude.Nothing,
       endpointState = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      allowMessages = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The time at which an @AppInstanceUserEndpoint@ was last updated.
-appInstanceUserEndpoint_lastUpdatedTimestamp :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.UTCTime)
-appInstanceUserEndpoint_lastUpdatedTimestamp = Lens.lens (\AppInstanceUserEndpoint' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstanceUserEndpoint' {} a -> s {lastUpdatedTimestamp = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Time
-
--- | The name of the @AppInstanceUserEndpoint@.
-appInstanceUserEndpoint_name :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpoint_name = Lens.lens (\AppInstanceUserEndpoint' {name} -> name) (\s@AppInstanceUserEndpoint' {} a -> s {name = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
-
--- | The type of the @AppInstanceUserEndpoint@.
-appInstanceUserEndpoint_type :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe AppInstanceUserEndpointType)
-appInstanceUserEndpoint_type = Lens.lens (\AppInstanceUserEndpoint' {type'} -> type') (\s@AppInstanceUserEndpoint' {} a -> s {type' = a} :: AppInstanceUserEndpoint)
-
--- | The unique identifier of the @AppInstanceUserEndpoint@.
-appInstanceUserEndpoint_endpointId :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpoint_endpointId = Lens.lens (\AppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@AppInstanceUserEndpoint' {} a -> s {endpointId = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
+-- | Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
+-- to receive messages. @ALL@ indicates the endpoint will receive all
+-- messages. @NONE@ indicates the endpoint will receive no messages.
+appInstanceUserEndpoint_allowMessages :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe AllowMessages)
+appInstanceUserEndpoint_allowMessages = Lens.lens (\AppInstanceUserEndpoint' {allowMessages} -> allowMessages) (\s@AppInstanceUserEndpoint' {} a -> s {allowMessages = a} :: AppInstanceUserEndpoint)
 
 -- | The ARN of the @AppInstanceUser@.
 appInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
@@ -164,6 +154,10 @@ appInstanceUserEndpoint_createdTimestamp = Lens.lens (\AppInstanceUserEndpoint' 
 -- | The attributes of an @Endpoint@.
 appInstanceUserEndpoint_endpointAttributes :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe EndpointAttributes)
 appInstanceUserEndpoint_endpointAttributes = Lens.lens (\AppInstanceUserEndpoint' {endpointAttributes} -> endpointAttributes) (\s@AppInstanceUserEndpoint' {} a -> s {endpointAttributes = a} :: AppInstanceUserEndpoint)
+
+-- | The unique identifier of the @AppInstanceUserEndpoint@.
+appInstanceUserEndpoint_endpointId :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
+appInstanceUserEndpoint_endpointId = Lens.lens (\AppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@AppInstanceUserEndpoint' {} a -> s {endpointId = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A read-only field that represents the state of an
 -- @AppInstanceUserEndpoint@. Supported values:
@@ -185,15 +179,21 @@ appInstanceUserEndpoint_endpointAttributes = Lens.lens (\AppInstanceUserEndpoint
 appInstanceUserEndpoint_endpointState :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe EndpointState)
 appInstanceUserEndpoint_endpointState = Lens.lens (\AppInstanceUserEndpoint' {endpointState} -> endpointState) (\s@AppInstanceUserEndpoint' {} a -> s {endpointState = a} :: AppInstanceUserEndpoint)
 
+-- | The time at which an @AppInstanceUserEndpoint@ was last updated.
+appInstanceUserEndpoint_lastUpdatedTimestamp :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.UTCTime)
+appInstanceUserEndpoint_lastUpdatedTimestamp = Lens.lens (\AppInstanceUserEndpoint' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@AppInstanceUserEndpoint' {} a -> s {lastUpdatedTimestamp = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the @AppInstanceUserEndpoint@.
+appInstanceUserEndpoint_name :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
+appInstanceUserEndpoint_name = Lens.lens (\AppInstanceUserEndpoint' {name} -> name) (\s@AppInstanceUserEndpoint' {} a -> s {name = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The ARN of the resource to which the endpoint belongs.
 appInstanceUserEndpoint_resourceArn :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
 appInstanceUserEndpoint_resourceArn = Lens.lens (\AppInstanceUserEndpoint' {resourceArn} -> resourceArn) (\s@AppInstanceUserEndpoint' {} a -> s {resourceArn = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
 
--- | Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
--- to receive messages. @ALL@ indicates the endpoint will receive all
--- messages. @NONE@ indicates the endpoint will receive no messages.
-appInstanceUserEndpoint_allowMessages :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe AllowMessages)
-appInstanceUserEndpoint_allowMessages = Lens.lens (\AppInstanceUserEndpoint' {allowMessages} -> allowMessages) (\s@AppInstanceUserEndpoint' {} a -> s {allowMessages = a} :: AppInstanceUserEndpoint)
+-- | The type of the @AppInstanceUserEndpoint@.
+appInstanceUserEndpoint_type :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe AppInstanceUserEndpointType)
+appInstanceUserEndpoint_type = Lens.lens (\AppInstanceUserEndpoint' {type'} -> type') (\s@AppInstanceUserEndpoint' {} a -> s {type' = a} :: AppInstanceUserEndpoint)
 
 instance Data.FromJSON AppInstanceUserEndpoint where
   parseJSON =
@@ -201,40 +201,40 @@ instance Data.FromJSON AppInstanceUserEndpoint where
       "AppInstanceUserEndpoint"
       ( \x ->
           AppInstanceUserEndpoint'
-            Prelude.<$> (x Data..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<$> (x Data..:? "AllowMessages")
             Prelude.<*> (x Data..:? "AppInstanceUserArn")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "EndpointAttributes")
+            Prelude.<*> (x Data..:? "EndpointId")
             Prelude.<*> (x Data..:? "EndpointState")
+            Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "ResourceArn")
-            Prelude.<*> (x Data..:? "AllowMessages")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AppInstanceUserEndpoint where
   hashWithSalt _salt AppInstanceUserEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTimestamp
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` endpointId
+    _salt `Prelude.hashWithSalt` allowMessages
       `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endpointAttributes
+      `Prelude.hashWithSalt` endpointId
       `Prelude.hashWithSalt` endpointState
+      `Prelude.hashWithSalt` lastUpdatedTimestamp
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` allowMessages
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AppInstanceUserEndpoint where
   rnf AppInstanceUserEndpoint' {..} =
-    Prelude.rnf lastUpdatedTimestamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf endpointId
+    Prelude.rnf allowMessages
       `Prelude.seq` Prelude.rnf appInstanceUserArn
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf endpointAttributes
+      `Prelude.seq` Prelude.rnf endpointId
       `Prelude.seq` Prelude.rnf endpointState
+      `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf allowMessages
+      `Prelude.seq` Prelude.rnf type'

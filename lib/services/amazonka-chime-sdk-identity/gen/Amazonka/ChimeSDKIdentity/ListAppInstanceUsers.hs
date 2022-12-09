@@ -27,8 +27,8 @@ module Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
     newListAppInstanceUsers,
 
     -- * Request Lenses
-    listAppInstanceUsers_nextToken,
     listAppInstanceUsers_maxResults,
+    listAppInstanceUsers_nextToken,
     listAppInstanceUsers_appInstanceArn,
 
     -- * Destructuring the Response
@@ -36,9 +36,9 @@ module Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
     newListAppInstanceUsersResponse,
 
     -- * Response Lenses
-    listAppInstanceUsersResponse_nextToken,
-    listAppInstanceUsersResponse_appInstanceUsers,
     listAppInstanceUsersResponse_appInstanceArn,
+    listAppInstanceUsersResponse_appInstanceUsers,
+    listAppInstanceUsersResponse_nextToken,
     listAppInstanceUsersResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppInstanceUsers' smart constructor.
 data ListAppInstanceUsers = ListAppInstanceUsers'
-  { -- | The token passed by previous API calls until all requested users are
+  { -- | The maximum number of requests that you want returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token passed by previous API calls until all requested users are
     -- returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The maximum number of requests that you want returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data ListAppInstanceUsers = ListAppInstanceUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAppInstanceUsers_maxResults' - The maximum number of requests that you want returned.
+--
 -- 'nextToken', 'listAppInstanceUsers_nextToken' - The token passed by previous API calls until all requested users are
 -- returned.
---
--- 'maxResults', 'listAppInstanceUsers_maxResults' - The maximum number of requests that you want returned.
 --
 -- 'appInstanceArn', 'listAppInstanceUsers_appInstanceArn' - The ARN of the @AppInstance@.
 newListAppInstanceUsers ::
@@ -83,19 +83,19 @@ newListAppInstanceUsers ::
   ListAppInstanceUsers
 newListAppInstanceUsers pAppInstanceArn_ =
   ListAppInstanceUsers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appInstanceArn = pAppInstanceArn_
     }
+
+-- | The maximum number of requests that you want returned.
+listAppInstanceUsers_maxResults :: Lens.Lens' ListAppInstanceUsers (Prelude.Maybe Prelude.Natural)
+listAppInstanceUsers_maxResults = Lens.lens (\ListAppInstanceUsers' {maxResults} -> maxResults) (\s@ListAppInstanceUsers' {} a -> s {maxResults = a} :: ListAppInstanceUsers)
 
 -- | The token passed by previous API calls until all requested users are
 -- returned.
 listAppInstanceUsers_nextToken :: Lens.Lens' ListAppInstanceUsers (Prelude.Maybe Prelude.Text)
 listAppInstanceUsers_nextToken = Lens.lens (\ListAppInstanceUsers' {nextToken} -> nextToken) (\s@ListAppInstanceUsers' {} a -> s {nextToken = a} :: ListAppInstanceUsers) Prelude.. Lens.mapping Data._Sensitive
-
--- | The maximum number of requests that you want returned.
-listAppInstanceUsers_maxResults :: Lens.Lens' ListAppInstanceUsers (Prelude.Maybe Prelude.Natural)
-listAppInstanceUsers_maxResults = Lens.lens (\ListAppInstanceUsers' {maxResults} -> maxResults) (\s@ListAppInstanceUsers' {} a -> s {maxResults = a} :: ListAppInstanceUsers)
 
 -- | The ARN of the @AppInstance@.
 listAppInstanceUsers_appInstanceArn :: Lens.Lens' ListAppInstanceUsers Prelude.Text
@@ -111,24 +111,24 @@ instance Core.AWSRequest ListAppInstanceUsers where
     Response.receiveJSON
       ( \s h x ->
           ListAppInstanceUsersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "AppInstanceArn")
             Prelude.<*> ( x Data..?> "AppInstanceUsers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "AppInstanceArn")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAppInstanceUsers where
   hashWithSalt _salt ListAppInstanceUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData ListAppInstanceUsers where
   rnf ListAppInstanceUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders ListAppInstanceUsers where
@@ -140,20 +140,20 @@ instance Data.ToPath ListAppInstanceUsers where
 instance Data.ToQuery ListAppInstanceUsers where
   toQuery ListAppInstanceUsers' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults,
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "app-instance-arn" Data.=: appInstanceArn
       ]
 
 -- | /See:/ 'newListAppInstanceUsersResponse' smart constructor.
 data ListAppInstanceUsersResponse = ListAppInstanceUsersResponse'
-  { -- | The token passed by previous API calls until all requested users are
-    -- returned.
-    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The ARN of the @AppInstance@.
+    appInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The information for each requested @AppInstanceUser@.
     appInstanceUsers :: Prelude.Maybe [AppInstanceUserSummary],
-    -- | The ARN of the @AppInstance@.
-    appInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The token passed by previous API calls until all requested users are
+    -- returned.
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,12 +167,12 @@ data ListAppInstanceUsersResponse = ListAppInstanceUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppInstanceUsersResponse_nextToken' - The token passed by previous API calls until all requested users are
--- returned.
+-- 'appInstanceArn', 'listAppInstanceUsersResponse_appInstanceArn' - The ARN of the @AppInstance@.
 --
 -- 'appInstanceUsers', 'listAppInstanceUsersResponse_appInstanceUsers' - The information for each requested @AppInstanceUser@.
 --
--- 'appInstanceArn', 'listAppInstanceUsersResponse_appInstanceArn' - The ARN of the @AppInstance@.
+-- 'nextToken', 'listAppInstanceUsersResponse_nextToken' - The token passed by previous API calls until all requested users are
+-- returned.
 --
 -- 'httpStatus', 'listAppInstanceUsersResponse_httpStatus' - The response's http status code.
 newListAppInstanceUsersResponse ::
@@ -181,25 +181,25 @@ newListAppInstanceUsersResponse ::
   ListAppInstanceUsersResponse
 newListAppInstanceUsersResponse pHttpStatus_ =
   ListAppInstanceUsersResponse'
-    { nextToken =
+    { appInstanceArn =
         Prelude.Nothing,
       appInstanceUsers = Prelude.Nothing,
-      appInstanceArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The token passed by previous API calls until all requested users are
--- returned.
-listAppInstanceUsersResponse_nextToken :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe Prelude.Text)
-listAppInstanceUsersResponse_nextToken = Lens.lens (\ListAppInstanceUsersResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUsersResponse' {} a -> s {nextToken = a} :: ListAppInstanceUsersResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | The ARN of the @AppInstance@.
+listAppInstanceUsersResponse_appInstanceArn :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe Prelude.Text)
+listAppInstanceUsersResponse_appInstanceArn = Lens.lens (\ListAppInstanceUsersResponse' {appInstanceArn} -> appInstanceArn) (\s@ListAppInstanceUsersResponse' {} a -> s {appInstanceArn = a} :: ListAppInstanceUsersResponse)
 
 -- | The information for each requested @AppInstanceUser@.
 listAppInstanceUsersResponse_appInstanceUsers :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe [AppInstanceUserSummary])
 listAppInstanceUsersResponse_appInstanceUsers = Lens.lens (\ListAppInstanceUsersResponse' {appInstanceUsers} -> appInstanceUsers) (\s@ListAppInstanceUsersResponse' {} a -> s {appInstanceUsers = a} :: ListAppInstanceUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the @AppInstance@.
-listAppInstanceUsersResponse_appInstanceArn :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe Prelude.Text)
-listAppInstanceUsersResponse_appInstanceArn = Lens.lens (\ListAppInstanceUsersResponse' {appInstanceArn} -> appInstanceArn) (\s@ListAppInstanceUsersResponse' {} a -> s {appInstanceArn = a} :: ListAppInstanceUsersResponse)
+-- | The token passed by previous API calls until all requested users are
+-- returned.
+listAppInstanceUsersResponse_nextToken :: Lens.Lens' ListAppInstanceUsersResponse (Prelude.Maybe Prelude.Text)
+listAppInstanceUsersResponse_nextToken = Lens.lens (\ListAppInstanceUsersResponse' {nextToken} -> nextToken) (\s@ListAppInstanceUsersResponse' {} a -> s {nextToken = a} :: ListAppInstanceUsersResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 listAppInstanceUsersResponse_httpStatus :: Lens.Lens' ListAppInstanceUsersResponse Prelude.Int
@@ -207,7 +207,7 @@ listAppInstanceUsersResponse_httpStatus = Lens.lens (\ListAppInstanceUsersRespon
 
 instance Prelude.NFData ListAppInstanceUsersResponse where
   rnf ListAppInstanceUsersResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf appInstanceUsers
-      `Prelude.seq` Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

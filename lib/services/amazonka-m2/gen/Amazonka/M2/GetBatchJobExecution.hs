@@ -36,12 +36,12 @@ module Amazonka.M2.GetBatchJobExecution
     newGetBatchJobExecutionResponse,
 
     -- * Response Lenses
-    getBatchJobExecutionResponse_jobName,
-    getBatchJobExecutionResponse_statusReason,
-    getBatchJobExecutionResponse_jobId,
     getBatchJobExecutionResponse_endTime,
-    getBatchJobExecutionResponse_jobUser,
+    getBatchJobExecutionResponse_jobId,
+    getBatchJobExecutionResponse_jobName,
     getBatchJobExecutionResponse_jobType,
+    getBatchJobExecutionResponse_jobUser,
+    getBatchJobExecutionResponse_statusReason,
     getBatchJobExecutionResponse_httpStatus,
     getBatchJobExecutionResponse_applicationId,
     getBatchJobExecutionResponse_executionId,
@@ -109,12 +109,12 @@ instance Core.AWSRequest GetBatchJobExecution where
     Response.receiveJSON
       ( \s h x ->
           GetBatchJobExecutionResponse'
-            Prelude.<$> (x Data..?> "jobName")
-            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<$> (x Data..?> "endTime")
             Prelude.<*> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "endTime")
-            Prelude.<*> (x Data..?> "jobUser")
+            Prelude.<*> (x Data..?> "jobName")
             Prelude.<*> (x Data..?> "jobType")
+            Prelude.<*> (x Data..?> "jobUser")
+            Prelude.<*> (x Data..?> "statusReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "applicationId")
             Prelude.<*> (x Data..:> "executionId")
@@ -157,18 +157,18 @@ instance Data.ToQuery GetBatchJobExecution where
 
 -- | /See:/ 'newGetBatchJobExecutionResponse' smart constructor.
 data GetBatchJobExecutionResponse = GetBatchJobExecutionResponse'
-  { -- | The name of this batch job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the reported status.
-    statusReason :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp when the batch job execution ended.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for this batch job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the batch job execution ended.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The user for the job.
-    jobUser :: Prelude.Maybe Prelude.Text,
+    -- | The name of this batch job.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The type of job.
     jobType :: Prelude.Maybe BatchJobType,
+    -- | The user for the job.
+    jobUser :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the reported status.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The identifier of the application.
@@ -190,17 +190,17 @@ data GetBatchJobExecutionResponse = GetBatchJobExecutionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobName', 'getBatchJobExecutionResponse_jobName' - The name of this batch job.
---
--- 'statusReason', 'getBatchJobExecutionResponse_statusReason' - The reason for the reported status.
+-- 'endTime', 'getBatchJobExecutionResponse_endTime' - The timestamp when the batch job execution ended.
 --
 -- 'jobId', 'getBatchJobExecutionResponse_jobId' - The unique identifier for this batch job.
 --
--- 'endTime', 'getBatchJobExecutionResponse_endTime' - The timestamp when the batch job execution ended.
+-- 'jobName', 'getBatchJobExecutionResponse_jobName' - The name of this batch job.
+--
+-- 'jobType', 'getBatchJobExecutionResponse_jobType' - The type of job.
 --
 -- 'jobUser', 'getBatchJobExecutionResponse_jobUser' - The user for the job.
 --
--- 'jobType', 'getBatchJobExecutionResponse_jobType' - The type of job.
+-- 'statusReason', 'getBatchJobExecutionResponse_statusReason' - The reason for the reported status.
 --
 -- 'httpStatus', 'getBatchJobExecutionResponse_httpStatus' - The response's http status code.
 --
@@ -230,13 +230,13 @@ newGetBatchJobExecutionResponse
   pStartTime_
   pStatus_ =
     GetBatchJobExecutionResponse'
-      { jobName =
+      { endTime =
           Prelude.Nothing,
-        statusReason = Prelude.Nothing,
         jobId = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        jobUser = Prelude.Nothing,
+        jobName = Prelude.Nothing,
         jobType = Prelude.Nothing,
+        jobUser = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         applicationId = pApplicationId_,
         executionId = pExecutionId_,
@@ -244,29 +244,29 @@ newGetBatchJobExecutionResponse
         status = pStatus_
       }
 
--- | The name of this batch job.
-getBatchJobExecutionResponse_jobName :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
-getBatchJobExecutionResponse_jobName = Lens.lens (\GetBatchJobExecutionResponse' {jobName} -> jobName) (\s@GetBatchJobExecutionResponse' {} a -> s {jobName = a} :: GetBatchJobExecutionResponse)
-
--- | The reason for the reported status.
-getBatchJobExecutionResponse_statusReason :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
-getBatchJobExecutionResponse_statusReason = Lens.lens (\GetBatchJobExecutionResponse' {statusReason} -> statusReason) (\s@GetBatchJobExecutionResponse' {} a -> s {statusReason = a} :: GetBatchJobExecutionResponse)
+-- | The timestamp when the batch job execution ended.
+getBatchJobExecutionResponse_endTime :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.UTCTime)
+getBatchJobExecutionResponse_endTime = Lens.lens (\GetBatchJobExecutionResponse' {endTime} -> endTime) (\s@GetBatchJobExecutionResponse' {} a -> s {endTime = a} :: GetBatchJobExecutionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for this batch job.
 getBatchJobExecutionResponse_jobId :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
 getBatchJobExecutionResponse_jobId = Lens.lens (\GetBatchJobExecutionResponse' {jobId} -> jobId) (\s@GetBatchJobExecutionResponse' {} a -> s {jobId = a} :: GetBatchJobExecutionResponse)
 
--- | The timestamp when the batch job execution ended.
-getBatchJobExecutionResponse_endTime :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-getBatchJobExecutionResponse_endTime = Lens.lens (\GetBatchJobExecutionResponse' {endTime} -> endTime) (\s@GetBatchJobExecutionResponse' {} a -> s {endTime = a} :: GetBatchJobExecutionResponse) Prelude.. Lens.mapping Data._Time
+-- | The name of this batch job.
+getBatchJobExecutionResponse_jobName :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
+getBatchJobExecutionResponse_jobName = Lens.lens (\GetBatchJobExecutionResponse' {jobName} -> jobName) (\s@GetBatchJobExecutionResponse' {} a -> s {jobName = a} :: GetBatchJobExecutionResponse)
+
+-- | The type of job.
+getBatchJobExecutionResponse_jobType :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe BatchJobType)
+getBatchJobExecutionResponse_jobType = Lens.lens (\GetBatchJobExecutionResponse' {jobType} -> jobType) (\s@GetBatchJobExecutionResponse' {} a -> s {jobType = a} :: GetBatchJobExecutionResponse)
 
 -- | The user for the job.
 getBatchJobExecutionResponse_jobUser :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
 getBatchJobExecutionResponse_jobUser = Lens.lens (\GetBatchJobExecutionResponse' {jobUser} -> jobUser) (\s@GetBatchJobExecutionResponse' {} a -> s {jobUser = a} :: GetBatchJobExecutionResponse)
 
--- | The type of job.
-getBatchJobExecutionResponse_jobType :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe BatchJobType)
-getBatchJobExecutionResponse_jobType = Lens.lens (\GetBatchJobExecutionResponse' {jobType} -> jobType) (\s@GetBatchJobExecutionResponse' {} a -> s {jobType = a} :: GetBatchJobExecutionResponse)
+-- | The reason for the reported status.
+getBatchJobExecutionResponse_statusReason :: Lens.Lens' GetBatchJobExecutionResponse (Prelude.Maybe Prelude.Text)
+getBatchJobExecutionResponse_statusReason = Lens.lens (\GetBatchJobExecutionResponse' {statusReason} -> statusReason) (\s@GetBatchJobExecutionResponse' {} a -> s {statusReason = a} :: GetBatchJobExecutionResponse)
 
 -- | The response's http status code.
 getBatchJobExecutionResponse_httpStatus :: Lens.Lens' GetBatchJobExecutionResponse Prelude.Int
@@ -290,12 +290,12 @@ getBatchJobExecutionResponse_status = Lens.lens (\GetBatchJobExecutionResponse' 
 
 instance Prelude.NFData GetBatchJobExecutionResponse where
   rnf GetBatchJobExecutionResponse' {..} =
-    Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf jobUser
+      `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf jobUser
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf executionId

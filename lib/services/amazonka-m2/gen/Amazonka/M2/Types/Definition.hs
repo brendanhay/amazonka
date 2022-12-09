@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefinition' smart constructor.
 data Definition = Definition'
-  { -- | The S3 bucket that contains the application definition.
-    s3Location :: Prelude.Maybe Prelude.Text,
-    -- | The content of the application definition. This is a JSON object that
+  { -- | The content of the application definition. This is a JSON object that
     -- contains the resource configuration\/definitions that identify an
     -- application.
-    content :: Prelude.Maybe Prelude.Text
+    content :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket that contains the application definition.
+    s3Location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,18 @@ data Definition = Definition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Location', 'definition_s3Location' - The S3 bucket that contains the application definition.
---
 -- 'content', 'definition_content' - The content of the application definition. This is a JSON object that
 -- contains the resource configuration\/definitions that identify an
 -- application.
+--
+-- 's3Location', 'definition_s3Location' - The S3 bucket that contains the application definition.
 newDefinition ::
   Definition
 newDefinition =
   Definition'
-    { s3Location = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      s3Location = Prelude.Nothing
     }
-
--- | The S3 bucket that contains the application definition.
-definition_s3Location :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
-definition_s3Location = Lens.lens (\Definition' {s3Location} -> s3Location) (\s@Definition' {} a -> s {s3Location = a} :: Definition)
 
 -- | The content of the application definition. This is a JSON object that
 -- contains the resource configuration\/definitions that identify an
@@ -68,21 +64,25 @@ definition_s3Location = Lens.lens (\Definition' {s3Location} -> s3Location) (\s@
 definition_content :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
 definition_content = Lens.lens (\Definition' {content} -> content) (\s@Definition' {} a -> s {content = a} :: Definition)
 
+-- | The S3 bucket that contains the application definition.
+definition_s3Location :: Lens.Lens' Definition (Prelude.Maybe Prelude.Text)
+definition_s3Location = Lens.lens (\Definition' {s3Location} -> s3Location) (\s@Definition' {} a -> s {s3Location = a} :: Definition)
+
 instance Prelude.Hashable Definition where
   hashWithSalt _salt Definition' {..} =
-    _salt `Prelude.hashWithSalt` s3Location
-      `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` s3Location
 
 instance Prelude.NFData Definition where
   rnf Definition' {..} =
-    Prelude.rnf s3Location
-      `Prelude.seq` Prelude.rnf content
+    Prelude.rnf content
+      `Prelude.seq` Prelude.rnf s3Location
 
 instance Data.ToJSON Definition where
   toJSON Definition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("s3Location" Data..=) Prelude.<$> s3Location,
-            ("content" Data..=) Prelude.<$> content
+          [ ("content" Data..=) Prelude.<$> content,
+            ("s3Location" Data..=) Prelude.<$> s3Location
           ]
       )

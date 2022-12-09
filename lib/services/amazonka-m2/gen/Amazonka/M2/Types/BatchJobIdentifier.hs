@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchJobIdentifier' smart constructor.
 data BatchJobIdentifier = BatchJobIdentifier'
-  { -- | A batch job identifier in which the batch job to run is identified by
+  { -- | Specifies a file associated with a specific batch job.
+    fileBatchJobIdentifier :: Prelude.Maybe FileBatchJobIdentifier,
+    -- | A batch job identifier in which the batch job to run is identified by
     -- the script name.
-    scriptBatchJobIdentifier :: Prelude.Maybe ScriptBatchJobIdentifier,
-    -- | Specifies a file associated with a specific batch job.
-    fileBatchJobIdentifier :: Prelude.Maybe FileBatchJobIdentifier
+    scriptBatchJobIdentifier :: Prelude.Maybe ScriptBatchJobIdentifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,46 +46,45 @@ data BatchJobIdentifier = BatchJobIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileBatchJobIdentifier', 'batchJobIdentifier_fileBatchJobIdentifier' - Specifies a file associated with a specific batch job.
+--
 -- 'scriptBatchJobIdentifier', 'batchJobIdentifier_scriptBatchJobIdentifier' - A batch job identifier in which the batch job to run is identified by
 -- the script name.
---
--- 'fileBatchJobIdentifier', 'batchJobIdentifier_fileBatchJobIdentifier' - Specifies a file associated with a specific batch job.
 newBatchJobIdentifier ::
   BatchJobIdentifier
 newBatchJobIdentifier =
   BatchJobIdentifier'
-    { scriptBatchJobIdentifier =
+    { fileBatchJobIdentifier =
         Prelude.Nothing,
-      fileBatchJobIdentifier = Prelude.Nothing
+      scriptBatchJobIdentifier = Prelude.Nothing
     }
+
+-- | Specifies a file associated with a specific batch job.
+batchJobIdentifier_fileBatchJobIdentifier :: Lens.Lens' BatchJobIdentifier (Prelude.Maybe FileBatchJobIdentifier)
+batchJobIdentifier_fileBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {fileBatchJobIdentifier} -> fileBatchJobIdentifier) (\s@BatchJobIdentifier' {} a -> s {fileBatchJobIdentifier = a} :: BatchJobIdentifier)
 
 -- | A batch job identifier in which the batch job to run is identified by
 -- the script name.
 batchJobIdentifier_scriptBatchJobIdentifier :: Lens.Lens' BatchJobIdentifier (Prelude.Maybe ScriptBatchJobIdentifier)
 batchJobIdentifier_scriptBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {scriptBatchJobIdentifier} -> scriptBatchJobIdentifier) (\s@BatchJobIdentifier' {} a -> s {scriptBatchJobIdentifier = a} :: BatchJobIdentifier)
 
--- | Specifies a file associated with a specific batch job.
-batchJobIdentifier_fileBatchJobIdentifier :: Lens.Lens' BatchJobIdentifier (Prelude.Maybe FileBatchJobIdentifier)
-batchJobIdentifier_fileBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {fileBatchJobIdentifier} -> fileBatchJobIdentifier) (\s@BatchJobIdentifier' {} a -> s {fileBatchJobIdentifier = a} :: BatchJobIdentifier)
-
 instance Prelude.Hashable BatchJobIdentifier where
   hashWithSalt _salt BatchJobIdentifier' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` fileBatchJobIdentifier
       `Prelude.hashWithSalt` scriptBatchJobIdentifier
-      `Prelude.hashWithSalt` fileBatchJobIdentifier
 
 instance Prelude.NFData BatchJobIdentifier where
   rnf BatchJobIdentifier' {..} =
-    Prelude.rnf scriptBatchJobIdentifier
-      `Prelude.seq` Prelude.rnf fileBatchJobIdentifier
+    Prelude.rnf fileBatchJobIdentifier
+      `Prelude.seq` Prelude.rnf scriptBatchJobIdentifier
 
 instance Data.ToJSON BatchJobIdentifier where
   toJSON BatchJobIdentifier' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("scriptBatchJobIdentifier" Data..=)
-              Prelude.<$> scriptBatchJobIdentifier,
-            ("fileBatchJobIdentifier" Data..=)
-              Prelude.<$> fileBatchJobIdentifier
+          [ ("fileBatchJobIdentifier" Data..=)
+              Prelude.<$> fileBatchJobIdentifier,
+            ("scriptBatchJobIdentifier" Data..=)
+              Prelude.<$> scriptBatchJobIdentifier
           ]
       )

@@ -35,8 +35,8 @@ module Amazonka.M2.GetApplicationVersion
     newGetApplicationVersionResponse,
 
     -- * Response Lenses
-    getApplicationVersionResponse_statusReason,
     getApplicationVersionResponse_description,
+    getApplicationVersionResponse_statusReason,
     getApplicationVersionResponse_httpStatus,
     getApplicationVersionResponse_applicationVersion,
     getApplicationVersionResponse_creationTime,
@@ -107,8 +107,8 @@ instance Core.AWSRequest GetApplicationVersion where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationVersionResponse'
-            Prelude.<$> (x Data..?> "statusReason")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "statusReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "applicationVersion")
             Prelude.<*> (x Data..:> "creationTime")
@@ -152,10 +152,10 @@ instance Data.ToQuery GetApplicationVersion where
 
 -- | /See:/ 'newGetApplicationVersionResponse' smart constructor.
 data GetApplicationVersionResponse = GetApplicationVersionResponse'
-  { -- | The reason for the reported status.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The application description.
+  { -- | The application description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the reported status.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The specific version of the application.
@@ -181,9 +181,9 @@ data GetApplicationVersionResponse = GetApplicationVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusReason', 'getApplicationVersionResponse_statusReason' - The reason for the reported status.
---
 -- 'description', 'getApplicationVersionResponse_description' - The application description.
+--
+-- 'statusReason', 'getApplicationVersionResponse_statusReason' - The reason for the reported status.
 --
 -- 'httpStatus', 'getApplicationVersionResponse_httpStatus' - The response's http status code.
 --
@@ -220,9 +220,9 @@ newGetApplicationVersionResponse
   pName_
   pStatus_ =
     GetApplicationVersionResponse'
-      { statusReason =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         applicationVersion = pApplicationVersion_,
         creationTime =
@@ -232,13 +232,13 @@ newGetApplicationVersionResponse
         status = pStatus_
       }
 
--- | The reason for the reported status.
-getApplicationVersionResponse_statusReason :: Lens.Lens' GetApplicationVersionResponse (Prelude.Maybe Prelude.Text)
-getApplicationVersionResponse_statusReason = Lens.lens (\GetApplicationVersionResponse' {statusReason} -> statusReason) (\s@GetApplicationVersionResponse' {} a -> s {statusReason = a} :: GetApplicationVersionResponse)
-
 -- | The application description.
 getApplicationVersionResponse_description :: Lens.Lens' GetApplicationVersionResponse (Prelude.Maybe Prelude.Text)
 getApplicationVersionResponse_description = Lens.lens (\GetApplicationVersionResponse' {description} -> description) (\s@GetApplicationVersionResponse' {} a -> s {description = a} :: GetApplicationVersionResponse)
+
+-- | The reason for the reported status.
+getApplicationVersionResponse_statusReason :: Lens.Lens' GetApplicationVersionResponse (Prelude.Maybe Prelude.Text)
+getApplicationVersionResponse_statusReason = Lens.lens (\GetApplicationVersionResponse' {statusReason} -> statusReason) (\s@GetApplicationVersionResponse' {} a -> s {statusReason = a} :: GetApplicationVersionResponse)
 
 -- | The response's http status code.
 getApplicationVersionResponse_httpStatus :: Lens.Lens' GetApplicationVersionResponse Prelude.Int
@@ -268,8 +268,8 @@ getApplicationVersionResponse_status = Lens.lens (\GetApplicationVersionResponse
 
 instance Prelude.NFData GetApplicationVersionResponse where
   rnf GetApplicationVersionResponse' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf applicationVersion
       `Prelude.seq` Prelude.rnf creationTime

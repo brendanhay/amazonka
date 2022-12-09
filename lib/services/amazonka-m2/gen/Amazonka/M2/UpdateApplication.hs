@@ -27,8 +27,8 @@ module Amazonka.M2.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_description,
     updateApplication_definition,
+    updateApplication_description,
     updateApplication_applicationId,
     updateApplication_currentApplicationVersion,
 
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The description of the application to update.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The application definition for this application. You can specify either
+  { -- | The application definition for this application. You can specify either
     -- inline JSON or an S3 bucket location.
     definition :: Prelude.Maybe Definition,
+    -- | The description of the application to update.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the application you want to update.
     applicationId :: Prelude.Text,
     -- | The current version of the application to update.
@@ -72,10 +72,10 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateApplication_description' - The description of the application to update.
---
 -- 'definition', 'updateApplication_definition' - The application definition for this application. You can specify either
 -- inline JSON or an S3 bucket location.
+--
+-- 'description', 'updateApplication_description' - The description of the application to update.
 --
 -- 'applicationId', 'updateApplication_applicationId' - The unique identifier of the application you want to update.
 --
@@ -90,21 +90,21 @@ newUpdateApplication
   pApplicationId_
   pCurrentApplicationVersion_ =
     UpdateApplication'
-      { description = Prelude.Nothing,
-        definition = Prelude.Nothing,
+      { definition = Prelude.Nothing,
+        description = Prelude.Nothing,
         applicationId = pApplicationId_,
         currentApplicationVersion =
           pCurrentApplicationVersion_
       }
 
--- | The description of the application to update.
-updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
-
 -- | The application definition for this application. You can specify either
 -- inline JSON or an S3 bucket location.
 updateApplication_definition :: Lens.Lens' UpdateApplication (Prelude.Maybe Definition)
 updateApplication_definition = Lens.lens (\UpdateApplication' {definition} -> definition) (\s@UpdateApplication' {} a -> s {definition = a} :: UpdateApplication)
+
+-- | The description of the application to update.
+updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | The unique identifier of the application you want to update.
 updateApplication_applicationId :: Lens.Lens' UpdateApplication Prelude.Text
@@ -130,15 +130,15 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` definition
+    _salt `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` currentApplicationVersion
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf currentApplicationVersion
 
@@ -157,8 +157,8 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
-            ("definition" Data..=) Prelude.<$> definition,
+          [ ("definition" Data..=) Prelude.<$> definition,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ( "currentApplicationVersion"
                   Data..= currentApplicationVersion

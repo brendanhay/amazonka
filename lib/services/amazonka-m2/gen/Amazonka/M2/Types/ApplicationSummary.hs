@@ -36,16 +36,16 @@ data ApplicationSummary = ApplicationSummary'
   { -- | Indicates whether there is an ongoing deployment or if the application
     -- has ever deployed successfully.
     deploymentStatus :: Prelude.Maybe ApplicationDeploymentLifecycle,
-    -- | Indicates the status of the latest version of the application.
-    versionStatus :: Prelude.Maybe ApplicationVersionLifecycle,
-    -- | The timestamp when the application was last started. Null until the
-    -- application has started running for the first time.
-    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the runtime environment that hosts this
     -- application.
     environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the application was last started. Null until the
+    -- application has started running for the first time.
+    lastStartTime :: Prelude.Maybe Data.POSIX,
+    -- | Indicates the status of the latest version of the application.
+    versionStatus :: Prelude.Maybe ApplicationVersionLifecycle,
     -- | The Amazon Resource Name (ARN) of the application.
     applicationArn :: Prelude.Text,
     -- | The unique identifier of the application.
@@ -74,15 +74,15 @@ data ApplicationSummary = ApplicationSummary'
 -- 'deploymentStatus', 'applicationSummary_deploymentStatus' - Indicates whether there is an ongoing deployment or if the application
 -- has ever deployed successfully.
 --
--- 'versionStatus', 'applicationSummary_versionStatus' - Indicates the status of the latest version of the application.
---
--- 'lastStartTime', 'applicationSummary_lastStartTime' - The timestamp when the application was last started. Null until the
--- application has started running for the first time.
---
 -- 'description', 'applicationSummary_description' - The description of the application.
 --
 -- 'environmentId', 'applicationSummary_environmentId' - The unique identifier of the runtime environment that hosts this
 -- application.
+--
+-- 'lastStartTime', 'applicationSummary_lastStartTime' - The timestamp when the application was last started. Null until the
+-- application has started running for the first time.
+--
+-- 'versionStatus', 'applicationSummary_versionStatus' - Indicates the status of the latest version of the application.
 --
 -- 'applicationArn', 'applicationSummary_applicationArn' - The Amazon Resource Name (ARN) of the application.
 --
@@ -124,10 +124,10 @@ newApplicationSummary
     ApplicationSummary'
       { deploymentStatus =
           Prelude.Nothing,
-        versionStatus = Prelude.Nothing,
-        lastStartTime = Prelude.Nothing,
         description = Prelude.Nothing,
         environmentId = Prelude.Nothing,
+        lastStartTime = Prelude.Nothing,
+        versionStatus = Prelude.Nothing,
         applicationArn = pApplicationArn_,
         applicationId = pApplicationId_,
         applicationVersion = pApplicationVersion_,
@@ -142,15 +142,6 @@ newApplicationSummary
 applicationSummary_deploymentStatus :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationDeploymentLifecycle)
 applicationSummary_deploymentStatus = Lens.lens (\ApplicationSummary' {deploymentStatus} -> deploymentStatus) (\s@ApplicationSummary' {} a -> s {deploymentStatus = a} :: ApplicationSummary)
 
--- | Indicates the status of the latest version of the application.
-applicationSummary_versionStatus :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationVersionLifecycle)
-applicationSummary_versionStatus = Lens.lens (\ApplicationSummary' {versionStatus} -> versionStatus) (\s@ApplicationSummary' {} a -> s {versionStatus = a} :: ApplicationSummary)
-
--- | The timestamp when the application was last started. Null until the
--- application has started running for the first time.
-applicationSummary_lastStartTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
-applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The description of the application.
 applicationSummary_description :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_description = Lens.lens (\ApplicationSummary' {description} -> description) (\s@ApplicationSummary' {} a -> s {description = a} :: ApplicationSummary)
@@ -159,6 +150,15 @@ applicationSummary_description = Lens.lens (\ApplicationSummary' {description} -
 -- application.
 applicationSummary_environmentId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_environmentId = Lens.lens (\ApplicationSummary' {environmentId} -> environmentId) (\s@ApplicationSummary' {} a -> s {environmentId = a} :: ApplicationSummary)
+
+-- | The timestamp when the application was last started. Null until the
+-- application has started running for the first time.
+applicationSummary_lastStartTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
+applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates the status of the latest version of the application.
+applicationSummary_versionStatus :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationVersionLifecycle)
+applicationSummary_versionStatus = Lens.lens (\ApplicationSummary' {versionStatus} -> versionStatus) (\s@ApplicationSummary' {} a -> s {versionStatus = a} :: ApplicationSummary)
 
 -- | The Amazon Resource Name (ARN) of the application.
 applicationSummary_applicationArn :: Lens.Lens' ApplicationSummary Prelude.Text
@@ -195,10 +195,10 @@ instance Data.FromJSON ApplicationSummary where
       ( \x ->
           ApplicationSummary'
             Prelude.<$> (x Data..:? "deploymentStatus")
-            Prelude.<*> (x Data..:? "versionStatus")
-            Prelude.<*> (x Data..:? "lastStartTime")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "environmentId")
+            Prelude.<*> (x Data..:? "lastStartTime")
+            Prelude.<*> (x Data..:? "versionStatus")
             Prelude.<*> (x Data..: "applicationArn")
             Prelude.<*> (x Data..: "applicationId")
             Prelude.<*> (x Data..: "applicationVersion")
@@ -211,10 +211,10 @@ instance Data.FromJSON ApplicationSummary where
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
     _salt `Prelude.hashWithSalt` deploymentStatus
-      `Prelude.hashWithSalt` versionStatus
-      `Prelude.hashWithSalt` lastStartTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` lastStartTime
+      `Prelude.hashWithSalt` versionStatus
       `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` applicationVersion
@@ -226,10 +226,10 @@ instance Prelude.Hashable ApplicationSummary where
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
     Prelude.rnf deploymentStatus
-      `Prelude.seq` Prelude.rnf versionStatus
-      `Prelude.seq` Prelude.rnf lastStartTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf lastStartTime
+      `Prelude.seq` Prelude.rnf versionStatus
       `Prelude.seq` Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf applicationVersion

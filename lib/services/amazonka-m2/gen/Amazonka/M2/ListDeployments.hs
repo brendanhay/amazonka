@@ -32,8 +32,8 @@ module Amazonka.M2.ListDeployments
     newListDeployments,
 
     -- * Request Lenses
-    listDeployments_nextToken,
     listDeployments_maxResults,
+    listDeployments_nextToken,
     listDeployments_applicationId,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { -- | A pagination token returned from a previous call to this operation. This
+  { -- | The maximum number of objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
     -- specifies the next item to return. To return to the beginning of the
     -- list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The application identifier.
     applicationId :: Prelude.Text
   }
@@ -76,11 +76,11 @@ data ListDeployments = ListDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDeployments_maxResults' - The maximum number of objects to return.
+--
 -- 'nextToken', 'listDeployments_nextToken' - A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
---
--- 'maxResults', 'listDeployments_maxResults' - The maximum number of objects to return.
 --
 -- 'applicationId', 'listDeployments_applicationId' - The application identifier.
 newListDeployments ::
@@ -89,20 +89,20 @@ newListDeployments ::
   ListDeployments
 newListDeployments pApplicationId_ =
   ListDeployments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The maximum number of objects to return.
+listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Natural)
+listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 -- | A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
 listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
 listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
-
--- | The maximum number of objects to return.
-listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Natural)
-listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
 
 -- | The application identifier.
 listDeployments_applicationId :: Lens.Lens' ListDeployments Prelude.Text
@@ -144,14 +144,14 @@ instance Core.AWSRequest ListDeployments where
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListDeployments where
   rnf ListDeployments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListDeployments where
@@ -176,8 +176,8 @@ instance Data.ToPath ListDeployments where
 instance Data.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDeploymentsResponse' smart constructor.

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlternateKey' smart constructor.
 data AlternateKey = AlternateKey'
-  { -- | The name of the alternate key.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the alternate key values are supposed to be unique for
+  { -- | Indicates whether the alternate key values are supposed to be unique for
     -- the given data set.
     allowDuplicates :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the alternate key.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A strictly positive integer value representing the length of the
     -- alternate key.
     length :: Prelude.Int,
@@ -53,10 +53,10 @@ data AlternateKey = AlternateKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'alternateKey_name' - The name of the alternate key.
---
 -- 'allowDuplicates', 'alternateKey_allowDuplicates' - Indicates whether the alternate key values are supposed to be unique for
 -- the given data set.
+--
+-- 'name', 'alternateKey_name' - The name of the alternate key.
 --
 -- 'length', 'alternateKey_length' - A strictly positive integer value representing the length of the
 -- alternate key.
@@ -71,20 +71,20 @@ newAlternateKey ::
   AlternateKey
 newAlternateKey pLength_ pOffset_ =
   AlternateKey'
-    { name = Prelude.Nothing,
-      allowDuplicates = Prelude.Nothing,
+    { allowDuplicates = Prelude.Nothing,
+      name = Prelude.Nothing,
       length = pLength_,
       offset = pOffset_
     }
-
--- | The name of the alternate key.
-alternateKey_name :: Lens.Lens' AlternateKey (Prelude.Maybe Prelude.Text)
-alternateKey_name = Lens.lens (\AlternateKey' {name} -> name) (\s@AlternateKey' {} a -> s {name = a} :: AlternateKey)
 
 -- | Indicates whether the alternate key values are supposed to be unique for
 -- the given data set.
 alternateKey_allowDuplicates :: Lens.Lens' AlternateKey (Prelude.Maybe Prelude.Bool)
 alternateKey_allowDuplicates = Lens.lens (\AlternateKey' {allowDuplicates} -> allowDuplicates) (\s@AlternateKey' {} a -> s {allowDuplicates = a} :: AlternateKey)
+
+-- | The name of the alternate key.
+alternateKey_name :: Lens.Lens' AlternateKey (Prelude.Maybe Prelude.Text)
+alternateKey_name = Lens.lens (\AlternateKey' {name} -> name) (\s@AlternateKey' {} a -> s {name = a} :: AlternateKey)
 
 -- | A strictly positive integer value representing the length of the
 -- alternate key.
@@ -102,23 +102,23 @@ instance Data.FromJSON AlternateKey where
       "AlternateKey"
       ( \x ->
           AlternateKey'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "allowDuplicates")
+            Prelude.<$> (x Data..:? "allowDuplicates")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..: "length")
             Prelude.<*> (x Data..: "offset")
       )
 
 instance Prelude.Hashable AlternateKey where
   hashWithSalt _salt AlternateKey' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` allowDuplicates
+    _salt `Prelude.hashWithSalt` allowDuplicates
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` length
       `Prelude.hashWithSalt` offset
 
 instance Prelude.NFData AlternateKey where
   rnf AlternateKey' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf allowDuplicates
+    Prelude.rnf allowDuplicates
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf length
       `Prelude.seq` Prelude.rnf offset
 
@@ -126,9 +126,9 @@ instance Data.ToJSON AlternateKey where
   toJSON AlternateKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("allowDuplicates" Data..=)
+          [ ("allowDuplicates" Data..=)
               Prelude.<$> allowDuplicates,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just ("length" Data..= length),
             Prelude.Just ("offset" Data..= offset)
           ]

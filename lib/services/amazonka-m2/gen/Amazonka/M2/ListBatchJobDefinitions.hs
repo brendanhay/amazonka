@@ -31,8 +31,8 @@ module Amazonka.M2.ListBatchJobDefinitions
     newListBatchJobDefinitions,
 
     -- * Request Lenses
-    listBatchJobDefinitions_nextToken,
     listBatchJobDefinitions_maxResults,
+    listBatchJobDefinitions_nextToken,
     listBatchJobDefinitions_prefix,
     listBatchJobDefinitions_applicationId,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBatchJobDefinitions' smart constructor.
 data ListBatchJobDefinitions = ListBatchJobDefinitions'
-  { -- | A pagination token returned from a previous call to this operation. This
+  { -- | The maximum number of batch job definitions to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
     -- specifies the next item to return. To return to the beginning of the
     -- list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of batch job definitions to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the batch job definition is a FileBatchJobDefinition, the prefix
     -- allows you to search on the file names of FileBatchJobDefinitions.
     prefix :: Prelude.Maybe Prelude.Text,
@@ -79,11 +79,11 @@ data ListBatchJobDefinitions = ListBatchJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBatchJobDefinitions_maxResults' - The maximum number of batch job definitions to return.
+--
 -- 'nextToken', 'listBatchJobDefinitions_nextToken' - A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
---
--- 'maxResults', 'listBatchJobDefinitions_maxResults' - The maximum number of batch job definitions to return.
 --
 -- 'prefix', 'listBatchJobDefinitions_prefix' - If the batch job definition is a FileBatchJobDefinition, the prefix
 -- allows you to search on the file names of FileBatchJobDefinitions.
@@ -95,22 +95,22 @@ newListBatchJobDefinitions ::
   ListBatchJobDefinitions
 newListBatchJobDefinitions pApplicationId_ =
   ListBatchJobDefinitions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       prefix = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The maximum number of batch job definitions to return.
+listBatchJobDefinitions_maxResults :: Lens.Lens' ListBatchJobDefinitions (Prelude.Maybe Prelude.Natural)
+listBatchJobDefinitions_maxResults = Lens.lens (\ListBatchJobDefinitions' {maxResults} -> maxResults) (\s@ListBatchJobDefinitions' {} a -> s {maxResults = a} :: ListBatchJobDefinitions)
 
 -- | A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
 listBatchJobDefinitions_nextToken :: Lens.Lens' ListBatchJobDefinitions (Prelude.Maybe Prelude.Text)
 listBatchJobDefinitions_nextToken = Lens.lens (\ListBatchJobDefinitions' {nextToken} -> nextToken) (\s@ListBatchJobDefinitions' {} a -> s {nextToken = a} :: ListBatchJobDefinitions)
-
--- | The maximum number of batch job definitions to return.
-listBatchJobDefinitions_maxResults :: Lens.Lens' ListBatchJobDefinitions (Prelude.Maybe Prelude.Natural)
-listBatchJobDefinitions_maxResults = Lens.lens (\ListBatchJobDefinitions' {maxResults} -> maxResults) (\s@ListBatchJobDefinitions' {} a -> s {maxResults = a} :: ListBatchJobDefinitions)
 
 -- | If the batch job definition is a FileBatchJobDefinition, the prefix
 -- allows you to search on the file names of FileBatchJobDefinitions.
@@ -161,15 +161,15 @@ instance Core.AWSRequest ListBatchJobDefinitions where
 
 instance Prelude.Hashable ListBatchJobDefinitions where
   hashWithSalt _salt ListBatchJobDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListBatchJobDefinitions where
   rnf ListBatchJobDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf applicationId
 
@@ -195,8 +195,8 @@ instance Data.ToPath ListBatchJobDefinitions where
 instance Data.ToQuery ListBatchJobDefinitions where
   toQuery ListBatchJobDefinitions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "prefix" Data.=: prefix
       ]
 

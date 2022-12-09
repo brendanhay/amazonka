@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSet' smart constructor.
 data DataSet = DataSet'
-  { -- | The storage type of the data set: database or file system. For Micro
+  { -- | The relative location of the data set in the database or file system.
+    relativePath :: Prelude.Maybe Prelude.Text,
+    -- | The storage type of the data set: database or file system. For Micro
     -- Focus, database corresponds to datastore and file system corresponds to
     -- EFS\/FSX. For Blu Age, there is no support of file system and database
     -- corresponds to Blusam.
     storageType :: Prelude.Maybe Prelude.Text,
-    -- | The relative location of the data set in the database or file system.
-    relativePath :: Prelude.Maybe Prelude.Text,
     -- | The logical identifier for a specific data set (in mainframe format).
     datasetName :: Prelude.Text,
     -- | The type of dataset. Possible values include VSAM, IS, PS, GDG, PO, PS,
@@ -55,12 +55,12 @@ data DataSet = DataSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'relativePath', 'dataSet_relativePath' - The relative location of the data set in the database or file system.
+--
 -- 'storageType', 'dataSet_storageType' - The storage type of the data set: database or file system. For Micro
 -- Focus, database corresponds to datastore and file system corresponds to
 -- EFS\/FSX. For Blu Age, there is no support of file system and database
 -- corresponds to Blusam.
---
--- 'relativePath', 'dataSet_relativePath' - The relative location of the data set in the database or file system.
 --
 -- 'datasetName', 'dataSet_datasetName' - The logical identifier for a specific data set (in mainframe format).
 --
@@ -78,12 +78,16 @@ newDataSet ::
   DataSet
 newDataSet pDatasetName_ pDatasetOrg_ pRecordLength_ =
   DataSet'
-    { storageType = Prelude.Nothing,
-      relativePath = Prelude.Nothing,
+    { relativePath = Prelude.Nothing,
+      storageType = Prelude.Nothing,
       datasetName = pDatasetName_,
       datasetOrg = pDatasetOrg_,
       recordLength = pRecordLength_
     }
+
+-- | The relative location of the data set in the database or file system.
+dataSet_relativePath :: Lens.Lens' DataSet (Prelude.Maybe Prelude.Text)
+dataSet_relativePath = Lens.lens (\DataSet' {relativePath} -> relativePath) (\s@DataSet' {} a -> s {relativePath = a} :: DataSet)
 
 -- | The storage type of the data set: database or file system. For Micro
 -- Focus, database corresponds to datastore and file system corresponds to
@@ -91,10 +95,6 @@ newDataSet pDatasetName_ pDatasetOrg_ pRecordLength_ =
 -- corresponds to Blusam.
 dataSet_storageType :: Lens.Lens' DataSet (Prelude.Maybe Prelude.Text)
 dataSet_storageType = Lens.lens (\DataSet' {storageType} -> storageType) (\s@DataSet' {} a -> s {storageType = a} :: DataSet)
-
--- | The relative location of the data set in the database or file system.
-dataSet_relativePath :: Lens.Lens' DataSet (Prelude.Maybe Prelude.Text)
-dataSet_relativePath = Lens.lens (\DataSet' {relativePath} -> relativePath) (\s@DataSet' {} a -> s {relativePath = a} :: DataSet)
 
 -- | The logical identifier for a specific data set (in mainframe format).
 dataSet_datasetName :: Lens.Lens' DataSet Prelude.Text
@@ -111,16 +111,16 @@ dataSet_recordLength = Lens.lens (\DataSet' {recordLength} -> recordLength) (\s@
 
 instance Prelude.Hashable DataSet where
   hashWithSalt _salt DataSet' {..} =
-    _salt `Prelude.hashWithSalt` storageType
-      `Prelude.hashWithSalt` relativePath
+    _salt `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` datasetOrg
       `Prelude.hashWithSalt` recordLength
 
 instance Prelude.NFData DataSet where
   rnf DataSet' {..} =
-    Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf relativePath
+    Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf datasetOrg
       `Prelude.seq` Prelude.rnf recordLength
@@ -129,8 +129,8 @@ instance Data.ToJSON DataSet where
   toJSON DataSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("storageType" Data..=) Prelude.<$> storageType,
-            ("relativePath" Data..=) Prelude.<$> relativePath,
+          [ ("relativePath" Data..=) Prelude.<$> relativePath,
+            ("storageType" Data..=) Prelude.<$> storageType,
             Prelude.Just ("datasetName" Data..= datasetName),
             Prelude.Just ("datasetOrg" Data..= datasetOrg),
             Prelude.Just ("recordLength" Data..= recordLength)

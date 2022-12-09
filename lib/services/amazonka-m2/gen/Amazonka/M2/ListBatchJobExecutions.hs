@@ -30,13 +30,13 @@ module Amazonka.M2.ListBatchJobExecutions
     newListBatchJobExecutions,
 
     -- * Request Lenses
-    listBatchJobExecutions_startedBefore,
-    listBatchJobExecutions_nextToken,
-    listBatchJobExecutions_jobName,
-    listBatchJobExecutions_status,
-    listBatchJobExecutions_maxResults,
-    listBatchJobExecutions_startedAfter,
     listBatchJobExecutions_executionIds,
+    listBatchJobExecutions_jobName,
+    listBatchJobExecutions_maxResults,
+    listBatchJobExecutions_nextToken,
+    listBatchJobExecutions_startedAfter,
+    listBatchJobExecutions_startedBefore,
+    listBatchJobExecutions_status,
     listBatchJobExecutions_applicationId,
 
     -- * Destructuring the Response
@@ -60,21 +60,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBatchJobExecutions' smart constructor.
 data ListBatchJobExecutions = ListBatchJobExecutions'
-  { -- | The time before the batch job executions started.
-    startedBefore :: Prelude.Maybe Data.POSIX,
+  { -- | The unique identifier of each batch job execution.
+    executionIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The name of each batch job execution.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of batch job executions to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A pagination token to control the number of batch job executions
     -- displayed in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of each batch job execution.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the batch job executions.
-    status :: Prelude.Maybe BatchJobExecutionStatus,
-    -- | The maximum number of batch job executions to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The time after which the batch job executions started.
     startedAfter :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier of each batch job execution.
-    executionIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The time before the batch job executions started.
+    startedBefore :: Prelude.Maybe Data.POSIX,
+    -- | The status of the batch job executions.
+    status :: Prelude.Maybe BatchJobExecutionStatus,
     -- | The unique identifier of the application.
     applicationId :: Prelude.Text
   }
@@ -88,20 +88,20 @@ data ListBatchJobExecutions = ListBatchJobExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startedBefore', 'listBatchJobExecutions_startedBefore' - The time before the batch job executions started.
+-- 'executionIds', 'listBatchJobExecutions_executionIds' - The unique identifier of each batch job execution.
+--
+-- 'jobName', 'listBatchJobExecutions_jobName' - The name of each batch job execution.
+--
+-- 'maxResults', 'listBatchJobExecutions_maxResults' - The maximum number of batch job executions to return.
 --
 -- 'nextToken', 'listBatchJobExecutions_nextToken' - A pagination token to control the number of batch job executions
 -- displayed in the list.
 --
--- 'jobName', 'listBatchJobExecutions_jobName' - The name of each batch job execution.
---
--- 'status', 'listBatchJobExecutions_status' - The status of the batch job executions.
---
--- 'maxResults', 'listBatchJobExecutions_maxResults' - The maximum number of batch job executions to return.
---
 -- 'startedAfter', 'listBatchJobExecutions_startedAfter' - The time after which the batch job executions started.
 --
--- 'executionIds', 'listBatchJobExecutions_executionIds' - The unique identifier of each batch job execution.
+-- 'startedBefore', 'listBatchJobExecutions_startedBefore' - The time before the batch job executions started.
+--
+-- 'status', 'listBatchJobExecutions_status' - The status of the batch job executions.
 --
 -- 'applicationId', 'listBatchJobExecutions_applicationId' - The unique identifier of the application.
 newListBatchJobExecutions ::
@@ -110,45 +110,45 @@ newListBatchJobExecutions ::
   ListBatchJobExecutions
 newListBatchJobExecutions pApplicationId_ =
   ListBatchJobExecutions'
-    { startedBefore =
+    { executionIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       jobName = Prelude.Nothing,
-      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startedAfter = Prelude.Nothing,
-      executionIds = Prelude.Nothing,
+      startedBefore = Prelude.Nothing,
+      status = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
--- | The time before the batch job executions started.
-listBatchJobExecutions_startedBefore :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.UTCTime)
-listBatchJobExecutions_startedBefore = Lens.lens (\ListBatchJobExecutions' {startedBefore} -> startedBefore) (\s@ListBatchJobExecutions' {} a -> s {startedBefore = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Data._Time
+-- | The unique identifier of each batch job execution.
+listBatchJobExecutions_executionIds :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBatchJobExecutions_executionIds = Lens.lens (\ListBatchJobExecutions' {executionIds} -> executionIds) (\s@ListBatchJobExecutions' {} a -> s {executionIds = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of each batch job execution.
+listBatchJobExecutions_jobName :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.Text)
+listBatchJobExecutions_jobName = Lens.lens (\ListBatchJobExecutions' {jobName} -> jobName) (\s@ListBatchJobExecutions' {} a -> s {jobName = a} :: ListBatchJobExecutions)
+
+-- | The maximum number of batch job executions to return.
+listBatchJobExecutions_maxResults :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.Natural)
+listBatchJobExecutions_maxResults = Lens.lens (\ListBatchJobExecutions' {maxResults} -> maxResults) (\s@ListBatchJobExecutions' {} a -> s {maxResults = a} :: ListBatchJobExecutions)
 
 -- | A pagination token to control the number of batch job executions
 -- displayed in the list.
 listBatchJobExecutions_nextToken :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.Text)
 listBatchJobExecutions_nextToken = Lens.lens (\ListBatchJobExecutions' {nextToken} -> nextToken) (\s@ListBatchJobExecutions' {} a -> s {nextToken = a} :: ListBatchJobExecutions)
 
--- | The name of each batch job execution.
-listBatchJobExecutions_jobName :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.Text)
-listBatchJobExecutions_jobName = Lens.lens (\ListBatchJobExecutions' {jobName} -> jobName) (\s@ListBatchJobExecutions' {} a -> s {jobName = a} :: ListBatchJobExecutions)
-
--- | The status of the batch job executions.
-listBatchJobExecutions_status :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe BatchJobExecutionStatus)
-listBatchJobExecutions_status = Lens.lens (\ListBatchJobExecutions' {status} -> status) (\s@ListBatchJobExecutions' {} a -> s {status = a} :: ListBatchJobExecutions)
-
--- | The maximum number of batch job executions to return.
-listBatchJobExecutions_maxResults :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.Natural)
-listBatchJobExecutions_maxResults = Lens.lens (\ListBatchJobExecutions' {maxResults} -> maxResults) (\s@ListBatchJobExecutions' {} a -> s {maxResults = a} :: ListBatchJobExecutions)
-
 -- | The time after which the batch job executions started.
 listBatchJobExecutions_startedAfter :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.UTCTime)
 listBatchJobExecutions_startedAfter = Lens.lens (\ListBatchJobExecutions' {startedAfter} -> startedAfter) (\s@ListBatchJobExecutions' {} a -> s {startedAfter = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Data._Time
 
--- | The unique identifier of each batch job execution.
-listBatchJobExecutions_executionIds :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listBatchJobExecutions_executionIds = Lens.lens (\ListBatchJobExecutions' {executionIds} -> executionIds) (\s@ListBatchJobExecutions' {} a -> s {executionIds = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Lens.coerced
+-- | The time before the batch job executions started.
+listBatchJobExecutions_startedBefore :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe Prelude.UTCTime)
+listBatchJobExecutions_startedBefore = Lens.lens (\ListBatchJobExecutions' {startedBefore} -> startedBefore) (\s@ListBatchJobExecutions' {} a -> s {startedBefore = a} :: ListBatchJobExecutions) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the batch job executions.
+listBatchJobExecutions_status :: Lens.Lens' ListBatchJobExecutions (Prelude.Maybe BatchJobExecutionStatus)
+listBatchJobExecutions_status = Lens.lens (\ListBatchJobExecutions' {status} -> status) (\s@ListBatchJobExecutions' {} a -> s {status = a} :: ListBatchJobExecutions)
 
 -- | The unique identifier of the application.
 listBatchJobExecutions_applicationId :: Lens.Lens' ListBatchJobExecutions Prelude.Text
@@ -194,24 +194,24 @@ instance Core.AWSRequest ListBatchJobExecutions where
 
 instance Prelude.Hashable ListBatchJobExecutions where
   hashWithSalt _salt ListBatchJobExecutions' {..} =
-    _salt `Prelude.hashWithSalt` startedBefore
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` executionIds
       `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startedAfter
-      `Prelude.hashWithSalt` executionIds
+      `Prelude.hashWithSalt` startedBefore
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListBatchJobExecutions where
   rnf ListBatchJobExecutions' {..} =
-    Prelude.rnf startedBefore
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf executionIds
       `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startedAfter
-      `Prelude.seq` Prelude.rnf executionIds
+      `Prelude.seq` Prelude.rnf startedBefore
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListBatchJobExecutions where
@@ -236,15 +236,15 @@ instance Data.ToPath ListBatchJobExecutions where
 instance Data.ToQuery ListBatchJobExecutions where
   toQuery ListBatchJobExecutions' {..} =
     Prelude.mconcat
-      [ "startedBefore" Data.=: startedBefore,
-        "nextToken" Data.=: nextToken,
-        "jobName" Data.=: jobName,
-        "status" Data.=: status,
-        "maxResults" Data.=: maxResults,
-        "startedAfter" Data.=: startedAfter,
-        "executionIds"
+      [ "executionIds"
           Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> executionIds)
+            (Data.toQueryList "member" Prelude.<$> executionIds),
+        "jobName" Data.=: jobName,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "startedAfter" Data.=: startedAfter,
+        "startedBefore" Data.=: startedBefore,
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListBatchJobExecutionsResponse' smart constructor.

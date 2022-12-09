@@ -19,10 +19,10 @@ module Amazonka.M2.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -56,8 +56,8 @@ module Amazonka.M2.Types
     -- * AlternateKey
     AlternateKey (..),
     newAlternateKey,
-    alternateKey_name,
     alternateKey_allowDuplicates,
+    alternateKey_name,
     alternateKey_length,
     alternateKey_offset,
 
@@ -65,10 +65,10 @@ module Amazonka.M2.Types
     ApplicationSummary (..),
     newApplicationSummary,
     applicationSummary_deploymentStatus,
-    applicationSummary_versionStatus,
-    applicationSummary_lastStartTime,
     applicationSummary_description,
     applicationSummary_environmentId,
+    applicationSummary_lastStartTime,
+    applicationSummary_versionStatus,
     applicationSummary_applicationArn,
     applicationSummary_applicationId,
     applicationSummary_applicationVersion,
@@ -94,9 +94,9 @@ module Amazonka.M2.Types
     -- * BatchJobExecutionSummary
     BatchJobExecutionSummary (..),
     newBatchJobExecutionSummary,
-    batchJobExecutionSummary_jobName,
-    batchJobExecutionSummary_jobId,
     batchJobExecutionSummary_endTime,
+    batchJobExecutionSummary_jobId,
+    batchJobExecutionSummary_jobName,
     batchJobExecutionSummary_jobType,
     batchJobExecutionSummary_applicationId,
     batchJobExecutionSummary_executionId,
@@ -106,14 +106,14 @@ module Amazonka.M2.Types
     -- * BatchJobIdentifier
     BatchJobIdentifier (..),
     newBatchJobIdentifier,
-    batchJobIdentifier_scriptBatchJobIdentifier,
     batchJobIdentifier_fileBatchJobIdentifier,
+    batchJobIdentifier_scriptBatchJobIdentifier,
 
     -- * DataSet
     DataSet (..),
     newDataSet,
-    dataSet_storageType,
     dataSet_relativePath,
+    dataSet_storageType,
     dataSet_datasetName,
     dataSet_datasetOrg,
     dataSet_recordLength,
@@ -149,11 +149,11 @@ module Amazonka.M2.Types
     -- * DataSetSummary
     DataSetSummary (..),
     newDataSetSummary,
-    dataSetSummary_format,
-    dataSetSummary_lastUpdatedTime,
-    dataSetSummary_dataSetOrg,
-    dataSetSummary_lastReferencedTime,
     dataSetSummary_creationTime,
+    dataSetSummary_dataSetOrg,
+    dataSetSummary_format,
+    dataSetSummary_lastReferencedTime,
+    dataSetSummary_lastUpdatedTime,
     dataSetSummary_dataSetName,
 
     -- * DatasetDetailOrgAttributes
@@ -171,8 +171,8 @@ module Amazonka.M2.Types
     -- * Definition
     Definition (..),
     newDefinition,
-    definition_s3Location,
     definition_content,
+    definition_s3Location,
 
     -- * DeployedVersionSummary
     DeployedVersionSummary (..),
@@ -271,8 +271,8 @@ module Amazonka.M2.Types
     -- * PendingMaintenance
     PendingMaintenance (..),
     newPendingMaintenance,
-    pendingMaintenance_schedule,
     pendingMaintenance_engineVersion,
+    pendingMaintenance_schedule,
 
     -- * PrimaryKey
     PrimaryKey (..),
@@ -306,21 +306,21 @@ module Amazonka.M2.Types
     -- * VsamAttributes
     VsamAttributes (..),
     newVsamAttributes,
-    vsamAttributes_primaryKey,
-    vsamAttributes_encoding,
-    vsamAttributes_compressed,
     vsamAttributes_alternateKeys,
+    vsamAttributes_compressed,
+    vsamAttributes_encoding,
+    vsamAttributes_primaryKey,
     vsamAttributes_format,
 
     -- * VsamDetailAttributes
     VsamDetailAttributes (..),
     newVsamDetailAttributes,
-    vsamDetailAttributes_primaryKey,
-    vsamDetailAttributes_encoding,
-    vsamDetailAttributes_recordFormat,
-    vsamDetailAttributes_compressed,
-    vsamDetailAttributes_cacheAtStartup,
     vsamDetailAttributes_alternateKeys,
+    vsamDetailAttributes_cacheAtStartup,
+    vsamDetailAttributes_compressed,
+    vsamDetailAttributes_encoding,
+    vsamDetailAttributes_primaryKey,
+    vsamDetailAttributes_recordFormat,
   )
 where
 
@@ -400,28 +400,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -429,13 +423,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -443,6 +441,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The account or role doesn\'t have the right permissions to make the
@@ -454,6 +454,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The parameters provided in the request conflict with existing resources.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | An unexpected error occurred during the processing of the request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -461,15 +469,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | One or more quotas for Amazon Web Services Mainframe Modernization
--- exceeds the limit.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -479,13 +478,14 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The parameters provided in the request conflict with existing resources.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | One or more quotas for Amazon Web Services Mainframe Modernization
+-- exceeds the limit.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The number of requests made exceeds the limit.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

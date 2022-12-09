@@ -29,10 +29,10 @@ module Amazonka.M2.ListEnvironments
     newListEnvironments,
 
     -- * Request Lenses
-    listEnvironments_nextToken,
     listEnvironments_engineType,
-    listEnvironments_names,
     listEnvironments_maxResults,
+    listEnvironments_names,
+    listEnvironments_nextToken,
 
     -- * Destructuring the Response
     ListEnvironmentsResponse (..),
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironments' smart constructor.
 data ListEnvironments = ListEnvironments'
-  { -- | A pagination token to control the number of environments displayed in
-    -- the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The engine type for the environment.
+  { -- | The engine type for the environment.
     engineType :: Prelude.Maybe EngineType,
+    -- | The maximum number of environments to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the environment.
     names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of environments to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | A pagination token to control the number of environments displayed in
+    -- the list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,40 +75,40 @@ data ListEnvironments = ListEnvironments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironments_nextToken' - A pagination token to control the number of environments displayed in
--- the list.
---
 -- 'engineType', 'listEnvironments_engineType' - The engine type for the environment.
+--
+-- 'maxResults', 'listEnvironments_maxResults' - The maximum number of environments to return.
 --
 -- 'names', 'listEnvironments_names' - The name of the environment.
 --
--- 'maxResults', 'listEnvironments_maxResults' - The maximum number of environments to return.
+-- 'nextToken', 'listEnvironments_nextToken' - A pagination token to control the number of environments displayed in
+-- the list.
 newListEnvironments ::
   ListEnvironments
 newListEnvironments =
   ListEnvironments'
-    { nextToken = Prelude.Nothing,
-      engineType = Prelude.Nothing,
+    { engineType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       names = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token to control the number of environments displayed in
--- the list.
-listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Text)
-listEnvironments_nextToken = Lens.lens (\ListEnvironments' {nextToken} -> nextToken) (\s@ListEnvironments' {} a -> s {nextToken = a} :: ListEnvironments)
 
 -- | The engine type for the environment.
 listEnvironments_engineType :: Lens.Lens' ListEnvironments (Prelude.Maybe EngineType)
 listEnvironments_engineType = Lens.lens (\ListEnvironments' {engineType} -> engineType) (\s@ListEnvironments' {} a -> s {engineType = a} :: ListEnvironments)
 
+-- | The maximum number of environments to return.
+listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Natural)
+listEnvironments_maxResults = Lens.lens (\ListEnvironments' {maxResults} -> maxResults) (\s@ListEnvironments' {} a -> s {maxResults = a} :: ListEnvironments)
+
 -- | The name of the environment.
 listEnvironments_names :: Lens.Lens' ListEnvironments (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listEnvironments_names = Lens.lens (\ListEnvironments' {names} -> names) (\s@ListEnvironments' {} a -> s {names = a} :: ListEnvironments) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of environments to return.
-listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Natural)
-listEnvironments_maxResults = Lens.lens (\ListEnvironments' {maxResults} -> maxResults) (\s@ListEnvironments' {} a -> s {maxResults = a} :: ListEnvironments)
+-- | A pagination token to control the number of environments displayed in
+-- the list.
+listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Text)
+listEnvironments_nextToken = Lens.lens (\ListEnvironments' {nextToken} -> nextToken) (\s@ListEnvironments' {} a -> s {nextToken = a} :: ListEnvironments)
 
 instance Core.AWSPager ListEnvironments where
   page rq rs
@@ -146,17 +146,17 @@ instance Core.AWSRequest ListEnvironments where
 
 instance Prelude.Hashable ListEnvironments where
   hashWithSalt _salt ListEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` engineType
-      `Prelude.hashWithSalt` names
+    _salt `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEnvironments where
   rnf ListEnvironments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnvironments where
   toHeaders =
@@ -175,12 +175,12 @@ instance Data.ToPath ListEnvironments where
 instance Data.ToQuery ListEnvironments where
   toQuery ListEnvironments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "engineType" Data.=: engineType,
+      [ "engineType" Data.=: engineType,
+        "maxResults" Data.=: maxResults,
         "names"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> names),
-        "maxResults" Data.=: maxResults
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEnvironmentsResponse' smart constructor.

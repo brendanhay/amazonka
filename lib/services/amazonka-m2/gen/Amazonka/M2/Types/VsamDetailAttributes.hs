@@ -30,24 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVsamDetailAttributes' smart constructor.
 data VsamDetailAttributes = VsamDetailAttributes'
-  { -- | The primary key of the data set.
-    primaryKey :: Prelude.Maybe PrimaryKey,
-    -- | The character set used by the data set. Can be ASCII, EBCDIC, or
-    -- unknown.
-    encoding :: Prelude.Maybe Prelude.Text,
-    -- | The record format of the data set.
-    recordFormat :: Prelude.Maybe Prelude.Text,
+  { -- | The alternate key definitions, if any. A legacy dataset might not have
+    -- any alternate key defined, but if those alternate keys definitions
+    -- exist, provide them as some applications will make use of them.
+    alternateKeys :: Prelude.Maybe [AlternateKey],
+    -- | If set to True, enforces loading the data set into cache before it’s
+    -- used by the application.
+    cacheAtStartup :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether indexes for this dataset are stored as compressed
     -- values. If you have a large data set (typically > 100 Mb), consider
     -- setting this flag to True.
     compressed :: Prelude.Maybe Prelude.Bool,
-    -- | If set to True, enforces loading the data set into cache before it’s
-    -- used by the application.
-    cacheAtStartup :: Prelude.Maybe Prelude.Bool,
-    -- | The alternate key definitions, if any. A legacy dataset might not have
-    -- any alternate key defined, but if those alternate keys definitions
-    -- exist, provide them as some applications will make use of them.
-    alternateKeys :: Prelude.Maybe [AlternateKey]
+    -- | The character set used by the data set. Can be ASCII, EBCDIC, or
+    -- unknown.
+    encoding :: Prelude.Maybe Prelude.Text,
+    -- | The primary key of the data set.
+    primaryKey :: Prelude.Maybe PrimaryKey,
+    -- | The record format of the data set.
+    recordFormat :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,58 +59,35 @@ data VsamDetailAttributes = VsamDetailAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'primaryKey', 'vsamDetailAttributes_primaryKey' - The primary key of the data set.
+-- 'alternateKeys', 'vsamDetailAttributes_alternateKeys' - The alternate key definitions, if any. A legacy dataset might not have
+-- any alternate key defined, but if those alternate keys definitions
+-- exist, provide them as some applications will make use of them.
 --
--- 'encoding', 'vsamDetailAttributes_encoding' - The character set used by the data set. Can be ASCII, EBCDIC, or
--- unknown.
---
--- 'recordFormat', 'vsamDetailAttributes_recordFormat' - The record format of the data set.
+-- 'cacheAtStartup', 'vsamDetailAttributes_cacheAtStartup' - If set to True, enforces loading the data set into cache before it’s
+-- used by the application.
 --
 -- 'compressed', 'vsamDetailAttributes_compressed' - Indicates whether indexes for this dataset are stored as compressed
 -- values. If you have a large data set (typically > 100 Mb), consider
 -- setting this flag to True.
 --
--- 'cacheAtStartup', 'vsamDetailAttributes_cacheAtStartup' - If set to True, enforces loading the data set into cache before it’s
--- used by the application.
+-- 'encoding', 'vsamDetailAttributes_encoding' - The character set used by the data set. Can be ASCII, EBCDIC, or
+-- unknown.
 --
--- 'alternateKeys', 'vsamDetailAttributes_alternateKeys' - The alternate key definitions, if any. A legacy dataset might not have
--- any alternate key defined, but if those alternate keys definitions
--- exist, provide them as some applications will make use of them.
+-- 'primaryKey', 'vsamDetailAttributes_primaryKey' - The primary key of the data set.
+--
+-- 'recordFormat', 'vsamDetailAttributes_recordFormat' - The record format of the data set.
 newVsamDetailAttributes ::
   VsamDetailAttributes
 newVsamDetailAttributes =
   VsamDetailAttributes'
-    { primaryKey = Prelude.Nothing,
-      encoding = Prelude.Nothing,
-      recordFormat = Prelude.Nothing,
-      compressed = Prelude.Nothing,
+    { alternateKeys =
+        Prelude.Nothing,
       cacheAtStartup = Prelude.Nothing,
-      alternateKeys = Prelude.Nothing
+      compressed = Prelude.Nothing,
+      encoding = Prelude.Nothing,
+      primaryKey = Prelude.Nothing,
+      recordFormat = Prelude.Nothing
     }
-
--- | The primary key of the data set.
-vsamDetailAttributes_primaryKey :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe PrimaryKey)
-vsamDetailAttributes_primaryKey = Lens.lens (\VsamDetailAttributes' {primaryKey} -> primaryKey) (\s@VsamDetailAttributes' {} a -> s {primaryKey = a} :: VsamDetailAttributes)
-
--- | The character set used by the data set. Can be ASCII, EBCDIC, or
--- unknown.
-vsamDetailAttributes_encoding :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Text)
-vsamDetailAttributes_encoding = Lens.lens (\VsamDetailAttributes' {encoding} -> encoding) (\s@VsamDetailAttributes' {} a -> s {encoding = a} :: VsamDetailAttributes)
-
--- | The record format of the data set.
-vsamDetailAttributes_recordFormat :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Text)
-vsamDetailAttributes_recordFormat = Lens.lens (\VsamDetailAttributes' {recordFormat} -> recordFormat) (\s@VsamDetailAttributes' {} a -> s {recordFormat = a} :: VsamDetailAttributes)
-
--- | Indicates whether indexes for this dataset are stored as compressed
--- values. If you have a large data set (typically > 100 Mb), consider
--- setting this flag to True.
-vsamDetailAttributes_compressed :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Bool)
-vsamDetailAttributes_compressed = Lens.lens (\VsamDetailAttributes' {compressed} -> compressed) (\s@VsamDetailAttributes' {} a -> s {compressed = a} :: VsamDetailAttributes)
-
--- | If set to True, enforces loading the data set into cache before it’s
--- used by the application.
-vsamDetailAttributes_cacheAtStartup :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Bool)
-vsamDetailAttributes_cacheAtStartup = Lens.lens (\VsamDetailAttributes' {cacheAtStartup} -> cacheAtStartup) (\s@VsamDetailAttributes' {} a -> s {cacheAtStartup = a} :: VsamDetailAttributes)
 
 -- | The alternate key definitions, if any. A legacy dataset might not have
 -- any alternate key defined, but if those alternate keys definitions
@@ -118,34 +95,58 @@ vsamDetailAttributes_cacheAtStartup = Lens.lens (\VsamDetailAttributes' {cacheAt
 vsamDetailAttributes_alternateKeys :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe [AlternateKey])
 vsamDetailAttributes_alternateKeys = Lens.lens (\VsamDetailAttributes' {alternateKeys} -> alternateKeys) (\s@VsamDetailAttributes' {} a -> s {alternateKeys = a} :: VsamDetailAttributes) Prelude.. Lens.mapping Lens.coerced
 
+-- | If set to True, enforces loading the data set into cache before it’s
+-- used by the application.
+vsamDetailAttributes_cacheAtStartup :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Bool)
+vsamDetailAttributes_cacheAtStartup = Lens.lens (\VsamDetailAttributes' {cacheAtStartup} -> cacheAtStartup) (\s@VsamDetailAttributes' {} a -> s {cacheAtStartup = a} :: VsamDetailAttributes)
+
+-- | Indicates whether indexes for this dataset are stored as compressed
+-- values. If you have a large data set (typically > 100 Mb), consider
+-- setting this flag to True.
+vsamDetailAttributes_compressed :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Bool)
+vsamDetailAttributes_compressed = Lens.lens (\VsamDetailAttributes' {compressed} -> compressed) (\s@VsamDetailAttributes' {} a -> s {compressed = a} :: VsamDetailAttributes)
+
+-- | The character set used by the data set. Can be ASCII, EBCDIC, or
+-- unknown.
+vsamDetailAttributes_encoding :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Text)
+vsamDetailAttributes_encoding = Lens.lens (\VsamDetailAttributes' {encoding} -> encoding) (\s@VsamDetailAttributes' {} a -> s {encoding = a} :: VsamDetailAttributes)
+
+-- | The primary key of the data set.
+vsamDetailAttributes_primaryKey :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe PrimaryKey)
+vsamDetailAttributes_primaryKey = Lens.lens (\VsamDetailAttributes' {primaryKey} -> primaryKey) (\s@VsamDetailAttributes' {} a -> s {primaryKey = a} :: VsamDetailAttributes)
+
+-- | The record format of the data set.
+vsamDetailAttributes_recordFormat :: Lens.Lens' VsamDetailAttributes (Prelude.Maybe Prelude.Text)
+vsamDetailAttributes_recordFormat = Lens.lens (\VsamDetailAttributes' {recordFormat} -> recordFormat) (\s@VsamDetailAttributes' {} a -> s {recordFormat = a} :: VsamDetailAttributes)
+
 instance Data.FromJSON VsamDetailAttributes where
   parseJSON =
     Data.withObject
       "VsamDetailAttributes"
       ( \x ->
           VsamDetailAttributes'
-            Prelude.<$> (x Data..:? "primaryKey")
-            Prelude.<*> (x Data..:? "encoding")
-            Prelude.<*> (x Data..:? "recordFormat")
-            Prelude.<*> (x Data..:? "compressed")
+            Prelude.<$> (x Data..:? "alternateKeys" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "cacheAtStartup")
-            Prelude.<*> (x Data..:? "alternateKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "compressed")
+            Prelude.<*> (x Data..:? "encoding")
+            Prelude.<*> (x Data..:? "primaryKey")
+            Prelude.<*> (x Data..:? "recordFormat")
       )
 
 instance Prelude.Hashable VsamDetailAttributes where
   hashWithSalt _salt VsamDetailAttributes' {..} =
-    _salt `Prelude.hashWithSalt` primaryKey
-      `Prelude.hashWithSalt` encoding
-      `Prelude.hashWithSalt` recordFormat
-      `Prelude.hashWithSalt` compressed
+    _salt `Prelude.hashWithSalt` alternateKeys
       `Prelude.hashWithSalt` cacheAtStartup
-      `Prelude.hashWithSalt` alternateKeys
+      `Prelude.hashWithSalt` compressed
+      `Prelude.hashWithSalt` encoding
+      `Prelude.hashWithSalt` primaryKey
+      `Prelude.hashWithSalt` recordFormat
 
 instance Prelude.NFData VsamDetailAttributes where
   rnf VsamDetailAttributes' {..} =
-    Prelude.rnf primaryKey
-      `Prelude.seq` Prelude.rnf encoding
-      `Prelude.seq` Prelude.rnf recordFormat
-      `Prelude.seq` Prelude.rnf compressed
+    Prelude.rnf alternateKeys
       `Prelude.seq` Prelude.rnf cacheAtStartup
-      `Prelude.seq` Prelude.rnf alternateKeys
+      `Prelude.seq` Prelude.rnf compressed
+      `Prelude.seq` Prelude.rnf encoding
+      `Prelude.seq` Prelude.rnf primaryKey
+      `Prelude.seq` Prelude.rnf recordFormat
